@@ -28,6 +28,10 @@
 - [x] Cross-build diff v1 (mnemonic streams): 604 identical lib/stable functions, 3,092 game-code candidates cataloged (extract/analysis/build_diff_map.csv)
 - [ ] Shinobi rich symbol set: `shc.exe` runs but hits "Memory overflow" on modern-RAM machines — alternative: parse Hitachi `.lib` members or link anchor binaries with `lnk.exe`
 - [ ] Hitachi LBR1-MW `.lib` format reverse (shinobi.lib directory seen at low offsets: name+timestamp+two u16 records)
+- [x] Offline call-graph v1 (`tools/callgraph.py`): 1,352 resolved call edges; register-indirect handling incl. callee-saved lifetime; caller fn attribution via func CSV
+- [x] Hotspots report regenerated per program (docs/re/hotspots_*.md)
+- [x] DTPK probe: 69 packages, header fields laid out (`docs/formats/DTPK.md`)
+- [ ] Indirect-call group discovery: jsr sites whose target reg is a *caller argument* - cluster by containing function (task-runner pattern at f_8c0198e4 etc.)
 - [ ] Fuzzy version tracking (similarity hashing over mnemonic streams)
 - [ ] DTPK package parser (BGM/VO/LEVEL/PLAYER/ANAUNCE/COIN/ST_*.BIN)
 - [ ] POL packet dissector (first bytes `00 02 00 00 21 10 98 19 ...`)
