@@ -175,17 +175,18 @@ def main():
             name, blob = h[0]
             matches.append((pos, name + " [norm]", 0))
 
+    target_name = os.path.splitext(os.path.basename(target_path))[0].replace(".unsc", "")
     matches.sort()
     outcsv = os.path.join(REPO, "extract", "analysis")
     os.makedirs(outcsv, exist_ok=True)
-    with open(os.path.join(outcsv, "kamui_matches.csv"), "w", newline="") as c:
+    with open(os.path.join(outcsv, f"matches_{target_name}.csv"), "w", newline="") as c:
         w = csv.writer(c)
         w.writerow(["addr", "name", "span"])
         for pos, name, span in matches:
             w.writerow([f"0x{TARGET_BASE + pos:08X}", name, span])
 
-    with open(os.path.join(REPO, "docs", "kamui_matches.md"), "w", newline="\n") as d:
-        d.write("# Kamui fingerprint matches in 1ST_READ\n\n")
+    with open(os.path.join(REPO, "docs", f"matches_{target_name}.md"), "w", newline="\n") as d:
+        d.write(f"# SDK fingerprint matches in {target_name}\n\n")
         d.write(f"Corpus: {len(corpus)} functions from Kamui SDK sample maps/ELFs. "
                 f"Matches: {len(matches)} (target base 0x{TARGET_BASE:08X}).\n\n")
         d.write("| 1ST_READ address | name | span |\n|---|---|---|\n")
@@ -193,7 +194,7 @@ def main():
             d.write(f"| 0x{TARGET_BASE + pos:08X} | {name} | {span if span > 0 else 'prefix-only'} |\n")
 
     full = sum(1 for m in matches if m[2] > 0)
-    print(f"matches: {len(matches)} total, {full} full-body -> docs/kamui_matches.md")
+    print(f"{target_name}: {len(matches)} matches, {full} full-body -> docs/matches_{target_name}.md")
 
 
 if __name__ == "__main__":

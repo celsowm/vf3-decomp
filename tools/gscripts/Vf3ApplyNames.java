@@ -15,7 +15,7 @@ public class Vf3ApplyNames extends GhidraScript {
             System.out.println("VF3_NAMES_CSV not set");
             return;
         }
-        int applied = 0, skippedInFn = 0, bad = 0;
+        int applied = 0, skippedInFn = 0, bad = 0, fnew = 0;
         try (BufferedReader br = new BufferedReader(new FileReader(csvPath))) {
             String line;
             boolean header = true;
@@ -38,18 +38,33 @@ public class Vf3ApplyNames extends GhidraScript {
                 }
                 Address a = toAddr(off);
                 var existing = currentProgram.getFunctionManager().getFunctionAt(a);
-                var sym = getSymbolAt(a);
                 if (existing != null) {
                     existing.setName(name, SourceType.ANALYSIS);
                     applied++;
-                } else if (sym == null || sym.getName(true).length() == 0) {
+                    continue;
+                }
+                try {
+                    if (currentProgram.getListing().getCodeUnitAt(a) == null ||
+                        !(currentProgram.getListing().getCodeUnitAt(a)
+                                instanceof ghidra.program.model.listing.Instruction)) {
+                        clearListing(a, a);
+                    }
+                    disassemble(a);
+                    ghidra.program.model.listing.Function f = createFunction(a, name);
+                    if (f != null) {
+                        if (!f.getName().equals(name)) f.setName(name, SourceType.ANALYSIS);
+                        applied++;
+                    } else {
+                        createLabel(a, name, false);
+                        fnew++;
+                    }
+                } catch (Exception e) {
                     createLabel(a, name, false);
-                    applied++;
-                } else {
-                    skippedInFn++;
+                    fnew++;
                 }
             }
         }
-        println("Vf3ApplyNames: applied=" + applied + " skipped=" + skippedInFn + " bad=" + bad);
+        println("Vf3ApplyNames: applied=" + applied + " newFnCreated=" + fnew +
+                " skipped=" + skippedInFn + " bad=" + bad);
     }
 }

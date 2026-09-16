@@ -1,4 +1,4 @@
-# Kamui fingerprint matches in 1ST_READ
+# SDK fingerprint matches in 1ST_READ
 
 Corpus: 1171 functions from Kamui SDK sample maps/ELFs. Matches: 58 (target base 0x8C010000).
 
