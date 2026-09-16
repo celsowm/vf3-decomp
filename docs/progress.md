@@ -18,10 +18,15 @@
       → `docs/formats/INVENTORY.md`
 - [x] `src/` + cmake skeleton builds green (gcc, native stub)
 
-## M2 — Naming & structure (NEXT)
-- [ ] Shinobi symbol fingerprinting (Hitachi `.lib` member/symbol parser in Python) → name `sy/gd/bu/pd` functions in 1ST_READ
+## M2 — Naming & structure (IN PROGRESS)
+- [x] Katana SDK 1.0B2 **extracted** (idecomp) — Shinobi + SHC Ver5.0R28 present
+- [x] `tools/fingerprint.py` corpus widened (Kamui 25 maps + Katana `ip`/`mw_wav`): **1,171 functions**; 58 hits in 1ST_READ (SHC runtime helpers + Shinobi GD + NEC/Kamui driver tails)
+- [x] `Vf3ApplyNames.java` applied 57/58 names into Ghidra project (`cand_`/`an_` prefixes mark pending verification)
+- [x] RELOAD.BIN imported into Ghidra alongside 1ST_READ + VF3TBE3
+- [ ] Verify fingerprint matches (spot-check disassembly at hit addresses)
+- [ ] Shinobi rich symbol set: `shc.exe` runs but hits "Memory overflow" on modern-RAM machines — alternative: parse Hitachi `.lib` members or link anchor binaries with `lnk.exe`
 - [ ] Locate syscall vector block usage (0x8C0000B0 region) + entry path crt0 analysis
-- [ ] Ghidra: import RELOAD.BIN too; Version Tracking between retail and E3 builds
+- [ ] Version Tracking between retail and E3 builds (separate game code from library code)
 - [ ] DTPK package parser (BGM/VO/LEVEL/PLAYER/ANAUNCE/COIN/ST_*.BIN)
 - [ ] POL packet dissector (first bytes `00 02 00 00 21 10 98 19 ...`)
 - [ ] Investigate `.CLI` = collision (COLI_S dev path), MOTHEAD/MT* motion tables

@@ -22,8 +22,12 @@ import struct
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-KAMUI_SDK = os.path.join(REPO, "tools", "kamui", "SDK", "KAMUI2", "SAMPLE")
-KMUTIL = os.path.join(REPO, "tools", "kamui", "SOURCE", "KMUTIL")
+# Trees walked for (map + elf) fingerprint pairs
+CORPUS_ROOTS = [
+    os.path.join(REPO, "tools", "kamui", "SDK", "KAMUI2", "SAMPLE"),
+    os.path.join(REPO, "tools", "kamui", "SDK", "DARKNESS", "SAMPLE"),
+    os.path.join(REPO, "tools", "katana"),
+]
 TARGET_BASE = 0x8C010000
 MIN_FUNC = 24          # don't fingerprint tiny stubs
 MATCH_PREFIX = 24      # bytes compared for a hit
@@ -68,7 +72,9 @@ def elf_sections(path):
 
 def build_corpus():
     corpus = {}  # name -> bytes (longest found across samples)
-    for root, _dirs, files in os.walk(KAMUI_SDK):
+    walker = (t for base in CORPUS_ROOTS if os.path.isdir(base)
+              for t in os.walk(base))
+    for root, _dirs, files in walker:
         for f in files:
             if not f.lower().endswith(".map"):
                 continue
