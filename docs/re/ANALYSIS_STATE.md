@@ -22,9 +22,34 @@ Tooling pipeline (tools/gscripts/*.java run via analyzeHeadless):
 
 ## Syscall vector block (0x8C0000A0-0x8C0000FF)
 - Slots labeled: SYS_SYSTEM(0xB0), SYS_FONT(0xB4), SYS_FLASHGD(0xB8), SYS_MISC(0xBC)
-- In-built analysis: direct instruction references found: `0x8C0000BC` referenced
-  from code at 0x8C011E02 (likely a bios-misc call wrapper). GD/BU/PD libs call
-  syscalls indirectly through the block too; deeper scan planned.
+- `0x8C0000BC` referenced from 0x8C011E02, whose tail is the archetypal
+  syscall trampoline: `mov.l @r0,r0; jmp @r0` — i.e. read the vector, jump.
+
+## Entry & start code
+- `_start` created at 0x8C010000 (SHC-style C prologue: pushes r8/r9, fr12-15).
+- Program has NO default entry recognition in raw import; _start must be forced.
+
+## Load tables
+- 182 `*.BIN` filename strings embedded (0x8C0148E0-0x8C0336xx region) —
+  fixed-stride records with prefix flag bytes (`_l`/`_r`, `_du`, trailing length
+  bytes). **Not addressed by literal pointers** → resource IDs are resolved
+  positionally by the loader at runtime. Runner code/TBD via GDFS module.
+- character-vs-file relationships visible: e.g. `MTJACLAU.BIN`/`MTJACPAI.BIN`
+  groups with `_l/_r` side flags, `BGM_*` clusters, `CP_*` canvas packs.
+
+## Version-banner strings (module bill-of-materials; build-stamped, not xref'd)
+| module | banner | file offset |
+|---|---|---|
+| GDFS | "GDFS Version 0.53  1998/08/28" | 0x49D60 |
+| NAOMI | "NAOMI LIBRARY Ver 0.8 AM R&D" | 0x47E04 |
+| pd | "pd Ver 1.07..." | 0x460D1 |
+| bu | "bu Ver 1.03 ..." | 0x5B1B1 |
+| syCache | "syCache Ver 1.0..." | 0x5CD71 |
+| syCbl | "syCbl Ver 1..." | 0x5FE95 |
+| kd | "kd Ver 1.20 ..." | 0x63171 |
+
+Note: Katana 1.0B2 headers say "GDFS Version 1.00 1998/09/28" — the game (Aug
+20 build master) predates our SDK snapshot for the GDFS component.
 
 ## Fingerprint-verified named anchors (1ST_READ)
 - `_memset` @ 0x8C0179E4 (byte-fill loop verified by disassembly)
