@@ -1,0 +1,22 @@
+# Never commit copyrighted game data or extracted content
+rom/
+extract/
+tools/*.zip
+tools/katana/
+tools/kamui/
+tools/_katana_pkg/
+
+# Ghidra is locally installed, not version controlled
+tools/ghidra/
+tools/ghidra_*.zip
+tools/ghidra_12.1.3_PUBLIC/
+tools/katana/
+tools/_katana_pkg/
+tools/kamui/
+
+# Build output
+build/
+
+# Python
+__pycache__/
+*.pyc
