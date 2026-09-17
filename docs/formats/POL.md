@@ -1,35 +1,28 @@
-# POL (VF3 model / stage polygon package — AM2 Model-3 heritage)
+# POL — VF3tb model packages (80 files, MKAO_*/OB*_/others)
 
-Status: **format candidate v0** — read from four sample files (MKAO_AKI.POL,
-ST01.POL, ROB_ALP.POL, MKAO_WOL.POL).
+## Header (0x30 bytes)
+```
++0x00 u32 0x00000200        size-of-header marker
++0x04 u32 build stamp       0x19981021 (1998-10-21)
++0x08 u32 signature-ish     per-file (e.g. 0x00060323) — likely vertex/prim counts
++0x0C u16/u16              part counters (lo=20-49, hi=10-15)
++0x10 u32 0x30             table base
++0x14 u32                  table row count visible in bytes-to-first-per=0x88/0xF8
++0x18 u32                  geometry-area size (e.g. 0x480B0)
++0x1C u32                  TEX/aux area tag (e.g. 0x26000)
+```
+## Section table @0x30
+Rows of u32 offsets (4-byte tables); adjacent pairs (A,B≈B+0xA80) seen at the
+top, then steeply ascending region offsets; each row points into a
+sub-record-chain: small header (next-ptr, counts) → float blocks.
 
-## Header (u32 fields, offsets are byte offsets from file start)
+## Vertex data
+Contiguous 3-float blocks (xyz, |v|≤8) of 74–1,106 triples.
+26 blocks in MKAO_AK2 (13,687 points). Verified visually: projected point
+cloud shows the crater-dome stage silhouette + part lattices.
 
-| off | example (MKAO_AKI.POL) | meaning |
-|---|---|---|
-| 0x00 | 0x00000200 | header tag / size class (all files = 0x200) |
-| 0x04 | 0x19981021 | **authoring stamp** "1998-10-21" packed decimal (same in all model + stage POL) |
-| 0x08 | 0x00060629 | unknown (layout-dependent; varies per file) |
-| 0x0C | 0x000A0016 | uint16 pair (A=22?) counts |
-| 0x10 | 0x00000030 | **table base** (48) |
-| 0x14 | 0x00000088 | unknown (flags?) |
-| 0x18 | 0x0004C5B0 | **total file size** |
-| 0x1C | 0x00026000 | payload byte count hint |
-| 0x20..0x2C | 0 | gap |
-| 0x30+ | list of u32 offsets (part/section table) | |
+The float blocks are PVR vertex payloads; connection chain (BoneID→part→list)
+in the chain-heads — precise semantics pending the PVR13 packet walk.
 
-## Table at 0x30
-
-Roughly 20–60 u32 values; most point into the file's data area. Sizes/regions
-between consecutive entries are irregular — likely per-part/per-bone section
-list (model of the character's body parts), not a uniform stride struct.
-Notably sections include both the model's NGON/TA packets and secondary info.
-
-Open questions:
-- which table entries are vertex/TA vs aux (skinning, hitbox, collider)
-- how the game binds part-table index to bone hash (MT* files give motion)
-
-## Next steps
-1. correlation with `MKAO_*.TEX` (texture page count) and ROB_*.POL twins
-2. Ghidra: find POL loader via literal `0x00000200` constant usage in code
-3. try interpreting section bodies as PowerVR TA packet streams (strip heads)
+Tools: tools/pol_scan.py (block scan + render), tools/pol_peek.py (historic).
+Render sanity: extract/assets/pol_ak2.png (crater-dome), pol_big_xz.png.
