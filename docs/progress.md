@@ -32,6 +32,8 @@
 - [x] Hotspots report regenerated per program (docs/re/hotspots_*.md)
 - [x] DTPK probe: 69 packages, header fields laid out (`docs/formats/DTPK.md`)
 - [ ] Indirect-call group discovery: jsr sites whose target reg is a *caller argument* - cluster by containing function (task-runner pattern at f_8c0198e4 etc.)
+- [x] TEX format broken: RGB565 + PVR twiddle — first visually verified decoded asset (AKI face)
+- [x] POL format v1: tagged structure + offset map (docs/formats/POL.md)
 - [ ] Fuzzy version tracking (similarity hashing over mnemonic streams)
 - [ ] DTPK package parser (BGM/VO/LEVEL/PLAYER/ANAUNCE/COIN/ST_*.BIN)
 - [ ] POL packet dissector (first bytes `00 02 00 00 21 10 98 19 ...`)

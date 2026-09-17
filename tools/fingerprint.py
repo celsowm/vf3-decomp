@@ -158,6 +158,34 @@ def main():
         if len(blob) >= NORM_PREFIX:
             norm_idx.setdefault(normalize(blob[:NORM_PREFIX]), []).append((name, blob))
 
+    # --- tier A/B: whole-function matching against Ghidra-known boundaries ---
+    funcs_csv = os.path.join(REPO, "extract", "analysis",
+                             f"funcs_{os.path.basename(target_path).replace('.bin','')}.csv")
+    normbody_idx = {}
+    exactbody_idx = {}
+    for name, blob in corpus.items():
+        normbody_idx.setdefault(normalize(blob), name)
+        exactbody_idx.setdefault(blob, name)
+    func_names = {}
+    if os.path.isfile(funcs_csv):
+        import csv as _csv
+        with open(funcs_csv) as f:
+            rows = list(_csv.DictReader(f))
+        for r in rows:
+            entr = int(r["entry"], 16)
+            size = int(r["size"])
+            off = entr - TARGET_BASE
+            if off < 0 or off + size > len(target) or size < 12:
+                continue
+            blob = target[off:off + size]
+            hit = exactbody_idx.get(blob)
+            if hit:
+                func_names[entr] = ("A", hit)
+                continue
+            hit = normbody_idx.get(normalize(blob))
+            if hit:
+                func_names[entr] = ("B", hit)
+
     matches = []
     n = len(target)
     for pos in range(0, n - NORM_PREFIX, 2):
@@ -179,9 +207,13 @@ def main():
     matches.sort()
     outcsv = os.path.join(REPO, "extract", "analysis")
     os.makedirs(outcsv, exist_ok=True)
+    # merge tier A/B (whole-body) hits - they outrank prefix candidates
+    merged = dict(func_names)
     with open(os.path.join(outcsv, f"matches_{target_name}.csv"), "w", newline="") as c:
         w = csv.writer(c)
         w.writerow(["addr", "name", "span"])
+        for entr, (tier, name) in sorted(merged.items()):
+            w.writerow([f"0x{entr:08X}", name, -2] if tier == "B" else [f"0x{entr:08X}", name, -3])
         for pos, name, span in matches:
             w.writerow([f"0x{TARGET_BASE + pos:08X}", name, span])
 
@@ -194,7 +226,10 @@ def main():
             d.write(f"| 0x{TARGET_BASE + pos:08X} | {name} | {span if span > 0 else 'prefix-only'} |\n")
 
     full = sum(1 for m in matches if m[2] > 0)
-    print(f"{target_name}: {len(matches)} matches, {full} full-body -> docs/matches_{target_name}.md")
+    tierA = sum(1 for t, _ in merged.values() if t == "A")
+    tierB = sum(1 for t, _ in merged.values() if t == "B")
+    print(f"{target_name}: body-matches A={tierA} B={tierB}; prefix matches {len(matches)} "
+          f"({full} full) -> docs/matches_{target_name}.md")
 
 
 if __name__ == "__main__":
