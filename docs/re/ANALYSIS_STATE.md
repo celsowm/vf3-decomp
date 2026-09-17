@@ -1,6 +1,7 @@
 # RE analysis state (auto + manual notes)
 
 ## Ghidra project: extract/ghidra_proj/VF3 (not version controlled; reconstructible)
+- GUI: run `ghidra.bat` at repo root.
 
 Programs (all SuperH4 LE @ 0x8C010000, BinaryLoader raw images):
 - `1ST_READ.unsc.bin` — retail MK-51001 V1.002
