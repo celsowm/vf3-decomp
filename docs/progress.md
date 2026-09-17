@@ -34,8 +34,9 @@
 - [ ] Indirect-call group discovery: jsr sites whose target reg is a *caller argument* - cluster by containing function (task-runner pattern at f_8c0198e4 etc.)
 - [x] TEX format broken: RGB565 + PVR twiddle — first visually verified decoded asset (AKI face)
 - [x] POL format v1: tagged structure + offset map (docs/formats/POL.md)
-- [ ] Fuzzy version tracking (similarity hashing over mnemonic streams)
-- [ ] DTPK package parser (BGM/VO/LEVEL/PLAYER/ANAUNCE/COIN/ST_*.BIN)
+- [x] **M3-D: DTPK fully parsed + AICA ADPCM audio decoded** (69/69 packages split; all voice packs playable WAV + waveform-verified; BGM kits partial)
+- [x] **M3-C: architecture mapped** — struct-dispatch VM model, 146 switch tables, loader chain named, boot region characterized (docs/re/architecture.md)
+- [x] **M3-A/B: fuzzy matching done** (964 xbuild pairs) + fnptr/xref miners
 - [ ] POL packet dissector (first bytes `00 02 00 00 21 10 98 19 ...`)
 - [ ] Investigate `.CLI` = collision (COLI_S dev path), MOTHEAD/MT* motion tables
 - [ ] docs/re/: write-up of entry/GDFS init/main-loop/task system once identified

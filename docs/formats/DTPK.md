@@ -1,73 +1,56 @@
-# DTPK container probe
+# DTPK container (M3-D, solved)
 
-| file | count field | dir@ | entries seen | note |
-|---|---|---|---|---|
-| ANAUNCE.BIN | 68 | 0x0 | 0 | tag 0x00000000 |
-| BGM_AKI.BIN | 52 | 0x0 | 0 | tag 0x00000000 |
-| BGM_AOI.BIN | 25 | 0x0 | 0 | tag 0x00000000 |
-| BGM_CONT.BIN | 26 | 0x0 | 0 | tag 0x00000000 |
-| BGM_DEBU.BIN | 49 | 0x0 | 0 | tag 0x00000000 |
-| BGM_DOHY.BIN | 50 | 0x0 | 0 | tag 0x00000000 |
-| BGM_DURA.BIN | 46 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ENDI.BIN | 27 | 0x0 | 0 | tag 0x00000000 |
-| BGM_FIGH.BIN | 28 | 0x0 | 0 | tag 0x00000000 |
-| BGM_FUNK.BIN | 29 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ITO.BIN | 30 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ITO3.BIN | 31 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ITO4.BIN | 32 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ITO5.BIN | 33 | 0x0 | 0 | tag 0x00000000 |
-| BGM_ITO6.BIN | 53 | 0x0 | 0 | tag 0x00000000 |
-| BGM_JACK.BIN | 34 | 0x0 | 0 | tag 0x00000000 |
-| BGM_JEFF.BIN | 35 | 0x0 | 0 | tag 0x00000000 |
-| BGM_JING.BIN | 36 | 0x0 | 0 | tag 0x00000000 |
-| BGM_KAGE.BIN | 47 | 0x0 | 0 | tag 0x00000000 |
-| BGM_KUI.BIN | 54 | 0x0 | 0 | tag 0x00000000 |
-| BGM_LAU.BIN | 37 | 0x0 | 0 | tag 0x00000000 |
-| BGM_LEON.BIN | 38 | 0x0 | 0 | tag 0x00000000 |
-| BGM_NAME.BIN | 39 | 0x0 | 0 | tag 0x00000000 |
-| BGM_PAI.BIN | 40 | 0x0 | 0 | tag 0x00000000 |
-| BGM_SARA.BIN | 41 | 0x0 | 0 | tag 0x00000000 |
-| BGM_SHOT.BIN | 42 | 0x0 | 0 | tag 0x00000000 |
-| BGM_SHUN.BIN | 44 | 0x0 | 0 | tag 0x00000000 |
-| BGM_SONG.BIN | 81 | 0x0 | 0 | tag 0x00000000 |
-| BGM_STAR.BIN | 45 | 0x0 | 0 | tag 0x00000000 |
-| BGM_TAKA.BIN | 48 | 0x0 | 0 | tag 0x00000000 |
-| BGM_VAN.BIN | 43 | 0x0 | 0 | tag 0x00000000 |
-| BGM_WOLF.BIN | 51 | 0x0 | 0 | tag 0x00000000 |
-| COIN.BIN | 82 | 0x0 | 0 | tag 0x00000000 |
-| LEVEL.BIN | 79 | 0x0 | 0 | tag 0x00000000 |
-| PLAYER.BIN | 78 | 0x0 | 0 | tag 0x00000000 |
-| ST_AOI.BIN | 73 | 0x0 | 0 | tag 0x00000000 |
-| ST_ETC.BIN | 72 | 0x0 | 0 | tag 0x00000000 |
-| ST_JAC.BIN | 70 | 0x0 | 0 | tag 0x00000000 |
-| ST_JEF.BIN | 69 | 0x0 | 0 | tag 0x00000000 |
-| ST_PAI.BIN | 77 | 0x0 | 0 | tag 0x00000000 |
-| ST_SAR.BIN | 76 | 0x0 | 0 | tag 0x00000000 |
-| ST_SHU.BIN | 75 | 0x0 | 0 | tag 0x00000000 |
-| ST_TAK.BIN | 74 | 0x0 | 0 | tag 0x00000000 |
-| ST_WOL.BIN | 71 | 0x0 | 0 | tag 0x00000000 |
-| VOFAKIFX.BIN | 1 | 0x0 | 0 | tag 0x00000000 |
-| VOFAOIFX.BIN | 2 | 0x0 | 0 | tag 0x00000000 |
-| VOFJACFX.BIN | 3 | 0x0 | 0 | tag 0x00000000 |
-| VOFJEFFX.BIN | 4 | 0x0 | 0 | tag 0x00000000 |
-| VOFKAGFX.BIN | 5 | 0x0 | 0 | tag 0x00000000 |
-| VOFLAUFX.BIN | 6 | 0x0 | 0 | tag 0x00000000 |
-| VOFLEOFX.BIN | 7 | 0x0 | 0 | tag 0x00000000 |
-| VOFPAIFX.BIN | 8 | 0x0 | 0 | tag 0x00000000 |
-| VOFSARFX.BIN | 9 | 0x0 | 0 | tag 0x00000000 |
-| VOFSHUFX.BIN | 10 | 0x0 | 0 | tag 0x00000000 |
-| VOFTAKFX.BIN | 11 | 0x0 | 0 | tag 0x00000000 |
-| VOFWOLFX.BIN | 12 | 0x0 | 0 | tag 0x00000000 |
-| VO_AKI.BIN | 56 | 0x0 | 0 | tag 0x00000000 |
-| VO_AOI.BIN | 65 | 0x0 | 0 | tag 0x00000000 |
-| VO_JAC.BIN | 64 | 0x0 | 0 | tag 0x00000000 |
-| VO_JEF.BIN | 63 | 0x0 | 0 | tag 0x00000000 |
-| VO_KAG.BIN | 62 | 0x0 | 0 | tag 0x00000000 |
-| VO_LAU.BIN | 61 | 0x0 | 0 | tag 0x00000000 |
-| VO_LEO.BIN | 60 | 0x0 | 0 | tag 0x00000000 |
-| VO_PAI.BIN | 59 | 0x0 | 0 | tag 0x00000000 |
-| VO_SAR.BIN | 58 | 0x0 | 0 | tag 0x00000000 |
-| VO_SEL.BIN | 80 | 0x0 | 0 | tag 0x00000000 |
-| VO_SHU.BIN | 66 | 0x0 | 0 | tag 0x00000000 |
-| VO_TAK.BIN | 57 | 0x0 | 0 | tag 0x00000000 |
-| VO_WOL.BIN | 55 | 0x0 | 0 | tag 0x00000000 |
+Dreamcast-era AM2 "Data TransPacK" used for all 69 BGM/VO/ST/PLAYER/LEVEL/
+COIN/ANAUNCE packages in VF3tb.
+
+## Container layout
+```
+0x00 'DTPK'
+0x04 u32  package serial id (load-list ordinal 0..82 across the set)
+0x08 u32  total file size
+0x0C u32  0
+0x10 u32  group tag (e.g. 0x02xxFF09/0A; low byte = package class:
+          0x03 COIN, 0x09 VO/ST, 0x0A BGM/ANAUNCE/LEVEL, 0x00 PLAYER)
+0x14 u32  ~0x00014D11 (format version constant)
+0x18 u32  0x00200000 (bus/DMA size constant)
+0x1C u32  0
+0x20..    16 x u32 section-offset directory; slots sorted; unused = 0;
+          first used slot always equals 0x60 (end of the directory)
+```
+Sections run from each directory offset to the next offset; the final
+section runs to EOF.
+
+## Section roles (deduced, consistent across the set)
+| index | size | role |
+|---|---|---|
+| 0 | 312-368 | bank header (voice counts/params; starts 01 00 08 0x00 |
+| 1 | 144-7152 | sequence/event table (BGM: big; voices: small) |
+| 2 | 132 | constant amplitude/log ramp table (00 07 0e 15 1c 24 ...) |
+| 3 | 40-22556 | per-voice pointer/param table (u32 strides visible) |
+| 4 | 3112 | constant block **only in ST/VO/PLAYER/LEVEL/COIN/ANAUNCE packs** |
+| 5..last | big | **AICA ADPCM payload** (4-bit packed, Yamaha) |
+
+## Payload (#5) codec — SOLVED
+AICA on-chip 4-bit ADPCM, algorithm identical to MAME aica.cpp:
+```
+signal = 0; quant = 0x7F
+per byte: low nibble FIRST, then high nibble
+  x = (quant * QUANT_MUL[nib]) >> 3          # QUANT_MUL = ±(1,3,5,7,9,11,13,15)
+  signal = clip16(signal + x)
+  quant  = clamp(quant * TableQuant[nib&7] >> 8, 0x7F, 0x6000)
+  TableQuant = [230,230,230,230,307,409,512,614]  (0.8984|1.1992|1.6|2.0|2.4)
+```
+Tools: `tools/dtpk_extract.py`, `tools/adpcm_decode.py`, `tools/dump_audio.py`,
+waveform preview in `tools/wave_png.py`.
+
+Validation: decoded `VO_AKI` WAV shows two clean voice phrases
+(waveform-verified; zcr≈0.10, rail<1%).
+
+## Open items
+- Sample rate not embedded visibly; play at ~22.05 kHz nominal
+  (or AICA's 44.1k × FNS/OCT from the bank header).
+- BGM_* payloads decode ~40% hot-clipped — they are SONG KITS
+  (sequence+instruments): continuous stream would need note-level voice
+  resets from sec1/sec3; decode per-voice next milestone.
+- sec0/sec1/sec3/sec4 fine-grained fields unmapped.
+- LV of VOF*FX packs differ from VO_* only by +1 dir slot (the 3112 table).
