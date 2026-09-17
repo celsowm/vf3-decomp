@@ -2,6 +2,18 @@
 
 ## Ghidra project: extract/ghidra_proj/VF3 (not version controlled; reconstructible)
 - GUI: run `ghidra.bat` at repo root.
+- 1ST_READ program was re-imported clean (stock auto-analysis) on 2026-09-17;
+  names re-applied from matches_1ST_READ.csv (58) + fuzzy_apply_1ST_READ.csv (3).
+
+## M3 outcomes (per-phase)
+- A: tools/fuzzmatch.py — shingle+difflib matching; 964 cross-build pairs
+  (606 exact + 358 fuzzy), 13 corpus fuzzy names applied; docs/matches_fuzzy.md.
+- B: fnptr_tables.py (146 switch tables), table_readers.py, Vf3Xrefs2.java
+  (31K xref dump), callgraph v2 (constant-fold + dispatch-site report).
+- C: architecture.md — struct-dispatch model mapped; dispatchers, loader-chain
+  fns named (task_run_A/B/C, load_mt_*); boot region breaks documented.
+- D: dtpk_extract.py + adpcm_decode.py — container & AICA codec solved,
+  69 packages split, ~40k seconds of media verified (incl. all VO packs).
 
 Programs (all SuperH4 LE @ 0x8C010000, BinaryLoader raw images):
 - `1ST_READ.unsc.bin` — retail MK-51001 V1.002

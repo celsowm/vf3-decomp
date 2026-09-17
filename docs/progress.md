@@ -41,5 +41,15 @@
 - [ ] Investigate `.CLI` = collision (COLI_S dev path), MOTHEAD/MT* motion tables
 - [ ] docs/re/: write-up of entry/GDFS init/main-loop/task system once identified
 
-## M3+ — Fight engine, asset dumps, source-port modules
-(see plan text in project history)
+## M3 — "Boot to Battle" core RE (DONE 2026-09-17)
+- [x] A fuzzy matching pipeline: 964 cross-build function pairs
+- [x] B switch/struct-dispatch topology: 146 tables, ~80 runners, loader fns named
+- [x] C architecture doc (docs/re/architecture.md); boot region surveyed & documented
+- [x] D DTPK container fully decoded + AICA ADPCM audio extraction (all voice packs)
+
+## M4 — Fight engine RE & port scaffold (next)
+- [ ] Per-voice BGM decode (note-reset slicing from sec1/sec3)
+- [ ] Fight-mode dispatcher identification (scene table idx by string-class)
+- [ ] MT*.BIN motion table parser + model/animation linkage
+- [ ] src/: AICA ADPCM module + DTPK loader as first clean-room port units
+- [ ] Ghidra: CFG-aware splitter for DSGLH regions (replaces prologue sweep)
