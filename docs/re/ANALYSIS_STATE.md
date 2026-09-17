@@ -64,6 +64,19 @@ Note: Katana 1.0B2 headers say "GDFS Version 1.00 1998/09/28" — the game (Aug
   largest listed in extract/analysis/unmatched_retail.csv — these are the
   priority RE targets for game logic (fight engine, UI, AI).
 
+## M3 findings: call graph & dispatch structure
+- Best-effort static jsr resolution caps at **~3%** (96/3,222 sites) — the game is
+  architected around struct-held function pointers (task/vm model), not literal
+  pools. Verified uniform across all code regions.
+- Literal pools DO resolve correctly when read — the jsr registers simply come
+  from struct fields (`mov.l @(disp,r14),r3; jsr @r3`) instead.
+- 146 function-pointer tables detected (4-byte runs of image-range pointers,
+  0x0C P2 aliases normalized): overwhelmingly **SHC switch jump tables**.
+  27 host functions identified = the game's switch dispatchers
+  (`docs/re/fntables_*.md`, `extract/analysis/table_readers_*`).
+- These switch-heavy dispatchers are the top candidates for the scene/state/core
+  task managers; biggest: f_8c07d368 (256B), f_8c063f58 (222B), f_8c0516a8 (196B).
+
 ## Known pitfalls / tooling notes
 - Ghidra script dirs: ONE broken .java poisons sibling compile ("bundle" error);
   clear %APPDATA%\ghidra\ghidra_12.1.3_PUBLIC\osgi caches when confused.

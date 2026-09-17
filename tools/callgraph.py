@@ -51,14 +51,18 @@ def func_of(func_rows, ents, addr):
     return None
 
 
-WRITE_RE = re.compile(r"(?:mov|mov\.[bwl]|movs|swap|extu|exts|add|sub|lds|lds\.l|fmov|fneg|fabs|fsub|fadd|xor|or|and|not|neg|shll|shlr|rotl|rotr|mova)\b.*?[,\s]r(\d+)\s*$", re.I)
+WRITE_RE = re.compile(r"(?:mov|mov\.[bwl]|movs|swap|extu|exts|lds|lds\.l|fmov|fneg|fabs|fsub|fadd|xor|or|and|not|neg|shll|shlr|rotl|rotr|mova)\b.*?[,\s]r(\d+)\s*$", re.I)
 
 
 def jsr_calls(ins, raw, func_rows, ents):
     lastload = {}   # reg -> (from_addr, loaded_value)
     edges = []
     unresolved = 0
+    dispatch = []   # (call_site, reg) where reg was never pool-loaded in-fn
+    fstart = {f[0] for f in func_rows}
     for addr, hexraw, txt in ins:
+        if addr in fstart:                 # function boundary -> fresh register state
+            lastload.clear()
         if len(hexraw) < 4:
             continue
         w = int.from_bytes(bytes.fromhex(hexraw[:4]), "little")
@@ -78,6 +82,20 @@ def jsr_calls(ins, raw, func_rows, ents):
             if 0 <= off <= len(raw) - 2:
                 v = struct.unpack_from("<h", raw, off)[0] & 0xFFFFFFFF
                 lastload[rn] = (addr, v)
+        elif hi == 0xE000:                     # mov #imm8, rN
+            rn = (w >> 8) & 0xF
+            v = w & 0xFF
+            lastload[rn] = (addr, v - 0x100 if v & 0x80 else v)
+        elif hi == 0x7000:                     # add #imm8, rN  (constant fold)
+            rn = (w >> 8) & 0xF
+            v = w & 0xFF
+            v = v - 0x100 if v & 0x80 else v
+            if rn in lastload:
+                lastload[rn] = (addr, (lastload[rn][1] + v) & 0xFFFFFFFF)
+        elif (w & 0xF00F) == 0x300C:           # add Rm, Rn (const + const)
+            rm, rn = (w >> 4) & 0xF, (w >> 8) & 0xF
+            if rm in lastload and rn in lastload:
+                lastload[rn] = (addr, (lastload[rm][1] + lastload[rn][1]) & 0xFFFFFFFF)
         elif (w & 0xF0FF) == 0x400B:           # jsr @Rn
             rn = (w >> 8) & 0xF
             rec = lastload.get(rn)
@@ -91,6 +109,7 @@ def jsr_calls(ins, raw, func_rows, ents):
                     unresolved += 1
             else:
                 unresolved += 1
+                dispatch.append((addr, rn))
             # calls clobber caller-saved regs r0-r7
             for r in range(8):
                 lastload.pop(r, None)
@@ -109,7 +128,7 @@ def jsr_calls(ins, raw, func_rows, ents):
             m = WRITE_RE.match(txt.strip())
             if m:
                 lastload.pop(int(m.group(1)), None)
-    return edges, unresolved
+    return edges, unresolved, dispatch
 
 
 def main():
@@ -121,8 +140,24 @@ def main():
 
     ins = load_dump(dump)
     print(f"instructions: {len(ins)}")
-    edges, unresolved = jsr_calls(ins, raw, funcs, ents)
-    print(f"call edges: {len(edges)}    unresolved jsr sites: {unresolved}")
+    edges, unresolved, dispatch = jsr_calls(ins, raw, funcs, ents)
+    total_jsr = len([e for e in edges if e[2] == "jsr"]) + unresolved
+    print(f"call edges: {len(edges)}    unresolved jsr sites: {unresolved} "
+          f"(jsr resolution {100.0*(len([e for e in edges if e[2]=='jsr']))/max(total_jsr,1):.1f}%)")
+
+    # dispatch-site report (jsr @rN where rN had no in-fn literal load ->
+    # callee pointer comes from caller struct/table -> task-runner pattern)
+    with open(dump.replace(".asm", ".dispatch.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["caller_fn", "call_site", "reg"])
+        for site, rn in sorted(dispatch):
+            cf = func_of(funcs, ents, site)
+            w.writerow([cf[2] if cf else "", f"0x{site:X}", f"r{rn}"])
+    dcnt = collections.Counter(cf[2] if (cf := func_of(funcs, ents, s)) else
+                               f"?{s:X}" for s, _ in dispatch)
+    print("top dispatch-heavy functions (task runners):")
+    for nm, c in dcnt.most_common(8):
+        print(f"  {c:3d}  {nm}")
 
     # distinct (fn,target) pairs for names
     cnt = collections.Counter()
