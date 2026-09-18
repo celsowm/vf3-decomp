@@ -47,6 +47,17 @@
 - [x] C architecture doc (docs/re/architecture.md); boot region surveyed & documented
 - [x] D DTPK container fully decoded + AICA ADPCM audio extraction (all voice packs)
 
+## M5 — Port modules + scene identification (DONE)
+- [x] src/media/{dtpk,aica_adpcm,mt,pol}.c — clean-room C, parity-tested vs Python refs
+- [x] Fight-scene suspects identified (see docs/re/fight_scene.md)
+
+## M6 — Runtime tracing rig (IN PROGRESS)
+- [x] flycast cloned + stripped (norend, headless main, VF3_TRACE byte-stream)
+- [x] interpreter-mode trace pipeline working (427M instrs boot+title captured)
+- [x] fn hit-counts + first-seen analysis (594 fns in 1200 frames)
+- [ ] full-speed JIT path crashes at fpcb read (vf3headless vmem edge); use interpreter
+- [ ] attract/fight captures (long job running)
+
 ## M4 — Fight engine RE & port scaffold (next)
 - [ ] Per-voice BGM decode (note-reset slicing from sec1/sec3)
 - [ ] Fight-mode dispatcher identification (scene table idx by string-class)
