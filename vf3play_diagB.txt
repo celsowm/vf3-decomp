@@ -1,0 +1,5 @@
+# diag B: save immediately, then nothing
+25000 SAVE 1
+35000 SAVE 2
+45000 SAVE 3
+60000 SAVE 4

@@ -1,0 +1,10 @@
+# two RAM probes inside fight, spaced apart, so we can diff for HP
+3000 SHOT r3
+15000 SHOT r15
+35000 SHOT r35
+45000 KEY 4
+50000 SHOT r50
+60000 KEY 4
+70000 KEY 4
+90000 SHOT r90
+95000 EXIT

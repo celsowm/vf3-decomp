@@ -71,6 +71,63 @@ Ghidra project via `Vf3ApplyNames` (extract/analysis/fight_names.csv).
 2. First-seen ordering into sequence diagram form (fight_scene_flow.md).
 3. Tick-rate math: `f_8c069078` at ~165/frame → main per-fighter frame work fn.
 
+## Update 2026-09-19 (second session) — transition capture attempts
+
+**New rig bits** (all in flycast fork):
+- `vf3script` (core/vf3script.{h,cpp}): timeline format `ms CMD [arg]`;
+  `KEY hexmask`, `SHOT name`, `SAVE slot`, `EXIT`; runs on the UI thread.
+  SAVE is now properly serialized (emu.stop → dc_savestate → emu.start) — the
+  earlier save path raced the SH4 thread and raised empty `FlycastException`s
+  dialog; fixed.
+- `vf3script` SHOT dumps **raw VRAM+RAM** to `extract/analysis/shots/`
+  (renderer-independent — GL presentation is broken in this build, so the
+  builtin screenshot API never sees a frame).
+- `tools/state_extract.py` (TMP): parses FLYSAVE1+RZip state files
+  (`'#RZIPv1#'` 8B magic, u32 chunkSize=1MB, u64 total, zlib chunks).
+  RAM image (16 MB) extracts at raw offset ≈0xB28291 in the fight states.
+
+**Fight confirmed inside RAM by string audit**: `ram_r35` contains
+`MTJACKAG.BIN`, `BGM_JACK.BIN`, `AU.AKIRA`, `M_JACKY` ⇒ current fight is
+**AKIRA vs JACKY on Jacky's stage** (ATTRACT/demo + scripted keys drove it).
+
+**Ladder captures** (GUI, scripted): vf3_1..vf3_15 under flycast-build-gui/data
+at t≈60..110 s; headless triage traces `tr4_slot{1..15}.bin` show
+`f_8c09d6e0` (fight loop) active in many, but `mt_loader`/`coli_run` remain
+unfired in EVERY state: **MD loader + char resource loads happen strictly
+between char-select-confirm and round-1 start, which demo-loop paths never
+redo**. The in-fight state resumes the function stack entirely in fight loop
+context, never touching loaders.
+
+**`bjload_run` normally executes per fight — at trace record 8,751 out of the
+state-resume preamble.** And `0x8C0B1AC0` (resume dispatcher) is its caller
+chain entry 0. Both bjload & co are **inner-loop dispatch targets**, NOT
+function heads — disasm at `bjload_run` 0x8C0CBC40 begins mid-struct
+(`mov.w 0x8c0cbd4c,r4; jsr @r14` with r11/r13/r14 pre-set). Consequence for
+Ghidra work: `fight_f_*` names mark dispatch waypoint ADDRESSES, not fn heads;
+a CFG splitter pass that splits at each traced-entry will decompose properly.
+
+**Battle-frame chain observed post-resume (first 25 traced entries)**:
+```
+8C0B1AC0 → 8C058E92 → 8C091C42 → 8C03EFFC → 8C091CF2 → 8C091D80 →
+8C0869DA → 8C0B1892 → 8C0C6732 → 8C072B72 → 8C091426 → 8C0914C2 →
+8C091788 → 8C068CC2 → 8C0693B4 → 8C068F86 → 8C069078 → 8C0694E8 → ...
+```
+
+**Animation file load differencing** (from fights/ram): `8C16CDD*-8C228*xx`
+block re-times per attack (u32 7→0, 9→3/4 pattern sweepers) — matches "frame
+countdown per animated node" under current MT player hypothesis.
+
+## Open items / blockers
+
+- `mt_loader` & `coli_run` remain **UNOBSERVED** — they need a REAL csel→fight
+  transition: humans navigate title→arcade in ~10 s, script attempts stall at
+  title attract. Resolve by one manual savestate capture from char-select +
+  ROUND-1 start (option A), or extend script with more menu traversals
+  (estimate ~30 more min of retired blind retries; debugging is visible-only).
+- VF3 fight-context struct not yet pinned: follow `FUN_8c069078` dereferences.
+- Loading-screen red band VRAM pattern visible at 0x1f0000 (raw VRAM view works;
+  fb geometry = 640×480 × 2BPT at that base, values at RGB565).
+
 (Previous ledger content preserved below — pre-savestate era.)
 
 ---

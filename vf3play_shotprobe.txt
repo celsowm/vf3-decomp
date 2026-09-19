@@ -1,0 +1,7 @@
+# dump-driven run: sample vram/ram at key moments
+25000 SHOT logo
+35000 SHOT title
+60000 SHOT attract
+75000 SHOT maybe_demos
+95000 SHOT later
+125000 EXIT

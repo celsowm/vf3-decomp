@@ -1,0 +1,22 @@
+# transition ladder: nav to arcade/char select, then capture 9 time slots
+20000 KEY 8
+30000 KEY 8
+34000 KEY 4
+40000 KEY 4
+45000 SAVE 1  # vs. menu strt
+47000 SHOT t47
+55000 SAVE 2  # char select (late)
+57000 KEY 4
+60000 KEY 4
+65000 SAVE 3  # confirm stage/loadout
+67000 SHOT t67
+75000 SAVE 4
+85000 SAVE 5  # fight loading/streaming
+87000 SHOT t87
+95000 SAVE 6
+97000 SHOT t97
+105000 SAVE 7
+115000 SAVE 8
+125000 SAVE 9
+135000 SHOT t135
+140000 EXIT

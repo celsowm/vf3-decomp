@@ -73,7 +73,14 @@
       (docs/re/fight_scene.md)
 - [x] GUI sibling build `tools/emu/flycast-build-gui` (SDL+OpenGL, playable,
       mapping `F1/F2/F3/F4` = state save/load/slot+-)
-- [ ] transition capture (charselect→fightstart) for mt_loader/coli_run evidence
+- [~] transition capture: in-fight state confirmed (AKIRA vs JACKY on Jacky stage,
+      loader strings in RAM); demo-fight ladder (15 states) shows fight code grows
+      after t≈60s while mt_loader/coli_run stay dead (char-select loaders ≠ demo);
+      **root-caused runaway SAVE crash** = racy dc_savestate on live SH4 → now
+      serialized internally (vf3script SAVE)
+- [~] RAM/VRAM raw dumps via SHOT; fight RAM strings land M_JACKY, MTJACKAG.BIN
+- [ ] named `fight_f_*` are dispatch waypoints, not fn heads; needs a
+      CFG-splitter pass keyed on trace entry points before any decompile pass
 - NOTE1: short interpreter runs may sit in the reios vblank-poll loop in the norend
       build; gate on the `[vf3] ran N frames` log line, not wall clock
 - NOTE2: GL screenshots via `GetLastFrame` return empty on this host (no usable
