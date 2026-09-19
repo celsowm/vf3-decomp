@@ -81,6 +81,10 @@
 - [~] RAM/VRAM raw dumps via SHOT; fight RAM strings land M_JACKY, MTJACKAG.BIN
 - [ ] named `fight_f_*` are dispatch waypoints, not fn heads; needs a
       CFG-splitter pass keyed on trace entry points before any decompile pass
+- [x] Fight-loop anatomy doc (docs/re/fight_loop.md): top-40 frame budget,
+      struct field hints roll-up, input-chain note, fight artifacts inventory
+- [x] VF3TB Model Extractor (NaomiMod) cloned and smoke-tested
+      (extracts POL/TEX correctly; a 2nd source for the POL format spec)
 - NOTE1: short interpreter runs may sit in the reios vblank-poll loop in the norend
       build; gate on the `[vf3] ran N frames` log line, not wall clock
 - NOTE2: GL screenshots via `GetLastFrame` return empty on this host (no usable
