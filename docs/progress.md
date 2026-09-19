@@ -66,10 +66,18 @@
 - [x] JIT trace validated against interpreter (scene_mgr_B first-seen/hit pattern matches)
 - [x] SEH diagnostic: `vf3_seh` logs faults to `extract/analysis/vf3_fault.log`
       (unbuffered writes, survives process teardown)
-- [ ] attract/fight capture: 12K-frame JIT run reached title/attract; bjload_run /
-      coli_run / mt_loader still unobserved (macro nav lacks frame-accurate input)
-- NOTE: short interpreter runs may sit in the reios vblank-poll loop in the norend
+- [x] **FIGHT CAPTURED (2026-09-19)**: scripted GUI play (vf3script: file-driven
+      KEY/SHOT/SAVE/EXIT timeline) → savestate at fight → headless `VF3_STATE` load
+      → 6K-frame JIT trace: 363 fns, **fight-only delta = 347**, `bjload_run`
+      950 hits, `scene_mgr_B` 29.8K hits; all 347 named `fight_f_*` in Ghidra
+      (docs/re/fight_scene.md)
+- [x] GUI sibling build `tools/emu/flycast-build-gui` (SDL+OpenGL, playable,
+      mapping `F1/F2/F3/F4` = state save/load/slot+-)
+- [ ] transition capture (charselect→fightstart) for mt_loader/coli_run evidence
+- NOTE1: short interpreter runs may sit in the reios vblank-poll loop in the norend
       build; gate on the `[vf3] ran N frames` log line, not wall clock
+- NOTE2: GL screenshots via `GetLastFrame` return empty on this host (no usable
+      frames in GUI either); rely on fn-level trace telemetry instead of pixels
 
 ## M4 — Fight engine RE & port scaffold (next)
 - [ ] Per-voice BGM decode (note-reset slicing from sec1/sec3)

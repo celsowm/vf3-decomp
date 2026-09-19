@@ -1,0 +1,8 @@
+# telemetry run: screenshots + idle attract observation, no keys
+30000 SHOT t30
+60000 SHOT t60
+90000 SHOT t90
+120000 SHOT t120
+180000 SHOT t180
+210000 SHOT t210
+235000 EXIT

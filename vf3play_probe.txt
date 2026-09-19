@@ -1,0 +1,9 @@
+# probe: screenshots only, learn boot timeline
+5000 SHOT boot5s
+15000 SHOT boot15s
+25000 SHOT boot25s
+35000 SHOT boot35s
+50000 SHOT boot50s
+70000 SHOT boot70s
+90000 SHOT boot90s
+95000 EXIT

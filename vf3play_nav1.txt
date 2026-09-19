@@ -1,0 +1,20 @@
+# attract/blind-nav run v1: watch title/menu via trace markers, try to start a game
+# VF3tb: ENTR? no - pure DC. DC_START bit = 0x08, DC_A = 0x04 (active-low press = clear bit)
+20000 KEY 8     # 20s: maybe skipping intro movie
+21000 SHOT t21
+30000 KEY 8     # 30s: title -> press start
+32000 SHOT t32
+34000 KEY 4     # 34s: menu -> A on default (Arcade?)
+35000 SHOT t35
+40000 KEY 4     # 40s: char select -> A
+41000 SHOT t41
+50000 KEY 4     # 50s: confirm / stage select etc
+52000 KEY 4     # extra confirm
+55000 SHOT t55
+60000 KEY 4     # another
+70000 SHOT t70
+90000 SHOT t90
+102000 SAVE     # 102s: save state (hopefully in/at fight)
+110000 SHOT t110
+120000 SAVE
+125000 EXIT
