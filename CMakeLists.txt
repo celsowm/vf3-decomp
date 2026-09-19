@@ -7,6 +7,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 add_library(vf3core STATIC
     src/media/aica_adpcm.c
     src/media/dtpk.c
+    src/media/mt.c
+    src/media/pol.c
     src/sys/hal.c
 )
 target_include_directories(vf3core PUBLIC src)
