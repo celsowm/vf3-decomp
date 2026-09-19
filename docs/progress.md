@@ -55,8 +55,21 @@
 - [x] flycast cloned + stripped (norend, headless main, VF3_TRACE byte-stream)
 - [x] interpreter-mode trace pipeline working (427M instrs boot+title captured)
 - [x] fn hit-counts + first-seen analysis (594 fns in 1200 frames)
-- [ ] full-speed JIT path crashes at fpcb read (vf3headless vmem edge); use interpreter
-- [ ] attract/fight captures (long job running)
+- [x] **JIT path FIXED (2026-09-18)**: headless branch returned before
+      `os_InstallFaultHandler()`, so the missing flycast VEH meant fpcb pages were never
+      committed on demand → `bm_GetCodeByVAddr+0x27` AV at the fpcb base. Fix: install
+      the fault handler inside the headless block (winmain.cpp).
+- [x] Block-level JIT tracing: `vf3TraceInstr(addr,0)` hook in `bm_GetCodeByVAddr`
+      (blockmanager.cpp) → ~67 blocks/frame; 12K frames ≈ 3 min wall.
+- [x] Executor toggle: `VF3_INTERPRETER=1` env → interpreter (override re-asserted
+      right before `emu.start()` since per-game settings reload at loadGame resets it)
+- [x] JIT trace validated against interpreter (scene_mgr_B first-seen/hit pattern matches)
+- [x] SEH diagnostic: `vf3_seh` logs faults to `extract/analysis/vf3_fault.log`
+      (unbuffered writes, survives process teardown)
+- [ ] attract/fight capture: 12K-frame JIT run reached title/attract; bjload_run /
+      coli_run / mt_loader still unobserved (macro nav lacks frame-accurate input)
+- NOTE: short interpreter runs may sit in the reios vblank-poll loop in the norend
+      build; gate on the `[vf3] ran N frames` log line, not wall clock
 
 ## M4 — Fight engine RE & port scaffold (next)
 - [ ] Per-voice BGM decode (note-reset slicing from sec1/sec3)
