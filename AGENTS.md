@@ -35,6 +35,11 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    `fidhash.py` (masked-word digests) are the spiders feeding reports;
    `tools/sysrof.py` drives Hitachi lbr.exe module extraction + byte-exact
    corpus matching (extract/analysis/sysrof/, katana_matches*.csv).
+5. `tools/sh4dump.py` (needs venv: `tools/.venv/Scripts/python`) — clean SH-4A
+   disasm of any address range with literal-pool value annotation; authority
+   over the Ghidra dump when bodies are seed-fragmented (2,258 tiny junk fns,
+   size<=8). New fn names: re-run `Vf3Baseline.java` to refresh
+   `extract/analysis/funcs_1ST_READ.unsc.bin.csv`.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;

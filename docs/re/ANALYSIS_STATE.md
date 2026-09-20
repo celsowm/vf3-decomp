@@ -46,6 +46,28 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
   falsified (6 in-fight activations only). docs/re/fight_dispatch_chain.md.
 - Spawn matrix artifact: extract/analysis/fight_spawn_edges.csv.
 
+## M8: frontier sweep outcomes (2026-09-19 autonomous pass)
+- sh4dump.py + tools/.venv (capstone SH-4A): annotated literal-pool dumps of any
+  function; verified vs katana for _memset body.
+- cand_sd_slot_lookup (fight_f_8c068f86) solved: 4-way switch over
+  id->sound-string map (0xC7..0xCA: sd_passing_far, sd_passing_far_off,
+  sd_Ak_01, sd_Ak_02). Runtime string copies in RAM 0x8C0D533C+; ROM source
+  cluster 0x8C018A00+. Full table: extract/analysis/sd_names.csv.
+- FUN_8c0597c2 = hottest fn in fight trace (3.95M/160M records): 16-B
+  state-index helper r14 = table[5*idx], table base 0x8C059858.
+- MT residency: MTJACLAU.BIN byte-verified loaded at 0x8C5F4100 during fight
+  (matches JACKY-vs-LAU scene). Record classes: u16-hdr + cmd streams vs pure
+  float tracks (1348B); field decode NEXT needs access-trace against the
+  resident buffer.
+- BGM: 26 BGM_<stage>.BIN names inventoried (docs/re/sound_bgm.md); sound.c
+  driver strings (drv_set_dreset_ns etc.) have NO literal refs anywhere —
+  mova/base+offset addressing; reset boundaries require a new trace class
+  (G2/AICA bus records) — recipe in doc.
+- "Main loop body": fight-only traces are post-boot; boot trace shows a dense
+  init burst at record ~96M (FUN_8c020000 family entry) and per-frame top
+  FUN_8c034984/FUN_8c03486c/f_8c035ca2 cadence; junk_8c035a20 family are
+  stale mid-body seed fns.
+
 ## Dispatcher falsification pass (2026-09-19, post-SYSROF naming)
 - Switch tables split from fight code entirely: 0/146 tables route into fight fns
   → fight dispatch is struct-task indirect-call, confirming architecture.md model.

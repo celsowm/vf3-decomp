@@ -68,5 +68,19 @@ Trace evidence (197M PC records, post-seeding name map):
   answered for this function: singleton literal, id-indexed.
 - Caller-side feeder chain (for r14-bearing functions generally): entry call
   chain ends at FUN_8c0971c8 / FUN_8c09723a (scheduler candidates); the
-  fight-region caller pair for the braf-SH-Host fight_f_8c0c7e0e is
+  fight-region caller pair for the braf-host fight_f_8c0c7e0e is
   trampoline FUN_8c0c7e00. These three are the next naming targets.
+
+### sd_table decode (later same day)
+
+The four referenced records decode to the fight sound-variant names:
+- 0xC7: "sd_passing_far"
+- 0xC8: "sd_passing_far_off"
+- 0xC9: "sd_Ak_01" (Akira slot 1)
+- 0xCA: "sd_Ak_02" (Akira slot 2)
+
+(runtime copies held at 0x8C0D533C/534C/5360/536C; per-character ROM source
+string table at ROM 0x8C018A00+; RAM verified via shots/ram_r15_*.bin).
+So fight_f_8c068f86 (`cand_sd_slot_lookup`) = per-frame lookup yielding the
+sound-variant slot for the current fight configuration (camera pass +
+character-specific banks). Full table dump: extract/analysis/sd_names.csv.
