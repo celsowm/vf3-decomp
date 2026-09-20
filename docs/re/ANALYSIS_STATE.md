@@ -39,6 +39,13 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## Fight dispatch chain CONFIRMED (2026-09-19, trace_fight1.bin)
+- Fight-scene predicate: `*(*(r13+8)+3) == 0x0A` at 0x8C0B1AC0 (sub-entry of
+  cand_is_scene0A). Fight pipeline first-seen order enumerated; FEEDER =
+  cand_scene0A_frame_walker (FUN_8c0b24fa). M6 task_run_C hypothesis also
+  falsified (6 in-fight activations only). docs/re/fight_dispatch_chain.md.
+- Spawn matrix artifact: extract/analysis/fight_spawn_edges.csv.
+
 ## Dispatcher falsification pass (2026-09-19, post-SYSROF naming)
 - Switch tables split from fight code entirely: 0/146 tables route into fight fns
   → fight dispatch is struct-task indirect-call, confirming architecture.md model.
