@@ -44,7 +44,9 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Fight dispatcher confirmation (candidates: f_8c07d368, f_8c063f58, f_8c0516a8)
+- Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
+  (docs/re/dispatcher_falsify.md); next candidates = braf hosts
+  fight_f_8c068f86 / fight_f_8c0c7e0e under struct-task model
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

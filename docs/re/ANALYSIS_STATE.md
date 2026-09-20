@@ -39,6 +39,14 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## Dispatcher falsification pass (2026-09-19, post-SYSROF naming)
+- Switch tables split from fight code entirely: 0/146 tables route into fight fns
+  → fight dispatch is struct-task indirect-call, confirming architecture.md model.
+- Candidates rulled: f_8c07d368 (unmapped), f_8c063f58 (offset-table iterator),
+  f_8c0516a8 (5-case non-fight init dispatcher via table 0x8C051740).
+- New leads: braf hosts fight_f_8c068f86 (top-3 hot) and fight_f_8c0c7e0e.
+- Details: docs/re/dispatcher_falsify.md.
+
 ## M4: Katana SYSROF pipeline SOLVED ENOUGH (2026-09-19)
 - `lbr.exe` (SHC librarian, native win32) driven interactively:
   `LIBRARY <lib>` / `LIST` / `OUTPUT <file>` / `EXTRACT <module>` / `EXIT`.
