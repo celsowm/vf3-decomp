@@ -42,3 +42,31 @@ Next step candidates (needs a picked approach):
 
 Artifacts: extract/analysis/dispatch_cert.md (generated report),
 disasm_1ST_READ.unsc.bin.asm (full listing snapshot).
+
+## Follow-up: fight_f_8c068f86 r14-feed via trace_fight1.bin (same day)
+
+Trace evidence (197M PC records, post-seeding name map):
+- 2,282,831 body hits; the literal prologue (+0x00..+0x0A, incl.
+  `mov.l @(lit),r14`) never hits — execution lives in the +0x0C..+0xE6 loop;
+  loop head at +0x0C (all predecessor edges are in-function addresses).
+- Trace mechanism = branch-landing records: de-duplicated fn transitions match
+  the block-run structure (verified around fight_f_8c0c7e0e entry at rec
+  #34,999,958: caller trampoline FUN_8c0c7e00, callers FUN_8c0971c8/8c09723a).
+- Literal pools decode as NEIGHBORING BYTES: 0x8c068fc0.. holds the sequence
+  `(0xC7, 0x0C0D533C) (0xC8, ...534C) (0xC9, ...5360) (0xCA, ...536C)` =
+  (id, ptr) pairs for a 202-id (0xC7..~0x191) map, stride ~0x10-0x14 bytes.
+- The pointed-to RAM region 0x0C0D533C.. is a live table of name strings:
+  "A_ds10_kai" / later "sd_Ak_01..28"-prefixed records (ai/b/kuy/kia/kl…
+  per-character sub-ids). So the function maps id → "sd"-class string
+  constant and the ~101 hits/frame loop = resource-slot lookup during fight.
+- Interpretation: the braf block is a 4-way switch (period-4 u16 offsets
+  0x640/0x6ab/0x6b9/0x6bd at fn+0x20..) over string-record subtypes; body
+  case-blocks are the +0x86..+0xe6 runs (equal hit counts = one pass per
+  activation). Renamed to **cand_sd_slot_lookup** in the Ghidra project.
+- r14 is set per-activation from the literal 0x0C0D5360 (id 0xC9's record);
+  THIS IS NOT a task-struct feed — the M6-era "r14 task struct" question is
+  answered for this function: singleton literal, id-indexed.
+- Caller-side feeder chain (for r14-bearing functions generally): entry call
+  chain ends at FUN_8c0971c8 / FUN_8c09723a (scheduler candidates); the
+  fight-region caller pair for the braf-SH-Host fight_f_8c0c7e0e is
+  trampoline FUN_8c0c7e00. These three are the next naming targets.
