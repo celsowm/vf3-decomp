@@ -17,6 +17,10 @@ tools/kamui/
 # Build output
 build/
 
+# Third-party reference clones (their own .git lives inside)
+refs/
+
 # Python
 __pycache__/
 *.pyc
+tools/_sdk_src/

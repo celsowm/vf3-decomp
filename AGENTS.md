@@ -15,14 +15,26 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - `tools/gscripts/*.java` — Ghidra headless scripts
 - `src/` — the actual port (C99); cmake build at `build/`
 - `docs/` — progress, format specs, RE notes
+- `refs/` — third-party reference clones (gitignored); e.g. `refs/dream-recomp`
+  (SH-4 static recompiler: oracle/differential harness, Ghidra headless scripts,
+  dcdisc disc tooling)
+
+## Native tools on hand
+- Hitachi SHC toolchain (win32, working): `tools/katana/katana/shc/bin/lbr.exe`
+  = interactive librarian (`LIBRARY x.lib` / `LIST` / `OUTPUT x.obj` /
+  `EXTRACT modname` / `EXIT`). Extracts SYSROF .obj modules from .lib.
 
 ## Pipeline (proven)
 1. descramble: `python tools/dc_scramble.py` (verified byte-exact rescramble)
-2. Ghidra (jdk 21 at `C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot`):
-   `analyzeHeadless extract/ghidra_proj VF3 -process <prog>.unsc.bin -noAnalysis -postScript <X>.java -scriptPath tools/gscripts`
+2. Ghidra (12.1.3 at `tools/ghidra_12.1.3_PUBLIC`, jdk 21 auto-found):
+   `python tools/ghidra_run.py run <prog>.unsc.bin -p <X>.java [-D KEY=VAL]`
+   (wrapper locates Ghidra+Java, caches in extract/analysis/ghidra_locator.json;
+   `doctor`/`list` subcommands; raw analyzeHeadless still works)
 3. analysis artifacts into extract/analysis; docs/re/ is the ledger.
-4. `tools/callgraph.py`, `fnptr_tables.py`, `fuzzmatch.py`, `string_readers.py`
-   are the spiders feeding reports.
+4. `tools/callgraph.py`, `fnptr_tables.py`, `fuzzmatch.py`, `string_readers.py`,
+   `fidhash.py` (masked-word digests) are the spiders feeding reports;
+   `tools/sysrof.py` drives Hitachi lbr.exe module extraction + byte-exact
+   corpus matching (extract/analysis/sysrof/, katana_matches*.csv).
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
