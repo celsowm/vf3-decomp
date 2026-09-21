@@ -17,7 +17,9 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - `docs/` — progress, format specs, RE notes
 - `refs/` — third-party reference clones (gitignored); e.g. `refs/dream-recomp`
   (SH-4 static recompiler: oracle/differential harness, Ghidra headless scripts,
-  dcdisc disc tooling)
+  dcdisc disc tooling), `refs/DreamcastRecompiled` (Duw0ng SH-4 recompiler:
+  BRAF/jsr table discovery algorithms mined into tools/braf_tables.py —
+  see docs/re/ref_dreamcastrecompiled.md)
 
 ## Native tools on hand
 - Hitachi SHC toolchain (win32, working): `tools/katana/katana/shc/bin/lbr.exe`
@@ -33,9 +35,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 3. analysis artifacts into extract/analysis; docs/re/ is the ledger.
 4. `tools/callgraph.py`, `fnptr_tables.py`, `fuzzmatch.py`, `string_readers.py`,
    `fidhash.py` (masked-word digests) are the spiders feeding reports;
+   `tools/braf_tables.py` resolves BRAF/@Rn switch tables (algorithm ported
+   from refs/DreamcastRecompiled; fallback sentinel-walk rows marked
+   `kind*?`; see extract/analysis/braf_tables.csv);
    `tools/sysrof.py` drives Hitachi lbr.exe module extraction + byte-exact
    corpus matching (extract/analysis/sysrof/, katana_matches*.csv).
-5. `tools/sh4dump.py` (needs venv: `tools/.venv/Scripts/python`) — clean SH-4A
+5. `tools/sh4dump.py` (needs venv: `tools/.venv/Scripts/python`) - clean SH-4A
    disasm of any address range with literal-pool value annotation; authority
    over the Ghidra dump when bodies are seed-fragmented (2,258 tiny junk fns,
    size<=8). New fn names: re-run `Vf3Baseline.java` to refresh
