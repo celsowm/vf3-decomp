@@ -39,6 +39,22 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## M10 (2026-09-20, autonomous) — probe-mode tracing + first C ports
+- flycast patch: `VF3_WATCH=<file>` gawk-style PC probes with register dump
+  (r13,r14,r4..r7) injected into the PC-trace stream as marker groups
+  0xFA10..0xFA11; new `AICA_DUMP`/`MEMDUMP` commands in vf3script.
+- Probe results: FUN_8c0597c2 verified as frame-fixed (r13=0x28, r14=5
+  stable); cand_sd_slot_lookup arg-struct pin at r14=0x0C BEFBE0.
+- AICA dumps: steady-state streaming observed (BGM refill at 0x44..0xF8 +
+  0xA0BC..0xCF5D windows, ~150 B per 15 s); **no song-kit reset captured** —
+  needs a front-to-fight state transition capture (TODO next).
+- M11 first C ports landed: src/fight/{scene_predicate, sd_slot_lookup,
+  state_index}.c annotated with SH4 addresses, trace-derived register facts
+  retained in comments. libvf3core builds green.
+- sh4dump.py gains `c` recursive mode (works but SH4 dbase-literal layouts
+  keep defeating full-CFG on the ring bodies; each function's real decode
+  needs per-fn annotation from the trace).
+
 ## Fight dispatch chain CONFIRMED (2026-09-19, trace_fight1.bin)
 - Fight-scene predicate: `*(*(r13+8)+3) == 0x0A` at 0x8C0B1AC0 (sub-entry of
   cand_is_scene0A). Fight pipeline first-seen order enumerated; FEEDER =

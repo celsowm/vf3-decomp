@@ -10,10 +10,11 @@ Usage (venv python only):
   tools/.venv/Scripts/python tools/sh4dump.py f 8c058e92 200
 """
 import os
+import re
 import struct
 import sys
 
-from capstone import CS_MODE_SH4, CS_MODE_LITTLE_ENDIAN, Cs
+from capstone import CS_ARCH_SH, CS_MODE_SH4, CS_MODE_LITTLE_ENDIAN, Cs
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(REPO, "extract", "exe", "1ST_READ.unsc.bin")
@@ -25,10 +26,121 @@ def load():
         return f.read()
 
 
+BRANCH = re.compile(r"^(bf/s|bf|bt|bt/s|braf|bra|bsr|bsrf|jmp|jsr|rts|rte)")
+
+def descend(data, entry, max_blocks=60):
+    """Recursive-sweep disasm: follows bsr/bra/bt/bf; tries to resolve
+    jsr/jmp @rN through fresh literal loads in the same block."""
+    from collections import deque
+    seen_labels = {}          # addr -> label idx
+    queue = deque([entry])
+    out = {}                  # addr -> decoded line dicts
+    def label_for(a):
+        if a not in seen_labels:
+            seen_labels[a] = len(seen_labels)
+        return f"L{seen_labels[a]:03d}"
+    md = Cs(CS_ARCH_SH, CS_MODE_SH4 | CS_MODE_LITTLE_ENDIAN)
+    literal_regs = {}
+    while queue and len(seen_labels) < max_blocks:
+        start = queue.popleft()
+        if start in out:
+            continue
+        pc = start
+        literal_regs = {}
+        delay = False
+        visited_start = pc
+        while True:
+            if pc in out:   # ran into already-emitted block: tail-merge
+                break
+            if pc - visited_start > 0x400:
+                break
+            waddr = pc - BASE
+            if waddr < 0 or waddr + 2 > len(data):
+                break
+            chunk = data[waddr:waddr + 2]
+            ins = list(md.disasm(chunk, pc))
+            if not ins:
+                out[pc] = ("data", f".word 0x{int.from_bytes(chunk,'little'):04x}")
+                pc += 2
+                if not delay:
+                    continue
+                delay = False
+                continue
+            i = ins[0]
+            txt = f"{i.mnemonic} {i.op_str}".strip()
+            note = ""
+            # literal-pool annotation (capstone renders absolute)
+            m = re.match(r"mov\.([lw])\s+(0x[0-9a-f]+),\s*(r\d+)", txt)
+            if m:
+                lit = int(m.group(2), 16)
+                o = lit - BASE
+                if 0 <= o < len(data):
+                    if m.group(1) == "l":
+                        v = struct.unpack_from("<I", data, o)[0]
+                        note = f"   # lit={v:08x}"
+                        literal_regs[m.group(3)] = v
+                    else:
+                        v = struct.unpack_from("<H", data, o)[0]
+                        note = f"   # lit.w={v:04x}"
+                        literal_regs[m.group(3)] = v
+            m2 = re.match(r"(jsr|jmp)\s+@(r\d+)", txt)
+            target_label = ""
+            if m2:
+                tgt = literal_regs.get(m2.group(2))
+                if tgt and BASE <= tgt < BASE + len(data):
+                    note += f"   # -> {tgt:08x}"
+                    if tgt in out or True:
+                        lbl = label_for(tgt)
+                        note += f" {lbl}?"
+                        queue.append(tgt)
+            # mark targets of static branches
+            b = re.match(r"(bf/s|bf|bt|bt/s|bra|bsr)\s+(0x[0-9a-f]+)", txt)
+            if b:
+                tgt = int(b.group(2), 16)
+                lbl = label_for(tgt)
+                note += f"   # -> {lbl}"
+                queue.append(tgt)
+                if b.group(1) in ("bra",):
+                    terminal = "bra"
+                elif b.group(1) in ("bsr",):
+                    terminal = "call"
+                else:
+                    terminal = "cond"
+            else:
+                terminal = None
+            delay_prefix = "" if not delay else "_"
+            out[pc] = ("insn", f"{delay_prefix}{txt}{note}")
+            pc += 2
+            if delay:
+                delay = False
+            elif i.mnemonic in ("rts", "jmp"):
+                break
+            elif b and b.group(1) in ("bra", "bsr", "bf/s", "bt/s"):
+                delay = True
+            elif b and b.group(1) in ("bf", "bt"):
+                # non-delayed short branches: continue fall-through
+                pass
+    return out, seen_labels
+
+
 def main():
     args = sys.argv[1:]
     if args and args[0] == "f":
         args = args[1:]
+    if args and args[0] == "c":          # cfg mode
+        entry = int(args[1], 16)
+        mb = int(args[2]) if len(args) > 2 else 60
+        data = load()
+        out, labels = descend(data, entry, mb)
+        for a in sorted(out):
+            if a in labels:
+                print(f"{a:08x}:  ; --- L{labels[a]:03d} ---")
+            print(f"{a:08x}  {out[a][1]}")
+        # label mapping footer
+        print("\nlabels:")
+        for a, i in labels.items():
+            print(f"  L{i:03d} = 0x{a:08x}")
+        return
     addr = int(args[0], 16)
     n = int(args[1]) if len(args) > 1 else 60
     data = load()

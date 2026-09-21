@@ -50,8 +50,10 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 
 ## Current frontier
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
-  (docs/re/dispatcher_falsify.md); next candidates = braf hosts
-  fight_f_8c068f86 / fight_f_8c0c7e0e under struct-task model
+  (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
+  + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
+  (VF3_WATCH / AICA_DUMP) added M10; BGM voice-reset boundaries still need a
+  front-to-fight transition capture for evidence.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

@@ -5,6 +5,9 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_library(vf3core STATIC
+    src/fight/scene_predicate.c
+    src/fight/sd_slot_lookup.c
+    src/fight/state_index.c
     src/media/aica_adpcm.c
     src/media/dtpk.c
     src/media/mt.c
