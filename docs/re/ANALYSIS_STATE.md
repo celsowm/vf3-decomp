@@ -39,6 +39,31 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## M13 (2026-09-22) — front-to-fight capture: BGM kit boundary RESOLVED
+- vf3script now has frame-clock commands (KEYF/AICAF/SAVEF/MEMF/EXITF), and
+  EXIT(F) terminates the process properly (quit-request loop flag).
+- Fresh-boot KEY run reached arcade-load; AICA ladder produced the grand tour:
+  menu->load 301 KB full-RAM swap, load->fight 255 KB, and THE face transition
+  1,222,259 B written contiguously at 0x086E54..0x1CC29D = fight BGM kit.
+- 0x0..0x86E53 is immortal across all transitions (driver + voice headers).
+  Steady-state streaming lives at 0x00A0B4..0x00CF5D (12 KB ring).
+- vf3_7 is fight-live via probe hits (ring + sd-lookup). vf3_6 kept as
+  pre-fight oracle.
+
+## M15 (2026-09-22) — dispatcher static map, PARs: half-closed honestly
+- tools/braf_tables.py v2: +resolve_reg backward-const/scale propagation,
+  +widest-window literal-carried jsr/jmp, +fallback sentinel table walk
+  (`kind*?` rows). Byte/word case tuning fixed the split(',') op_str bug.
+- Net yield: **8 of 309 BRAF sites resolved with table+targets**
+  (0x8C015C6A/8C015FAC/8C078EE4/8C09722A/8C0AB91A/8C0B6636/8C0BAE3E/8C0BE88C,
+  all word tables). Carred jsr @rN (N=r14-task) sites are struct-field
+  indirect — confirmed by trace (r14=0x0CBEFBE0 RAM); not resolvable
+  statically without the task VM model. This is consistent with and
+  STRONGER evidence of the M3 "struct-C at ~3%" jsr ceiling.
+- extract/analysis/braf_tables.csv = current authority for static dispatch.
+- Next lever for the remaining 301 brafs: body-by-body probe hits (M10 infra)
+  to split data-islands vs real control-flow; deferred (M17+).
+
 ## M10 (2026-09-20, autonomous) — probe-mode tracing + first C ports
 - flycast patch: `VF3_WATCH=<file>` gawk-style PC probes with register dump
   (r13,r14,r4..r7) injected into the PC-trace stream as marker groups

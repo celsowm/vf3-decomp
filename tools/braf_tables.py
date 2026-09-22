@@ -109,10 +109,8 @@ def back_scan(code: Code, start: int, stop: int):
     a = start - 2
     while a >= stop:
         i = code.ins(a)
-        if i is None:
-            a -= 2
-            continue
-        yield a, i
+        if i is not None:
+            yield a, i
         a -= 2
 
 
@@ -142,6 +140,79 @@ def bra_addr_of(i):
 IDX_RE = re.compile(r"@\(r0,\s*(r\d+)\s*\),\s*(r\d+)")
 
 
+def resolve_reg(code: Code, site_addr: int, reg: int, depth: int = 6,
+                window: int = 24):
+    """Backward constant-prop: what value lands in `reg` at site_addr.
+
+    Handles: mov #imm,rN / mov rM,rN / add rM,rN / mov.l @(disp,PC),rN /
+    add rN,rN (x2) / shll / shll2. Stops at block ends or writes it can't
+    model. Returns (kind, value) or None. kind: 'const' | 'litptr' (value is a
+    memory address that we could follow) | 'table' (indexed-addr base+idx).
+    """
+    cur = reg
+    val_known = False
+    val = 0
+    seen_copy = False
+    a = site_addr - 2
+    stop = max(BASE + 2, site_addr - window)
+    while a >= stop:
+        i = code.ins(a)
+        if i is None:
+            a -= 2
+            continue
+        m, ops = i.mnemonic, i.op_str
+        opx = [x.strip() for x in ops.split(",")]
+        if i.mnemonic in BLOCK_END:
+            return None
+        if i.mnemonic == "mov" and len(opx) == 2 and opx[1] == f"r{cur}":
+            src = opx[0]
+            if src.startswith("#"):
+                v = int(src[1:], 0)
+                if val_known:
+                    val += v
+                else:
+                    val, val_known = v, True
+            elif src.startswith("r"):
+                cur = int(src[1:])
+                seen_copy = True
+        elif i.mnemonic == "mov.l" and len(opx) == 2 and opx[1] == f"r{cur}":
+            src = opx[0]
+            mm = re.search(r"(0x[0-9a-fA-F]+)", src)
+            if mm and "@" in src:      # literal-pool load
+                v = code.u32(int(mm.group(1), 16))
+                if val_known:
+                    val += v
+                else:
+                    val, val_known = v, True
+            elif "@(r0," in src:       # indexed table load -> 'table' kind
+                inner = IDX_RE.search(src)
+                if inner and val_known:
+                    return ("table", val)
+                return None
+            else:
+                return None
+        elif i.mnemonic == "add" and len(opx) == 2 and opx[1] == f"r{cur}":
+            if opx[0] == f"r{cur}":
+                if val_known:
+                    val *= 2
+            else:
+                return None
+        elif i.mnemonic == "shll" and opx and opx[0] == f"r{cur}":
+            if val_known:
+                val <<= 1
+        elif i.mnemonic == "shll2" and opx and opx[0] == f"r{cur}":
+            if val_known:
+                val <<= 2
+        elif writes_reg(i, cur):
+            return None
+        if not seen_copy and val_known:
+            # value already resolved for the *original* reg; keep scanning a
+            # couple more words only if we just copied (register move chain).
+            pass
+        a -= 2
+    return ("const", val) if val_known else None
+
+
 def scan_braf(code: Code, braf):
     """BRAF Rn discovered; try byte-then-word table resolution."""
     addr = braf.address
@@ -151,7 +222,7 @@ def scan_braf(code: Code, braf):
         return None
     rn = int(m.group(1))
 
-    # --- find the table-load mov.b/w @(r0,rX),rn feeding the BRAF ----------
+    # --- find the nearest indexed table load (mov.{b,w,l} @(r0,rX),rY) -------
     load = None
     load_addr = 0
     kind = None
@@ -179,6 +250,65 @@ def scan_braf(code: Code, braf):
         if i.mnemonic in BLOCK_END:
             return None
     if not load:
+        # fallback: nearest indexed load of any size, wider window (~64B)
+        stop = max(BASE + 2, addr - 64)
+        for a, i in back_scan(code, addr, stop):
+            mm = IDX_RE.search(i.op_str) if i.mnemonic == "mov.l" else None
+            if i.mnemonic in ("mov.b", "mov.w", "mov.l") and \
+                    re.search(r"@\(r0,\s*r\d+\)", i.op_str):
+                load = i
+                load_addr = a
+                kind = {"mov.b": "byte", "mov.w": "word", "mov.l": "long"}[
+                    i.mnemonic]
+                break
+            if i.mnemonic in ("braf", "rts"):
+                break
+        if not load:
+            return None
+        # resolve the R0 base of that load: register-value propagation
+        base = resolve_reg(code, load_addr, 0, window=24)
+        rtbl = None
+        if base and base[1] and BASE <= base[1] < BASE + len(code.d):
+            rtbl = base[1]
+        else:
+            # mova @(disp,pc),r0 within 32B before the load
+            s2 = max(BASE + 2, load_addr - 32)
+            for a2, i2 in back_scan(code, load_addr, s2):
+                if i2.mnemonic == "mova":
+                    mm = re.search(r"(0x[0-9a-fA-F]+)", i2.op_str)
+                    if mm:
+                        rtbl = int(mm.group(1), 16)
+                        break
+        if rtbl is None:
+            return None
+        # walk entries of the matched width
+        targets = []
+        for n in range(128):
+            if kind == "byte":
+                raw = code.d[rtbl - BASE + n] if 0 <= rtbl - BASE + n \
+                    < len(code.d) else 0
+                delta = raw if zero_ext else (raw - 256 if raw & 0x80 else raw)
+                t = (addr + 4 + delta) & 0xFFFFFFFF
+            elif kind == "word":
+                raw = code.u16(rtbl + n * 2)
+                delta = raw - 65536 if raw & 0x8000 else raw
+                t = (addr + 4 + delta) & 0xFFFFFFFF
+            else:
+                t = code.u32(rtbl + n * 4)
+            ok = (not t & 1) and (BASE <= t < BASE + len(code.d))
+            if kind != "long" and ok:            # sanity: inside +-64K anyway
+                pass
+            if not ok:
+                break
+            if t in targets:
+                break
+            targets.append(t)
+        if len(targets) >= 2:
+            mark = {"byte": "byte?", "word": "word?", "long": "long?"}[kind]
+            return {"site": f"0x{addr:08X}", "kind": mark,
+                    "count": len(targets), "table": f"0x{rtbl:08X}",
+                    "n_targets": len(targets),
+                    "targets": ";".join(f"0x{t:08X}" for t in targets)}
         return None
 
     # --- find the table base (mova -> r0 | mov.l lit,rN -> vaddr) ----------
@@ -286,6 +416,40 @@ def scan_braf(code: Code, braf):
             "targets": ";".join(f"0x{t:08X}" for t in targets)}
 
 
+def scan_jsr_lit(code: Code, site):
+    """jsr/jmp @rN with rN <- mov.l lit (direct fn-pointer.load)."""
+    addr = site.address
+    rn = parse_reg(site.op_str.replace("@", "").strip())
+    if rn is None:
+        return None
+    stop = max(BASE + 2, addr - 8)
+    # widen: function-entry literals can be far from the jsr/jmp use site.
+    # Allow up to 128 instructions back unless the register is rewritten.
+    cur = rn
+    block_hops = 0
+    seen_literal = False
+    for a, i in back_scan(code, addr, max(BASE + 2, addr - 256)):
+        if i.mnemonic == "mov.l":
+            ops = [x.strip() for x in i.op_str.split(",")]
+            if len(ops) == 2 and ops[1] == f"r{cur}":
+                mm = re.search(r"(0x[0-9a-fA-F]+)", ops[0])
+                if mm and "@" not in ops[0]:
+                    v = code.u32(int(mm.group(1), 16))
+                    if BASE <= v < BASE + len(code.d):
+                        return {"site": f"0x{addr:08X}", "kind": "fnlit",
+                                "count": 1, "table": "0x00000000",
+                                "n_targets": 1,
+                                "targets": f"0x{v:08X}"}
+                return None
+        if writes_reg(i, cur):
+            return None
+        if i.mnemonic in ("bra", "braf", "rts"):
+            block_hops += 1
+            if block_hops > 1:
+                return None
+    return None
+
+
 def scan_jsr_jmp(code: Code, site):
     """jsr/jmp @rN preceded by mov.l @(r0,rN),rN -> dense absolute table."""
     addr = site.address
@@ -357,7 +521,7 @@ def main() -> int:
             if r:
                 results.append(r)
         elif i.mnemonic in ("jsr", "jmp") and i.op_str.strip().startswith("@"):
-            r = scan_jsr_jmp(code, i)
+            r = scan_jsr_lit(code, i) or scan_jsr_jmp(code, i)
             if r:
                 jsr_jmp_results.append(r)
 
