@@ -39,6 +39,20 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## M14 (2026-09-22) — MT field capture DONE
+- flycast mem-watch mode: `VF3_WATCH` lines `mem 0xADDR 0xLEN` (interpreter
+  only; wraps ReadMem*/WriteMem* post- mem_Reset). Emits
+  `(pc<<16)|0xFA20, (size<<48)|(isW<<47), addr, value`.
+- 95-frame fight capture (vf3_7) over the resident MTJACLAU pack
+  (0x8C5F0000+): 4,817 hits, 22 reader PCs. All traffic inside the pack:
+  `fight_f_8c09d69a` (helper) + `fight_f_8c09d6e0` (motion-frame evaluator).
+- Extract/analysis/mt_field_reads.csv = per-(pc,offset,size) census.
+- Behaviour model: record 5093 = active motion; byte-cursor at +0x736
+  advances the opcode stream; the u32 quad at +0x7A4.. is the per-frame
+  transform; secondary record 5096 provides linked params (+0x194..0x1FC).
+  Quad floats confirmed populated: e.g. 0.0067, 0.003, 0, 0.061.
+- `src/fight/mt_play.c` = C port of the frame step.
+
 ## M16+M17 (2026-09-22) — ports + hw census
 - src/fight/task_run_c.c: C port of the per-frame task-slot runner
   (8 mov.w/@r14 jsr site), register-traced; helper-hook parameterization
