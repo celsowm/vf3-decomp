@@ -11,6 +11,24 @@
 - Interpretation: `drv_set_dreset_ns(%d)` corresponds to the kit write;
   BGM_<stage>.BIN lands in the kit region (why static ROM xrefs found nothing).
 
+## M17 (2026-09-22): AICA region census
+Derived from the aica_load_* ladder (extract/analysis/shots/) — 32 consecutive
+2 MB wave-RAM dumps covering menu → load → fight:
+
+| AICA range | role | delta behaviour across transitions |
+|---|---|---|
+| 0x000000–0x000043 | idle/reset pad | untouched |
+| 0x000044–0x0000F8 | control/status words | 20-byte bursts, only window whose deltas precede every scene step |
+| 0x00A0B4–0x00CF5D | streaming ring (~12 KB) | continuously rewritten; cadence ~10–300 B per 600 frame window (sample position updates) |
+| 0x00CF5E–0x086E53 | **driver + voice headers** | byte-identical across menu/load/fight (M13 vf3_7 fight-live probe confirmed code layout) |
+| 0x086E54–0x1FFFFF | **song kit / sample bank** | single contiguous write during a scene swap (largest: 1.22 MB fight kit at 0x086E54..0x1CC29D) |
+
+So the ARM7/ARM7-side driver model is: code+voices anchored at the bottom of
+wave RAM; song kits appended after 0x86E54; `drv_set_dreset_ns`-style resets
+simply overwrite the suffix region. RELOAD.unsc.bin (ARM7 driver) contains no
+recoverable ASCII surface (compressed section); voice-slot mapping work
+continues from the SH4 side strings + these ranges instead of reading it.
+
 
 ## String-heap inventory (1ST_READ.unsc.bin)
 

@@ -8,6 +8,7 @@ add_library(vf3core STATIC
     src/fight/scene_predicate.c
     src/fight/sd_slot_lookup.c
     src/fight/state_index.c
+    src/fight/task_run_c.c
     src/media/aica_adpcm.c
     src/media/dtpk.c
     src/media/mt.c

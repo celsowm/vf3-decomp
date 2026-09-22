@@ -39,6 +39,16 @@ Cross-build masked-digest matching (tools/fidhash.py, FID-style):
 - 748 digest collisions on retail side (mostly tiny thunks); union with
   fuzzmatch.py channel recommended.
 
+## M16+M17 (2026-09-22) — ports + hw census
+- src/fight/task_run_c.c: C port of the per-frame task-slot runner
+  (8 mov.w/@r14 jsr site), register-traced; helper-hook parameterization
+  keeps it honest (r14 = caller-provided job ctx).
+- libvf3core builds green with the new file.
+- AICA voice census incorporated into docs/re/sound_bgm.md from the M13
+  ladder: code+voices stable ≤ 0x86E53, kit region starts 0x86E54, streaming
+  ring 0xA0B4..0xCF5D. RELOAD binary carries no ASCII surface — its detailed
+  layout is deferred past current sprint.
+
 ## M13 (2026-09-22) — front-to-fight capture: BGM kit boundary RESOLVED
 - vf3script now has frame-clock commands (KEYF/AICAF/SAVEF/MEMF/EXITF), and
   EXIT(F) terminates the process properly (quit-request loop flag).
