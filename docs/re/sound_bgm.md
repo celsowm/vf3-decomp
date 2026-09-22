@@ -1,4 +1,16 @@
-# Sound / BGM subsystem (2026-09-19, static pass)
+# Sound / BGM subsystem (2026-09-19, static pass; M13 evidence 2026-09-22)
+
+## M13 voice-reset boundary LOCATED (extract/analysis/shots/aica_load_*)
+- Full song-kit write: one contiguous block `0x086E54 .. 0x1CC29D`
+  (1,222,259 B) replacing attract/menu kit with the fight kit (AICAF 24200 ->
+  25400 in f2f2 ladder; menu->load swap is instead a full-RAM 301 KB exchange).
+- Driver + voices baseline `0x0 .. 0x86E53` survive ALL transitions (driver
+  code, voice headers, FX tables).
+- Steady-state: streaming window `0x00A0B4 .. 0x00CF5D` (~12 KB ring),
+  controls at `0x44..0xF8`; cadence ~10 B/1200f = sample-position updates.
+- Interpretation: `drv_set_dreset_ns(%d)` corresponds to the kit write;
+  BGM_<stage>.BIN lands in the kit region (why static ROM xrefs found nothing).
+
 
 ## String-heap inventory (1ST_READ.unsc.bin)
 
