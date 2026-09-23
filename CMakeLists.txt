@@ -16,6 +16,7 @@ add_library(vf3core STATIC
     src/media/dtpk.c
     src/media/mt.c
     src/media/pol.c
+    src/sys/gdfs.c
     src/sys/hal.c
 )
 target_include_directories(vf3core PUBLIC src)

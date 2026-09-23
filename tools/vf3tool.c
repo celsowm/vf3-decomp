@@ -10,6 +10,23 @@
 #include "../src/media/dtpk.h"
 #include "../src/media/mt.h"
 #include "../src/media/pol.h"
+#include "../src/sys/gdfs.h"
+#include "../src/sys/gdfs_table.h"
+
+static void binname_dump(const char *name)
+{
+    /* table mounted from generated header */
+    vf3_gdfs_mount_table((const VF3_GdfsEntry *)vf3_gdfs_table,
+                         VF3_GDFS_TABLE_COUNT);
+    int slot = vf3_gdfs_find(name);
+    if (slot < 0) {
+        printf("(not found)\n");
+        return;
+    }
+    printf("slot=%d name=%s tag=%s kind=%d\n",
+           slot, vf3_gdfs_table[slot].name,
+           vf3_gdfs_tag(slot), vf3_gdfs_kind(slot));
+}
 
 static void cb_mt(uint32_t slot, uint32_t off, uint32_t len, void *ctx)
 {
@@ -90,6 +107,11 @@ int main(int argc, char **argv)
         free(pcm);
         return 0;
     }
+    if (argc >= 3 && !strcmp(argv[1], "binname")) {
+        binname_dump(argv[2]);
+        return 0;
+    }
     fprintf(stderr, "usage: vf3tool adpcm <out.pcm> <in.bin> [skip]\n");
+    fprintf(stderr, "       vf3tool mt|pol|binname <file|name>\n");
     return 1;
 }
