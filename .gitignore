@@ -24,3 +24,5 @@ refs/
 __pycache__/
 *.pyc
 tools/_sdk_src/
+tools/.venv/
+tools/emu/

@@ -1,5 +1,43 @@
 # RE analysis state (auto + manual notes)
 
+## M13..M22 (2026-09-22/23, autonomous) — vertical sweep closed
+- M13 scripted front-to-fight capture: vf3script gains frame-clock events
+  (`KEYF/SAVEF/AICAF/MEMF/SHOTF/EXITF`); the suite confirmed the fight SDK
+  enters at attract f=24200..25400; menu->load 301 KB full-RAM swap; the
+  visible BGM kit region = AICA 0x086E54..0x1CC29D. `VF3_WATCH` selects PCs,
+  `VF3_INTERPRETER` toggles dynarec vs interp (trace-fidelity); all state
+  files persisted under tools/emu/flycast-build/data/.
+- M15 braf_tables.py v2 (resolve_reg width/window lift + fnlit bounds cross),
+  8 word tables resolved; remaining BRAF sites are data-islands or struct-
+  task indirection (trace-backed); CSV at extract/analysis/braf_tables.csv.
+- M14 mem-watch: "mem" lines in VF3_WATCH; interpreter r/w hooks
+  (ReadMem*/WriteMem*); record layout (pc<<16)|0xFA20, (size<<48)|(isW<<47),
+  addr, value; used in m14 MT census (extract/analysis/mt_field_reads.csv)
+  and M19 probe logs.
+- M16 task_run_c.c port: 8 jsr call ladder (slots 0x0C0E/0x76AC/76B8/76C4),
+  r13/r14/r12 modeled.
+- M17 AICA census (0x0..0x86E53 driver+voices / 0x86E54+ kit region, ring
+  stream at 0xA0B4..0xCF5D).
+- M18 MT motion oracle: tests/mt_oracle.c (vf3test) maps every traced
+  read (mt_field_reads.csv, 81 rows) into the port's window registry:
+  primary record 5093 (byte streams +0x736/+0x75B, quad @+0x7A4),
+  linked 5096 (tuple groups 0x194/...), chains 1304/1307/1313, mirror
+  record 572 for the second fighter. docs/formats/MT.md updated.
+- M19 static task VM schema via tools/task_vm_map.py: 1,196 r14 sites ->
+  26 offsets; typed struct in src/fight/task_vm.h + vf3_task_field_name()
+  in task_vm.c. docs/re/task_vm.md holds the full rd/wr histogram.
+- M20 src/fight/frame.c: fight frame pipeline (predicate, 6-slot task
+  ladder, ring counter tick, sd slot cycle) replays 60 frames host-side.
+  tests/frame_replay.c (vf3frame.exe) PASS.
+- M21 GDFS name layer: tools/bin_names.py -> extract/analysis/bin_names.csv
+  (222 rows) -> src/sys/gdfs.c + src/sys/gdfs_table.h. `vf3tool binname`
+  locates names/tags (e.g. MTJACLAU.BIN -> slot 14).
+- M22 cross-build name trf: 30 retail-reached names propagated to
+  VF3TBE3 via fidhash (`Vf3ApplyNames` run; E3 fresh CSV in
+  extract/analysis/funcs_VF3TBE3.unsc.bin.csv; named now 222).
+
+## M10..M11 interim notes preserved in docs/re/probe_mode.md + prior commits.
+
 ## Ghidra project: extract/ghidra_proj/VF3 (not version controlled; reconstructible)
 - GUI: run `ghidra.bat` at repo root.
 - 1ST_READ program was re-imported clean (stock auto-analysis) on 2026-09-17;

@@ -39,7 +39,9 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    from refs/DreamcastRecompiled; fallback sentinel-walk rows marked
    `kind*?`; see extract/analysis/braf_tables.csv);
    `tools/sysrof.py` drives Hitachi lbr.exe module extraction + byte-exact
-   corpus matching (extract/analysis/sysrof/, katana_matches*.csv).
+   corpus matching (extract/analysis/sysrof/, katana_matches*.csv);
+   `tools/task_vm_map.py` produces the fight-engine r14 field map;
+   `tools/bin_names.py` emits extract/analysis/bin_names.csv (222 .BIN rows).
 5. `tools/sh4dump.py` (needs venv: `tools/.venv/Scripts/python`) - clean SH-4A
    disasm of any address range with literal-pool value annotation; authority
    over the Ghidra dump when bodies are seed-fragmented (2,258 tiny junk fns,
@@ -57,8 +59,10 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
-  (VF3_WATCH / AICA_DUMP) added M10; BGM voice-reset boundaries still need a
-  front-to-fight transition capture for evidence.
+  (VF3_WATCH / AICA_DUMP) added M10; front-to-fight capture M13 landed the
+  BGM voice-kit boundary (docs/re/sound_bgm.md).
+- Task-VM field schema: docs/re/task_vm.md (M19).
+- Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
