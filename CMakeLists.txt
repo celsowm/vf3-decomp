@@ -23,3 +23,5 @@ target_link_libraries(vf3 PRIVATE vf3core)
 
 add_executable(vf3tool tools/vf3tool.c)
 target_link_libraries(vf3tool PRIVATE vf3core)
+
+add_executable(vf3test tests/mt_oracle.c)
