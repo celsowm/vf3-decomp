@@ -27,7 +27,11 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   `EXTRACT modname` / `EXIT`). Extracts SYSROF .obj modules from .lib.
 
 ## Pipeline (proven)
-1. descramble: `python tools/dc_scramble.py` (verified byte-exact rescramble)
+1. image: VF3tb retail ships UNSCRAMBLED — use `extract/gamedata/*.BIN`
+   verbatim (identity load at 0x8C010000; proven 100% identical to executed
+   traces by `tools/image_truth.py`, docs/re/image_identity.md).
+   `tools/dc_scramble.py` is kept only for selfboot MIL-CD titles; do NOT
+   re-run it on these binaries.
 2. Ghidra (12.1.3 at `tools/ghidra_12.1.3_PUBLIC`, jdk 21 auto-found):
    `python tools/ghidra_run.py run <prog>.unsc.bin -p <X>.java [-D KEY=VAL]`
    (wrapper locates Ghidra+Java, caches in extract/analysis/ghidra_locator.json;

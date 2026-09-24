@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
-"""Dreamcast 1ST_READ.BIN scramble/descramble.
+"""Dreamcast 1ST_READ.BIN scramble/descramble — SELFBOOT MIL-CD ONLY.
 
 Python port of the algorithm published by Marcus Comstedt and used in
 KallistiOS utils/scramble/scramble.c (BSD-licensed). No code is copied;
+
+!!! WARNING (learned 2026-09-23, docs/re/image_identity.md):
+!!! VF3tb retail (MK-51001 V1.002, GD-ROM) ships PLAIN images. Running
+!!! descramble() on this disc's 1ST_READ.BIN PRODUCES a 32-byte-slice
+!!! permutation of the true image (the roundtrip self-check always passes,
+!!! so it cannot detect the mistake). Verified: runtime-traced opcodes ==
+!!! raw file bytes at identity offsets (100.00% / 107k pairs).
+!!! Do not use this on VF3tb; extract/gamedata/*.BIN are load-ready.
 the permutation algorithm itself is reimplemented here.
 
 A scrambled retail load file is split into 32-byte 'slices'. The file is

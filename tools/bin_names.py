@@ -26,7 +26,8 @@ BASE = 0x8C010000
 def main():
     d = BIN.read_bytes()
     out = []
-    for m in re.finditer(rb"\.BIN\x00?", d):
+    matches = list(re.finditer(rb"\.BIN\x00?", d))
+    for k, m in enumerate(matches):
         e = m.start()
         s = e
         while s > 0:
@@ -38,7 +39,21 @@ def main():
         name = d[s:e].decode("ascii", "ignore")
         if not (2 <= len(name) <= 12):
             continue
-        tail_raw = d[m.end():m.end() + 12].split(b"\x00")[0]
+        # tag = bytes after ".BIN"+pad up to next record's name start; the
+        # next anchor minus a <=12-char name walk bounds it.
+        nb = len(d)  # next name start (file end sentinel)
+        if k + 1 < len(matches):
+            ne = matches[k + 1].start()
+            ns = ne
+            while ns > 0:
+                c = d[ns - 1]
+                if 65 <= c <= 90 or 48 <= c <= 57 or c in (0x5F, 0x20):
+                    ns -= 1
+                else:
+                    break
+            nb = ns
+        tail_end = min(m.end() + 12, nb)
+        tail_raw = d[m.end():tail_end].split(b"\x00")[0]
         tail = "".join(chr(c) if 32 <= c < 127 else "" for c in tail_raw)
         out.append((s + BASE, name + ".BIN", tail))
 

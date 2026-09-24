@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## M23 — Image truth + corrected static foundation (DONE 2026-09-23)
+- [x] Discovered retail VF3tb ships UNSCRAMBLED binaries; the M1 "descramble"
+      was actively permuting the analysis image (32B slice shuffle).
+- [x] `tools/image_truth.py`: 100.00% identity vs 106,995 executed op pairs.
+- [x] Images repaired (raw gamedata -> extract/exe), Ghidra re-import +
+      prologue sweep + baseline: 2,398 fns, 434,656 body bytes on true code.
+- [x] MT motion evaluator now statically decodable (63-channel bytecode VM:
+      op0->0.0, op1->stream float, op>=2->keyframe lerp; mirror-negate at
+      0x8C09D408 for fighter 2). Port lands as M24.
+- [x] New durable tools: sh4.py (full SH-4 decoder incl. FPU), sh4full.py,
+      m14_seq.py (--vdis trace-code reconstructor), overlay_hunt.py.
+
 ## M1 — Ground truth & environment (COMPLETE)
 - [x] git repo + ignore rules (no copyrighted data tracked)
 - [x] `tools/extract_iso.py`: track-3 ISO9660 → **412 files** → `extract/gamedata/`, manifest `docs/files.md` (+ sha1 csv)

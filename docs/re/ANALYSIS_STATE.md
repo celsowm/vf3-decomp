@@ -1,5 +1,15 @@
 # RE analysis state (auto + manual notes)
 
+> **! FOUNDATION FIX 2026-09-23 (M23)**: the retail disc is NOT scrambled —
+> the true load image is the shipped `extract/gamedata/1ST_READ.BIN` verbatim
+> (identity at 0x8C010000), proven 100.00% against 106,995 unique executed
+> (pc,opcode) trace pairs across boot+fight traces. The old
+> `dc_scramble`-descrambled image was a 32-byte-slice permutation of the true
+> image; ALL static CSVs/listings derived from it before this date are
+> QUARANTINED (see docs/re/image_identity.md). Trace-derived address facts
+> remain valid. Ghidra project re-imported; new baseline = 2,398 fns /
+> 434,656 body bytes.
+
 ## M13..M22 (2026-09-22/23, autonomous) — vertical sweep closed
 - M13 scripted front-to-fight capture: vf3script gains frame-clock events
   (`KEYF/SAVEF/AICAF/MEMF/SHOTF/EXITF`); the suite confirmed the fight SDK
