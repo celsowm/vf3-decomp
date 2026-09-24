@@ -10,6 +10,17 @@
 > remain valid. Ghidra project re-imported; new baseline = 2,398 fns /
 > 434,656 body bytes.
 
+## M23-M24 (2026-09-23) — foundation + first true engine port
+- M23 image truth + tooling: sh4.py full SH-4 decoder (incl. FPU; capstone
+  SH drops the whole 0xF space), sh4full.py, m14_seq.py (--vdis executed-
+  code reconstruction), overlay_hunt.py, image_truth.py; Vf3DisasmRange +
+  Vf3Decompile Ghidra scripts; mem-watch PC = executing+2 calibration.
+- M24 MT motion VM: f_8c09d690 fully decoded (63-ch bytecode; op0/1/2/3+
+  scalar-lerp/spline; phase 1/256 units; z-flip post-pass 0x8C09D408).
+  src/fight/mt_play.{c,h}; tests/mt_vm_interp.c PASS. docs/re/mt_vm.md.
+  sh4.py register-field fix (jsr/lds/ldc reg = bits[11:8]).
+- bin_names re-run on true image: 234 rows (was 222); gdfs_table.h regen.
+
 ## M13..M22 (2026-09-22/23, autonomous) — vertical sweep closed
 - M13 scripted front-to-fight capture: vf3script gains frame-clock events
   (`KEYF/SAVEF/AICAF/MEMF/SHOTF/EXITF`); the suite confirmed the fight SDK

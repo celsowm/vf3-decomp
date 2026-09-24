@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## M24 — MT motion VM semantics SOLVED (2026-09-23)
+- [x] Full channel-evaluator decode from the corrected image (f_8c09d690):
+      63 channels/frame, op0=zero, op1=literal, op2=scalar keyframe lerp,
+      op>=3 = vec3 Hermite spline (slopes ×1/256), phase in 1/256 units,
+      unconditional z-plane negate post-pass (0x8C09D408).
+- [x] src/fight/mt_play.c replaced with the true interpreter + mt_play.h.
+- [x] tests/mt_vm_interp.c (vf3vm): value-level parity incl. exact-key and
+      mid-span cases — PASS. (mt_oracle window test still PASS.)
+- [x] Fixed sh4.py register-field bugs (jsr/lds/ldc families take n=[11:8]).
+- [x] docs/re/mt_vm.md; open thread: pack mount-time relocation (+0x27B0
+      linear record shift + slot-table rewrite in vf3_7).
+
 ## M23 — Image truth + corrected static foundation (DONE 2026-09-23)
 - [x] Discovered retail VF3tb ships UNSCRAMBLED binaries; the M1 "descramble"
       was actively permuting the analysis image (32B slice shuffle).

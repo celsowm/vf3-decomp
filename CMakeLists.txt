@@ -31,3 +31,6 @@ add_executable(vf3test tests/mt_oracle.c)
 
 add_executable(vf3frame tests/frame_replay.c)
 target_link_libraries(vf3frame PRIVATE vf3core)
+
+add_executable(vf3vm tests/mt_vm_interp.c)
+target_link_libraries(vf3vm PRIVATE vf3core)

@@ -83,9 +83,9 @@ def decode(w, pc=0):
         if (w & 0xF0FF) == 0x006A:
             return "sts", f"fpscr,{GPR[n]}"
         if (w & 0xF0FF) == 0x0023:
-            return "braf", GPR[m]
+            return "braf", GPR[n]
         if (w & 0xF0FF) == 0x0003:
-            return "bsrf", GPR[m]
+            return "bsrf", GPR[n]
         if (w & 0xF0FF) == 0x0083:
             return "pref", f"@{GPR[n]}"
         if (w & 0xF0FF) == 0x0093:
@@ -149,34 +149,34 @@ def decode(w, pc=0):
 
     if top == 0x4:
         if (w & 0xF0FF) == 0x400B:
-            return "jsr", f"@{GPR[m]}"
+            return "jsr", f"@{GPR[n]}"
         if (w & 0xF0FF) == 0x402B:
-            return "jmp", f"@{GPR[m]}"
+            return "jmp", f"@{GPR[n]}"
         if (w & 0xF0FF) == 0x400E:
-            return "ldc", f"{GPR[m]},sr"
+            return "ldc", f"{GPR[n]},sr"
         if (w & 0xF0FF) == 0x401E:
-            return "ldc", f"{GPR[m]},gbr"
+            return "ldc", f"{GPR[n]},gbr"
         if (w & 0xF0FF) == 0x402E:
-            return "ldc", f"{GPR[m]},vbr"
+            return "ldc", f"{GPR[n]},vbr"
         if (w & 0xF0FF) == 0x403E:
-            return "ldc", f"{GPR[m]},ssr"
+            return "ldc", f"{GPR[n]},ssr"
         if (w & 0xF0FF) == 0x404E:
-            return "ldc", f"{GPR[m]},spc"
+            return "ldc", f"{GPR[n]},spc"
         if (w & 0xF0FF) == 0x403A:
-            return "ldc", f"{GPR[m]},sgr"
+            return "ldc", f"{GPR[n]},sgr"
         if (w & 0xF08F) == 0x408E:
             bank = (w >> 4) & 7
-            return "ldc", f"{GPR[m]},r{bank}_bank"
+            return "ldc", f"{GPR[n]},r{bank}_bank"
         if (w & 0xF0FF) == 0x4007:
-            return "ldc.l", f"@{GPR[m]}+,sr"
+            return "ldc.l", f"@{GPR[n]}+,sr"
         if (w & 0xF0FF) == 0x4017:
-            return "ldc.l", f"@{GPR[m]}+,gbr"
+            return "ldc.l", f"@{GPR[n]}+,gbr"
         if (w & 0xF0FF) == 0x4027:
-            return "ldc.l", f"@{GPR[m]}+,vbr"
+            return "ldc.l", f"@{GPR[n]}+,vbr"
         if (w & 0xF0FF) == 0x4037:
-            return "ldc.l", f"@{GPR[m]}+,ssr"
+            return "ldc.l", f"@{GPR[n]}+,ssr"
         if (w & 0xF0FF) == 0x4047:
-            return "ldc.l", f"@{GPR[m]}+,spc"
+            return "ldc.l", f"@{GPR[n]}+,spc"
         if (w & 0xF0FF) == 0x4003:
             return "stc.l", f"sr,@-{GPR[n]}"
         if (w & 0xF0FF) == 0x4013:
@@ -190,15 +190,15 @@ def decode(w, pc=0):
         if (w & 0xF0FF) == 0x4032:
             return "stc.l", f"sgr,@-{GPR[n]}"
         if (w & 0xF0FF) == 0x400A:
-            return "lds", f"{GPR[m]},mach"
+            return "lds", f"{GPR[n]},mach"
         if (w & 0xF0FF) == 0x401A:
-            return "lds", f"{GPR[m]},macl"
+            return "lds", f"{GPR[n]},macl"
         if (w & 0xF0FF) == 0x402A:
-            return "lds", f"{GPR[m]},pr"
+            return "lds", f"{GPR[n]},pr"
         if (w & 0xF0FF) == 0x405A:
-            return "lds", f"{GPR[m]},fpul"
+            return "lds", f"{GPR[n]},fpul"
         if (w & 0xF0FF) == 0x406A:
-            return "lds", f"{GPR[m]},fpscr"
+            return "lds", f"{GPR[n]},fpscr"
         if (w & 0xF0FF) == 0x4006:
             return "lds.l", f"@{GPR[n]}+,mach"
         if (w & 0xF0FF) == 0x4016:

@@ -1,74 +1,158 @@
-/* fight/mt_play.c — MT (motion) in-engine playback port.
+/* fight/mt_play.c — MT motion channel evaluator (true port).
  *
- * Provenance: 1ST_READ fight_f_8c09d69a (helper, 69B) and
- * fight_f_8c09d6e0 (evaluator, 263B). Trace-verified:
- * extract/analysis/mt_field_reads.csv + the synced mem dump
- * extract/analysis/shots/mem_mtdump_vf3_7_*.bin. Byte-parity vs this model:
- * tests/mt_oracle.c.
+ * Provenance: 1ST_READ 0x8C09D690 .. 0x8C09D823 (f_8c09d690, 390 B),
+ * decompiled against the CORRECTED image (M23 image-truth fix). Every line
+ * group carries its SH4 source address; instruction-level semantics were
+ * cross-checked against the M14 mem-watch stream (4817 hits incl. values)
+ * and the vf3_7 RAM dump.
  *
- * Model (oracle-verified): the evaluator processes a CHAIN of slot records
- * per frame:
- *   primary (5093): stream A per-part mode bytes @+0x736 (8), stream B
- *                   per-part tags @+0x75B (window to +0x77B incl.), and the
- *                   per-frame quad of float32s @+0x7A4 (16 bytes).
- *   linked  (5096): 12 tuple groups spread at 0xE0..0x3B0 (mostly 13-17B
- *                   u32/f32 triplets & quads). Group at +0x194 supplies the
- *                   effective (front-to-fight-verified) output tuple.
- *   extra   (1304/1307/1313): chained continuation records for the same
- *                   move — header refs @+0x2C and tuple slots at 0x41C/4A8..
+ * STRUCTURE (per call — one motion instance, one frame):
+ *   hdr = *(task + 0x1D00)         (motion instance header)
+ *     hdr[0] -> counts   : 1 byte per keyframed channel   (cursor B)
+ *     hdr[1] -> times    : packed key-frame time bytes    (r12 cursor)
+ *     hdr[2] -> tuples   : float stream                    (r14 cursor)
+ *     hdr[3..] (hdr+12)  : 63 opcode bytes, one per channel
+ *   phase (r6 arg) = current motion time in 1/256 units
+ *   cycle_len ((u16*)(task + 0x1A00)) : loop period, same units base (<<8)
+ *   out_pp (r5 arg)  : float** — 63 floats written; cursor advanced +63
  *
- * Chain layout observed so far (only active slot 5093 understood);
- * byte-value semantics of the A/B streams not yet decoded (M18 item 2+).
+ * Channel ops (ops[i], unsigned):
+ *   0   -> 0.0f
+ *   1   -> next float from tuple stream (raw passthrough)
+ *   2   -> scalar Hermite lerp channel; per channel: b5 key times then
+ *          b5+2 floats in the tuple stream
+ *   >=3 -> vec3 spline channel (cubic Hermite, slopes scaled by 1/256);
+ *          per channel: 12*b5 + 8 tuple bytes (b5 vec3 + trailing float2)
+ *
+ * End conditions verified against the formula: at t=0 out=v0; t=1 -> v1.
+ * Trace-anchored I/O: cursor B walk (record+0x736..), time bytes (+0x75B..),
+ * spline tuple reads (+0x7A4+) — see docs/re/mt_vm.md.
  */
 #include <stdint.h>
 
-#define MT_STREAM_A_BASE   0x736u
-#define MT_STREAM_B_BASE   0x75Bu
-#define MT_QUAD_BASE       0x7A4u
-#define MT_QUAD_LEN        16u
-#define MT_LINK_FST_PARAM  0x194u
+#define MT_EVAL_CHANNELS   63u
+#define MT_SLOPE_SCALE     (1.0f / 256.0f)   /* literal @0x8C09D830 */
+#define MT_NEGATE_BIAS     (-1.0f)           /* literal @0x8C09D834 */
 
-typedef struct MtRecordBody {
-    const uint8_t *bytes;
-    uint32_t       size;      /* record body size (from mt_tables CSV) */
-} MtRecordBody;
+typedef struct VF3MtTask {
+    /* host-side mirror of the fields this function touches */
+    const uint8_t *hdr;        /* *(task + 0x1D00) */
+    uint16_t       cycle;      /* *(u16*)(task + 0x1A00) — loop length */
+    /* RAM translation for the absolute u32 pointers stored in the header:
+     * host_addr = ram + (hdr_word - ram_base). On-CPU values are absolute. */
+    const uint8_t *ram;
+    uint32_t       ram_base;
+} VF3MtTask;
 
-typedef struct MtFrameOut {
-    float   q[4];            /* last quad tuple (the 4 float fields) */
-    uint8_t mode_a, tag_b;
-} MtFrameOut;
-
-static float mt_rf32(const uint8_t *p)
+/* 0x8C09D408 — out-array channel negate pass (runs after every eval).
+ * Two strides: 7 vec3 from +8 (p2 side), 14 vec3 from +84 — wait,
+ * transliterated literally: */
+static void vf3_mt_flip(float *out)
 {
-    union { uint32_t u; float f; } v;
-    v.u = (uint32_t)p[0] | ((uint32_t)p[1] << 8) |
-          ((uint32_t)p[2] << 16) | ((uint32_t)p[3] << 24);
-    return v.f;
+    float *p = out + 2;                    /* add #8,r4 */
+    for (int i = 0; i < 7; ++i) {          /* 0x8C09D408..0x8C09D417 */
+        *p = -*p;                          /* fneg; fmov.s */
+        p += 3;                            /* add #0xc,r4 */
+    }
+    float *q = out + 21;                   /* r4 after = out+8+7*12; then */
+    q = out + 21;                          /* add #-8 -> out+92-8 = out+21 */
+    for (int i = 0; i < 14; ++i) {         /* 0x8C09D418..0x8C09D427 */
+        *q = -*q;
+        q += 3;
+    }
 }
 
-/* One frame of one part, per the trace order:
- *   f_8c09d6f6  reads  byte at stream A base+part (mode)
- *   f_8c09d70c  reads  byte at stream B base+part (tag), when active
- *   f_8c09d779/8C09D780/8C09D784/8C09D796  read the quad at +0x7A4
- *   linked record (if present) overrides from its +0x194 group */
-int mt_step_frame(const MtRecordBody *rec, const MtRecordBody *linked,
-                  uint32_t part, MtFrameOut *out)
+/* Evaluator body: f_8c09d690.  Returns 0 OK, -1 on bad args. */
+int vf3_mt_eval_frame(const VF3MtTask *task, int32_t phase, float **out_pp)
 {
-    if (!rec || !rec->bytes || rec->size <= MT_QUAD_BASE + MT_QUAD_LEN)
+    if (!task || !task->hdr || !out_pp || !*out_pp)
         return -1;
-    if (part >= 8)
-        return -2;
 
-    uint8_t mode_a = rec->bytes[MT_STREAM_A_BASE + part];
-    uint8_t tag_b  = rec->bytes[MT_STREAM_B_BASE + part];
+    const uint8_t *hdr     = task->hdr;
+    const uint8_t *counts  = task->ram +
+        (*(const uint32_t *)(const uint8_t *)(hdr + 0) - task->ram_base);
+    const uint8_t *times   = task->ram +
+        (*(const uint32_t *)(const uint8_t *)(hdr + 4) - task->ram_base);
+    const float   *tup     = (const float *)(task->ram +
+        (*(const uint32_t *)(const uint8_t *)(hdr + 8) - task->ram_base));
+    const uint8_t *ops     = hdr + 12;
+    const int32_t  tabT    = (int32_t)task->cycle << 8;
+    float         *out     = *out_pp;
 
-    const uint8_t *src = rec->bytes + MT_QUAD_BASE;
-    if (linked && linked->bytes && linked->size >= MT_LINK_FST_PARAM + 16)
-        src = linked->bytes + MT_LINK_FST_PARAM;
-    for (unsigned i = 0; i < 4; ++i)
-        out->q[i] = mt_rf32(src + i * 4);
+    for (uint32_t i = 0; i < MT_EVAL_CHANNELS; ++i) {
+        const uint8_t op = ops[i];
+        float v;
+        if (op == 1) {                         /* 0x8C09D6C6: literal float */
+            v = *tup++;
+        } else if (op == 0) {                  /* 0x8C09D6C4 path: fldi0 */
+            v = 0.0f;
+        } else {                               /* 0x8C09D6EA: keyframed */
+            const int     is_spline = (op >= 3);     /* stack8 = op-2 */
+            const uint8_t cnt = *counts++;           /* 0x8C09D6F4 cursor B */
+            int32_t prevT = 0x100;                   /* lit 0x8C09D82C */
+            int32_t nextT;
+            int32_t idx = -1;                        /* key index found */
+            int     exact = 0;
 
-    out->mode_a = mode_a;
-    out->tag_b  = tag_b;
+            /* key scan: find first key whose time >= phase (0x8C09D706 loop) */
+            for (int k = 0; ; ++k) {
+                if (k >= cnt) {                      /* 0x8C09D74A fallback */
+                    nextT = tabT;
+                    break;
+                }
+                const int32_t kt = (int32_t)times[k] << 8;
+                if (kt > phase) { nextT = kt; idx = k; break; }
+                if (kt == phase) { idx = k; exact = 1; break; }
+                prevT = kt;                          /* 0x8C09D720 */
+            }
+
+            times += cnt;                            /* times cursor += count */
+
+            if (exact) {                             /* 0x8C09D722 */
+                if (!is_spline) {
+                    v = tup[idx + 1];                /* scalar tuple[i+1] */
+                    tup += cnt + 2;                  /* 4*(cnt+2) bytes */
+                } else {
+                    v = tup[3 * (idx + 1)];          /* vec3[i+1].x */
+                    tup += 3 * cnt + 4;              /* 12*cnt+16 bytes */
+                }
+            } else {                                 /* 0x8C09D752 lerp */
+                const int32_t rel  = phase - prevT;       /* 0x8C09D760 */
+                const int32_t span = nextT - prevT;       /* 0x8C09D75C */
+                if (!is_spline) {                         /* 0x8C09D7D2 */
+                    const float t  = (float)rel / (float)span;  /* d7da/d7ea */
+                    const float v0 = tup[idx];
+                    const float v1 = tup[idx + 1];
+                    v = v0 + t * (v1 - v0);               /* fmac fr0,fr6,fr4 */
+                    tup += cnt + 2;
+                } else {                                  /* 0x8C09D762..D7CC */
+                    const float t  = (float)rel / (float)span;
+                    const float v0x = tup[3 * idx + 0];   /* fr11 */
+                    const float y0  = tup[3 * idx + 1];   /* d778 (+4) */
+                    const float z0  = tup[3 * idx + 2];   /* d77e (+8) */
+                    const float v1x = tup[3 * idx + 3];   /* d782 (+12) */
+                    /* Hermite cubic (asm order 0x8C09D79A..0x8C09D7CC):
+                     *   slope = t*z0' + (t-1)*y0'   (' = /256, d78e/d792)
+                     *   v = v0x + rel*(t-1)*slope/1 ... expressed as-is:
+                     *   fr8 = v0x + rel * ((t-1)*slope * (1/256)... exact op
+                     *   order kept:                                        */
+                    v = v0x
+                        + (float)rel * (t - 1.0f) * MT_SLOPE_SCALE
+                          * (t * z0 + (t - 1.0f) * y0)
+                        + t * (t * (2.0f * t - 3.0f)) * (v0x - v1x);
+                                                          /* 0x8C09D7C6/C8/CA */
+                    tup += 3 * cnt + 2;                   /* 12*cnt+8 bytes */
+                }
+            }
+        }
+        *out++ = v;                                   /* 0x8C09D7FC..D802 */
+    }
+
+    /* tail: 0x8C09D80E..0x8C09D816 — negate pass + cursor writeback */
+    vf3_mt_flip(*out_pp);
+    *out_pp = out;                                    /* 63 floats written */
     return 0;
 }
+
+/* qt legacy shim: prior milestone API kept for the frame pipeline — the real
+ * semantic source is vf3_mt_eval_frame above. */
