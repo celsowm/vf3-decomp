@@ -1,5 +1,27 @@
 # VF3tb decomp — progress log
 
+## M29 — Scene walker + fight-runner re-verify (2026-09-24)
+- f_8c0b1a54 decoded on true image; 0x8C0B1AA8/AC0 = inline bsrf dispatch
+  table words (frame.c cites annotated stale). Walker switch keys {1,5,
+  9,14,17} -> scene vcall. docs/re/scene_walker_m29.md.
+- f_8c0796f4 = dynamic-entry fight runner (decodes clean; not in baseline
+  funcs as expected).
+
+## M28 — Task spawner + pointer-alias rule (2026-09-24)
+- Literal dwords are physical (0x0C000000-mirror) addresses; alias rule.
+- f_8c0349aa = task spawn/link (alloc f_8c035bf2, init f_8c0356cc,
+  register f_8c0355a0 — dispatcher state-6 helper). docs/re/task_spawn_m28.md.
+
+## M27 — Static maps regenerated on corrected image (2026-09-24)
+- callgraph/hotspots/braf_tables re-run (11 braf sites, word? kind).
+- frame.c ladder audit: pre-M23 addresses stale (table words inside
+  f_8c0b1a54); header warning added.
+
+## M26 — BGM kit boundary re-measured (2026-09-24)
+- Second AICA ladder (resume vf3_6): kit write 0x17EA00..0x1D1100,
+  low region <0x86E54 stable; streaming ring 0x00A000..0x00D000 only.
+  docs/re/sound_bgm_m26.md; script tools/emu/vf3_play_m26.txt.
+
 ## M25 — Boot chain + frame dispatcher (2026-09-23)
 - [x] True-image boot chain: entry 0x8C010000 copy loop -> 0x8C020000 CRT0
       -> 0x8C09574E startup (trace-anchored; first hit rec 97,856,826).
