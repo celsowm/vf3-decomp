@@ -1,13 +1,15 @@
 /* fight/frame.c — fight scene frame pipeline (host-port).
  *
- * Pieces composed (all trace-verified):
- *   cand_is_scene0A     (0x8C0B1AA8/0x8C0B1AC0) = scene0A predicate
- *   fight_f_8c0796f4   (task_run_C runner — 6 jsr site + 2 alt-slot tail)
- *   fight_f_8c09d6e0/69a (mt eval suite — byte streams + per-frame quads)
- *   sd_slot_lookup table (0x8C068F86 : 0xC7..0xCA names)
- *
- * Order per frame follows fight trace (mt eval dominates, task runner
- * dispatches the rest, sd entries fire sparsely on events).
+ * STALE-ADDRESS WARNING (M27, 2026-09-24): the addresses below were
+ * identified on the pre-M23 shuffled image. On the corrected image:
+ *   0x8C0B1AA8/0x8C0B1AC0 are TABLE WORDS inside f_8c0b1a54 (inline
+ *      bsrf dispatch table at 0x8C0B1AA2..8C0B1AD0), NOT function starts.
+ *   0x8c09d6e0 is mid-function inside the MT evaluator f_8c09d690.  (OK)
+ *   0x8c0796f4 decodes as real code but is entered dynamically (not in
+ *      baseline funcs CSV — jsr-only border below Vf3Prologue reach).
+ * The FRAME_SLOTS ladder + scene0A predicate structure need re-derivation
+ * from the true f_8c0b1a54 walker (see docs/re/mainloop_m25.md tremors).
+ * Behaviour composition logic below is retained as the best current model.
  */
 #include "frame.h"
 #include "sd_slot_lookup.h"
