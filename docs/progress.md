@@ -1,5 +1,14 @@
 # VF3tb decomp — progress log
 
+## M25 — Boot chain + frame dispatcher (2026-09-23)
+- [x] True-image boot chain: entry 0x8C010000 copy loop -> 0x8C020000 CRT0
+      -> 0x8C09574E startup (trace-anchored; first hit rec 97,856,826).
+- [x] f_8c034852 = per-frame task-node dispatcher decoded & ported:
+      src/sys/mainloop.{c,h} with guest-arena memory + host registry.
+- [x] tests/mainloop_replay.c (vf3loop): all five result classes + empty
+      chain asserted field-exact — PASS.
+- [x] docs/re/mainloop_m25.md; quarantines pre-M23 main-loop notes.
+
 ## M24 — MT motion VM semantics SOLVED (2026-09-23)
 - [x] Full channel-evaluator decode from the corrected image (f_8c09d690):
       63 channels/frame, op0=zero, op1=literal, op2=scalar keyframe lerp,
