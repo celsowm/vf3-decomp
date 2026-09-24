@@ -28,12 +28,12 @@ Cross-links:
 - Allocator `f_8c035bf2(mem_pool, 0, a, size<<11)`: pool object at
   `root_obj->f2C`; units are bytes encoded as `size<<11` (2 KiB units).
 
-## M28 open thread (next): MT pack mount-time relocation
+## MT pack name-table chain (resolved to table level, 2026-09-24)
 
-`docs/re/mt_vm.md` open thread: the mounted MT record region is shifted
-uniformly ~+0x27B0 vs the file (vf3_7 capture), and the 8,880-slot offset
-table (tools/mtmap.py) is rewritten at mount. The loader sits between
-GDFS read of `MTJACLAU.BIN` (gdfs slot 104) and the task VM motion
-headers; its fixup pass walks `hdr[1]` key-times / `hdr[2]` tuples.
-Static-side search recipe: xref the GDFS-table string `MTJACLAU.BIN`
-(gdfs slot 104) from its literal physical-alias dword.
+`MTJACLAU.BIN` string at 0x8C0D6704 (bin_names row 104); its pointer
+lives in the name-pointer table at **0x8C106A58** = &name_table[104]
+(string tables: 0x8C0D66x4 stride 16; pointer table stride 4 both in the
+0x8C106xxx data island). Table stems from a base+mov.l@(disp,pc)
+reference in the GDFS-load path (the loader fn). Next step: find pool
+dword == 0x8C106xxx base near a sequence read, then walk its caller for
+the +0x27B0 record fixup (`docs/re/mt_vm.md` open thread).
