@@ -1,0 +1,3 @@
+entry,status,file
+0x8c09d690,ported,src/fight/mt_play.c
+0x8c034864,ported,src/sys/mainloop.c
