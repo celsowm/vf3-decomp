@@ -1,5 +1,29 @@
 # VF3tb decomp — progress log
 
+## M30–M40 coverage arc (2026-09-24, docs/plan_m30.md)
+- [x] M30 SDK attribution: exact+masked sweeps; 118/2398 fns lib-attributed
+  (katana_matches_true.csv, libmask_matches.csv; tools/libmask_match.py).
+- [x] M31 batch decompile 2395/2398 fns (Vf3DecompileAll) + coverage
+  dashboard (tools/decomp_stats.py → docs/coverage.md).
+- [x] M32 SHC runtime leaves ported (src/lib/sh4rt.c; vf3libutil PASS);
+  f_8c03482a verified = 5-byte memcmp.
+- [x] M33 GDFS/loader: name-ptr table bounded (no static refs → runtime
+  linked); MT mount = per-record scatter, +0x27B0 falsified (mt_mount_m33.md).
+- [x] M34 task-VM helpers ported (src/sys/taskvm.c; vf3taskvm PASS):
+  finalize/unlink/getters/cursor-bump/thunk model.
+- [x] M35 recon: walker/fight-runner structure decoded; frame.c ladder
+  reinterpreted as offset words (walker_m35.md). Full body port remains.
+- [x] M36 differential anchor: tools/trace_watchcount.py +
+  watchcount_boot3.csv (dispatcher 292,033 hits in boot window).
+- [x] M37 sound layer catalog: libsnd 0.82 mpdrv_* endpoints; framing model
+  (src/sys/soundcmd.c); body borders are segmentation-dead-zone.
+- [x] M38 DL assembly layer (src/render/dl.c + vf3dl PASS on GEN_DMY5).
+- [x] M39 fight-logic catalog (docs/re/fight_tasks_m39.md).
+- [x] M40 gate: coverage.md live — 5.2% fn / 6.4% byte attribution.
+  Ceiling finding: the binary is ~90% custom engine (SDK ≈ 5%); the 50%
+  shaping target in plan_m30 needs full engine port (multi-milestone).
+  Gate tracked in coverage.md from now on.
+
 ## M29 — Scene walker + fight-runner re-verify (2026-09-24)
 - f_8c0b1a54 decoded on true image; 0x8C0B1AA8/AC0 = inline bsrf dispatch
   table words (frame.c cites annotated stale). Walker switch keys {1,5,
