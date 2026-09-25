@@ -54,6 +54,36 @@ Shipped as `src/fight/orient2.{c,h}` + `tests/orient2_replay.c`.
 `vf3orient2` replays all 64 unique golden vectors: **64/64 match - PASS**;
 `tools/portcheck.py` binds it and reports PASS.
 
+## Second oracle-verified port (Phase C, continued)
+`0x8C068FF6` — the #2 hottest function (288 B, ~1.4M summed trace hits),
+`src/fight/poly_classify.{c,h}`. It classifies a sample point `(fr4,fr5)`
+against a quad (`p0..p3`) reached through a descriptor + base pointer:
+
+```
+flags    = *(u32*)r4;                  if (flags & 1) return 1;
+rec      = *(u32*)(r4+4) + *(u32*)r3;
+stored   = *(u32*)rec & 1;
+if (*(float*)(rec+24) == 0) return 0;
+h1..h5   = orient2 of (fr4,fr5) vs edges p0p1, p1p2, p2p0, p2p3, p3p0
+m        = h3 | (h1&6) | (h2&6)
+if (bit2(m) != bit4(m)) return 2;
+if (stored != 0)        return 0;
+a        = h1 | (h2&6) | (h4&6) | (h5&6);
+return (bit2(a) != bit4(a)) ? 4 : 0;
+```
+
+- RAM oracle support: `VF3_RAMPC=<pc list>`, `VF3_RAMN=<count>`,
+  `VF3_RAMWIN=<base len [base len ...]>` dumps up to 4 address windows at
+  entry (for this port: one 16 MB window `0c000000 1000000`).
+- `tools/golden_extract.py` now also writes `<fn>.cases`:
+  `37 in words, 37 out words, ram-file, up to two window pairs`; the C
+  replay test maps SH-4 P1/P2 aliases into the window.
+- `tests/poly_classify_replay.c`: **16/16 RAM-backed oracle cases PASS**
+  (`build/vf3poly.exe`).
+- Disassembly notes: on SH-4 `bf`/`bt` are non-delayed while `bf/s`/`bt/s`
+  are delayed; the earlier confusion about the helper's `rts` in a `bf`
+  delay slot was a decoder artifact. The real control flow is straightforward.
+
 ## Findings
 - Trace "function" labels in `trace_fn_hits.csv` are mostly **internal loop
   points**, not entries; `port_backlog.py` maps them to containing baseline

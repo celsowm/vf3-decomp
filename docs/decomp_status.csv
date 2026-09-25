@@ -15,3 +15,4 @@ entry,status,file,size,method,oracle
 0x8c0796f4,ported-stub,src/fight/walker.c,0,structural-model,trace vf3_7 watch pending
 0x8c034852,ported-alias,src/sys/mainloop.c,0,transliteration,tests/mainloop_replay.c PASS
 0x8c068f92,ported,src/fight/orient2.c,54,oracle-verified,tests/orient2_replay.c 64/64 golden PASS
+0x8c068ff6,ported,src/fight/poly_classify.c,288,oracle-verified,tests/poly_classify_replay.c 16/16 RAM cases PASS

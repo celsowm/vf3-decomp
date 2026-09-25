@@ -4,5 +4,11 @@
   "golden": "extract/analysis/goldens/f_0c068f92.txt",
   "source": "SH-4 0x8C068F92, 54 B, 11k calls / 120 fight frames",
   "port": "src/fight/orient2.c"
+ },
+ "0x8c068ff6": {
+  "test": "build/vf3poly.exe",
+  "golden": "extract/analysis/goldens/f_0c068ff6.cases",
+  "source": "SH-4 0x8C068FF6, 288 B, ~1.4M summed trace hits",
+  "port": "src/fight/poly_classify.c (with orient2)"
  }
 }

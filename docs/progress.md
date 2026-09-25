@@ -15,6 +15,11 @@
 - [x] Phase C port: `0x8C068F92` (54 B FPU orientation-bits helper, called 5x
   by the #2 hottest fn) -> src/fight/orient2.{c,h}; tests/orient2_replay.c
   replays all 64 unique golden vectors **64/64 PASS**; portcheck PASS.
+- [x] Phase C port 2: `0x8C068FF6` (288 B quad classifier, #2 hottest,
+  ~1.4M hits) -> src/fight/poly_classify.{c,h}. Oracle grew RAM windows
+  (VF3_RAMPC/VF3_RAMN/VF3_RAMWIN) + `.cases` format;
+  tests/poly_classify_replay.c **16/16 RAM cases PASS**. Rigorous coverage
+  **274/2398 (11.4%), 44,146 B (10.2%)**.
 - [x] Finding: no pure-integer function exists in the hot set; hot engine is
   FPU+memory, so the next oracle increment is memory-window capture.
 

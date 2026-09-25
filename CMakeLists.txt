@@ -9,6 +9,7 @@ add_library(vf3core STATIC
     src/fight/mt_play.c
     src/fight/mt_mount.c
     src/fight/orient2.c
+    src/fight/poly_classify.c
     src/fight/walker.c
     src/fight/scene_predicate.c
     src/fight/sd_slot_lookup.c
@@ -63,3 +64,6 @@ target_link_libraries(vf3mtmount PRIVATE vf3core)
 
 add_executable(vf3orient2 tests/orient2_replay.c)
 target_link_libraries(vf3orient2 PRIVATE vf3core)
+
+add_executable(vf3poly tests/poly_classify_replay.c)
+target_link_libraries(vf3poly PRIVATE vf3core)
