@@ -53,6 +53,30 @@ def sdk053_claims():
     return full, frag
 
 
+def sdk_union_claims():
+    """(full, fragment) from the release-8 + 0.40 union corpus sweep.
+
+    BROADER than sdk053_claims(): same matcher, all carved SDK corpora
+    (sdk8eu SH-4 ELFs/libs, 0.40 libs). Verified 0 concrete mismatch for the
+    new full-body set by tools/verify_union.py. Entries already claimed by
+    earlier buckets are excluded by the caller.
+    """
+    full, frag = set(), set()
+    p = AN / "sdk_union_matches.csv"
+    if not p.exists():
+        return full, frag
+    with open(p, newline="") as f:
+        for r in csv.DictReader(f):
+            ent = int(r["entry"], 16)
+            size = int(r["size"])
+            span = int(r["span_words"]) * 2
+            if span >= size:
+                full.add(ent)
+            elif span >= 60 and span * 10 >= size * 4:
+                frag.add(ent)
+    return full, frag
+
+
 def trace_executed():
     """fn entries with live-trace evidence (L1, execution-identification).
     NOT byte-matched or ported. Reads trace_executed.csv (tools/trace_attrib.py)."""
@@ -193,15 +217,28 @@ def main() -> int:
     frag_n = len(frag_map)
     frag_b = sum(f["size"] for f in funcs if f["entry"] in frag_map)
 
-    att_n, att_b = (ported_n + lib_n + reloc_n + v040_n + s053_n + frag_n,
-                    ported_b + lib_b + reloc_b + v040_b + s053_b + frag_b)
+    # 2e) union-corpus (release-8 + 0.40) matches not already credited
+    union_full, union_frag = sdk_union_claims()
+    taken = claimed_so_far | sdk053_map | frag_map
+    union_map = {e for e in union_full if e not in taken}
+    ufrag_map = {e for e in union_frag if e not in taken and e not in union_map}
+    uni_n = len(union_map)
+    uni_b = sum(f["size"] for f in funcs if f["entry"] in union_map)
+    ufrag_n = len(ufrag_map)
+    ufrag_b = sum(f["size"] for f in funcs if f["entry"] in ufrag_map)
+
+    att_n, att_b = (ported_n + lib_n + reloc_n + v040_n + s053_n + frag_n
+                    + uni_n + ufrag_n,
+                    ported_b + lib_b + reloc_b + v040_b + s053_b + frag_b
+                    + uni_b + ufrag_b)
 
     # 3) trace-executed (execution-identification, not byte-matched/ported)
     trace = trace_executed()
     trace_claim = {e for e in trace
                    if e not in ported and e not in lib_claim
                    and e not in reloc_claim and e not in v040_claim
-                   and e not in sdk053_map and e not in frag_map}
+                   and e not in sdk053_map and e not in frag_map
+                   and e not in union_map and e not in ufrag_map}
     trace_n = len(trace_claim)
     trace_b = sum(f["size"] for f in funcs if f["entry"] in trace_claim)
     grand_n = att_n + trace_n
@@ -223,6 +260,8 @@ def main() -> int:
         f"| SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | {v040_n} | {pct(v040_n/tot_f)} | {v040_b} | {pct(v040_b/tot_b)} |",
         f"| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | {s053_n} | {pct(s053_n/tot_f)} | {s053_b} | {pct(s053_b/tot_b)} |",
         f"| SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | {frag_n} | {pct(frag_n/tot_f)} | {frag_b} | {pct(frag_b/tot_b)} |",
+        f"| SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | {uni_n} | {pct(uni_n/tot_f)} | {uni_b} | {pct(uni_b/tot_b)} |",
+        f"| SDK-fragment (union corpus partial) | {ufrag_n} | {pct(ufrag_n/tot_f)} | {ufrag_b} | {pct(ufrag_b/tot_b)} |",
         f"| trace-executed (execution-ID, NOT ported/matched) | {trace_n} | {pct(trace_n/tot_f)} | {trace_b} | {pct(trace_b/tot_b)} |",
         f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
@@ -244,6 +283,8 @@ def main() -> int:
         "v040_fns": v040_n, "v040_bytes": v040_b,
         "sdk053_fns": s053_n, "sdk053_bytes": s053_b,
         "sdk053_frag_fns": frag_n, "sdk053_frag_bytes": frag_b,
+        "union_fns": uni_n, "union_bytes": uni_b,
+        "union_frag_fns": ufrag_n, "union_frag_bytes": ufrag_b,
         "trace_fns": trace_n, "trace_bytes": trace_b,
         "grand_fns": grand_n, "grand_bytes": grand_b,
     }, indent=1))

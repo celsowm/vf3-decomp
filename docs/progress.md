@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Phase A: SDK union-corpus sweep (2026-09-25)
+- [x] `tools/iso_carve.py`: ISO9660 carver (layout auto-detect) -> SH-4 ELF
+  / SYSROF region blob + manifest. SDK release 8 `TOC122A.img`: 1,594 SH-4
+  ELFs + 97 libs/objs (21.2 MB) -> extract/analysis/sdk_corpus/sdk8eu.*.
+- [x] `tools/sdk_sweep.py`: union matcher over sdk8eu + DCSDK 1.00J samples +
+  0.40 libs + Katana 1.0B2 + Kamui2. 362 matched / 213 full-body.
+- [x] `tools/verify_union.py`: 31/31 new full-body matches, **0 concrete
+  mismatch** (sdk_union_verify.txt, side-by-side disasm).
+- [x] New transparent bucket: union corpus 29 fns / 1,184 B + 2 fragments.
+  **Rigorous 273/2398 (11.4%) 43,804 B (10.1%); incl-trace 431 (18.0%) /
+  106,876 B (24.6%).** Ceiling documented: game GDFS 0.53 vs release-8
+  1.02-1.07; exact 0.53 only in DCSDK samples; remainder is custom engine.
+  docs/re/sdk_union.md.
+
 ## Exact-version SDK acquisition (2026-09-25)
 - [x] Downloaded Katana 0.40 Pre.2/Release.4 + SDK release 8 + Sega Library
   1.00J (tools/katana_raw/, gitignored). Version anchors: GDFS 0.46/0.49/
