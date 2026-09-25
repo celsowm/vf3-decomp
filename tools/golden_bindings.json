@@ -22,5 +22,17 @@
   "golden": "extract/analysis/goldens_e16/f_0c068e16.cases",
   "source": "SH-4 0x8C068E16 warping scale-map sampler, 64 pairs, 32 RAM cases; game FPSCR RM=1 (truncate)",
   "port": "src/fight/scalemap.c (helpers 0x8C068D54/0x8C068DE4 internal)"
+ },
+ "0x8c092f12": {
+  "test": "build/vf3tailcall.exe",
+  "golden": "extract/analysis/goldens_ab/f_0c092f12.cases",
+  "source": "SH-4 0x8C092F12 epilogue fragment (10 B), 64 pairs / 8 RAM cases",
+  "port": "src/fight/tailcall.c"
+ },
+ "0x8c092abe": {
+  "test": "build/vf3tailcall.exe extract/analysis/goldens_ab/f_0c092abe.cases",
+  "golden": "extract/analysis/goldens_ab/f_0c092abe.cases",
+  "source": "SH-4 0x8C092ABE spill+[r2+4]+=[r1] fragment (24 B), 64 pairs / 8 RAM cases",
+  "port": "src/fight/tailcall.c"
  }
 }

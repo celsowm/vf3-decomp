@@ -11,6 +11,7 @@ add_library(vf3core STATIC
     src/fight/orient2.c
     src/fight/poly_classify.c
     src/fight/scalemap.c
+    src/fight/tailcall.c
     src/fight/vecpush.c
     src/fight/walker.c
     src/fight/scene_predicate.c
@@ -78,6 +79,7 @@ function(add_port_test tname src)
 endfunction()
 
 add_port_test(vf3scalemap tests/scalemap_replay.c)
+add_port_test(vf3tailcall tests/tailcall_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

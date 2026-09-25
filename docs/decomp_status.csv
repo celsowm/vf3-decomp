@@ -18,3 +18,5 @@ entry,status,file,size,method,oracle
 0x8c068ff6,ported,src/fight/poly_classify.c,288,oracle-verified,tests/poly_classify_replay.c 16/16 RAM cases PASS
 0x8c071a76,ported,src/fight/vecpush.c,66,oracle-verified-piecewise,tests/vecpush_replay.c 7/7 cases PASS (entry->0x8C071ABE)
 0x8c068e16,ported-piecewise,src/fight/scalemap.c,352,oracle-verified (RAM shadow diff),vf3scalemap 32/32 PASS
+0x8c092f12,ported,src/fight/tailcall.c,10,oracle-verified,tailcall_replay 8/8 PASS
+0x8c092abe,ported,src/fight/tailcall.c,24,oracle-verified,tailcall_abe_replay 8/8 PASS
