@@ -27,7 +27,7 @@ from fidhash import mask_word
 BASE = 0x8C010000
 
 
-def make_tokens(body: bytes, fn_off: int):
+def make_tokens(body: bytes, fn_off: int, reg_mask: bool = False):
     """Token stream for a function body: None = literal-pool wildcard."""
     n = len(body) // 2
     words = [body[2 * i] | (body[2 * i + 1] << 8) for i in range(n)]
@@ -41,7 +41,12 @@ def make_tokens(body: bytes, fn_off: int):
         elif top == 0x9000:  # mov.w @(disp,PC),Rn -> 1 word
             pool = (fn_off + i * 2 + 4) + (w & 0xFF) * 2
             bad.add((pool - fn_off) // 2)
-    return [None if i in bad else mask_word(w) for i, w in enumerate(words)]
+    def tok(w):
+        if reg_mask:
+            # opcode + low nibble only; zero register fields [11:4]
+            return (w & 0xF00F)
+        return mask_word(w)
+    return [None if i in bad else tok(w) for i, w in enumerate(words)]
 
 
 def find(tokens, gmask, gbytes, lo, hi, min_words):
@@ -96,11 +101,18 @@ def main() -> int:
     ap.add_argument("--min-words", type=int, default=8)
     ap.add_argument("--lo", default=None)
     ap.add_argument("--hi", default=None)
+    ap.add_argument("--reg-mask", action="store_true",
+                    help="opcode-structural matching (zero register fields)")
     a = ap.parse_args()
 
     blob = Path(a.blob).read_bytes()
     gn = len(blob) // 2
-    gmask = [mask_word(blob[2 * i] | (blob[2 * i + 1] << 8)) for i in range(gn)]
+    if a.reg_mask:
+        gmask = [(blob[2 * i] | (blob[2 * i + 1] << 8)) & 0xF00F
+                 for i in range(gn)]
+    else:
+        gmask = [mask_word(blob[2 * i] | (blob[2 * i + 1] << 8))
+                 for i in range(gn)]
     gbytes = b"".join(t.to_bytes(2, "little") for t in gmask)
     lo = int(a.lo, 0) if a.lo else 0
     hi = int(a.hi, 0) if a.hi else len(blob)
@@ -116,7 +128,7 @@ def main() -> int:
         off = ent - BASE
         if size < a.min_words * 2 or off < 0 or off + size > len(game):
             continue
-        toks = make_tokens(game[off:off + size], off)
+        toks = make_tokens(game[off:off + size], off, reg_mask=a.reg_mask)
         m = find(toks, gmask, gbytes, lo, hi, a.min_words)
         if m:
             rows.append({"entry": f"0x{ent:08x}", "name": name,

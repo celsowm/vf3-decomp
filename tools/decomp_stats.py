@@ -30,17 +30,27 @@ def load_funcs():
     return rows
 
 
-def sdk053_claim():
-    """Game fns whose full body matches the GDFS-0.53 sample ELFs
-    (tools/sdk053_match.py; 0 concrete-token mismatch). Exact-version SDK."""
-    out = set()
+def sdk053_claims():
+    """(full, fragment) sets from the GDFS-0.53 sample-ELF matches.
+
+    full     = matched span covers the whole baseline fn (0 concrete mismatch).
+    fragment = matched span >= 40 words (80 B) and >= 50% of the fn body:
+               clearly shared SDK code, fn has extra game-side head/tail.
+    """
+    full, frag = set(), set()
     p = AN / "sdk053_matches.csv"
-    if p.exists():
-        with open(p, newline="") as f:
-            for r in csv.DictReader(f):
-                if int(r["span_words"]) * 2 >= int(r["size"]):
-                    out.add(int(r["entry"], 16))
-    return out
+    if not p.exists():
+        return full, frag
+    with open(p, newline="") as f:
+        for r in csv.DictReader(f):
+            ent = int(r["entry"], 16)
+            size = int(r["size"])
+            span = int(r["span_words"]) * 2
+            if span >= size:
+                full.add(ent)
+            elif span >= 60 and span * 10 >= size * 4:
+                frag.add(ent)
+    return full, frag
 
 
 def trace_executed():
@@ -173,22 +183,25 @@ def main() -> int:
     v040_b = sum(f["size"] for f in funcs if f["entry"] in v040_claim)
 
     # 2d) exact-version GDFS 0.53 sample-ELF matches
-    sdk053 = sdk053_claim()
-    sdk053_claim_map = {e for e in sdk053
-                        if e not in ported and e not in lib_claim
-                        and e not in reloc_claim and e not in v040_claim}
-    s053_n = len(sdk053_claim_map)
-    s053_b = sum(f["size"] for f in funcs if f["entry"] in sdk053_claim_map)
+    sdk053_full, sdk053_frag = sdk053_claims()
+    claimed_so_far = set(ported) | set(lib_claim) | set(reloc_claim) | set(v040_claim)
+    sdk053_map = {e for e in sdk053_full if e not in claimed_so_far}
+    frag_map = {e for e in sdk053_frag
+                if e not in claimed_so_far and e not in sdk053_map}
+    s053_n = len(sdk053_map)
+    s053_b = sum(f["size"] for f in funcs if f["entry"] in sdk053_map)
+    frag_n = len(frag_map)
+    frag_b = sum(f["size"] for f in funcs if f["entry"] in frag_map)
 
-    att_n, att_b = (ported_n + lib_n + reloc_n + v040_n + s053_n,
-                    ported_b + lib_b + reloc_b + v040_b + s053_b)
+    att_n, att_b = (ported_n + lib_n + reloc_n + v040_n + s053_n + frag_n,
+                    ported_b + lib_b + reloc_b + v040_b + s053_b + frag_b)
 
     # 3) trace-executed (execution-identification, not byte-matched/ported)
     trace = trace_executed()
     trace_claim = {e for e in trace
                    if e not in ported and e not in lib_claim
                    and e not in reloc_claim and e not in v040_claim
-                   and e not in sdk053_claim_map}
+                   and e not in sdk053_map and e not in frag_map}
     trace_n = len(trace_claim)
     trace_b = sum(f["size"] for f in funcs if f["entry"] in trace_claim)
     grand_n = att_n + trace_n
@@ -209,6 +222,7 @@ def main() -> int:
         f"| SDK-attributed (reloc-aware, L2 verified) | {reloc_n} | {pct(reloc_n/tot_f)} | {reloc_b} | {pct(reloc_b/tot_b)} |",
         f"| SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | {v040_n} | {pct(v040_n/tot_f)} | {v040_b} | {pct(v040_b/tot_b)} |",
         f"| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | {s053_n} | {pct(s053_n/tot_f)} | {s053_b} | {pct(s053_b/tot_b)} |",
+        f"| SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | {frag_n} | {pct(frag_n/tot_f)} | {frag_b} | {pct(frag_b/tot_b)} |",
         f"| trace-executed (execution-ID, NOT ported/matched) | {trace_n} | {pct(trace_n/tot_f)} | {trace_b} | {pct(trace_b/tot_b)} |",
         f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
@@ -229,6 +243,7 @@ def main() -> int:
         "reloc_fns": reloc_n, "reloc_bytes": reloc_b,
         "v040_fns": v040_n, "v040_bytes": v040_b,
         "sdk053_fns": s053_n, "sdk053_bytes": s053_b,
+        "sdk053_frag_fns": frag_n, "sdk053_frag_bytes": frag_b,
         "trace_fns": trace_n, "trace_bytes": trace_b,
         "grand_fns": grand_n, "grand_bytes": grand_b,
     }, indent=1))

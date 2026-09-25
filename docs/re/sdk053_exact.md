@@ -23,23 +23,31 @@ version the game links.
   wildcarded), seed-6 and bidirectionally extend inside the carved blob.
 
 ## Result
-- **142 full-body matches** (entire fn token stream found), **0 concrete-token
-  mismatches**; +66 fns not already credited.
+- **182 full-body matches** (entire fn token stream found), **0 concrete-token
+  mismatches**; 90 new fns not already credited, plus 9 SDK-fragment fns
+  (matched span >=60 B and >=40% of body).
 - Verified independently: `0x8C064DA0` (700 B VDP/vertex setup) is
   instruction-for-instruction identical to blob `0xe5208` (loads at
   `0x8C0F5208`) — `sts.l pr,@-r15; add #-16,r15; mov.l @r4,r3; ...`.
-- Match regions: pages 0x05 (113) / 0x06 (69) = ninja/PVR rendering, plus a
-  few in 0x03/0x04/0x07/0x0a/0x0c.
+- The 18 sample ELFs span `0x1783f758..0x1ab76988` (carved whole to ISO end:
+  `extract/analysis/sdk053_samples.bin`, 78 MB). Match regions: pages 0x05 /
+  0x06 = ninja/PVR rendering, plus 0x03/0x04/0x07/0x0a.
+- A register-masked opcode-structural pass (`--reg-mask`) did NOT extend
+  GDFS (page 0x03) matches: the game's GDFS 0.53 is compiled with different
+  flags than the sample build, so the divergence is not register allocation.
 
-## Coverage impact (decomp_stats, new transparent bucket)
-`SDK-attributed (GDFS 0.53 sample-ELF, exact version)` = **66 fns / 8210 B**.
+## Coverage impact (decomp_stats, new transparent buckets)
+- `SDK-attributed (GDFS 0.53 sample-ELF, exact version)` = **90 fns / 9984 B**
+- `SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%)` = **9 fns / 3218 B**
 
 | metric | before | after |
 |---|---|---|
-| rigorous fns | 143 (6.0%) | **209 (8.7%)** |
-| rigorous bytes | 28,976 (6.7%) | **37,186 (8.6%)** |
-| incl-trace fns | 301 (12.6%) | **367 (15.3%)** |
-| incl-trace bytes | 92,048 (21.2%) | **100,258 (23.1%)** |
+| rigorous fns | 143 (6.0%) | **242 (10.1%)** |
+| rigorous bytes | 28,976 (6.7%) | **42,178 (9.7%)** |
+| incl-trace fns | 301 (12.6%) | **400 (16.7%)** |
+| incl-trace bytes | 92,048 (21.2%) | **105,250 (24.2%)** |
+
+**SDK 10% target reached** (fn-denominated); byte coverage 9.7%. |
 
 ## Notes / next
 - GDFS (page 0x03) matched only partially (6-word spans): the game's GDFS 0.53

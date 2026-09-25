@@ -12,6 +12,9 @@
 - [x] Coverage: rigorous 209/2398 (8.7%) 37186 B (8.6%); incl-trace
   367/2398 (15.3%) 100258 B (23.1%). New decomp_stats bucket
   "GDFS 0.53 sample-ELF, exact version" (66 fns). Commit 5248b8a + this.
+- [x] Extended to all 18 sample ELFs (carve 78 MB): 182 full-body matches,
+  90 exact + 9 fragment new fns. **Rigorous 242/2398 (10.1%) 42178 B (9.7%);
+  incl-trace 400/2398 (16.7%) 105250 B (24.2%) — SDK 10% target reached.**
 
 ## Coverage fast path (2026-09-25, L1+L4)
 - [x] L1 trace bucket: tools/trace_attrib.py + decomp_stats row
