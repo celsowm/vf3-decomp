@@ -8,9 +8,10 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 | SDK-attributed (masked byte match) | 118 | 4.9% | 25694 | 5.9% |
 | SDK-attributed (reloc-aware, L2 verified) | 2 | 0.1% | 218 | 0.1% |
 | SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 19 | 0.8% | 1520 | 0.3% |
+| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 66 | 2.8% | 8210 | 1.9% |
 | trace-executed (execution-ID, NOT ported/matched) | 158 | 6.6% | 63072 | 14.5% |
-| **rigorous accounted (ported+SDK)** | 143 | 6.0% | 28976 | 6.7% |
-| **total incl. trace** | 301 | 12.6% | 92048 | 21.2% |
+| **rigorous accounted (ported+SDK)** | 209 | 8.7% | 37186 | 8.6% |
+| **total incl. trace** | 367 | 15.3% | 100258 | 23.1% |
 
 SDK attribution by library (fn count):
 - ninja: 96

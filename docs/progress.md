@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Exact-version SDK acquisition (2026-09-25)
+- [x] Downloaded Katana 0.40 Pre.2/Release.4 + SDK release 8 + Sega Library
+  1.00J (tools/katana_raw/, gitignored). Version anchors: GDFS 0.46/0.49/
+  0.53/1.00/1.06 across drops; game = GDFS 0.53 (1998/08/28).
+- [x] Sega Library 1.00J ISO carries 14 SH-4 sample ELFs linked with the
+  EXACT game libraries (GDFS 0.53, gdFs Build Sep 07 1998). tools/iso_list.py
+  + tools/sdk053_match.py (mask+pool-wildcard full-body matcher).
+- [x] 142 full-body matches, 0 concrete mismatch (+66 new fns). Verified
+  0x8C064DA0 == blob 0xe5208 instruction-identical. docs/re/sdk053_exact.md.
+- [x] Coverage: rigorous 209/2398 (8.7%) 37186 B (8.6%); incl-trace
+  367/2398 (15.3%) 100258 B (23.1%). New decomp_stats bucket
+  "GDFS 0.53 sample-ELF, exact version" (66 fns). Commit 5248b8a + this.
+
 ## Coverage fast path (2026-09-25, L1+L4)
 - [x] L1 trace bucket: tools/trace_attrib.py + decomp_stats row
   (trace-executed = execution-ID, not ported/matched). 161 baseline fns
