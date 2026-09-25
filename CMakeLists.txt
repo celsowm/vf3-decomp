@@ -21,6 +21,7 @@ add_library(vf3core STATIC
     src/sys/mainloop.c
     src/lib/sh4rt.c
     src/sys/taskvm.c
+    src/sys/soundcmd.c
 )
 target_include_directories(vf3core PUBLIC src)
 
