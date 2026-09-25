@@ -1,5 +1,21 @@
 # Coverage roadmap — next batches (2026-09-25)
 
+## Status checkpoint (end of campaign-0/A-first-port session)
+- Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
+  windows, `port_plan`, `verify_all`, shared harness; plus three fork
+  capture-integrity fixes and the game's FPSCR.RM=1 truncation semantics
+  (`e451afc`, documented in `port_oracle.md`).
+- Campaign A: first port landed — `0x8C068E16` -> `src/fight/scalemap.c`,
+  **32/32 RAM-shadow cases PASS**. Campaign A list refreshed by `port_plan`
+  (42 fns / 12,466 B remaining).
+- Capture sets refreshed with the fixed fork: `goldens_abreg` (85 fns regs),
+  `goldens_ab` (85 fns, 8 RAM cases each).
+- `0x8C06951A` (single-lookup sibling of scalemap): real function, but it
+  does not execute in the fight state nor in the old fight savestates
+  (`vf3_1..30`, 120 frames) — needs a menu/attract/particle capture
+  (Campaign E). Draft port removed until it can be golden-verified.
+- Coverage: rigorous **276/2398 (11.5%) / 44,564 B (10.3%)**.
+
 Baseline snapshot (`tools/decomp_stats.py`, HEAD `0bbd92c`):
 rigorous **275/2398 fns (11.5%) / 44,212 B (10.2%)**; identified
 executed-but-unaccounted **161 fns / 63,662 B**; hot backlog (>=10k hits)

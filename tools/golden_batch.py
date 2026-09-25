@@ -56,6 +56,9 @@ def main() -> int:
     ap.add_argument("--ramnexit", type=int, default=-1)
     ap.add_argument("--max-samples", type=int, default=64)
     ap.add_argument("--edges", action="store_true", help="also log VF3_EDGES")
+    ap.add_argument("--instr", action="store_true",
+                    help="keep the full instruction stream (default: "
+                         "snapshot-only traces)")
     ap.add_argument("--no-extract", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
@@ -82,6 +85,7 @@ def main() -> int:
             "VF3_TRACE": str(trace),
             "VF3_TRACE_FRAMES": str(frames),
             "VF3_RAMN": str(a.ramn),
+            "VF3_INSTR": "1" if a.instr else "0",
         })
         if a.ramnexit >= 0:
             env["VF3_RAMNEXIT"] = str(a.ramnexit)

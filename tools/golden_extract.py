@@ -47,6 +47,8 @@ def read_ram_group(recs, i):
     Returns (pc, wins, blob, next_i)."""
     pc = recs[i] >> 16
     nwin = recs[i + 1] & 0xFFFFFFFF
+    if nwin > 64:
+        return pc, [], [], i + 1
     j = i + 2
     wins = []
     blob = []
@@ -58,7 +60,7 @@ def read_ram_group(recs, i):
         if len(words) != nw:
             break
         wins.append((base, ln))
-        blob.append(array("I", words).tobytes())
+        blob.append(array("I", [w & 0xFFFFFFFF for w in words]).tobytes())
         j += 2 + nw
     return pc, wins, blob, j + 1 if len(wins) == nwin else i + 1
 

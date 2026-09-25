@@ -60,8 +60,10 @@ def main() -> int:
     gdir = Path(a.goldens)
     rows = []
     watch_lines = []
-    for jf in sorted(gdir.glob("*.json")):
+    for jf in sorted(gdir.glob("f_*.json")):
         doc = json.loads(jf.read_text(encoding="utf-8"))
+        if "pc" not in doc:
+            continue
         pc = int(doc["pc"], 16)
         # counts per canonical pointer, plus originating register
         counts: dict[int, int] = {}
@@ -96,12 +98,13 @@ def main() -> int:
                          "base": "-", "len": "-", "pointers": 0,
                          "regs": ""})
             continue
-        watch_lines.append(f"pc {doc['pc']}")
+        upc = pc | 0x80000000
+        watch_lines.append(f"pc 0x{upc:08x}")
         allregs = set()
         nptr = 0
         for b, e in picks:
             ln = (e - b + 3) & ~3
-            watch_lines.append(f"rampc {doc['pc']} 0x{b:08x} 0x{ln:x}")
+            watch_lines.append(f"rampc 0x{upc:08x} 0x{b:08x} 0x{ln:x}")
             for p in counts:
                 if b <= p < e:
                     nptr += 1
@@ -115,7 +118,8 @@ def main() -> int:
     outp = Path(a.out)
     outp.parent.mkdir(parents=True, exist_ok=True)
     outp.write_text("\n".join(watch_lines) + "\n", encoding="utf-8")
-    print(f"derive_windows: {len([r for r in rows if r['base'] != '-'])} PCs with windows -> {outp}")
+    print(f"derive_windows: {len({r['pc'] for r in rows if r['base'] != '-'})} PCs, "
+          f"{len([r for r in rows if r['base'] != '-'])} windows -> {outp}")
     if a.csv:
         cp = Path(a.csv)
         cp.parent.mkdir(parents=True, exist_ok=True)

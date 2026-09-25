@@ -32,37 +32,10 @@
 #include <string.h>
 
 #include "fight/scalemap.h"
+#include "fight/fpu_tz.h"
 
-/* FPSCR.RM == 1: truncate every FPU op toward zero. */
-static float f32_tz(long double x)
-{
-    float f = (float)x;                        /* nearest */
-    if (f != 0.0f && fabsl((long double)f) > fabsl(x))
-        f = nextafterf(f, 0.0f);               /* step toward zero */
-    return f;
-}
-
-static float fmul_tz(float a, float b) { return f32_tz((long double)a * b); }
-static float fadd_tz(float a, float b) { return f32_tz((long double)a + b); }
-static float fsub_tz(float a, float b) { return f32_tz((long double)a - b); }
-static float fmac_tz(float a, float b, float c)
-{
-    return f32_tz(fmal((long double)a, (long double)b, (long double)c));
-}
-
-static float bits_to_f32(uint32_t bits)
-{
-    float f;
-    memcpy(&f, &bits, 4);
-    return f;
-}
-
-static uint32_t f32_to_bits(float f)
-{
-    uint32_t bits;
-    memcpy(&bits, &f, 4);
-    return bits;
-}
+static float bits_to_f32(uint32_t bits) { return fpu_bits_to_f32(bits); }
+static uint32_t f32_to_bits(float f) { return fpu_f32_to_bits(f); }
 
 /* ---- replay memory access (windows are writable shadows) ---------------- */
 static uint8_t *win_of(const vf3_ram_map *ram, uint32_t addr, uint32_t n)
