@@ -1,5 +1,23 @@
 # VF3tb decomp — progress log
 
+## Phase B + C: golden oracle + first oracle-verified port (2026-09-25)
+- [x] Flycast `VF3_FULL=1` oracle mode: entry/exit snapshots
+  (r0-r15, pr, sr, fpscr, macl, mach, fr0-fr15), call-depth tracking, exit
+  after the rts delay slot. `tools/emu/` is gitignored; recipe in
+  docs/re/port_oracle.md.
+- [x] `tools/golden_extract.py` -> extract/analysis/goldens/*.{json,txt} +
+  index (5 fns, 0 unpaired exits; 11k samples for 0x8C068F92).
+- [x] `tools/portcheck.py` (goldens + all build tests + golden-bound ports)
+  and `tools/golden_bindings.json`.
+- [x] `tools/port_backlog.py`: 2,181 unclaimed fns ranked by summed trace heat
+  -> extract/analysis/port_backlog.csv; real hot set 0x8C0738FC / 0x8C068FF6 /
+  0x8C068E16 (labels in trace_fn_hits are internal points, now mapped).
+- [x] Phase C port: `0x8C068F92` (54 B FPU orientation-bits helper, called 5x
+  by the #2 hottest fn) -> src/fight/orient2.{c,h}; tests/orient2_replay.c
+  replays all 64 unique golden vectors **64/64 PASS**; portcheck PASS.
+- [x] Finding: no pure-integer function exists in the hot set; hot engine is
+  FPU+memory, so the next oracle increment is memory-window capture.
+
 ## Phase A: SDK union-corpus sweep (2026-09-25)
 - [x] `tools/iso_carve.py`: ISO9660 carver (layout auto-detect) -> SH-4 ELF
   / SYSROF region blob + manifest. SDK release 8 `TOC122A.img`: 1,594 SH-4

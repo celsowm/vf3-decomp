@@ -1,0 +1,8 @@
+{
+ "0x8c068f92": {
+  "test": "build/vf3orient2.exe",
+  "golden": "extract/analysis/goldens/f_0c068f92.txt",
+  "source": "SH-4 0x8C068F92, 54 B, 11k calls / 120 fight frames",
+  "port": "src/fight/orient2.c"
+ }
+}
