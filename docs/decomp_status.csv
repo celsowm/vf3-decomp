@@ -5,3 +5,9 @@ entry,status,file,size
 0x8c042fdc,ported,src/lib/sh4rt.c,60
 0x8c03f5b2,ported-alias,src/lib/sh4rt.c,24
 0x8c03482a,ported,src/lib/sh4rt.c,30
+0x8c0355a0,ported,src/sys/taskvm.c,42
+0x8c035a4e,ported,src/sys/taskvm.c,84
+0x8c035628,ported,src/sys/taskvm.c,76
+0x8c0355ca,ported,src/sys/taskvm.c,26
+0x8c0355f4,ported,src/sys/taskvm.c,26
+0x8c03560e,ported,src/sys/taskvm.c,26
