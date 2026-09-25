@@ -26,6 +26,15 @@ decomp_stats. Leaf-batch port-by-pattern was also measured: only 4/925
 small (<64 B) bodies are truly trivial → does not scale to bulk rigorous
 coverage either.
 
+## Disposition (todo closure)
+- 5 matches spot-verified with `tools/verify_libmask2.py`: all concrete
+  tokens match, 0 concrete mismatches, wildcards only at pool slots
+  (e.g. fballoc 115/119 concrete + 4 wildcards; kmsurfac 121/121 + 0).
+- The verified regions are wired into `decomp_stats.py` as a **separate
+  transparent bucket** `SDK-attributed (reloc-aware, L2 verified)`: +2
+  baseline fns / +218 B (rigorous 122→124, 5.1%→5.2%). Not merged into the
+  main SDK row, so the weak-matcher contribution stays visible.
+
 ## Where rigorous progress actually comes from
 1. Trace-gated per-function ports (runner 0x8C0796F4, MT loader, mpdrv_*
    endpoints) — needs emulator captures (recipes committed under

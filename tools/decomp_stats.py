@@ -59,6 +59,21 @@ def claimed_set():
     return []
 
 
+def reloc_regions():
+    """L2 reloc-aware SDK regions (libmask2, verified by verify_libmask2.py)."""
+    lm = AN / "libmask2_matches.csv"
+    if not lm.exists():
+        return []
+    regions = []
+    with open(lm, newline="") as f:
+        for r in csv.DictReader(f):
+            regions.append((int(r["game_start"], 16),
+                            int(r["game_end"], 16),
+                            f"{r['lib']}:{r['module']}"))
+    regions.sort(key=lambda t: -(t[1] - t[0]))
+    return regions
+
+
 def main() -> int:
     funcs = load_funcs()
     tot_f, tot_b = len(funcs), sum(f["size"] for f in funcs)
@@ -100,12 +115,25 @@ def main() -> int:
     lib_n = len(lib_claim)
     lib_b = sum(f["size"] for f in funcs if f["entry"] in lib_claim)
 
-    att_n, att_b = ported_n + lib_n, ported_b + lib_b
+    # 2b) L2 reloc-aware SDK regions (verified) not already claimed
+    reloc_claim = {}
+    for s, e, label in reloc_regions():
+        for fn in funcs:
+            if fn["entry"] in ported or fn["entry"] in lib_claim \
+                    or fn["entry"] in reloc_claim:
+                continue
+            if s <= fn["entry"] < e:
+                reloc_claim[fn["entry"]] = label
+    reloc_n = len(reloc_claim)
+    reloc_b = sum(f["size"] for f in funcs if f["entry"] in reloc_claim)
+
+    att_n, att_b = ported_n + lib_n + reloc_n, ported_b + lib_b + reloc_b
 
     # 3) trace-executed (execution-identification, not byte-matched/ported)
     trace = trace_executed()
     trace_claim = {e for e in trace
-                   if e not in ported and e not in lib_claim}
+                   if e not in ported and e not in lib_claim
+                   and e not in reloc_claim}
     trace_n = len(trace_claim)
     trace_b = sum(f["size"] for f in funcs if f["entry"] in trace_claim)
     grand_n = att_n + trace_n
@@ -123,6 +151,7 @@ def main() -> int:
         "| bucket | functions | % | body bytes | % |", "|---|---|---|---|---|",
         f"| ported (src/) | {ported_n} (+{extra_n} off-baseline leaves) | {pct(ported_n/tot_f)} | {ported_b} | {pct(ported_b/tot_b)} |",
         f"| SDK-attributed (masked byte match) | {lib_n} | {pct(lib_n/tot_f)} | {lib_b} | {pct(lib_b/tot_b)} |",
+        f"| SDK-attributed (reloc-aware, L2 verified) | {reloc_n} | {pct(reloc_n/tot_f)} | {reloc_b} | {pct(reloc_b/tot_b)} |",
         f"| trace-executed (execution-ID, NOT ported/matched) | {trace_n} | {pct(trace_n/tot_f)} | {trace_b} | {pct(trace_b/tot_b)} |",
         f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
@@ -140,6 +169,7 @@ def main() -> int:
         "funcs_total": tot_f, "bytes_total": tot_b,
         "ported_fns": ported_n, "ported_bytes": ported_b,
         "lib_fns": lib_n, "lib_bytes": lib_b,
+        "reloc_fns": reloc_n, "reloc_bytes": reloc_b,
         "trace_fns": trace_n, "trace_bytes": trace_b,
         "grand_fns": grand_n, "grand_bytes": grand_b,
     }, indent=1))

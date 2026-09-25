@@ -6,9 +6,10 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 |---|---|---|---|---|
 | ported (src/) | 4 (+11 off-baseline leaves) | 0.2% | 1544 | 0.4% |
 | SDK-attributed (masked byte match) | 118 | 4.9% | 25694 | 5.9% |
+| SDK-attributed (reloc-aware, L2 verified) | 2 | 0.1% | 218 | 0.1% |
 | trace-executed (execution-ID, NOT ported/matched) | 159 | 6.6% | 63088 | 14.5% |
-| **rigorous accounted (ported+SDK)** | 122 | 5.1% | 27238 | 6.3% |
-| **total incl. trace** | 281 | 11.7% | 90326 | 20.8% |
+| **rigorous accounted (ported+SDK)** | 124 | 5.2% | 27456 | 6.3% |
+| **total incl. trace** | 283 | 11.8% | 90544 | 20.8% |
 
 SDK attribution by library (fn count):
 - ninja: 96
