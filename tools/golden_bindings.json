@@ -34,5 +34,11 @@
   "golden": "extract/analysis/goldens_ab/f_0c092abe.cases",
   "source": "SH-4 0x8C092ABE spill+[r2+4]+=[r1] fragment (24 B), 64 pairs / 8 RAM cases",
   "port": "src/fight/tailcall.c"
+ },
+ "0x8c0748c0": {
+  "test": "build/vf3walker2.exe",
+  "golden": "extract/analysis/goldens_ab/f_0c0748c0.cases",
+  "source": "SH-4 0x8C0748C0 gate prologue + T/gbr flag test + epilogue (32 B to walker), 20 pairs / 8 RAM cases; walker bsr calls out of scope (data OOB in all windows)",
+  "port": "src/fight/walker2.c"
  }
 }
