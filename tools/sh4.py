@@ -422,6 +422,9 @@ def decode(w, pc=0):
 
 BRANCHY = {"bf/s", "bf", "bt", "bt/s", "braf", "bra", "bsr", "bsrf",
            "jmp", "jsr", "rts", "rte"}
+# Only the /s conditional forms plus the unconditional control transfers
+# have a delay slot. Plain bf/bt are direct jumps (no delay slot).
+DELAYED = BRANCHY - {"bf", "bt"}
 
 
 def disasm(data, base, start, n):
@@ -450,7 +453,7 @@ def disasm(data, base, start, n):
                     rec["lit_addr"] = lat
                     rec["lit_val"] = struct.unpack_from(
                         "<I" if sz == 4 else "<H", data, lo)[0]
-            delay = (not delay) and (mn in BRANCHY)
+            delay = (not delay) and (mn in DELAYED)
         else:
             rec["text"] = f".word 0x{w:04x}"
             rec["delay_next"] = False

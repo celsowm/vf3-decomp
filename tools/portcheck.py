@@ -25,7 +25,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
-         "vf3vm", "vf3frame", "vf3libutil", "vf3orient2", "vf3poly"]
+         "vf3vm", "vf3frame", "vf3libutil", "vf3orient2", "vf3poly", "vf3vecpush"]
 
 
 def validate_goldens(d: Path):

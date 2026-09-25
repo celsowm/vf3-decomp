@@ -1,5 +1,26 @@
 # VF3tb decomp — progress log
 
+## Tranche 2: vecpush port + oracle hardening (2026-09-25)
+- [x] Fork fixes: JSR/JMP mask (`jmp @Rn` no longer counted as a call);
+  `bf`/`bt` have no delay slot (`tools/sh4.py` `DELAYED` set fixed, which
+  had mislabelled the orient2 helper); exit-RAM dumps (`0xFA60/0xFA61`,
+  `VF3_RAMNEXIT`); multi-window `VF3_RAMWIN` with in-trace base/len.
+- [x] `tools/pair_cases.py`: positional entry->interior pairing for
+  piecewise validation of tail-jumping/looping functions.
+- [x] Port: `0x8C071A76` head block (counter-gated vec3-sub, entry to
+  interior `0x8C071ABE`) -> src/fight/vecpush.{c,h};
+  tests/vecpush_replay.c compares out-registers, FPU regs and a
+  **byte-exact whole-window shadow-vs-interior diff with OOB counting:
+  7/7 PASS**. Bound in portcheck; `decomp_status.csv` row added.
+- [x] `docs/re/fight_geometry.md`: vec3 idiom, register conventions,
+  orient2/poly_classify/vecpush semantics, pipeline + loop structure.
+- [x] Naming yield measured (`tools/elf_symtab.py`): **0/213** — all SDK
+  sample ELFs are stripped (30/30 whole-file ELFs symtab-free; DCSDK
+  1.00J blob has 0 `.symtab`). Decision recorded in
+  docs/re/sdk_names_yield.md: no ELF-symbol naming pass.
+- [x] Rigorous coverage **275/2398 (11.5%), 44,212 B (10.2%)**; incl-trace
+  431 (18.0%) / 106,930 B (24.6%).
+
 ## Phase B + C: golden oracle + first oracle-verified port (2026-09-25)
 - [x] Flycast `VF3_FULL=1` oracle mode: entry/exit snapshots
   (r0-r15, pr, sr, fpscr, macl, mach, fr0-fr15), call-depth tracking, exit

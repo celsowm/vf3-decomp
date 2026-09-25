@@ -10,5 +10,11 @@
   "golden": "extract/analysis/goldens/f_0c068ff6.cases",
   "source": "SH-4 0x8C068FF6, 288 B, ~1.4M summed trace hits",
   "port": "src/fight/poly_classify.c (with orient2)"
+ },
+ "0x8c071a76": {
+  "test": "build/vf3vecpush.exe",
+  "golden": "extract/analysis/goldens_vpb/f_0c071a76_head.cases",
+  "source": "SH-4 0x8C071A76 head block (interior point 0x8C071ABE), 7 paired cases",
+  "port": "src/fight/vecpush.c"
  }
 }

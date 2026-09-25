@@ -54,6 +54,30 @@ Shipped as `src/fight/orient2.{c,h}` + `tests/orient2_replay.c`.
 `vf3orient2` replays all 64 unique golden vectors: **64/64 match - PASS**;
 `tools/portcheck.py` binds it and reports PASS.
 
+## Fixes and extensions (tranche 2)
+- Call-opener mask: `(op & 0xF0FF) == 0x400B` (JSR @Rn; bits 7-4 zero).
+  The old `(op & 0xF00F)` mask conflated `JMP @Rn` (0x4n2B) with `JSR`,
+  drifting call depth +1 on every computed tail jump. JSR @@(d8,Rn)
+  (`0x4xxx` low nibble 3), BSRF and BSR unchanged.
+- `jmp @Rn` is deliberately NOT an exit: it serves both computed loops
+  (the `0x8C071A96` per-vertex loop jumps back every ~200 instructions)
+  and noreturn tails, which are indistinguishable statically. Only `rts`
+  closes an arm; tail-jumping functions validate at interior points.
+- Exit RAM: same windows dumped at function exit (`0xFA60/0xFA61`,
+  `VF3_RAMNEXIT`, independent counter), attached by `golden_extract.py`
+  as `exit_ram` with an `exitram_trusted` flag (FIFO order, exact when
+  `unpaired == 0`).
+- RAM windows: `VF3_RAMWIN="<base len>..."` (up to 4); base/len travel in
+  the trace so the extractor needs no out-of-band config.
+- Piecewise validation: `tools/pair_cases.py TRACE --entry PC --at PC
+  --out PREFIX [--gate "r2>r9"]` binds each gated entry hit to the first
+  following interior hit (positional, not ordinal — interior points inside
+  loops fire ~5x per call), emitting `.cases` + `.in/.out` bins + `.meta`.
+  Used for `0x8C071A76` (entry -> `0x8C071ABE`, 7 cases).
+- `tools/sh4.py`: `bf`/`bt` are direct jumps (no delay slot); only the
+  `/s` forms and the unconditional transfers are delayed (fixed the
+  `delay` flag that had mislabelled the orient2 helper's control flow).
+
 ## Second oracle-verified port (Phase C, continued)
 `0x8C068FF6` — the #2 hottest function (288 B, ~1.4M summed trace hits),
 `src/fight/poly_classify.{c,h}`. It classifies a sample point `(fr4,fr5)`
