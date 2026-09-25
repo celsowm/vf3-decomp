@@ -5,6 +5,7 @@ tools/*.zip
 tools/katana/
 tools/kamui/
 tools/_katana_pkg/
+tools/katana_raw/
 
 # Ghidra is locally installed, not version controlled
 tools/ghidra/
@@ -13,6 +14,7 @@ tools/ghidra_12.1.3_PUBLIC/
 tools/katana/
 tools/_katana_pkg/
 tools/kamui/
+tools/katana_raw/
 
 # Build output
 build/

@@ -25,6 +25,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - Hitachi SHC toolchain (win32, working): `tools/katana/katana/shc/bin/lbr.exe`
   = interactive librarian (`LIBRARY x.lib` / `LIST` / `OUTPUT x.obj` /
   `EXTRACT modname` / `EXIT`). Extracts SYSROF .obj modules from .lib.
+- SDK corpora: `tools/katana/` (Katana 1.0B2 SET5), `tools/kamui/` (Kamui2 +
+  Darkness), `tools/katana_raw/` (Katana 0.40 Pre.2 + Release.4 SET4,
+  downloaded 2026-09-25; gitignored). The 0.40 `shinobi.lib` carries the
+  game's own libraries (GDFS 0.46/0.49, mpdrv_, mpapi_, pdmain_, kdapi_,
+  syCache_, syMmu_) — game is GDFS 0.53/NAOMI 0.8. Sweeps land in
+  `extract/analysis/sysrof/v040*/` + `v040_*_libmask.csv`; see
+  docs/re/sdk_v040.md. `tools/decomp_stats.py` has buckets for masked,
+  reloc-aware (libmask2), Katana-0.40-adjacent, and trace-executed.
 
 ## Pipeline (proven)
 1. image: VF3tb retail ships UNSCRAMBLED — use `extract/gamedata/*.BIN`

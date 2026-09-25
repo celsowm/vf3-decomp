@@ -74,6 +74,26 @@ def reloc_regions():
     return regions
 
 
+def v040_regions():
+    """Katana SDK 0.40 (Pre.2/Release.4) version-adjacent regions.
+
+    These SDKs carry GDFS 0.46/0.49 + syCache + mpdrv_/pdmain_/kdapi_ (the
+    game links GDFS 0.53) + ninja. Masked-match fragments verified 0
+    mismatch (gdfs_/pdmain_/kdapi_/mpdrv_/mpapi_/gdfshn_/gdfsif_)."""
+    regions = []
+    for name in ("v040_shinobi_libmask.csv", "v040_ninja_libmask.csv"):
+        lm = AN / name
+        if not lm.exists():
+            continue
+        with open(lm, newline="") as f:
+            for r in csv.DictReader(f):
+                regions.append((int(r["game_start"], 16),
+                                int(r["game_end"], 16),
+                                f"{r['lib']}:{r['module']}"))
+    regions.sort(key=lambda t: -(t[1] - t[0]))
+    return regions
+
+
 def main() -> int:
     funcs = load_funcs()
     tot_f, tot_b = len(funcs), sum(f["size"] for f in funcs)
@@ -127,13 +147,26 @@ def main() -> int:
     reloc_n = len(reloc_claim)
     reloc_b = sum(f["size"] for f in funcs if f["entry"] in reloc_claim)
 
-    att_n, att_b = ported_n + lib_n + reloc_n, ported_b + lib_b + reloc_b
+    # 2c) Katana 0.40 version-adjacent regions not already claimed
+    v040_claim = {}
+    for s, e, label in v040_regions():
+        for fn in funcs:
+            if fn["entry"] in ported or fn["entry"] in lib_claim \
+                    or fn["entry"] in reloc_claim or fn["entry"] in v040_claim:
+                continue
+            if s <= fn["entry"] < e:
+                v040_claim[fn["entry"]] = label
+    v040_n = len(v040_claim)
+    v040_b = sum(f["size"] for f in funcs if f["entry"] in v040_claim)
+
+    att_n, att_b = (ported_n + lib_n + reloc_n + v040_n,
+                    ported_b + lib_b + reloc_b + v040_b)
 
     # 3) trace-executed (execution-identification, not byte-matched/ported)
     trace = trace_executed()
     trace_claim = {e for e in trace
                    if e not in ported and e not in lib_claim
-                   and e not in reloc_claim}
+                   and e not in reloc_claim and e not in v040_claim}
     trace_n = len(trace_claim)
     trace_b = sum(f["size"] for f in funcs if f["entry"] in trace_claim)
     grand_n = att_n + trace_n
@@ -152,6 +185,7 @@ def main() -> int:
         f"| ported (src/) | {ported_n} (+{extra_n} off-baseline leaves) | {pct(ported_n/tot_f)} | {ported_b} | {pct(ported_b/tot_b)} |",
         f"| SDK-attributed (masked byte match) | {lib_n} | {pct(lib_n/tot_f)} | {lib_b} | {pct(lib_b/tot_b)} |",
         f"| SDK-attributed (reloc-aware, L2 verified) | {reloc_n} | {pct(reloc_n/tot_f)} | {reloc_b} | {pct(reloc_b/tot_b)} |",
+        f"| SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | {v040_n} | {pct(v040_n/tot_f)} | {v040_b} | {pct(v040_b/tot_b)} |",
         f"| trace-executed (execution-ID, NOT ported/matched) | {trace_n} | {pct(trace_n/tot_f)} | {trace_b} | {pct(trace_b/tot_b)} |",
         f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
@@ -170,6 +204,7 @@ def main() -> int:
         "ported_fns": ported_n, "ported_bytes": ported_b,
         "lib_fns": lib_n, "lib_bytes": lib_b,
         "reloc_fns": reloc_n, "reloc_bytes": reloc_b,
+        "v040_fns": v040_n, "v040_bytes": v040_b,
         "trace_fns": trace_n, "trace_bytes": trace_b,
         "grand_fns": grand_n, "grand_bytes": grand_b,
     }, indent=1))
