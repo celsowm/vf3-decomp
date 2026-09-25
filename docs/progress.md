@@ -1,5 +1,24 @@
 # VF3tb decomp — progress log
 
+## Campaign A start: scalemap port + capture integrity (2026-09-25)
+- [x] **Fork capture bugs fixed** (three): trace file reopened/truncated per
+  `Run()`; `vf3_seh` calling `vf3TraceFlush` from `DBG_PRINTEXCEPTION_C`
+  context (lost ring contents); non-atomic RAM groups. Flush now checks
+  `fwrite` count. Early pre-`flycast_init` trace open removed.
+- [x] **Game FPSCR = 0x240001 (RM=1 round-toward-zero, DN=1)** discovered via
+  golden snapshots; all FPU ports need truncating helpers (`f32_tz` etc.),
+  otherwise ~1 ULP mismatches. Documented in docs/re/port_oracle.md.
+- [x] Port `0x8C068E16` (352 B, 873k hits) -> `src/fight/scalemap.c`
+  (bilinear 128x128 table sampler; helpers 0x8C068D54/0x8C068DE4 internal;
+  memory-accurate stack writes): **vf3scalemap 32/32 RAM-shadow cases PASS**,
+  bound in golden_bindings + decomp_status row.
+- [x] Batch captures: 85 A/B fns with register snapshots and 4-window RAM
+  cases (`goldens_abreg`, `goldens_ab`); wide-window recapture for the
+  scalemap family (`goldens_e16`); interior-point captures (`goldens_e16int`,
+  `goldens_eb4`) used to pin the FMAC/idx behaviour.
+- Next: re-capture the A/B set with the fixed fork, then continue A-list ports
+  (all FPU ports must use the truncation helpers).
+
 ## Campaign 0: batch port infrastructure (2026-09-25)
 - [x] Fork: `VF3_RAMPC` up to 32, `rampc <pc> [base len]` watch lines with up
   to 64 per-PC windows (small dumps instead of 16 MB), `VF3_RAMWIN` up to 8,

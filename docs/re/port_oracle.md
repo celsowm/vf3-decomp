@@ -1,5 +1,46 @@
 # Differential port oracle (Phase B) + oracle-verified ports
 
+## Critical capture-integrity findings (2026-09-25)
+Three fork bugs were corrupting traces; all fixed:
+1. `vf3TraceInit` reopened (truncated) the trace file on every `Run()` —
+   savestate load does `stop()/start()` so the stream got interleaved with
+   stale data. Now one open per process.
+2. `vf3_seh` intercepted `DBG_PRINTEXCEPTION_C` (0x40010006, from debug
+   prints) and called `vf3TraceFlush()` from exception context, dropping ring
+   contents (`flush wrote 64/65536` then `0/...`) and leaving partial groups.
+   Debug-print exceptions now pass through and the SEH handler never touches
+   the writer.
+3. `emit_ram` built groups incrementally; a throwing read could leave a
+   partial group. It now buffers a whole group and pushes it atomically.
+Also: opening the trace before `flycast_init()` was removed (handle could be
+invalidated); `flush` now checks the `fwrite` count.
+
+## Game FPSCR: round toward zero (critical for any FPU port)
+Golden entry/exit snapshots show **FPSCR = 0x240001** in fight code:
+`RM=1` (round toward zero) and `DN=1` (denormals are zero). All SH-4 FPU
+multiplies/adds/FMACs therefore **truncate**; C's default round-to-nearest
+gives ~1 ULP differences and fails byte-exact comparison. Ports must use
+truncating helpers (see `src/fight/scalemap.c` `f32_tz`/`fmul_tz`/`fadd_tz`/
+`fsub_tz`/`fmac_tz`, which compute exactly in `long double` and step toward
+zero). Flycast's `fmac` is `std::fma` (fused, single rounding) + the current
+RM, so `fmal` + truncate matches it.
+
+## Third oracle-verified port: warping scale-map (0x8C068E16 family)
+`0x8C068E16` (352 B, 873k trace hits) -> `src/fight/scalemap.c`:
+- entry `r0 == 8` convention: `[r15+8] = fr4`, `[r15+4] = fr5`; helper
+  `0x8C068D54` rescales per selector (2/7: x10/13; 13: 0.1 quantize);
+- clamp both coords to [-12,12] (fcmp/gt store form);
+- `t = fma(5, coord, 64)`, `i = trunc(t)`, `idx = (i1&0x7F)|((i2&0x7F)<<7)`;
+- bilinear over the 128x128 float table at `*(0x0C1B9610)` (table window
+  0x0CBE0000+0x40000; pointer source [0x0C1B9610]; selector mask byte at
+  [0x0C29B880] = 0x01 in the fight capture);
+- port mirrors every stack write (slot stores, temporaries, result) so the
+  RAM-shadow diff is byte-exact: **vf3scalemap 32/32 cases PASS** (entry+exit
+  RAM, 4 windows).
+- Documented gaps: selector 11 aux call 0x0C087ACE, the ctx==0 fallback and
+  the 0.1 constant alignment (mova effective-address ambiguity) are not
+  exercised by the captured cases.
+
 ## Batch infrastructure (campaign 0, 2026-09-25)
 Fork (`tools/emu/flycast`, gitignored — rebuild with
 `cmake --build tools/emu/flycast-build -j8`):

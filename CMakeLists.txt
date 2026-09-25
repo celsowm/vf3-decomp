@@ -10,6 +10,7 @@ add_library(vf3core STATIC
     src/fight/mt_mount.c
     src/fight/orient2.c
     src/fight/poly_classify.c
+    src/fight/scalemap.c
     src/fight/vecpush.c
     src/fight/walker.c
     src/fight/scene_predicate.c
@@ -75,6 +76,8 @@ function(add_port_test tname src)
   target_link_libraries(${tname} PRIVATE vf3core)
   target_include_directories(${tname} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 endfunction()
+
+add_port_test(vf3scalemap tests/scalemap_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

@@ -16,5 +16,11 @@
   "golden": "extract/analysis/goldens_vpb/f_0c071a76_head.cases",
   "source": "SH-4 0x8C071A76 head block (interior point 0x8C071ABE), 7 paired cases",
   "port": "src/fight/vecpush.c"
+ },
+ "0x8c068e16": {
+  "test": "build/vf3scalemap.exe",
+  "golden": "extract/analysis/goldens_e16/f_0c068e16.cases",
+  "source": "SH-4 0x8C068E16 warping scale-map sampler, 64 pairs, 32 RAM cases; game FPSCR RM=1 (truncate)",
+  "port": "src/fight/scalemap.c (helpers 0x8C068D54/0x8C068DE4 internal)"
  }
 }
