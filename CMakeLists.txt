@@ -10,6 +10,8 @@ add_library(vf3core STATIC
     src/fight/mt_mount.c
     src/fight/orient2.c
     src/fight/poly_classify.c
+    src/fight/fvecadd.c
+    src/fight/fvecmix2.c
     src/fight/scalemap.c
     src/fight/tailcall.c
     src/fight/vecpush.c
@@ -82,6 +84,8 @@ endfunction()
 add_port_test(vf3scalemap tests/scalemap_replay.c)
 add_port_test(vf3tailcall tests/tailcall_replay.c)
 add_port_test(vf3walker2 tests/walker2_replay.c)
+add_port_test(vf3fvecadd tests/fvecadd_replay.c)
+add_port_test(vf3fvecmix2 tests/fvecmix2_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

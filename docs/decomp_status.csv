@@ -21,3 +21,4 @@ entry,status,file,size,method,oracle
 0x8c092f12,ported,src/fight/tailcall.c,10,oracle-verified,tailcall_replay 8/8 PASS
 0x8c092abe,ported,src/fight/tailcall.c,24,oracle-verified,tailcall_abe_replay 8/8 PASS
 0x8c0748c0,ported-piecewise,src/fight/walker2.c,32,oracle-verified-gate-only (RAM shadow diff),walker_gate_replay 8/8 PASS; walker bsr 0x8C0748E0 calls out of scope (data OOB in all windows)
+0x8c0930b6,ported,src/fight/fvecadd.c,30,oracle-verified (RAM shadow diff),fvecadd_replay 8/8 PASS

@@ -14,7 +14,19 @@
   does not execute in the fight state nor in the old fight savestates
   (`vf3_1..30`, 120 frames) — needs a menu/attract/particle capture
   (Campaign E). Draft port removed until it can be golden-verified.
-- Coverage: rigorous **276/2398 (11.5%) / 44,564 B (10.3%)**.
+- Campaign A, S-batch part 1 (landed): `0x8C0930B6` -> `src/fight/fvecadd.c`,
+  **8/8 RAM-shadow cases PASS** (S2 batch: `tools/watch/vf3_s2*.txt` ->
+  `extract/analysis/goldens_s2b/`); bound in `golden_bindings.json`,
+  row in `decomp_status.csv`, `portcheck` green (14 tests + 8 binds).
+- Campaign A, S-batch part 1 (parked): `0x8C070852` (`src/fight/fvecmix2.c`)
+  is NOT verifiable in its capture window — float exits carry loop-carried
+  FPU pipeline state (448+ ULP gaps vs any single rounding of the entry
+  bytes) and the exit RAM holds stores from below-window code
+  (`0x8C0708B4+` reload/fsqrt path, `0x8C06F948+` epilogue). Kept in-tree
+  as a documented skeleton, out of the `portcheck` gate and unbound until
+  re-captured with tighter windows (S3/sbatch provenance kept in
+  `tools/watch/vf3_s3*.txt`, `vf3_sbatch*.txt`, `vf3_s3pair.txt`).
+- Coverage: rigorous **280/2398 (11.7%) / 44,660 B (10.3%)**.
 
 Baseline snapshot (`tools/decomp_stats.py`, HEAD `0bbd92c`):
 rigorous **275/2398 fns (11.5%) / 44,212 B (10.2%)**; identified
