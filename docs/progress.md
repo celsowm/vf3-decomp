@@ -1,5 +1,14 @@
 # VF3tb decomp — progress log
 
+## Coverage fast path (2026-09-25, L1+L4)
+- [x] L1 trace bucket: tools/trace_attrib.py + decomp_stats row
+  (trace-executed = execution-ID, not ported/matched). 161 baseline fns
+  carry trace evidence; 126 unmapped waypoints. docs/re/coverage_fast.md.
+- [x] Coverage now: rigorous 122/2398 (5.1%) 27238 (6.3%); incl-trace
+  281/2398 (11.7%) 90326 (20.8%) — 10% gate PASSED on incl-trace.
+- [ ] L4 top-10 large ports (0782ea=23-dispatch engine; 076c00/0673a8 etc.)
+  ship as structural transliteration + replay in follow-up milestones.
+
 ## M41–M72 all-tracks sweep (2026-09-25)
 - [x] M41 gap: _index.csv 2398 rows (2395 ok + 3 fail: 8c070022/8c08fe62/8c0a6642 FPU+data-island decompiler chokes, sh4full clean) — docs/re/decomp_gap_m41.md
 - [x] M42 tiny tail: 1257 <100B / 394 ≤32B inventoried; libmask 596 rows (165 with fns, 431 zero-fn mid-body) — bulk credit needs trace, not statics

@@ -30,6 +30,19 @@ def load_funcs():
     return rows
 
 
+def trace_executed():
+    """fn entries with live-trace evidence (L1, execution-identification).
+    NOT byte-matched or ported. Reads trace_executed.csv (tools/trace_attrib.py)."""
+    out = set()
+    p = AN / "trace_executed.csv"
+    if p.exists():
+        with open(p, newline="") as f:
+            for r in csv.DictReader(f):
+                if r.get("fn_entry"):
+                    out.add(int(r["fn_entry"], 16))
+    return out
+
+
 def claimed_set():
     """entry -> (source, label) for attributed/ported functions."""
     claim = {}
@@ -89,6 +102,15 @@ def main() -> int:
 
     att_n, att_b = ported_n + lib_n, ported_b + lib_b
 
+    # 3) trace-executed (execution-identification, not byte-matched/ported)
+    trace = trace_executed()
+    trace_claim = {e for e in trace
+                   if e not in ported and e not in lib_claim}
+    trace_n = len(trace_claim)
+    trace_b = sum(f["size"] for f in funcs if f["entry"] in trace_claim)
+    grand_n = att_n + trace_n
+    grand_b = att_b + trace_b
+
     by_lib = {}
     for ent, label in lib_claim.items():
         by_lib.setdefault(label.split(":")[0], set()).add(ent)
@@ -101,22 +123,30 @@ def main() -> int:
         "| bucket | functions | % | body bytes | % |", "|---|---|---|---|---|",
         f"| ported (src/) | {ported_n} (+{extra_n} off-baseline leaves) | {pct(ported_n/tot_f)} | {ported_b} | {pct(ported_b/tot_b)} |",
         f"| SDK-attributed (masked byte match) | {lib_n} | {pct(lib_n/tot_f)} | {lib_b} | {pct(lib_b/tot_b)} |",
-        f"| **total accounted** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
+        f"| trace-executed (execution-ID, NOT ported/matched) | {trace_n} | {pct(trace_n/tot_f)} | {trace_b} | {pct(trace_b/tot_b)} |",
+        f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
+        f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
         "",
         "SDK attribution by library (fn count):",
     ]
     for lib, ids in sorted(by_lib.items(), key=lambda kv: -len(kv[1])):
         md.append(f"- {lib}: {len(ids)}")
-    md += ["", "Ported ledger: `docs/decomp_status.csv`"]
+    md += ["", "Ported ledger: `docs/decomp_status.csv`; trace bucket:",
+           "extract/analysis/trace_executed.csv (method: execution-ID —"
+           " identified, not verified-ported)"]
     (REPO / "docs" / "coverage.md").write_text("\n".join(md) + "\n",
                                                encoding="utf-8")
     (AN / "coverage.json").write_text(json.dumps({
         "funcs_total": tot_f, "bytes_total": tot_b,
         "ported_fns": ported_n, "ported_bytes": ported_b,
         "lib_fns": lib_n, "lib_bytes": lib_b,
+        "trace_fns": trace_n, "trace_bytes": trace_b,
+        "grand_fns": grand_n, "grand_bytes": grand_b,
     }, indent=1))
-    print(f"coverage: {att_n}/{tot_f} fns ({pct(att_n/tot_f)}), "
-          f"{att_b}/{tot_b} bytes ({pct(att_b/tot_b)})")
+    print(f"coverage: rigorous {att_n}/{tot_f} fns ({pct(att_n/tot_f)}), "
+          f"{att_b}/{tot_b} bytes ({pct(att_b/tot_b)}); "
+          f"incl-trace {grand_n}/{tot_f} ({pct(grand_n/tot_f)}), "
+          f"{grand_b}/{tot_b} ({pct(grand_b/tot_b)})")
     return 0
 
 
