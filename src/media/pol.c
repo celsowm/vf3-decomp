@@ -23,6 +23,33 @@ int pol_header(const void *vdata, uint32_t size, PolHeader *out)
     return (out->hdr_marker == 0x200) ? 0 : -2;
 }
 
+int pol_sections(const void *vdata, uint32_t size, uint32_t *rows_out,
+                 uint32_t cap, uint32_t *nrows_out)
+{
+    const uint8_t *d = (const uint8_t *)vdata;
+    PolHeader h;
+    if (pol_header(vdata, size, &h) != 0)
+        return -1;
+    if (h.table_base != 0x30)
+        return -2;
+    if (h.table_base + h.table_span > size)
+        return -3;
+    if (h.table_span % 4 != 0)
+        return -4;
+    uint32_t n = h.table_span / 4;
+    if (n > cap)
+        return -5;
+    for (uint32_t i = 0; i < n; i++) {
+        uint32_t off = rd32(d + h.table_base + i * 4);
+        if (off < 0x30 || off >= size)
+            return -6;
+        rows_out[i] = off;
+    }
+    if (nrows_out)
+        *nrows_out = n;
+    return 0;
+}
+
 static int sane_triple(const uint8_t *d, float *x, float *y, float *z)
 {
     float a, b, c;

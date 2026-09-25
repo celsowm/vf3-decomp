@@ -91,7 +91,11 @@ int vf3_frame_dispatch(gaddr root_obj, gaddr frame)
                              + vf3_sys_rd32(node + N_STEP1C));
                 vf3_sys_wr16(node + N_W70, 2);
             } else if (st == 6) {
-                /* 0x8c03490e: jsr 0x0C0355A0 — not yet ported */
+                /* 0x8c03490e: jsr 0x8C0355A0(node) = node finalize/unlink
+                 * (M34/M50: vf3_node_finalize clears busy, unlinks when
+                 * state==2). Registry-free local call keeps replay exact. */
+                extern void vf3_node_finalize(gaddr);
+                vf3_node_finalize(node);
             }
             vf3_sys_wr16(node + N_W68_STATE, 0);        /* 0x8c034914..  */
         } else {

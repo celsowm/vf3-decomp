@@ -1,5 +1,23 @@
 # VF3tb decomp — progress log
 
+## M41–M72 all-tracks sweep (2026-09-25)
+- [x] M41 gap: _index.csv 2398 rows (2395 ok + 3 fail: 8c070022/8c08fe62/8c0a6642 FPU+data-island decompiler chokes, sh4full clean) — docs/re/decomp_gap_m41.md
+- [x] M42 tiny tail: 1257 <100B / 394 ≤32B inventoried; libmask 596 rows (165 with fns, 431 zero-fn mid-body) — bulk credit needs trace, not statics
+- [x] M43 callgraph v3 true image: 2336 edges / 4947 unresolved = 2.8% jsr (ceiling holds); hotspots/calls/dispatch regenerated — docs/re/callgraph_m43.md
+- [x] M44 ledger schema: docs/decomp_status.csv gains method,oracle; backfilled; walker/runner rows added
+- [x] M45 walker f_8c0b1a54 → src/fight/walker.{c,h} (slot map {1:112,5:0x756C,9:0x7662,14:0x8570,17:0xC4F0} + helpers + @r12 vcall); tests/walker_replay.c PASS; frame.c ladder vindicated
+- [x] M47 differential spec: watchcount_boot3 anchor (dispatcher 292033, walker 2048, runner 0 boot-expected) — docs/re/diff_harness_m47.md
+- [x] M48 removal island 0x8c03492c documented as marker-discipline TODO — docs/re/ring_m65.md
+- [x] M49 task-VM probe spec (r14 0x0CBEFBE0 fight-vs-attract bursts) — docs/re/taskvm_probe_m49.md; task_vm.h hot names stand
+- [x] M50 aux state-6 wired: mainloop.c calls vf3_node_finalize (was unported comment); mainloop_replay still PASS
+- [x] M52/M53 MT mount: src/fight/mt_mount.{c,h} (slot parse + per-record scatter + hdr abs fixup) + tests/mtmount_replay.c PASS
+- [x] M56 sound walkback: tools/snd_walkback.py → 0 pool refs (mova confirmed); snd_walkback.csv header-only; docs/re/sound_walkback_m56.md
+- [x] M60/M61 POL+DL: pol_sections() parser + dl.c n_parts fix (lo=11, not lo+(hi<<16)=2686987) + bbox fill; vf3dl PASS (parts=11 triples=416)
+- [x] M63/M65 fight handlers + ring matrix (341K/330K/243K edges) — docs/re/ring_m65.md
+- [x] M66-M69 loader/CLI/splitter/RELOAD triage — docs/re/loader_m66.md
+- [x] M71 top-50: extract/analysis/top50_m71.csv (largest unclaimed; head FUN_8c0750be 5432B, f_8c0782ea 4472B = top dispatcher 23)
+- [x] Coverage: 122/2398 fns (5.1%), 27238/434656 bytes (6.3%) — walker +1 fn; build green (vf3dl/walker/mtmount/loop/taskvm/vm/frame/libutil all PASS)
+
 ## M30–M40 coverage arc (2026-09-24, docs/plan_m30.md)
 - [x] M30 SDK attribution: exact+masked sweeps; 118/2398 fns lib-attributed
   (katana_matches_true.csv, libmask_matches.csv; tools/libmask_match.py).

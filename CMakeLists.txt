@@ -7,6 +7,8 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 add_library(vf3core STATIC
     src/fight/frame.c
     src/fight/mt_play.c
+    src/fight/mt_mount.c
+    src/fight/walker.c
     src/fight/scene_predicate.c
     src/fight/sd_slot_lookup.c
     src/fight/state_index.c
@@ -51,3 +53,9 @@ target_link_libraries(vf3taskvm PRIVATE vf3core)
 
 add_executable(vf3dl tests/dl_replay.c)
 target_link_libraries(vf3dl PRIVATE vf3core)
+
+add_executable(vf3walker tests/walker_replay.c)
+target_link_libraries(vf3walker PRIVATE vf3core)
+
+add_executable(vf3mtmount tests/mtmount_replay.c)
+target_link_libraries(vf3mtmount PRIVATE vf3core)

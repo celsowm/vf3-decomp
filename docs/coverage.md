@@ -4,9 +4,9 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 3 (+9 off-baseline leaves) | 0.1% | 1360 | 0.3% |
+| ported (src/) | 4 (+11 off-baseline leaves) | 0.2% | 1544 | 0.4% |
 | SDK-attributed (masked byte match) | 118 | 4.9% | 25694 | 5.9% |
-| **total accounted** | 121 | 5.0% | 27054 | 6.2% |
+| **total accounted** | 122 | 5.1% | 27238 | 6.3% |
 
 SDK attribution by library (fn count):
 - ninja: 96

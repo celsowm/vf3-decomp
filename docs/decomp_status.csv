@@ -1,13 +1,16 @@
-entry,status,file,size
-0x8c09d690,ported,src/fight/mt_play.c,
-0x8c034864,ported,src/sys/mainloop.c,
-0x8c043018,ported,src/lib/sh4rt.c,74
-0x8c042fdc,ported,src/lib/sh4rt.c,60
-0x8c03f5b2,ported-alias,src/lib/sh4rt.c,24
-0x8c03482a,ported,src/lib/sh4rt.c,30
-0x8c0355a0,ported,src/sys/taskvm.c,42
-0x8c035a4e,ported,src/sys/taskvm.c,84
-0x8c035628,ported,src/sys/taskvm.c,76
-0x8c0355ca,ported,src/sys/taskvm.c,26
-0x8c0355f4,ported,src/sys/taskvm.c,26
-0x8c03560e,ported,src/sys/taskvm.c,26
+entry,status,file,size,method,oracle
+0x8c09d690,ported,src/fight/mt_play.c,390,transliteration,tests/mt_vm_interp.c PASS
+0x8c034864,ported,src/sys/mainloop.c,326,transliteration,tests/mainloop_replay.c PASS
+0x8c043018,ported,src/lib/sh4rt.c,74,byte-exact,tests/libutil_replay.c PASS
+0x8c042fdc,ported,src/lib/sh4rt.c,60,byte-exact,tests/libutil_replay.c PASS
+0x8c03f5b2,ported-alias,src/lib/sh4rt.c,24,byte-exact,tests/libutil_replay.c PASS
+0x8c03482a,ported,src/lib/sh4rt.c,30,transliteration,tests/libutil_replay.c PASS
+0x8c0355a0,ported,src/sys/taskvm.c,42,transliteration,tests/taskvm_replay.c PASS
+0x8c035a4e,ported,src/sys/taskvm.c,84,transliteration,tests/taskvm_replay.c PASS
+0x8c035628,ported,src/sys/taskvm.c,76,transliteration,tests/taskvm_replay.c PASS
+0x8c0355ca,ported,src/sys/taskvm.c,26,transliteration,tests/taskvm_replay.c PASS
+0x8c0355f4,ported,src/sys/taskvm.c,26,transliteration,tests/taskvm_replay.c PASS
+0x8c03560e,ported,src/sys/taskvm.c,26,transliteration,tests/taskvm_replay.c PASS
+0x8c0b1a54,ported,src/fight/walker.c,184,transliteration,tests/walker_replay.c PASS
+0x8c0796f4,ported-stub,src/fight/walker.c,0,structural-model,trace vf3_7 watch pending
+0x8c034852,ported-alias,src/sys/mainloop.c,0,transliteration,tests/mainloop_replay.c PASS

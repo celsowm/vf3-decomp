@@ -22,6 +22,10 @@ typedef struct {
 /* 0 on success */
 int pol_header(const void *data, uint32_t size, PolHeader *out);
 
+/* 0 on success; validates table_base==0x30 and row bounds */
+int pol_sections(const void *data, uint32_t size, uint32_t *rows_out,
+                 uint32_t cap, uint32_t *nrows_out);
+
 /* walk contiguous 3-float blocks (-8..8); cb(off, triple_count) */
 int pol_scan_floats(const void *data, uint32_t size, uint32_t min_len,
                     void (*cb)(uint32_t off, uint32_t triples, void *ctx),
