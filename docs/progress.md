@@ -19,7 +19,7 @@
   (src/sys/soundcmd.c); body borders are segmentation-dead-zone.
 - [x] M38 DL assembly layer (src/render/dl.c + vf3dl PASS on GEN_DMY5).
 - [x] M39 fight-logic catalog (docs/re/fight_tasks_m39.md).
-- [x] M40 gate: coverage.md live — 5.2% fn / 6.4% byte attribution.
+- [x] M40 gate: coverage.md live — 5.0% fn / 6.2% byte attribution.
   Ceiling finding: the binary is ~90% custom engine (SDK ≈ 5%); the 50%
   shaping target in plan_m30 needs full engine port (multi-milestone).
   Gate tracked in coverage.md from now on.
