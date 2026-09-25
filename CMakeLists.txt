@@ -22,6 +22,7 @@ add_library(vf3core STATIC
     src/lib/sh4rt.c
     src/sys/taskvm.c
     src/sys/soundcmd.c
+    src/render/dl.c
 )
 target_include_directories(vf3core PUBLIC src)
 
@@ -47,3 +48,6 @@ target_link_libraries(vf3libutil PRIVATE vf3core)
 
 add_executable(vf3taskvm tests/taskvm_replay.c)
 target_link_libraries(vf3taskvm PRIVATE vf3core)
+
+add_executable(vf3dl tests/dl_replay.c)
+target_link_libraries(vf3dl PRIVATE vf3core)
