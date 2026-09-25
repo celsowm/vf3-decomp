@@ -50,13 +50,23 @@ def main() -> int:
     funcs = load_funcs()
     tot_f, tot_b = len(funcs), sum(f["size"] for f in funcs)
 
-    # 1) ported (hand ledger)
+    # 1) ported (hand ledger). Rows missing from the baseline CSV (small
+    # leaves Vf3Prologue never segmented) still count via their `size`
+    # column as byte-credit with fn-credit 0 (baseline is fn-denominated).
     ported = {}
+    extra_rows = []
     p = REPO / "docs" / "decomp_status.csv"
+    baseline_entries = {fn["entry"] for fn in funcs}
     if p.exists():
         with open(p, newline="") as f:
             for r in csv.DictReader(f):
-                ported[int(r["entry"], 16)] = (r["status"], r["file"])
+                ent = int(r["entry"], 16)
+                if ent in baseline_entries:
+                    ported[ent] = (r["status"], r["file"])
+                elif r.get("status", "").startswith("ported"):
+                    extra_rows.append({"entry": ent,
+                                       "size": int(r.get("size") or 0),
+                                       "file": r["file"]})
 
     # 2) library attribution regions (largest region claims first)
     regions = claimed_set()
@@ -71,7 +81,9 @@ def main() -> int:
                 lib_claim[fn["entry"]] = label
 
     ported_n = sum(1 for fn in funcs if fn["entry"] in ported)
-    ported_b = sum(fn["size"] for fn in funcs if fn["entry"] in ported)
+    ported_b = sum(fn["size"] for fn in funcs if fn["entry"] in ported) \
+        + sum(r["size"] for r in extra_rows)
+    extra_n = len(extra_rows)
     lib_n = len(lib_claim)
     lib_b = sum(f["size"] for f in funcs if f["entry"] in lib_claim)
 
@@ -87,7 +99,7 @@ def main() -> int:
         "Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` "
         f"({tot_f} functions, {tot_b} body bytes) on the TRUE image.", "",
         "| bucket | functions | % | body bytes | % |", "|---|---|---|---|---|",
-        f"| ported (src/) | {ported_n} | {pct(ported_n/tot_f)} | {ported_b} | {pct(ported_b/tot_b)} |",
+        f"| ported (src/) | {ported_n} (+{extra_n} off-baseline leaves) | {pct(ported_n/tot_f)} | {ported_b} | {pct(ported_b/tot_b)} |",
         f"| SDK-attributed (masked byte match) | {lib_n} | {pct(lib_n/tot_f)} | {lib_b} | {pct(lib_b/tot_b)} |",
         f"| **total accounted** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         "",

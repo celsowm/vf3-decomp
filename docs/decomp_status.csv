@@ -1,3 +1,7 @@
-entry,status,file
-0x8c09d690,ported,src/fight/mt_play.c
-0x8c034864,ported,src/sys/mainloop.c
+entry,status,file,size
+0x8c09d690,ported,src/fight/mt_play.c,
+0x8c034864,ported,src/sys/mainloop.c,
+0x8c043018,ported,src/lib/sh4rt.c,74
+0x8c042fdc,ported,src/lib/sh4rt.c,60
+0x8c03f5b2,ported-alias,src/lib/sh4rt.c,24
+0x8c03482a,ported,src/lib/sh4rt.c,30

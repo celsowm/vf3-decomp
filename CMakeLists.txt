@@ -19,6 +19,7 @@ add_library(vf3core STATIC
     src/sys/gdfs.c
     src/sys/hal.c
     src/sys/mainloop.c
+    src/lib/sh4rt.c
 )
 target_include_directories(vf3core PUBLIC src)
 
@@ -38,3 +39,6 @@ target_link_libraries(vf3vm PRIVATE vf3core)
 
 add_executable(vf3loop tests/mainloop_replay.c)
 target_link_libraries(vf3loop PRIVATE vf3core)
+
+add_executable(vf3libutil tests/libutil_replay.c)
+target_link_libraries(vf3libutil PRIVATE vf3core)
