@@ -1,4 +1,37 @@
-# Differential port oracle (Phase B) + first oracle-verified port (Phase C)
+# Differential port oracle (Phase B) + oracle-verified ports
+
+## Batch infrastructure (campaign 0, 2026-09-25)
+Fork (`tools/emu/flycast`, gitignored — rebuild with
+`cmake --build tools/emu/flycast-build -j8`):
+- `VF3_RAMPC` up to 32 PCs; the watch file accepts `rampc <pc> [<base> <len>]`
+  lines — RAM dump on entry/exit with a per-PC window, and the PC is
+  implicitly watched. Up to 64 per-PC windows (repeated `rampc` lines), so a
+  function can get several small windows instead of a 16 MB dump.
+- `VF3_RAMWIN` up to 8 global windows (fallback when a PC has none).
+- `VF3_EDGES=<file>`: 16-byte call-edge records `kind(0=call,1=ret),
+  caller_pc, target, depth`; targets resolved for JSR @Rn, JSR @@(d8,Rn),
+  BSRF and BSR. Enables static closure checking against real calls.
+
+Tools:
+- `tools/golden_batch.py` — runs flycast once per scenario (run spec
+  `name:state:play:frames`), collects `VF3_TRACE` + `VF3_EDGES`, then extracts
+  all traces into one golden dir with `batch_manifest.json`.
+- `tools/golden_extract.py` — now accepts multiple traces (merged per PC,
+  per-sample scenario tags) and writes the v2 `.cases` format:
+  `in*37 out*37 entryram nwin [base len]* exitram nwin [base len]*`
+  (legacy fixed-2-window lines are still parsed by the harness).
+- `tools/derive_windows.py` — reads register-only goldens, finds
+  pointer-valued entry registers (canonical P2 0x0C...), pads/merges ranges
+  and writes the `pc` + `rampc` watch file for the RAM capture pass.
+- `tests/port_harness.h` — shared `.cases` runner: parses both formats,
+  materializes writable window shadows, calls the port, checks the 37 output
+  values (`vf3h_regs_ok`) and byte-exact shadow-vs-exit RAM (`vf3h_mem_ok`),
+  reporting out-of-window accesses. A port test is now ~30 lines.
+- `tools/port_plan.py` — regenerable roadmap (`extract/analysis/port_plan.csv`)
+  joining backlog heat, executed set, static call edges, SDK claims and the
+  port ledger; tags campaigns A/B/C/D + closure_ok + effort.
+- `tools/verify_all.py` — build + portcheck + decomp_stats + union verify +
+  port_plan in one gate.
 
 ## Why
 The repo's hot fight functions are FPU/memory heavy; the earlier buckets could

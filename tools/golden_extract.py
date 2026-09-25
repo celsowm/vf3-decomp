@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """golden_extract.py — per-function golden snapshots from VF3_FULL traces.
 
-Reads a flycast VF3_TRACE stream produced with VF3_FULL=1 (probe groups
-0xFA30/0xFA31 entry, 0xFA32/0xFA33 exit; 21 values = r0-r15, pr, sr, fpscr,
-macl, mach) and pairs each watched entry with the exit that retired at the
-same call depth. Emits one JSON per function plus an index CSV.
+Reads one or more flycast VF3_TRACE streams produced with VF3_FULL=1 (probe
+groups 0xFA30/0xFA31 entry, 0xFA32/0xFA33 exit; 37 values = r0-r15, pr, sr,
+fpscr, macl, mach, fr0-fr15) and pairs each watched entry with the exit that
+retired at the same call depth. Emits one JSON per function plus an index.
+Multiple traces are merged per PC; each sample carries its scenario tag.
 
 Usage:
   python tools/golden_extract.py extract/analysis/golden_fight.bin \
-      --out extract/analysis/goldens [--max-samples 64] [--scenario fight]
+      [extract/analysis/golden_boot.bin ...] \
+      --out extract/analysis/goldens [--scenario fight,boot]
+      [--max-samples 64]
 """
 from __future__ import annotations
 
@@ -37,9 +40,6 @@ def read_records(path: Path):
 def marker(rec: int) -> int:
     lo = rec & 0xFFFF
     return lo if lo >= 0xFA00 and (rec >> 16) != 0 else 0
-
-
-RAMW = 0x1000000 // 4  # default 16 MB RAM window as u32 words
 
 
 def read_ram_group(recs, i):
@@ -107,49 +107,78 @@ def extract(path: Path):
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("trace")
+    ap.add_argument("trace", nargs="+")
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-samples", type=int, default=64)
-    ap.add_argument("--scenario", default="capture")
+    ap.add_argument("--scenario", default="capture",
+                    help="scenario name, or one comma-separated name per trace")
     a = ap.parse_args()
 
-    samples, unpaired, rams, exitrams = extract(Path(a.trace))
+    scens = a.scenario.split(",")
+    if len(scens) == 1:
+        scens = scens * len(a.trace)
+    if len(scens) != len(a.trace):
+        raise SystemExit("--scenario count must be 1 or match trace count")
+
+    merged: dict[int, list] = defaultdict(list)
+    unpaired_tot: dict[int, int] = defaultdict(int)
+    pairs_tot: dict[int, int] = defaultdict(int)
+    sources: dict[int, list] = defaultdict(list)
+    for tp, sc in zip(a.trace, scens):
+        p = Path(tp)
+        if not p.exists():
+            print(f"skip missing trace {tp}")
+            continue
+        samples, unpaired, rams, exitrams = extract(p)
+        for pc, pairs in samples.items():
+            sources[pc].append(sc)
+            pairs_tot[pc] += len(pairs)
+            rb = rams.get(pc, [])
+            xb = exitrams.get(pc, [])
+            for ordinal, (ins, outs) in enumerate(pairs):
+                merged[pc].append({
+                    "scenario": sc, "in": ins, "out": outs,
+                    "ram": rb[ordinal] if ordinal < len(rb) else None,
+                    "xram": xb[ordinal] if ordinal < len(xb) else None,
+                })
+        for pc, cnt in unpaired.items():
+            unpaired_tot[pc] += cnt
+
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     index = []
-    for pc, pairs in sorted(samples.items()):
+    for pc, rows in sorted(merged.items()):
         seen = set()
         uniq = []
-        ram_blobs = rams.get(pc, [])
-        exit_blobs = exitrams.get(pc, [])
-        trusted = unpaired.get(pc, 0) == 0
-        for ordinal, (ins, outs) in enumerate(pairs):
-            key = (ins, outs)
-            ram = ram_blobs[ordinal] if ordinal < len(ram_blobs) else None
-            xram = exit_blobs[ordinal] if ordinal < len(exit_blobs) else None
-            if ram is None and key in seen and xram is None:
+        for r in rows:
+            key = (r["in"], r["out"])
+            if r["ram"] is None and r["xram"] is None and key in seen:
                 continue
             seen.add(key)
-            uniq.append((key, ram, xram))
+            uniq.append(r)
             if len(uniq) >= a.max_samples:
                 break
         fp = hashlib.sha256(
-            b"".join(struct.pack(f"<{NVALS}Q{NVALS}Q", *i, *o)
-                     for (i, o), _, _ in uniq)
+            b"".join(struct.pack(f"<{NVALS}Q{NVALS}Q", *r["in"], *r["out"])
+                     for r in uniq)
         ).hexdigest()[:16]
         name = f"f_{pc:08x}"
+        scen_all = ",".join(sorted(set(sources[pc])))
+        trusted = unpaired_tot.get(pc, 0) == 0
         doc = {
-            "pc": f"0x{pc:08x}", "name": name, "scenario": a.scenario,
+            "pc": f"0x{pc:08x}", "name": name, "scenario": scen_all,
             "samples": [], "exitram_trusted": trusted,
         }
         sample_ram = []
         sample_xram = []
-        for (ins, outs), ram, xram in uniq:
-            sample = {"in": dict(zip(REGNAMES, ins)),
+        for r in uniq:
+            ins, outs = r["in"], r["out"]
+            sample = {"scenario": r["scenario"],
+                      "in": dict(zip(REGNAMES, ins)),
                       "out": dict(zip(REGNAMES, outs))}
             ramname = "-"
-            if ram is not None:
-                wins, blob = ram
+            if r["ram"] is not None:
+                wins, blob = r["ram"]
                 k = len([x for x in doc["samples"] if "ram" in x])
                 rp = out / f"{name}.ram{k}.bin"
                 rp.write_bytes(blob)
@@ -163,8 +192,8 @@ def main() -> int:
                 print(f"{name}: ram sample {k} -> {rp.name} ({len(blob)} B, "
                       f"{len(wins)} windows)")
             xramname = "-"
-            if xram is not None:
-                xwins, xblob = xram
+            if r["xram"] is not None:
+                xwins, xblob = r["xram"]
                 xk = len([x for x in doc["samples"] if "exit_ram" in x])
                 xp = out / f"{name}.exitram{xk}.bin"
                 xp.write_bytes(xblob)
@@ -182,34 +211,36 @@ def main() -> int:
         (out / f"{name}.json").write_text(json.dumps(doc), encoding="utf-8")
         # compact text form for C replay tests: register snapshots only
         lines = []
-        for (i, o), _, _ in uniq:
-            lines.append(" ".join(f"{v:08x}" for v in (*i, *o)))
+        for r in uniq:
+            lines.append(" ".join(f"{v:08x}" for v in (*r["in"], *r["out"])))
         (out / f"{name}.txt").write_text("\n".join(lines) + "\n",
                                          encoding="utf-8")
-        # .cases: in regs, out regs, entry ram (+wins), exit ram (+wins)
+        # .cases (v2): in regs, out regs, entry ram nwin [base len]*,
+        # exit ram nwin [base len]*
         case_lines = []
-        for idx, ((ins, outs), ram, xram) in enumerate(uniq):
-            wins = list(ram[0]) if ram is not None else [(0, 0)]
-            wins += [(0, 0)] * (2 - len(wins))
-            winstr = " ".join(f"0x{b:08x} 0x{l:x}" for b, l in wins[:2])
-            xwins = list(xram[0]) if xram is not None else [(0, 0)]
-            xwins += [(0, 0)] * (2 - len(xwins))
-            xwinstr = " ".join(f"0x{b:08x} 0x{l:x}" for b, l in xwins[:2])
+        for idx, r in enumerate(uniq):
+            wins = list(r["ram"][0]) if r["ram"] is not None else []
+            winstr = str(len(wins)) + "".join(
+                f" 0x{b:08x} 0x{l:x}" for b, l in wins)
+            xwins = list(r["xram"][0]) if r["xram"] is not None else []
+            xwinstr = str(len(xwins)) + "".join(
+                f" 0x{b:08x} 0x{l:x}" for b, l in xwins)
             case_lines.append(
-                " ".join(f"{v:08x}" for v in ins) + " " +
-                " ".join(f"{v:08x}" for v in outs) + " " +
+                " ".join(f"{v:08x}" for v in r["in"]) + " " +
+                " ".join(f"{v:08x}" for v in r["out"]) + " " +
                 sample_ram[idx] + " " + winstr + " " +
                 sample_xram[idx] + " " + xwinstr)
         (out / f"{name}.cases").write_text("\n".join(case_lines) + "\n",
                                            encoding="utf-8")
         index.append({"pc": f"0x{pc:08x}", "name": name,
-                      "pairs": len(pairs), "unique": len(uniq),
-                      "unpaired": unpaired.get(pc, 0), "fingerprint": fp})
-        print(f"{name}: {len(pairs)} pairs, {len(uniq)} unique, "
-              f"{unpaired.get(pc, 0)} unpaired, fp={fp}")
+                      "scenarios": scen_all, "pairs": pairs_tot.get(pc, 0),
+                      "unique": len(uniq), "unpaired": unpaired_tot.get(pc, 0),
+                      "fingerprint": fp})
+        print(f"{name}: {pairs_tot.get(pc, 0)} pairs, {len(uniq)} unique, "
+              f"{unpaired_tot.get(pc, 0)} unpaired, scenarios={scen_all}, fp={fp}")
     with open(out / "goldens_index.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["pc", "name", "pairs", "unique",
-                                          "unpaired", "fingerprint"])
+        w = csv.DictWriter(f, fieldnames=["pc", "name", "scenarios", "pairs",
+                                          "unique", "unpaired", "fingerprint"])
         w.writeheader()
         w.writerows(index)
     print(f"golden_extract: {len(index)} fns -> {out}")

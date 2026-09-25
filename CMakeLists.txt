@@ -69,5 +69,12 @@ target_link_libraries(vf3orient2 PRIVATE vf3core)
 add_executable(vf3poly tests/poly_classify_replay.c)
 target_link_libraries(vf3poly PRIVATE vf3core)
 
+# Shared oracle .cases runner: add_port_test(<target> <test-source>)
+function(add_port_test tname src)
+  add_executable(${tname} ${src})
+  target_link_libraries(${tname} PRIVATE vf3core)
+  target_include_directories(${tname} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+endfunction()
+
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

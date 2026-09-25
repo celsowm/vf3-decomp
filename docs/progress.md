@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Campaign 0: batch port infrastructure (2026-09-25)
+- [x] Fork: `VF3_RAMPC` up to 32, `rampc <pc> [base len]` watch lines with up
+  to 64 per-PC windows (small dumps instead of 16 MB), `VF3_RAMWIN` up to 8,
+  `VF3_EDGES` call-edge log with resolved JSR/BSR targets.
+- [x] `tools/golden_batch.py` (scenario runner + manifest),
+  `tools/golden_extract.py` (multi-trace merge, per-sample scenarios, v2
+  `.cases`), `tools/derive_windows.py` (pointer->window watch writer),
+  `tools/port_plan.py` (campaign/closure roadmap), `tools/verify_all.py`.
+- [x] `tests/port_harness.h` shared replay harness + CMake `add_port_test()`;
+  `vf3poly` migrated, harness parses legacy and v2 `.cases`; all tests PASS.
+- [x] `tools/callgraph.py` refreshed; roadmap `docs/re/coverage_roadmap.md`
+  with milestone math (A 43 fns/12.8 KB, B top-25 35.0 KB -> 21.2% bytes).
+- Gate: `verify_all` PASS (build, portcheck, coverage 275/2398, union 31/31).
+
 ## Tranche 2: vecpush port + oracle hardening (2026-09-25)
 - [x] Fork fixes: JSR/JMP mask (`jmp @Rn` no longer counted as a call);
   `bf`/`bt` have no delay slot (`tools/sh4.py` `DELAYED` set fixed, which
