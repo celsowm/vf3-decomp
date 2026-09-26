@@ -26,8 +26,12 @@ Backlog `leaf` is deprecated for triage; use `port_plan.csv`'s `leaf_sh4`.
   never decodes as code). Literal-pool fixpoint: PC-relative mov.l/mov.w
   slots are collected per pass and refused as code in later passes (kills
   pool-words-decoded-as-bsr phantoms like scalemap's `BF00`/`B880`).
+  Follow-vs-record split (fixed 2026-09-26 after 0x8C08649C): Ghidra sizes
+  truncate loop bottoms (its back-edge sat at +178 vs size 158), so control
+  flow is followed generously (+256) while sites record only inside +16 —
+  the miss had hidden 4 dispatch `bsr`s behind leaf_sh4=1.
   Emits `extract/analysis/sh4_calls.csv` (static bsr targets, dyn jsr/bsrf
-  sites, jmp@Rn tail sites). 1343 static edges, 12150 dyn sites in 1656 fns.
+  sites, jmp@Rn tail sites). 1362 static edges, 12344 dyn sites in 1664 fns.
 - `tools/port_plan.py`: sh4 data is now the primary static source; only
   Ghidra rows with a real call word feed closure (rest counted in
   `g_phantom`); any unresolved dyn site forces `closure_ok` off with

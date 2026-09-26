@@ -52,9 +52,16 @@ def scan(data: bytes, entry: int, size: int):
     fallthrough can land on pool words (e.g. 0xBF00/0xB880 decode as bsr).
     Fixpoint iteration: each pass collects PC-relative pool refs
     (mov.l/mov.w @(disp,PC) slots); the next pass refuses to decode inside
-    known pool ranges. mova refs are CODE addresses, never blocked."""
+    known pool ranges. mova refs are CODE addresses, never blocked.
+
+    Follow-vs-record split: Ghidra sizes truncate loop bottoms/epilogues
+    (e.g. 0x8C08649C size 158 cuts the back-edge at +178), so control flow
+    is followed generously ([entry, entry+size+256)) while call sites are
+    recorded only inside [entry, entry+size+16) — the next function's calls
+    are never attributed here."""
     lo = entry
-    hi = entry + size + 16
+    hi_follow = entry + size + 256
+    hi_record = entry + size + 16
     n = len(data)
     pools: list = []          # (start, end) data ranges, fixpoint-grown
 
@@ -80,6 +87,9 @@ def scan(data: bytes, entry: int, size: int):
         def observe(w: int, pc: int):
             """Record one word WITHOUT following control flow (delay slots,
             post-jump words). Returns pool range or None."""
+            if pc >= hi_record and not (
+                    w & 0xF000 == 0xD000 or w & 0xF000 == 0x9000):
+                return                         # foreign calls not attributed
             if w & 0xF000 == 0xD000:
                 a = ((pc + 4) & ~3) + (w & 0xFF) * 4
                 new_pools.append((a, a + 4))
@@ -93,10 +103,13 @@ def scan(data: bytes, entry: int, size: int):
             elif w & 0xF0FF == 0x402B:
                 cur_tail.add(pc)
 
+        def in_follow(pc: int) -> bool:
+            return lo <= pc < hi_follow
+
         def delay_only(pc: int):
             """Unconditional transfer: decode the single delay-slot word,
             then the path ends (never fall through)."""
-            if pc in visited or pc < lo or pc >= hi or in_pool(pc):
+            if pc in visited or not in_follow(pc) or in_pool(pc):
                 return
             w = read(pc)
             if w is None:
@@ -108,7 +121,7 @@ def scan(data: bytes, entry: int, size: int):
             pc = work.pop()
             while steps < 8192:
                 steps += 1
-                if pc in visited or pc < lo or pc >= hi or in_pool(pc):
+                if pc in visited or not in_follow(pc) or in_pool(pc):
                     break
                 w = read(pc)
                 if w is None:
@@ -127,29 +140,33 @@ def scan(data: bytes, entry: int, size: int):
                     continue
                 if w & 0xF000 == 0xB000:            # bsr disp12 (static call)
                     t = pc + 4 + s12(w & 0xFFF) * 2
-                    cur_static.add(t)
-                    if lo <= t < hi and t not in visited and not in_pool(t):
+                    if pc < hi_record:
+                        cur_static.add(t)
+                    if in_follow(t) and t not in visited and not in_pool(t):
                         work.append(t)
                     pc = npc                       # bsr returns: keep going
                 elif w & 0xF0FF == 0x400B:          # jsr @Rn (dynamic call)
-                    cur_dyn.add(pc)
+                    if pc < hi_record:
+                        cur_dyn.add(pc)
                     pc = npc                       # jsr returns: keep going
                 elif w & 0xF00F == 0x0003:          # bsrf (dynamic call)
-                    cur_dyn.add(pc)
+                    if pc < hi_record:
+                        cur_dyn.add(pc)
                     pc = npc
                 elif w & 0xF0FF == 0x402B:          # jmp @Rn: delay executes
-                    cur_tail.add(pc)
+                    if pc < hi_record:
+                        cur_tail.add(pc)
                     delay_only(npc)
                     break
                 elif w & 0xF000 == 0xA000:          # bra: delay executes only
                     t = pc + 4 + s12(w & 0xFFF) * 2
-                    if lo <= t < hi and t not in visited and not in_pool(t):
+                    if in_follow(t) and t not in visited and not in_pool(t):
                         work.append(t)
                     delay_only(npc)
                     break
                 elif w & 0xF000 == 0x8000:          # bf/bt/bf.s/bt.s disp8
                     t = pc + 4 + s8(w & 0xFF) * 2
-                    if lo <= t < hi and t not in visited and not in_pool(t):
+                    if in_follow(t) and t not in visited and not in_pool(t):
                         work.append(t)
                     pc = npc
                 elif w in (0x000B, 0x002B):         # rts / rte: delay executes
