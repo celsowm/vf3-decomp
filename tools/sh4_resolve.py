@@ -135,12 +135,14 @@ def simulate(data: bytes, words: list, reg: int):
         elif w & 0xF0FF == 0x300C:            # add Rm,Rn (exact; n is hi)
             m, n = (w >> 4) & 0xF, (w >> 8) & 0xF
             if vals[m] is UNK or vals[n] is UNK:
-                return None
+                vals[n] = UNK               # unknown input poisons only
+                continue                    # the destination, not the run
             vals[n] = (vals[n] + vals[m]) & 0xFFFFFFFF
         elif w & 0xF0FF == 0x200B:            # or Rm,Rn (exact; n is hi)
             m, n = (w >> 4) & 0xF, (w >> 8) & 0xF
             if vals[m] is UNK or vals[n] is UNK:
-                return None
+                vals[n] = UNK
+                continue
             vals[n] = vals[n] | vals[m]
         else:
             wr = writes_reg(w)

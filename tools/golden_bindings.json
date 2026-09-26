@@ -94,5 +94,17 @@
   "golden": "extract/analysis/goldens_s8b/f_0c09553c.cases",
   "source": "Gap-unit U2 FPU callback (70 B: frame + exts.w + nested U1-6E0/U1-140 port calls + fmul/fmac/fsub chain + spill stores, 3 caller contexts incl af734-RUN), 64 pairs / 64 RAM cases over 1 stack window",
   "port": "src/fight/fpucb.c"
+ },
+ "0x8c0afb76": {
+  "test": "build/vf3afb76.exe",
+  "golden": "extract/analysis/goldens_afb76/f_0c0afb76.cases",
+  "source": "Branch-tree classifier (762 B: guard ladder + clamp + conditional FPU section with nested U2 call + [r14+30]+=r13; mid-prologue entry, out.r15=in+36)",
+  "port": "src/fight/afb76.c"
+ },
+ "0x8c073fb4": {
+  "test": "build/vf3fminmax.exe",
+  "golden": "extract/analysis/goldens_73fb4/f_0c073fb4.cases",
+  "source": "FPU min/max vertex ladder + table walk (true body 73FB4-74138 incl Ghidra-truncated tail; pool mova gives +13.5/-13.5 pair; chained successive-call goldens; selector-0 short-circuit)",
+  "port": "src/fight/fminmax.c"
  }
 }

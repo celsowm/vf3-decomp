@@ -31,3 +31,5 @@ entry,status,file,size,method,oracle
 0x8c03a140,ported,src/fight/fdivker.c,22,oracle-verified (RAM shadow diff),fdivker_replay 64/64 PASS (64 pairs / 64 RAM cases; alternate entry prologue)
 0x8c09553c,ported,src/fight/fpucb.c,70,oracle-verified (RAM shadow diff),"fpucb_replay 64/64 PASS (64 pairs / 64 RAM cases, nested U1 port calls; off-baseline gap unit U2)"
 0x8c0af734,parked-unverified,src/fight/af734.c,168,"fallthrough-entered: all 64 oracle exits are downstream states (r15+8, foreign r13)","af734_replay FAILS as unit (model complete, exit unreachable); see docs/re/af734_probe.md"
+0x8c0afb76,ported,src/fight/afb76.c,762,oracle-verified (RAM shadow diff),afb76_replay 8/8 PASS (170 pairs / 64 unique / 8 RAM cases over 3 widened windows; nested U2 call with 0x0C0AFEAC pr; r8-r14/fr14-15/pr passthrough)
+0x8c073fb4,ported,src/fight/fminmax.c,350,oracle-verified (RAM shadow diff),fminmax_replay 8/8 PASS (170 pairs / 64 unique / 8 RAM cases over 7 windows incl low-mem vectors + table + vertex tables; no calls in true body)

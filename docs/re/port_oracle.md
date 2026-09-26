@@ -195,3 +195,16 @@ return (bit2(a) != bit4(a)) ? 4 : 0;
 - The helper's `bf`-with-`rts`-delay-slot is undefined behaviour on real
   SH-4; the emulator's choice (skip delay slot when taken) matches the
   intended `{2,1,4}` semantics and the golden vectors.
+
+## Giant/combined-unit port rules (all phases)
+- Entry mechanics decide verifiability. A unit is standalone-portable only
+  if its oracle exits terminate at its own matching-depth `rts`.
+- Fallthrough/tail-called units are not standalone-verifiable, even with a
+  complete body model. A combined unit is valid only when the extended
+  region through the next `rts` contains a call that restores matching depth
+  before exit.
+- Piecewise ports must name the exact entry/exit slice, gate unresolved
+  calls, and force unmodeled outputs from oracle.
+- Nested verified ports may be called directly from larger ports.
+- Parked rows must use non-`ported` status and never count toward rigorous
+  coverage. Only `status` starting with `ported` counts.

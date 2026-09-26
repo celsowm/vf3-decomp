@@ -34,3 +34,16 @@ dyn@/gap@/ram@/unk@). Parked verdicts revised: af734/a71ac/a7750/09D480
 Gap-PC watching works (goldens_s8: 64 samples each for all three gap
 units), so off-baseline units are portable (decomp_status already counts
 off-baseline rows; ported() makes them accounted for closures).
+
+## Round 2 (all-phases run): unknown-input poisoning fix
+`simulate` aborted the whole run when an `add`/`or` had an unknown
+operand — even when the target register's value was fully determined
+(e.g. `0x8C0C5078`: `add r0,r15` poisoned the `r3 = literal` flow).
+Now unknown inputs poison only the destination register and the run
+continues (monotone: previously-returned values unchanged, sound).
+Result: **4268 STATIC / 3 FIXED / 8092 UNKNOWN** (+42 STATIC).
+Remaining UNKNOWNs split into `join-in-run` (true joins/switches, e.g.
+`0x8C078396` braf table — correctly unresolvable) and `untracked`
+(register/memory-fed true dispatch). Dispatcher verdicts confirmed:
+`0x8C0A7750`/`0x8C0A71AC`/`0x8C09D480` fully STATIC (gap calls, not RAM
+vectors); parents keep residual UNKNOWNs for Phase-3 scope gating.
