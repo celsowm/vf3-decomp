@@ -1,5 +1,35 @@
 # VF3tb decomp — progress log
 
+## Campaign B batch: fvectail 0x8C0930D4 + fcmpsel 0x8C0C7050 (2026-09-26)
+- [x] Hardened leaf data (todo-1): new `tools/sh4_calls.py` (recursive
+  descent from the image; bra/jmp/rts/braf decode only their delay slot;
+  literal-pool fixpoint kills pool-words-as-bsr phantoms) wired into
+  `tools/port_plan.py` (`leaf_sh4`, `sh4_static/dyn/tail`, `g_phantom`,
+  dyn kill-switch) and `tools/verify_all.py`. Findings in
+  `docs/re/sh4_calls.md`: `calls.csv` is ~95% phantom call_sites AND misses
+  real ones; backlog `leaf` shares the broken provenance (1416/1780 claimed
+  leaves decode to real call sites — the "exonerated" claim was a
+  case-sensitivity bug in the audit, corrected).
+- [x] Port `0x8C0930D4` -> `src/fight/fvectail.{c,h}` (**64/64 PASS**, 64 RAM
+  cases): fvecadd's fallthrough epilogue (fr0 spill, r15 += 20, fr15
+  restore). Capture `vf3_s5_ram.txt` -> `goldens_s5b/` (`--ramn 64` so every
+  case carries RAM).
+- [x] Port `0x8C0C7050` -> `src/fight/fcmpsel.{c,h}` (**64/64 PASS**, 64 RAM
+  cases, 4 windows): flag-gated FPU select-store with P1/P2/P3 paths incl
+  P2-nostore; two transcription bugs caught by the harness (r7 is the
+  literal itself, not a load; `fcmp/gt Rm,Rn` tests Rn > Rm).
+- [x] Parked with reasons: `0x8C070832` (fallthrough into `0x8C070852` — the
+  oracle exit fires on a downstream rts, so a 32 B standalone port is
+  unverifiable; candidate for a combined 0832+0852 unit), `0x8C0A7750`
+  (dual RAM-vector jsr + tail jmp), `0x8C0A71AC` (triple jsr fan-out + tail
+  jmp), `0x8C08B5AE` (callees live in Ghidra-gap code + tail-bra dispatch
+  into `0x8C08B430`), `0x8C040F1E` (single sample + DMA-magic control flow),
+  `0x8C0747D8` (zero hits in the fight scenario).
+- [x] Exit-semantics result (fork source `vf3trace.cpp`): exits fire on
+  matching-depth `rts`, not at entry+size — fallthrough fragments are only
+  portable when they end in `rts`.
+- [x] Coverage: rigorous **285/2398 (11.9%) / 44,916 B**.
+
 ## Campaign B: cntup port 0x8C08B7EE (2026-09-26)
 - [x] Triaged the 3-diff candidates: both `0x8C08B7EE` (68 B) and `0x8C0AF734`
   (168 B) carry hidden calls the static `calls.csv` misses (bsr pair /

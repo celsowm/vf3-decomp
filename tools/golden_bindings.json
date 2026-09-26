@@ -47,22 +47,34 @@
   "source": "SH-4 0x8C0930B6 fvec3 add block (30 B straight line), 64 pairs / 8 RAM cases",
   "port": "src/fight/fvecadd.c"
  },
-  "0x8c092bc6": {
-   "test": "build/vf3scaler3.exe",
-   "golden": "extract/analysis/goldens_s4/f_0c092bc6.cases",
-   "source": "SH-4 0x8C092BC6 scaled vector-add wrapper (76 B head + 0x8C092C04 body + 0x8C092C38 epilogue), 8 RAM cases with 4 windows (incl. caller scale slot at 0x0c0fb000)",
-   "port": "src/fight/scaler3.c"
-  },
-  "0x8c0c2b80": {
-   "test": "build/vf3frameseq.exe",
-   "golden": "extract/analysis/goldens_ab/f_0c0c2b80.cases",
-   "source": "SH-4 0x8C0C2B80 per-frame scene-step sequencer (50 B straight-line 6-call chain + 0x8C1FD7C8 frame-counter bump + tail jmp 0x8C06BF00), 20 pairs / 8 RAM cases; callee chain out of scope (windows byte-identical entry->exit)",
-   "port": "src/fight/frameseq.c"
-  },
-  "0x8c08b7ee": {
-   "test": "build/vf3cntup.exe",
-   "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",
-   "source": "SH-4 0x8C08B7EE task-struct counter/countdown updater (68 B guards + final store) + callee-1 ladder 0x8C08B89C..0x8C08BB06 ([r14+36]/[r14+38] +1, [r14+22] -1/reload 0x0A, [r14+28]/[r14+34] zeroed), 70 pairs / 8 RAM cases over 10 windows (9 checked; stack page dropped via cases_dropwin, callee-2 0x8C08BB14 delegated with verified zero checked-window footprint)",
-   "port": "src/fight/cntup.c"
-  }
+ "0x8c092bc6": {
+  "test": "build/vf3scaler3.exe",
+  "golden": "extract/analysis/goldens_s4/f_0c092bc6.cases",
+  "source": "SH-4 0x8C092BC6 scaled vector-add wrapper (76 B head + 0x8C092C04 body + 0x8C092C38 epilogue), 8 RAM cases with 4 windows (incl. caller scale slot at 0x0c0fb000)",
+  "port": "src/fight/scaler3.c"
+ },
+ "0x8c0c2b80": {
+  "test": "build/vf3frameseq.exe",
+  "golden": "extract/analysis/goldens_ab/f_0c0c2b80.cases",
+  "source": "SH-4 0x8C0C2B80 per-frame scene-step sequencer (50 B straight-line 6-call chain + 0x8C1FD7C8 frame-counter bump + tail jmp 0x8C06BF00), 20 pairs / 8 RAM cases; callee chain out of scope (windows byte-identical entry->exit)",
+  "port": "src/fight/frameseq.c"
+ },
+ "0x8c08b7ee": {
+  "test": "build/vf3cntup.exe",
+  "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",
+  "source": "SH-4 0x8C08B7EE task-struct counter/countdown updater (68 B guards + final store) + callee-1 ladder 0x8C08B89C..0x8C08BB06 ([r14+36]/[r14+38] +1, [r14+22] -1/reload 0x0A, [r14+28]/[r14+34] zeroed), 70 pairs / 8 RAM cases over 10 windows (9 checked; stack page dropped via cases_dropwin, callee-2 0x8C08BB14 delegated with verified zero checked-window footprint)",
+  "port": "src/fight/cntup.c"
+ },
+ "0x8c0930d4": {
+  "test": "build/vf3fvectail.exe",
+  "golden": "extract/analysis/goldens_s5b/f_0c0930d4.cases",
+  "source": "SH-4 0x8C0930D4 fvec epilogue tail (10 B straight line: fr0 spill, r15+=16, rts + fr15 restore delay), 624 pairs / 64 unique / 64 RAM cases over 1 stack window",
+  "port": "src/fight/fvectail.c"
+ },
+ "0x8c0c7050": {
+  "test": "build/vf3fcmpsel.exe",
+  "golden": "extract/analysis/goldens_s5b/f_0c0c7050.cases",
+  "source": "SH-4 0x8C0C7050 flag-gated FPU select-store (52 B: [0x0C2D0190+28/+24] flag paths P1/P2/P3, fsub RM=truncate, fcmp exact, [r4] store except P2-low), 136 pairs / 64 unique / 64 RAM cases over 4 windows",
+  "port": "src/fight/fcmpsel.c"
  }
+}
