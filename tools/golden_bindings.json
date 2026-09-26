@@ -106,5 +106,17 @@
   "golden": "extract/analysis/goldens_73fb4/f_0c073fb4.cases",
   "source": "FPU min/max vertex ladder + table walk (true body 73FB4-74138 incl Ghidra-truncated tail; pool mova gives +13.5/-13.5 pair; chained successive-call goldens; selector-0 short-circuit)",
   "port": "src/fight/fminmax.c"
+ },
+ "0x8c078044": {
+  "test": "build/vf3g78044.exe",
+  "golden": "extract/analysis/goldens_78044/f_0c078044.cases",
+  "source": "Gap byte-table worker (~200 B, call-free, dt at 0x8C0780E2; edges-proven target of dyn 0x8C0770D2 + loop 0x8C077706)",
+  "port": "src/fight/g78044.c"
+ },
+ "0x8c077e4e": {
+  "test": "build/vf3g77e4e.exe",
+  "golden": "extract/analysis/goldens_cascade/f_0c077e4e.cases",
+  "source": "Gap table-walk worker (~550 B to rts; nested-call + data-block paths gated, untripped in goldens)",
+  "port": "src/fight/g77e4e.c"
  }
 }
