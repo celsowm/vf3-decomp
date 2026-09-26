@@ -46,5 +46,11 @@
   "golden": "extract/analysis/goldens_s2b/f_0c0930b6.cases",
   "source": "SH-4 0x8C0930B6 fvec3 add block (30 B straight line), 64 pairs / 8 RAM cases",
   "port": "src/fight/fvecadd.c"
+ },
+ "0x8c092bc6": {
+  "test": "build/vf3scaler3.exe",
+  "golden": "extract/analysis/goldens_s4/f_0c092bc6.cases",
+  "source": "SH-4 0x8C092BC6 scaled vector-add wrapper (76 B head + 0x8C092C04 body + 0x8C092C38 epilogue), 8 RAM cases with 4 windows (incl. caller scale slot at 0x0c0fb000)",
+  "port": "src/fight/scaler3.c"
  }
 }

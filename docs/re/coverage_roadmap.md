@@ -26,7 +26,13 @@
   as a documented skeleton, out of the `portcheck` gate and unbound until
   re-captured with tighter windows (S3/sbatch provenance kept in
   `tools/watch/vf3_s3*.txt`, `vf3_sbatch*.txt`, `vf3_s3pair.txt`).
-- Coverage: rigorous **280/2398 (11.7%) / 44,660 B (10.3%)**.
+- Campaign A, S-batch part 2 (landed): `0x8C092BC6` -> `src/fight/scaler3.c`,
+  **8/8 RAM-shadow cases PASS**. Re-captured with a 4th window covering the
+  caller scratch page (0x8c092bc6's scale input at `[r2+20]` was outside
+  the old 3-window slice), so RM=truncate products verify byte-exact via
+  `fpu_tz.h`. New tool/watch set `tools/watch/vf3_s4.txt` ->
+  `extract/analysis/goldens_s4/`.
+- Coverage: rigorous **281/2398 (11.7%) / 44,736 B (10.3%)**.
 
 Baseline snapshot (`tools/decomp_stats.py`, HEAD `0bbd92c`):
 rigorous **275/2398 fns (11.5%) / 44,212 B (10.2%)**; identified
