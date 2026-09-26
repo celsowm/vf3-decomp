@@ -88,5 +88,11 @@
   "golden": "extract/analysis/goldens_s8b/f_0c03a140.cases",
   "source": "Gap-unit U1 alternate entry 0x8C03A140 (22 B r14-adjust prologue + shared kernel), 64 pairs / 64 RAM cases over 1 stack window",
   "port": "src/fight/fdivker.c"
+ },
+ "0x8c09553c": {
+  "test": "build/vf3fpucb.exe",
+  "golden": "extract/analysis/goldens_s8b/f_0c09553c.cases",
+  "source": "Gap-unit U2 FPU callback (70 B: frame + exts.w + nested U1-6E0/U1-140 port calls + fmul/fmac/fsub chain + spill stores, 3 caller contexts incl af734-RUN), 64 pairs / 64 RAM cases over 1 stack window",
+  "port": "src/fight/fpucb.c"
  }
 }

@@ -157,7 +157,8 @@ def main() -> int:
             for r in csv.DictReader(f):
                 ent = int(r["entry"], 16)
                 if ent in baseline_entries:
-                    ported[ent] = (r["status"], r["file"])
+                    if r.get("status", "").startswith("ported"):
+                        ported[ent] = (r["status"], r["file"])
                 elif r.get("status", "").startswith("ported"):
                     extra_rows.append({"entry": ent,
                                        "size": int(r.get("size") or 0),

@@ -224,7 +224,8 @@ def main() -> int:
         # never formed them). Unaccounted code = closure fails, named.
         img_lo, img_hi = 0x8C010000, 0x8C010000 + len(img)
         gap = [c for c in unresolved
-               if img_lo <= c < img_hi and not in_regions(regs, c)]
+               if img_lo <= c < img_hi and not in_regions(regs, c)
+               and c not in done and c not in sdk]
         outside = [c for c in unresolved if not (img_lo <= c < img_hi)]
         closure_ok = (len(missing) == 0 and len(dyn) == 0
                       and len(fixed) == 0 and len(gap) == 0

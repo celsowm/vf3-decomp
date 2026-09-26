@@ -1,5 +1,22 @@
 # VF3tb decomp — progress log
 
+## "Go" batch 4: U2 cascade port 0x8C09553C; af734 PARKED (2026-09-26)
+- [x] Port gap-unit U2 (FPU callback: frame + exts.w + TWO nested U1 port
+  calls + fmul/fmac/fsub chain + spill stores) -> `src/fight/fpucb.{c,h}`
+  + `tests/fpucb_replay.c` (**64/64 PASS**, 3 caller contexts incl
+  af734-RUN, 0 skipped). First nested-port composition: U1's
+  oracle-verified model composes exactly inside U2. Bound, off-baseline
+  row (70 B).
+- [x] af734 PARKED with mechanism (not callee): fully modeled
+  (`src/fight/af734.c` committed as parked-unverified + failing test
+  ungated, fvecmix precedent) but ALL 64 exits are downstream states
+  (out.r15 = in.r15+8 uniformly, foreign r13, no in-body writer) —
+  fallthrough/tail-called entry, exit fires at a later depth-D rts.
+  Neither standalone nor combined-with-successor ([7DC,826] has no
+  re-incrementing call) captures the exit. Entry mechanics are binary-
+  fixed, so no scenario fixes it. The cascade's value (U1+U2) landed.
+- [x] Coverage: rigorous **285/2398 + off-baseline / 45,126 B (10.4%)**.
+
 ## "Go" batch 3: U1 cascade port 0x8C03A6E0/0x8C03A140 (2026-09-26)
 - [x] Port gap-unit U1 (FPU range-reduction kernel: 2pi/pi/2/0.5/65536
   ROM constants, fdiv/float/ftrc/fmac chain, countdown loop, T-select
