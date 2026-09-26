@@ -30,6 +30,25 @@
   portable when they end in `rts`.
 - [x] Coverage: rigorous **285/2398 (11.9%) / 44,916 B**.
 
+## Todos 3-5: af734 PARK, fvecmix verdict, 070x sweep PARK (2026-09-26)
+- [x] `0x8C0AF734` PARKED with structural reason (`docs/re/af734_probe.md`):
+  two-path (SKIP 63/64 integer-only; RUN 1/64 spills fr3a/b then calls
+  RAM-resident `0x0C09553C`, which rewrites the spills — verified by
+  entry/exit shadow diff at F = r15-12 — with its own nested jsr; outputs
+  feed the fsub chain). Unverifiable as a pure entry-state function;
+  cntup-style delegation fails (footprint load-bearing). Needed: model of
+  the RAM routine.
+- [x] `src/fight/fvecmix.{c,h}` (0x8C071668 draft) verdict: kept in-tree as
+  parked (fvecmix2 precedent — compiles clean, wired into vf3core, no
+  ledger row/binding/test). Unverifiable as written (tail-jmp path +
+  zero goldens); taken-path (rts) queued for a future 071xxx sweep.
+- [x] 070x/071x FPU sweep PARKED (`docs/re/fpu07x_sweep.md`): 90 true-leaf
+  fragments triaged, ALL fall-through (no `rts`) — none standalone-
+  verifiable under exit-on-rts semantics. Secondary finding: Campaign-C
+  "never executed" is broken for this family (abreg captured 64-sample
+  goldens in the same fight scenario) — execution-ID attribution needs
+  sh4-descent hardening too.
+
 ## Campaign B: cntup port 0x8C08B7EE (2026-09-26)
 - [x] Triaged the 3-diff candidates: both `0x8C08B7EE` (68 B) and `0x8C0AF734`
   (168 B) carry hidden calls the static `calls.csv` misses (bsr pair /

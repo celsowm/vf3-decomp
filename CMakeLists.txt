@@ -12,6 +12,7 @@ add_library(vf3core STATIC
     src/fight/orient2.c
     src/fight/poly_classify.c
     src/fight/fvecadd.c
+    src/fight/fvecmix.c
     src/fight/fvecmix2.c
     src/fight/fvectail.c
     src/fight/fcmpsel.c
