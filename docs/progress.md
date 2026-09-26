@@ -31,6 +31,25 @@
 - [x] Coverage: rigorous **285/2398 (11.9%) / 44,916 B**.
 
 ## Todos 3-5: af734 PARK, fvecmix verdict, 070x sweep PARK (2026-09-26)
+
+## "Go" batch: cheap-leaf triage (2026-09-26)
+- [x] Triaged all 7 cheap-leaf candidates with sh4full (scanner is advisory
+  only after the 08649C miss): **zero quick ports** — the list collapsed on
+  contact: `0x8C0935F4` fall-through FPU fragment (park, combined-unit
+  candidate), `0x8C08649C` 5-way dispatch fan-out (park; exposed the
+  scanner loop-bottom hole, fixed via follow-vs-record split),
+  `0x8C0926CC` guard-stub with out-of-region exits (park), `0x8C09D480`
+  dual literal-vector jsr + tail jmp despite 135k hits (park — heat is not
+  portability), `0x8C068DE4` zero hits in fight-180f AND boot/m26-3000f
+  (park; trigger documented: scalemap's bsrs need `[0x0C1B9610] != 0`).
+- [x] QUEUED (verifiable-shaped, just big): `0x8C0AFB76` (762 B branch-tree
+  classifier, integer) and `0x8C073FB4` (FPU min/max ladder + table walk
+  with Ghidra-truncated tail — true body runs past size into 0x8C0740F4+)
+  as dedicated piecewise sessions.
+- [x] Lesson recorded: heat/order in port_plan do not imply portability;
+  triage = sh4full body + exit-shape (rts?) + dispatch check, in that
+  order. Next up per the 20% plan: literal-resolver tool, then B-giant
+  triage.
 - [x] `0x8C0AF734` PARKED with structural reason (`docs/re/af734_probe.md`):
   two-path (SKIP 63/64 integer-only; RUN 1/64 spills fr3a/b then calls
   RAM-resident `0x0C09553C`, which rewrites the spills — verified by
