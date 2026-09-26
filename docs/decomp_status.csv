@@ -24,3 +24,4 @@ entry,status,file,size,method,oracle
 0x8c0930b6,ported,src/fight/fvecadd.c,30,oracle-verified (RAM shadow diff),fvecadd_replay 8/8 PASS
 0x8c092bc6,ported,src/fight/scaler3.c,76,oracle-verified (RAM shadow diff),scaler3_replay 8/8 PASS
 0x8c0c2b80,ported-piecewise,src/fight/frameseq.c,50,oracle-verified (RAM shadow diff),frameseq_replay 8/8 PASS; 6-callee call chain out of scope (chain-owned exit state, windows byte-identical entry->exit)
+0x8c08b7ee,ported-piecewise,src/fight/cntup.c,68,oracle-verified (RAM shadow diff),"cntup_replay 8/8 PASS (70 pairs / 8 RAM cases, 10-window goldens_b7, 9 checked via nowin3 derived cases; own guards + callee-1 0x8C08B89C ladder modeled with private frame, callee-2 0x8C08BB14 delegated with verified zero checked-window footprint; r0-r7/sr/fr3 forced from oracle)"

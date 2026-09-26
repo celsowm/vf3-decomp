@@ -1,5 +1,27 @@
 # VF3tb decomp — progress log
 
+## Campaign B: cntup port 0x8C08B7EE (2026-09-26)
+- [x] Triaged the 3-diff candidates: both `0x8C08B7EE` (68 B) and `0x8C0AF734`
+  (168 B) carry hidden calls the static `calls.csv` misses (bsr pair /
+  RAM-vector jsr), so `port_plan`'s leaf/closure_ok overclaims them; true
+  0-call leaves with goldens are the Campaign-A `0x8C070x` FPU family.
+  `0x8C0AF734` (dynamic jsr + FPU fsub pair) deferred; `0x8C0B1560` (1090 B)
+  audited as non-leaf (jsr @lit).
+- [x] Port `0x8C08B7EE` -> `src/fight/cntup.{c,h}` + `tests/cntup_replay.c`
+  (**8/8 RAM-shadow cases PASS**): own guard pair + final store with the
+  callee-1 ladder (`0x8C08B89C..0x8C08BB06`: `[r14+36]/[r14+38]` +1,
+  `[r14+22]` -1 with `0x0A` reload from `[r14+46]`, `[r14+28]/[r14+34]`
+  zeroed) modelled with a private frame; callee-2 `0x8C08BB14` (+ nested
+  calls) delegated with verified zero checked-window footprint (r0-r7, sr,
+  fr3 forced from oracle).
+- [x] Capture `tools/watch/vf3_b7_ram.txt` -> `extract/analysis/goldens_b7/`
+  (70 pairs, 10 windows incl. structB/C + far pages found by simulating the
+  ladder's reads); new `tools/cases_dropwin.py` derives the 9-window test
+  cases (drops the callee-2-owned stack page); `VF3H_MAXWIN` 8 -> 16 in the
+  shared harness. Bound in `golden_bindings.json`, row in
+  `decomp_status.csv`, `verify_all` green.
+- [x] Coverage: rigorous **283/2398 (11.8%) / 44,854 B (10.3%)**.
+
 ## Campaign A start: scalemap port + capture integrity (2026-09-25)
 - [x] **Fork capture bugs fixed** (three): trace file reopened/truncated per
   `Run()`; `vf3_seh` calling `vf3TraceFlush` from `DBG_PRINTEXCEPTION_C`

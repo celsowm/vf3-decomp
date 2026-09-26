@@ -24,7 +24,7 @@
 #include "fight/poly_classify.h"   /* vf3_ram_win / vf3_ram_map */
 
 #define VF3H_NVALS 37
-#define VF3H_MAXWIN 8
+#define VF3H_MAXWIN 16
 
 typedef struct {
     uint32_t in[VF3H_NVALS];
