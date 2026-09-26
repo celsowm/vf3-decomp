@@ -23,3 +23,4 @@ entry,status,file,size,method,oracle
 0x8c0748c0,ported-piecewise,src/fight/walker2.c,32,oracle-verified-gate-only (RAM shadow diff),walker_gate_replay 8/8 PASS; walker bsr 0x8C0748E0 calls out of scope (data OOB in all windows)
 0x8c0930b6,ported,src/fight/fvecadd.c,30,oracle-verified (RAM shadow diff),fvecadd_replay 8/8 PASS
 0x8c092bc6,ported,src/fight/scaler3.c,76,oracle-verified (RAM shadow diff),scaler3_replay 8/8 PASS
+0x8c0c2b80,ported-piecewise,src/fight/frameseq.c,50,oracle-verified (RAM shadow diff),frameseq_replay 8/8 PASS; 6-callee call chain out of scope (chain-owned exit state, windows byte-identical entry->exit)

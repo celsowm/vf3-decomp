@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_library(vf3core STATIC
     src/fight/frame.c
+    src/fight/frameseq.c
     src/fight/mt_play.c
     src/fight/mt_mount.c
     src/fight/orient2.c
@@ -88,6 +89,7 @@ add_port_test(vf3walker2 tests/walker2_replay.c)
 add_port_test(vf3fvecadd tests/fvecadd_replay.c)
 add_port_test(vf3fvecmix2 tests/fvecmix2_replay.c)
 add_port_test(vf3scaler3 tests/scaler3_replay.c)
+add_port_test(vf3frameseq tests/frameseq_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

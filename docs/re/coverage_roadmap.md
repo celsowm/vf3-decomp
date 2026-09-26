@@ -32,7 +32,12 @@
   the old 3-window slice), so RM=truncate products verify byte-exact via
   `fpu_tz.h`. New tool/watch set `tools/watch/vf3_s4.txt` ->
   `extract/analysis/goldens_s4/`.
-- Coverage: rigorous **281/2398 (11.7%) / 44,736 B (10.3%)**.
+- Campaign B, first port (landed): `0x8C0C2B80` -> `src/fight/frameseq.c`,
+  **8/8 RAM-shadow cases PASS**. Bounded linear sequencer (6 bsr/jsr into
+  scene/particle helpers + frame counter RMW + tail-pop); the port owns the
+  prologue/sequencing register state while the 6 sub-steps' FPU churn is
+  (documented) delegated-match. New test `vf3frameseq`.
+- Coverage: rigorous **282/2398 (11.7%) / 44,844 B (10.3%)**.
 
 Baseline snapshot (`tools/decomp_stats.py`, HEAD `0bbd92c`):
 rigorous **275/2398 fns (11.5%) / 44,212 B (10.2%)**; identified
