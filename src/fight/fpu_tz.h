@@ -22,6 +22,7 @@ static float f32_tz(long double x)
 }
 
 static float fmul_tz(float a, float b) { return f32_tz((long double)a * b); }
+static float fdiv_tz(float a, float b) { return f32_tz((long double)a / b); }
 static float fadd_tz(float a, float b) { return f32_tz((long double)a + b); }
 static float fsub_tz(float a, float b) { return f32_tz((long double)a - b); }
 static float fmac_tz(float a, float b, float c)
@@ -41,6 +42,21 @@ static uint32_t fpu_f32_to_bits(float f)
     uint32_t bits;
     memcpy(&bits, &f, 4);
     return bits;
+}
+
+/* DN=1 denormal flush (FPSCR bit 21): subnormal op results flush to
+ * signed zero. float/fldi/fmov/ftrc never produce subnormals. */
+static float fpu_dn_fix(float f, uint32_t fpscr)
+{
+    uint32_t bits;
+    if ((fpscr & 0x00200000u) == 0)
+        return f;
+    memcpy(&bits, &f, 4);
+    if ((bits & 0x7F800000u) == 0 && (bits & 0x007FFFFFu) != 0) {
+        bits &= 0x80000000u;
+        memcpy(&f, &bits, 4);
+    }
+    return f;
 }
 
 #endif /* VF3_FIGHT_FPU_TZ_H */

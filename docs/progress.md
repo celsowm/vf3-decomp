@@ -1,5 +1,22 @@
 # VF3tb decomp — progress log
 
+## "Go" batch 3: U1 cascade port 0x8C03A6E0/0x8C03A140 (2026-09-26)
+- [x] Port gap-unit U1 (FPU range-reduction kernel: 2pi/pi/2/0.5/65536
+  ROM constants, fdiv/float/ftrc/fmac chain, countdown loop, T-select
+  rts pair) -> `src/fight/fdivker.{c,h}` + `tests/fdivker_replay.c`
+  (**64/64 + 64/64 PASS**, both entries, 0 skipped). Off-baseline rows
+  (118 + 22 B) bound in `golden_bindings.json`.
+- [x] Harness caught four transcription bugs: fdiv operand order (all six
+  backwards — same class as fcmp), missing `fr2 = fr4` (73a), missing
+  r5/r1 outputs, `mov #3,r5` overwritten-entry. Execution-alias result:
+  the unit runs at the 0x0C P0 alias (oracle r0 = 0x0C03A92C).
+- [x] `fpu_tz.h`: `fdiv_tz` + `fpu_dn_fix` (DN=1 subnormal flush; U1 runs
+  under RM=1/DN=1 and RM=1/DN=0 — FPSCR-checked modes, no flag modeling
+  needed since in==out always).
+- [x] Coverage: rigorous **285/2398 + off-baseline (11.9%) / 45,056 B
+  (10.4%)**. Next in orchestra: U2 0x8C09553C (nested U1 calls + FPU
+  chain), then af734-RUN.
+
 ## "Go" batch 2: literal-resolver + cascade + giant triage (2026-09-26)
 - [x] Built `tools/sh4_resolve.py` (intra-block backward sim, exact SH-4
   reg fields, join-abort soundness): **4226 STATIC / 3 FIXED / 8134

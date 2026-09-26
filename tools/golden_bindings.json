@@ -76,5 +76,17 @@
   "golden": "extract/analysis/goldens_s5b/f_0c0c7050.cases",
   "source": "SH-4 0x8C0C7050 flag-gated FPU select-store (52 B: [0x0C2D0190+28/+24] flag paths P1/P2/P3, fsub RM=truncate, fcmp exact, [r4] store except P2-low), 136 pairs / 64 unique / 64 RAM cases over 4 windows",
   "port": "src/fight/fcmpsel.c"
+ },
+ "0x8c03a6e0": {
+  "test": "build/vf3fdivker.exe",
+  "golden": "extract/analysis/goldens_s8b/f_0c03a6e0.cases",
+  "source": "Gap-unit U1 FPU range-reduction kernel, 0x8C03A6E0 entry (118 B: fdiv/float/ftrc/fmac chain + countdown loop + T-select rts pair, RM=1 truncate, DN flush), 64 pairs / 64 RAM cases over 1 stack window",
+  "port": "src/fight/fdivker.c"
+ },
+ "0x8c03a140": {
+  "test": "build/vf3fdivker.exe",
+  "golden": "extract/analysis/goldens_s8b/f_0c03a140.cases",
+  "source": "Gap-unit U1 alternate entry 0x8C03A140 (22 B r14-adjust prologue + shared kernel), 64 pairs / 64 RAM cases over 1 stack window",
+  "port": "src/fight/fdivker.c"
  }
 }
