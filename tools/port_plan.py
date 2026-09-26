@@ -5,8 +5,16 @@ Joins:
   extract/analysis/funcs_1ST_READ.unsc.bin.csv      baseline inventory
   extract/analysis/port_backlog.csv                 heat (hits/leaf/out_calls)
   extract/analysis/disasm_1ST_READ.unsc.bin.calls.csv  static call edges
+  extract/analysis/sh4_calls.csv                    machine-decoded bsr/dyn
+                                                    cross-check (tools/sh4_calls.py)
   extract/analysis/trace_fn_hits.csv                executed set (containment)
   SDK/libmask claim CSVs + docs/decomp_status.csv   accounted set
+
+Call-edge policy (2026-09-26, see docs/re/sh4_calls.md): Ghidra's calls.csv
+is ~95% phantom call_sites (delay slots, return addrs, pool words), so only
+rows whose site word is a real bsr/jsr/bsrf feed closure; the rest count in
+g_phantom. sh4_calls.csv (recursive descent from the image) is the primary
+static source; unresolved dynamic jsr/bsrf sites force closure_ok off.
 
 and emits extract/analysis/port_plan.csv with a campaign tag:
   A  hot small (hits>=10k)
@@ -130,14 +138,50 @@ def main() -> int:
                 hits[ent] = bh
 
     calls = defaultdict(set)
+    g_phantom = defaultdict(int)   # call_site word is not a call instruction
+    img = (REPO / "extract" / "exe" / "1ST_READ.unsc.bin").read_bytes()
+    def call_word(site):
+        import struct as _st
+        off = site - 0x8C010000
+        if off < 0 or off + 2 > len(img):
+            return None
+        w = _st.unpack_from("<H", img, off)[0]
+        if w & 0xF000 == 0xB000 or w & 0xF0FF == 0x400B or w & 0xF00F == 0x0003:
+            return w                      # bsr / jsr @Rn / bsrf only;
+        return False                      # (jmp @Rn is a tail transfer, not a call)
     with open(AN / "disasm_1ST_READ.unsc.bin.calls.csv", newline="") as f:
         for r in csv.DictReader(f):
             caller = containing(starts, funcs, int(r["call_site"], 16))
             if caller is None:
                 continue
+            if call_word(int(r["call_site"], 16)) is False:
+                g_phantom[caller] += 1    # ~95% phantom: delay slots,
+                continue                  # return addrs, pool words, ASCII
             target = int(r["target"], 16)
             callee = containing(starts, funcs, target)
             calls[caller].add(callee if callee is not None else target)
+
+    # sh4_calls.csv cross-check (tools/sh4_calls.py): machine-decoded bsr
+    # edges + dynamic jsr/bsrf sites straight from the image. Ghidra's
+    # calls.csv misses sites in seed-fragmented bodies, which made
+    # closure_ok vacuously true (e.g. 0x8C08B7EE, 0x8C0AF734, 0x8C0B1560).
+    sh4_static = defaultdict(set)   # caller -> {targets}
+    sh4_dyn = defaultdict(set)      # caller -> {dyn sites}
+    sh4_tail = defaultdict(int)     # caller -> n jmp@Rn tail sites
+    shp = AN / "sh4_calls.csv"
+    if shp.exists():
+        with open(shp, newline="") as f:
+            for r in csv.DictReader(f):
+                ent = int(r["entry"], 16)
+                for t in r["static_targets"].split():
+                    target = int(t, 16)
+                    callee = containing(starts, funcs, target)
+                    sh4_static[ent].add(callee if callee is not None else target)
+                for d in r["dyn_sites"].split():
+                    sh4_dyn[ent].add(int(d, 16))
+                sh4_tail[ent] = int(r["n_tail"])
+        for caller, tgts in sh4_static.items():
+            calls[caller] |= tgts
 
     sdk = sdk_claims()
     regs = region_claims()
@@ -154,7 +198,12 @@ def main() -> int:
         resolved = [c for c in callees if c in F]
         unresolved = [c for c in callees if c not in F]
         missing = [c for c in resolved if c != ent and not accounted(c)]
-        closure_ok = len(missing) == 0
+        dyn = sorted(sh4_dyn.get(ent, set()))
+        closure_ok = len(missing) == 0 and len(dyn) == 0
+        miss_txt = " ".join(f"0x{c:08X}" for c in missing[:8])
+        if dyn:
+            miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
+                f"dyn@0x{d:08X}" for d in dyn[:4])
         if accounted(ent):
             camp = "accounted"
         elif h >= 10000:
@@ -180,7 +229,14 @@ def main() -> int:
             "campaign": camp, "effort": effort,
             "executed": "Y" if ent in executed else "-",
             "closure_ok": "Y" if closure_ok else "-",
-            "missing_callees": " ".join(f"0x{c:08X}" for c in missing[:8]),
+            "missing_callees": miss_txt,
+            "leaf_sh4": "1" if (len(sh4_static.get(ent, ())) == 0
+                                and len(dyn) == 0
+                                and sh4_tail.get(ent, 0) == 0) else "",
+            "sh4_static": len(sh4_static.get(ent, ())),
+            "sh4_dyn": len(dyn),
+            "sh4_tail": sh4_tail.get(ent, 0),
+            "g_phantom": g_phantom.get(ent, 0),
             "page": f"0x{(ent >> 16):02x}",
             "score": h * max(size, 16),
         })
@@ -190,7 +246,9 @@ def main() -> int:
         w = csv.DictWriter(f, fieldnames=["entry", "name", "size", "hits",
                                           "leaf", "out_calls", "campaign",
                                           "effort", "executed", "closure_ok",
-                                          "missing_callees", "page", "score"])
+                                          "missing_callees", "leaf_sh4",
+                                          "sh4_static", "sh4_dyn", "sh4_tail",
+                                          "g_phantom", "page", "score"])
         w.writeheader()
         w.writerows(rows)
     by_camp = defaultdict(lambda: [0, 0])
