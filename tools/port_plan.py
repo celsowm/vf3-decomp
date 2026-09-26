@@ -168,6 +168,7 @@ def main() -> int:
     sh4_static = defaultdict(set)   # caller -> {targets}
     sh4_dyn = defaultdict(set)      # caller -> {dyn sites}
     sh4_tail = defaultdict(int)     # caller -> n jmp@Rn tail sites
+    sh4_fixed = defaultdict(set)    # caller -> {fixed off-image targets}
     shp = AN / "sh4_calls.csv"
     if shp.exists():
         with open(shp, newline="") as f:
@@ -182,6 +183,25 @@ def main() -> int:
                 sh4_tail[ent] = int(r["n_tail"])
         for caller, tgts in sh4_static.items():
             calls[caller] |= tgts
+    # sh4_resolved.csv (tools/sh4_resolve.py): STATIC resolutions become
+    # call edges (containing-or-raw, like bsr); FIXED off-image targets
+    # fail closure with ram@ tokens; UNKNOWNs keep their dyn@ tokens.
+    shp2 = AN / "sh4_resolved.csv"
+    if shp2.exists():
+        with open(shp2, newline="") as f:
+            for r in csv.DictReader(f):
+                if r["class"] == "STATIC" and r["target"]:
+                    ent = int(r["caller"], 16)
+                    target = int(r["target"], 16)
+                    callee = containing(starts, funcs, target)
+                    tgt = callee if callee is not None else target
+                    sh4_static[ent].add(tgt)
+                    calls[ent].add(tgt)
+                    sh4_dyn[ent].discard(int(r["site"], 16))
+                elif r["class"] == "FIXED" and r["target"]:
+                    ent = int(r["caller"], 16)
+                    sh4_fixed[ent].add(int(r["target"], 16))
+                    sh4_dyn[ent].discard(int(r["site"], 16))
 
     sdk = sdk_claims()
     regs = region_claims()
@@ -199,11 +219,29 @@ def main() -> int:
         unresolved = [c for c in callees if c not in F]
         missing = [c for c in resolved if c != ent and not accounted(c)]
         dyn = sorted(sh4_dyn.get(ent, set()))
-        closure_ok = len(missing) == 0 and len(dyn) == 0
+        fixed = sorted(sh4_fixed.get(ent, set()))
+        # gap code: in-image targets with no containing function (Ghidra
+        # never formed them). Unaccounted code = closure fails, named.
+        img_lo, img_hi = 0x8C010000, 0x8C010000 + len(img)
+        gap = [c for c in unresolved
+               if img_lo <= c < img_hi and not in_regions(regs, c)]
+        outside = [c for c in unresolved if not (img_lo <= c < img_hi)]
+        closure_ok = (len(missing) == 0 and len(dyn) == 0
+                      and len(fixed) == 0 and len(gap) == 0
+                      and len(outside) == 0)
         miss_txt = " ".join(f"0x{c:08X}" for c in missing[:8])
         if dyn:
             miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
                 f"dyn@0x{d:08X}" for d in dyn[:4])
+        if fixed:
+            miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
+                f"ram@0x{d:08X}" for d in fixed[:2])
+        if gap:
+            miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
+                f"gap@0x{d:08X}" for d in gap[:4])
+        if outside:
+            miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
+                f"unk@0x{d:08X}" for d in outside[:2])
         if accounted(ent):
             camp = "accounted"
         elif h >= 10000:
@@ -232,9 +270,11 @@ def main() -> int:
             "missing_callees": miss_txt,
             "leaf_sh4": "1" if (len(sh4_static.get(ent, ())) == 0
                                 and len(dyn) == 0
+                                and len(fixed) == 0
                                 and sh4_tail.get(ent, 0) == 0) else "",
             "sh4_static": len(sh4_static.get(ent, ())),
             "sh4_dyn": len(dyn),
+            "sh4_fixed": len(fixed),
             "sh4_tail": sh4_tail.get(ent, 0),
             "g_phantom": g_phantom.get(ent, 0),
             "page": f"0x{(ent >> 16):02x}",
@@ -247,8 +287,9 @@ def main() -> int:
                                           "leaf", "out_calls", "campaign",
                                           "effort", "executed", "closure_ok",
                                           "missing_callees", "leaf_sh4",
-                                          "sh4_static", "sh4_dyn", "sh4_tail",
-                                          "g_phantom", "page", "score"])
+                                          "sh4_static", "sh4_dyn", "sh4_fixed",
+                                          "sh4_tail", "g_phantom", "page",
+                                          "score"])
         w.writeheader()
         w.writerows(rows)
     by_camp = defaultdict(lambda: [0, 0])

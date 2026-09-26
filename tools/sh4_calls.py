@@ -100,6 +100,8 @@ def scan(data: bytes, entry: int, size: int):
                 cur_static.add(pc + 4 + s12(w & 0xFFF) * 2)
             elif w & 0xF0FF == 0x400B or w & 0xF00F == 0x0003:
                 cur_dyn.add(pc)
+            elif (w & 0xF000) == 0x4000 and (w & 0xF) == 0x3:
+                cur_dyn.add(pc)
             elif w & 0xF0FF == 0x402B:
                 cur_tail.add(pc)
 
@@ -149,6 +151,10 @@ def scan(data: bytes, entry: int, size: int):
                     if pc < hi_record:
                         cur_dyn.add(pc)
                     pc = npc                       # jsr returns: keep going
+                elif (w & 0xF000) == 0x4000 and (w & 0xF) == 0x3:
+                    if pc < hi_record:             # jsr @@(d8,Rn) (dynamic)
+                        cur_dyn.add(pc)
+                    pc = npc
                 elif w & 0xF00F == 0x0003:          # bsrf (dynamic call)
                     if pc < hi_record:
                         cur_dyn.add(pc)

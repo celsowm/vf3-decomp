@@ -1,5 +1,24 @@
 # VF3tb decomp — progress log
 
+## "Go" batch 2: literal-resolver + cascade + giant triage (2026-09-26)
+- [x] Built `tools/sh4_resolve.py` (intra-block backward sim, exact SH-4
+  reg fields, join-abort soundness): **4226 STATIC / 3 FIXED / 8134
+  UNKNOWN** of 12363 dyn sites. Fixed 3 field bugs found by hand-trace
+  validation (add/or/mov dest nibble, mova-always-R0, store-vs-or) +
+  `jsr @@` coverage in sh4_calls (+19 sites).
+- [x] Alias result: 0x0C-high values in image range are STATIC edges (gap
+  code), proven by RAM-dump/image identity at 0x0C09553C. Resolver beats
+  Ghidra twice (01066E phantom, 010F3C prologue). `port_plan.py` consumes
+  resolutions (`gap@`/`ram@` tokens; fixed the vacuous-closure hole for
+  functionless targets). closure=- rows now all precisely attributed.
+- [x] Cascade: af734 -> U2 0x8C09553C -> U1 0x8C03A140/0x8C03A6E0, all
+  static rts-terminated; gap-PC watching proven (goldens_s8). 03xx gap
+  cluster = FPU matrix kernels (deferred). Orchestra: U1 -> U2 -> af734.
+- [x] B-giant verdicts: 0750BE dispatcher/5 tails (park), 0782EA 4.4kB
+  frame-heavy worker, 1 dyn + 1 tail (TOP scope-cut candidate), 076C00
+  piecewise-possible (5 statics), 0C5062/0BF50A dispatch-heavy (park
+  pending resolver round 2). Ledger: `docs/re/sh4_resolve.md`.
+
 ## Campaign B batch: fvectail 0x8C0930D4 + fcmpsel 0x8C0C7050 (2026-09-26)
 - [x] Hardened leaf data (todo-1): new `tools/sh4_calls.py` (recursive
   descent from the image; bra/jmp/rts/braf decode only their delay slot;
@@ -30,7 +49,7 @@
   portable when they end in `rts`.
 - [x] Coverage: rigorous **285/2398 (11.9%) / 44,916 B**.
 
-## Todos 3-5: af734 PARK, fvecmix verdict, 070x sweep PARK (2026-09-26)
+## Todos 3-5: af734 CASCADE, fvecmix verdict, 070x sweep PARK (2026-09-26)
 
 ## "Go" batch: cheap-leaf triage (2026-09-26)
 - [x] Triaged all 7 cheap-leaf candidates with sh4full (scanner is advisory
@@ -50,13 +69,12 @@
   triage = sh4full body + exit-shape (rts?) + dispatch check, in that
   order. Next up per the 20% plan: literal-resolver tool, then B-giant
   triage.
-- [x] `0x8C0AF734` PARKED with structural reason (`docs/re/af734_probe.md`):
-  two-path (SKIP 63/64 integer-only; RUN 1/64 spills fr3a/b then calls
-  RAM-resident `0x0C09553C`, which rewrites the spills — verified by
-  entry/exit shadow diff at F = r15-12 — with its own nested jsr; outputs
-  feed the fsub chain). Unverifiable as a pure entry-state function;
-  cntup-style delegation fails (footprint load-bearing). Needed: model of
-  the RAM routine.
+- [x] `0x8C0AF734` verdict REVISED to CASCADE (`docs/re/af734_probe.md`):
+  the "RAM routine" was 0x0C-alias confusion — the callee is static image
+  code 0x8C09553C, itself calling static 0x8C03A140/0x8C03A6E0 (FPU
+  fdiv/float/ftrc/fmac kernel, rts-terminated). Orchestra bottom-up
+  U1 -> U2 -> af734-RUN; gap-PC watching PROVEN (goldens_s8, 64 samples
+  each). SKIP 63/64 already understood.
 - [x] `src/fight/fvecmix.{c,h}` (0x8C071668 draft) verdict: kept in-tree as
   parked (fvecmix2 precedent — compiles clean, wired into vf3core, no
   ledger row/binding/test). Unverifiable as written (tail-jmp path +

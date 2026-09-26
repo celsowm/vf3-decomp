@@ -7,7 +7,8 @@ Runs, in order:
   3. python tools/decomp_stats.py   (coverage)
   4. python tools/verify_union.py   (SDK union evidence, 0 mismatch)
   5. python tools/sh4_calls.py      (machine-decoded call cross-check)
-  6. python tools/port_plan.py      (roadmap refresh, consumes sh4_calls)
+  6. python tools/sh4_resolve.py    (dynamic-target resolution)
+  7. python tools/port_plan.py      (roadmap refresh, consumes both)
 
 Usage: python tools/verify_all.py [--no-build] [--quiet]
 """
@@ -42,6 +43,7 @@ def main() -> int:
     ok &= run([PY, "tools/decomp_stats.py"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])
+    ok &= run([PY, "tools/sh4_resolve.py"])
     ok &= run([PY, "tools/port_plan.py"])
     print("verify_all:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
