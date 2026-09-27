@@ -1,5 +1,22 @@
 # VF3tb decomp — progress log
 
+## "Go" batch 5: full fight-worker port 0x8C076C00 (2026-09-27)
+- [x] Port full 4138 B unit `src/fight/f076c00.{c,h}` +
+  `tests/f076c00_replay.c` (**8/8 PASS**, regs + exit RAM, 0 oob) with
+  nested g78044 (0770D2 dyn + 077706 loop) and g77e4e (0774AE) calls.
+  Bound in `CMakeLists.txt` + `golden_bindings.json`, ledger row.
+- [x] Oracle-hunt fixed: absolute-X caller push/call modeling (dropped
+  three bogus post-call `X +=` restores); five inverted `bt/s` sites
+  (0x8D jumps iff T=1: 077144/077752/07787E + g77e4e 077E88/077F80);
+  r15-relative push-slot reads (077498 = [X+0x84], 0774A4 = [X+0x78]);
+  L_f08 truncated tail (now falls through 076F18+ instead of jumping
+  to the loop); baked 0x0C0F3A88 pointer table (076EB4/076EFC);
+  076C1A literal-vs-read confusion (`r2 = 0x0C29B864`, kills the
+  0x10000004 device-read OOB); nested pr = return address
+  (0x0C0774B2); missing `r4 = r12` delay at 0774AE; g77e4e missing
+  `o->r7` export; test r7 contract (`got[7] = o.r7`, X+0x74 out).
+- [x] Coverage: rigorous **288/2398 / 51,126 B (11.8%)**.
+
 ## "Go" batch 4: U2 cascade port 0x8C09553C; af734 PARKED (2026-09-26)
 - [x] Port gap-unit U2 (FPU callback: frame + exts.w + TWO nested U1 port
   calls + fmul/fmac/fsub chain + spill stores) -> `src/fight/fpucb.{c,h}`

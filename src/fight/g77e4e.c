@@ -128,21 +128,21 @@ void vf3_g77e4e_8c077e4e(uint32_t in_r0, uint32_t in_r1, uint32_t in_r2,
 L_e7a:
     r0 = 72;                            /* 8c077e7a */
     r5 = c_rd32(ram, X + 60);           /* 8c077e7c */
-    r2 = c_rd32(ram, X + 76);           /* 8c077e7e */
+    r2 = c_rd32(ram, X + 72);           /* 8c077e7e @(r0=72,r15) */
     r11 = 4;                            /* 8c077e80 */
     r3 = 0x00080000u;                   /* 8c077e82 mov.l pool value */
     r12 = 63;                           /* 8c077e84 */
     T = ((r11 & r2) == 0);              /* 8c077e86 tst r11,r2 */
     r5 &= r3;                           /* 8c077e8a delay (always) */
-    if (!T)
-        goto L_f18;                     /* 8c077e88 bt/s (T=0: bit set) */
+    if (T)
+        goto L_f18;                     /* 8c077e88 bt/s */
     r1 = X;                             /* 8c077e8c */
     r1 += 72;                           /* 8c077e8e */
     r0 = c_rd32(ram, r1);               /* 8c077e90 */
     T = ((r0 & 11) == 0);               /* 8c077e92 tst #11,r0 */
+    r1 = c_rd32(ram, r10);              /* 8c077e96 delay (always) */
     if (!T)
         goto L_e9e;                     /* 8c077e94 bf */
-    r1 = c_rd32(ram, r10);              /* 8c077e96 */
     r2 = 0x7FFFFFFFu;                   /* 8c077e98 mov.l pool value */
     r1 &= r2;                           /* 8c077e9a */
     c_wr32(ram, r10, r1);               /* 8c077e9c */
@@ -252,8 +252,8 @@ L_f74:
     r5 = r5;                            /* (r13 move below, F7E position) */
     r13 = r5;                           /* 8c077f7e mov r5,r13 */
     r13 <<= 2;                          /* 8c077f82 delay (always) */
-    if (!T)
-        goto L_f4c;                     /* 8c077f80 bt/s (T=0) */
+    if (T)
+        goto L_f4c;                     /* 8c077f80 bt/s */
     goto L_fe6;                         /* 8c077f84 bra */
 L_f88:
     r0 = 0x1B83u;                       /* 8c077f88 mov.w */
@@ -318,6 +318,7 @@ L_8024:
     o->r4 = r4;
     o->r5 = r5;
     o->r6 = r6;
+    o->r7 = r7;                         /* preserved (no writes in body) */
     o->r8 = r8;
     o->r9 = r9;
     o->r10 = r10;

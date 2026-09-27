@@ -118,5 +118,11 @@
   "golden": "extract/analysis/goldens_cascade/f_0c077e4e.cases",
   "source": "Gap table-walk worker (~550 B to rts; nested-call + data-block paths gated, untripped in goldens)",
   "port": "src/fight/g77e4e.c"
+ },
+ "0x8c076c00": {
+  "test": "build/vf3f076c00.exe",
+  "golden": "extract/analysis/goldens_cascade/f_0c076c00.cases",
+  "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
+  "port": "src/fight/f076c00.c"
  }
 }

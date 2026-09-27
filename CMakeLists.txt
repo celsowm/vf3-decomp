@@ -22,6 +22,7 @@ add_library(vf3core STATIC
     src/fight/tailpath.c
     src/fight/g78044.c
     src/fight/g77e4e.c
+    src/fight/f076c00.c
     src/fight/fvectail.c
     src/fight/fcmpsel.c
     src/fight/scaler3.c
@@ -109,6 +110,7 @@ add_port_test(vf3fminmax tests/fminmax_replay.c)
 add_port_test(vf3tailpath tests/tailpath_replay.c)
 add_port_test(vf3g78044 tests/g78044_replay.c)
 add_port_test(vf3g77e4e tests/g77e4e_replay.c)
+add_port_test(vf3f076c00 tests/f076c00_replay.c)
 add_port_test(vf3fvecmix2 tests/fvecmix2_replay.c)
 add_port_test(vf3scaler3 tests/scaler3_replay.c)
 add_port_test(vf3frameseq tests/frameseq_replay.c)
