@@ -119,10 +119,16 @@
   "source": "Gap table-walk worker (~550 B to rts; nested-call + data-block paths gated, untripped in goldens)",
   "port": "src/fight/g77e4e.c"
  },
- "0x8c076c00": {
-  "test": "build/vf3f076c00.exe",
-  "golden": "extract/analysis/goldens_cascade/f_0c076c00.cases",
-  "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
-  "port": "src/fight/f076c00.c"
- }
+  "0x8c076c00": {
+   "test": "build/vf3f076c00.exe",
+   "golden": "extract/analysis/goldens_cascade/f_0c076c00.cases",
+   "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
+   "port": "src/fight/f076c00.c"
+  },
+  "0x8c0c678e": {
+   "test": "build/vf3c678e.exe",
+   "golden": "extract/analysis/goldens_c678e2/f_0c0c678e.cases",
+   "source": "Fight-engine worker (1772 B true body 678E-6E7A rts, mid-prologue entry X=in-68, out.r15=in+44; 28-iter scalemap-wrapper loop + branch tree (odds exit 693C) + deep FPU chain with nested 069624/06911C; baked 0x0C0EAF60 atan ramp; 142 pairs / 64 unique / 8 RAM cases over 8 windows incl warping table read-only)",
+   "port": "src/fight/c678e.c (inlined scalemap twin sp=X-8, c_9624 leaf, c_6911c mesh-walk with OOB stub constants + loud gates for untripped paths)"
+  }
 }
