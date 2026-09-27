@@ -1,5 +1,26 @@
 # VF3tb decomp — progress log
 
+## "Go" batch 6: 0x8C0C678E port + two honest parks (2026-09-27)
+- [x] Port 0x8C0C678E (mid-prologue worker, true body 1772 B) with expanded
+  8-window capture (warping table + 0x0C110000 read-only) -> 8/8 PASS, zero
+  OOB: 28-iter scalemap-inline twin (sp=X-8) + branch tree (odds 693C exit) +
+  deep FPU chain with c_9624 leaf (baked 0x0C0EAF60 ramp) + c_6911c
+  mesh-walk (OOB-stub node + loud gates). Bound + ledger + coverage.
+- [x] 0x8C0782EA BLOCKED (BRAF mistracked): `vf3TraceDepthOp` treats BRAF
+  (0x0n23) as BSRF via `(op & 0xF00F)==0x0003`, so exits misattribute ~18
+  unwind levels deep; fix = `(op & 0xF0FF)==0x0003`, rebuild fork,
+  recapture.
+- [x] 0x8C0AC252 BLOCKED (no scenario): 0 fn hits in 720-frame fight_keep +
+  1200-frame boot capture; 488 backlog hits come from long nav/transition
+  traces with no state/play.
+- [x] 0x8C06F6F8 PARKED (degenerate oracle): all 64 lines share one
+  byte-identical out-vector/exit-RAM blob while entries vary and PR changes
+  across a leaf — exit attribution inconsistent; faithful 88 B port kept
+  in-tree mirroring in-bounds stores, OOB=0, harness fails by design until
+  re-pair.
+- [x] Coverage after 678e: rigorous **289/2398 (12.1%) / 52,622 B (12.1%)**,
+  verify_all PASS.
+
 ## "Go" batch 5: full fight-worker port 0x8C076C00 (2026-09-27)
 - [x] Port full 4138 B unit `src/fight/f076c00.{c,h}` +
   `tests/f076c00_replay.c` (**8/8 PASS**, regs + exit RAM, 0 oob) with

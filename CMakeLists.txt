@@ -31,6 +31,7 @@ add_library(vf3core STATIC
     src/fight/tailcall.c
     src/fight/vecpush.c
     src/fight/cntup.c
+    src/fight/g06f6f8.c
     src/fight/walker.c
     src/fight/walker2.c
     src/fight/scene_predicate.c
@@ -117,6 +118,7 @@ add_port_test(vf3fvecmix2 tests/fvecmix2_replay.c)
 add_port_test(vf3scaler3 tests/scaler3_replay.c)
 add_port_test(vf3frameseq tests/frameseq_replay.c)
 add_port_test(vf3cntup tests/cntup_replay.c)
+add_port_test(vf3g06f6f8 tests/g06f6f8_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

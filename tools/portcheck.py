@@ -32,6 +32,11 @@ TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
 # exits carry loop-carried pipeline state and the exit RAM contains stores
 # from below-window code — parked until re-captured with tighter windows.
 
+# NOTE: vf3g06f6f8 (0x8C06F6F8) builds but is NOT gated: goldens_ab exits
+# are degenerate (all 64 lines one byte-identical out-vector/exit-RAM blob,
+# PR changes across a leaf) - parked until re-paired to a causally
+# downstream exit (tail-jumps out of bounds; port mirrors in-bounds).
+
 
 def validate_goldens(d: Path):
     idx = d / "goldens_index.csv"
