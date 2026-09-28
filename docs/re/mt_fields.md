@@ -48,3 +48,23 @@ The whole MT-side reader is two functions:
 `src/fight/mt_play.c` mirrors this: stream walker explains a record body,
 resolves the secondary record reference, emits the 4-dword per-frame tuple
 that the dynarec-side code hands to the transform machinery.
+
+## M53 — record stream-region map, float-sanity verified (2026-09-28)
+Tool: `tools/mt_record_map.py` → `extract/analysis/mt_record_map.csv`
+(CRC32 per region). Reads MTJACLAU.BIN slot bodies at the exact M14
+evaluator-read addresses and checks float plausibility:
+
+| slot | rec+delta | stream | floats sane? |
+|---|---|---|---|
+| 5093 | 0x736 (8 B) | counts cursor B | NO (byte stream, as expected: cnt values) |
+| 5093 | 0x75B (33 B) | times cursor | NO (byte stream, key-time bytes) |
+| 5093 | 0x7A4 (16 B) | tuple quartet | YES 4/4 (0.0, 0.0, 15377.75, -16384.0 = x, y·256, z·256 slope form) |
+| 5096 | 0x194 (64 B) | linked tuples | YES 16/16 (-0.0153, 0.0, 0.71, 0.30 — genuine motion floats) |
+| 1304 | 0x41C (32 B) | 2nd-instance tuples | YES 8/8 |
+
+So the byte-vs-float region split predicted by the evaluator port holds on
+file bytes across three records (5093 primary, 5096 linked pool, 1304 second
+instance). Still open (needs mount-time headers from RAM, not file): the
+ops[63] bytes themselves (instance header built at mount) and the 5093→5096
+link encoding — i.e. which-channel's-tuples-live-where. Next: watch the
+out-buffer + downstream readers in a live capture.

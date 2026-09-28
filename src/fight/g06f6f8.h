@@ -56,6 +56,25 @@
  * this port mirrors every in-bounds instruction/store exactly and the
  * replay test checks OOB==0 plus the in-bounds footprint. See the
  * g06f6f8_replay.c header for the evidence table.
+ *
+ * M59 (2026-09-28, re-pair with pr-match fork): recaptured
+ * goldens_6f6f8full (69,309 pairs, 64 unique, 10 RAM cases over 10 windows).
+ * Pairing improved but NOT fixed: 8 distinct out-vectors (was 1), 55/64
+ * PR round-trip (outPR always 0c06f948; inPR 0c06f6a6 or 0c06f948).
+ * Root cause scoped: the 88 B boundary is artificial — the pipeline runs
+ * 0x8C06F6F8..0x8C06F98E+ (662 B to the first rts at 98e, code continues
+ * past it: epilogue BSRF switch at 9de+, more tails at fb42/bb8). Per-call
+ * instr walks (74k records entry->exit, 5257 in-chain pcs, ZERO rts with pc
+ * in 0x6F000..0x70000 either alias) prove the paired exit fires at a
+ * CALLER rts: entry r3 is always 0c06f6ae and the chain ends in
+ * jmp @r3 (724/952) / jmp @r2 (938, r2 = 0c06f6c6 or 0xB) tail-transfers
+ * into the caller, whose rts (target = entry pr 0c06f948) closes the pair
+ * via pr-match. The 10 RAM cases fail only on r0 (port: mova 8c06f738,
+ * oracle: 0x24 from the epilogue mov #36 at 0x8C06F9F6). Recipe: extend the
+ * port through the epilogue switch to the caller-rts boundary with the
+ * r2/r3-resolved tails (both entry-constant per case); tools/ac6f6f8_paths.py
+ * + extract/analysis/ac6f6f8_paths.csv carry the executed-PC set
+ * (287 pcs, 0x6F6F8..0x6F954 over 40 calls).
  */
 #ifndef VF3_FIGHT_G06F6F8_H
 #define VF3_FIGHT_G06F6F8_H

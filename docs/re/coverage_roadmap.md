@@ -150,7 +150,7 @@ Batching (by address cluster, 1 commit each): `0x8C068x` (6), `0x8C070x` (7),
 | 0x8C0C5062 | 2236 | 6804 |
 | 0x8C0BF50A | 2130 | 2919 |
 | 0x8C081194 | 1744 | 2268 |
-| 0x8C0AC252 | 1528 | 488 |
+| 0x8C0AC252 | 1528 | 488 static / 73 instr-confirmed (trace_long P2-alias prologue hits, late-scenario bursts; footprint 242 PCs over 0xAC252..0xAD19A chain, tools/ac252_foot.py) |
 | 0x8C0C678E | 1496 | 9661 |
 | 0x8C0AB35A | 1118 | 10 |
 | 0x8C0B011E | 1086 | 584 |

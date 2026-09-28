@@ -53,6 +53,34 @@ Fact-checked line-by-line against `tools/sh4full.py` dumps and the
 - `tests/mainloop_replay.c` (vf3loop): result classes 0/1/4/5/6(0-path)/7/
   default/empty-chain — PASS.
 
+## M58 — per-frame struct-C model (composition over verified units, 2026-09-28)
+Every stage below is an oracle-bound port (portcheck PASS); this section only
+wires them in verified call order (trace anchors per stage):
+
+```
+per frame:
+  scene_predicate.c (cand_is_scene0A 0x8C0B1AA8): scene_state[3]==0x0A?
+    no  -> frame.c returns 1 (non-fight, nothing runs)
+    yes -> continue                      # trace: rec 0 inside 0x8C0B1AC0
+  walker.c (f_8c0b1a54): scene_word -> slot offset word
+    (FRAME_SLOTS are struct-offset words, NOT PCs: 1->112, 5->0x756C,
+     9->0x7662, 14->0x8570; walker_replay PASS)
+  walker2 gate (0x8C0748C0, walker_gate_replay 8/8): caller-owned gate word
+  task_run_c (0x8C0796F4): flag-gate bit3, then 8-slot chain
+    (mov.w lit,r4; jsr @r14) + idx==3 tail (jsr @r11)
+  mainloop.c dispatch step (f_8c034864): handler(payload,&frame[2]) vtable
+    call, result classes 0/1/4/5/6/7/default (mainloop_replay PASS)
+  mt_play.c: per-frame tuple pull, parts cycle (part_counter&7), 63 channels
+    -> 21 vec3, z-negate pass (mt_vm_interp PASS)
+  geometry vec3 pipeline: orient2/poly_classify/vecpush idiom (all PASS)
+  frameseq (0x8C0C2B80, frameseq_replay 8/8): pr push + frame-counter bump
+    + tail-jmp boundary; six scene-step jsr/bsr are chain-owned (scope cut)
+```
+The "static jsr ~3%" ceiling is structural: every cross-stage edge above is
+a dyn-dispatch (`jsr @r14/@r11`, vtable, BRAF/jsr tables), so the static
+callgraph undercounts by construction — the composition above, not the
+static graph, is the loop model.
+
 ## Tremors from the image fix (to re-derive next turns)
 
 - The fight-runner `fight_f_8c0796f4`-family addresses point at trace-true

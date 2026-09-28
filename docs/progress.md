@@ -1,7 +1,26 @@
 # VF3tb decomp — progress log
 
-## 782EA port 8/8 (fork fix #5 + interrupt footprint) (2026-09-28)
-- [x] Fork fix #5 (pr-match exit): async exception through 0x0C00FA00 leaks
+## Batch: todos sweep (2026-09-28)
+- [x] 0x8C0674FC PARKED (scenario-blocked): in FUN_8c0673a8 (3796 B, 0 hits);
+  sole static caller 0x8C066E02 also 0 hits, no static callers (dyn only).
+- [x] MT record map M53 (tools/mt_record_map.py): byte/float region split
+  verified on file bytes (tuples 4/4 + 16/16 + 8/8 sane; counts/times fail
+  float-sanity as expected); ops[63]+link need live headers.
+- [x] BGM M57 gate: 0 mova users of mpdrv strings, sound block 14/15 zero-hit,
+  1 bogus G2 pool — trace-gated (song-change scenario + AICA trace class).
+- [x] 0x8C0AC252 scenario FOUND in trace_long.bin: 73 prologue calls
+  (P2 alias, late bursts), 242-PC footprint over 8-fn tail chain
+  (tools/ac252_foot.py); value capture needs long-soak rerun (provenance
+  undocumented).
+- [x] Main-loop model M58: per-frame composition over 8 verified units;
+  jsr-~3% ceiling is dyn-dispatch structure.
+- [ ] 0x8C06F6F8 re-pair partial: fixed fork improved pairing (1→7
+  out-vectors, 55/64 round-trip) but the 88 B scope is artificial — pipeline
+  runs to 98e+ with caller tails (jmp @r2/r3, entry-constant per case), exit
+  fires at caller rts (no in-chain rts over 74k records). 10 RAM cases fail
+  only on r0 (epilogue mov #36 @9f6). Recipe in g06f6f8.h M59 note.
+
+## 782EA port 8/8 (fork fix #5 + interrupt footprint) (2026-09-28)- [x] Fork fix #5 (pr-match exit): async exception through 0x0C00FA00 leaks
   +12 call depth (handler noreturn tails), so 0x8C0782EA's own rts never
   depth-matched and exits landed ~741 instrs late in the caller (d=+36/-248
   instead of +12). Arms now also record entry pr; rts-to-entry-pr closes.
@@ -32,7 +51,13 @@
 - [x] BRAF table 0x8C078396 resolved: 64-entry halfword table @0x8C0783B0,
   targets 0x8C07839A+word = 0x8C07845E..0x8C0787C4 (braf_tables.csv).
   Remaining fork-blocker for all BRAF-site ports lifted.
-- [ ] 0x8C0AC252 still scenario-blocked (0 hits in 720f fight + 1200f boot).
+- [ ] 0x8C0AC252 scenario found, value-capture pending: 73 prologue calls
+  (op 0x4F22 @0x0C0AC252) late in trace_long.bin (65-100% span, bursts
+  11/12/12/38); footprint 242 PCs spanning 0xAC252..0xAD19A across 8 fn
+  boundaries (tail-chain head; tools/ac252_foot.py +
+  extract/analysis/ac252_footprint.csv). 0 hits in 720f fight/1200f boot/
+  25.8M-edge fight capture stand. Recipe: replicate the long soak with the
+  ac252 watch (provenance of trace_long undocumented — empty report file).
 
 ## "Go" batch 6: 0x8C0C678E port + two honest parks (2026-09-27)
 - [x] Port 0x8C0C678E (mid-prologue worker, true body 1772 B) with expanded

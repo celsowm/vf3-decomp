@@ -65,6 +65,22 @@ attribute the reset loop entry to its host fn. The RELOAD.unsc.bin (ARM7
 driver) governs the ARM-side interpretation; SH4 side issues commands via
 the mailbox protocol in/out.
 
+## M57 — attribution gate pinned (2026-09-28, static; negative results)
+- Exhaustive `mova @(disp,PC)` scan over the image: **0** mova targets land
+  in the mpdrv string block `0x8C0CD600..0x8C0CDA00` — strings are reached
+  only via base+offset dataflow (M56 mova hypothesis confirmed, tightened).
+- Sound block `0x8C035E00..0x8C036900` = 15 fns, **14 with 0 execution hits**
+  (campaign C dyn-dispatch; 4 already `accounted`); the mpdrv endpoints never
+  fire in any captured scenario.
+- Sound-block literal pools pointing at G2/AICA space: exactly **1**
+  (`0x8C036048 → 0xA062E907`, implausible reg — data constant). Command posts
+  go through the libsnd driver layer, not direct pool loads.
+- ⇒ voice-reset boundary stays trace-gated: needs (a) a song-change scenario
+  (fight_1→fight_2; no in-tree play input drives it), (b) a new AICA-bus
+  trace class in the fork (mem-watch wraps SH-4 ReadMem/WriteMem only; no
+  G2/0xA0080000 support). `src/sys/soundcmd.c` endpoints remain 0 =
+  unattributed by design until then.
+
 ## MT live-residency proof (side catch)
 
 `MTJACLAU.BIN` (Jacky vs Lau) byte-verified resident at RAM offset
