@@ -27,6 +27,23 @@ own-`rts` exits land exactly where the Py oracle emulator predicted
 filtered from a 34-sample capture; tail-out guard cases are genuine
 noreturn-jmp exits, excluded). Unblocks the remaining BRAF sites from
 `extract/analysis/braf_tables.csv` (0x8C078396/0x8C0674FC/…).
+
+## Fifth fork bug (2026-09-28, fixed): exit depth leaks across interrupts
+Depth-tracked exits (`armed depth == deferredDepth`) misattribute when
+an async exception fires mid-call: the 0x8C0782EA B-path is interrupted
+through the 0x0C00FA00 vector (rte resumes at 0x8C07A5E0), and the handler's
+internal noreturn tail calls leak +12 call depth that no `rts` ever pops, so
+the function's own `rts` (0x8C07A78C) never depth-matches and the exit
+snapshot lands ~741 instructions late, deep in the caller's continuation
+(`out.r15=in+36/-248` instead of the true `in+12`). Fixed: arms also record
+the entry `pr`, and an `rts` whose target equals the entry `pr` closes the
+arm (pr-match OR depth-match; `rts_target==0` guarded). Post-fix all 35
+exits are prompt own-`rts` (`r15=in+12`); goldens `goldens_782eo_rts`
+(8 cases over 10 windows) bind the 0x8C0782EA port. Note the detour itself
+(timer/AICA tick via 0x0C004C66/0x0C0460E8, double-precision FPU under
+FPSCR=0x340001, INTC/Holly sysregs) is transparent to the prompt exit state
+(py emulator proves 12/12 with the service body skipped); only the vector
+stub's r0/r1 pushes (8 frame bytes) stick and are modeled counter-gated.
 invalidated); `flush` now checks the `fwrite` count.
 
 ## Game FPSCR: round toward zero (critical for any FPU port)

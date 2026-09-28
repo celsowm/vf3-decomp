@@ -1,5 +1,21 @@
 # VF3tb decomp — progress log
 
+## 782EA port 8/8 (fork fix #5 + interrupt footprint) (2026-09-28)
+- [x] Fork fix #5 (pr-match exit): async exception through 0x0C00FA00 leaks
+  +12 call depth (handler noreturn tails), so 0x8C0782EA's own rts never
+  depth-matched and exits landed ~741 instrs late in the caller (d=+36/-248
+  instead of +12). Arms now also record entry pr; rts-to-entry-pr closes.
+  Rebuilt fork, recaptured: all 35 exits prompt own-rts (r15=in+12).
+- [x] Detour dissected: FA00 stub (push r0/r1, jmp [FA14]=0x8C004C66) + full
+  context save (banked regs, both FPR banks, FPSCR=0x340001 double mode) +
+  ~4000-instr service (INTC/Holly sysregs) + rte to 0x8C07A5E0. Service body
+  is transparent to prompt exits (12/12 without it); only the 8 stub bytes
+  stick - modeled counter-gated (7A5DE#7, 07891A#10-if-5de<=10, B-path).
+- [x] Port src/fight/g782ea.c (machine-generated via gen782c.py from the
+  validated emulator: 1266 words / 40 ranges, 19/64 BRAF arms, 22 one-way
+  gates, pools+BRAF baked, zero OOB over 10 windows) -> g782ea_replay 8/8
+  PASS on goldens_782eo_rts. Bound + ledgered; portcheck + verify_all PASS.
+
 ## 782EA BRAF unblock (fork fix #4) + oracle emulator (2026-09-27)
 - [x] Fixed vf3trace BSRF mask: (op&0xF00F)==0x0003 also matched BRAF 0x0n23
   -> every switch-table hop added phantom call depth; exits mis-attributed

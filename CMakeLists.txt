@@ -24,6 +24,7 @@ add_library(vf3core STATIC
     src/fight/g77e4e.c
     src/fight/f076c00.c
     src/fight/c678e.c
+    src/fight/g782ea.c
     src/fight/fvectail.c
     src/fight/fcmpsel.c
     src/fight/scaler3.c
@@ -119,6 +120,7 @@ add_port_test(vf3scaler3 tests/scaler3_replay.c)
 add_port_test(vf3frameseq tests/frameseq_replay.c)
 add_port_test(vf3cntup tests/cntup_replay.c)
 add_port_test(vf3g06f6f8 tests/g06f6f8_replay.c)
+add_port_test(vf3g782ea tests/g782ea_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)
