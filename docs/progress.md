@@ -1,5 +1,23 @@
 # VF3tb decomp — progress log
 
+## 782EA BRAF unblock (fork fix #4) + oracle emulator (2026-09-27)
+- [x] Fixed vf3trace BSRF mask: (op&0xF00F)==0x0003 also matched BRAF 0x0n23
+  -> every switch-table hop added phantom call depth; exits mis-attributed
+  ~18 unwind levels deep (edge-log proof: 18 consecutive call 0x8C078396
+  records). Now (op&0xF0FF)==0x0003. Flycast fork rebuilt.
+- [x] Recaptured 0x8C0782EA post-fix: goldens_782eb (34 full-RAM samples) +
+  goldens_782ec_rts (8 clean own-rts cases, tail-outs filtered). Exits now
+  land on own rts exactly as modelled (r15=in+12/36, pr round-trip).
+- [x] Wrote extract/analysis/sh4emu782.py (dev-only py SH-4 subset emulator)
+  + drivers: byte-exact regs+RAM on 6/8 cases (caller 0x8C0781B2 path,
+  10-18x loop arm 0x8C0786DC); d36 caller (0x8C0782D0) continuation exits
+  at 0x8C07A8D0 with its own pop signature - transliteration pending
+  (emu782_pcs.json + dump782extra.py carry the executed-block disasm).
+- [x] BRAF table 0x8C078396 resolved: 64-entry halfword table @0x8C0783B0,
+  targets 0x8C07839A+word = 0x8C07845E..0x8C0787C4 (braf_tables.csv).
+  Remaining fork-blocker for all BRAF-site ports lifted.
+- [ ] 0x8C0AC252 still scenario-blocked (0 hits in 720f fight + 1200f boot).
+
 ## "Go" batch 6: 0x8C0C678E port + two honest parks (2026-09-27)
 - [x] Port 0x8C0C678E (mid-prologue worker, true body 1772 B) with expanded
   8-window capture (warping table + 0x0C110000 read-only) -> 8/8 PASS, zero

@@ -13,6 +13,20 @@ Three fork bugs were corrupting traces; all fixed:
 3. `emit_ram` built groups incrementally; a throwing read could leave a
    partial group. It now buffers a whole group and pushes it atomically.
 Also: opening the trace before `flycast_init()` was removed (handle could be
+
+## Fourth fork bug (2026-09-27, fixed): BRAF counted as a call
+`vf3TraceDepthOp` used `(op & 0xF00F) == 0x0003` for BSRF, which also matches
+BRAF (`0x0n23`): bit 5 is masked out. Every BRAF switch-table hop added a
+phantom call depth that no `rts` ever pops, so watched entries above a hot
+BRAF dispatcher exit-paired ~18 unwind levels deep (observed on 0x8C0782EA:
+edge log showed 18 consecutive `call 0x8C078396` records, exit exits deep in
+the 0x003xxx engine tree). Fixed: `(op & 0xF0FF) == 0x0003` (bit 5 clear
+excludes BRAF; BSRF n-nibble bits 8-11 untouched). Post-fix the 0x8C0782EA
+own-`rts` exits land exactly where the Py oracle emulator predicted
+(`r15=in+12`, `pr` round-trip) — goldens `goldens_782ec_rts` (8 clean cases
+filtered from a 34-sample capture; tail-out guard cases are genuine
+noreturn-jmp exits, excluded). Unblocks the remaining BRAF sites from
+`extract/analysis/braf_tables.csv` (0x8C078396/0x8C0674FC/…).
 invalidated); `flush` now checks the `fwrite` count.
 
 ## Game FPSCR: round toward zero (critical for any FPU port)
