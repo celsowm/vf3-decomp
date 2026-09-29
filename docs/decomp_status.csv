@@ -1,4 +1,6 @@
 entry,status,file,size,method,oracle
+0x8c070852,ported,src/fight/fvecmix070852.c,34,oracle-verified (paired fragment-boundary replay),tests/fvecmix070852_replay.c PASS 9/9 unique register+RAM cases at 0x8C070878; FR0 spill aliases the first vector lane and FADD uses FPSCR.RM=1
+0x8c0706c4,ported,src/fight/fvecmix0706c4.c,208,oracle-verified (paired boundary replay),tests/fvecmix0706c4_replay.c PASS 2128/2128 register+RAM cases across 0x734/0x766/0x774/0x7AE first-transfer boundaries; unobserved branch and FSRRA keys reject
 0x8c070cf0,ported,src/fight/fvecnorm070cf0.c,208,oracle-verified (paired boundary replay),tests/fvecnorm070cf0_replay.c PASS 128/128 chronological register+RAM cases across 0xD5E/0xD8C/0xD98/0xE7C; finite FSRRA catalog rejects unknown norms
 0x8c07030c,ported,src/fight/fvecnorm07030c.c,208,oracle-verified (paired boundary replay),tests/fvecnorm07030c_replay.c PASS 128/128 chronological register+RAM cases across 0x37C/0x3AE/0x3F4; unknown FSRRA norm inputs reject
 0x8c070120,ported,src/fight/fvecnorm070120.c,206,oracle-verified (paired boundary replay),tests/fvecnorm070120_replay.c PASS 128/128 chronological register+RAM cases through transfers at 0x18E/0x1BE and fragment boundary 0x1EE; unobserved 0x1C8 path rejected

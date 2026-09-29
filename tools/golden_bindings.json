@@ -246,6 +246,18 @@
   "source": "208-byte vector comparison/normalization pipeline; 64 chronological paired register+RAM cases at four transfer boundaries; four observed FSRRA inputs, fail closed outside catalog",
   "port": "src/fight/fvecnorm070x.c"
  },
+ "0x8c0706c4": {
+  "test": "build/vf3fvecmix0706c4.exe",
+  "golden": "extract/analysis/goldens_0706c4_narrow/f_0c0706c4_boundary.cases",
+  "source": "208-byte weighted-vector/cross-product pipeline; 2,128 paired register+RAM cases across four observed first-transfer routes; finite FSRRA scale catalog rejects unknown norms",
+  "port": "src/fight/fvecmix0706c4.c"
+ },
+ "0x8c070852": {
+  "test": "build/vf3fvecmix070852.exe",
+  "golden": "extract/analysis/pairs_070852_boundary/f_0c070852_boundary.cases",
+  "source": "34-byte FPU vector-add fragment through 0x8C070878; 9 unique paired register+RAM cases",
+  "port": "src/fight/fvecmix070852.c"
+ },
  "0x8c09d452": {
   "test": "build/vf3d452.exe",
   "golden": "extract/analysis/goldens_d452_tail/f_0c09d452.cases",

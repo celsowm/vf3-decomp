@@ -150,19 +150,24 @@ def main() -> int:
     lines = []
     used_interior = 0
     made = 0
-    for epos, ins, iram in entries:
+    for entry_index, (epos, ins, iram) in enumerate(entries):
         if made >= a.max:
             break
-        if gate and not gate_ok(gate, ins):
-            continue
         # first interior hit strictly after this entry
         while used_interior < len(interiors) \
                 and interiors[used_interior][0] <= epos:
             used_interior += 1
         if used_interior >= len(interiors):
             break
-        _, outs, oram = interiors[used_interior]
+        ipos, outs, oram = interiors[used_interior]
+        # An entry with another watched entry between it and this interior
+        # did not reach this boundary. Leave the interior for its own call.
+        if entry_index + 1 < len(entries) \
+                and ipos >= entries[entry_index + 1][0]:
+            continue
         used_interior += 1
+        if gate and not gate_ok(gate, ins):
+            continue
         if iram is None or oram is None:
             continue
         iwins, iblob = iram

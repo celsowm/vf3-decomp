@@ -2,14 +2,36 @@
 
 ## Recalibration (2026-09-29)
 
-- Refreshed starting baseline: **306/2398 (12.8%)**. The requested +10
-  percentage-point floor is **530 functions** (22.1%), so the remaining gap is
-  **224 unique baseline functions**. Use 550 as the working target to leave a
-  20-function margin.
+- Refreshed starting baseline: **310/2398 (12.9%)**. Interpreting “increase
+  coverage by at least 10%” as the established project target of **+10
+  percentage points**, the minimum is **550 functions (23.0%)**: 240 new,
+  unique baseline functions. This supersedes the earlier 530-function
+  checkpoint, which was short of +10 percentage points from the then-current
+  baseline. If the request meant 10% relative growth instead, that is a much
+  smaller target; this plan keeps the stronger project interpretation.
 - The earlier Campaign A/B/C forecast of 455–465 functions was made at 290
-  covered functions. Rebased to 306, that projection is now 471–481 and
-  still leaves 49–59 functions to source. It is a planning estimate, not
-  completion evidence.
+  covered functions. Its rebased projection of 471–481 is stale against the
+  current candidate ledger and is not a dependable delivery estimate. The
+  remaining 69–79 functions after that projection must come from measured new
+  captures or attributable evidence, not from counting old forecasts twice.
+- Execution plan to reach 550: (1) close the remaining small, executed,
+  boundary-complete candidates from the regenerated port plan; (2) prioritize
+  medium and large Campaign B functions by shared-callee closure, capturing
+  paired register+RAM exits for complete callers and helpers; (3) broaden the
+  fight scenarios and capture paired RAM/XF windows for the 75 newly observed
+  entries (12 currently pass the static helper-closure screen) and the eight
+  bootmix leads, promoting only replay-complete bodies;
+  (4) after each batch, reconcile unique baseline addresses and recompute the
+  shortfall. Do not spend another tranche on SDK corpus hunts that already
+  yielded zero new full-body matches unless a new, attributable corpus is
+  identified. Reserve the fragmented 070x FPU family for combined-region
+  captures where the full tail-transfer boundary and all data windows close.
+- Batch exit gate: a body counts only after its baseline interval is confirmed,
+  entry-to-return or first-transfer behavior is captured with paired register
+  and RAM state (plus XF where used), a readable C port passes replay over all
+  captured unique cases, and `verify_all.py` credits the address. Track the
+  yield as newly credited unique functions per batch; stop and re-rank a route
+  when its replay-complete yield is materially below its candidate count.
 - Investigated the E3 executable as another attribution corpus. Its bytes are
   exactly `1ST_READ.unsc.bin[0x10000:]` (the E3 image is the same retail byte
   span at a shifted load base). This confirms build identity but contributes
@@ -23,7 +45,7 @@
 - The current captured hot queue has no remaining simple call-free function
   with both a verified `rts` exit and a usable golden set. The next useful
   coverage tranche must add a scenario/capture campaign or a new attributable
-  SDK corpus; the current hot-port list alone cannot reach 530.
+  SDK corpus; the current hot-port list alone cannot reach the target.
 - Rechecked 273 saved paired-case files against the baseline inventory and ran
   an in-binary FID digest sweep. The captured files mostly cover partial or
   helper-dependent regions; only three uncovered bodies share normalized
@@ -77,6 +99,19 @@
   `0x8C070E7C` ten times. All paired register+RAM cases pass; ten norm-square
   results are finite-cataloged. Coverage is now **310/2398**, with 220
   functions to 530.
+- Follow-up closure (2026-09-29): captured 2,128 paired calls to
+  `0x8C0706C4` through first-transfer boundaries at `0x734` (1,095), `0x766`
+  (469), `0x774` (27), and `0x7AE` (537). A same-invocation pairing guard
+  prevents matching an entry with a later call's interior PC. The weighted
+  vector and cross-product model passes all register+RAM cases; unknown branch
+  and FSRRA inputs reject. Coverage is now **311/2398 (13.0%)**, with 239
+  functions remaining to the 550 target. Reproduction: `docs/re/fvecmix0706c4.md`.
+- Follow-up closure (2026-09-29): captured 469 invocations of the 34-byte
+  `0x8C070852` vector-add fragment through its inventory boundary at
+  `0x8C070878`. Nine distinct paired register+RAM cases pass, including the
+  FR0 spill that aliases the first frame-vector lane and FPSCR round-toward-zero
+  arithmetic. Coverage is now **312/2398 (13.0%)**, with 238 functions left to
+  the 550 target. Reproduction: `docs/re/fvecmix070852.md`.
 - Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
   128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
   runs into a 662-byte tail-transfer pipeline whose paired exit is at the
@@ -84,12 +119,11 @@
   fragments; and bootmix leads `0x8C0A77E2`/`0x8C08B204` are helper-heavy. The
   next batch still needs complete tail-boundary captures with combined unit
   modeling, or a genuinely new attributable corpus.
-- Next route to 530: (1) finish high-confidence closure candidates from
-  Campaign A/B, but count only full body boundaries and paired replay; (2) use
-  the new `exitpc`/XF capture support to capture complete tail-transfer paths
-  for the 070x FPU family and port combined regions where the dataflow closes;
-  (3) sweep one additional attributable SDK corpus or add a new scenario family
-  for the residual 53–63 functions. Recalculate the residual after each batch.
+- Route to 550: carry out the phases above and re-rank from measured results.
+  The `exitpc`/XF capture support is useful for complete tail-transfer paths
+  in the 070x FPU family. Another SDK sweep is a fallback only when it targets
+  a newly identified attributable corpus; prior SDK8/9 and Japan SDK1.0 sweeps
+  produced no new full-body credit. Recalculate the residual after each batch.
 - Scenario diversification follow-up: two 600-frame fight-state action
   patterns yielded 75 unique uncovered baseline entries, only 12 of which
   pass the current static helper-closure screen; those 12 cluster in the
