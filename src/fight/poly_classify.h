@@ -20,5 +20,6 @@ typedef struct {
 
 int vf3_poly_classify(uint32_t r4, uint32_t r3, float fr4, float fr5,
                       const vf3_ram_map *ram);
+uint32_t vf3_ram_read32(const vf3_ram_map *ram, uint32_t addr);
 
 #endif /* VF3_FIGHT_POLY_CLASSIFY_H */

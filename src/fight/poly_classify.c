@@ -59,6 +59,11 @@ static uint32_t rd32(const vf3_ram_map *ram, uint32_t addr)
     return v;
 }
 
+uint32_t vf3_ram_read32(const vf3_ram_map *ram, uint32_t addr)
+{
+    return rd32(ram, addr);
+}
+
 static float rdflt(const vf3_ram_map *ram, uint32_t addr)
 {
     uint32_t bits = rd32(ram, addr);

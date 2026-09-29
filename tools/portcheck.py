@@ -29,15 +29,13 @@ TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
          "vf3tailcall", "vf3walker2", "vf3fvecadd", "vf3scaler3",
          "vf3frameseq", "vf3cbefc", "vf3f040f1e", "vf3f0747d8",
          "vf3f9f6fc", "vf3f9f6dc", "vf3cc148", "vf3c5dbe", "vf3b10aa",
-         "vf3c6ec4", "vf3maplookup"]
+         "vf3c6ec4", "vf3maplookup", "vf3meshnode"]
 # NOTE: vf3fvecmix2 (0x8C070852) builds but is NOT gated: its window's float
 # exits carry loop-carried pipeline state and the exit RAM contains stores
 # from below-window code — parked until re-captured with tighter windows.
 
-# NOTE: vf3g06f6f8 (0x8C06F6F8) builds but is NOT gated: goldens_ab exits
-# are degenerate (all 64 lines one byte-identical out-vector/exit-RAM blob,
-# PR changes across a leaf) - parked until re-paired to a causally
-# downstream exit (tail-jumps out of bounds; port mirrors in-bounds).
+# NOTE: vf3g06f6f8 builds but is NOT gated: the 88-byte model ends before the
+# paired caller RTS, and both available captures disagree beyond its scope.
 
 
 def validate_goldens(d: Path):

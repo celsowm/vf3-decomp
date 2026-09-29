@@ -14,11 +14,26 @@
   undocumented).
 - [x] Main-loop model M58: per-frame composition over 8 verified units;
   jsr-~3% ceiling is dyn-dispatch structure.
-- [ ] 0x8C06F6F8 re-pair partial: fixed fork improved pairing (1→7
-  out-vectors, 55/64 round-trip) but the 88 B scope is artificial — pipeline
-  runs to 98e+ with caller tails (jmp @r2/r3, entry-constant per case), exit
-  fires at caller rts (no in-chain rts over 74k records). 10 RAM cases fail
-  only on r0 (epilogue mov #36 @9f6). Recipe in g06f6f8.h M59 note.
+- [ ] 0x8C06F6F8 remains uncredited: the 88 B scope is artificial — the
+  pipeline runs through 0x8C06F98E+ with caller tails, and the paired exit
+  fires at the caller rts (no in-chain rts over 74k records). The full-closure
+  capture first differs at r0 (epilogue `mov #36`), but advancing past that
+  exposes further register mismatches, so the head port still does not replay
+  the capture. See the M59 note in `src/fight/g06f6f8.h`.
+- [ ] 0x8C09D9EC tail-boundary study: added local Flycast `exitpc` and `xfpc`
+  capture support; 64 distinct entry/transfer pairs are available from the
+  180-frame fight state. The function is a 50 B FPU setup plus four helper
+  calls and a tail jump to 0x0C03C6C0. Register and XF vectors are captured,
+  but the callee's FPU transform and helper effects are not yet modeled, so it
+  remains uncredited. Recipe: `tools/watch/vf3_d9ec_tail.txt`.
+- [x] 0x8C068FE4 node classifier: the 64-case paired register+RAM replay passes by delegating polygon classification to the verified 0x8C068FF6 port. This entry is absent from the current baseline inventory, so it does not change the rigorous 299/2,398 count.
+- [ ] 0x8C0C678E mesh walk: fresh 64-case paired RAM capture (eight windows)
+  reproduces the checked-in partial model on 41/64. Eighteen later odd cases
+  disagree on FR9; the final five also disagree on FR4. Cell-table reads
+  expose linked-list head `0x0CBD9608`; the 0x8C068FE4 classifier is now
+  independently ported, but the parent node lookup and walk still need exact
+  modeling. No credit yet; details:
+  `docs/re/coverage_roadmap.md`.
 
 ## 782EA port 8/8 (fork fix #5 + interrupt footprint) (2026-09-28)- [x] Fork fix #5 (pr-match exit): async exception through 0x0C00FA00 leaks
   +12 call depth (handler noreturn tails), so 0x8C0782EA's own rts never

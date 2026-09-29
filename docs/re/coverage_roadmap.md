@@ -159,6 +159,16 @@
   windows and unresolved register/RAM differences. The net count therefore
   remains **299/2398 (12.5%)**, leaving 231 functions to the 530-function
   floor; the +10 percentage point objective is still open.
+- The 0x8C068FE4 node-classification wrapper passes 64/64 paired register+RAM cases using the verified 0x8C068FF6 classifier. It is not present in the current 2,398-function baseline inventory and adds no function credit; the rigorous count remains 299. Parent replay and lookup evidence remain in the note below.
+- `0x8C0C678E` mesh-walk follow-up (2026-09-29): a fresh 64-case paired
+  register+RAM capture over eight windows reproduces 41/64 with the checked-in
+  partial port. Eighteen later odd contexts have FR9 `3.0` vs oracle `2.0`;
+  the final five odd contexts also disagree on FR4. Earlier 59/64 results used
+  a different, narrower capture set and do not establish the current widened
+  replay. The mesh cell table resolves the linked-list head at `0x0CBD9608`,
+  but exact results still require porting the parent cell-index lookup and
+  walking records until the classifier selects the matching node. No coverage
+  credit is claimed. Artifacts: `extract/analysis/goldens_c678e_cbc64/`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
