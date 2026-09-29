@@ -61,6 +61,13 @@
   current rigorous coverage is 294/2398 (12.3%), leaving 236 to the 530
   function floor and 256 to the 550 working target. Details:
   `docs/re/f9f6dc_closure.md`.
+- Recovered the parked `0x8C0AF734` port by pairing its entry with the watched
+  caller return PC named by saved PR. The old trace-depth exit included caller
+  stack cleanup and could not validate the function. New chronological pairing
+  produced 64 unique cases over 14 RAM windows; the corrected caller-stack
+  epilogue and rare FPU path pass all 64. Rigorous coverage is now
+  **295/2398 (12.3%)**, leaving **235** functions to the 530 floor and **255**
+  to the 550 working target. See `docs/re/af734_probe.md`.
 - Campaign A candidate check: recaptured `0x8C071668` with 1,400 invocations,
   64 unique paired register+RAM cases, and no unpaired exits. The 44-byte
   fragment tail-jumps to `0x8C071400`, inside the neighboring FPU routine

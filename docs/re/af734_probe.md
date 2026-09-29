@@ -22,6 +22,31 @@ Gap-PC watching PROVEN (goldens_s8: 64 samples each for
 9553C/3A6E0/3A140 in one fight run). Ported gap units count via
 off-baseline decomp_status rows and clear closures through ported().
 
+## Standalone replay resolved (2026-09-29)
+
+The apparently downstream exit is the fragment's real return state. Its
+epilogue restores PR from the local save, then pops `r13` from the caller's
+stack slot and `r14` from the next slot in the RTS delay slot. Thus its
+contract has `r13 = [entry r15]`, `r14 = [entry r15+4]`, and `r15 = entry+8`.
+The previous model omitted these caller-owned stack pops, so its replay could
+not match the captured state. `src/fight/af734.c` now models them, and the
+64 paired register+RAM cases pass.
+
+The old same-PC exit pairing remains downstream-state evidence and is no
+longer the replay source. `tools/golden_return_pair.py` pairs each `0x8C0AF734`
+entry with the next watched PC named by its saved PR; watch file
+`tools/watch/vf3_af734_return_sites.txt` covers the three observed return
+sites. The resulting 64-case oracle is at
+`extract/analysis/goldens_af734_pair/f_0c0af734.cases` (generated, ignored
+analysis output). The four traces yielded 251 matched call/return events;
+227 had both RAM snapshots before deduplication.
+
+Regenerate the pairs after the watch capture with:
+
+```powershell
+python tools/golden_return_pair.py extract/analysis/golden_af734_return_sites_s26.bin extract/analysis/golden_af734_return_sites_s27.bin extract/analysis/golden_af734_return_sites_s28.bin extract/analysis/golden_af734_return_sites_s29.bin --entry-pc 0x0c0af734 --return-pc 0x0c0ae252,0x0c0ae500,0x0c0ae418 --scenario s26,s27,s28,s29 --out extract/analysis/goldens_af734_pair --max-samples 64
+```
+
 ## Original probe notes (kept for the method)
 Two-path structure (64 fight samples, goldens_s6b, 13 windows):
 SKIP (63/64, flag bit 0x01000000 clear) vs RUN (1/64, flag 0x01400000):

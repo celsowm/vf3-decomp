@@ -24,8 +24,9 @@
  * Exit: integer regs per path above; fr (SKIP: entry; RUN: fr2/fr3/fr4/fr5
  * chained, fr0/fr1/fr6/fr7 from ou, fr15+ entry); sr T from 7ba; fpscr kept.
  *
- * Validated against extract/analysis/goldens_s6b/f_0c0af734.cases
- * (64 pairs / 64 RAM cases over 13 windows, byte-exact shadow diff).
+ * Validated against chronological entry/return-PC pairs in
+ * extract/analysis/goldens_af734_pair/f_0c0af734.cases (64 pairs / 64 RAM
+ * cases over 14 windows, byte-exact shadow diff).
  */
 #ifndef VF3_FIGHT_AF734_H
 #define VF3_FIGHT_AF734_H
@@ -35,7 +36,7 @@
 #include "fight/poly_classify.h" /* vf3_ram_map */
 
 typedef struct {
-    uint32_t r0, r1, r2, r3, r4, r5, r6, r14, r15;
+    uint32_t r0, r1, r2, r3, r4, r5, r6, r13, r14, r15;
     uint32_t fr0, fr1, fr2, fr3, fr4, fr5, fr6, fr7;
     uint32_t sr;
 } vf3_af734_out;

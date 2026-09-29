@@ -35,6 +35,7 @@ static int run_case(const vf3_case *c, vf3_harness_mem *m,
     got[4] = o.r4;
     got[5] = o.r5;
     got[6] = o.r6;
+    got[13] = o.r13;
     got[14] = o.r14;
     got[15] = o.r15;
     got[17] = o.sr;
@@ -54,6 +55,6 @@ static int run_case(const vf3_case *c, vf3_harness_mem *m,
 int main(int argc, char **argv)
 {
     return vf3h_harness_main(argc, argv, "af734_replay",
-                             "extract/analysis/goldens_s6b/f_0c0af734.cases",
+                             "extract/analysis/goldens_af734_pair/f_0c0af734.cases",
                              run_case);
 }

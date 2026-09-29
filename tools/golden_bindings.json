@@ -125,6 +125,12 @@
   "source": "Gap-unit U2 FPU callback (70 B: frame + exts.w + nested U1-6E0/U1-140 port calls + fmul/fmac/fsub chain + spill stores, 3 caller contexts incl af734-RUN), 64 pairs / 64 RAM cases over 1 stack window",
   "port": "src/fight/fpucb.c"
  },
+ "0x8c0af734": {
+  "test": "build/vf3af734.exe",
+  "golden": "extract/analysis/goldens_af734_pair/f_0c0af734.cases",
+  "source": "SH-4 0x8C0AF734 (168 B flag/FPU update; 64 chronological entry-to-saved-PR return pairs over 14 RAM windows)",
+  "port": "src/fight/af734.c"
+ },
  "0x8c0afb76": {
   "test": "build/vf3afb76.exe",
   "golden": "extract/analysis/goldens_afb76/f_0c0afb76.cases",

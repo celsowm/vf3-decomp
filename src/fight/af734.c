@@ -181,6 +181,7 @@ L772:
         memset(&ou, 0, sizeof(ou));
         vf3_fpucb_8c09553c(r1, r4, F + 4, F, in_r14, F, in_pr, sr,
                            in_fpscr, in_fr15, &ou, ram);
+        r1 = ou.r1;
         r5 = ou.r5;
         r6 = ou.r6;
         sr = ou.sr;
@@ -219,7 +220,11 @@ L7CC:
     r2 = g_rd32(ram, in_r13 + 12);        /* 8c0af7ce */
     g_wr32(ram, in_r14 + 72, r2);         /* 8c0af7d4 (r0 = 72) */
     r0 = 72;                              /* 8c0af7d2 mov #72 */
-    r14 = g_rd32(ram, X + 4);             /* 8c0af7da delay: pop r14 */
+    /* The fragment's epilogue consumes stack values owned by the caller:
+     * lds.l restores PR at entry SP-4, then r13 at entry SP, then r14 in
+     * the RTS delay slot at entry SP+4. */
+    o->r13 = g_rd32(ram, in_r15);         /* 8c0af7d6 */
+    r14 = g_rd32(ram, in_r15 + 4u);       /* 8c0af7da delay: pop r14 */
 
     o->r0 = r0;
     o->r1 = r1;
@@ -229,7 +234,7 @@ L7CC:
     o->r5 = run ? r5 : (saw74c ? r5 : in_r5);
     o->r6 = run ? r6 : in_r6;
     o->r14 = r14;
-    o->r15 = in_r15;
+    o->r15 = in_r15 + 8u;
     o->sr = T ? (sr | 1u) : (sr & ~1u);
     {
         uint32_t b;
