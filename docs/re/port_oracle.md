@@ -117,6 +117,12 @@ capture and a replay harness that validates ports against real execution.
   - entry `(pc<<16)|0xFA30`, 37 values, close `0xFA31`
   - exit  `(pc<<16)|0xFA32`, 37 values, close `0xFA33`
   - values = `r0-r15, pr, sr, fpscr, macl, mach, fr0-fr15` (FPU bit patterns).
+- Tail-transfer boundaries can be captured with `exitpc <entry-pc> <transfer-pc>`
+  in `VF3_WATCH`. The trace closes the entry after the transfer delay slot,
+  before the downstream target runs, using the regular `FA32/FA33` exit group.
+  Optional `xfpc <pc>` lines add a 16-word XF-bank snapshot at entry and exit
+  (`FA70/FA72/FA71`); `tools/golden_extract_xf.py` writes paired XF sidecars
+  in the same deduplicated order as the `.cases` register vectors.
 - Call-depth tracking in `vf3TraceDepthOp`; exits are emitted **two fetched
   instructions after rts** so the rts delay slot (which often stores r0) has
   executed. A taken `bf/bt` in this emulator skips an rts delay slot, so no
