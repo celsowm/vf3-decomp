@@ -139,6 +139,18 @@
   `tools/watch/vf3_c678e2_helperpath.txt` and
   `tools/watch/vf3_c678e2_polywalk.txt`, each using the saved fight state and
   `--ramn 512 --max-samples 512`.
+- FR9 lookup-table follow-up: widened the `0x8C0C678E` RAM capture through
+  `0x0C29D7C0` to include the table pointer at `0x0C29BEB4`. The helper selects
+  a cell by `(trunc(16+fr4)&31) | ((trunc(16-fr5)&31)<<5)`; for the first
+  `0x0C0C6CB0` contexts that is cell `0x256`, whose root-relative list starts
+  at `0x0CBD9608`. Nested `0x8C0691EA` captures show the walk stopping at
+  `0x0CBD9618` (FR9 = p0.y = 3.0) early and `0x0CBD9640` (p0.y = 2.0) later.
+  A model experiment reproduced the FR9 transition, but the full replay then
+  found a stack-window mismatch in those cases. Keep `0x8C0C678E` uncredited
+  until both registers and RAM match. The widened capture is 168 paired calls,
+  64 unique cases, zero unpaired; reproduce with the saved fight state and
+  `tools/watch/vf3_c678e2_cbc.txt`. The post-classifier capture is 717 unique
+  paired cases at `0x8C0691EA`; use `tools/watch/vf3_c678e2_walkafter.txt`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
