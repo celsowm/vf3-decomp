@@ -29,4 +29,16 @@ int vf3_sh4_d452(const uint32_t in[VF3_SH4_NREGS],
                  uint32_t xf_out[VF3_SH4_NXF],
                  const vf3_ram_map *ram);
 
+/* 0x8C0955B0 through its tail-transfer boundary at 0x8C095600. */
+int vf3_sh4_0955b0(const uint32_t in[VF3_SH4_NREGS],
+                   uint32_t out[VF3_SH4_NREGS],
+                   const uint32_t xf_in[VF3_SH4_NXF],
+                   uint32_t xf_out[VF3_SH4_NXF],
+                   const vf3_ram_map *ram);
+int vf3_sh4_0955b0_step(const uint32_t in[VF3_SH4_NREGS],
+                        uint32_t out[VF3_SH4_NREGS],
+                        const uint32_t xf_in[VF3_SH4_NXF],
+                        uint32_t xf_out[VF3_SH4_NXF],
+                        const vf3_ram_map *ram, unsigned step);
+
 #endif

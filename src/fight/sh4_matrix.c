@@ -231,3 +231,197 @@ int vf3_sh4_d452(const uint32_t in[37], uint32_t out[37],
     out[16] = in[16];
     return ok;
 }
+
+static int read_u32(const vf3_ram_map *ram, uint32_t addr, uint32_t *value)
+{
+    uint32_t a = addr & 0x0fffffffu;
+    for (int i = 0; i < ram->n; ++i) {
+        const vf3_ram_win *w = &ram->wins[i];
+        if (a >= w->base && a + 4u <= w->base + w->len) {
+            memcpy(value, w->data + (a - w->base), sizeof(*value));
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* Some helper writes land in uncaptured regions. They do not affect any
+ * boundary RAM assertion, so retain only writes covered by an oracle window. */
+static void write_observed(const vf3_ram_map *ram, uint32_t addr,
+                           const void *src, uint32_t size)
+{
+    uint32_t a = addr & 0x0fffffffu;
+    for (int i = 0; i < ram->n; ++i) {
+        const vf3_ram_win *w = &ram->wins[i];
+        if (a >= w->base && a + size <= w->base + w->len) {
+            memcpy(w->data + (a - w->base), src, size);
+            return;
+        }
+    }
+}
+
+int vf3_sh4_0955b0_step(const uint32_t in[37], uint32_t out[37],
+                        const uint32_t xf_in[16], uint32_t xf_out[16],
+                        const vf3_ram_map *ram, unsigned stop_step)
+{
+    const uint32_t queue = 0x0c19d2e4u;
+    uint32_t cur[37], next[37], xf[16], xnext[16];
+    uint32_t packed, ptr, stack, spill;
+    int16_t low, high, incremented;
+    int ok = 1;
+
+    memcpy(cur, in, sizeof(cur));
+    memcpy(xf, xf_in, sizeof(xf));
+    stack = in[15] - 20u;
+
+    /* 0x0955B0 prologue and saved argument frame. */
+    write_observed(ram, in[15] - 4u, &in[16], 4);
+    write_observed(ram, stack + 8u, &in[4], 4);
+    write_observed(ram, stack + 4u, &in[5], 4);
+    write_observed(ram, stack, &in[6], 4);
+    write_observed(ram, stack + 12u, &in[7], 4);
+
+    /* C4F0 advances the packed queue cursor, saving XF0..XF14 in the
+     * upper half of the old 64-byte slot. Its optional copy branch is not
+     * taken here (the caller supplies r4=0). */
+    if (!read_u32(ram, queue, &packed) ||
+        !read_u32(ram, queue + 8u, &ptr))
+        return 0;
+    low = (int16_t)(packed & 0xffffu);
+    high = (int16_t)(packed >> 16);
+    incremented = (int16_t)(low + 1);
+    cur[0] = (uint32_t)(high > low);
+    cur[1] = ptr;
+    cur[2] = (uint32_t)(int32_t)high;
+    cur[3] = queue;
+    cur[4] = 0;
+    cur[6] = (uint32_t)(int32_t)incremented;
+    cur[7] = ptr + 64u;
+    cur[15] = stack;
+    cur[16] = 0x0c0955c2u;
+    cur[17] = (in[17] & ~1u) | (uint32_t)(high > low);
+    for (unsigned i = 0; i < 8; ++i) {
+        const unsigned fr = 14u - i * 2u;
+        write_observed(ram, ptr + 60u - i * 4u,
+                       &xf[fr], sizeof(uint32_t));
+    }
+    packed = (packed & 0xffff0000u) | (uint16_t)incremented;
+    write_observed(ram, queue, &packed, sizeof(packed));
+    ptr += 64u;
+    write_observed(ram, queue + 8u, &ptr, sizeof(ptr));
+    if (stop_step == 1) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    /* CCB0 seeds the active FR bank. */
+    cur[2] = 0x0c03ccb0u;
+    cur[16] = 0x0c0955c8u;
+    cur[21] = 0x3f800000u;
+    cur[22] = 0x00000000u;
+    cur[23] = 0x00000000u;
+    cur[24] = 0x3f800000u;
+    xf[0] = 0x3f800000u;
+    xf[1] = 0;
+    xf[2] = 0;
+    xf[4] = 0;
+    xf[5] = 0x3f800000u;
+    xf[6] = 0;
+    xf[8] = 0;
+    xf[9] = 0;
+    xf[10] = 0x3f800000u;
+    xf[12] = 0;
+    xf[13] = 0;
+    xf[14] = 0;
+    if (stop_step == 2) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    /* C940, C880, and C6C0 use the three halfwords in the saved frame. */
+    if (!read_u32(ram, stack + 24u, &cur[4]))
+        return 0;
+    if (!vf3_sh4_c940(cur, next, xf, xnext))
+        return -3;
+    memcpy(cur, next, sizeof(cur));
+    memcpy(xf, xnext, sizeof(xf));
+    cur[3] = 0x0c03c940u;
+    cur[16] = 0x0c0955ceu;
+    if (stop_step == 3) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    if (!read_u32(ram, stack + 20u, &cur[4]))
+        return 0;
+    if (!vf3_sh4_c880(cur, next, xf, xnext))
+        return -5;
+    memcpy(cur, next, sizeof(cur));
+    memcpy(xf, xnext, sizeof(xf));
+    cur[3] = 0x0c03c880u;
+    cur[16] = 0x0c0955d4u;
+    if (stop_step == 4) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    if (!read_u32(ram, stack + 12u, &cur[4]))
+        return 0;
+    if (!vf3_sh4_c6c0(cur, next, xf, xnext))
+        return -7;
+    memcpy(cur, next, sizeof(cur));
+    memcpy(xf, xnext, sizeof(xf));
+    cur[3] = 0x0c03c6c0u;
+    cur[16] = 0x0c0955dau;
+    if (stop_step == 5) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    /* B620 writes the XF bank into the current slot and returns its base. */
+    if (!read_u32(ram, queue + 8u, &spill))
+        return 0;
+    spill += 64u;
+    for (unsigned i = 0; i < 16; ++i)
+        write_observed(ram, spill - 64u + i * 4u,
+                       &xf[i], sizeof(uint32_t));
+    cur[0] = spill - 64u;
+    cur[2] = 0x0c03b620u;
+    cur[4] = spill - 64u;
+    cur[16] = 0x0c0955e0u;
+    if (stop_step == 6) {
+        memcpy(out, cur, sizeof(cur));
+        memcpy(xf_out, xf, sizeof(xf));
+        return 1;
+    }
+
+    /* Three selected vector components are copied to caller destinations. */
+    cur[0] = 0x20u;
+    cur[24] = xf[8];
+    write_observed(ram, in[4], &cur[24], 4);
+    cur[0] = 0x24u;
+    cur[24] = xf[9];
+    write_observed(ram, in[5], &cur[24], 4);
+    cur[0] = 0x28u;
+    cur[24] = xf[10];
+    cur[4] = 1;
+    write_observed(ram, in[6], &cur[24], 4);
+
+    cur[3] = 0x0c03c4a0u;
+    cur[15] = in[15] - 4u;
+    memcpy(out, cur, sizeof(cur));
+    memcpy(xf_out, xf, sizeof(xf));
+    return ok;
+}
+
+int vf3_sh4_0955b0(const uint32_t in[37], uint32_t out[37],
+                   const uint32_t xf_in[16], uint32_t xf_out[16],
+                   const vf3_ram_map *ram)
+{
+    return vf3_sh4_0955b0_step(in, out, xf_in, xf_out, ram, 0);
+}

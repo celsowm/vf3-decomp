@@ -9,11 +9,14 @@ wrapper routes and helper checkpoints. The wrapper's XF matrix is unchanged
 across its return. The helper changes XF during its C880/C6C0 matrix calls.
 
 The helper calls `0x0C03C4F0`, `0x0C03CCB0`, `0x0C03C940`, `0x0C03C880`,
-`0x0C03C6C0`, and `0x0C03B620`, then tail-jumps to `0x0C03C4A0`. The captured
-register and memory deltas are localized to the `0x0C19D2E4` queue state, the
-helper stack frame, and the XF matrix. The existing C940/C880/C6C0 models are
-relevant, but C4F0 and CCB0 setup behavior must be modeled before the complete
-84-byte caller can pass replay. No coverage is credited for this route yet.
+`0x0C03C6C0`, and `0x0C03B620`, then tail-jumps to `0x0C03C4A0`. The C model
+replays the queue cursor update and XF save, CCB0's rotational identity reset,
+the three captured FSCA/FTRV kernels, the XF slot write, and the three caller
+stores. The three additional FSCA coefficients come from snapshots immediately
+after the runtime FSCA instructions. All 64 entry-to-transfer cases match
+registers, RAM, and XF at the tail boundary; each of the seven intermediate
+checkpoints also passes 64/64. Coverage credits `0x8C0955B0` once the repository
+verification gate passes.
 
 ## Capture recipe
 

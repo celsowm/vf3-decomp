@@ -6,8 +6,8 @@
 `0x0C03C940`, `0x0C03C880`, and `0x0C03C6C0`. FTRV uses the XF matrix, performs
 four double-precision products/sums per output vector, then rounds once to a
 single-precision result under the captured RM=truncate mode. The FSCA lookup
-contains 245 exact sine/cosine bit pairs for angles present in the paired
-09D4-family captures. Other angles fail closed.
+contains 248 exact sine/cosine bit pairs for angles present in the paired
+09D4-family and bootmix captures. Other angles fail closed.
 
 The helper replay covers 64 rows each for C940 and C880. Both pass full
 register, RAM, and XF comparison. C6C0 passes 61 rows; three captures close

@@ -584,11 +584,10 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   **304/2398 (12.7%)**, with 226 functions to the 530-function floor. Details:
   `docs/re/fvecmix2_tail.md`.
 
-- Latest recalculation after closing `0x8C0706C4`, `0x8C070832`, and
-  `0x8C070852`: rigorous coverage is **313/2398 (13.1%)**. The working target
-  remains 550/2398 (23.0%), requiring **237 additional unique baseline
-  functions**. The bootmix matrix-helper capture now has 64 register+RAM+XF
-  pairs at each of seven internal boundaries for `0x8C0955B0`, but the C4F0
-  and CCB0 setup effects are not yet modeled, so neither that helper nor its
-  `0x8C0A77E2` wrapper is credited. See
+- Latest recalculation after closing `0x8C0706C4`, `0x8C070832`,
+  `0x8C070852`, and `0x8C0955B0`: rigorous coverage is **314/2398 (13.1%)**.
+  The working target remains 550/2398 (23.0%), requiring **236 additional
+  unique baseline functions**. The 84-byte bootmix matrix helper passes 64
+  entry-to-transfer register+RAM+XF cases and seven intermediate 64-case
+  replays. Its `0x8C0A77E2` wrapper remains uncredited. See
   `docs/re/bootmix_matrix_helper.md`.

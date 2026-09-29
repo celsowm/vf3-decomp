@@ -270,6 +270,12 @@
   "source": "46-byte FSCA/FTRV wrapper; 512 paired register+RAM+XF cases at the C6C0 tail-transfer boundary over 245 observed angles",
   "port": "src/fight/sh4_matrix.c"
  },
+ "0x8c0955b0": {
+  "test": "build/vf3bootmix.exe",
+  "golden": "extract/analysis/pairs_0955b0/step_600.cases",
+  "source": "84-byte matrix helper through its C4A0 tail-transfer boundary; 64 paired register+RAM+XF cases",
+  "port": "src/fight/sh4_matrix.c"
+ },
  "0x8c09f9a8": {
   "test": "build/vf3f9f9a8.exe",
   "golden": "extract/analysis/goldens_f9f9a8_full/f_0c09f9a8.cases",
