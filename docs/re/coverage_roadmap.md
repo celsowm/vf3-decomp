@@ -1,5 +1,36 @@
 # Coverage roadmap — next batches (2026-09-25)
 
+## Recalibration (2026-09-28)
+
+- Refreshed rigorous baseline: **290/2398 (12.1%)**. The requested +10
+  percentage-point floor is **530 functions** (22.1%), so the remaining gap is
+  **240 unique baseline functions**. Use 550 as the working target to leave a
+  20-function margin.
+- The earlier Campaign A/B/C forecast of 455–465 functions does not meet that
+  floor; it leaves a further 65–75 functions to source. Do not treat the
+  forecast as completion criteria.
+- Investigated the E3 executable as another attribution corpus. Its bytes are
+  exactly `1ST_READ.unsc.bin[0x10000:]` (the E3 image is the same retail byte
+  span at a shifted load base). This confirms build identity but contributes
+  **zero independent decomp coverage** and must not be credited.
+- `sdk053_regmask_matches.csv` contains 258 matches, but only one uncovered
+  full-body structural match (`0x8C074AFE`, 16 B); that match changes a register
+  operand (`mov r3,r14` vs `mov r4,r14`) and is not equivalent evidence. The
+  other full-body structural hits are already covered by stronger attribution;
+  partial opcode fragments remain uncredited. Keep the existing conservative
+  SDK counts.
+- The current captured hot queue has no remaining simple call-free function
+  with both a verified `rts` exit and a usable golden set. The next useful
+  coverage tranche must add a scenario/capture campaign or a new attributable
+  SDK corpus; the current hot-port list alone cannot reach 530.
+- Added the first port from the fresh register-only candidate sweep:
+  `0x8C0CBEFC` (200 B), verified against 64 paired register+RAM cases after
+  adding the SDK `__divls` helper's observable stack saves. The full gate now
+  reports **291/2398 (12.1%)** rigorous, leaving **239 functions** to the
+  530-function floor and **259** to the 550 working target. The next candidate
+  (`0x8C070832`) has 64 RAM captures but is a 32-byte FPU block with no `rts`
+  in its inventory span, so it is not yet a complete function candidate.
+
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
   windows, `port_plan`, `verify_all`, shared harness; plus three fork
@@ -53,7 +84,7 @@ Two KPI families:
 
 | after | fns | fn % | body bytes | byte % |
 |---|---|---|---|---|
-| now | 275 | 11.5 | 44,212 | 10.2 |
+| recalibrated now | 291 | 12.1 | 57,294 | 13.2 |
 | + Campaign A (42 new hot fns, 12,816 B) | 317 | 13.2 | 57,028 | 13.1 |
 | + Campaign B top-25 (35.0 KB, incl. 3 giants) | 342 | 14.3 | 92,006 | 21.2 |
 | + Campaign B rest (102 fns, 17.0 KB) | 444 | 18.5 | 108,992 | 25.1 |

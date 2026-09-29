@@ -32,6 +32,7 @@ add_library(vf3core STATIC
     src/fight/tailcall.c
     src/fight/vecpush.c
     src/fight/cntup.c
+    src/fight/cbefc.c
     src/fight/g06f6f8.c
     src/fight/walker.c
     src/fight/walker2.c
@@ -119,6 +120,7 @@ add_port_test(vf3fvecmix2 tests/fvecmix2_replay.c)
 add_port_test(vf3scaler3 tests/scaler3_replay.c)
 add_port_test(vf3frameseq tests/frameseq_replay.c)
 add_port_test(vf3cntup tests/cntup_replay.c)
+add_port_test(vf3cbefc tests/cbefc_replay.c)
 add_port_test(vf3g06f6f8 tests/g06f6f8_replay.c)
 add_port_test(vf3g782ea tests/g782ea_replay.c)
 

@@ -59,6 +59,12 @@
   "source": "SH-4 0x8C0C2B80 per-frame scene-step sequencer (50 B straight-line 6-call chain + 0x8C1FD7C8 frame-counter bump + tail jmp 0x8C06BF00), 20 pairs / 8 RAM cases; callee chain out of scope (windows byte-identical entry->exit)",
   "port": "src/fight/frameseq.c"
  },
+ "0x8c0cbefc": {
+  "test": "build/vf3cbefc.exe",
+  "golden": "extract/analysis/goldens_covab28ram/f_0c0cbefc.cases",
+  "source": "SH-4 0x8C0CBEFC per-frame float/threshold state update, 64 paired RAM cases over two windows",
+  "port": "src/fight/cbefc.c"
+ },
  "0x8c08b7ee": {
   "test": "build/vf3cntup.exe",
   "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",
