@@ -118,6 +118,15 @@
   needs the final `0x8C06912A` FPU path modeled; no coverage credit is claimed.
   Reproduce with `tools/watch/vf3_c678e2_cbc.txt` and the same saved state used
   for `goldens_c674a_full`.
+- FR9 return probe: sampled `0x8C069296` with a 512-case cap and captured 512
+  unique returns. The `0x8C0C6CB0` call site contributes 29 unique contexts;
+  FR9 changes from 3.0 to 2.0 at its tenth distinct context, where the helper's
+  selected local mesh record changes from `0x0CBD9618` to `0x0CBD9640`. The
+  `0x8C0C6BC2` call site remains at 3.0 for all 29 contexts. This narrows the
+  remaining port work to the helper's record-selection path, but still does
+  not earn coverage credit. Reproduce with
+  `tools/watch/vf3_c678e2_fr9ret.txt`, `--ramn 512 --max-samples 512`, and the
+  saved fight state.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
