@@ -1,5 +1,8 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29)
+- [x] Ported baseline function `0x8C08D0FA` (68 B), including its absolute-pointer byte-table lookup and observable caller/helper stack writes. Its 64 unique paired register+RAM oracle cases pass. Rigorous coverage is now **300/2,398 (12.5%)**.
+
 ## Batch: todos sweep (2026-09-28)
 - [x] 0x8C0674FC PARKED (scenario-blocked): in FUN_8c0673a8 (3796 B, 0 hits);
   sole static caller 0x8C066E02 also 0 hits, no static callers (dyn only).

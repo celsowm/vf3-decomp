@@ -399,3 +399,10 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   diff-class evidence and cap claims to full-fn equivalence.
 - 42 small ports is derivation-heavy -> harness + batched goldens are the
   mitigation; if a batch stalls, skip and revisit after substitution lands.
+
+- 2026-09-29: added baseline function `0x8C08D0FA` (68 B). The port models
+  its table-pointer indirection, helper scratch word and saved-PR stack write;
+  all 64 unique paired register+RAM cases pass. Regenerated coverage is
+  **300/2398 (12.5%)**, leaving 230 functions to the 530-function floor and
+  250 to the 550 working target. Capture: `goldens_d0fa_states1_16/`; recipe:
+  `tools/watch/vf3_d0fa_ram.txt`.
