@@ -475,3 +475,13 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   windows pass, including the PR stack write and callee-save restoration.
   Coverage is **302/2398 (12.6%)**, leaving **228 functions** to the 530 floor.
   See `docs/re/f096258.md`.
+
+- 2026-09-29: recovered the direct `0x8C0708B0` FPU tail path after fixing the
+  local MSYS2 compiler `PATH`; the normalized-length delay-slot store and the
+  ordered cross-product arithmetic now pass 56/56 paired register+RAM cases
+  through the `0x8C070920` transfer. Eight other contexts branch around that
+  transfer and pair at the enclosing routine's RTS. Separate captures at
+  `0x8C070952` and `0x8C070960` each close only two calls, leaving the alternate
+  paths incomplete. This fragment is not credited; rigorous coverage remains
+  **304/2398 (12.7%)**, with 226 functions to the 530-function floor. Details:
+  `docs/re/fvecmix2_tail.md`.
