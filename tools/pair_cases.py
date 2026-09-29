@@ -19,7 +19,8 @@ it falls between the two entries).
 
 Output: <out>.cases (same layout as golden_extract: 37 in, 37 out,
 entry-ram + wins, interior-ram + wins), <out>.in<k>.bin/.meta,
-<out>.out<k>.bin/.meta.
+<out>.out<k>.bin/.meta. If the trace has XF groups at both PCs, also writes
+<out>.xfin.bin and <out>.xfout.bin in row order.
 """
 from __future__ import annotations
 
@@ -101,8 +102,26 @@ def read_group(recs, j, close):
     return wins, b"".join(blob), k + 1
 
 
+def read_xf_group(recs, j, pc):
+    """Read an optional 16-word FA70/FA71 matrix group at record j."""
+    n = len(recs)
+    if j >= n or (recs[j] & 0xFFFF) != 0xFA70 \
+            or ((recs[j] >> 16) & 0xFFFFFFFF) != pc:
+        return None, j
+    k = j + 1
+    values = []
+    for _ in range(16):
+        if k >= n or (recs[k] & 0xFFFF) != 0xFA72:
+            return None, j
+        values.append((recs[k] >> 16) & 0xFFFFFFFF)
+        k += 1
+    if k >= n or (recs[k] & 0xFFFF) != 0xFA71:
+        return None, j
+    return tuple(values), k + 1
+
+
 def collect(recs, want_pc: int):
-    """All (pos, snapshot, ram-or-None) events for a watched pc, in order."""
+    """All (pos, snapshot, ram-or-None, xf-or-None) events for a watched pc."""
     out = []
     i = 0
     n = len(recs)
@@ -111,6 +130,7 @@ def collect(recs, want_pc: int):
         if m == 0xFA30 and (recs[i] >> 16) == want_pc:
             vals = recs[i + 1:i + 1 + NVALS]
             j = i + 1 + NVALS + 1
+            xf, j = read_xf_group(recs, j, want_pc)
             ram = None
             if j < n and (recs[j] & 0xFFFF) == 0xFA50 \
                     and (recs[j] >> 16) == want_pc:
@@ -119,7 +139,7 @@ def collect(recs, want_pc: int):
                     ram = (wins, blob)
                     j = j2
             if len(vals) == NVALS:
-                out.append((i, tuple(vals), ram))
+                out.append((i, tuple(vals), ram, xf))
             i = j
             continue
         i += 1
@@ -148,9 +168,12 @@ def main() -> int:
     outp.parent.mkdir(parents=True, exist_ok=True)
     from golden_extract import REGNAMES
     lines = []
+    xf_in_rows = []
+    xf_out_rows = []
+    any_xf = False
     used_interior = 0
     made = 0
-    for entry_index, (epos, ins, iram) in enumerate(entries):
+    for entry_index, (epos, ins, iram, xfin) in enumerate(entries):
         if made >= a.max:
             break
         # first interior hit strictly after this entry
@@ -159,7 +182,7 @@ def main() -> int:
             used_interior += 1
         if used_interior >= len(interiors):
             break
-        ipos, outs, oram = interiors[used_interior]
+        ipos, outs, oram, xfout = interiors[used_interior]
         # An entry with another watched entry between it and this interior
         # did not reach this boundary. Leave the interior for its own call.
         if entry_index + 1 < len(entries) \
@@ -170,6 +193,12 @@ def main() -> int:
             continue
         if iram is None or oram is None:
             continue
+        if (xfin is None) != (xfout is None):
+            raise SystemExit("entry and boundary XF capture presence differs")
+        if xfin is not None:
+            any_xf = True
+            xf_in_rows.append(xfin)
+            xf_out_rows.append(xfout)
         iwins, iblob = iram
         owins, oblob = oram
         rp = outp.parent / f"{outp.name}.in{made}.bin"
@@ -192,6 +221,13 @@ def main() -> int:
         made += 1
     (outp.parent / f"{outp.name}.cases").write_text(
         "\n".join(lines) + "\n", encoding="utf-8")
+    if any_xf:
+        if len(xf_in_rows) != made or len(xf_out_rows) != made:
+            raise SystemExit("incomplete XF sidecars for paired cases")
+        (outp.parent / f"{outp.name}.xfin.bin").write_bytes(
+            b"".join(struct.pack("<16I", *row) for row in xf_in_rows))
+        (outp.parent / f"{outp.name}.xfout.bin").write_bytes(
+            b"".join(struct.pack("<16I", *row) for row in xf_out_rows))
     print(f"pair_cases: {made} cases -> {outp.name}.cases")
     return 0
 
