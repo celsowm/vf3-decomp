@@ -111,6 +111,13 @@
   until their closure behavior is resolved; captures are in
   `extract/analysis/goldens_c674a_full/` and
   `extract/analysis/goldens_c6e7e/`.
+- FR9 follow-up: repeated the saved fight-state capture for `0x8C0C678E` with
+  the mesh root span added (`0x0CBC0000..0x0CC20000`). It yielded 164 pairs,
+  64 unique cases, and zero unpaired exits. The window now contains the lookup
+  root at `0x0CBCE800` and its selected relative-node records. The replay still
+  needs the final `0x8C06912A` FPU path modeled; no coverage credit is claimed.
+  Reproduce with `tools/watch/vf3_c678e2_cbc.txt` and the same saved state used
+  for `goldens_c674a_full`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
