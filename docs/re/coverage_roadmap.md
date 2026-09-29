@@ -96,6 +96,12 @@
   coverage is now 298/2398 (12.4%), leaving 232 functions to the 530 floor and
   252 to the 550 working target. See `src/fight/b10aa.c` and
   `extract/analysis/goldens_b10aa_ram3/`.
+- Campaign E follow-up: ported `0x8C0C6EC4`, a 306-byte flag-selected vector
+  update using the already verified `0x8C0C7050` helper. All 64 paired
+  register+RAM cases pass across six windows. Rigorous coverage is now
+  299/2398 (12.5%), leaving 231 functions to the 530 floor and 251 to the
+  550 working target. See `src/fight/c6ec4.c` and
+  `extract/analysis/goldens_c6ec4_ram/`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

@@ -45,3 +45,4 @@ entry,status,file,size,method,oracle
 0x8c0cc148,ported,src/fight/cc148.c,210,oracle-verified (RAM shadow diff),"cc148_replay 64/64 PASS (64 paired cases over 3 RAM windows; two verified fdivker helper entries)"
 0x8c0c5dbe,ported,src/fight/c5dbe.c,56,oracle-verified (RAM shadow diff),"c5dbe_replay 54/54 PASS (56 paired calls / 54 unique cases over 8 RAM windows; guarded table update + verified allocator call)"
 0x8c0b10aa,ported,src/fight/b10aa.c,138,oracle-verified (RAM shadow diff),"b10aa_replay 1/1 PASS (paired register+RAM replay over object and stack windows; nested verified 0x8C09553C callback)"
+0x8c0c6ec4,ported,src/fight/c6ec4.c,306,oracle-verified (RAM shadow diff),"c6ec4_replay 64/64 PASS (paired register+RAM cases over 6 windows; verified 0x8C0C7050 helper)"
