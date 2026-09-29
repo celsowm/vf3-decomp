@@ -1,14 +1,15 @@
 # Coverage roadmap — next batches (2026-09-25)
 
-## Recalibration (2026-09-28)
+## Recalibration (2026-09-29)
 
 - Refreshed starting baseline: **302/2398 (12.6%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
   **228 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
-- The earlier Campaign A/B/C forecast of 455–465 functions does not meet that
-  floor; it leaves a further 65–75 functions to source. Do not treat the
-  forecast as completion criteria.
+- The earlier Campaign A/B/C forecast of 455–465 functions was made at 290
+  covered functions. Rebased to 302, that projection is now 467–477 and
+  still leaves 53–63 functions to source. It is a planning estimate, not
+  completion evidence.
 - Investigated the E3 executable as another attribution corpus. Its bytes are
   exactly `1ST_READ.unsc.bin[0x10000:]` (the E3 image is the same retail byte
   span at a shifted load base). This confirms build identity but contributes
@@ -23,6 +24,19 @@
   with both a verified `rts` exit and a usable golden set. The next useful
   coverage tranche must add a scenario/capture campaign or a new attributable
   SDK corpus; the current hot-port list alone cannot reach 530.
+- Rechecked 273 saved paired-case files against the baseline inventory and ran
+  an in-binary FID digest sweep. The captured files mostly cover partial or
+  helper-dependent regions; only three uncovered bodies share normalized
+  shapes with two already-ported entries. Two are gate wrappers with unmodeled
+  helpers; the third is an FPU fragment and the normalized digest is too broad
+  to establish equivalent behavior. Do not reuse those shapes as coverage
+  without fresh paired replay.
+- Next route to 530: (1) finish high-confidence closure candidates from
+  Campaign A/B, but count only full body boundaries and paired replay; (2) use
+  the new `exitpc`/XF capture support to capture complete tail-transfer paths
+  for the 070x FPU family and port combined regions where the dataflow closes;
+  (3) sweep one additional attributable SDK corpus or add a new scenario family
+  for the residual 53–63 functions. Recalculate the residual after each batch.
 - Added the first port from the fresh register-only candidate sweep:
   `0x8C0CBEFC` (200 B), verified against 64 paired register+RAM cases after
   adding the SDK `__divls` helper's observable stack saves; `0x8C040F1E`
