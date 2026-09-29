@@ -49,6 +49,10 @@
   A separate Japan SDK 1.0 Joliet/Mode-2 sweep extracted 3,608 objects and
   found 87 full-body matches, also all already credited. Both sweeps add zero
   functions, leaving 237 to the requested floor. See `docs/re/sdk8_eu.md`.
+- Campaign C follow-up: recovered SDK9 Europe Disc1/2. Disc1's release
+  libraries produced 4,020 modules; the full file-tree sweep found 48 complete
+  baseline bodies, all already credited. Disc2 produced six partial matches
+  and no full bodies. No new function credit; details in `docs/re/sdk9_eu.md`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

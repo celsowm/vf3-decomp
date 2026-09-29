@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract files from a raw 2352-byte Mode-1 or Mode-2 Form-1 CD image.
+"""Extract files from 2048-byte ISO or raw 2352-byte CD images.
 
 The Katana SDK archives include raw CD images that are not directly mountable
 on Windows. This ISO-9660/Joliet reader extracts selected files without
@@ -14,10 +14,26 @@ from pathlib import Path
 SECTOR = 2352
 USER = 16
 PAYLOAD = 2048
+_LAYOUT: dict[int, tuple[int, int | None]] = {}
 
 
 def read_block(f, lba: int) -> bytes:
-    f.seek(lba * SECTOR)
+    layout = _LAYOUT.get(id(f))
+    if layout is None:
+        f.seek(16 * PAYLOAD)
+        descriptor = f.read(PAYLOAD)
+        if descriptor[1:6] == b"CD001":
+            layout = (PAYLOAD, 0)
+        else:
+            layout = (SECTOR, None)
+        _LAYOUT[id(f)] = layout
+    sector_size, payload_offset = layout
+    f.seek(lba * sector_size)
+    if payload_offset == 0:
+        data = f.read(PAYLOAD)
+        if len(data) != PAYLOAD:
+            raise ValueError(f"short sector at LBA {lba}")
+        return data
     header = f.read(24)
     # Mode 1 places the 2048-byte ISO payload at byte 16. Mode 2 Form 1
     # (used by the Japanese SDK image) places it at byte 24 after the XA
