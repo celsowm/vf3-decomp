@@ -60,10 +60,16 @@
   **307/2398**, with 223 functions to the 530 floor. The next-function increment
   is far below the +10-point target; broader scenario capture or new SDK
   attribution remains necessary.
+- Follow-up closure (2026-09-29): captured 128 paired calls to `0x8C070120`.
+  The first-boundary routes include 86 tail transfers at `0x8C07018E`, 22 at
+  `0x8C0701BE`, and 20 paths through the inventory fragment boundary at
+  `0x8C0701EE`. The model passes all register and RAM comparisons and rejects
+  the unobserved `0x8C0701C8` branch. Coverage is now **308/2398**, with 222
+  functions to the 530 floor.
 - Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
   128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
   runs into a 662-byte tail-transfer pipeline whose paired exit is at the
-  caller RTS; the remaining 070x vector routines are fall-through FPU
+  caller RTS; most remaining 070x vector routines are fall-through FPU
   fragments; and bootmix leads `0x8C0A77E2`/`0x8C08B204` are helper-heavy. The
   next batch still needs complete tail-boundary captures with combined unit
   modeling, or a genuinely new attributable corpus.

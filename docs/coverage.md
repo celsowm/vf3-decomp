@@ -4,7 +4,7 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 38 (+19 off-baseline leaves) | 1.6% | 16266 | 3.7% |
+| ported (src/) | 39 (+19 off-baseline leaves) | 1.6% | 16472 | 3.8% |
 | SDK-attributed (masked byte match) | 118 | 4.9% | 25694 | 5.9% |
 | SDK-attributed (reloc-aware, L2 verified) | 2 | 0.1% | 218 | 0.1% |
 | SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 19 | 0.8% | 1520 | 0.3% |
@@ -12,8 +12,8 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 | SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | 9 | 0.4% | 3218 | 0.7% |
 | SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | 29 | 1.2% | 1184 | 0.3% |
 | SDK-fragment (union corpus partial) | 2 | 0.1% | 442 | 0.1% |
-| trace-executed (execution-ID, NOT ported/matched) | 133 | 5.5% | 51138 | 11.8% |
-| **rigorous accounted (ported+SDK)** | 307 | 12.8% | 58526 | 13.5% |
+| trace-executed (execution-ID, NOT ported/matched) | 132 | 5.5% | 50932 | 11.7% |
+| **rigorous accounted (ported+SDK)** | 308 | 12.8% | 58732 | 13.5% |
 | **total incl. trace** | 440 | 18.3% | 109664 | 25.2% |
 
 SDK attribution by library (fn count):

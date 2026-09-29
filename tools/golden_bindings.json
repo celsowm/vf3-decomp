@@ -1,4 +1,10 @@
 {
+ "0x8c070120": {
+  "test": "build/vf3fvecnorm070120.exe",
+  "golden": "extract/analysis/goldens_070120_boundary_cases/f_0c070120_boundary.cases",
+  "source": "206-byte FPU vector fragment; 128 chronological paired register+RAM cases through two tail transfers and the inventory-fragment boundary",
+  "port": "src/fight/fvecnorm070120.c"
+ },
  "0x8c070a84": {
   "test": "build/vf3fvecnorm070a84.exe",
   "golden": "extract/analysis/goldens_070a84_boundary_cases/f_0c070a84_boundary.cases",

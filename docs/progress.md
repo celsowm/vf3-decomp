@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, tenth)
+- [x] Closed baseline `0x8C070120` (206 B) through two observed tail transfers
+  and the end of its inventory fragment. All 128 chronological register+RAM
+  cases pass; the unobserved `0x8C0701C8` branch is rejected by the model.
+  Rigorous coverage is now **308/2,398 (12.8%)**, leaving 222 functions to the
+  530-function floor. Details: `docs/re/fvecnorm070120.md`.
+
 ## Coverage increment (2026-09-29, ninth)
 - [x] Closed baseline `0x8C070A84` (208 B) across four observed transfer
   sites. All 128 chronological register+RAM cases pass, including seven
