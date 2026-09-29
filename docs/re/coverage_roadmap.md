@@ -61,6 +61,14 @@
   current rigorous coverage is 294/2398 (12.3%), leaving 236 to the 530
   function floor and 256 to the 550 working target. Details:
   `docs/re/f9f6dc_closure.md`.
+- Campaign A candidate check: recaptured `0x8C071668` with 1,400 invocations,
+  64 unique paired register+RAM cases, and no unpaired exits. The 44-byte
+  fragment tail-jumps to `0x8C071400`, inside the neighboring FPU routine
+  `0x8C0713F0`; its traced outputs therefore include that shared FPU closure.
+  The data window is unchanged and stack writes are captured, but the shared
+  FPU body still needs its own verified model. Keep `0x8C071668` out of the
+  coverage ledger until that closure is modeled; capture recipe and notes:
+  `docs/re/candidate_71668.md`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
