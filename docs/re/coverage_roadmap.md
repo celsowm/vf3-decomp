@@ -31,6 +31,21 @@
   helpers; the third is an FPU fragment and the normalized digest is too broad
   to establish equivalent behavior. Do not reuse those shapes as coverage
   without fresh paired replay.
+- Candidate recheck (2026-09-29): `0x8C09D452` has 512 paired rows, but its
+  46-byte body composes the `0x0C03C940`, `0x0C03C880`, and `0x0C03C6C0`
+  SH-4 matrix kernels. The 512-row set has only the `0x0C31F000` stack window;
+  the separate 64-row XF capture has non-identity matrices on every input, so
+  the identity-XF, three-angle `0x8C09D9EC` model cannot be reused. This is a
+  helper-kernel task, not a bounded wrapper port; keep it out of the ledger
+  until the FSCA/FTRV chain and its input/output XF behavior replay exactly.
+- Candidate recheck (2026-09-29): the remaining highest-ranked small leaf
+  entries do not expose an immediate standalone batch. `0x8C06F6F8` runs into
+  a 662-byte tail-transfer pipeline whose paired exit is at the caller RTS;
+  the 070x vector entries are fall-through FPU fragments; and bootmix leads
+  `0x8C0A77E2`/`0x8C08B204` are helper-heavy. This confirms that the next
+  useful increment must come from complete tail-boundary capture and combined
+  unit modeling, or a genuinely new attributable corpus, rather than replaying
+  the existing short-leaf queue.
 - Next route to 530: (1) finish high-confidence closure candidates from
   Campaign A/B, but count only full body boundaries and paired replay; (2) use
   the new `exitpc`/XF capture support to capture complete tail-transfer paths
