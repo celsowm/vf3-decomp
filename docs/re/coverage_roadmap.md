@@ -53,6 +53,11 @@
   libraries produced 4,020 modules; the full file-tree sweep found 48 complete
   baseline bodies, all already credited. Disc2 produced six partial matches
   and no full bodies. No new function credit; details in `docs/re/sdk9_eu.md`.
+- Behavioral follow-up: isolated the hidden closure behind the 32-byte
+  `0x8C09F6DC` loop. Forced Ghidra entry `0x8C09F6FC` and captured 252 calls /
+  64 unique paired cases across states 26-29 with data+stack RAM windows.
+  The helper is a large single-precision geometry routine; neither helper nor
+  caller is counted yet. Capture and next steps: `docs/re/f9f6dc_closure.md`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
