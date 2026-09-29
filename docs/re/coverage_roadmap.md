@@ -47,6 +47,14 @@
   return before the FPU continuation. The other 17 cases invoke the
   `0x8C09F354` in-place vector helper; they remain skipped pending a full
   paired model of that helper and its data windows.
+- Closed the 17 FPU continuations of `0x8C09F9A8` by translating the captured
+  18-vector helper at `0x8C09F354`. The helper passes 43/43 paired
+  register+RAM cases; the parent now passes all 64/64 instead of skipping its
+  continuation cases. The caller was already counted from its guard-path
+  port and the helper is outside the frozen baseline, so this closure adds no
+  baseline credit: coverage remains **304/2398 (12.7%)**, with **226** to the
+  530-function floor. It adds one off-baseline port and closes the previously
+  skipped caller behavior. See `docs/re/f9f9a8_fpu_closure.md`.
 - Added the first port from the fresh register-only candidate sweep:
   `0x8C0CBEFC` (200 B), verified against 64 paired register+RAM cases after
   adding the SDK `__divls` helper's observable stack saves; `0x8C040F1E`

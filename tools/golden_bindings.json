@@ -219,7 +219,13 @@
  "0x8c09f9a8": {
   "test": "build/vf3f9f9a8.exe",
   "golden": "extract/analysis/goldens_f9f9a8_full/f_0c09f9a8.cases",
-  "source": "46-byte signed-guard return path; 47 paired register+RAM cases; 17 FPU continuations skipped pending helper closure",
+  "source": "46-byte signed guard plus FPU continuation through verified 0x8C09F354; 64 paired register+RAM cases",
   "port": "src/fight/f9f9a8.c"
+ },
+ "0x8c09f354": {
+  "test": "build/vf3f9f354.exe",
+  "golden": "extract/analysis/goldens_f9f9a8_full/f_0c09f354.cases",
+  "source": "220-byte 18-vector helper; 43 paired register+RAM cases over 8 windows",
+  "port": "src/fight/f9f354.c"
  }
 }

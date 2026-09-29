@@ -41,6 +41,7 @@ add_library(vf3core STATIC
     src/fight/f0747d8.c
     src/fight/f096258.c
     src/fight/d9ec.c
+    src/fight/f9f354.c
     src/fight/f9f9a8.c
     src/fight/f9f6fc.c
     src/fight/f9f6dc.c
@@ -145,6 +146,7 @@ add_port_test(vf3f0747d8 tests/f0747d8_replay.c)
 add_port_test(vf3f096258 tests/f096258_replay.c)
 add_port_test(vf3fd9ec tests/d9ec_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)
+add_port_test(vf3f9f354 tests/f9f354_replay.c)
 add_port_test(vf3f9f6fc tests/f9f6fc_replay.c)
 add_port_test(vf3f9f6dc tests/f9f6dc_replay.c)
 add_port_test(vf3cc148 tests/cc148_replay.c)

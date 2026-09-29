@@ -1,5 +1,13 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, sixth)
+- [x] Closed the 17 FPU continuations of baseline `0x8C09F9A8` with the
+  paired 18-vector helper port `0x8C09F354`. Replays pass 64/64 at the parent
+  and 43/43 at the helper, including all captured RAM windows. The caller was
+  already counted from its guard-path port and the helper is off-baseline, so
+  rigorous coverage remains **304/2,398 (12.7%)**, with 226 functions to the
+  530-function floor. See `docs/re/f9f9a8_fpu_closure.md`.
+
 ## Coverage increment (2026-09-29, fifth)
 - [x] Ported the signed-guard return path of baseline `0x8C09F9A8` (46 B).
   All 47 cases on that path match registers and eight RAM windows. The other
