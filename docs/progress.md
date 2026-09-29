@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, third)
+- [x] Ported baseline function `0x8C096258` (178 B), including indexed node
+  lookup, three global mask merges, the PR stack write, and callee-save
+  restoration. All 128 paired register+RAM cases pass over five RAM windows
+  from states 37, 40, and 41. Rigorous coverage is now **302/2,398 (12.6%)**.
+  Oracle and function-boundary notes: `docs/re/f096258.md`.
+
 ## Coverage increment (2026-09-29, second)
 - [x] Ported baseline function `0x8C08C788` (120 B). Four 64-case
   register+RAM suites cover captured guard exits, the RNG success path, a

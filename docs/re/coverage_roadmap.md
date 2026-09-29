@@ -2,9 +2,9 @@
 
 ## Recalibration (2026-09-28)
 
-- Refreshed starting baseline: **290/2398 (12.1%)**. The requested +10
+- Refreshed starting baseline: **302/2398 (12.6%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
-  **240 unique baseline functions**. Use 550 as the working target to leave a
+  **228 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
 - The earlier Campaign A/B/C forecast of 455–465 functions does not meet that
   floor; it leaves a further 65–75 functions to source. Do not treat the
@@ -424,3 +424,9 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   **301/2398 (12.6%)**, leaving **229 functions** to the 530-function floor
   and **249** to the 550 working target. This is a one-function increment;
   the requested +10 percentage points remains open.
+
+- 2026-09-29: completed `0x8C096258` (178 B), an indexed node-flag merge with
+  three global mask writes. All 128 paired register+RAM cases across five
+  windows pass, including the PR stack write and callee-save restoration.
+  Coverage is **302/2398 (12.6%)**, leaving **228 functions** to the 530 floor.
+  See `docs/re/f096258.md`.

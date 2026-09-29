@@ -1,4 +1,10 @@
 {
+ "0x8c096258": {
+  "test": "build/vf3f096258.exe",
+  "golden": "extract/analysis/goldens_96258_states37_40_41/f_0c096258.cases",
+  "source": "178-byte indexed node flag merge; 128 paired register+RAM cases across states 37, 40, and 41",
+  "port": "src/fight/f096258.c"
+ },
  "0x8c08c788": {
   "test": "build/vf3c788.exe",
   "golden": "extract/analysis/goldens_c788_force4/f_0c08c788.cases",
