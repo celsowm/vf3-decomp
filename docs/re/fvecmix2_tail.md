@@ -53,3 +53,14 @@ python tools/select_fvecnorm070x_direct.py `
   extract/analysis/goldens_070x_0920_direct
 build/vf3fvecnorm070x_direct.exe
 ```
+
+A raw chronological capture at `0x8C0708B0` entry resolves the route counts
+without relying on `exitpc`'s persistent arm: the first 64 entry snapshots
+reached `0x8C070920` 56 times, `0x8C070952` twice, `0x8C070960` twice, and
+`0x8C07099A` four times. This confirms the alternate paths are real and that
+some route snapshots previously combined by separate `exitpc` captures came
+from different invocations. The watch recipe is `tools/watch/vf3_070x_chrono.txt`;
+the raw trace is intentionally kept in ignored `extract/analysis/`. This is
+route evidence only: the complete entry-to-return register/RAM pairs for the
+alternate routes and the 208-byte body are still open, so coverage remains
+unchanged.
