@@ -90,6 +90,12 @@
   Rigorous coverage is now 297/2398 (12.4%), leaving 233 functions to the 530
   floor and 253 to the 550 working target. See `src/fight/c5dbe.c` and
   `extract/analysis/goldens_c5dbe_ram4/`.
+- Campaign B follow-up: ported `0x8C0B10AA`, a complete 138-byte object and
+  flag update. Its nested `0x8C09553C` callback was replayed over 64 additional
+  state-37 pairs; both caller and helper match register and RAM exits. Rigorous
+  coverage is now 298/2398 (12.4%), leaving 232 functions to the 530 floor and
+  252 to the 550 working target. See `src/fight/b10aa.c` and
+  `extract/analysis/goldens_b10aa_ram3/`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

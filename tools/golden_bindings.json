@@ -186,5 +186,11 @@
   "golden": "extract/analysis/goldens_c5dbe_ram4/f_0c0c5dbe.cases",
   "source": "Resource lookup with guarded table update and verified allocator call; 56 paired calls / 54 replay cases across 8 RAM windows",
   "port": "src/fight/c5dbe.c"
+ },
+ "0x8c0b10aa": {
+  "test": "build/vf3b10aa.exe",
+  "golden": "extract/analysis/goldens_b10aa_ram3/f_0c0b10aa.cases",
+  "source": "138-byte object/flag update with verified 0x8C09553C callback; 1 paired register+RAM case across 2 windows",
+  "port": "src/fight/b10aa.c"
  }
 }
