@@ -37,6 +37,15 @@
   for the 070x FPU family and port combined regions where the dataflow closes;
   (3) sweep one additional attributable SDK corpus or add a new scenario family
   for the residual 53–63 functions. Recalculate the residual after each batch.
+- Scenario diversification follow-up: two 600-frame fight-state action
+  patterns yielded 75 unique uncovered baseline entries, only 12 of which
+  pass the current static helper-closure screen; those 12 cluster in the
+  fragmented 070x FPU family. A clean-boot 4,740-frame mixed-input capture
+  added eight previously unseen baseline entries, but only register snapshots
+  were captured, so none earns port coverage yet. Reproduction and candidate
+  list: `docs/re/scenario_bootmix.md`. Next, target paired RAM/XF captures for
+  these leads and model complete entry-to-return behavior before updating the
+  ledger.
 - Ported `0x8C09D9EC` after capturing instruction checkpoints at the function
   entry and after each setup call. The 64-case replay confirms the entry XF
   matrix is identity and the boundary output is determined by three observed
