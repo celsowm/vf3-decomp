@@ -24,6 +24,7 @@ add_library(vf3core STATIC
     src/fight/fvecnorm070cf0.c
     src/fight/fvecmix0706c4.c
     src/fight/fvecmix070852.c
+    src/fight/fvecmix070832.c
     src/fight/fdivker.c
     src/fight/fpucb.c
     src/fight/af734.c
@@ -152,6 +153,7 @@ add_port_test(vf3fvecnorm07030c tests/fvecnorm07030c_replay.c)
 add_port_test(vf3fvecnorm070cf0 tests/fvecnorm070cf0_replay.c)
 add_port_test(vf3fvecmix0706c4 tests/fvecmix0706c4_replay.c)
 add_port_test(vf3fvecmix070852 tests/fvecmix070852_replay.c)
+add_port_test(vf3fvecmix070832 tests/fvecmix070832_replay.c)
 add_port_test(vf3scaler3 tests/scaler3_replay.c)
 add_port_test(vf3frameseq tests/frameseq_replay.c)
 add_port_test(vf3cntup tests/cntup_replay.c)

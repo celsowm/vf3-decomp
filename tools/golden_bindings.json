@@ -258,6 +258,12 @@
   "source": "34-byte FPU vector-add fragment through 0x8C070878; 9 unique paired register+RAM cases",
   "port": "src/fight/fvecmix070852.c"
  },
+ "0x8c070832": {
+  "test": "build/vf3fvecmix070832.exe",
+  "golden": "extract/analysis/pairs_070832_boundary/f_0c070832_boundary.cases",
+  "source": "32-byte FPU vector-add fragment through 0x8C070852; 64 paired register+RAM cases, including two predecrement stores",
+  "port": "src/fight/fvecmix070832.c"
+ },
  "0x8c09d452": {
   "test": "build/vf3d452.exe",
   "golden": "extract/analysis/goldens_d452_tail/f_0c09d452.cases",

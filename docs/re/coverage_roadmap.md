@@ -112,6 +112,12 @@
   FR0 spill that aliases the first frame-vector lane and FPSCR round-toward-zero
   arithmetic. Coverage is now **312/2398 (13.0%)**, with 238 functions left to
   the 550 target. Reproduction: `docs/re/fvecmix070852.md`.
+- Follow-up closure (2026-09-29): captured 469 calls to the 32-byte
+  `0x8C070832` vector-add fragment through its end at `0x8C070852`. The
+  fragment's FR0 spill, truncated FADD results, and first two destination
+  stores match all 64 distinct paired register+RAM cases. Coverage is now
+  **313/2398 (13.1%)**, with 237 functions left to the 550 target. Reproduction:
+  `docs/re/fvecmix070832.md`.
 - Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
   128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
   runs into a 662-byte tail-transfer pipeline whose paired exit is at the
