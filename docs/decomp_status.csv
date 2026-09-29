@@ -41,3 +41,4 @@ entry,status,file,size,method,oracle
 0x8c0cbefc,ported,src/fight/cbefc.c,200,oracle-verified (RAM shadow diff),"cbefc_replay 64/64 PASS (64 paired register+RAM cases over 2 windows; __divls quotient and observable stack saves modeled)"
 0x8c040f1e,ported,src/fight/f040f1e.c,74,oracle-verified (RAM shadow diff),"f040f1e_replay 1/1 PASS (paired register+RAM case over SH-4 and AICA alias windows; allocator success path)"
 0x8c0747d8,ported,src/fight/f0747d8.c,40,oracle-verified (RAM shadow diff),"f0747d8_replay 64/64 PASS (paired register+RAM cases over 7 windows; two coordinate accumulations and rts-delay zero stores)"
+0x8c09f6dc,ported,src/fight/f9f6dc.c,32,oracle-verified (RAM shadow diff),"f9f6dc_replay 18/18 PASS (paired register+RAM; 14 helper calls per case)"

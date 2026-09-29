@@ -56,8 +56,11 @@
 - Behavioral follow-up: isolated the hidden closure behind the 32-byte
   `0x8C09F6DC` loop. Forced Ghidra entry `0x8C09F6FC` and captured 252 calls /
   64 unique paired cases across states 26-29 with data+stack RAM windows.
-  The helper is a large single-precision geometry routine; neither helper nor
-  caller is counted yet. Capture and next steps: `docs/re/f9f6dc_closure.md`.
+  Ported the helper and caller, then passed 64/64 helper and 18/18 caller
+  paired register+RAM replays. Only the 32-byte baseline caller is counted;
+  current rigorous coverage is 294/2398 (12.3%), leaving 236 to the 530
+  function floor and 256 to the 550 working target. Details:
+  `docs/re/f9f6dc_closure.md`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

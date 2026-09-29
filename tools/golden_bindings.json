@@ -77,6 +77,18 @@
   "source": "SH-4 0x8C0747D8, vector component updater, 64 paired RAM cases from states 26-29",
   "port": "src/fight/f0747d8.c"
  },
+  "0x8c09f6fc": {
+  "test": "build/vf3f9f6fc.exe",
+  "golden": "extract/analysis/goldens_9f6fc_full/f_0c09f6fc.cases",
+  "source": "Hidden helper reached by the 0x8C09F6DC baseline loop; 64 paired cases",
+    "port": "src/fight/f9f6fc.c"
+  },
+  "0x8c09f6dc": {
+    "test": "build/vf3f9f6dc.exe",
+    "golden": "extract/analysis/goldens_9f6dc_full/f_0c09f6dc.cases",
+    "source": "Baseline loop at 0x8C09F6DC; 18 paired cases from fight states 26-29",
+    "port": "src/fight/f9f6dc.c"
+  },
  "0x8c08b7ee": {
   "test": "build/vf3cntup.exe",
   "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",
