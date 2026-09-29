@@ -46,10 +46,9 @@
   libraries (15 libraries, 2,005 objects). The corpus produced 30 complete
   SDK body matches, all already credited by stronger evidence. The only extra
   exact interval was an incomplete 4-byte function prefix and is excluded.
-  See `docs/re/sdk8_eu.md`; this sweep adds zero functions, leaving 237 to the
-  requested floor. The Japan SDK 1.0 image is a separate raw Mode-2 image and
-  needs a dedicated filesystem pass before it can be used as an attribution
-  corpus.
+  A separate Japan SDK 1.0 Joliet/Mode-2 sweep extracted 3,608 objects and
+  found 87 full-body matches, also all already credited. Both sweeps add zero
+  functions, leaving 237 to the requested floor. See `docs/re/sdk8_eu.md`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

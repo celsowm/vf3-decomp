@@ -26,3 +26,17 @@ extracted 2,005 SYSROF objects from those libraries into ignored
 
 Generated match tables and extracted objects stay under ignored analysis and
 SDK directories; the raw image is unchanged.
+
+## Japanese SDK 1.0 follow-up
+
+The local `DCSDK_100J.iso` image uses raw Mode-2 Form-1 sectors and a Joliet
+supplementary volume descriptor. `rawcd_extract.py` now reads both sector
+layouts and prefers the Joliet tree when present. The primary ISO tree only
+contains a README; Joliet exposes the SDK libraries.
+
+Selected 19 `.LIB`/`.OBJ` files from the SHINOBI and SHC library directories
+yielded 3,608 extracted SYSROF objects. A recursive `sdk_sweep.py` pass found
+193 baseline function matches, including 87 full-body matches (5,108 B).
+Every full-body match was already credited in the SDK union ledger; this
+revision adds **zero** rigorous functions. The raw image and extracted corpus
+remain unchanged/ignored, respectively.

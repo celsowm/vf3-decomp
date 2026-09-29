@@ -2,7 +2,7 @@
 """Extract files from a raw 2352-byte Mode-1 or Mode-2 Form-1 CD image.
 
 The Katana SDK archives include raw CD images that are not directly mountable
-on Windows. This small ISO-9660 reader extracts selected files without
+on Windows. This ISO-9660/Joliet reader extracts selected files without
 rewriting the source image.
 """
 from __future__ import annotations
@@ -42,7 +42,7 @@ def extent(f, lba: int, size: int) -> bytes:
     return b"".join(read_block(f, lba + i) for i in range(blocks))[:size]
 
 
-def entries(f, lba: int, size: int):
+def entries(f, lba: int, size: int, joliet: bool = False):
     data = extent(f, lba, size)
     pos = 0
     while pos < len(data):
@@ -56,7 +56,10 @@ def entries(f, lba: int, size: int):
         name_len = rec[32]
         raw_name = rec[33:33 + name_len]
         if raw_name not in (b"\x00", b"\x01"):
-            name = raw_name.decode("ascii", "replace").split(";")[0]
+            if joliet:
+                name = raw_name.decode("utf-16-be", "replace").split(";", 1)[0]
+            else:
+                name = raw_name.decode("ascii", "replace").split(";", 1)[0]
             child_lba = int.from_bytes(rec[2:6], "little")
             child_size = int.from_bytes(rec[10:14], "little")
             is_dir = bool(rec[25] & 2)
@@ -82,14 +85,24 @@ def main() -> int:
         pvd = read_block(f, 16)
         if pvd[1:6] != b"CD001" or pvd[0] != 1:
             raise SystemExit("LBA 16 is not an ISO-9660 primary volume descriptor")
-        rr = pvd[156:]
+        volume = pvd
+        joliet = False
+        for lba in range(17, 48):
+            desc = read_block(f, lba)
+            if desc[1:6] != b"CD001" or desc[0] == 255:
+                break
+            if desc[0] == 2 and desc[88:90] == b"%/":
+                volume = desc
+                joliet = True
+                break
+        rr = volume[156:]
         root_lba = int.from_bytes(rr[2:6], "little")
         root_size = int.from_bytes(rr[10:14], "little")
         stack = [("", root_lba, root_size)]
         found = 0
         while stack:
             path, lba, size = stack.pop()
-            for name, child_lba, child_size, is_dir in entries(f, lba, size):
+            for name, child_lba, child_size, is_dir in entries(f, lba, size, joliet):
                 rel = f"{path}/{name}" if path else name
                 if is_dir:
                     stack.append((rel, child_lba, child_size))
