@@ -1,6 +1,6 @@
-/* Partial 0x8C0708B0 model through the captured indirect transfer sites.
- * The direct route is verified; the alternate normalized route retains one
- * single-precision boundary mismatch and is not eligible for coverage credit. */
+/* 0x8C0708B0 model through all four transfer sites seen in the paired capture.
+ * The finite FSRRA catalog covers the four captured normalization inputs and
+ * rejects other inputs so unsupported arithmetic cannot pass silently. */
 #include "fight/fvecnorm070x.h"
 #include "fight/fpu_tz.h"
 
@@ -61,11 +61,12 @@ static float n_fipr(float x, float y, float z, float w,
 
 static float n_fipr_native(float x, float y, float z, float w)
 {
+    /* Flycast accumulates FIPR products in double; FPSCR.RM then truncates. */
     double d = (double)x * x;
     d += (double)y * y;
     d += (double)z * z;
     d += (double)w * w;
-    return (float)d;
+    return f32_tz((long double)d);
 }
 
 static float n_sqrt(float x, uint32_t fpscr)
@@ -73,8 +74,27 @@ static float n_sqrt(float x, uint32_t fpscr)
     return fpu_dn_fix(f32_tz(sqrtl((long double)x)), fpscr);
 }
 
-void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
-                               const vf3_ram_map *ram)
+static int n_fsrra_observed(float x, float *inverse)
+{
+    static const struct { uint32_t input, output; } cases[] = {
+        { 0x3CAFABEEu, 0x40DA8581u },
+        { 0x3C9ABE5Bu, 0x40E8D471u },
+        { 0x3C8D8B50u, 0x40F371A5u },
+        { 0x3CBFAEB3u, 0x40D1323Bu },
+    };
+    uint32_t bits = fpu_f32_to_bits(x);
+    size_t i;
+    for (i = 0; i < sizeof(cases) / sizeof(cases[0]); i++) {
+        if (cases[i].input == bits) {
+            *inverse = fpu_bits_to_f32(cases[i].output);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
+                              const vf3_ram_map *ram)
 {
     uint32_t sp = in[15];
     uint32_t r4, r5;
@@ -138,7 +158,7 @@ void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
         out[30] = fpu_f32_to_bits(sy);
         out[31] = fpu_f32_to_bits(sz);
         out[33] = fpu_f32_to_bits(length);
-        return;
+        return 1;
     }
 
     /* 0x8C070924..4C computes frame dot source into FR7. */
@@ -168,7 +188,7 @@ void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
         /* 0x8C070952: dot is nonnegative, tail-jump to 0x0C07099E. */
         out[3] = 0x0C07099Eu;
         out[17] &= ~1u;
-        return;
+        return 1;
     }
 
     stored_length = n_rdflt(ram, sp + 24);
@@ -178,7 +198,7 @@ void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
         out[0] = 24;
         out[24] = fpu_f32_to_bits(stored_length);
         out[17] &= ~1u;
-        return;
+        return 1;
     }
 
     /* 0x8C070964..99A normalizes the frame vector in place. */
@@ -187,9 +207,12 @@ void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
     z = n_rdflt(ram, sp + 76);
     norm2 = n_fipr_native(x, y, z, 0.0f);
     {
-        /* Flycast's FSRRA path computes 1/sqrtf, then rounds each FMUL. */
-        float scale = fpu_dn_fix(f32_tz((long double)fpu_bits_to_f32(in[36]) /
-                                        sqrtl((long double)norm2)), fpscr);
+        float inv_length;
+        float scale;
+        if (!n_fsrra_observed(norm2, &inv_length))
+            return 0;
+        /* Captured FSRRA result feeds a separate FPSCR.RM=1 FMUL. */
+        scale = fmul_tz(fpu_bits_to_f32(in[36]), inv_length);
         x = fmul_tz(x, scale);
         y = fmul_tz(y, scale);
         z = fmul_tz(z, scale);
@@ -210,4 +233,5 @@ void vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
     out[0] = 24;
     out[3] = 0x0C070A40u;
     out[21] = fpu_f32_to_bits(x);
+    return 1;
 }

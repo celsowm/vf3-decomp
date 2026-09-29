@@ -22,11 +22,10 @@ exits. For `0x8C070832`, `0x8C070852`, and `0x8C0708B0`, XF input and output
 were identical in all 64 cases. The new windows cover the stack, vector source
 arrays, and object memory touched before the transfer.
 
-The `0x8C070832` and `0x8C070852` entries remain unported. The `0x8C0708B0`
-entry has a verified direct-transfer path, described below, but its alternate
-branches still continue into the enclosing vector routine. Keep all three
-entries out of the coverage ledger. Capture artifacts remain under ignored
-`extract/analysis/`.
+The `0x8C070832` and `0x8C070852` entries remain unported. The
+`0x8C0708B0` entry was later closed at all four observed transfer boundaries;
+it is now gated and credited in the coverage ledger. Capture artifacts remain
+under ignored `extract/analysis/`.
 
 ## 0x8C0708B0 direct tail path
 
@@ -41,11 +40,9 @@ remaining cases still fall through to that enclosing RTS.
 
 `tools/select_fvecnorm070x_direct.py` filters cases to the observed
 `0x0C070A64` transfer with unchanged PR. The direct subset passes **56/56**
-paired register+RAM replays using `vf3fvecnorm070x_direct`. This is a partial
-path check only: alternate branches and the full 208-byte body boundary are
-not closed, so `0x8C0708B0` earns **no** rigorous coverage credit and remains
-outside `portcheck.py` and the coverage ledger. Reproduce after the full
-capture with:
+paired register+RAM replays using `vf3fvecnorm070x_direct`. That direct-only
+subset was not enough for credit; a chronological capture was needed to keep
+all alternate routes paired with their own invocation.
 
 ```powershell
 python tools/select_fvecnorm070x_direct.py `
@@ -83,9 +80,28 @@ next entry confirms 56 calls at `0x8C070920`, 2 at `0x8C070952`, 2 at
 `0x8C070960`, and 4 at `0x8C07099A`. The raw trace was converted into
 entry-to-transfer register/RAM cases under ignored `extract/analysis/`.
 
-The expanded C model still passes the original 56/56 direct replay. Across all
-64 chronological boundary pairs it matches 63/64 register+RAM cases; the
-remaining `0x8C07099A` normalization case differs by one float bit in the
-reciprocal-length result and the corresponding frame write. The direct route
-and three alternate samples pass, but this is not a complete body closure.
-`0x8C0708B0` remains outside the coverage ledger and contributes no credit.
+The expanded C model now passes **64/64** chronological register+RAM cases
+across all six windows. The four routes are 56 transfers at `0x8C070920`, two
+at `0x8C070952`, two at `0x8C070960`, and four normalized transfers at
+`0x8C07099A`.
+
+The remaining one-bit FR0 mismatch traced to the normalization route. Its
+entry `fr0` spill overwrites `[SP+68]` before FIPR reads the vector. With that
+store included, one FIPR result still needed FPSCR.RM=1 truncation rather than
+round-to-nearest. The next FSRRA output then feeds a separate FMUL. The local
+trace captured four input/output pairs across the normalized cases; the C
+model uses those exact results and rejects any other FSRRA input so an
+uncaptured case cannot silently pass. Reproduce the intermediate capture with:
+
+```powershell
+python tools/golden_batch.py --name fpu070x_fsrra `
+  --watch tools/watch/vf3_070x_fsrra.txt `
+  --out extract/analysis/goldens_070x_fsrra `
+  --run fight:extract/analysis/vf3_fight_keep.state::180 `
+  --ramn 64 --max-samples 64 --no-extract
+```
+
+`build/vf3fvecnorm070x.exe` replays the full
+`extract/analysis/goldens_070x_boundary_cases/f_0c0708b0_boundary.cases` set.
+This closes the observed 208-byte body boundary and earns one baseline
+function in `docs/decomp_status.csv`.

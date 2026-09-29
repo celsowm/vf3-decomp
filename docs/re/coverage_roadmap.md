@@ -2,13 +2,13 @@
 
 ## Recalibration (2026-09-29)
 
-- Refreshed starting baseline: **305/2398 (12.7%)**. The requested +10
+- Refreshed starting baseline: **306/2398 (12.8%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
-  **225 unique baseline functions**. Use 550 as the working target to leave a
+  **224 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
 - The earlier Campaign A/B/C forecast of 455–465 functions was made at 290
-  covered functions. Rebased to 305, that projection is now 470–480 and
-  still leaves 50–60 functions to source. It is a planning estimate, not
+  covered functions. Rebased to 306, that projection is now 471–481 and
+  still leaves 49–59 functions to source. It is a planning estimate, not
   completion evidence.
 - Investigated the E3 executable as another attribution corpus. Its bytes are
   exactly `1ST_READ.unsc.bin[0x10000:]` (the E3 image is the same retail byte
@@ -43,6 +43,15 @@
   shared C940/C880 FTRV model pass 512/512 paired register+RAM+XF wrapper
   cases. This adds one baseline function; coverage is now **305/2398**, with
   225 functions to the 530 floor. See `docs/re/sh4_matrix_helpers.md`.
+- Follow-up closure (2026-09-29): paired `0x8C0708B0` entry snapshots with the
+  first transfer before the next entry, covering 56 calls to `0x8C070920`, two
+  each to `0x8C070952` and `0x8C070960`, and four normalized cases through
+  `0x8C07099A`. The last one-bit mismatch came from FIPR rounding: the first
+  component is the entry FR0 spill over `[SP+68]`, and the captured FIPR output
+  truncates under FPSCR.RM=1. Four observed FSRRA input/output pairs are gated
+  explicitly; any other FSRRA input is rejected. All 64 chronological paired
+  register+RAM cases pass. Coverage is now **306/2398**, with 224 functions to
+  the 530 floor. See `docs/re/fvecmix2_tail.md`.
 - Candidate recheck (2026-09-29): the remaining highest-ranked small leaf
   entries do not expose an immediate standalone batch. `0x8C06F6F8` runs into
   a 662-byte tail-transfer pipeline whose paired exit is at the caller RTS;

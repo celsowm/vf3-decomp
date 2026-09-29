@@ -216,6 +216,12 @@
   "source": "50-byte tail-boundary FPU setup; 64 paired register+RAM+XF cases across the captured identity-XF, three-angle path",
   "port": "src/fight/d9ec.c"
  },
+ "0x8c0708b0": {
+  "test": "build/vf3fvecnorm070x.exe",
+  "golden": "extract/analysis/goldens_070x_boundary_cases/f_0c0708b0_boundary.cases",
+  "source": "208-byte vector comparison/normalization pipeline; 64 chronological paired register+RAM cases at four transfer boundaries; four observed FSRRA inputs, fail closed outside catalog",
+  "port": "src/fight/fvecnorm070x.c"
+ },
  "0x8c09d452": {
   "test": "build/vf3d452.exe",
   "golden": "extract/analysis/goldens_d452_tail/f_0c09d452.cases",

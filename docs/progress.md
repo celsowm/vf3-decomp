@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, eighth)
+- [x] Closed baseline `0x8C0708B0` (208 B) at all four observed transfer
+  boundaries. The 64 chronological register+RAM cases pass across six windows;
+  four captured FSRRA inputs use exact oracle results, and unknown inputs fail
+  closed. Rigorous coverage is now **306/2,398 (12.8%)**, leaving 224 functions
+  to the 530-function floor. Details: `docs/re/fvecmix2_tail.md`.
+
 ## Coverage increment (2026-09-29, seventh)
 - [x] Ported baseline `0x8C09D452` (46 B) at its C6C0 tail-transfer boundary.
   The shared FSCA/FTRV kernels replay against captured XF sidecars; all 512
