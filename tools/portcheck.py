@@ -31,7 +31,8 @@ TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
          "vf3f9f6fc", "vf3f9f6dc", "vf3cc148", "vf3c5dbe", "vf3b10aa",
          "vf3c6ec4", "vf3maplookup", "vf3meshnode", "vf3d0fa",
          "vf3c788", "vf3f096258", "vf3matrix",
-         "vf3fvecnorm070x", "vf3fvecnorm070a84", "vf3fvecnorm070120"]
+         "vf3fvecnorm070x", "vf3fvecnorm070a84", "vf3fvecnorm070120",
+         "vf3fvecnorm07030c"]
 # NOTE: vf3fvecmix2 (0x8C070852) builds but is NOT gated: its window's float
 # exits carry loop-carried pipeline state and the exit RAM contains stores
 # from below-window code — parked until re-captured with tighter windows.

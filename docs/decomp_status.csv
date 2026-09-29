@@ -1,4 +1,5 @@
 entry,status,file,size,method,oracle
+0x8c07030c,ported,src/fight/fvecnorm07030c.c,208,oracle-verified (paired boundary replay),tests/fvecnorm07030c_replay.c PASS 128/128 chronological register+RAM cases across 0x37C/0x3AE/0x3F4; unknown FSRRA norm inputs reject
 0x8c070120,ported,src/fight/fvecnorm070120.c,206,oracle-verified (paired boundary replay),tests/fvecnorm070120_replay.c PASS 128/128 chronological register+RAM cases through transfers at 0x18E/0x1BE and fragment boundary 0x1EE; unobserved 0x1C8 path rejected
 0x8c070a84,ported,src/fight/fvecnorm070a84.c,208,oracle-verified (paired boundary replay),tests/fvecnorm070a84_replay.c PASS 128/128 chronological register+RAM cases across 0xB72/0xC38/0xC14 transfer targets; finite normalization scale catalog rejects unknown inputs
 0x8c0708b0,ported,src/fight/fvecnorm070x.c,208,oracle-verified (paired boundary replay),tests/fvecnorm070x_replay.c PASS 64/64 chronological register+RAM cases across routes 0x920/0x952/0x960/0x99A; finite FSRRA catalog rejects unknown inputs

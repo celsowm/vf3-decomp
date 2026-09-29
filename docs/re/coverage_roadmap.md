@@ -66,6 +66,11 @@
   `0x8C0701EE`. The model passes all register and RAM comparisons and rejects
   the unobserved `0x8C0701C8` branch. Coverage is now **308/2398**, with 222
   functions to the 530 floor.
+- Follow-up closure (2026-09-29): captured 128 paired calls to `0x8C07030C`.
+  The first-boundary routes include 85 transfers at `0x8C07037C`, 23 at
+  `0x8C0703AE`, and 20 normalization transfers at `0x8C0703F4`. All register
+  and RAM snapshots pass; the 20 observed normalization scales are finite
+  catalog entries. Coverage is now **309/2398**, with 221 functions to 530.
 - Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
   128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
   runs into a 662-byte tail-transfer pipeline whose paired exit is at the

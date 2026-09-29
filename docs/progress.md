@@ -1,5 +1,13 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, eleventh)
+- [x] Closed baseline `0x8C07030C` (208 B) across two tail-transfer routes
+  and the normalization transfer. All 128 chronological register+RAM cases
+  pass. The 20 captured normalization calls use a finite observed FSRRA scale
+  catalog; unknown norms are rejected. Coverage is now **309/2,398 (12.9%)**,
+  leaving 221 functions to the 530-function floor. Details:
+  `docs/re/fvecnorm07030c.md`.
+
 ## Coverage increment (2026-09-29, tenth)
 - [x] Closed baseline `0x8C070120` (206 B) through two observed tail transfers
   and the end of its inventory fragment. All 128 chronological register+RAM
