@@ -5,6 +5,12 @@
   "source": "SH-4 0x8C068F92, 54 B, 11k calls / 120 fight frames",
   "port": "src/fight/orient2.c"
  },
+ "0x8c06951a": {
+  "test": "build/vf3maplookup.exe",
+  "golden": "extract/analysis/goldens_6951a_ram/f_0c06951a.cases",
+  "source": "SH-4 0x8C06951A, 228 B; 90 calls / 64 unique paired register+RAM cases over states 28-29",
+  "port": "src/fight/maplookup.c (selector-12 nearest map lookup; ctx-zero and selector-11 auxiliary paths remain loud gates)"
+ },
  "0x8c068ff6": {
   "test": "build/vf3poly.exe",
   "golden": "extract/analysis/goldens/f_0c068ff6.cases",
@@ -161,13 +167,6 @@
    "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
    "port": "src/fight/f076c00.c"
   },
-  "0x8c0c678e": {
-   "test": "build/vf3c678e.exe",
-   "golden": "extract/analysis/goldens_c678e2/f_0c0c678e.cases",
-   "source": "Fight-engine worker (1772 B true body 678E-6E7A rts, mid-prologue entry X=in-68, out.r15=in+44; 28-iter scalemap-wrapper loop + branch tree (odds exit 693C) + deep FPU chain with nested 069624/06911C; baked 0x0C0EAF60 atan ramp; 142 pairs / 64 unique / 8 RAM cases over 8 windows incl warping table read-only)",
-   "port": "src/fight/c678e.c (inlined scalemap twin sp=X-8, c_9624 leaf, c_6911c mesh-walk with OOB stub constants + loud gates for untripped paths)"
-  }
-,
  "0x8c0782ea": {
   "test": "build/vf3g782ea.exe",
   "golden": "extract/analysis/goldens_782eo_rts/f_0c0782ea.cases",

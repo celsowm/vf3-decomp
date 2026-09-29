@@ -37,11 +37,11 @@
 - Campaign E follow-up: the four high-yield archived states produced captures
   for 42 of 120 watched A/B PCs in states 26-29. `0x8C0935F4` is the only
   remaining new complete leaf in that batch, but it did not execute in any of
-  the 44 archived states. `0x8C06951A` appeared in states 28-29; its closure
-  includes `0x8C068DE4` and an unresolved dynamic helper at `0x8C0695EC`
-  (runtime target `0x0C087ACE`), so track it as a closure-chain task.
-  `0x8C070852` now has more contexts but remains outside the gate until its
-  loop-carried FPU results can be explained and verified.
+  the 44 archived states. `0x8C06951A` appeared in states 28-29 and is now
+  ported for its exercised nonzero-context, selector-12 path; its ctx-zero
+  branch through `0x8C068DE4` and selector-11 runtime helper at `0x0C087ACE`
+  remain loud gates. `0x8C070852` now has more contexts but remains outside the
+  gate until its loop-carried FPU results can be explained and verified.
 - Campaign C follow-up: recovered and swept the SDK 8 Europe SHINOBI core
   libraries (15 libraries, 2,005 objects). The corpus produced 30 complete
   SDK body matches, all already credited by stronger evidence. The only extra
@@ -153,6 +153,12 @@
   reproduce with the saved fight state and `tools/watch/vf3_c678e2_cbc.txt`.
   The post-classifier capture is 717 unique paired cases at `0x8C0691EA`; use
   `tools/watch/vf3_c678e2_walkafter.txt`.
+- Current coverage checkpoint: `0x8C06951A` is validated on 64 unique paired
+  register+RAM cases across six windows. `0x8C0C678E` has been removed from the
+  rigorous ledger because the refreshed capture exposes missing mesh-table
+  windows and unresolved register/RAM differences. The net count therefore
+  remains **299/2398 (12.5%)**, leaving 231 functions to the 530-function
+  floor; the +10 percentage point objective is still open.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

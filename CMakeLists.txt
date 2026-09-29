@@ -29,6 +29,7 @@ add_library(vf3core STATIC
     src/fight/fcmpsel.c
     src/fight/scaler3.c
     src/fight/scalemap.c
+    src/fight/maplookup.c
     src/fight/tailcall.c
     src/fight/vecpush.c
     src/fight/cntup.c
@@ -109,6 +110,7 @@ function(add_port_test tname src)
 endfunction()
 
 add_port_test(vf3scalemap tests/scalemap_replay.c)
+add_port_test(vf3maplookup tests/maplookup_replay.c)
 add_port_test(vf3tailcall tests/tailcall_replay.c)
 add_port_test(vf3walker2 tests/walker2_replay.c)
 add_port_test(vf3fvecadd tests/fvecadd_replay.c)
