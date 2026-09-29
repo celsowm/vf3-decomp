@@ -27,3 +27,25 @@ function boundaries, or complete input-path coverage. Keep the rigorous
 baseline count unchanged until targeted RAM-window captures and readable C
 replays pass the normal port gate. The binary capture and extracted goldens
 remain under ignored `extract/analysis/`.
+
+## Paired follow-up (2026-09-29)
+
+`tools/watch/vf3_bootmix_new8.txt` repeats the same scenario for the eight
+entries with a 16 KiB stack window and XF snapshots. Reproduce with:
+
+```powershell
+python tools/golden_batch.py --name bootmix_new8 `
+  --watch tools/watch/vf3_bootmix_new8.txt `
+  --out extract/analysis/goldens_bootmix_new8 `
+  --run bootmix::tools/vf3_play_boot_mix.txt:4800 `
+  --ramn 64 --max-samples 64
+```
+
+The 116-second run produced paired register, stack-RAM, and XF records for all
+eight entries with zero unpaired exits. Unique cases were: `0x8C039B1A` 1,
+`0x8C068C72` 1, `0x8C0750BE` 28, `0x8C08B204` 64, `0x8C09132E` 2,
+`0x8C09575C` 1, `0x8C0A77E2` 64, and `0x8C0AC252` 64. The watched 16 KiB
+window captures stack effects only; these records do not bound object or
+global writes. The three broad cases remain helper-heavy and need targeted
+data-window capture before they are useful for a counted port. No coverage
+credit is added by this capture.
