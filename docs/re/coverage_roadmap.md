@@ -83,6 +83,13 @@
   FPU body still needs its own verified model. Keep `0x8C071668` out of the
   coverage ledger until that closure is modeled; capture recipe and notes:
   `docs/re/candidate_71668.md`.
+- Campaign E follow-up: ported `0x8C0C5DBE`, a guarded resource lookup that
+  updates a per-index table and delegates allocation to verified `0x8C040F1E`.
+  The capture covers 56 paired calls; all 54 distinct register+RAM cases pass
+  across eight windows, including the AICA pool and the full table span.
+  Rigorous coverage is now 297/2398 (12.4%), leaving 233 functions to the 530
+  floor and 253 to the 550 working target. See `src/fight/c5dbe.c` and
+  `extract/analysis/goldens_c5dbe_ram4/`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC

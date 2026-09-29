@@ -43,3 +43,4 @@ entry,status,file,size,method,oracle
 0x8c0747d8,ported,src/fight/f0747d8.c,40,oracle-verified (RAM shadow diff),"f0747d8_replay 64/64 PASS (paired register+RAM cases over 7 windows; two coordinate accumulations and rts-delay zero stores)"
 0x8c09f6dc,ported,src/fight/f9f6dc.c,32,oracle-verified (RAM shadow diff),"f9f6dc_replay 18/18 PASS (paired register+RAM; 14 helper calls per case)"
 0x8c0cc148,ported,src/fight/cc148.c,210,oracle-verified (RAM shadow diff),"cc148_replay 64/64 PASS (64 paired cases over 3 RAM windows; two verified fdivker helper entries)"
+0x8c0c5dbe,ported,src/fight/c5dbe.c,56,oracle-verified (RAM shadow diff),"c5dbe_replay 54/54 PASS (56 paired calls / 54 unique cases over 8 RAM windows; guarded table update + verified allocator call)"

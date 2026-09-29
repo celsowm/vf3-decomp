@@ -180,5 +180,11 @@
   "golden": "extract/analysis/goldens_cc148_ram3/f_0c0cc148.cases",
   "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
   "port": "src/fight/cc148.c"
+ },
+ "0x8c0c5dbe": {
+  "test": "build/vf3c5dbe.exe",
+  "golden": "extract/analysis/goldens_c5dbe_ram4/f_0c0c5dbe.cases",
+  "source": "Resource lookup with guarded table update and verified allocator call; 56 paired calls / 54 replay cases across 8 RAM windows",
+  "port": "src/fight/c5dbe.c"
  }
 }
