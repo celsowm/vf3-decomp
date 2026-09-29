@@ -52,14 +52,21 @@
   explicitly; any other FSRRA input is rejected. All 64 chronological paired
   register+RAM cases pass. Coverage is now **306/2398**, with 224 functions to
   the 530 floor. See `docs/re/fvecmix2_tail.md`.
-- Candidate recheck (2026-09-29): the remaining highest-ranked small leaf
-  entries do not expose an immediate standalone batch. `0x8C06F6F8` runs into
-  a 662-byte tail-transfer pipeline whose paired exit is at the caller RTS;
-  the 070x vector entries are fall-through FPU fragments; and bootmix leads
-  `0x8C0A77E2`/`0x8C08B204` are helper-heavy. This confirms that the next
-  useful increment must come from complete tail-boundary capture and combined
-  unit modeling, or a genuinely new attributable corpus, rather than replaying
-  the existing short-leaf queue.
+- Follow-up closure (2026-09-29): captured 128 paired calls to `0x8C070A84`
+  through the next transfer, covering the `0x0C070B72`, `0x0C070C38`, and
+  `0x0C070C14` destinations. The readable FPU model matches all registers and
+  RAM windows, including seven in-place normalization calls. A finite observed
+  scale catalog rejects unknown normalization inputs. Coverage is now
+  **307/2398**, with 223 functions to the 530 floor. The next-function increment
+  is far below the +10-point target; broader scenario capture or new SDK
+  attribution remains necessary.
+- Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
+  128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
+  runs into a 662-byte tail-transfer pipeline whose paired exit is at the
+  caller RTS; the remaining 070x vector routines are fall-through FPU
+  fragments; and bootmix leads `0x8C0A77E2`/`0x8C08B204` are helper-heavy. The
+  next batch still needs complete tail-boundary captures with combined unit
+  modeling, or a genuinely new attributable corpus.
 - Next route to 530: (1) finish high-confidence closure candidates from
   Campaign A/B, but count only full body boundaries and paired replay; (2) use
   the new `exitpc`/XF capture support to capture complete tail-transfer paths

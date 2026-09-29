@@ -1,5 +1,13 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, ninth)
+- [x] Closed baseline `0x8C070A84` (208 B) across four observed transfer
+  sites. All 128 chronological register+RAM cases pass, including seven
+  captured in-place normalization calls; the finite scale catalog rejects
+  unobserved normalization inputs. Rigorous coverage is now
+  **307/2,398 (12.8%)**, leaving 223 functions to the 530-function floor.
+  Details: `docs/re/coverage_roadmap.md`.
+
 ## Coverage increment (2026-09-29, eighth)
 - [x] Closed baseline `0x8C0708B0` (208 B) at all four observed transfer
   boundaries. The 64 chronological register+RAM cases pass across six windows;

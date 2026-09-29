@@ -1,4 +1,10 @@
 {
+ "0x8c070a84": {
+  "test": "build/vf3fvecnorm070a84.exe",
+  "golden": "extract/analysis/goldens_070a84_boundary_cases/f_0c070a84_boundary.cases",
+  "source": "208-byte FPU vector routine; 128 chronological paired register+RAM cases across four observed transfer routes",
+  "port": "src/fight/fvecnorm070a84.c"
+ },
  "0x8c096258": {
   "test": "build/vf3f096258.exe",
   "golden": "extract/analysis/goldens_96258_states37_40_41/f_0c096258.cases",
