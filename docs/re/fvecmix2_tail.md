@@ -64,3 +64,28 @@ the raw trace is intentionally kept in ignored `extract/analysis/`. This is
 route evidence only: the complete entry-to-return register/RAM pairs for the
 alternate routes and the 208-byte body are still open, so coverage remains
 unchanged.
+
+## Transfer-site follow-up (2026-09-29)
+
+`tools/watch/vf3_070x_boundary.txt` captures entry RAM plus the same six windows
+at all four transfer PCs. Reproduce the raw chronological trace with:
+
+```powershell
+python tools/golden_batch.py --name 070xboundary `
+  --watch tools/watch/vf3_070x_boundary.txt `
+  --out extract/analysis/goldens_070x_boundary `
+  --run fight:extract/analysis/vf3_fight_keep.state::180 `
+  --ramn 64 --max-samples 64 --no-extract
+```
+
+Pairing each of the first 64 entry snapshots to its first transfer before the
+next entry confirms 56 calls at `0x8C070920`, 2 at `0x8C070952`, 2 at
+`0x8C070960`, and 4 at `0x8C07099A`. The raw trace was converted into
+entry-to-transfer register/RAM cases under ignored `extract/analysis/`.
+
+The expanded C model still passes the original 56/56 direct replay. Across all
+64 chronological boundary pairs it matches 63/64 register+RAM cases; the
+remaining `0x8C07099A` normalization case differs by one float bit in the
+reciprocal-length result and the corresponding frame write. The direct route
+and three alternate samples pass, but this is not a complete body closure.
+`0x8C0708B0` remains outside the coverage ledger and contributes no credit.
