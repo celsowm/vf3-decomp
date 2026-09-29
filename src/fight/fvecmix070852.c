@@ -83,11 +83,10 @@ void vf3_fvecmix070852_8c070852(const uint32_t in[37], uint32_t out[37],
     float sum0 = fadd_tz(bits_float(lane0), bits_float(src0));
     float sum1 = fadd_tz(bits_float(lane1), bits_float(src1));
     float sum2 = fadd_tz(bits_float(lane2), bits_float(src2));
-    wr_float(ram, r13, sum0);
     wr_float(ram, r13 + 4, sum1);
     wr_float(ram, r13 + 8, sum2);
 
-    out[4] = r13;
+    out[4] = r13 + 4;
     out[5] = r5;
     out[6] = r6;
     out[21] = float_bits(sum0);

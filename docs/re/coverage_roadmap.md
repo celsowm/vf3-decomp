@@ -106,12 +106,13 @@
   vector and cross-product model passes all register+RAM cases; unknown branch
   and FSRRA inputs reject. Coverage is now **311/2398 (13.0%)**, with 239
   functions remaining to the 550 target. Reproduction: `docs/re/fvecmix0706c4.md`.
-- Follow-up closure (2026-09-29): captured 469 invocations of the 34-byte
-  `0x8C070852` vector-add fragment through its inventory boundary at
-  `0x8C070878`. Nine distinct paired register+RAM cases pass, including the
-  FR0 spill that aliases the first frame-vector lane and FPSCR round-toward-zero
-  arithmetic. Coverage is now **312/2398 (13.0%)**, with 238 functions left to
-  the 550 target. Reproduction: `docs/re/fvecmix070852.md`.
+- Follow-up closure (2026-09-29; boundary corrected): captured 469 invocations
+  of the 34-byte `0x8C070852` vector-add fragment through its exact inventory
+  boundary at `0x8C070874`. Sixty-four distinct paired register+RAM cases pass,
+  including the FR0 spill and FPSCR round-toward-zero arithmetic; the third
+  destination store is correctly left to the next fragment. Coverage remains
+  **312/2398 (13.0%)**, with 238 functions left to the 550 target.
+  Reproduction: `docs/re/fvecmix070852.md`.
 - Follow-up closure (2026-09-29): captured 469 calls to the 32-byte
   `0x8C070832` vector-add fragment through its end at `0x8C070852`. The
   fragment's FR0 spill, truncated FADD results, and first two destination
