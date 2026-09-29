@@ -102,6 +102,15 @@
   299/2398 (12.5%), leaving 231 functions to the 530 floor and 251 to the
   550 working target. See `src/fight/c6ec4.c` and
   `extract/analysis/goldens_c6ec4_ram/`.
+- Follow-up candidate check: captured `0x8C0C674A` and its `0x8C0C678E`
+  callee with 64 unique paired cases and the wider RAM windows required by the
+  existing body port. The body replay passes 41/64; 23 contexts still disagree
+  on FR9 (`0x40400000` vs `0x40000000`), so the wrapper is not creditable yet.
+  `0x8C0C6E7E` also has 64 unique captures, but its `0x8C09EA58` dynamic entry
+  has no separate baseline-function attribution. Keep both out of the count
+  until their closure behavior is resolved; captures are in
+  `extract/analysis/goldens_c674a_full/` and
+  `extract/analysis/goldens_c6e7e/`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
