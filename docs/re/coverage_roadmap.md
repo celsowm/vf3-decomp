@@ -406,3 +406,13 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   **300/2398 (12.5%)**, leaving 230 functions to the 530-function floor and
   250 to the 550 working target. Capture: `goldens_d0fa_states1_16/`; recipe:
   `tools/watch/vf3_d0fa_ram.txt`.
+
+- 2026-09-29 capture tranche: swept archived fight states 30-44 against the
+  existing 120-PC A/B RAM watch. Rechecked short candidates and selected
+  baseline `0x8C096174` (48 B): 64 paired calls, 19 unique inputs. A targeted
+  four-window recapture includes its object, global callback table, code/data
+  region and stack. The loop reaches callback records whose pointers resolve
+  into larger unsegmented code regions (including `0x8C0A95AC`), so this entry
+  is not credited until those effects are modeled. Current rigorous coverage
+  remains 300/2398; the sweep improved scenario evidence but did not add a
+  verified function.
