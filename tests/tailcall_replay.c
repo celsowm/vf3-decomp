@@ -68,6 +68,6 @@ int main(int argc, char **argv)
         return vf3h_harness_main(argc, argv, "tailcall_abe_replay",
                                  argv[1], run_abe);
     return vf3h_harness_main(argc, argv, "tailcall_replay",
-                             "extract/analysis/goldens_ab/f_0c092f12.cases",
+                             "extract/analysis/goldens_ab_e_states1_25/f_0c092f12.cases",
                              run_case);
 }

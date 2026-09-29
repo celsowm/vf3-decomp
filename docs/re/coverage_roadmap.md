@@ -52,6 +52,10 @@
   FSCA angles. The port rejects other angles, nonzero `+0x1F50/+0x1F52` values,
   non-identity XF matrices, and other FPSCR modes; it closes one function but
   does not change the need for a general SH-4 FSCA model.
+- Replay hardening: expanded the existing `0x8C092F12` tail-call epilogue test
+  from eight RAM snapshots to 64 paired register+RAM cases over two windows.
+  All 64 pass. This function was already in the port ledger, so the stronger
+  evidence adds no coverage credit.
 - Ported the signed-guard return path of `0x8C09F9A8`: 47/64 paired cases
   return before the FPU continuation. The other 17 cases invoke the
   `0x8C09F354` in-place vector helper; they remain skipped pending a full

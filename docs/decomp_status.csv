@@ -25,7 +25,7 @@ entry,status,file,size,method,oracle
 0x8c071a76,ported,src/fight/vecpush.c,66,oracle-verified-piecewise,tests/vecpush_replay.c 7/7 cases PASS (entry->0x8C071ABE)
 0x8c068e16,ported-piecewise,src/fight/scalemap.c,352,oracle-verified (RAM shadow diff),vf3scalemap 32/32 PASS
 0x8c06951a,ported,src/fight/maplookup.c,228,oracle-verified (RAM shadow diff),maplookup_replay 64/64 PASS (paired register+RAM; selector-12 nearest map lookup; ctx-zero and selector-11 dynamic helper paths gated)
-0x8c092f12,ported,src/fight/tailcall.c,10,oracle-verified,tailcall_replay 8/8 PASS
+0x8c092f12,ported,src/fight/tailcall.c,10,oracle-verified,RAM+register replay expanded to 64/64 paired cases over 2 windows (tests/tailcall_replay.c)
 0x8c092abe,ported,src/fight/tailcall.c,24,oracle-verified,tailcall_abe_replay 8/8 PASS
 0x8c0748c0,ported-piecewise,src/fight/walker2.c,32,oracle-verified-gate-only (RAM shadow diff),walker_gate_replay 8/8 PASS; walker bsr 0x8C0748E0 calls out of scope (data OOB in all windows)
 0x8c0930b6,ported,src/fight/fvecadd.c,30,oracle-verified (RAM shadow diff),fvecadd_replay 8/8 PASS
