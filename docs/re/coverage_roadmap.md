@@ -68,6 +68,13 @@
   epilogue and rare FPU path pass all 64. Rigorous coverage is now
   **295/2398 (12.3%)**, leaving **235** functions to the 530 floor and **255**
   to the 550 working target. See `docs/re/af734_probe.md`.
+- Campaign B closure: captured `0x8C0CC148` from 18 archived states (304 calls,
+  64 unique inputs), then widened the data and stack windows until the register
+  and RAM replay passed all 64 cases. The port reuses both verified range-
+  reduction entries at `0x8C03A6E0` and `0x8C03A140`. Rigorous coverage is now
+  **296/2398 (12.3%)**, leaving **234** functions to the 530-function floor and
+  **254** to the 550 working target. See `src/fight/cc148.c` and
+  `extract/analysis/goldens_cc148_ram3/`.
 - Campaign A candidate check: recaptured `0x8C071668` with 1,400 invocations,
   64 unique paired register+RAM cases, and no unpaired exits. The 44-byte
   fragment tail-jumps to `0x8C071400`, inside the neighboring FPU routine

@@ -174,4 +174,11 @@
   "source": "Fight-dispatcher worker (4472 B baseline, BRAF switch 0x8C078396/64-arm table 0x0C0783B0 with 19 tripped arms; prologue ~1660 B frame + r4-r7 link; dispatch loop 0x8C078376; epilogue r15+=0x87C + pop pr/r12-r14, out.r15=in+12; 8 RAM cases over 10 windows; B-path interrupt footprint modeled as counter-gated stub pushes (7A5DE#7, 07891A#10-if-5de<=10); pools+BRAF baked)",
   "port": "src/fight/g782ea.c (machine-generated transliteration via extract/analysis/gen782c.py from validated emulator semantics; 22 one-way branch gates + 45 unhit-arm gates + pool-miss/OOB gates)"
  }
+,
+ "0x8c0cc148": {
+  "test": "build/vf3cc148.exe",
+  "golden": "extract/analysis/goldens_cc148_ram3/f_0c0cc148.cases",
+  "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
+  "port": "src/fight/cc148.c"
+ }
 }
