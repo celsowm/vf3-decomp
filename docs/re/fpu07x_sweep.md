@@ -13,11 +13,11 @@ exits fire on matching-depth `rts`, not at entry+size), a fall-through
 fragment's oracle exit covers downstream code, so most fragments are not
 standalone-verifiable. Demonstrated with 0x8C070832 (exit pr/r15/r4
 post-date the 32 B body) and 0x8C070852/fvecmix2 (in-tree, test ungated).
-Boundary captures have since closed `0x8C070120`, `0x8C07030C`, `0x8C0708B0`,
-and `0x8C070A84` with paired register+RAM replays at observed transfer or
-fragment-end boundaries. `070CF0` remains open and contains
-`fsqrt`/`fmul`/branches; closing it requires a similarly paired multi-route
-capture.
+Boundary captures have since closed `0x8C070120`, `0x8C07030C`,
+`0x8C0708B0`, `0x8C070A84`, and `0x8C070CF0` with paired register+RAM replays
+at observed transfer or fragment-end boundaries. Other 070x fragments remain
+open; several contain `fsqrt`/`fmul`/branches and require similarly paired
+multi-route captures.
 
 ## Secondary finding
 Campaign-C "never executed" is unreliable for this family:

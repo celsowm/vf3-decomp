@@ -71,6 +71,12 @@
   `0x8C0703AE`, and 20 normalization transfers at `0x8C0703F4`. All register
   and RAM snapshots pass; the 20 observed normalization scales are finite
   catalog entries. Coverage is now **309/2398**, with 221 functions to 530.
+- Follow-up closure (2026-09-29): captured 128 paired calls to `0x8C070CF0`.
+  The first-boundary routes reached `0x8C070D5E` 84 times, `0x8C070D8C` 32
+  times, `0x8C070D98` twice, and the post-normalization transfer at
+  `0x8C070E7C` ten times. All paired register+RAM cases pass; ten norm-square
+  results are finite-cataloged. Coverage is now **310/2398**, with 220
+  functions to 530.
 - Candidate recheck (2026-09-29): `0x8C070A84` has since been closed with a
   128-case paired transfer capture and readable FPU model. `0x8C06F6F8` still
   runs into a 662-byte tail-transfer pipeline whose paired exit is at the
