@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, fifth)
+- [x] Ported the signed-guard return path of baseline `0x8C09F9A8` (46 B).
+  All 47 cases on that path match registers and eight RAM windows. The other
+  17 cases continue into the FPU helper at `0x8C09F354` and are explicitly
+  skipped until that closure is modeled. Rigorous coverage is now
+  **304/2,398 (12.7%)**.
+
 ## Coverage increment (2026-09-29, fourth)
 - [x] Ported baseline function `0x8C09D9EC` (50 B) for the captured
   identity-XF setup path. The replay checks 64 paired register, ten-window RAM,

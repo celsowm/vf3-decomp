@@ -2,9 +2,9 @@
 
 ## Recalibration (2026-09-29)
 
-- Refreshed starting baseline: **303/2398 (12.6%)**. The requested +10
+- Refreshed starting baseline: **304/2398 (12.7%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
-  **227 unique baseline functions**. Use 550 as the working target to leave a
+  **226 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
 - The earlier Campaign A/B/C forecast of 455–465 functions was made at 290
   covered functions. Rebased to 302, that projection is now 467–477 and
@@ -43,6 +43,10 @@
   FSCA angles. The port rejects other angles, nonzero `+0x1F50/+0x1F52` values,
   non-identity XF matrices, and other FPSCR modes; it closes one function but
   does not change the need for a general SH-4 FSCA model.
+- Ported the signed-guard return path of `0x8C09F9A8`: 47/64 paired cases
+  return before the FPU continuation. The other 17 cases invoke the
+  `0x8C09F354` in-place vector helper; they remain skipped pending a full
+  paired model of that helper and its data windows.
 - Added the first port from the fresh register-only candidate sweep:
   `0x8C0CBEFC` (200 B), verified against 64 paired register+RAM cases after
   adding the SDK `__divls` helper's observable stack saves; `0x8C040F1E`

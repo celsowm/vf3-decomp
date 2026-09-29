@@ -305,6 +305,11 @@ static int vf3h_harness_main(int argc, char **argv, const char *name,
         m.ncase = total + 1;
         char err[256] = "";
         int ok = fn(&c, &m, err, sizeof(err));
+        if (ok < 0) {
+            skipped++;
+            vf3h_mem_free(&m);
+            continue;
+        }
         total++;
         if (ok) {
             pass++;

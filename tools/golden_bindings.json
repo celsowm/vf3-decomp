@@ -215,5 +215,11 @@
   "golden": "extract/analysis/goldens_d9ec_portxf/f_0c09d9ec.cases",
   "source": "50-byte tail-boundary FPU setup; 64 paired register+RAM+XF cases across the captured identity-XF, three-angle path",
   "port": "src/fight/d9ec.c"
+ },
+ "0x8c09f9a8": {
+  "test": "build/vf3f9f9a8.exe",
+  "golden": "extract/analysis/goldens_f9f9a8_full/f_0c09f9a8.cases",
+  "source": "46-byte signed-guard return path; 47 paired register+RAM cases; 17 FPU continuations skipped pending helper closure",
+  "port": "src/fight/f9f9a8.c"
  }
 }
