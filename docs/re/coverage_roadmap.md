@@ -126,6 +126,10 @@
   fragments; and bootmix leads `0x8C0A77E2`/`0x8C08B204` are helper-heavy. The
   next batch still needs complete tail-boundary captures with combined unit
   modeling, or a genuinely new attributable corpus.
+- Capture triage (2026-09-29): the `0x8C070874` fragment recurs before either
+  watched boundary, so no same-invocation exit can be isolated; `0x8C071E3A`
+  yielded only 15 distinct boundary rows and its long FPU stream remains
+  unexplained. Both remain uncredited. Details: `docs/re/070x_candidate_triage.md`.
 - Route to 550: carry out the phases above and re-rank from measured results.
   The `exitpc`/XF capture support is useful for complete tail-transfer paths
   in the 070x FPU family. Another SDK sweep is a fallback only when it targets
