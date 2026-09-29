@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, seventh)
+- [x] Ported baseline `0x8C09D452` (46 B) at its C6C0 tail-transfer boundary.
+  The shared FSCA/FTRV kernels replay against captured XF sidecars; all 512
+  paired register+RAM+XF wrapper cases pass. Rigorous coverage is now
+  **305/2,398 (12.7%)**, leaving 225 functions to the 530-function floor.
+  Details: `docs/re/sh4_matrix_helpers.md`.
+
 ## Coverage increment (2026-09-29, sixth)
 - [x] Closed the 17 FPU continuations of baseline `0x8C09F9A8` with the
   paired 18-vector helper port `0x8C09F354`. Replays pass 64/64 at the parent

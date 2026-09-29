@@ -1,0 +1,233 @@
+/* Captured SH-4 FSCA/FTRV matrix helpers used by the 09D4/09D9 families.
+ * The coefficient catalog is bounded to angles present in the paired oracle
+ * captures. FTRV uses double accumulation and one final float conversion;
+ * the game runs with RM=truncate. */
+#include "fight/sh4_matrix.h"
+
+#include <fenv.h>
+#include <stdint.h>
+#include <string.h>
+
+typedef struct {
+    uint16_t angle;
+    uint32_t sin_bits;
+    uint32_t cos_bits;
+} vf3_fsca_pair;
+
+#include "fsca_angles.inc"
+
+static float bits_f32(uint32_t bits)
+{
+    float f;
+    memcpy(&f, &bits, sizeof(f));
+    return f;
+}
+
+static uint32_t f32_bits(float f)
+{
+    uint32_t bits;
+    memcpy(&bits, &f, sizeof(bits));
+    return bits;
+}
+
+static const vf3_fsca_pair *find_fsca(uint32_t angle)
+{
+    const uint16_t a = (uint16_t)angle;
+    unsigned lo = 0;
+    unsigned hi = (unsigned)(sizeof(vf3_fsca_pairs) /
+                             sizeof(vf3_fsca_pairs[0]));
+    while (lo < hi) {
+        unsigned mid = lo + (hi - lo) / 2;
+        if (vf3_fsca_pairs[mid].angle < a)
+            lo = mid + 1;
+        else
+            hi = mid;
+    }
+    return lo < sizeof(vf3_fsca_pairs) / sizeof(vf3_fsca_pairs[0]) &&
+           vf3_fsca_pairs[lo].angle == a ? &vf3_fsca_pairs[lo] : NULL;
+}
+
+/* Keep each double operation materialized under the guest's RM=truncate
+ * mode. The oracle's FTRV path uses double products/sums, then rounds once
+ * to the single-precision destination. */
+static void ftrv(float fr[16], const float xf[16], unsigned n)
+{
+    float src[4];
+    memcpy(src, fr + n, sizeof(src));
+    for (unsigned i = 0; i < 4; ++i) {
+        volatile double sum = (double)xf[i] * (double)src[0];
+        sum = sum + (double)xf[4 + i] * (double)src[1];
+        sum = sum + (double)xf[8 + i] * (double)src[2];
+        sum = sum + (double)xf[12 + i] * (double)src[3];
+        fr[n + i] = (float)sum;
+    }
+}
+
+static void copy_xd(uint32_t xf_out[16], const float fr[16],
+                    unsigned src_pair, unsigned dst_pair)
+{
+    xf_out[dst_pair * 2] = f32_bits(fr[src_pair * 2]);
+    xf_out[dst_pair * 2 + 1] = f32_bits(fr[src_pair * 2 + 1]);
+}
+
+static int run_helper(unsigned which, const uint32_t in[37], uint32_t out[37],
+                      const uint32_t xf_in[16], uint32_t xf_out[16])
+{
+    const vf3_fsca_pair *rot = find_fsca(in[4]);
+    float fr[16], xf[16];
+    int old_round;
+
+    if (!rot)
+        return 0;
+    memcpy(out, in, sizeof(uint32_t) * 37);
+    memcpy(xf_out, xf_in, sizeof(uint32_t) * 16);
+    for (unsigned i = 0; i < 16; ++i) {
+        fr[i] = bits_f32(in[21 + i]);
+        xf[i] = bits_f32(xf_in[i]);
+    }
+
+    /* FSCA FPUL,FR4. */
+    fr[4] = bits_f32(rot->sin_bits);
+    fr[5] = bits_f32(rot->cos_bits);
+
+    if (which == 0) {                 /* 0x0C03C940 */
+        fr[2] = 0.0f;
+        fr[3] = 0.0f;
+        fr[6] = 0.0f;
+        fr[7] = 0.0f;
+        fr[0] = fr[5];
+        fr[1] = fr[4];
+        fr[4] = -fr[4];
+    } else if (which == 1) {          /* 0x0C03C880 */
+        fr[1] = 0.0f;
+        fr[3] = 0.0f;
+        fr[7] = 0.0f;
+        fr[0] = fr[5];
+        fr[2] = fr[4];
+        fr[2] = -fr[2];
+        fr[6] = fr[0];
+    } else {                          /* 0x0C03C6C0 */
+        fr[0] = 0.0f;
+        fr[3] = 0.0f;
+        fr[7] = 0.0f;
+        fr[1] = fr[5];
+        fr[2] = fr[4];
+        fr[5] = fr[2];
+        fr[5] = -fr[5];
+        fr[6] = fr[1];
+    }
+
+    old_round = fegetround();
+    if (old_round != FE_TOWARDZERO)
+        (void)fesetround(FE_TOWARDZERO);
+    ftrv(fr, xf, 0);
+    if (which == 0) {
+        ftrv(fr, xf, 4);
+    } else if (which == 1) {
+        fr[5] = 0.0f;
+        ftrv(fr, xf, 4);
+    } else {
+        fr[4] = 0.0f;
+        ftrv(fr, xf, 4);
+    }
+    if (old_round != FE_TOWARDZERO && old_round != -1)
+        (void)fesetround(old_round);
+
+    for (unsigned i = 0; i < 8; ++i)
+        out[21 + i] = f32_bits(fr[i]);
+
+    /* FSCHG selects 64-bit register moves. Their cross-bank transfers write
+     * these XD slots while leaving the remaining captured bank words intact. */
+    if (which == 0) {
+        for (unsigned p = 0; p < 4; ++p)
+            copy_xd(xf_out, fr, p, p);
+    } else if (which == 1) {
+        copy_xd(xf_out, fr, 0, 0);
+        copy_xd(xf_out, fr, 1, 1);
+        copy_xd(xf_out, fr, 2, 4);
+        copy_xd(xf_out, fr, 3, 5);
+    } else {
+        copy_xd(xf_out, fr, 0, 2);
+        copy_xd(xf_out, fr, 1, 3);
+        copy_xd(xf_out, fr, 2, 4);
+        copy_xd(xf_out, fr, 3, 5);
+    }
+    return 1;
+}
+
+int vf3_sh4_c940(const uint32_t in[37], uint32_t out[37],
+                 const uint32_t xf_in[16], uint32_t xf_out[16])
+{
+    return run_helper(0, in, out, xf_in, xf_out);
+}
+
+int vf3_sh4_c880(const uint32_t in[37], uint32_t out[37],
+                 const uint32_t xf_in[16], uint32_t xf_out[16])
+{
+    return run_helper(1, in, out, xf_in, xf_out);
+}
+
+int vf3_sh4_c6c0(const uint32_t in[37], uint32_t out[37],
+                 const uint32_t xf_in[16], uint32_t xf_out[16])
+{
+    return run_helper(2, in, out, xf_in, xf_out);
+}
+
+static int write_bytes(const vf3_ram_map *ram, uint32_t addr,
+                       const void *src, uint32_t size)
+{
+    uint32_t a = addr & 0x0fffffffu;
+    vf3_ram_map *m = (vf3_ram_map *)ram;
+    for (int i = 0; i < ram->n; ++i) {
+        const vf3_ram_win *w = &ram->wins[i];
+        if (a >= w->base && a + size <= w->base + w->len) {
+            memcpy(w->data + (a - w->base), src, size);
+            return 1;
+        }
+    }
+    ++m->oob;
+    return 0;
+}
+
+int vf3_sh4_d452(const uint32_t in[37], uint32_t out[37],
+                 const uint32_t xf_in[16], uint32_t xf_out[16],
+                 const vf3_ram_map *ram)
+{
+    uint32_t a[37], b[37], c[37];
+    uint32_t xa[16], xb[16];
+    uint32_t sp = in[15];
+    uint16_t half;
+    int ok = 1;
+
+    memcpy(out, in, sizeof(uint32_t) * 37);
+    a[4] = in[6] & 0xffffu;
+    memcpy(a, in, 4u * sizeof(uint32_t));
+    memcpy(a + 5, in + 5, 32u * sizeof(uint32_t));
+    if (!vf3_sh4_c940(a, b, xf_in, xa))
+        return 0;
+
+    b[4] = in[5] & 0xffffu;
+    if (!vf3_sh4_c880(b, c, xa, xb))
+        return 0;
+
+    memcpy(xf_out, xb, sizeof(xb));
+
+    /* Entry setup and saved halfwords in the 12-byte temporary frame. */
+    half = (uint16_t)in[4];
+    ok &= write_bytes(ram, sp - 16u, &half, sizeof(half));
+    half = (uint16_t)in[5];
+    ok &= write_bytes(ram, sp - 12u, &half, sizeof(half));
+    half = (uint16_t)in[6];
+    ok &= write_bytes(ram, sp - 8u, &half, sizeof(half));
+    ok &= write_bytes(ram, sp - 4u, &in[16], sizeof(in[16]));
+
+    /* This boundary is after the wrapper's JMP delay slot, before C6C0. */
+    for (unsigned i = 21; i < 29; ++i)
+        out[i] = c[i];
+    out[0] = in[5];
+    out[3] = 0x0c03c6c0u;
+    out[4] = in[4] & 0xffffu;
+    out[15] = sp;
+    out[16] = in[16];
+    return ok;
+}

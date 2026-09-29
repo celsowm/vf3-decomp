@@ -1,4 +1,5 @@
 entry,status,file,size,method,oracle
+0x8c09d452,ported,src/fight/sh4_matrix.c,46,transliteration,tests/d452_replay.c PASS 512/512 paired register+RAM+XF cases at the C6C0 tail-transfer boundary
 0x8c09f9a8,ported,src/fight/f9f9a8.c,46,oracle-verified (RAM shadow diff),f9f9a8_replay 64/64 PASS; signed guard and 17 FPU continuations through verified 0x8C09F354 helper
 0x8c09f354,ported,src/fight/f9f354.c,220,oracle-verified (RAM shadow diff),f9f354_replay 43/43 PASS (paired register+RAM over 8 windows; 18 vector iterations and finishing vectors)
 0x8c09d9ec,ported,src/fight/d9ec.c,50,transliteration,tests/d9ec_replay.c PASS 64/64 paired register+RAM+XF cases; three observed FSCA angles and identity-XF path only

@@ -2,13 +2,13 @@
 
 ## Recalibration (2026-09-29)
 
-- Refreshed starting baseline: **304/2398 (12.7%)**. The requested +10
+- Refreshed starting baseline: **305/2398 (12.7%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
-  **226 unique baseline functions**. Use 550 as the working target to leave a
+  **225 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
 - The earlier Campaign A/B/C forecast of 455–465 functions was made at 290
-  covered functions. Rebased to 302, that projection is now 467–477 and
-  still leaves 53–63 functions to source. It is a planning estimate, not
+  covered functions. Rebased to 305, that projection is now 470–480 and
+  still leaves 50–60 functions to source. It is a planning estimate, not
   completion evidence.
 - Investigated the E3 executable as another attribution corpus. Its bytes are
   exactly `1ST_READ.unsc.bin[0x10000:]` (the E3 image is the same retail byte
@@ -38,6 +38,11 @@
   the identity-XF, three-angle `0x8C09D9EC` model cannot be reused. This is a
   helper-kernel task, not a bounded wrapper port; keep it out of the ledger
   until the FSCA/FTRV chain and its input/output XF behavior replay exactly.
+- Follow-up closure (2026-09-29): captured `0x8C09D452` at its `0x8C09D47C`
+  tail-transfer boundary, before C6C0 executes. The 245-angle FSCA catalog and
+  shared C940/C880 FTRV model pass 512/512 paired register+RAM+XF wrapper
+  cases. This adds one baseline function; coverage is now **305/2398**, with
+  225 functions to the 530 floor. See `docs/re/sh4_matrix_helpers.md`.
 - Candidate recheck (2026-09-29): the remaining highest-ranked small leaf
   entries do not expose an immediate standalone batch. `0x8C06F6F8` runs into
   a 662-byte tail-transfer pipeline whose paired exit is at the caller RTS;

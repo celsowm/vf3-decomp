@@ -1,0 +1,4 @@
+# Close the 09D452 wrapper at its C6C0 tail transfer and retain stack/XF state.
+exitpc 0x8c09d452 0x8c09d47c
+xfpc 0x8c09d452
+rampc 0x8c09d452 0x0c31f000 0x2000
