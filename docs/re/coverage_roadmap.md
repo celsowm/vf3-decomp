@@ -127,6 +127,18 @@
   not earn coverage credit. Reproduce with
   `tools/watch/vf3_c678e2_fr9ret.txt`, `--ramn 512 --max-samples 512`, and the
   saved fight state.
+- FR9 paired-entry follow-up: captured `0x8C06912A` and its return `0x8C069296`
+  together, producing 351 row-aligned entry/return cases. The second
+  `0x8C0C6CB0` call changes FR9 from 3.0 to 2.0 while staying in grid cell
+  `(22,18)`. The helper's table base is `[0x0C29BCC4+0x1F0]` (`0x0CBCE818`);
+  the selected cell stores a root-relative mesh offset. A further nested probe
+  of `0x8C068FE4` yielded 7,899 calls / 512 unique entry-return cases, with
+  result codes 0/2/4. This isolates the remaining discrepancy to polygon
+  selection within one cell, rather than a cell-index or root-pointer error.
+  No coverage credit yet. Reproduce with
+  `tools/watch/vf3_c678e2_helperpath.txt` and
+  `tools/watch/vf3_c678e2_polywalk.txt`, each using the saved fight state and
+  `--ramn 512 --max-samples 512`.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
