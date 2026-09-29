@@ -1,5 +1,13 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, fourth)
+- [x] Ported baseline function `0x8C09D9EC` (50 B) for the captured
+  identity-XF setup path. The replay checks 64 paired register, ten-window RAM,
+  and XF cases. Its exact SH-4 FSCA coefficients are currently modeled only
+  for observed angles `0x663D`, `0xCC16`, and `0xCC17`; other angles, nonzero
+  `+0x1F50/+0x1F52` fields, and non-identity XF input remain unsupported.
+  Rigorous coverage is now **303/2,398 (12.6%)**.
+
 ## Coverage increment (2026-09-29, third)
 - [x] Ported baseline function `0x8C096258` (178 B), including indexed node
   lookup, three global mask merges, the PR stack write, and callee-save

@@ -209,5 +209,11 @@
   "golden": "extract/analysis/goldens_c6ec4_ram/f_0c0c6ec4.cases",
   "source": "306-byte flag-selected vector update; 64 paired register+RAM cases across 6 windows; verified 0x8C0C7050 helper",
   "port": "src/fight/c6ec4.c"
+ },
+ "0x8c09d9ec": {
+  "test": "build/vf3fd9ec.exe",
+  "golden": "extract/analysis/goldens_d9ec_portxf/f_0c09d9ec.cases",
+  "source": "50-byte tail-boundary FPU setup; 64 paired register+RAM+XF cases across the captured identity-XF, three-angle path",
+  "port": "src/fight/d9ec.c"
  }
 }

@@ -27,6 +27,7 @@
 #define VF3H_MAXWIN 16
 
 typedef struct {
+    unsigned ordinal;       /* row in the deduplicated .cases file */
     uint32_t in[VF3H_NVALS];
     uint32_t out[VF3H_NVALS];
     char entry[256];
@@ -287,6 +288,7 @@ static int vf3h_harness_main(int argc, char **argv, const char *name,
     }
     char line[65536];
     int total = 0, pass = 0, skipped = 0, shown = 0;
+    unsigned ordinal = 0;
     while (fgets(line, sizeof(line), f)) {
         vf3_case c;
         vf3_harness_mem m;
@@ -295,6 +297,7 @@ static int vf3h_harness_main(int argc, char **argv, const char *name,
             skipped++;
             continue;
         }
+        c.ordinal = ordinal++;
         if (!vf3h_mem_load(&m, dir, &c)) {
             skipped++;
             continue;
