@@ -1,4 +1,5 @@
 entry,status,file,size,method,oracle
+0x8c08c788,ported,src/fight/c788.c,120,transliteration,tests/c788_replay.c PASS 4x64 paired register+RAM cases including success remainder and divide-by-zero paths
 0x8c08d0fa,ported,src/fight/d0fa.c,68,transliteration,tests/d0fa_replay.c PASS 64/64 paired register+RAM cases
 0x8c09d690,ported,src/fight/mt_play.c,390,transliteration,tests/mt_vm_interp.c PASS
 0x8c034864,ported,src/sys/mainloop.c,326,transliteration,tests/mainloop_replay.c PASS

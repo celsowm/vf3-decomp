@@ -1,4 +1,10 @@
 {
+ "0x8c08c788": {
+  "test": "build/vf3c788.exe",
+  "golden": "extract/analysis/goldens_c788_force4/f_0c08c788.cases",
+  "source": "120-byte guard/update; four 64-case suites cover natural exits, forced zero and nonzero remainder, and zero-bound error helper",
+  "port": "src/fight/c788.c"
+ },
  "0x8c068f92": {
   "test": "build/vf3orient2.exe",
   "golden": "extract/analysis/goldens/f_0c068f92.txt",

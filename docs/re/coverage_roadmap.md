@@ -416,3 +416,11 @@ whole-fn entry/exit RAM diff; callees must be ported or SDK-accounted
   is not credited until those effects are modeled. Current rigorous coverage
   remains 300/2398; the sweep improved scenario evidence but did not add a
   verified function.
+
+- 2026-09-29: completed `0x8C08C788` (120 B) after forcing its normally
+  unreachable RNG/remainder path at the oracle entry. The port passes four
+  separate 64-case RAM+register suites: natural guard exits, zero remainder,
+  nonzero remainder, and zero-bound error handling. Coverage is now
+  **301/2398 (12.6%)**, leaving **229 functions** to the 530-function floor
+  and **249** to the 550 working target. This is a one-function increment;
+  the requested +10 percentage points remains open.

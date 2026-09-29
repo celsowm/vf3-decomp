@@ -1,5 +1,12 @@
 # VF3tb decomp — progress log
 
+## Coverage increment (2026-09-29, second)
+- [x] Ported baseline function `0x8C08C788` (120 B). Four 64-case
+  register+RAM suites cover captured guard exits, the RNG success path, a
+  nonzero remainder, and the zero-bound error helper. Rigorous coverage is now
+  **301/2,398 (12.6%)**. Oracle and forced-path details:
+  `docs/re/c788.md`.
+
 ## Coverage increment (2026-09-29)
 - [x] Ported baseline function `0x8C08D0FA` (68 B), including its absolute-pointer byte-table lookup and observable caller/helper stack writes. Its 64 unique paired register+RAM oracle cases pass. Rigorous coverage is now **300/2,398 (12.5%)**.
 

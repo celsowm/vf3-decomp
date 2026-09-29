@@ -13,6 +13,7 @@ add_library(vf3core STATIC
     src/fight/poly_classify.c
     src/fight/mesh_node.c
     src/fight/d0fa.c
+    src/fight/c788.c
     src/fight/fvecadd.c
     src/fight/fvecmix.c
     src/fight/fvecmix2.c
@@ -115,6 +116,7 @@ add_port_test(vf3scalemap tests/scalemap_replay.c)
 add_port_test(vf3maplookup tests/maplookup_replay.c)
 add_port_test(vf3meshnode tests/mesh_node_replay.c)
 add_port_test(vf3d0fa tests/d0fa_replay.c)
+add_port_test(vf3c788 tests/c788_replay.c)
 add_port_test(vf3tailcall tests/tailcall_replay.c)
 add_port_test(vf3walker2 tests/walker2_replay.c)
 add_port_test(vf3fvecadd tests/fvecadd_replay.c)
