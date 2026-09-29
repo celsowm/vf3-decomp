@@ -34,6 +34,22 @@
   states 26-29. The next candidate (`0x8C070832`) has 64 RAM captures but is a
   32-byte FPU block with no `rts` in its inventory span, so it is not yet a
   complete function candidate.
+- Campaign E follow-up: the four high-yield archived states produced captures
+  for 42 of 120 watched A/B PCs in states 26-29. `0x8C0935F4` is the only
+  remaining new complete leaf in that batch, but it did not execute in any of
+  the 44 archived states. `0x8C06951A` appeared in states 28-29; its closure
+  includes `0x8C068DE4` and an unresolved dynamic helper at `0x8C0695EC`
+  (runtime target `0x0C087ACE`), so track it as a closure-chain task.
+  `0x8C070852` now has more contexts but remains outside the gate until its
+  loop-carried FPU results can be explained and verified.
+- Campaign C follow-up: recovered and swept the SDK 8 Europe SHINOBI core
+  libraries (15 libraries, 2,005 objects). The corpus produced 30 complete
+  SDK body matches, all already credited by stronger evidence. The only extra
+  exact interval was an incomplete 4-byte function prefix and is excluded.
+  See `docs/re/sdk8_eu.md`; this sweep adds zero functions, leaving 237 to the
+  requested floor. The Japan SDK 1.0 image is a separate raw Mode-2 image and
+  needs a dedicated filesystem pass before it can be used as an attribution
+  corpus.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
