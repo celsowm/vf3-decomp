@@ -65,6 +65,18 @@
   "source": "SH-4 0x8C0CBEFC per-frame float/threshold state update, 64 paired RAM cases over two windows",
   "port": "src/fight/cbefc.c"
  },
+ "0x8c040f1e": {
+  "test": "build/vf3f040f1e.exe",
+  "golden": "extract/analysis/goldens_040f1eext/f_0c040f1e.cases",
+  "source": "SH-4 0x8C040F1E, AICA command-pool allocator, 1 paired RAM case",
+  "port": "src/fight/f040f1e.c"
+ },
+ "0x8c0747d8": {
+  "test": "build/vf3f0747d8.exe",
+  "golden": "extract/analysis/goldens_0747d8ram4/f_0c0747d8.cases",
+  "source": "SH-4 0x8C0747D8, vector component updater, 64 paired RAM cases from states 26-29",
+  "port": "src/fight/f0747d8.c"
+ },
  "0x8c08b7ee": {
   "test": "build/vf3cntup.exe",
   "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",

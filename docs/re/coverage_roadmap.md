@@ -2,7 +2,7 @@
 
 ## Recalibration (2026-09-28)
 
-- Refreshed rigorous baseline: **290/2398 (12.1%)**. The requested +10
+- Refreshed starting baseline: **290/2398 (12.1%)**. The requested +10
   percentage-point floor is **530 functions** (22.1%), so the remaining gap is
   **240 unique baseline functions**. Use 550 as the working target to leave a
   20-function margin.
@@ -25,11 +25,15 @@
   SDK corpus; the current hot-port list alone cannot reach 530.
 - Added the first port from the fresh register-only candidate sweep:
   `0x8C0CBEFC` (200 B), verified against 64 paired register+RAM cases after
-  adding the SDK `__divls` helper's observable stack saves. The full gate now
-  reports **291/2398 (12.1%)** rigorous, leaving **239 functions** to the
-  530-function floor and **259** to the 550 working target. The next candidate
-  (`0x8C070832`) has 64 RAM captures but is a 32-byte FPU block with no `rts`
-  in its inventory span, so it is not yet a complete function candidate.
+  adding the SDK `__divls` helper's observable stack saves; `0x8C040F1E`
+  (74 B), verified against its one captured allocation call including AICA
+  memory; and `0x8C0747D8` (40 B), verified against 64 paired cases over
+  seven RAM windows. The full gate now reports **293/2398 (12.2%)** rigorous,
+  leaving **237 functions** to the 530-function floor and **257** to the 550
+  working target. Campaign E's 44 archived states exposed `0x8C0747D8` in
+  states 26-29. The next candidate (`0x8C070832`) has 64 RAM captures but is a
+  32-byte FPU block with no `rts` in its inventory span, so it is not yet a
+  complete function candidate.
 
 ## Status checkpoint (end of campaign-0/A-first-port session)
 - Campaign 0 (infrastructure): **done** (`96dbf4f`) — batch capture, per-PC
