@@ -119,18 +119,18 @@
   "source": "SH-4 0x8C0747D8, vector component updater, 64 paired RAM cases from states 26-29",
   "port": "src/fight/f0747d8.c"
  },
-  "0x8c09f6fc": {
+ "0x8c09f6fc": {
   "test": "build/vf3f9f6fc.exe",
   "golden": "extract/analysis/goldens_9f6fc_full/f_0c09f6fc.cases",
   "source": "Hidden helper reached by the 0x8C09F6DC baseline loop; 64 paired cases",
-    "port": "src/fight/f9f6fc.c"
-  },
-  "0x8c09f6dc": {
-    "test": "build/vf3f9f6dc.exe",
-    "golden": "extract/analysis/goldens_9f6dc_full/f_0c09f6dc.cases",
-    "source": "Baseline loop at 0x8C09F6DC; 18 paired cases from fight states 26-29",
-    "port": "src/fight/f9f6dc.c"
-  },
+  "port": "src/fight/f9f6fc.c"
+ },
+ "0x8c09f6dc": {
+  "test": "build/vf3f9f6dc.exe",
+  "golden": "extract/analysis/goldens_9f6dc_full/f_0c09f6dc.cases",
+  "source": "Baseline loop at 0x8C09F6DC; 18 paired cases from fight states 26-29",
+  "port": "src/fight/f9f6dc.c"
+ },
  "0x8c08b7ee": {
   "test": "build/vf3cntup.exe",
   "golden": "extract/analysis/goldens_b7/f_0c08b7ee.nowin3.cases",
@@ -197,19 +197,18 @@
   "source": "Gap table-walk worker (~550 B to rts; nested-call + data-block paths gated, untripped in goldens)",
   "port": "src/fight/g77e4e.c"
  },
-  "0x8c076c00": {
-   "test": "build/vf3f076c00.exe",
-   "golden": "extract/analysis/goldens_cascade/f_0c076c00.cases",
-   "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
-   "port": "src/fight/f076c00.c"
-  },
+ "0x8c076c00": {
+  "test": "build/vf3f076c00.exe",
+  "golden": "extract/analysis/goldens_cascade/f_0c076c00.cases",
+  "source": "Fight-engine worker (4138 B: prologue spills + path-a zeroing tail + path-b branch tree with nested g78044 dyn/static and g77e4e calls; baked 0x0C0F3A88 table; shared E38/E40 epilogue, out.r15=in+12)",
+  "port": "src/fight/f076c00.c"
+ },
  "0x8c0782ea": {
   "test": "build/vf3g782ea.exe",
   "golden": "extract/analysis/goldens_782eo_rts/f_0c0782ea.cases",
   "source": "Fight-dispatcher worker (4472 B baseline, BRAF switch 0x8C078396/64-arm table 0x0C0783B0 with 19 tripped arms; prologue ~1660 B frame + r4-r7 link; dispatch loop 0x8C078376; epilogue r15+=0x87C + pop pr/r12-r14, out.r15=in+12; 8 RAM cases over 10 windows; B-path interrupt footprint modeled as counter-gated stub pushes (7A5DE#7, 07891A#10-if-5de<=10); pools+BRAF baked)",
   "port": "src/fight/g782ea.c (machine-generated transliteration via extract/analysis/gen782c.py from validated emulator semantics; 22 one-way branch gates + 45 unhit-arm gates + pool-miss/OOB gates)"
- }
-,
+ },
  "0x8c0cc148": {
   "test": "build/vf3cc148.exe",
   "golden": "extract/analysis/goldens_cc148_ram3/f_0c0cc148.cases",
@@ -287,5 +286,418 @@
   "golden": "extract/analysis/goldens_f9f9a8_full/f_0c09f354.cases",
   "source": "220-byte 18-vector helper; 43 paired register+RAM cases over 8 windows",
   "port": "src/fight/f9f354.c"
+ },
+ "matrix:0x8c03b450": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b450",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03b450.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03b4b0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b4b0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03b4b0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03b530": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b530",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03b530.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03b620": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b620",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03b620.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03b820": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b820",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03b820.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03bd80": {
+  "test": "build/vf3matrixfamily.exe 0x8c03bd80",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03bd80.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c090": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c090",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c090.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c0e0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c0e0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c0e0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c4a0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c4a0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c4a0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c4f0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c4f0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c4f0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c5b0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c5b0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c5b0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c610": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c610",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c610.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c6c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c6c0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c6c0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c880": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c880",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c880.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c940": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c940",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c940.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03c970": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c970",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03c970.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03cb70": {
+  "test": "build/vf3matrixfamily.exe 0x8c03cb70",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03cb70.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03cbd0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03cbd0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03cbd0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03cc60": {
+  "test": "build/vf3matrixfamily.exe 0x8c03cc60",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03cc60.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03cc90": {
+  "test": "build/vf3matrixfamily.exe 0x8c03cc90",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03cc90.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c03ccb0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03ccb0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c03ccb0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c06939e": {
+  "test": "build/vf3matrixfamily.exe 0x8c06939e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c06939e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c06e338": {
+  "test": "build/vf3matrixfamily.exe 0x8c06e338",
+  "golden": "extract/analysis/matrix_final_cases/f_8c06e338.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c06f07a": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f07a",
+  "golden": "extract/analysis/matrix_final_cases/f_8c06f07a.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c06f46a": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f46a",
+  "golden": "extract/analysis/matrix_final_cases/f_8c06f46a.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c06f928": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f928",
+  "golden": "extract/analysis/matrix_final_cases/f_8c06f928.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c070022": {
+  "test": "build/vf3matrixfamily.exe 0x8c070022",
+  "golden": "extract/analysis/matrix_final_cases/f_8c070022.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0704f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0704f4",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0704f4.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c070ec0": {
+  "test": "build/vf3matrixfamily.exe 0x8c070ec0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c070ec0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c07175e": {
+  "test": "build/vf3matrixfamily.exe 0x8c07175e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c07175e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c07198a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07198a",
+  "golden": "extract/analysis/matrix_final_cases/f_8c07198a.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c071b1e": {
+  "test": "build/vf3matrixfamily.exe 0x8c071b1e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c071b1e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c071c92": {
+  "test": "build/vf3matrixfamily.exe 0x8c071c92",
+  "golden": "extract/analysis/matrix_final_cases/f_8c071c92.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c071ebe": {
+  "test": "build/vf3matrixfamily.exe 0x8c071ebe",
+  "golden": "extract/analysis/matrix_final_cases/f_8c071ebe.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c08456e": {
+  "test": "build/vf3matrixfamily.exe 0x8c08456e",
+  "golden": "extract/analysis/matrix_v4_cases/f_8c08456e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0869c8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0869c8",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0869c8.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09132e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09132e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09132e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09144e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09144e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09144e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0955b0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0955b0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0955b0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09d452": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d452",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09d452.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09d480": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d480",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09d480.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09d9ec": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d9ec",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09d9ec.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09da86": {
+  "test": "build/vf3matrixfamily.exe 0x8c09da86",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09da86.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09dc3c": {
+  "test": "build/vf3matrixfamily.exe 0x8c09dc3c",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09dc3c.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09dcea": {
+  "test": "build/vf3matrixfamily.exe 0x8c09dcea",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09dcea.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09e078": {
+  "test": "build/vf3matrixfamily.exe 0x8c09e078",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09e078.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09e42c": {
+  "test": "build/vf3matrixfamily.exe 0x8c09e42c",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09e42c.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09e4d0": {
+  "test": "build/vf3matrixfamily.exe 0x8c09e4d0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09e4d0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09e6c8": {
+  "test": "build/vf3matrixfamily.exe 0x8c09e6c8",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09e6c8.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09eaf2": {
+  "test": "build/vf3matrixfamily.exe 0x8c09eaf2",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09eaf2.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c09f076": {
+  "test": "build/vf3matrixfamily.exe 0x8c09f076",
+  "golden": "extract/analysis/matrix_final_cases/f_8c09f076.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0a71ac": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a71ac",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0a71ac.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0a7268": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7268",
+  "golden": "extract/analysis/matrix_v4_cases/f_8c0a7268.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0a72a0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a72a0",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0a72a0.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0a7866": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7866",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0a7866.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0b011e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b011e",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0b011e.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0b1376": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b1376",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0b1376.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0b1b8a": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b1b8a",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0b1b8a.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
+ },
+ "matrix:0x8c0bf16a": {
+  "test": "build/vf3matrixfamily.exe 0x8c0bf16a",
+  "golden": "extract/analysis/matrix_final_cases/f_8c0bf16a.cases",
+  "strict": true,
+  "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
+  "port": "src/fight/matrix_family.c"
  }
 }

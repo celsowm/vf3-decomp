@@ -51,6 +51,8 @@ add_library(vf3core STATIC
     src/fight/d9ec.c
     src/fight/sh4_matrix.c
     src/fight/sh4_fpu.c
+    src/fight/matrix_family.c
+    src/fight/matrix_adapters.c
     src/fight/f9f354.c
     src/fight/f9f9a8.c
     src/fight/f9f6fc.c
@@ -83,6 +85,10 @@ target_include_directories(vf3core PUBLIC src)
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   set_source_files_properties(src/fight/sh4_fpu.c PROPERTIES
       COMPILE_OPTIONS "-frounding-math;-ffp-contract=off")
+  # Explicit ABI control flow is large; algorithm kernels retain Release
+  # optimization while adapter builds stay fast enough for batch iteration.
+  set_source_files_properties(src/fight/matrix_adapters.c PROPERTIES
+      COMPILE_OPTIONS "-O0;-frounding-math;-ffp-contract=off")
 endif()
 
 add_executable(vf3 src/main.c)
@@ -169,6 +175,7 @@ add_port_test(vf3f096258 tests/f096258_replay.c)
 add_port_test(vf3fd9ec tests/d9ec_replay.c)
 add_port_test(vf3matrix tests/matrix_kernel_replay.c)
 add_port_test(vf3fpu tests/sh4_fpu_replay.c)
+add_port_test(vf3matrixfamily tests/matrix_family_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

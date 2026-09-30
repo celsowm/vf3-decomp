@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Matrix, pose and vector batch (2026-09-29)
+
+- [x] Added 36 baseline C invocation ports through shared matrix/vector
+  algorithms and static caller adapters. Unique verified C bytes increase
+  **16,822 -> 28,538 (+11,716)**, exceeding the 10,000-byte batch target.
+- [x] All 59 strict bindings pass **9,314 cases**, comparing full registers,
+  XF/FPUL/GBR, return PC and touched RAM, with zero skips and out-of-bounds reads.
+  Existing regressions and the complete verification gate pass.
+- [x] Registered 21 verified off-baseline helpers without additional byte credit.
+  Withheld `0x8C072B50` because a rare context-switch path fails. Caller adapters
+  retain per-PC labels and still need high-level restructuring. Evidence and
+  limitations: [matrix batch](re/matrix_batch.md).
+
 ## Batch pipeline milestone (2026-09-29)
 
 - [x] Invocation-ID capture with sparse touched RAM, XF, FPUL and GBR;

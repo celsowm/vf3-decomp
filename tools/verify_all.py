@@ -40,6 +40,9 @@ def main() -> int:
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
     ok &= run([PY, "tools/portcheck.py"])
+    batch = REPO / 'tools/oracle/matrix_batch.json'
+    if batch.exists():
+        ok &= run([PY, 'tools/oracle/audit_matrix_batch.py'])
     ok &= run([PY, "tools/decomp_stats.py"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])

@@ -1,0 +1,1773 @@
+{
+ "baseline_unique_bytes": 16822,
+ "frozen_body_bytes": 434656,
+ "minimum_gain": 10000,
+ "helpers": [
+  "0x8c03b450",
+  "0x8c03b4b0",
+  "0x8c03b530",
+  "0x8c03b620",
+  "0x8c03b820",
+  "0x8c03bd80",
+  "0x8c03c090",
+  "0x8c03c0e0",
+  "0x8c03c4a0",
+  "0x8c03c4f0",
+  "0x8c03c5b0",
+  "0x8c03c610",
+  "0x8c03c6c0",
+  "0x8c03c880",
+  "0x8c03c940",
+  "0x8c03c970",
+  "0x8c03cb70",
+  "0x8c03cbd0",
+  "0x8c03cc60",
+  "0x8c03cc90",
+  "0x8c03ccb0"
+ ],
+ "entries": {
+  "0x8c03b450": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03b450",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 3.797,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03b450.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.578,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03b450.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 4.594,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03b450.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "3301f2072d0b4fcaf215e8119b044b9eb1d4a16d02406f0c0c4a9e19b40fab61"
+   }
+  },
+  "0x8c03b4b0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03b4b0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.938,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03b4b0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.89,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03b4b0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 1.672,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03b4b0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "91da8689fb5aadc0c30fa8a841ae636c6cc20735afb704344aaaefb529131d52"
+   }
+  },
+  "0x8c03b530": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03b530",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 4.703,
+     "stdout": "matrix_family: 125/125 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03b530.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.563,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03b530.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.89,
+     "stdout": "matrix_family: 189/189 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03b530.cases"
+    }
+   },
+   "artifacts": {
+    "count": 384,
+    "sha256": "4e99897862f3570fa803ba8703330ae969beb9c41aefddb6de1e9fdea3ec77e2"
+   }
+  },
+  "0x8c03b620": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03b620",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.25,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03b620.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.125,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03b620.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.594,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03b620.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "68681e662e62524f50bf60e436360c2ad558db64eddb680f87684e768a850c15"
+   }
+  },
+  "0x8c03b820": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03b820",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.812,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03b820.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.375,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03b820.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.281,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03b820.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "af2cbc5b5a7f64f4e8c3802cbb9a401a52b86b58425f8fe6d9730d4c42fc5754"
+   }
+  },
+  "0x8c03bd80": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03bd80",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.828,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03bd80.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.578,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03bd80.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 1.0,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03bd80.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "a8c7b54d77138636d5b4a918b163259774da1a10e48e71e3e7bc29855c74240b"
+   }
+  },
+  "0x8c03c090": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c090",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.906,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c090.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.734,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c090.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 3.016,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c090.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "54b5a201f5493176194134015095df679905cf4c6f75f9b78ab502b625291ebf"
+   }
+  },
+  "0x8c03c0e0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c0e0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c0e0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.547,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c0e0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.547,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c0e0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "ceffd38f0bf7b7aa01eeb4ff82e136e7bbbdd95e7d82e92ede2567a99200bf2c"
+   }
+  },
+  "0x8c03c4a0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c4a0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 126/126 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c4a0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.922,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c4a0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 3.062,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c4a0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "9dbdb792a62166926e79c9e53954bdac2a431bfa4d6b79faa39c080d14adfa05"
+   }
+  },
+  "0x8c03c4f0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c4f0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.891,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c4f0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c4f0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.75,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c4f0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "f87e99cd7485fbaa19b9e8e5901bea2320c1bdb417b570d208d493e9e9eb48ac"
+   }
+  },
+  "0x8c03c5b0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c5b0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.406,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c5b0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c5b0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.079,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c5b0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "a9deb0e0adc77f0b17f7b98d13333aa8ede4e49ba0a8adbbf9bbdb5c2e4371f1"
+   }
+  },
+  "0x8c03c610": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c610",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.359,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c610.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c610.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 164/164 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c610.cases"
+    }
+   },
+   "artifacts": {
+    "count": 334,
+    "sha256": "ebea9c554aaef2ec380c8505af820619c33c6d9e5b1bddf61586e3d5255f163f"
+   }
+  },
+  "0x8c03c6c0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c6c0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.407,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c6c0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.063,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c6c0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.14,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c6c0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "9e5d0482c6e150a8fc431c1742a22913aef2cdf381f05937229b8451910e6029"
+   }
+  },
+  "0x8c03c880": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c880",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.265,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c880.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c880.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.063,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c880.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "1313d61dc4171b2cfe5bf185e63f08bcfafe9ba014b14c3a4b4c37f45a76e8a2"
+   }
+  },
+  "0x8c03c940": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c940",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.485,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c940.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.062,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c940.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c940.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "9ea0a2c6b7330caf8967356cc4ce87cb9de25b4eb2264d318ecdc62f600802ad"
+   }
+  },
+  "0x8c03c970": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03c970",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.25,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03c970.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.079,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03c970.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03c970.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "e1b6f0362a5ec5f8e9b806ee61b4b2c0dfd645ac6194e0e1dcc0733a2fbeabad"
+   }
+  },
+  "0x8c03cb70": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03cb70",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03cb70.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.625,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03cb70.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.5,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03cb70.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "3a756cc31b865547f94262cd656a2a3b873aaf5dcacbd832ee9042e6e328c591"
+   }
+  },
+  "0x8c03cbd0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03cbd0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.297,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03cbd0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.703,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03cbd0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 1.516,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03cbd0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "90cfc5311689ca83f13cc12ba4b8010935ff8d9caf5626f818906dd35770085e"
+   }
+  },
+  "0x8c03cc60": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03cc60",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.562,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03cc60.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.14,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03cc60.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03cc60.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "c03319077d995299fe3345360646d618e6753cf69afad03e3ff24a8262868343"
+   }
+  },
+  "0x8c03cc90": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03cc90",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.953,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03cc90.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.688,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03cc90.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.656,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03cc90.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "37c900fae8a4060ae1bf1129c783413d712af08cf9b3ccd10c91c422e4787973"
+   }
+  },
+  "0x8c03ccb0": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c03ccb0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.5,
+     "stdout": "matrix_family: 125/125 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c03ccb0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.062,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c03ccb0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c03ccb0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "6408d3d02d9c42e438ea925306561ed3bc1f9b0e6936cdba8a04404707323a37"
+   }
+  },
+  "0x8c06939e": {
+   "new_credit": true,
+   "size": 354,
+   "binding": "matrix:0x8c06939e",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.688,
+     "stdout": "matrix_family: 124/124 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c06939e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.844,
+     "stdout": "matrix_family: 190/190 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c06939e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 386,
+    "sha256": "ea4e5ef63bfc25bde20b4ad0f10c0028cbc51e4ac4fa822613a569fbf728f968"
+   }
+  },
+  "0x8c06e338": {
+   "new_credit": true,
+   "size": 458,
+   "binding": "matrix:0x8c06e338",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.765,
+     "stdout": "matrix_family: 126/126 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c06e338.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.891,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c06e338.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "5914c8b3cbf5bad8001cfdcbd07e96727f86ca78ac5d4f612ab0caecfcef0a47"
+   }
+  },
+  "0x8c06f07a": {
+   "new_credit": true,
+   "size": 784,
+   "binding": "matrix:0x8c06f07a",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.094,
+     "stdout": "matrix_family: 4/4 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c06f07a.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.109,
+     "stdout": "matrix_family: 4/4 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c06f07a.cases"
+    }
+   },
+   "artifacts": {
+    "count": 14,
+    "sha256": "732a1a03e8d8c8c0b6dda6ecb541f3f229a2d3f7c3d51137477140ed88ca75b2"
+   }
+  },
+  "0x8c06f46a": {
+   "new_credit": true,
+   "size": 466,
+   "binding": "matrix:0x8c06f46a",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.266,
+     "stdout": "matrix_family: 106/106 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c06f46a.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 100/100 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c06f46a.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.906,
+     "stdout": "matrix_family: 176/176 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c06f46a.cases"
+    }
+   },
+   "artifacts": {
+    "count": 358,
+    "sha256": "73d5f396935cb740decdf1889fb37a009b54e43ef95efa7ba7a736122d0c030a"
+   }
+  },
+  "0x8c06f928": {
+   "new_credit": true,
+   "size": 106,
+   "binding": "matrix:0x8c06f928",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.14,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c06f928.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.985,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c06f928.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.36,
+     "stdout": "matrix_family: 20/20 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c06f928.cases"
+    }
+   },
+   "artifacts": {
+    "count": 46,
+    "sha256": "30f83b3e20d6248b3be3d0ebe1951f60be9b4a1ec1c3462ada9f164f5e409367"
+   }
+  },
+  "0x8c070022": {
+   "new_credit": true,
+   "size": 204,
+   "binding": "matrix:0x8c070022",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.656,
+     "stdout": "matrix_family: 122/122 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c070022.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.656,
+     "stdout": "matrix_family: 187/187 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c070022.cases"
+    }
+   },
+   "artifacts": {
+    "count": 380,
+    "sha256": "853b7c154dc91cdb5674728839a0a47f08f49d13afd73fcf648201f2b6a054d3"
+   }
+  },
+  "0x8c0704f4": {
+   "new_credit": true,
+   "size": 204,
+   "binding": "matrix:0x8c0704f4",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.813,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0704f4.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 1.703,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0704f4.cases"
+    }
+   },
+   "artifacts": {
+    "count": 262,
+    "sha256": "00e5cd7201c1dcea3d33f8a99774879420069cdf909f63f4c4b74b61bec28ff8"
+   }
+  },
+  "0x8c070ec0": {
+   "new_credit": true,
+   "size": 204,
+   "binding": "matrix:0x8c070ec0",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.0,
+     "stdout": "matrix_family: 116/116 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c070ec0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.344,
+     "stdout": "matrix_family: 178/178 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c070ec0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 362,
+    "sha256": "5340d34f14fe8ab4b662cac182c61217973721af23a26460a3db1a046f7c4e9f"
+   }
+  },
+  "0x8c07175e": {
+   "new_credit": true,
+   "size": 140,
+   "binding": "matrix:0x8c07175e",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.812,
+     "stdout": "matrix_family: 100/100 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c07175e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.078,
+     "stdout": "matrix_family: 136/136 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c07175e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 278,
+    "sha256": "720bd0399a848effc997685ebdc165793a25f5779fbcf916626d233928328060"
+   }
+  },
+  "0x8c07198a": {
+   "new_credit": true,
+   "size": 140,
+   "binding": "matrix:0x8c07198a",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.688,
+     "stdout": "matrix_family: 103/103 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c07198a.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.344,
+     "stdout": "matrix_family: 157/157 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c07198a.cases"
+    }
+   },
+   "artifacts": {
+    "count": 320,
+    "sha256": "c161506768088434ee9683f2a0933df9b2db998b60a723580fec3d19aae585b1"
+   }
+  },
+  "0x8c071b1e": {
+   "new_credit": true,
+   "size": 140,
+   "binding": "matrix:0x8c071b1e",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.125,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c071b1e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.64,
+     "stdout": "matrix_family: 44/44 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c071b1e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 94,
+    "sha256": "16dc041c9d5871c494c00ccd4871a9e5e458ec4a1cad1cdb58a99b5ff8dc7b47"
+   }
+  },
+  "0x8c071c92": {
+   "new_credit": true,
+   "size": 140,
+   "binding": "matrix:0x8c071c92",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.609,
+     "stdout": "matrix_family: 103/103 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c071c92.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.281,
+     "stdout": "matrix_family: 158/158 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c071c92.cases"
+    }
+   },
+   "artifacts": {
+    "count": 322,
+    "sha256": "38caa66649ddca8375437f6f730db9bead01fbf376f4e28331ef94bb8c43d27a"
+   }
+  },
+  "0x8c071ebe": {
+   "new_credit": true,
+   "size": 140,
+   "binding": "matrix:0x8c071ebe",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.0,
+     "stdout": "matrix_family: 113/113 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c071ebe.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.922,
+     "stdout": "matrix_family: 157/157 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c071ebe.cases"
+    }
+   },
+   "artifacts": {
+    "count": 320,
+    "sha256": "11aaa67f33b21ad3c5692dfaf87c442d463c7442bbaf8d5c1cffefc7ed05ce00"
+   }
+  },
+  "0x8c08456e": {
+   "new_credit": true,
+   "size": 252,
+   "binding": "matrix:0x8c08456e",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.485,
+     "stdout": "matrix_family: 27/27 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c08456e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 60,
+    "sha256": "5993a7d74ef19699b2ee481a8fb8dd929514ae3236a0c8b9c1dad7fe6aa4707f"
+   }
+  },
+  "0x8c0869c8": {
+   "new_credit": true,
+   "size": 272,
+   "binding": "matrix:0x8c0869c8",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0869c8.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.406,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0869c8.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.844,
+     "stdout": "matrix_family: 164/164 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0869c8.cases"
+    }
+   },
+   "artifacts": {
+    "count": 334,
+    "sha256": "10b806a09cc0491bfddf7a30f0a91a03e7c39d624b2d99ef959af0a15989ff51"
+   }
+  },
+  "0x8c09132e": {
+   "new_credit": true,
+   "size": 220,
+   "binding": "matrix:0x8c09132e",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.062,
+     "stdout": "matrix_family: 2/2 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09132e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.062,
+     "stdout": "matrix_family: 1/1 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09132e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 8,
+    "sha256": "7eb7a6cc2a1f0565edd515bd3e922713fb954f84f737af7947746da7d8e29e57"
+   }
+  },
+  "0x8c09144e": {
+   "new_credit": true,
+   "size": 766,
+   "binding": "matrix:0x8c09144e",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 3.11,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09144e.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 3.187,
+     "stdout": "matrix_family: 121/121 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09144e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.968,
+     "stdout": "matrix_family: 130/130 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09144e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 266,
+    "sha256": "e5a8caa0c8f52daa72ba022dffaf7daee7c8655741b55b400ea449aecf73f3bf"
+   }
+  },
+  "0x8c0955b0": {
+   "new_credit": true,
+   "size": 84,
+   "binding": "matrix:0x8c0955b0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.172,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0955b0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 1.641,
+     "stdout": "matrix_family: 99/99 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0955b0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 204,
+    "sha256": "8013d01dcee4da990033d4acaefdc2b6ee42f5437b33c4571e65a4eaad45b443"
+   }
+  },
+  "0x8c09d452": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c09d452",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09d452.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.922,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09d452.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.922,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09d452.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "97c1a744850924e45be669cccddc342d31eb5aee3a9b784f56bd0374e8ffbe24"
+   }
+  },
+  "0x8c09d480": {
+   "new_credit": true,
+   "size": 48,
+   "binding": "matrix:0x8c09d480",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.109,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09d480.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.219,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09d480.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.625,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09d480.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "82049d0f6e5d1f36e58aba4debfaf3a13270b7363741857b161ca2539d03c2be"
+   }
+  },
+  "0x8c09d9ec": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "matrix:0x8c09d9ec",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.297,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09d9ec.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.672,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09d9ec.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.547,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09d9ec.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "c345e9be935455c677adaca5b8ba88b946ea6b11ad5416aa9b777c042414724a"
+   }
+  },
+  "0x8c09da86": {
+   "new_credit": true,
+   "size": 274,
+   "binding": "matrix:0x8c09da86",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.046,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09da86.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.75,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09da86.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "98b2185797c388549e3ea6a800b594b3550c2fff9eaf2d8aed26053f9528a4e2"
+   }
+  },
+  "0x8c09dc3c": {
+   "new_credit": true,
+   "size": 160,
+   "binding": "matrix:0x8c09dc3c",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.985,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09dc3c.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.937,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09dc3c.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "94e0d2f3ce8035a1c48c74c4ff4d7e29fc4db831b009b2abc556bc2a2d031c95"
+   }
+  },
+  "0x8c09dcea": {
+   "new_credit": true,
+   "size": 710,
+   "binding": "matrix:0x8c09dcea",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09dcea.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09dcea.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 3.203,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09dcea.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "f61f2eaac755f63d1f0b28abf617e1a01e414de2f015091ea9e9d6baf7394c4f"
+   }
+  },
+  "0x8c09e078": {
+   "new_credit": true,
+   "size": 826,
+   "binding": "matrix:0x8c09e078",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.953,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09e078.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09e078.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 3.141,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09e078.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "cb8e6421577acad94946b134b01f98a656baa2c105028522adcf994927dda8e3"
+   }
+  },
+  "0x8c09e42c": {
+   "new_credit": true,
+   "size": 126,
+   "binding": "matrix:0x8c09e42c",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.234,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09e42c.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.719,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09e42c.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "a3c95cafc563502912e7bc8488414731d9f37c96b0a97a3ab46ca979bfb3a9c6"
+   }
+  },
+  "0x8c09e4d0": {
+   "new_credit": true,
+   "size": 408,
+   "binding": "matrix:0x8c09e4d0",
+   "proofs": {
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.438,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09e4d0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.703,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09e4d0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "8f0712e7785623d793c603b80659357f2c9beb683270ec073ea932984b0212cd"
+   }
+  },
+  "0x8c09e6c8": {
+   "new_credit": true,
+   "size": 778,
+   "binding": "matrix:0x8c09e6c8",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.766,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09e6c8.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.219,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09e6c8.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.625,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09e6c8.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "6a17f78e721d3c4c60331ee2c3aec26bfdc44ea5329fa16d570aa50b545c52bd"
+   }
+  },
+  "0x8c09eaf2": {
+   "new_credit": true,
+   "size": 656,
+   "binding": "matrix:0x8c09eaf2",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.937,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09eaf2.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.093,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c09eaf2.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.906,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09eaf2.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "3d59c12d6c72f27bebe7af3a9e4f274588e8fcd45aae4f6ee2f585636198afe2"
+   }
+  },
+  "0x8c09f076": {
+   "new_credit": true,
+   "size": 232,
+   "binding": "matrix:0x8c09f076",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.079,
+     "stdout": "matrix_family: 4/4 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c09f076.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.125,
+     "stdout": "matrix_family: 4/4 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c09f076.cases"
+    }
+   },
+   "artifacts": {
+    "count": 14,
+    "sha256": "669122041b94622d9a8a188ee654267cc98b80ae40dfc5d7a9afc2757b682254"
+   }
+  },
+  "0x8c0a71ac": {
+   "new_credit": true,
+   "size": 40,
+   "binding": "matrix:0x8c0a71ac",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.718,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0a71ac.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.922,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0a71ac.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.469,
+     "stdout": "matrix_family: 166/166 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0a71ac.cases"
+    }
+   },
+   "artifacts": {
+    "count": 338,
+    "sha256": "dabde550a0e9bcae402bfa35ce8a3763e97a38dd1f4532a725a3e6e27142651b"
+   }
+  },
+  "0x8c0a7268": {
+   "new_credit": true,
+   "size": 56,
+   "binding": "matrix:0x8c0a7268",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.094,
+     "stdout": "matrix_family: 1/1 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0a7268.cases"
+    }
+   },
+   "artifacts": {
+    "count": 8,
+    "sha256": "4ce07a64539144795a220341d8b28d0de9c03a6feece1b8b22a6c5987137d7b5"
+   }
+  },
+  "0x8c0a72a0": {
+   "new_credit": true,
+   "size": 42,
+   "binding": "matrix:0x8c0a72a0",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.844,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0a72a0.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.922,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0a72a0.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.797,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0a72a0.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "722d329f208ef69cce5a209608916b51c1a98308e9c08f415ef938152508eb05"
+   }
+  },
+  "0x8c0a7866": {
+   "new_credit": true,
+   "size": 70,
+   "binding": "matrix:0x8c0a7866",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.89,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0a7866.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0a7866.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.953,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0a7866.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "86a992697c19c560ad04ec4310ee4b3520cf5dbf4da7f85b16ad6fa9b703e194"
+   }
+  },
+  "0x8c0b011e": {
+   "new_credit": true,
+   "size": 1086,
+   "binding": "matrix:0x8c0b011e",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 2.094,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0b011e.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.656,
+     "stdout": "matrix_family: 126/126 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0b011e.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.797,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0b011e.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "01940d29fbe774822d7467d62cebb0484b13063cb78e8269629d8d745f6caeca"
+   }
+  },
+  "0x8c0b1376": {
+   "new_credit": true,
+   "size": 210,
+   "binding": "matrix:0x8c0b1376",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.813,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0b1376.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 1.969,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0b1376.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.906,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0b1376.cases"
+    }
+   },
+   "artifacts": {
+    "count": 134,
+    "sha256": "8143bd4bdb1c382cd783ccf562909d94a455d0f5ecaf1f82c9e815efd886c2c9"
+   }
+  },
+  "0x8c0b1b8a": {
+   "new_credit": true,
+   "size": 242,
+   "binding": "matrix:0x8c0b1b8a",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 0.797,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0b1b8a.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 0.922,
+     "stdout": "matrix_family: 62/62 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0b1b8a.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 0.672,
+     "stdout": "matrix_family: 50/50 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0b1b8a.cases"
+    }
+   },
+   "artifacts": {
+    "count": 106,
+    "sha256": "f279fb5856865244fac68c9968e03dadaca84eb14e02cca737cabaa2d1f12564"
+   }
+  },
+  "0x8c0bf16a": {
+   "new_credit": true,
+   "size": 678,
+   "binding": "matrix:0x8c0bf16a",
+   "proofs": {
+    "matrix_v4_final.json": {
+     "pass": true,
+     "seconds": 1.812,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_v4_cases\\f_8c0bf16a.cases"
+    },
+    "matrix_shared_closed.json": {
+     "pass": true,
+     "seconds": 2.047,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_shared_cases\\f_8c0bf16a.cases"
+    },
+    "matrix_final_replay.json": {
+     "pass": true,
+     "seconds": 2.609,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\matrix_final_cases\\f_8c0bf16a.cases"
+    }
+   },
+   "artifacts": {
+    "count": 390,
+    "sha256": "73ae4e5a54ce41d331536d50954a6337e77811df97608faaa85c0a84147e8b42"
+   }
+  }
+ },
+ "excluded": {
+  "0x8c072b50": "Rare shared-state replay reaches unsupported context-switch code at 0x0c0557e0",
+  "0x8c03b870": "Only one complete boot invocation; defer implementation registration"
+ },
+ "reports": [
+  "matrix_v4_final.json",
+  "matrix_shared_closed.json",
+  "matrix_final_replay.json"
+ ]
+}
