@@ -11,6 +11,7 @@ Writes docs/coverage.md + extract/analysis/coverage.json.
 from __future__ import annotations
 
 import csv
+from collections import defaultdict
 import json
 import sys
 from pathlib import Path
@@ -28,6 +29,21 @@ def load_funcs():
                           "size": int(r["size"]),
                           "name": r.get("name", "")})
     return rows
+
+def body_ranges(funcs):
+    """Actual Ghidra body ranges, frozen against the inventory sizes."""
+    by_entry=defaultdict(list)
+    path=AN/'function_body_ranges.csv'
+    if not path.exists():
+        raise RuntimeError('Run Vf3BodyRanges.java before calculating address unions')
+    for row in csv.DictReader(open(path,newline='')):
+        entry=int(row['entry'],16); start=int(row['start'],16); end=int(row['end'],16)
+        if end<=start: raise ValueError('Invalid body range')
+        by_entry[entry].append((start,end))
+    for fn in funcs:
+        if sum(z-a for a,z in by_entry[fn['entry']])!=fn['size']:
+            raise ValueError(f"Body ranges disagree with frozen inventory: {fn['entry']:08x}")
+    return by_entry
 
 
 def sdk053_claims():
@@ -180,6 +196,18 @@ def main() -> int:
     ported_b = sum(fn["size"] for fn in funcs if fn["entry"] in ported) \
         + sum(r["size"] for r in extra_rows)
     extra_n = len(extra_rows)
+    # Address-union credit prevents gap leaves nested inside a baseline body
+    # from being counted twice. Keep legacy summed metrics for comparisons.
+    ranges=body_ranges(funcs)
+    spans = [span for fn in funcs if fn['entry'] in ported for span in ranges[fn['entry']]]
+    spans += [(r["entry"], r["entry"] + r["size"]) for r in extra_rows]
+    merged = []
+    for start, end in sorted(spans):
+        if merged and start <= merged[-1][1]:
+            merged[-1][1] = max(merged[-1][1], end)
+        else:
+            merged.append([start, end])
+    ported_unique_b = sum(end-start for start,end in merged)
     lib_n = len(lib_claim)
     lib_b = sum(f["size"] for f in funcs if f["entry"] in lib_claim)
 
@@ -267,6 +295,10 @@ def main() -> int:
         f"| **rigorous accounted (ported+SDK)** | {att_n} | {pct(att_n/tot_f)} | {att_b} | {pct(att_b/tot_b)} |",
         f"| **total incl. trace** | {grand_n} | {pct(grand_n/tot_f)} | {grand_b} | {pct(grand_b/tot_b)} |",
         "",
+        f"Verified C address union: **{ported_unique_b} bytes** "
+        f"({pct(ported_unique_b/tot_b)} of the frozen body denominator). "
+        f"Legacy port sums contain {ported_b-ported_unique_b} overlapping bytes.",
+        "",
         "SDK attribution by library (fn count):",
     ]
     for lib, ids in sorted(by_lib.items(), key=lambda kv: -len(kv[1])):
@@ -279,6 +311,8 @@ def main() -> int:
     (AN / "coverage.json").write_text(json.dumps({
         "funcs_total": tot_f, "bytes_total": tot_b,
         "ported_fns": ported_n, "ported_bytes": ported_b,
+        "ported_unique_bytes": ported_unique_b,
+        "ported_spans": merged,
         "lib_fns": lib_n, "lib_bytes": lib_b,
         "reloc_fns": reloc_n, "reloc_bytes": reloc_b,
         "v040_fns": v040_n, "v040_bytes": v040_b,

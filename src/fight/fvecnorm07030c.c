@@ -1,6 +1,7 @@
 /* Readable model of the observed 0x8C07030C vector normalization paths. */
 #include "fight/fvecnorm07030c.h"
 #include "fight/fpu_tz.h"
+#include "fight/sh4_fpu.h"
 
 #include <string.h>
 
@@ -60,30 +61,13 @@ static void v30c_store_fr(uint32_t out[37], const float fr[16])
     memcpy(out + 21, fr, 16 * sizeof(uint32_t));
 }
 
-static int v30c_observed_scale(float norm2, float *scale)
+static int v30c_normalization_scale(float norm2, float threshold, uint32_t fpscr, float *scale)
 {
-    /* The entry FR0 spill replaces the first stack-vector component at SP+68.
-       These are the exact scales observed for the resulting norm squares. */
-    static const struct { uint32_t norm2, scale; } cases[] = {
-        { 0x3C33A9C8u, 0x3F92AE23u }, { 0x3C3F08D1u, 0x3F8E3F6Au },
-        { 0x3C33A766u, 0x3F92AF1Du }, { 0x3C3F03DDu, 0x3F8E4142u },
-        { 0x3C33C261u, 0x3F92A41Au }, { 0x3C3F2246u, 0x3F8E35F1u },
-        { 0x3C33BEF1u, 0x3F92A581u }, { 0x3C3F1B7Fu, 0x3F8E3876u },
-        { 0x3C33DA30u, 0x3F929A64u }, { 0x3C3F3B65u, 0x3F8E2C9Au },
-        { 0x3C33DA96u, 0x3F929A3Cu }, { 0x3C3F3AD6u, 0x3F8E2CCFu },
-        { 0x3C33F33Cu, 0x3F929031u }, { 0x3C3F56E8u, 0x3F8E2261u },
-        { 0x3C33F1C0u, 0x3F9290CBu }, { 0x3C3F5355u, 0x3F8E23B5u },
-        { 0x3C340CAAu, 0x3F9285D6u }, { 0x3C3F7174u, 0x3F8E1885u },
-        { 0x3C340F02u, 0x3F9284E2u }, { 0x3C3F73C0u, 0x3F8E17ABu }
-    };
-    uint32_t bits = fpu_f32_to_bits(norm2);
-    for (size_t i = 0; i < sizeof(cases) / sizeof(cases[0]); i++) {
-        if (cases[i].norm2 == bits) {
-            *scale = fpu_bits_to_f32(cases[i].scale);
-            return 1;
-        }
-    }
-    return 0;
+    uint32_t inverse;
+    if (!vf3_fpu_fsrra(fpu_f32_to_bits(norm2), fpscr, &inverse))
+        return 0;
+    *scale = fpu_bits_to_f32(vf3_fpu_binary(inverse, fpu_f32_to_bits(threshold), fpscr, '*'));
+    return 1;
 }
 
 int vf3_fvecnorm07030c_8c07030c(const uint32_t in[37], uint32_t out[37],
@@ -162,7 +146,7 @@ int vf3_fvecnorm07030c_8c07030c(const uint32_t in[37], uint32_t out[37],
 
     /* 0x8C0703C0..3F4: scale and write the frame vector in place. */
     len2 = v30c_fipr(v[0], v[1], v[2], 0, v[0], v[1], v[2], 0);
-    if (!v30c_observed_scale(len2, &len))
+    if (!v30c_normalization_scale(len2, fr[15], fpscr, &len))
         return 0;
     v[0] = fmul_tz(v[0], len);
     v[1] = fmul_tz(v[1], len);

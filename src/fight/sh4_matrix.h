@@ -8,9 +8,8 @@
 
 #include "fight/poly_classify.h" /* vf3_ram_map */
 
-/* Captured SH-4 matrix-helper boundaries. Return zero for unobserved FSCA
- * angle inputs; these entry points intentionally fail closed outside the
- * coefficient catalog in fsca_angles.inc. */
+/* SH-4 matrix-helper boundaries. All 16-bit angles are supported; unsupported
+ * FPSCR modes return zero. Existing register/XF adapters remain compatible. */
 int vf3_sh4_c940(const uint32_t in[VF3_SH4_NREGS],
                  uint32_t out[VF3_SH4_NREGS],
                  const uint32_t xf_in[VF3_SH4_NXF],

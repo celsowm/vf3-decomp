@@ -16,6 +16,8 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 | **rigorous accounted (ported+SDK)** | 313 | 13.1% | 59418 | 13.7% |
 | **total incl. trace** | 440 | 18.3% | 109664 | 25.2% |
 
+Verified C address union: **16822 bytes** (3.9% of the frozen body denominator). Legacy port sums contain 336 overlapping bytes.
+
 SDK attribution by library (fn count):
 - ninja: 96
 - sh4nlfzz: 12

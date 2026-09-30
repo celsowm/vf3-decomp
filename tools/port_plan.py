@@ -108,6 +108,12 @@ def ported():
                 out.add(int(r["entry"], 16))
     return out
 
+def implemented_helpers():
+    path=REPO/'tools/oracle/matrix_batch.json'
+    if not path.exists(): return set()
+    report=__import__('json').loads(path.read_text())
+    return {int(e,16) for e in report.get('helpers',[])}
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -146,7 +152,7 @@ def main() -> int:
         if off < 0 or off + 2 > len(img):
             return None
         w = _st.unpack_from("<H", img, off)[0]
-        if w & 0xF000 == 0xB000 or w & 0xF0FF == 0x400B or w & 0xF00F == 0x0003:
+        if w & 0xF000 == 0xB000 or w & 0xF0FF == 0x400B or w & 0xF0FF == 0x0003:
             return w                      # bsr / jsr @Rn / bsrf only;
         return False                      # (jmp @Rn is a tail transfer, not a call)
     with open(AN / "disasm_1ST_READ.unsc.bin.calls.csv", newline="") as f:
@@ -205,7 +211,7 @@ def main() -> int:
 
     sdk = sdk_claims()
     regs = region_claims()
-    done = ported()
+    done = ported() | implemented_helpers()
     # an entry is accounted if it is SDK-matched, inside an SDK region, or ported
     def accounted(e):
         return e in sdk or in_regions(regs, e) or e in done
@@ -230,19 +236,23 @@ def main() -> int:
         closure_ok = (len(missing) == 0 and len(dyn) == 0
                       and len(fixed) == 0 and len(gap) == 0
                       and len(outside) == 0)
-        miss_txt = " ".join(f"0x{c:08X}" for c in missing[:8])
+        # SDK identity explains provenance; only source implementations can
+        # satisfy an executable C dependency. Keep attribution closure separate.
+        missing_c = [c for c in callees if c != ent and c not in done]
+        implementation_ok = not (missing_c or dyn or fixed or outside)
+        miss_txt = " ".join(f"0x{c:08X}" for c in missing)
         if dyn:
             miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
-                f"dyn@0x{d:08X}" for d in dyn[:4])
+                f"dyn@0x{d:08X}" for d in dyn)
         if fixed:
             miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
-                f"ram@0x{d:08X}" for d in fixed[:2])
+                f"ram@0x{d:08X}" for d in fixed)
         if gap:
             miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
-                f"gap@0x{d:08X}" for d in gap[:4])
+                f"gap@0x{d:08X}" for d in gap)
         if outside:
             miss_txt = (miss_txt + " " if miss_txt else "") + " ".join(
-                f"unk@0x{d:08X}" for d in outside[:2])
+                f"unk@0x{d:08X}" for d in outside)
         if accounted(ent):
             camp = "accounted"
         elif h >= 10000:
@@ -269,6 +279,8 @@ def main() -> int:
             "executed": "Y" if ent in executed else "-",
             "closure_ok": "Y" if closure_ok else "-",
             "missing_callees": miss_txt,
+            "implementation_closure_ok": "Y" if implementation_ok else "-",
+            "missing_implementations": " ".join(f"0x{c:08X}" for c in missing_c),
             "leaf_sh4": "1" if (len(sh4_static.get(ent, ())) == 0
                                 and len(dyn) == 0
                                 and len(fixed) == 0
@@ -287,7 +299,8 @@ def main() -> int:
         w = csv.DictWriter(f, fieldnames=["entry", "name", "size", "hits",
                                           "leaf", "out_calls", "campaign",
                                           "effort", "executed", "closure_ok",
-                                          "missing_callees", "leaf_sh4",
+                                          "missing_callees", "implementation_closure_ok",
+                                          "missing_implementations", "leaf_sh4",
                                           "sh4_static", "sh4_dyn", "sh4_fixed",
                                           "sh4_tail", "g_phantom", "page",
                                           "score"])

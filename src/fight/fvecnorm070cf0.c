@@ -1,6 +1,7 @@
 /* Readable model of the observed 0x8C070CF0 vector normalization paths. */
 #include "fight/fvecnorm070cf0.h"
 #include "fight/fpu_tz.h"
+#include "fight/sh4_fpu.h"
 
 #include <string.h>
 
@@ -60,24 +61,13 @@ static void vcf0_store_fr(uint32_t out[37], const float fr[16])
     memcpy(out + 21, fr, 16 * sizeof(uint32_t));
 }
 
-static int vcf0_observed_scale(float norm2, float *scale)
+static int vcf0_normalization_scale(float norm2, float threshold, uint32_t fpscr, float *scale)
 {
-    /* Exact scales observed for the ten paired normalization norm squares. */
-    static const struct { uint32_t norm2, scale; } cases[] = {
-        { 0x3C64D30Bu, 0x3F81F8D9u }, { 0x3C5725B3u, 0x3F860A26u },
-        { 0x3C3EAFCEu, 0x3F8E609Au }, { 0x3C34EB29u, 0x3F922BA2u },
-        { 0x3C414D67u, 0x3F8D692Au }, { 0x3C313B12u, 0x3F93AEF2u },
-        { 0x3C5765BDu, 0x3F85F637u }, { 0x3C45D6AFu, 0x3F8BC7BAu },
-        { 0x3C61E482u, 0x3F82D011u }, { 0x3C320EC0u, 0x3F93570Fu }
-    };
-    uint32_t bits = fpu_f32_to_bits(norm2);
-    for (size_t i = 0; i < sizeof(cases) / sizeof(cases[0]); i++) {
-        if (cases[i].norm2 == bits) {
-            *scale = fpu_bits_to_f32(cases[i].scale);
-            return 1;
-        }
-    }
-    return 0;
+    uint32_t inverse;
+    if (!vf3_fpu_fsrra(fpu_f32_to_bits(norm2), fpscr, &inverse))
+        return 0;
+    *scale = fpu_bits_to_f32(vf3_fpu_binary(inverse, fpu_f32_to_bits(threshold), fpscr, '*'));
+    return 1;
 }
 
 int vf3_fvecnorm070cf0_8c070cf0(const uint32_t in[37], uint32_t out[37],
@@ -158,7 +148,7 @@ int vf3_fvecnorm070cf0_8c070cf0(const uint32_t in[37], uint32_t out[37],
 
     /* 0x8C070D9C..DD2: normalize and tail-transfer to 0x0C070E7C. */
     len2 = vcf0_fipr(v[0], v[1], v[2], 0, v[0], v[1], v[2], 0);
-    if (!vcf0_observed_scale(len2, &len))
+    if (!vcf0_normalization_scale(len2, fr[15], fpscr, &len))
         return 0;
     v[0] = fmul_tz(v[0], len);
     v[1] = fmul_tz(v[1], len);

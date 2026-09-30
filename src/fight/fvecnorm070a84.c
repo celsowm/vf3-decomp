@@ -1,6 +1,7 @@
 /* Readable model of the observed 0x8C070A84 vector normalization paths. */
 #include "fight/fvecnorm070a84.h"
 #include "fight/fpu_tz.h"
+#include "fight/sh4_fpu.h"
 
 #include <string.h>
 
@@ -60,27 +61,13 @@ static void a84_store_fr(uint32_t out[37], const float fr[16])
     memcpy(out + 21, fr, 16 * sizeof(uint32_t));
 }
 
-static int a84_observed_scale(float norm2, float *scale)
+static int a84_normalization_scale(float norm2, float threshold, uint32_t fpscr, float *scale)
 {
-    /* The seven captured FSRRA paths are represented by their observed
-       post-multiply scale. Unknown normalization inputs fail closed. */
-    static const struct { uint32_t norm2, scale; } cases[] = {
-        { 0x3C6BEDF4u, 0x3F800001u },
-        { 0x3C6BEDF7u, 0x3F800000u },
-        { 0x3C6BEDF6u, 0x3F800000u },
-        { 0x3C6BEDF5u, 0x3F800000u },
-        { 0x3C6BEDF8u, 0x3F800000u },
-        { 0x3C6BEDF9u, 0x3F800000u }
-    };
-    uint32_t bits = fpu_f32_to_bits(norm2);
-    for (size_t i = 0; i < sizeof(cases) / sizeof(cases[0]); i++) {
-        if (cases[i].norm2 == bits) {
-            *scale = fpu_bits_to_f32(cases[i].scale);
-            return 1;
-        }
-    }
-    /* debug */
-    return 0;
+    uint32_t inverse;
+    if (!vf3_fpu_fsrra(fpu_f32_to_bits(norm2), fpscr, &inverse))
+        return 0;
+    *scale = fpu_bits_to_f32(vf3_fpu_binary(inverse, fpu_f32_to_bits(threshold), fpscr, '*'));
+    return 1;
 }
 
 int vf3_fvecnorm070a84_8c070a84(const uint32_t in[37], uint32_t out[37],
@@ -167,7 +154,7 @@ int vf3_fvecnorm070a84_8c070a84(const uint32_t in[37], uint32_t out[37],
 
     /* B38..B6E: scale and write the original vector in place. */
     len2 = a84_fipr(v[0], v[1], v[2], 0, v[0], v[1], v[2], 0);
-    if (!a84_observed_scale(len2, &len))
+    if (!a84_normalization_scale(len2, fr[15], fpscr, &len))
         return 0;
     v[0] = fmul_tz(v[0], len);
     v[1] = fmul_tz(v[1], len);

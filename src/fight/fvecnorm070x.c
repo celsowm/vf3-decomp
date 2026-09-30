@@ -3,6 +3,7 @@
  * rejects other inputs so unsupported arithmetic cannot pass silently. */
 #include "fight/fvecnorm070x.h"
 #include "fight/fpu_tz.h"
+#include "fight/sh4_fpu.h"
 
 #include <math.h>
 #include <string.h>
@@ -74,23 +75,12 @@ static float n_sqrt(float x, uint32_t fpscr)
     return fpu_dn_fix(f32_tz(sqrtl((long double)x)), fpscr);
 }
 
-static int n_fsrra_observed(float x, float *inverse)
+static int n_fsrra(float x, uint32_t fpscr, float *inverse)
 {
-    static const struct { uint32_t input, output; } cases[] = {
-        { 0x3CAFABEEu, 0x40DA8581u },
-        { 0x3C9ABE5Bu, 0x40E8D471u },
-        { 0x3C8D8B50u, 0x40F371A5u },
-        { 0x3CBFAEB3u, 0x40D1323Bu },
-    };
-    uint32_t bits = fpu_f32_to_bits(x);
-    size_t i;
-    for (i = 0; i < sizeof(cases) / sizeof(cases[0]); i++) {
-        if (cases[i].input == bits) {
-            *inverse = fpu_bits_to_f32(cases[i].output);
-            return 1;
-        }
-    }
-    return 0;
+    uint32_t result;
+    if (!vf3_fpu_fsrra(fpu_f32_to_bits(x), fpscr, &result)) return 0;
+    *inverse=fpu_bits_to_f32(result);
+    return 1;
 }
 
 int vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
@@ -209,7 +199,7 @@ int vf3_fvecnorm070x_8c0708b0(const uint32_t in[37], uint32_t out[37],
     {
         float inv_length;
         float scale;
-        if (!n_fsrra_observed(norm2, &inv_length))
+        if (!n_fsrra(norm2, fpscr, &inv_length))
             return 0;
         /* Captured FSRRA result feeds a separate FPSCR.RM=1 FMUL. */
         scale = fmul_tz(fpu_bits_to_f32(in[36]), inv_length);

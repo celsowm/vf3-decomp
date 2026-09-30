@@ -45,6 +45,7 @@ def main() -> int:
     ok &= run([PY, "tools/sh4_calls.py"])
     ok &= run([PY, "tools/sh4_resolve.py"])
     ok &= run([PY, "tools/port_plan.py"])
+    ok &= run([PY, "tools/batch_plan.py"])
     print("verify_all:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 

@@ -1,20 +1,11 @@
-/* Captured SH-4 FSCA/FTRV matrix helpers used by the 09D4/09D9 families.
- * The coefficient catalog is bounded to angles present in the paired oracle
- * captures. FTRV uses double accumulation and one final float conversion;
- * the game runs with RM=truncate. */
+/* SH-4 matrix kernels used by the 09D4/09D9 families. Coefficients cover
+ * every 16-bit angle through the independently captured opcode ROM. */
 #include "fight/sh4_matrix.h"
+#include "fight/sh4_fpu.h"
 
 #include <fenv.h>
 #include <stdint.h>
 #include <string.h>
-
-typedef struct {
-    uint16_t angle;
-    uint32_t sin_bits;
-    uint32_t cos_bits;
-} vf3_fsca_pair;
-
-#include "fsca_angles.inc"
 
 static float bits_f32(uint32_t bits)
 {
@@ -30,37 +21,16 @@ static uint32_t f32_bits(float f)
     return bits;
 }
 
-static const vf3_fsca_pair *find_fsca(uint32_t angle)
-{
-    const uint16_t a = (uint16_t)angle;
-    unsigned lo = 0;
-    unsigned hi = (unsigned)(sizeof(vf3_fsca_pairs) /
-                             sizeof(vf3_fsca_pairs[0]));
-    while (lo < hi) {
-        unsigned mid = lo + (hi - lo) / 2;
-        if (vf3_fsca_pairs[mid].angle < a)
-            lo = mid + 1;
-        else
-            hi = mid;
-    }
-    return lo < sizeof(vf3_fsca_pairs) / sizeof(vf3_fsca_pairs[0]) &&
-           vf3_fsca_pairs[lo].angle == a ? &vf3_fsca_pairs[lo] : NULL;
-}
-
 /* Keep each double operation materialized under the guest's RM=truncate
  * mode. The oracle's FTRV path uses double products/sums, then rounds once
  * to the single-precision destination. */
-static void ftrv(float fr[16], const float xf[16], unsigned n)
+static void ftrv(float fr[16], const float xf[16], unsigned n, uint32_t fpscr)
 {
-    float src[4];
-    memcpy(src, fr + n, sizeof(src));
-    for (unsigned i = 0; i < 4; ++i) {
-        volatile double sum = (double)xf[i] * (double)src[0];
-        sum = sum + (double)xf[4 + i] * (double)src[1];
-        sum = sum + (double)xf[8 + i] * (double)src[2];
-        sum = sum + (double)xf[12 + i] * (double)src[3];
-        fr[n + i] = (float)sum;
-    }
+    uint32_t matrix[16], vector[4], result[4];
+    memcpy(matrix, xf, sizeof(matrix));
+    memcpy(vector, fr + n, sizeof(vector));
+    vf3_fpu_ftrv(matrix, vector, fpscr, result);
+    memcpy(fr + n, result, sizeof(result));
 }
 
 static void copy_xd(uint32_t xf_out[16], const float fr[16],
@@ -73,12 +43,12 @@ static void copy_xd(uint32_t xf_out[16], const float fr[16],
 static int run_helper(unsigned which, const uint32_t in[37], uint32_t out[37],
                       const uint32_t xf_in[16], uint32_t xf_out[16])
 {
-    const vf3_fsca_pair *rot = find_fsca(in[4]);
+    uint32_t rotation[2];
     float fr[16], xf[16];
-    int old_round;
 
-    if (!rot)
+    if (!vf3_fpu_supported(in[18]) || (in[18] & 3u) != 1)
         return 0;
+    vf3_fpu_fsca(in[4], rotation);
     memcpy(out, in, sizeof(uint32_t) * 37);
     memcpy(xf_out, xf_in, sizeof(uint32_t) * 16);
     for (unsigned i = 0; i < 16; ++i) {
@@ -87,8 +57,8 @@ static int run_helper(unsigned which, const uint32_t in[37], uint32_t out[37],
     }
 
     /* FSCA FPUL,FR4. */
-    fr[4] = bits_f32(rot->sin_bits);
-    fr[5] = bits_f32(rot->cos_bits);
+    fr[4] = bits_f32(rotation[0]);
+    fr[5] = bits_f32(rotation[1]);
 
     if (which == 0) {                 /* 0x0C03C940 */
         fr[2] = 0.0f;
@@ -117,21 +87,16 @@ static int run_helper(unsigned which, const uint32_t in[37], uint32_t out[37],
         fr[6] = fr[1];
     }
 
-    old_round = fegetround();
-    if (old_round != FE_TOWARDZERO)
-        (void)fesetround(FE_TOWARDZERO);
-    ftrv(fr, xf, 0);
+    ftrv(fr, xf, 0, in[18]);
     if (which == 0) {
-        ftrv(fr, xf, 4);
+        ftrv(fr, xf, 4, in[18]);
     } else if (which == 1) {
         fr[5] = 0.0f;
-        ftrv(fr, xf, 4);
+        ftrv(fr, xf, 4, in[18]);
     } else {
         fr[4] = 0.0f;
-        ftrv(fr, xf, 4);
+        ftrv(fr, xf, 4, in[18]);
     }
-    if (old_round != FE_TOWARDZERO && old_round != -1)
-        (void)fesetround(old_round);
 
     for (unsigned i = 0; i < 8; ++i)
         out[21 + i] = f32_bits(fr[i]);

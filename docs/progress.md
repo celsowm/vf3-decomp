@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Batch pipeline milestone (2026-09-29)
+
+- [x] Invocation-ID capture with sparse touched RAM, XF, FPUL and GBR;
+  interrupted/device-dependent/overflow samples are rejected and unfinished
+  invocations are accounted separately. Eight capture-integrity checks pass.
+- [x] General FSCA/FSRRA/FIPR/FTRV arithmetic: 212,992 isolated opcode cases
+  match across six FPSCR modes. Five vector ports no longer use finite
+  normalization catalogs; existing replay bindings pass.
+- [x] Exported real Ghidra body ranges for union coverage. Starting C source
+  union is **16,822 bytes**; generated code and SDK attribution get no new
+  C credit without a strict replay binding. See `docs/re/batch_pipeline.md`.
+
 ## Coverage increment (2026-09-29, twelfth)
 - [x] Closed baseline `0x8C070CF0` (208 B) across four observed branch
   boundaries. All 128 chronological register+RAM cases pass, including ten

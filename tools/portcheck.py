@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -33,7 +34,7 @@ TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
          "vf3c788", "vf3f096258", "vf3matrix",
          "vf3bootmix",
          "vf3fvecnorm070x", "vf3fvecnorm070a84", "vf3fvecnorm070120",
-         "vf3fvecnorm07030c", "vf3fvecnorm070cf0"]
+         "vf3fvecnorm07030c", "vf3fvecnorm070cf0", "vf3fpu"]
 # NOTE: vf3fvecmix2 (0x8C070852) builds but is NOT gated: its window's float
 # exits carry loop-carried pipeline state and the exit RAM contains stores
 # from below-window code — parked until re-captured with tighter windows.
@@ -89,8 +90,11 @@ def run_bindings(bindings: Path):
             out.append((pc, "MISSING-GOLDEN", str(golden)))
             continue
         cmd = [str(exe)] + test[1:] + [str(golden)]
+        env=dict(os.environ)
+        if spec.get("strict"):
+            env["VF3_STRICT_REPLAY"]="1"
         p = subprocess.run(cmd, capture_output=True,
-                           text=True, cwd=REPO, timeout=600)
+                           text=True, cwd=REPO, timeout=600,env=env)
         line = (p.stdout or p.stderr).strip().splitlines()
         out.append((pc, "PASS" if p.returncode == 0 else "FAIL",
                     line[-1] if line else ""))

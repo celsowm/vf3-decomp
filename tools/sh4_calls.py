@@ -98,7 +98,7 @@ def scan(data: bytes, entry: int, size: int):
                 new_pools.append((a, a + 2))
             elif w & 0xF000 == 0xB000:
                 cur_static.add(pc + 4 + s12(w & 0xFFF) * 2)
-            elif w & 0xF0FF == 0x400B or w & 0xF00F == 0x0003:
+            elif w & 0xF0FF == 0x400B or w & 0xF0FF == 0x0003:
                 cur_dyn.add(pc)
             elif (w & 0xF000) == 0x4000 and (w & 0xF) == 0x3:
                 cur_dyn.add(pc)
@@ -155,7 +155,7 @@ def scan(data: bytes, entry: int, size: int):
                     if pc < hi_record:             # jsr @@(d8,Rn) (dynamic)
                         cur_dyn.add(pc)
                     pc = npc
-                elif w & 0xF00F == 0x0003:          # bsrf (dynamic call)
+                elif w & 0xF0FF == 0x0003:          # bsrf (dynamic call)
                     if pc < hi_record:
                         cur_dyn.add(pc)
                     pc = npc
@@ -178,7 +178,7 @@ def scan(data: bytes, entry: int, size: int):
                 elif w in (0x000B, 0x002B):         # rts / rte: delay executes
                     delay_only(npc)
                     break
-                elif w & 0xF0FF == 0x2023:          # braf: delay executes only
+                elif w & 0xF0FF == 0x0023:          # braf: delay executes only
                     delay_only(npc)
                     break
                 else:

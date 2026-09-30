@@ -60,6 +60,8 @@ def main() -> int:
                     help="keep the full instruction stream (default: "
                          "snapshot-only traces)")
     ap.add_argument("--no-extract", action="store_true")
+    ap.add_argument("--capsule", action="store_true",
+                    help="capture touched RAM pages and aligned XF/FPUL state")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
@@ -78,6 +80,11 @@ def main() -> int:
         edges = trace_dir / f"edges_{a.name}_{name}.bin"
         log = trace_dir / f"golden_{a.name}_{name}.log"
         env = dict(os.environ)
+        capsule = trace_dir / f"capsule_{a.name}_{name}.bin"
+        env.pop("VF3_CAPSULE", None)
+        if a.capsule:
+            env["VF3_CAPSULE"] = str(capsule)
+            env["VF3_CAPSULE_N"] = str(a.max_samples)
         env.update({
             "VF3_INTERPRETER": "1",
             "VF3_FULL": "1",
@@ -87,6 +94,10 @@ def main() -> int:
             "VF3_RAMN": str(a.ramn),
             "VF3_INSTR": "1" if a.instr else "0",
         })
+        if a.capsule and not a.instr:
+            # Sparse invocation records replace redundant whole-frame traces.
+            env.pop("VF3_TRACE", None)
+            env.pop("VF3_FULL", None)
         if a.ramnexit >= 0:
             env["VF3_RAMNEXIT"] = str(a.ramnexit)
         else:
@@ -109,6 +120,8 @@ def main() -> int:
                      "frames": frames, "trace": str(trace),
                      "edges": str(edges) if a.edges else "",
                      "log": str(log)})
+        if a.capsule:
+            runs[-1]["capsule"] = str(capsule)
         cmd = [str(EMU), str(ROM)]
         print(f"[{name}] frames={frames} state={state or '-'} play={play or '-'}")
         print(f"         trace -> {trace}")
@@ -119,6 +132,8 @@ def main() -> int:
             p = subprocess.run(cmd, env=env, stdout=lf, stderr=lf,
                                cwd=str(REPO))
         dt = time.time() - t0
+        runs[-1].update(seconds=round(dt,3), returncode=p.returncode,
+                        capsule_bytes=capsule.stat().st_size if a.capsule and capsule.exists() else 0)
         sz = trace.stat().st_size if trace.exists() else 0
         print(f"         rc={p.returncode} in {dt:.0f}s, trace {sz/1e6:.1f} MB")
         if p.returncode != 0:
@@ -132,7 +147,14 @@ def main() -> int:
             json.dumps(manifest, indent=1), encoding="utf-8")
 
     if a.no_extract or a.dry_run:
-        return 0
+        return int(any(r.get('returncode',0) for r in runs))
+    if any(r.get('returncode',0) for r in runs):
+        print('capture batch failed; refusing to export goldens')
+        return 1
+    if a.capsule:
+        cmd = [sys.executable, str(REPO / "tools/oracle/capsules.py"),
+               *[r["capsule"] for r in runs], "--out", str(out)]
+        return subprocess.run(cmd, cwd=REPO).returncode
     traces = [r["trace"] for r in runs if Path(r["trace"]).exists()]
     if not traces:
         print("no traces produced")

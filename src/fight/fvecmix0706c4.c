@@ -1,6 +1,7 @@
 /* Readable first-transfer model of the 0x8C0706C4 FPU vector pipeline. */
 #include "fight/fvecmix0706c4.h"
 #include "fight/fpu_tz.h"
+#include "fight/sh4_fpu.h"
 
 #include <math.h>
 #include <string.h>
@@ -60,20 +61,13 @@ static float vm6_sqrt(float value, uint32_t fpscr)
     return fpu_dn_fix(f32_tz(sqrtl((long double)value)), fpscr);
 }
 
-#include "fight/fvecmix0706c4_fsrra.inc"
 
-static int vm6_observed_scale(float norm2, float threshold, float *scale)
+static int vm6_normalization_scale(float norm2, float threshold, uint32_t fpscr, float *scale)
 {
-    uint32_t n = fpu_f32_to_bits(norm2);
-    uint32_t t = fpu_f32_to_bits(threshold);
-    for (size_t i = 0; i < sizeof(vm6_scale_catalog) / sizeof(vm6_scale_catalog[0]); i++) {
-        if (vm6_scale_catalog[i].norm2 == n &&
-            vm6_scale_catalog[i].threshold == t) {
-            *scale = fpu_bits_to_f32(vm6_scale_catalog[i].scale);
-            return 1;
-        }
-    }
-    return 0;
+    uint32_t inverse;
+    if (!vf3_fpu_fsrra(fpu_f32_to_bits(norm2), fpscr, &inverse)) return 0;
+    *scale=fpu_bits_to_f32(vf3_fpu_binary(inverse, fpu_f32_to_bits(threshold), fpscr, '*'));
+    return 1;
 }
 
 static float vm6_fmac(float a, float b, float c, uint32_t fpscr)
@@ -211,7 +205,7 @@ int vf3_fvecmix0706c4_8c0706c4(const uint32_t in[37], uint32_t out[37],
     v[2] = vm6_rdflt(ram, sp + 76);
     fv0[0] = v[0]; fv0[1] = v[1]; fv0[2] = v[2]; fv0[3] = 0.0f;
     len2 = vm6_fipr(fv0, fv0);
-    if (!vm6_observed_scale(len2, fr[4], &fr[3]))
+    if (!vm6_normalization_scale(len2, fr[4], fpscr, &fr[3]))
         return 0;
     fr[0] = vm6_mul(v[0], fr[3], fpscr);
     fr[1] = vm6_mul(v[1], fr[3], fpscr);

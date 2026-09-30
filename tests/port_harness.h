@@ -24,7 +24,7 @@
 #include "fight/poly_classify.h"   /* vf3_ram_win / vf3_ram_map */
 
 #define VF3H_NVALS 37
-#define VF3H_MAXWIN 16
+#define VF3H_MAXWIN 128
 
 typedef struct {
     unsigned ordinal;       /* row in the deduplicated .cases file */
@@ -323,9 +323,10 @@ static int vf3h_harness_main(int argc, char **argv, const char *name,
         fprintf(stderr, "%s: no RAM cases in %s\n", name, path);
         return 3;
     }
+    int ok = pass == total && (!getenv("VF3_STRICT_REPLAY") || skipped == 0);
     printf("%s: %d/%d cases match (%d skipped) - %s\n",
-           name, pass, total, skipped, pass == total ? "PASS" : "FAIL");
-    return pass == total ? 0 : 1;
+           name, pass, total, skipped, ok ? "PASS" : "FAIL");
+    return ok ? 0 : 1;
 }
 
 /* Convenience: map host float bits from a register word. */
