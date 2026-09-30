@@ -10,8 +10,8 @@ import re
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def audit(check_hashes=False):
-    manifest = json.loads((ROOT/'tools/oracle/matrix_batch.json').read_text())
+def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
+    manifest = json.loads((ROOT/manifest_path).read_text())
     bindings = json.loads((ROOT/'tools/golden_bindings.json').read_text())
     ledger = {int(r['entry'], 16): r for r in csv.DictReader((ROOT/'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
     sizes = {int(r['entry'], 16): int(r['size']) for r in csv.DictReader((ROOT/'extract/analysis/funcs_1ST_READ.unsc.bin.csv').open())}
@@ -64,27 +64,27 @@ def audit(check_hashes=False):
             assert ledger[e]['status'] == 'ported-invocation'
             promoted.add(e)
 
-    def union(entries):
-        spans = []
-        for e in entries:
-            spans.extend(ranges[e] if e in sizes else [(e, e+int(ledger[e]['size']))])
+    def union(spans):
         total = 0
         end = 0
-        for a, z in sorted(spans):
+        for a, z in sorted(map(tuple,spans)):
             total += max(0, z-max(a, end))
             end = max(end, z)
         return total
 
-    before = union(set(ledger)-promoted)
-    after = union(set(ledger))
+    baseline = manifest['baseline_spans']
+    before = union(baseline)
+    after = union(baseline+[span for e in promoted for span in ranges[e]])
     assert before == manifest['baseline_unique_bytes']
     assert sum(sizes.values()) == manifest['frozen_body_bytes']
     assert after-before >= manifest['minimum_gain']
-    print(f'matrix batch: {len(promoted)} new entries, {cases} strict bound cases; unique C bytes {before} -> {after} (+{after-before}) - PASS')
+    print(f'{Path(manifest_path).stem}: {len(promoted)} new entries, {cases} strict bound cases; unique C bytes {before} -> {after} (+{after-before}) - PASS')
     return before, after
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--hashes', action='store_true', help='also rehash all archived RAM vectors')
-    audit(parser.parse_args().hashes)
+    parser.add_argument('--manifest', default='tools/oracle/matrix_batch.json')
+    args = parser.parse_args()
+    audit(args.hashes, args.manifest)

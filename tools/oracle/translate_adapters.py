@@ -11,6 +11,7 @@ import csv
 import json
 from pathlib import Path
 import struct
+import re
 
 ROOT=Path(__file__).resolve().parents[2]
 MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
@@ -140,11 +141,22 @@ def emit(pc,w):
             if k==0x9D: return [f"{fn}=0x3f800000u;"]
     raise ValueError(f"unsupported {pc:08x}: {w:04x}")
 
-def generate(directories,out):
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False):
+    legacy=watch is None
+    watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
+    roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
+    existing=set()
+    forced=set()
+    if reuse_matrix:
+        existing={int(a,16) for a in re.findall(r'^P_([0-9a-f]+):',(ROOT/'src/fight/matrix_adapters.c').read_text(),re.M)}
+        for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
+            if int(row['entry'],16)&0x1fffffff in roots:
+                forced.update(range(int(row['start'],16)&0x1fffffff,int(row['end'],16)&0x1fffffff,2))
+    def reused(a): return a in existing and a not in forced
     ops={}
     for directory in directories:
         for p in Path(directory).glob("*.ops.json"):
-            if p.stem in ("f_8c076c00.ops", "f_8c0782ea.ops"):
+            if legacy and p.stem in ("f_8c076c00.ops", "f_8c0782ea.ops"):
                 continue
             for a,w in json.loads(p.read_text()).items():
                 a=int(a,16)&0x1fffffff; w=int(w,16)
@@ -152,7 +164,7 @@ def generate(directories,out):
                 ops[a]=w
     # Hand-written kernels take precedence. Their opcodes are never emitted.
     # Drop capture-only legacy regression workers from this new family.
-    ops={a:w for a,w in ops.items() if not 0xc075000<=a<0xc07b000}
+    ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
     image=(ROOT/"extract/exe/1ST_READ.unsc.bin").read_bytes()
     def word(pc):
         off=(pc|0x80000000)-0x8c010000
@@ -173,18 +185,18 @@ def generate(directories,out):
         if delay(w): delayed.add(a+2)
     todo=[a for a in ops if a not in delayed]
     # Seven-entry flag dispatch table used at B0606, read from the image.
-    todo.extend(struct.unpack_from('<7I',image,0xc10f6a0-0xc010000))
+    if legacy: todo.extend(struct.unpack_from('<7I',image,0xc10f6a0-0xc010000))
     # Scene callback and conditional matrix-work entry points.
-    todo.extend([0xc0a71d4,0xc0a7204,0xc0a721a,0xc03e980,0xc0b10a8,0xc058ea0])
-    for row in (ROOT/'tools/watch/vf3_matrix_batch.txt').read_text().splitlines():
+    if legacy: todo.extend([0xc0a71d4,0xc0a7204,0xc0a721a,0xc03e980,0xc0b10a8,0xc058ea0])
+    for row in watch.read_text().splitlines():
         fields=row.split()
         if fields and fields[0]=='pc':
             root=int(fields[1],16)&0x1fffffff
-            if root not in (0xc076c00,0xc0782ea): todo.append(root)
+            if not legacy or root not in (0xc076c00,0xc0782ea): todo.append(root)
     followed=set()
     while todo:
         a=todo.pop()
-        if a in followed or not 0xc010000<=a<0xc010000+len(image): continue
+        if a in followed or reused(a) or not 0xc010000<=a<0xc010000+len(image): continue
         followed.add(a); w=word(a); ops[a]=w
         if len(ops)>50000: raise ValueError('CFG expansion exceeded 50000 statements')
         if delay(w):
@@ -210,15 +222,15 @@ def generate(directories,out):
            'static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }',
            'static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }',
            'static void divide_step(vf3_matrix_state*s,unsigned n,unsigned m) { uint32_t *r=s->v; unsigned oldq=(r[17]>>8)&1u,sign=(r[17]>>9)&1u,q=r[n]>>31; uint32_t divisor=r[m],shifted=(r[n]<<1)|(r[17]&1u); r[n]=oldq==sign?shifted-divisor:shifted+divisor; unsigned carry=oldq==sign?r[n]>shifted:r[n]<shifted; q^=carry^sign; r[17]=(r[17]&~0x101u)|(q<<8)|(q==sign); }',
-           'int vf3_matrix_adapter(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {',
+           f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
            'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
            'dispatch:', 'if(!s->budget--) goto unsupported;',
            'switch(target&0x1fffffffu) {']
     for a in sorted(ops): lines.append(f'case 0x{a:08x}u: goto {label(a)};')
-    lines.extend(['default: s->failed_pc=target; return 0;', '}'])
+    lines.extend(['default: s->failed_pc=target; return 0;' if legacy else 'default: return vf3_matrix_family(target,s,ram);', '}'])
     unsupported={}; emitted=set()
     def jump(a):
-        return f'goto {label(a)};' if a in ops else f's->failed_pc=0x{a:08x}u; return 0;'
+        return f'goto {label(a)};' if a in ops else (f's->failed_pc=0x{a:08x}u; return 0;' if legacy else f'return vf3_matrix_family(0x{a:08x}u,s,ram);')
     def statements(pc):
         try: return emit(pc,word(pc))
         except ValueError as e: unsupported[pc]=str(e); return [f's->failed_pc=0x{pc:08x}u; return 0;']
@@ -262,13 +274,23 @@ def generate(directories,out):
         else:
             lines.extend(statements(a)); lines.append(jump(a+2))
     lines.extend(['unsupported: s->failed_pc=target; return 0;','}'])
+    if not legacy:
+        lines.extend(['static const uint32_t owned_pcs[]={',','.join(f'0x{a:08x}u' for a in sorted(ops)), '};',
+          f'int {function}_contains(uint32_t pc) {{',
+          'pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(owned_pcs)/sizeof(owned_pcs[0]);',
+          'while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(owned_pcs[mid]<pc) lo=mid+1; else hi=mid; }',
+          'return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;', '}'])
     Path(out).write_text('\n'.join(lines)+'\n',encoding='ascii')
     report={"statements":len(ops),"unsupported":{f"{k:08x}":v for k,v in unsupported.items()},"inputs":[str(d) for d in directories]}
-    (ROOT/"extract/analysis/matrix_adapter_translation.json").write_text(json.dumps(report,indent=1))
+    (ROOT/f"extract/analysis/{'matrix' if legacy else function}_adapter_translation.json").write_text(json.dumps(report,indent=1))
     print(f"{len(ops)} guest statements; {len(unsupported)} unsupported instructions")
     for why in list(unsupported.values())[:15]: print(why)
 
 if __name__=="__main__":
     ap=argparse.ArgumentParser(description=__doc__); ap.add_argument('captures',nargs='+')
-    ap.add_argument('--out',default='src/fight/matrix_adapters.c'); a=ap.parse_args()
-    generate(a.captures,a.out)
+    ap.add_argument('--out',default='src/fight/matrix_adapters.c')
+    ap.add_argument('--watch',help='explicit roots; enables a separate adapter module')
+    ap.add_argument('--function',default='vf3_matrix_adapter')
+    ap.add_argument('--reuse-matrix',action='store_true')
+    a=ap.parse_args()
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix)

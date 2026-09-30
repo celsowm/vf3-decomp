@@ -109,10 +109,11 @@ def ported():
     return out
 
 def implemented_helpers():
-    path=REPO/'tools/oracle/matrix_batch.json'
-    if not path.exists(): return set()
-    report=__import__('json').loads(path.read_text())
-    return {int(e,16) for e in report.get('helpers',[])}
+    result=set()
+    for path in sorted((REPO/'tools/oracle').glob('*_batch.json')):
+        report=__import__('json').loads(path.read_text())
+        result.update(int(e,16) for e in report.get('helpers',[]))
+    return result
 
 
 def main() -> int:
