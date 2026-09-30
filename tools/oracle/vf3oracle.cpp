@@ -1,7 +1,8 @@
 /* Research-only interpreter observer. Game implementations live in src/.
  * VF3_CAPSULE=<file>, VF3_WATCH="pc <entry>" / "exitpc <entry> <transfer>".
  * Records include invocation identity, before/after pages, extended state,
- * and executed opcodes. Interrupts, MMIO and asynchronous copies invalidate
+ * and executed opcodes. VF3CAP5 records device reads/writes as an ordered
+ * tape; interrupts, MMU translation and asynchronous copies still invalidate
  * a specimen rather than being mistaken for game behavior. */
 #include "vf3oracle.h"
 #include "hw/sh4/sh4_mem.h"
@@ -22,10 +23,11 @@ using State = std::array<unsigned, 55>;
 struct Spec { unsigned pc, transfer, count = 0; };
 struct Call {
     unsigned long long id;
-    unsigned entry, depth, flags = 0, countdown = 0;
+    unsigned entry, depth, flags = 0, countdown = 0, invalidAddress = 0;
     State in;
     std::map<unsigned, std::array<unsigned char, PAGE>> pages;
     std::vector<std::array<unsigned, 2>> ops;
+    std::vector<std::array<unsigned, 4>> device;
 };
 FILE *output;
 bool initialized, copying;
@@ -36,6 +38,7 @@ std::string outputPath;
 std::string hitsPath;
 std::vector<Spec> specs;
 std::vector<Call> active;
+std::map<std::pair<unsigned,unsigned>,unsigned> nonRam;
 ReadMem8Func rd8; ReadMem16Func rd16; ReadMem32Func rd32; ReadMem64Func rd64;
 WriteMem8Func wr8; WriteMem16Func wr16; WriteMem32Func wr32; WriteMem64Func wr64;
 
@@ -49,9 +52,10 @@ State snapshot(const Sh4Context *c) {
 }
 void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
     auto &c=active[i];
+    if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
     State out=snapshot(ctx);
-    unsigned header[6]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),55};
-    bool ok=std::fwrite(&c.id,8,1,output)==1 && std::fwrite(header,4,6,output)==6;
+    unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),55,(unsigned)c.device.size()};
+    bool ok=std::fwrite(&c.id,8,1,output)==1 && std::fwrite(header,4,7,output)==7;
     ok = ok && std::fwrite(c.in.data(),4,55,output)==55 && std::fwrite(out.data(),4,55,output)==55;
     for (auto &p:c.pages) {
         unsigned base=0x0C000000u+p.first;
@@ -60,6 +64,7 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
         ok = ok && std::fwrite(&mem_b[p.first],1,PAGE,output)==PAGE;
     }
     if (!c.ops.empty()) ok = ok && std::fwrite(c.ops.data(),8,c.ops.size(),output)==c.ops.size();
+    if (!c.device.empty()) ok = ok && std::fwrite(c.device.data(),16,c.device.size(),output)==c.device.size();
     if (!ok || std::fflush(output)!=0) { std::fprintf(stderr,"[vf3oracle] write failed\n"); std::abort(); }
     active.erase(active.begin()+i);
     ++completed;
@@ -74,6 +79,13 @@ void close_output() {
     for (size_t i=0;i<active.size();++i)
         std::fprintf(f,"%s{\"invocation\":%llu,\"entry\":\"0x%08x\",\"flags\":%u}",
                      i?",":"",active[i].id,active[i].entry,active[i].flags|16);
+    std::fprintf(f,"],\"non_ram\":[");
+    bool first=true;
+    for (const auto &item:nonRam) {
+        std::fprintf(f,"%s{\"entry\":\"0x%08x\",\"address\":\"0x%08x\",\"count\":%u}",
+                     first?"":",",item.first.first,item.first.second,item.second);
+        first=false;
+    }
     std::fprintf(f,"]}\n");
     if (std::fclose(f)!=0) std::abort();
 }
@@ -88,7 +100,10 @@ void close_hits() {
 }
 void touch(unsigned addr, unsigned size) {
     if (copying || active.empty()) return;
-    if (!IsOnRam(addr) || mmu_enabled()) { vf3OracleInvalidate(2); return; }
+    if (!IsOnRam(addr) || mmu_enabled()) {
+        for (auto &c:active) { c.flags|=2; if (!c.invalidAddress) c.invalidAddress=addr; }
+        return;
+    }
     unsigned first=addr&0x00FFFFFFu;
     if (size>0x01000000u-first) { vf3OracleInvalidate(2); return; }
     for (auto &c:active) for (unsigned a=first&~(PAGE-1); a<=((first+size-1)&~(PAGE-1)); a+=PAGE) {
@@ -98,14 +113,22 @@ void touch(unsigned addr, unsigned size) {
         std::memcpy(page.data(), &mem_b[a], PAGE);
     }
 }
-u8 DYNACALL r8(unsigned a) { touch(a,1); return rd8(a); }
-u16 DYNACALL r16(unsigned a) { touch(a,2); return rd16(a); }
-u32 DYNACALL r32(unsigned a) { touch(a,4); return rd32(a); }
-u64 DYNACALL r64(unsigned a) { touch(a,8); return rd64(a); }
-void DYNACALL w8(unsigned a,u8 v) { touch(a,1); wr8(a,v); }
-void DYNACALL w16(unsigned a,u16 v) { touch(a,2); wr16(a,v); }
-void DYNACALL w32(unsigned a,u32 v) { touch(a,4); wr32(a,v); }
-void DYNACALL w64(unsigned a,u64 v) { touch(a,8); wr64(a,v); }
+void device(unsigned addr,unsigned size,unsigned value,unsigned write) {
+    if (copying) return;
+    for (auto &c:active) {
+        if (c.device.size()>=16384) { c.flags|=4; continue; }
+        c.device.push_back({addr&0x1fffffffu,size,value,write});
+    }
+}
+bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
+u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
+u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
+u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
+u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
+void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) device(a,1,v,1); else touch(a,1); wr8(a,v); }
+void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) device(a,2,v,1); else touch(a,2); wr16(a,v); }
+void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) device(a,4,v,1); else touch(a,4); wr32(a,v); }
+void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
 void hooks() {
     if (ReadMem32==r32) return;
     rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
@@ -165,7 +188,7 @@ void init(const Sh4Context *ctx) {
         output=std::fopen(path,"wb"); if (!output) std::abort();
         outputPath=path;
         std::atexit(close_output);
-        if (std::fwrite("VF3CAP4\0",1,8,output)!=8) std::abort();
+        if (std::fwrite("VF3CAP5\0",1,8,output)!=8) std::abort();
     } else { hitsPath=hits; std::atexit(close_hits); }
     const char *n=std::getenv("VF3_CAPSULE_N"); if(n) samples=std::strtoul(n,nullptr,0);
     const char *watch=std::getenv("VF3_WATCH");

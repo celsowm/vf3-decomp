@@ -76,6 +76,7 @@ def emit(pc,w):
         if low in (0xE,0xF): return [f"{rn}=(uint32_t)(int32_t)({ 'int8_t' if low==0xE else 'int16_t'}){rm};"]
     if top==4:
         k=w&255
+        if k==0x1b: return [f'tmp=read(ram,{rn},1);',t('tmp==0'),f'write(ram,{rn},tmp|0x80u,1);']
         if k==0x13: return ['if(!s->gbr_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->gbr,4);']
         if k==0x17: return [f's->gbr=read(ram,{rn},4); {rn}+=4; s->gbr_known=1;']
         if k==0x1e: return [f's->gbr={rn}; s->gbr_known=1;']
@@ -105,7 +106,7 @@ def emit(pc,w):
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
         if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
         if low==7: return [f"r[19]={rn}*{rm};"]
-        if k==0x83: return [] # PREF of RAM has no architectural result.
+        if k in (0x83,0x93,0xa3,0xb3): return [] # Non-strict emulator cache operations have no architectural result.
         if k==0xc3: return [f'write(ram,{rn},r[0],4);'] # MOVCA.L: interpreter-visible RAM store.
     if top==8:
         k=(w>>8)&15; reg=(w>>4)&15; d=w&15

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Convert invocation-addressed VF3CAP3/4 specimens into compatible .cases.
+"""Convert invocation-addressed VF3CAP3/4/5 specimens into compatible .cases.
 
-The fingerprint includes registers, XF, FPUL and initial RAM. Repeated inputs
+The fingerprint includes registers, XF, FPUL, initial RAM and device reads. Repeated inputs
 with different exits are errors, never silently deduplicated. Invalid samples
 are retained in the manifest but excluded from replay. All reads are bounded.
 """
@@ -22,7 +22,7 @@ def records(path):
                 raise ValueError(f"{path}: truncated record at {f.tell()}")
             return data
         magic=take(8)
-        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0"):
+        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0",b"VF3CAP5\0"):
             raise ValueError(f"{path}: unsupported capsule format")
         seen = set()
         while True:
@@ -36,7 +36,8 @@ def records(path):
                 raise ValueError(f"{path}: duplicate/zero invocation ID {ident}")
             seen.add(ident)
             entry, exitpc, flags, npage, nop, nstate = struct.unpack("<6I", take(24))
-            if npage > 128 or nop > 100000 or nstate != (55 if magic==b"VF3CAP4\0" else 54):
+            ndev, = struct.unpack('<I',take(4)) if magic==b"VF3CAP5\0" else (0,)
+            if npage > 128 or nop > 100000 or ndev > 16384 or nstate != (55 if magic in (b"VF3CAP4\0",b"VF3CAP5\0") else 54):
                 raise ValueError(f"{path}: invalid record sizes")
             before, after = take(nstate*4), take(nstate*4)
             pages = []
@@ -48,14 +49,17 @@ def records(path):
                 bases.add(base)
                 pages.append((base, take(PAGE), take(PAGE)))
             ops = list(struct.iter_unpack("<2I", take(nop * 8)))
+            device = list(struct.iter_unpack('<4I', take(ndev * 16)))
             if not ops or (ops[0][0] & 0x1FFFFFFF) != (entry & 0x1FFFFFFF):
                 raise ValueError(f"{path}: missing invocation entry instruction")
             yield dict(id=ident, entry=entry, exitpc=exitpc, flags=flags,
-                       before=before, after=after, pages=sorted(pages), ops=ops, nstate=nstate)
+                       before=before, after=after, pages=sorted(pages), ops=ops,
+                       device=device, nstate=nstate)
 
 def convert(paths, out, entries=None):
     out = Path(out)
     grouped, invalid, runs = defaultdict(dict), [], []
+    nondeterministic = set()
     for path in paths:
         summary=Path(str(path)+'.summary.json')
         run=json.loads(summary.read_text()) if summary.exists() else {"summary_missing":True}
@@ -69,12 +73,21 @@ def convert(paths, out, entries=None):
                 continue
             if entries is not None and (r['entry']|0x80000000) not in entries:
                 continue
-            key = hashlib.sha256(r["before"] + b"".join(struct.pack("<I", b)+a for b,a,_ in r["pages"])).hexdigest()
-            signature = hashlib.sha256(r["after"] + struct.pack("<I",r["exitpc"])+b"".join(z for _,_,z in r["pages"])).hexdigest()
-            bucket = grouped[r["entry"] | 0x80000000]
+            entry = r['entry'] | 0x80000000
+            if entry in nondeterministic:
+                continue
+            input_device = b''.join(struct.pack('<4I',*event) for event in r['device'] if event[3]==0)
+            all_device = b''.join(struct.pack('<4I',*event) for event in r['device'])
+            key = hashlib.sha256(r["before"] + b"".join(struct.pack("<I", b)+a for b,a,_ in r["pages"]) + input_device).hexdigest()
+            signature = hashlib.sha256(r["after"] + struct.pack("<I",r["exitpc"])+b"".join(z for _,_,z in r["pages"]) + all_device).hexdigest()
+            bucket = grouped[entry]
             if key in bucket:
                 if bucket[key]["signature"] != signature:
-                    raise ValueError(f"Nondeterministic exit for {source}")
+                    # An unobserved device or transient input makes strict
+                    # replay unsafe; quarantine the entire entry.
+                    nondeterministic.add(entry)
+                    del grouped[entry]
+                    continue
                 bucket[key]["sources"].append(source)
             else:
                 bucket[key] = {**r, "signature":signature, "sources":[source]}
@@ -83,11 +96,12 @@ def convert(paths, out, entries=None):
                 raise ValueError(f'{path}: invocation summary disagrees with records')
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
-    manifest = {"format":"VF3CAP4 (CAP3 compatible)", "inputs":[str(p) for p in paths], "runs":runs,"invalid":invalid, "entries":{}}
+    manifest = {"format":"VF3CAP5 (CAP3/4 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
+                "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)], "entries":{}}
     if entries is not None: manifest['selected_entries']=[hex(e) for e in sorted(entries)]
     for entry, bucket in sorted(grouped.items()):
         stem = f"f_{entry:08x}"
-        lines, xfin, xfout, extras, gbrs, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), []
+        lines, xfin, xfout, extras, gbrs, devices, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), []
         allops = {}
         for i, r in enumerate(bucket.values()):
             # Merge adjacent pages to fit older replay runners efficiently.
@@ -109,7 +123,10 @@ def convert(paths, out, entries=None):
             xfin.extend(r["before"][148:212]); xfout.extend(r["after"][148:212])
             extras.extend(struct.pack("<4I",before[53],after[53],r["entry"],r["exitpc"]))
             gbrs.extend(struct.pack("<3I",before[54] if r["nstate"]==55 else 0,after[54] if r["nstate"]==55 else 0,r["nstate"]==55))
-            cases.append({"sources":r["sources"], "instructions":len(r["ops"]), "pages":len(r["pages"])})
+            devices.extend(struct.pack('<I',len(r['device'])))
+            devices.extend(b''.join(struct.pack('<4I',*event) for event in r['device']))
+            cases.append({"sources":r["sources"], "instructions":len(r["ops"]), "pages":len(r["pages"]),
+                          "device_accesses":len(r['device'])})
             for pc,op in r["ops"]:
                 if pc in allops and allops[pc]!=op:
                     raise ValueError(f"Self-modifying code at {pc:08x}")
@@ -118,11 +135,13 @@ def convert(paths, out, entries=None):
         (out/f"{stem}.xfin.bin").write_bytes(xfin); (out/f"{stem}.xfout.bin").write_bytes(xfout)
         (out/f"{stem}.extra.bin").write_bytes(extras)
         (out/f"{stem}.gbr.bin").write_bytes(gbrs)
+        (out/f"{stem}.dev.bin").write_bytes(devices)
         (out/f"{stem}.ops.json").write_text(json.dumps({f"{pc:08x}":f"{op:04x}" for pc,op in sorted(allops.items())},indent=1))
         manifest["entries"][f"0x{entry:08x}"] = cases
         print(f"{stem}: {len(lines)} distinct complete cases, {len(allops)} executed PCs")
     (out/"capsule_manifest.json").write_text(json.dumps(manifest,indent=1),encoding="utf-8")
     print("Rejected specimens:",dict(Counter(r["flags"] for r in invalid)))
+    print("Quarantined nondeterministic entries:",len(nondeterministic))
     return manifest
 
 if __name__ == "__main__":

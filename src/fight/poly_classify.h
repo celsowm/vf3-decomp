@@ -16,6 +16,9 @@ typedef struct {
     const vf3_ram_win *wins;
     int n;
     uint32_t oob;        /* out-of-window access counter (replay check) */
+    uint32_t (*device_read)(void *context,uint32_t address,unsigned size);
+    void (*device_write)(void *context,uint32_t address,unsigned size,uint32_t value);
+    void *device_context;
 } vf3_ram_map;
 
 int vf3_poly_classify(uint32_t r4, uint32_t r3, float fr4, float fr5,

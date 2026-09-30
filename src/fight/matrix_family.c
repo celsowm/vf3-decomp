@@ -20,6 +20,8 @@ static void t(vf3_matrix_state*s,int v) { R(17)=(R(17)&~1u)|(v!=0); }
 uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     uint32_t value=0;
     addr&=0x1FFFFFFFu;
+    if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_read)
+        return ram->device_read(ram->device_context,addr,size);
     for(unsigned j=0;j<size;++j) {
         int found=0;
         for(int i=0;i<ram->n;++i) if(addr+j>=ram->wins[i].base && addr+j-ram->wins[i].base<ram->wins[i].len) {
@@ -31,6 +33,9 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
 }
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
     addr&=0x1FFFFFFFu;
+    if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_write) {
+        ram->device_write(ram->device_context,addr,size,value); return;
+    }
     for(unsigned j=0;j<size;++j) {
         int found=0;
         for(int i=0;i<ram->n;++i) if(addr+j>=ram->wins[i].base && addr+j-ram->wins[i].base<ram->wins[i].len) {
@@ -174,6 +179,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_device_adapter_contains(entry)) return vf3_device_adapter(entry,s,ram);
+        if(vf3_next_adapter_contains(entry)) return vf3_next_adapter(entry,s,ram);
         if(vf3_motion_adapter_contains(entry)) return vf3_motion_adapter(entry,s,ram);
         if(vf3_fight_adapter_contains(entry)) return vf3_fight_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);

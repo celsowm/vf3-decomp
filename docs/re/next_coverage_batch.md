@@ -42,3 +42,38 @@ must account for unfinished invocations. SDK attribution and trace observations
 remain separate from C credit. The final address-union audit uses the frozen
 69,300-byte starting spans; the complete verification gate covers all older
 bindings too.
+
+## Delivered batch (2026-09-30)
+
+The surveyed 15 complete states exposed 100,814 candidate bytes. State 32
+exited after three frames despite an emulator return code of zero, so the
+frame-count gate excluded it. Two complete development campaigns and the
+device campaign produced 66 promotable C bodies with 26,342 distinct bound
+invocation cases. Their frozen body-interval union adds **20,420 bytes**:
+**69,300 → 89,720 verified C bytes**, or **15.94% → 20.64%** of 434,656.
+This meets the 20,000-byte delivery minimum; the 25,000-byte target remains
+the next milestone. Rigorous C plus SDK attribution is 131,050 bytes (30.2%).
+
+The C sources are `next_adapters*.c` and `device_adapters*.c` under `src/fight`.
+The original-image static control flow routes through the existing matrix,
+fight and motion implementations. A legacy matrix adapter could previously
+reject a dynamic transfer to a newly owned helper; its default route now
+delegates only to known owners. The translator also handles SH-4 TAS.B and
+cache operations observed in this batch.
+
+`VF3CAP5` records non-RAM reads and writes as an ordered device tape. The C
+replay callback supplies read values and checks access addresses, widths,
+order and written values. It also checks full registers, XF/FPUL/GBR, return
+PC and touched RAM. Interrupts, MMU translation, asynchronous copies and
+unsupported banked-register paths still fail closed. Device-backed game
+functions are credited only when complete cases pass the same strict replay
+gate as RAM-only functions.
+
+The held-out corpus uses states 6, 8, 10 and 12. Fresh acceptance uses
+states 14 and 16, plus opposite action schedules on states 20, 21, 27 and
+29. `tools/oracle/next_batch.json` freezes the starting spans and binds the
+66 entries to their exact cases, replay proofs, provenance groups and artifact
+hashes. `python tools/oracle/audit_next_batch.py --hashes` rechecks the byte
+union, case counts, unfinished calls, hashes and independent validation
+sources. Entries reaching uncaptured BIOS or banked-register paths, or failing
+any observed acceptance case, remain excluded.

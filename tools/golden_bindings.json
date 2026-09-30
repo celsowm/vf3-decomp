@@ -1483,5 +1483,467 @@
   "strict": true,
   "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
   "port": "src/fight/motion_adapters.c"
+ },
+ "next:0x8c035148": {
+  "test": "build/vf3matrixfamily.exe 0x8c035148",
+  "golden": "extract/analysis/next_combined_cases/f_8c035148.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03658c": {
+  "test": "build/vf3matrixfamily.exe 0x8c03658c",
+  "golden": "extract/analysis/next_combined_cases/f_8c03658c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c036bba": {
+  "test": "build/vf3matrixfamily.exe 0x8c036bba",
+  "golden": "extract/analysis/next_combined_cases/f_8c036bba.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c038a8a": {
+  "test": "build/vf3matrixfamily.exe 0x8c038a8a",
+  "golden": "extract/analysis/next_combined_cases/f_8c038a8a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03cac6": {
+  "test": "build/vf3matrixfamily.exe 0x8c03cac6",
+  "golden": "extract/analysis/next_combined_cases/f_8c03cac6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03e140": {
+  "test": "build/vf3matrixfamily.exe 0x8c03e140",
+  "golden": "extract/analysis/next_combined_cases/f_8c03e140.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03e360": {
+  "test": "build/vf3matrixfamily.exe 0x8c03e360",
+  "golden": "extract/analysis/next_combined_cases/f_8c03e360.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03f0f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c03f0f4",
+  "golden": "extract/analysis/next_combined_cases/f_8c03f0f4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c043a7c": {
+  "test": "build/vf3matrixfamily.exe 0x8c043a7c",
+  "golden": "extract/analysis/next_combined_cases/f_8c043a7c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c043eb8": {
+  "test": "build/vf3matrixfamily.exe 0x8c043eb8",
+  "golden": "extract/analysis/next_combined_cases/f_8c043eb8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c043ecc": {
+  "test": "build/vf3matrixfamily.exe 0x8c043ecc",
+  "golden": "extract/analysis/next_combined_cases/f_8c043ecc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c055d40": {
+  "test": "build/vf3matrixfamily.exe 0x8c055d40",
+  "golden": "extract/analysis/next_combined_cases/f_8c055d40.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c06159c": {
+  "test": "build/vf3matrixfamily.exe 0x8c06159c",
+  "golden": "extract/analysis/next_combined_cases/f_8c06159c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c066e02": {
+  "test": "build/vf3matrixfamily.exe 0x8c066e02",
+  "golden": "extract/analysis/next_combined_cases/f_8c066e02.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c066fe6": {
+  "test": "build/vf3matrixfamily.exe 0x8c066fe6",
+  "golden": "extract/analysis/next_combined_cases/f_8c066fe6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c06706e": {
+  "test": "build/vf3matrixfamily.exe 0x8c06706e",
+  "golden": "extract/analysis/next_combined_cases/f_8c06706e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0671da": {
+  "test": "build/vf3matrixfamily.exe 0x8c0671da",
+  "golden": "extract/analysis/next_combined_cases/f_8c0671da.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0672c4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0672c4",
+  "golden": "extract/analysis/next_combined_cases/f_8c0672c4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0673a8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0673a8",
+  "golden": "extract/analysis/next_combined_cases/f_8c0673a8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c068642": {
+  "test": "build/vf3matrixfamily.exe 0x8c068642",
+  "golden": "extract/analysis/next_combined_cases/f_8c068642.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c06cfd0": {
+  "test": "build/vf3matrixfamily.exe 0x8c06cfd0",
+  "golden": "extract/analysis/next_combined_cases/f_8c06cfd0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c06f3c2": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f3c2",
+  "golden": "extract/analysis/next_combined_cases/f_8c06f3c2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c07464c": {
+  "test": "build/vf3matrixfamily.exe 0x8c07464c",
+  "golden": "extract/analysis/next_combined_cases/f_8c07464c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c07b5f8": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b5f8",
+  "golden": "extract/analysis/next_combined_cases/f_8c07b5f8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c08505c": {
+  "test": "build/vf3matrixfamily.exe 0x8c08505c",
+  "golden": "extract/analysis/next_combined_cases/f_8c08505c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c08526a": {
+  "test": "build/vf3matrixfamily.exe 0x8c08526a",
+  "golden": "extract/analysis/next_combined_cases/f_8c08526a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c08c9a0": {
+  "test": "build/vf3matrixfamily.exe 0x8c08c9a0",
+  "golden": "extract/analysis/next_combined_cases/f_8c08c9a0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0924d0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0924d0",
+  "golden": "extract/analysis/next_combined_cases/f_8c0924d0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c093844": {
+  "test": "build/vf3matrixfamily.exe 0x8c093844",
+  "golden": "extract/analysis/next_combined_cases/f_8c093844.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0971d2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0971d2",
+  "golden": "extract/analysis/next_combined_cases/f_8c0971d2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c09fcfc": {
+  "test": "build/vf3matrixfamily.exe 0x8c09fcfc",
+  "golden": "extract/analysis/next_combined_cases/f_8c09fcfc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0a2d50": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a2d50",
+  "golden": "extract/analysis/next_combined_cases/f_8c0a2d50.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0a74fa": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a74fa",
+  "golden": "extract/analysis/next_combined_cases/f_8c0a74fa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0a99aa": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a99aa",
+  "golden": "extract/analysis/next_combined_cases/f_8c0a99aa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0ac080": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ac080",
+  "golden": "extract/analysis/next_combined_cases/f_8c0ac080.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0aeb80": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aeb80",
+  "golden": "extract/analysis/next_combined_cases/f_8c0aeb80.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0aff04": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aff04",
+  "golden": "extract/analysis/next_combined_cases/f_8c0aff04.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0c10a2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c10a2",
+  "golden": "extract/analysis/next_combined_cases/f_8c0c10a2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0c111e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c111e",
+  "golden": "extract/analysis/next_combined_cases/f_8c0c111e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0c19ec": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c19ec",
+  "golden": "extract/analysis/next_combined_cases/f_8c0c19ec.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0c8be6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c8be6",
+  "golden": "extract/analysis/next_combined_cases/f_8c0c8be6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c0cc44e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cc44e",
+  "golden": "extract/analysis/next_combined_cases/f_8c0cc44e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/next_adapters.c"
+ },
+ "next:0x8c03613a": {
+  "test": "build/vf3matrixfamily.exe 0x8c03613a",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c03613a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0368c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0368c0",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0368c0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c03f84a": {
+  "test": "build/vf3matrixfamily.exe 0x8c03f84a",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c03f84a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c043bba": {
+  "test": "build/vf3matrixfamily.exe 0x8c043bba",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c043bba.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c043d14": {
+  "test": "build/vf3matrixfamily.exe 0x8c043d14",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c043d14.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c047ce4": {
+  "test": "build/vf3matrixfamily.exe 0x8c047ce4",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c047ce4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c048284": {
+  "test": "build/vf3matrixfamily.exe 0x8c048284",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c048284.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0486de": {
+  "test": "build/vf3matrixfamily.exe 0x8c0486de",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0486de.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c063b0c": {
+  "test": "build/vf3matrixfamily.exe 0x8c063b0c",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c063b0c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c06d46c": {
+  "test": "build/vf3matrixfamily.exe 0x8c06d46c",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c06d46c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c08d8e0": {
+  "test": "build/vf3matrixfamily.exe 0x8c08d8e0",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c08d8e0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c08dafa": {
+  "test": "build/vf3matrixfamily.exe 0x8c08dafa",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c08dafa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c08def0": {
+  "test": "build/vf3matrixfamily.exe 0x8c08def0",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c08def0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c091c3a": {
+  "test": "build/vf3matrixfamily.exe 0x8c091c3a",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c091c3a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0940d8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0940d8",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0940d8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c094162": {
+  "test": "build/vf3matrixfamily.exe 0x8c094162",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c094162.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0a0464": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a0464",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0a0464.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0a04e2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a04e2",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0a04e2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0a1212": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a1212",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0a1212.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0c13de": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c13de",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0c13de.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0c1770": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c1770",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0c1770.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0c2bb4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c2bb4",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0c2bb4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0c4eba": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c4eba",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0c4eba.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
+ },
+ "next:0x8c0c5062": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c5062",
+  "golden": "extract/analysis/next_device_dev_cases/f_8c0c5062.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/device_adapters.c"
  }
 }

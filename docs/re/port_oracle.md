@@ -1,5 +1,16 @@
 # Differential port oracle (Phase B) + oracle-verified ports
 
+## VF3CAP5 device-access replay (2026-09-30)
+
+The invocation capsule now stores an ordered tape of non-RAM reads and writes
+alongside registers, XF/FPUL/GBR, touched RAM pages and executed opcodes.
+During strict C replay, a device callback supplies the captured read values
+and checks every address, width, order and written value. The replay fails if
+any tape event is missing, extra or different. MMU translation, interrupts
+and asynchronous copies remain invalidating conditions. Earlier VF3CAP3/4
+corpora remain readable. The fourth C coverage batch uses this format for
+graphics and store-queue workers; see `next_coverage_batch.md`.
+
 ## Critical capture-integrity findings (2026-09-25)
 Three fork bugs were corrupting traces; all fixed:
 1. `vf3TraceInit` reopened (truncated) the trace file on every `Run()` —

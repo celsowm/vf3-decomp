@@ -27919,7 +27919,11 @@ case 0x0c0ca49cu: goto P_0c0ca49c;
 case 0x0c0ca49eu: goto P_0c0ca49e;
 case 0x0c0ca4a0u: goto P_0c0ca4a0;
 case 0x0c0ca4a2u: goto P_0c0ca4a2;
-default: s->failed_pc=target; return 0;
+default:
+    if(vf3_device_adapter_contains(target) || vf3_next_adapter_contains(target) ||
+       vf3_motion_adapter_contains(target) ||
+       vf3_fight_adapter_contains(target)) return vf3_matrix_family(target,s,ram);
+    s->failed_pc=target; return 0;
 }
 P_0c020024: /* original c719, guest PC 0x0c020024 */
 if(!s->budget--) { s->failed_pc=0x0c020024u; return 0; }

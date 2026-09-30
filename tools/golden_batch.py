@@ -25,6 +25,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from oracle.capture_frames import expected_frames, observed_frames
 
 REPO = Path(__file__).resolve().parents[1]
 EMU = REPO / "tools" / "emu" / "flycast-build" / "flycast.exe"
@@ -142,12 +143,17 @@ def main() -> int:
             p = subprocess.run(cmd, env=env, stdout=lf, stderr=lf,
                                cwd=str(REPO))
         dt = time.time() - t0
-        runs[-1].update(seconds=round(dt,3), returncode=p.returncode,
+        observed=observed_frames(log)
+        expected=expected_frames(frames,(REPO/play) if play and not Path(play).is_absolute() else play)
+        complete=observed>=expected>=1
+        runs[-1].update(seconds=round(dt,3), returncode=p.returncode or (0 if complete else 1),
+                        emulator_returncode=p.returncode,ran_frames=observed,expected_frames=expected,
+                        frame_complete=complete,
                         capsule_bytes=capsule.stat().st_size if a.capsule and capsule.exists() else 0)
         sz = trace.stat().st_size if trace.exists() and not a.hits else 0
         print(f"         rc={p.returncode} in {dt:.0f}s, trace {sz/1e6:.1f} MB")
-        if p.returncode != 0:
-            print(f"         WARNING rc={p.returncode}; see {log}")
+        if p.returncode != 0 or not complete:
+            print(f"         WARNING rc={p.returncode}, frames={observed}/{expected}; see {log}")
 
     manifest = {"name": a.name, "watch": str(watch), "ramn": a.ramn,
                 "runs": runs}
