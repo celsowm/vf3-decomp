@@ -33,6 +33,7 @@ unsigned depth, samples = 64;
 unsigned long long sequence;
 unsigned long long completed;
 std::string outputPath;
+std::string hitsPath;
 std::vector<Spec> specs;
 std::vector<Call> active;
 ReadMem8Func rd8; ReadMem16Func rd16; ReadMem32Func rd32; ReadMem64Func rd64;
@@ -74,6 +75,15 @@ void close_output() {
         std::fprintf(f,"%s{\"invocation\":%llu,\"entry\":\"0x%08x\",\"flags\":%u}",
                      i?",":"",active[i].id,active[i].entry,active[i].flags|16);
     std::fprintf(f,"]}\n");
+    if (std::fclose(f)!=0) std::abort();
+}
+void close_hits() {
+    if (hitsPath.empty()) return;
+    FILE *f=std::fopen(hitsPath.c_str(),"wb");
+    if (!f) std::abort();
+    if (std::fprintf(f,"entry,hits\n")<0) std::abort();
+    for (const auto &s:specs)
+        if (std::fprintf(f,"0x%08x,%u\n",s.pc,s.count)<0) std::abort();
     if (std::fclose(f)!=0) std::abort();
 }
 void touch(unsigned addr, unsigned size) {
@@ -148,11 +158,15 @@ void init(const Sh4Context *ctx) {
     initialized=true;
     opcode_oracle(ctx);
     const char *path=std::getenv("VF3_CAPSULE");
-    if (!path) return;
-    output=std::fopen(path,"wb"); if (!output) std::abort();
-    outputPath=path;
-    std::atexit(close_output);
-    if (std::fwrite("VF3CAP4\0",1,8,output)!=8) std::abort();
+    const char *hits=std::getenv("VF3_HITS");
+    if (path && hits) { std::fprintf(stderr,"[vf3oracle] choose capsule or hits\n"); std::abort(); }
+    if (!path && !hits) return;
+    if (path) {
+        output=std::fopen(path,"wb"); if (!output) std::abort();
+        outputPath=path;
+        std::atexit(close_output);
+        if (std::fwrite("VF3CAP4\0",1,8,output)!=8) std::abort();
+    } else { hitsPath=hits; std::atexit(close_hits); }
     const char *n=std::getenv("VF3_CAPSULE_N"); if(n) samples=std::strtoul(n,nullptr,0);
     const char *watch=std::getenv("VF3_WATCH");
     FILE *f=watch?std::fopen(watch,"r"):nullptr;
@@ -166,11 +180,19 @@ void init(const Sh4Context *ctx) {
     while(std::fgets(line,sizeof(line),f)) if(std::sscanf(line,"exitpc %x %x",&a,&b)==2)
         for(auto &s:specs) if(s.pc==(a|0x80000000u)) s.transfer=b|0x80000000u;
     std::fclose(f);
+    if (hits) std::sort(specs.begin(),specs.end(),[](const Spec &a,const Spec &b){return a.pc<b.pc;});
 }
 }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
 void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     if(!initialized) init(ctx);
+    if (!hitsPath.empty()) {
+        unsigned canon=pc|0x80000000u;
+        auto s=std::lower_bound(specs.begin(),specs.end(),canon,
+            [](const Spec &spec,unsigned value){return spec.pc<value;});
+        if (s!=specs.end() && s->pc==canon) ++s->count;
+        return;
+    }
     if(!output) return;
     hooks();
     for(size_t i=active.size();i-->0;) if(active[i].countdown && --active[i].countdown==0) finish(i,pc,ctx);

@@ -62,8 +62,12 @@ def main() -> int:
     ap.add_argument("--no-extract", action="store_true")
     ap.add_argument("--capsule", action="store_true",
                     help="capture touched RAM pages and aligned XF/FPUL state")
+    ap.add_argument("--hits", action="store_true",
+                    help="count watched entry hits without invocation or RAM capture")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
+    if a.hits and (a.capsule or a.instr or a.edges):
+        ap.error('--hits cannot be combined with --capsule, --instr or --edges')
 
     watch = (REPO / a.watch) if not Path(a.watch).is_absolute() else Path(a.watch)
     if not watch.exists():
@@ -81,10 +85,14 @@ def main() -> int:
         log = trace_dir / f"golden_{a.name}_{name}.log"
         env = dict(os.environ)
         capsule = trace_dir / f"capsule_{a.name}_{name}.bin"
+        hits = trace_dir / f"hits_{a.name}_{name}.csv"
         env.pop("VF3_CAPSULE", None)
+        env.pop("VF3_HITS", None)
         if a.capsule:
             env["VF3_CAPSULE"] = str(capsule)
             env["VF3_CAPSULE_N"] = str(a.max_samples)
+        if a.hits:
+            env["VF3_HITS"] = str(hits)
         env.update({
             "VF3_INTERPRETER": "1",
             "VF3_FULL": "1",
@@ -94,7 +102,7 @@ def main() -> int:
             "VF3_RAMN": str(a.ramn),
             "VF3_INSTR": "1" if a.instr else "0",
         })
-        if a.capsule and not a.instr:
+        if (a.capsule and not a.instr) or a.hits:
             # Sparse invocation records replace redundant whole-frame traces.
             env.pop("VF3_TRACE", None)
             env.pop("VF3_FULL", None)
@@ -122,6 +130,8 @@ def main() -> int:
                      "log": str(log)})
         if a.capsule:
             runs[-1]["capsule"] = str(capsule)
+        if a.hits:
+            runs[-1]["hits"] = str(hits)
         cmd = [str(EMU), str(ROM)]
         print(f"[{name}] frames={frames} state={state or '-'} play={play or '-'}")
         print(f"         trace -> {trace}")
@@ -134,7 +144,7 @@ def main() -> int:
         dt = time.time() - t0
         runs[-1].update(seconds=round(dt,3), returncode=p.returncode,
                         capsule_bytes=capsule.stat().st_size if a.capsule and capsule.exists() else 0)
-        sz = trace.stat().st_size if trace.exists() else 0
+        sz = trace.stat().st_size if trace.exists() and not a.hits else 0
         print(f"         rc={p.returncode} in {dt:.0f}s, trace {sz/1e6:.1f} MB")
         if p.returncode != 0:
             print(f"         WARNING rc={p.returncode}; see {log}")
@@ -146,7 +156,7 @@ def main() -> int:
         (out / "batch_manifest.json").write_text(
             json.dumps(manifest, indent=1), encoding="utf-8")
 
-    if a.no_extract or a.dry_run:
+    if a.no_extract or a.dry_run or a.hits:
         return int(any(r.get('returncode',0) for r in runs))
     if any(r.get('returncode',0) for r in runs):
         print('capture batch failed; refusing to export goldens')
