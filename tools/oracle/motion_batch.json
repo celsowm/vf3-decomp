@@ -1,0 +1,2714 @@
+{
+ "baseline_unique_bytes": 48220,
+ "baseline_spans": [
+  [
+   2349025322,
+   2349025352
+  ],
+  [
+   2349025362,
+   2349025362
+  ],
+  [
+   2349025380,
+   2349025706
+  ],
+  [
+   2349028768,
+   2349028836
+  ],
+  [
+   2349028852,
+   2349028980
+  ],
+  [
+   2349029966,
+   2349030050
+  ],
+  [
+   2349034636,
+   2349034752
+  ],
+  [
+   2349034796,
+   2349034936
+  ],
+  [
+   2349048128,
+   2349048150
+  ],
+  [
+   2349049568,
+   2349049686
+  ],
+  [
+   2349069746,
+   2349069764
+  ],
+  [
+   2349069776,
+   2349069958
+  ],
+  [
+   2349076254,
+   2349076328
+  ],
+  [
+   2349084636,
+   2349084770
+  ],
+  [
+   2349161728,
+   2349161742
+  ],
+  [
+   2349239830,
+   2349239888
+  ],
+  [
+   2349239916,
+   2349240264
+  ],
+  [
+   2349240292,
+   2349240862
+  ],
+  [
+   2349240892,
+   2349240998
+  ],
+  [
+   2349241246,
+   2349241494
+  ],
+  [
+   2349241520,
+   2349241854
+  ],
+  [
+   2349252454,
+   2349252524
+  ],
+  [
+   2349252576,
+   2349252734
+  ],
+  [
+   2349261624,
+   2349261976
+  ],
+  [
+   2349262000,
+   2349262106
+  ],
+  [
+   2349263052,
+   2349263170
+  ],
+  [
+   2349263204,
+   2349263510
+  ],
+  [
+   2349265018,
+   2349265318
+  ],
+  [
+   2349265352,
+   2349265806
+  ],
+  [
+   2349265820,
+   2349265850
+  ],
+  [
+   2349266026,
+   2349266104
+  ],
+  [
+   2349266164,
+   2349266236
+  ],
+  [
+   2349266244,
+   2349266276
+  ],
+  [
+   2349266278,
+   2349266528
+  ],
+  [
+   2349266572,
+   2349266606
+  ],
+  [
+   2349267240,
+   2349267346
+  ],
+  [
+   2349269026,
+   2349269090
+  ],
+  [
+   2349269128,
+   2349269244
+  ],
+  [
+   2349269256,
+   2349269328
+  ],
+  [
+   2349269332,
+   2349269404
+  ],
+  [
+   2349269408,
+   2349269468
+  ],
+  [
+   2349269476,
+   2349269502
+  ],
+  [
+   2349269772,
+   2349269822
+  ],
+  [
+   2349269828,
+   2349269898
+  ],
+  [
+   2349269904,
+   2349269966
+  ],
+  [
+   2349269976,
+   2349270002
+  ],
+  [
+   2349270260,
+   2349270308
+  ],
+  [
+   2349270312,
+   2349270384
+  ],
+  [
+   2349270388,
+   2349270446
+  ],
+  [
+   2349270456,
+   2349270482
+  ],
+  [
+   2349270724,
+   2349270774
+  ],
+  [
+   2349270780,
+   2349270850
+  ],
+  [
+   2349270856,
+   2349270918
+  ],
+  [
+   2349270928,
+   2349270954
+  ],
+  [
+   2349271090,
+   2349271156
+  ],
+  [
+   2349271216,
+   2349271266
+  ],
+  [
+   2349271272,
+   2349271342
+  ],
+  [
+   2349271348,
+   2349271410
+  ],
+  [
+   2349271420,
+   2349271446
+  ],
+  [
+   2349271684,
+   2349271734
+  ],
+  [
+   2349271740,
+   2349271810
+  ],
+  [
+   2349271816,
+   2349271878
+  ],
+  [
+   2349271888,
+   2349271914
+  ],
+  [
+   2349272304,
+   2349272352
+  ],
+  [
+   2349272356,
+   2349272428
+  ],
+  [
+   2349272432,
+   2349272490
+  ],
+  [
+   2349272500,
+   2349272526
+  ],
+  [
+   2349272768,
+   2349272816
+  ],
+  [
+   2349272820,
+   2349272892
+  ],
+  [
+   2349272896,
+   2349272954
+  ],
+  [
+   2349272964,
+   2349272990
+  ],
+  [
+   2349274974,
+   2349275114
+  ],
+  [
+   2349275530,
+   2349275670
+  ],
+  [
+   2349275766,
+   2349275808
+  ],
+  [
+   2349275812,
+   2349275836
+  ],
+  [
+   2349275934,
+   2349276074
+  ],
+  [
+   2349276306,
+   2349276446
+  ],
+  [
+   2349276862,
+   2349277002
+  ],
+  [
+   2349285300,
+   2349285370
+  ],
+  [
+   2349285396,
+   2349285622
+  ],
+  [
+   2349285640,
+   2349285694
+  ],
+  [
+   2349285720,
+   2349285944
+  ],
+  [
+   2349285972,
+   2349286120
+  ],
+  [
+   2349286144,
+   2349286324
+  ],
+  [
+   2349286344,
+   2349286668
+  ],
+  [
+   2349286708,
+   2349286802
+  ],
+  [
+   2349287384,
+   2349287424
+  ],
+  [
+   2349287616,
+   2349287648
+  ],
+  [
+   2349289200,
+   2349289296
+  ],
+  [
+   2349289336,
+   2349289440
+  ],
+  [
+   2349296640,
+   2349296800
+  ],
+  [
+   2349296856,
+   2349297066
+  ],
+  [
+   2349297120,
+   2349297340
+  ],
+  [
+   2349297396,
+   2349297760
+  ],
+  [
+   2349297792,
+   2349298066
+  ],
+  [
+   2349298092,
+   2349298316
+  ],
+  [
+   2349298336,
+   2349298494
+  ],
+  [
+   2349298508,
+   2349298766
+  ],
+  [
+   2349298796,
+   2349299052
+  ],
+  [
+   2349299076,
+   2349299198
+  ],
+  [
+   2349299220,
+   2349299558
+  ],
+  [
+   2349299588,
+   2349299852
+  ],
+  [
+   2349299876,
+   2349300098
+  ],
+  [
+   2349300120,
+   2349300400
+  ],
+  [
+   2349300432,
+   2349300640
+  ],
+  [
+   2349300668,
+   2349300982
+  ],
+  [
+   2349301020,
+   2349301212
+  ],
+  [
+   2349301252,
+   2349302028
+  ],
+  [
+   2349302506,
+   2349302682
+  ],
+  [
+   2349302878,
+   2349303186
+  ],
+  [
+   2349303212,
+   2349303540
+  ],
+  [
+   2349303560,
+   2349303796
+  ],
+  [
+   2349303884,
+   2349304178
+  ],
+  [
+   2349304280,
+   2349304548
+  ],
+  [
+   2349304576,
+   2349304800
+  ],
+  [
+   2349304832,
+   2349305026
+  ],
+  [
+   2349305048,
+   2349305368
+  ],
+  [
+   2349305404,
+   2349305766
+  ],
+  [
+   2349305796,
+   2349306140
+  ],
+  [
+   2349306152,
+   2349306448
+  ],
+  [
+   2349306472,
+   2349306804
+  ],
+  [
+   2349306852,
+   2349307170
+  ],
+  [
+   2349307192,
+   2349307512
+  ],
+  [
+   2349307544,
+   2349307656
+  ],
+  [
+   2349307982,
+   2349307990
+  ],
+  [
+   2349308100,
+   2349308108
+  ],
+  [
+   2349309712,
+   2349309720
+  ],
+  [
+   2349310774,
+   2349310782
+  ],
+  [
+   2349311250,
+   2349311258
+  ],
+  [
+   2349339028,
+   2349339212
+  ],
+  [
+   2349339272,
+   2349339516
+  ],
+  [
+   2349339564,
+   2349339832
+  ],
+  [
+   2349339892,
+   2349340164
+  ],
+  [
+   2349340192,
+   2349340484
+  ],
+  [
+   2349340528,
+   2349340812
+  ],
+  [
+   2349340848,
+   2349341048
+  ],
+  [
+   2349352302,
+   2349352554
+  ],
+  [
+   2349361608,
+   2349361880
+  ],
+  [
+   2349364264,
+   2349364472
+  ],
+  [
+   2349381614,
+   2349381682
+  ],
+  [
+   2349382904,
+   2349383270
+  ],
+  [
+   2349384256,
+   2349384332
+  ],
+  [
+   2349384356,
+   2349384484
+  ],
+  [
+   2349385096,
+   2349385262
+  ],
+  [
+   2349385296,
+   2349385418
+  ],
+  [
+   2349385608,
+   2349385728
+  ],
+  [
+   2349388026,
+   2349388078
+  ],
+  [
+   2349388104,
+   2349388120
+  ],
+  [
+   2349393576,
+   2349393750
+  ],
+  [
+   2349393780,
+   2349393992
+  ],
+  [
+   2349394016,
+   2349394174
+  ],
+  [
+   2349394964,
+   2349395234
+  ],
+  [
+   2349395312,
+   2349395354
+  ],
+  [
+   2349404974,
+   2349405194
+  ],
+  [
+   2349405262,
+   2349405516
+  ],
+  [
+   2349405584,
+   2349405688
+  ],
+  [
+   2349405720,
+   2349406022
+  ],
+  [
+   2349406080,
+   2349406186
+  ],
+  [
+   2349408936,
+   2349409002
+  ],
+  [
+   2349409052,
+   2349409366
+  ],
+  [
+   2349409428,
+   2349409468
+  ],
+  [
+   2349411006,
+   2349411030
+  ],
+  [
+   2349411270,
+   2349411328
+  ],
+  [
+   2349411332,
+   2349411350
+  ],
+  [
+   2349412114,
+   2349412124
+  ],
+  [
+   2349412534,
+   2349412574
+  ],
+  [
+   2349413418,
+   2349413604
+  ],
+  [
+   2349413636,
+   2349413720
+  ],
+  [
+   2349421884,
+   2349421954
+  ],
+  [
+   2349422000,
+   2349422084
+  ],
+  [
+   2349425240,
+   2349425418
+  ],
+  [
+   2349454418,
+   2349454512
+  ],
+  [
+   2349454992,
+   2349455050
+  ],
+  [
+   2349455072,
+   2349455404
+  ],
+  [
+   2349455852,
+   2349455902
+  ],
+  [
+   2349456006,
+   2349456076
+  ],
+  [
+   2349456116,
+   2349456320
+  ],
+  [
+   2349456444,
+   2349456604
+  ],
+  [
+   2349456618,
+   2349456714
+  ],
+  [
+   2349456764,
+   2349457054
+  ],
+  [
+   2349457108,
+   2349457266
+  ],
+  [
+   2349457300,
+   2349457466
+  ],
+  [
+   2349457528,
+   2349457874
+  ],
+  [
+   2349457940,
+   2349458142
+  ],
+  [
+   2349458164,
+   2349458442
+  ],
+  [
+   2349458476,
+   2349458602
+  ],
+  [
+   2349458640,
+   2349459022
+  ],
+  [
+   2349459096,
+   2349459122
+  ],
+  [
+   2349459144,
+   2349459414
+  ],
+  [
+   2349459468,
+   2349459576
+  ],
+  [
+   2349459596,
+   2349459996
+  ],
+  [
+   2349460210,
+   2349460468
+  ],
+  [
+   2349460548,
+   2349460914
+  ],
+  [
+   2349460984,
+   2349461016
+  ],
+  [
+   2349461030,
+   2349461290
+  ],
+  [
+   2349461368,
+   2349461454
+  ],
+  [
+   2349461622,
+   2349461854
+  ],
+  [
+   2349462356,
+   2349462576
+  ],
+  [
+   2349463260,
+   2349463292
+  ],
+  [
+   2349463976,
+   2349464022
+  ],
+  [
+   2349464060,
+   2349464222
+  ],
+  [
+   2349464252,
+   2349464432
+  ],
+  [
+   2349494700,
+   2349494740
+  ],
+  [
+   2349494888,
+   2349494986
+  ],
+  [
+   2349496422,
+   2349496492
+  ],
+  [
+   2349505618,
+   2349505856
+  ],
+  [
+   2349505904,
+   2349506144
+  ],
+  [
+   2349506154,
+   2349506174
+  ],
+  [
+   2349506212,
+   2349506400
+  ],
+  [
+   2349507826,
+   2349508014
+  ],
+  [
+   2349508064,
+   2349508112
+  ],
+  [
+   2349515346,
+   2349515406
+  ],
+  [
+   2349515448,
+   2349515584
+  ],
+  [
+   2349515604,
+   2349515922
+  ],
+  [
+   2349515968,
+   2349516208
+  ],
+  [
+   2349516228,
+   2349516476
+  ],
+  [
+   2349516508,
+   2349516680
+  ],
+  [
+   2349516692,
+   2349516870
+  ],
+  [
+   2349516880,
+   2349517056
+  ],
+  [
+   2349523188,
+   2349523296
+  ],
+  [
+   2349523332,
+   2349523548
+  ],
+  [
+   2349528884,
+   2349529052
+  ],
+  [
+   2349529234,
+   2349529372
+  ],
+  [
+   2349529974,
+   2349530182
+  ],
+  [
+   2349530228,
+   2349530446
+  ],
+  [
+   2349530476,
+   2349530646
+  ],
+  [
+   2349530684,
+   2349530850
+  ],
+  [
+   2349531422,
+   2349531550
+  ],
+  [
+   2349531596,
+   2349531884
+  ],
+  [
+   2349531956,
+   2349532210
+  ],
+  [
+   2349532240,
+   2349532490
+  ],
+  [
+   2349532544,
+   2349532710
+  ],
+  [
+   2349533372,
+   2349533644
+  ],
+  [
+   2349533684,
+   2349533898
+  ],
+  [
+   2349533960,
+   2349534198
+  ],
+  [
+   2349534236,
+   2349534430
+  ],
+  [
+   2349534476,
+   2349534524
+  ],
+  [
+   2349534534,
+   2349534754
+  ],
+  [
+   2349534828,
+   2349535016
+  ],
+  [
+   2349535402,
+   2349535540
+  ],
+  [
+   2349536118,
+   2349536328
+  ],
+  [
+   2349536608,
+   2349536814
+  ],
+  [
+   2349536864,
+   2349537038
+  ],
+  [
+   2349537064,
+   2349537288
+  ],
+  [
+   2349537320,
+   2349537394
+  ],
+  [
+   2349537404,
+   2349537584
+  ],
+  [
+   2349537604,
+   2349537754
+  ],
+  [
+   2349537780,
+   2349537862
+  ],
+  [
+   2349537876,
+   2349537954
+  ],
+  [
+   2349537988,
+   2349538094
+  ],
+  [
+   2349538186,
+   2349538326
+  ],
+  [
+   2349538344,
+   2349538446
+  ],
+  [
+   2349592938,
+   2349593092
+  ],
+  [
+   2349593140,
+   2349593272
+  ],
+  [
+   2349593332,
+   2349593594
+  ],
+  [
+   2349593644,
+   2349593774
+  ],
+  [
+   2349593866,
+   2349593916
+  ],
+  [
+   2349593964,
+   2349594162
+  ],
+  [
+   2349594204,
+   2349594458
+  ],
+  [
+   2349594500,
+   2349594568
+  ],
+  [
+   2349594584,
+   2349594788
+  ],
+  [
+   2349594828,
+   2349594970
+  ],
+  [
+   2349595000,
+   2349595220
+  ],
+  [
+   2349595268,
+   2349595492
+  ],
+  [
+   2349595528,
+   2349595686
+  ],
+  [
+   2349595704,
+   2349595926
+  ],
+  [
+   2349595956,
+   2349596168
+  ],
+  [
+   2349596208,
+   2349596386
+  ],
+  [
+   2349596404,
+   2349596454
+  ],
+  [
+   2349596492,
+   2349596746
+  ],
+  [
+   2349596800,
+   2349597062
+  ],
+  [
+   2349604824,
+   2349605236
+  ],
+  [
+   2349605252,
+   2349605446
+  ],
+  [
+   2349607808,
+   2349607858
+  ],
+  [
+   2349620670,
+   2349620726
+  ],
+  [
+   2349623114,
+   2349623152
+  ],
+  [
+   2349623182,
+   2349623254
+  ],
+  [
+   2349623288,
+   2349623474
+  ],
+  [
+   2349623500,
+   2349623704
+  ],
+  [
+   2349623736,
+   2349623994
+  ],
+  [
+   2349624044,
+   2349624290
+  ],
+  [
+   2349624340,
+   2349624526
+  ],
+  [
+   2349624568,
+   2349624782
+  ],
+  [
+   2349624828,
+   2349624958
+  ],
+  [
+   2349625028,
+   2349625070
+  ],
+  [
+   2349625116,
+   2349625380
+  ],
+  [
+   2349625424,
+   2349625476
+  ],
+  [
+   2349631214,
+   2349631280
+  ],
+  [
+   2349631320,
+   2349631354
+  ],
+  [
+   2349631368,
+   2349631722
+  ],
+  [
+   2349631780,
+   2349632050
+  ],
+  [
+   2349632100,
+   2349632336
+  ],
+  [
+   2349639366,
+   2349639390
+  ],
+  [
+   2349640348,
+   2349640434
+  ],
+  [
+   2349640518,
+   2349640752
+  ],
+  [
+   2349640796,
+   2349640944
+  ],
+  [
+   2349640964,
+   2349641156
+  ],
+  [
+   2349641184,
+   2349641460
+  ],
+  [
+   2349641496,
+   2349641566
+  ],
+  [
+   2349645564,
+   2349645764
+  ],
+  [
+   2349646152,
+   2349646362
+  ]
+ ],
+ "frozen_body_bytes": 434656,
+ "minimum_gain": 15000,
+ "minimum_cases": 64,
+ "minimum_scenarios": 2,
+ "helpers": [
+  "0x8c039f50"
+ ],
+ "entries": {
+  "0x8c036006": {
+   "new_credit": true,
+   "size": 250,
+   "binding": "motion:0x8c036006",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 21.25,
+     "stdout": "matrix_family: 974/974 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c036006.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 5.14,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c036006.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1954,
+    "sha256": "f1db2b51af0ec483732ec7c73d72827643a5d734b8d7650541773382f2d6f617"
+   }
+  },
+  "0x8c039f50": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "motion:0x8c039f50",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 18.141,
+     "stdout": "matrix_family: 144/144 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c039f50.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 10.984,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c039f50.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 294,
+    "sha256": "06e7863f8d82a6b45444c429b051044e5a4b825102d477a83f0448e6676c8b28"
+   }
+  },
+  "0x8c03c76c": {
+   "new_credit": true,
+   "size": 168,
+   "binding": "motion:0x8c03c76c",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 19.094,
+     "stdout": "matrix_family: 925/925 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c03c76c.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.703,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c03c76c.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1856,
+    "sha256": "78062bfc004c6c5ef10430062721d056c1ffefd6f9b1c7af5cc9633b67f22c38"
+   }
+  },
+  "0x8c03d506": {
+   "new_credit": true,
+   "size": 432,
+   "binding": "motion:0x8c03d506",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 32.375,
+     "stdout": "matrix_family: 262/262 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c03d506.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 4.891,
+     "stdout": "matrix_family: 43/43 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c03d506.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 530,
+    "sha256": "d62ae50ae00755293dbf8833b93df63787d659e8ee1bfebb142274ed8ab91ec7"
+   }
+  },
+  "0x8c03e8ca": {
+   "new_credit": true,
+   "size": 174,
+   "binding": "motion:0x8c03e8ca",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 19.25,
+     "stdout": "matrix_family: 1053/1053 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c03e8ca.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.359,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c03e8ca.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 2112,
+    "sha256": "b50eacd8c1497eab92515e974f1168fe136e50764f3a6be6ce4affb1b098a268"
+   }
+  },
+  "0x8c044cd4": {
+   "new_credit": true,
+   "size": 582,
+   "binding": "motion:0x8c044cd4",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 23.0,
+     "stdout": "matrix_family: 1282/1282 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c044cd4.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 5.234,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c044cd4.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 2570,
+    "sha256": "9241d8d90c44730605839155e94446bcf1512ac01a4838892d0c42b5d85c6c4d"
+   }
+  },
+  "0x8c045210": {
+   "new_credit": true,
+   "size": 292,
+   "binding": "motion:0x8c045210",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 23.281,
+     "stdout": "matrix_family: 1312/1312 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c045210.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 5.719,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c045210.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 2630,
+    "sha256": "4afae093849d6151414496d67370ee0ffbb39e3107e0d8ce91f2605cf3dcedf9"
+   }
+  },
+  "0x8c04550e": {
+   "new_credit": true,
+   "size": 148,
+   "binding": "motion:0x8c04550e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 21.828,
+     "stdout": "matrix_family: 1282/1282 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04550e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 6.172,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04550e.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 2570,
+    "sha256": "4ccf97c1099e7e509bff63b65119abe8bc9f388a5773918060a30e4d916ffde1"
+   }
+  },
+  "0x8c04568a": {
+   "new_credit": true,
+   "size": 350,
+   "binding": "motion:0x8c04568a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 17.203,
+     "stdout": "matrix_family: 982/982 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04568a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 4.813,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04568a.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1970,
+    "sha256": "f73fd826d8286d5afbac82fc5b11a8938d79cd244486db96fa90d45ac604b993"
+   }
+  },
+  "0x8c046416": {
+   "new_credit": true,
+   "size": 278,
+   "binding": "motion:0x8c046416",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 18.375,
+     "stdout": "matrix_family: 982/982 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c046416.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 5.016,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c046416.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1970,
+    "sha256": "e37221d4ad8048dc323aa2a4210c7c78a917ab3cd45395008e7402526f39688d"
+   }
+  },
+  "0x8c0488ea": {
+   "new_credit": true,
+   "size": 322,
+   "binding": "motion:0x8c0488ea",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 1.813,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0488ea.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.078,
+     "stdout": "matrix_family: 5/5 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0488ea.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 198,
+    "sha256": "091470cff416bc50e918e8040ebabab27cd022dcd61fcc494fd199c0a8d39824"
+   }
+  },
+  "0x8c048d6a": {
+   "new_credit": true,
+   "size": 138,
+   "binding": "motion:0x8c048d6a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 1.312,
+     "stdout": "matrix_family: 69/69 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c048d6a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.75,
+     "stdout": "matrix_family: 27/27 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c048d6a.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 144,
+    "sha256": "0742bb7de94a7ff8c895fb1767c63502bdb43a449b3bf3c42691a349a248a457"
+   }
+  },
+  "0x8c04a1c0": {
+   "new_credit": true,
+   "size": 308,
+   "binding": "motion:0x8c04a1c0",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.5,
+     "stdout": "matrix_family: 268/268 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04a1c0.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.125,
+     "stdout": "matrix_family: 6/6 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04a1c0.cases"
+    }
+   },
+   "scenario_count": 6,
+   "artifacts": {
+    "count": 542,
+    "sha256": "c1c8a05b09d634ba051992198b142f374396b53a985e5792aa2493f705f8f323"
+   }
+  },
+  "0x8c04a6dc": {
+   "new_credit": true,
+   "size": 1984,
+   "binding": "motion:0x8c04a6dc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 13.203,
+     "stdout": "matrix_family: 838/838 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04a6dc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.453,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04a6dc.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 1682,
+    "sha256": "4f6d4f564d17febce77ee4d02a15e6180aa72f0c4b68c6afd4d882e6cb8ed581"
+   }
+  },
+  "0x8c04af14": {
+   "new_credit": true,
+   "size": 602,
+   "binding": "motion:0x8c04af14",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.828,
+     "stdout": "matrix_family: 835/835 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04af14.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.812,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04af14.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 1676,
+    "sha256": "95a0178a1d4cb6a6032e695e42bddf603ec667c24cbf5d99c3039938b2981a2b"
+   }
+  },
+  "0x8c04bd7a": {
+   "new_credit": true,
+   "size": 142,
+   "binding": "motion:0x8c04bd7a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 15.422,
+     "stdout": "matrix_family: 982/982 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c04bd7a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 4.687,
+     "stdout": "matrix_family: 288/288 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c04bd7a.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1970,
+    "sha256": "f72d908fc5ffeddf07afeb4e3301e6a362e275a114d531bd7ba9daf791d791f4"
+   }
+  },
+  "0x8c069734": {
+   "new_credit": true,
+   "size": 248,
+   "binding": "motion:0x8c069734",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.015,
+     "stdout": "matrix_family: 262/262 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c069734.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 139/139 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c069734.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 530,
+    "sha256": "bcbb088c859bbdf30fd28f6bfe91111109b9567abccd76739a3a8d226d1e56b1"
+   }
+  },
+  "0x8c06b6f0": {
+   "new_credit": true,
+   "size": 322,
+   "binding": "motion:0x8c06b6f0",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.047,
+     "stdout": "matrix_family: 262/262 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c06b6f0.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.125,
+     "stdout": "matrix_family: 139/139 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c06b6f0.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 530,
+    "sha256": "d713124ec63ff2561c44adc53d04044e4c3697e25c55444e9d09e70ac586629f"
+   }
+  },
+  "0x8c06c21e": {
+   "new_credit": true,
+   "size": 272,
+   "binding": "motion:0x8c06c21e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 3.86,
+     "stdout": "matrix_family: 257/257 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c06c21e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.656,
+     "stdout": "matrix_family: 43/43 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c06c21e.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 520,
+    "sha256": "578b8d3275d94d0b5485415c6ba0074e30b3c5c1c78d7e1b4576ed928369c117"
+   }
+  },
+  "0x8c06dece": {
+   "new_credit": true,
+   "size": 192,
+   "binding": "motion:0x8c06dece",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 26.422,
+     "stdout": "matrix_family: 222/222 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c06dece.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 4.859,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c06dece.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 450,
+    "sha256": "679ec00dcb53a24a31825c82e8e19ebd677fd168724119b5d150de878e777ff5"
+   }
+  },
+  "0x8c06e536": {
+   "new_credit": true,
+   "size": 840,
+   "binding": "motion:0x8c06e536",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 1.719,
+     "stdout": "matrix_family: 116/116 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c06e536.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 238,
+    "sha256": "98ddd7013df196d3ba2e1f7be0e7df8932ce639a714953028a581c80ef084c75"
+   }
+  },
+  "0x8c06eabc": {
+   "new_credit": true,
+   "size": 170,
+   "binding": "motion:0x8c06eabc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 3.875,
+     "stdout": "matrix_family: 264/264 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c06eabc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.703,
+     "stdout": "matrix_family: 43/43 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c06eabc.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 534,
+    "sha256": "e8cc8e0c985ebe7ee143834a40233d368602ed6684974bdb0e705f105ce59968"
+   }
+  },
+  "0x8c07459e": {
+   "new_credit": true,
+   "size": 130,
+   "binding": "motion:0x8c07459e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 3.406,
+     "stdout": "matrix_family: 196/196 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c07459e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.703,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c07459e.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 398,
+    "sha256": "6ea527f27248264788c3530293f919046c60acd18741cbbd01dfcd9b8aa452c7"
+   }
+  },
+  "0x8c074fee": {
+   "new_credit": true,
+   "size": 188,
+   "binding": "motion:0x8c074fee",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.438,
+     "stdout": "matrix_family: 246/246 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c074fee.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.688,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c074fee.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 498,
+    "sha256": "7479c7c929c1e34c7f8bf4a629fca43c2262307d750ea215e08131b8a54b4936"
+   }
+  },
+  "0x8c07b882": {
+   "new_credit": true,
+   "size": 220,
+   "binding": "motion:0x8c07b882",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 2.891,
+     "stdout": "matrix_family: 160/160 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c07b882.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.782,
+     "stdout": "matrix_family: 108/108 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c07b882.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 326,
+    "sha256": "5c377d64d524ba92a35da2504f60432cbde6684181354c033ff8f795d6ee2bea"
+   }
+  },
+  "0x8c07ba3a": {
+   "new_credit": true,
+   "size": 2074,
+   "binding": "motion:0x8c07ba3a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.156,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c07ba3a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.312,
+     "stdout": "matrix_family: 138/138 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c07ba3a.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 518,
+    "sha256": "bb1d647917a17a52ad2260128ade76d4eacf3a3842036ed973e32319c65fe481"
+   }
+  },
+  "0x8c084682": {
+   "new_credit": true,
+   "size": 402,
+   "binding": "motion:0x8c084682",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.265,
+     "stdout": "matrix_family: 220/220 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c084682.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.718,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c084682.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 446,
+    "sha256": "fad3316d79e83111dd1d87153116ac8e1c2f748aa671816f6d8fbe886a7e17eb"
+   }
+  },
+  "0x8c08487e": {
+   "new_credit": true,
+   "size": 212,
+   "binding": "motion:0x8c08487e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 3.328,
+     "stdout": "matrix_family: 222/222 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08487e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.765,
+     "stdout": "matrix_family: 43/43 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08487e.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 450,
+    "sha256": "24db064307134799dbb1bd5be85987641c8feedba2f4872c0e0a616daadddcab"
+   }
+  },
+  "0x8c08649c": {
+   "new_credit": true,
+   "size": 158,
+   "binding": "motion:0x8c08649c",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.172,
+     "stdout": "matrix_family: 251/251 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08649c.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.422,
+     "stdout": "matrix_family: 138/138 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08649c.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 508,
+    "sha256": "55f36635b214101fb97a638745021bc559f4ce7964a75467a473c35b80d1ce9e"
+   }
+  },
+  "0x8c089456": {
+   "new_credit": true,
+   "size": 130,
+   "binding": "motion:0x8c089456",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.625,
+     "stdout": "matrix_family: 254/254 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c089456.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.36,
+     "stdout": "matrix_family: 138/138 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c089456.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 514,
+    "sha256": "9076eddd731a3bfab3a1628007a8d4c50dd5a558769679e082d51ab63fa5f7c8"
+   }
+  },
+  "0x8c08ab06": {
+   "new_credit": true,
+   "size": 226,
+   "binding": "motion:0x8c08ab06",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.484,
+     "stdout": "matrix_family: 257/257 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08ab06.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.782,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08ab06.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 520,
+    "sha256": "60e1b934bf880a6737497c534243e13ff56450e634e9ef405569c080d138a99a"
+   }
+  },
+  "0x8c08bb26": {
+   "new_credit": true,
+   "size": 392,
+   "binding": "motion:0x8c08bb26",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 11.219,
+     "stdout": "matrix_family: 630/630 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08bb26.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.516,
+     "stdout": "matrix_family: 84/84 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08bb26.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1266,
+    "sha256": "8cf5b56805a3d25243d7b95ee42a61c55e565d494c694d735ed6549ea3b383ca"
+   }
+  },
+  "0x8c08bf0e": {
+   "new_credit": true,
+   "size": 142,
+   "binding": "motion:0x8c08bf0e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 7.047,
+     "stdout": "matrix_family: 442/442 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08bf0e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.391,
+     "stdout": "matrix_family: 84/84 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08bf0e.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 890,
+    "sha256": "20fb08f03cc7e2787e9f8131815e61cdc551f63d6b7d106e1ab30d337bb92da2"
+   }
+  },
+  "0x8c08c1bc": {
+   "new_credit": true,
+   "size": 128,
+   "binding": "motion:0x8c08c1bc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 6.656,
+     "stdout": "matrix_family: 411/411 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08c1bc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.421,
+     "stdout": "matrix_family: 84/84 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08c1bc.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 828,
+    "sha256": "23527d59e5daee13f9154662e1f0e3b0ad160da647c231a5dd0da7f642180375"
+   }
+  },
+  "0x8c08dd1a": {
+   "new_credit": true,
+   "size": 152,
+   "binding": "motion:0x8c08dd1a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 5.907,
+     "stdout": "matrix_family: 331/331 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08dd1a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.781,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08dd1a.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 668,
+    "sha256": "4715fa6701ef52b50bff5fd4a2aa39ca899ed5ddea624e255bbf5e6772de6132"
+   }
+  },
+  "0x8c08dddc": {
+   "new_credit": true,
+   "size": 266,
+   "binding": "motion:0x8c08dddc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 3.5,
+     "stdout": "matrix_family: 175/175 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c08dddc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.281,
+     "stdout": "matrix_family: 14/14 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c08dddc.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 356,
+    "sha256": "598b6851e508f08d58bf9d81a9247dfe22e690ec3a0579406e36489afa0b638c"
+   }
+  },
+  "0x8c092690": {
+   "new_credit": true,
+   "size": 160,
+   "binding": "motion:0x8c092690",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 16.375,
+     "stdout": "matrix_family: 948/948 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c092690.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 3.141,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c092690.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1902,
+    "sha256": "a8b0395e15c71d11237db75b372c46d9c4674e2b1c1c7a97c4f599a8820a4530"
+   }
+  },
+  "0x8c0926cc": {
+   "new_credit": true,
+   "size": 242,
+   "binding": "motion:0x8c0926cc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 9.484,
+     "stdout": "matrix_family: 402/402 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0926cc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.906,
+     "stdout": "matrix_family: 43/43 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0926cc.cases"
+    }
+   },
+   "scenario_count": 15,
+   "artifacts": {
+    "count": 810,
+    "sha256": "f63faae6fb36e0b9c4cc0e73afd32a42c03682f594686b93da2e709d37da6d2e"
+   }
+  },
+  "0x8c0927fa": {
+   "new_credit": true,
+   "size": 556,
+   "binding": "motion:0x8c0927fa",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 25.516,
+     "stdout": "matrix_family: 738/738 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0927fa.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 7.078,
+     "stdout": "matrix_family: 133/133 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0927fa.cases"
+    }
+   },
+   "scenario_count": 17,
+   "artifacts": {
+    "count": 1482,
+    "sha256": "189a6744534900daa76137b4ef08d766077e480dc1936a0f44b672e5b848541f"
+   }
+  },
+  "0x8c092c4c": {
+   "new_credit": true,
+   "size": 498,
+   "binding": "motion:0x8c092c4c",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 23.906,
+     "stdout": "matrix_family: 1056/1056 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c092c4c.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 9.844,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c092c4c.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 2118,
+    "sha256": "d3070f9c8bb852864d755425db9d2695c3a6b1750864d3a542001d1a53f5f299"
+   }
+  },
+  "0x8c093642": {
+   "new_credit": true,
+   "size": 272,
+   "binding": "motion:0x8c093642",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 18.5,
+     "stdout": "matrix_family: 1056/1056 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c093642.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.953,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c093642.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 2118,
+    "sha256": "c34acafcf670dd27dab64130b3a209080059e5aff13c42dae712978e258cd58f"
+   }
+  },
+  "0x8c09397c": {
+   "new_credit": true,
+   "size": 136,
+   "binding": "motion:0x8c09397c",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 16.735,
+     "stdout": "matrix_family: 923/923 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c09397c.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.891,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c09397c.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1852,
+    "sha256": "7c8d5847375b3b8b32c39117bcb12fd2dabc64cd8c215442207b6f9002d00ba9"
+   }
+  },
+  "0x8c096d62": {
+   "new_credit": true,
+   "size": 134,
+   "binding": "motion:0x8c096d62",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.703,
+     "stdout": "matrix_family: 259/259 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c096d62.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 138/138 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c096d62.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 524,
+    "sha256": "c5bc637e4d2c78760a69cdffac93a67876ec7d569d6ffcdb0cb6bb9732958e18"
+   }
+  },
+  "0x8c09f440": {
+   "new_credit": true,
+   "size": 166,
+   "binding": "motion:0x8c09f440",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 12.109,
+     "stdout": "matrix_family: 540/540 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c09f440.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.969,
+     "stdout": "matrix_family: 188/188 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c09f440.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1086,
+    "sha256": "1506c9fe79306875ddab9ba138a50fd9249c5b88c1b915981985da7e41ef8640"
+   }
+  },
+  "0x8c0a791a": {
+   "new_credit": true,
+   "size": 198,
+   "binding": "motion:0x8c0a791a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 10.047,
+     "stdout": "matrix_family: 461/461 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0a791a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.359,
+     "stdout": "matrix_family: 87/87 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0a791a.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 928,
+    "sha256": "7ed5faa7ef4e83771b323d9d25a4a059457e1ad6bf81c0dd485b45de0ece05e1"
+   }
+  },
+  "0x8c0a80b8": {
+   "new_credit": true,
+   "size": 286,
+   "binding": "motion:0x8c0a80b8",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 6.0,
+     "stdout": "matrix_family: 259/259 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0a80b8.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.25,
+     "stdout": "matrix_family: 139/139 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0a80b8.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 524,
+    "sha256": "bd347b1b0caede720bcf9bcc020b7fbeaa2ab9e54257c35a34b7fa407c546df8"
+   }
+  },
+  "0x8c0ab19c": {
+   "new_credit": true,
+   "size": 290,
+   "binding": "motion:0x8c0ab19c",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 1.391,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0ab19c.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.375,
+     "stdout": "matrix_family: 21/21 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0ab19c.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 134,
+    "sha256": "b4a0f0926cc7a0509f76a33a4fc43620e0e9de3cba856ae27a8ed1d3dff1b717"
+   }
+  },
+  "0x8c0ad1b8": {
+   "new_credit": true,
+   "size": 362,
+   "binding": "motion:0x8c0ad1b8",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 2.453,
+     "stdout": "matrix_family: 65/65 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0ad1b8.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.218,
+     "stdout": "matrix_family: 10/10 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0ad1b8.cases"
+    }
+   },
+   "scenario_count": 16,
+   "artifacts": {
+    "count": 136,
+    "sha256": "7066bd85229fc2ecf52f9863101f3335842356502ea8b4093dbbee03d103bcfe"
+   }
+  },
+  "0x8c0ad5aa": {
+   "new_credit": true,
+   "size": 492,
+   "binding": "motion:0x8c0ad5aa",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 2.235,
+     "stdout": "matrix_family: 81/81 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0ad5aa.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.172,
+     "stdout": "matrix_family: 10/10 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0ad5aa.cases"
+    }
+   },
+   "scenario_count": 16,
+   "artifacts": {
+    "count": 168,
+    "sha256": "3e0f41e0f0d6105c0cfb27bc177906c3cda67230cc3a9c87a9b236afcb2c2765"
+   }
+  },
+  "0x8c0c1da6": {
+   "new_credit": true,
+   "size": 348,
+   "binding": "motion:0x8c0c1da6",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 18.875,
+     "stdout": "matrix_family: 647/647 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0c1da6.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.453,
+     "stdout": "matrix_family: 144/144 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0c1da6.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 1300,
+    "sha256": "3451df1c10278ebfe7951e3c98662fa7a244395e62bd06a3b00d32d72b7b3a47"
+   }
+  },
+  "0x8c0c3c3e": {
+   "new_credit": true,
+   "size": 1218,
+   "binding": "motion:0x8c0c3c3e",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 4.828,
+     "stdout": "matrix_family: 262/262 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0c3c3e.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 2.344,
+     "stdout": "matrix_family: 139/139 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0c3c3e.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 530,
+    "sha256": "49d8f94be941a1a9771af3c64c61481ebc75a4677094c41c48671ee71df4f1b3"
+   }
+  },
+  "0x8c0ca6de": {
+   "new_credit": true,
+   "size": 304,
+   "binding": "motion:0x8c0ca6de",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 15.219,
+     "stdout": "matrix_family: 502/502 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0ca6de.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.797,
+     "stdout": "matrix_family: 84/84 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0ca6de.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1010,
+    "sha256": "ca68764771d0fa1c22aee6f178a11eb10e3d883d9767d8162be390941ab41536"
+   }
+  },
+  "0x8c0cb008": {
+   "new_credit": true,
+   "size": 1024,
+   "binding": "motion:0x8c0cb008",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 6.516,
+     "stdout": "matrix_family: 116/116 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0cb008.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 238,
+    "sha256": "ee7881f54c7339e85fd18814eb127b94b38018c73d8a1d97e263453ac4ac7f8d"
+   }
+  },
+  "0x8c0cb8fc": {
+   "new_credit": true,
+   "size": 184,
+   "binding": "motion:0x8c0cb8fc",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 12.562,
+     "stdout": "matrix_family: 660/660 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0cb8fc.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.61,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0cb8fc.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 1326,
+    "sha256": "1204de95eaaf49bfaa7006f4fcb2269c54483c8b9405bfa43e59bf09db5f69b0"
+   }
+  },
+  "0x8c0cb9f0": {
+   "new_credit": true,
+   "size": 316,
+   "binding": "motion:0x8c0cb9f0",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 14.968,
+     "stdout": "matrix_family: 848/848 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0cb9f0.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.625,
+     "stdout": "matrix_family: 96/96 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0cb9f0.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1702,
+    "sha256": "d7de7f7ec02d095537c7e9f7946e04704541ce4d3cf5951719e4fd6177e5974a"
+   }
+  },
+  "0x8c0cbb6a": {
+   "new_credit": true,
+   "size": 350,
+   "binding": "motion:0x8c0cbb6a",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 8.625,
+     "stdout": "matrix_family: 375/375 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0cbb6a.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 0.797,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0cbb6a.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 756,
+    "sha256": "f7670fc2e4f9be2f568e7fc2a23e0743e6443764a682ff31b03264c8e5667edf"
+   }
+  },
+  "0x8c0cc692": {
+   "new_credit": true,
+   "size": 510,
+   "binding": "motion:0x8c0cc692",
+   "proofs": {
+    "motion_release_replay.json": {
+     "pass": true,
+     "seconds": 7.375,
+     "stdout": "matrix_family: 519/519 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_release_cases\\f_8c0cc692.cases"
+    },
+    "motion_acceptance_replay.json": {
+     "pass": true,
+     "seconds": 1.281,
+     "stdout": "matrix_family: 84/84 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\motion_acceptance_cases\\f_8c0cc692.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 1044,
+    "sha256": "306d71e2e1dd92411c4b92a89073a982463976e1ce4e6a3979bfb56add6082c3"
+   }
+  }
+ },
+ "excluded": {
+  "0x8c0352da": "case 1: unsupported helper/state at 8c0352da PC 0c001006 (0 OOB)",
+  "0x8c06f3c2": "Unfinished invocation in a release capture",
+  "0x8c072b50": "case 71: unsupported helper/state at 8c072b50 PC 0c0557e0 (0 OOB)",
+  "0x8c08b448": "case 251: unsupported helper/state at 8c08b448 PC 0c0869ae (0 OOB)",
+  "0x8c09635a": "case 1: unsupported helper/state at 8c09635a PC 0c0352da (0 OOB)",
+  "0x8c0a99aa": "case 237: unsupported helper/state at 8c0a99aa PC 0c0ae450 (0 OOB)",
+  "0x8c0750be": "Device-dependent worker remains outside this verified batch"
+ },
+ "reports": [
+  "motion_release_replay.json",
+  "motion_acceptance_replay.json"
+ ],
+ "capture_runs": 29,
+ "target_gain": 20000,
+ "measured_gain": 21080,
+ "fresh_capture_runs": 3,
+ "new_capture_runs": 16,
+ "new_capture_seconds": 795.931,
+ "new_capture_bytes": 9337870776,
+ "capture_seconds": 1250.33,
+ "capture_bytes": 14024464332,
+ "started_invocations": 101105,
+ "completed_invocations": 101083,
+ "without_fresh_samples": [
+  "0x8c06e536",
+  "0x8c0cb008"
+ ]
+}

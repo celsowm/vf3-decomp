@@ -22,6 +22,7 @@ import json
 import os
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -74,21 +75,19 @@ def run_tests():
     return out
 
 
-def run_bindings(bindings: Path):
+def run_bindings(bindings: Path, jobs=1):
     if not bindings.exists():
         return []
     cfg = json.loads(bindings.read_text(encoding="utf-8"))
-    out = []
-    for pc, spec in sorted(cfg.items()):
+    def replay(item):
+        pc,spec=item
         test = str(spec["test"]).split()
         golden = REPO / spec["golden"]
         exe = REPO / test[0]
         if not exe.exists():
-            out.append((pc, "MISSING-TEST", str(exe)))
-            continue
+            return pc, "MISSING-TEST", str(exe)
         if not golden.exists():
-            out.append((pc, "MISSING-GOLDEN", str(golden)))
-            continue
+            return pc, "MISSING-GOLDEN", str(golden)
         cmd = [str(exe)] + test[1:] + [str(golden)]
         env=dict(os.environ)
         if spec.get("strict"):
@@ -96,15 +95,20 @@ def run_bindings(bindings: Path):
         p = subprocess.run(cmd, capture_output=True,
                            text=True, cwd=REPO, timeout=600,env=env)
         line = (p.stdout or p.stderr).strip().splitlines()
-        out.append((pc, "PASS" if p.returncode == 0 else "FAIL",
-                    line[-1] if line else ""))
-    return out
+        return pc, "PASS" if p.returncode == 0 else "FAIL", line[-1] if line else ""
+    with ThreadPoolExecutor(max_workers=jobs) as executor:
+        out=[]
+        for result in executor.map(replay,sorted(cfg.items())):
+            out.append(result)
+            if jobs>1: print(f'binding {result[0]}: {result[1]}',flush=True)
+        return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--goldens", default="extract/analysis/goldens")
     ap.add_argument("--bindings", default="tools/golden_bindings.json")
+    ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='independent bound replay processes (1-4)')
     a = ap.parse_args()
 
     rows, errs = validate_goldens(REPO / a.goldens)
@@ -115,7 +119,7 @@ def main() -> int:
     print("replay tests:")
     for t, st, last in tests:
         print(f"  {t:12} {st:6} {last[:80]}")
-    binds = run_bindings(REPO / a.bindings)
+    binds = run_bindings(REPO / a.bindings,a.jobs)
     print("golden-bound ports:")
     if not binds:
         print("  (none yet - add tools/golden_bindings.json)")

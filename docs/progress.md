@@ -1,5 +1,23 @@
 # VF3tb decomp — progress log
 
+## Motion, task and callback batch (2026-09-30)
+
+- [x] Added 56 baseline invocation ports. Verified C union increases
+  **48,220 -> 69,300 (+21,080 bytes)**, exceeding the 20,000-byte target and
+  reaching **15.94%**. Combined C+SDK accounting is **438/2,398 functions**
+  and **111,512 bytes (25.7%)**, excluding trace-only observations.
+- [x] All 57 strict bindings pass **28,501 distinct complete cases**, with
+  at least 64 cases and two independent state/input scenarios per binding.
+  Full registers/XF/FPUL/GBR/return-PC/RAM, zero skips and zero OOB accesses.
+- [x] Reused existing adapter modules, resolved original callback tables and
+  added a readable motion-record initializer. Five previously blocked callers
+  now pass their earlier and new cases. Sixteen new captures plus 13 reused
+  runs preserve all shutdown and rejected-specimen accounting.
+- [x] Fresh acceptance finds no failures among selected ports. Regeneration
+  reproduces all five adapter sources. Unit checks and corpus hash audit pass.
+  The complete verification gate passes, including all historical bindings.
+  See [motion batch](re/motion_batch.md) for evidence and remaining exclusions.
+
 ## Fight worker and shared-helper batch (2026-09-29)
 
 - [x] Added 36 baseline invocation ports. Verified C union increases

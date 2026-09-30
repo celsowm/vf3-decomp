@@ -3,6 +3,10 @@ import struct
 import unittest
 import tempfile
 from pathlib import Path
+from unittest.mock import patch
+from types import SimpleNamespace
+import json
+from tools import portcheck
 from tools.batch_plan import implementation_graph
 from tools.oracle.translate_adapters import emit, adapter_pcs
 
@@ -48,6 +52,26 @@ class AdapterOpcodeTests(unittest.TestCase):
     def test_cache_allocate_store_does_not_read_a_banked_register(self):
         self.assertEqual(emit(0x0c010000,0x04c3),['write(ram,r[4],r[0],4);'])
         with self.assertRaises(ValueError): emit(0x0c010000,0x04c2)
+
+
+class ParallelBindingTests(unittest.TestCase):
+    def test_parallel_bindings_preserve_arguments_strictness_and_order(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); (root/'runner.exe').touch(); (root/'cases').touch()
+            bindings=root/'bindings.json'
+            bindings.write_text(json.dumps({
+                'b':{'test':'runner.exe 0x8c010002','golden':'cases','strict':True},
+                'a':{'test':'runner.exe 0x8c010000','golden':'cases','strict':True}
+            }))
+            with patch.object(portcheck,'REPO',root), patch.object(portcheck.subprocess,'run') as run:
+                run.return_value=SimpleNamespace(returncode=0,stdout='PASS',stderr='')
+                rows=portcheck.run_bindings(bindings,jobs=2)
+                self.assertEqual(rows,[('a','PASS','PASS'),('b','PASS','PASS')])
+                self.assertEqual(run.call_count,2)
+                for call in run.call_args_list:
+                    self.assertEqual(call.kwargs['env']['VF3_STRICT_REPLAY'],'1')
+                    self.assertEqual(call.args[0][0],str(root/'runner.exe'))
+                    self.assertEqual(call.args[0][-1],str(root/'cases'))
 
 
 if __name__=='__main__':

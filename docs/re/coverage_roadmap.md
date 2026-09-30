@@ -1,13 +1,14 @@
 # Coverage roadmap — next batches (2026-09-25)
 
-## Current checkpoint (2026-09-29, after two C batches)
+## Current checkpoint (2026-09-30, after three C batches)
 
-Verified C union is **48,220/434,656 bytes (11.09%)**, with 116 baseline ports
-and 19 historical off-baseline leaves. The latest batch adds **19,682 unique
-C bytes** and passes 18,523 strict cases. Combined C+SDK accounting is
-**383/2,398 functions**; historical forecasts below are not current counts.
-The historical 550-function checkpoint remains 167 functions away.
-See `matrix_batch.md` and `fight_batch.md` for measured delivery and exclusions.
+Verified C union is **69,300/434,656 bytes (15.94%)**, with 172 baseline ports.
+The latest batch adds **21,080 unique C bytes** and passes 28,501 strict cases.
+Combined C+SDK accounting is **438/2,398 functions**, **111,512 bytes (25.7%)**;
+historical forecasts below are not current counts.
+The historical 550-function checkpoint remains 112 functions away.
+See `matrix_batch.md`, `fight_batch.md` and `motion_batch.md` for measured
+delivery and exclusions.
 Use the refreshed original-image dependency-cost rankings for new batches;
 tiny Ghidra helper seeds are no longer treated as their implementation cost.
 

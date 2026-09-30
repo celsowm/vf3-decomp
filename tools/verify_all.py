@@ -35,11 +35,12 @@ def run(cmd, allow_fail=False):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-build", action="store_true")
+    ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='parallel independent bound replays')
     a = ap.parse_args()
     ok = True
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
-    ok &= run([PY, "tools/portcheck.py"])
+    ok &= run([PY, "tools/portcheck.py",'--jobs',str(a.jobs)])
     for batch in sorted((REPO/'tools/oracle').glob('*_batch.json')):
         ok &= run([PY, 'tools/oracle/audit_matrix_batch.py', '--manifest', str(batch)])
     ok &= run([PY, "tools/decomp_stats.py"])
