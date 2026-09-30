@@ -699,5 +699,390 @@
   "strict": true,
   "source": "Complete registers/XF/FPUL/GBR/return-PC/touched-RAM invocation; no skips",
   "port": "src/fight/matrix_family.c"
+ },
+ "fight:0x8c036c8c": {
+  "test": "build/vf3matrixfamily.exe 0x8c036c8c",
+  "golden": "extract/analysis/fight_release_cases/f_8c036c8c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c038570": {
+  "test": "build/vf3matrixfamily.exe 0x8c038570",
+  "golden": "extract/analysis/fight_release_cases/f_8c038570.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c038590": {
+  "test": "build/vf3matrixfamily.exe 0x8c038590",
+  "golden": "extract/analysis/fight_release_cases/f_8c038590.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c042d7c": {
+  "test": "build/vf3matrixfamily.exe 0x8c042d7c",
+  "golden": "extract/analysis/fight_release_cases/f_8c042d7c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c042f08": {
+  "test": "build/vf3matrixfamily.exe 0x8c042f08",
+  "golden": "extract/analysis/fight_release_cases/f_8c042f08.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c055d00": {
+  "test": "build/vf3matrixfamily.exe 0x8c055d00",
+  "golden": "extract/analysis/fight_release_cases/f_8c055d00.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c068e0e": {
+  "test": "build/vf3matrixfamily.exe 0x8c068e0e",
+  "golden": "extract/analysis/fight_release_cases/f_8c068e0e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c06911c": {
+  "test": "build/vf3matrixfamily.exe 0x8c06911c",
+  "golden": "extract/analysis/fight_release_cases/f_8c06911c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_helpers.c"
+ },
+ "fight:0x8c06912a": {
+  "test": "build/vf3matrixfamily.exe 0x8c06912a",
+  "golden": "extract/analysis/fight_release_cases/f_8c06912a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_helpers.c"
+ },
+ "fight:0x8c069624": {
+  "test": "build/vf3matrixfamily.exe 0x8c069624",
+  "golden": "extract/analysis/fight_release_cases/f_8c069624.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_helpers.c"
+ },
+ "fight:0x8c06bf66": {
+  "test": "build/vf3matrixfamily.exe 0x8c06bf66",
+  "golden": "extract/analysis/fight_release_cases/f_8c06bf66.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c06dec6": {
+  "test": "build/vf3matrixfamily.exe 0x8c06dec6",
+  "golden": "extract/analysis/fight_release_cases/f_8c06dec6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c06e8a2": {
+  "test": "build/vf3matrixfamily.exe 0x8c06e8a2",
+  "golden": "extract/analysis/fight_release_cases/f_8c06e8a2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c06e8cc": {
+  "test": "build/vf3matrixfamily.exe 0x8c06e8cc",
+  "golden": "extract/analysis/fight_release_cases/f_8c06e8cc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c074158": {
+  "test": "build/vf3matrixfamily.exe 0x8c074158",
+  "golden": "extract/analysis/fight_release_cases/f_8c074158.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c074592": {
+  "test": "build/vf3matrixfamily.exe 0x8c074592",
+  "golden": "extract/analysis/fight_release_cases/f_8c074592.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c074ef0": {
+  "test": "build/vf3matrixfamily.exe 0x8c074ef0",
+  "golden": "extract/analysis/fight_release_cases/f_8c074ef0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c077e5c": {
+  "test": "build/vf3matrixfamily.exe 0x8c077e5c",
+  "golden": "extract/analysis/fight_release_cases/f_8c077e5c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c07b35c": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b35c",
+  "golden": "extract/analysis/fight_release_cases/f_8c07b35c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c07b4d4": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b4d4",
+  "golden": "extract/analysis/fight_release_cases/f_8c07b4d4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c081194": {
+  "test": "build/vf3matrixfamily.exe 0x8c081194",
+  "golden": "extract/analysis/fight_release_cases/f_8c081194.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c087428": {
+  "test": "build/vf3matrixfamily.exe 0x8c087428",
+  "golden": "extract/analysis/fight_release_cases/f_8c087428.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08bcf8": {
+  "test": "build/vf3matrixfamily.exe 0x8c08bcf8",
+  "golden": "extract/analysis/fight_release_cases/f_8c08bcf8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08c240": {
+  "test": "build/vf3matrixfamily.exe 0x8c08c240",
+  "golden": "extract/analysis/fight_release_cases/f_8c08c240.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08c588": {
+  "test": "build/vf3matrixfamily.exe 0x8c08c588",
+  "golden": "extract/analysis/fight_release_cases/f_8c08c588.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08e68c": {
+  "test": "build/vf3matrixfamily.exe 0x8c08e68c",
+  "golden": "extract/analysis/fight_release_cases/f_8c08e68c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08e6a8": {
+  "test": "build/vf3matrixfamily.exe 0x8c08e6a8",
+  "golden": "extract/analysis/fight_release_cases/f_8c08e6a8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c08ec14": {
+  "test": "build/vf3matrixfamily.exe 0x8c08ec14",
+  "golden": "extract/analysis/fight_release_cases/f_8c08ec14.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0922a8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0922a8",
+  "golden": "extract/analysis/fight_release_cases/f_8c0922a8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c09342a": {
+  "test": "build/vf3matrixfamily.exe 0x8c09342a",
+  "golden": "extract/analysis/fight_release_cases/f_8c09342a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c09ee26": {
+  "test": "build/vf3matrixfamily.exe 0x8c09ee26",
+  "golden": "extract/analysis/fight_release_cases/f_8c09ee26.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c09f9fc": {
+  "test": "build/vf3matrixfamily.exe 0x8c09f9fc",
+  "golden": "extract/analysis/fight_release_cases/f_8c09f9fc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0a9c52": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a9c52",
+  "golden": "extract/analysis/fight_release_cases/f_8c0a9c52.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0a9e6a": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a9e6a",
+  "golden": "extract/analysis/fight_release_cases/f_8c0a9e6a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0aa4f2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aa4f2",
+  "golden": "extract/analysis/fight_release_cases/f_8c0aa4f2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0ac252": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ac252",
+  "golden": "extract/analysis/fight_release_cases/f_8c0ac252.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0ad1aa": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ad1aa",
+  "golden": "extract/analysis/fight_release_cases/f_8c0ad1aa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0ae0f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ae0f4",
+  "golden": "extract/analysis/fight_release_cases/f_8c0ae0f4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0af892": {
+  "test": "build/vf3matrixfamily.exe 0x8c0af892",
+  "golden": "extract/analysis/fight_release_cases/f_8c0af892.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0b08bc": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b08bc",
+  "golden": "extract/analysis/fight_release_cases/f_8c0b08bc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0b0f28": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b0f28",
+  "golden": "extract/analysis/fight_release_cases/f_8c0b0f28.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0b0fd2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b0fd2",
+  "golden": "extract/analysis/fight_release_cases/f_8c0b0fd2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0b1560": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b1560",
+  "golden": "extract/analysis/fight_release_cases/f_8c0b1560.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0b1b2e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b1b2e",
+  "golden": "extract/analysis/fight_release_cases/f_8c0b1b2e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0bf4b2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0bf4b2",
+  "golden": "extract/analysis/fight_release_cases/f_8c0bf4b2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0bf50a": {
+  "test": "build/vf3matrixfamily.exe 0x8c0bf50a",
+  "golden": "extract/analysis/fight_release_cases/f_8c0bf50a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0bfef4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0bfef4",
+  "golden": "extract/analysis/fight_release_cases/f_8c0bfef4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0c1fd8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c1fd8",
+  "golden": "extract/analysis/fight_release_cases/f_8c0c1fd8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0c6742": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c6742",
+  "golden": "extract/analysis/fight_release_cases/f_8c0c6742.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0c674a": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c674a",
+  "golden": "extract/analysis/fight_release_cases/f_8c0c674a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0c678e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c678e",
+  "golden": "extract/analysis/fight_release_cases/f_8c0c678e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0c86ee": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c86ee",
+  "golden": "extract/analysis/fight_release_cases/f_8c0c86ee.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0ca6c6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ca6c6",
+  "golden": "extract/analysis/fight_release_cases/f_8c0ca6c6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0caa9c": {
+  "test": "build/vf3matrixfamily.exe 0x8c0caa9c",
+  "golden": "extract/analysis/fight_release_cases/f_8c0caa9c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
+ },
+ "fight:0x8c0cab46": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cab46",
+  "golden": "extract/analysis/fight_release_cases/f_8c0cab46.cases",
+  "strict": true,
+  "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fight_adapters.c"
  }
 }

@@ -1,0 +1,3353 @@
+{
+ "baseline_unique_bytes": 28538,
+ "baseline_spans": [
+  [
+   2349025322,
+   2349025352
+  ],
+  [
+   2349025362,
+   2349025362
+  ],
+  [
+   2349025380,
+   2349025706
+  ],
+  [
+   2349028768,
+   2349028836
+  ],
+  [
+   2349028852,
+   2349028980
+  ],
+  [
+   2349029966,
+   2349030050
+  ],
+  [
+   2349048128,
+   2349048150
+  ],
+  [
+   2349049568,
+   2349049686
+  ],
+  [
+   2349069746,
+   2349069764
+  ],
+  [
+   2349069776,
+   2349069958
+  ],
+  [
+   2349076254,
+   2349076328
+  ],
+  [
+   2349084636,
+   2349084770
+  ],
+  [
+   2349239830,
+   2349239888
+  ],
+  [
+   2349239916,
+   2349240264
+  ],
+  [
+   2349240292,
+   2349240624
+  ],
+  [
+   2349241246,
+   2349241494
+  ],
+  [
+   2349241520,
+   2349241854
+  ],
+  [
+   2349261624,
+   2349261976
+  ],
+  [
+   2349262000,
+   2349262106
+  ],
+  [
+   2349265018,
+   2349265318
+  ],
+  [
+   2349265352,
+   2349265806
+  ],
+  [
+   2349265820,
+   2349265850
+  ],
+  [
+   2349266026,
+   2349266104
+  ],
+  [
+   2349266164,
+   2349266236
+  ],
+  [
+   2349266244,
+   2349266276
+  ],
+  [
+   2349266278,
+   2349266528
+  ],
+  [
+   2349266572,
+   2349266606
+  ],
+  [
+   2349267240,
+   2349267346
+  ],
+  [
+   2349269026,
+   2349269090
+  ],
+  [
+   2349269128,
+   2349269244
+  ],
+  [
+   2349269256,
+   2349269328
+  ],
+  [
+   2349269332,
+   2349269404
+  ],
+  [
+   2349269408,
+   2349269468
+  ],
+  [
+   2349269476,
+   2349269502
+  ],
+  [
+   2349269772,
+   2349269822
+  ],
+  [
+   2349269828,
+   2349269898
+  ],
+  [
+   2349269904,
+   2349269966
+  ],
+  [
+   2349269976,
+   2349270002
+  ],
+  [
+   2349270260,
+   2349270308
+  ],
+  [
+   2349270312,
+   2349270384
+  ],
+  [
+   2349270388,
+   2349270446
+  ],
+  [
+   2349270456,
+   2349270482
+  ],
+  [
+   2349270724,
+   2349270774
+  ],
+  [
+   2349270780,
+   2349270850
+  ],
+  [
+   2349270856,
+   2349270918
+  ],
+  [
+   2349270928,
+   2349270954
+  ],
+  [
+   2349271090,
+   2349271156
+  ],
+  [
+   2349271216,
+   2349271266
+  ],
+  [
+   2349271272,
+   2349271342
+  ],
+  [
+   2349271348,
+   2349271410
+  ],
+  [
+   2349271420,
+   2349271446
+  ],
+  [
+   2349271684,
+   2349271734
+  ],
+  [
+   2349271740,
+   2349271810
+  ],
+  [
+   2349271816,
+   2349271878
+  ],
+  [
+   2349271888,
+   2349271914
+  ],
+  [
+   2349272304,
+   2349272352
+  ],
+  [
+   2349272356,
+   2349272428
+  ],
+  [
+   2349272432,
+   2349272490
+  ],
+  [
+   2349272500,
+   2349272526
+  ],
+  [
+   2349272768,
+   2349272816
+  ],
+  [
+   2349272820,
+   2349272892
+  ],
+  [
+   2349272896,
+   2349272954
+  ],
+  [
+   2349272964,
+   2349272990
+  ],
+  [
+   2349274974,
+   2349275114
+  ],
+  [
+   2349275530,
+   2349275670
+  ],
+  [
+   2349275766,
+   2349275808
+  ],
+  [
+   2349275812,
+   2349275836
+  ],
+  [
+   2349275934,
+   2349276074
+  ],
+  [
+   2349276306,
+   2349276446
+  ],
+  [
+   2349276862,
+   2349277002
+  ],
+  [
+   2349285300,
+   2349285370
+  ],
+  [
+   2349285396,
+   2349285622
+  ],
+  [
+   2349285640,
+   2349285694
+  ],
+  [
+   2349287384,
+   2349287424
+  ],
+  [
+   2349287616,
+   2349287648
+  ],
+  [
+   2349296640,
+   2349296800
+  ],
+  [
+   2349296856,
+   2349297066
+  ],
+  [
+   2349297120,
+   2349297340
+  ],
+  [
+   2349297396,
+   2349297760
+  ],
+  [
+   2349297792,
+   2349298066
+  ],
+  [
+   2349298092,
+   2349298316
+  ],
+  [
+   2349298336,
+   2349298494
+  ],
+  [
+   2349298508,
+   2349298766
+  ],
+  [
+   2349298796,
+   2349299052
+  ],
+  [
+   2349299076,
+   2349299198
+  ],
+  [
+   2349299220,
+   2349299558
+  ],
+  [
+   2349299588,
+   2349299852
+  ],
+  [
+   2349299876,
+   2349300098
+  ],
+  [
+   2349300120,
+   2349300400
+  ],
+  [
+   2349300432,
+   2349300640
+  ],
+  [
+   2349300668,
+   2349300982
+  ],
+  [
+   2349301020,
+   2349301212
+  ],
+  [
+   2349301252,
+   2349302028
+  ],
+  [
+   2349302506,
+   2349302682
+  ],
+  [
+   2349302878,
+   2349303186
+  ],
+  [
+   2349303212,
+   2349303540
+  ],
+  [
+   2349303560,
+   2349303796
+  ],
+  [
+   2349303884,
+   2349304178
+  ],
+  [
+   2349304280,
+   2349304548
+  ],
+  [
+   2349304576,
+   2349304800
+  ],
+  [
+   2349304832,
+   2349305026
+  ],
+  [
+   2349305048,
+   2349305368
+  ],
+  [
+   2349305404,
+   2349305766
+  ],
+  [
+   2349305796,
+   2349306140
+  ],
+  [
+   2349306152,
+   2349306448
+  ],
+  [
+   2349306472,
+   2349306804
+  ],
+  [
+   2349306852,
+   2349307170
+  ],
+  [
+   2349307192,
+   2349307512
+  ],
+  [
+   2349307544,
+   2349307656
+  ],
+  [
+   2349307982,
+   2349307990
+  ],
+  [
+   2349308100,
+   2349308108
+  ],
+  [
+   2349309712,
+   2349309720
+  ],
+  [
+   2349310774,
+   2349310782
+  ],
+  [
+   2349311250,
+   2349311258
+  ],
+  [
+   2349352302,
+   2349352554
+  ],
+  [
+   2349361608,
+   2349361880
+  ],
+  [
+   2349381614,
+   2349381682
+  ],
+  [
+   2349385608,
+   2349385728
+  ],
+  [
+   2349388026,
+   2349388078
+  ],
+  [
+   2349388104,
+   2349388120
+  ],
+  [
+   2349404974,
+   2349405194
+  ],
+  [
+   2349405262,
+   2349405516
+  ],
+  [
+   2349405584,
+   2349405688
+  ],
+  [
+   2349405720,
+   2349406022
+  ],
+  [
+   2349406080,
+   2349406186
+  ],
+  [
+   2349411006,
+   2349411030
+  ],
+  [
+   2349411270,
+   2349411328
+  ],
+  [
+   2349411332,
+   2349411350
+  ],
+  [
+   2349412114,
+   2349412124
+  ],
+  [
+   2349412534,
+   2349412574
+  ],
+  [
+   2349421884,
+   2349421954
+  ],
+  [
+   2349422000,
+   2349422084
+  ],
+  [
+   2349425240,
+   2349425418
+  ],
+  [
+   2349454418,
+   2349454512
+  ],
+  [
+   2349454992,
+   2349455050
+  ],
+  [
+   2349455072,
+   2349455404
+  ],
+  [
+   2349455852,
+   2349455902
+  ],
+  [
+   2349456006,
+   2349456076
+  ],
+  [
+   2349456116,
+   2349456320
+  ],
+  [
+   2349456444,
+   2349456604
+  ],
+  [
+   2349456618,
+   2349456714
+  ],
+  [
+   2349456764,
+   2349457054
+  ],
+  [
+   2349457108,
+   2349457266
+  ],
+  [
+   2349457300,
+   2349457466
+  ],
+  [
+   2349457528,
+   2349457874
+  ],
+  [
+   2349457940,
+   2349458142
+  ],
+  [
+   2349458164,
+   2349458442
+  ],
+  [
+   2349458476,
+   2349458602
+  ],
+  [
+   2349458640,
+   2349459022
+  ],
+  [
+   2349459096,
+   2349459122
+  ],
+  [
+   2349459144,
+   2349459414
+  ],
+  [
+   2349459468,
+   2349459576
+  ],
+  [
+   2349459596,
+   2349459996
+  ],
+  [
+   2349460210,
+   2349460468
+  ],
+  [
+   2349460548,
+   2349460914
+  ],
+  [
+   2349460984,
+   2349461016
+  ],
+  [
+   2349461622,
+   2349461854
+  ],
+  [
+   2349462356,
+   2349462576
+  ],
+  [
+   2349463260,
+   2349463292
+  ],
+  [
+   2349463976,
+   2349464022
+  ],
+  [
+   2349494700,
+   2349494740
+  ],
+  [
+   2349494888,
+   2349494986
+  ],
+  [
+   2349496422,
+   2349496492
+  ],
+  [
+   2349528884,
+   2349529052
+  ],
+  [
+   2349529974,
+   2349530182
+  ],
+  [
+   2349530228,
+   2349530446
+  ],
+  [
+   2349530476,
+   2349530646
+  ],
+  [
+   2349530684,
+   2349530850
+  ],
+  [
+   2349531422,
+   2349531550
+  ],
+  [
+   2349531596,
+   2349531884
+  ],
+  [
+   2349531956,
+   2349532210
+  ],
+  [
+   2349532240,
+   2349532490
+  ],
+  [
+   2349532544,
+   2349532710
+  ],
+  [
+   2349535402,
+   2349535540
+  ],
+  [
+   2349536118,
+   2349536328
+  ],
+  [
+   2349537876,
+   2349537954
+  ],
+  [
+   2349537988,
+   2349538094
+  ],
+  [
+   2349538186,
+   2349538326
+  ],
+  [
+   2349538344,
+   2349538446
+  ],
+  [
+   2349592938,
+   2349593092
+  ],
+  [
+   2349593140,
+   2349593272
+  ],
+  [
+   2349593332,
+   2349593594
+  ],
+  [
+   2349593644,
+   2349593774
+  ],
+  [
+   2349607808,
+   2349607858
+  ],
+  [
+   2349620670,
+   2349620726
+  ],
+  [
+   2349625028,
+   2349625070
+  ],
+  [
+   2349625116,
+   2349625380
+  ],
+  [
+   2349625424,
+   2349625476
+  ],
+  [
+   2349645564,
+   2349645764
+  ],
+  [
+   2349646152,
+   2349646362
+  ]
+ ],
+ "frozen_body_bytes": 434656,
+ "minimum_gain": 15000,
+ "minimum_cases": 64,
+ "minimum_scenarios": 2,
+ "helpers": [
+  "0x8c038570",
+  "0x8c038590",
+  "0x8c042d7c",
+  "0x8c042f08",
+  "0x8c068e0e",
+  "0x8c06911c",
+  "0x8c069624",
+  "0x8c06dec6",
+  "0x8c06e8a2",
+  "0x8c074592",
+  "0x8c07b35c",
+  "0x8c07b4d4",
+  "0x8c08e68c",
+  "0x8c0ad1aa",
+  "0x8c0b0f28",
+  "0x8c0b0fd2",
+  "0x8c0b1b2e",
+  "0x8c0bf4b2",
+  "0x8c0c6742"
+ ],
+ "entries": {
+  "0x8c036c8c": {
+   "new_credit": true,
+   "size": 256,
+   "binding": "fight:0x8c036c8c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 7.907,
+     "stdout": "matrix_family: 512/512 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c036c8c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.75,
+     "stdout": "matrix_family: 382/382 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c036c8c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 3.312,
+     "stdout": "matrix_family: 126/126 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c036c8c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 4.0,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c036c8c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 131/131 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c036c8c.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 1030,
+    "sha256": "dbbe7ee6443a939108782a219abcfc1a97cf89b041e247edfe631a966f85aa93"
+   }
+  },
+  "0x8c038570": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c038570",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 9.125,
+     "stdout": "matrix_family: 576/576 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c038570.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 6.843,
+     "stdout": "matrix_family: 448/448 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c038570.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c038570.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.734,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c038570.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.828,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c038570.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 1158,
+    "sha256": "87592de3ec8ddfc34a5edc2ca665160d63bc8a2447c584b7bf6dad4d7d8f9679"
+   }
+  },
+  "0x8c038590": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c038590",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 7.39,
+     "stdout": "matrix_family: 484/484 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c038590.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 6.032,
+     "stdout": "matrix_family: 396/396 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c038590.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.188,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c038590.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.032,
+     "stdout": "matrix_family: 204/204 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c038590.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.328,
+     "stdout": "matrix_family: 88/88 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c038590.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 974,
+    "sha256": "023d41e39c7690cb950e558812db3e21344bb29e49dbf7152586ae03cb8e0add"
+   }
+  },
+  "0x8c042d7c": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c042d7c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.75,
+     "stdout": "matrix_family: 516/516 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c042d7c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.281,
+     "stdout": "matrix_family: 373/373 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c042d7c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.922,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c042d7c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.359,
+     "stdout": "matrix_family: 246/246 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c042d7c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.859,
+     "stdout": "matrix_family: 144/144 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c042d7c.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 1038,
+    "sha256": "818591b4db2b03bd809dbaaf6c722e8ec7aa8a40a9cc1a59ca4044c40b186aca"
+   }
+  },
+  "0x8c042f08": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c042f08",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.563,
+     "stdout": "matrix_family: 465/465 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c042f08.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.812,
+     "stdout": "matrix_family: 396/396 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c042f08.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c042f08.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.688,
+     "stdout": "matrix_family: 246/246 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c042f08.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.985,
+     "stdout": "matrix_family: 133/133 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c042f08.cases"
+    }
+   },
+   "scenario_count": 11,
+   "artifacts": {
+    "count": 936,
+    "sha256": "9e4129432cffeb7859f789d497277dcc1e3770ac8605c483ddee36f8fcc5f035"
+   }
+  },
+  "0x8c055d00": {
+   "new_credit": true,
+   "size": 14,
+   "binding": "fight:0x8c055d00",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 7.328,
+     "stdout": "matrix_family: 473/473 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c055d00.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.704,
+     "stdout": "matrix_family: 391/391 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c055d00.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c055d00.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.0,
+     "stdout": "matrix_family: 199/199 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c055d00.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.343,
+     "stdout": "matrix_family: 82/82 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c055d00.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 952,
+    "sha256": "1e4b104dc4ea38c7038ea15e4b397df9b5772bda9a9e23025ff59f8589949336"
+   }
+  },
+  "0x8c068e0e": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c068e0e",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.812,
+     "stdout": "matrix_family: 387/387 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c068e0e.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.656,
+     "stdout": "matrix_family: 322/322 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c068e0e.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.359,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c068e0e.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.875,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c068e0e.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.032,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c068e0e.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 780,
+    "sha256": "8e292ee845f1706828dee121fd49033b4cd7974315e5cab18536c828c443fe15"
+   }
+  },
+  "0x8c06911c": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c06911c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.094,
+     "stdout": "matrix_family: 383/383 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06911c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.937,
+     "stdout": "matrix_family: 319/319 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06911c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.469,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c06911c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.0,
+     "stdout": "matrix_family: 191/191 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06911c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.093,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c06911c.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 772,
+    "sha256": "b40fd1c260f73d6feeaa944aa1374662136b19426fb14be01d6d2e1671aac040"
+   }
+  },
+  "0x8c06912a": {
+   "new_credit": true,
+   "size": 350,
+   "binding": "fight:0x8c06912a",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.547,
+     "stdout": "matrix_family: 383/383 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06912a.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.875,
+     "stdout": "matrix_family: 319/319 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06912a.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 3.016,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c06912a.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.062,
+     "stdout": "matrix_family: 191/191 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06912a.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c06912a.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 772,
+    "sha256": "b9e5c6fe88ebe5625407b96d189518b4779552ba5eeddf0a08b957620557e182"
+   }
+  },
+  "0x8c069624": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c069624",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.203,
+     "stdout": "matrix_family: 436/436 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c069624.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.032,
+     "stdout": "matrix_family: 366/366 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c069624.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.64,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c069624.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 1.063,
+     "stdout": "matrix_family: 232/232 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c069624.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.469,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c069624.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 878,
+    "sha256": "e863a7052c603544fc5431176038dfb116261c3373c3fe2581401b7e6684eca9"
+   }
+  },
+  "0x8c06bf66": {
+   "new_credit": true,
+   "size": 228,
+   "binding": "fight:0x8c06bf66",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.766,
+     "stdout": "matrix_family: 400/400 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06bf66.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.75,
+     "stdout": "matrix_family: 330/330 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06bf66.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 3.36,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c06bf66.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.484,
+     "stdout": "matrix_family: 202/202 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06bf66.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c06bf66.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 806,
+    "sha256": "df0a3e6e62bfc9983c310f63d12f59b5438ced802df4257d1a00d724d98180c8"
+   }
+  },
+  "0x8c06dec6": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c06dec6",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 25.968,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06dec6.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 21.046,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06dec6.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 15.687,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c06dec6.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 6.781,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06dec6.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 7.547,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c06dec6.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "ae6824edbab32e8d395b4df38e7c4a42003881410d49a47ae6cbb83931dc2964"
+   }
+  },
+  "0x8c06e8a2": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c06e8a2",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.032,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06e8a2.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.047,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06e8a2.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.953,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06e8a2.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 134,
+    "sha256": "2ed8c0d9321dd9017494f136dfe2987dfe239ddac585d61ec4afdf023c40883b"
+   }
+  },
+  "0x8c06e8cc": {
+   "new_credit": true,
+   "size": 424,
+   "binding": "fight:0x8c06e8cc",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 0.968,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c06e8cc.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 0.985,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c06e8cc.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.953,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c06e8cc.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 134,
+    "sha256": "e15d44d0e15314771bba1dda44d0d74665ece6886a073232cab0d15633052ec0"
+   }
+  },
+  "0x8c074158": {
+   "new_credit": true,
+   "size": 970,
+   "binding": "fight:0x8c074158",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.094,
+     "stdout": "matrix_family: 331/331 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c074158.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 3.922,
+     "stdout": "matrix_family: 267/267 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c074158.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c074158.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.141,
+     "stdout": "matrix_family: 139/139 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c074158.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.313,
+     "stdout": "matrix_family: 65/65 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c074158.cases"
+    }
+   },
+   "scenario_count": 9,
+   "artifacts": {
+    "count": 668,
+    "sha256": "a2d46a04f3ab6398faad0762c8383a63b0cacb879635f863da8ef6ec950cfdcd"
+   }
+  },
+  "0x8c074592": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c074592",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.062,
+     "stdout": "matrix_family: 332/332 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c074592.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.031,
+     "stdout": "matrix_family: 268/268 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c074592.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.109,
+     "stdout": "matrix_family: 114/114 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c074592.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.0,
+     "stdout": "matrix_family: 140/140 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c074592.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.344,
+     "stdout": "matrix_family: 66/66 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c074592.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 670,
+    "sha256": "05f853913c12675d5d5bb4f7ddc33ec097ab4b9e3c8721d41efe53be04bb6623"
+   }
+  },
+  "0x8c074ef0": {
+   "new_credit": true,
+   "size": 200,
+   "binding": "fight:0x8c074ef0",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.266,
+     "stdout": "matrix_family: 342/342 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c074ef0.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.079,
+     "stdout": "matrix_family: 278/278 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c074ef0.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.594,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c074ef0.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 150/150 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c074ef0.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.282,
+     "stdout": "matrix_family: 66/66 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c074ef0.cases"
+    }
+   },
+   "scenario_count": 7,
+   "artifacts": {
+    "count": 690,
+    "sha256": "0b75bf8187ef3877d695684861a98631a899e0041080b0c4c3acf195322f3c3b"
+   }
+  },
+  "0x8c077e5c": {
+   "new_credit": true,
+   "size": 430,
+   "binding": "fight:0x8c077e5c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 3.75,
+     "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c077e5c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c077e5c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.375,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c077e5c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.984,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c077e5c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.296,
+     "stdout": "matrix_family: 63/63 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c077e5c.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 516,
+    "sha256": "728283a9b2d05523f4a6f3284e389a17b1604ae1acfbbe56746304e1e050b5a2"
+   }
+  },
+  "0x8c07b35c": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c07b35c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.0,
+     "stdout": "matrix_family: 389/389 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c07b35c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.812,
+     "stdout": "matrix_family: 323/323 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c07b35c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.234,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c07b35c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.141,
+     "stdout": "matrix_family: 193/193 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c07b35c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.5,
+     "stdout": "matrix_family: 82/82 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c07b35c.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 784,
+    "sha256": "829eea1df8077261ddaf99892c351953ccb0de462d38f416a4d2460d146340e8"
+   }
+  },
+  "0x8c07b4d4": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c07b4d4",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.734,
+     "stdout": "matrix_family: 397/397 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c07b4d4.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.047,
+     "stdout": "matrix_family: 331/331 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c07b4d4.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.25,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c07b4d4.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.953,
+     "stdout": "matrix_family: 193/193 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c07b4d4.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.407,
+     "stdout": "matrix_family: 82/82 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c07b4d4.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 800,
+    "sha256": "4fee04e1391d7d922c565c6c2f86539eb507303de632ed0cb6a0fcca63bc2310"
+   }
+  },
+  "0x8c081194": {
+   "new_credit": true,
+   "size": 1744,
+   "binding": "fight:0x8c081194",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.75,
+     "stdout": "matrix_family: 402/402 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c081194.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.859,
+     "stdout": "matrix_family: 331/331 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c081194.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.172,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c081194.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.016,
+     "stdout": "matrix_family: 201/201 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c081194.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.156,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c081194.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 810,
+    "sha256": "5fbbd4130a33703af3aa2e39131da480785fd6cf63c76e2359e579cc95716a73"
+   }
+  },
+  "0x8c087428": {
+   "new_credit": true,
+   "size": 208,
+   "binding": "fight:0x8c087428",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 4.516,
+     "stdout": "matrix_family: 333/333 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c087428.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.938,
+     "stdout": "matrix_family: 269/269 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c087428.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.203,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c087428.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.265,
+     "stdout": "matrix_family: 141/141 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c087428.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.172,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c087428.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 672,
+    "sha256": "58843cedc0d2c4ad0d96a5d2865fa94e0c55c8ac5db543cd1a1f952c89acacb3"
+   }
+  },
+  "0x8c08bcf8": {
+   "new_credit": true,
+   "size": 366,
+   "binding": "fight:0x8c08bcf8",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 3.688,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08bcf8.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.969,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08bcf8.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.047,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08bcf8.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.938,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08bcf8.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.078,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08bcf8.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "516f2bb12d0f98db55ed55778b13ad4f21b1490c1ef819c815a55f0207836f78"
+   }
+  },
+  "0x8c08c240": {
+   "new_credit": true,
+   "size": 204,
+   "binding": "fight:0x8c08c240",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 3.391,
+     "stdout": "matrix_family: 254/254 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08c240.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.516,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08c240.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.266,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08c240.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.906,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08c240.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.094,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08c240.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 514,
+    "sha256": "983559ac383f2dda2fffb3a8c000646e77d754da3f90323ba10e16e13dfc4588"
+   }
+  },
+  "0x8c08c588": {
+   "new_credit": true,
+   "size": 288,
+   "binding": "fight:0x8c08c588",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 2.734,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08c588.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.031,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08c588.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.656,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08c588.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.813,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08c588.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.984,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08c588.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "329a70fbe56f7d439b83c8dfee9b0767da82e929a022c3c471e0b59675ee8393"
+   }
+  },
+  "0x8c08e68c": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c08e68c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 7.172,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08e68c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.469,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08e68c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.031,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08e68c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.453,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08e68c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.797,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08e68c.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "2333395fdd57a4eea45851b533dde4296a233d7bc47b1385c25bb0d38e880b00"
+   }
+  },
+  "0x8c08e6a8": {
+   "new_credit": true,
+   "size": 544,
+   "binding": "fight:0x8c08e6a8",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.484,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08e6a8.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.64,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08e6a8.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.438,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08e6a8.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.578,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08e6a8.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.828,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08e6a8.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "50b9886be011fb7a75e665eeb7f6df442814a3ec874952a21f29900bd0bbc1a9"
+   }
+  },
+  "0x8c08ec14": {
+   "new_credit": true,
+   "size": 312,
+   "binding": "fight:0x8c08ec14",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 4.516,
+     "stdout": "matrix_family: 334/334 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c08ec14.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 3.406,
+     "stdout": "matrix_family: 270/270 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c08ec14.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.547,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c08ec14.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.312,
+     "stdout": "matrix_family: 141/141 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c08ec14.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.344,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c08ec14.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 674,
+    "sha256": "2298bca474e49545d7ae49a038e4ef81c27434d19c88b26e01ca8975865a9be2"
+   }
+  },
+  "0x8c0922a8": {
+   "new_credit": true,
+   "size": 420,
+   "binding": "fight:0x8c0922a8",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 36.062,
+     "stdout": "matrix_family: 384/384 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0922a8.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 34.36,
+     "stdout": "matrix_family: 320/320 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0922a8.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 12.937,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0922a8.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 19.453,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0922a8.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 14.453,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0922a8.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 774,
+    "sha256": "5689c10776c65e0d0721622772e365a10c7cda85ea1bad870097cacb2625f58e"
+   }
+  },
+  "0x8c09342a": {
+   "new_credit": true,
+   "size": 270,
+   "binding": "fight:0x8c09342a",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.36,
+     "stdout": "matrix_family: 384/384 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c09342a.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.156,
+     "stdout": "matrix_family: 320/320 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c09342a.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.782,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c09342a.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.781,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c09342a.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.359,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c09342a.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 774,
+    "sha256": "e12d46f39b35683363f98a6feb432a224740b1368d016a8e8eb97dab14dbf2ec"
+   }
+  },
+  "0x8c09ee26": {
+   "new_credit": true,
+   "size": 346,
+   "binding": "fight:0x8c09ee26",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 4.187,
+     "stdout": "matrix_family: 277/277 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c09ee26.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.015,
+     "stdout": "matrix_family: 233/233 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c09ee26.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.062,
+     "stdout": "matrix_family: 68/68 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c09ee26.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.468,
+     "stdout": "matrix_family: 165/165 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c09ee26.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.266,
+     "stdout": "matrix_family: 105/105 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c09ee26.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 560,
+    "sha256": "2959b54336b21641241854e3368d7b97d765e07f1d54447e671615c35ce8e519"
+   }
+  },
+  "0x8c09f9fc": {
+   "new_credit": true,
+   "size": 342,
+   "binding": "fight:0x8c09f9fc",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.688,
+     "stdout": "matrix_family: 391/391 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c09f9fc.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.266,
+     "stdout": "matrix_family: 325/325 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c09f9fc.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.953,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c09f9fc.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.891,
+     "stdout": "matrix_family: 197/197 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c09f9fc.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.11,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c09f9fc.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 788,
+    "sha256": "5d3686f0a2db3c3228b65f82f5490c2b8732dbdf0ed3f233083dd603506a6fc2"
+   }
+  },
+  "0x8c0a9c52": {
+   "new_credit": true,
+   "size": 478,
+   "binding": "fight:0x8c0a9c52",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.062,
+     "stdout": "matrix_family: 396/396 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0a9c52.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.234,
+     "stdout": "matrix_family: 324/324 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0a9c52.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.875,
+     "stdout": "matrix_family: 127/127 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0a9c52.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.0,
+     "stdout": "matrix_family: 197/197 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0a9c52.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.218,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0a9c52.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 798,
+    "sha256": "020ac6a32db141866d24bb2e6a6be73f85c44b4528a247059f9105d640d4e49e"
+   }
+  },
+  "0x8c0a9e6a": {
+   "new_credit": true,
+   "size": 208,
+   "binding": "fight:0x8c0a9e6a",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.375,
+     "stdout": "matrix_family: 400/400 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0a9e6a.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.282,
+     "stdout": "matrix_family: 334/334 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0a9e6a.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.063,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0a9e6a.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.937,
+     "stdout": "matrix_family: 202/202 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0a9e6a.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.11,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0a9e6a.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 806,
+    "sha256": "78021ffc3896a8eae84b03bd5ae974199561ecfe6838a515f33f6bf760e78d07"
+   }
+  },
+  "0x8c0aa4f2": {
+   "new_credit": true,
+   "size": 236,
+   "binding": "fight:0x8c0aa4f2",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 2.641,
+     "stdout": "matrix_family: 177/177 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0aa4f2.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 2.718,
+     "stdout": "matrix_family: 156/156 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0aa4f2.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.547,
+     "stdout": "matrix_family: 27/27 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0aa4f2.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 1.375,
+     "stdout": "matrix_family: 94/94 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0aa4f2.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.531,
+     "stdout": "matrix_family: 24/24 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0aa4f2.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 360,
+    "sha256": "f3a65d71b01a59563c3fac50ad85a97f316ffab40ca786a9aefdbeb0cf94f23a"
+   }
+  },
+  "0x8c0ac252": {
+   "new_credit": true,
+   "size": 1528,
+   "binding": "fight:0x8c0ac252",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.594,
+     "stdout": "matrix_family: 110/110 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0ac252.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.86,
+     "stdout": "matrix_family: 110/110 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0ac252.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.719,
+     "stdout": "matrix_family: 46/46 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0ac252.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.156,
+     "stdout": "matrix_family: 7/7 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0ac252.cases"
+    }
+   },
+   "scenario_count": 3,
+   "artifacts": {
+    "count": 226,
+    "sha256": "b320490a4db2671839987fea0ceb4bfff12fbb94adf8fc3cfc5c255b157b47d4"
+   }
+  },
+  "0x8c0ad1aa": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0ad1aa",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.562,
+     "stdout": "matrix_family: 68/68 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0ad1aa.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.234,
+     "stdout": "matrix_family: 13/13 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0ad1aa.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.797,
+     "stdout": "matrix_family: 26/26 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0ad1aa.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.485,
+     "stdout": "matrix_family: 11/11 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0ad1aa.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 142,
+    "sha256": "d0e32aa2d5491ed810170ce4d9e9b79712c4f86d4ad28a0cdcebaa7c4f238f78"
+   }
+  },
+  "0x8c0ae0f4": {
+   "new_credit": true,
+   "size": 324,
+   "binding": "fight:0x8c0ae0f4",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 4.61,
+     "stdout": "matrix_family: 272/272 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0ae0f4.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.125,
+     "stdout": "matrix_family: 232/232 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0ae0f4.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.485,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0ae0f4.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.484,
+     "stdout": "matrix_family: 163/163 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0ae0f4.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.954,
+     "stdout": "matrix_family: 101/101 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0ae0f4.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 550,
+    "sha256": "46531ca68cc747113ff82b06ab05aeb3c3867f07982429cfe09307cfba203549"
+   }
+  },
+  "0x8c0af892": {
+   "new_credit": true,
+   "size": 138,
+   "binding": "fight:0x8c0af892",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.875,
+     "stdout": "matrix_family: 393/393 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0af892.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 3.953,
+     "stdout": "matrix_family: 327/327 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0af892.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.922,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0af892.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.61,
+     "stdout": "matrix_family: 197/197 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0af892.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.89,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0af892.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 792,
+    "sha256": "a8aa0bf77ec3aab518917d57d7e4911bd6a9b4d0dd4e531e075bd62e235d2ba6"
+   }
+  },
+  "0x8c0b08bc": {
+   "new_credit": true,
+   "size": 1374,
+   "binding": "fight:0x8c0b08bc",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.578,
+     "stdout": "matrix_family: 408/408 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0b08bc.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.0,
+     "stdout": "matrix_family: 344/344 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0b08bc.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.188,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0b08bc.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.25,
+     "stdout": "matrix_family: 212/212 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0b08bc.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.078,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0b08bc.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 822,
+    "sha256": "0f055f3242be37b41ebbb28aa6960f493ba5707495271ea3510a45852bafbb46"
+   }
+  },
+  "0x8c0b0f28": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0b0f28",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.734,
+     "stdout": "matrix_family: 418/418 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0b0f28.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.203,
+     "stdout": "matrix_family: 354/354 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0b0f28.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.031,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0b0f28.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.172,
+     "stdout": "matrix_family: 220/220 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0b0f28.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.015,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0b0f28.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 842,
+    "sha256": "186085fb3c348f1d56e836712990d71c94e4e3ee60136c70e9aa66cfc5e5c2c6"
+   }
+  },
+  "0x8c0b0fd2": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0b0fd2",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 2.844,
+     "stdout": "matrix_family: 341/341 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0b0fd2.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.938,
+     "stdout": "matrix_family: 277/277 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0b0fd2.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.156,
+     "stdout": "matrix_family: 116/116 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0b0fd2.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 1.531,
+     "stdout": "matrix_family: 149/149 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0b0fd2.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.875,
+     "stdout": "matrix_family: 70/70 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0b0fd2.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 688,
+    "sha256": "4cfda24e67018495376cee5c14ab43de6e5532f3920b5e30a7bfd80cbc39749b"
+   }
+  },
+  "0x8c0b1560": {
+   "new_credit": true,
+   "size": 1090,
+   "binding": "fight:0x8c0b1560",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.625,
+     "stdout": "matrix_family: 110/110 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0b1560.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.218,
+     "stdout": "matrix_family: 79/79 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0b1560.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.656,
+     "stdout": "matrix_family: 37/37 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0b1560.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 0.735,
+     "stdout": "matrix_family: 42/42 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0b1560.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.516,
+     "stdout": "matrix_family: 31/31 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0b1560.cases"
+    }
+   },
+   "scenario_count": 6,
+   "artifacts": {
+    "count": 226,
+    "sha256": "ba87b69fbd545e10e500f44f8b7966cb1136db8af587a4a287c4c2c3535f8f68"
+   }
+  },
+  "0x8c0b1b2e": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0b1b2e",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.437,
+     "stdout": "matrix_family: 379/379 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0b1b2e.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.594,
+     "stdout": "matrix_family: 319/319 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0b1b2e.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.266,
+     "stdout": "matrix_family: 121/121 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0b1b2e.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.859,
+     "stdout": "matrix_family: 189/189 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0b1b2e.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.984,
+     "stdout": "matrix_family: 120/120 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0b1b2e.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 764,
+    "sha256": "89ac05f95bfa49123a87fefcab01135889986007ddbf5dfce19fabc3425f15c0"
+   }
+  },
+  "0x8c0bf4b2": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0bf4b2",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 5.063,
+     "stdout": "matrix_family: 351/351 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0bf4b2.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.172,
+     "stdout": "matrix_family: 287/287 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0bf4b2.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.016,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0bf4b2.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.454,
+     "stdout": "matrix_family: 157/157 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0bf4b2.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.016,
+     "stdout": "matrix_family: 68/68 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0bf4b2.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 708,
+    "sha256": "71fbedcacce534f5aa035c6107ee9685894dff6b3e89f3cd7983daa1afa8c8c8"
+   }
+  },
+  "0x8c0bf50a": {
+   "new_credit": true,
+   "size": 2130,
+   "binding": "fight:0x8c0bf50a",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.469,
+     "stdout": "matrix_family: 408/408 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0bf50a.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.172,
+     "stdout": "matrix_family: 344/344 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0bf50a.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.031,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0bf50a.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.343,
+     "stdout": "matrix_family: 212/212 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0bf50a.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.0,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0bf50a.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 822,
+    "sha256": "f1a7e91381ca0d40350eaa37c85f5de9dc934f0ea62ee368ee104406eb858777"
+   }
+  },
+  "0x8c0bfef4": {
+   "new_credit": true,
+   "size": 566,
+   "binding": "fight:0x8c0bfef4",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 1.031,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0bfef4.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.015,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0bfef4.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.094,
+     "stdout": "matrix_family: 3/3 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0bfef4.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 1.078,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0bfef4.cases"
+    }
+   },
+   "scenario_count": 2,
+   "artifacts": {
+    "count": 140,
+    "sha256": "7ec653838b187fb573472c1b8a149930ef6bc9d326e0422ed75f0394c7721de7"
+   }
+  },
+  "0x8c0c1fd8": {
+   "new_credit": true,
+   "size": 606,
+   "binding": "fight:0x8c0c1fd8",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.312,
+     "stdout": "matrix_family: 390/390 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0c1fd8.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 4.719,
+     "stdout": "matrix_family: 322/322 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0c1fd8.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 1.89,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0c1fd8.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.141,
+     "stdout": "matrix_family: 194/194 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0c1fd8.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.297,
+     "stdout": "matrix_family: 82/82 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0c1fd8.cases"
+    }
+   },
+   "scenario_count": 8,
+   "artifacts": {
+    "count": 786,
+    "sha256": "ad229dd9909e8d872bb0f5c362cf8ee1dd17abc928fba298d66e00799f7c3352"
+   }
+  },
+  "0x8c0c6742": {
+   "new_credit": false,
+   "size": 0,
+   "binding": "fight:0x8c0c6742",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 2.5,
+     "stdout": "matrix_family: 399/399 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0c6742.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 1.656,
+     "stdout": "matrix_family: 335/335 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0c6742.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 0.938,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0c6742.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 1.984,
+     "stdout": "matrix_family: 207/207 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0c6742.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 0.907,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0c6742.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 804,
+    "sha256": "e5a9ad55f834dba9d47bfbf101188fc8ee0b526ede318643f2527ce6e975800a"
+   }
+  },
+  "0x8c0c674a": {
+   "new_credit": true,
+   "size": 38,
+   "binding": "fight:0x8c0c674a",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.313,
+     "stdout": "matrix_family: 370/370 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0c674a.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.657,
+     "stdout": "matrix_family: 304/304 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0c674a.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.328,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0c674a.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.766,
+     "stdout": "matrix_family: 141/141 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0c674a.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.187,
+     "stdout": "matrix_family: 66/66 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0c674a.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 746,
+    "sha256": "4616d538b180c146177a756bf073d172350fb4a1175a9e717fd039c9ddf11475"
+   }
+  },
+  "0x8c0c678e": {
+   "new_credit": true,
+   "size": 1496,
+   "binding": "fight:0x8c0c678e",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.5,
+     "stdout": "matrix_family: 414/414 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0c678e.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 6.187,
+     "stdout": "matrix_family: 346/346 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0c678e.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.156,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0c678e.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.922,
+     "stdout": "matrix_family: 154/154 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0c678e.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.203,
+     "stdout": "matrix_family: 68/68 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0c678e.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 834,
+    "sha256": "d3e1308c865abf8594f3691be88c6b341aaba6a8c17ed5db852cc9fcb47e39ab"
+   }
+  },
+  "0x8c0c86ee": {
+   "new_credit": true,
+   "size": 960,
+   "binding": "fight:0x8c0c86ee",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 25.437,
+     "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0c86ee.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 20.188,
+     "stdout": "matrix_family: 192/192 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0c86ee.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 13.984,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0c86ee.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 7.094,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0c86ee.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 7.063,
+     "stdout": "matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0c86ee.cases"
+    }
+   },
+   "scenario_count": 4,
+   "artifacts": {
+    "count": 518,
+    "sha256": "420ae75a03c3938751ad3b3e98c61776e44a1499792d5d6f5e92d2a7fc4450dd"
+   }
+  },
+  "0x8c0ca6c6": {
+   "new_credit": true,
+   "size": 24,
+   "binding": "fight:0x8c0ca6c6",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 7.016,
+     "stdout": "matrix_family: 412/412 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0ca6c6.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 6.218,
+     "stdout": "matrix_family: 345/345 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0ca6c6.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.391,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0ca6c6.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 3.078,
+     "stdout": "matrix_family: 153/153 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0ca6c6.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.203,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0ca6c6.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 830,
+    "sha256": "1a1fded3abe835520908264a616f92d06b604c41c0fd3f83e6bf94a280393d54"
+   }
+  },
+  "0x8c0caa9c": {
+   "new_credit": true,
+   "size": 86,
+   "binding": "fight:0x8c0caa9c",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 9.156,
+     "stdout": "matrix_family: 344/344 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0caa9c.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 5.282,
+     "stdout": "matrix_family: 280/280 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0caa9c.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 3.891,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0caa9c.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 5.219,
+     "stdout": "matrix_family: 152/152 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0caa9c.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 2.375,
+     "stdout": "matrix_family: 68/68 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0caa9c.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 694,
+    "sha256": "50c0f39b98b1a704ff556930d1c0a8887a7efc32c141c481b4609d1a79263639"
+   }
+  },
+  "0x8c0cab46": {
+   "new_credit": true,
+   "size": 920,
+   "binding": "fight:0x8c0cab46",
+   "proofs": {
+    "fight_release_replay.json": {
+     "pass": true,
+     "seconds": 6.938,
+     "stdout": "matrix_family: 412/412 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_release_cases\\f_8c0cab46.cases"
+    },
+    "fight_all_replay.json": {
+     "pass": true,
+     "seconds": 6.437,
+     "stdout": "matrix_family: 345/345 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_all_cases\\f_8c0cab46.cases"
+    },
+    "fight_extended_replay.json": {
+     "pass": true,
+     "seconds": 2.39,
+     "stdout": "matrix_family: 128/128 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_extended_cases\\f_8c0cab46.cases"
+    },
+    "fight_holdout_replay.json": {
+     "pass": true,
+     "seconds": 2.921,
+     "stdout": "matrix_family: 153/153 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_holdout_cases\\f_8c0cab46.cases"
+    },
+    "fight_final_replay.json": {
+     "pass": true,
+     "seconds": 1.312,
+     "stdout": "matrix_family: 67/67 cases match (0 skipped) - PASS",
+     "stderr": "",
+     "cases": "extract\\analysis\\fight_final_cases\\f_8c0cab46.cases"
+    }
+   },
+   "scenario_count": 10,
+   "artifacts": {
+    "count": 830,
+    "sha256": "7ded27b126511ff2a52b81f8e1cc65fa1bd29279d2c68fcb1a94641cf2f480f2"
+   }
+  }
+ },
+ "excluded": {
+  "0x8c072b50": "case 71: unsupported helper/state at 8c072b50 PC 0c0557e0 (0 OOB)",
+  "0x8c08bb26": "case 148: unsupported helper/state at 8c08bb26 PC 0c08c82e (0 OOB)",
+  "0x8c0926cc": "case 193: unsupported helper/state at 8c0926cc PC 0c093412 (0 OOB)",
+  "0x8c0927fa": "case 193: unsupported helper/state at 8c0927fa PC 0c039f50 (0 OOB)",
+  "0x8c09635a": "case 1: unsupported helper/state at 8c09635a PC 0c0352da (0 OOB)",
+  "0x8c0cb9f0": "case 159: unsupported helper/state at 8c0cb9f0 PC 0c0cc2d6 (0 OOB)",
+  "0x8c0cbb6a": "case 138: unsupported helper/state at 8c0cbb6a PC 0c0cc2d6 (0 OOB)",
+  "0x8c0750be": "Only one eligible development invocation and fewer than 16 across independent boot schedules; device-dependent samples excluded",
+  "0x8c0b1a46": "Unfinished invocation; tracked in capture shutdown summary and never promoted",
+  "0x8c09575c": "Unfinished invocation; tracked in capture shutdown summary and never promoted",
+  "0x8c08b204": "Unfinished invocation; tracked in capture shutdown summary and never promoted"
+ },
+ "reports": [
+  "fight_release_replay.json",
+  "fight_all_replay.json",
+  "fight_extended_replay.json",
+  "fight_holdout_replay.json",
+  "fight_final_replay.json"
+ ],
+ "capture_runs": 13,
+ "capture_seconds": 454.399,
+ "capture_bytes": 4686593556,
+ "started_invocations": 36177,
+ "completed_invocations": 36173
+}

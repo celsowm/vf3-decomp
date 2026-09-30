@@ -2,6 +2,7 @@
 import struct
 import unittest
 from tools.batch_plan import implementation_graph
+from tools.oracle.translate_adapters import emit
 
 
 class ImplementationGraphTests(unittest.TestCase):
@@ -27,6 +28,17 @@ class ImplementationGraphTests(unittest.TestCase):
         self.assertEqual(len(pcs),4)
         self.assertEqual(unknown,{0x8c010000})
         self.assertFalse(targets)
+
+
+class AdapterOpcodeTests(unittest.TestCase):
+    def test_rotate_left_updates_carry(self):
+        statements=emit(0x0c010000,0x4004)
+        self.assertIn('r[0]>>31',statements[0])
+        self.assertEqual(statements[1],'r[0]=(r[0]<<1)|(r[0]>>31);')
+
+    def test_cache_allocate_store_does_not_read_a_banked_register(self):
+        self.assertEqual(emit(0x0c010000,0x04c3),['write(ram,r[4],r[0],4);'])
+        with self.assertRaises(ValueError): emit(0x0c010000,0x04c2)
 
 
 if __name__=='__main__':

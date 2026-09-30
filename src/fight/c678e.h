@@ -1,4 +1,8 @@
-/* vf3 fight-engine worker — SH-4 0x8C0C678E (1772 B body, rts 0x8C0C6E7A).
+/* Historical partial research model; the complete invocation port now uses
+ * matrix_family's dispatcher and fight_helpers.c. This model is not called
+ * by that dispatcher. See docs/re/fight_batch.md for current strict evidence.
+ *
+ * vf3 fight-engine worker — SH-4 0x8C0C678E (1772 B body, rts 0x8C0C6E7A).
  *
  * Mid-prologue entry: the r8-r14/fr12-fr15 saves at 0x8C0C6762-6C78 already
  * ran, so in_r15 is post-push; the body pushes pr then reserves 64 bytes

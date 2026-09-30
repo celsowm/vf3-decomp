@@ -1,5 +1,21 @@
 # VF3tb decomp — progress log
 
+## Fight worker and shared-helper batch (2026-09-29)
+
+- [x] Added 36 baseline invocation ports. Verified C union increases
+  **28,538 -> 48,220 (+19,682 bytes)**, exceeding the 15,000-byte target and
+  reaching **11.09%** of the frozen denominator. Combined C+SDK count is
+  **383/2,398**; SDK attribution contributes no new C-byte credit.
+- [x] All 55 strict bindings pass **18,523 cases** with zero skips and OOB
+  accesses. At least 64 distinct cases and two state/input scenarios per entry.
+- [x] Replaced the incomplete mesh worker claim with a complete invocation
+  port: **414/414 PASS** using actual cell-table and linked-record reads.
+  Shared angle and mesh algorithms are C; caller adapters retain per-PC labels.
+- [x] Thirteen captures, fresh held-out states, source regeneration, hash audits,
+  unit checks and the full verification gate pass. Known failing callbacks,
+  context switching and the insufficiently sampled large worker remain
+  uncredited. See [fight batch](re/fight_batch.md).
+
 ## Matrix, pose and vector batch (2026-09-29)
 
 - [x] Added 36 baseline C invocation ports through shared matrix/vector
