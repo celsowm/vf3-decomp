@@ -70,6 +70,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
     switch(entry) {
+    case 0x0c069624: return vf3_fight_angle(s,ram);
+    case 0x0c06911c: case 0x0c06912a: return vf3_fight_mesh(entry,s,ram);
     case 0x0C03C940: case 0x0C03C880: case 0x0C03C6C0: {
         uint32_t out[37],xf[16];
         int ok=entry==0x0C03C940?vf3_sh4_c940(s->v,out,&XF(0),xf):
@@ -169,7 +171,10 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         swap_banks(s); FR(12)=FPUL;
         for(unsigned i=13;i<16;++i) { load(s,ram,i,R(15)); R(15)+=width(s); } break;
     }
-    default: return vf3_matrix_adapter(entry,s,ram);
+    default:
+        /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_fight_adapter_contains(entry)) return vf3_fight_adapter(entry,s,ram);
+        return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);
     return ram->oob==0;

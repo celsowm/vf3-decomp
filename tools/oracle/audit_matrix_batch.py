@@ -45,9 +45,19 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
             assert 'runs' in campaign or case.parent.name == 'matrix_v4_cases'
             for run in campaign.get('runs', []):
                 if not run.get('summary_missing'):
-                    assert not run['incomplete'] and run['started'] == run['completed']
+                    assert run['started'] == run['completed']+len(run['incomplete'])
             campaigns[case.parent] = campaign
-        assert len(campaigns[case.parent]['entries'][entry]) == count
+        campaign=campaigns[case.parent]
+        for run in campaign.get('runs', []):
+            assert entry not in {hex(int(r['entry'],16)|0x80000000) for r in run.get('incomplete',[])}
+        records=campaign['entries'][entry]
+        assert len(records) == count
+        minimum=evidence.get('minimum_cases',manifest.get('minimum_cases',1))
+        assert count>=minimum, f'Insufficient distinct cases: {entry}'
+        batch=json.loads((case.parent/'batch_manifest.json').read_text())
+        scenario_map={str(Path(run['capsule']).resolve()):(run.get('state',''),run.get('play','')) for run in batch['runs'] if run.get('capsule')}
+        scenarios={scenario_map.get(str(Path(source['source']).resolve()),source['source']) for record in records for source in record['sources']}
+        assert len(scenarios)>=manifest.get('minimum_scenarios',1), f'Insufficient scenarios: {entry}'
         artifacts = sorted(p for p in case.parent.glob(case.stem+'*') if p.is_file())
         assert len(artifacts) == evidence['artifacts']['count']
         archive_hash = hashlib.sha256()

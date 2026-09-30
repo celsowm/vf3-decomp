@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 import struct
 import re
+import sys
 
 ROOT=Path(__file__).resolve().parents[2]
 MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
@@ -83,6 +84,7 @@ def emit(pc,w):
         if k==0x24: return [f"tmp={rn}>>31; {rn}=({rn}<<1)|(r[17]&1u);",t("tmp")]
         if k==0x25: return [f"tmp={rn}&1u; {rn}=({rn}>>1)|((r[17]&1u)<<31);",t("tmp")]
         if k==0x05: return [t(f'{rn}&1u'),f'{rn}=({rn}>>1)|({rn}<<31);']
+        if k==0x04: return [t(f'{rn}>>31'),f'{rn}=({rn}<<1)|({rn}>>31);']
         dest={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x0E:17}.get(k)
         if dest is not None: return [f"r[{dest}]={rn};"]
         dest={0x06:20,0x16:19,0x26:16,0x56:53,0x66:18}.get(k)
@@ -99,6 +101,7 @@ def emit(pc,w):
         if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
         if low==7: return [f"r[19]={rn}*{rm};"]
         if k==0x83: return [] # PREF of RAM has no architectural result.
+        if k==0xc3: return [f'write(ram,{rn},r[0],4);'] # MOVCA.L: interpreter-visible RAM store.
     if top==8:
         k=(w>>8)&15; reg=(w>>4)&15; d=w&15
         if k in (0,1): return [f"write(ram,r[{reg}]+{d*(1<<k)},r[0],{1<<k});"]
@@ -141,7 +144,7 @@ def emit(pc,w):
             if k==0x9D: return [f"{fn}=0x3f800000u;"]
     raise ValueError(f"unsupported {pc:08x}: {w:04x}")
 
-def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False):
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0):
     legacy=watch is None
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
@@ -166,6 +169,20 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     # Drop capture-only legacy regression workers from this new family.
     ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
     image=(ROOT/"extract/exe/1ST_READ.unsc.bin").read_bytes()
+    if reuse_matrix:
+        sys.path.insert(0,str(ROOT))
+        from tools.batch_plan import implementation_graph
+        # Root adapters must own their whole intraprocedural control flow.
+        # A tiny or absent Ghidra seed cannot split a dispatch helper midway.
+        root_scan=implementation_graph(image,{})
+        for root in roots:
+            forced.update(a&0x1fffffff for a in root_scan(root|0x80000000)[0])
+        ops={a:w for a,w in ops.items() if not reused(a)}
+    foreign={a:w for a,w in ops.items() if not 0xc010000<=a<0xc010000+len(image)-1}
+    if not legacy:
+        # Dynamically installed code is not an original-image implementation.
+        # Preserve it as a blocker; dispatch to these PCs fails at replay.
+        ops={a:w for a,w in ops.items() if a not in foreign}
     def word(pc):
         off=(pc|0x80000000)-0x8c010000
         if not 0<=off<len(image)-1: raise ValueError(f"outside image {pc:08x}")
@@ -274,14 +291,50 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         else:
             lines.extend(statements(a)); lines.append(jump(a+2))
     lines.extend(['unsupported: s->failed_pc=target; return 0;','}'])
-    if not legacy:
-        lines.extend(['static const uint32_t owned_pcs[]={',','.join(f'0x{a:08x}u' for a in sorted(ops)), '};',
+    def ownership():
+        return ['static const uint32_t owned_pcs[]={',*[''.join(f'0x{a:08x}u,' for a in sorted(ops)[i:i+16]) for i in range(0,len(ops),16)], '};',
           f'int {function}_contains(uint32_t pc) {{',
           'pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(owned_pcs)/sizeof(owned_pcs[0]);',
           'while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(owned_pcs[mid]<pc) lo=mid+1; else hi=mid; }',
-          'return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;', '}'])
-    Path(out).write_text('\n'.join(lines)+'\n',encoding='ascii')
-    report={"statements":len(ops),"unsupported":{f"{k:08x}":v for k,v in unsupported.items()},"inputs":[str(d) for d in directories]}
+          'return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;', '}']
+    if split_size and not legacy:
+        starts=[i for i,line in enumerate(lines) if re.match(r'^P_[0-9a-f]+:',line)]
+        blocks={int(lines[i][2:10],16):lines[i:(starts[j+1] if j+1<len(starts) else len(lines)-2)] for j,i in enumerate(starts)}
+        parts=[]; part=[]
+        for pc in sorted(blocks):
+            # Prefer a return boundary over splitting the middle of a loop.
+            if len(part)>=split_size and word(part[-1]-2)==11:
+                parts.append(part); part=[]
+            part.append(pc)
+        if part: parts.append(part)
+        head=next(i for i,line in enumerate(lines) if line.startswith(f'int {function}('))
+        prefix=lines[:head]; router=['#include "fight/matrix_family.h"']
+        output=Path(out)
+        for index,pcs in enumerate(parts):
+            name=f'{function}_{index}'; owned=set(pcs)
+            body=prefix+[f'int {name}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
+              'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
+              'dispatch:', 'if(!s->budget--) goto unsupported;', 'switch(target&0x1fffffffu) {',
+              *[f'case 0x{pc:08x}u: goto {label(pc)};' for pc in pcs],
+              'default: return vf3_matrix_family(target,s,ram);', '}']
+            def transfer(match):
+                pc=int(match[1],16)
+                return match[0] if pc in owned else f'return vf3_matrix_family(0x{pc:08x}u,s,ram);'
+            for pc in pcs:
+                body.extend(re.sub(r'goto P_([0-9a-f]+);',transfer,line) for line in blocks[pc])
+            body+=['unsupported: s->failed_pc=target; return 0;','}']
+            output.with_name(output.stem+f'_{index}.c').write_text('\n'.join(body)+'\n',encoding='ascii')
+            router.append(f'int {name}(uint32_t,vf3_matrix_state*,const vf3_ram_map*);')
+        router+=ownership()+[f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
+          f'if(!{function}_contains(entry)) {{ s->failed_pc=entry; return 0; }}', 'uint32_t pc=entry&0x1fffffffu;']
+        for index,pcs in enumerate(parts): router.append(f'if(pc<=0x{pcs[-1]:08x}u) return {function}_{index}(entry,s,ram);')
+        router+=['s->failed_pc=entry; return 0;','}']
+        output.write_text('\n'.join(router)+'\n',encoding='ascii')
+        print(f'{len(parts)} bounded source modules')
+    else:
+        if not legacy: lines.extend(ownership())
+        Path(out).write_text('\n'.join(lines)+'\n',encoding='ascii')
+    report={"statements":len(ops),"unsupported":{f"{k:08x}":v for k,v in unsupported.items()},"inputs":[str(d) for d in directories],"foreign_code":{f'{a:08x}':f'{w:04x}' for a,w in foreign.items()}}
     (ROOT/f"extract/analysis/{'matrix' if legacy else function}_adapter_translation.json").write_text(json.dumps(report,indent=1))
     print(f"{len(ops)} guest statements; {len(unsupported)} unsupported instructions")
     for why in list(unsupported.values())[:15]: print(why)
@@ -292,5 +345,6 @@ if __name__=="__main__":
     ap.add_argument('--watch',help='explicit roots; enables a separate adapter module')
     ap.add_argument('--function',default='vf3_matrix_adapter')
     ap.add_argument('--reuse-matrix',action='store_true')
+    ap.add_argument('--split-size',type=int,default=0)
     a=ap.parse_args()
-    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix)
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size)
