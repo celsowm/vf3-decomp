@@ -21,6 +21,11 @@ MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
 def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
 def label(pc): return f"P_{pc:08x}"
 def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
+
+def adapter_pcs(paths):
+    """Read emitted labels, excluding comments, routers and inferred seeds."""
+    return {int(a,16) for path in paths
+            for a in re.findall(r'^P_([0-9a-f]+):',Path(path).read_text(),re.M)}
 def emit(pc,w):
     n,m=(w>>8)&15,(w>>4)&15
     rn,rm=f"r[{n}]",f"r[{m}]"
@@ -144,14 +149,19 @@ def emit(pc,w):
             if k==0x9D: return [f"{fn}=0x3f800000u;"]
     raise ValueError(f"unsupported {pc:08x}: {w:04x}")
 
-def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0):
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=()):
     legacy=watch is None
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
     existing=set()
     forced=set()
     if reuse_matrix:
-        existing={int(a,16) for a in re.findall(r'^P_([0-9a-f]+):',(ROOT/'src/fight/matrix_adapters.c').read_text(),re.M)}
+        existing=adapter_pcs([ROOT/'src/fight/matrix_adapters.c'])
+    for pattern in reuse_adapters:
+        paths=list(ROOT.glob(pattern))
+        if not paths: raise ValueError(f'no adapter sources match {pattern}')
+        existing.update(adapter_pcs(paths))
+    if reuse_matrix or reuse_adapters:
         for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
             if int(row['entry'],16)&0x1fffffff in roots:
                 forced.update(range(int(row['start'],16)&0x1fffffff,int(row['end'],16)&0x1fffffff,2))
@@ -169,7 +179,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     # Drop capture-only legacy regression workers from this new family.
     ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
     image=(ROOT/"extract/exe/1ST_READ.unsc.bin").read_bytes()
-    if reuse_matrix:
+    if reuse_matrix or reuse_adapters:
         sys.path.insert(0,str(ROOT))
         from tools.batch_plan import implementation_graph
         # Root adapters must own their whole intraprocedural control flow.
@@ -346,5 +356,6 @@ if __name__=="__main__":
     ap.add_argument('--function',default='vf3_matrix_adapter')
     ap.add_argument('--reuse-matrix',action='store_true')
     ap.add_argument('--split-size',type=int,default=0)
+    ap.add_argument('--reuse-adapter',action='append',default=[],help='existing source glob whose PCs dispatch to their current owner')
     a=ap.parse_args()
-    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size)
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter)

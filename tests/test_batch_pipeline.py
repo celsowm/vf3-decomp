@@ -1,8 +1,10 @@
 """Planning costs must follow actual helper code rather than tiny seeds."""
 import struct
 import unittest
+import tempfile
+from pathlib import Path
 from tools.batch_plan import implementation_graph
-from tools.oracle.translate_adapters import emit
+from tools.oracle.translate_adapters import emit, adapter_pcs
 
 
 class ImplementationGraphTests(unittest.TestCase):
@@ -31,6 +33,13 @@ class ImplementationGraphTests(unittest.TestCase):
 
 
 class AdapterOpcodeTests(unittest.TestCase):
+    def test_existing_adapter_ownership_uses_only_emitted_labels(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first=Path(directory)/'first.c'; second=Path(directory)/'second.c'
+            first.write_text('/* P_0c010004: */\nP_0c010000: /* emitted */\n')
+            second.write_text('P_0c010000:\nP_0c010002:\n')
+            self.assertEqual(adapter_pcs([first,second]),{0x0c010000,0x0c010002})
+
     def test_rotate_left_updates_carry(self):
         statements=emit(0x0c010000,0x4004)
         self.assertIn('r[0]>>31',statements[0])
