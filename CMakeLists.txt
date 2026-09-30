@@ -59,6 +59,12 @@ add_library(vf3core STATIC
     src/fight/fight_adapters_2.c
     src/fight/fight_adapters_3.c
     src/fight/fight_helpers.c
+    src/fight/motion_adapters.c
+    src/fight/motion_helpers.c
+    src/fight/motion_adapters_0.c
+    src/fight/motion_adapters_1.c
+    src/fight/motion_adapters_2.c
+    src/fight/motion_adapters_3.c
     src/fight/f9f354.c
     src/fight/f9f9a8.c
     src/fight/f9f6fc.c
@@ -95,7 +101,10 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   # optimization while adapter builds stay fast enough for batch iteration.
   set_source_files_properties(src/fight/matrix_adapters.c src/fight/fight_adapters.c
       src/fight/fight_adapters_0.c src/fight/fight_adapters_1.c
-      src/fight/fight_adapters_2.c src/fight/fight_adapters_3.c PROPERTIES
+      src/fight/fight_adapters_2.c src/fight/fight_adapters_3.c
+      src/fight/motion_adapters.c src/fight/motion_adapters_0.c
+      src/fight/motion_adapters_1.c src/fight/motion_adapters_2.c
+      src/fight/motion_adapters_3.c PROPERTIES
       COMPILE_OPTIONS "-O0;-frounding-math;-ffp-contract=off")
 endif()
 

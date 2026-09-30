@@ -15,6 +15,9 @@ void vf3_matrix_swap(vf3_matrix_state*);
 int vf3_matrix_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_adapter_contains(uint32_t);
+int vf3_motion_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_adapter_contains(uint32_t);
+int vf3_motion_record_init(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_angle(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_mesh(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 #endif

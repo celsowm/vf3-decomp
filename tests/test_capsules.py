@@ -33,6 +33,20 @@ class Capsules(unittest.TestCase):
         p=self.source(record(flags=1)+record(2,flags=2)+record(3,flags=4)+record(4,flags=8))
         report=capsules.convert([p],self.root/"out")
         self.assertEqual(report["entries"],{}); self.assertEqual(len(report["invalid"]),4)
+    def test_filtered_export_still_checks_all_records_and_summaries(self):
+        import json
+        p=self.source(record()+record(2,flags=2))
+        summary={'started':2,'completed':2,'incomplete':[]}
+        Path(str(p)+'.summary.json').write_text(json.dumps(summary))
+        report=capsules.convert([p],self.root/'out',set())
+        self.assertEqual(report['entries'],{})
+        self.assertEqual(len(report['invalid']),1)
+        self.assertEqual(report['runs'][0]['completed'],2)
+        summary['completed']=1
+        Path(str(p)+'.summary.json').write_text(json.dumps(summary))
+        with self.assertRaises(ValueError): capsules.convert([p],self.root/'bad',set())
+        with self.assertRaises(ValueError):
+            capsules.convert([self.source(record()[:-1])],self.root/'truncated',set())
     def test_truncation(self):
         with self.assertRaises(ValueError): list(capsules.records(self.source(record()[:-1])))
     def test_duplicate_identity(self):

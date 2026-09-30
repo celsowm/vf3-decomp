@@ -27,3 +27,28 @@ state/input scenarios, strict register/XF/FPUL/GBR/return-PC/RAM replay, no skip
 no out-of-bounds accesses, and no unfinished selected invocation. The byte
 audit subtracts overlap against frozen starting spans. SDK attribution and
 trace observations remain separate from verified C coverage.
+
+## Implementation milestone
+
+The development captures contain 102 distinct invocation entries. Generation
+uses only states 8, 28, 40, 6, 16, 33 and 41, plus original-image callback
+roots. The router and four bounded adapter sources contain 32,580 original
+guest statements and regenerate byte-for-byte from those development corpora.
+Existing matrix and fight adapters are reused.
+
+`motion_helpers.c` implements the shared motion-record initializer at
+`0x8C0CC2D6` as C: scale three deltas, add the anchor and set the packed record's
+step counter. A held-out replay caught two reversed anchor addresses; the
+correction passes all 30 held-out helper cases. Fresh states 14, 25 and 42
+are captured after this correction. Earlier held-out states are 11, 26 and 39;
+states 9, 22 and 36 provide additional independent evidence.
+
+The combined release corpus also includes every earlier fight-campaign capture,
+filtered for the new roots. Filtering preserves validation of all records,
+shutdown counts and rejected specimens. Nine capture-integrity checks and six
+planning/opcode/ownership checks pass. Independent replay processes can run
+in parallel, with a fixed executable throughout each replay.
+
+Five unsupported original instructions remain: two TRAPA instructions and
+three banked-register instructions. Foreign installed code remains excluded.
+Complete replay and byte audits determine the final selected entries.

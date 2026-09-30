@@ -53,7 +53,7 @@ def records(path):
             yield dict(id=ident, entry=entry, exitpc=exitpc, flags=flags,
                        before=before, after=after, pages=sorted(pages), ops=ops, nstate=nstate)
 
-def convert(paths, out):
+def convert(paths, out, entries=None):
     out = Path(out)
     grouped, invalid, runs = defaultdict(dict), [], []
     for path in paths:
@@ -66,6 +66,8 @@ def convert(paths, out):
                           exit=f'0x{r["exitpc"]:08x}')
             if r["flags"]:
                 invalid.append({**source, "flags": r["flags"]})
+                continue
+            if entries is not None and (r['entry']|0x80000000) not in entries:
                 continue
             key = hashlib.sha256(r["before"] + b"".join(struct.pack("<I", b)+a for b,a,_ in r["pages"])).hexdigest()
             signature = hashlib.sha256(r["after"] + struct.pack("<I",r["exitpc"])+b"".join(z for _,_,z in r["pages"])).hexdigest()
@@ -82,6 +84,7 @@ def convert(paths, out):
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
     manifest = {"format":"VF3CAP4 (CAP3 compatible)", "inputs":[str(p) for p in paths], "runs":runs,"invalid":invalid, "entries":{}}
+    if entries is not None: manifest['selected_entries']=[hex(e) for e in sorted(entries)]
     for entry, bucket in sorted(grouped.items()):
         stem = f"f_{entry:08x}"
         lines, xfin, xfout, extras, gbrs, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), []

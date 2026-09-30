@@ -70,6 +70,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
     switch(entry) {
+    case 0x0c0cc2d6: return vf3_motion_record_init(s,ram);
     case 0x0c069624: return vf3_fight_angle(s,ram);
     case 0x0c06911c: case 0x0c06912a: return vf3_fight_mesh(entry,s,ram);
     case 0x0C03C940: case 0x0C03C880: case 0x0C03C6C0: {
@@ -173,6 +174,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_motion_adapter_contains(entry)) return vf3_motion_adapter(entry,s,ram);
         if(vf3_fight_adapter_contains(entry)) return vf3_fight_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
