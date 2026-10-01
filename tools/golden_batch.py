@@ -12,13 +12,14 @@ Usage:
       --run fight:extract/analysis/vf3_fight_keep.state:tools/emu/vf3_play_m26.txt \
       --run boot::tools/emu/vf3_play_boot.txt:4200
 
-Run spec: name:state:play:frames (empty state = boot; empty play = none).
+Run spec: name:state:play:frames[:ram_patch] (empty state = boot; empty play = none).
 The watch file drives which PCs are captured; "rampc <pc> [<base> <len>]"
 lines add RAM dumps with optional per-PC windows.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -35,12 +36,15 @@ ROM = REPO / "rom" / "vf3.gdi"
 def parse_run(spec: str):
     parts = spec.split(":")
     if len(parts) < 2:
-        raise SystemExit(f"bad --run '{spec}': want name:state:play:frames")
+        raise SystemExit(f"bad --run '{spec}': want name:state:play:frames[:ram_patch]")
+    if len(parts) > 5:
+        raise SystemExit(f"bad --run '{spec}': too many fields")
     name = parts[0]
     state = parts[1] if len(parts) > 1 else ""
     play = parts[2] if len(parts) > 2 else ""
     frames = int(parts[3]) if len(parts) > 3 and parts[3] else 0
-    return name, state, play, frames
+    patch = parts[4] if len(parts) > 4 else ""
+    return name, state, play, frames, patch
 
 
 def main() -> int:
@@ -49,7 +53,7 @@ def main() -> int:
     ap.add_argument("--watch", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--run", action="append", required=True,
-                    help="name:state:play:frames (repeatable)")
+                    help="name:state:play:frames[:ram_patch] (repeatable)")
     ap.add_argument("--frames", type=int, default=0,
                     help="default frames when the run spec omits them")
     ap.add_argument("--trace-dir", default="extract/analysis")
@@ -79,7 +83,7 @@ def main() -> int:
 
     runs = []
     for spec in a.run:
-        name, state, play, frames = parse_run(spec)
+        name, state, play, frames, patch = parse_run(spec)
         frames = frames or a.frames
         trace = trace_dir / f"golden_{a.name}_{name}.bin"
         edges = trace_dir / f"edges_{a.name}_{name}.bin"
@@ -89,6 +93,12 @@ def main() -> int:
         hits = trace_dir / f"hits_{a.name}_{name}.csv"
         env.pop("VF3_CAPSULE", None)
         env.pop("VF3_HITS", None)
+        env.pop("VF3_RAM_PATCH", None)
+        patch_path = ((REPO / patch) if not Path(patch).is_absolute() else Path(patch)) if patch else None
+        if patch_path:
+            if not patch_path.is_file():
+                raise SystemExit(f"RAM patch missing: {patch_path}")
+            env["VF3_RAM_PATCH"] = str(patch_path)
         if a.capsule:
             env["VF3_CAPSULE"] = str(capsule)
             env["VF3_CAPSULE_N"] = str(a.max_samples)
@@ -129,6 +139,9 @@ def main() -> int:
                      "frames": frames, "trace": str(trace),
                      "edges": str(edges) if a.edges else "",
                      "log": str(log)})
+        if patch_path:
+            runs[-1]["ram_patch"] = str(patch_path)
+            runs[-1]["ram_patch_sha256"] = hashlib.sha256(patch_path.read_bytes()).hexdigest()
         if a.capsule:
             runs[-1]["capsule"] = str(capsule)
         if a.hits:

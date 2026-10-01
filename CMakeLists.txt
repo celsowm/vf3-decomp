@@ -74,6 +74,7 @@ add_library(vf3core STATIC
     src/fight/device_adapters_0.c
     src/fight/device_adapters_1.c
     src/fight/fifth_adapters.c
+    src/fight/sixth_loader_adapters.c
     src/fight/fifth_adapters_0.c
     src/fight/fifth_adapters_1.c
     src/fight/fifth_adapters_2.c
@@ -127,6 +128,7 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/device_adapters.c src/fight/device_adapters_0.c
       src/fight/device_adapters_1.c
       src/fight/fifth_adapters.c
+      src/fight/sixth_loader_adapters.c
       src/fight/fifth_adapters_0.c
       src/fight/fifth_adapters_1.c
       src/fight/fifth_adapters_2.c

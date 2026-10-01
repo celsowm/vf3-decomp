@@ -47,6 +47,8 @@ def main() -> int:
         manifest=json.loads(batch.read_text())
         if manifest['entries'] and all('validation_groups' in row for row in manifest['entries'].values()):
             ok &= run([PY, 'tools/oracle/audit_next_batch.py', '--manifest', str(batch)])
+    if (REPO/'tools/oracle/sixth_batch.json').is_file():
+        ok &= run([PY, 'tools/oracle/audit_sixth_batch.py'])
     ok &= run([PY, "tools/decomp_stats.py"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])

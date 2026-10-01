@@ -38,6 +38,7 @@ std::string outputPath;
 std::string hitsPath;
 std::vector<Spec> specs;
 std::vector<Call> active;
+std::map<unsigned,std::vector<std::array<unsigned,2>>> entryPatches;
 std::map<std::pair<unsigned,unsigned>,unsigned> nonRam;
 ReadMem8Func rd8; ReadMem16Func rd16; ReadMem32Func rd32; ReadMem64Func rd64;
 WriteMem8Func wr8; WriteMem16Func wr16; WriteMem32Func wr32; WriteMem64Func wr64;
@@ -181,6 +182,32 @@ void opcode_oracle(const Sh4Context *ctx) {
 void init(const Sh4Context *ctx) {
     initialized=true;
     opcode_oracle(ctx);
+    /* Development fixtures: "addr value" applies at startup; "entry addr
+     * value" applies at that watched entry before its before-state snapshot.
+     * Independent acceptance runs leave VF3_RAM_PATCH unset. */
+    const char *patch=std::getenv("VF3_RAM_PATCH");
+    if (patch && *patch) {
+        FILE *f=std::fopen(patch,"r");
+        if (!f) { std::fprintf(stderr,"[vf3oracle] cannot open RAM patch %s\n",patch); std::abort(); }
+        char line[128]; unsigned addr,value,count=0;
+        while (std::fgets(line,sizeof(line),f)) {
+            if (line[0]=='#' || line[0]=='\n' || line[0]=='\r') continue;
+            unsigned a,b,c;
+            int fields=std::sscanf(line,"%x %x %x",&a,&b,&c);
+            if (fields==2) { addr=a; value=b; }
+            else if (fields==3) { addr=b; value=c; }
+            else { std::fprintf(stderr,"[vf3oracle] invalid RAM patch line: %s",line); std::abort(); }
+            if (addr<0x0c000000u || addr>0x0cfffffcu || (addr&3u)) {
+                std::fprintf(stderr,"[vf3oracle] invalid RAM patch line: %s",line);
+                std::abort();
+            }
+            if (fields==3) entryPatches[a|0x80000000u].push_back({addr,value});
+            else std::memcpy(&mem_b[addr&0x00ffffffu],&value,4);
+            ++count;
+        }
+        std::fclose(f);
+        std::fprintf(stderr,"[vf3oracle] loaded %u RAM fixture words from %s (%zu entry roots)\n",count,patch,entryPatches.size());
+    }
     const char *path=std::getenv("VF3_CAPSULE");
     const char *hits=std::getenv("VF3_HITS");
     if (path && hits) { std::fprintf(stderr,"[vf3oracle] choose capsule or hits\n"); std::abort(); }
@@ -227,6 +254,15 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         ++spec->count;
         if(active.size()>=64) vf3OracleInvalidate(4);
         else {
+            auto fixture=entryPatches.find(canon);
+            if (fixture!=entryPatches.end()) {
+                if (!active.empty()) {
+                    std::fprintf(stderr,"[vf3oracle] nested entry fixture at %08x\n",canon);
+                    std::abort();
+                }
+                for (const auto &word:fixture->second)
+                    std::memcpy(&mem_b[word[0]&0x00ffffffu],&word[1],4);
+            }
             Call c; c.id=++sequence; c.entry=pc; c.depth=depth; c.transfer=spec->transfer; c.in=snapshot(ctx);
             active.push_back(std::move(c));
         }

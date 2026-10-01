@@ -1,0 +1,5 @@
+# Loader bodies without an existing static C owner.
+pc 0x8c0b38d0
+pc 0x8c0b9700
+pc 0x8c0b588e
+pc 0x8c0bbde2

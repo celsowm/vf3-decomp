@@ -1,0 +1,7 @@
+# Large C coverage probe: giant worker, near-qualified worker, and loader family.
+pc 0x8c0750be
+pc 0x8c074b0e
+pc 0x8c0b2a86
+pc 0x8c0b7312
+pc 0x8c0a2e2c
+pc 0x8c0b1134
