@@ -1,7 +1,7 @@
 /* Research-only interpreter observer. Game implementations live in src/.
  * VF3_CAPSULE=<file>, VF3_WATCH="pc <entry>" / "exitpc <entry> <transfer>".
  * Records include invocation identity, before/after pages, extended state,
- * and executed opcodes. VF3CAP5 records device reads/writes as an ordered
+ * and executed opcodes. VF3CAP6 records device reads/writes as an ordered
  * tape; interrupts, MMU translation and asynchronous copies still invalidate
  * a specimen rather than being mistaken for game behavior. */
 #include "vf3oracle.h"
@@ -19,7 +19,7 @@
 
 namespace {
 constexpr unsigned PAGE = 4096, LIMIT = 128;
-using State = std::array<unsigned, 55>;
+using State = std::array<unsigned, 63>;
 struct Spec { unsigned pc, transfer, count = 0; };
 struct Call {
     unsigned long long id;
@@ -48,15 +48,16 @@ State snapshot(const Sh4Context *c) {
     for (unsigned i=0; i<16; ++i) { s[i]=c->r[i]; s[21+i]=bits(c->fr[i]); s[37+i]=bits(c->xf[i]); }
     s[16]=c->pr; s[17]=c->sr.getFull(); s[18]=c->fpscr.full;
     s[19]=c->mac.l; s[20]=c->mac.h; s[53]=c->fpul; s[54]=c->gbr;
+    for (unsigned i=0; i<8; ++i) s[55+i]=c->r_bank[i];
     return s;
 }
 void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
     auto &c=active[i];
     if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
     State out=snapshot(ctx);
-    unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),55,(unsigned)c.device.size()};
+    unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),63,(unsigned)c.device.size()};
     bool ok=std::fwrite(&c.id,8,1,output)==1 && std::fwrite(header,4,7,output)==7;
-    ok = ok && std::fwrite(c.in.data(),4,55,output)==55 && std::fwrite(out.data(),4,55,output)==55;
+    ok = ok && std::fwrite(c.in.data(),4,63,output)==63 && std::fwrite(out.data(),4,63,output)==63;
     for (auto &p:c.pages) {
         unsigned base=0x0C000000u+p.first;
         ok = ok && std::fwrite(&base,4,1,output)==1;
@@ -188,7 +189,7 @@ void init(const Sh4Context *ctx) {
         output=std::fopen(path,"wb"); if (!output) std::abort();
         outputPath=path;
         std::atexit(close_output);
-        if (std::fwrite("VF3CAP5\0",1,8,output)!=8) std::abort();
+        if (std::fwrite("VF3CAP6\0",1,8,output)!=8) std::abort();
     } else { hitsPath=hits; std::atexit(close_hits); }
     const char *n=std::getenv("VF3_CAPSULE_N"); if(n) samples=std::strtoul(n,nullptr,0);
     const char *watch=std::getenv("VF3_WATCH");

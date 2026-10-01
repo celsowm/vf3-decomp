@@ -76,6 +76,9 @@ def emit(pc,w):
         if low in (0xE,0xF): return [f"{rn}=(uint32_t)(int32_t)({ 'int8_t' if low==0xE else 'int16_t'}){rm};"]
     if top==4:
         k=w&255
+        if (w&0xF08F)==0x4083: return ['if(!s->bank_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->bank[{(w>>4)&7}],4);']
+        if (w&0xF08F)==0x4087: return ['if(!s->bank_known) goto unsupported;',f's->bank[{(w>>4)&7}]=read(ram,{rn},4); {rn}+=4;']
+        if (w&0xF08F)==0x408E: return ['if(!s->bank_known) goto unsupported;',f's->bank[{(w>>4)&7}]={rn};']
         if k==0x1b: return [f'tmp=read(ram,{rn},1);',t('tmp==0'),f'write(ram,{rn},tmp|0x80u,1);']
         if k==0x13: return ['if(!s->gbr_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->gbr,4);']
         if k==0x17: return [f's->gbr=read(ram,{rn},4); {rn}+=4; s->gbr_known=1;']
@@ -99,6 +102,7 @@ def emit(pc,w):
         if src is not None: return [f"{rn}-=4; write(ram,{rn},r[{src}],4);"]
     if top==0:
         k=w&255
+        if (w&0xF08F)==0x0082: return ['if(!s->bank_known) goto unsupported;',f'{rn}=s->bank[{(w>>4)&7}];']
         if k==0x12: return ['if(!s->gbr_known) goto unsupported;',f'{rn}=s->gbr;']
         if k==0x29: return [f"{rn}=r[17]&1u;"]
         src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17}.get(k)

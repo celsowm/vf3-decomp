@@ -15,6 +15,7 @@ Usage: python tools/verify_all.py [--no-build] [--quiet]
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -43,6 +44,9 @@ def main() -> int:
     ok &= run([PY, "tools/portcheck.py",'--jobs',str(a.jobs)])
     for batch in sorted((REPO/'tools/oracle').glob('*_batch.json')):
         ok &= run([PY, 'tools/oracle/audit_matrix_batch.py', '--manifest', str(batch)])
+        manifest=json.loads(batch.read_text())
+        if manifest['entries'] and all('validation_groups' in row for row in manifest['entries'].values()):
+            ok &= run([PY, 'tools/oracle/audit_next_batch.py', '--manifest', str(batch)])
     ok &= run([PY, "tools/decomp_stats.py"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])

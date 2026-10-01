@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert invocation-addressed VF3CAP3/4/5 specimens into compatible .cases.
+"""Convert invocation-addressed VF3CAP3/4/5/6 specimens into compatible .cases.
 
 The fingerprint includes registers, XF, FPUL, initial RAM and device reads. Repeated inputs
 with different exits are errors, never silently deduplicated. Invalid samples
@@ -22,7 +22,7 @@ def records(path):
                 raise ValueError(f"{path}: truncated record at {f.tell()}")
             return data
         magic=take(8)
-        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0",b"VF3CAP5\0"):
+        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0",b"VF3CAP5\0",b"VF3CAP6\0"):
             raise ValueError(f"{path}: unsupported capsule format")
         seen = set()
         while True:
@@ -36,8 +36,9 @@ def records(path):
                 raise ValueError(f"{path}: duplicate/zero invocation ID {ident}")
             seen.add(ident)
             entry, exitpc, flags, npage, nop, nstate = struct.unpack("<6I", take(24))
-            ndev, = struct.unpack('<I',take(4)) if magic==b"VF3CAP5\0" else (0,)
-            if npage > 128 or nop > 100000 or ndev > 16384 or nstate != (55 if magic in (b"VF3CAP4\0",b"VF3CAP5\0") else 54):
+            ndev, = struct.unpack('<I',take(4)) if magic in (b"VF3CAP5\0",b"VF3CAP6\0") else (0,)
+            expected_state = {b"VF3CAP3\0":54,b"VF3CAP4\0":55,b"VF3CAP5\0":55,b"VF3CAP6\0":63}[magic]
+            if npage > 128 or nop > 100000 or ndev > 16384 or nstate != expected_state:
                 raise ValueError(f"{path}: invalid record sizes")
             before, after = take(nstate*4), take(nstate*4)
             pages = []
@@ -96,12 +97,12 @@ def convert(paths, out, entries=None):
                 raise ValueError(f'{path}: invocation summary disagrees with records')
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
-    manifest = {"format":"VF3CAP5 (CAP3/4 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
+    manifest = {"format":"VF3CAP6 (CAP3/4/5 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
                 "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)], "entries":{}}
     if entries is not None: manifest['selected_entries']=[hex(e) for e in sorted(entries)]
     for entry, bucket in sorted(grouped.items()):
         stem = f"f_{entry:08x}"
-        lines, xfin, xfout, extras, gbrs, devices, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), []
+        lines, xfin, xfout, extras, gbrs, banks, devices, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), []
         allops = {}
         for i, r in enumerate(bucket.values()):
             # Merge adjacent pages to fit older replay runners efficiently.
@@ -122,7 +123,10 @@ def convert(paths, out, entries=None):
             lines.append(" ".join(f"{v:08x}" for v in (*before[:37],*after[:37]))+f" {a} {window} {z} {window}")
             xfin.extend(r["before"][148:212]); xfout.extend(r["after"][148:212])
             extras.extend(struct.pack("<4I",before[53],after[53],r["entry"],r["exitpc"]))
-            gbrs.extend(struct.pack("<3I",before[54] if r["nstate"]==55 else 0,after[54] if r["nstate"]==55 else 0,r["nstate"]==55))
+            gbrs.extend(struct.pack("<3I",before[54] if r["nstate"]>=55 else 0,after[54] if r["nstate"]>=55 else 0,r["nstate"]>=55))
+            banks.extend(struct.pack('<I',r['nstate']==63))
+            banks.extend(r['before'][220:252] if r['nstate']==63 else bytes(32))
+            banks.extend(r['after'][220:252] if r['nstate']==63 else bytes(32))
             devices.extend(struct.pack('<I',len(r['device'])))
             devices.extend(b''.join(struct.pack('<4I',*event) for event in r['device']))
             cases.append({"sources":r["sources"], "instructions":len(r["ops"]), "pages":len(r["pages"]),
@@ -135,6 +139,7 @@ def convert(paths, out, entries=None):
         (out/f"{stem}.xfin.bin").write_bytes(xfin); (out/f"{stem}.xfout.bin").write_bytes(xfout)
         (out/f"{stem}.extra.bin").write_bytes(extras)
         (out/f"{stem}.gbr.bin").write_bytes(gbrs)
+        (out/f"{stem}.bank.bin").write_bytes(banks)
         (out/f"{stem}.dev.bin").write_bytes(devices)
         (out/f"{stem}.ops.json").write_text(json.dumps({f"{pc:08x}":f"{op:04x}" for pc,op in sorted(allops.items())},indent=1))
         manifest["entries"][f"0x{entry:08x}"] = cases

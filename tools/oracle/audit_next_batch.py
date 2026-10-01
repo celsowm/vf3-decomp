@@ -9,9 +9,9 @@ from audit_matrix_batch import audit
 ROOT=Path(__file__).resolve().parents[2]
 
 
-def main(check_hashes):
-    audit(check_hashes,'tools/oracle/next_batch.json')
-    manifest=json.loads((ROOT/'tools/oracle/next_batch.json').read_text())
+def main(check_hashes,manifest_path="tools/oracle/next_batch.json"):
+    audit(check_hashes,manifest_path)
+    manifest=json.loads((ROOT/manifest_path).read_text())
     campaigns={}
     for entry,evidence in manifest['entries'].items():
         groups=[]
@@ -34,11 +34,12 @@ def main(check_hashes):
             groups.append({src['source'] for record in capsule['entries'][entry] for src in record['sources']
                            if sources.get(str(Path(src['source']).resolve())) in group['runs']})
         assert groups[0] and groups[1] and groups[0].isdisjoint(groups[1]),f'{entry} reused validation scenario'
-    print(f'next_batch: {len(manifest["entries"])} independent held-out/fresh boundaries - PASS')
+    print(f'{Path(manifest_path).stem}: {len(manifest["entries"])} independent held-out/fresh boundaries - PASS')
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--hashes',action='store_true')
+    parser.add_argument('--manifest',default='tools/oracle/next_batch.json')
     args=parser.parse_args()
-    main(args.hashes)
+    main(args.hashes,args.manifest)

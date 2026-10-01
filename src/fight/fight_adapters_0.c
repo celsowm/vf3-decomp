@@ -22431,7 +22431,8 @@ if(!s->budget--) { s->failed_pc=0x0c052016u; return 0; }
 goto P_0c052018;
 P_0c052018: /* original 04c2, guest PC 0x0c052018 */
 if(!s->budget--) { s->failed_pc=0x0c052018u; return 0; }
-s->failed_pc=0x0c052018u; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c05201a;
 P_0c05201a: /* original e068, guest PC 0x0c05201a */
 if(!s->budget--) { s->failed_pc=0x0c05201au; return 0; }
@@ -22553,7 +22554,8 @@ if(!s->budget--) { s->failed_pc=0x0c05205eu; return 0; }
 goto P_0c052060;
 P_0c052060: /* original 04c2, guest PC 0x0c052060 */
 if(!s->budget--) { s->failed_pc=0x0c052060u; return 0; }
-s->failed_pc=0x0c052060u; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c052062;
 P_0c052062: /* original e06c, guest PC 0x0c052062 */
 if(!s->budget--) { s->failed_pc=0x0c052062u; return 0; }
@@ -22635,7 +22637,8 @@ if(!s->budget--) { s->failed_pc=0x0c05208eu; return 0; }
 goto P_0c052090;
 P_0c052090: /* original 04c2, guest PC 0x0c052090 */
 if(!s->budget--) { s->failed_pc=0x0c052090u; return 0; }
-s->failed_pc=0x0c052090u; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c052092;
 P_0c052092: /* original e064, guest PC 0x0c052092 */
 if(!s->budget--) { s->failed_pc=0x0c052092u; return 0; }
@@ -22785,7 +22788,8 @@ if(!s->budget--) { s->failed_pc=0x0c0520dau; return 0; }
 goto P_0c0520dc;
 P_0c0520dc: /* original 04c2, guest PC 0x0c0520dc */
 if(!s->budget--) { s->failed_pc=0x0c0520dcu; return 0; }
-s->failed_pc=0x0c0520dcu; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c0520de;
 P_0c0520de: /* original e06c, guest PC 0x0c0520de */
 if(!s->budget--) { s->failed_pc=0x0c0520deu; return 0; }
@@ -22859,7 +22863,8 @@ if(!s->budget--) { s->failed_pc=0x0c05210au; return 0; }
 goto P_0c05210c;
 P_0c05210c: /* original 04c2, guest PC 0x0c05210c */
 if(!s->budget--) { s->failed_pc=0x0c05210cu; return 0; }
-s->failed_pc=0x0c05210cu; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c05210e;
 P_0c05210e: /* original e068, guest PC 0x0c05210e */
 if(!s->budget--) { s->failed_pc=0x0c05210eu; return 0; }
@@ -22949,7 +22954,8 @@ if(!s->budget--) { s->failed_pc=0x0c052138u; return 0; }
 goto P_0c05213a;
 P_0c05213a: /* original 04c2, guest PC 0x0c05213a */
 if(!s->budget--) { s->failed_pc=0x0c05213au; return 0; }
-s->failed_pc=0x0c05213au; return 0;
+if(!s->bank_known) goto unsupported;
+r[4]=s->bank[4];
 goto P_0c05213c;
 P_0c05213c: /* original e06c, guest PC 0x0c05213c */
 if(!s->budget--) { s->failed_pc=0x0c05213cu; return 0; }

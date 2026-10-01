@@ -1,7 +1,7 @@
 #ifndef VF3_MATRIX_FAMILY_H
 #define VF3_MATRIX_FAMILY_H
 #include "fight/poly_classify.h"
-typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr; unsigned budget, gbr_known; } vf3_matrix_state;
+typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr, bank[8]; unsigned budget, gbr_known, bank_known; } vf3_matrix_state;
 /* Complete helper semantics, with guest state isolated in this adapter.
  * State layout is the existing 37 words, XF[16], then FPUL. */
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state *state,const vf3_ram_map *ram);
@@ -19,6 +19,8 @@ int vf3_motion_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_adapter_contains(uint32_t);
 int vf3_next_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_next_adapter_contains(uint32_t);
+int vf3_fifth_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_fifth_adapter_contains(uint32_t);
 int vf3_device_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_device_adapter_contains(uint32_t);
 int vf3_motion_record_init(vf3_matrix_state*,const vf3_ram_map*);
