@@ -23,7 +23,7 @@ using State = std::array<unsigned, 63>;
 struct Spec { unsigned pc, transfer, count = 0; };
 struct Call {
     unsigned long long id;
-    unsigned entry, depth, flags = 0, countdown = 0, invalidAddress = 0;
+    unsigned entry, depth, transfer = 0, flags = 0, countdown = 0, invalidAddress = 0;
     State in;
     std::map<unsigned, std::array<unsigned char, PAGE>> pages;
     std::vector<std::array<unsigned, 2>> ops;
@@ -204,7 +204,7 @@ void init(const Sh4Context *ctx) {
     while(std::fgets(line,sizeof(line),f)) if(std::sscanf(line,"exitpc %x %x",&a,&b)==2)
         for(auto &s:specs) if(s.pc==(a|0x80000000u)) s.transfer=b|0x80000000u;
     std::fclose(f);
-    if (hits) std::sort(specs.begin(),specs.end(),[](const Spec &a,const Spec &b){return a.pc<b.pc;});
+    std::sort(specs.begin(),specs.end(),[](const Spec &a,const Spec &b){return a.pc<b.pc;});
 }
 }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
@@ -221,17 +221,23 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     hooks();
     for(size_t i=active.size();i-->0;) if(active[i].countdown && --active[i].countdown==0) finish(i,pc,ctx);
     unsigned canon=pc|0x80000000u;
-    for(auto &s:specs) if(s.pc==canon && s.count<samples) {
-        ++s.count;
-        if(active.size()>=64) { vf3OracleInvalidate(4); break; }
-        Call c; c.id=++sequence; c.entry=pc; c.depth=depth; c.in=snapshot(ctx);
-        active.push_back(std::move(c));
+    auto spec=std::lower_bound(specs.begin(),specs.end(),canon,
+        [](const Spec &s,unsigned value){return s.pc<value;});
+    if(spec!=specs.end() && spec->pc==canon && spec->count<samples) {
+        ++spec->count;
+        if(active.size()>=64) vf3OracleInvalidate(4);
+        else {
+            Call c; c.id=++sequence; c.entry=pc; c.depth=depth; c.transfer=spec->transfer; c.in=snapshot(ctx);
+            active.push_back(std::move(c));
+        }
     }
     for(auto &c:active) {
         if(c.ops.size()<100000) c.ops.push_back({pc,(unsigned)op}); else c.flags|=4;
-        for(const auto &s:specs) if(s.pc==(c.entry|0x80000000u) && s.transfer==canon) c.countdown=2;
+        if(c.transfer==canon) c.countdown=2;
         if(op==0x000B && (c.depth==depth || (ctx->pr==c.in[16] && ctx->r[15]>=c.in[15]))) c.countdown=2;
-        if(op==0x002B) c.flags|=1; /* rte */
+        /* Interrupt paths are invalid specimens. Retire them after RTE so a
+         * watched handler without RTS cannot occupy every capture slot. */
+        if(op==0x002B) { c.flags|=1; c.countdown=2; }
     }
     if((op&0xF000)==0xB000 || (op&0xF0FF)==0x400B || (op&0xF0FF)==0x0003) ++depth;
     if(op==0x000B && depth) --depth;

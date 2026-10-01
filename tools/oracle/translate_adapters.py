@@ -174,6 +174,8 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     ops={}
     for directory in directories:
         for p in Path(directory).glob("*.ops.json"):
+            if not legacy and (int(p.name.split("_")[1].split(".")[0],16)&0x1fffffff) not in roots:
+                continue
             if legacy and p.stem in ("f_8c076c00.ops", "f_8c0782ea.ops"):
                 continue
             for a,w in json.loads(p.read_text()).items():

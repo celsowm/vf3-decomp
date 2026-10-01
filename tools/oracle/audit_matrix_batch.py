@@ -88,6 +88,10 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
     assert before == manifest['baseline_unique_bytes']
     assert sum(sizes.values()) == manifest['frozen_body_bytes']
     assert after-before >= manifest['minimum_gain']
+    if 'measured_gain' in manifest:
+        assert after-before == manifest['measured_gain']
+    if 'target_met' in manifest:
+        assert manifest['target_met'] == (after-before >= manifest['target_gain'])
     print(f'{Path(manifest_path).stem}: {len(promoted)} new entries, {cases} strict bound cases; unique C bytes {before} -> {after} (+{after-before}) - PASS')
     return before, after
 

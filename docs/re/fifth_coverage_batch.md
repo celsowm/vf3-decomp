@@ -38,3 +38,26 @@ Generated adapters are static C control flow from the untouched identity
 image. Development observations may add dynamic destinations; acceptance
 captures never feed generation. The byte union uses frozen body intervals,
 subtracting all existing C spans and overlaps.
+
+## Expanded small-body cohort
+
+The initial watch excluded bodies smaller than 96 bytes. A second watch
+covers 921 unported, non-SDK-attributed baseline entries of 16–94 bytes,
+totalling 47,864 raw candidate bytes. Capture precedes selection: development
+uses state 40 with strikes and state 26 with grapples; held-out uses states
+29 and 41 with strikes; fresh uses states 43 and 44 with grapples. The expanded
+watch also retains the original 75 roots so the additional development
+observations can complete their sample counts.
+
+These acceptance state/input pairs are distinct from every development pair.
+The audit checks that separation in addition to separate capsule file paths.
+Passing individual routines may be promoted before the aggregate 20 KB
+campaign target is reached; the manifest records the actual gain and whether
+the target was met. The per-routine proof gates are unchanged.
+
+The first expanded capture exposed a recorder slot leak: watched interrupt
+handlers ending in RTE could remain active indefinitely. Their invalid records
+are now retired after RTE and its delay slot. They remain flagged as invalid
+and cannot produce proof. Sorted watched-PC lookup and cached transfer PCs
+remove repeated linear scans from broad captures. The affected leaf campaign
+is recaptured with this fix, in separate `fifth_leaf_*_v6_cases` directories.
