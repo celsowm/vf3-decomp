@@ -19,6 +19,8 @@ int vf3_motion_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_adapter_contains(uint32_t);
 int vf3_next_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_next_adapter_contains(uint32_t);
+int vf3_fifth_leaf_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_fifth_leaf_adapter_contains(uint32_t);
 int vf3_fifth_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fifth_adapter_contains(uint32_t);
 int vf3_device_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);

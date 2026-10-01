@@ -73,6 +73,14 @@ add_library(vf3core STATIC
     src/fight/device_adapters.c
     src/fight/device_adapters_0.c
     src/fight/device_adapters_1.c
+    src/fight/fifth_adapters.c
+    src/fight/fifth_adapters_0.c
+    src/fight/fifth_adapters_1.c
+    src/fight/fifth_adapters_2.c
+    src/fight/fifth_adapters_3.c
+    src/fight/fifth_leaf_adapters.c
+    src/fight/fifth_leaf_adapters_0.c
+    src/fight/fifth_leaf_adapters_1.c
     src/fight/f9f354.c
     src/fight/f9f9a8.c
     src/fight/f9f6fc.c
@@ -117,7 +125,15 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/next_adapters_1.c src/fight/next_adapters_2.c
       src/fight/next_adapters_3.c
       src/fight/device_adapters.c src/fight/device_adapters_0.c
-      src/fight/device_adapters_1.c PROPERTIES
+      src/fight/device_adapters_1.c
+      src/fight/fifth_adapters.c
+      src/fight/fifth_adapters_0.c
+      src/fight/fifth_adapters_1.c
+      src/fight/fifth_adapters_2.c
+      src/fight/fifth_adapters_3.c
+      src/fight/fifth_leaf_adapters.c
+      src/fight/fifth_leaf_adapters_0.c
+      src/fight/fifth_leaf_adapters_1.c PROPERTIES
       COMPILE_OPTIONS "-O0;-frounding-math;-ffp-contract=off")
 endif()
 

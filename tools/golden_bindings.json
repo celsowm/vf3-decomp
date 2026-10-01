@@ -1945,5 +1945,1034 @@
   "strict": true,
   "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
   "port": "src/fight/device_adapters.c"
+ },
+ "fifth:0x8c03628a": {
+  "test": "build/vf3matrixfamily.exe 0x8c03628a",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c03628a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0437ae": {
+  "test": "build/vf3matrixfamily.exe 0x8c0437ae",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0437ae.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c055666": {
+  "test": "build/vf3matrixfamily.exe 0x8c055666",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c055666.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0556da": {
+  "test": "build/vf3matrixfamily.exe 0x8c0556da",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0556da.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0558f8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0558f8",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0558f8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c055bfc": {
+  "test": "build/vf3matrixfamily.exe 0x8c055bfc",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c055bfc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0568a2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0568a2",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0568a2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c072b50": {
+  "test": "build/vf3matrixfamily.exe 0x8c072b50",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c072b50.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c07ab14": {
+  "test": "build/vf3matrixfamily.exe 0x8c07ab14",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c07ab14.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c08b448": {
+  "test": "build/vf3matrixfamily.exe 0x8c08b448",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c08b448.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0a2c48": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a2c48",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0a2c48.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0a7602": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7602",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0a7602.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0aadae": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aadae",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0aadae.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0ac90c": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ac90c",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0ac90c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0ad9fe": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ad9fe",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0ad9fe.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0ae458": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ae458",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0ae458.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0aea68": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aea68",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0aea68.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0caf64": {
+  "test": "build/vf3matrixfamily.exe 0x8c0caf64",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0caf64.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0cbdd0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cbdd0",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0cbdd0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c0cbfc8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cbfc8",
+  "golden": "extract/analysis/fifth_primary_cases/f_8c0cbfc8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_adapters.c"
+ },
+ "fifth:0x8c036594": {
+  "test": "build/vf3matrixfamily.exe 0x8c036594",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c036594.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03c092": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c092",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03c092.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03c51a": {
+  "test": "build/vf3matrixfamily.exe 0x8c03c51a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03c51a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03d260": {
+  "test": "build/vf3matrixfamily.exe 0x8c03d260",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03d260.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03e980": {
+  "test": "build/vf3matrixfamily.exe 0x8c03e980",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03e980.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03ecb0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03ecb0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03ecb0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03eff4": {
+  "test": "build/vf3matrixfamily.exe 0x8c03eff4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03eff4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c03ffd0": {
+  "test": "build/vf3matrixfamily.exe 0x8c03ffd0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03ffd0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c040016": {
+  "test": "build/vf3matrixfamily.exe 0x8c040016",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c040016.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c04396e": {
+  "test": "build/vf3matrixfamily.exe 0x8c04396e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c04396e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0439c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0439c0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0439c0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0441b6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0441b6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0441b6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c044c7c": {
+  "test": "build/vf3matrixfamily.exe 0x8c044c7c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c044c7c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c044cc0": {
+  "test": "build/vf3matrixfamily.exe 0x8c044cc0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c044cc0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0459fc": {
+  "test": "build/vf3matrixfamily.exe 0x8c0459fc",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0459fc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c045a5e": {
+  "test": "build/vf3matrixfamily.exe 0x8c045a5e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c045a5e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c048008": {
+  "test": "build/vf3matrixfamily.exe 0x8c048008",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c048008.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c04870e": {
+  "test": "build/vf3matrixfamily.exe 0x8c04870e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c04870e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c04874a": {
+  "test": "build/vf3matrixfamily.exe 0x8c04874a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c04874a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c048caa": {
+  "test": "build/vf3matrixfamily.exe 0x8c048caa",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c048caa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c04bd2a": {
+  "test": "build/vf3matrixfamily.exe 0x8c04bd2a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c04bd2a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c053cac": {
+  "test": "build/vf3matrixfamily.exe 0x8c053cac",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c053cac.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c056340": {
+  "test": "build/vf3matrixfamily.exe 0x8c056340",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c056340.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0696c6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0696c6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0696c6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c06bf08": {
+  "test": "build/vf3matrixfamily.exe 0x8c06bf08",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c06bf08.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c06c3d4": {
+  "test": "build/vf3matrixfamily.exe 0x8c06c3d4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c06c3d4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c06c42a": {
+  "test": "build/vf3matrixfamily.exe 0x8c06c42a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c06c42a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c06d772": {
+  "test": "build/vf3matrixfamily.exe 0x8c06d772",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c06d772.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0701fe": {
+  "test": "build/vf3matrixfamily.exe 0x8c0701fe",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0701fe.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070252": {
+  "test": "build/vf3matrixfamily.exe 0x8c070252",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070252.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070278": {
+  "test": "build/vf3matrixfamily.exe 0x8c070278",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070278.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0702a6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0702a6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0702a6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0702c6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0702c6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0702c6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0702e8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0702e8",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0702e8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07042a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07042a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07042a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070450": {
+  "test": "build/vf3matrixfamily.exe 0x8c070450",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070450.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07047a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07047a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07047a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07049a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07049a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07049a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0704bc": {
+  "test": "build/vf3matrixfamily.exe 0x8c0704bc",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0704bc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0709ce": {
+  "test": "build/vf3matrixfamily.exe 0x8c0709ce",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0709ce.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0709f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0709f4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0709f4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070a1e": {
+  "test": "build/vf3matrixfamily.exe 0x8c070a1e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070a1e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070a3e": {
+  "test": "build/vf3matrixfamily.exe 0x8c070a3e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070a3e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070a60": {
+  "test": "build/vf3matrixfamily.exe 0x8c070a60",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070a60.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070ba2": {
+  "test": "build/vf3matrixfamily.exe 0x8c070ba2",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070ba2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070bc8": {
+  "test": "build/vf3matrixfamily.exe 0x8c070bc8",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070bc8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070bf2": {
+  "test": "build/vf3matrixfamily.exe 0x8c070bf2",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070bf2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070c12": {
+  "test": "build/vf3matrixfamily.exe 0x8c070c12",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070c12.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070c34": {
+  "test": "build/vf3matrixfamily.exe 0x8c070c34",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070c34.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070e06": {
+  "test": "build/vf3matrixfamily.exe 0x8c070e06",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070e06.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070e2c": {
+  "test": "build/vf3matrixfamily.exe 0x8c070e2c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070e2c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070e5a": {
+  "test": "build/vf3matrixfamily.exe 0x8c070e5a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070e5a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070e7a": {
+  "test": "build/vf3matrixfamily.exe 0x8c070e7a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070e7a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070e9c": {
+  "test": "build/vf3matrixfamily.exe 0x8c070e9c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070e9c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070fd6": {
+  "test": "build/vf3matrixfamily.exe 0x8c070fd6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070fd6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c070ffc": {
+  "test": "build/vf3matrixfamily.exe 0x8c070ffc",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c070ffc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07102a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07102a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07102a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07104a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07104a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07104a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07106c": {
+  "test": "build/vf3matrixfamily.exe 0x8c07106c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07106c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071890": {
+  "test": "build/vf3matrixfamily.exe 0x8c071890",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071890.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0718b2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0718b2",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0718b2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071906": {
+  "test": "build/vf3matrixfamily.exe 0x8c071906",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071906.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071dc4": {
+  "test": "build/vf3matrixfamily.exe 0x8c071dc4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071dc4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071de6": {
+  "test": "build/vf3matrixfamily.exe 0x8c071de6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071de6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071e3a": {
+  "test": "build/vf3matrixfamily.exe 0x8c071e3a",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071e3a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c071fec": {
+  "test": "build/vf3matrixfamily.exe 0x8c071fec",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c071fec.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07200e": {
+  "test": "build/vf3matrixfamily.exe 0x8c07200e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07200e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c072062": {
+  "test": "build/vf3matrixfamily.exe 0x8c072062",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c072062.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c073f82": {
+  "test": "build/vf3matrixfamily.exe 0x8c073f82",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c073f82.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c074702": {
+  "test": "build/vf3matrixfamily.exe 0x8c074702",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c074702.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07482e": {
+  "test": "build/vf3matrixfamily.exe 0x8c07482e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07482e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c074854": {
+  "test": "build/vf3matrixfamily.exe 0x8c074854",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c074854.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c074e24": {
+  "test": "build/vf3matrixfamily.exe 0x8c074e24",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c074e24.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07b6c4": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b6c4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07b6c4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07b6de": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b6de",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07b6de.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c07c9ec": {
+  "test": "build/vf3matrixfamily.exe 0x8c07c9ec",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07c9ec.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c084faa": {
+  "test": "build/vf3matrixfamily.exe 0x8c084faa",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c084faa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c08b5ae": {
+  "test": "build/vf3matrixfamily.exe 0x8c08b5ae",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c08b5ae.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c091dbe": {
+  "test": "build/vf3matrixfamily.exe 0x8c091dbe",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c091dbe.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c092270": {
+  "test": "build/vf3matrixfamily.exe 0x8c092270",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c092270.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c092550": {
+  "test": "build/vf3matrixfamily.exe 0x8c092550",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c092550.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c092b8c": {
+  "test": "build/vf3matrixfamily.exe 0x8c092b8c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c092b8c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c092c16": {
+  "test": "build/vf3matrixfamily.exe 0x8c092c16",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c092c16.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c092ebc": {
+  "test": "build/vf3matrixfamily.exe 0x8c092ebc",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c092ebc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09318e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09318e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09318e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093794": {
+  "test": "build/vf3matrixfamily.exe 0x8c093794",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093794.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0937e6": {
+  "test": "build/vf3matrixfamily.exe 0x8c0937e6",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0937e6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093800": {
+  "test": "build/vf3matrixfamily.exe 0x8c093800",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093800.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0938ac": {
+  "test": "build/vf3matrixfamily.exe 0x8c0938ac",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0938ac.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0938ea": {
+  "test": "build/vf3matrixfamily.exe 0x8c0938ea",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0938ea.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093908": {
+  "test": "build/vf3matrixfamily.exe 0x8c093908",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093908.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09392e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09392e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09392e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093a16": {
+  "test": "build/vf3matrixfamily.exe 0x8c093a16",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093a16.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093a34": {
+  "test": "build/vf3matrixfamily.exe 0x8c093a34",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093a34.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093ad0": {
+  "test": "build/vf3matrixfamily.exe 0x8c093ad0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093ad0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093b22": {
+  "test": "build/vf3matrixfamily.exe 0x8c093b22",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093b22.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c093b3e": {
+  "test": "build/vf3matrixfamily.exe 0x8c093b3e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c093b3e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09553e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09553e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09553e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c095608": {
+  "test": "build/vf3matrixfamily.exe 0x8c095608",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c095608.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c095652": {
+  "test": "build/vf3matrixfamily.exe 0x8c095652",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c095652.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09d42c": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d42c",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09d42c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09d4b0": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d4b0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09d4b0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09d4ee": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d4ee",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09d4ee.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09d52e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d52e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09d52e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09d554": {
+  "test": "build/vf3matrixfamily.exe 0x8c09d554",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09d554.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09da22": {
+  "test": "build/vf3matrixfamily.exe 0x8c09da22",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09da22.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09dbc0": {
+  "test": "build/vf3matrixfamily.exe 0x8c09dbc0",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09dbc0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c09f036": {
+  "test": "build/vf3matrixfamily.exe 0x8c09f036",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c09f036.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a7390": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7390",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a7390.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a740e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a740e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a740e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a7478": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7478",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a7478.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a7570": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7570",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a7570.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a7666": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a7666",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a7666.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a76ee": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a76ee",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a76ee.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0a9f62": {
+  "test": "build/vf3matrixfamily.exe 0x8c0a9f62",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a9f62.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0aa4b8": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aa4b8",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0aa4b8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0abe84": {
+  "test": "build/vf3matrixfamily.exe 0x8c0abe84",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0abe84.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0ac1e4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0ac1e4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0ac1e4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0b1b34": {
+  "test": "build/vf3matrixfamily.exe 0x8c0b1b34",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0b1b34.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0c12a4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c12a4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0c12a4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0c1d86": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c1d86",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0c1d86.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0c2b66": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c2b66",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0c2b66.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0c6e7e": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c6e7e",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0c6e7e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0c6eac": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c6eac",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0c6eac.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0caaf2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0caaf2",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0caaf2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0cab30": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cab30",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0cab30.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
+ },
+ "fifth:0x8c0cc5f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0cc5f4",
+  "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0cc5f4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
+  "port": "src/fight/fifth_leaf_adapters.c"
  }
 }
