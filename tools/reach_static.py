@@ -118,6 +118,11 @@ def main() -> int:
     ap.add_argument("--min-size", type=int, default=0)
     ap.add_argument("--orphans", action="store_true", help="list the largest orphans")
     ap.add_argument("--top", type=int, default=30)
+    ap.add_argument("--roots", default="",
+                    help="comma-separated hex address roots; replaces the "
+                         "executed-function roots (e.g. 0x8C010000,0x8C020000) "
+                         "so orphans can be screened against true-image "
+                         "reachability from the program entrypoint")
     args = ap.parse_args()
 
     baseline = load_baseline()
@@ -128,8 +133,17 @@ def main() -> int:
 
     edges = load_edges()
 
-    # roots: every baseline function observed executing, covered or not
-    roots = {a for a in entries if hits.get(a, 0) > 0}
+    # roots: every baseline function observed executing, covered or not —
+    # unless --roots overrides them with explicit address roots (which need
+    # not be baseline entries; the CRT0/startup chain is not).
+    if args.roots:
+        roots = set()
+        for tok in args.roots.split(","):
+            tok = tok.strip()
+            if tok:
+                roots.add(int(tok, 16))
+    else:
+        roots = {a for a in entries if hits.get(a, 0) > 0}
     # Reverse map: address -> owning baseline function (for intra-body edges)
     owner: dict[int, int] = {}
     for a, sz in baseline:
@@ -137,7 +151,7 @@ def main() -> int:
             owner[a + off] = a
         owner[a] = a
 
-    seen_functions = set(roots)
+    seen_functions = {a for a in roots if a in entries}
     seen_addrs = set()
     queue = collections.deque()
     for a in roots:

@@ -144,6 +144,20 @@ def main() -> int:
             if bh > hits.get(ent, 0):
                 hits[ent] = bh
 
+    # hits_merged.csv (tools/merge_hits.py) unions every archived per-state
+    # hit survey; it supersedes the single-trace heat above for execution
+    # evidence. Keep the freshest count per entry.
+    merged = AN / "hits_merged.csv"
+    if merged.exists():
+        with open(merged, newline="") as f:
+            for r in csv.DictReader(f):
+                ent = int(r["entry"], 16)
+                mh = int(r.get("hits") or 0)
+                if mh > 0:
+                    executed.add(ent)
+                    if mh > hits.get(ent, 0):
+                        hits[ent] = mh
+
     calls = defaultdict(set)
     g_phantom = defaultdict(int)   # call_site word is not a call instruction
     img = (REPO / "extract" / "exe" / "1ST_READ.unsc.bin").read_bytes()

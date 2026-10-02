@@ -134,3 +134,33 @@ first, structurally necessary next": (0) freeze the census, (1) capture the
 unlock the ~236 KB of real code, (3) invest those levers on the largest live
 closures. Batch-6 proved one family can add +25 KB; a handful of families plus
 synthetic entry is how "considerable" stops being one +4 KB batch at a time.
+
+## Phase 0 results (2026-10-02, executed)
+
+- `tools/port_plan.py` now folds `hits_merged.csv` (all 46 archived hit
+  surveys) into its hits/executed columns; `port_plan_current.csv` was
+  regenerated. `tools/reach_census.py` therefore now reports the true
+  capture-possible pool: **250 executed uncovered fns / 59,786 B**
+  (up from the stale 75-fn reading; 44 more than the 206-fn estimate in this
+  doc, because trace/backlog heat also folded in). Only 15 of them are
+  closure_ok (2,450 B): helpers-first ordering still applies.
+- `tools/family_map.py` was broken: the old fingerprint hashed a garbled
+  per-word op class (wrong nibble) and required identical-size bodies, so it
+  reported 0 families even though batch 6 had ported a 55-member family.
+  Rewritten around `tools/sh4.py` decoding with a callee-set family key plus
+  exact-skeleton leaf clones. Result on the current uncovered set: **the
+  family lever is spent** — the largest executed families are two-member
+  leaf-clone pairs in the 0x8C0A page; no uncovered cohort approaches the
+  batch-6 shape. Step-2 batches are individuals/pairs.
+- `tools/reach_static.py` gained `--roots` for entrypoint-rooted reachability
+  (0x8C010000 boot copy, 0x8C020000 CRT0, 0x8C09574E startup):
+  924 fns / 172,498 B of uncovered code is statically live from entry alone.
+- `tools/orphan_screen.py` now cross-screens orphans against entry roots and
+  writes `extract/analysis/phantom_screen.csv`:
+  **310 confirmed phantoms / 17,420 B (do not port)**, 269 function-like
+  orphans / 52,574 B (dispatch/table reach only), 1 entry-live orphan.
+- Campaign bar per user decision: **capture-only first, "as much as
+  possible"** with the stop rule (route abandoned when replay-complete yield
+  < candidate count; campaign ends when a full batch lands <10 KB).
+  Synthetic-entry (`VF3_ENTRY_PATCH`) stays out of scope until the
+  capture-only ceiling is measured.

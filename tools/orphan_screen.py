@@ -78,9 +78,10 @@ def load_hits():
     return out
 
 
-def compute_orphans() -> set:
-    """Copied from reach_static.run(): the set of uncovered bodies with no
-    static path from any executed root."""
+def compute_orphans(entry_roots: str | None = None) -> set:
+    """Uncovered bodies with no static path from the executed roots — or,
+    with entry_roots, no static path from the given address roots (used to
+    screen against true-image reachability from the program entrypoint)."""
     baseline = load_baseline()
     covered = load_ledger()
     hits = load_hits()
@@ -109,12 +110,22 @@ def compute_orphans() -> set:
         owner[a] = a
 
     import collections as C
-    seen_fns = {a for a, _ in baseline if hits.get(a, 0) > 0}
-    seen_addrs = set()
+    if entry_roots:
+        seed_fns = set()
+        seed_addrs = set()
+        for tok in entry_roots.split(","):
+            tok = tok.strip()
+            if tok:
+                seed_addrs.add(int(tok, 16))
+    else:
+        seed_fns = {a for a, _ in baseline if hits.get(a, 0) > 0}
+        seed_addrs = set()
+        for a in seed_fns:
+            for off in range(0, max(sizes.get(a, 1), 1) * 2, 2):
+                seed_addrs.add(a + off)
+    seen_fns = {a for a in seed_fns if a in sizes}
+    seen_addrs = set(seed_addrs)
     q = C.deque()
-    for a in seen_fns:
-        for off in range(0, max(sizes.get(a, 1), 1) * 2, 2):
-            seen_addrs.add(a + off)
     q.extend(sorted(seen_addrs))
     while q:
         pc = q.popleft()
@@ -129,6 +140,9 @@ def compute_orphans() -> set:
             if nxt not in seen_addrs:
                 seen_addrs.add(nxt)
                 q.append(nxt)
+    if entry_roots:
+        # entry mode: report REACHABLE functions (caller computes the rest)
+        return {a for a, _ in baseline if a in seen_fns}
     return {a for a, _ in baseline if a not in covered and a not in seen_fns}
 
 
@@ -163,9 +177,16 @@ def score(words: list[int]) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--top", type=int, default=40)
+    ap.add_argument("--entry-roots",
+                    default="0x8C010000,0x8C020000,0x8C09574E",
+                    help="address roots for the true-image entry screen "
+                         "(boot copy loop, CRT0, startup)")
+    ap.add_argument("--out", default=A("phantom_screen.csv"),
+                    help="write the per-orphan classification CSV")
     args = ap.parse_args()
 
     orphans = compute_orphans()
+    entry_live = compute_orphans(entry_roots=args.entry_roots) if args.entry_roots else set()
     baseline = dict(load_baseline())
     hits = load_hits()
     image = open(IMAGE, "rb").read()
@@ -181,31 +202,43 @@ def main() -> int:
         words = [int.from_bytes(image[off + i:off + i + 2], "big")
                  for i in range(0, size * 2, 2)]
         sc = score(words)
-        rows.append((a, size, sc, hits.get(a, 0)))
+        h = hits.get(a, 0)
+        if not sc["save_pr"] and not sc["has_rts"] and sc["calls"] == 0:
+            kind = "phantom"
+        elif a in entry_live:
+            kind = "entry-live"      # real code; a scenario could reach it
+        else:
+            kind = "fn-like-orphan"  # dispatch/table-only reachability
+        rows.append((a, size, sc, h, kind))
 
-    def phantom(r):
-        _, _, sc, _ = r
-        return (not sc["save_pr"]) and (not sc["has_rts"]) and sc["calls"] == 0
-
-    def function_like(r):
-        _, _, sc, _ = r
-        return sc["save_pr"] or sc["has_rts"] or sc["calls"] > 0
-
-    ph = [r for r in rows if phantom(r)]
-    fl = [r for r in rows if function_like(r)]
+    ph = [r for r in rows if r[4] == "phantom"]
+    fl = [r for r in rows if r[4] != "phantom"]
+    el = [r for r in rows if r[4] == "entry-live"]
+    fo = [r for r in rows if r[4] == "fn-like-orphan"]
 
     print("orphan bodies          : %d / %d B" % (len(rows), sum(r[1] for r in rows)))
-    print("  phantom-like (none)  : %d / %d B  <- skip" %
-          (len(ph), sum(r[1] for r in ph)))
-    print("  function-like        : %d / %d B  <- candidate" %
-          (len(fl), sum(r[1] for r in fl)))
+    print("  phantom (skip)       : %d / %d B" % (len(ph), sum(r[1] for r in ph)))
+    print("  entry-live           : %d / %d B" % (len(el), sum(r[1] for r in el)))
+    print("  fn-like orphan       : %d / %d B" % (len(fo), sum(r[1] for r in fo)))
     print()
+
+    if args.out:
+        with open(args.out, "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(["entry", "size", "hits", "class",
+                       "save_pr", "has_rts", "calls", "branches", "slop"])
+            for a, size, sc, h, kind in sorted(rows):
+                w.writerow(["0x%08X" % a, size, h, kind,
+                            int(sc["save_pr"]), int(sc["has_rts"]),
+                            sc["calls"], sc["branches"], int(sc["slop"])])
+        print("wrote %s" % args.out)
+        print()
 
     # largest function-like orphans (real code worth a scenario to reach)
     print("== largest function-like orphans (reach candidates) ==")
     fl.sort(key=lambda r: -r[1])
-    for a, size, sc, h in fl[: args.top]:
-        flags = []
+    for a, size, sc, h, kind in fl[: args.top]:
+        flags = [kind]
         for k, v in sc.items():
             if k == "words":
                 continue
