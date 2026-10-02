@@ -57,7 +57,7 @@ def records(path):
                        before=before, after=after, pages=sorted(pages), ops=ops,
                        device=device, nstate=nstate)
 
-def convert(paths, out, entries=None):
+def convert(paths, out, entries=None, clean_only=False):
     out = Path(out)
     grouped, invalid, runs = defaultdict(dict), [], []
     nondeterministic = set()
@@ -71,6 +71,14 @@ def convert(paths, out, entries=None):
                           exit=f'0x{r["exitpc"]:08x}')
             if r["flags"]:
                 invalid.append({**source, "flags": r["flags"]})
+                continue
+            if clean_only and r["device"]:
+                # A specimen that touched the device bus recorded an access tape
+                # outside every captured RAM window. It stays valid evidence of
+                # what the guest did, but it is not a replayable case: exclude
+                # it when the goal is a corpus a C port can be bound to.
+                invalid.append({**source, "flags": 16,
+                                "note": "device access outside captured windows"})
                 continue
             if entries is not None and (r['entry']|0x80000000) not in entries:
                 continue
@@ -95,6 +103,12 @@ def convert(paths, out, entries=None):
         if not run.get('summary_missing'):
             if run['completed']!=count or run['started']!=count+len(run['incomplete']):
                 raise ValueError(f'{path}: invocation summary disagrees with records')
+            if run.get('unaccounted'):
+                # An armed invocation vanished without a record (a probe aborted
+                # while the run was tearing down). Report it; do not silently
+                # treat the corpus as complete.
+                print(f"WARNING {path}: {run['unaccounted']} armed invocation(s) "
+                      f"unaccounted at shutdown")
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
     manifest = {"format":"VF3CAP6 (CAP3/4/5 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
@@ -153,5 +167,8 @@ if __name__ == "__main__":
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument("capsules", nargs="+")
     ap.add_argument("--out",required=True)
+    ap.add_argument("--clean-only",action="store_true",
+                    help="drop specimens whose device tape reaches outside the "
+                         "captured RAM windows (not replayable by a C port)")
     a=ap.parse_args()
-    convert(a.capsules,a.out)
+    convert(a.capsules,a.out,clean_only=a.clean_only)

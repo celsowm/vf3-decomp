@@ -42,29 +42,51 @@ python tools/golden_batch.py --name phase3 --watch tools/watch/vf3_entry_patch_p
     --run dev:extract/analysis/vf3_fight_keep.state:extract/analysis/vf3_play_actions.txt:600
 ```
 
-A 974-variant plan covers only a slice per run, so campaigns step
+A 3258-variant plan covers only a slice per run, so campaigns step
 `--probe-offset` across runs (`VF3_PROBE_CURSOR`) and merge the corpora.
 
 ## Trigger choice decides whether the run survives
 
-Skipping the trigger instruction corrupts whatever depended on it:
+**Substitution, not redirection.** The hook runs *before* `ExecuteOpcode`, so a
+plain `ctx->pc = target` still lets the trigger instruction execute — and a
+`jsr` then rewrites `pr` from the redirected PC, leaving the caller with a
+broken return chain; an `rts` trigger simply never returns. `vf3OracleTakeSubstitute()`
+fixes this at the fetch site in `ReadNexOp`: the target's first opcode *replaces*
+the trigger's in the stream, so the trigger never runs at all. That single change
+is what makes a probe invisible to the game:
 
-- **JSR call site — safe.** A `jsr` pushes nothing; running the target in its
-  place and returning to `trigger+4` is exactly what the game would have done.
-  Use `--pr-offset 4`.
-- **Function prologue — unsafe.** Probes at `sts.l pr,@-r15` skip the frame
-  push, so the function later pops a bogus return address and the run dies
-  within a few hundred frames.
+- with substitution, a **prologue trigger** (`sts.l pr,@-r15`) becomes sound as
+  well as a **JSR call site** — the target's own prologue push replaces the
+  skipped one, so the frame stays balanced;
+- before substitution, "hot" trigger addresses that produced 250+ probes per run
+  were not hot at all: the broken return chain had put the game into a loop
+  through the trigger region. Those corpora record real guest execution but a
+  contaminated exit state, and they fail strict replay
+  (`reg r8: got 0x65 want <seeded pr>`). Treat them as scenario evidence, not as
+  promotion corpora.
+
+The `pr` fixture follows from the trigger kind, and both values below are only
+correct because substitution removes the trigger instruction from the stream:
+
+- **JSR call site** — `pr = trigger+4`, skipping the call *and* its delay slot.
+  A `jsr` pushes nothing, so the target returns straight into the caller's
+  continuation. Use `--pr-offset 4`.
+- **Function prologue** — `pr = trigger+2`, so the return lands on the
+  instruction after the `sts.l pr,@-r15`. Sound only with substitution: the
+  target's own prologue push takes the place of the skipped one, so the frame is
+  balanced. Without substitution the push is skipped and the function pops a
+  bogus return address. Use `--pr-offset 2`.
 
 Two measurement traps that produced wrong trigger sets here:
 
-- Hit surveys run faster than capture runs unless the memory hooks are
-  installed, and the game then lands in a different fight phase; survey
-  reachability with `--capsule --ramn 0` when the answer must match a capture.
+- Hit surveys must not be read past their sample cap. A survey with
+  `--max-samples 60` reported "60 hits" for nine call sites that in fact fire
+  **once per run**; the real probe rate was 3 per run, not 540.
 - The image stores each 16-bit word byte-swapped relative to `sh4dump.py`
-  (`word = img[a-base] | img[a-base+1] << 8`). Scanning with the wrong stride or
-  the wrong byte order silently yields "hot" addresses that are ordinary
-  instructions, and probing one of those corrupts control flow.
+  (`word = img[a-base] | img[a-base+1] << 8`), and `jsr @Rn` (`0x4n0b`) shares its
+  low-nibble mask with `rts` (`0x000b`). Scanning with the wrong stride, byte
+  order, or a mask that does not exclude `rts` silently yields "hot" addresses
+  that are ordinary instructions.
 
 ## Rollback has to be exact
 
@@ -107,9 +129,23 @@ alone.
 
 The first probe redirects trigger `0x8C0AA446` into `0x8C05B20E` and produces
 complete capsules; that is evidence the mechanism works, not a promoted port.
-The campaign that followed drove the body from 47.8% to **94.9%** body-byte
-coverage (1254/1322 B, `tools/body_cover.py`) across 14 capture corpora, but
-the generated adapter passes only 4/204 strict replay cases: the deep arms
-dereference descriptor words as pointers, so the seeds that reach them also
-chase memory outside the captured windows. `0x8C05B20E` is parked, not ported —
-see `docs/decomp_status.csv` and the Phase 3 section of `advance_plan.md`.
+
+The campaign that followed reached 98.3% body-byte coverage (1300/1322 B) over
+5843 cases — and that number is void. It was captured with the broken fixture
+above, and every one of those corpora **fails strict replay** with a contaminated
+exit state. `extract/analysis/phase3_all_cases` is kept only as scenario evidence
+and must be excluded from any promotion argument.
+
+With substitution in place the same sweep is clean: 24 runs, 72 cases,
+**594/1322 B (44.9%)**, and **24/24 corpora pass strict replay**. The generated
+adapter (`extract/analysis/phase3_final_regenerated.c`, 704 guest statements, 0
+unsupported instructions) replays every clean case, but 44.9% is below the
+`body_cover.py --min-cover 100 --strict` promotion gate.
+
+Nine of the eleven remaining bytes are not seed-reachable at all: they sit behind
+`0x8C05B63C mov.l @(24,r4),r7`, a dereference of a live game object that must
+compare equal to `0x28000000` at `0x8C05B66E`. No register or RAM seed fabricates
+that — the probe has to be handed the object the game would really have passed,
+which is dispatch-table reconstruction, a different lever. `0x8C05B20E` is
+parked, not ported — see `docs/decomp_status.csv` and the Phase 3 section of
+`advance_plan.md`.

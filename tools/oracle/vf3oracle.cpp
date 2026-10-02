@@ -53,6 +53,10 @@ struct Call {
      * invalid, and the game is rolled back. */
     bool aborted = false;
     bool skipFetched = false;
+    /* The substituted first opcode, recorded explicitly: the target's entry
+     * instruction never reaches the hook (it takes the trigger's fetch slot). */
+    unsigned subPc = 0;
+    unsigned short subOp = 0;
     /* Where the game must resume: the return address the probe was seeded with.
      * ctx->pc at an abort point is still inside the probe, so it cannot be used. */
     unsigned gameResume = 0;
@@ -93,6 +97,10 @@ std::map<unsigned,unsigned long long> probeByTrigger;
  * target entry and every probe records twice. */
 unsigned pendingRedirect;
 bool pendingSkip;
+/* Opcode substitution: the target's first instruction takes the trigger's place
+ * in the fetch stream, so the trigger never executes (see vf3oracle.h). */
+unsigned pendingSubPc;
+unsigned short pendingSubOp;
 /* Context of the instruction currently being dispatched, so the exception hook
  * can finish an in-flight probe without a second context argument. */
 const Sh4Context *lastCtx;
@@ -171,7 +179,9 @@ void close_output() {
     output=nullptr;
     FILE *f=std::fopen((outputPath+".summary.json").c_str(),"wb");
     if (!f) std::abort();
-    std::fprintf(f,"{\"started\":%llu,\"completed\":%llu,\"incomplete\":[",sequence,completed);
+    std::fprintf(f,"{\"started\":%llu,\"completed\":%llu,\"armed\":%llu,\"unaccounted\":%lld,\"incomplete\":[",
+                 completed+active.size(), completed, sequence,
+                 (long long)sequence-(long long)completed-(long long)active.size());
     for (size_t i=0;i<active.size();++i)
         std::fprintf(f,"%s{\"invocation\":%llu,\"entry\":\"0x%08x\",\"flags\":%u}",
                      i?",":"",active[i].id,active[i].entry,active[i].flags|16);
@@ -417,6 +427,12 @@ void init(const Sh4Context *ctx) {
 }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
 bool vf3OracleTakeSkip() { if (!pendingSkip) return false; pendingSkip=false; return true; }
+bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op) {
+    if (!pendingSubPc) return false;
+    *pc=pendingSubPc; *op=pendingSubOp;
+    pendingSubPc=0; pendingSubOp=0;
+    return true;
+}
 bool vf3OracleAbortProbe() {
     /* A seed that steers the target into unmapped memory faults. Record the
      * specimen as invalid (it earns no credit), roll the game state back to the
@@ -460,6 +476,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     pendingRedirect=0;
     auto synthetic=syntheticPatches.find(canon);
     if (synthetic!=syntheticPatches.end() && synthetic->second.target) {
+        ++probeByTrigger[canon|0x40000000u];
         if (!active.empty()) { ++probeBusy; vf3OracleInvalidate(4); }
         else {
             auto target=std::lower_bound(specs.begin(),specs.end(),synthetic->second.target,
@@ -476,7 +493,8 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
                 : patch.variants[patch.cursor++%patch.variants.size()];
             Call c; c.id=++sequence; c.entry=patch.target; c.depth=depth;
             c.synthetic=true; c.saved=*ctx; c.savedDepth=depth; c.triggerPc=canon;
-            c.needsSnapshot=true;
+            /* No re-snapshot: with opcode substitution the trigger never runs, so
+             * the state captured here already is the pre-target state. */
             /* Snapshot the fixture pages before overwriting them, so the exit
              * restore returns RAM to its pre-probe contents. These images are
              * kept apart from the capsule's own before/after pages. */
@@ -491,18 +509,23 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             for (const auto &word:variant.ram)
                 std::memcpy(&mem_b[word[0]&0x00ffffffu],&word[1],4);
             mutableCtx->pc=synthetic->second.target;
+            redirected=synthetic->second.target;
+            pendingRedirect=redirected;
+            /* Substitute the target's first opcode for the trigger's, so the
+             * interpreter never executes the trigger itself. */
+            pendingSubPc=redirected;
+            pendingSubOp=rd16(redirected&0x1FFFFFFF);
             if (target->count<samples) {
                 ++target->count; ++probes; ++probeByTrigger[canon];
                 c.transfer=target->transfer; c.in=snapshot(mutableCtx); c.deferRecord=true;
                 c.gameResume=mutableCtx->pr;
+                c.subPc=pendingSubPc; c.subOp=pendingSubOp;
                 active.push_back(std::move(c));
             }
             /* The redirect already owns the target's invocation: the generic watch
              * below would arm a second, near-identical record for the same entry
              * (same instruction stream, one word different in the entry state) and
              * burn half the sample budget on duplicates. */
-            redirected=synthetic->second.target;
-            pendingRedirect=redirected;
         }
     }
     auto spec=std::lower_bound(specs.begin(),specs.end(),canon,
@@ -525,7 +548,11 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         }
     }
     for(auto &c:active) {
-        if (c.deferRecord) { c.deferRecord=false; continue; }
+        if (c.deferRecord) {
+            c.deferRecord=false;
+            if (c.subPc) c.ops.push_back({c.subPc,c.subOp});
+            continue;
+        }
         /* First instruction actually reached inside the target: the trigger
          * instruction has now run, so this is the state the game must resume
          * with once the probe is rolled back. */

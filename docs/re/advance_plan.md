@@ -2,7 +2,7 @@
 
 ## The problem, quantified
 
-Current verified C coverage: **765 ports, 129,318 unique C bytes (29.8%)**;
+Current verified C coverage: **765 ports, 129,456 unique C bytes (29.8%)**;
 rigorous accounted (C+SDK) **765/2,398 fns / 170,450 B (39.2%)**
 (`tools/decomp_stats.py`).
 
@@ -207,13 +207,16 @@ what the phase means.
 - **Gate-aware seed plans.** `tools/oracle/gate_scan.py` extracts the `tst`
   masks and selector switches from a disassembly; `tools/oracle/seed_plan.py`
   turns them into a patch that pairs every selector value with the guard bit
-  that opens its switch. The 0x8C05B20E recipe is 974 variants; campaigns step
-  `--probe-offset` across runs and merge corpora.
-- **Trigger discipline.** Only JSR call sites are safe to redirect (prologue
-  sites skip the frame push and kill the run), and reachability has to be
-  measured in capsule mode — hit surveys without the memory hooks land in a
-  different fight phase. Both measurement traps are documented in
-  `docs/re/entry_patch.md`.
+  that opens its switch. The campaign that produced the clean corpus is
+  `tools/oracle/phase3_allpro.patch`: **3258 variants** over 26 prologue
+  triggers. Campaigns step `--probe-offset` across runs and merge corpora.
+- **Trigger discipline.** Trigger choice is only safe *with* substitution: a JSR
+  call site needs `pr = trigger+4` (past the delay slot) and a bare prologue
+  needs `pr = trigger+2`; before substitution the call site still ran its
+  `jsr` and rewrote `pr` from the redirected PC, and the prologue site killed
+  the run outright. Reachability also has to be measured in capsule mode — hit
+  surveys without the memory hooks land in a different fight phase. All three
+  measurement traps are documented in `docs/re/entry_patch.md`.
 - **Exact rollback.** Restoring registers and RAM is not sufficient on this
   fork: the write-back operand cache has to be flushed per restored page, the
   host FP rounding mode re-applied, the resume PC taken from the seeded return
@@ -226,34 +229,59 @@ what the phase means.
   counts, which is what separates "the seed plan is bad" from "the trigger is
   never reached".
 
-### Coverage went 47.8% -> 94.9%; promotion still fails
+### Coverage went 47.8% -> 98.3%, but on a broken fixture; clean capture is 44.9%
 
 `tools/body_cover.py` (new) is the gate this phase was missing: it measures how
 much of a frozen body a corpus actually executed, because the ledger credits
-whole functions. Without it the 47.8% single-run corpus would have looked like a
-port.
+whole functions. Without it the first 47.8% corpus would have looked like a port.
 
-| stage | corpus | body bytes covered | strict replay |
+| corpus | cases | body bytes covered | strict replay |
 |---|---|---|---|
-| first probe (1 seed set) | 22 cases | 846/1322 (64.0%) | n/a |
-| multi-trigger sweep | 23 cases | 846/1322 (64.0%) | n/a |
-| gate-aware plan, 3 offsets | 3×126 cases | 1032/1322 (78.1%) | n/a |
-| gate-aware plan, 10 offsets | 14 corpora | **1254/1322 (94.9%)** | **4/204** |
+| first probe (one seed set) | 22 | 846/1322 (64.0%) | 4/204 FAIL |
+| pre-substitution campaign, merged | 5843 | **1300/1322 (98.3%)** | **FAIL** |
+| substitution campaign, 24 runs merged | 72 | 594/1322 (44.9%) | **PASS (24/24 corpora)** |
 
-The generated adapter is complete on paper — 704 guest statements, **0
-unsupported instructions** — and it is the first Phase 3 body to reach that. It
-still fails strict replay, and the reason is structural rather than a bug in the
-seeds: the deep arms treat descriptor words as **pointers** and dereference
-them. Reaching those arms requires seeding values that point at live game
-memory, and the resulting capsules record accesses outside every captured
-window (`got R 0989b72c` where the guest did `W 00010de0`). A C port would have
-to reproduce pointer-valued descriptor semantics that the corpus does not pin
-down; the 34 remaining bytes are the arms behind that dependency.
+The two rows disagree because the high-coverage corpus was captured with a
+**broken fixture**. The hook runs before `ExecuteOpcode`, so redirecting the PC
+still let the trigger instruction execute — and a trigger's `jsr` then rewrote
+`pr` from the redirected PC, leaving the caller with a broken return chain. The
+game spent the run looping through the trigger region, which produced 250+
+probes per run and deep path coverage, and also contaminated every exit state
+(`reg r8: got 0x65 want <seeded pr>`). The "hot" call sites in that survey were
+mostly `rts` instructions picked up by a scan mask that `jsr @Rn` shares.
 
-Decision, per the repo's parking rule: **`0x8C05B20E` is parked, not ported.** A
-non-`ported` row records the coverage, the generated adapter
-(`extract/analysis/phase3_regenerated.c`) and the failing replay, so the work is
-visible and the 1322 bytes are not booked.
+`vf3OracleTakeSubstitute()` fixes it at the fetch site: the target's first
+opcode *replaces* the trigger's, so the trigger never runs. After that:
+
+- every capture replays exactly (24 of 24 independent corpora PASS), and
+- the probe rate collapses to the truth — about **3 probes per run**, because
+  the earlier 250 was the broken loop. Survey numbers must not be read past
+  their sample cap: a `--max-samples 60` survey reported 60 hits for sites that
+  fire once per run.
+
+So the campaign's real coverage/coverage-vs-fidelity trade is: 98.3% body
+coverage that no port can be bound to, or 44.9% that replays cleanly.
+
+### The last arms are not seed-reachable
+
+Of the 11 instructions the high-coverage corpus still misses, 9 sit behind
+`0x8C05B63C: mov.l @(24,r4),r7` — a dereference of a *live game object*, whose
+contents must compare equal to `0x28000000` for the `cmp/eq` at `0x8C05B66E` to
+take the branch. No register or RAM seed can fabricate that: the target must be
+handed the object the game would really have passed. The other 2
+(`0x8C05B46C`/`0x8C05B46E`) are gated by flag bit 24 and are reachable — they
+simply need the late variants of the plan, which run at 3 probes per run.
+
+**Answer to "can we reach 100%": not with this lever.** Synthetic seeds can
+walk everything the *descriptor* selects (44.9% of the body, cleanly replayed,
+and 98.3% when the fixture is allowed to corrupt the game). The remainder needs
+live-object seeding — dispatch-table reconstruction so the probe receives the
+real object pointer — which is Phase 2 item 2, not the seed sweep.
+
+Decision, per the repo's parking rule: **`0x8C05B20E` stays parked.** The
+substitution-era adapter (`extract/analysis/phase3_final_regenerated.c`,
+704 guest statements, 0 unsupported instructions) replays every clean case but
+covers 44.9% of the body, so the 1322 bytes are not booked.
 
 ### What this says about the remaining four targets
 
@@ -267,8 +295,9 @@ The pilot generalises as a triage, not a delivery:
    must supply the object the function would really have been called with,
    which means dispatch-table reconstruction (Phase 2 item 2) rather than a
    synthetic register fixture. That is a different lever and was not attempted.
-3. **Coverage must be re-measured per body.** 94.9% is not a port, and
-   `body_cover.py --min-cover` now says so before the ledger does.
+3. **Coverage must be re-measured per body.** Neither 98.3% nor 44.9% is a port
+   on its own, and `body_cover.py --min-cover` now says which is which before
+   the ledger does.
 
 ## Plan closure
 
@@ -293,9 +322,14 @@ Next candidates, in order of expected value:
    `body_cover.py --min-cover 100 --strict` and passes strict replay on
    development, held-out and fresh corpora.
 2. Dispatch-table reconstruction for the pointer-chasing cluster, so the seeds
-   can carry a real object pointer instead of a fabricated one — that is what
-   would unlock the last 7% of `0x8C05B20E` and its replay.
-3. Done in this phase: `body_cover.py` now runs inside `tools/verify_all.py` as
+   can carry a real object pointer instead of a fabricated one. Be clear about
+   the size of this prize: it buys the 9 live-object instructions of
+   `0x8C05B20E` — 44.9% -> ~46.3% of that body, not 44.9% -> 100%. It is worth
+   doing for the whole pointer-chasing cluster, not as a fix for one function.
+3. Scenarios that drive those states *naturally* (long play, specific matchup
+   inputs) remain the only thing that could cover the wide branch space the
+   descriptor sweep never selects. That is a capture problem, not a seed problem.
+4. Done in this phase: `body_cover.py` now runs inside `tools/verify_all.py` as
    an advisory pass over the golden bindings, and `--strict` is the promotion
    gate. It cannot fail historical piecewise ports, which are bound to
    fragment-boundary corpora by design.

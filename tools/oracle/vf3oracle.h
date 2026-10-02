@@ -12,3 +12,9 @@ bool vf3OracleAbortProbe(void);
  * the opcode it already fetched and re-fetch at the restored PC, otherwise a
  * branch inside the aborted probe overrides the resume point and the run dies. */
 bool vf3OracleTakeSkip(void);
+/* True when a synthetic probe redirected at this instruction. The interpreter
+ * must then execute the target's first opcode *instead of* the trigger's: a
+ * plain PC redirect still lets ExecuteOpcode run the trigger (a `jsr` would
+ * rewrite pr from the redirected PC and leave the caller with a broken return
+ * chain). Returns the substitute PC and opcode through the out parameters. */
+bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op);

@@ -27,7 +27,13 @@ def load(path: Path):
 
 
 def gates(recs, reg="r12"):
-    """`tst <reg>,rN` where rN holds an immediate: the mask that opens a branch."""
+    """`tst <reg>,rN` where rN holds an immediate: the mask that opens a branch.
+
+    The mask can arrive as `mov #imm,rN`, as `mov.w lit.w=imm,rN` or as a
+    `mov.l <pc-relative literal>,rN` whose pool value sh4dump annotates. Missing
+    the last form hides whole flag bits from the seed plan (0x01000000 on
+    0x8C05B20E is exactly such a mask).
+    """
     out = []
     for i, (pc, txt) in enumerate(recs):
         m = re.match(rf"tst {reg},(r\d+)", txt)
@@ -41,6 +47,10 @@ def gates(recs, reg="r12"):
             if lw:
                 mask = int(lw.group(1), 16)
                 break
+            lit = re.search(r"# lit=([0-9a-f]{8})", prev)
+            if lit:
+                mask = int(lit.group(1), 16)
+                break
             imm = re.search(rf"mov #(-?\d+),{target}$", prev) or re.search(rf"mov #(-?\d+),{target}", prev)
             if imm:
                 mask = int(imm.group(1)) & 0xFFFF
@@ -49,6 +59,37 @@ def gates(recs, reg="r12"):
         if mask is not None:
             out.append((pc, mask, bt.group(1) if bt else ""))
     return out
+
+
+def descriptor_offsets(recs):
+    """Every descriptor offset the function reads through `r13` (P4 addressing).
+
+    Offsets arrive two ways: a literal displacement `@(off,r13)` or an immediate
+    loaded into a register first (`mov #64,r0` then `mov.l @(r0,r13)`). Only the
+    first form is visible in a naive scan, so a seed plan built from it leaves
+    the second half of the descriptor unseeded.
+    """
+    direct, indirect = {}, {}
+    for i, (pc, txt) in enumerate(recs):
+        m = re.search(r"mov\.l @\((\d+),r13\)", txt)
+        if m:
+            direct.setdefault(int(m.group(1)), []).append(pc)
+            continue
+        m = re.search(r"mov\.l @\(r(\d+),r13\)", txt)
+        if not m:
+            continue
+        reg = m.group(1)
+        for j in range(i - 1, max(-1, i - 5), -1):
+            prev = recs[j][1]
+            lw = re.search(r"lit\.w=([0-9a-f]+)", prev)
+            if lw:
+                indirect.setdefault(int(lw.group(1), 16), []).append(pc)
+                break
+            imm = re.search(rf"mov #(\d+),r{reg}$", prev) or re.search(rf"mov #(\d+),r{reg}", prev)
+            if imm:
+                indirect.setdefault(int(imm.group(1)), []).append(pc)
+                break
+    return direct, indirect
 
 
 def switches(recs):
@@ -80,6 +121,11 @@ def main() -> int:
     for off, pc, reg, arms in switches(recs):
         codes = ",".join(str(c) for c, _ in arms)
         print(f"  descriptor+0x{off:02x} loaded at {pc:08x} into {reg}: codes [{codes}]")
+    direct, indirect = descriptor_offsets(recs)
+    print(f"\ndescriptor offsets read through r13 ({len(direct) + len(indirect)} distinct):")
+    print("  literal displacement: " + ", ".join(f"0x{o:02x}" for o in sorted(direct)))
+    print("  register-loaded:      " + ", ".join(f"0x{o:02x}" for o in sorted(indirect)))
+    print("  seed plan must cover every offset above.")
     return 0
 
 

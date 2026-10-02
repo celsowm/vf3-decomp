@@ -26,6 +26,14 @@ def main():
            "\tvf3OracleBefore(addr, op, ctx);\n\tvf3TraceInstr(addr, op);")
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceDepthOp(addr, op, ctx);",
            "\tvf3TraceDepthOp(addr, op, ctx);\n"
+           "\t/* A synthetic probe substitutes the target's first opcode for the\n"
+           "\t * trigger's: redirecting the PC alone still lets ExecuteOpcode run the\n"
+           "\t * trigger, and a jsr would then rewrite pr from the redirected PC and\n"
+           "\t * leave the caller with a broken return chain. */\n"
+           "\t{\n"
+           "\t\tunsigned subPc=addr; unsigned short subOp=op;\n"
+           "\t\tif (vf3OracleTakeSubstitute(&subPc,&subOp)) { addr=subPc; op=subOp; ctx->pc=addr+2; }\n"
+           "\t}\n"
            "\t/* An aborted synthetic probe restores the game state after this opcode was\n"
            "\t * already fetched: re-fetch at the restored PC so nothing of the probe\n"
            "\t * leaks into the game's instruction stream. */\n"
@@ -39,7 +47,12 @@ def main():
     if '#include "vf3oracle.h"' not in text:
         p.write_text('#include "vf3oracle.h"\n' + text, encoding="utf-8")
     for anchor, extra in (
-            ("static void Do_Interrupt(Sh4ExceptionCode intEvn)\n{", "\n\tvf3OracleInvalidate(1);"),
+            ("static void Do_Interrupt(Sh4ExceptionCode intEvn)\n{\n\tvf3OracleInvalidate(1);",
+             "\n\t/* An interrupt taken inside a synthetic probe is not dispatched: the\n"
+             "\t * rollback would discard the handler entry and leave the CPU blocked,\n"
+             "\t * which the emulator treats as a fatal nested exception. The oracle\n"
+             "\t * rolls the probe back and the interrupt stays pending. */\n"
+             "\n\tif (vf3OracleAbortProbe()) return;"),
             ("void Do_Exception(u32 epc, Sh4ExceptionCode expEvn)\n{\n\tvf3OracleInvalidate(1);",
              "\n\t/* A synthetic-entry probe that faulted is rolled back by the oracle;\n"
              "\t * dispatching its exception would fault again inside the handler. */\n"

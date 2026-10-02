@@ -30,5 +30,12 @@ tools/.venv/
 tools/emu/
 
 
+# Generated seed-sweep patches (tools/oracle/seed_plan.py output).
+# Deterministic and huge - the 26-trigger plan is 110 MB - so regenerate:
+#   python tools/oracle/seed_plan.py --target 0x8c05b20e \
+#     --triggers "$(cat extract/analysis/tmp_pro_sites.txt)" --pr-offset 2 \
+#     --out tools/oracle/phase3_allpro.patch
+tools/oracle/phase3_*.patch
+
 # harnesss
 .opencode/
