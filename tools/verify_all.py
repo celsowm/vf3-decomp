@@ -50,6 +50,8 @@ def main() -> int:
     if (REPO/'tools/oracle/sixth_batch.json').is_file():
         ok &= run([PY, 'tools/oracle/audit_sixth_batch.py'])
     ok &= run([PY, "tools/decomp_stats.py"])
+    ok &= run([PY, "tools/body_cover.py", "--bindings", "tools/golden_bindings.json",
+               "--min-cover", "100", "--quiet"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])
     ok &= run([PY, "tools/sh4_resolve.py"])

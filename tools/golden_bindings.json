@@ -1,4 +1,18 @@
 {
+ "0x8c0aa446": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aa446",
+  "golden": "extract/analysis/phase2_scout_cases/f_8c0aa446.cases",
+  "source": "Phase 2 scout adapter; 422 strict development cases plus independent holdout and fresh replay corpora",
+  "port": "src/fight/phase2_adapters.c",
+  "strict": true
+ },
+ "0x8c0483f4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0483f4",
+    "golden": "extract/analysis/phase1_dev_cases/f_8c0483f4.cases",
+  "source": "Phase 1 closure adapter; 509 strict development cases plus independent holdout and fresh replay corpora",
+  "port": "src/fight/phase1_adapters.c",
+  "strict": true
+ },
  "0x8c070cf0": {
   "test": "build/vf3fvecnorm070cf0.exe",
   "golden": "extract/analysis/goldens_070cf0_boundary_cases/f_0c070cf0_boundary.cases",

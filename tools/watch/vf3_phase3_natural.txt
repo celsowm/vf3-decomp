@@ -1,0 +1,7 @@
+# Natural-execution check for the five Phase 3 named closures.
+pc 0x8c09c1f4
+pc 0x8c0c438e
+pc 0x8c0c321e
+pc 0x8c05b20e
+pc 0x8c0a1658
+EXITF

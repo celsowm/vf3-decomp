@@ -1,0 +1,12 @@
+# Capture-only scout for the highest-hit executed bodies left outside the prior closure.
+pc 0x8c0a700a
+pc 0x8c06f9ac
+pc 0x8c096174
+pc 0x8c0aa446
+pc 0x8c0abeb8
+pc 0x8c093270
+pc 0x8c08e920
+pc 0x8c0a7f68
+pc 0x8c0aaebe
+pc 0x8c0c5ca2
+EXITF

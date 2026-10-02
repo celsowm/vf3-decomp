@@ -1,0 +1,5 @@
+# Uncapped capsule-mode rate of three fight-loop call sites.
+pc 0x8c048344
+pc 0x8c048b54
+pc 0x8c048912
+EXITF

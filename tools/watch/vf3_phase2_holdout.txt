@@ -1,0 +1,5 @@
+# Independent hold-out schedule for phase 2 target.
+pc 0x8c0aa446
+KEYF 120 +15:A, +20:B, +16:C, +12:D, +18:START, +24:UP, +24:DOWN, +24:LEFT, +24:RIGHT, +24:A, +24:B, +24:C
+KEYF 330 +17:RIGHT, +19:LEFT, +21:A, +23:B, +25:C, +15:D, +27:START, +29:UP, +31:DOWN, +33:A, +35:B, +37:C
+EXITF

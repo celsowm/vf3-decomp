@@ -1,0 +1,10 @@
+# Trigger-frequency survey for the Phase 3 synthetic-entry campaign.
+pc 0x8c04853a
+pc 0x8c0432e2
+pc 0x8c048284
+pc 0x8c0486de
+pc 0x8c048480
+pc 0x8c093844
+pc 0x8c03f84a
+pc 0x8c0c13de
+pc 0x8c0aa446

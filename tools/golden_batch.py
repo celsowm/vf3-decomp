@@ -52,6 +52,8 @@ def main() -> int:
     ap.add_argument("--name", required=True, help="batch name (file prefix)")
     ap.add_argument("--watch", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--entry-patch", default="",
+                    help="VF3_ENTRY_PATCH synthetic trigger/target fixture")
     ap.add_argument("--run", action="append", required=True,
                     help="name:state:play:frames[:ram_patch] (repeatable)")
     ap.add_argument("--frames", type=int, default=0,
@@ -69,6 +71,13 @@ def main() -> int:
                     help="capture touched RAM pages and aligned XF/FPUL state")
     ap.add_argument("--hits", action="store_true",
                     help="count watched entry hits without invocation or RAM capture")
+    ap.add_argument("--probe-debug", action="store_true",
+                    help="record per-run synthetic-entry probe accounting "
+                         "(VF3_ORACLE_DEBUG) next to the capsule log")
+    ap.add_argument("--probe-offset", type=int, default=0,
+                    help="start the seed sweep at this variant index "
+                         "(VF3_PROBE_CURSOR); use to walk a long seed plan "
+                         "across successive runs")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     if a.hits and (a.capsule or a.instr or a.edges):
@@ -78,6 +87,10 @@ def main() -> int:
     if not watch.exists():
         raise SystemExit(f"watch file missing: {watch}")
     out = REPO / a.out
+    entry_patch = ((REPO / a.entry_patch) if not Path(a.entry_patch).is_absolute()
+                   else Path(a.entry_patch)) if a.entry_patch else None
+    if entry_patch and not entry_patch.is_file():
+        raise SystemExit(f"entry patch missing: {entry_patch}")
     trace_dir = REPO / a.trace_dir
     trace_dir.mkdir(parents=True, exist_ok=True)
 
@@ -94,11 +107,24 @@ def main() -> int:
         env.pop("VF3_CAPSULE", None)
         env.pop("VF3_HITS", None)
         env.pop("VF3_RAM_PATCH", None)
+        env.pop("VF3_ENTRY_PATCH", None)
         patch_path = ((REPO / patch) if not Path(patch).is_absolute() else Path(patch)) if patch else None
         if patch_path:
             if not patch_path.is_file():
                 raise SystemExit(f"RAM patch missing: {patch_path}")
             env["VF3_RAM_PATCH"] = str(patch_path)
+        if entry_patch:
+            env["VF3_ENTRY_PATCH"] = str(entry_patch)
+        if a.probe_debug and entry_patch and a.capsule:
+            probe_debug = trace_dir / f"probe_{a.name}_{name}.json"
+            env["VF3_ORACLE_DEBUG"] = str(probe_debug)
+        else:
+            probe_debug = None
+            env.pop("VF3_ORACLE_DEBUG", None)
+        if a.probe_offset:
+            env["VF3_PROBE_CURSOR"] = str(a.probe_offset)
+        else:
+            env.pop("VF3_PROBE_CURSOR", None)
         if a.capsule:
             env["VF3_CAPSULE"] = str(capsule)
             env["VF3_CAPSULE_N"] = str(a.max_samples)
@@ -142,8 +168,13 @@ def main() -> int:
         if patch_path:
             runs[-1]["ram_patch"] = str(patch_path)
             runs[-1]["ram_patch_sha256"] = hashlib.sha256(patch_path.read_bytes()).hexdigest()
+        if entry_patch:
+            runs[-1]["entry_patch"] = str(entry_patch)
+            runs[-1]["entry_patch_sha256"] = hashlib.sha256(entry_patch.read_bytes()).hexdigest()
         if a.capsule:
             runs[-1]["capsule"] = str(capsule)
+        if probe_debug:
+            runs[-1]["probe_debug"] = str(probe_debug)
         if a.hits:
             runs[-1]["hits"] = str(hits)
         cmd = [str(EMU), str(ROM)]

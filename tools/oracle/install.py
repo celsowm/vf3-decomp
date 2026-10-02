@@ -24,14 +24,27 @@ def main():
            '#include "vf3trace.h"\n#include "vf3oracle.h"')
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceInstr(addr, op);",
            "\tvf3OracleBefore(addr, op, ctx);\n\tvf3TraceInstr(addr, op);")
+    insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceDepthOp(addr, op, ctx);",
+           "\tvf3TraceDepthOp(addr, op, ctx);\n"
+           "\t/* An aborted synthetic probe restores the game state after this opcode was\n"
+           "\t * already fetched: re-fetch at the restored PC so nothing of the probe\n"
+           "\t * leaks into the game's instruction stream. */\n"
+           "\tif (vf3OracleTakeSkip()) {\n"
+           "\t\tu32 resume=ctx->pc;\n"
+           "\t\tctx->pc=resume+2;\n"
+           "\t\treturn IReadMem16(resume);\n"
+           "\t}")
     p = CORE / "hw/sh4/sh4_interrupts.cpp"
     text = p.read_text(encoding="utf-8")
     if '#include "vf3oracle.h"' not in text:
         p.write_text('#include "vf3oracle.h"\n' + text, encoding="utf-8")
-    for anchor in ("static void Do_Interrupt(Sh4ExceptionCode intEvn)\n{",
-                   "void Do_Exception(u32 epc, Sh4ExceptionCode expEvn)\n{"):
-        insert(Path("hw/sh4/sh4_interrupts.cpp"), anchor,
-               anchor + "\n\tvf3OracleInvalidate(1);")
+    for anchor, extra in (
+            ("static void Do_Interrupt(Sh4ExceptionCode intEvn)\n{", "\n\tvf3OracleInvalidate(1);"),
+            ("void Do_Exception(u32 epc, Sh4ExceptionCode expEvn)\n{\n\tvf3OracleInvalidate(1);",
+             "\n\t/* A synthetic-entry probe that faulted is rolled back by the oracle;\n"
+             "\t * dispatching its exception would fault again inside the handler. */\n"
+             "\n\tif (vf3OracleAbortProbe()) return;")):
+        insert(Path("hw/sh4/sh4_interrupts.cpp"), anchor, anchor + extra)
     p = CORE / "hw/sh4/sh4_mem.cpp"
     text = p.read_text(encoding="utf-8")
     if '#include "vf3oracle.h"' not in text:

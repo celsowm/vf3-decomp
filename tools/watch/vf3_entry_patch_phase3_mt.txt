@@ -1,0 +1,3 @@
+# Phase 3 synthetic-entry worker campaign: 0x8C05B20E.
+pc 0x8c05b20e
+EXITF

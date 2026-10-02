@@ -89,6 +89,10 @@ add_library(vf3core STATIC
     src/fight/seventh_c12_adapters.c
     src/fight/seventh_c13_adapters.c
     src/fight/seventh_c14_adapters.c
+    src/fight/phase1_adapters.c
+    src/fight/phase1_adapters_0.c
+    src/fight/phase2_adapters.c
+    src/fight/phase2_adapters_0.c
     src/fight/fifth_adapters_0.c
     src/fight/fifth_adapters_1.c
     src/fight/fifth_adapters_2.c

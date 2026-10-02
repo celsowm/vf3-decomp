@@ -1,0 +1,5 @@
+# Fresh schedule for phase 2 target.
+pc 0x8c0aa446
+KEYF 90 +19:B, +23:C, +17:A, +29:RIGHT, +31:LEFT, +13:D, +27:START, +21:UP, +25:DOWN, +33:B, +35:C, +37:A
+KEYF 360 +16:LEFT, +18:RIGHT, +20:C, +22:B, +24:A, +26:D, +28:START, +30:DOWN, +32:UP, +34:C, +36:B, +38:A
+EXITF

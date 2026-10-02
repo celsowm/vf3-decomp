@@ -179,6 +179,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_phase2_adapter_contains(entry)) return vf3_phase2_adapter(entry,s,ram);
+        if(vf3_phase1_adapter_contains(entry)) return vf3_phase1_adapter(entry,s,ram);
         if(vf3_sixth_loader_adapter_contains(entry)) return vf3_sixth_loader_adapter(entry,s,ram);
         if(vf3_seventh_adapter_contains(entry)) return vf3_seventh_adapter(entry,s,ram);
         if(vf3_seventh_c_adapter_contains(entry)) return vf3_seventh_c_adapter(entry,s,ram);
