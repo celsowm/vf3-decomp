@@ -75,6 +75,20 @@ add_library(vf3core STATIC
     src/fight/device_adapters_1.c
     src/fight/fifth_adapters.c
     src/fight/sixth_loader_adapters.c
+    src/fight/seventh_adapters.c
+    src/fight/seventh_c_adapters.c
+    src/fight/seventh_c3_adapters.c
+    src/fight/seventh_c4_adapters.c
+    src/fight/seventh_c5_adapters.c
+    src/fight/seventh_c6_adapters.c
+    src/fight/seventh_c7_adapters.c
+    src/fight/seventh_c8_adapters.c
+    src/fight/seventh_c9_adapters.c
+    src/fight/seventh_c10_adapters.c
+    src/fight/seventh_c11_adapters.c
+    src/fight/seventh_c12_adapters.c
+    src/fight/seventh_c13_adapters.c
+    src/fight/seventh_c14_adapters.c
     src/fight/fifth_adapters_0.c
     src/fight/fifth_adapters_1.c
     src/fight/fifth_adapters_2.c
@@ -129,6 +143,20 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/device_adapters_1.c
       src/fight/fifth_adapters.c
       src/fight/sixth_loader_adapters.c
+      src/fight/seventh_adapters.c
+      src/fight/seventh_c_adapters.c
+      src/fight/seventh_c3_adapters.c
+      src/fight/seventh_c4_adapters.c
+      src/fight/seventh_c5_adapters.c
+      src/fight/seventh_c6_adapters.c
+      src/fight/seventh_c7_adapters.c
+      src/fight/seventh_c8_adapters.c
+      src/fight/seventh_c9_adapters.c
+      src/fight/seventh_c10_adapters.c
+      src/fight/seventh_c11_adapters.c
+      src/fight/seventh_c12_adapters.c
+      src/fight/seventh_c13_adapters.c
+      src/fight/seventh_c14_adapters.c
       src/fight/fifth_adapters_0.c
       src/fight/fifth_adapters_1.c
       src/fight/fifth_adapters_2.c

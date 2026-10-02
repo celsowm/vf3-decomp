@@ -3198,5 +3198,621 @@
   "strict": true,
   "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
   "port": "src/fight/next_adapters.c"
+ },
+ "seventh:0x8c06f6f8": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f6f8",
+  "golden": "extract/analysis/seventh_ready_b_cases/f_8c06f6f8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_adapters.c"
+ },
+ "seventh:0x8c071668": {
+  "test": "build/vf3matrixfamily.exe 0x8c071668",
+  "golden": "extract/analysis/seventh_ready_b_cases/f_8c071668.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_adapters.c"
+ },
+ "seventh:0x8c0aa744": {
+  "test": "build/vf3matrixfamily.exe 0x8c0aa744",
+  "golden": "extract/analysis/seventh_ready_cases/f_8c0aa744.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_adapters.c"
+ },
+ "seventh_c:0x8c040154": {
+  "test": "build/vf3matrixfamily.exe 0x8c040154",
+  "golden": "extract/analysis/seventh_c2_cases/f_8c040154.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c_adapters.c"
+ },
+ "seventh_c:0x8c040222": {
+  "test": "build/vf3matrixfamily.exe 0x8c040222",
+  "golden": "extract/analysis/seventh_c_cases/f_8c040222.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c_adapters.c"
+ },
+ "seventh_c:0x8c0403c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0403c0",
+  "golden": "extract/analysis/seventh_c2_cases/f_8c0403c0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c_adapters.c"
+ },
+ "seventh_c:0x8c040b7e": {
+  "test": "build/vf3matrixfamily.exe 0x8c040b7e",
+  "golden": "extract/analysis/seventh_c_cases/f_8c040b7e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c_adapters.c"
+ },
+ "seventh_c:0x8c0626c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0626c0",
+  "golden": "extract/analysis/seventh_c_cases/f_8c0626c0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c_adapters.c"
+ },
+ "seventh_c3:0x8c03f77e": {
+  "test": "build/vf3matrixfamily.exe 0x8c03f77e",
+  "golden": "extract/analysis/seventh_c3_cases/f_8c03f77e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c3_adapters.c"
+ },
+ "seventh_c3:0x8c03fd02": {
+  "test": "build/vf3matrixfamily.exe 0x8c03fd02",
+  "golden": "extract/analysis/seventh_c3_cases/f_8c03fd02.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c3_adapters.c"
+ },
+ "seventh_c3:0x8c044234": {
+  "test": "build/vf3matrixfamily.exe 0x8c044234",
+  "golden": "extract/analysis/seventh_c3_cases/f_8c044234.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c3_adapters.c"
+ },
+ "seventh_c3:0x8c044302": {
+  "test": "build/vf3matrixfamily.exe 0x8c044302",
+  "golden": "extract/analysis/seventh_c3_cases/f_8c044302.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c3_adapters.c"
+ },
+ "seventh_c3:0x8c06f814": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f814",
+  "golden": "extract/analysis/seventh_c3_cases/f_8c06f814.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c3_adapters.c"
+ },
+ "seventh_c4:0x8c053cec": {
+  "test": "build/vf3matrixfamily.exe 0x8c053cec",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c053cec.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c4:0x8c070c58": {
+  "test": "build/vf3matrixfamily.exe 0x8c070c58",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c070c58.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c4:0x8c071090": {
+  "test": "build/vf3matrixfamily.exe 0x8c071090",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c071090.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c4:0x8c071c0a": {
+  "test": "build/vf3matrixfamily.exe 0x8c071c0a",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c071c0a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c4:0x8c071d7e": {
+  "test": "build/vf3matrixfamily.exe 0x8c071d7e",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c071d7e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c4:0x8c07ab94": {
+  "test": "build/vf3matrixfamily.exe 0x8c07ab94",
+  "golden": "extract/analysis/seventh_c4_cases/f_8c07ab94.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c4_adapters.c"
+ },
+ "seventh_c5:0x8c03b304": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b304",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c03b304.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c040378": {
+  "test": "build/vf3matrixfamily.exe 0x8c040378",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c040378.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c066dc4": {
+  "test": "build/vf3matrixfamily.exe 0x8c066dc4",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c066dc4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c06f77c": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f77c",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c06f77c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c06f7d8": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f7d8",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c06f7d8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c071104": {
+  "test": "build/vf3matrixfamily.exe 0x8c071104",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c071104.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c5:0x8c071faa": {
+  "test": "build/vf3matrixfamily.exe 0x8c071faa",
+  "golden": "extract/analysis/seventh_c5_cases/f_8c071faa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c5_adapters.c"
+ },
+ "seventh_c6:0x8c045c00": {
+  "test": "build/vf3matrixfamily.exe 0x8c045c00",
+  "golden": "extract/analysis/seventh_c6_cases/f_8c045c00.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c6_adapters.c"
+ },
+ "seventh_c6:0x8c045c84": {
+  "test": "build/vf3matrixfamily.exe 0x8c045c84",
+  "golden": "extract/analysis/seventh_c6_cases/f_8c045c84.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c6_adapters.c"
+ },
+ "seventh_c6:0x8c066f88": {
+  "test": "build/vf3matrixfamily.exe 0x8c066f88",
+  "golden": "extract/analysis/seventh_c6_cases/f_8c066f88.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c6_adapters.c"
+ },
+ "seventh_c6:0x8c06f8b8": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f8b8",
+  "golden": "extract/analysis/seventh_c6_cases/f_8c06f8b8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c6_adapters.c"
+ },
+ "seventh_c7:0x8c0355a4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0355a4",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c0355a4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c06f892": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f892",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c06f892.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c06f8e0": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f8e0",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c06f8e0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c071806": {
+  "test": "build/vf3matrixfamily.exe 0x8c071806",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c071806.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c071a32": {
+  "test": "build/vf3matrixfamily.exe 0x8c071a32",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c071a32.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c071bc6": {
+  "test": "build/vf3matrixfamily.exe 0x8c071bc6",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c071bc6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c071d3a": {
+  "test": "build/vf3matrixfamily.exe 0x8c071d3a",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c071d3a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c7:0x8c071f66": {
+  "test": "build/vf3matrixfamily.exe 0x8c071f66",
+  "golden": "extract/analysis/seventh_c7_cases/f_8c071f66.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c7_adapters.c"
+ },
+ "seventh_c8:0x8c045ba8": {
+  "test": "build/vf3matrixfamily.exe 0x8c045ba8",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c045ba8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c06f75a": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f75a",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c06f75a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c06f870": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f870",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c06f870.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c06f906": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f906",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c06f906.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c070caa": {
+  "test": "build/vf3matrixfamily.exe 0x8c070caa",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c070caa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c070ccc": {
+  "test": "build/vf3matrixfamily.exe 0x8c070ccc",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c070ccc.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c0710e2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0710e2",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c0710e2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c8:0x8c096f74": {
+  "test": "build/vf3matrixfamily.exe 0x8c096f74",
+  "golden": "extract/analysis/seventh_c8_cases/f_8c096f74.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c8_adapters.c"
+ },
+ "seventh_c9:0x8c07173e": {
+  "test": "build/vf3matrixfamily.exe 0x8c07173e",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c07173e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c9:0x8c07196a": {
+  "test": "build/vf3matrixfamily.exe 0x8c07196a",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c07196a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c9:0x8c071ade": {
+  "test": "build/vf3matrixfamily.exe 0x8c071ade",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c071ade.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c9:0x8c071afe": {
+  "test": "build/vf3matrixfamily.exe 0x8c071afe",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c071afe.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c9:0x8c071c72": {
+  "test": "build/vf3matrixfamily.exe 0x8c071c72",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c071c72.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c9:0x8c071e9e": {
+  "test": "build/vf3matrixfamily.exe 0x8c071e9e",
+  "golden": "extract/analysis/seventh_c9_cases/f_8c071e9e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c9_adapters.c"
+ },
+ "seventh_c10:0x8c06f7ba": {
+  "test": "build/vf3matrixfamily.exe 0x8c06f7ba",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c06f7ba.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c0717ea": {
+  "test": "build/vf3matrixfamily.exe 0x8c0717ea",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c0717ea.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c07182c": {
+  "test": "build/vf3matrixfamily.exe 0x8c07182c",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c07182c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071a16": {
+  "test": "build/vf3matrixfamily.exe 0x8c071a16",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071a16.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071a58": {
+  "test": "build/vf3matrixfamily.exe 0x8c071a58",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071a58.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071baa": {
+  "test": "build/vf3matrixfamily.exe 0x8c071baa",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071baa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071bec": {
+  "test": "build/vf3matrixfamily.exe 0x8c071bec",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071bec.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071d1e": {
+  "test": "build/vf3matrixfamily.exe 0x8c071d1e",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071d1e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071d60": {
+  "test": "build/vf3matrixfamily.exe 0x8c071d60",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071d60.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071f4a": {
+  "test": "build/vf3matrixfamily.exe 0x8c071f4a",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071f4a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c071f8c": {
+  "test": "build/vf3matrixfamily.exe 0x8c071f8c",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c071f8c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c10:0x8c07b5b0": {
+  "test": "build/vf3matrixfamily.exe 0x8c07b5b0",
+  "golden": "extract/analysis/seventh_c10_cases/f_8c07b5b0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c10_adapters.c"
+ },
+ "seventh_c11:0x8c0365d4": {
+  "test": "build/vf3matrixfamily.exe 0x8c0365d4",
+  "golden": "extract/analysis/seventh_c11_cases/f_8c0365d4.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c11_adapters.c"
+ },
+ "seventh_c11:0x8c04013c": {
+  "test": "build/vf3matrixfamily.exe 0x8c04013c",
+  "golden": "extract/analysis/seventh_c11_cases/f_8c04013c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c11_adapters.c"
+ },
+ "seventh_c11:0x8c067350": {
+  "test": "build/vf3matrixfamily.exe 0x8c067350",
+  "golden": "extract/analysis/seventh_c11_cases/f_8c067350.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c11_adapters.c"
+ },
+ "seventh_c11:0x8c074a3a": {
+  "test": "build/vf3matrixfamily.exe 0x8c074a3a",
+  "golden": "extract/analysis/seventh_c11_cases/f_8c074a3a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c11_adapters.c"
+ },
+ "seventh_c12:0x8c038b40": {
+  "test": "build/vf3matrixfamily.exe 0x8c038b40",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c038b40.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c03b684": {
+  "test": "build/vf3matrixfamily.exe 0x8c03b684",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c03b684.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c054524": {
+  "test": "build/vf3matrixfamily.exe 0x8c054524",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c054524.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c066fd8": {
+  "test": "build/vf3matrixfamily.exe 0x8c066fd8",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c066fd8.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c07021c": {
+  "test": "build/vf3matrixfamily.exe 0x8c07021c",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c07021c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c074afe": {
+  "test": "build/vf3matrixfamily.exe 0x8c074afe",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c074afe.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c09381e": {
+  "test": "build/vf3matrixfamily.exe 0x8c09381e",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c09381e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c12:0x8c0c7648": {
+  "test": "build/vf3matrixfamily.exe 0x8c0c7648",
+  "golden": "extract/analysis/seventh_c12_cases/f_8c0c7648.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c12_adapters.c"
+ },
+ "seventh_c13:0x8c0703f2": {
+  "test": "build/vf3matrixfamily.exe 0x8c0703f2",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c0703f2.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c13:0x8c070996": {
+  "test": "build/vf3matrixfamily.exe 0x8c070996",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c070996.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c13:0x8c070b6a": {
+  "test": "build/vf3matrixfamily.exe 0x8c070b6a",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c070b6a.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c13:0x8c070dce": {
+  "test": "build/vf3matrixfamily.exe 0x8c070dce",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c070dce.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c13:0x8c070f9e": {
+  "test": "build/vf3matrixfamily.exe 0x8c070f9e",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c070f9e.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c13:0x8c092c36": {
+  "test": "build/vf3matrixfamily.exe 0x8c092c36",
+  "golden": "extract/analysis/seventh_c13_cases/f_8c092c36.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c13_adapters.c"
+ },
+ "seventh_c14:0x8c04c5a0": {
+  "test": "build/vf3matrixfamily.exe 0x8c04c5a0",
+  "golden": "extract/analysis/seventh_c14_cases/f_8c04c5a0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c14_adapters.c"
+ },
+ "seventh_c14:0x8c0671aa": {
+  "test": "build/vf3matrixfamily.exe 0x8c0671aa",
+  "golden": "extract/analysis/seventh_c14_cases/f_8c0671aa.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c14_adapters.c"
+ },
+ "seventh_c14:0x8c0672c0": {
+  "test": "build/vf3matrixfamily.exe 0x8c0672c0",
+  "golden": "extract/analysis/seventh_c14_cases/f_8c0672c0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c14_adapters.c"
+ },
+ "seventh_c14:0x8c06734c": {
+  "test": "build/vf3matrixfamily.exe 0x8c06734c",
+  "golden": "extract/analysis/seventh_c14_cases/f_8c06734c.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c14_adapters.c"
+ },
+ "seventh_c14:0x8c07c9e6": {
+  "test": "build/vf3matrixfamily.exe 0x8c07c9e6",
+  "golden": "extract/analysis/seventh_c14_cases/f_8c07c9e6.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_c14_adapters.c"
+ },
+ "seventh_final:0x8c04c5a0": {
+  "test": "build/vf3matrixfamily.exe 0x8c04c5a0",
+  "golden": "extract/analysis/seventh_final_cases/f_8c04c5a0.cases",
+  "strict": true,
+  "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+  "port": "src/fight/seventh_final_adapters.c"
  }
 }

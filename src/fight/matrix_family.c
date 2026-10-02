@@ -180,6 +180,20 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     default:
         /* Ownership is selected before execution; failed calls never retry. */
         if(vf3_sixth_loader_adapter_contains(entry)) return vf3_sixth_loader_adapter(entry,s,ram);
+        if(vf3_seventh_adapter_contains(entry)) return vf3_seventh_adapter(entry,s,ram);
+        if(vf3_seventh_c_adapter_contains(entry)) return vf3_seventh_c_adapter(entry,s,ram);
+        if(vf3_seventh_c3_adapter_contains(entry)) return vf3_seventh_c3_adapter(entry,s,ram);
+        if(vf3_seventh_c4_adapter_contains(entry)) return vf3_seventh_c4_adapter(entry,s,ram);
+        if(vf3_seventh_c5_adapter_contains(entry)) return vf3_seventh_c5_adapter(entry,s,ram);
+        if(vf3_seventh_c6_adapter_contains(entry)) return vf3_seventh_c6_adapter(entry,s,ram);
+        if(vf3_seventh_c7_adapter_contains(entry)) return vf3_seventh_c7_adapter(entry,s,ram);
+        if(vf3_seventh_c8_adapter_contains(entry)) return vf3_seventh_c8_adapter(entry,s,ram);
+        if(vf3_seventh_c9_adapter_contains(entry)) return vf3_seventh_c9_adapter(entry,s,ram);
+        if(vf3_seventh_c10_adapter_contains(entry)) return vf3_seventh_c10_adapter(entry,s,ram);
+        if(vf3_seventh_c11_adapter_contains(entry)) return vf3_seventh_c11_adapter(entry,s,ram);
+        if(vf3_seventh_c12_adapter_contains(entry)) return vf3_seventh_c12_adapter(entry,s,ram);
+        if(vf3_seventh_c13_adapter_contains(entry)) return vf3_seventh_c13_adapter(entry,s,ram);
+        if(vf3_seventh_c14_adapter_contains(entry)) return vf3_seventh_c14_adapter(entry,s,ram);
         if(vf3_fifth_leaf_adapter_contains(entry)) return vf3_fifth_leaf_adapter(entry,s,ram);
         if(vf3_fifth_adapter_contains(entry)) return vf3_fifth_adapter(entry,s,ram);
         if(vf3_device_adapter_contains(entry)) return vf3_device_adapter(entry,s,ram);
