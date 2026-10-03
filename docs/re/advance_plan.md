@@ -334,7 +334,7 @@ Three further corrections to the plan's assumptions, all found by running it:
    on its own, and `body_cover.py --min-cover` now says which is which before
    the ledger does.
 
-### The lever is currently blocked by an oracle defect, not by the targets
+### The lever is blocked by seed calibration, not by the targets
 
 Porting the sweep to `0x8C0C321E` ran into something bigger than a bad plan, and
 it is recorded in full in `docs/re/entry_patch.md`:
