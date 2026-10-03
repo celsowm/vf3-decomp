@@ -125,7 +125,7 @@ it dirtied, and that is not enough on this fork:
 bad" and "the trigger is never reached", which look identical from the corpus
 alone.
 
-## RESOLVED: sh4dump immediates are byte-swapped, so every seed mask was wrong
+## RESOLVED-ish: gate masks need calibrating, and 0x0C400000 is live RAM
 
 Found while porting the lever to a second target, and it is the reason that port
 stalled for a long time. It also undercuts how much of the pilot's 44.9% is
@@ -153,44 +153,59 @@ that the natural live state produces. Seeding looked inert.
   rebuilt. Result: **byte-for-byte unchanged**. The change is kept because the
   asymmetry was real, but it was not the cause.
 
-### What it was
+### What it was (mechanism still unresolved)
 
-**The immediate values in the sh4dump disassembly are byte-swapped relative to
-what the guest applies.** Seeding the disassembly's own values leaves every gate
-shut. Measured, one gate at a time:
+**The values that open a gate in the emulator are not the values the sh4dump
+disassembly prints.** Measured one gate at a time on `0x8C0C321E`, all
+single-variant patches, all deterministic:
 
-| gate | disassembly says | actually opens the gate |
+| gate | disassembly says | the value that opens it |
 |---|---|---|
 | A — `*(0x0C29B864)` | `mov.w <lit> # lit.w=0300` | **`0x0030`** |
 | B — `*(0x0C29BCC0)` | `mov.w <lit> # lit.w=…` | **`0x0018`** |
 | C — `*r4` | `tst #10,r0` | **`0x0A00`** |
 
-The capture ladder, all single-variant patches, all deterministic:
+The capture ladder:
 
 | seeded | body PCs | deepest body PC |
 |---|---|---|
 | gate A `0x0300` (as printed) | 14 | `0x8C0C3238` — exits at gate A |
 | gate A `0x0030` | 22 | `0x8C0C3250` — clears A and B, exits at C |
-| A and B `0x0030`/`0x0018`, C `0x0A00` | **1064 executed PCs** | **`body_cover` 560 B / 35.6%** |
+| A/B `0x0030`/`0x0018`, C `0x0A00` | **1064 executed PCs** | **`body_cover` 560 B / 35.6%** |
 
-From 14 body PCs pinned at 31.1% to 35.6% in one probe, before sweeping
-anything. `tools/oracle/seed_plan.py:swapper` now carries the *measured* masks
-with a comment saying not to "correct" them back to the disassembly.
+35.6% from one probe, up from a body pinned at 31.1%.
 
-This is the same byte-swap family as the image-versus-`sh4dump` trap already
-noted in this file, and it is why that trap kept being under-weighted: it does
-not corrupt the control flow, so the disassembly still looks right, and it only
-shows up as "my seed did nothing".
+**Do not read this as a proven byte-swap law.** I called it one, then checked,
+and the disassembly does not support it: `sh4dump` reads its literal pools with
+`struct.unpack_from("<H"/"<I")`, which is a correct little-endian read, and
+`tst #10,r0` is encoded as the word `0xC80A`, whose imm8 field really is `0x0A`.
+So the printed immediate and the encoded immediate agree with each other, and
+both disagree with what the emulator does. The *mechanism* is unresolved; the
+*measurements* are solid. Treat the three values above as calibration constants
+to re-verify, not as a rule to apply to other functions.
+
+### A second, independent bug: 0x0C400000 is live RAM
+
+`seed_plan.py` describes `SCRATCH = 0x0C400000` as "a page-aligned scratch
+descriptor far from live game structures". It is not. The capsule for the run
+that reached 35.6% records that page with a *before* image whose first word is
+**`0x0c1a58a0`** — a live code pointer. Every plan that seeds "scratch" is
+writing over live game heap, and the game's own update loop can rewrite those
+words back during the probe. That is a sufficient explanation on its own for
+seeds appearing to do nothing, and it is independent of the gate-calibration
+question above. **The scratch constant must be re-chosen against the live state
+before any further campaign is trusted.**
 
 ### Consequences for work already banked
 
-- The pilot's 3258-variant recipe was built from the same swapped masks, so its
-  44.9% should **not** be read as evidence that the descriptor sweep reached that
-  far. It remains a valid *capture* result and every case still replays; it is
-  simply unattributed. Re-running it with measured masks is the obvious next
-  run and may well clear the 100% promotion gate.
+- The pilot's 3258-variant recipe was built from the same disassembly-derived
+  masks and against the same 0x0C400000 scratch, so its 44.9% should **not** be
+  read as evidence that the descriptor sweep reached that far. It remains a
+  valid *capture* result and every case still replays; it is simply
+  unattributed. Re-running it against a verified scratch page and measured masks
+  is the obvious next run and may clear the 100% promotion gate.
 - `tools/oracle/gate_scan.py` emits masks straight from the disassembly, so
-  every recipe derived from it needs its masks re-measured before use.
+  every recipe derived from it needs calibration against a capture first.
 - Two earlier readings of mine were wrong and are recorded so nobody repeats
   them: a two-variant test that looked like an "inversion" was really
   `--probe-offset` selecting a different variant than assumed, and an `r0` test

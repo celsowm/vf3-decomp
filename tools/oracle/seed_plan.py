@@ -21,8 +21,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-# A page-aligned scratch descriptor far from live game structures. The probe
-# snapshots and restores every page it seeds, so the game never sees it.
+# UNSAFE: this address is LIVE game RAM, not free scratch. A capsule from
+# 0x8C0C321E records the first word of this page as 0x0c1a58a0 - a live code
+# pointer - so seeding here writes over live game heap and the game's own update
+# loop can rewrite it back mid-probe. That is enough on its own to make seeds look
+# inert. Pick a page verified empty in vf3_fight_keep.state before using any plan
+# built on it; see docs/re/entry_patch.md.
 SCRATCH = 0x0C400000
 
 

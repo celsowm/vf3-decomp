@@ -341,20 +341,29 @@ it is recorded in full in `docs/re/entry_patch.md`:
 
 - The mechanism works there — probes return complete capsules, no faults, no
   quarantine — and the natural live state alone reaches 490 B / **31.1%**.
-- It stalled because **the immediates in the sh4dump disassembly are
-  byte-swapped relative to what the guest applies.** Seeding the disassembly's
-  own `lit.w=0300` leaves gate A shut; `0x0030` opens it. Same for gate B
-  (`0x0018`) and for the `tst #10` on the argument object (`0x0A00`).
-- With all three measured masks, a **single** probe takes the body from 14 PCs
-  pinned at 31.1% to 1064 executed PCs and **560 B / 35.6%** before any sweeping.
-  `seed_plan.py:swapper` now carries the measured values.
+- It stalled because **the values that open a gate are not the values the
+  disassembly prints.** On `0x8C0C321E`, `lit.w=0300` leaves gate A shut and
+  `0x0030` opens it; likewise `0x0018` for gate B and `0x0A00` for the `tst #10`
+  on the argument object. With all three, a **single** probe goes from 14 PCs
+  pinned at 31.1% to 1064 executed PCs and **560 B / 35.6%** before any
+  sweeping.
+- **The mechanism is not established.** `sh4dump` reads literal pools with a
+  correct little-endian `struct.unpack`, and `tst #10,r0` is encoded as `0xC80A`
+  whose imm8 really is `0x0A`. The printed and encoded immediates agree, and both
+  disagree with the emulator. The three values are calibration constants to
+  re-verify, not a rule to generalise.
+- **A second, independent bug: `SCRATCH = 0x0C400000` is live RAM, not
+  scratch.** The capsule from the 35.6% run shows that page's first word as
+  `0x0c1a58a0`, a live code pointer. Every plan seeding "scratch" has been
+  writing over live game heap, which is on its own enough to make seeds look
+  inert. The constant must be re-chosen before any campaign is trusted.
 - Two things that looked like causes were ruled out by measurement, not argument:
   the seed plumbing (a `VF3_SEED_DEBUG` dump at the target's first instruction
   shows `r0`, `r13` and `pr` landing exactly as seeded) and the operand cache
   (adding the missing `ocache.WriteBack` to the forward seed path and rebuilding
   changed the result not at all).
-- So the current state of the lever is: **capture works, and seeding works once
-  the masks are measured rather than read off the disassembly.**
+- So the current state of the lever is: **capture works; seeding works only after
+  calibrating masks against a capture and moving off a live scratch page.**
 
 The honest read of Phase 3 shrinks accordingly. What is banked is the harness
 (opcode substitution, probe accounting, fault abort, budget, ocache-coherent
