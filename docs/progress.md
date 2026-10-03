@@ -1,5 +1,25 @@
 # VF3tb decomp — progress log
 
+## Sixteenth coverage batch — Campaign B (2026-10-03)
+
+- [x] Re-ran the three "wide-input seed extension needed" entries from
+  the 14th batch (`0x8c04853a`, `0x8c048480`, `0x8c064246`) with
+  `--ramn=4` against 6 scenarios in `extract/analysis/campaign_b_wide4`.
+  See `tools/watch/vf3_campaign_b.txt` and the batch's
+  `batch_manifest.json`.
+- [x] Promoted **`0x8c048480`** (180 B). Strict replay 309/314 dev,
+  123/126 holdout, 122/126 fresh. Body cover 132/180 B (73.3 %).
+- [x] Held back `0x8c04853a` and `0x8c064246`: dev passes well but
+  holdout and fresh strict-replay pass rates stay below the gate.
+- [x] Fixed 21 `MISSING-GOLDEN` bindings that broke `portcheck.py`
+  (entries already credited; the fix just exercises the strict-replay
+  gate). See `tools/fix_miss.py`.
+- [x] Fixed `tools/body_cover.py` P1-bit bug (line 57) that masked
+  body-cover numbers to 0 % across every corpus.
+- [x] Rigorous accounted: 998/2398 (41.6 %) → 999/2398 (41.6 %) fns;
+  202,782/434,656 (46.7 %) → 202,962/434,656 (46.7 %) bytes. See
+  `docs/re/campaign_b_coverage_batch.md`.
+
 ## Fifteenth coverage batch (2026-10-03)
 
 - [x] Generated the broadest adapter yet

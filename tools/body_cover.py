@@ -54,7 +54,7 @@ def corpus_pcs(cases: list[Path]) -> dict[int, tuple[set[int], int, list[str]]]:
     for case in cases:
         for ops in sorted(case.glob("f_*.ops.json")):
             entry = int(ops.stem.split("_", 1)[1].split(".")[0], 16)
-            pcs = {int(pc, 16) for pc in json.loads(ops.read_text())}
+            pcs = {int(pc, 16) | 0x80000000 for pc in json.loads(ops.read_text())}
             got = out.setdefault(entry, (set(), 0, []))
             out[entry] = (got[0] | pcs, got[1] + 1, got[2] + [case.name])
     return out

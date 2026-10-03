@@ -1,0 +1,6 @@
+# Campaign B - wide-input seed extension for 3 device_adapter entries.
+# Each watched PC gets a wider RAM window via the harness default (--ramn=4).
+# Captures feed the strict-replay pass on 0x8C04853A, 0x8C048480, 0x8C064246.
+pc 0x8c04853a
+pc 0x8c048480
+pc 0x8c064246
