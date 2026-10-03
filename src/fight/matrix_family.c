@@ -196,6 +196,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         if(vf3_seventh_c12_adapter_contains(entry)) return vf3_seventh_c12_adapter(entry,s,ram);
         if(vf3_seventh_c13_adapter_contains(entry)) return vf3_seventh_c13_adapter(entry,s,ram);
         if(vf3_seventh_c14_adapter_contains(entry)) return vf3_seventh_c14_adapter(entry,s,ram);
+        if(vf3_eighth_adapter_contains(entry)) return vf3_eighth_adapter(entry,s,ram);
         if(vf3_fifth_leaf_adapter_contains(entry)) return vf3_fifth_leaf_adapter(entry,s,ram);
         if(vf3_fifth_adapter_contains(entry)) return vf3_fifth_adapter(entry,s,ram);
         if(vf3_device_adapter_contains(entry)) return vf3_device_adapter(entry,s,ram);

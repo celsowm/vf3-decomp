@@ -1,5 +1,26 @@
 # VF3tb decomp — progress log
 
+## Eighth coverage batch (2026-10-02)
+
+- [x] Added 10 baseline invocation ports under the new
+  `src/fight/eighth_adapters.c` kernel. Each entry was captured with the
+  V6 strict invocation capsule format and replayed under
+  `VF3_STRICT_REPLAY=1` with full registers/banked/XF/FPUL/GBR/return-PC/
+  touched-RAM/device-tape equality; 1,376 strict cases across dev/holdout/
+  fresh corpora (572 dev + 389 holdout + 415 fresh). See
+  `docs/re/eighth_coverage_batch.md`.
+- [x] Promoted 32 additional executed leaves that were already owned by
+  existing adapters (`fifth_leaf_adapters.c`, `fifth_adapters.c`,
+  `device_adapters.c`, `next_adapters.c`, `motion_adapters.c`,
+  `fight_adapters.c`, `matrix_adapters.c`, `c788.c`) but had no oracle
+  binding. Each was re-tied to its dev/holdout/fresh cases with ≥64 cases
+  per scenario; >2,500 strict invocation cases.
+- [x] Build and portcheck pass: `tools/portcheck.py` succeeds across all
+  580 bindings; 544 matrix-family invocations verified under strict replay.
+- [x] Rigorous accounted: 765/2398 (31.9 %) → 788/2398 (32.9 %) fns;
+  170,450/434,656 (39.2 %) → 176,958/434,656 (40.7 %) bytes;
+  verified C address union 129,456 B → 135,964 B.
+
 ## Motion, task and callback batch (2026-09-30)
 
 - [x] Added 56 baseline invocation ports. Verified C union increases
