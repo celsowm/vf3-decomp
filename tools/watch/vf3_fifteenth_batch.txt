@@ -1,0 +1,4 @@
+# Fifteenth C coverage batch - ultimate adapter wins.
+pc 0x8c0c7810
+pc 0x8c08b5dc
+pc 0x8c03b364

@@ -69,6 +69,8 @@ int vf3_motion_unowned_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_ma
 int vf3_motion_unowned_extra_adapter_contains(uint32_t);
 int vf3_fifth_leaf_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fifth_leaf_extra_adapter_contains(uint32_t);
+int vf3_ultimate_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_ultimate_adapter_contains(uint32_t);
 int vf3_motion_record_init(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_angle(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_mesh(uint32_t,vf3_matrix_state*,const vf3_ram_map*);

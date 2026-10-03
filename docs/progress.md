@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Fifteenth coverage batch (2026-10-03)
+
+- [x] Generated the broadest adapter yet
+  (`src/fight/vf3_ultimate_adapter.c`) covering every non-Phase-3 case
+  dir under a single dispatch entry. **5,452 guest statements, 0
+  unsupported instructions**.
+- [x] Promoted **3 additional leaves** that previously fell through to
+  `vf3_matrix_adapter` and rejected. **208 B unique C-byte credit**;
+  **62 strict cases**. See `docs/re/fifteenth_coverage_batch.md`.
+- [x] Rigorous accounted: 995/2398 (41.5 %) → 998/2398 (41.6 %) fns;
+  202,574/434,656 (46.6 %) → 202,782/434,656 (46.7 %) bytes.
+
 ## Fourteenth coverage batch (2026-10-03)
 
 - [x] Promoted 28 owned-partial-cover leaves (body cover 7.4–78.9%)

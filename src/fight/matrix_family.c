@@ -207,6 +207,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         if(vf3_fifth_leaf_unowned_adapter_contains(entry)) return vf3_fifth_leaf_unowned_adapter(entry,s,ram);
         if(vf3_motion_unowned_extra_adapter_contains(entry)) return vf3_motion_unowned_extra_adapter(entry,s,ram);
         if(vf3_fifth_leaf_extra_adapter_contains(entry)) return vf3_fifth_leaf_extra_adapter(entry,s,ram);
+        if(vf3_ultimate_adapter_contains(entry)) return vf3_ultimate_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);
