@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Fourteenth coverage batch (2026-10-03)
+
+- [x] Promoted 28 owned-partial-cover leaves (body cover 7.4–78.9%)
+  that pass strict replay end-to-end. **7,020 B unique C-byte credit**;
+  **601 strict cases** across dev/holdout/fresh corpora. See
+  `docs/re/fourteenth_coverage_batch.md`.
+- [x] The capture-driven pool is now exhausted: every owned-partial entry
+  with a passing corpus is in the ledger; the 15 remaining failures are
+  listed by entry.
+- [x] Rigorous accounted: 967/2398 (40.3 %) → 995/2398 (41.5 %) fns;
+  195,554/434,656 (45.0 %) → 202,574/434,656 (46.6 %) bytes.
+
 ## Thirteenth coverage batch (2026-10-03)
 
 - [x] Generated two more adapter modules
