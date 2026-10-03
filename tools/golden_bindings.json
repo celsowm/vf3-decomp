@@ -1771,6 +1771,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c071e7c"
   },
+  "fifth_leaf_extra:0x8c076ba6": {
+    "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c076ba6.cases",
+    "port": "src/fight/vf3_fifth_leaf_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 62 strict cases from fifth_leaf_holdout_v6_cases corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c076ba6"
+  },
+  "fifth_leaf_extra:0x8c07b9ae": {
+    "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c07b9ae.cases",
+    "port": "src/fight/vf3_fifth_leaf_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 116 strict cases from fifth_leaf_holdout_v6_cases corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07b9ae"
+  },
+  "fifth_leaf_extra:0x8c07c824": {
+    "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c07c824.cases",
+    "port": "src/fight/vf3_fifth_leaf_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 52 strict cases from fifth_leaf_holdout_v6_cases corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07c824"
+  },
+  "fifth_leaf_extra:0x8c097042": {
+    "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c097042.cases",
+    "port": "src/fight/vf3_fifth_leaf_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 128 strict cases from fifth_leaf_holdout_v6_cases corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c097042"
+  },
   "fifth_leaf_unowned:0x8c03772a": {
     "golden": "extract/analysis/seventh_c15_cases/f_8c03772a.cases",
     "port": "src/fight/vf3_fifth_leaf_unowned_adapter.c",
@@ -3660,6 +3688,34 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from motion_final corpus",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c5ca2"
+  },
+  "motion_unowned_extra:0x8c04e412": {
+    "golden": "extract/analysis/motion_final_cases/f_8c04e412.cases",
+    "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from motion_final corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04e412"
+  },
+  "motion_unowned_extra:0x8c04f99a": {
+    "golden": "extract/analysis/motion_final_cases/f_8c04f99a.cases",
+    "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 3 strict cases from motion_final corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04f99a"
+  },
+  "motion_unowned_extra:0x8c07c540": {
+    "golden": "extract/analysis/motion_final_cases/f_8c07c540.cases",
+    "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from motion_final corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07c540"
+  },
+  "motion_unowned_extra:0x8c0a30b4": {
+    "golden": "extract/analysis/motion_final_cases/f_8c0a30b4.cases",
+    "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 2 strict cases from motion_final corpus",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a30b4"
   },
   "next:0x8c035148": {
     "golden": "extract/analysis/next_combined_cases/f_8c035148.cases",

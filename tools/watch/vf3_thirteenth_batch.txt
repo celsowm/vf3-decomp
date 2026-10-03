@@ -1,0 +1,9 @@
+# Thirteenth C coverage batch - motion_unowned_extra.
+pc 0x8c0a30b4
+pc 0x8c07c540
+pc 0x8c04e412
+pc 0x8c04f99a
+pc 0x8c07b9ae
+pc 0x8c076ba6
+pc 0x8c07c824
+pc 0x8c097042

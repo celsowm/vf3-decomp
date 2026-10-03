@@ -92,6 +92,8 @@ add_library(vf3core STATIC
     src/fight/eighth_adapters.c
     src/fight/vf3_motion_final_adapter.c
     src/fight/vf3_fifth_leaf_unowned_adapter.c
+    src/fight/vf3_motion_unowned_extra_adapter.c
+    src/fight/vf3_fifth_leaf_extra_adapter.c
     src/fight/phase1_adapters.c
     src/fight/phase1_adapters_0.c
     src/fight/phase2_adapters.c
@@ -167,6 +169,8 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/eighth_adapters.c
       src/fight/vf3_motion_final_adapter.c
       src/fight/vf3_fifth_leaf_unowned_adapter.c
+      src/fight/vf3_motion_unowned_extra_adapter.c
+      src/fight/vf3_fifth_leaf_extra_adapter.c
       src/fight/fifth_adapters_0.c
       src/fight/fifth_adapters_1.c
       src/fight/fifth_adapters_2.c

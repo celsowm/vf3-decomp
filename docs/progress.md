@@ -1,6 +1,20 @@
 # VF3tb decomp — progress log
 
-## Twelfth coverage batch (2026-10-03)
+## Thirteenth coverage batch (2026-10-03)
+
+- [x] Generated two more adapter modules
+  (`src/fight/vf3_motion_unowned_extra_adapter.c` and
+  `src/fight/vf3_fifth_leaf_extra_adapter.c`) from existing captures with
+  broader watch lists. Together: **4,776 guest statements, 0 unsupported
+  instructions**.
+- [x] Promoted **8 additional no-owner partial-cover leaves** (4 + 4 from
+  the two new adapters). Total **1,052 B unique C-byte credit**. First
+  batch to cross the **45% rigorous-byte threshold**. See
+  `docs/re/thirteenth_coverage_batch.md`.
+- [x] Rigorous accounted: 959/2398 (40.0 %) → 967/2398 (40.3 %) fns;
+  194,502/434,656 (44.7 %) → 195,554/434,656 (45.0 %) bytes.
+
+## Twelve coverage batch (2026-10-03)
 
 - [x] Promoted 29 partial-body-cover leaves (80–99% body cover) that pass
   strict replay end-to-end. **3,534 B unique C-byte credit**;
