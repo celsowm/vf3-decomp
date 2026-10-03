@@ -506,6 +506,19 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
                 }
             }
             applySyntheticRegs(mutableCtx,variant);
+            /* Seed the fixture. The emulated operand cache is write-back and the
+             * game has almost certainly touched these pages already, so a bare
+             * host write into mem_b is invisible: the core keeps hitting cached
+             * lines and reads something other than the value seeded here. That
+             * showed up as a deterministic *inversion* - seeding a gate word
+             * open closed the gate, seeding it closed let the body run further
+             * (docs/re/entry_patch.md, "OPEN DEFECT"). Write back and drop each
+             * affected line before overwriting main memory, exactly as the
+             * rollback path does below, so the guest observes the seed. */
+            for (const auto &word:variant.ram) {
+                unsigned line=word[0]&0x00ffffffu;
+                ocache.WriteBack(0x8C000000u+line,true,true);
+            }
             for (const auto &word:variant.ram)
                 std::memcpy(&mem_b[word[0]&0x00ffffffu],&word[1],4);
             mutableCtx->pc=synthetic->second.target;

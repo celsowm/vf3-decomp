@@ -1,0 +1,5 @@
+# Synthetic-entry worker campaign: 0x8C0C321E.
+# r13 comes from a literal pool (0x0C29BCC4), so the seed plan writes the
+# descriptor at its real global instead of setting r13.
+pc 0x8c0c321e
+EXITF

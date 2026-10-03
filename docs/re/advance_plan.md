@@ -285,19 +285,85 @@ covers 44.9% of the body, so the 1322 bytes are not booked.
 
 ### What this says about the remaining four targets
 
-The pilot generalises as a triage, not a delivery:
+The pilot was re-tested against all four named targets, and the first useful
+result is that **"pointer chasing" was the wrong axis to triage on**. What
+actually decides a target is two things: how much of the body is *call setup*
+rather than decisions, and *where the chased pointer comes from*.
 
-1. **Descriptor/pure workers** (flag + selector words, no pointer chasing) are
-   fully reachable by the seed sweep and should port cleanly at ~95% coverage.
-   `0x8C09C1F4`, `0x8C0C438E`, `0x8C0C321E`, `0x8C0A1658` are next; each needs
-   its `gate_scan` + `seed_plan` recipe before its first capture.
-2. **Pointer-chasing workers** need live-object seeding: the trigger context
-   must supply the object the function would really have been called with,
-   which means dispatch-table reconstruction (Phase 2 item 2) rather than a
-   synthetic register fixture. That is a different lever and was not attempted.
-3. **Coverage must be re-measured per body.** Neither 98.3% nor 44.9% is a port
+`jsr` density turned out to be the cheap predictor, because the ledger credits
+whole functions while the sweep only moves instructions the function itself
+decides:
+
+| target | size | `jsr` | branches | 3-probe body cover | verdict |
+|---|---|---|---|---|---|
+| `0x8C05B20E` (pilot) | 1322 B | 1 | 98 | 47.8% | leaf worker — the shape the sweep is built for |
+| `0x8C0C321E` | 1574 B | 6 | 96 | **31.1%** (490 B) | best candidate |
+| `0x8C09C1F4` | 2084 B | 8 | 64 | 11.3% (236 B) | candidate, bigger prize |
+| `0x8C0C438E` | 1694 B | **45** | 79 | 1.7% (28 B) | manager — body is mostly call setup |
+| `0x8C0A1658` | 1176 B | 18 | 66 | — | indirect `jsr @r13` dispatch table |
+
+`0x8C0C438E` is the cautionary one. It looks ideal on the gate scan — four
+literal descriptor offsets and two register-loaded ones — but it immediately
+calls eight helpers, so 433 of its 447 executed PCs were *inside callees* and
+only 28 bytes of its own body ran. Descriptor offsets say nothing about this;
+`jsr` count does.
+
+The pointer-chasing distinction also turned out to be about **provenance, not
+dereference**. `0x8C0C438E` chases `r10 = *(0x0C29BB84+44)` and dies there,
+because that pointer word is a real game global the probe has no business
+fabricating. `0x8C0C321E` chases `r14` just as hard, but `r14` is an *argument
+register* — the probe simply sets it to a scratch page. Same instruction, one
+seeds and one does not.
+
+Three further corrections to the plan's assumptions, all found by running it:
+
+1. **The descriptor base is often not seedable at all.** `0x8C05B20E` took `r13`
+   from a register; `0x8C0C321E` and `0x8C09C1F4` take theirs from a *literal
+   pool* (`mov.l <lit>,r13  # lit=0c29b864`), so the seed plan has to write the
+   real global. `seed_plan.py` now supports absolute-address seeds for this.
+2. **The oracle's `ram` directive is word-granular** and aborts the entire
+   capture (not the probe) on an unaligned address, so a byte-granular
+   descriptor read has to be seeded through its containing word.
+3. **The gate words are usually already open.** `0x8C0C321E`'s first 31.1%
+   arrived with no gate seed at all, because the live fight state left
+   `*(0x0C29B864) & 0x300` set. Only the *closed* variants need seeding, and
+   they are the early-exit arms — so a plan that forgets them silently loses
+   whole exits rather than deep arms.
+
+4. **Coverage must be re-measured per body.** Neither 98.3% nor 44.9% is a port
    on its own, and `body_cover.py --min-cover` now says which is which before
    the ledger does.
+
+### The lever is currently blocked by an oracle defect, not by the targets
+
+Porting the sweep to `0x8C0C321E` ran into something bigger than a bad plan, and
+it is recorded in full in `docs/re/entry_patch.md`:
+
+- The mechanism works there — probes return complete capsules, no faults, no
+  quarantine — and the natural live state alone reaches 490 B / **31.1%**.
+- But **entry RAM seeds do not reach the emulated core.** A single-variant patch
+  (`tools/oracle/disc_single.patch`, no cursor, nothing to misattribute) seeds
+  all three gate words open; the body still stops at the first gate, 14 body PCs
+  deep, deterministically. 26+ runs stepping 285 variants never moved
+  `body_cover` off 31.1%, which is the same symptom at scale.
+- Byte order and operand-cache staleness are both **ruled out** — the latter by
+  adding the missing `ocache.WriteBack` to the forward seed path and rebuilding,
+  which changed the result not at all.
+- So the current state of the lever is: **capture works, seeding does not.**
+  Until that is fixed, no coverage figure from a seed sweep — including the
+  pilot's 44.9% — should be read as evidence that the sweep reached that far.
+
+The honest read of Phase 3 shrinks accordingly. What is banked is the harness
+(opcode substitution, probe accounting, fault abort, budget, ocache-coherent
+rollback), the triage, and one replay-clean capture. What is *not* banked is the
+claim that descriptor sweeping walks branch space: that was never demonstrated,
+and the flatline on `0x8C0C321E` is the first direct test of it.
+
+**Next step is therefore not a new target.** It is to root-cause the seed write —
+the leading suspects are the host RAM write not invalidating the operand cache
+for the line, and a byte-order mismatch of the same family as the image
+byte-swap already documented. A three-variant probe that seeds a word the guest
+echoes back through a store would settle it in one run.
 
 ## Plan closure
 

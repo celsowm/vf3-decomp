@@ -1,0 +1,17 @@
+# Discriminator: two variants differing ONLY in the first gate word.
+#   variant 0: *(0x0C29B864) = 0x00000300  (gate open, matches live state)
+#   variant 1: *(0x0C29B864) = 0x00000000  (gate closed)
+# If the executed-PC sets are identical, entry RAM seeds are not reaching the
+# emulated core at the seeded address.
+entry 0x8c048284 0x8c0c321e
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r4 0x0c400000
+ram 0x8c048284 0x0c29b864 0x00000300
+ram 0x8c048284 0x0c29bcc0 0x00080001
+ram 0x8c048284 0x0c400000 0x0000000a
+seed 0x8c048284
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r4 0x0c400000
+ram 0x8c048284 0x0c29b864 0x00000000
+ram 0x8c048284 0x0c29bcc0 0x00080001
+ram 0x8c048284 0x0c400000 0x0000000a

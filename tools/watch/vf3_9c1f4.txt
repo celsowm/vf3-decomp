@@ -1,0 +1,5 @@
+# Synthetic-entry worker campaign: 0x8C09C1F4.
+# r0 is the command selector; the descriptor global 0x0C29B864 is read/write and
+# is written from the argument registers at entry.
+pc 0x8c09c1f4
+EXITF

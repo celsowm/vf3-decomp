@@ -125,6 +125,73 @@ it dirtied, and that is not enough on this fork:
 bad" and "the trigger is never reached", which look identical from the corpus
 alone.
 
+## OPEN DEFECT: entry RAM seeds do not reach the emulated core (2026-10-02)
+
+Found while porting the lever to a second target, and it is the reason that port
+stalled. It also undercuts how much of the pilot's 44.9% is attributable to seed
+*content* at all.
+
+`0x8C0C321E` (geometry byte-swapper, 1574 B) opens with three gates, the first of
+which is a plain `tst` on a real game global:
+
+    8c0c3222  mov.l <lit>,r10      # lit = 0x0c29b864
+    8c0c322c  mov.l @r10,r2
+    8c0c322a  mov.w <lit>,r3       # lit.w = 0x0300
+    8c0c3230  tst  r3,r2
+    8c0c3232  bt/s 0x8c0c323a      # taken  -> carry on
+    8c0c3236  bra 0x8c0c38b2       # else   -> early exit
+
+Seeding that word to `0x00000300` must open the gate. It does not.
+`tools/oracle/disc_single.patch` is a **single-variant** patch — no cursor, no
+round-robin, nothing to misattribute — seeding `0x0C29B864 = 0x00000300`,
+`0x0C29BCC0 = 0x00080001` and `*(r4) = 0x0A`, i.e. all three gates open. The
+captured body stops dead at the first one:
+
+    body PCs 14, deepest 0x8C0C3238   (gate A ends here)
+    gate B would end at 0x8C0C3246, gate 3 at 0x8C0C3250
+
+The value written by the patch is not the value the core reads. 26+ campaign runs
+stepping 285 variants never moved `body_cover` off the 31.1% that the natural live
+state produces, which is the same symptom at scale.
+
+**Ruled out already:**
+
+- *Byte order.* The patch parser reads the value with `sscanf("%x")` into a host
+  `uint32` and `memcpy`s 4 bytes on x86, so a little-endian guest reads back the
+  same value. The image byte-swap noted elsewhere in this file is a property of
+  `sh4dump.py` and the ROM image, not of this write.
+- *Operand cache.* The rollback path maintains cache coherence
+  (`ocache.WriteBack(addr,true,true)` per restored page) but the forward seed
+  write did not, so `ocache.WriteBack` was added before the seed `memcpy` in
+  `vf3OracleBefore` and the emulator rebuilt. The result is **byte-for-byte
+  unchanged** (still 14 body PCs, deepest `0x8C0C3238`). That suspect is
+  eliminated, and the code change is kept because the asymmetry was real even
+  though it was not the cause here.
+
+**Still open.** The next thing to check is whether `mem_b` is the buffer the
+interpreter actually reads for that address range, or whether the write is being
+clobbered between the seed and the target's first `mov.l @r10,r2`. A seed to an
+address the guest echoes straight back through a store would settle it in one
+run.
+
+A caution about earlier readings: a two-variant discriminator appeared to show
+the gate effect *inverted*. That was an artifact of `--probe-offset` selecting a
+different variant than assumed, not a real inversion. Prefer single-variant
+patches for this class of test.
+
+**Until this is fixed:** do not attribute captured coverage to a seed variant,
+and treat a seed campaign that does not move `body_cover` as evidence of this bug
+rather than of a bad plan.
+
+Consequences for work already banked:
+
+- The 0x8C0C321E recipe (`seed_plan.py:swapper`, 285 variants × 26 triggers)
+  produces 26+ runs that all stop dead at the first gate, and `body_cover` never
+  leaves 31.1% no matter which offset is stepped. That flatline is the symptom.
+- The pilot's 44.9% is *replay-clean* and remains valid as a **capture** result,
+  but it should no longer be described as evidence that the descriptor sweep
+  reached that far. ~3 probes per run at natural state may account for it alone.
+
 ## State of the 0x8C05B20E campaign
 
 The first probe redirects trigger `0x8C0AA446` into `0x8C05B20E` and produces

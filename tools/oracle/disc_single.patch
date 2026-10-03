@@ -1,0 +1,11 @@
+# Single variant, no ambiguity about which one runs: gate A word = 0x00000300,
+# which must OPEN the body. *r4 is also 0x0a so gate 3 opens too.
+# If this still stops at 0x8c0c3236 the seed really is not landing.
+# If it walks past 0x8c0c3248, the machinery is fine and an earlier
+# --probe-offset reading was simply selecting a different variant than assumed.
+entry 0x8c048284 0x8c0c321e
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r4 0x0c400000
+ram 0x8c048284 0x0c29b864 0x00000300
+ram 0x8c048284 0x0c29bcc0 0x00080001
+ram 0x8c048284 0x0c400000 0x0000000a
