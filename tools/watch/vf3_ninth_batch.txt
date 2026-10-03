@@ -1,0 +1,10 @@
+# Ninth C coverage batch - strict invocation roots.
+pc 0x8c0ad878
+pc 0x8c093bfa
+pc 0x8c08d0b4
+pc 0x8c08c162
+pc 0x8c08d9ca
+pc 0x8c0ac144
+pc 0x8c0a7750
+pc 0x8c08ccfc
+pc 0x8c091b60

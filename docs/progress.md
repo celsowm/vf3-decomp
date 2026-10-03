@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Ninth coverage batch (2026-10-02)
+
+- [x] Promoted 9 additional executed leaves that were already owned by
+  existing adapters (`fifth_adapters.c`, `motion_adapters.c`,
+  `fight_adapters.c`, `device_adapters.c`, `phase1_adapters.c`,
+  `matrix_adapters.c`) but had no oracle binding. Each entry was replayed
+  under `VF3_STRICT_REPLAY=1`; **366 strict cases** across dev/holdout/fresh
+  corpora. See `docs/re/ninth_coverage_batch.md`.
+- [x] Build and portcheck pass: `tools/portcheck.py` succeeds across all 589
+  bindings (was 580; +9).
+- [x] Rigorous accounted: 788/2398 (32.9 %) → 797/2398 (33.2 %) fns;
+  176,958/434,656 (40.7 %) → 177,952/434,656 (40.9 %) bytes;
+  verified C address union 135,964 B → 136,958 B.
+
 ## Eighth coverage batch (2026-10-02)
 
 - [x] Added 10 baseline invocation ports under the new
