@@ -1,5 +1,15 @@
 # VF3tb decomp — progress log
 
+## Twelfth coverage batch (2026-10-03)
+
+- [x] Promoted 29 partial-body-cover leaves (80–99% body cover) that pass
+  strict replay end-to-end. **3,534 B unique C-byte credit**;
+  **1,297 strict cases** across dev/holdout/fresh corpora. First batch
+  to cross the **40% rigorous-function threshold**. See
+  `docs/re/twelfth_coverage_batch.md`.
+- [x] Rigorous accounted: 930/2398 (38.8 %) → 959/2398 (40.0 %) fns;
+  190,968/434,656 (43.9 %) → 194,502/434,656 (44.7 %) bytes.
+
 ## Eleventh coverage batch (2026-10-02)
 
 - [x] Generated two new adapter modules

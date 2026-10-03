@@ -546,6 +546,27 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c094372"
   },
+  "device:0x8c0944a4": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0944a4.cases",
+    "port": "src/fight/device_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fifth_combined_cases corpus (body cover 89.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0944a4"
+  },
+  "device:0x8c0b1c94": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0b1c94.cases",
+    "port": "src/fight/device_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 103 strict cases from fifth_combined_cases corpus (body cover 83.3%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b1c94"
+  },
+  "device:0x8c0cc4ea": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0cc4ea.cases",
+    "port": "src/fight/device_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 32 strict cases from fifth_combined_cases corpus (body cover 83.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0cc4ea"
+  },
   "eighth:0x8c043ee8": {
     "golden": "extract/analysis/next_dev_cases/f_8c043ee8.cases",
     "port": "src/fight/eighth_adapters.c",
@@ -651,6 +672,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c03d260"
   },
+  "fifth:0x8c03e442": {
+    "golden": "extract/analysis/fifth_primary_cases/f_8c03e442.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 27 strict cases from fifth_primary_cases corpus (body cover 95.6%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03e442"
+  },
   "fifth:0x8c03e980": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03e980.cases",
     "port": "src/fight/fifth_leaf_adapters.c",
@@ -671,6 +699,13 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c03eff4"
+  },
+  "fifth:0x8c03f3f0": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c03f3f0.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 63 strict cases from fifth_combined_cases corpus (body cover 88.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03f3f0"
   },
   "fifth:0x8c03ffd0": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c03ffd0.cases",
@@ -874,6 +909,13 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c06d772"
+  },
+  "fifth:0x8c06ef4a": {
+    "golden": "extract/analysis/motion_release_cases/f_8c06ef4a.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 33 strict cases from motion_release_cases corpus (body cover 90.8%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06ef4a"
   },
   "fifth:0x8c0701fe": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0701fe.cases",
@@ -1463,6 +1505,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a041e"
   },
+  "fifth:0x8c0a058e": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0a058e.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fifth_combined_cases corpus (body cover 81.8%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a058e"
+  },
+  "fifth:0x8c0a062c": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0a062c.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 63 strict cases from fifth_combined_cases corpus (body cover 91.0%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a062c"
+  },
   "fifth:0x8c0a2c48": {
     "golden": "extract/analysis/fifth_primary_cases/f_8c0a2c48.cases",
     "port": "src/fight/fifth_adapters.c",
@@ -1519,6 +1575,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a76ee"
   },
+  "fifth:0x8c0a7a1c": {
+    "golden": "extract/analysis/fifth_ab_cases/f_8c0a7a1c.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 24 strict cases from fifth_ab_cases corpus (body cover 99.0%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a7a1c"
+  },
   "fifth:0x8c0a9f62": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0a9f62.cases",
     "port": "src/fight/fifth_leaf_adapters.c",
@@ -1553,6 +1616,13 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0abe84"
+  },
+  "fifth:0x8c0abf54": {
+    "golden": "extract/analysis/fifth_ab_cases/f_8c0abf54.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 6 strict cases from fifth_ab_cases corpus (body cover 90.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0abf54"
   },
   "fifth:0x8c0ac144": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c0ac144.cases",
@@ -1602,6 +1672,13 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0aea68"
+  },
+  "fifth:0x8c0af9e4": {
+    "golden": "extract/analysis/fifth_combined_cases/f_8c0af9e4.cases",
+    "port": "src/fight/fifth_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 5 strict cases from fifth_combined_cases corpus (body cover 80.3%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af9e4"
   },
   "fifth:0x8c0b1b34": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c0b1b34.cases",
@@ -1953,6 +2030,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0400c0"
   },
+  "fight:0x8c0400c2": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0400c2.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 4 strict cases from fight_release_cases corpus (body cover 83.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0400c2"
+  },
   "fight:0x8c042d7c": {
     "golden": "extract/analysis/fight_release_cases/f_8c042d7c.cases",
     "port": "src/fight/fight_adapters.c",
@@ -2107,6 +2191,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c08bcf8"
   },
+  "fight:0x8c08c0f8": {
+    "golden": "extract/analysis/fight_release_cases/f_8c08c0f8.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fight_release_cases corpus (body cover 85.2%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08c0f8"
+  },
+  "fight:0x8c08c132": {
+    "golden": "extract/analysis/fight_release_cases/f_8c08c132.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fight_release_cases corpus (body cover 87.5%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08c132"
+  },
   "fight:0x8c08c162": {
     "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c08c162.cases",
     "port": "src/fight/fight_adapters.c",
@@ -2184,6 +2282,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09f9fc"
   },
+  "fight:0x8c0a7798": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0a7798.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 2 strict cases from fight_release_cases corpus (body cover 88.6%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a7798"
+  },
+  "fight:0x8c0a81fc": {
+    "golden": "extract/analysis/fight_all_cases/f_8c0a81fc.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from fight_all_cases corpus (body cover 96.2%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a81fc"
+  },
   "fight:0x8c0a9c52": {
     "golden": "extract/analysis/fight_release_cases/f_8c0a9c52.cases",
     "port": "src/fight/fight_adapters.c",
@@ -2219,6 +2331,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0ac252"
   },
+  "fight:0x8c0ad17c": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0ad17c.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 57 strict cases from fight_release_cases corpus (body cover 83.3%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ad17c"
+  },
   "fight:0x8c0ad1aa": {
     "golden": "extract/analysis/fight_release_cases/f_8c0ad1aa.cases",
     "port": "src/fight/fight_adapters.c",
@@ -2239,6 +2358,13 @@
     "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0af892"
+  },
+  "fight:0x8c0af95c": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0af95c.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 3 strict cases from fight_release_cases corpus (body cover 83.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af95c"
   },
   "fight:0x8c0b08bc": {
     "golden": "extract/analysis/fight_release_cases/f_8c0b08bc.cases",
@@ -2296,6 +2422,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0bfef4"
   },
+  "fight:0x8c0c120c": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0c120c.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fight_release_cases corpus (body cover 87.9%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c120c"
+  },
   "fight:0x8c0c124e": {
     "golden": "extract/analysis/fight_release_cases/f_8c0c124e.cases",
     "port": "src/fight/fight_adapters.c",
@@ -2309,6 +2442,13 @@
     "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c1fd8"
+  },
+  "fight:0x8c0c5d86": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0c5d86.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 58 strict cases from fight_release_cases corpus (body cover 85.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c5d86"
   },
   "fight:0x8c0c6742": {
     "golden": "extract/analysis/fight_release_cases/f_8c0c6742.cases",
@@ -2358,6 +2498,13 @@
     "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0cab46"
+  },
+  "fight:0x8c0cc0dc": {
+    "golden": "extract/analysis/fight_release_cases/f_8c0cc0dc.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fight_release_cases corpus (body cover 91.5%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0cc0dc"
   },
   "matrix:0x8c03b450": {
     "golden": "extract/analysis/matrix_final_cases/f_8c03b450.cases",
@@ -3192,6 +3339,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c3c3e"
   },
+  "motion:0x8c0c7e2a": {
+    "golden": "extract/analysis/motion_final_cases/f_8c0c7e2a.cases",
+    "port": "src/fight/motion_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 2 strict cases from motion_final_cases corpus (body cover 94.0%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c7e2a"
+  },
   "motion:0x8c0ca6de": {
     "golden": "extract/analysis/motion_release_cases/f_8c0ca6de.cases",
     "port": "src/fight/motion_adapters.c",
@@ -3647,6 +3801,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0486de"
   },
+  "next:0x8c04c768": {
+    "golden": "extract/analysis/next_dev_cases/f_8c04c768.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from next_dev_cases corpus (body cover 83.8%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04c768"
+  },
   "next:0x8c055d40": {
     "golden": "extract/analysis/next_combined_cases/f_8c055d40.cases",
     "port": "src/fight/next_adapters.c",
@@ -3752,6 +3913,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0715d0"
   },
+  "next:0x8c0715f4": {
+    "golden": "extract/analysis/phase1_dev_cases/f_8c0715f4.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 22 strict cases from phase1_dev_cases corpus (body cover 92.1%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0715f4"
+  },
   "next:0x8c071646": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c071646.cases",
     "port": "src/fight/next_adapters.c",
@@ -3772,6 +3940,13 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 51 strict cases from fifth_leaf_holdout_v6_cases corpus",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07281e"
+  },
+  "next:0x8c07287c": {
+    "golden": "extract/analysis/phase1_dev_cases/f_8c07287c.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 51 strict cases from phase1_dev_cases corpus (body cover 90.6%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07287c"
   },
   "next:0x8c0728c0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c0728c0.cases",
@@ -3842,6 +4017,13 @@
     "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07464c"
+  },
+  "next:0x8c07ad68": {
+    "golden": "extract/analysis/next_dev_cases/f_8c07ad68.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 2 strict cases from next_dev_cases corpus (body cover 95.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07ad68"
   },
   "next:0x8c07b5f8": {
     "golden": "extract/analysis/next_combined_cases/f_8c07b5f8.cases",
@@ -3996,6 +4178,13 @@
     "source": "Complete invocation registers/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; >=64 distinct cases across >=2 scenarios",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a99aa"
+  },
+  "next:0x8c0aa426": {
+    "golden": "extract/analysis/phase1_dev_cases/f_8c0aa426.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 13 strict cases from phase1_dev_cases corpus (body cover 86.7%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0aa426"
   },
   "next:0x8c0ac080": {
     "golden": "extract/analysis/next_combined_cases/f_8c0ac080.cases",
@@ -5018,5 +5207,19 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0be05e"
+  },
+  "vf3_fifth_leaf_unowned_adapter:0x8c070874": {
+    "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c070874.cases",
+    "port": "src/fight/vf3_fifth_leaf_unowned_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 64 strict cases from fifth_leaf_fresh_v6_cases corpus (body cover 89.3%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c070874"
+  },
+  "vf3_fifth_leaf_unowned_adapter:0x8c07c634": {
+    "golden": "extract/analysis/fifth_leaf_dev_v6_cases/f_8c07c634.cases",
+    "port": "src/fight/vf3_fifth_leaf_unowned_adapter.c",
+    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 128 strict cases from fifth_leaf_dev_v6_cases corpus (body cover 83.3%)",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07c634"
   }
 }
