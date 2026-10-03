@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Eleventh coverage batch (2026-10-02)
+
+- [x] Generated two new adapter modules
+  (`src/fight/vf3_motion_final_adapter.c` and
+  `src/fight/vf3_fifth_leaf_unowned_adapter.c`) from the existing capture
+  corpora. Together: **8,011 guest statements, 0 unsupported instructions**.
+- [x] Promoted **70 additional executed leaves** (38 + 32 from the two new
+  adapters). Total **8,870 B unique C-byte credit**. See
+  `docs/re/eleventh_coverage_batch.md`.
+- [x] Build and portcheck pass: `tools/portcheck.py` succeeds across all 724
+  bindings (was 654; +70).
+- [x] Rigorous accounted: 860/2398 (35.9 %) → 930/2398 (38.8 %) fns;
+  182,098/434,656 (41.9 %) → 190,968/434,656 (43.9 %) bytes.
+
 ## Tenth coverage batch (2026-10-02)
 
 - [x] Promoted 65 additional executed leaves that already had adapter
