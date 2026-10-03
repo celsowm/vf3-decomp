@@ -1,0 +1,10 @@
+# Hypothesis: sh4dump prints `lit.w=0300` but the image is byte-swapped relative
+# to it, so the guest's r3 mask may really be 0x0030. If so, seeding 0x300 gives
+# 0x0030 & 0x300 == 0 and the gate stays shut - which is exactly what was
+# observed. Seeding 0x00000030 should open it instead.
+entry 0x8c048284 0x8c0c321e
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r4 0x0c400000
+ram 0x8c048284 0x0c29b864 0x00000030
+ram 0x8c048284 0x0c29bcc0 0x00000018
+ram 0x8c048284 0x0c400000 0x0000000a

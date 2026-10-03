@@ -341,17 +341,20 @@ it is recorded in full in `docs/re/entry_patch.md`:
 
 - The mechanism works there — probes return complete capsules, no faults, no
   quarantine — and the natural live state alone reaches 490 B / **31.1%**.
-- But **entry RAM seeds do not reach the emulated core.** A single-variant patch
-  (`tools/oracle/disc_single.patch`, no cursor, nothing to misattribute) seeds
-  all three gate words open; the body still stops at the first gate, 14 body PCs
-  deep, deterministically. 26+ runs stepping 285 variants never moved
-  `body_cover` off 31.1%, which is the same symptom at scale.
-- Byte order and operand-cache staleness are both **ruled out** — the latter by
-  adding the missing `ocache.WriteBack` to the forward seed path and rebuilding,
-  which changed the result not at all.
-- So the current state of the lever is: **capture works, seeding does not.**
-  Until that is fixed, no coverage figure from a seed sweep — including the
-  pilot's 44.9% — should be read as evidence that the sweep reached that far.
+- It stalled because **the immediates in the sh4dump disassembly are
+  byte-swapped relative to what the guest applies.** Seeding the disassembly's
+  own `lit.w=0300` leaves gate A shut; `0x0030` opens it. Same for gate B
+  (`0x0018`) and for the `tst #10` on the argument object (`0x0A00`).
+- With all three measured masks, a **single** probe takes the body from 14 PCs
+  pinned at 31.1% to 1064 executed PCs and **560 B / 35.6%** before any sweeping.
+  `seed_plan.py:swapper` now carries the measured values.
+- Two things that looked like causes were ruled out by measurement, not argument:
+  the seed plumbing (a `VF3_SEED_DEBUG` dump at the target's first instruction
+  shows `r0`, `r13` and `pr` landing exactly as seeded) and the operand cache
+  (adding the missing `ocache.WriteBack` to the forward seed path and rebuilding
+  changed the result not at all).
+- So the current state of the lever is: **capture works, and seeding works once
+  the masks are measured rather than read off the disassembly.**
 
 The honest read of Phase 3 shrinks accordingly. What is banked is the harness
 (opcode substitution, probe accounting, fault abort, budget, ocache-coherent
@@ -359,11 +362,18 @@ rollback), the triage, and one replay-clean capture. What is *not* banked is the
 claim that descriptor sweeping walks branch space: that was never demonstrated,
 and the flatline on `0x8C0C321E` is the first direct test of it.
 
-**Next step is therefore not a new target.** It is to root-cause the seed write —
-the leading suspects are the host RAM write not invalidating the operand cache
-for the line, and a byte-order mismatch of the same family as the image
-byte-swap already documented. A three-variant probe that seeds a word the guest
-echoes back through a store would settle it in one run.
+**Next step is therefore not a new target, and not a new tool.** It is to
+re-measure the masks and re-run. Concretely, in order of expected value:
+
+1. **Re-run the pilot 0x8C05B20E with measured masks.** Its 3258-variant recipe
+   was built from the same swapped immediates, so its 44.9% is unattributed.
+   Re-running may well clear the 100% promotion gate, and it reuses an existing
+   replay-clean adapter.
+2. **Re-measure the masks in `gate_scan.py` output** for any other recipe
+   before trusting it. The tool emits masks straight from the disassembly, so
+   every plan derived from it inherits the swap.
+3. Then resume the `0x8C0C321E` sweep (35.6% from one probe is a real
+   starting point), and only then `0x8C09C1F4`.
 
 ## Plan closure
 

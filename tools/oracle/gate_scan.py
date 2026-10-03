@@ -6,6 +6,14 @@ flags word plus `cmp/eq #n` switches over selector words. Seed campaigns need
 both: a selector arm is only reachable when the gate that guards its switch is
 open, so sweeping selector values with a closed gate measures nothing.
 
+WARNING: the masks this tool prints come straight out of the sh4dump
+disassembly, and sh4dump's immediates are BYTE-SWAPPED relative to what the
+emulated guest actually applies. Seeding the printed value leaves the gate shut
+and the symptom is "my seed did nothing". Verified on 0x8C0C321E: the
+disassembly's `lit.w=0300` and `tst #10` actually behave as 0x0030 and 0x0A00.
+Re-measure each mask against a capture before building a recipe - see
+docs/re/entry_patch.md, "RESOLVED: sh4dump immediates are byte-swapped".
+
     python tools/oracle/gate_scan.py extract/analysis/tmp_8c05b20e.dis
 """
 from __future__ import annotations

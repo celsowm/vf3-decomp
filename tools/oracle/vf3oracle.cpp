@@ -564,6 +564,18 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         if (c.deferRecord) {
             c.deferRecord=false;
             if (c.subPc) c.ops.push_back({c.subPc,c.subOp});
+            /* Seed diagnostics: this is the instant the target's first (substituted)
+             * instruction is about to execute, i.e. the first moment the guest can
+             * observe the seed. Compare the register file here against the values
+             * the patch asked for. `pr` is honoured but ctx->r[kind] appeared not
+             * to be - see docs/re/entry_patch.md "seed variants are inert except
+             * pr" - so dump it rather than guess. */
+            if (c.synthetic && getenv("VF3_SEED_DEBUG")) {
+                std::fprintf(stderr,"[vf3oracle] seed-debug target=%08x subpc=%08x pr=%08x regs:",
+                             c.entry,c.subPc,ctx->pr);
+                for (int i=0;i<16;i++) std::fprintf(stderr," r%d=%08x",i,ctx->r[i]);
+                std::fprintf(stderr,"\n");
+            }
             continue;
         }
         /* First instruction actually reached inside the target: the trigger

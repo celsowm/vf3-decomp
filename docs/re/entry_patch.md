@@ -125,63 +125,78 @@ it dirtied, and that is not enough on this fork:
 bad" and "the trigger is never reached", which look identical from the corpus
 alone.
 
-## OPEN DEFECT: entry RAM seeds do not reach the emulated core (2026-10-02)
+## RESOLVED: sh4dump immediates are byte-swapped, so every seed mask was wrong
 
 Found while porting the lever to a second target, and it is the reason that port
-stalled. It also undercuts how much of the pilot's 44.9% is attributable to seed
-*content* at all.
+stalled for a long time. It also undercuts how much of the pilot's 44.9% is
+attributable to seed *content* at all.
 
-`0x8C0C321E` (geometry byte-swapper, 1574 B) opens with three gates, the first of
-which is a plain `tst` on a real game global:
+### Symptom
 
-    8c0c3222  mov.l <lit>,r10      # lit = 0x0c29b864
-    8c0c322c  mov.l @r10,r2
-    8c0c322a  mov.w <lit>,r3       # lit.w = 0x0300
-    8c0c3230  tst  r3,r2
-    8c0c3232  bt/s 0x8c0c323a      # taken  -> carry on
-    8c0c3236  bra 0x8c0c38b2       # else   -> early exit
+`0x8C0C321E` (geometry byte-swapper, 1574 B) opens with three gates. Seeding all
+three open left the body pinned at 14 executed PCs, stopping at the first gate.
+26+ campaign runs stepping 285 variants never moved `body_cover` off the 31.1%
+that the natural live state produces. Seeding looked inert.
 
-Seeding that word to `0x00000300` must open the gate. It does not.
-`tools/oracle/disc_single.patch` is a **single-variant** patch — no cursor, no
-round-robin, nothing to misattribute — seeding `0x0C29B864 = 0x00000300`,
-`0x0C29BCC0 = 0x00080001` and `*(r4) = 0x0A`, i.e. all three gates open. The
-captured body stops dead at the first one:
+### What it was not
 
-    body PCs 14, deepest 0x8C0C3238   (gate A ends here)
-    gate B would end at 0x8C0C3246, gate 3 at 0x8C0C3250
+- **Not the seed plumbing.** A diagnostic that dumps the register file at the
+  instant the target's first (substituted) instruction executes
+  (`VF3_SEED_DEBUG=1` in `vf3oracle.cpp`) shows the seeds landing exactly:
+  `r0=0000000c`, `r13=0c29b864`, `pr=8c048286` for a patch asking for precisely
+  those. `applySyntheticRegs` is fine.
+- **Not byte order of the seed write.** The parser does `sscanf("%x")` into a
+  host `uint32` and `memcpy`s 4 bytes on x86; a little-endian guest reads the
+  same value back.
+- **Not the operand cache.** The forward seed path lacked the cache coherence
+  the rollback path has, so `ocache.WriteBack` was added and the emulator
+  rebuilt. Result: **byte-for-byte unchanged**. The change is kept because the
+  asymmetry was real, but it was not the cause.
 
-The value written by the patch is not the value the core reads. 26+ campaign runs
-stepping 285 variants never moved `body_cover` off the 31.1% that the natural live
-state produces, which is the same symptom at scale.
+### What it was
 
-**Ruled out already:**
+**The immediate values in the sh4dump disassembly are byte-swapped relative to
+what the guest applies.** Seeding the disassembly's own values leaves every gate
+shut. Measured, one gate at a time:
 
-- *Byte order.* The patch parser reads the value with `sscanf("%x")` into a host
-  `uint32` and `memcpy`s 4 bytes on x86, so a little-endian guest reads back the
-  same value. The image byte-swap noted elsewhere in this file is a property of
-  `sh4dump.py` and the ROM image, not of this write.
-- *Operand cache.* The rollback path maintains cache coherence
-  (`ocache.WriteBack(addr,true,true)` per restored page) but the forward seed
-  write did not, so `ocache.WriteBack` was added before the seed `memcpy` in
-  `vf3OracleBefore` and the emulator rebuilt. The result is **byte-for-byte
-  unchanged** (still 14 body PCs, deepest `0x8C0C3238`). That suspect is
-  eliminated, and the code change is kept because the asymmetry was real even
-  though it was not the cause here.
+| gate | disassembly says | actually opens the gate |
+|---|---|---|
+| A — `*(0x0C29B864)` | `mov.w <lit> # lit.w=0300` | **`0x0030`** |
+| B — `*(0x0C29BCC0)` | `mov.w <lit> # lit.w=…` | **`0x0018`** |
+| C — `*r4` | `tst #10,r0` | **`0x0A00`** |
 
-**Still open.** The next thing to check is whether `mem_b` is the buffer the
-interpreter actually reads for that address range, or whether the write is being
-clobbered between the seed and the target's first `mov.l @r10,r2`. A seed to an
-address the guest echoes straight back through a store would settle it in one
-run.
+The capture ladder, all single-variant patches, all deterministic:
 
-A caution about earlier readings: a two-variant discriminator appeared to show
-the gate effect *inverted*. That was an artifact of `--probe-offset` selecting a
-different variant than assumed, not a real inversion. Prefer single-variant
-patches for this class of test.
+| seeded | body PCs | deepest body PC |
+|---|---|---|
+| gate A `0x0300` (as printed) | 14 | `0x8C0C3238` — exits at gate A |
+| gate A `0x0030` | 22 | `0x8C0C3250` — clears A and B, exits at C |
+| A and B `0x0030`/`0x0018`, C `0x0A00` | **1064 executed PCs** | **`body_cover` 560 B / 35.6%** |
 
-**Until this is fixed:** do not attribute captured coverage to a seed variant,
-and treat a seed campaign that does not move `body_cover` as evidence of this bug
-rather than of a bad plan.
+From 14 body PCs pinned at 31.1% to 35.6% in one probe, before sweeping
+anything. `tools/oracle/seed_plan.py:swapper` now carries the *measured* masks
+with a comment saying not to "correct" them back to the disassembly.
+
+This is the same byte-swap family as the image-versus-`sh4dump` trap already
+noted in this file, and it is why that trap kept being under-weighted: it does
+not corrupt the control flow, so the disassembly still looks right, and it only
+shows up as "my seed did nothing".
+
+### Consequences for work already banked
+
+- The pilot's 3258-variant recipe was built from the same swapped masks, so its
+  44.9% should **not** be read as evidence that the descriptor sweep reached that
+  far. It remains a valid *capture* result and every case still replays; it is
+  simply unattributed. Re-running it with measured masks is the obvious next
+  run and may well clear the 100% promotion gate.
+- `tools/oracle/gate_scan.py` emits masks straight from the disassembly, so
+  every recipe derived from it needs its masks re-measured before use.
+- Two earlier readings of mine were wrong and are recorded so nobody repeats
+  them: a two-variant test that looked like an "inversion" was really
+  `--probe-offset` selecting a different variant than assumed, and an `r0` test
+  on `0x8C09C1F4` was invalid because that function `jsr`s a helper before its
+  `cmp/eq #N,r0` dispatch and `r0` is caller-saved. Use single-variant patches,
+  and pick a function with no call before the branch being steered.
 
 Consequences for work already banked:
 

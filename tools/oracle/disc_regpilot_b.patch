@@ -1,0 +1,9 @@
+# Isolates the REGISTER seed path. 0x8C05B20E consumes r0 at 0x8C05B214
+# (`mov.l @(r0,r13),r11`), three instructions in and before its first jsr, so a
+# seeded r0 must change the path on its own. r13 points at the live game global
+# so @(r0,r13) reads real data at two different descriptor offsets. No `ram`
+# lines at all.
+entry 0x8c048284 0x8c05b20e
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r13 0x0c29b864
+reg 0x8c048284 r0 0x0000000c

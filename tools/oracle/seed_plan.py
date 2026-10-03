@@ -165,7 +165,14 @@ def swapper(base: int) -> list[dict]:
     GLOBAL_A = 0x0C29B864              # gate word 0 (also the r10 base)
     GLOBAL_B = 0x0C29BCC0              # gate word 1
     DESC = 0x0C29BCC4                  # r13 descriptor, byte-swap block at +0x3C6
-    GATE_A, GATE_B, GATE_R14 = 0x0300, 0x00080001, 0x0000000A
+    # EFFECTIVE gate masks, measured against the emulator, not read off the
+    # disassembly. sh4dump prints `mov.w ... # lit.w=0300` and `tst #10,r0`, but
+    # seeding 0x0300 leaves gate A shut while 0x0030 opens it; the same is true
+    # of gate B and of the `tst #10` on the argument object. Every mask below is
+    # the value that demonstrably opens its gate (see the three disc_*.patch
+    # captures in docs/re/entry_patch.md). Do not "correct" these back to what
+    # the disassembly says.
+    GATE_A, GATE_B, GATE_R14 = 0x0030, 0x0018, 0x0A00
     # The switch that gates everything past 0x8c0c329C. It is reached through
     # r10, not r13, so gate_scan never reported it and a first campaign seeded
     # only the fields above and flatlined at 31.6%:

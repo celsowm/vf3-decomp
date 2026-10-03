@@ -1,0 +1,10 @@
+# Byte-swap rule check. sh4dump prints `mov.w ... # lit.w=0300` and
+# `tst #10,r0`, but the image is byte-swapped relative to sh4dump, so the guest
+# actually applies 0x0030 and 0x0A00. Seeding all three gates with the swapped
+# masks should carry the body past 0x8c0c3250 into the switch at 0x8c0c328c.
+entry 0x8c048284 0x8c0c321e
+reg 0x8c048284 pr 0x8c048286
+reg 0x8c048284 r4 0x0c400000
+ram 0x8c048284 0x0c29b864 0x00000030
+ram 0x8c048284 0x0c29bcc0 0x00000018
+ram 0x8c048284 0x0c400000 0x00000a00
