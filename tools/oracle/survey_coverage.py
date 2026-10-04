@@ -6,6 +6,7 @@ import csv
 import json
 from pathlib import Path
 from capture_frames import expected_frames, observed_frames
+from campaign_io import write_watch
 
 ROOT=Path(__file__).resolve().parents[2]
 
@@ -59,4 +60,12 @@ if __name__=='__main__':
     ap.add_argument('batches',nargs='+')
     ap.add_argument('--out',required=True)
     ap.add_argument('--plan',help='refreshed port plan; SDK-attributed bodies remain C candidates')
-    a=ap.parse_args();report(a.batches,a.out,a.plan)
+    ap.add_argument('--watch', type=Path, help='export observed unported roots for natural capture')
+    ap.add_argument('--minimum-scenarios', type=int, default=1)
+    ap.add_argument('--minimum-hits', type=int, default=1)
+    a=ap.parse_args()
+    data=report(a.batches,a.out,a.plan)
+    if a.watch:
+        write_watch(a.watch, {int(row['entry'],16) for row in data['rows']
+                    if row['scenarios'] >= a.minimum_scenarios and row['total_hits'] >= a.minimum_hits},
+                    'Unported bodies reached in original execution; no coverage credit.')

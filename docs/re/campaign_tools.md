@@ -113,6 +113,14 @@ address-union bytes. `--min-dynamic`, `--max-dynamic`, `--minimum-size` and
 gates in at least one input corpus. Select compatible corpora when merging:
 other captures of the same entry can still contain incomplete invocations.
 Strict replay and independent acceptance remain required after capture gates.
+`--merge-ready DIRECTORY` collects only eligible roots and their compatible
+source corpora, checks the raw records again and preserves their provenance.
+Unrelated quarantined entries remain in the original evidence, outside the
+filtered development corpus.
+
+`campaign_io.py WATCH... --out ROOTS.txt` forms a canonical deduplicated watch
+union. `survey_coverage.py --watch ROOTS.txt --minimum-hits N` exports observed
+unported roots for natural capture; hit counts remain advisory.
 
 `capture_report.py --retry-watch ROOTS.txt` selects varied, complete-body entries
 whose only blockers are capture completion or incomplete invocations. Recapture

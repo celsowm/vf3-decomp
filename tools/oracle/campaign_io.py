@@ -34,3 +34,15 @@ def write_watch(path, entries, comment):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text('# ' + comment + '\n' + ''.join(
         f'pc 0x{entry:08x}\n' for entry in sorted(set(entries))), encoding='utf-8')
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='Merge watch lists without duplicate roots.')
+    parser.add_argument('watches', nargs='+', type=Path)
+    parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--comment', default='Union of supplied watch lists; no coverage credit.')
+    args = parser.parse_args()
+    entries = {entry for watch in args.watches for entry in read_watch(watch)}
+    write_watch(args.out, entries, args.comment)
+    print(f'{len(entries)} unique roots')

@@ -78,6 +78,8 @@ def main():
                         help='write roots passing capture gates; replay and acceptance still required')
     parser.add_argument('--retry-watch', type=Path,
                         help='write complete-body varied roots blocked only on capture completion')
+    parser.add_argument('--merge-ready', type=Path,
+                        help='merge only corpora with eligible roots into this directory')
     args = parser.parse_args()
     rows = report(discover(args.inputs), args.include_credited, read_watch(args.watch) if args.watch else None)
     if args.ready_watch:
@@ -88,6 +90,16 @@ def main():
         write_watch(args.retry_watch, {int(row['entry'], 16) for row in rows
                     if row['reasons'] and set(row['reasons']) <= completion},
                     'Complete-body varied candidates needing a fresh completed capture; no credit.')
+    if args.merge_ready:
+        from merge_batches import merge
+        ready = [row for row in rows if not row['reasons']]
+        if not ready:
+            raise ValueError('no eligible capture roots to merge')
+        args.merge_ready.mkdir(parents=True, exist_ok=True)
+        watch = args.merge_ready / 'ready_watch.txt'
+        write_watch(watch, {int(row['entry'], 16) for row in ready},
+                    'Eligible development roots; strict replay and acceptance required.')
+        merge(sorted({row['directory'] for row in ready}), args.merge_ready, watch)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(dict(advisory=True, entries=rows), indent=1) + '\n')

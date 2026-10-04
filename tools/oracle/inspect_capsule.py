@@ -14,6 +14,8 @@ def main():
     parser.add_argument('--limit', type=int, default=1)
     parser.add_argument('--word', type=lambda s: int(s, 0), action='append', default=[])
     parser.add_argument('--stack-words', type=int, default=8)
+    parser.add_argument('--ops-start', type=lambda s: int(s, 0))
+    parser.add_argument('--ops-end', type=lambda s: int(s, 0))
     args = parser.parse_args()
     shown = 0
     for path in args.capsules:
@@ -43,6 +45,11 @@ def main():
                 print(f'{address:08x}: {struct.unpack_from("<I", a, offset)[0]:08x}->'
                       f'{struct.unpack_from("<I", b, offset)[0]:08x}')
             print('last ops:', ' '.join(f'{pc:08x}:{op:04x}' for pc, op in record['ops'][-8:]))
+            if args.ops_start is not None:
+                start = args.ops_start & 0x1fffffff
+                end = (args.ops_end & 0x1fffffff) if args.ops_end is not None else start + 0x100
+                selected = [(pc, op) for pc, op in record['ops'] if start <= pc & 0x1fffffff < end]
+                print('selected ops:', ' '.join(f'{pc:08x}:{op:04x}' for pc, op in selected))
             shown += 1
             if shown >= args.limit:
                 return
