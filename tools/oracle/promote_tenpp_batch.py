@@ -34,6 +34,7 @@ def artifacts(case):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--baseline', type=Path, default=ROOT / 'tools/oracle/tenpp_coverage_baseline.json')
     ap.add_argument('--development', type=Path, required=True)
     ap.add_argument('--development-report', type=Path, required=True)
     ap.add_argument('--acceptance', type=Path, required=True)
@@ -46,7 +47,7 @@ def main():
     a.development = a.development.resolve()
     a.acceptance = a.acceptance.resolve()
     assert not a.manifest.exists(), 'milestone already recorded'
-    frozen = json.loads((ROOT / 'tools/oracle/tenpp_coverage_baseline.json').read_text())
+    frozen = json.loads(a.baseline.read_text())
     for key in ('inventory', 'body_ranges', 'image'):
         assert hashlib.sha256((ROOT / frozen[key]).read_bytes()).hexdigest() == frozen[key + '_sha256']
     development, scenarios = corpus(a.development)
