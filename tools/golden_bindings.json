@@ -483,6 +483,139 @@
     "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
     "test": "build/vf3cc148.exe"
   },
+  "advance-completion:0x8c03772c": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c03772c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03772c"
+  },
+  "advance-completion:0x8c047690": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c047690.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c047690"
+  },
+  "advance-completion:0x8c05d5a8": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c05d5a8.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05d5a8"
+  },
+  "advance-completion:0x8c07d5ca": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c07d5ca.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07d5ca"
+  },
+  "advance-completion:0x8c084e36": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c084e36.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c084e36"
+  },
+  "advance-completion:0x8c088c4c": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c088c4c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c088c4c"
+  },
+  "advance-completion:0x8c0896da": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c0896da.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0896da"
+  },
+  "advance-completion:0x8c08976c": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08976c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08976c"
+  },
+  "advance-completion:0x8c0897ec": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c0897ec.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0897ec"
+  },
+  "advance-completion:0x8c08a2dc": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08a2dc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08a2dc"
+  },
+  "advance-completion:0x8c08a6f8": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08a6f8.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08a6f8"
+  },
+  "advance-completion:0x8c08ce72": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08ce72.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08ce72"
+  },
+  "advance-completion:0x8c08d250": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08d250.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08d250"
+  },
+  "advance-completion:0x8c08d46e": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c08d46e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08d46e"
+  },
+  "advance-completion:0x8c0907f0": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c0907f0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0907f0"
+  },
+  "advance-completion:0x8c090c94": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c090c94.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c090c94"
+  },
+  "advance-completion:0x8c096a60": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c096a60.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c096a60"
+  },
+  "advance-completion:0x8c0c0218": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c0c0218.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c0218"
+  },
+  "advance-completion:0x8c0ca196": {
+    "golden": "extract/analysis/advance_completion_complete_cases/f_8c0ca196.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Longer fresh captures complete all invocations across states 21/27; original static control flow and callees translated before independent relocated holdout states 23/29 acceptance; strict replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ca196"
+  },
   "advance-helpers:0x8c06c398": {
     "golden": "extract/analysis/advance_nested_clean_dev/f_8c06c398.cases",
     "port": "src/fight/tenpp_recovery_adapters.inc",
@@ -524,6 +657,132 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original descriptor initializer prologue contracts; independent states 23/29, input palette and relocated memory; immutable build/vf3matrixfamily_advance_initializers.exe",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c037ffe"
+  },
+  "advance-leaf:0x8c037d9e": {
+    "golden": "extract/analysis/advance_leaf_dev/advance_leaf_dev_8c0108ea_8c0380a8/f_8c037d9e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two complete-body descriptor leaves from grouped original-interpreter probes; development states 21/27, independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c037d9e"
+  },
+  "advance-leaf:0x8c0380a8": {
+    "golden": "extract/analysis/advance_leaf_dev/advance_leaf_dev_8c0108ea_8c0380a8/f_8c0380a8.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two complete-body descriptor leaves from grouped original-interpreter probes; development states 21/27, independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0380a8"
+  },
+  "advance-natural:0x8c036356": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c036356.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c036356"
+  },
+  "advance-natural:0x8c043064": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c043064.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c043064"
+  },
+  "advance-natural:0x8c043d04": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c043d04.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c043d04"
+  },
+  "advance-natural:0x8c04cb72": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c04cb72.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04cb72"
+  },
+  "advance-natural:0x8c0612fc": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c0612fc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0612fc"
+  },
+  "advance-natural:0x8c0624e4": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c0624e4.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0624e4"
+  },
+  "advance-natural:0x8c071abc": {
+    "golden": "extract/analysis/advance_natural_complete_cases/f_8c071abc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-game invocations across states 10/20/25/40; independent states 14/23/29/44; strict full register/RAM/device replay without skips; firmware and device-mismatch paths excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c071abc"
+  },
+  "advance-onecall:0x8c04ce42": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c04ce42.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04ce42"
+  },
+  "advance-onecall:0x8c05cb0a": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c05cb0a.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05cb0a"
+  },
+  "advance-onecall:0x8c06120e": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c06120e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06120e"
+  },
+  "advance-onecall:0x8c06c5d0": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c06c5d0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c5d0"
+  },
+  "advance-onecall:0x8c08066a": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c08066a.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08066a"
+  },
+  "advance-onecall:0x8c088d10": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c088d10.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c088d10"
+  },
+  "advance-onecall:0x8c08961c": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c08961c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08961c"
+  },
+  "advance-onecall:0x8c0b1470": {
+    "golden": "extract/analysis/advance_onecall_complete_cases/f_8c0b1470.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Eight complete-body one-indirect-call workers; development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b1470"
+  },
+  "advance-parent-completion:0x8c04baf6": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c04baf6.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original probe-only whole-body development and fresh completed probe-only acceptance, with relocated holdout fixtures and strict zero-skip replay; no incomplete acceptance invocation.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04baf6"
   },
   "advance-workers:0x8c03dad0": {
     "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",

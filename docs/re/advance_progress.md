@@ -1,8 +1,8 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Three accepted batches add **1,988 bytes**, reaching **208,050 / 434,656
-(47.8655%)**. The remaining shortfall is **41,478 bytes**.
+Eight accepted batches add **7,534 bytes**, reaching **213,596 / 434,656
+(49.1414%)**. The remaining shortfall is **35,932 bytes**.
 
 ## Descriptor initializers
 
@@ -27,8 +27,6 @@ all 949 previously bound replays and native replay tests. The new bindings
 pass their separate strict development and acceptance runs. The retained
 regression log is `extract/analysis/advance_initializers_regression.log`.
 
-## Capture triage
-
 ## Scene workers and nested helpers
 
 Six new worker bodies add 1,278 unique bytes: `0x8c03dad0`, `0x8c03ea22`,
@@ -48,10 +46,37 @@ recorded per source in `tools/oracle/advance_helper_ports.json`.
 Nested capture exposed an oracle rollback bug, fixed in `cb36f29`. See
 `docs/re/nested_capture_boundary.md`. Only fresh corrected child observations
 support the helper milestone. The campaign union and all three manifests pass
-the artifact-hash audit. Repository regression is still running; its retained
+the artifact-hash audit. Repository regression passes; its retained
 log is `extract/analysis/advance_workers_regression.log`.
 
-## Further queues
+## Completed recaptures and original gameplay
+
+Longer development recaptures (150 frames per state) finish all invocations in
+20 previously complete-body candidates. Nineteen pass strict development and
+independent acceptance, adding 3,876 unique bytes. `0x8c047230` fails at an
+external firmware dependency and remains uncredited. Eight one-call workers
+add 984 bytes; two descriptor leaves add 192 bytes. Fresh probe-only acceptance
+also clears the incomplete-invocation blocker on `0x8c04baf6`, adding 162 bytes.
+
+The accepted expanded batch is implemented in `advance_worker_adapters.c`.
+It passes all seven earlier parent replays again. The full CMake build passes.
+The previous integration's regression passes all 952 bound replays plus native
+tests; the expanded integration's regression is running separately in
+`extract/analysis/advance_expanded_regression.log`.
+
+Seven original-gameplay routines add 332 unique bytes, with 4,775 strict
+development cases from states 10/20/25/40 and independent acceptance from
+states 14/23/29/44. A filtered development corpus preserves provenance and
+excludes an unrelated quarantined entry. New proof reports hash the immutable
+executable `build/vf3matrixfamily_advance_natural_proof.exe`.
+
+The original gameplay failures are retained. `0x8c03523c`, `0x8c045f62`, and
+`0x8c062ec4` reach the emulator's GD-ROM firmware trap (`0x8c001006`, opcode
+`0x085b`), which the current C dependency model cannot reproduce. `0x8c094242`
+fails device/register replay. No partial successes from these entries are
+counted. The larger gameplay bodies also retain missing body paths.
+
+## Remaining queue execution
 
 The first broad queue comprises 150 roots with 40,984 potential marginal bytes;
 potential is not credit. Captures are serial and resumable with
