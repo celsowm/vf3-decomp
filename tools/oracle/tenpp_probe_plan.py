@@ -8,7 +8,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              float_vectors=False, fpscr=None, bounded_arguments=False,
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
              global_fields=False, scalar_fields=False, field_crosses=False,
-             random_fields=False, expanded_inputs=False):
+             random_fields=False, expanded_inputs=False, preserve_fields=False):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
@@ -71,6 +71,12 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 registers, baseline, types = fixtures[entry]
                 registers = dict(registers)
                 words = dict(baseline)
+                if preserve_fields:
+                    # Keep the inferred memory contract while independently
+                    # varying argument registers and both floating banks.
+                    types = {**types, 'scalars': (), 'narrow': {}, 'floats': (),
+                             'flags': {}, 'counts': (), 'nullable_args': (),
+                             'nullable_fields': ()}
                 protected = {addr for addr, value in words.items()
                              if 0x0c000000 <= (value & 0x1fffffff) < 0x10000000}
                 integers = tuple(range(32)) if expanded_inputs else (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16)
@@ -152,6 +158,8 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                         continue
                     if expanded_inputs and random_fields and variant >= 128:
                         value = rng.randrange(32)
+                        if reg in types['signed_arguments'] and rng.randrange(2):
+                            value = (0xffffffff - value) & 0xffffffff
                         for mask in types['argument_flags'].get(reg, ()):
                             if rng.randrange(2):
                                 value |= mask

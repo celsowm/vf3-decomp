@@ -30,6 +30,8 @@ def main():
                     help='independent bounded GPR/FR/XF values and integer fields 0..31')
     ap.add_argument('--asset-fixtures', action='store_true',
                     help='initializer descriptor and asset-table input contracts')
+    ap.add_argument('--preserve-fields', action='store_true',
+                    help='vary register inputs while keeping the typed memory contract')
     a = ap.parse_args()
     roots = [int(line.split()[1], 16) for line in a.watch.read_text().splitlines()
              if line.startswith('pc ')][a.start:a.start + a.limit]
@@ -55,7 +57,7 @@ def main():
                      alternate_fields=True, holdout_inputs=a.holdout_inputs,
                      global_fields=a.global_fields, scalar_fields=a.scalar_fields,
                      field_crosses=a.field_crosses, random_fields=a.random_fields,
-                     expanded_inputs=a.expanded_inputs)
+                     expanded_inputs=a.expanded_inputs, preserve_fields=a.preserve_fields)
         command = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
                    str(patch), '--capsule', '--probe-debug', '--probe-only',

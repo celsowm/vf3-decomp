@@ -1,5 +1,8 @@
 # Expanded whole-body evidence
 
+This is an intermediate milestone. The completed ten-point result is recorded
+in [tenpp_complete.md](tenpp_complete.md).
+
 The frozen readable-C union is **200,612 / 434,656 (46.15%)**, up
 **8.771 percentage points** from 162,490 bytes. Another **5,344 bytes**
 are required for the requested ten-point gain.
@@ -53,5 +56,6 @@ Four manifests record hashes, body intervals, strict reports and exclusions:
 Expanded static C lives in `src/fight/tenpp_expanded_adapters.c` and emits
 6,909 statements with zero unsupported instructions. Additional exploratory
 roots in the module receive no credit. Strict replay used the immutable
-`build/vf3matrixfamily_expanded.exe` snapshot. Full regression is being rerun
-after the new dispatch ownership was installed.
+`build/vf3matrixfamily_expanded.exe` snapshot. Full CMake build and the full
+portcheck regression pass after that dispatch ownership was installed;
+the log is `extract/analysis/tenpp_expanded_regression.log`.

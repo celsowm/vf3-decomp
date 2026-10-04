@@ -28,6 +28,7 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
     float_reads = set()
     flag_masks = {}
     argument_masks = {}
+    signed_arguments = set()
     nullable_args = set()
     nullable_fields = set()
     next_page = 0x0c420000
@@ -300,6 +301,10 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
             expr = regs.get(n)
             if expr is not None and expr[0] == 'field':
                 counts.add(expr)
+        elif top == 4 and op & 255 in (0x11, 0x15):
+            expr = regs.get(n)
+            if expr is not None and expr[0] == 'arg':
+                signed_arguments.add(expr[1])
         elif top == 15 and low in (6, 7, 8, 9, 10, 11):
             if low in (6, 7) and regs.get(0) == ('arg', 0):
                 assignments[0] = 0
@@ -324,6 +329,11 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
                     words.setdefault(parent & ~3, 0)
                     float_reads.add(parent & ~3)
             pending_access = None
+    if entry == 0x8c03b874:
+        # 03b830 aligns the supplied matrix buffer and initializes it through
+        # 03b620. Its descriptor constructor takes a writable r4 buffer.
+        address(('arg', 4))
+        assignments[6] = 3  # true prologue at 03b872
     if entry in (0x8c080930, 0x8c07d222) and global_fields:
         # Original reads count +0x413 and two five-byte character lists
         # at +0x415/+0x41a through a loop index. Static operand inference
@@ -360,6 +370,7 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
             narrow=narrow_fields, floats=sorted(float_reads),
             flags={addr: sorted(masks) for addr, masks in flag_masks.items()},
             argument_flags={reg: sorted(masks) for reg, masks in argument_masks.items()},
+            signed_arguments=sorted(signed_arguments),
             counts=sorted(count_fields), nullable_args=sorted(nullable_args),
             nullable_fields=sorted(nullable_fields))
     return assignments, words
