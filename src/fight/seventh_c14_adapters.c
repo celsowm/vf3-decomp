@@ -19059,12 +19059,12 @@ P_0c053ef6: /* original 430b, guest PC 0x0c053ef6 */
 if(!s->budget--) { s->failed_pc=0x0c053ef6u; return 0; }
 target=r[3];
 r[16]=0x0c053efau;
-r[15]-=4; write(ram,r[15],r[15],4);
+tmp=r[15]; r[15]-=4; write(ram,r[15],tmp,4);
 if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c053efau) { target=s->pc; goto dispatch; }
 goto P_0c053efa;
 P_0c053ef8: /* original 2ff6, guest PC 0x0c053ef8 */
 if(!s->budget--) { s->failed_pc=0x0c053ef8u; return 0; }
-r[15]-=4; write(ram,r[15],r[15],4);
+tmp=r[15]; r[15]-=4; write(ram,r[15],tmp,4);
 goto P_0c053efa;
 P_0c053efa: /* original d24b, guest PC 0x0c053efa */
 if(!s->budget--) { s->failed_pc=0x0c053efau; return 0; }

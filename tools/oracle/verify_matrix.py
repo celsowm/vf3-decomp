@@ -9,7 +9,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ROOT=Path(__file__).resolve().parents[2]
-def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None):
+def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None,timeout=120):
     directory=Path(directory)
     env=dict(os.environ); env["PATH"]="C:/msys64/ucrt64/bin;"+env["PATH"]
     env["VF3_STRICT_REPLAY"]="1"
@@ -28,12 +28,13 @@ def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None):
     def replay(path):
         entry=int(path.stem.split('_')[1],16)
         start=time.monotonic()
-        p=subprocess.run([str(executable.resolve()),hex(entry),str(path.resolve())],cwd=ROOT,env=env,capture_output=True,text=True,timeout=120)
+        p=subprocess.run([str(executable.resolve()),hex(entry),str(path.resolve())],cwd=ROOT,env=env,capture_output=True,text=True,timeout=timeout)
         return hex(entry),{"pass":p.returncode==0,"seconds":round(time.monotonic()-start,3),"stdout":p.stdout.strip(),"stderr":p.stderr.strip(),"cases":str(path)}
     with ThreadPoolExecutor(max_workers=jobs) as executor:
         futures=[executor.submit(replay,path) for path in paths]
         for future in as_completed(futures):
             entry,row=future.result(); rows[entry]=row
+            Path(out).write_text(json.dumps(dict(sorted(rows.items())),indent=1),encoding='utf-8')
             print(entry,'PASS' if row['pass'] else 'FAIL',row['stdout'],flush=True)
             if not row['pass']: print(row['stderr'][:700],flush=True)
     rows=dict(sorted(rows.items()))
@@ -47,5 +48,6 @@ if __name__=="__main__":
     ap.add_argument('--watch',help='replay only selected entry PCs')
     ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='independent replay processes (1-4); do not rebuild their executable concurrently')
     ap.add_argument('--executable',help='immutable replay executable snapshot for concurrent capture or other replay cohorts')
-    a=ap.parse_args(); rows=verify(a.directory,a.out,a.min_cases,a.jobs,a.watch,a.executable)
+    ap.add_argument('--timeout',type=int,default=120,help='seconds allowed for a complete entry replay')
+    a=ap.parse_args(); rows=verify(a.directory,a.out,a.min_cases,a.jobs,a.watch,a.executable,a.timeout)
     raise SystemExit(0 if a.discover or (rows and all(r['pass'] for r in rows.values())) else 1)

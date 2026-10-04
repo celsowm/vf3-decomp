@@ -1,0 +1,4 @@
+# Further initializer-family candidates; no credit before proof.
+pc 0x8c063446
+pc 0x8c06a966
+pc 0x8c06ab1e

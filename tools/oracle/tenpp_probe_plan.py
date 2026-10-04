@@ -6,13 +6,15 @@ from pointer_seeds import fixture
 
 def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalars=(),
              float_vectors=False, fpscr=None, bounded_arguments=False,
-             floating_arguments=False, alternate_fields=False, holdout_inputs=False):
+             floating_arguments=False, alternate_fields=False, holdout_inputs=False,
+             global_fields=False, scalar_fields=False, field_crosses=False,
+             random_fields=False):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
         raise ValueError('empty watch')
-    fixtures = {entry: fixture(entry, mode) for entry in roots}
-    alternatives = {name: {entry: fixture(entry, name) for entry in roots}
+    fixtures = {entry: fixture(entry, mode, global_fields, random_fields) for entry in roots}
+    alternatives = {name: {entry: fixture(entry, name, global_fields, random_fields) for entry in roots}
                     for name in ('one', 'open')} if alternate_fields else {}
 
     def relocated(value):
@@ -31,9 +33,61 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                       f'reg 0x{trigger:08x} pr 0x{(trigger + 2) & 0x1fffffff:08x}']
             if fpscr is not None:
                 lines.append(f'reg 0x{trigger:08x} fpscr 0x{fpscr:08x}')
-            field_mode = ('zero', 'one', 'open', 'vectors')[(variant >> 3) % 4] if alternate_fields else mode
-            registers, words = alternatives[field_mode][entry] if field_mode in alternatives else fixtures[entry]
+            field_modes = ('zero', 'one', 'open', 'vectors') + tuple(f'scalar{n}' for n in (2,3,4,5,6,7,8,16)) if scalar_fields else ('zero', 'one', 'open', 'vectors')
+            field_mode = field_modes[(variant >> 3) % len(field_modes)] if alternate_fields else mode
+            template_mode = 'one' if field_mode.startswith('scalar') else field_mode
+            registers, words = (alternatives[template_mode][entry] if template_mode in alternatives else fixtures[entry])[:2]
             words = dict(words)
+            if field_mode.startswith('scalar'):
+                scalar = int(field_mode[6:])
+                words = {addr: value * scalar if value and not (value & 0xfefefefe) else value
+                         for addr, value in words.items()}
+            if field_crosses and variant >= 128:
+                # Change one scalar subfield independently while keeping its
+                # neighboring selectors and inferred pointers well formed.
+                zero = fixtures[entry][1]
+                one = alternatives['one'][entry][1]
+                fields = [(addr, bit) for addr, value in sorted(one.items())
+                          if value and not (value & 0xfefefefe) and not zero.get(addr)
+                          and addr % 4096 != 252
+                          for bit in (0, 8, 16, 24) if value & (1 << bit)]
+                if fields:
+                    phase = (variant - 128) % 8
+                    template_mode = 'open' if phase >= 4 else 'one'
+                    registers, template = alternatives[template_mode][entry][:2]
+                    words = dict(template)
+                    addr, bit = fields[((variant - 128) // 8) % len(fields)]
+                    mask = 0xffffffff if one[addr] == 1 else 0xff << bit
+                    words[addr] = (words.get(addr, 0) & ~mask) | ((phase % 4) << bit)
+            if random_fields and variant >= 128:
+                import random
+                import struct
+                rng = random.Random((entry << 16) ^ variant ^ (0x4f1bbcdc if holdout_inputs else 0))
+                registers, baseline, types = fixtures[entry]
+                words = dict(baseline)
+                protected = {addr for addr, value in words.items()
+                             if 0x0c000000 <= (value & 0x1fffffff) < 0x10000000}
+                integers = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16)
+                for addr in types['scalars']:
+                    if addr in words and addr not in protected:
+                        words[addr] = rng.choice(integers)
+                for addr, units in types['narrow'].items():
+                    if addr in words and addr not in protected:
+                        for bit in (0, 8, 16, 24):
+                            if units & (1 << bit):
+                                words[addr] = (words[addr] & ~(0xff << bit)) | (rng.choice(integers) << bit)
+                for addr in types['floats']:
+                    if addr in words and addr not in protected:
+                        words[addr] = struct.unpack('<I', struct.pack('<f', rng.choice(palette)))[0]
+                for addr, masks in types['flags'].items():
+                    if addr in words and addr not in protected:
+                        words[addr] = 0
+                        for mask in masks:
+                            if rng.randrange(2):
+                                words[addr] |= mask
+                for addr in types['counts']:
+                    if addr in words and addr not in protected:
+                        words[addr] = rng.randrange(1, 5)
             if float_vectors or field_mode == 'vectors':
                 import struct
                 values = palette

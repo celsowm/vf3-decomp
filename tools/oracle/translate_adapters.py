@@ -44,7 +44,7 @@ def emit(pc,w):
     if top==5: return [f"{rn}=read(ram,{rm}+{(w&15)*4},4);"]
     if top==2:
         if low<=2: return [f"write(ram,{rn},{rm},{1<<low});"]
-        if 4<=low<=6: return [f"{rn}-={1<<(low-4)}; write(ram,{rn},{rm},{1<<(low-4)});"]
+        if 4<=low<=6: return [f"tmp={rm}; {rn}-={1<<(low-4)}; write(ram,{rn},tmp,{1<<(low-4)});"]
         if low==7: return [f"r[17]=(r[17]&~0x301u)|(({rn}>>31)<<8)|(({rm}>>31)<<9)|((({rn}^{rm})>>31)&1u);"]
         if low==8: return [t(f"({rn}&{rm})==0")]
         if low in (9,10,11): return [f"{rn}{ {9:'&=',10:'^=',11:'|='}[low]}{rm};"]

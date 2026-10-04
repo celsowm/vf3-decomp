@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def fixture(entry, mode='zero'):
+def fixture(entry, mode='zero', global_fields=False, metadata=False):
     from sys import path
     path.insert(0, str(ROOT / 'tools'))
     from batch_plan import implementation_graph
@@ -23,7 +23,15 @@ def fixture(entry, mode='zero'):
     allocated = {}
     flags = set()
     counts = set()
+    narrow_fields = {}
+    scalar_reads = set()
+    float_reads = set()
+    flag_masks = {}
     next_page = 0x0c420000
+    data_floor = 0x0c010000 + len(image)
+
+    def writable(addr):
+        return 0x0c400000 <= addr < 0x0c480000 or (global_fields and data_floor <= addr < 0x0c400000)
 
     def stack_offset(expr):
         if expr is None:
@@ -39,8 +47,29 @@ def fixture(entry, mode='zero'):
         stack = stack_offset(expr)
         if stack is not None:
             return stack_values.get(stack + offset)
-        address(expr)
+        parent = address(expr)
+        if parent is not None and writable(parent + offset):
+            words.setdefault((parent + offset) & ~3, 0)
+            scalar_reads.add((parent + offset) & ~3)
         return ('field', expr, offset) if expr is not None else None
+
+    def narrow(expr, offset, size):
+        parent = address(expr)
+        if parent is None or not writable(parent + offset):
+            return
+        addr = parent + offset
+        base = addr & ~3
+        words.setdefault(base, 0)
+        narrow_fields[base] = narrow_fields.get(base, 0) | (1 << ((addr & 3) * 8))
+
+    def flag(expr, mask):
+        if expr is None or expr[0] != 'field':
+            return
+        parent = address(expr[1])
+        if parent is not None and writable(parent + expr[2]):
+            addr = parent + expr[2]
+            words.setdefault(addr & ~3, 0)
+            flag_masks.setdefault(addr & ~3, set()).add(mask & 0xffffffff)
 
     def store(expr, value, offset=0):
         stack = stack_offset(expr)
@@ -58,12 +87,17 @@ def fixture(entry, mode='zero'):
             n = expr[1]
             addr = 0x0c400000 + n * 4096
             assignments[n] = addr
+        elif kind == 'literal':
+            # Only infer fields in mutable RAM beyond the loaded image. Keep
+            # other live global words intact; rollback restores seeded fields.
+            addr = expr[1] & 0x1fffffff
+            return addr if global_fields and data_floor <= addr < 0x0c400000 else None
         elif kind == 'add':
             base = address(expr[1])
             return None if base is None else base + expr[2]
         elif kind == 'field':
             parent = address(expr[1])
-            if parent is None or not 0x0c400000 <= parent + expr[2] < 0x0c480000:
+            if parent is None or not writable(parent + expr[2]):
                 return None
             if expr not in allocated:
                 if next_page >= 0x0c480000:
@@ -114,6 +148,7 @@ def fixture(entry, mode='zero'):
                 store(base, regs.get(0), offset)
             else:
                 address(base)
+                narrow(base, offset, 2 if n == 5 else 1)
                 regs[0] = None  # byte/word scalar load
         elif top == 0 and low in (4, 5, 6, 12, 13, 14):
             # Indexed data operands use r0 as a byte offset. Seed an initial
@@ -123,8 +158,11 @@ def fixture(entry, mode='zero'):
             index = regs.get(0)
             global_base = index is not None and index[0] == 'literal' and 0x0c000000 <= index[1] < 0x10000000
             base = None if global_base else regs.get(m if low >= 12 else n)
+            offset = index[1] if index is not None and index[0] == 'literal' and not global_base else 0
             if low >= 12:
-                regs[n] = load(base) if low == 14 else None
+                regs[n] = load(base, offset) if low == 14 else None
+                if low != 14:
+                    narrow(base, offset, 1 << (low - 12))
                 address(base)
             else:
                 store(base, regs.get(m))
@@ -134,6 +172,8 @@ def fixture(entry, mode='zero'):
         elif top == 6 and low in (0, 1, 2, 4, 5, 6):
             old = regs.get(m)
             regs[n] = load(old) if low in (2, 6) else None
+            if low in (0, 1, 4, 5):
+                narrow(old, 0, 1 << (low if low < 4 else low - 4))
             address(old)
             if low in (4, 5, 6) and n != m and old is not None:
                 regs[m] = ('add', old, 1 << (low - 4))
@@ -155,10 +195,14 @@ def fixture(entry, mode='zero'):
         elif top == 2 and low == 8:
             flags.update(expr for expr in (regs.get(n), regs.get(m))
                          if expr is not None and expr[0] == 'field')
+            for source, other in ((regs.get(n), regs.get(m)), (regs.get(m), regs.get(n))):
+                if other is not None and other[0] == 'literal':
+                    flag(source, other[1])
         elif top == 12 and (op >> 8) & 15 == 8:
             expr = regs.get(0)
             if expr is not None and expr[0] == 'field':
                 flags.add(expr)
+                flag(expr, op & 255)
         elif top == 4 and op & 255 == 0x10:
             expr = regs.get(n)
             if expr is not None and expr[0] == 'field':
@@ -166,11 +210,21 @@ def fixture(entry, mode='zero'):
         elif top == 15 and low in (6, 7, 8, 9, 10, 11):
             if low in (6, 7) and regs.get(0) == ('arg', 0):
                 assignments[0] = 0
-            address(regs.get(m if low in (6, 8, 9) else n))
+            base = regs.get(m if low in (6, 8, 9) else n)
+            parent = address(base)
+            index = regs.get(0)
+            offset = index[1] if low in (6, 7) and index is not None and index[0] == 'literal' else 0
+            if parent is not None and low in (6, 8, 9) and writable(parent + offset):
+                words.setdefault((parent + offset) & ~3, 0)
+                float_reads.add((parent + offset) & ~3)
+            if base is not None and low == 9:
+                regs[m] = ('add', base, 4)
+            elif base is not None and low == 11:
+                regs[n] = ('add', base, -4)
     if mode == 'one':
         # One is a bounded scalar/count and supplies a nonempty one-byte
         # string. Preserve inferred pointers and keep a terminal zero word.
-        words = {addr: value if value or addr % 4096 == 252 else 1
+        words = {addr: value if value or addr % 4096 == 252 else narrow_fields.get(addr, 1)
                  for addr, value in words.items()}
     if mode == 'open':
         scalar_fields = set()
@@ -184,5 +238,15 @@ def fixture(entry, mode='zero'):
                         words[addr] = value
                         scalar_fields.add(addr)
     words = {addr: value for addr, value in words.items()
-             if not addr % 4 and 0x0c400000 <= addr < 0x0c480000}
+             if not addr % 4 and writable(addr)}
+    if metadata:
+        count_fields = []
+        for expr in counts:
+            parent = address(expr[1])
+            if parent is not None and writable(parent + expr[2]):
+                count_fields.append((parent + expr[2]) & ~3)
+        return assignments, words, dict(scalars=sorted(scalar_reads),
+            narrow=narrow_fields, floats=sorted(float_reads),
+            flags={addr: sorted(masks) for addr, masks in flag_masks.items()},
+            counts=sorted(count_fields))
     return assignments, words

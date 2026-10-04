@@ -1315,7 +1315,7 @@ vf3_matrix_store(s,ram,9,r[12]);
 goto P_0c0588c0;
 P_0c0588c0: /* original 2cc6, guest PC 0x0c0588c0 */
 if(!s->budget--) { s->failed_pc=0x0c0588c0u; return 0; }
-r[12]-=4; write(ram,r[12],r[12],4);
+tmp=r[12]; r[12]-=4; write(ram,r[12],tmp,4);
 goto P_0c0588c2;
 P_0c0588c2: /* original 0c83, guest PC 0x0c0588c2 */
 if(!s->budget--) { s->failed_pc=0x0c0588c2u; return 0; }
@@ -1749,7 +1749,7 @@ fr[2]=vf3_fpu_binary(fr[2],fr[8],r[18],'-');
 goto P_0c058a1a;
 P_0c058a1a: /* original 2cc6, guest PC 0x0c058a1a */
 if(!s->budget--) { s->failed_pc=0x0c058a1au; return 0; }
-r[12]-=4; write(ram,r[12],r[12],4);
+tmp=r[12]; r[12]-=4; write(ram,r[12],tmp,4);
 goto P_0c058a1c;
 P_0c058a1c: /* original 0c83, guest PC 0x0c058a1c */
 if(!s->budget--) { s->failed_pc=0x0c058a1cu; return 0; }

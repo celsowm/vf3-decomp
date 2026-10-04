@@ -1,0 +1,18 @@
+# Larger partially reached bodies for independent scalar subfield sweeps.
+pc 0x8c0aed4a
+pc 0x8c09460a
+pc 0x8c08e920
+pc 0x8c05cc38
+pc 0x8c091f60
+pc 0x8c0c0772
+pc 0x8c08d618
+pc 0x8c0698fc
+pc 0x8c07d222
+pc 0x8c08f8de
+pc 0x8c08acd8
+pc 0x8c0a67ce
+pc 0x8c0c2f4e
+pc 0x8c05c4bc
+pc 0x8c07dd04
+pc 0x8c0c8334
+pc 0x8c063d36

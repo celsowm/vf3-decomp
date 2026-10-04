@@ -5294,7 +5294,7 @@ r[18]^=0x100000u;
 goto P_0c058524;
 P_0c058524: /* original 2cc6, guest PC 0x0c058524 */
 if(!s->budget--) { s->failed_pc=0x0c058524u; return 0; }
-r[12]-=4; write(ram,r[12],r[12],4);
+tmp=r[12]; r[12]-=4; write(ram,r[12],tmp,4);
 goto P_0c058526;
 P_0c058526: /* original 000b, guest PC 0x0c058526 */
 if(!s->budget--) { s->failed_pc=0x0c058526u; return 0; }
