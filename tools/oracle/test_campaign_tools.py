@@ -13,10 +13,44 @@ import port_plan
 import campaign_queue
 from family_queue import rank_families, marginal_bytes, merged_spans
 from campaign_io import attempted_entries
+import source_owners
+from tenpp_probe_plan import override_sequence, override_value
 from inspect_capsule import format_register, register_index
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_strided_overrides_cover_independent_fields_and_keep_legacy_order(self):
+        fast = override_sequence([0,1], 'fast')
+        slow = override_sequence({'values':[0,1], 'stride':2}, 'slow')
+        self.assertEqual([(override_value(fast,n), override_value(slow,n)) for n in range(4)],
+                         [(0,0),(1,0),(0,1),(1,1)])
+        self.assertEqual([override_value(override_sequence(['0x10',20], 'legacy'),n) for n in range(4)],
+                         [16,20,16,20])
+        self.assertEqual(override_value(override_sequence({'values':[1,2], 'phase':1}, 'phase'),0),2)
+        for value in ({'values':[0], 'stride':0}, {'values':[0], 'phase':-1},
+                      {'values':[]}, {'values':[0], 'extra':1}, {'values':[0x100000000]}):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                override_sequence(value, 'invalid')
+    def test_linked_owner_priority_and_included_adapter(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'src').mkdir()
+            first = root / 'src/first.c'
+            first.write_text('#include "first.inc"\n')
+            (root / 'src/first.inc').write_text('static const uint32_t owned_pcs[]={0x0c010100u};\n'
+                'int first_contains(uint32_t pc) { return owned_pcs[0]==pc; }\n')
+            second = root / 'src/second.c'
+            second.write_text('static const uint32_t owned_pcs[]={0x0c010100u,0x0c010200u};\n'
+                'int second_contains(uint32_t pc) { return owned_pcs[0]==pc; }\n')
+            retired = root / 'src/retired.c'
+            retired.write_text('int retired_contains(uint32_t pc) { switch(pc) {case 0x0c010300u: return 1;} return 0;}')
+            dispatch = 'if(first_contains(entry)) return 1; if(second_contains(entry)) return 1; if(retired_contains(entry)) return 1;'
+            with patch.object(source_owners, 'ROOT', root):
+                owners, unresolved = source_owners.ownership([first, second], dispatch,
+                    {0x8c010100, 0x8c010200, 0x8c010300})
+            self.assertEqual(owners, {0x8c010100: 'src/first.c', 0x8c010200: 'src/second.c'})
+            self.assertEqual(unresolved, ['retired_contains'])
+
     def test_fast_marginals_match_address_union(self):
         from select_next import union
         import random
@@ -128,6 +162,32 @@ class CampaignToolsTests(unittest.TestCase):
             report = json.loads(output.read_text())
             self.assertEqual(report['potential_unique_bytes'], 12)
             self.assertEqual([r['entry'] for r in report['candidates']], ['0x8c010200', '0x8c010204'])
+
+    def test_queue_static_dependencies_allow_explicit_unknown_indirect_sites(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'docs').mkdir()
+            (root / 'docs/decomp_status.csv').write_text('entry,status\n')
+            (root / 'ranges.csv').write_text('entry,start,end\n'
+                '0x8c010100,0x8c010100,0x8c010108\n'
+                '0x8c010200,0x8c010200,0x8c010208\n'
+                '0x8c010300,0x8c010300,0x8c010308\n')
+            baseline = root / 'baseline.json'
+            baseline.write_text(json.dumps({'body_ranges':'ranges.csv','baseline_spans':[]}))
+            plan = root / 'plan.csv'
+            plan.write_text('entry,size,sh4_dyn,sh4_fixed,missing_implementations,campaign\n'
+                '0x8c010100,8,2,0,,C\n'
+                '0x8c010200,8,2,0,0x8c010400,C\n'
+                '0x8c010300,8,2,1,,C\n')
+            output = root / 'queue.json'
+            argv = ['campaign_queue','--plan',str(plan),'--baseline',str(baseline),
+                '--out',str(output),'--watch',str(root/'watch.txt'),'--minimum-size','1',
+                '--require-static-implementation']
+            with patch.object(campaign_queue,'ROOT',root), patch.object(sys,'argv',argv), contextlib.redirect_stdout(io.StringIO()):
+                campaign_queue.main()
+            report = json.loads(output.read_text())
+            self.assertEqual([row['entry'] for row in report['candidates']], ['0x8c010100'])
+            self.assertEqual(report['candidates'][0]['dynamic_calls'], 2)
 
 
 if __name__ == '__main__':

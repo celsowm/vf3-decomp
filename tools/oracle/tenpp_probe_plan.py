@@ -5,6 +5,31 @@ from pointer_seeds import fixture
 from inspect_capsule import REGISTER_NAMES
 
 
+def override_sequence(value, label):
+    """Normalize scalar/list inputs or an explicit strided fixture dimension."""
+    if isinstance(value, dict):
+        if 'values' not in value or set(value) - {'values', 'stride', 'phase'}:
+            raise ValueError(f'invalid override dimension for {label}')
+        stride, phase = value.get('stride', 1), value.get('phase', 0)
+        value = value['values']
+    else:
+        stride, phase = 1, 0
+    if not isinstance(stride, int) or isinstance(stride, bool) or stride < 1:
+        raise ValueError(f'override stride must be a positive integer for {label}')
+    if not isinstance(phase, int) or isinstance(phase, bool) or phase < 0:
+        raise ValueError(f'override phase must be a nonnegative integer for {label}')
+    values = value if isinstance(value, list) else [value]
+    values = [int(item, 0) if isinstance(item, str) else item for item in values]
+    if not values or any(not isinstance(item, int) or not 0 <= item <= 0xffffffff for item in values):
+        raise ValueError(f'override values must be nonempty uint32 integers for {label}')
+    return values, stride, phase
+
+
+def override_value(sequence, variant):
+    values, stride, phase = sequence
+    return values[(variant // stride + phase) % len(values)]
+
+
 def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalars=(),
              float_vectors=False, fpscr=None, bounded_arguments=False,
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
@@ -27,13 +52,9 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             if name not in REGISTER_NAMES:
                 name = f'r{int(name, 0)}'
             register = REGISTER_NAMES.get(name, -1)
-            sequence = values if isinstance(values, list) else [values]
-            sequence = [int(value, 0) if isinstance(value, str) else value
-                        for value in sequence]
-            if not (0 <= register < 15 or 21 <= register < 53) or not sequence:
+            sequence = override_sequence(values, f'{entry:#x} {register_text}')
+            if not (0 <= register < 15 or 21 <= register < 53):
                 raise ValueError(f'invalid register override for {entry:#x}: {register_text}')
-            if any(not isinstance(value, int) or not 0 <= value <= 0xffffffff for value in sequence):
-                raise ValueError(f'override values must be uint32 integers for {entry:#x} r{register}')
             overrides[entry][name] = sequence
     ram_overrides = {}
     for entry_text, fields in (memory_overrides or {}).items():
@@ -41,13 +62,9 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
         ram_overrides[entry] = {}
         for address_text, values in fields.items():
             address = int(address_text, 0) if isinstance(address_text, str) else int(address_text)
-            sequence = values if isinstance(values, list) else [values]
-            sequence = [int(value, 0) if isinstance(value, str) else value
-                        for value in sequence]
-            if address % 4 or not 0x0c000000 <= address < 0x0d000000 or not sequence:
+            sequence = override_sequence(values, f'{entry:#x} at {address:#x}')
+            if address % 4 or not 0x0c000000 <= address < 0x0d000000:
                 raise ValueError(f'invalid RAM override address for {entry:#x}: {address:#x}')
-            if any(not isinstance(value, int) or not 0 <= value <= 0xffffffff for value in sequence):
-                raise ValueError(f'RAM override values must be uint32 integers for {entry:#x} at {address:#x}')
             ram_overrides[entry][address] = sequence
 
     def relocated(value):
@@ -225,12 +242,12 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                           for bank in ('fr', 'xf') for reg in range(16)]
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             for register, values in overrides.get(entry, {}).items():
-                value = values[variant % len(values)]
+                value = override_value(values, variant)
                 lines.append(f'reg 0x{trigger:08x} {register} 0x{value:08x}')
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'
                       for addr, value in sorted(words.items())]
             lines += [f'ram 0x{trigger:08x} 0x{relocated(address):08x} '
-                      f'0x{relocated(values[variant % len(values)]):08x}'
+                      f'0x{relocated(override_value(values, variant)):08x}'
                       for address, values in sorted(ram_overrides.get(entry, {}).items())]
     output.write_text('\n'.join(lines) + '\n')
     print(f'{len(roots)} roots, {variants} rounds, {len(lines)} fixture lines')

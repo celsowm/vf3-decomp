@@ -938,6 +938,167 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c061910"
   },
+  "advance-resume-small:0x8c03c220": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c03c220.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03c220"
+  },
+  "advance-resume-small:0x8c045b0a": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c045b0a.cases",
+    "port": "src/fight/device_adapters_0.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c045b0a"
+  },
+  "advance-resume-small:0x8c045b60": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c045b60.cases",
+    "port": "src/fight/device_adapters_0.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c045b60"
+  },
+  "advance-resume-small:0x8c045ce6": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c045ce6.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c045ce6"
+  },
+  "advance-resume-small:0x8c045d3e": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c045d3e.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c045d3e"
+  },
+  "advance-resume-small:0x8c04ced0": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c04ced0.cases",
+    "port": "src/fight/device_adapters_0.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04ced0"
+  },
+  "advance-resume-small:0x8c05c128": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c05c128.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05c128"
+  },
+  "advance-resume-small:0x8c068de4": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c068de4.cases",
+    "port": "src/fight/seventh_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c068de4"
+  },
+  "advance-resume-small:0x8c0713ce": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0713ce.cases",
+    "port": "src/fight/eighth_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0713ce"
+  },
+  "advance-resume-small:0x8c074788": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c074788.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c074788"
+  },
+  "advance-resume-small:0x8c074a52": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c074a52.cases",
+    "port": "src/fight/seventh_c12_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c074a52"
+  },
+  "advance-resume-small:0x8c074a6a": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c074a6a.cases",
+    "port": "src/fight/seventh_c12_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c074a6a"
+  },
+  "advance-resume-small:0x8c07ad96": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c07ad96.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07ad96"
+  },
+  "advance-resume-small:0x8c07b66e": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c07b66e.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07b66e"
+  },
+  "advance-resume-small:0x8c07eff4": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c07eff4.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07eff4"
+  },
+  "advance-resume-small:0x8c081cb6": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c081cb6.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081cb6"
+  },
+  "advance-resume-small:0x8c085b0e": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c085b0e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c085b0e"
+  },
+  "advance-resume-small:0x8c0935ce": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0935ce.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0935ce"
+  },
+  "advance-resume-small:0x8c0935f4": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0935f4.cases",
+    "port": "src/fight/phase1_adapters_0.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0935f4"
+  },
+  "advance-resume-small:0x8c0abb8c": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0abb8c.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0abb8c"
+  },
+  "advance-resume-small:0x8c0c18c0": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0c18c0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c18c0"
+  },
+  "advance-resume-small:0x8c0c26e0": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0c26e0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c26e0"
+  },
+  "advance-resume-small:0x8c0c91ae": {
+    "golden": "extract/analysis/advance_resume_small_final_dev/f_8c0c91ae.cases",
+    "port": "src/fight/advance_scene_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full frozen bodies; independent changed inputs and relocated fixture pointers across states 23/29; immutable strict replay snapshot.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c91ae"
+  },
   "advance-workers:0x8c03dad0": {
     "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",
     "port": "src/fight/advance_worker_adapters.c",

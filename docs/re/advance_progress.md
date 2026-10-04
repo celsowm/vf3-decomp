@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twenty-three accepted batches add **15,296 bytes**, reaching **221,358 / 434,656
-(50.9272%)**, a gain of **3.5191 percentage points**. The remaining shortfall
-to the ten-point campaign target is **28,170 bytes**.
+Twenty-four accepted batches add **16,228 bytes**, reaching **222,290 / 434,656
+(51.1416%)**, a gain of **3.7335 percentage points**. The remaining shortfall
+to the ten-point campaign target is **27,238 bytes**.
 
 ## Descriptor initializers
 
@@ -286,7 +286,7 @@ parent executes only 540/1,242 frozen body bytes.
 The other natural resource roots remain uncredited. `0x8c063d36` executes
 258/512 bytes and passes 512 strict cases; `0x8c063894` executes 54/512 bytes
 and passes 473 cases. `0x8c064246` and `0x8c09635a` retain strict failures on
-unsupported device accesses. Directed SDK selector attempts at `0x8c040e28`
+uncaptured RAM reads. Directed SDK selector attempts at `0x8c040e28`
 and `0x8c040c92` add no body PCs after their generic captures; both are parked
 pending a supported firmware contract. These results retain their original
 raw evidence and do not alter frozen intervals.
@@ -314,3 +314,47 @@ artifact hashes and their byte-union chain pass in
 `extract/analysis/advance_resume_series_audit.json`. The two subsequent scene
 commands and their capture cohort remain development work outside this ledger
 milestone.
+
+## Remaining small routines
+
+A 64-root development cohort yields 23 complete-body candidates. All
+**11,694/11,694 development cases** pass strict replay across states 21/27.
+Independent states 23/29 use changed integer/floating inputs and fixture
+relocation by `0x100000`; **5,877/5,877 cases** pass with zero skips. Each
+selected root also executes its entire frozen body in acceptance. The cohort
+adds **932 unique bytes**, with source ownership preserved in
+`tools/oracle/advance_resume_small_ports.json` and proofs in
+`tools/oracle/advance_resume_small_milestone.json`. The executable snapshot is
+`build/vf3matrixfamily_advance_small_final.exe`.
+
+Eight new readable C routines in `src/fight/advance_scene_commands.c` cover
+descriptor flags, sequential entry resets, transform reset, packed command
+descriptors, a command without a payload, scalar offsets applied to a sample
+ring, coordinate subtraction and scene state reset. Existing verified C
+helpers retain ownership of their operations. A missing scene-selector helper
+at `0x8c09abc4` is also implemented there; 512 direct development cases and
+256 changed acceptance cases pass. It receives no independent ledger credit
+because it has no frozen inventory interval.
+
+The diagnostic resource replay identifies the first uncaptured read as
+`0x0c001006/4` for `0x8c064246` and `0x8c09635a`. That RAM failure replaces
+the earlier device-access diagnosis. Their unsupported low-RAM helper is a
+separate dependency and remains outside the accepted cohort.
+
+Boot and scripted gameplay discovery both complete 3,000 frames within the
+120-second cap. The longer 4,800-frame attempts timed out and are excluded.
+Combined discovery still reaches 218 unported roots, with 200 roots and
+30,678 potential bytes observed in at least two scenarios; no new root appears.
+These are prospective bytes, not coverage credit.
+
+The linked-source ownership tool finds 1,869 advisory owners after including
+resolved call targets. It uses actual CMake target dependencies and dispatcher
+priority, includes local adapter fragments, and excludes retired sources.
+Thirteen reusable-tool checks pass. A new queue option retains explicit unknown
+indirect sites while requiring all direct C dependencies to be available.
+
+The full integration regression passes in
+`extract/analysis/advance_resume_small_regression.log`, including 1,073 campaign
+C bindings and frozen-body, SDK-union and call-resolution checks. All 24
+milestone hashes and the campaign byte-union chain pass in
+`extract/analysis/advance_resume_small_series_audit.json`.

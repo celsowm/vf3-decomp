@@ -150,6 +150,19 @@ roots; both options are repeatable.
 SDK attribution closure. Refresh that column with `port_plan.py
 --implementation-map FILE`, a JSON entry-to-C-source ownership map for existing
 helpers. The map validates source paths and does not grant ledger credit.
+`--require-static-implementation` permits unknown indirect sites while requiring
+an empty `missing_implementations` column and no fixed firmware calls. The
+reported dynamic-site count remains explicit; capture and replay must resolve
+every executed helper before promotion.
+
+`source_owners.py --build build --manual-map MANUAL.json --resolved-calls
+extract/analysis/sh4_resolved.csv --out OWNERS.json --report REPORT.json`
+discovers planning ownership from CMake-linked `vf3core` and `vf3matrixfamily`
+sources and their included `.inc` files. It follows adapter order in
+`matrix_family.c`, so overlapping adapters have one owner. Unlinked files are
+excluded, and missing linked dispatcher routes remain in the report. Feed the
+result to `port_plan.py --implementation-map OWNERS.json`. Owning an entry PC
+does not establish complete behavior or grant C coverage credit.
 
 `inspect_capsule.py --summary` also accepts FR/XF, PR, SR, FPSCR, MACL/MACH,
 FPUL, GBR and `rbank0` through `rbank7`. Floating registers display raw bits and
@@ -204,3 +217,9 @@ gates as isolated captures. A STOP file pauses between groups.
 map for existing shared helpers. Unmapped entries use `--port`; every selected
 source must exist. The ledger, replay binding and milestone record retain the
 actual source owner.
+
+Register and memory override dimensions also accept
+`{"values": [0, 1], "stride": 4, "phase": 0}`. Variant `n` selects
+`values[(n // stride + phase) % len(values)]`. Different strides exercise
+independent field combinations; scalar and list overrides retain their existing
+behavior. Strides must be positive integers and phases nonnegative integers.

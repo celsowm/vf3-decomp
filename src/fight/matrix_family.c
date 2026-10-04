@@ -29,6 +29,10 @@ int vf3_advance_05b20e_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_05b20e_adapter_contains(uint32_t);
 int vf3_advance_dynamic_06129c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_resource_descriptor(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_descriptor_flags(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_scene_entry_reset(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_scene_commands(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_scene_selector(vf3_matrix_state*,const vf3_ram_map*);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -120,6 +124,12 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     switch(entry) {
     case 0x0c06129c: return vf3_advance_dynamic_06129c(s,ram);
     case 0x0c05c7c6: return vf3_advance_resource_descriptor(s,ram);
+    case 0x0c05c128: return vf3_advance_descriptor_flags(s,ram);
+    case 0x0c07ad96: return vf3_advance_scene_entry_reset(s,ram);
+    case 0x0c09abc4: return vf3_advance_scene_selector(s,ram);
+    case 0x0c03c220: case 0x0c045ce6: case 0x0c045d3e:
+    case 0x0c074788: case 0x0c0935ce: case 0x0c0c91ae:
+        return vf3_advance_scene_commands(entry,s,ram);
     case 0x0c0cc2d6: return vf3_motion_record_init(s,ram);
     case 0x0c069624: return vf3_fight_angle(s,ram);
     case 0x0c06911c: case 0x0c06912a: return vf3_fight_mesh(entry,s,ram);

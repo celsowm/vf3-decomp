@@ -1,0 +1,2 @@
+# Scene selector helper has no independent frozen inventory interval.
+pc 0x8c09abc4

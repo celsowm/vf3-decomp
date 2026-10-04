@@ -22,6 +22,8 @@ def main():
                         help='select only rows with a complete static call closure')
     parser.add_argument('--require-implementation', action='store_true',
                         help='require executable C callees; SDK attribution alone is insufficient')
+    parser.add_argument('--require-static-implementation', action='store_true',
+                        help='require known C direct callees while retaining unknown indirect sites')
     parser.add_argument('--exclude-watch', type=Path, action='append', default=[],
                         help='omit roots already attempted; repeatable')
     parser.add_argument('--exclude-progress', type=Path, action='append', default=[],
@@ -44,6 +46,9 @@ def main():
         if args.require_closure and row.get('closure_ok') != 'Y':
             continue
         if args.require_implementation and row.get('implementation_closure_ok') != 'Y':
+            continue
+        if args.require_static_implementation and (row.get('missing_implementations') != ''
+                                                   or int(row.get('sh4_fixed') or 0)):
             continue
         if dynamic < args.min_dynamic:
             continue
