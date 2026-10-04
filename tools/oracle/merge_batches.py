@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from capsules import convert
+from campaign_io import discover, read_watch
 
 
 def merge(directories, out, watch=None):
@@ -23,7 +24,7 @@ def merge(directories, out, watch=None):
     out=Path(out)
     entries=None
     if watch:
-        entries={int(line.split()[1],16)|0x80000000 for line in Path(watch).read_text().splitlines() if line.startswith('pc ')}
+        entries=read_watch(watch)
     convert(paths,out,entries)
     (out/'batch_manifest.json').write_text(json.dumps({
         'name':out.name,'watch':' '.join(sorted(watches)),'runs':runs
@@ -35,5 +36,7 @@ if __name__=='__main__':
     parser.add_argument('directories',nargs='+')
     parser.add_argument('--out',required=True)
     parser.add_argument('--watch',help='export selected entries while checking every capture record and shutdown summary')
+    parser.add_argument('--discover',action='store_true',help='recursively find batch manifests under the inputs')
     args=parser.parse_args()
-    merge(args.directories,args.out,args.watch)
+    directories=discover(args.directories,'batch_manifest.json') if args.discover else args.directories
+    merge(directories,args.out,args.watch)

@@ -49,7 +49,10 @@ def sizes() -> dict[int, int]:
 
 
 def corpus_pcs(cases: list[Path]) -> dict[int, tuple[set[int], int, list[str]]]:
-    """entry -> (executed PCs, case count, contributing case dirs)."""
+    """entry -> (executed PCs, ops-file count, contributing case dirs).
+
+    The counter measures corpora, not distinct invocation inputs.
+    """
     out: dict[int, tuple[set[int], int, list[str]]] = {}
     for case in cases:
         for ops in sorted(case.glob("f_*.ops.json")):

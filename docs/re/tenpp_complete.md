@@ -85,3 +85,9 @@ python tools/portcheck.py --jobs 4
 
 Capture and replay artifacts stay in ignored `extract/analysis` and `build`.
 Committed manifests and golden bindings retain their locations and hashes.
+
+## Reusable tooling
+
+The recurring inline capture and audit operations are now documented in
+[campaign_tools.md](campaign_tools.md), with commands for watch union, recursive
+batch merging, body gaps, milestone series audits, and progress summaries.
