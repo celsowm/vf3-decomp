@@ -18,6 +18,16 @@ def insert(path, anchor, replacement):
 def main():
     for name in ("vf3oracle.cpp", "vf3oracle.h"):
         shutil.copyfile(Path(__file__).parent / name, CORE / name)
+    insert(Path('windows/winmain.cpp'),
+           '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);',
+           '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);\n'
+           '\t\t/* Stop and join guest execution before closing research captures.\n'
+           '\t\t * GUI/input teardown can deadlock in unattended headless runs. */\n'
+           '\t\tif (getenv("VF3_CAPSULE") || getenv("VF3_HITS")) {\n'
+           '\t\t\temu.stop();\n'
+           '\t\t\tfprintf(stderr, "[vf3] guest stopped; closing capture\\n");\n'
+           '\t\t\tstd::exit(0);\n'
+           '\t\t}')
     insert(Path("hw/sh4/CMakeLists.txt"), "target_sources(${PROJECT_NAME} PRIVATE",
            "target_sources(${PROJECT_NAME} PRIVATE\n        ../../vf3oracle.cpp")
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), '#include "vf3trace.h"',

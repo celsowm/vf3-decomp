@@ -5635,6 +5635,62 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0bec2e"
   },
+  "tenpp-vertices:0x8c064772": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c064772.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c064772"
+  },
+  "tenpp-vertices:0x8c064ab8": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c064ab8.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c064ab8"
+  },
+  "tenpp-vertices:0x8c064c28": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c064c28.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c064c28"
+  },
+  "tenpp-vertices:0x8c064da0": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c064da0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c064da0"
+  },
+  "tenpp-vertices:0x8c065088": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c065088.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c065088"
+  },
+  "tenpp-vertices:0x8c06535c": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c06535c.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06535c"
+  },
+  "tenpp-vertices:0x8c0655e0": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c0655e0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0655e0"
+  },
+  "tenpp-vertices:0x8c065aa0": {
+    "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c065aa0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 100% body PCs; single-width transfers; relocated descriptor acceptance; docs/re/tenpp_vertices.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c065aa0"
+  },
   "ultimate:0x8c03b364": {
     "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c03b364.cases",
     "port": "src/fight/vf3_ultimate_adapter.c",

@@ -166,6 +166,10 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     for pattern in reuse_adapters:
         paths=list(ROOT.glob(pattern))
         if not paths: raise ValueError(f'no adapter sources match {pattern}')
+        output=Path(out).resolve()
+        paths=[p for p in paths if p.resolve()!=output and not
+               (p.parent.resolve()==output.parent and
+                p.stem.startswith(output.stem+'_'))]
         existing.update(adapter_pcs(paths))
     if reuse_matrix or reuse_adapters:
         for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):

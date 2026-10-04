@@ -79,6 +79,8 @@ def main() -> int:
                          "(VF3_PROBE_CURSOR); use to walk a long seed plan "
                          "across successive runs")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument('--timeout', type=int, default=0,
+                    help='maximum seconds per emulator run; zero disables the limit')
     a = ap.parse_args()
     if a.hits and (a.capsule or a.instr or a.edges):
         ap.error('--hits cannot be combined with --capsule, --instr or --edges')
@@ -184,20 +186,33 @@ def main() -> int:
             continue
         t0 = time.time()
         with open(log, "w", encoding="utf-8", errors="replace") as lf:
-            p = subprocess.run(cmd, env=env, stdout=lf, stderr=lf,
-                               cwd=str(REPO))
+            process = subprocess.Popen(cmd, env=env, stdout=lf, stderr=lf,
+                                       cwd=str(REPO))
+            try:
+                returncode = process.wait(timeout=a.timeout or None)
+            except subprocess.TimeoutExpired:
+                if os.name == 'nt':
+                    subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                                   stdout=lf, stderr=lf)
+                else:
+                    process.kill()
+                process.wait()
+                returncode = 124
         dt = time.time() - t0
         observed=observed_frames(log)
         expected=expected_frames(frames,(REPO/play) if play and not Path(play).is_absolute() else play)
         complete=observed>=expected>=1
-        runs[-1].update(seconds=round(dt,3), returncode=p.returncode or (0 if complete else 1),
-                        emulator_returncode=p.returncode,ran_frames=observed,expected_frames=expected,
+        runs[-1].update(seconds=round(dt,3), returncode=returncode or (0 if complete else 1),
+                        emulator_returncode=returncode,ran_frames=observed,expected_frames=expected,
                         frame_complete=complete,
                         capsule_bytes=capsule.stat().st_size if a.capsule and capsule.exists() else 0)
         sz = trace.stat().st_size if trace.exists() and not a.hits else 0
-        print(f"         rc={p.returncode} in {dt:.0f}s, trace {sz/1e6:.1f} MB")
-        if p.returncode != 0 or not complete:
-            print(f"         WARNING rc={p.returncode}, frames={observed}/{expected}; see {log}")
+        print(f"         rc={returncode} in {dt:.0f}s, trace {sz/1e6:.1f} MB")
+        if returncode != 0 or not complete:
+            print(f"         WARNING rc={returncode}, frames={observed}/{expected}; see {log}")
+        out.mkdir(parents=True, exist_ok=True)
+        (out / 'batch_manifest.json').write_text(json.dumps(dict(
+            name=a.name, watch=str(watch), ramn=a.ramn, runs=runs), indent=1))
 
     manifest = {"name": a.name, "watch": str(watch), "ramn": a.ramn,
                 "runs": runs}

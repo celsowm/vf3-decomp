@@ -1,0 +1,12 @@
+# Uncredited whole-body candidates; strict replay still required.
+pc 0x8c064772
+pc 0x8c064ab8
+pc 0x8c064c28
+pc 0x8c064da0
+pc 0x8c065088
+pc 0x8c06535c
+pc 0x8c0655e0
+pc 0x8c065aa0
+pc 0x8c065c4c
+pc 0x8c065de4
+pc 0x8c06604c

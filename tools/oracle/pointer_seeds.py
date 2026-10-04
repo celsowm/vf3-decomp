@@ -16,12 +16,38 @@ def fixture(entry, mode='zero'):
     image = (ROOT / 'extract/exe/1ST_READ.unsc.bin').read_bytes()
     pcs, _, _ = implementation_graph(image, {})(entry)
     regs = {n: ('arg', n) for n in range(15)}
+    regs[15] = ('stack', 0)
+    stack_values = {}
     assignments = {}
     words = {}
     allocated = {}
     flags = set()
     counts = set()
     next_page = 0x0c420000
+
+    def stack_offset(expr):
+        if expr is None:
+            return None
+        if expr[0] == 'stack':
+            return expr[1]
+        if expr[0] == 'add':
+            offset = stack_offset(expr[1])
+            return None if offset is None else offset + expr[2]
+        return None
+
+    def load(expr, offset=0):
+        stack = stack_offset(expr)
+        if stack is not None:
+            return stack_values.get(stack + offset)
+        address(expr)
+        return ('field', expr, offset) if expr is not None else None
+
+    def store(expr, value, offset=0):
+        stack = stack_offset(expr)
+        if stack is not None:
+            stack_values[stack + offset] = value
+        else:
+            address(expr)
 
     def address(expr):
         nonlocal next_page
@@ -77,18 +103,26 @@ def fixture(entry, mode='zero'):
             regs[n] = regs.get(m)
         elif top == 5:
             old = regs.get(m)
-            address(old)
-            regs[n] = ('field', old, low * 4) if old is not None else None
+            regs[n] = load(old, low * 4)
         elif top == 6 and low in (0, 1, 2, 4, 5, 6):
             old = regs.get(m)
+            regs[n] = load(old) if low in (2, 6) else None
             address(old)
-            regs[n] = ('field', old, 0) if old is not None and low in (2, 6) else None
             if low in (4, 5, 6) and n != m and old is not None:
                 regs[m] = ('add', old, 1 << (low - 4))
         elif top == 1:
-            address(regs.get(n))
+            store(regs.get(n), regs.get(m), low * 4)
         elif top == 2 and low in (0, 1, 2, 4, 5, 6):
-            address(regs.get(n))
+            if low >= 4 and regs.get(n) is not None:
+                regs[n] = ('add', regs[n], -(1 << (low - 4)))
+            store(regs.get(n), regs.get(m))
+        elif top == 4 and op & 255 in (0x02, 0x12, 0x22, 0x52, 0x62, 0x03):
+            if regs.get(n) is not None:
+                regs[n] = ('add', regs[n], -4)
+            store(regs.get(n), None)
+        elif top == 4 and op & 255 in (0x06, 0x16, 0x26, 0x56, 0x66):
+            if regs.get(n) is not None:
+                regs[n] = ('add', regs[n], 4)
         elif op & 0xf0ff in (0x400b, 0x402b):
             callback(regs.get(n))
         elif top == 2 and low == 8:
@@ -104,15 +138,22 @@ def fixture(entry, mode='zero'):
                 counts.add(expr)
         elif top == 15 and low in (8, 9, 10, 11):
             address(regs.get(m if low in (8, 9) else n))
+    if mode == 'one':
+        # One is a bounded scalar/count and supplies a nonempty one-byte
+        # string. Preserve inferred pointers and keep a terminal zero word.
+        words = {addr: value if value or addr % 4096 == 252 else 1
+                 for addr, value in words.items()}
     if mode == 'open':
+        scalar_fields = set()
         for expressions, value in ((flags, 0xffffffff), (counts, 1)):
             for expr in expressions:
                 parent = address(expr[1])
                 if parent is not None and not expr[2] % 4:
                     addr = parent + expr[2]
                     # Pointer and callback fields retain their inferred type.
-                    if not words.get(addr):
+                    if not words.get(addr) or addr in scalar_fields:
                         words[addr] = value
+                        scalar_fields.add(addr)
     words = {addr: value for addr, value in words.items()
              if not addr % 4 and 0x0c400000 <= addr < 0x0c480000}
     return assignments, words

@@ -3,6 +3,10 @@
 #include "fight/matrix_family.h"
 int vf3_tenpp_survey_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_survey_adapter_contains(uint32_t);
+int vf3_tenpp_leaf_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_tenpp_leaf_adapter_contains(uint32_t);
+int vf3_tenpp_complex_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_tenpp_complex_adapter_contains(uint32_t);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -22,6 +26,9 @@ static void t(vf3_matrix_state*s,int v) { R(17)=(R(17)&~1u)|(v!=0); }
 uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     uint32_t value=0;
     addr&=0x1FFFFFFFu;
+    /* Area 3 mirrors the 16 MiB RAM four times across 0x0C..0x0F. */
+    if(addr>=0x0c000000u && addr<0x10000000u)
+        addr=0x0c000000u|(addr&0x00ffffffu);
     if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_read)
         return ram->device_read(ram->device_context,addr,size);
     for(unsigned j=0;j<size;++j) {
@@ -35,6 +42,8 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
 }
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
     addr&=0x1FFFFFFFu;
+    if(addr>=0x0c000000u && addr<0x10000000u)
+        addr=0x0c000000u|(addr&0x00ffffffu);
     if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_write) {
         ram->device_write(ram->device_context,addr,size,value); return;
     }
@@ -181,6 +190,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_tenpp_complex_adapter_contains(entry)) return vf3_tenpp_complex_adapter(entry,s,ram);
+        if(vf3_tenpp_leaf_adapter_contains(entry)) return vf3_tenpp_leaf_adapter(entry,s,ram);
         if(vf3_phase2_adapter_contains(entry)) return vf3_phase2_adapter(entry,s,ram);
         if(vf3_phase1_adapter_contains(entry)) return vf3_phase1_adapter(entry,s,ram);
         if(vf3_sixth_loader_adapter_contains(entry)) return vf3_sixth_loader_adapter(entry,s,ram);

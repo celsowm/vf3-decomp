@@ -20,10 +20,13 @@ def main():
     ap.add_argument('--start', type=int, default=0)
     ap.add_argument('--limit', type=int, default=30)
     ap.add_argument('--frames', type=int, default=120)
+    ap.add_argument('--max-samples', type=int, default=8)
     ap.add_argument('--states', default='20,21')
     ap.add_argument('--trigger', type=lambda s: int(s, 16), default=0x8c063d36)
     ap.add_argument('--pointer-fixtures', action='store_true')
-    ap.add_argument('--seed-mode', choices=('zero', 'open'), default='zero')
+    ap.add_argument('--seed-mode', choices=('zero', 'open', 'one'), default='zero')
+    ap.add_argument('--timeout', type=int, default=90,
+                    help='seconds allowed per target, including both state runs')
     a = ap.parse_args()
     roots = [int(line.split()[1], 16) for line in a.watch.read_text().splitlines()
              if line.startswith('pc ')][a.start:a.start + a.limit]
@@ -52,18 +55,27 @@ def main():
                     output.write(f'ram 0x{a.trigger:08x} 0x{addr:08x} 0x{value:08x}\n')
         cmd = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                '--watch', str(watch), '--out', str(directory), '--entry-patch',
-               str(patch), '--capsule', '--probe-debug', '--max-samples', '8']
+               str(patch), '--capsule', '--probe-debug', '--max-samples', str(a.max_samples)]
         for state in a.states.split(','):
             cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as log:
-            run = subprocess.run(cmd, cwd=ROOT, stdout=log, stderr=log)
+            process = subprocess.Popen(cmd, cwd=ROOT, stdout=log, stderr=log)
+            try:
+                returncode = process.wait(timeout=a.timeout)
+            except subprocess.TimeoutExpired:
+                # The emulator is a descendant of this capture process. Stop
+                # that owned tree so a stalled guest cannot block the sweep.
+                subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                               stdout=log, stderr=log)
+                process.wait()
+                returncode = 124
         count = 0
         if (directory / 'capsule_manifest.json').is_file():
             count = len(json.loads((directory / 'capsule_manifest.json').read_text())['entries'].get(hex(entry), []))
-        rows.append(dict(index=index, entry=hex(entry), returncode=run.returncode,
+        rows.append(dict(index=index, entry=hex(entry), returncode=returncode,
                          complete_cases=count, directory=str(directory)))
         (a.out / 'progress.json').write_text(json.dumps(rows, indent=1) + '\n')
-        print(f'{index}: {entry:08x} rc={run.returncode} complete={count}', flush=True)
+        print(f'{index}: {entry:08x} rc={returncode} complete={count}', flush=True)
 
 
 if __name__ == '__main__':
