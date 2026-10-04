@@ -1,0 +1,3 @@
+# Resource routines with executable C dependency closure; no credit.
+pc 0x8c05ee6e
+pc 0x8c0609b8

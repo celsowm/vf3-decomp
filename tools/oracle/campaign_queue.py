@@ -2,6 +2,7 @@
 import argparse
 import csv
 import json
+import io
 from pathlib import Path
 from select_next import ROOT, union
 from campaign_io import read_watch, write_watch
@@ -19,6 +20,8 @@ def main():
     parser.add_argument('--minimum-size', type=int, default=16)
     parser.add_argument('--require-closure', action='store_true',
                         help='select only rows with a complete static call closure')
+    parser.add_argument('--require-implementation', action='store_true',
+                        help='require executable C callees; SDK attribution alone is insufficient')
     parser.add_argument('--exclude-watch', type=Path, action='append', default=[],
                         help='omit roots already attempted; repeatable')
     parser.add_argument('--exclude-progress', type=Path, action='append', default=[],
@@ -27,21 +30,23 @@ def main():
     attempted = {entry for watch in args.exclude_watch for entry in read_watch(watch)}
     attempted.update(int(entry, 16) for path in args.exclude_progress
                      for row in json.loads(path.read_text())
-                     for entry in row.get('entries', [row['entry']]))
-    credited = {int(r['entry'], 16) for r in csv.DictReader(
-        (ROOT / 'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
+                     for entry in row.get('entries', [row.get('entry')]) if entry)
+    credited = {int(r['entry'], 16) for r in csv.DictReader(io.StringIO(
+        (ROOT / 'docs/decomp_status.csv').read_text())) if r['status'].startswith('ported')}
     baseline = json.loads(args.baseline.read_text())
     ranges = {}
-    for r in csv.DictReader((ROOT / baseline['body_ranges']).open()):
+    for r in csv.DictReader(io.StringIO((ROOT / baseline['body_ranges']).read_text())):
         ranges.setdefault(int(r['entry'], 16), []).append((int(r['start'], 16), int(r['end'], 16)))
     spans = list(map(tuple, baseline['baseline_spans']))
     spans += [span for entry in credited for span in ranges.get(entry, [])]
     before = union(spans)
     candidates = []
-    for row in csv.DictReader(args.plan.open()):
+    for row in csv.DictReader(io.StringIO(args.plan.read_text())):
         entry = int(row['entry'], 16)
         dynamic = int(row.get('sh4_dyn') or 0)
         if args.require_closure and row.get('closure_ok') != 'Y':
+            continue
+        if args.require_implementation and row.get('implementation_closure_ok') != 'Y':
             continue
         if dynamic < args.min_dynamic:
             continue

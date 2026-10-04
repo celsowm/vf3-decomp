@@ -1,0 +1,2 @@
+# Original prologue saves R14/R13/R12 before frozen child 0609b8.
+pc 0x8c0609ae

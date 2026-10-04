@@ -103,22 +103,35 @@ def ported():
     out = set()
     p = REPO / "docs" / "decomp_status.csv"
     if p.exists():
-        for r in csv.DictReader(open(p, newline="")):
-            if r.get("status", "").startswith("ported"):
-                out.add(int(r["entry"], 16))
+        with p.open(newline='') as stream:
+            for r in csv.DictReader(stream):
+                if r.get("status", "").startswith("ported"):
+                    out.add(int(r["entry"], 16))
     return out
 
-def implemented_helpers():
+def implemented_helpers(ownership=None):
     result=set()
     for path in sorted((REPO/'tools/oracle').glob('*_batch.json')):
         report=__import__('json').loads(path.read_text())
         result.update(int(e,16) for e in report.get('helpers',[]))
+    if ownership:
+        owners = __import__('json').loads(Path(ownership).read_text())
+        for entry, source in owners.items():
+            path = (REPO / source).resolve()
+            if not path.is_relative_to((REPO / 'src').resolve()) or not path.is_file():
+                raise ValueError(f'invalid C helper owner: {entry}: {source}')
+            address = int(entry, 0) | 0x80000000
+            if not 0x8c010000 <= address < 0x8d000000:
+                raise ValueError(f'invalid helper address: {entry}')
+            result.add(address)
     return result
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="extract/analysis/port_plan.csv")
+    ap.add_argument('--implementation-map', type=Path,
+                    help='JSON entry-to-source helper ownership; grants no C coverage credit')
     a = ap.parse_args()
 
     funcs = load_funcs()
@@ -226,7 +239,7 @@ def main() -> int:
 
     sdk = sdk_claims()
     regs = region_claims()
-    done = ported() | implemented_helpers()
+    done = ported() | implemented_helpers(a.implementation_map)
     # an entry is accounted if it is SDK-matched, inside an SDK region, or ported
     def accounted(e):
         return e in sdk or in_regions(regs, e) or e in done

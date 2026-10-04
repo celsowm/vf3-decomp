@@ -1,0 +1,9 @@
+# Resource and scene families observed repeatedly; no credit.
+pc 0x8c059f8a
+pc 0x8c059aea
+pc 0x8c063d36
+pc 0x8c064246
+pc 0x8c09635a
+pc 0x8c063894
+pc 0x8c07a856
+pc 0x8c0c1bec

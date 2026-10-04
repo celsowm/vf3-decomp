@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twenty-one accepted batches add **14,674 bytes**, reaching **220,736 / 434,656
-(50.7841%)**, a gain of **3.3760 percentage points**. The remaining shortfall
-to the ten-point campaign target is **28,792 bytes**.
+Twenty-two accepted batches add **15,160 bytes**, reaching **221,222 / 434,656
+(50.8959%)**, a gain of **3.4878 percentage points**. The remaining shortfall
+to the ten-point campaign target is **28,306 bytes**.
 
 ## Descriptor initializers
 
@@ -225,3 +225,42 @@ Final integration passes the full CMake build and
 native replay checks, prior batch audits, complete body coverage, SDK union,
 and call-resolution checks pass. The retained regression log is
 `extract/analysis/advance_final_regression.log`.
+
+## Resumed campaign after 865e4a6
+
+The target remains 249,528 unique C bytes. Existing image, inventory, body
+ranges and baseline hashes remain frozen. Work includes game families and
+independently implemented pure SDK helpers under the same invocation gates.
+
+`0x8c05ee6e` adds 486 unique bytes. A descriptor tag fixture exercises every
+frozen body PC in 512 development cases across states 21/27. Independent
+relocated states 23/29 use changed tags and scalar inputs and pass 256 strict
+cases. Both corpora replay with zero skips against the immutable
+`build/vf3matrixfamily_advance_resume.exe`. The existing matrix adapter owns
+the implementation. The artifact-hash audit passes for
+`tools/oracle/advance_resume_05ee6e_milestone.json`.
+
+The floating-register inspector exposed a 100.0 comparison value in
+`0x8c05cc38`; earlier sweeps stopped at 50.0. A threshold-specific profile
+adds 36 executed body bytes. The merged corpus contains 2,924 complete cases
+and reaches 1,108/1,290 body bytes; the root remains uncredited.
+
+The initial `0x8c0609b8` direct fixture produced no valid complete cases.
+Original disassembly places the saved R14/R13/R12 prologue at `0x8c0609ae`.
+The next attempt observes the frozen child while probing that original parent.
+That second capture also produces no valid complete cases, with budget and
+invalid-memory flags retained in its raw specimens. It is parked after these
+two attempts, pending a coherent original runtime contract.
+
+Seven reusable-tool checks pass: architectural register indexing, invalid names,
+floating bit formatting, unavailable registers, helper ownership without
+ledger credit, and queue selection that excludes attributed-only dependencies
+and attempted entries while measuring overlapping bodies by union. The family
+ranker also checks that dependency cycles terminate and overlapping families
+contribute only marginal address-union bytes.
+
+All seven additional development states (11/15/22/26/30/34/38) complete 900-frame
+discovery runs. Combined with prior discovery, 99 unported roots covering
+13,020 potential unique bytes occur in at least two runs, up from 65 roots and
+9,856 bytes before this tranche. No new root appears; the increase is scenario
+diversity. A focused eight-root natural resource/scene capture follows.

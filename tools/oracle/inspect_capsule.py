@@ -6,6 +6,36 @@ from pathlib import Path
 from capsules import records
 
 
+REGISTER_NAMES = {**{f'r{i}': i for i in range(16)},
+                  **{f'fr{i}': 21 + i for i in range(16)},
+                  **{f'xf{i}': 37 + i for i in range(16)},
+                  **{f'rbank{i}': 55 + i for i in range(8)},
+                  'pr': 16, 'sr': 17, 'fpscr': 18, 'macl': 19, 'mach': 20,
+                  'fpul': 53, 'gbr': 54}
+
+
+def register_index(name):
+    name = name.lower()
+    if name in REGISTER_NAMES:
+        return REGISTER_NAMES[name]
+    try:
+        number = int(name, 0)
+    except ValueError:
+        raise ValueError(f'unknown architectural register: {name}') from None
+    if not 0 <= number < 16:
+        raise ValueError('numeric register names must be GPR indices 0-15')
+    return number
+
+
+def format_register(value, index):
+    if value is None:
+        return 'unavailable'
+    bits = f'{value:08x}'
+    if 21 <= index < 53:
+        return f'{bits}({struct.unpack("<f", struct.pack("<I", value))[0]:.9g})'
+    return bits
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('capsules', nargs='+', type=Path)
@@ -14,7 +44,7 @@ def main():
     parser.add_argument('--valid-only', action='store_true')
     parser.add_argument('--limit', type=int)
     parser.add_argument('--summary', nargs='*', metavar='REG',
-                        help='summarize input/output tuples for selected GPRs (for example r0 r1)')
+                        help='summarize architectural registers (r0, fr4, xf0, fpul, gbr, rbank0)')
     parser.add_argument('--memory-summary', nargs='*', type=lambda s: int(s, 0), metavar='ADDR',
                         help='summarize initial aligned RAM words at addresses (for example 0x0c404008)')
     parser.add_argument('--ops-presence', action='append', type=lambda s: int(s, 0), default=[],
@@ -29,11 +59,11 @@ def main():
     shown = 0
     limit = args.limit if args.limit is not None else (
         None if args.summary is not None or args.memory_summary is not None else 1)
-    registers = list(range(16)) if args.summary == [] else [
-        int(value[1:], 0) if value.lower().startswith('r') else int(value, 0)
-        for value in (args.summary or [])]
-    if any(not 0 <= register < 16 for register in registers):
-        parser.error('summary registers must be GPRs r0-r15')
+    names = [f'r{i}' for i in range(16)] if args.summary == [] else (args.summary or [])
+    try:
+        registers = [register_index(name) for name in names]
+    except ValueError as error:
+        parser.error(str(error))
     summary = Counter()
     memory_summary = Counter()
     for path in args.capsules:
@@ -67,8 +97,8 @@ def main():
                     if limit is not None and shown >= limit:
                         break
                     continue
-                summary[(tuple(before[r] for r in registers),
-                         tuple(after[r] for r in registers), presence)] += 1
+                summary[(tuple(before[r] if r < len(before) else None for r in registers),
+                         tuple(after[r] if r < len(after) else None for r in registers), presence)] += 1
                 shown += 1
                 if limit is not None and shown >= limit:
                     break
@@ -102,11 +132,12 @@ def main():
             break
     if args.summary is not None or args.memory_summary is not None:
         if args.summary is not None:
-            labels = ','.join(f'r{register}' for register in registers)
-            print(f'{shown} records; GPR summary ({labels})')
-            for (inputs, outputs, presence), count in sorted(summary.items(), key=lambda item: (-item[1], item[0])):
-                before_text = ','.join(f'{value:08x}' for value in inputs)
-                after_text = ','.join(f'{value:08x}' for value in outputs)
+            labels = ','.join(names)
+            print(f'{shown} records; register summary ({labels})')
+            for (inputs, outputs, presence), count in sorted(summary.items(),
+                    key=lambda item: (-item[1], repr(item[0]))):
+                before_text = ','.join(format_register(value, reg) for value, reg in zip(inputs, registers))
+                after_text = ','.join(format_register(value, reg) for value, reg in zip(outputs, registers))
                 suffix = ' | ' + ','.join('yes' if value else 'no' for value in presence) if presence else ''
                 print(f'{count:4d}  {before_text} -> {after_text}{suffix}')
         if args.memory_summary is not None:

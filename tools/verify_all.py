@@ -41,6 +41,7 @@ def main() -> int:
     ok = True
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
+    ok &= run([PY, 'tools/oracle/test_campaign_tools.py'])
     ok &= run([PY, "tools/portcheck.py",'--jobs',str(a.jobs)])
     for batch in sorted((REPO/'tools/oracle').glob('*_batch.json')):
         ok &= run([PY, 'tools/oracle/audit_matrix_batch.py', '--manifest', str(batch)])

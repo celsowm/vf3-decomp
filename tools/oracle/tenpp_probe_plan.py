@@ -2,6 +2,7 @@
 import argparse
 from pathlib import Path
 from pointer_seeds import fixture
+from inspect_capsule import REGISTER_NAMES
 
 
 def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalars=(),
@@ -22,15 +23,18 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
         entry = int(entry_text, 0) if isinstance(entry_text, str) else int(entry_text)
         overrides[entry] = {}
         for register_text, values in fields.items():
-            register = int(register_text[1:], 0) if register_text.startswith('r') else int(register_text, 0)
+            name = str(register_text).lower()
+            if name not in REGISTER_NAMES:
+                name = f'r{int(name, 0)}'
+            register = REGISTER_NAMES.get(name, -1)
             sequence = values if isinstance(values, list) else [values]
             sequence = [int(value, 0) if isinstance(value, str) else value
                         for value in sequence]
-            if not 0 <= register < 15 or not sequence:
+            if not (0 <= register < 15 or 21 <= register < 53) or not sequence:
                 raise ValueError(f'invalid register override for {entry:#x}: {register_text}')
             if any(not isinstance(value, int) or not 0 <= value <= 0xffffffff for value in sequence):
                 raise ValueError(f'override values must be uint32 integers for {entry:#x} r{register}')
-            overrides[entry][register] = sequence
+            overrides[entry][name] = sequence
     ram_overrides = {}
     for entry_text, fields in (memory_overrides or {}).items():
         entry = int(entry_text, 0) if isinstance(entry_text, str) else int(entry_text)
@@ -222,7 +226,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             for register, values in overrides.get(entry, {}).items():
                 value = values[variant % len(values)]
-                lines.append(f'reg 0x{trigger:08x} r{register} 0x{value:08x}')
+                lines.append(f'reg 0x{trigger:08x} {register} 0x{value:08x}')
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'
                       for addr, value in sorted(words.items())]
             lines += [f'ram 0x{trigger:08x} 0x{relocated(address):08x} '

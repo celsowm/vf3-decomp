@@ -146,6 +146,24 @@ address-union bytes. `--min-dynamic`, `--max-dynamic`, `--minimum-size` and
 call closure is complete. Queue totals are prospective and never grant credit.
 `--exclude-watch FILE` and `--exclude-progress FILE` omit previously attempted
 roots; both options are repeatable.
+`--require-implementation` requires `implementation_closure_ok=Y`, rather than
+SDK attribution closure. Refresh that column with `port_plan.py
+--implementation-map FILE`, a JSON entry-to-C-source ownership map for existing
+helpers. The map validates source paths and does not grant ledger credit.
+
+`inspect_capsule.py --summary` also accepts FR/XF, PR, SR, FPSCR, MACL/MACH,
+FPUL, GBR and `rbank0` through `rbank7`. Floating registers display raw bits and
+decoded single precision values; registers absent from an older capsule format
+display `unavailable`. Register override profiles accept FR/XF names with raw
+uint32 bit patterns, preserving existing GPR input behavior.
+
+`family_queue.py --plan PLAN.csv --baseline BASELINE.json --survey REPORT.json
+--out FAMILIES.json --watch ROOTS.txt` groups callers by shared missing C
+dependencies and includes their transitive static dependency leads. Ranking
+uses marginal union bytes per dependency/dynamic-call cost. Selection subtracts
+already selected family spans; unknown indirect sites and missing body intervals
+remain explicit. Repeated `--survey` inputs contribute the maximum observed
+scenario count per entry, without adding overlapping discovery counts.
 
 `capture_report.py --ready-watch ROOTS.txt` exports entries passing capture
 gates in at least one input corpus. Select compatible corpora when merging:
