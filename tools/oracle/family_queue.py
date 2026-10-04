@@ -4,16 +4,46 @@ Missing implementation edges are advisory static leads. Unknown indirect calls
 remain explicit costs; neither this report nor SDK identity grants C credit.
 """
 import argparse
+from bisect import bisect_right
 import csv
 import io
 import json
 from pathlib import Path
 
-from campaign_io import write_watch
+from campaign_io import attempted_entries, write_watch
 from select_next import ROOT, union
 
 
-def rank_families(rows, ranges, spans, credited, observed, limit):
+def merged_spans(spans):
+    """Canonical half-open intervals, ignoring empty seed fragments."""
+    merged = []
+    for start, end in sorted(spans):
+        if end <= start:
+            continue
+        if merged and start <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(end, merged[-1][1]))
+        else:
+            merged.append((start, end))
+    return merged
+
+
+def marginal_bytes(spans, covered, covered_ends):
+    """Count a canonical candidate against a canonical covered union."""
+    total = 0
+    for start, end in spans:
+        cursor = start
+        index = bisect_right(covered_ends, start)
+        while index < len(covered) and covered[index][0] < end:
+            left, right = covered[index]
+            total += max(0, left - cursor)
+            cursor = max(cursor, right)
+            index += 1
+        total += max(0, end - cursor)
+    return total
+
+
+def rank_families(rows, ranges, spans, credited, observed, limit, attempted=None):
+    attempted = set() if attempted is None else set(attempted)
     rows = {int(row['entry'], 16): row for row in rows
             if int(row['entry'], 16) not in credited}
     dependencies = {entry: {int(value, 16) for value in row.get('missing_implementations', '').split()}
@@ -29,8 +59,10 @@ def rank_families(rows, ranges, spans, credited, observed, limit):
             pending.extend(dependencies.get(entry, set()) - members)
         return members
 
-    groups = {f'root:{entry:#x}': {entry} for entry in rows}
+    groups = {f'root:{entry:#x}': {entry} for entry in rows if entry not in attempted}
     for entry, helpers in dependencies.items():
+        if entry in attempted:
+            continue
         for helper in helpers:
             if helper not in credited:
                 groups.setdefault(f'helper:{helper:#x}', set()).add(entry)
@@ -40,15 +72,17 @@ def rank_families(rows, ranges, spans, credited, observed, limit):
         dynamic = sum(int(rows.get(entry, {}).get('sh4_dyn') or 0) for entry in members)
         unbounded = sorted(members - set(ranges))
         candidates.append(dict(family=label, roots=roots, members=members,
-                               dynamic_calls=dynamic, unbounded=unbounded))
-    selected, covered = [], list(spans)
+                               dynamic_calls=dynamic, unbounded=unbounded,
+                               spans=merged_spans(span for entry in members
+                                                  for span in ranges.get(entry, []))))
+    selected, covered = [], merged_spans(spans)
     for _ in range(limit):
-        before = union(covered)
+        covered_ends = [end for _, end in covered]
         ranked = []
         for candidate in candidates:
             members = candidate['members']
-            added = [span for entry in members for span in ranges.get(entry, [])]
-            gain = union(covered + added) - before
+            added = candidate['spans']
+            gain = marginal_bytes(added, covered, covered_ends)
             if gain == 0:
                 continue
             cost = 1 + len(members) + candidate['dynamic_calls'] + len(candidate['unbounded'])
@@ -57,7 +91,7 @@ def rank_families(rows, ranges, spans, credited, observed, limit):
         if not ranked:
             break
         score, seen, gain, _, winner, added = max(ranked, key=lambda item: item[:4])
-        covered.extend(added)
+        covered = merged_spans(covered + added)
         candidates.remove(winner)
         selected.append(dict(family=winner['family'], marginal_bytes=gain,
             score=round(score, 3), observed_roots_in_two_scenarios=seen,
@@ -76,6 +110,8 @@ def main():
     parser.add_argument('--limit', type=int, default=20)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--watch', type=Path, required=True)
+    parser.add_argument('--exclude-watch', type=Path, action='append', default=[])
+    parser.add_argument('--exclude-progress', type=Path, action='append', default=[])
     args = parser.parse_args()
     baseline = json.loads(args.baseline.read_text())
     credited = {int(row['entry'], 16) for row in csv.DictReader(io.StringIO(
@@ -91,7 +127,8 @@ def main():
             entry = int(row['entry'], 16)
             observed[entry] = max(observed.get(entry, 0), row['scenarios'])
     families, potential = rank_families(list(csv.DictReader(io.StringIO(args.plan.read_text()))),
-                                        ranges, spans, credited, observed, args.limit)
+                                        ranges, spans, credited, observed, args.limit,
+                                        attempted_entries(args.exclude_watch, args.exclude_progress))
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(dict(advisory=True, baseline_bytes=union(spans),
         potential_unique_bytes=potential, families=families), indent=1) + '\n')

@@ -1,4 +1,5 @@
 {
   "0x8c042efc": "src/fight/matrix_adapters.c",
-  "0x8c06129c": "src/fight/advance_dynamic_06129c.c"
+  "0x8c06129c": "src/fight/advance_dynamic_06129c.c",
+  "0x8c05c7c6": "src/fight/advance_resource_descriptor.c"
 }

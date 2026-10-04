@@ -1,0 +1,3 @@
+# Original command selectors; no coverage credit.
+pc 0x8c040e28
+pc 0x8c040c92

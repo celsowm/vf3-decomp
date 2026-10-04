@@ -28,6 +28,7 @@ int vf3_advance_leaf_ranked_remainder_adapter_contains(uint32_t);
 int vf3_advance_05b20e_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_05b20e_adapter_contains(uint32_t);
 int vf3_advance_dynamic_06129c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_resource_descriptor(vf3_matrix_state*,const vf3_ram_map*);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -118,6 +119,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(!vf3_fpu_supported(FPSCR)) return 0;
     switch(entry) {
     case 0x0c06129c: return vf3_advance_dynamic_06129c(s,ram);
+    case 0x0c05c7c6: return vf3_advance_resource_descriptor(s,ram);
     case 0x0c0cc2d6: return vf3_motion_record_init(s,ram);
     case 0x0c069624: return vf3_fight_angle(s,ram);
     case 0x0c06911c: case 0x0c06912a: return vf3_fight_mesh(entry,s,ram);

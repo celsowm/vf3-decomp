@@ -931,6 +931,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c05ee6e"
   },
+  "advance-resume-061910:0x8c061910": {
+    "golden": "extract/analysis/advance_resume_061910_dev/advance_resume_061910_dev_8c061910/f_8c061910.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full 136-byte signed-maxima list scan; two-node development and independently relocated three-node holdout lists; disabled-node flags; zero skipped cases",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061910"
+  },
   "advance-workers:0x8c03dad0": {
     "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",
     "port": "src/fight/advance_worker_adapters.c",

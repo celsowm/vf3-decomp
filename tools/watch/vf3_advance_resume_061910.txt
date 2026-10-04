@@ -1,0 +1,2 @@
+# Two pairs of descriptor lists: signed maxima, disabled-record flags.
+pc 0x8c061910

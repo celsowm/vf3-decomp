@@ -1,5 +1,17 @@
 """Shared capture discovery and SH-4 watch-list I/O (standard library only)."""
+import json
 from pathlib import Path
+
+
+def attempted_entries(watches=(), progress_files=()):
+    """Read prior roots consistently, including grouped progress and RAM aliases."""
+    entries = {entry for watch in watches for entry in read_watch(watch)}
+    for path in progress_files:
+        for row in json.loads(Path(path).read_text()):
+            for entry in row.get('entries', [row.get('entry')]):
+                if entry is not None:
+                    entries.add((int(entry, 16) if isinstance(entry, str) else entry) | 0x80000000)
+    return entries
 
 
 def discover(inputs, manifest='capsule_manifest.json'):

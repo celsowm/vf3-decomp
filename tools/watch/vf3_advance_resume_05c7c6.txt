@@ -1,0 +1,2 @@
+# Descriptor helper has no independent frozen inventory credit.
+pc 0x8c05c7c6

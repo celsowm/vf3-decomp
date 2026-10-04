@@ -164,6 +164,15 @@ uses marginal union bytes per dependency/dynamic-call cost. Selection subtracts
 already selected family spans; unknown indirect sites and missing body intervals
 remain explicit. Repeated `--survey` inputs contribute the maximum observed
 scenario count per entry, without adding overlapping discovery counts.
+Like the single-root queue, the family queue accepts repeated `--exclude-watch`
+and `--exclude-progress` inputs. Excluded entries cannot be selected as callers;
+they remain visible as dependencies of a new caller. Both queues normalize
+RAM-address aliases and read legacy or grouped progress records through the
+same shared reader.
+The family ranker canonicalizes intervals once and counts marginal bytes by
+binary search in the covered union. Its output matches the previous union
+algorithm byte for byte; the retained 30-family campaign comparison is
+`extract/analysis/advance_resume_families_fast.json` (0.51 seconds).
 
 `capture_report.py --ready-watch ROOTS.txt` exports entries passing capture
 gates in at least one input corpus. Select compatible corpora when merging:

@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twenty-two accepted batches add **15,160 bytes**, reaching **221,222 / 434,656
-(50.8959%)**, a gain of **3.4878 percentage points**. The remaining shortfall
-to the ten-point campaign target is **28,306 bytes**.
+Twenty-three accepted batches add **15,296 bytes**, reaching **221,358 / 434,656
+(50.9272%)**, a gain of **3.5191 percentage points**. The remaining shortfall
+to the ten-point campaign target is **28,170 bytes**.
 
 ## Descriptor initializers
 
@@ -264,3 +264,53 @@ discovery runs. Combined with prior discovery, 99 unported roots covering
 13,020 potential unique bytes occur in at least two runs, up from 65 roots and
 9,856 bytes before this tranche. No new root appears; the increase is scenario
 diversity. A focused eight-root natural resource/scene capture follows.
+
+`0x8c061910` adds 136 unique bytes. Development uses two-node descriptor
+lists with disabled records and signed maxima: all 136 frozen body bytes
+execute and 512/512 strict cases pass. Independent acceptance changes to
+three-node lists, changes flags and values, and relocates every fixture
+pointer by `0x100000`: 256/256 strict cases pass with full body execution.
+The immutable executable is `build/vf3matrixfamily_advance_resource_descriptor.exe`;
+the proof is `tools/oracle/advance_resume_061910_milestone.json`.
+
+The natural resource capture identified a missing descriptor dependency at
+`0x8c05c7c6`. Its readable C implementation in
+`src/fight/advance_resource_descriptor.c` follows the original five-word copy,
+saved positions, parity selector and ring offsets, retaining the original
+reload order for aliasing. Direct mode/selector fixtures pass 256/256 strict
+development cases and 256/256 changed, relocated acceptance cases. The parent
+`0x8c059f8a` now passes all 474 natural cases. Neither helper nor parent gains
+coverage credit: the helper lacks its own frozen inventory interval, and the
+parent executes only 540/1,242 frozen body bytes.
+
+The other natural resource roots remain uncredited. `0x8c063d36` executes
+258/512 bytes and passes 512 strict cases; `0x8c063894` executes 54/512 bytes
+and passes 473 cases. `0x8c064246` and `0x8c09635a` retain strict failures on
+unsupported device accesses. Directed SDK selector attempts at `0x8c040e28`
+and `0x8c040c92` add no body PCs after their generic captures; both are parked
+pending a supported firmware contract. These results retain their original
+raw evidence and do not alter frozen intervals.
+
+`0x8c06c8b2` reaches all 142 frozen body bytes using bounded command masks,
+global scene flags, paired counters and queue occupancy. The merged development
+corpus has 495 distinct cases across states 21/22 and passes strict replay with
+zero skips. Its independent acceptance capture in reserved states
+23/29/24/28 produces no valid complete cases: all 512 invocations access
+`0xff000038`. The root remains uncredited; the development success cannot
+substitute for an independent supported runtime contract.
+
+Ten campaign-tool checks now pass, including shared legacy/grouped attempt
+history, family caller exclusions that retain dependency costs, and 100
+deterministic interval comparisons against the original address-union method.
+The optimized family ranker reproduces the earlier 30-family report exactly
+(SHA-256 `9bda53e4e69398a30aa9c40faab527c57cade8443a3ad6b21b0aebc76b29f65b`)
+in 0.51 seconds.
+
+Integration passes the full CMake build and all 1,050 bound replays and native
+checks in `python tools/verify_all.py --no-build --jobs 4`, including frozen
+body coverage, SDK union and call-resolution checks. The regression log is
+`extract/analysis/advance_resume_resource_regression.log`. All 23 milestone
+artifact hashes and their byte-union chain pass in
+`extract/analysis/advance_resume_series_audit.json`. The two subsequent scene
+commands and their capture cohort remain development work outside this ledger
+milestone.

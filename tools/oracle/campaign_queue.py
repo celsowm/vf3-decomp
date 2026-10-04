@@ -5,7 +5,7 @@ import json
 import io
 from pathlib import Path
 from select_next import ROOT, union
-from campaign_io import read_watch, write_watch
+from campaign_io import attempted_entries, write_watch
 
 
 def main():
@@ -27,10 +27,7 @@ def main():
     parser.add_argument('--exclude-progress', type=Path, action='append', default=[],
                         help='omit entries attempted in isolate_planned progress JSON; repeatable')
     args = parser.parse_args()
-    attempted = {entry for watch in args.exclude_watch for entry in read_watch(watch)}
-    attempted.update(int(entry, 16) for path in args.exclude_progress
-                     for row in json.loads(path.read_text())
-                     for entry in row.get('entries', [row.get('entry')]) if entry)
+    attempted = attempted_entries(args.exclude_watch, args.exclude_progress)
     credited = {int(r['entry'], 16) for r in csv.DictReader(io.StringIO(
         (ROOT / 'docs/decomp_status.csv').read_text())) if r['status'].startswith('ported')}
     baseline = json.loads(args.baseline.read_text())

@@ -11,11 +11,43 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import port_plan
 import campaign_queue
-from family_queue import rank_families
+from family_queue import rank_families, marginal_bytes, merged_spans
+from campaign_io import attempted_entries
 from inspect_capsule import format_register, register_index
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_fast_marginals_match_address_union(self):
+        from select_next import union
+        import random
+        randomizer = random.Random(610)
+        for _ in range(100):
+            raw = [(randomizer.randrange(200), randomizer.randrange(200)) for _ in range(20)]
+            spans = [(min(a,b), max(a,b)) for a,b in raw]
+            candidate, covered = merged_spans(spans[:10]), merged_spans(spans[10:])
+            self.assertEqual(marginal_bytes(candidate, covered, [z for _,z in covered]),
+                             union(spans) - union(spans[10:]))
+
+    def test_attempts_normalize_grouped_and_legacy_addresses(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watch = root / 'watch.txt'
+            watch.write_text('pc 0x0c010100\n')
+            progress = root / 'progress.json'
+            progress.write_text(json.dumps([{'entry': '0x0c010200'},
+                {'entries': ['0x8c010300', 0x0c010400]}, {}]))
+            self.assertEqual(attempted_entries([watch], [progress]),
+                             {0x8c010100, 0x8c010200, 0x8c010300, 0x8c010400})
+
+    def test_family_excludes_attempted_roots_but_retains_dependencies(self):
+        rows = [{'entry': '0x100', 'missing_implementations': '0x104', 'sh4_dyn': '0'},
+                {'entry': '0x104', 'missing_implementations': '', 'sh4_dyn': '0'}]
+        families, gain = rank_families(rows, {0x100: [(100, 104)], 0x104: [(104, 108)]},
+                                       [], set(), {}, 20, {0x104})
+        self.assertEqual(gain, 8)
+        self.assertEqual(families[0]['callers'], ['0x100'])
+        self.assertEqual(families[0]['members'], ['0x100', '0x104'])
+
     def test_family_union_is_marginal_and_cycles_terminate(self):
         rows = [{'entry': '0x100', 'missing_implementations': '0x104', 'sh4_dyn': '0'},
                 {'entry': '0x104', 'missing_implementations': '0x100', 'sh4_dyn': '0'}]
