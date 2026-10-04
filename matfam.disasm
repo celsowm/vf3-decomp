@@ -1,0 +1,3389 @@
+
+E:\vf3decomp_tmp\matrix_family.c.obj:     file format pe-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <vf3_matrix_write.constprop.0>:
+       0:	53                   	push   %rbx
+       1:	81 e2 ff ff ff 1f    	and    $0x1fffffff,%edx
+       7:	49 89 c9             	mov    %rcx,%r9
+       a:	44 89 c3             	mov    %r8d,%ebx
+       d:	8d 82 00 00 00 f4    	lea    -0xc000000(%rdx),%eax
+      13:	41 89 d2             	mov    %edx,%r10d
+      16:	3d ff ff ff 00       	cmp    $0xffffff,%eax
+      1b:	76 23                	jbe    40 <vf3_matrix_write.constprop.0+0x40>
+      1d:	48 8b 41 18          	mov    0x18(%rcx),%rax
+      21:	48 85 c0             	test   %rax,%rax
+      24:	74 1a                	je     40 <vf3_matrix_write.constprop.0+0x40>
+      26:	48 8b 49 20          	mov    0x20(%rcx),%rcx
+      2a:	45 89 c1             	mov    %r8d,%r9d
+      2d:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+      33:	5b                   	pop    %rbx
+      34:	48 ff e0             	rex.W jmp *%rax
+      37:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+      3e:	00 00 
+      40:	41 8b 49 08          	mov    0x8(%r9),%ecx
+      44:	45 31 c0             	xor    %r8d,%r8d
+      47:	85 c9                	test   %ecx,%ecx
+      49:	7e 4d                	jle    98 <vf3_matrix_write.constprop.0+0x98>
+      4b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+      50:	49 8b 01             	mov    (%r9),%rax
+      53:	48 c1 e1 04          	shl    $0x4,%rcx
+      57:	48 01 c1             	add    %rax,%rcx
+      5a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+      60:	8b 50 08             	mov    0x8(%rax),%edx
+      63:	41 39 d2             	cmp    %edx,%r10d
+      66:	72 0c                	jb     74 <vf3_matrix_write.constprop.0+0x74>
+      68:	45 89 d3             	mov    %r10d,%r11d
+      6b:	41 29 d3             	sub    %edx,%r11d
+      6e:	44 3b 58 0c          	cmp    0xc(%rax),%r11d
+      72:	72 54                	jb     c8 <vf3_matrix_write.constprop.0+0xc8>
+      74:	48 83 c0 10          	add    $0x10,%rax
+      78:	48 39 c8             	cmp    %rcx,%rax
+      7b:	75 e3                	jne    60 <vf3_matrix_write.constprop.0+0x60>
+      7d:	41 83 41 0c 01       	addl   $0x1,0xc(%r9)
+      82:	41 83 c0 01          	add    $0x1,%r8d
+      86:	41 83 f8 04          	cmp    $0x4,%r8d
+      8a:	74 34                	je     c0 <vf3_matrix_write.constprop.0+0xc0>
+      8c:	41 8b 49 08          	mov    0x8(%r9),%ecx
+      90:	41 83 c2 01          	add    $0x1,%r10d
+      94:	85 c9                	test   %ecx,%ecx
+      96:	7f b8                	jg     50 <vf3_matrix_write.constprop.0+0x50>
+      98:	41 83 41 0c 01       	addl   $0x1,0xc(%r9)
+      9d:	41 8d 50 01          	lea    0x1(%r8),%edx
+      a1:	41 83 f8 03          	cmp    $0x3,%r8d
+      a5:	74 19                	je     c0 <vf3_matrix_write.constprop.0+0xc0>
+      a7:	41 8b 41 0c          	mov    0xc(%r9),%eax
+      ab:	83 fa 03             	cmp    $0x3,%edx
+      ae:	74 2d                	je     dd <vf3_matrix_write.constprop.0+0xdd>
+      b0:	8d 48 03             	lea    0x3(%rax),%ecx
+      b3:	83 c0 02             	add    $0x2,%eax
+      b6:	83 fa 02             	cmp    $0x2,%edx
+      b9:	0f 45 c1             	cmovne %ecx,%eax
+      bc:	41 89 41 0c          	mov    %eax,0xc(%r9)
+      c0:	5b                   	pop    %rbx
+      c1:	c3                   	ret
+      c2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+      c8:	48 8b 00             	mov    (%rax),%rax
+      cb:	42 8d 0c c5 00 00 00 	lea    0x0(,%r8,8),%ecx
+      d2:	00 
+      d3:	89 da                	mov    %ebx,%edx
+      d5:	d3 ea                	shr    %cl,%edx
+      d7:	42 88 14 18          	mov    %dl,(%rax,%r11,1)
+      db:	eb a5                	jmp    82 <vf3_matrix_write.constprop.0+0x82>
+      dd:	83 c0 01             	add    $0x1,%eax
+      e0:	41 89 41 0c          	mov    %eax,0xc(%r9)
+      e4:	5b                   	pop    %rbx
+      e5:	c3                   	ret
+      e6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+      ed:	00 00 00 
+
+00000000000000f0 <vf3_matrix_read.constprop.0>:
+      f0:	56                   	push   %rsi
+      f1:	53                   	push   %rbx
+      f2:	81 e2 ff ff ff 1f    	and    $0x1fffffff,%edx
+      f8:	49 89 cb             	mov    %rcx,%r11
+      fb:	8d 82 00 00 00 f4    	lea    -0xc000000(%rdx),%eax
+     101:	41 89 d1             	mov    %edx,%r9d
+     104:	3d ff ff ff 00       	cmp    $0xffffff,%eax
+     109:	76 1d                	jbe    128 <vf3_matrix_read.constprop.0+0x38>
+     10b:	48 8b 41 10          	mov    0x10(%rcx),%rax
+     10f:	48 85 c0             	test   %rax,%rax
+     112:	74 14                	je     128 <vf3_matrix_read.constprop.0+0x38>
+     114:	48 8b 49 20          	mov    0x20(%rcx),%rcx
+     118:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+     11e:	5b                   	pop    %rbx
+     11f:	5e                   	pop    %rsi
+     120:	48 ff e0             	rex.W jmp *%rax
+     123:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     128:	41 8b 43 08          	mov    0x8(%r11),%eax
+     12c:	31 c9                	xor    %ecx,%ecx
+     12e:	85 c0                	test   %eax,%eax
+     130:	7e 67                	jle    199 <vf3_matrix_read.constprop.0+0xa9>
+     132:	49 8b 1b             	mov    (%r11),%rbx
+     135:	48 c1 e0 04          	shl    $0x4,%rax
+     139:	31 f6                	xor    %esi,%esi
+     13b:	4c 8d 14 18          	lea    (%rax,%rbx,1),%r10
+     13f:	90                   	nop
+     140:	48 89 d8             	mov    %rbx,%rax
+     143:	66 90                	xchg   %ax,%ax
+     145:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     14c:	00 00 00 00 
+     150:	8b 50 08             	mov    0x8(%rax),%edx
+     153:	41 39 d1             	cmp    %edx,%r9d
+     156:	72 0c                	jb     164 <vf3_matrix_read.constprop.0+0x74>
+     158:	45 89 c8             	mov    %r9d,%r8d
+     15b:	41 29 d0             	sub    %edx,%r8d
+     15e:	44 3b 40 0c          	cmp    0xc(%rax),%r8d
+     162:	72 1c                	jb     180 <vf3_matrix_read.constprop.0+0x90>
+     164:	48 83 c0 10          	add    $0x10,%rax
+     168:	49 39 c2             	cmp    %rax,%r10
+     16b:	75 e3                	jne    150 <vf3_matrix_read.constprop.0+0x60>
+     16d:	83 c1 08             	add    $0x8,%ecx
+     170:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     175:	83 f9 20             	cmp    $0x20,%ecx
+     178:	74 1a                	je     194 <vf3_matrix_read.constprop.0+0xa4>
+     17a:	41 83 c1 01          	add    $0x1,%r9d
+     17e:	eb c0                	jmp    140 <vf3_matrix_read.constprop.0+0x50>
+     180:	48 8b 00             	mov    (%rax),%rax
+     183:	42 0f b6 04 00       	movzbl (%rax,%r8,1),%eax
+     188:	d3 e0                	shl    %cl,%eax
+     18a:	83 c1 08             	add    $0x8,%ecx
+     18d:	09 c6                	or     %eax,%esi
+     18f:	83 f9 20             	cmp    $0x20,%ecx
+     192:	75 e6                	jne    17a <vf3_matrix_read.constprop.0+0x8a>
+     194:	89 f0                	mov    %esi,%eax
+     196:	5b                   	pop    %rbx
+     197:	5e                   	pop    %rsi
+     198:	c3                   	ret
+     199:	83 c1 08             	add    $0x8,%ecx
+     19c:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     1a1:	41 83 c1 01          	add    $0x1,%r9d
+     1a5:	83 f9 20             	cmp    $0x20,%ecx
+     1a8:	75 84                	jne    12e <vf3_matrix_read.constprop.0+0x3e>
+     1aa:	31 f6                	xor    %esi,%esi
+     1ac:	eb e6                	jmp    194 <vf3_matrix_read.constprop.0+0xa4>
+     1ae:	66 90                	xchg   %ax,%ax
+
+00000000000001b0 <vf3_matrix_read>:
+     1b0:	57                   	push   %rdi
+     1b1:	56                   	push   %rsi
+     1b2:	53                   	push   %rbx
+     1b3:	81 e2 ff ff ff 1f    	and    $0x1fffffff,%edx
+     1b9:	49 89 cb             	mov    %rcx,%r11
+     1bc:	8d 82 00 00 00 f4    	lea    -0xc000000(%rdx),%eax
+     1c2:	41 89 d1             	mov    %edx,%r9d
+     1c5:	3d ff ff ff 00       	cmp    $0xffffff,%eax
+     1ca:	76 14                	jbe    1e0 <vf3_matrix_read+0x30>
+     1cc:	48 8b 41 10          	mov    0x10(%rcx),%rax
+     1d0:	48 85 c0             	test   %rax,%rax
+     1d3:	74 0b                	je     1e0 <vf3_matrix_read+0x30>
+     1d5:	48 8b 49 20          	mov    0x20(%rcx),%rcx
+     1d9:	5b                   	pop    %rbx
+     1da:	5e                   	pop    %rsi
+     1db:	5f                   	pop    %rdi
+     1dc:	48 ff e0             	rex.W jmp *%rax
+     1df:	90                   	nop
+     1e0:	45 85 c0             	test   %r8d,%r8d
+     1e3:	0f 84 97 00 00 00    	je     280 <vf3_matrix_read+0xd0>
+     1e9:	41 8b 43 08          	mov    0x8(%r11),%eax
+     1ed:	43 8d 1c 01          	lea    (%r9,%r8,1),%ebx
+     1f1:	31 c9                	xor    %ecx,%ecx
+     1f3:	85 c0                	test   %eax,%eax
+     1f5:	7e 74                	jle    26b <vf3_matrix_read+0xbb>
+     1f7:	49 8b 33             	mov    (%r11),%rsi
+     1fa:	48 c1 e0 04          	shl    $0x4,%rax
+     1fe:	31 ff                	xor    %edi,%edi
+     200:	4c 8d 14 30          	lea    (%rax,%rsi,1),%r10
+     204:	90                   	nop
+     205:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     20c:	00 00 00 00 
+     210:	48 89 f0             	mov    %rsi,%rax
+     213:	66 90                	xchg   %ax,%ax
+     215:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     21c:	00 00 00 00 
+     220:	8b 50 08             	mov    0x8(%rax),%edx
+     223:	41 39 d1             	cmp    %edx,%r9d
+     226:	72 0c                	jb     234 <vf3_matrix_read+0x84>
+     228:	45 89 c8             	mov    %r9d,%r8d
+     22b:	41 29 d0             	sub    %edx,%r8d
+     22e:	44 3b 40 0c          	cmp    0xc(%rax),%r8d
+     232:	72 1c                	jb     250 <vf3_matrix_read+0xa0>
+     234:	48 83 c0 10          	add    $0x10,%rax
+     238:	49 39 c2             	cmp    %rax,%r10
+     23b:	75 e3                	jne    220 <vf3_matrix_read+0x70>
+     23d:	41 83 c1 01          	add    $0x1,%r9d
+     241:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     246:	44 39 cb             	cmp    %r9d,%ebx
+     249:	74 1a                	je     265 <vf3_matrix_read+0xb5>
+     24b:	83 c1 08             	add    $0x8,%ecx
+     24e:	eb c0                	jmp    210 <vf3_matrix_read+0x60>
+     250:	48 8b 00             	mov    (%rax),%rax
+     253:	41 83 c1 01          	add    $0x1,%r9d
+     257:	42 0f b6 04 00       	movzbl (%rax,%r8,1),%eax
+     25c:	d3 e0                	shl    %cl,%eax
+     25e:	09 c7                	or     %eax,%edi
+     260:	44 39 cb             	cmp    %r9d,%ebx
+     263:	75 e6                	jne    24b <vf3_matrix_read+0x9b>
+     265:	89 f8                	mov    %edi,%eax
+     267:	5b                   	pop    %rbx
+     268:	5e                   	pop    %rsi
+     269:	5f                   	pop    %rdi
+     26a:	c3                   	ret
+     26b:	41 83 c1 01          	add    $0x1,%r9d
+     26f:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     274:	83 c1 08             	add    $0x8,%ecx
+     277:	44 39 cb             	cmp    %r9d,%ebx
+     27a:	0f 85 73 ff ff ff    	jne    1f3 <vf3_matrix_read+0x43>
+     280:	31 ff                	xor    %edi,%edi
+     282:	89 f8                	mov    %edi,%eax
+     284:	5b                   	pop    %rbx
+     285:	5e                   	pop    %rsi
+     286:	5f                   	pop    %rdi
+     287:	c3                   	ret
+     288:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+     28f:	00 
+
+0000000000000290 <vf3_matrix_write>:
+     290:	56                   	push   %rsi
+     291:	53                   	push   %rbx
+     292:	81 e2 ff ff ff 1f    	and    $0x1fffffff,%edx
+     298:	49 89 cb             	mov    %rcx,%r11
+     29b:	44 89 c6             	mov    %r8d,%esi
+     29e:	44 89 cb             	mov    %r9d,%ebx
+     2a1:	8d 82 00 00 00 f4    	lea    -0xc000000(%rdx),%eax
+     2a7:	41 89 d2             	mov    %edx,%r10d
+     2aa:	3d ff ff ff 00       	cmp    $0xffffff,%eax
+     2af:	76 1f                	jbe    2d0 <vf3_matrix_write+0x40>
+     2b1:	48 8b 41 18          	mov    0x18(%rcx),%rax
+     2b5:	48 85 c0             	test   %rax,%rax
+     2b8:	74 16                	je     2d0 <vf3_matrix_write+0x40>
+     2ba:	48 8b 49 20          	mov    0x20(%rcx),%rcx
+     2be:	45 89 c1             	mov    %r8d,%r9d
+     2c1:	41 89 d8             	mov    %ebx,%r8d
+     2c4:	5b                   	pop    %rbx
+     2c5:	5e                   	pop    %rsi
+     2c6:	48 ff e0             	rex.W jmp *%rax
+     2c9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+     2d0:	45 31 c0             	xor    %r8d,%r8d
+     2d3:	85 db                	test   %ebx,%ebx
+     2d5:	0f 84 a5 00 00 00    	je     380 <vf3_matrix_write+0xf0>
+     2db:	41 8b 4b 08          	mov    0x8(%r11),%ecx
+     2df:	85 c9                	test   %ecx,%ecx
+     2e1:	7e 54                	jle    337 <vf3_matrix_write+0xa7>
+     2e3:	66 90                	xchg   %ax,%ax
+     2e5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     2ec:	00 00 00 00 
+     2f0:	49 8b 03             	mov    (%r11),%rax
+     2f3:	48 c1 e1 04          	shl    $0x4,%rcx
+     2f7:	48 01 c1             	add    %rax,%rcx
+     2fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+     300:	8b 50 08             	mov    0x8(%rax),%edx
+     303:	41 39 d2             	cmp    %edx,%r10d
+     306:	72 0c                	jb     314 <vf3_matrix_write+0x84>
+     308:	45 89 d1             	mov    %r10d,%r9d
+     30b:	41 29 d1             	sub    %edx,%r9d
+     30e:	44 3b 48 0c          	cmp    0xc(%rax),%r9d
+     312:	72 74                	jb     388 <vf3_matrix_write+0xf8>
+     314:	48 83 c0 10          	add    $0x10,%rax
+     318:	48 39 c8             	cmp    %rcx,%rax
+     31b:	75 e3                	jne    300 <vf3_matrix_write+0x70>
+     31d:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     322:	41 83 c0 01          	add    $0x1,%r8d
+     326:	44 39 c3             	cmp    %r8d,%ebx
+     329:	74 55                	je     380 <vf3_matrix_write+0xf0>
+     32b:	41 8b 4b 08          	mov    0x8(%r11),%ecx
+     32f:	41 83 c2 01          	add    $0x1,%r10d
+     333:	85 c9                	test   %ecx,%ecx
+     335:	7f b9                	jg     2f0 <vf3_matrix_write+0x60>
+     337:	41 8d 40 01          	lea    0x1(%r8),%eax
+     33b:	41 83 43 0c 01       	addl   $0x1,0xc(%r11)
+     340:	39 d8                	cmp    %ebx,%eax
+     342:	74 3c                	je     380 <vf3_matrix_write+0xf0>
+     344:	89 c2                	mov    %eax,%edx
+     346:	41 89 c1             	mov    %eax,%r9d
+     349:	41 8d 40 02          	lea    0x2(%r8),%eax
+     34d:	41 8b 4b 0c          	mov    0xc(%r11),%ecx
+     351:	f7 d2                	not    %edx
+     353:	01 da                	add    %ebx,%edx
+     355:	39 d8                	cmp    %ebx,%eax
+     357:	73 1b                	jae    374 <vf3_matrix_write+0xe4>
+     359:	83 e2 01             	and    $0x1,%edx
+     35c:	74 0b                	je     369 <vf3_matrix_write+0xd9>
+     35e:	41 89 c1             	mov    %eax,%r9d
+     361:	41 8d 40 03          	lea    0x3(%r8),%eax
+     365:	39 d8                	cmp    %ebx,%eax
+     367:	73 0b                	jae    374 <vf3_matrix_write+0xe4>
+     369:	44 8d 48 01          	lea    0x1(%rax),%r9d
+     36d:	83 c0 02             	add    $0x2,%eax
+     370:	39 d8                	cmp    %ebx,%eax
+     372:	72 f5                	jb     369 <vf3_matrix_write+0xd9>
+     374:	89 c8                	mov    %ecx,%eax
+     376:	44 29 c0             	sub    %r8d,%eax
+     379:	44 01 c8             	add    %r9d,%eax
+     37c:	41 89 43 0c          	mov    %eax,0xc(%r11)
+     380:	5b                   	pop    %rbx
+     381:	5e                   	pop    %rsi
+     382:	c3                   	ret
+     383:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     388:	48 8b 00             	mov    (%rax),%rax
+     38b:	42 8d 0c c5 00 00 00 	lea    0x0(,%r8,8),%ecx
+     392:	00 
+     393:	89 f2                	mov    %esi,%edx
+     395:	d3 ea                	shr    %cl,%edx
+     397:	42 88 14 08          	mov    %dl,(%rax,%r9,1)
+     39b:	eb 85                	jmp    322 <vf3_matrix_write+0x92>
+     39d:	0f 1f 00             	nopl   (%rax)
+
+00000000000003a0 <vf3_matrix_swap>:
+     3a0:	f3 0f 6f 41 54       	movdqu 0x54(%rcx),%xmm0
+     3a5:	f3 0f 6f 89 94 00 00 	movdqu 0x94(%rcx),%xmm1
+     3ac:	00 
+     3ad:	81 71 48 00 00 20 00 	xorl   $0x200000,0x48(%rcx)
+     3b4:	0f 11 49 54          	movups %xmm1,0x54(%rcx)
+     3b8:	f3 0f 6f 89 a4 00 00 	movdqu 0xa4(%rcx),%xmm1
+     3bf:	00 
+     3c0:	0f 11 81 94 00 00 00 	movups %xmm0,0x94(%rcx)
+     3c7:	f3 0f 6f 41 64       	movdqu 0x64(%rcx),%xmm0
+     3cc:	0f 11 49 64          	movups %xmm1,0x64(%rcx)
+     3d0:	f3 0f 6f 89 b4 00 00 	movdqu 0xb4(%rcx),%xmm1
+     3d7:	00 
+     3d8:	0f 11 81 a4 00 00 00 	movups %xmm0,0xa4(%rcx)
+     3df:	f3 0f 6f 41 74       	movdqu 0x74(%rcx),%xmm0
+     3e4:	0f 11 49 74          	movups %xmm1,0x74(%rcx)
+     3e8:	f3 0f 6f 89 c4 00 00 	movdqu 0xc4(%rcx),%xmm1
+     3ef:	00 
+     3f0:	0f 11 81 b4 00 00 00 	movups %xmm0,0xb4(%rcx)
+     3f7:	f3 0f 6f 81 84 00 00 	movdqu 0x84(%rcx),%xmm0
+     3fe:	00 
+     3ff:	0f 11 89 84 00 00 00 	movups %xmm1,0x84(%rcx)
+     406:	0f 11 81 c4 00 00 00 	movups %xmm0,0xc4(%rcx)
+     40d:	c3                   	ret
+     40e:	66 90                	xchg   %ax,%ax
+
+0000000000000410 <vf3_matrix_load>:
+     410:	55                   	push   %rbp
+     411:	57                   	push   %rdi
+     412:	56                   	push   %rsi
+     413:	53                   	push   %rbx
+     414:	48 83 ec 28          	sub    $0x28,%rsp
+     418:	48 89 d7             	mov    %rdx,%rdi
+     41b:	44 89 ce             	mov    %r9d,%esi
+     41e:	f6 41 4a 10          	testb  $0x10,0x4a(%rcx)
+     422:	74 1c                	je     440 <vf3_matrix_load+0x30>
+     424:	44 89 c0             	mov    %r8d,%eax
+     427:	83 e0 fe             	and    $0xfffffffe,%eax
+     42a:	41 83 e0 01          	and    $0x1,%r8d
+     42e:	74 50                	je     480 <vf3_matrix_load+0x70>
+     430:	83 c0 25             	add    $0x25,%eax
+     433:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     437:	31 c0                	xor    %eax,%eax
+     439:	eb 12                	jmp    44d <vf3_matrix_load+0x3d>
+     43b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     440:	41 8d 40 15          	lea    0x15(%r8),%eax
+     444:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     448:	b8 01 00 00 00       	mov    $0x1,%eax
+     44d:	3c 01                	cmp    $0x1,%al
+     44f:	48 19 c0             	sbb    %rax,%rax
+     452:	29 de                	sub    %ebx,%esi
+     454:	83 e0 04             	and    $0x4,%eax
+     457:	48 8d 6c 03 04       	lea    0x4(%rbx,%rax,1),%rbp
+     45c:	8d 14 1e             	lea    (%rsi,%rbx,1),%edx
+     45f:	48 89 f9             	mov    %rdi,%rcx
+     462:	48 83 c3 04          	add    $0x4,%rbx
+     466:	e8 85 fc ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+     46b:	89 43 fc             	mov    %eax,-0x4(%rbx)
+     46e:	48 39 eb             	cmp    %rbp,%rbx
+     471:	75 e9                	jne    45c <vf3_matrix_load+0x4c>
+     473:	48 83 c4 28          	add    $0x28,%rsp
+     477:	5b                   	pop    %rbx
+     478:	5e                   	pop    %rsi
+     479:	5f                   	pop    %rdi
+     47a:	5d                   	pop    %rbp
+     47b:	c3                   	ret
+     47c:	0f 1f 40 00          	nopl   0x0(%rax)
+     480:	83 c0 15             	add    $0x15,%eax
+     483:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     487:	31 c0                	xor    %eax,%eax
+     489:	eb c2                	jmp    44d <vf3_matrix_load+0x3d>
+     48b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000000490 <vf3_matrix_store>:
+     490:	55                   	push   %rbp
+     491:	57                   	push   %rdi
+     492:	56                   	push   %rsi
+     493:	53                   	push   %rbx
+     494:	48 83 ec 28          	sub    $0x28,%rsp
+     498:	48 89 d7             	mov    %rdx,%rdi
+     49b:	44 89 ce             	mov    %r9d,%esi
+     49e:	f6 41 4a 10          	testb  $0x10,0x4a(%rcx)
+     4a2:	74 1c                	je     4c0 <vf3_matrix_store+0x30>
+     4a4:	44 89 c0             	mov    %r8d,%eax
+     4a7:	83 e0 fe             	and    $0xfffffffe,%eax
+     4aa:	41 83 e0 01          	and    $0x1,%r8d
+     4ae:	74 50                	je     500 <vf3_matrix_store+0x70>
+     4b0:	83 c0 25             	add    $0x25,%eax
+     4b3:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     4b7:	31 c0                	xor    %eax,%eax
+     4b9:	eb 12                	jmp    4cd <vf3_matrix_store+0x3d>
+     4bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+     4c0:	41 8d 40 15          	lea    0x15(%r8),%eax
+     4c4:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     4c8:	b8 01 00 00 00       	mov    $0x1,%eax
+     4cd:	3c 01                	cmp    $0x1,%al
+     4cf:	48 19 c0             	sbb    %rax,%rax
+     4d2:	29 de                	sub    %ebx,%esi
+     4d4:	83 e0 04             	and    $0x4,%eax
+     4d7:	48 8d 6c 03 04       	lea    0x4(%rbx,%rax,1),%rbp
+     4dc:	44 8b 03             	mov    (%rbx),%r8d
+     4df:	8d 14 1e             	lea    (%rsi,%rbx,1),%edx
+     4e2:	48 89 f9             	mov    %rdi,%rcx
+     4e5:	48 83 c3 04          	add    $0x4,%rbx
+     4e9:	e8 12 fb ff ff       	call   0 <vf3_matrix_write.constprop.0>
+     4ee:	48 39 eb             	cmp    %rbp,%rbx
+     4f1:	75 e9                	jne    4dc <vf3_matrix_store+0x4c>
+     4f3:	48 83 c4 28          	add    $0x28,%rsp
+     4f7:	5b                   	pop    %rbx
+     4f8:	5e                   	pop    %rsi
+     4f9:	5f                   	pop    %rdi
+     4fa:	5d                   	pop    %rbp
+     4fb:	c3                   	ret
+     4fc:	0f 1f 40 00          	nopl   0x0(%rax)
+     500:	83 c0 15             	add    $0x15,%eax
+     503:	48 8d 1c 81          	lea    (%rcx,%rax,4),%rbx
+     507:	31 c0                	xor    %eax,%eax
+     509:	eb c2                	jmp    4cd <vf3_matrix_store+0x3d>
+     50b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+
+0000000000000510 <vf3_matrix_move>:
+     510:	48 83 ec 18          	sub    $0x18,%rsp
+     514:	48 89 c8             	mov    %rcx,%rax
+     517:	f6 41 4a 10          	testb  $0x10,0x4a(%rcx)
+     51b:	74 53                	je     570 <vf3_matrix_move+0x60>
+     51d:	44 89 c1             	mov    %r8d,%ecx
+     520:	83 e1 fe             	and    $0xfffffffe,%ecx
+     523:	41 83 e0 01          	and    $0x1,%r8d
+     527:	75 7f                	jne    5a8 <vf3_matrix_move+0x98>
+     529:	83 c1 15             	add    $0x15,%ecx
+     52c:	48 8b 0c 88          	mov    (%rax,%rcx,4),%rcx
+     530:	48 89 4c 24 08       	mov    %rcx,0x8(%rsp)
+     535:	89 d1                	mov    %edx,%ecx
+     537:	83 e1 fe             	and    $0xfffffffe,%ecx
+     53a:	83 e2 01             	and    $0x1,%edx
+     53d:	74 7f                	je     5be <vf3_matrix_move+0xae>
+     53f:	8d 51 25             	lea    0x25(%rcx),%edx
+     542:	48 8d 14 90          	lea    (%rax,%rdx,4),%rdx
+     546:	b8 08 00 00 00       	mov    $0x8,%eax
+     54b:	89 c1                	mov    %eax,%ecx
+     54d:	a8 08                	test   $0x8,%al
+     54f:	74 3c                	je     58d <vf3_matrix_move+0x7d>
+     551:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+     556:	48 89 02             	mov    %rax,(%rdx)
+     559:	48 8b 04 0c          	mov    (%rsp,%rcx,1),%rax
+     55d:	48 89 44 0a f8       	mov    %rax,-0x8(%rdx,%rcx,1)
+     562:	48 83 c4 18          	add    $0x18,%rsp
+     566:	c3                   	ret
+     567:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+     56e:	00 00 
+     570:	41 8d 48 15          	lea    0x15(%r8),%ecx
+     574:	83 c2 15             	add    $0x15,%edx
+     577:	8b 0c 88             	mov    (%rax,%rcx,4),%ecx
+     57a:	48 8d 14 90          	lea    (%rax,%rdx,4),%rdx
+     57e:	b8 04 00 00 00       	mov    $0x4,%eax
+     583:	89 4c 24 08          	mov    %ecx,0x8(%rsp)
+     587:	89 c1                	mov    %eax,%ecx
+     589:	a8 08                	test   $0x8,%al
+     58b:	75 c4                	jne    551 <vf3_matrix_move+0x41>
+     58d:	a8 04                	test   $0x4,%al
+     58f:	75 3f                	jne    5d0 <vf3_matrix_move+0xc0>
+     591:	85 c0                	test   %eax,%eax
+     593:	74 cd                	je     562 <vf3_matrix_move+0x52>
+     595:	0f b6 44 24 08       	movzbl 0x8(%rsp),%eax
+     59a:	88 02                	mov    %al,(%rdx)
+     59c:	48 83 c4 18          	add    $0x18,%rsp
+     5a0:	c3                   	ret
+     5a1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+     5a8:	83 c1 25             	add    $0x25,%ecx
+     5ab:	48 8b 0c 88          	mov    (%rax,%rcx,4),%rcx
+     5af:	48 89 4c 24 08       	mov    %rcx,0x8(%rsp)
+     5b4:	89 d1                	mov    %edx,%ecx
+     5b6:	83 e1 fe             	and    $0xfffffffe,%ecx
+     5b9:	83 e2 01             	and    $0x1,%edx
+     5bc:	75 81                	jne    53f <vf3_matrix_move+0x2f>
+     5be:	8d 51 15             	lea    0x15(%rcx),%edx
+     5c1:	48 8d 14 90          	lea    (%rax,%rdx,4),%rdx
+     5c5:	b8 08 00 00 00       	mov    $0x8,%eax
+     5ca:	eb bb                	jmp    587 <vf3_matrix_move+0x77>
+     5cc:	0f 1f 40 00          	nopl   0x0(%rax)
+     5d0:	8b 44 24 08          	mov    0x8(%rsp),%eax
+     5d4:	89 02                	mov    %eax,(%rdx)
+     5d6:	8b 44 0c 04          	mov    0x4(%rsp,%rcx,1),%eax
+     5da:	89 44 0a fc          	mov    %eax,-0x4(%rdx,%rcx,1)
+     5de:	eb 82                	jmp    562 <vf3_matrix_move+0x52>
+
+00000000000005e0 <vf3_matrix_family>:
+     5e0:	41 57                	push   %r15
+     5e2:	41 56                	push   %r14
+     5e4:	41 55                	push   %r13
+     5e6:	41 54                	push   %r12
+     5e8:	55                   	push   %rbp
+     5e9:	57                   	push   %rdi
+     5ea:	56                   	push   %rsi
+     5eb:	53                   	push   %rbx
+     5ec:	48 81 ec 18 01 00 00 	sub    $0x118,%rsp
+     5f3:	89 cf                	mov    %ecx,%edi
+     5f5:	48 89 d3             	mov    %rdx,%rbx
+     5f8:	4c 89 c6             	mov    %r8,%rsi
+     5fb:	8b 4b 48             	mov    0x48(%rbx),%ecx
+     5fe:	e8 00 00 00 00       	call   603 <vf3_matrix_family+0x23>
+     603:	85 c0                	test   %eax,%eax
+     605:	0f 84 f0 01 00 00    	je     7fb <vf3_matrix_family+0x21b>
+     60b:	81 e7 ff ff ff 1f    	and    $0x1fffffff,%edi
+     611:	0f 84 d6 01 00 00    	je     7ed <vf3_matrix_family+0x20d>
+     617:	81 ff c0 c6 03 0c    	cmp    $0xc03c6c0,%edi
+     61d:	0f 84 a4 1e 00 00    	je     24c7 <vf3_matrix_family+0x1ee7>
+     623:	0f 87 e7 01 00 00    	ja     810 <vf3_matrix_family+0x230>
+     629:	81 ff 80 bd 03 0c    	cmp    $0xc03bd80,%edi
+     62f:	0f 84 c3 0a 00 00    	je     10f8 <vf3_matrix_family+0xb18>
+     635:	0f 87 dd 03 00 00    	ja     a18 <vf3_matrix_family+0x438>
+     63b:	81 ff 30 b5 03 0c    	cmp    $0xc03b530,%edi
+     641:	0f 84 99 08 00 00    	je     ee0 <vf3_matrix_family+0x900>
+     647:	0f 86 23 10 00 00    	jbe    1670 <vf3_matrix_family+0x1090>
+     64d:	81 ff 20 b6 03 0c    	cmp    $0xc03b620,%edi
+     653:	0f 84 b7 17 00 00    	je     1e10 <vf3_matrix_family+0x1830>
+     659:	81 ff 20 b8 03 0c    	cmp    $0xc03b820,%edi
+     65f:	0f 85 eb 14 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+     665:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+     66a:	8b 43 10             	mov    0x10(%rbx),%eax
+     66d:	4c 8d b3 8c 00 00 00 	lea    0x8c(%rbx),%r14
+     674:	41 bc 0e 00 00 00    	mov    $0xe,%r12d
+     67a:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+     681:	00 
+     682:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+     689:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+     68e:	8d 68 0c             	lea    0xc(%rax),%ebp
+     691:	8b 43 48             	mov    0x48(%rbx),%eax
+     694:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+     698:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+     69f:	00 
+     6a0:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+     6a7:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+     6ac:	35 00 00 20 00       	xor    $0x200000,%eax
+     6b1:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+     6b5:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+     6bc:	00 
+     6bd:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+     6c4:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+     6cb:	00 
+     6cc:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+     6d0:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+     6d7:	00 
+     6d8:	89 43 48             	mov    %eax,0x48(%rbx)
+     6db:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+     6e2:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+     6e9:	a9 00 00 10 00       	test   $0x100000,%eax
+     6ee:	75 50                	jne    740 <vf3_matrix_family+0x160>
+     6f0:	83 ed 04             	sub    $0x4,%ebp
+     6f3:	4c 89 f7             	mov    %r14,%rdi
+     6f6:	b8 01 00 00 00       	mov    $0x1,%eax
+     6fb:	3c 01                	cmp    $0x1,%al
+     6fd:	89 6b 10             	mov    %ebp,0x10(%rbx)
+     700:	48 19 c0             	sbb    %rax,%rax
+     703:	29 fd                	sub    %edi,%ebp
+     705:	83 e0 04             	and    $0x4,%eax
+     708:	4c 8d 6c 07 04       	lea    0x4(%rdi,%rax,1),%r13
+     70d:	44 8b 07             	mov    (%rdi),%r8d
+     710:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+     714:	48 89 f1             	mov    %rsi,%rcx
+     717:	48 83 c7 04          	add    $0x4,%rdi
+     71b:	e8 e0 f8 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+     720:	49 39 fd             	cmp    %rdi,%r13
+     723:	75 e8                	jne    70d <vf3_matrix_family+0x12d>
+     725:	41 83 ec 01          	sub    $0x1,%r12d
+     729:	41 83 fc 0b          	cmp    $0xb,%r12d
+     72d:	74 51                	je     780 <vf3_matrix_family+0x1a0>
+     72f:	8b 43 48             	mov    0x48(%rbx),%eax
+     732:	8b 6b 10             	mov    0x10(%rbx),%ebp
+     735:	49 83 ee 04          	sub    $0x4,%r14
+     739:	a9 00 00 10 00       	test   $0x100000,%eax
+     73e:	74 b0                	je     6f0 <vf3_matrix_family+0x110>
+     740:	83 ed 08             	sub    $0x8,%ebp
+     743:	41 f6 c4 01          	test   $0x1,%r12b
+     747:	0f 84 aa 18 00 00    	je     1ff7 <vf3_matrix_family+0x1a17>
+     74d:	48 8d bb c4 00 00 00 	lea    0xc4(%rbx),%rdi
+     754:	31 c0                	xor    %eax,%eax
+     756:	eb a3                	jmp    6fb <vf3_matrix_family+0x11b>
+     758:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     75c:	41 81 f8 e5 d2 19 0c 	cmp    $0xc19d2e5,%r8d
+     763:	74 04                	je     769 <vf3_matrix_family+0x189>
+     765:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     769:	8b 43 10             	mov    0x10(%rbx),%eax
+     76c:	8b 53 48             	mov    0x48(%rbx),%edx
+     76f:	85 c0                	test   %eax,%eax
+     771:	0f 85 da 18 00 00    	jne    2051 <vf3_matrix_family+0x1a71>
+     777:	81 f2 00 00 10 00    	xor    $0x100000,%edx
+     77d:	89 53 48             	mov    %edx,0x48(%rbx)
+     780:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+     785:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+     78c:	00 
+     78d:	81 73 48 00 00 20 00 	xorl   $0x200000,0x48(%rbx)
+     794:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+     798:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+     79f:	00 
+     7a0:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+     7a7:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+     7ac:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+     7b0:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+     7b7:	00 
+     7b8:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+     7bf:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+     7c4:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+     7c8:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+     7cf:	00 
+     7d0:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+     7d7:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+     7de:	00 
+     7df:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+     7e6:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+     7ed:	8b 43 40             	mov    0x40(%rbx),%eax
+     7f0:	89 83 d8 00 00 00    	mov    %eax,0xd8(%rbx)
+     7f6:	b8 01 00 00 00       	mov    $0x1,%eax
+     7fb:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+     802:	5b                   	pop    %rbx
+     803:	5e                   	pop    %rsi
+     804:	5f                   	pop    %rdi
+     805:	5d                   	pop    %rbp
+     806:	41 5c                	pop    %r12
+     808:	41 5d                	pop    %r13
+     80a:	41 5e                	pop    %r14
+     80c:	41 5f                	pop    %r15
+     80e:	c3                   	ret
+     80f:	90                   	nop
+     810:	81 ff 90 cc 03 0c    	cmp    $0xc03cc90,%edi
+     816:	0f 84 34 07 00 00    	je     f50 <vf3_matrix_family+0x970>
+     81c:	0f 87 3e 04 00 00    	ja     c60 <vf3_matrix_family+0x680>
+     822:	81 ff d0 cb 03 0c    	cmp    $0xc03cbd0,%edi
+     828:	0f 84 22 08 00 00    	je     1050 <vf3_matrix_family+0xa70>
+     82e:	0f 87 94 0d 00 00    	ja     15c8 <vf3_matrix_family+0xfe8>
+     834:	81 ff 70 c9 03 0c    	cmp    $0xc03c970,%edi
+     83a:	0f 85 81 1b 00 00    	jne    23c1 <vf3_matrix_family+0x1de1>
+     840:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     844:	48 8d bb 94 00 00 00 	lea    0x94(%rbx),%rdi
+     84b:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     852:	0f 85 c1 17 00 00    	jne    2019 <vf3_matrix_family+0x1a39>
+     858:	8b 43 64             	mov    0x64(%rbx),%eax
+     85b:	48 8d 4b 58          	lea    0x58(%rbx),%rcx
+     85f:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     863:	b8 04 00 00 00       	mov    $0x4,%eax
+     868:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+     86d:	89 c2                	mov    %eax,%edx
+     86f:	a8 08                	test   $0x8,%al
+     871:	0f 85 4e 21 00 00    	jne    29c5 <vf3_matrix_family+0x23e5>
+     877:	a8 04                	test   $0x4,%al
+     879:	0f 85 85 22 00 00    	jne    2b04 <vf3_matrix_family+0x2524>
+     87f:	85 c0                	test   %eax,%eax
+     881:	74 0b                	je     88e <vf3_matrix_family+0x2ae>
+     883:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     888:	88 01                	mov    %al,(%rcx)
+     88a:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     88e:	81 43 64 00 00 00 80 	addl   $0x80000000,0x64(%rbx)
+     895:	48 8d 53 54          	lea    0x54(%rbx),%rdx
+     899:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     8a0:	0f 85 f8 1c 00 00    	jne    259e <vf3_matrix_family+0x1fbe>
+     8a6:	8b 43 68             	mov    0x68(%rbx),%eax
+     8a9:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     8ad:	b8 04 00 00 00       	mov    $0x4,%eax
+     8b2:	89 c1                	mov    %eax,%ecx
+     8b4:	a8 08                	test   $0x8,%al
+     8b6:	0f 85 73 22 00 00    	jne    2b2f <vf3_matrix_family+0x254f>
+     8bc:	a8 04                	test   $0x4,%al
+     8be:	0f 85 57 22 00 00    	jne    2b1b <vf3_matrix_family+0x253b>
+     8c4:	85 c0                	test   %eax,%eax
+     8c6:	74 08                	je     8d0 <vf3_matrix_family+0x2f0>
+     8c8:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     8cd:	88 43 54             	mov    %al,0x54(%rbx)
+     8d0:	48 c7 43 5c 00 00 00 	movq   $0x0,0x5c(%rbx)
+     8d7:	00 
+     8d8:	49 89 d1             	mov    %rdx,%r9
+     8db:	48 89 f9             	mov    %rdi,%rcx
+     8de:	e8 00 00 00 00       	call   8e3 <vf3_matrix_family+0x303>
+     8e3:	85 c0                	test   %eax,%eax
+     8e5:	0f 84 10 ff ff ff    	je     7fb <vf3_matrix_family+0x21b>
+     8eb:	48 c7 43 6c 00 00 00 	movq   $0x0,0x6c(%rbx)
+     8f2:	00 
+     8f3:	48 8d 53 64          	lea    0x64(%rbx),%rdx
+     8f7:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     8fb:	48 89 f9             	mov    %rdi,%rcx
+     8fe:	49 89 d1             	mov    %rdx,%r9
+     901:	e8 00 00 00 00       	call   906 <vf3_matrix_family+0x326>
+     906:	85 c0                	test   %eax,%eax
+     908:	0f 84 ed fe ff ff    	je     7fb <vf3_matrix_family+0x21b>
+     90e:	8b 43 48             	mov    0x48(%rbx),%eax
+     911:	35 00 00 10 00       	xor    $0x100000,%eax
+     916:	89 43 48             	mov    %eax,0x48(%rbx)
+     919:	a9 00 00 10 00       	test   $0x100000,%eax
+     91e:	0f 85 8f 1f 00 00    	jne    28b3 <vf3_matrix_family+0x22d3>
+     924:	8b 43 54             	mov    0x54(%rbx),%eax
+     927:	48 8d 7b 58          	lea    0x58(%rbx),%rdi
+     92b:	ba 04 00 00 00       	mov    $0x4,%edx
+     930:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     934:	89 d0                	mov    %edx,%eax
+     936:	f6 c2 08             	test   $0x8,%dl
+     939:	0f 85 66 24 00 00    	jne    2da5 <vf3_matrix_family+0x27c5>
+     93f:	f6 c2 04             	test   $0x4,%dl
+     942:	0f 85 4a 24 00 00    	jne    2d92 <vf3_matrix_family+0x27b2>
+     948:	85 d2                	test   %edx,%edx
+     94a:	74 07                	je     953 <vf3_matrix_family+0x373>
+     94c:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     951:	88 07                	mov    %al,(%rdi)
+     953:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     957:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     95e:	0f 85 35 1f 00 00    	jne    2899 <vf3_matrix_family+0x22b9>
+     964:	8b 43 5c             	mov    0x5c(%rbx),%eax
+     967:	48 8d 4b 60          	lea    0x60(%rbx),%rcx
+     96b:	ba 04 00 00 00       	mov    $0x4,%edx
+     970:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     974:	89 d0                	mov    %edx,%eax
+     976:	f6 c2 08             	test   $0x8,%dl
+     979:	0f 85 c6 23 00 00    	jne    2d45 <vf3_matrix_family+0x2765>
+     97f:	f6 c2 04             	test   $0x4,%dl
+     982:	0f 85 a6 23 00 00    	jne    2d2e <vf3_matrix_family+0x274e>
+     988:	85 d2                	test   %edx,%edx
+     98a:	74 0b                	je     997 <vf3_matrix_family+0x3b7>
+     98c:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     991:	88 01                	mov    %al,(%rcx)
+     993:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     997:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     99e:	0f 85 22 1f 00 00    	jne    28c6 <vf3_matrix_family+0x22e6>
+     9a4:	8b 43 64             	mov    0x64(%rbx),%eax
+     9a7:	48 8d 4b 68          	lea    0x68(%rbx),%rcx
+     9ab:	ba 04 00 00 00       	mov    $0x4,%edx
+     9b0:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     9b4:	89 d0                	mov    %edx,%eax
+     9b6:	f6 c2 08             	test   $0x8,%dl
+     9b9:	0f 85 a1 23 00 00    	jne    2d60 <vf3_matrix_family+0x2780>
+     9bf:	f6 c2 04             	test   $0x4,%dl
+     9c2:	0f 85 dc 22 00 00    	jne    2ca4 <vf3_matrix_family+0x26c4>
+     9c8:	85 d2                	test   %edx,%edx
+     9ca:	74 0b                	je     9d7 <vf3_matrix_family+0x3f7>
+     9cc:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     9d1:	88 01                	mov    %al,(%rcx)
+     9d3:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     9d7:	41 81 e0 00 00 10 00 	and    $0x100000,%r8d
+     9de:	0f 85 fc 1e 00 00    	jne    28e0 <vf3_matrix_family+0x2300>
+     9e4:	8b 43 6c             	mov    0x6c(%rbx),%eax
+     9e7:	48 8d 4b 70          	lea    0x70(%rbx),%rcx
+     9eb:	ba 04 00 00 00       	mov    $0x4,%edx
+     9f0:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     9f4:	89 d0                	mov    %edx,%eax
+     9f6:	f6 c2 08             	test   $0x8,%dl
+     9f9:	0f 85 7c 23 00 00    	jne    2d7b <vf3_matrix_family+0x279b>
+     9ff:	f6 c2 04             	test   $0x4,%dl
+     a02:	0f 85 f3 22 00 00    	jne    2cfb <vf3_matrix_family+0x271b>
+     a08:	85 d2                	test   %edx,%edx
+     a0a:	0f 84 c0 04 00 00    	je     ed0 <vf3_matrix_family+0x8f0>
+     a10:	e9 b4 04 00 00       	jmp    ec9 <vf3_matrix_family+0x8e9>
+     a15:	0f 1f 00             	nopl   (%rax)
+     a18:	81 ff f0 c4 03 0c    	cmp    $0xc03c4f0,%edi
+     a1e:	0f 84 fc 07 00 00    	je     1220 <vf3_matrix_family+0xc40>
+     a24:	0f 87 ae 0d 00 00    	ja     17d8 <vf3_matrix_family+0x11f8>
+     a2a:	81 ff e0 c0 03 0c    	cmp    $0xc03c0e0,%edi
+     a30:	0f 84 d2 0d 00 00    	je     1808 <vf3_matrix_family+0x1228>
+     a36:	81 ff a0 c4 03 0c    	cmp    $0xc03c4a0,%edi
+     a3c:	0f 85 0e 11 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+     a42:	8b 6b 44             	mov    0x44(%rbx),%ebp
+     a45:	44 8b 43 10          	mov    0x10(%rbx),%r8d
+     a49:	31 c0                	xor    %eax,%eax
+     a4b:	c7 43 0c e4 d2 19 0c 	movl   $0xc19d2e4,0xc(%rbx)
+     a52:	83 e5 fe             	and    $0xfffffffe,%ebp
+     a55:	45 85 c0             	test   %r8d,%r8d
+     a58:	0f 9f c0             	setg   %al
+     a5b:	09 c5                	or     %eax,%ebp
+     a5d:	89 6b 44             	mov    %ebp,0x44(%rbx)
+     a60:	40 f6 c5 01          	test   $0x1,%bpl
+     a64:	0f 84 c5 15 00 00    	je     202f <vf3_matrix_family+0x1a4f>
+     a6a:	4c 63 56 08          	movslq 0x8(%rsi),%r10
+     a6e:	41 b9 e4 d2 19 0c    	mov    $0xc19d2e4,%r9d
+     a74:	4c 89 d7             	mov    %r10,%rdi
+     a77:	49 c1 e2 04          	shl    $0x4,%r10
+     a7b:	85 ff                	test   %edi,%edi
+     a7d:	0f 8e 61 1b 00 00    	jle    25e4 <vf3_matrix_family+0x2004>
+     a83:	4c 8b 06             	mov    (%rsi),%r8
+     a86:	45 31 db             	xor    %r11d,%r11d
+     a89:	4f 8d 24 10          	lea    (%r8,%r10,1),%r12
+     a8d:	0f 1f 00             	nopl   (%rax)
+     a90:	4c 89 c0             	mov    %r8,%rax
+     a93:	66 90                	xchg   %ax,%ax
+     a95:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     a9c:	00 00 00 00 
+     aa0:	8b 50 08             	mov    0x8(%rax),%edx
+     aa3:	41 39 d1             	cmp    %edx,%r9d
+     aa6:	72 0e                	jb     ab6 <vf3_matrix_family+0x4d6>
+     aa8:	44 89 c9             	mov    %r9d,%ecx
+     aab:	29 d1                	sub    %edx,%ecx
+     aad:	3b 48 0c             	cmp    0xc(%rax),%ecx
+     ab0:	0f 82 6a 09 00 00    	jb     1420 <vf3_matrix_family+0xe40>
+     ab6:	48 83 c0 10          	add    $0x10,%rax
+     aba:	49 39 c4             	cmp    %rax,%r12
+     abd:	75 e1                	jne    aa0 <vf3_matrix_family+0x4c0>
+     abf:	41 83 c1 01          	add    $0x1,%r9d
+     ac3:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     ac7:	41 81 f9 e6 d2 19 0c 	cmp    $0xc19d2e6,%r9d
+     ace:	75 c0                	jne    a90 <vf3_matrix_family+0x4b0>
+     ad0:	45 0f bf e3          	movswl %r11w,%r12d
+     ad4:	45 0f bf db          	movswl %r11w,%r11d
+     ad8:	81 73 48 00 00 10 00 	xorl   $0x100000,0x48(%rbx)
+     adf:	41 b9 e6 d2 19 0c    	mov    $0xc19d2e6,%r9d
+     ae5:	44 89 5b 18          	mov    %r11d,0x18(%rbx)
+     ae9:	85 ff                	test   %edi,%edi
+     aeb:	0f 8e d7 1a 00 00    	jle    25c8 <vf3_matrix_family+0x1fe8>
+     af1:	4c 8b 06             	mov    (%rsi),%r8
+     af4:	31 ff                	xor    %edi,%edi
+     af6:	4d 01 c2             	add    %r8,%r10
+     af9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+     b00:	4c 89 c0             	mov    %r8,%rax
+     b03:	66 90                	xchg   %ax,%ax
+     b05:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     b0c:	00 00 00 00 
+     b10:	8b 50 08             	mov    0x8(%rax),%edx
+     b13:	41 39 d1             	cmp    %edx,%r9d
+     b16:	72 0e                	jb     b26 <vf3_matrix_family+0x546>
+     b18:	44 89 c9             	mov    %r9d,%ecx
+     b1b:	29 d1                	sub    %edx,%ecx
+     b1d:	3b 48 0c             	cmp    0xc(%rax),%ecx
+     b20:	0f 82 2a 09 00 00    	jb     1450 <vf3_matrix_family+0xe70>
+     b26:	48 83 c0 10          	add    $0x10,%rax
+     b2a:	4c 39 d0             	cmp    %r10,%rax
+     b2d:	75 e1                	jne    b10 <vf3_matrix_family+0x530>
+     b2f:	41 83 c1 01          	add    $0x1,%r9d
+     b33:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     b37:	41 81 f9 e8 d2 19 0c 	cmp    $0xc19d2e8,%r9d
+     b3e:	75 c0                	jne    b00 <vf3_matrix_family+0x520>
+     b40:	8b 43 10             	mov    0x10(%rbx),%eax
+     b43:	83 e5 fe             	and    $0xfffffffe,%ebp
+     b46:	31 d2                	xor    %edx,%edx
+     b48:	44 0f bf ef          	movswl %di,%r13d
+     b4c:	0f bf ff             	movswl %di,%edi
+     b4f:	41 39 c4             	cmp    %eax,%r12d
+     b52:	89 7b 08             	mov    %edi,0x8(%rbx)
+     b55:	0f 9d c2             	setge  %dl
+     b58:	09 d5                	or     %edx,%ebp
+     b5a:	89 ea                	mov    %ebp,%edx
+     b5c:	89 6b 44             	mov    %ebp,0x44(%rbx)
+     b5f:	83 e2 01             	and    $0x1,%edx
+     b62:	0f 84 a9 15 00 00    	je     2111 <vf3_matrix_family+0x1b31>
+     b68:	41 29 c3             	sub    %eax,%r11d
+     b6b:	45 89 df             	mov    %r11d,%r15d
+     b6e:	45 89 de             	mov    %r11d,%r14d
+     b71:	41 c1 e7 06          	shl    $0x6,%r15d
+     b75:	89 13                	mov    %edx,(%rbx)
+     b77:	41 b9 e8 d2 19 0c    	mov    $0xc19d2e8,%r9d
+     b7d:	44 89 5b 18          	mov    %r11d,0x18(%rbx)
+     b81:	44 8b 56 08          	mov    0x8(%rsi),%r10d
+     b85:	45 85 d2             	test   %r10d,%r10d
+     b88:	0f 8e 8f 1a 00 00    	jle    261d <vf3_matrix_family+0x203d>
+     b8e:	4c 8b 06             	mov    (%rsi),%r8
+     b91:	44 89 d7             	mov    %r10d,%edi
+     b94:	45 31 e4             	xor    %r12d,%r12d
+     b97:	48 c1 e7 04          	shl    $0x4,%rdi
+     b9b:	4c 01 c7             	add    %r8,%rdi
+     b9e:	66 90                	xchg   %ax,%ax
+     ba0:	4c 89 c0             	mov    %r8,%rax
+     ba3:	66 90                	xchg   %ax,%ax
+     ba5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     bac:	00 00 00 00 
+     bb0:	8b 50 08             	mov    0x8(%rax),%edx
+     bb3:	41 39 d1             	cmp    %edx,%r9d
+     bb6:	72 0e                	jb     bc6 <vf3_matrix_family+0x5e6>
+     bb8:	44 89 c9             	mov    %r9d,%ecx
+     bbb:	29 d1                	sub    %edx,%ecx
+     bbd:	3b 48 0c             	cmp    0xc(%rax),%ecx
+     bc0:	0f 82 9a 16 00 00    	jb     2260 <vf3_matrix_family+0x1c80>
+     bc6:	48 83 c0 10          	add    $0x10,%rax
+     bca:	48 39 f8             	cmp    %rdi,%rax
+     bcd:	75 e1                	jne    bb0 <vf3_matrix_family+0x5d0>
+     bcf:	41 83 c1 01          	add    $0x1,%r9d
+     bd3:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     bd7:	41 81 f9 ec d2 19 0c 	cmp    $0xc19d2ec,%r9d
+     bde:	75 c0                	jne    ba0 <vf3_matrix_family+0x5c0>
+     be0:	83 e5 fe             	and    $0xfffffffe,%ebp
+     be3:	31 c0                	xor    %eax,%eax
+     be5:	45 39 f5             	cmp    %r14d,%r13d
+     be8:	44 89 63 1c          	mov    %r12d,0x1c(%rbx)
+     bec:	0f 9e c0             	setle  %al
+     bef:	44 89 7b 10          	mov    %r15d,0x10(%rbx)
+     bf3:	41 b8 e4 d2 19 0c    	mov    $0xc19d2e4,%r8d
+     bf9:	09 c5                	or     %eax,%ebp
+     bfb:	89 6b 44             	mov    %ebp,0x44(%rbx)
+     bfe:	66 90                	xchg   %ax,%ax
+     c00:	45 85 d2             	test   %r10d,%r10d
+     c03:	7e 3c                	jle    c41 <vf3_matrix_family+0x661>
+     c05:	48 8b 06             	mov    (%rsi),%rax
+     c08:	44 89 d1             	mov    %r10d,%ecx
+     c0b:	48 c1 e1 04          	shl    $0x4,%rcx
+     c0f:	48 01 c1             	add    %rax,%rcx
+     c12:	0f 1f 00             	nopl   (%rax)
+     c15:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+     c1c:	00 00 00 00 
+     c20:	8b 50 08             	mov    0x8(%rax),%edx
+     c23:	41 39 d0             	cmp    %edx,%r8d
+     c26:	72 10                	jb     c38 <vf3_matrix_family+0x658>
+     c28:	45 89 c1             	mov    %r8d,%r9d
+     c2b:	41 29 d1             	sub    %edx,%r9d
+     c2e:	44 3b 48 0c          	cmp    0xc(%rax),%r9d
+     c32:	0f 82 08 16 00 00    	jb     2240 <vf3_matrix_family+0x1c60>
+     c38:	48 83 c0 10          	add    $0x10,%rax
+     c3c:	48 39 c1             	cmp    %rax,%rcx
+     c3f:	75 df                	jne    c20 <vf3_matrix_family+0x640>
+     c41:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+     c45:	41 81 f8 e5 d2 19 0c 	cmp    $0xc19d2e5,%r8d
+     c4c:	0f 84 4e 16 00 00    	je     22a0 <vf3_matrix_family+0x1cc0>
+     c52:	44 8b 56 08          	mov    0x8(%rsi),%r10d
+     c56:	41 b8 e5 d2 19 0c    	mov    $0xc19d2e5,%r8d
+     c5c:	eb a2                	jmp    c00 <vf3_matrix_family+0x620>
+     c5e:	66 90                	xchg   %ax,%ax
+     c60:	81 ff 2a 91 06 0c    	cmp    $0xc06912a,%edi
+     c66:	0f 84 44 13 00 00    	je     1fb0 <vf3_matrix_family+0x19d0>
+     c6c:	76 3a                	jbe    ca8 <vf3_matrix_family+0x6c8>
+     c6e:	81 ff 24 96 06 0c    	cmp    $0xc069624,%edi
+     c74:	0f 84 76 11 00 00    	je     1df0 <vf3_matrix_family+0x1810>
+     c7a:	81 ff d6 c2 0c 0c    	cmp    $0xc0cc2d6,%edi
+     c80:	0f 85 ca 0e 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+     c86:	48 89 f2             	mov    %rsi,%rdx
+     c89:	48 89 d9             	mov    %rbx,%rcx
+     c8c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+     c93:	5b                   	pop    %rbx
+     c94:	5e                   	pop    %rsi
+     c95:	5f                   	pop    %rdi
+     c96:	5d                   	pop    %rbp
+     c97:	41 5c                	pop    %r12
+     c99:	41 5d                	pop    %r13
+     c9b:	41 5e                	pop    %r14
+     c9d:	41 5f                	pop    %r15
+     c9f:	e9 00 00 00 00       	jmp    ca4 <vf3_matrix_family+0x6c4>
+     ca4:	0f 1f 40 00          	nopl   0x0(%rax)
+     ca8:	81 ff b0 cc 03 0c    	cmp    $0xc03ccb0,%edi
+     cae:	0f 85 8c 0e 00 00    	jne    1b40 <vf3_matrix_family+0x1560>
+     cb4:	8b 43 48             	mov    0x48(%rbx),%eax
+     cb7:	f3 0f 6f 05 10 00 00 	movdqu 0x10(%rip),%xmm0        # ccf <vf3_matrix_family+0x6ef>
+     cbe:	00 
+     cbf:	35 00 00 10 00       	xor    $0x100000,%eax
+     cc4:	0f 11 43 54          	movups %xmm0,0x54(%rbx)
+     cc8:	89 43 48             	mov    %eax,0x48(%rbx)
+     ccb:	a9 00 00 10 00       	test   $0x100000,%eax
+     cd0:	0f 84 65 13 00 00    	je     203b <vf3_matrix_family+0x1a5b>
+     cd6:	48 c7 44 24 70 00 00 	movq   $0x0,0x70(%rsp)
+     cdd:	00 00 
+     cdf:	48 8d 8b 9c 00 00 00 	lea    0x9c(%rbx),%rcx
+     ce6:	b8 08 00 00 00       	mov    $0x8,%eax
+     ceb:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+     cf0:	89 c2                	mov    %eax,%edx
+     cf2:	a8 08                	test   $0x8,%al
+     cf4:	0f 85 e6 1c 00 00    	jne    29e0 <vf3_matrix_family+0x2400>
+     cfa:	a8 04                	test   $0x4,%al
+     cfc:	0f 85 ef 1d 00 00    	jne    2af1 <vf3_matrix_family+0x2511>
+     d02:	85 c0                	test   %eax,%eax
+     d04:	74 07                	je     d0d <vf3_matrix_family+0x72d>
+     d06:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     d0b:	88 01                	mov    %al,(%rcx)
+     d0d:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     d11:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     d18:	0f 85 66 18 00 00    	jne    2584 <vf3_matrix_family+0x1fa4>
+     d1e:	8b 43 54             	mov    0x54(%rbx),%eax
+     d21:	48 8d 4b 70          	lea    0x70(%rbx),%rcx
+     d25:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     d29:	b8 04 00 00 00       	mov    $0x4,%eax
+     d2e:	89 c2                	mov    %eax,%edx
+     d30:	a8 08                	test   $0x8,%al
+     d32:	0f 85 3a 1d 00 00    	jne    2a72 <vf3_matrix_family+0x2492>
+     d38:	a8 04                	test   $0x4,%al
+     d3a:	0f 85 1b 1d 00 00    	jne    2a5b <vf3_matrix_family+0x247b>
+     d40:	85 c0                	test   %eax,%eax
+     d42:	74 0b                	je     d4f <vf3_matrix_family+0x76f>
+     d44:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     d49:	88 01                	mov    %al,(%rcx)
+     d4b:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     d4f:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     d56:	0f 85 0e 18 00 00    	jne    256a <vf3_matrix_family+0x1f8a>
+     d5c:	8b 43 54             	mov    0x54(%rbx),%eax
+     d5f:	48 8d 4b 78          	lea    0x78(%rbx),%rcx
+     d63:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     d67:	b8 04 00 00 00       	mov    $0x4,%eax
+     d6c:	89 c2                	mov    %eax,%edx
+     d6e:	a8 08                	test   $0x8,%al
+     d70:	0f 85 ca 1c 00 00    	jne    2a40 <vf3_matrix_family+0x2460>
+     d76:	a8 04                	test   $0x4,%al
+     d78:	0f 85 ab 1c 00 00    	jne    2a29 <vf3_matrix_family+0x2449>
+     d7e:	85 c0                	test   %eax,%eax
+     d80:	74 0b                	je     d8d <vf3_matrix_family+0x7ad>
+     d82:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     d87:	88 01                	mov    %al,(%rcx)
+     d89:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     d8d:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     d94:	0f 85 b6 17 00 00    	jne    2550 <vf3_matrix_family+0x1f70>
+     d9a:	8b 43 54             	mov    0x54(%rbx),%eax
+     d9d:	48 8d 8b 88 00 00 00 	lea    0x88(%rbx),%rcx
+     da4:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     da8:	b8 04 00 00 00       	mov    $0x4,%eax
+     dad:	89 c2                	mov    %eax,%edx
+     daf:	a8 08                	test   $0x8,%al
+     db1:	0f 85 57 1c 00 00    	jne    2a0e <vf3_matrix_family+0x242e>
+     db7:	a8 04                	test   $0x4,%al
+     db9:	0f 85 38 1c 00 00    	jne    29f7 <vf3_matrix_family+0x2417>
+     dbf:	85 c0                	test   %eax,%eax
+     dc1:	74 0b                	je     dce <vf3_matrix_family+0x7ee>
+     dc3:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     dc8:	88 01                	mov    %al,(%rcx)
+     dca:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     dce:	c7 43 54 00 00 80 3f 	movl   $0x3f800000,0x54(%rbx)
+     dd5:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     ddc:	0f 85 54 17 00 00    	jne    2536 <vf3_matrix_family+0x1f56>
+     de2:	c7 44 24 70 00 00 80 	movl   $0x3f800000,0x70(%rsp)
+     de9:	3f 
+     dea:	48 8d 4b 58          	lea    0x58(%rbx),%rcx
+     dee:	b8 04 00 00 00       	mov    $0x4,%eax
+     df3:	89 c2                	mov    %eax,%edx
+     df5:	a8 08                	test   $0x8,%al
+     df7:	0f 85 ad 1b 00 00    	jne    29aa <vf3_matrix_family+0x23ca>
+     dfd:	a8 04                	test   $0x4,%al
+     dff:	0f 85 8e 1b 00 00    	jne    2993 <vf3_matrix_family+0x23b3>
+     e05:	85 c0                	test   %eax,%eax
+     e07:	74 0b                	je     e14 <vf3_matrix_family+0x834>
+     e09:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     e0e:	88 01                	mov    %al,(%rcx)
+     e10:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     e14:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     e1b:	0f 85 fb 16 00 00    	jne    251c <vf3_matrix_family+0x1f3c>
+     e21:	8b 43 54             	mov    0x54(%rbx),%eax
+     e24:	48 8d 8b 80 00 00 00 	lea    0x80(%rbx),%rcx
+     e2b:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     e2f:	b8 04 00 00 00       	mov    $0x4,%eax
+     e34:	89 c2                	mov    %eax,%edx
+     e36:	a8 08                	test   $0x8,%al
+     e38:	0f 85 98 1c 00 00    	jne    2ad6 <vf3_matrix_family+0x24f6>
+     e3e:	a8 04                	test   $0x4,%al
+     e40:	0f 85 79 1c 00 00    	jne    2abf <vf3_matrix_family+0x24df>
+     e46:	85 c0                	test   %eax,%eax
+     e48:	74 0b                	je     e55 <vf3_matrix_family+0x875>
+     e4a:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     e4f:	88 01                	mov    %al,(%rcx)
+     e51:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     e55:	41 f7 c0 00 00 10 00 	test   $0x100000,%r8d
+     e5c:	0f 85 a0 16 00 00    	jne    2502 <vf3_matrix_family+0x1f22>
+     e62:	8b 43 5c             	mov    0x5c(%rbx),%eax
+     e65:	48 8d 4b 68          	lea    0x68(%rbx),%rcx
+     e69:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     e6d:	b8 04 00 00 00       	mov    $0x4,%eax
+     e72:	89 c2                	mov    %eax,%edx
+     e74:	a8 08                	test   $0x8,%al
+     e76:	0f 85 28 1c 00 00    	jne    2aa4 <vf3_matrix_family+0x24c4>
+     e7c:	a8 04                	test   $0x4,%al
+     e7e:	0f 85 09 1c 00 00    	jne    2a8d <vf3_matrix_family+0x24ad>
+     e84:	85 c0                	test   %eax,%eax
+     e86:	74 0b                	je     e93 <vf3_matrix_family+0x8b3>
+     e88:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     e8d:	88 01                	mov    %al,(%rcx)
+     e8f:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+     e93:	41 81 e0 00 00 10 00 	and    $0x100000,%r8d
+     e9a:	0f 85 48 16 00 00    	jne    24e8 <vf3_matrix_family+0x1f08>
+     ea0:	8b 43 5c             	mov    0x5c(%rbx),%eax
+     ea3:	48 8d 8b 90 00 00 00 	lea    0x90(%rbx),%rcx
+     eaa:	89 44 24 70          	mov    %eax,0x70(%rsp)
+     eae:	b8 04 00 00 00       	mov    $0x4,%eax
+     eb3:	89 c2                	mov    %eax,%edx
+     eb5:	a8 08                	test   $0x8,%al
+     eb7:	0f 85 90 1a 00 00    	jne    294d <vf3_matrix_family+0x236d>
+     ebd:	a8 04                	test   $0x4,%al
+     ebf:	0f 85 75 1a 00 00    	jne    293a <vf3_matrix_family+0x235a>
+     ec5:	85 c0                	test   %eax,%eax
+     ec7:	74 07                	je     ed0 <vf3_matrix_family+0x8f0>
+     ec9:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+     ece:	88 01                	mov    %al,(%rcx)
+     ed0:	81 73 48 00 00 10 00 	xorl   $0x100000,0x48(%rbx)
+     ed7:	e9 11 f9 ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+     edc:	0f 1f 40 00          	nopl   0x0(%rax)
+     ee0:	8b 43 44             	mov    0x44(%rbx),%eax
+     ee3:	8b 4b 10             	mov    0x10(%rbx),%ecx
+     ee6:	31 d2                	xor    %edx,%edx
+     ee8:	44 8b 43 38          	mov    0x38(%rbx),%r8d
+     eec:	83 e0 fe             	and    $0xfffffffe,%eax
+     eef:	85 c9                	test   %ecx,%ecx
+     ef1:	48 89 f1             	mov    %rsi,%rcx
+     ef4:	0f 94 c2             	sete   %dl
+     ef7:	09 d0                	or     %edx,%eax
+     ef9:	89 43 44             	mov    %eax,0x44(%rbx)
+     efc:	8b 43 3c             	mov    0x3c(%rbx),%eax
+     eff:	8d 50 fc             	lea    -0x4(%rax),%edx
+     f02:	89 53 3c             	mov    %edx,0x3c(%rbx)
+     f05:	e8 f6 f0 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+     f0a:	8b 4b 14             	mov    0x14(%rbx),%ecx
+     f0d:	8b 43 44             	mov    0x44(%rbx),%eax
+     f10:	45 31 c0             	xor    %r8d,%r8d
+     f13:	8b 53 10             	mov    0x10(%rbx),%edx
+     f16:	83 e0 fe             	and    $0xfffffffe,%eax
+     f19:	85 c9                	test   %ecx,%ecx
+     f1b:	89 4b 38             	mov    %ecx,0x38(%rbx)
+     f1e:	41 0f 94 c0          	sete   %r8b
+     f22:	44 09 c0             	or     %r8d,%eax
+     f25:	89 43 44             	mov    %eax,0x44(%rbx)
+     f28:	85 d2                	test   %edx,%edx
+     f2a:	0f 85 ef 11 00 00    	jne    211f <vf3_matrix_family+0x1b3f>
+     f30:	85 c9                	test   %ecx,%ecx
+     f32:	0f 84 42 1c 00 00    	je     2b7a <vf3_matrix_family+0x259a>
+     f38:	c7 43 0c 80 bd 03 0c 	movl   $0xc03bd80,0xc(%rbx)
+     f3f:	8b 53 3c             	mov    0x3c(%rbx),%edx
+     f42:	89 4b 10             	mov    %ecx,0x10(%rbx)
+     f45:	e9 e7 00 00 00       	jmp    1031 <vf3_matrix_family+0xa51>
+     f4a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+     f50:	8b 43 3c             	mov    0x3c(%rbx),%eax
+     f53:	44 8b 43 38          	mov    0x38(%rbx),%r8d
+     f57:	48 89 f1             	mov    %rsi,%rcx
+     f5a:	48 89 df             	mov    %rbx,%rdi
+     f5d:	48 89 dd             	mov    %rbx,%rbp
+     f60:	8d 50 fc             	lea    -0x4(%rax),%edx
+     f63:	89 53 3c             	mov    %edx,0x3c(%rbx)
+     f66:	e8 95 f0 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+     f6b:	8b 43 10             	mov    0x10(%rbx),%eax
+     f6e:	c7 03 08 00 00 00    	movl   $0x8,(%rbx)
+     f74:	44 8d 60 08          	lea    0x8(%rax),%r12d
+     f78:	89 43 38             	mov    %eax,0x38(%rbx)
+     f7b:	8b 43 48             	mov    0x48(%rbx),%eax
+     f7e:	25 00 00 10 00       	and    $0x100000,%eax
+     f83:	83 f8 01             	cmp    $0x1,%eax
+     f86:	48 19 c0             	sbb    %rax,%rax
+     f89:	41 29 dc             	sub    %ebx,%r12d
+     f8c:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+     f90:	4c 8d 6c 03 08       	lea    0x8(%rbx,%rax,1),%r13
+     f95:	41 8d 14 2c          	lea    (%r12,%rbp,1),%edx
+     f99:	48 89 f1             	mov    %rsi,%rcx
+     f9c:	48 83 c5 04          	add    $0x4,%rbp
+     fa0:	e8 4b f1 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+     fa5:	89 45 68             	mov    %eax,0x68(%rbp)
+     fa8:	49 39 ed             	cmp    %rbp,%r13
+     fab:	75 e8                	jne    f95 <vf3_matrix_family+0x9b5>
+     fad:	8b 43 48             	mov    0x48(%rbx),%eax
+     fb0:	8b 6b 38             	mov    0x38(%rbx),%ebp
+     fb3:	c7 03 04 00 00 00    	movl   $0x4,(%rbx)
+     fb9:	c7 43 0c 60 cc 03 0c 	movl   $0xc03cc60,0xc(%rbx)
+     fc0:	25 00 00 10 00       	and    $0x100000,%eax
+     fc5:	83 f8 01             	cmp    $0x1,%eax
+     fc8:	48 19 c0             	sbb    %rax,%rax
+     fcb:	29 dd                	sub    %ebx,%ebp
+     fcd:	48 83 e0 fc          	and    $0xfffffffffffffffc,%rax
+     fd1:	4c 8d 64 03 08       	lea    0x8(%rbx,%rax,1),%r12
+     fd6:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+     fda:	48 89 f1             	mov    %rsi,%rcx
+     fdd:	48 83 c7 04          	add    $0x4,%rdi
+     fe1:	e8 0a f1 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+     fe6:	89 47 60             	mov    %eax,0x60(%rdi)
+     fe9:	4c 39 e7             	cmp    %r12,%rdi
+     fec:	75 e8                	jne    fd6 <vf3_matrix_family+0x9f6>
+     fee:	8b 43 38             	mov    0x38(%rbx),%eax
+     ff1:	8d 68 04             	lea    0x4(%rax),%ebp
+     ff4:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+     ff8:	0f 84 35 11 00 00    	je     2133 <vf3_matrix_family+0x1b53>
+     ffe:	48 8d bb a4 00 00 00 	lea    0xa4(%rbx),%rdi
+    1005:	31 c0                	xor    %eax,%eax
+    1007:	3c 01                	cmp    $0x1,%al
+    1009:	48 19 c0             	sbb    %rax,%rax
+    100c:	29 fd                	sub    %edi,%ebp
+    100e:	83 e0 04             	and    $0x4,%eax
+    1011:	4c 8d 64 07 04       	lea    0x4(%rdi,%rax,1),%r12
+    1016:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    101a:	48 89 f1             	mov    %rsi,%rcx
+    101d:	48 83 c7 04          	add    $0x4,%rdi
+    1021:	e8 ca f0 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    1026:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    1029:	49 39 fc             	cmp    %rdi,%r12
+    102c:	75 e8                	jne    1016 <vf3_matrix_family+0xa36>
+    102e:	8b 53 3c             	mov    0x3c(%rbx),%edx
+    1031:	48 89 f1             	mov    %rsi,%rcx
+    1034:	e8 b7 f0 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    1039:	83 43 3c 04          	addl   $0x4,0x3c(%rbx)
+    103d:	8b 7b 0c             	mov    0xc(%rbx),%edi
+    1040:	89 43 38             	mov    %eax,0x38(%rbx)
+    1043:	e9 b3 f5 ff ff       	jmp    5fb <vf3_matrix_family+0x1b>
+    1048:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    104f:	00 
+    1050:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1055:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    105c:	00 
+    105d:	bd 0c 00 00 00       	mov    $0xc,%ebp
+    1062:	4c 8d ab 84 00 00 00 	lea    0x84(%rbx),%r13
+    1069:	8b 53 48             	mov    0x48(%rbx),%edx
+    106c:	8b 43 10             	mov    0x10(%rbx),%eax
+    106f:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1073:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    107a:	00 
+    107b:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1082:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    1087:	81 f2 00 00 20 00    	xor    $0x200000,%edx
+    108d:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1091:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1098:	00 
+    1099:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    10a0:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    10a5:	89 53 48             	mov    %edx,0x48(%rbx)
+    10a8:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    10ac:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    10b3:	00 
+    10b4:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    10bb:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    10c2:	00 
+    10c3:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    10ca:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    10d1:	81 e2 00 00 10 00    	and    $0x100000,%edx
+    10d7:	0f 84 03 04 00 00    	je     14e0 <vf3_matrix_family+0xf00>
+    10dd:	40 f6 c5 01          	test   $0x1,%bpl
+    10e1:	0f 84 fd 0e 00 00    	je     1fe4 <vf3_matrix_family+0x1a04>
+    10e7:	48 8d bb c4 00 00 00 	lea    0xc4(%rbx),%rdi
+    10ee:	31 d2                	xor    %edx,%edx
+    10f0:	e9 f3 03 00 00       	jmp    14e8 <vf3_matrix_family+0xf08>
+    10f5:	0f 1f 00             	nopl   (%rax)
+    10f8:	44 8b 5b 10          	mov    0x10(%rbx),%r11d
+    10fc:	8b 53 44             	mov    0x44(%rbx),%edx
+    10ff:	31 c9                	xor    %ecx,%ecx
+    1101:	83 e2 fe             	and    $0xfffffffe,%edx
+    1104:	45 85 db             	test   %r11d,%r11d
+    1107:	44 89 d8             	mov    %r11d,%eax
+    110a:	0f 94 c1             	sete   %cl
+    110d:	09 ca                	or     %ecx,%edx
+    110f:	89 53 44             	mov    %edx,0x44(%rbx)
+    1112:	45 85 db             	test   %r11d,%r11d
+    1115:	0f 84 aa 10 00 00    	je     21c5 <vf3_matrix_family+0x1be5>
+    111b:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1120:	8b 53 48             	mov    0x48(%rbx),%edx
+    1123:	4c 8d 6b 54          	lea    0x54(%rbx),%r13
+    1127:	31 ed                	xor    %ebp,%ebp
+    1129:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    1130:	00 
+    1131:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1138:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    113d:	81 f2 00 00 20 00    	xor    $0x200000,%edx
+    1143:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1147:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    114e:	00 
+    114f:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1156:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    115b:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    115f:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1166:	00 
+    1167:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    116e:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    1175:	00 
+    1176:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    117a:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    1181:	00 
+    1182:	89 53 48             	mov    %edx,0x48(%rbx)
+    1185:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    118c:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    1193:	eb 72                	jmp    1207 <vf3_matrix_family+0xc27>
+    1195:	0f 1f 00             	nopl   (%rax)
+    1198:	89 ea                	mov    %ebp,%edx
+    119a:	83 e2 fe             	and    $0xfffffffe,%edx
+    119d:	40 f6 c5 01          	test   $0x1,%bpl
+    11a1:	0f 84 61 02 00 00    	je     1408 <vf3_matrix_family+0xe28>
+    11a7:	83 c2 25             	add    $0x25,%edx
+    11aa:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    11ae:	31 d2                	xor    %edx,%edx
+    11b0:	80 fa 01             	cmp    $0x1,%dl
+    11b3:	48 19 d2             	sbb    %rdx,%rdx
+    11b6:	29 f8                	sub    %edi,%eax
+    11b8:	83 e2 04             	and    $0x4,%edx
+    11bb:	41 89 c6             	mov    %eax,%r14d
+    11be:	4c 8d 64 17 04       	lea    0x4(%rdi,%rdx,1),%r12
+    11c3:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    11c7:	48 89 f1             	mov    %rsi,%rcx
+    11ca:	48 83 c7 04          	add    $0x4,%rdi
+    11ce:	e8 1d ef ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    11d3:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    11d6:	4c 39 e7             	cmp    %r12,%rdi
+    11d9:	75 e8                	jne    11c3 <vf3_matrix_family+0xbe3>
+    11db:	8b 53 48             	mov    0x48(%rbx),%edx
+    11de:	8b 4b 10             	mov    0x10(%rbx),%ecx
+    11e1:	89 d0                	mov    %edx,%eax
+    11e3:	25 00 00 10 00       	and    $0x100000,%eax
+    11e8:	83 f8 01             	cmp    $0x1,%eax
+    11eb:	19 c0                	sbb    %eax,%eax
+    11ed:	83 c5 01             	add    $0x1,%ebp
+    11f0:	49 83 c5 04          	add    $0x4,%r13
+    11f4:	83 e0 fc             	and    $0xfffffffc,%eax
+    11f7:	8d 44 08 08          	lea    0x8(%rax,%rcx,1),%eax
+    11fb:	89 43 10             	mov    %eax,0x10(%rbx)
+    11fe:	83 fd 10             	cmp    $0x10,%ebp
+    1201:	0f 84 38 03 00 00    	je     153f <vf3_matrix_family+0xf5f>
+    1207:	81 e2 00 00 10 00    	and    $0x100000,%edx
+    120d:	75 89                	jne    1198 <vf3_matrix_family+0xbb8>
+    120f:	4c 89 ef             	mov    %r13,%rdi
+    1212:	ba 01 00 00 00       	mov    $0x1,%edx
+    1217:	eb 97                	jmp    11b0 <vf3_matrix_family+0xbd0>
+    1219:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1220:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1225:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    122c:	00 
+    122d:	c7 43 0c e4 d2 19 0c 	movl   $0xc19d2e4,0xc(%rbx)
+    1234:	41 b9 ec d2 19 0c    	mov    $0xc19d2ec,%r9d
+    123a:	44 8b 5b 48          	mov    0x48(%rbx),%r11d
+    123e:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1242:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    1249:	00 
+    124a:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1251:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    1256:	41 81 f3 00 00 30 00 	xor    $0x300000,%r11d
+    125d:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1261:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1268:	00 
+    1269:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1270:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    1275:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    1279:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    1280:	00 
+    1281:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    1288:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    128f:	00 
+    1290:	44 89 5b 48          	mov    %r11d,0x48(%rbx)
+    1294:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    129b:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    12a2:	48 63 7e 08          	movslq 0x8(%rsi),%rdi
+    12a6:	49 89 fc             	mov    %rdi,%r12
+    12a9:	48 c1 e7 04          	shl    $0x4,%rdi
+    12ad:	45 85 e4             	test   %r12d,%r12d
+    12b0:	0f 8e 84 13 00 00    	jle    263a <vf3_matrix_family+0x205a>
+    12b6:	4c 8b 06             	mov    (%rsi),%r8
+    12b9:	45 31 d2             	xor    %r10d,%r10d
+    12bc:	49 8d 2c 38          	lea    (%r8,%rdi,1),%rbp
+    12c0:	4c 89 c0             	mov    %r8,%rax
+    12c3:	66 90                	xchg   %ax,%ax
+    12c5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    12cc:	00 00 00 00 
+    12d0:	8b 50 08             	mov    0x8(%rax),%edx
+    12d3:	41 39 d1             	cmp    %edx,%r9d
+    12d6:	72 0e                	jb     12e6 <vf3_matrix_family+0xd06>
+    12d8:	44 89 c9             	mov    %r9d,%ecx
+    12db:	29 d1                	sub    %edx,%ecx
+    12dd:	3b 48 0c             	cmp    0xc(%rax),%ecx
+    12e0:	0f 82 9a 01 00 00    	jb     1480 <vf3_matrix_family+0xea0>
+    12e6:	48 83 c0 10          	add    $0x10,%rax
+    12ea:	48 39 e8             	cmp    %rbp,%rax
+    12ed:	75 e1                	jne    12d0 <vf3_matrix_family+0xcf0>
+    12ef:	41 83 c1 01          	add    $0x1,%r9d
+    12f3:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    12f7:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    12fe:	75 c0                	jne    12c0 <vf3_matrix_family+0xce0>
+    1300:	44 89 53 04          	mov    %r10d,0x4(%rbx)
+    1304:	41 b9 e4 d2 19 0c    	mov    $0xc19d2e4,%r9d
+    130a:	45 85 e4             	test   %r12d,%r12d
+    130d:	0f 8e ed 12 00 00    	jle    2600 <vf3_matrix_family+0x2020>
+    1313:	4c 8b 06             	mov    (%rsi),%r8
+    1316:	45 31 e4             	xor    %r12d,%r12d
+    1319:	4c 01 c7             	add    %r8,%rdi
+    131c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1320:	4c 89 c0             	mov    %r8,%rax
+    1323:	66 90                	xchg   %ax,%ax
+    1325:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    132c:	00 00 00 00 
+    1330:	8b 50 08             	mov    0x8(%rax),%edx
+    1333:	41 39 d1             	cmp    %edx,%r9d
+    1336:	72 0e                	jb     1346 <vf3_matrix_family+0xd66>
+    1338:	44 89 c9             	mov    %r9d,%ecx
+    133b:	29 d1                	sub    %edx,%ecx
+    133d:	3b 48 0c             	cmp    0xc(%rax),%ecx
+    1340:	0f 82 6a 01 00 00    	jb     14b0 <vf3_matrix_family+0xed0>
+    1346:	48 83 c0 10          	add    $0x10,%rax
+    134a:	48 39 f8             	cmp    %rdi,%rax
+    134d:	75 e1                	jne    1330 <vf3_matrix_family+0xd50>
+    134f:	41 83 c1 01          	add    $0x1,%r9d
+    1353:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    1357:	41 81 f9 e8 d2 19 0c 	cmp    $0xc19d2e8,%r9d
+    135e:	75 c0                	jne    1320 <vf3_matrix_family+0xd40>
+    1360:	41 0f bf c4          	movswl %r12w,%eax
+    1364:	44 89 e2             	mov    %r12d,%edx
+    1367:	44 89 53 1c          	mov    %r10d,0x1c(%rbx)
+    136b:	41 8d 6a 40          	lea    0x40(%r10),%ebp
+    136f:	89 43 18             	mov    %eax,0x18(%rbx)
+    1372:	44 89 e0             	mov    %r12d,%eax
+    1375:	c1 ea 10             	shr    $0x10,%edx
+    1378:	4c 8d ab 8c 00 00 00 	lea    0x8c(%rbx),%r13
+    137f:	c1 f8 10             	sar    $0x10,%eax
+    1382:	89 43 08             	mov    %eax,0x8(%rbx)
+    1385:	8b 43 44             	mov    0x44(%rbx),%eax
+    1388:	83 e0 fe             	and    $0xfffffffe,%eax
+    138b:	66 41 39 d4          	cmp    %dx,%r12w
+    138f:	4c 8d 63 4c          	lea    0x4c(%rbx),%r12
+    1393:	0f 9c c2             	setl   %dl
+    1396:	0f b6 d2             	movzbl %dl,%edx
+    1399:	09 d0                	or     %edx,%eax
+    139b:	89 43 44             	mov    %eax,0x44(%rbx)
+    139e:	83 e0 01             	and    $0x1,%eax
+    13a1:	89 03                	mov    %eax,(%rbx)
+    13a3:	eb 4a                	jmp    13ef <vf3_matrix_family+0xe0f>
+    13a5:	0f 1f 00             	nopl   (%rax)
+    13a8:	83 ed 08             	sub    $0x8,%ebp
+    13ab:	31 c0                	xor    %eax,%eax
+    13ad:	3c 01                	cmp    $0x1,%al
+    13af:	89 6b 04             	mov    %ebp,0x4(%rbx)
+    13b2:	4c 89 ef             	mov    %r13,%rdi
+    13b5:	48 19 c0             	sbb    %rax,%rax
+    13b8:	44 29 ed             	sub    %r13d,%ebp
+    13bb:	83 e0 04             	and    $0x4,%eax
+    13be:	4d 8d 74 05 04       	lea    0x4(%r13,%rax,1),%r14
+    13c3:	44 8b 07             	mov    (%rdi),%r8d
+    13c6:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    13ca:	48 89 f1             	mov    %rsi,%rcx
+    13cd:	48 83 c7 04          	add    $0x4,%rdi
+    13d1:	e8 2a ec ff ff       	call   0 <vf3_matrix_write.constprop.0>
+    13d6:	4c 39 f7             	cmp    %r14,%rdi
+    13d9:	75 e8                	jne    13c3 <vf3_matrix_family+0xde3>
+    13db:	49 83 ed 08          	sub    $0x8,%r13
+    13df:	4d 39 ec             	cmp    %r13,%r12
+    13e2:	0f 84 b0 06 00 00    	je     1a98 <vf3_matrix_family+0x14b8>
+    13e8:	44 8b 5b 48          	mov    0x48(%rbx),%r11d
+    13ec:	8b 6b 04             	mov    0x4(%rbx),%ebp
+    13ef:	41 81 e3 00 00 10 00 	and    $0x100000,%r11d
+    13f6:	75 b0                	jne    13a8 <vf3_matrix_family+0xdc8>
+    13f8:	83 ed 04             	sub    $0x4,%ebp
+    13fb:	b8 01 00 00 00       	mov    $0x1,%eax
+    1400:	eb ab                	jmp    13ad <vf3_matrix_family+0xdcd>
+    1402:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1408:	83 c2 15             	add    $0x15,%edx
+    140b:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    140f:	31 d2                	xor    %edx,%edx
+    1411:	e9 9a fd ff ff       	jmp    11b0 <vf3_matrix_family+0xbd0>
+    1416:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    141d:	00 00 00 
+    1420:	48 8b 00             	mov    (%rax),%rax
+    1423:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    1427:	42 8d 0c cd e0 68 31 	lea    -0x60ce9720(,%r9,8),%ecx
+    142e:	9f 
+    142f:	41 83 c1 01          	add    $0x1,%r9d
+    1433:	d3 e0                	shl    %cl,%eax
+    1435:	41 09 c3             	or     %eax,%r11d
+    1438:	41 81 f9 e6 d2 19 0c 	cmp    $0xc19d2e6,%r9d
+    143f:	0f 85 4b f6 ff ff    	jne    a90 <vf3_matrix_family+0x4b0>
+    1445:	e9 86 f6 ff ff       	jmp    ad0 <vf3_matrix_family+0x4f0>
+    144a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1450:	48 8b 00             	mov    (%rax),%rax
+    1453:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    1457:	42 8d 0c cd d0 68 31 	lea    -0x60ce9730(,%r9,8),%ecx
+    145e:	9f 
+    145f:	41 83 c1 01          	add    $0x1,%r9d
+    1463:	d3 e0                	shl    %cl,%eax
+    1465:	09 c7                	or     %eax,%edi
+    1467:	41 81 f9 e8 d2 19 0c 	cmp    $0xc19d2e8,%r9d
+    146e:	0f 85 8c f6 ff ff    	jne    b00 <vf3_matrix_family+0x520>
+    1474:	e9 c7 f6 ff ff       	jmp    b40 <vf3_matrix_family+0x560>
+    1479:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1480:	48 8b 00             	mov    (%rax),%rax
+    1483:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    1487:	42 8d 0c cd a0 68 31 	lea    -0x60ce9760(,%r9,8),%ecx
+    148e:	9f 
+    148f:	41 83 c1 01          	add    $0x1,%r9d
+    1493:	d3 e0                	shl    %cl,%eax
+    1495:	41 09 c2             	or     %eax,%r10d
+    1498:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    149f:	0f 85 1b fe ff ff    	jne    12c0 <vf3_matrix_family+0xce0>
+    14a5:	e9 56 fe ff ff       	jmp    1300 <vf3_matrix_family+0xd20>
+    14aa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    14b0:	48 8b 00             	mov    (%rax),%rax
+    14b3:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    14b7:	42 8d 0c cd e0 68 31 	lea    -0x60ce9720(,%r9,8),%ecx
+    14be:	9f 
+    14bf:	41 83 c1 01          	add    $0x1,%r9d
+    14c3:	d3 e0                	shl    %cl,%eax
+    14c5:	41 09 c4             	or     %eax,%r12d
+    14c8:	41 81 f9 e8 d2 19 0c 	cmp    $0xc19d2e8,%r9d
+    14cf:	0f 85 4b fe ff ff    	jne    1320 <vf3_matrix_family+0xd40>
+    14d5:	e9 86 fe ff ff       	jmp    1360 <vf3_matrix_family+0xd80>
+    14da:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    14e0:	4c 89 ef             	mov    %r13,%rdi
+    14e3:	ba 01 00 00 00       	mov    $0x1,%edx
+    14e8:	80 fa 01             	cmp    $0x1,%dl
+    14eb:	48 19 d2             	sbb    %rdx,%rdx
+    14ee:	29 f8                	sub    %edi,%eax
+    14f0:	83 e2 04             	and    $0x4,%edx
+    14f3:	41 89 c6             	mov    %eax,%r14d
+    14f6:	4c 8d 64 17 04       	lea    0x4(%rdi,%rdx,1),%r12
+    14fb:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    14ff:	48 89 f1             	mov    %rsi,%rcx
+    1502:	48 83 c7 04          	add    $0x4,%rdi
+    1506:	e8 e5 eb ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    150b:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    150e:	49 39 fc             	cmp    %rdi,%r12
+    1511:	75 e8                	jne    14fb <vf3_matrix_family+0xf1b>
+    1513:	8b 53 48             	mov    0x48(%rbx),%edx
+    1516:	8b 4b 10             	mov    0x10(%rbx),%ecx
+    1519:	89 d0                	mov    %edx,%eax
+    151b:	25 00 00 10 00       	and    $0x100000,%eax
+    1520:	83 f8 01             	cmp    $0x1,%eax
+    1523:	19 c0                	sbb    %eax,%eax
+    1525:	83 c5 01             	add    $0x1,%ebp
+    1528:	49 83 c5 04          	add    $0x4,%r13
+    152c:	83 e0 fc             	and    $0xfffffffc,%eax
+    152f:	8d 44 08 08          	lea    0x8(%rax,%rcx,1),%eax
+    1533:	89 43 10             	mov    %eax,0x10(%rbx)
+    1536:	83 fd 0f             	cmp    $0xf,%ebp
+    1539:	0f 85 92 fb ff ff    	jne    10d1 <vf3_matrix_family+0xaf1>
+    153f:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1544:	8b 43 40             	mov    0x40(%rbx),%eax
+    1547:	81 f2 00 00 20 00    	xor    $0x200000,%edx
+    154d:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    1554:	00 
+    1555:	89 53 48             	mov    %edx,0x48(%rbx)
+    1558:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    155f:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    1564:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1568:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    156f:	00 
+    1570:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1577:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    157c:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1580:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1587:	00 
+    1588:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    158f:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    1596:	00 
+    1597:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    159b:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    15a2:	00 
+    15a3:	89 83 d8 00 00 00    	mov    %eax,0xd8(%rbx)
+    15a9:	b8 01 00 00 00       	mov    $0x1,%eax
+    15ae:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    15b5:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    15bc:	e9 3a f2 ff ff       	jmp    7fb <vf3_matrix_family+0x21b>
+    15c1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    15c8:	81 ff 60 cc 03 0c    	cmp    $0xc03cc60,%edi
+    15ce:	0f 85 7c 05 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+    15d4:	c7 43 70 00 00 80 3f 	movl   $0x3f800000,0x70(%rbx)
+    15db:	48 8d 53 64          	lea    0x64(%rbx),%rdx
+    15df:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    15e3:	48 8d 8b 94 00 00 00 	lea    0x94(%rbx),%rcx
+    15ea:	49 89 d1             	mov    %rdx,%r9
+    15ed:	e8 00 00 00 00       	call   15f2 <vf3_matrix_family+0x1012>
+    15f2:	85 c0                	test   %eax,%eax
+    15f4:	0f 84 01 f2 ff ff    	je     7fb <vf3_matrix_family+0x21b>
+    15fa:	8b 43 48             	mov    0x48(%rbx),%eax
+    15fd:	35 00 00 10 00       	xor    $0x100000,%eax
+    1602:	89 43 48             	mov    %eax,0x48(%rbx)
+    1605:	a9 00 00 10 00       	test   $0x100000,%eax
+    160a:	0f 85 41 11 00 00    	jne    2751 <vf3_matrix_family+0x2171>
+    1610:	8b 43 64             	mov    0x64(%rbx),%eax
+    1613:	48 8d 8b 88 00 00 00 	lea    0x88(%rbx),%rcx
+    161a:	89 44 24 70          	mov    %eax,0x70(%rsp)
+    161e:	b8 04 00 00 00       	mov    $0x4,%eax
+    1623:	48 8d 74 24 70       	lea    0x70(%rsp),%rsi
+    1628:	89 c2                	mov    %eax,%edx
+    162a:	a8 08                	test   $0x8,%al
+    162c:	0f 85 7f 15 00 00    	jne    2bb1 <vf3_matrix_family+0x25d1>
+    1632:	a8 04                	test   $0x4,%al
+    1634:	0f 85 2d 15 00 00    	jne    2b67 <vf3_matrix_family+0x2587>
+    163a:	85 c0                	test   %eax,%eax
+    163c:	74 07                	je     1645 <vf3_matrix_family+0x1065>
+    163e:	0f b6 44 24 70       	movzbl 0x70(%rsp),%eax
+    1643:	88 01                	mov    %al,(%rcx)
+    1645:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    1649:	0f 85 e8 10 00 00    	jne    2737 <vf3_matrix_family+0x2157>
+    164f:	8b 43 6c             	mov    0x6c(%rbx),%eax
+    1652:	48 8d 8b 90 00 00 00 	lea    0x90(%rbx),%rcx
+    1659:	89 44 24 70          	mov    %eax,0x70(%rsp)
+    165d:	b8 04 00 00 00       	mov    $0x4,%eax
+    1662:	e9 4c f8 ff ff       	jmp    eb3 <vf3_matrix_family+0x8d3>
+    1667:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    166e:	00 00 
+    1670:	81 ff 50 b4 03 0c    	cmp    $0xc03b450,%edi
+    1676:	74 0c                	je     1684 <vf3_matrix_family+0x10a4>
+    1678:	81 ff b0 b4 03 0c    	cmp    $0xc03b4b0,%edi
+    167e:	0f 85 cc 04 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+    1684:	48 8d 43 64          	lea    0x64(%rbx),%rax
+    1688:	8b 6b 10             	mov    0x10(%rbx),%ebp
+    168b:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    168f:	41 bc 04 00 00 00    	mov    $0x4,%r12d
+    1695:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+    169a:	49 89 c6             	mov    %rax,%r14
+    169d:	41 81 e0 00 00 10 00 	and    $0x100000,%r8d
+    16a4:	74 1a                	je     16c0 <vf3_matrix_family+0x10e0>
+    16a6:	41 f6 c4 01          	test   $0x1,%r12b
+    16aa:	0f 84 20 09 00 00    	je     1fd0 <vf3_matrix_family+0x19f0>
+    16b0:	4c 8d 83 a4 00 00 00 	lea    0xa4(%rbx),%r8
+    16b7:	31 c0                	xor    %eax,%eax
+    16b9:	eb 0d                	jmp    16c8 <vf3_matrix_family+0x10e8>
+    16bb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    16c0:	4d 89 f0             	mov    %r14,%r8
+    16c3:	b8 01 00 00 00       	mov    $0x1,%eax
+    16c8:	3c 01                	cmp    $0x1,%al
+    16ca:	4d 89 c7             	mov    %r8,%r15
+    16cd:	48 19 c0             	sbb    %rax,%rax
+    16d0:	44 29 c5             	sub    %r8d,%ebp
+    16d3:	83 e0 04             	and    $0x4,%eax
+    16d6:	4d 8d 6c 00 04       	lea    0x4(%r8,%rax,1),%r13
+    16db:	42 8d 54 3d 00       	lea    0x0(%rbp,%r15,1),%edx
+    16e0:	48 89 f1             	mov    %rsi,%rcx
+    16e3:	49 83 c7 04          	add    $0x4,%r15
+    16e7:	e8 04 ea ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    16ec:	41 89 47 fc          	mov    %eax,-0x4(%r15)
+    16f0:	4d 39 fd             	cmp    %r15,%r13
+    16f3:	75 e6                	jne    16db <vf3_matrix_family+0x10fb>
+    16f5:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    16f9:	8b 53 10             	mov    0x10(%rbx),%edx
+    16fc:	44 89 c0             	mov    %r8d,%eax
+    16ff:	25 00 00 10 00       	and    $0x100000,%eax
+    1704:	83 f8 01             	cmp    $0x1,%eax
+    1707:	19 c0                	sbb    %eax,%eax
+    1709:	41 83 c4 01          	add    $0x1,%r12d
+    170d:	49 83 c6 04          	add    $0x4,%r14
+    1711:	83 e0 fc             	and    $0xfffffffc,%eax
+    1714:	8d 6c 10 08          	lea    0x8(%rax,%rdx,1),%ebp
+    1718:	89 6b 10             	mov    %ebp,0x10(%rbx)
+    171b:	41 83 fc 07          	cmp    $0x7,%r12d
+    171f:	0f 85 78 ff ff ff    	jne    169d <vf3_matrix_family+0x10bd>
+    1725:	31 c0                	xor    %eax,%eax
+    1727:	ba 00 00 80 3f       	mov    $0x3f800000,%edx
+    172c:	81 ff 50 b4 03 0c    	cmp    $0xc03b450,%edi
+    1732:	0f 44 c2             	cmove  %edx,%eax
+    1735:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+    173a:	48 8d 8b 94 00 00 00 	lea    0x94(%rbx),%rcx
+    1741:	89 43 70             	mov    %eax,0x70(%rbx)
+    1744:	49 89 d1             	mov    %rdx,%r9
+    1747:	e8 00 00 00 00       	call   174c <vf3_matrix_family+0x116c>
+    174c:	85 c0                	test   %eax,%eax
+    174e:	0f 84 a7 f0 ff ff    	je     7fb <vf3_matrix_family+0x21b>
+    1754:	8b 43 14             	mov    0x14(%rbx),%eax
+    1757:	4c 8d 73 6c          	lea    0x6c(%rbx),%r14
+    175b:	41 bc 06 00 00 00    	mov    $0x6,%r12d
+    1761:	8d 68 0c             	lea    0xc(%rax),%ebp
+    1764:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    1768:	75 50                	jne    17ba <vf3_matrix_family+0x11da>
+    176a:	83 ed 04             	sub    $0x4,%ebp
+    176d:	4c 89 f7             	mov    %r14,%rdi
+    1770:	b8 01 00 00 00       	mov    $0x1,%eax
+    1775:	3c 01                	cmp    $0x1,%al
+    1777:	89 6b 14             	mov    %ebp,0x14(%rbx)
+    177a:	48 19 c0             	sbb    %rax,%rax
+    177d:	29 fd                	sub    %edi,%ebp
+    177f:	83 e0 04             	and    $0x4,%eax
+    1782:	4c 8d 6c 07 04       	lea    0x4(%rdi,%rax,1),%r13
+    1787:	44 8b 07             	mov    (%rdi),%r8d
+    178a:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    178e:	48 89 f1             	mov    %rsi,%rcx
+    1791:	48 83 c7 04          	add    $0x4,%rdi
+    1795:	e8 66 e8 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+    179a:	49 39 fd             	cmp    %rdi,%r13
+    179d:	75 e8                	jne    1787 <vf3_matrix_family+0x11a7>
+    179f:	41 83 ec 01          	sub    $0x1,%r12d
+    17a3:	41 83 fc 03          	cmp    $0x3,%r12d
+    17a7:	0f 84 40 f0 ff ff    	je     7ed <vf3_matrix_family+0x20d>
+    17ad:	8b 6b 14             	mov    0x14(%rbx),%ebp
+    17b0:	49 83 ee 04          	sub    $0x4,%r14
+    17b4:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    17b8:	74 b0                	je     176a <vf3_matrix_family+0x118a>
+    17ba:	83 ed 08             	sub    $0x8,%ebp
+    17bd:	41 f6 c4 01          	test   $0x1,%r12b
+    17c1:	0f 84 ed 0d 00 00    	je     25b4 <vf3_matrix_family+0x1fd4>
+    17c7:	48 8d bb a4 00 00 00 	lea    0xa4(%rbx),%rdi
+    17ce:	31 c0                	xor    %eax,%eax
+    17d0:	eb a3                	jmp    1775 <vf3_matrix_family+0x1195>
+    17d2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    17d8:	81 ff 10 c6 03 0c    	cmp    $0xc03c610,%edi
+    17de:	0f 85 6c 03 00 00    	jne    1b50 <vf3_matrix_family+0x1570>
+    17e4:	f3 0f 6f 9b b4 00 00 	movdqu 0xb4(%rbx),%xmm3
+    17eb:	00 
+    17ec:	66 0f 76 c0          	pcmpeqd %xmm0,%xmm0
+    17f0:	66 0f 72 f0 1f       	pslld  $0x1f,%xmm0
+    17f5:	66 0f ef c3          	pxor   %xmm3,%xmm0
+    17f9:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    1800:	e9 e8 ef ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    1805:	0f 1f 00             	nopl   (%rax)
+    1808:	4c 8d b3 90 00 00 00 	lea    0x90(%rbx),%r14
+    180f:	41 bc 0f 00 00 00    	mov    $0xf,%r12d
+    1815:	8b 6b 3c             	mov    0x3c(%rbx),%ebp
+    1818:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    181c:	0f 85 4e 02 00 00    	jne    1a70 <vf3_matrix_family+0x1490>
+    1822:	83 ed 04             	sub    $0x4,%ebp
+    1825:	4c 89 f7             	mov    %r14,%rdi
+    1828:	b8 01 00 00 00       	mov    $0x1,%eax
+    182d:	3c 01                	cmp    $0x1,%al
+    182f:	89 6b 3c             	mov    %ebp,0x3c(%rbx)
+    1832:	48 19 c0             	sbb    %rax,%rax
+    1835:	29 fd                	sub    %edi,%ebp
+    1837:	83 e0 04             	and    $0x4,%eax
+    183a:	4c 8d 6c 07 04       	lea    0x4(%rdi,%rax,1),%r13
+    183f:	44 8b 07             	mov    (%rdi),%r8d
+    1842:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    1846:	48 89 f1             	mov    %rsi,%rcx
+    1849:	48 83 c7 04          	add    $0x4,%rdi
+    184d:	e8 ae e7 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+    1852:	4c 39 ef             	cmp    %r13,%rdi
+    1855:	75 e8                	jne    183f <vf3_matrix_family+0x125f>
+    1857:	41 83 ec 01          	sub    $0x1,%r12d
+    185b:	49 83 ee 04          	sub    $0x4,%r14
+    185f:	41 83 fc 0c          	cmp    $0xc,%r12d
+    1863:	75 b0                	jne    1815 <vf3_matrix_family+0x1235>
+    1865:	8b 83 84 00 00 00    	mov    0x84(%rbx),%eax
+    186b:	4c 8d 63 54          	lea    0x54(%rbx),%r12
+    186f:	45 31 c9             	xor    %r9d,%r9d
+    1872:	89 83 d4 00 00 00    	mov    %eax,0xd4(%rbx)
+    1878:	48 8d 83 94 00 00 00 	lea    0x94(%rbx),%rax
+    187f:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+    1884:	44 8b 7b 10          	mov    0x10(%rbx),%r15d
+    1888:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    188c:	45 89 cd             	mov    %r9d,%r13d
+    188f:	41 8d 69 04          	lea    0x4(%r9),%ebp
+    1893:	41 81 e0 00 00 10 00 	and    $0x100000,%r8d
+    189a:	0f 84 a0 01 00 00    	je     1a40 <vf3_matrix_family+0x1460>
+    18a0:	44 89 e8             	mov    %r13d,%eax
+    18a3:	83 e0 fe             	and    $0xfffffffe,%eax
+    18a6:	41 f6 c5 01          	test   $0x1,%r13b
+    18aa:	0f 84 a8 01 00 00    	je     1a58 <vf3_matrix_family+0x1478>
+    18b0:	83 c0 25             	add    $0x25,%eax
+    18b3:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    18b7:	31 c0                	xor    %eax,%eax
+    18b9:	3c 01                	cmp    $0x1,%al
+    18bb:	48 19 c0             	sbb    %rax,%rax
+    18be:	41 29 ff             	sub    %edi,%r15d
+    18c1:	83 e0 04             	and    $0x4,%eax
+    18c4:	4c 8d 74 07 04       	lea    0x4(%rdi,%rax,1),%r14
+    18c9:	41 8d 14 3f          	lea    (%r15,%rdi,1),%edx
+    18cd:	48 89 f1             	mov    %rsi,%rcx
+    18d0:	48 83 c7 04          	add    $0x4,%rdi
+    18d4:	e8 17 e8 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    18d9:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    18dc:	49 39 fe             	cmp    %rdi,%r14
+    18df:	75 e8                	jne    18c9 <vf3_matrix_family+0x12e9>
+    18e1:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    18e5:	8b 53 10             	mov    0x10(%rbx),%edx
+    18e8:	44 89 c0             	mov    %r8d,%eax
+    18eb:	25 00 00 10 00       	and    $0x100000,%eax
+    18f0:	83 f8 01             	cmp    $0x1,%eax
+    18f3:	19 c0                	sbb    %eax,%eax
+    18f5:	41 83 c5 01          	add    $0x1,%r13d
+    18f9:	83 e0 fc             	and    $0xfffffffc,%eax
+    18fc:	44 8d 7c 10 08       	lea    0x8(%rax,%rdx,1),%r15d
+    1901:	44 89 7b 10          	mov    %r15d,0x10(%rbx)
+    1905:	44 39 ed             	cmp    %r13d,%ebp
+    1908:	75 89                	jne    1893 <vf3_matrix_family+0x12b3>
+    190a:	48 8b 4c 24 28       	mov    0x28(%rsp),%rcx
+    190f:	4d 89 e1             	mov    %r12,%r9
+    1912:	4c 89 e2             	mov    %r12,%rdx
+    1915:	e8 00 00 00 00       	call   191a <vf3_matrix_family+0x133a>
+    191a:	85 c0                	test   %eax,%eax
+    191c:	0f 84 d9 ee ff ff    	je     7fb <vf3_matrix_family+0x21b>
+    1922:	41 89 e9             	mov    %ebp,%r9d
+    1925:	49 83 c4 10          	add    $0x10,%r12
+    1929:	83 fd 10             	cmp    $0x10,%ebp
+    192c:	0f 85 52 ff ff ff    	jne    1884 <vf3_matrix_family+0x12a4>
+    1932:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    1939:	00 
+    193a:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    193f:	4c 8d ab 88 00 00 00 	lea    0x88(%rbx),%r13
+    1946:	bd 0d 00 00 00       	mov    $0xd,%ebp
+    194b:	8b 53 48             	mov    0x48(%rbx),%edx
+    194e:	8b 83 d4 00 00 00    	mov    0xd4(%rbx),%eax
+    1954:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1958:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    195f:	00 
+    1960:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1967:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    196c:	81 f2 00 00 20 00    	xor    $0x200000,%edx
+    1972:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1976:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    197d:	00 
+    197e:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1985:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    198a:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    198e:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    1995:	00 
+    1996:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    199d:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    19a4:	00 
+    19a5:	89 53 48             	mov    %edx,0x48(%rbx)
+    19a8:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    19af:	89 83 84 00 00 00    	mov    %eax,0x84(%rbx)
+    19b5:	8b 43 3c             	mov    0x3c(%rbx),%eax
+    19b8:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    19bf:	81 e2 00 00 10 00    	and    $0x100000,%edx
+    19c5:	0f 84 c5 08 00 00    	je     2290 <vf3_matrix_family+0x1cb0>
+    19cb:	40 f6 c5 01          	test   $0x1,%bpl
+    19cf:	0f 84 e4 0a 00 00    	je     24b9 <vf3_matrix_family+0x1ed9>
+    19d5:	89 ea                	mov    %ebp,%edx
+    19d7:	83 e2 fe             	and    $0xfffffffe,%edx
+    19da:	83 c2 25             	add    $0x25,%edx
+    19dd:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    19e1:	31 d2                	xor    %edx,%edx
+    19e3:	80 fa 01             	cmp    $0x1,%dl
+    19e6:	48 19 d2             	sbb    %rdx,%rdx
+    19e9:	29 f8                	sub    %edi,%eax
+    19eb:	83 e2 04             	and    $0x4,%edx
+    19ee:	41 89 c6             	mov    %eax,%r14d
+    19f1:	4c 8d 64 17 04       	lea    0x4(%rdi,%rdx,1),%r12
+    19f6:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    19fa:	48 89 f1             	mov    %rsi,%rcx
+    19fd:	48 83 c7 04          	add    $0x4,%rdi
+    1a01:	e8 ea e6 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    1a06:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    1a09:	49 39 fc             	cmp    %rdi,%r12
+    1a0c:	75 e8                	jne    19f6 <vf3_matrix_family+0x1416>
+    1a0e:	8b 53 48             	mov    0x48(%rbx),%edx
+    1a11:	8b 4b 3c             	mov    0x3c(%rbx),%ecx
+    1a14:	89 d0                	mov    %edx,%eax
+    1a16:	25 00 00 10 00       	and    $0x100000,%eax
+    1a1b:	83 f8 01             	cmp    $0x1,%eax
+    1a1e:	19 c0                	sbb    %eax,%eax
+    1a20:	83 c5 01             	add    $0x1,%ebp
+    1a23:	49 83 c5 04          	add    $0x4,%r13
+    1a27:	83 e0 fc             	and    $0xfffffffc,%eax
+    1a2a:	8d 44 08 08          	lea    0x8(%rax,%rcx,1),%eax
+    1a2e:	89 43 3c             	mov    %eax,0x3c(%rbx)
+    1a31:	83 fd 10             	cmp    $0x10,%ebp
+    1a34:	75 89                	jne    19bf <vf3_matrix_family+0x13df>
+    1a36:	e9 b2 ed ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    1a3b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    1a40:	41 8d 45 15          	lea    0x15(%r13),%eax
+    1a44:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    1a48:	b8 01 00 00 00       	mov    $0x1,%eax
+    1a4d:	e9 67 fe ff ff       	jmp    18b9 <vf3_matrix_family+0x12d9>
+    1a52:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1a58:	83 c0 15             	add    $0x15,%eax
+    1a5b:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    1a5f:	31 c0                	xor    %eax,%eax
+    1a61:	e9 53 fe ff ff       	jmp    18b9 <vf3_matrix_family+0x12d9>
+    1a66:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    1a6d:	00 00 00 
+    1a70:	83 ed 08             	sub    $0x8,%ebp
+    1a73:	41 f6 c4 01          	test   $0x1,%r12b
+    1a77:	0f 84 8e 05 00 00    	je     200b <vf3_matrix_family+0x1a2b>
+    1a7d:	44 89 e0             	mov    %r12d,%eax
+    1a80:	83 e0 fe             	and    $0xfffffffe,%eax
+    1a83:	83 c0 25             	add    $0x25,%eax
+    1a86:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    1a8a:	31 c0                	xor    %eax,%eax
+    1a8c:	e9 9c fd ff ff       	jmp    182d <vf3_matrix_family+0x124d>
+    1a91:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1a98:	f3 0f 7e 43 18       	movq   0x18(%rbx),%xmm0
+    1a9d:	41 b8 ec d2 19 0c    	mov    $0xc19d2ec,%r8d
+    1aa3:	45 31 db             	xor    %r11d,%r11d
+    1aa6:	f3 0f 7e 0d 00 00 00 	movq   0x0(%rip),%xmm1        # 1aae <vf3_matrix_family+0x14ce>
+    1aad:	00 
+    1aae:	66 0f fe c1          	paddd  %xmm1,%xmm0
+    1ab2:	66 0f d6 43 18       	movq   %xmm0,0x18(%rbx)
+    1ab7:	8b 4e 08             	mov    0x8(%rsi),%ecx
+    1aba:	66 0f 70 d0 e5       	pshufd $0xe5,%xmm0,%xmm2
+    1abf:	66 0f 7e d7          	movd   %xmm2,%edi
+    1ac3:	66 90                	xchg   %ax,%ax
+    1ac5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    1acc:	00 00 00 00 
+    1ad0:	85 c9                	test   %ecx,%ecx
+    1ad2:	0f 8e 7f 0b 00 00    	jle    2657 <vf3_matrix_family+0x2077>
+    1ad8:	48 8b 06             	mov    (%rsi),%rax
+    1adb:	41 89 c9             	mov    %ecx,%r9d
+    1ade:	49 c1 e1 04          	shl    $0x4,%r9
+    1ae2:	49 01 c1             	add    %rax,%r9
+    1ae5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    1aec:	00 00 00 00 
+    1af0:	8b 50 08             	mov    0x8(%rax),%edx
+    1af3:	41 39 d0             	cmp    %edx,%r8d
+    1af6:	72 0c                	jb     1b04 <vf3_matrix_family+0x1524>
+    1af8:	45 89 c2             	mov    %r8d,%r10d
+    1afb:	41 29 d2             	sub    %edx,%r10d
+    1afe:	44 3b 50 0c          	cmp    0xc(%rax),%r10d
+    1b02:	72 24                	jb     1b28 <vf3_matrix_family+0x1548>
+    1b04:	48 83 c0 10          	add    $0x10,%rax
+    1b08:	49 39 c1             	cmp    %rax,%r9
+    1b0b:	75 e3                	jne    1af0 <vf3_matrix_family+0x1510>
+    1b0d:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    1b11:	41 83 c3 01          	add    $0x1,%r11d
+    1b15:	41 83 fb 04          	cmp    $0x4,%r11d
+    1b19:	0f 84 21 02 00 00    	je     1d40 <vf3_matrix_family+0x1760>
+    1b1f:	41 83 c0 01          	add    $0x1,%r8d
+    1b23:	eb ab                	jmp    1ad0 <vf3_matrix_family+0x14f0>
+    1b25:	0f 1f 00             	nopl   (%rax)
+    1b28:	42 8d 0c dd 00 00 00 	lea    0x0(,%r11,8),%ecx
+    1b2f:	00 
+    1b30:	48 8b 00             	mov    (%rax),%rax
+    1b33:	89 fa                	mov    %edi,%edx
+    1b35:	d3 ea                	shr    %cl,%edx
+    1b37:	42 88 14 10          	mov    %dl,(%rax,%r10,1)
+    1b3b:	8b 4e 08             	mov    0x8(%rsi),%ecx
+    1b3e:	eb d1                	jmp    1b11 <vf3_matrix_family+0x1531>
+    1b40:	81 ff 1c 91 06 0c    	cmp    $0xc06911c,%edi
+    1b46:	0f 84 64 04 00 00    	je     1fb0 <vf3_matrix_family+0x19d0>
+    1b4c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1b50:	89 f9                	mov    %edi,%ecx
+    1b52:	e8 00 00 00 00       	call   1b57 <vf3_matrix_family+0x1577>
+    1b57:	85 c0                	test   %eax,%eax
+    1b59:	0f 85 e2 05 00 00    	jne    2141 <vf3_matrix_family+0x1b61>
+    1b5f:	89 f9                	mov    %edi,%ecx
+    1b61:	e8 00 00 00 00       	call   1b66 <vf3_matrix_family+0x1586>
+    1b66:	85 c0                	test   %eax,%eax
+    1b68:	0f 85 85 0c 00 00    	jne    27f3 <vf3_matrix_family+0x2213>
+    1b6e:	89 f9                	mov    %edi,%ecx
+    1b70:	e8 00 00 00 00       	call   1b75 <vf3_matrix_family+0x1595>
+    1b75:	85 c0                	test   %eax,%eax
+    1b77:	0f 85 96 0c 00 00    	jne    2813 <vf3_matrix_family+0x2233>
+    1b7d:	89 f9                	mov    %edi,%ecx
+    1b7f:	e8 00 00 00 00       	call   1b84 <vf3_matrix_family+0x15a4>
+    1b84:	85 c0                	test   %eax,%eax
+    1b86:	0f 85 6e 0d 00 00    	jne    28fa <vf3_matrix_family+0x231a>
+    1b8c:	89 f9                	mov    %edi,%ecx
+    1b8e:	e8 00 00 00 00       	call   1b93 <vf3_matrix_family+0x15b3>
+    1b93:	85 c0                	test   %eax,%eax
+    1b95:	0f 85 7f 0d 00 00    	jne    291a <vf3_matrix_family+0x233a>
+    1b9b:	89 f9                	mov    %edi,%ecx
+    1b9d:	e8 00 00 00 00       	call   1ba2 <vf3_matrix_family+0x15c2>
+    1ba2:	85 c0                	test   %eax,%eax
+    1ba4:	0f 85 c9 0d 00 00    	jne    2973 <vf3_matrix_family+0x2393>
+    1baa:	89 f9                	mov    %edi,%ecx
+    1bac:	e8 00 00 00 00       	call   1bb1 <vf3_matrix_family+0x15d1>
+    1bb1:	85 c0                	test   %eax,%eax
+    1bb3:	0f 85 8e 0f 00 00    	jne    2b47 <vf3_matrix_family+0x2567>
+    1bb9:	89 f9                	mov    %edi,%ecx
+    1bbb:	e8 00 00 00 00       	call   1bc0 <vf3_matrix_family+0x15e0>
+    1bc0:	85 c0                	test   %eax,%eax
+    1bc2:	0f 85 c9 0f 00 00    	jne    2b91 <vf3_matrix_family+0x25b1>
+    1bc8:	89 f9                	mov    %edi,%ecx
+    1bca:	e8 00 00 00 00       	call   1bcf <vf3_matrix_family+0x15ef>
+    1bcf:	85 c0                	test   %eax,%eax
+    1bd1:	0f 85 37 11 00 00    	jne    2d0e <vf3_matrix_family+0x272e>
+    1bd7:	89 f9                	mov    %edi,%ecx
+    1bd9:	e8 00 00 00 00       	call   1bde <vf3_matrix_family+0x15fe>
+    1bde:	85 c0                	test   %eax,%eax
+    1be0:	0f 85 f5 10 00 00    	jne    2cdb <vf3_matrix_family+0x26fb>
+    1be6:	89 f9                	mov    %edi,%ecx
+    1be8:	e8 00 00 00 00       	call   1bed <vf3_matrix_family+0x160d>
+    1bed:	85 c0                	test   %eax,%eax
+    1bef:	0f 85 c6 10 00 00    	jne    2cbb <vf3_matrix_family+0x26db>
+    1bf5:	89 f9                	mov    %edi,%ecx
+    1bf7:	e8 00 00 00 00       	call   1bfc <vf3_matrix_family+0x161c>
+    1bfc:	85 c0                	test   %eax,%eax
+    1bfe:	0f 85 f0 11 00 00    	jne    2df4 <vf3_matrix_family+0x2814>
+    1c04:	89 f9                	mov    %edi,%ecx
+    1c06:	e8 00 00 00 00       	call   1c0b <vf3_matrix_family+0x162b>
+    1c0b:	85 c0                	test   %eax,%eax
+    1c0d:	0f 85 c1 11 00 00    	jne    2dd4 <vf3_matrix_family+0x27f4>
+    1c13:	89 f9                	mov    %edi,%ecx
+    1c15:	e8 00 00 00 00       	call   1c1a <vf3_matrix_family+0x163a>
+    1c1a:	85 c0                	test   %eax,%eax
+    1c1c:	0f 85 d2 12 00 00    	jne    2ef4 <vf3_matrix_family+0x2914>
+    1c22:	89 f9                	mov    %edi,%ecx
+    1c24:	e8 00 00 00 00       	call   1c29 <vf3_matrix_family+0x1649>
+    1c29:	85 c0                	test   %eax,%eax
+    1c2b:	0f 85 a3 12 00 00    	jne    2ed4 <vf3_matrix_family+0x28f4>
+    1c31:	89 f9                	mov    %edi,%ecx
+    1c33:	e8 00 00 00 00       	call   1c38 <vf3_matrix_family+0x1658>
+    1c38:	85 c0                	test   %eax,%eax
+    1c3a:	0f 85 74 12 00 00    	jne    2eb4 <vf3_matrix_family+0x28d4>
+    1c40:	89 f9                	mov    %edi,%ecx
+    1c42:	e8 00 00 00 00       	call   1c47 <vf3_matrix_family+0x1667>
+    1c47:	85 c0                	test   %eax,%eax
+    1c49:	0f 85 45 12 00 00    	jne    2e94 <vf3_matrix_family+0x28b4>
+    1c4f:	89 f9                	mov    %edi,%ecx
+    1c51:	e8 00 00 00 00       	call   1c56 <vf3_matrix_family+0x1676>
+    1c56:	85 c0                	test   %eax,%eax
+    1c58:	0f 85 96 13 00 00    	jne    2ff4 <vf3_matrix_family+0x2a14>
+    1c5e:	89 f9                	mov    %edi,%ecx
+    1c60:	e8 00 00 00 00       	call   1c65 <vf3_matrix_family+0x1685>
+    1c65:	85 c0                	test   %eax,%eax
+    1c67:	0f 85 67 13 00 00    	jne    2fd4 <vf3_matrix_family+0x29f4>
+    1c6d:	89 f9                	mov    %edi,%ecx
+    1c6f:	e8 00 00 00 00       	call   1c74 <vf3_matrix_family+0x1694>
+    1c74:	85 c0                	test   %eax,%eax
+    1c76:	0f 85 38 13 00 00    	jne    2fb4 <vf3_matrix_family+0x29d4>
+    1c7c:	89 f9                	mov    %edi,%ecx
+    1c7e:	e8 00 00 00 00       	call   1c83 <vf3_matrix_family+0x16a3>
+    1c83:	85 c0                	test   %eax,%eax
+    1c85:	0f 85 09 13 00 00    	jne    2f94 <vf3_matrix_family+0x29b4>
+    1c8b:	89 f9                	mov    %edi,%ecx
+    1c8d:	e8 00 00 00 00       	call   1c92 <vf3_matrix_family+0x16b2>
+    1c92:	85 c0                	test   %eax,%eax
+    1c94:	0f 85 da 12 00 00    	jne    2f74 <vf3_matrix_family+0x2994>
+    1c9a:	89 f9                	mov    %edi,%ecx
+    1c9c:	e8 00 00 00 00       	call   1ca1 <vf3_matrix_family+0x16c1>
+    1ca1:	85 c0                	test   %eax,%eax
+    1ca3:	0f 85 ab 12 00 00    	jne    2f54 <vf3_matrix_family+0x2974>
+    1ca9:	89 f9                	mov    %edi,%ecx
+    1cab:	e8 00 00 00 00       	call   1cb0 <vf3_matrix_family+0x16d0>
+    1cb0:	85 c0                	test   %eax,%eax
+    1cb2:	0f 85 7c 12 00 00    	jne    2f34 <vf3_matrix_family+0x2954>
+    1cb8:	89 f9                	mov    %edi,%ecx
+    1cba:	e8 00 00 00 00       	call   1cbf <vf3_matrix_family+0x16df>
+    1cbf:	85 c0                	test   %eax,%eax
+    1cc1:	0f 85 4d 12 00 00    	jne    2f14 <vf3_matrix_family+0x2934>
+    1cc7:	89 f9                	mov    %edi,%ecx
+    1cc9:	e8 00 00 00 00       	call   1cce <vf3_matrix_family+0x16ee>
+    1cce:	85 c0                	test   %eax,%eax
+    1cd0:	0f 85 9e 11 00 00    	jne    2e74 <vf3_matrix_family+0x2894>
+    1cd6:	89 f9                	mov    %edi,%ecx
+    1cd8:	e8 00 00 00 00       	call   1cdd <vf3_matrix_family+0x16fd>
+    1cdd:	85 c0                	test   %eax,%eax
+    1cdf:	0f 85 6f 11 00 00    	jne    2e54 <vf3_matrix_family+0x2874>
+    1ce5:	89 f9                	mov    %edi,%ecx
+    1ce7:	e8 00 00 00 00       	call   1cec <vf3_matrix_family+0x170c>
+    1cec:	85 c0                	test   %eax,%eax
+    1cee:	0f 85 40 11 00 00    	jne    2e34 <vf3_matrix_family+0x2854>
+    1cf4:	89 f9                	mov    %edi,%ecx
+    1cf6:	e8 00 00 00 00       	call   1cfb <vf3_matrix_family+0x171b>
+    1cfb:	85 c0                	test   %eax,%eax
+    1cfd:	0f 85 11 11 00 00    	jne    2e14 <vf3_matrix_family+0x2834>
+    1d03:	89 f9                	mov    %edi,%ecx
+    1d05:	e8 00 00 00 00       	call   1d0a <vf3_matrix_family+0x172a>
+    1d0a:	49 89 f0             	mov    %rsi,%r8
+    1d0d:	48 89 da             	mov    %rbx,%rdx
+    1d10:	89 f9                	mov    %edi,%ecx
+    1d12:	85 c0                	test   %eax,%eax
+    1d14:	0f 85 a2 10 00 00    	jne    2dbc <vf3_matrix_family+0x27dc>
+    1d1a:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    1d21:	5b                   	pop    %rbx
+    1d22:	5e                   	pop    %rsi
+    1d23:	5f                   	pop    %rdi
+    1d24:	5d                   	pop    %rbp
+    1d25:	41 5c                	pop    %r12
+    1d27:	41 5d                	pop    %r13
+    1d29:	41 5e                	pop    %r14
+    1d2b:	41 5f                	pop    %r15
+    1d2d:	e9 00 00 00 00       	jmp    1d32 <vf3_matrix_family+0x1752>
+    1d32:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1d38:	83 c0 01             	add    $0x1,%eax
+    1d3b:	89 46 0c             	mov    %eax,0xc(%rsi)
+    1d3e:	66 90                	xchg   %ax,%ax
+    1d40:	8b 43 44             	mov    0x44(%rbx),%eax
+    1d43:	44 8b 4b 10          	mov    0x10(%rbx),%r9d
+    1d47:	31 d2                	xor    %edx,%edx
+    1d49:	41 b8 e4 d2 19 0c    	mov    $0xc19d2e4,%r8d
+    1d4f:	44 8b 53 18          	mov    0x18(%rbx),%r10d
+    1d53:	83 e0 fe             	and    $0xfffffffe,%eax
+    1d56:	45 85 c9             	test   %r9d,%r9d
+    1d59:	0f 94 c2             	sete   %dl
+    1d5c:	09 d0                	or     %edx,%eax
+    1d5e:	89 43 44             	mov    %eax,0x44(%rbx)
+    1d61:	0f 1f 40 00          	nopl   0x0(%rax)
+    1d65:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    1d6c:	00 00 00 00 
+    1d70:	85 c9                	test   %ecx,%ecx
+    1d72:	0f 8e e0 e9 ff ff    	jle    758 <vf3_matrix_family+0x178>
+    1d78:	48 8b 06             	mov    (%rsi),%rax
+    1d7b:	48 c1 e1 04          	shl    $0x4,%rcx
+    1d7f:	48 01 c1             	add    %rax,%rcx
+    1d82:	0f 1f 00             	nopl   (%rax)
+    1d85:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    1d8c:	00 00 00 00 
+    1d90:	8b 50 08             	mov    0x8(%rax),%edx
+    1d93:	41 39 d0             	cmp    %edx,%r8d
+    1d96:	72 0c                	jb     1da4 <vf3_matrix_family+0x17c4>
+    1d98:	45 89 c1             	mov    %r8d,%r9d
+    1d9b:	41 29 d1             	sub    %edx,%r9d
+    1d9e:	44 3b 48 0c          	cmp    0xc(%rax),%r9d
+    1da2:	72 2c                	jb     1dd0 <vf3_matrix_family+0x17f0>
+    1da4:	48 83 c0 10          	add    $0x10,%rax
+    1da8:	48 39 c8             	cmp    %rcx,%rax
+    1dab:	75 e3                	jne    1d90 <vf3_matrix_family+0x17b0>
+    1dad:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    1db1:	41 81 f8 e5 d2 19 0c 	cmp    $0xc19d2e5,%r8d
+    1db8:	0f 84 ab e9 ff ff    	je     769 <vf3_matrix_family+0x189>
+    1dbe:	8b 4e 08             	mov    0x8(%rsi),%ecx
+    1dc1:	41 b8 e5 d2 19 0c    	mov    $0xc19d2e5,%r8d
+    1dc7:	eb a7                	jmp    1d70 <vf3_matrix_family+0x1790>
+    1dc9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1dd0:	48 8b 00             	mov    (%rax),%rax
+    1dd3:	42 8d 0c c5 e0 68 31 	lea    -0x60ce9720(,%r8,8),%ecx
+    1dda:	9f 
+    1ddb:	44 89 d2             	mov    %r10d,%edx
+    1dde:	d3 ea                	shr    %cl,%edx
+    1de0:	42 88 14 08          	mov    %dl,(%rax,%r9,1)
+    1de4:	eb cb                	jmp    1db1 <vf3_matrix_family+0x17d1>
+    1de6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    1ded:	00 00 00 
+    1df0:	48 89 f2             	mov    %rsi,%rdx
+    1df3:	48 89 d9             	mov    %rbx,%rcx
+    1df6:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    1dfd:	5b                   	pop    %rbx
+    1dfe:	5e                   	pop    %rsi
+    1dff:	5f                   	pop    %rdi
+    1e00:	5d                   	pop    %rbp
+    1e01:	41 5c                	pop    %r12
+    1e03:	41 5d                	pop    %r13
+    1e05:	41 5e                	pop    %r14
+    1e07:	41 5f                	pop    %r15
+    1e09:	e9 00 00 00 00       	jmp    1e0e <vf3_matrix_family+0x182e>
+    1e0e:	66 90                	xchg   %ax,%ax
+    1e10:	8b 43 44             	mov    0x44(%rbx),%eax
+    1e13:	8b 6b 10             	mov    0x10(%rbx),%ebp
+    1e16:	31 d2                	xor    %edx,%edx
+    1e18:	83 e0 fe             	and    $0xfffffffe,%eax
+    1e1b:	85 ed                	test   %ebp,%ebp
+    1e1d:	0f 94 c2             	sete   %dl
+    1e20:	09 d0                	or     %edx,%eax
+    1e22:	89 43 44             	mov    %eax,0x44(%rbx)
+    1e25:	85 ed                	test   %ebp,%ebp
+    1e27:	0f 84 34 03 00 00    	je     2161 <vf3_matrix_family+0x1b81>
+    1e2d:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1e32:	8b 43 48             	mov    0x48(%rbx),%eax
+    1e35:	83 c5 40             	add    $0x40,%ebp
+    1e38:	4c 8d b3 90 00 00 00 	lea    0x90(%rbx),%r14
+    1e3f:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    1e46:	00 
+    1e47:	41 bc 0f 00 00 00    	mov    $0xf,%r12d
+    1e4d:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1e54:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    1e59:	35 00 00 20 00       	xor    $0x200000,%eax
+    1e5e:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1e62:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    1e69:	00 
+    1e6a:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1e71:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    1e76:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1e7a:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1e81:	00 
+    1e82:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    1e89:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    1e90:	00 
+    1e91:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    1e95:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    1e9c:	00 
+    1e9d:	89 43 48             	mov    %eax,0x48(%rbx)
+    1ea0:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    1ea7:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    1eae:	eb 45                	jmp    1ef5 <vf3_matrix_family+0x1915>
+    1eb0:	83 ed 04             	sub    $0x4,%ebp
+    1eb3:	4c 89 f7             	mov    %r14,%rdi
+    1eb6:	b8 01 00 00 00       	mov    $0x1,%eax
+    1ebb:	3c 01                	cmp    $0x1,%al
+    1ebd:	89 6b 10             	mov    %ebp,0x10(%rbx)
+    1ec0:	48 19 c0             	sbb    %rax,%rax
+    1ec3:	29 fd                	sub    %edi,%ebp
+    1ec5:	83 e0 04             	and    $0x4,%eax
+    1ec8:	4c 8d 6c 07 04       	lea    0x4(%rdi,%rax,1),%r13
+    1ecd:	44 8b 07             	mov    (%rdi),%r8d
+    1ed0:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    1ed4:	48 89 f1             	mov    %rsi,%rcx
+    1ed7:	48 83 c7 04          	add    $0x4,%rdi
+    1edb:	e8 20 e1 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+    1ee0:	49 39 fd             	cmp    %rdi,%r13
+    1ee3:	75 e8                	jne    1ecd <vf3_matrix_family+0x18ed>
+    1ee5:	41 83 ec 01          	sub    $0x1,%r12d
+    1ee9:	72 45                	jb     1f30 <vf3_matrix_family+0x1950>
+    1eeb:	8b 43 48             	mov    0x48(%rbx),%eax
+    1eee:	8b 6b 10             	mov    0x10(%rbx),%ebp
+    1ef1:	49 83 ee 04          	sub    $0x4,%r14
+    1ef5:	a9 00 00 10 00       	test   $0x100000,%eax
+    1efa:	74 b4                	je     1eb0 <vf3_matrix_family+0x18d0>
+    1efc:	44 89 e0             	mov    %r12d,%eax
+    1eff:	83 ed 08             	sub    $0x8,%ebp
+    1f02:	83 e0 fe             	and    $0xfffffffe,%eax
+    1f05:	41 f6 c4 01          	test   $0x1,%r12b
+    1f09:	74 15                	je     1f20 <vf3_matrix_family+0x1940>
+    1f0b:	83 c0 25             	add    $0x25,%eax
+    1f0e:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    1f12:	31 c0                	xor    %eax,%eax
+    1f14:	eb a5                	jmp    1ebb <vf3_matrix_family+0x18db>
+    1f16:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    1f1d:	00 00 00 
+    1f20:	83 c0 15             	add    $0x15,%eax
+    1f23:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    1f27:	31 c0                	xor    %eax,%eax
+    1f29:	eb 90                	jmp    1ebb <vf3_matrix_family+0x18db>
+    1f2b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+    1f30:	f3 0f 6f 43 54       	movdqu 0x54(%rbx),%xmm0
+    1f35:	f3 0f 6f 8b 94 00 00 	movdqu 0x94(%rbx),%xmm1
+    1f3c:	00 
+    1f3d:	8b 43 10             	mov    0x10(%rbx),%eax
+    1f40:	81 73 48 00 00 20 00 	xorl   $0x200000,0x48(%rbx)
+    1f47:	0f 11 4b 54          	movups %xmm1,0x54(%rbx)
+    1f4b:	f3 0f 6f 8b a4 00 00 	movdqu 0xa4(%rbx),%xmm1
+    1f52:	00 
+    1f53:	0f 11 83 94 00 00 00 	movups %xmm0,0x94(%rbx)
+    1f5a:	f3 0f 6f 43 64       	movdqu 0x64(%rbx),%xmm0
+    1f5f:	0f 11 4b 64          	movups %xmm1,0x64(%rbx)
+    1f63:	f3 0f 6f 8b b4 00 00 	movdqu 0xb4(%rbx),%xmm1
+    1f6a:	00 
+    1f6b:	0f 11 83 a4 00 00 00 	movups %xmm0,0xa4(%rbx)
+    1f72:	f3 0f 6f 43 74       	movdqu 0x74(%rbx),%xmm0
+    1f77:	0f 11 4b 74          	movups %xmm1,0x74(%rbx)
+    1f7b:	f3 0f 6f 8b c4 00 00 	movdqu 0xc4(%rbx),%xmm1
+    1f82:	00 
+    1f83:	0f 11 83 b4 00 00 00 	movups %xmm0,0xb4(%rbx)
+    1f8a:	f3 0f 6f 83 84 00 00 	movdqu 0x84(%rbx),%xmm0
+    1f91:	00 
+    1f92:	89 03                	mov    %eax,(%rbx)
+    1f94:	0f 11 8b 84 00 00 00 	movups %xmm1,0x84(%rbx)
+    1f9b:	0f 11 83 c4 00 00 00 	movups %xmm0,0xc4(%rbx)
+    1fa2:	e9 46 e8 ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    1fa7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+    1fae:	00 00 
+    1fb0:	49 89 f0             	mov    %rsi,%r8
+    1fb3:	48 89 da             	mov    %rbx,%rdx
+    1fb6:	89 f9                	mov    %edi,%ecx
+    1fb8:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    1fbf:	5b                   	pop    %rbx
+    1fc0:	5e                   	pop    %rsi
+    1fc1:	5f                   	pop    %rdi
+    1fc2:	5d                   	pop    %rbp
+    1fc3:	41 5c                	pop    %r12
+    1fc5:	41 5d                	pop    %r13
+    1fc7:	41 5e                	pop    %r14
+    1fc9:	41 5f                	pop    %r15
+    1fcb:	e9 00 00 00 00       	jmp    1fd0 <vf3_matrix_family+0x19f0>
+    1fd0:	44 89 e0             	mov    %r12d,%eax
+    1fd3:	83 e0 fe             	and    $0xfffffffe,%eax
+    1fd6:	83 c0 15             	add    $0x15,%eax
+    1fd9:	4c 8d 04 83          	lea    (%rbx,%rax,4),%r8
+    1fdd:	31 c0                	xor    %eax,%eax
+    1fdf:	e9 e4 f6 ff ff       	jmp    16c8 <vf3_matrix_family+0x10e8>
+    1fe4:	89 ea                	mov    %ebp,%edx
+    1fe6:	83 e2 fe             	and    $0xfffffffe,%edx
+    1fe9:	83 c2 15             	add    $0x15,%edx
+    1fec:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    1ff0:	31 d2                	xor    %edx,%edx
+    1ff2:	e9 f1 f4 ff ff       	jmp    14e8 <vf3_matrix_family+0xf08>
+    1ff7:	44 89 e0             	mov    %r12d,%eax
+    1ffa:	83 e0 fe             	and    $0xfffffffe,%eax
+    1ffd:	83 c0 15             	add    $0x15,%eax
+    2000:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    2004:	31 c0                	xor    %eax,%eax
+    2006:	e9 f0 e6 ff ff       	jmp    6fb <vf3_matrix_family+0x11b>
+    200b:	48 8d bb 8c 00 00 00 	lea    0x8c(%rbx),%rdi
+    2012:	31 c0                	xor    %eax,%eax
+    2014:	e9 14 f8 ff ff       	jmp    182d <vf3_matrix_family+0x124d>
+    2019:	48 8b 43 64          	mov    0x64(%rbx),%rax
+    201d:	48 89 f9             	mov    %rdi,%rcx
+    2020:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2025:	b8 08 00 00 00       	mov    $0x8,%eax
+    202a:	e9 39 e8 ff ff       	jmp    868 <vf3_matrix_family+0x288>
+    202f:	c7 43 10 01 00 00 00 	movl   $0x1,0x10(%rbx)
+    2036:	e9 2f ea ff ff       	jmp    a6a <vf3_matrix_family+0x48a>
+    203b:	c7 44 24 70 00 00 00 	movl   $0x0,0x70(%rsp)
+    2042:	00 
+    2043:	48 8d 4b 60          	lea    0x60(%rbx),%rcx
+    2047:	b8 04 00 00 00       	mov    $0x4,%eax
+    204c:	e9 9a ec ff ff       	jmp    ceb <vf3_matrix_family+0x70b>
+    2051:	41 89 c1             	mov    %eax,%r9d
+    2054:	8b 4b 44             	mov    0x44(%rbx),%ecx
+    2057:	c7 43 04 04 00 00 00 	movl   $0x4,0x4(%rbx)
+    205e:	41 83 e1 04          	and    $0x4,%r9d
+    2062:	45 89 c8             	mov    %r9d,%r8d
+    2065:	83 e1 fe             	and    $0xfffffffe,%ecx
+    2068:	41 c1 e8 02          	shr    $0x2,%r8d
+    206c:	41 83 f0 01          	xor    $0x1,%r8d
+    2070:	44 09 c1             	or     %r8d,%ecx
+    2073:	89 4b 44             	mov    %ecx,0x44(%rbx)
+    2076:	45 85 c9             	test   %r9d,%r9d
+    2079:	0f 84 ec 06 00 00    	je     276b <vf3_matrix_family+0x218b>
+    207f:	81 f2 00 00 10 00    	xor    $0x100000,%edx
+    2085:	4c 8d 6b 54          	lea    0x54(%rbx),%r13
+    2089:	31 ed                	xor    %ebp,%ebp
+    208b:	89 53 48             	mov    %edx,0x48(%rbx)
+    208e:	eb 6f                	jmp    20ff <vf3_matrix_family+0x1b1f>
+    2090:	89 ea                	mov    %ebp,%edx
+    2092:	83 e2 fe             	and    $0xfffffffe,%edx
+    2095:	40 f6 c5 01          	test   $0x1,%bpl
+    2099:	0f 84 c1 02 00 00    	je     2360 <vf3_matrix_family+0x1d80>
+    209f:	83 c2 25             	add    $0x25,%edx
+    20a2:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    20a6:	31 d2                	xor    %edx,%edx
+    20a8:	80 fa 01             	cmp    $0x1,%dl
+    20ab:	48 19 d2             	sbb    %rdx,%rdx
+    20ae:	29 f8                	sub    %edi,%eax
+    20b0:	83 e2 04             	and    $0x4,%edx
+    20b3:	41 89 c6             	mov    %eax,%r14d
+    20b6:	4c 8d 64 17 04       	lea    0x4(%rdi,%rdx,1),%r12
+    20bb:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    20bf:	48 89 f1             	mov    %rsi,%rcx
+    20c2:	48 83 c7 04          	add    $0x4,%rdi
+    20c6:	e8 25 e0 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    20cb:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    20ce:	4c 39 e7             	cmp    %r12,%rdi
+    20d1:	75 e8                	jne    20bb <vf3_matrix_family+0x1adb>
+    20d3:	8b 53 48             	mov    0x48(%rbx),%edx
+    20d6:	8b 4b 10             	mov    0x10(%rbx),%ecx
+    20d9:	89 d0                	mov    %edx,%eax
+    20db:	25 00 00 10 00       	and    $0x100000,%eax
+    20e0:	83 f8 01             	cmp    $0x1,%eax
+    20e3:	19 c0                	sbb    %eax,%eax
+    20e5:	83 c5 01             	add    $0x1,%ebp
+    20e8:	49 83 c5 04          	add    $0x4,%r13
+    20ec:	83 e0 fc             	and    $0xfffffffc,%eax
+    20ef:	8d 44 08 08          	lea    0x8(%rax,%rcx,1),%eax
+    20f3:	89 43 10             	mov    %eax,0x10(%rbx)
+    20f6:	83 fd 10             	cmp    $0x10,%ebp
+    20f9:	0f 84 81 e6 ff ff    	je     780 <vf3_matrix_family+0x1a0>
+    20ff:	81 e2 00 00 10 00    	and    $0x100000,%edx
+    2105:	75 89                	jne    2090 <vf3_matrix_family+0x1ab0>
+    2107:	4c 89 ef             	mov    %r13,%rdi
+    210a:	ba 01 00 00 00       	mov    $0x1,%edx
+    210f:	eb 97                	jmp    20a8 <vf3_matrix_family+0x1ac8>
+    2111:	45 31 ff             	xor    %r15d,%r15d
+    2114:	45 31 db             	xor    %r11d,%r11d
+    2117:	45 31 f6             	xor    %r14d,%r14d
+    211a:	e9 56 ea ff ff       	jmp    b75 <vf3_matrix_family+0x595>
+    211f:	85 c9                	test   %ecx,%ecx
+    2121:	0f 85 a1 0a 00 00    	jne    2bc8 <vf3_matrix_family+0x25e8>
+    2127:	c7 43 0c 20 b6 03 0c 	movl   $0xc03b620,0xc(%rbx)
+    212e:	e9 fb ee ff ff       	jmp    102e <vf3_matrix_family+0xa4e>
+    2133:	48 8d 7b 68          	lea    0x68(%rbx),%rdi
+    2137:	b8 01 00 00 00       	mov    $0x1,%eax
+    213c:	e9 c6 ee ff ff       	jmp    1007 <vf3_matrix_family+0xa27>
+    2141:	49 89 f0             	mov    %rsi,%r8
+    2144:	48 89 da             	mov    %rbx,%rdx
+    2147:	89 f9                	mov    %edi,%ecx
+    2149:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2150:	5b                   	pop    %rbx
+    2151:	5e                   	pop    %rsi
+    2152:	5f                   	pop    %rdi
+    2153:	5d                   	pop    %rbp
+    2154:	41 5c                	pop    %r12
+    2156:	41 5d                	pop    %r13
+    2158:	41 5e                	pop    %r14
+    215a:	41 5f                	pop    %r15
+    215c:	e9 00 00 00 00       	jmp    2161 <vf3_matrix_family+0x1b81>
+    2161:	8b 46 08             	mov    0x8(%rsi),%eax
+    2164:	41 b9 ec d2 19 0c    	mov    $0xc19d2ec,%r9d
+    216a:	85 c0                	test   %eax,%eax
+    216c:	0f 8e c1 06 00 00    	jle    2833 <vf3_matrix_family+0x2253>
+    2172:	4c 8b 06             	mov    (%rsi),%r8
+    2175:	41 89 c2             	mov    %eax,%r10d
+    2178:	49 c1 e2 04          	shl    $0x4,%r10
+    217c:	4d 01 c2             	add    %r8,%r10
+    217f:	90                   	nop
+    2180:	4c 89 c0             	mov    %r8,%rax
+    2183:	66 90                	xchg   %ax,%ax
+    2185:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    218c:	00 00 00 00 
+    2190:	8b 50 08             	mov    0x8(%rax),%edx
+    2193:	41 39 d1             	cmp    %edx,%r9d
+    2196:	72 0e                	jb     21a6 <vf3_matrix_family+0x1bc6>
+    2198:	44 89 c9             	mov    %r9d,%ecx
+    219b:	29 d1                	sub    %edx,%ecx
+    219d:	3b 48 0c             	cmp    0xc(%rax),%ecx
+    21a0:	0f 82 f2 01 00 00    	jb     2398 <vf3_matrix_family+0x1db8>
+    21a6:	48 83 c0 10          	add    $0x10,%rax
+    21aa:	4c 39 d0             	cmp    %r10,%rax
+    21ad:	75 e1                	jne    2190 <vf3_matrix_family+0x1bb0>
+    21af:	41 83 c1 01          	add    $0x1,%r9d
+    21b3:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    21b7:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    21be:	75 c0                	jne    2180 <vf3_matrix_family+0x1ba0>
+    21c0:	e9 68 fc ff ff       	jmp    1e2d <vf3_matrix_family+0x184d>
+    21c5:	8b 46 08             	mov    0x8(%rsi),%eax
+    21c8:	41 b9 ec d2 19 0c    	mov    $0xc19d2ec,%r9d
+    21ce:	85 c0                	test   %eax,%eax
+    21d0:	0f 8e 77 06 00 00    	jle    284d <vf3_matrix_family+0x226d>
+    21d6:	4c 8b 06             	mov    (%rsi),%r8
+    21d9:	41 89 c2             	mov    %eax,%r10d
+    21dc:	49 c1 e2 04          	shl    $0x4,%r10
+    21e0:	4d 01 c2             	add    %r8,%r10
+    21e3:	66 90                	xchg   %ax,%ax
+    21e5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    21ec:	00 00 00 00 
+    21f0:	4c 89 c0             	mov    %r8,%rax
+    21f3:	66 90                	xchg   %ax,%ax
+    21f5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    21fc:	00 00 00 00 
+    2200:	8b 50 08             	mov    0x8(%rax),%edx
+    2203:	41 39 d1             	cmp    %edx,%r9d
+    2206:	72 0e                	jb     2216 <vf3_matrix_family+0x1c36>
+    2208:	44 89 c9             	mov    %r9d,%ecx
+    220b:	29 d1                	sub    %edx,%ecx
+    220d:	3b 48 0c             	cmp    0xc(%rax),%ecx
+    2210:	0f 82 58 01 00 00    	jb     236e <vf3_matrix_family+0x1d8e>
+    2216:	48 83 c0 10          	add    $0x10,%rax
+    221a:	4c 39 d0             	cmp    %r10,%rax
+    221d:	75 e1                	jne    2200 <vf3_matrix_family+0x1c20>
+    221f:	41 83 c1 01          	add    $0x1,%r9d
+    2223:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    2227:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    222e:	75 c0                	jne    21f0 <vf3_matrix_family+0x1c10>
+    2230:	44 89 5b 10          	mov    %r11d,0x10(%rbx)
+    2234:	44 89 d8             	mov    %r11d,%eax
+    2237:	e9 df ee ff ff       	jmp    111b <vf3_matrix_family+0xb3b>
+    223c:	0f 1f 40 00          	nopl   0x0(%rax)
+    2240:	48 8b 00             	mov    (%rax),%rax
+    2243:	42 8d 0c c5 e0 68 31 	lea    -0x60ce9720(,%r8,8),%ecx
+    224a:	9f 
+    224b:	44 89 da             	mov    %r11d,%edx
+    224e:	d3 ea                	shr    %cl,%edx
+    2250:	42 88 14 08          	mov    %dl,(%rax,%r9,1)
+    2254:	e9 ec e9 ff ff       	jmp    c45 <vf3_matrix_family+0x665>
+    2259:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    2260:	48 8b 00             	mov    (%rax),%rax
+    2263:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    2267:	42 8d 0c cd c0 68 31 	lea    -0x60ce9740(,%r9,8),%ecx
+    226e:	9f 
+    226f:	41 83 c1 01          	add    $0x1,%r9d
+    2273:	d3 e0                	shl    %cl,%eax
+    2275:	41 09 c4             	or     %eax,%r12d
+    2278:	41 81 f9 ec d2 19 0c 	cmp    $0xc19d2ec,%r9d
+    227f:	0f 85 1b e9 ff ff    	jne    ba0 <vf3_matrix_family+0x5c0>
+    2285:	e9 56 e9 ff ff       	jmp    be0 <vf3_matrix_family+0x600>
+    228a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    2290:	4c 89 ef             	mov    %r13,%rdi
+    2293:	ba 01 00 00 00       	mov    $0x1,%edx
+    2298:	e9 46 f7 ff ff       	jmp    19e3 <vf3_matrix_family+0x1403>
+    229d:	0f 1f 00             	nopl   (%rax)
+    22a0:	44 8b 5b 44          	mov    0x44(%rbx),%r11d
+    22a4:	44 8b 43 10          	mov    0x10(%rbx),%r8d
+    22a8:	44 03 43 1c          	add    0x1c(%rbx),%r8d
+    22ac:	44 89 43 1c          	mov    %r8d,0x1c(%rbx)
+    22b0:	41 83 e3 01          	and    $0x1,%r11d
+    22b4:	0f 84 d1 03 00 00    	je     268b <vf3_matrix_family+0x20ab>
+    22ba:	8b 53 48             	mov    0x48(%rbx),%edx
+    22bd:	4c 8d 6b 58          	lea    0x58(%rbx),%r13
+    22c1:	bd 01 00 00 00       	mov    $0x1,%ebp
+    22c6:	eb 6b                	jmp    2333 <vf3_matrix_family+0x1d53>
+    22c8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+    22cf:	00 
+    22d0:	89 e8                	mov    %ebp,%eax
+    22d2:	83 e0 fe             	and    $0xfffffffe,%eax
+    22d5:	83 c0 25             	add    $0x25,%eax
+    22d8:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    22dc:	31 c0                	xor    %eax,%eax
+    22de:	3c 01                	cmp    $0x1,%al
+    22e0:	45 89 c6             	mov    %r8d,%r14d
+    22e3:	48 19 c0             	sbb    %rax,%rax
+    22e6:	41 29 fe             	sub    %edi,%r14d
+    22e9:	83 e0 04             	and    $0x4,%eax
+    22ec:	4c 8d 64 07 04       	lea    0x4(%rdi,%rax,1),%r12
+    22f1:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    22f5:	48 89 f1             	mov    %rsi,%rcx
+    22f8:	48 83 c7 04          	add    $0x4,%rdi
+    22fc:	e8 ef dd ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    2301:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    2304:	4c 39 e7             	cmp    %r12,%rdi
+    2307:	75 e8                	jne    22f1 <vf3_matrix_family+0x1d11>
+    2309:	8b 53 48             	mov    0x48(%rbx),%edx
+    230c:	8b 4b 1c             	mov    0x1c(%rbx),%ecx
+    230f:	89 d0                	mov    %edx,%eax
+    2311:	25 00 00 10 00       	and    $0x100000,%eax
+    2316:	83 f8 01             	cmp    $0x1,%eax
+    2319:	19 c0                	sbb    %eax,%eax
+    231b:	83 c5 02             	add    $0x2,%ebp
+    231e:	49 83 c5 08          	add    $0x8,%r13
+    2322:	83 e0 fc             	and    $0xfffffffc,%eax
+    2325:	44 8d 44 08 08       	lea    0x8(%rax,%rcx,1),%r8d
+    232a:	44 89 43 1c          	mov    %r8d,0x1c(%rbx)
+    232e:	83 fd 11             	cmp    $0x11,%ebp
+    2331:	74 15                	je     2348 <vf3_matrix_family+0x1d68>
+    2333:	81 e2 00 00 10 00    	and    $0x100000,%edx
+    2339:	75 95                	jne    22d0 <vf3_matrix_family+0x1cf0>
+    233b:	4c 89 ef             	mov    %r13,%rdi
+    233e:	b8 01 00 00 00       	mov    $0x1,%eax
+    2343:	eb 99                	jmp    22de <vf3_matrix_family+0x1cfe>
+    2345:	0f 1f 00             	nopl   (%rax)
+    2348:	81 f2 00 00 10 00    	xor    $0x100000,%edx
+    234e:	89 53 48             	mov    %edx,0x48(%rbx)
+    2351:	e9 97 e4 ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    2356:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    235d:	00 00 00 
+    2360:	83 c2 15             	add    $0x15,%edx
+    2363:	48 8d 3c 93          	lea    (%rbx,%rdx,4),%rdi
+    2367:	31 d2                	xor    %edx,%edx
+    2369:	e9 3a fd ff ff       	jmp    20a8 <vf3_matrix_family+0x1ac8>
+    236e:	48 8b 00             	mov    (%rax),%rax
+    2371:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    2375:	42 8d 0c cd a0 68 31 	lea    -0x60ce9760(,%r9,8),%ecx
+    237c:	9f 
+    237d:	41 83 c1 01          	add    $0x1,%r9d
+    2381:	d3 e0                	shl    %cl,%eax
+    2383:	41 09 c3             	or     %eax,%r11d
+    2386:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    238d:	0f 85 5d fe ff ff    	jne    21f0 <vf3_matrix_family+0x1c10>
+    2393:	e9 98 fe ff ff       	jmp    2230 <vf3_matrix_family+0x1c50>
+    2398:	48 8b 00             	mov    (%rax),%rax
+    239b:	0f b6 04 08          	movzbl (%rax,%rcx,1),%eax
+    239f:	42 8d 0c cd a0 68 31 	lea    -0x60ce9760(,%r9,8),%ecx
+    23a6:	9f 
+    23a7:	41 83 c1 01          	add    $0x1,%r9d
+    23ab:	d3 e0                	shl    %cl,%eax
+    23ad:	09 c5                	or     %eax,%ebp
+    23af:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    23b6:	0f 85 c4 fd ff ff    	jne    2180 <vf3_matrix_family+0x1ba0>
+    23bc:	e9 6c fa ff ff       	jmp    1e2d <vf3_matrix_family+0x184d>
+    23c1:	0f 87 89 f7 ff ff    	ja     1b50 <vf3_matrix_family+0x1570>
+    23c7:	81 ff 80 c8 03 0c    	cmp    $0xc03c880,%edi
+    23cd:	0f 84 43 03 00 00    	je     2716 <vf3_matrix_family+0x2136>
+    23d3:	81 ff 40 c9 03 0c    	cmp    $0xc03c940,%edi
+    23d9:	0f 85 71 f7 ff ff    	jne    1b50 <vf3_matrix_family+0x1570>
+    23df:	48 8d b3 94 00 00 00 	lea    0x94(%rbx),%rsi
+    23e6:	48 8d 54 24 70       	lea    0x70(%rsp),%rdx
+    23eb:	48 89 d9             	mov    %rbx,%rcx
+    23ee:	4c 8d 4c 24 30       	lea    0x30(%rsp),%r9
+    23f3:	49 89 f0             	mov    %rsi,%r8
+    23f6:	e8 00 00 00 00       	call   23fb <vf3_matrix_family+0x1e1b>
+    23fb:	85 c0                	test   %eax,%eax
+    23fd:	0f 84 f8 e3 ff ff    	je     7fb <vf3_matrix_family+0x21b>
+    2403:	f3 0f 6f 44 24 70    	movdqu 0x70(%rsp),%xmm0
+    2409:	8b 43 10             	mov    0x10(%rbx),%eax
+    240c:	0f 11 03             	movups %xmm0,(%rbx)
+    240f:	f3 0f 6f 84 24 80 00 	movdqu 0x80(%rsp),%xmm0
+    2416:	00 00 
+    2418:	89 83 d4 00 00 00    	mov    %eax,0xd4(%rbx)
+    241e:	0f 11 43 10          	movups %xmm0,0x10(%rbx)
+    2422:	f3 0f 6f 84 24 90 00 	movdqu 0x90(%rsp),%xmm0
+    2429:	00 00 
+    242b:	0f 11 43 20          	movups %xmm0,0x20(%rbx)
+    242f:	f3 0f 6f 84 24 a0 00 	movdqu 0xa0(%rsp),%xmm0
+    2436:	00 00 
+    2438:	0f 11 43 30          	movups %xmm0,0x30(%rbx)
+    243c:	f3 0f 6f 84 24 b0 00 	movdqu 0xb0(%rsp),%xmm0
+    2443:	00 00 
+    2445:	0f 11 43 40          	movups %xmm0,0x40(%rbx)
+    2449:	f3 0f 6f 84 24 c0 00 	movdqu 0xc0(%rsp),%xmm0
+    2450:	00 00 
+    2452:	0f 11 43 50          	movups %xmm0,0x50(%rbx)
+    2456:	f3 0f 6f 84 24 d0 00 	movdqu 0xd0(%rsp),%xmm0
+    245d:	00 00 
+    245f:	0f 11 43 60          	movups %xmm0,0x60(%rbx)
+    2463:	f3 0f 6f 84 24 e0 00 	movdqu 0xe0(%rsp),%xmm0
+    246a:	00 00 
+    246c:	0f 11 43 70          	movups %xmm0,0x70(%rbx)
+    2470:	f3 0f 6f 84 24 f0 00 	movdqu 0xf0(%rsp),%xmm0
+    2477:	00 00 
+    2479:	0f 11 83 80 00 00 00 	movups %xmm0,0x80(%rbx)
+    2480:	f3 0f 6f 44 24 30    	movdqu 0x30(%rsp),%xmm0
+    2486:	8b 84 24 00 01 00 00 	mov    0x100(%rsp),%eax
+    248d:	89 83 90 00 00 00    	mov    %eax,0x90(%rbx)
+    2493:	0f 11 06             	movups %xmm0,(%rsi)
+    2496:	f3 0f 6f 44 24 40    	movdqu 0x40(%rsp),%xmm0
+    249c:	0f 11 46 10          	movups %xmm0,0x10(%rsi)
+    24a0:	f3 0f 6f 44 24 50    	movdqu 0x50(%rsp),%xmm0
+    24a6:	0f 11 46 20          	movups %xmm0,0x20(%rsi)
+    24aa:	f3 0f 6f 44 24 60    	movdqu 0x60(%rsp),%xmm0
+    24b0:	0f 11 46 30          	movups %xmm0,0x30(%rsi)
+    24b4:	e9 34 e3 ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    24b9:	48 8d bb 8c 00 00 00 	lea    0x8c(%rbx),%rdi
+    24c0:	31 d2                	xor    %edx,%edx
+    24c2:	e9 1c f5 ff ff       	jmp    19e3 <vf3_matrix_family+0x1403>
+    24c7:	48 8d b3 94 00 00 00 	lea    0x94(%rbx),%rsi
+    24ce:	48 8d 54 24 70       	lea    0x70(%rsp),%rdx
+    24d3:	48 89 d9             	mov    %rbx,%rcx
+    24d6:	4c 8d 4c 24 30       	lea    0x30(%rsp),%r9
+    24db:	49 89 f0             	mov    %rsi,%r8
+    24de:	e8 00 00 00 00       	call   24e3 <vf3_matrix_family+0x1f03>
+    24e3:	e9 13 ff ff ff       	jmp    23fb <vf3_matrix_family+0x1e1b>
+    24e8:	48 8b 43 5c          	mov    0x5c(%rbx),%rax
+    24ec:	48 8d 8b cc 00 00 00 	lea    0xcc(%rbx),%rcx
+    24f3:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    24f8:	b8 08 00 00 00       	mov    $0x8,%eax
+    24fd:	e9 b1 e9 ff ff       	jmp    eb3 <vf3_matrix_family+0x8d3>
+    2502:	48 8b 43 5c          	mov    0x5c(%rbx),%rax
+    2506:	48 8d 8b a4 00 00 00 	lea    0xa4(%rbx),%rcx
+    250d:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2512:	b8 08 00 00 00       	mov    $0x8,%eax
+    2517:	e9 56 e9 ff ff       	jmp    e72 <vf3_matrix_family+0x892>
+    251c:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    2520:	48 8d 8b bc 00 00 00 	lea    0xbc(%rbx),%rcx
+    2527:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    252c:	b8 08 00 00 00       	mov    $0x8,%eax
+    2531:	e9 fe e8 ff ff       	jmp    e34 <vf3_matrix_family+0x854>
+    2536:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    253a:	48 8d 8b 94 00 00 00 	lea    0x94(%rbx),%rcx
+    2541:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2546:	b8 08 00 00 00       	mov    $0x8,%eax
+    254b:	e9 a3 e8 ff ff       	jmp    df3 <vf3_matrix_family+0x813>
+    2550:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    2554:	48 8d 8b c4 00 00 00 	lea    0xc4(%rbx),%rcx
+    255b:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2560:	b8 08 00 00 00       	mov    $0x8,%eax
+    2565:	e9 43 e8 ff ff       	jmp    dad <vf3_matrix_family+0x7cd>
+    256a:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    256e:	48 8d 8b b4 00 00 00 	lea    0xb4(%rbx),%rcx
+    2575:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    257a:	b8 08 00 00 00       	mov    $0x8,%eax
+    257f:	e9 e8 e7 ff ff       	jmp    d6c <vf3_matrix_family+0x78c>
+    2584:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    2588:	48 8d 8b ac 00 00 00 	lea    0xac(%rbx),%rcx
+    258f:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2594:	b8 08 00 00 00       	mov    $0x8,%eax
+    2599:	e9 90 e7 ff ff       	jmp    d2e <vf3_matrix_family+0x74e>
+    259e:	48 8b 83 a4 00 00 00 	mov    0xa4(%rbx),%rax
+    25a5:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    25aa:	b8 08 00 00 00       	mov    $0x8,%eax
+    25af:	e9 fe e2 ff ff       	jmp    8b2 <vf3_matrix_family+0x2d2>
+    25b4:	44 89 e0             	mov    %r12d,%eax
+    25b7:	83 e0 fe             	and    $0xfffffffe,%eax
+    25ba:	83 c0 15             	add    $0x15,%eax
+    25bd:	48 8d 3c 83          	lea    (%rbx,%rax,4),%rdi
+    25c1:	31 c0                	xor    %eax,%eax
+    25c3:	e9 ad f1 ff ff       	jmp    1775 <vf3_matrix_family+0x1195>
+    25c8:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    25cc:	41 81 f9 e7 d2 19 0c 	cmp    $0xc19d2e7,%r9d
+    25d3:	0f 84 93 03 00 00    	je     296c <vf3_matrix_family+0x238c>
+    25d9:	41 b9 e7 d2 19 0c    	mov    $0xc19d2e7,%r9d
+    25df:	e9 05 e5 ff ff       	jmp    ae9 <vf3_matrix_family+0x509>
+    25e4:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    25e8:	41 81 f9 e5 d2 19 0c 	cmp    $0xc19d2e5,%r9d
+    25ef:	0f 84 6f 03 00 00    	je     2964 <vf3_matrix_family+0x2384>
+    25f5:	41 b9 e5 d2 19 0c    	mov    $0xc19d2e5,%r9d
+    25fb:	e9 7b e4 ff ff       	jmp    a7b <vf3_matrix_family+0x49b>
+    2600:	41 83 c1 01          	add    $0x1,%r9d
+    2604:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    2608:	41 81 f9 e8 d2 19 0c 	cmp    $0xc19d2e8,%r9d
+    260f:	0f 85 f5 ec ff ff    	jne    130a <vf3_matrix_family+0xd2a>
+    2615:	45 31 e4             	xor    %r12d,%r12d
+    2618:	e9 43 ed ff ff       	jmp    1360 <vf3_matrix_family+0xd80>
+    261d:	41 83 c1 01          	add    $0x1,%r9d
+    2621:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    2625:	41 81 f9 ec d2 19 0c 	cmp    $0xc19d2ec,%r9d
+    262c:	0f 85 53 e5 ff ff    	jne    b85 <vf3_matrix_family+0x5a5>
+    2632:	45 31 e4             	xor    %r12d,%r12d
+    2635:	e9 a6 e5 ff ff       	jmp    be0 <vf3_matrix_family+0x600>
+    263a:	41 83 c1 01          	add    $0x1,%r9d
+    263e:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    2642:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    2649:	0f 85 5e ec ff ff    	jne    12ad <vf3_matrix_family+0xccd>
+    264f:	45 31 d2             	xor    %r10d,%r10d
+    2652:	e9 a9 ec ff ff       	jmp    1300 <vf3_matrix_family+0xd20>
+    2657:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    265b:	41 8d 53 01          	lea    0x1(%r11),%edx
+    265f:	41 83 fb 03          	cmp    $0x3,%r11d
+    2663:	0f 84 d7 f6 ff ff    	je     1d40 <vf3_matrix_family+0x1760>
+    2669:	8b 46 0c             	mov    0xc(%rsi),%eax
+    266c:	83 fa 03             	cmp    $0x3,%edx
+    266f:	0f 84 c3 f6 ff ff    	je     1d38 <vf3_matrix_family+0x1758>
+    2675:	44 8d 40 03          	lea    0x3(%rax),%r8d
+    2679:	83 c0 02             	add    $0x2,%eax
+    267c:	83 fa 02             	cmp    $0x2,%edx
+    267f:	41 0f 45 c0          	cmovne %r8d,%eax
+    2683:	89 46 0c             	mov    %eax,0xc(%rsi)
+    2686:	e9 b5 f6 ff ff       	jmp    1d40 <vf3_matrix_family+0x1760>
+    268b:	41 b9 ec d2 19 0c    	mov    $0xc19d2ec,%r9d
+    2691:	0f 1f 40 00          	nopl   0x0(%rax)
+    2695:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+    269c:	00 00 00 00 
+    26a0:	8b 56 08             	mov    0x8(%rsi),%edx
+    26a3:	85 d2                	test   %edx,%edx
+    26a5:	0f 8e bc 01 00 00    	jle    2867 <vf3_matrix_family+0x2287>
+    26ab:	48 8b 06             	mov    (%rsi),%rax
+    26ae:	48 c1 e2 04          	shl    $0x4,%rdx
+    26b2:	48 8d 0c 02          	lea    (%rdx,%rax,1),%rcx
+    26b6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    26bd:	00 00 00 
+    26c0:	8b 50 08             	mov    0x8(%rax),%edx
+    26c3:	41 39 d1             	cmp    %edx,%r9d
+    26c6:	72 0c                	jb     26d4 <vf3_matrix_family+0x20f4>
+    26c8:	45 89 ca             	mov    %r9d,%r10d
+    26cb:	41 29 d2             	sub    %edx,%r10d
+    26ce:	44 3b 50 0c          	cmp    0xc(%rax),%r10d
+    26d2:	72 1d                	jb     26f1 <vf3_matrix_family+0x2111>
+    26d4:	48 83 c0 10          	add    $0x10,%rax
+    26d8:	48 39 c1             	cmp    %rax,%rcx
+    26db:	75 e3                	jne    26c0 <vf3_matrix_family+0x20e0>
+    26dd:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    26e1:	41 83 c3 01          	add    $0x1,%r11d
+    26e5:	41 83 fb 04          	cmp    $0x4,%r11d
+    26e9:	74 22                	je     270d <vf3_matrix_family+0x212d>
+    26eb:	41 83 c1 01          	add    $0x1,%r9d
+    26ef:	eb af                	jmp    26a0 <vf3_matrix_family+0x20c0>
+    26f1:	48 8b 00             	mov    (%rax),%rax
+    26f4:	42 8d 0c dd 00 00 00 	lea    0x0(,%r11,8),%ecx
+    26fb:	00 
+    26fc:	44 89 c2             	mov    %r8d,%edx
+    26ff:	d3 ea                	shr    %cl,%edx
+    2701:	42 88 14 10          	mov    %dl,(%rax,%r10,1)
+    2705:	eb da                	jmp    26e1 <vf3_matrix_family+0x2101>
+    2707:	83 c0 01             	add    $0x1,%eax
+    270a:	89 46 0c             	mov    %eax,0xc(%rsi)
+    270d:	44 8b 43 1c          	mov    0x1c(%rbx),%r8d
+    2711:	e9 a4 fb ff ff       	jmp    22ba <vf3_matrix_family+0x1cda>
+    2716:	48 8d b3 94 00 00 00 	lea    0x94(%rbx),%rsi
+    271d:	48 8d 54 24 70       	lea    0x70(%rsp),%rdx
+    2722:	48 89 d9             	mov    %rbx,%rcx
+    2725:	4c 8d 4c 24 30       	lea    0x30(%rsp),%r9
+    272a:	49 89 f0             	mov    %rsi,%r8
+    272d:	e8 00 00 00 00       	call   2732 <vf3_matrix_family+0x2152>
+    2732:	e9 c4 fc ff ff       	jmp    23fb <vf3_matrix_family+0x1e1b>
+    2737:	48 8b 43 6c          	mov    0x6c(%rbx),%rax
+    273b:	48 8d 8b cc 00 00 00 	lea    0xcc(%rbx),%rcx
+    2742:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2747:	b8 08 00 00 00       	mov    $0x8,%eax
+    274c:	e9 62 e7 ff ff       	jmp    eb3 <vf3_matrix_family+0x8d3>
+    2751:	48 8b 43 64          	mov    0x64(%rbx),%rax
+    2755:	48 8d 8b c4 00 00 00 	lea    0xc4(%rbx),%rcx
+    275c:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    2761:	b8 08 00 00 00       	mov    $0x8,%eax
+    2766:	e9 b8 ee ff ff       	jmp    1623 <vf3_matrix_family+0x1043>
+    276b:	c1 ea 14             	shr    $0x14,%edx
+    276e:	4c 8d 63 54          	lea    0x54(%rbx),%r12
+    2772:	48 8d ab 94 00 00 00 	lea    0x94(%rbx),%rbp
+    2779:	83 e2 01             	and    $0x1,%edx
+    277c:	83 f2 01             	xor    $0x1,%edx
+    277f:	90                   	nop
+    2780:	80 fa 01             	cmp    $0x1,%dl
+    2783:	4c 89 e7             	mov    %r12,%rdi
+    2786:	48 19 d2             	sbb    %rdx,%rdx
+    2789:	44 29 e0             	sub    %r12d,%eax
+    278c:	83 e2 04             	and    $0x4,%edx
+    278f:	41 89 c6             	mov    %eax,%r14d
+    2792:	4d 8d 6c 14 04       	lea    0x4(%r12,%rdx,1),%r13
+    2797:	41 8d 14 3e          	lea    (%r14,%rdi,1),%edx
+    279b:	48 89 f1             	mov    %rsi,%rcx
+    279e:	48 83 c7 04          	add    $0x4,%rdi
+    27a2:	e8 49 d9 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    27a7:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    27aa:	4c 39 ef             	cmp    %r13,%rdi
+    27ad:	75 e8                	jne    2797 <vf3_matrix_family+0x21b7>
+    27af:	8b 4b 48             	mov    0x48(%rbx),%ecx
+    27b2:	8b 43 10             	mov    0x10(%rbx),%eax
+    27b5:	f7 c1 00 00 10 00    	test   $0x100000,%ecx
+    27bb:	75 23                	jne    27e0 <vf3_matrix_family+0x2200>
+    27bd:	83 c0 04             	add    $0x4,%eax
+    27c0:	49 83 c4 08          	add    $0x8,%r12
+    27c4:	ba 01 00 00 00       	mov    $0x1,%edx
+    27c9:	89 43 10             	mov    %eax,0x10(%rbx)
+    27cc:	4c 39 e5             	cmp    %r12,%rbp
+    27cf:	75 af                	jne    2780 <vf3_matrix_family+0x21a0>
+    27d1:	81 f1 00 00 10 00    	xor    $0x100000,%ecx
+    27d7:	89 4b 48             	mov    %ecx,0x48(%rbx)
+    27da:	e9 a1 df ff ff       	jmp    780 <vf3_matrix_family+0x1a0>
+    27df:	90                   	nop
+    27e0:	83 c0 08             	add    $0x8,%eax
+    27e3:	49 83 c4 08          	add    $0x8,%r12
+    27e7:	31 d2                	xor    %edx,%edx
+    27e9:	89 43 10             	mov    %eax,0x10(%rbx)
+    27ec:	49 39 ec             	cmp    %rbp,%r12
+    27ef:	75 8f                	jne    2780 <vf3_matrix_family+0x21a0>
+    27f1:	eb de                	jmp    27d1 <vf3_matrix_family+0x21f1>
+    27f3:	49 89 f0             	mov    %rsi,%r8
+    27f6:	48 89 da             	mov    %rbx,%rdx
+    27f9:	89 f9                	mov    %edi,%ecx
+    27fb:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2802:	5b                   	pop    %rbx
+    2803:	5e                   	pop    %rsi
+    2804:	5f                   	pop    %rdi
+    2805:	5d                   	pop    %rbp
+    2806:	41 5c                	pop    %r12
+    2808:	41 5d                	pop    %r13
+    280a:	41 5e                	pop    %r14
+    280c:	41 5f                	pop    %r15
+    280e:	e9 00 00 00 00       	jmp    2813 <vf3_matrix_family+0x2233>
+    2813:	49 89 f0             	mov    %rsi,%r8
+    2816:	48 89 da             	mov    %rbx,%rdx
+    2819:	89 f9                	mov    %edi,%ecx
+    281b:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2822:	5b                   	pop    %rbx
+    2823:	5e                   	pop    %rsi
+    2824:	5f                   	pop    %rdi
+    2825:	5d                   	pop    %rbp
+    2826:	41 5c                	pop    %r12
+    2828:	41 5d                	pop    %r13
+    282a:	41 5e                	pop    %r14
+    282c:	41 5f                	pop    %r15
+    282e:	e9 00 00 00 00       	jmp    2833 <vf3_matrix_family+0x2253>
+    2833:	41 83 c1 01          	add    $0x1,%r9d
+    2837:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    283b:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    2842:	0f 85 22 f9 ff ff    	jne    216a <vf3_matrix_family+0x1b8a>
+    2848:	e9 e0 f5 ff ff       	jmp    1e2d <vf3_matrix_family+0x184d>
+    284d:	41 83 c1 01          	add    $0x1,%r9d
+    2851:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    2855:	41 81 f9 f0 d2 19 0c 	cmp    $0xc19d2f0,%r9d
+    285c:	0f 85 6c f9 ff ff    	jne    21ce <vf3_matrix_family+0x1bee>
+    2862:	e9 c9 f9 ff ff       	jmp    2230 <vf3_matrix_family+0x1c50>
+    2867:	83 46 0c 01          	addl   $0x1,0xc(%rsi)
+    286b:	41 8d 53 01          	lea    0x1(%r11),%edx
+    286f:	41 83 fb 03          	cmp    $0x3,%r11d
+    2873:	0f 84 94 fe ff ff    	je     270d <vf3_matrix_family+0x212d>
+    2879:	8b 46 0c             	mov    0xc(%rsi),%eax
+    287c:	83 fa 03             	cmp    $0x3,%edx
+    287f:	0f 84 82 fe ff ff    	je     2707 <vf3_matrix_family+0x2127>
+    2885:	8d 48 03             	lea    0x3(%rax),%ecx
+    2888:	83 c0 02             	add    $0x2,%eax
+    288b:	83 fa 02             	cmp    $0x2,%edx
+    288e:	0f 45 c1             	cmovne %ecx,%eax
+    2891:	89 46 0c             	mov    %eax,0xc(%rsi)
+    2894:	e9 74 fe ff ff       	jmp    270d <vf3_matrix_family+0x212d>
+    2899:	48 8b 43 5c          	mov    0x5c(%rbx),%rax
+    289d:	48 8d 8b 9c 00 00 00 	lea    0x9c(%rbx),%rcx
+    28a4:	ba 08 00 00 00       	mov    $0x8,%edx
+    28a9:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    28ae:	e9 c1 e0 ff ff       	jmp    974 <vf3_matrix_family+0x394>
+    28b3:	48 8b 43 54          	mov    0x54(%rbx),%rax
+    28b7:	ba 08 00 00 00       	mov    $0x8,%edx
+    28bc:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    28c1:	e9 6e e0 ff ff       	jmp    934 <vf3_matrix_family+0x354>
+    28c6:	48 8b 43 64          	mov    0x64(%rbx),%rax
+    28ca:	48 8d 8b a4 00 00 00 	lea    0xa4(%rbx),%rcx
+    28d1:	ba 08 00 00 00       	mov    $0x8,%edx
+    28d6:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    28db:	e9 d4 e0 ff ff       	jmp    9b4 <vf3_matrix_family+0x3d4>
+    28e0:	48 8b 43 6c          	mov    0x6c(%rbx),%rax
+    28e4:	48 8d 8b ac 00 00 00 	lea    0xac(%rbx),%rcx
+    28eb:	ba 08 00 00 00       	mov    $0x8,%edx
+    28f0:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+    28f5:	e9 fa e0 ff ff       	jmp    9f4 <vf3_matrix_family+0x414>
+    28fa:	49 89 f0             	mov    %rsi,%r8
+    28fd:	48 89 da             	mov    %rbx,%rdx
+    2900:	89 f9                	mov    %edi,%ecx
+    2902:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2909:	5b                   	pop    %rbx
+    290a:	5e                   	pop    %rsi
+    290b:	5f                   	pop    %rdi
+    290c:	5d                   	pop    %rbp
+    290d:	41 5c                	pop    %r12
+    290f:	41 5d                	pop    %r13
+    2911:	41 5e                	pop    %r14
+    2913:	41 5f                	pop    %r15
+    2915:	e9 00 00 00 00       	jmp    291a <vf3_matrix_family+0x233a>
+    291a:	49 89 f0             	mov    %rsi,%r8
+    291d:	48 89 da             	mov    %rbx,%rdx
+    2920:	89 f9                	mov    %edi,%ecx
+    2922:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2929:	5b                   	pop    %rbx
+    292a:	5e                   	pop    %rsi
+    292b:	5f                   	pop    %rdi
+    292c:	5d                   	pop    %rbp
+    292d:	41 5c                	pop    %r12
+    292f:	41 5d                	pop    %r13
+    2931:	41 5e                	pop    %r14
+    2933:	41 5f                	pop    %r15
+    2935:	e9 00 00 00 00       	jmp    293a <vf3_matrix_family+0x235a>
+    293a:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    293e:	89 01                	mov    %eax,(%rcx)
+    2940:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2944:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2948:	e9 83 e5 ff ff       	jmp    ed0 <vf3_matrix_family+0x8f0>
+    294d:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2952:	48 89 01             	mov    %rax,(%rcx)
+    2955:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    295a:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    295f:	e9 6c e5 ff ff       	jmp    ed0 <vf3_matrix_family+0x8f0>
+    2964:	45 31 db             	xor    %r11d,%r11d
+    2967:	e9 64 e1 ff ff       	jmp    ad0 <vf3_matrix_family+0x4f0>
+    296c:	31 ff                	xor    %edi,%edi
+    296e:	e9 cd e1 ff ff       	jmp    b40 <vf3_matrix_family+0x560>
+    2973:	49 89 f0             	mov    %rsi,%r8
+    2976:	48 89 da             	mov    %rbx,%rdx
+    2979:	89 f9                	mov    %edi,%ecx
+    297b:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2982:	5b                   	pop    %rbx
+    2983:	5e                   	pop    %rsi
+    2984:	5f                   	pop    %rdi
+    2985:	5d                   	pop    %rbp
+    2986:	41 5c                	pop    %r12
+    2988:	41 5d                	pop    %r13
+    298a:	41 5e                	pop    %r14
+    298c:	41 5f                	pop    %r15
+    298e:	e9 00 00 00 00       	jmp    2993 <vf3_matrix_family+0x23b3>
+    2993:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2997:	89 01                	mov    %eax,(%rcx)
+    2999:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    299d:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    29a1:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    29a5:	e9 6a e4 ff ff       	jmp    e14 <vf3_matrix_family+0x834>
+    29aa:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    29af:	48 89 01             	mov    %rax,(%rcx)
+    29b2:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    29b7:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    29bc:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    29c0:	e9 4f e4 ff ff       	jmp    e14 <vf3_matrix_family+0x834>
+    29c5:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    29ca:	48 89 01             	mov    %rax,(%rcx)
+    29cd:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    29d2:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    29d7:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    29db:	e9 ae de ff ff       	jmp    88e <vf3_matrix_family+0x2ae>
+    29e0:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    29e5:	48 89 01             	mov    %rax,(%rcx)
+    29e8:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    29ed:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    29f2:	e9 16 e3 ff ff       	jmp    d0d <vf3_matrix_family+0x72d>
+    29f7:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    29fb:	89 01                	mov    %eax,(%rcx)
+    29fd:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2a01:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2a05:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a09:	e9 c0 e3 ff ff       	jmp    dce <vf3_matrix_family+0x7ee>
+    2a0e:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2a13:	48 89 01             	mov    %rax,(%rcx)
+    2a16:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2a1b:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2a20:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a24:	e9 a5 e3 ff ff       	jmp    dce <vf3_matrix_family+0x7ee>
+    2a29:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2a2d:	89 01                	mov    %eax,(%rcx)
+    2a2f:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2a33:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2a37:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a3b:	e9 4d e3 ff ff       	jmp    d8d <vf3_matrix_family+0x7ad>
+    2a40:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2a45:	48 89 01             	mov    %rax,(%rcx)
+    2a48:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2a4d:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2a52:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a56:	e9 32 e3 ff ff       	jmp    d8d <vf3_matrix_family+0x7ad>
+    2a5b:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2a5f:	89 01                	mov    %eax,(%rcx)
+    2a61:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2a65:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2a69:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a6d:	e9 dd e2 ff ff       	jmp    d4f <vf3_matrix_family+0x76f>
+    2a72:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2a77:	48 89 01             	mov    %rax,(%rcx)
+    2a7a:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2a7f:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2a84:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a88:	e9 c2 e2 ff ff       	jmp    d4f <vf3_matrix_family+0x76f>
+    2a8d:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2a91:	89 01                	mov    %eax,(%rcx)
+    2a93:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2a97:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2a9b:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2a9f:	e9 ef e3 ff ff       	jmp    e93 <vf3_matrix_family+0x8b3>
+    2aa4:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2aa9:	48 89 01             	mov    %rax,(%rcx)
+    2aac:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2ab1:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2ab6:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2aba:	e9 d4 e3 ff ff       	jmp    e93 <vf3_matrix_family+0x8b3>
+    2abf:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2ac3:	89 01                	mov    %eax,(%rcx)
+    2ac5:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2ac9:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2acd:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2ad1:	e9 7f e3 ff ff       	jmp    e55 <vf3_matrix_family+0x875>
+    2ad6:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2adb:	48 89 01             	mov    %rax,(%rcx)
+    2ade:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2ae3:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2ae8:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2aec:	e9 64 e3 ff ff       	jmp    e55 <vf3_matrix_family+0x875>
+    2af1:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2af5:	89 01                	mov    %eax,(%rcx)
+    2af7:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2afb:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2aff:	e9 09 e2 ff ff       	jmp    d0d <vf3_matrix_family+0x72d>
+    2b04:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2b08:	89 01                	mov    %eax,(%rcx)
+    2b0a:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2b0e:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2b12:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2b16:	e9 73 dd ff ff       	jmp    88e <vf3_matrix_family+0x2ae>
+    2b1b:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2b1f:	89 43 54             	mov    %eax,0x54(%rbx)
+    2b22:	8b 44 0e fc          	mov    -0x4(%rsi,%rcx,1),%eax
+    2b26:	89 44 0a fc          	mov    %eax,-0x4(%rdx,%rcx,1)
+    2b2a:	e9 a1 dd ff ff       	jmp    8d0 <vf3_matrix_family+0x2f0>
+    2b2f:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2b34:	48 89 43 54          	mov    %rax,0x54(%rbx)
+    2b38:	48 8b 44 0e f8       	mov    -0x8(%rsi,%rcx,1),%rax
+    2b3d:	48 89 44 0a f8       	mov    %rax,-0x8(%rdx,%rcx,1)
+    2b42:	e9 89 dd ff ff       	jmp    8d0 <vf3_matrix_family+0x2f0>
+    2b47:	49 89 f0             	mov    %rsi,%r8
+    2b4a:	48 89 da             	mov    %rbx,%rdx
+    2b4d:	89 f9                	mov    %edi,%ecx
+    2b4f:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2b56:	5b                   	pop    %rbx
+    2b57:	5e                   	pop    %rsi
+    2b58:	5f                   	pop    %rdi
+    2b59:	5d                   	pop    %rbp
+    2b5a:	41 5c                	pop    %r12
+    2b5c:	41 5d                	pop    %r13
+    2b5e:	41 5e                	pop    %r14
+    2b60:	41 5f                	pop    %r15
+    2b62:	e9 00 00 00 00       	jmp    2b67 <vf3_matrix_family+0x2587>
+    2b67:	8b 44 24 70          	mov    0x70(%rsp),%eax
+    2b6b:	89 01                	mov    %eax,(%rcx)
+    2b6d:	8b 44 16 fc          	mov    -0x4(%rsi,%rdx,1),%eax
+    2b71:	89 44 11 fc          	mov    %eax,-0x4(%rcx,%rdx,1)
+    2b75:	e9 cb ea ff ff       	jmp    1645 <vf3_matrix_family+0x1065>
+    2b7a:	8b 53 3c             	mov    0x3c(%rbx),%edx
+    2b7d:	48 89 f1             	mov    %rsi,%rcx
+    2b80:	e8 6b d5 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    2b85:	83 43 3c 04          	addl   $0x4,0x3c(%rbx)
+    2b89:	89 43 38             	mov    %eax,0x38(%rbx)
+    2b8c:	e9 5c dc ff ff       	jmp    7ed <vf3_matrix_family+0x20d>
+    2b91:	49 89 f0             	mov    %rsi,%r8
+    2b94:	48 89 da             	mov    %rbx,%rdx
+    2b97:	89 f9                	mov    %edi,%ecx
+    2b99:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2ba0:	5b                   	pop    %rbx
+    2ba1:	5e                   	pop    %rsi
+    2ba2:	5f                   	pop    %rdi
+    2ba3:	5d                   	pop    %rbp
+    2ba4:	41 5c                	pop    %r12
+    2ba6:	41 5d                	pop    %r13
+    2ba8:	41 5e                	pop    %r14
+    2baa:	41 5f                	pop    %r15
+    2bac:	e9 00 00 00 00       	jmp    2bb1 <vf3_matrix_family+0x25d1>
+    2bb1:	48 8b 44 24 70       	mov    0x70(%rsp),%rax
+    2bb6:	48 89 01             	mov    %rax,(%rcx)
+    2bb9:	48 8b 44 16 f8       	mov    -0x8(%rsi,%rdx,1),%rax
+    2bbe:	48 89 44 11 f8       	mov    %rax,-0x8(%rcx,%rdx,1)
+    2bc3:	e9 7d ea ff ff       	jmp    1645 <vf3_matrix_family+0x1065>
+    2bc8:	89 53 14             	mov    %edx,0x14(%rbx)
+    2bcb:	c7 43 10 10 00 00 00 	movl   $0x10,0x10(%rbx)
+    2bd2:	89 4b 18             	mov    %ecx,0x18(%rbx)
+    2bd5:	e9 a0 00 00 00       	jmp    2c7a <vf3_matrix_family+0x269a>
+    2bda:	48 8d bb 9c 00 00 00 	lea    0x9c(%rbx),%rdi
+    2be1:	31 c0                	xor    %eax,%eax
+    2be3:	3c 01                	cmp    $0x1,%al
+    2be5:	48 19 c0             	sbb    %rax,%rax
+    2be8:	29 fd                	sub    %edi,%ebp
+    2bea:	83 e0 04             	and    $0x4,%eax
+    2bed:	4c 8d 64 07 04       	lea    0x4(%rdi,%rax,1),%r12
+    2bf2:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    2bf6:	48 89 f1             	mov    %rsi,%rcx
+    2bf9:	48 83 c7 04          	add    $0x4,%rdi
+    2bfd:	e8 ee d4 ff ff       	call   f0 <vf3_matrix_read.constprop.0>
+    2c02:	89 47 fc             	mov    %eax,-0x4(%rdi)
+    2c05:	49 39 fc             	cmp    %rdi,%r12
+    2c08:	75 e8                	jne    2bf2 <vf3_matrix_family+0x2612>
+    2c0a:	8b 53 44             	mov    0x44(%rbx),%edx
+    2c0d:	8b 4b 10             	mov    0x10(%rbx),%ecx
+    2c10:	45 31 c0             	xor    %r8d,%r8d
+    2c13:	8b 43 18             	mov    0x18(%rbx),%eax
+    2c16:	8b 6b 14             	mov    0x14(%rbx),%ebp
+    2c19:	83 e2 fe             	and    $0xfffffffe,%edx
+    2c1c:	83 e9 01             	sub    $0x1,%ecx
+    2c1f:	41 0f 94 c0          	sete   %r8b
+    2c23:	44 09 c2             	or     %r8d,%edx
+    2c26:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    2c2a:	74 69                	je     2c95 <vf3_matrix_family+0x26b5>
+    2c2c:	83 c0 08             	add    $0x8,%eax
+    2c2f:	48 8d bb 9c 00 00 00 	lea    0x9c(%rbx),%rdi
+    2c36:	45 31 c0             	xor    %r8d,%r8d
+    2c39:	41 80 f8 01          	cmp    $0x1,%r8b
+    2c3d:	89 43 18             	mov    %eax,0x18(%rbx)
+    2c40:	89 4b 10             	mov    %ecx,0x10(%rbx)
+    2c43:	48 19 c0             	sbb    %rax,%rax
+    2c46:	29 fd                	sub    %edi,%ebp
+    2c48:	89 53 44             	mov    %edx,0x44(%rbx)
+    2c4b:	83 e0 04             	and    $0x4,%eax
+    2c4e:	4c 8d 64 07 04       	lea    0x4(%rdi,%rax,1),%r12
+    2c53:	44 8b 07             	mov    (%rdi),%r8d
+    2c56:	8d 54 3d 00          	lea    0x0(%rbp,%rdi,1),%edx
+    2c5a:	48 89 f1             	mov    %rsi,%rcx
+    2c5d:	48 83 c7 04          	add    $0x4,%rdi
+    2c61:	e8 9a d3 ff ff       	call   0 <vf3_matrix_write.constprop.0>
+    2c66:	49 39 fc             	cmp    %rdi,%r12
+    2c69:	75 e8                	jne    2c53 <vf3_matrix_family+0x2673>
+    2c6b:	8b 43 10             	mov    0x10(%rbx),%eax
+    2c6e:	83 43 14 04          	addl   $0x4,0x14(%rbx)
+    2c72:	85 c0                	test   %eax,%eax
+    2c74:	0f 84 00 ff ff ff    	je     2b7a <vf3_matrix_family+0x259a>
+    2c7a:	8b 6b 18             	mov    0x18(%rbx),%ebp
+    2c7d:	f6 43 4a 10          	testb  $0x10,0x4a(%rbx)
+    2c81:	0f 85 53 ff ff ff    	jne    2bda <vf3_matrix_family+0x25fa>
+    2c87:	48 8d 7b 60          	lea    0x60(%rbx),%rdi
+    2c8b:	b8 01 00 00 00       	mov    $0x1,%eax
+    2c90:	e9 4e ff ff ff       	jmp    2be3 <vf3_matrix_family+0x2603>
+    2c95:	83 c0 04             	add    $0x4,%eax
+    2c98:	48 8d 7b 60          	lea    0x60(%rbx),%rdi
+    2c9c:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+    2ca2:	eb 95                	jmp    2c39 <vf3_matrix_family+0x2659>
+    2ca4:	8b 54 24 70          	mov    0x70(%rsp),%edx
+    2ca8:	89 11                	mov    %edx,(%rcx)
+    2caa:	8b 54 06 fc          	mov    -0x4(%rsi,%rax,1),%edx
+    2cae:	89 54 01 fc          	mov    %edx,-0x4(%rcx,%rax,1)
+    2cb2:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2cb6:	e9 1c dd ff ff       	jmp    9d7 <vf3_matrix_family+0x3f7>
+    2cbb:	49 89 f0             	mov    %rsi,%r8
+    2cbe:	48 89 da             	mov    %rbx,%rdx
+    2cc1:	89 f9                	mov    %edi,%ecx
+    2cc3:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2cca:	5b                   	pop    %rbx
+    2ccb:	5e                   	pop    %rsi
+    2ccc:	5f                   	pop    %rdi
+    2ccd:	5d                   	pop    %rbp
+    2cce:	41 5c                	pop    %r12
+    2cd0:	41 5d                	pop    %r13
+    2cd2:	41 5e                	pop    %r14
+    2cd4:	41 5f                	pop    %r15
+    2cd6:	e9 00 00 00 00       	jmp    2cdb <vf3_matrix_family+0x26fb>
+    2cdb:	49 89 f0             	mov    %rsi,%r8
+    2cde:	48 89 da             	mov    %rbx,%rdx
+    2ce1:	89 f9                	mov    %edi,%ecx
+    2ce3:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2cea:	5b                   	pop    %rbx
+    2ceb:	5e                   	pop    %rsi
+    2cec:	5f                   	pop    %rdi
+    2ced:	5d                   	pop    %rbp
+    2cee:	41 5c                	pop    %r12
+    2cf0:	41 5d                	pop    %r13
+    2cf2:	41 5e                	pop    %r14
+    2cf4:	41 5f                	pop    %r15
+    2cf6:	e9 00 00 00 00       	jmp    2cfb <vf3_matrix_family+0x271b>
+    2cfb:	8b 54 24 70          	mov    0x70(%rsp),%edx
+    2cff:	89 11                	mov    %edx,(%rcx)
+    2d01:	8b 54 06 fc          	mov    -0x4(%rsi,%rax,1),%edx
+    2d05:	89 54 01 fc          	mov    %edx,-0x4(%rcx,%rax,1)
+    2d09:	e9 c2 e1 ff ff       	jmp    ed0 <vf3_matrix_family+0x8f0>
+    2d0e:	49 89 f0             	mov    %rsi,%r8
+    2d11:	48 89 da             	mov    %rbx,%rdx
+    2d14:	89 f9                	mov    %edi,%ecx
+    2d16:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2d1d:	5b                   	pop    %rbx
+    2d1e:	5e                   	pop    %rsi
+    2d1f:	5f                   	pop    %rdi
+    2d20:	5d                   	pop    %rbp
+    2d21:	41 5c                	pop    %r12
+    2d23:	41 5d                	pop    %r13
+    2d25:	41 5e                	pop    %r14
+    2d27:	41 5f                	pop    %r15
+    2d29:	e9 00 00 00 00       	jmp    2d2e <vf3_matrix_family+0x274e>
+    2d2e:	8b 54 24 70          	mov    0x70(%rsp),%edx
+    2d32:	89 11                	mov    %edx,(%rcx)
+    2d34:	8b 54 06 fc          	mov    -0x4(%rsi,%rax,1),%edx
+    2d38:	89 54 01 fc          	mov    %edx,-0x4(%rcx,%rax,1)
+    2d3c:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2d40:	e9 52 dc ff ff       	jmp    997 <vf3_matrix_family+0x3b7>
+    2d45:	48 8b 54 24 70       	mov    0x70(%rsp),%rdx
+    2d4a:	48 89 11             	mov    %rdx,(%rcx)
+    2d4d:	48 8b 54 06 f8       	mov    -0x8(%rsi,%rax,1),%rdx
+    2d52:	48 89 54 01 f8       	mov    %rdx,-0x8(%rcx,%rax,1)
+    2d57:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2d5b:	e9 37 dc ff ff       	jmp    997 <vf3_matrix_family+0x3b7>
+    2d60:	48 8b 54 24 70       	mov    0x70(%rsp),%rdx
+    2d65:	48 89 11             	mov    %rdx,(%rcx)
+    2d68:	48 8b 54 06 f8       	mov    -0x8(%rsi,%rax,1),%rdx
+    2d6d:	48 89 54 01 f8       	mov    %rdx,-0x8(%rcx,%rax,1)
+    2d72:	44 8b 43 48          	mov    0x48(%rbx),%r8d
+    2d76:	e9 5c dc ff ff       	jmp    9d7 <vf3_matrix_family+0x3f7>
+    2d7b:	48 8b 54 24 70       	mov    0x70(%rsp),%rdx
+    2d80:	48 89 11             	mov    %rdx,(%rcx)
+    2d83:	48 8b 54 06 f8       	mov    -0x8(%rsi,%rax,1),%rdx
+    2d88:	48 89 54 01 f8       	mov    %rdx,-0x8(%rcx,%rax,1)
+    2d8d:	e9 3e e1 ff ff       	jmp    ed0 <vf3_matrix_family+0x8f0>
+    2d92:	8b 54 24 70          	mov    0x70(%rsp),%edx
+    2d96:	89 17                	mov    %edx,(%rdi)
+    2d98:	8b 54 06 fc          	mov    -0x4(%rsi,%rax,1),%edx
+    2d9c:	89 54 07 fc          	mov    %edx,-0x4(%rdi,%rax,1)
+    2da0:	e9 ae db ff ff       	jmp    953 <vf3_matrix_family+0x373>
+    2da5:	48 8b 54 24 70       	mov    0x70(%rsp),%rdx
+    2daa:	48 89 17             	mov    %rdx,(%rdi)
+    2dad:	48 8b 54 06 f8       	mov    -0x8(%rsi,%rax,1),%rdx
+    2db2:	48 89 54 07 f8       	mov    %rdx,-0x8(%rdi,%rax,1)
+    2db7:	e9 97 db ff ff       	jmp    953 <vf3_matrix_family+0x373>
+    2dbc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2dc3:	5b                   	pop    %rbx
+    2dc4:	5e                   	pop    %rsi
+    2dc5:	5f                   	pop    %rdi
+    2dc6:	5d                   	pop    %rbp
+    2dc7:	41 5c                	pop    %r12
+    2dc9:	41 5d                	pop    %r13
+    2dcb:	41 5e                	pop    %r14
+    2dcd:	41 5f                	pop    %r15
+    2dcf:	e9 00 00 00 00       	jmp    2dd4 <vf3_matrix_family+0x27f4>
+    2dd4:	49 89 f0             	mov    %rsi,%r8
+    2dd7:	48 89 da             	mov    %rbx,%rdx
+    2dda:	89 f9                	mov    %edi,%ecx
+    2ddc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2de3:	5b                   	pop    %rbx
+    2de4:	5e                   	pop    %rsi
+    2de5:	5f                   	pop    %rdi
+    2de6:	5d                   	pop    %rbp
+    2de7:	41 5c                	pop    %r12
+    2de9:	41 5d                	pop    %r13
+    2deb:	41 5e                	pop    %r14
+    2ded:	41 5f                	pop    %r15
+    2def:	e9 00 00 00 00       	jmp    2df4 <vf3_matrix_family+0x2814>
+    2df4:	49 89 f0             	mov    %rsi,%r8
+    2df7:	48 89 da             	mov    %rbx,%rdx
+    2dfa:	89 f9                	mov    %edi,%ecx
+    2dfc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2e03:	5b                   	pop    %rbx
+    2e04:	5e                   	pop    %rsi
+    2e05:	5f                   	pop    %rdi
+    2e06:	5d                   	pop    %rbp
+    2e07:	41 5c                	pop    %r12
+    2e09:	41 5d                	pop    %r13
+    2e0b:	41 5e                	pop    %r14
+    2e0d:	41 5f                	pop    %r15
+    2e0f:	e9 00 00 00 00       	jmp    2e14 <vf3_matrix_family+0x2834>
+    2e14:	49 89 f0             	mov    %rsi,%r8
+    2e17:	48 89 da             	mov    %rbx,%rdx
+    2e1a:	89 f9                	mov    %edi,%ecx
+    2e1c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2e23:	5b                   	pop    %rbx
+    2e24:	5e                   	pop    %rsi
+    2e25:	5f                   	pop    %rdi
+    2e26:	5d                   	pop    %rbp
+    2e27:	41 5c                	pop    %r12
+    2e29:	41 5d                	pop    %r13
+    2e2b:	41 5e                	pop    %r14
+    2e2d:	41 5f                	pop    %r15
+    2e2f:	e9 00 00 00 00       	jmp    2e34 <vf3_matrix_family+0x2854>
+    2e34:	49 89 f0             	mov    %rsi,%r8
+    2e37:	48 89 da             	mov    %rbx,%rdx
+    2e3a:	89 f9                	mov    %edi,%ecx
+    2e3c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2e43:	5b                   	pop    %rbx
+    2e44:	5e                   	pop    %rsi
+    2e45:	5f                   	pop    %rdi
+    2e46:	5d                   	pop    %rbp
+    2e47:	41 5c                	pop    %r12
+    2e49:	41 5d                	pop    %r13
+    2e4b:	41 5e                	pop    %r14
+    2e4d:	41 5f                	pop    %r15
+    2e4f:	e9 00 00 00 00       	jmp    2e54 <vf3_matrix_family+0x2874>
+    2e54:	49 89 f0             	mov    %rsi,%r8
+    2e57:	48 89 da             	mov    %rbx,%rdx
+    2e5a:	89 f9                	mov    %edi,%ecx
+    2e5c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2e63:	5b                   	pop    %rbx
+    2e64:	5e                   	pop    %rsi
+    2e65:	5f                   	pop    %rdi
+    2e66:	5d                   	pop    %rbp
+    2e67:	41 5c                	pop    %r12
+    2e69:	41 5d                	pop    %r13
+    2e6b:	41 5e                	pop    %r14
+    2e6d:	41 5f                	pop    %r15
+    2e6f:	e9 00 00 00 00       	jmp    2e74 <vf3_matrix_family+0x2894>
+    2e74:	49 89 f0             	mov    %rsi,%r8
+    2e77:	48 89 da             	mov    %rbx,%rdx
+    2e7a:	89 f9                	mov    %edi,%ecx
+    2e7c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2e83:	5b                   	pop    %rbx
+    2e84:	5e                   	pop    %rsi
+    2e85:	5f                   	pop    %rdi
+    2e86:	5d                   	pop    %rbp
+    2e87:	41 5c                	pop    %r12
+    2e89:	41 5d                	pop    %r13
+    2e8b:	41 5e                	pop    %r14
+    2e8d:	41 5f                	pop    %r15
+    2e8f:	e9 00 00 00 00       	jmp    2e94 <vf3_matrix_family+0x28b4>
+    2e94:	49 89 f0             	mov    %rsi,%r8
+    2e97:	48 89 da             	mov    %rbx,%rdx
+    2e9a:	89 f9                	mov    %edi,%ecx
+    2e9c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2ea3:	5b                   	pop    %rbx
+    2ea4:	5e                   	pop    %rsi
+    2ea5:	5f                   	pop    %rdi
+    2ea6:	5d                   	pop    %rbp
+    2ea7:	41 5c                	pop    %r12
+    2ea9:	41 5d                	pop    %r13
+    2eab:	41 5e                	pop    %r14
+    2ead:	41 5f                	pop    %r15
+    2eaf:	e9 00 00 00 00       	jmp    2eb4 <vf3_matrix_family+0x28d4>
+    2eb4:	49 89 f0             	mov    %rsi,%r8
+    2eb7:	48 89 da             	mov    %rbx,%rdx
+    2eba:	89 f9                	mov    %edi,%ecx
+    2ebc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2ec3:	5b                   	pop    %rbx
+    2ec4:	5e                   	pop    %rsi
+    2ec5:	5f                   	pop    %rdi
+    2ec6:	5d                   	pop    %rbp
+    2ec7:	41 5c                	pop    %r12
+    2ec9:	41 5d                	pop    %r13
+    2ecb:	41 5e                	pop    %r14
+    2ecd:	41 5f                	pop    %r15
+    2ecf:	e9 00 00 00 00       	jmp    2ed4 <vf3_matrix_family+0x28f4>
+    2ed4:	49 89 f0             	mov    %rsi,%r8
+    2ed7:	48 89 da             	mov    %rbx,%rdx
+    2eda:	89 f9                	mov    %edi,%ecx
+    2edc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2ee3:	5b                   	pop    %rbx
+    2ee4:	5e                   	pop    %rsi
+    2ee5:	5f                   	pop    %rdi
+    2ee6:	5d                   	pop    %rbp
+    2ee7:	41 5c                	pop    %r12
+    2ee9:	41 5d                	pop    %r13
+    2eeb:	41 5e                	pop    %r14
+    2eed:	41 5f                	pop    %r15
+    2eef:	e9 00 00 00 00       	jmp    2ef4 <vf3_matrix_family+0x2914>
+    2ef4:	49 89 f0             	mov    %rsi,%r8
+    2ef7:	48 89 da             	mov    %rbx,%rdx
+    2efa:	89 f9                	mov    %edi,%ecx
+    2efc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2f03:	5b                   	pop    %rbx
+    2f04:	5e                   	pop    %rsi
+    2f05:	5f                   	pop    %rdi
+    2f06:	5d                   	pop    %rbp
+    2f07:	41 5c                	pop    %r12
+    2f09:	41 5d                	pop    %r13
+    2f0b:	41 5e                	pop    %r14
+    2f0d:	41 5f                	pop    %r15
+    2f0f:	e9 00 00 00 00       	jmp    2f14 <vf3_matrix_family+0x2934>
+    2f14:	49 89 f0             	mov    %rsi,%r8
+    2f17:	48 89 da             	mov    %rbx,%rdx
+    2f1a:	89 f9                	mov    %edi,%ecx
+    2f1c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2f23:	5b                   	pop    %rbx
+    2f24:	5e                   	pop    %rsi
+    2f25:	5f                   	pop    %rdi
+    2f26:	5d                   	pop    %rbp
+    2f27:	41 5c                	pop    %r12
+    2f29:	41 5d                	pop    %r13
+    2f2b:	41 5e                	pop    %r14
+    2f2d:	41 5f                	pop    %r15
+    2f2f:	e9 00 00 00 00       	jmp    2f34 <vf3_matrix_family+0x2954>
+    2f34:	49 89 f0             	mov    %rsi,%r8
+    2f37:	48 89 da             	mov    %rbx,%rdx
+    2f3a:	89 f9                	mov    %edi,%ecx
+    2f3c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2f43:	5b                   	pop    %rbx
+    2f44:	5e                   	pop    %rsi
+    2f45:	5f                   	pop    %rdi
+    2f46:	5d                   	pop    %rbp
+    2f47:	41 5c                	pop    %r12
+    2f49:	41 5d                	pop    %r13
+    2f4b:	41 5e                	pop    %r14
+    2f4d:	41 5f                	pop    %r15
+    2f4f:	e9 00 00 00 00       	jmp    2f54 <vf3_matrix_family+0x2974>
+    2f54:	49 89 f0             	mov    %rsi,%r8
+    2f57:	48 89 da             	mov    %rbx,%rdx
+    2f5a:	89 f9                	mov    %edi,%ecx
+    2f5c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2f63:	5b                   	pop    %rbx
+    2f64:	5e                   	pop    %rsi
+    2f65:	5f                   	pop    %rdi
+    2f66:	5d                   	pop    %rbp
+    2f67:	41 5c                	pop    %r12
+    2f69:	41 5d                	pop    %r13
+    2f6b:	41 5e                	pop    %r14
+    2f6d:	41 5f                	pop    %r15
+    2f6f:	e9 00 00 00 00       	jmp    2f74 <vf3_matrix_family+0x2994>
+    2f74:	49 89 f0             	mov    %rsi,%r8
+    2f77:	48 89 da             	mov    %rbx,%rdx
+    2f7a:	89 f9                	mov    %edi,%ecx
+    2f7c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2f83:	5b                   	pop    %rbx
+    2f84:	5e                   	pop    %rsi
+    2f85:	5f                   	pop    %rdi
+    2f86:	5d                   	pop    %rbp
+    2f87:	41 5c                	pop    %r12
+    2f89:	41 5d                	pop    %r13
+    2f8b:	41 5e                	pop    %r14
+    2f8d:	41 5f                	pop    %r15
+    2f8f:	e9 00 00 00 00       	jmp    2f94 <vf3_matrix_family+0x29b4>
+    2f94:	49 89 f0             	mov    %rsi,%r8
+    2f97:	48 89 da             	mov    %rbx,%rdx
+    2f9a:	89 f9                	mov    %edi,%ecx
+    2f9c:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2fa3:	5b                   	pop    %rbx
+    2fa4:	5e                   	pop    %rsi
+    2fa5:	5f                   	pop    %rdi
+    2fa6:	5d                   	pop    %rbp
+    2fa7:	41 5c                	pop    %r12
+    2fa9:	41 5d                	pop    %r13
+    2fab:	41 5e                	pop    %r14
+    2fad:	41 5f                	pop    %r15
+    2faf:	e9 00 00 00 00       	jmp    2fb4 <vf3_matrix_family+0x29d4>
+    2fb4:	49 89 f0             	mov    %rsi,%r8
+    2fb7:	48 89 da             	mov    %rbx,%rdx
+    2fba:	89 f9                	mov    %edi,%ecx
+    2fbc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2fc3:	5b                   	pop    %rbx
+    2fc4:	5e                   	pop    %rsi
+    2fc5:	5f                   	pop    %rdi
+    2fc6:	5d                   	pop    %rbp
+    2fc7:	41 5c                	pop    %r12
+    2fc9:	41 5d                	pop    %r13
+    2fcb:	41 5e                	pop    %r14
+    2fcd:	41 5f                	pop    %r15
+    2fcf:	e9 00 00 00 00       	jmp    2fd4 <vf3_matrix_family+0x29f4>
+    2fd4:	49 89 f0             	mov    %rsi,%r8
+    2fd7:	48 89 da             	mov    %rbx,%rdx
+    2fda:	89 f9                	mov    %edi,%ecx
+    2fdc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    2fe3:	5b                   	pop    %rbx
+    2fe4:	5e                   	pop    %rsi
+    2fe5:	5f                   	pop    %rdi
+    2fe6:	5d                   	pop    %rbp
+    2fe7:	41 5c                	pop    %r12
+    2fe9:	41 5d                	pop    %r13
+    2feb:	41 5e                	pop    %r14
+    2fed:	41 5f                	pop    %r15
+    2fef:	e9 00 00 00 00       	jmp    2ff4 <vf3_matrix_family+0x2a14>
+    2ff4:	49 89 f0             	mov    %rsi,%r8
+    2ff7:	48 89 da             	mov    %rbx,%rdx
+    2ffa:	89 f9                	mov    %edi,%ecx
+    2ffc:	48 81 c4 18 01 00 00 	add    $0x118,%rsp
+    3003:	5b                   	pop    %rbx
+    3004:	5e                   	pop    %rsi
+    3005:	5f                   	pop    %rdi
+    3006:	5d                   	pop    %rbp
+    3007:	41 5c                	pop    %r12
+    3009:	41 5d                	pop    %r13
+    300b:	41 5e                	pop    %r14
+    300d:	41 5f                	pop    %r15
+    300f:	e9 00 00 00 00       	jmp    3014 <vf3_matrix_family+0x2a34>
+    3014:	90                   	nop
+    3015:	90                   	nop
+    3016:	90                   	nop
+    3017:	90                   	nop
+    3018:	90                   	nop
+    3019:	90                   	nop
+    301a:	90                   	nop
+    301b:	90                   	nop
+    301c:	90                   	nop
+    301d:	90                   	nop
+    301e:	90                   	nop
+    301f:	90                   	nop
