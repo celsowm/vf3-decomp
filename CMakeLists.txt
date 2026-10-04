@@ -95,6 +95,13 @@ add_library(vf3core STATIC
     src/fight/vf3_motion_unowned_extra_adapter.c
     src/fight/vf3_fifth_leaf_extra_adapter.c
     src/fight/vf3_ultimate_adapter.c
+    src/fight/tenpp_asset_adapters.c
+    src/fight/tenpp_survey_adapters.c
+    src/fight/tenpp_survey_adapters_0.c
+    src/fight/tenpp_survey_adapters_1.c
+    src/fight/tenpp_survey_adapters_2.c
+    src/fight/tenpp_survey_adapters_3.c
+    src/fight/tenpp_survey_adapters_4.c
     src/fight/vf3_aica_stub_adapter.c
     src/fight/phase1_adapters.c
     src/fight/phase1_adapters_0.c
@@ -174,6 +181,13 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/vf3_motion_unowned_extra_adapter.c
       src/fight/vf3_fifth_leaf_extra_adapter.c
       src/fight/vf3_ultimate_adapter.c
+      src/fight/tenpp_asset_adapters.c
+      src/fight/tenpp_survey_adapters.c
+      src/fight/tenpp_survey_adapters_0.c
+      src/fight/tenpp_survey_adapters_1.c
+      src/fight/tenpp_survey_adapters_2.c
+      src/fight/tenpp_survey_adapters_3.c
+      src/fight/tenpp_survey_adapters_4.c
       src/fight/vf3_aica_stub_adapter.c
       src/fight/fifth_adapters_0.c
       src/fight/fifth_adapters_1.c

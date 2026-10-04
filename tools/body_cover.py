@@ -121,11 +121,13 @@ def main() -> int:
             dirs.append(p.parent)
         else:
             raise SystemExit(f"not a capture corpus: {p}")
+    only = {int(x, 16) for x in a.entry}
+    if a.bindings:
+        only.update(int(key.split(":")[-1], 16) for key in bindings)
     corpora = corpus_pcs(dirs)
     if not corpora:
         raise SystemExit("no f_*.ops.json found in the given corpora")
 
-    only = {int(x, 16) for x in a.entry}
     rows = []
     uncovered: dict[str, list[str]] = {}
     for entry, (pcs, ncases, sources) in sorted(corpora.items()):
@@ -143,6 +145,30 @@ def main() -> int:
                          uncovered_pcs=len(missing), corpus=";".join(sources)))
         uncovered[f"0x{entry:08x}"] = [f"0x{pc:08x}" for pc in missing]
 
+    if only:
+        measured = {int(row["entry"], 16) for row in rows}
+        missing_entries = sorted(only - measured)
+        if missing_entries and a.strict:
+            raise SystemExit("COVERAGE GATE FAIL: no body PCs captured for " +
+                             ", ".join(f"0x{entry:08x}" for entry in missing_entries))
+    if a.strict and a.min_cover is not None:
+        incomplete = [row for row in rows
+                      if float(row["covered_bytes"]) * 100.0 /
+                      max(1, int(row["body_bytes"])) < a.min_cover - 1e-9]
+        if incomplete:
+            for row in incomplete:
+                print(f"COVERAGE GATE FAIL {row['entry']}: "
+                      f"{row['covered_bytes']}/{row['body_bytes']} body bytes "
+                      f"({row['cover_pct']}%) < {a.min_cover:g}%")
+            return 1
+    if not rows:
+        if a.strict:
+            raise SystemExit("COVERAGE GATE FAIL: no selected entries have a "
+                             "valid baseline body and captured PCs")
+        if not a.quiet:
+            print("no baseline body entries selected")
+        return 0
+
     out = AN / "body_cover.csv"
     with out.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
@@ -158,7 +184,8 @@ def main() -> int:
         print(f"wrote {out.relative_to(ROOT)}")
 
     if a.min_cover is not None:
-        bad = [r for r in rows if float(r["cover_pct"]) < a.min_cover - 1e-9]
+        bad = [r for r in rows if float(r["covered_bytes"]) * 100.0 /
+               max(1, int(r["body_bytes"])) < a.min_cover - 1e-9]
         if bad and a.strict:
             for r in bad:
                 print(f"COVERAGE GATE FAIL {r['entry']}: {r['cover_pct']}% < {a.min_cover}%")

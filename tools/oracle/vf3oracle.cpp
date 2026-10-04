@@ -64,8 +64,10 @@ struct Call {
     unsigned savedDepth = 0;
     unsigned triggerPc = 0;
     std::map<unsigned, std::array<unsigned char, PAGE>> restorePages;
+    std::vector<unsigned char> restoreRam;
 };
 struct SeedVariant {
+    unsigned target = 0;
     std::vector<std::array<unsigned, 2>> regs;
     std::vector<std::array<unsigned, 2>> ram;
 };
@@ -121,8 +123,13 @@ State snapshot(const Sh4Context *c) {
     for (unsigned i=0; i<8; ++i) s[55+i]=c->r_bank[i];
     return s;
 }
+void flushPage(unsigned base) {
+    for (unsigned off=0; off<PAGE; off+=32)
+        ocache.WriteBack(0x8C000000u+base+off, true, true);
+}
 void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
     auto &c=active[i];
+    if (c.synthetic) for (const auto &p:c.pages) flushPage(p.first);
     if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
     State out=snapshot(ctx);
     unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),63,(unsigned)c.device.size()};
@@ -149,18 +156,18 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
          * pages with the pre-probe images. Skipping this leaves the game reading
          * the probe's values out of the cache and the run diverges within a few
          * hundred frames. */
-        for (auto &p:c.restorePages) {
-            for (unsigned off=0; off<PAGE; off+=1024)
-                ocache.WriteBack(0x8C000000u+p.first+off, true, true);
-            std::memcpy(&mem_b[p.first],p.second.data(),PAGE);
-        }
+        ocache.WriteBackAll();
+        std::memcpy(&mem_b[0],c.restoreRam.data(),c.restoreRam.size());
         /* The probe's fixture routes the target's return to the instruction
          * after the trigger, so the interpreter has already resumed the game's
          * own instruction stream. Restore every other piece of architectural
          * state while leaving the PC progression the fetch unit chose alone. */
-        unsigned naturalPc=m->pc;
         *m=c.saved;
-        m->pc=c.skipFetched? c.gameResume : naturalPc;
+        /* Re-fetch the original trigger after restoring its pre-instruction
+         * state. Skipping a prologue loses its stack push; skipping a call
+         * loses its result. The re-fetch bypasses this observer once. */
+        m->pc=c.triggerPc;
+        pendingSkip=true;
         /* The SH-4 FPU rounding mode also lives in the host FP environment, which
          * the probe's own FPU instructions may have changed. Without re-applying it
          * the game keeps computing with the probe's rounding mode and its state
@@ -241,6 +248,7 @@ void touch(unsigned addr, unsigned size) {
     for (auto &c:active) for (unsigned a=first&~(PAGE-1); a<=((first+size-1)&~(PAGE-1)); a+=PAGE) {
         if (c.pages.count(a)) continue;
         if (c.pages.size()==LIMIT) { c.flags|=4; continue; }
+        if (c.synthetic) flushPage(a);
         auto &page=c.pages[a];
         std::memcpy(page.data(), &mem_b[a], PAGE);
         /* A synthetic probe must not leave RAM modified, so keep an
@@ -259,14 +267,24 @@ void device(unsigned addr,unsigned size,unsigned value,unsigned write) {
     }
 }
 bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
-u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
-u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
-u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
-u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
-void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) device(a,1,v,1); else touch(a,1); wr8(a,v); }
-void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) device(a,2,v,1); else touch(a,2); wr16(a,v); }
-void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) device(a,4,v,1); else touch(a,4); wr32(a,v); }
-void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
+bool blockSyntheticDevice(unsigned addr) {
+    bool blocked=false;
+    for (auto &c:active) if (c.synthetic) {
+        /* Device state cannot be restored from RAM pages. Reject the specimen
+         * before issuing an access, then restore at the next instruction. */
+        c.flags|=2; c.invalidAddress=addr;
+        c.aborted=true; c.skipFetched=true; c.countdown=1; blocked=true;
+    }
+    return blocked;
+}
+u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
+u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
+u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
+u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
+void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,1,v,1); } else touch(a,1); wr8(a,v); }
+void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,2,v,1); } else touch(a,2); wr16(a,v); }
+void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,4,v,1); } else touch(a,4); wr32(a,v); }
+void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
 void hooks() {
     if (ReadMem32==r32) return;
     rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
@@ -354,6 +372,10 @@ void init(const Sh4Context *ctx) {
             if (line[0]=='#' || line[0]=='\n' || line[0]=='\r') continue;
             if (std::sscanf(line,"entry %x %x",&trigger,&target)==2) {
                 syntheticPatches[trigger|0x80000000u].target=target|0x80000000u;
+            } else if (std::sscanf(line,"target %x %x",&trigger,&target)==2) {
+                auto &patch=syntheticPatches[trigger|0x80000000u];
+                if (patch.variants.empty()) patch.variants.push_back(SeedVariant{});
+                patch.variants.back().target=target;
             } else if (std::sscanf(line,"seed %x",&trigger)==1) {
                 /* Start the next seed variant for this trigger: later reg/ram
                  * lines belong to it. Seed sets are applied round-robin, so one
@@ -452,6 +474,13 @@ bool vf3OracleAbortProbe() {
 void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     if(!initialized) init(ctx);
     lastCtx=ctx;
+    /* Exception rollback happens outside ReadNexOp. Its next fetch must replay
+     * the trigger before another probe can arm; otherwise the pending skip
+     * discards the new target's first instruction instead. */
+    if (pendingSkip) {
+        const_cast<Sh4Context *>(ctx)->pc=pc;
+        return;
+    }
     if (!hitsPath.empty()) {
         /* Install the memory hooks before counting: without them the survey runs
          * faster than a capture run, the game lands in a different fight phase and
@@ -470,6 +499,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         if (--active[i].countdown) continue;
         if (active[i].aborted) active[i].flags|=4;
         finish(i,pc,ctx);
+        if (pendingSkip) return;
     }
     unsigned canon=pc|0x80000000u;
     unsigned redirected=pendingRedirect;
@@ -479,20 +509,30 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         ++probeByTrigger[canon|0x40000000u];
         if (!active.empty()) { ++probeBusy; vf3OracleInvalidate(4); }
         else {
-            auto target=std::lower_bound(specs.begin(),specs.end(),synthetic->second.target,
+            SyntheticPatch &patch=synthetic->second;
+            const SeedVariant variant=patch.variants.empty()? SeedVariant{}
+                : patch.variants[patch.cursor++%patch.variants.size()];
+            const unsigned targetPc=variant.target? variant.target : patch.target;
+            const unsigned watchPc=targetPc|0x80000000u;
+            auto target=std::lower_bound(specs.begin(),specs.end(),watchPc,
                 [](const Spec &s,unsigned value){return s.pc<value;});
-            if (target==specs.end() || target->pc!=synthetic->second.target) {
+            if (target==specs.end() || target->pc!=watchPc) {
                 ++probeNotWatched;
                 std::fprintf(stderr,"[vf3oracle] synthetic target 0x%08x is not watched\n",synthetic->second.target); std::abort();
             }
+            /* Once full, leave the game context alone. An unrecorded redirect
+             * has no Call to restore its RAM or registers. */
+            if (target->count>=samples) { ++probeSampled; return; }
             Sh4Context *mutableCtx=const_cast<Sh4Context *>(ctx);
-            SyntheticPatch &patch=synthetic->second;
             /* Round-robin the trigger's seed variants so consecutive firings walk
              * the seed plan instead of repeating one input. */
-            const SeedVariant variant=patch.variants.empty()? SeedVariant{}
-                : patch.variants[patch.cursor++%patch.variants.size()];
-            Call c; c.id=++sequence; c.entry=patch.target; c.depth=depth;
+            Call c; c.id=++sequence; c.entry=watchPc; c.depth=depth;
             c.synthetic=true; c.saved=*ctx; c.savedDepth=depth; c.triggerPc=canon;
+            /* A callee can perform bulk RAM writes outside the scalar hooks.
+             * Such specimens remain invalid, but rollback must undo them too.
+             * Flush dirty game lines before taking the complete RAM image. */
+            ocache.WriteBackAll();
+            c.restoreRam.assign(&mem_b[0],&mem_b[0]+0x01000000u);
             /* No re-snapshot: with opcode substitution the trigger never runs, so
              * the state captured here already is the pre-target state. */
             /* Snapshot the fixture pages before overwriting them, so the exit
@@ -501,6 +541,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             for (const auto &word:variant.ram) {
                 unsigned base=(word[0]&0x00ffffffu) & ~(PAGE-1);
                 if (!c.restorePages.count(base) && c.restorePages.size()<LIMIT) {
+                    flushPage(base);
                     auto &page=c.restorePages[base];
                     std::memcpy(page.data(),&mem_b[base],PAGE);
                 }
@@ -521,8 +562,8 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             }
             for (const auto &word:variant.ram)
                 std::memcpy(&mem_b[word[0]&0x00ffffffu],&word[1],4);
-            mutableCtx->pc=synthetic->second.target;
-            redirected=synthetic->second.target;
+            mutableCtx->pc=targetPc;
+            redirected=targetPc;
             pendingRedirect=redirected;
             /* Substitute the target's first opcode for the trigger's, so the
              * interpreter never executes the trigger itself. */

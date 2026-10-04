@@ -72,6 +72,7 @@ def emit(pc,w):
         if low==8: return [f"{rn}=({rm}&0xffff0000u)|(({rm}&255u)<<8)|(({rm}>>8)&255u);"]
         if low==9: return [f"{rn}=({rm}<<16)|({rm}>>16);"]
         if low==0xB: return [f"{rn}=0u-{rm};"]
+        if low==0xA: return [f"wide=0ull-(uint64_t){rm}-(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
         if low in (0xC,0xD): return [f"{rn}={rm}&{255 if low==0xC else 65535}u;"]
         if low in (0xE,0xF): return [f"{rn}=(uint32_t)(int32_t)({ 'int8_t' if low==0xE else 'int16_t'}){rm};"]
     if top==4:

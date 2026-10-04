@@ -1,0 +1,11 @@
+# Large menu workers for seeded original interpreter survey.
+pc 0x8c07cbda
+pc 0x8c07cf50
+pc 0x8c07d222
+pc 0x8c07d5ca
+pc 0x8c07d95a
+pc 0x8c07dd04
+pc 0x8c07e294
+pc 0x8c07f436
+pc 0x8c07f722
+pc 0x8c07f894

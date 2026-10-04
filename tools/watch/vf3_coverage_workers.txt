@@ -1,0 +1,12 @@
+# Hot unported readable-C worker candidates.
+pc 0x8c071428
+pc 0x8c0711b0
+pc 0x8c07253e
+pc 0x8c07239e
+pc 0x8c0726be
+pc 0x8c072162
+pc 0x8c072902
+pc 0x8c0609b8
+pc 0x8c05027a
+pc 0x8c09635a
+pc 0x8c064246

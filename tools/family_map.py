@@ -42,6 +42,7 @@ sys.path.insert(0, ROOT)
 import sh4  # noqa: E402  (tools/sh4.py full SH-4 decoder)
 
 FUNCS = os.path.join(ROOT, "extract", "analysis", "funcs_1ST_READ.unsc.bin.csv")
+BODY_RANGES = os.path.join(ROOT, "extract", "analysis", "function_body_ranges.csv")
 LEDGER = os.path.join(ROOT, "docs", "decomp_status.csv")
 HITS = os.path.join(ROOT, "extract", "analysis", "trace_fn_hits.csv")
 BASE = 0x8C010000
@@ -133,6 +134,7 @@ def mnem_class(mnem: str) -> str:
 
 
 _IMAGE: bytes | None = None
+_BODIES: dict[int, list[tuple[int, int]]] | None = None
 
 
 def image() -> bytes:
@@ -143,12 +145,32 @@ def image() -> bytes:
     return _IMAGE
 
 
-def body_words(addr: int, size: int) -> list[int]:
+def body_segments(addr: int, size: int) -> list[tuple[int, list[int]]]:
+    """Return SH-4 words from the real, possibly fragmented Ghidra body.
+
+    The executable is already in its retail byte order.  In particular, do not
+    interpret each body as `entry .. entry + size`: Ghidra bodies may contain
+    gaps, and those gaps are often literal pools rather than instructions.
+    """
     blob = image()
-    off = addr - BASE
-    if off < 0 or off + size * 2 > len(blob):
-        raise ValueError("outside image")
-    return [int.from_bytes(blob[i:i + 2], "big") for i in range(off, off + size * 2, 2)]
+    global _BODIES
+    if _BODIES is None:
+        _BODIES = collections.defaultdict(list)
+        with open(BODY_RANGES, newline="") as fh:
+            for row in csv.DictReader(fh):
+                _BODIES[int(row["entry"], 16)].append(
+                    (int(row["start"], 16), int(row["end"], 16)))
+    ranges = _BODIES.get(addr, [])
+    if not ranges or sum(end - start for start, end in ranges) != size:
+        raise ValueError("missing or inconsistent body ranges")
+    segments = []
+    for start, end in ranges:
+        off = start - BASE
+        if off < 0 or off + end - start > len(blob) or (end - start) % 2:
+            raise ValueError("body range outside image or odd-sized")
+        segments.append((start, [int.from_bytes(blob[i:i + 2], "little")
+                                 for i in range(off, off + end - start, 2)]))
+    return segments
 
 
 def analyze(words: list[int], addr: int) -> tuple[tuple[int, ...], int, str]:
@@ -212,12 +234,18 @@ def main() -> int:
         if args.executed and hits.get(addr, 0) == 0:
             continue
         try:
-            words = body_words(addr, size)
+            segments = body_segments(addr, size)
         except (OSError, ValueError):
             continue
-        if not words:
+        if not segments:
             continue
-        callees, dyn, skel = analyze(words, addr)
+        callees, dyn, skel = set(), 0, []
+        for pc, words in segments:
+            sub_callees, sub_dyn, sub_skel = analyze(words, pc)
+            callees.update(sub_callees)
+            dyn += sub_dyn
+            skel.append(sub_skel)
+        callees, skel = tuple(sorted(callees)), "|".join(skel)
         # family key: shared external contract for calling bodies; exact
         # clone skeleton for leaves.
         if callees or dyn:

@@ -1,6 +1,8 @@
 /* Matrix stack, affine transforms and register-bank adapters. This source
  * uses matrix/vector loops; it neither decodes opcodes nor executes the ROM. */
 #include "fight/matrix_family.h"
+int vf3_tenpp_survey_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_tenpp_survey_adapter_contains(uint32_t);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -208,6 +210,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         if(vf3_motion_unowned_extra_adapter_contains(entry)) return vf3_motion_unowned_extra_adapter(entry,s,ram);
         if(vf3_fifth_leaf_extra_adapter_contains(entry)) return vf3_fifth_leaf_extra_adapter(entry,s,ram);
         if(vf3_ultimate_adapter_contains(entry)) return vf3_ultimate_adapter(entry,s,ram);
+        if(vf3_tenpp_asset_adapter_contains(entry)) return vf3_tenpp_asset_adapter(entry,s,ram);
+        if(vf3_tenpp_survey_adapter_contains(entry)) return vf3_tenpp_survey_adapter(entry,s,ram);
         if(vf3_aica_stub_adapter_contains(entry)) return vf3_aica_stub_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }

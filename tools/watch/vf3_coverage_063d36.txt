@@ -1,0 +1,2 @@
+# Frequent, statically closed 512-byte candidate.
+pc 0x8c063d36

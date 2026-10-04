@@ -5460,6 +5460,181 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0be05e"
   },
+  "tenpp-assets:0x8c0b2de6": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b2de6.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b2de6"
+  },
+  "tenpp-assets:0x8c0b36c2": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b36c2.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b36c2"
+  },
+  "tenpp-assets:0x8c0b3a94": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b3a94.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b3a94"
+  },
+  "tenpp-assets:0x8c0b41e2": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b41e2.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b41e2"
+  },
+  "tenpp-assets:0x8c0b496a": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b496a.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b496a"
+  },
+  "tenpp-assets:0x8c0b50de": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b50de.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b50de"
+  },
+  "tenpp-assets:0x8c0b6002": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b6002.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b6002"
+  },
+  "tenpp-assets:0x8c0b674e": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b674e.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b674e"
+  },
+  "tenpp-assets:0x8c0b6efe": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b6efe.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b6efe"
+  },
+  "tenpp-assets:0x8c0b764a": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b764a.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b764a"
+  },
+  "tenpp-assets:0x8c0b7daa": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b7daa.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b7daa"
+  },
+  "tenpp-assets:0x8c0b850a": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b850a.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b850a"
+  },
+  "tenpp-assets:0x8c0b8cba": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b8cba.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b8cba"
+  },
+  "tenpp-assets:0x8c0b94f2": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b94f2.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b94f2"
+  },
+  "tenpp-assets:0x8c0b98c4": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b98c4.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b98c4"
+  },
+  "tenpp-assets:0x8c0ba012": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0ba012.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ba012"
+  },
+  "tenpp-assets:0x8c0ba7c2": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0ba7c2.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ba7c2"
+  },
+  "tenpp-assets:0x8c0baf22": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0baf22.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0baf22"
+  },
+  "tenpp-assets:0x8c0bb66e": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0bb66e.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0bb66e"
+  },
+  "tenpp-assets:0x8c0bc5ba": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0bc5ba.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0bc5ba"
+  },
+  "tenpp-assets:0x8c0bcd6a": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0bcd6a.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0bcd6a"
+  },
+  "tenpp-assets:0x8c0bdc3e": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0bdc3e.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0bdc3e"
+  },
+  "tenpp-assets:0x8c0be39e": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0be39e.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0be39e"
+  },
+  "tenpp-assets:0x8c0be7be": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0be7be.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0be7be"
+  },
+  "tenpp-assets:0x8c0bec2e": {
+    "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0bec2e.cases",
+    "port": "src/fight/tenpp_asset_adapters.c",
+    "source": "100% frozen body PCs; >=64 distinct complete development cases; independent relocated descriptor acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0bec2e"
+  },
   "ultimate:0x8c03b364": {
     "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c03b364.cases",
     "port": "src/fight/vf3_ultimate_adapter.c",

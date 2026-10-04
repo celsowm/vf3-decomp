@@ -36,6 +36,7 @@ tools/emu/
 #     --triggers "$(cat extract/analysis/tmp_pro_sites.txt)" --pr-offset 2 \
 #     --out tools/oracle/phase3_allpro.patch
 tools/oracle/phase3_*.patch
+tools/oracle/tenpp_*.patch
 
 # harnesss
 .opencode/
