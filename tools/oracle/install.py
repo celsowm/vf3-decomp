@@ -79,6 +79,32 @@ def main():
     if '#include "vf3oracle.h"' not in text:
         p.write_text('#include "vf3oracle.h"\n' + text, encoding="utf-8")
     import re
+    p = CORE / "hw/sh4/interpr/sh4_fpu.cpp"
+    text = p.read_text(encoding="utf-8")
+    if "VF3 bounded FTRC conversion" not in text:
+        replacement = '''//ftrc <FREG_N>, FPUL
+sh4op(i1111_nnnn_0011_1101)
+{
+    // VF3 bounded FTRC conversion: the original positive-overflow correction
+    // followed an undefined float-to-int cast and can be optimized away.
+    // Check the range first, preserving the opcode's intended saturation.
+    const double value = ctx->fpscr.PR ? getDRn(ctx, op) : ctx->fr[GetN(op)];
+    if (std::isnan(value) || value < -2147483648.0)
+        ctx->fpul = 0x80000000u;
+    else if (value >= 2147483648.0)
+        ctx->fpul = 0x7fffffffu;
+    else
+        ctx->fpul = static_cast<u32>(static_cast<s32>(value));
+}
+
+
+//fmac'''
+        text, count = re.subn(r'//ftrc <FREG_N>, FPUL\nsh4op\(i1111_nnnn_0011_1101\).*?\n//fmac',
+                             replacement, text, count=1, flags=re.S)
+        if count != 1:
+            raise SystemExit("Missing original FTRC opcode implementation")
+        p.write_text(text, encoding="utf-8")
+    p = CORE / "hw/sh4/sh4_mem.cpp"
     text = p.read_text(encoding="utf-8")
     for name in ("WriteMemBlock_nommu_ptr", "WriteMemBlock_nommu_sq", "WriteMemBlock_nommu_dma"):
         if re.search(rf'{name}\([^;]*?\)\s*\{{\s*vf3OracleInvalidate', text):

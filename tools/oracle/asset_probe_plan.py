@@ -45,8 +45,8 @@ def generate(watch, output, trigger, variants, base=0x0c400000, holdout=False):
             if not first:
                 lines.append(f'seed 0x{trigger:08x}')
             first = False
-            lines.extend([f'target 0x{trigger:08x} 0x{root:08x}',
-                          f'reg 0x{trigger:08x} pr 0x{trigger + 2:08x}',
+            lines.extend([f'target 0x{trigger:08x} 0x{root & 0x1fffffff:08x}',
+                          f'reg 0x{trigger:08x} pr 0x{(trigger + 2) & 0x1fffffff:08x}',
                           f'reg 0x{trigger:08x} r4 0x{base + 0x2000:08x}'])
             # The native sibling descriptor has two list pointers at +16/+20.
             # The unconditional installer requires a resource pointer even

@@ -26,6 +26,11 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
     palette = (-3.0, -0.75, 0.25, 0.75, 1.5, 3.0, 8.0, 24.0) if holdout_inputs else (-2.0, -1.0, 0.0, 0.5, 1.0, 2.0, 10.0, 50.0)
     for variant in range(variants):
         for entry in roots:
+            active_palette = palette
+            if expanded_inputs and entry == 0x8c08f8de:
+                active_palette = palette + (-1e-9, 1e-9, -1e-7, 1e-7)
+            if expanded_inputs and entry in (0x8c084c64, 0x8c0877ac):
+                active_palette = palette + (-0.2, -0.1, 0.01, 0.05, 0.1, 0.15, 0.16, 0.18, 0.19, 0.2, 0.21, 0.24, 0.3, 0.4, 0.7, 0.9)
             if not first:
                 lines.append(f'seed 0x{trigger:08x}')
             first = False
@@ -64,21 +69,32 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 import struct
                 rng = random.Random((entry << 16) ^ variant ^ (0x4f1bbcdc if holdout_inputs else 0))
                 registers, baseline, types = fixtures[entry]
+                registers = dict(registers)
                 words = dict(baseline)
                 protected = {addr for addr, value in words.items()
                              if 0x0c000000 <= (value & 0x1fffffff) < 0x10000000}
                 integers = tuple(range(32)) if expanded_inputs else (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16)
                 for addr in types['scalars']:
                     if addr in words and addr not in protected:
-                        words[addr] = rng.choice(integers)
+                        domain = (-1800, -20, -1, 0, 1, 19, 20, 21, 100, 1800, 36000, 36001, 72000) if expanded_inputs and entry == 0x8c0698fc else ((0, 1, 7, 84, 85, 100, 101, 119, 120, 121) if expanded_inputs and entry == 0x8c08d618 else integers)
+                        words[addr] = rng.choice(domain) & 0xffffffff
                 for addr, units in types['narrow'].items():
                     if addr in words and addr not in protected:
                         for bit in (0, 8, 16, 24):
                             if units & (1 << bit):
-                                words[addr] = (words[addr] & ~(0xff << bit)) | (rng.choice(integers) << bit)
+                                domain = (0, 1, 2, 3) if expanded_inputs and entry == 0x8c0698fc else integers
+                                if expanded_inputs and entry in (0x8c080930, 0x8c07d222):
+                                    byte_addr = addr + bit // 8
+                                    if byte_addr == 0x0c29c0d7:
+                                        domain = tuple(range(6))
+                                    elif 0x0c29c0d9 <= byte_addr < 0x0c29c0e3:
+                                        domain = tuple(range(26))
+                                if expanded_inputs and entry == 0x8c08d618:
+                                    domain = (0, 1, 7, 84, 85, 100, 101, 119, 120, 121)
+                                words[addr] = (words[addr] & ~(0xff << bit)) | (rng.choice(domain) << bit)
                 for addr in types['floats']:
                     if addr in words and addr not in protected:
-                        words[addr] = struct.unpack('<I', struct.pack('<f', rng.choice(palette)))[0]
+                        words[addr] = struct.unpack('<I', struct.pack('<f', rng.choice(active_palette)))[0]
                 for addr, masks in types['flags'].items():
                     if addr in words and addr not in protected:
                         words[addr] = 0
@@ -88,6 +104,16 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 for addr in types['counts']:
                     if addr in words and addr not in protected:
                         words[addr] = rng.randrange(1, 5)
+                if expanded_inputs:
+                    # Only pointers tested for zero by original instructions
+                    # receive null alternatives. Actual execution validates
+                    # whether each alternative is a complete invocation.
+                    for reg in types['nullable_args']:
+                        if reg in registers and rng.randrange(2):
+                            registers[reg] = 0
+                    for addr in types['nullable_fields']:
+                        if addr in protected and rng.randrange(2):
+                            words[addr] = 0
             if float_vectors or field_mode == 'vectors':
                 import struct
                 values = palette
@@ -98,6 +124,26 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                         if words.get(page + offset) == 0:
                             words[page + offset] = struct.unpack('<I', struct.pack(
                                 '<f', values[(variant + component) & 7]))[0]
+            if expanded_inputs and entry == 0x8c09bade:
+                # True prologue copies selector r4 to r0 and compares with 0.
+                registers = dict(registers)
+                registers[0] = registers[4] = variant & 7
+                lines.append(f'reg 0x{trigger:08x} sr 0x{0x60000000 | int((variant & 7) == 0):08x}')
+            if expanded_inputs and entry == 0x8c0ade3c:
+                # Three original little-endian float records, separated by a
+                # one-byte selector. Supply the decoder's established r0/r3.
+                import struct
+                registers = dict(registers)
+                record = registers[6]
+                for component, offset in enumerate((1, 6, 11)):
+                    bits = struct.pack('<f', palette[(variant + component * 3) & 7])
+                    for byte, value in enumerate(bits):
+                        addr = record + offset + byte
+                        base, shift = addr & ~3, (addr & 3) * 8
+                        words[base] = (words.get(base, 0) & ~(255 << shift)) | (value << shift)
+                first_bits = struct.pack('<f', palette[variant & 7])
+                registers[0] = first_bits[2]
+                registers[3] = first_bits[3] << 24
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{relocated(value):08x}'
                       for reg, value in sorted(registers.items())]
             if bounded_arguments:
@@ -105,14 +151,19 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                     if reg in registers:
                         continue
                     if expanded_inputs and random_fields and variant >= 128:
-                        value = rng.randrange(8)
+                        value = rng.randrange(32)
+                        for mask in types['argument_flags'].get(reg, ()):
+                            if rng.randrange(2):
+                                value |= mask
+                            else:
+                                value &= ~mask
                     else:
                         value = (variant + reg * 13 + (256 if holdout_inputs else 0)) & (7 if reg < 8 else 511)
                     lines.append(f'reg 0x{trigger:08x} r{reg} 0x{value:08x}')
             if floating_arguments:
                 import struct
                 lines += [f'reg 0x{trigger:08x} {bank}{reg} 0x' +
-                          f'{struct.unpack("<I", struct.pack("<f", rng.choice(palette) if expanded_inputs and random_fields and variant >= 128 else palette[(variant + reg) & 7]))[0]:08x}'
+                          f'{struct.unpack("<I", struct.pack("<f", rng.choice(active_palette) if expanded_inputs and random_fields and variant >= 128 else palette[(variant + reg) & 7]))[0]:08x}'
                           for bank in ('fr', 'xf') for reg in range(16)]
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'

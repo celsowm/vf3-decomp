@@ -22,6 +22,11 @@ def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
 def label(pc): return f"P_{pc:08x}"
 def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
 
+def write_source(path, content):
+    path = Path(path)
+    if not path.exists() or path.read_text(encoding='ascii') != content:
+        path.write_text(content, encoding='ascii')
+
 def adapter_pcs(paths):
     """Read emitted labels, excluding comments, routers and inferred seeds."""
     return {int(a,16) for path in paths
@@ -345,17 +350,17 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             for pc in pcs:
                 body.extend(re.sub(r'goto P_([0-9a-f]+);',transfer,line) for line in blocks[pc])
             body+=['unsupported: s->failed_pc=target; return 0;','}']
-            output.with_name(output.stem+f'_{index}.c').write_text('\n'.join(body)+'\n',encoding='ascii')
+            write_source(output.with_name(output.stem+f'_{index}.c'), '\n'.join(body)+'\n')
             router.append(f'int {name}(uint32_t,vf3_matrix_state*,const vf3_ram_map*);')
         router+=ownership()+[f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
           f'if(!{function}_contains(entry)) {{ s->failed_pc=entry; return 0; }}', 'uint32_t pc=entry&0x1fffffffu;']
         for index,pcs in enumerate(parts): router.append(f'if(pc<=0x{pcs[-1]:08x}u) return {function}_{index}(entry,s,ram);')
         router+=['s->failed_pc=entry; return 0;','}']
-        output.write_text('\n'.join(router)+'\n',encoding='ascii')
+        write_source(output, '\n'.join(router)+'\n')
         print(f'{len(parts)} bounded source modules')
     else:
         if not legacy: lines.extend(ownership())
-        Path(out).write_text('\n'.join(lines)+'\n',encoding='ascii')
+        write_source(out, '\n'.join(lines)+'\n')
     report={"statements":len(ops),"unsupported":{f"{k:08x}":v for k,v in unsupported.items()},"inputs":[str(d) for d in directories],"foreign_code":{f'{a:08x}':f'{w:04x}' for a,w in foreign.items()}}
     (ROOT/f"extract/analysis/{'matrix' if legacy else function}_adapter_translation.json").write_text(json.dumps(report,indent=1))
     print(f"{len(ops)} guest statements; {len(unsupported)} unsupported instructions")

@@ -5635,6 +5635,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0bec2e"
   },
+  "tenpp-floating:0x8c08f13e": {
+    "golden": "extract/analysis/tenpp_floating_complete_cases/f_8c08f13e.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Development states 27 and 28; independent finite floating inputs and relocated acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08f13e"
+  },
   "tenpp-large:0x8c08e920": {
     "golden": "extract/analysis/tenpp_large_random_initial_cases/f_8c08e920.cases",
     "port": "src/fight/tenpp_large_adapters.inc",
@@ -5662,6 +5669,153 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/27, independently varied fields, relocated held-out inputs, strict C replay.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0aed4a"
+  },
+  "tenpp-medium-expanded:0x8c03d84a": {
+    "golden": "extract/analysis/tenpp_medium_expanded_first_cases/f_8c03d84a.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent typed input fields and relocated acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03d84a"
+  },
+  "tenpp-medium-expanded:0x8c084b16": {
+    "golden": "extract/analysis/tenpp_medium_expanded_first_cases/f_8c084b16.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent typed input fields and relocated acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c084b16"
+  },
+  "tenpp-recovery-small:0x8c056352": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c056352.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056352"
+  },
+  "tenpp-recovery-small:0x8c059508": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059508.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059508"
+  },
+  "tenpp-recovery-small:0x8c059524": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059524.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059524"
+  },
+  "tenpp-recovery-small:0x8c059546": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059546.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059546"
+  },
+  "tenpp-recovery-small:0x8c059708": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059708.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059708"
+  },
+  "tenpp-recovery-small:0x8c059724": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059724.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059724"
+  },
+  "tenpp-recovery-small:0x8c059740": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059740.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059740"
+  },
+  "tenpp-recovery-small:0x8c05975c": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c05975c.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05975c"
+  },
+  "tenpp-recovery-small:0x8c059778": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059778.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059778"
+  },
+  "tenpp-recovery-small:0x8c059794": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c059794.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059794"
+  },
+  "tenpp-recovery-small:0x8c05cb74": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c05cb74.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05cb74"
+  },
+  "tenpp-recovery-small:0x8c05e3dc": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c05e3dc.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05e3dc"
+  },
+  "tenpp-recovery-small:0x8c05ed38": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c05ed38.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05ed38"
+  },
+  "tenpp-recovery-small:0x8c061596": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c061596.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061596"
+  },
+  "tenpp-recovery-small:0x8c061644": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c061644.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061644"
+  },
+  "tenpp-recovery-small:0x8c061fca": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c061fca.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061fca"
+  },
+  "tenpp-recovery-small:0x8c062ea4": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c062ea4.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c062ea4"
+  },
+  "tenpp-recovery-small:0x8c063368": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c063368.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c063368"
+  },
+  "tenpp-recovery-small:0x8c069702": {
+    "golden": "extract/analysis/tenpp_recovery_fourth_cases/f_8c069702.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Whole frozen bodies; fresh states 21/28 and strict independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c069702"
   },
   "tenpp-recovery:0x8c034f28": {
     "golden": "extract/analysis/tenpp_recovery_second_cases/f_8c034f28.cases",
@@ -6054,6 +6208,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two fresh development scenarios; complete frozen bodies; independent relocated acceptance; original-value self predecrement stores",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c103c"
+  },
+  "tenpp-statistics:0x8c0698fc": {
+    "golden": "extract/analysis/tenpp_statistics_safe_cases/f_8c0698fc.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Bounded original mutable statistics record; independent relocated acceptance; hardware-defined bounded FTRC oracle conversion",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0698fc"
   },
   "tenpp-typed:0x8c038eae": {
     "golden": "extract/analysis/tenpp_arch_second_cases/f_8c038eae.cases",
