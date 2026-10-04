@@ -613,7 +613,12 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     }
     auto spec=std::lower_bound(specs.begin(),specs.end(),canon,
         [](const Spec &s,unsigned value){return s.pc<value;});
-    if(!probeOnly && canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
+    /* Frozen entries can be loop blocks inside a larger real function.
+     * A revisit at the same call depth is part of the existing invocation,
+     * not another nested call. Actual recursion has a greater depth. */
+    const bool alreadyActive=std::any_of(active.begin(),active.end(),
+        [canon](const Call &call) { return (call.entry|0x80000000u)==canon && call.depth==depth; });
+    if(!probeOnly && !alreadyActive && canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
         ++spec->count;
         if(active.size()>=64) vf3OracleInvalidate(4);
         else {

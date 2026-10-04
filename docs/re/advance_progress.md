@@ -1,8 +1,8 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Eight accepted batches add **7,534 bytes**, reaching **213,596 / 434,656
-(49.1414%)**. The remaining shortfall is **35,932 bytes**.
+Twelve accepted batches add **9,958 bytes**, reaching **216,020 / 434,656
+(49.6991%)**. The remaining shortfall is **33,508 bytes**.
 
 ## Descriptor initializers
 
@@ -61,7 +61,7 @@ also clears the incomplete-invocation blocker on `0x8c04baf6`, adding 162 bytes.
 The accepted expanded batch is implemented in `advance_worker_adapters.c`.
 It passes all seven earlier parent replays again. The full CMake build passes.
 The previous integration's regression passes all 952 bound replays plus native
-tests; the expanded integration's regression is running separately in
+tests; the expanded integration's regression passes separately in
 `extract/analysis/advance_expanded_regression.log`.
 
 Seven original-gameplay routines add 332 unique bytes, with 4,775 strict
@@ -77,6 +77,38 @@ fails device/register replay. No partial successes from these entries are
 counted. The larger gameplay bodies also retain missing body paths.
 
 ## Remaining queue execution
+
+Two additional leaf batches add 638 unique bytes. Development and relocated
+holdout acceptance pass strictly; firmware-dependent leaves remain excluded.
+
+The next ranked leaf batch accepts three entries for 406 unique bytes. `0x8c0591a0`
+matches its complete body across 478 development cases and 223 independent
+holdout cases. `0x8c088222` and `0x8c08b73c` match 510/511 development cases and
+256 acceptance cases each. Reports record zero skipped cases.
+
+The vector-grid batch adds 1,380 unique bytes from 23 frozen entries. Starting
+at the real `0x8c072076` prologue initializes the stack and 24-byte record stride
+before observing its internal blocks. `grid_probe_plan.py` supplies finite
+vectors, bounded dimensions and the original descriptor selectors. Development
+uses states 21/27; acceptance uses states 23/29, different dimensions and finite
+values, and pointers relocated by `0x100000`. All selected invocations match
+complete registers and captured RAM with zero skips. Proof executable:
+`build/vf3matrixfamily_advance_grid.exe`; manifest:
+`tools/oracle/advance_grid_milestone.json`. The off-inventory parent receives no
+credit, and `0x8c0727b4` remains excluded for incomplete body execution.
+
+Watching repeated loop blocks revealed that the oracle must retain one active
+observation per entry and call depth. Revisiting a block at the same depth now
+extends its existing observation; recursion at a deeper depth still starts a
+new observation. This prevents repeated loop visits from exhausting the active
+capture limit. Only fresh captures from the corrected oracle support the grid
+milestone. The earlier generic parent fixture failed and is excluded.
+
+`prologue_roots.py` suggests nearby original prologues; its output is advisory.
+`range_watch.py` selects their frozen children, and `isolate_planned.py
+--observe-watch` captures children while probing only the selected parents.
+The ranked queue now preserves byte priority and can exclude already attempted
+progress entries. These tools replace repeated inline extraction scripts.
 
 The first broad queue comprises 150 roots with 40,984 potential marginal bytes;
 potential is not credit. Captures are serial and resumable with

@@ -384,6 +384,13 @@ case 0x0c037780u: goto P_0c037780;
 case 0x0c037782u: goto P_0c037782;
 case 0x0c037784u: goto P_0c037784;
 case 0x0c037786u: goto P_0c037786;
+case 0x0c037d90u: goto P_0c037d90;
+case 0x0c037d92u: goto P_0c037d92;
+case 0x0c037d94u: goto P_0c037d94;
+case 0x0c037d96u: goto P_0c037d96;
+case 0x0c037d98u: goto P_0c037d98;
+case 0x0c037d9au: goto P_0c037d9a;
+case 0x0c037d9cu: goto P_0c037d9c;
 case 0x0c037d9eu: goto P_0c037d9e;
 case 0x0c037da0u: goto P_0c037da0;
 case 0x0c037da2u: goto P_0c037da2;
@@ -453,6 +460,10 @@ case 0x0c037e20u: goto P_0c037e20;
 case 0x0c037e22u: goto P_0c037e22;
 case 0x0c037e24u: goto P_0c037e24;
 case 0x0c037e26u: goto P_0c037e26;
+case 0x0c0380a0u: goto P_0c0380a0;
+case 0x0c0380a2u: goto P_0c0380a2;
+case 0x0c0380a4u: goto P_0c0380a4;
+case 0x0c0380a6u: goto P_0c0380a6;
 case 0x0c0380a8u: goto P_0c0380a8;
 case 0x0c0380aau: goto P_0c0380aa;
 case 0x0c0380acu: goto P_0c0380ac;
@@ -480,6 +491,342 @@ case 0x0c0380d6u: goto P_0c0380d6;
 case 0x0c0380d8u: goto P_0c0380d8;
 case 0x0c0380dau: goto P_0c0380da;
 case 0x0c0380dcu: goto P_0c0380dc;
+case 0x0c0380e0u: goto P_0c0380e0;
+case 0x0c0380e2u: goto P_0c0380e2;
+case 0x0c0380e4u: goto P_0c0380e4;
+case 0x0c0380e6u: goto P_0c0380e6;
+case 0x0c0380e8u: goto P_0c0380e8;
+case 0x0c0380eau: goto P_0c0380ea;
+case 0x0c0380ecu: goto P_0c0380ec;
+case 0x0c0380eeu: goto P_0c0380ee;
+case 0x0c0380f0u: goto P_0c0380f0;
+case 0x0c0380f2u: goto P_0c0380f2;
+case 0x0c0380f4u: goto P_0c0380f4;
+case 0x0c0380f6u: goto P_0c0380f6;
+case 0x0c0380f8u: goto P_0c0380f8;
+case 0x0c0380fau: goto P_0c0380fa;
+case 0x0c0380fcu: goto P_0c0380fc;
+case 0x0c0380feu: goto P_0c0380fe;
+case 0x0c038100u: goto P_0c038100;
+case 0x0c038102u: goto P_0c038102;
+case 0x0c038104u: goto P_0c038104;
+case 0x0c038106u: goto P_0c038106;
+case 0x0c038108u: goto P_0c038108;
+case 0x0c03810au: goto P_0c03810a;
+case 0x0c03810cu: goto P_0c03810c;
+case 0x0c03810eu: goto P_0c03810e;
+case 0x0c038110u: goto P_0c038110;
+case 0x0c038112u: goto P_0c038112;
+case 0x0c038114u: goto P_0c038114;
+case 0x0c038116u: goto P_0c038116;
+case 0x0c038118u: goto P_0c038118;
+case 0x0c03811au: goto P_0c03811a;
+case 0x0c03811cu: goto P_0c03811c;
+case 0x0c038150u: goto P_0c038150;
+case 0x0c038152u: goto P_0c038152;
+case 0x0c038154u: goto P_0c038154;
+case 0x0c038156u: goto P_0c038156;
+case 0x0c038158u: goto P_0c038158;
+case 0x0c03815au: goto P_0c03815a;
+case 0x0c03815cu: goto P_0c03815c;
+case 0x0c03815eu: goto P_0c03815e;
+case 0x0c038160u: goto P_0c038160;
+case 0x0c038162u: goto P_0c038162;
+case 0x0c038164u: goto P_0c038164;
+case 0x0c038166u: goto P_0c038166;
+case 0x0c038168u: goto P_0c038168;
+case 0x0c03816au: goto P_0c03816a;
+case 0x0c03816cu: goto P_0c03816c;
+case 0x0c03816eu: goto P_0c03816e;
+case 0x0c038170u: goto P_0c038170;
+case 0x0c038172u: goto P_0c038172;
+case 0x0c038174u: goto P_0c038174;
+case 0x0c038176u: goto P_0c038176;
+case 0x0c038178u: goto P_0c038178;
+case 0x0c03817au: goto P_0c03817a;
+case 0x0c03817cu: goto P_0c03817c;
+case 0x0c03817eu: goto P_0c03817e;
+case 0x0c038180u: goto P_0c038180;
+case 0x0c038182u: goto P_0c038182;
+case 0x0c038184u: goto P_0c038184;
+case 0x0c038186u: goto P_0c038186;
+case 0x0c038188u: goto P_0c038188;
+case 0x0c03818au: goto P_0c03818a;
+case 0x0c03818cu: goto P_0c03818c;
+case 0x0c038192u: goto P_0c038192;
+case 0x0c038194u: goto P_0c038194;
+case 0x0c038196u: goto P_0c038196;
+case 0x0c038198u: goto P_0c038198;
+case 0x0c03819au: goto P_0c03819a;
+case 0x0c03819cu: goto P_0c03819c;
+case 0x0c03819eu: goto P_0c03819e;
+case 0x0c0381a0u: goto P_0c0381a0;
+case 0x0c0381a2u: goto P_0c0381a2;
+case 0x0c0381a4u: goto P_0c0381a4;
+case 0x0c0381a6u: goto P_0c0381a6;
+case 0x0c0381a8u: goto P_0c0381a8;
+case 0x0c0381aau: goto P_0c0381aa;
+case 0x0c0381acu: goto P_0c0381ac;
+case 0x0c0381aeu: goto P_0c0381ae;
+case 0x0c0381b0u: goto P_0c0381b0;
+case 0x0c0381b2u: goto P_0c0381b2;
+case 0x0c0381b4u: goto P_0c0381b4;
+case 0x0c03a160u: goto P_0c03a160;
+case 0x0c03a162u: goto P_0c03a162;
+case 0x0c03a164u: goto P_0c03a164;
+case 0x0c03a166u: goto P_0c03a166;
+case 0x0c03a168u: goto P_0c03a168;
+case 0x0c03a16au: goto P_0c03a16a;
+case 0x0c03a16cu: goto P_0c03a16c;
+case 0x0c03a16eu: goto P_0c03a16e;
+case 0x0c03a170u: goto P_0c03a170;
+case 0x0c03a172u: goto P_0c03a172;
+case 0x0c03a174u: goto P_0c03a174;
+case 0x0c03a180u: goto P_0c03a180;
+case 0x0c03a182u: goto P_0c03a182;
+case 0x0c03a184u: goto P_0c03a184;
+case 0x0c03a186u: goto P_0c03a186;
+case 0x0c03a188u: goto P_0c03a188;
+case 0x0c03a18au: goto P_0c03a18a;
+case 0x0c03a18cu: goto P_0c03a18c;
+case 0x0c03a18eu: goto P_0c03a18e;
+case 0x0c03a1bau: goto P_0c03a1ba;
+case 0x0c03a1bcu: goto P_0c03a1bc;
+case 0x0c03a1beu: goto P_0c03a1be;
+case 0x0c03a1c0u: goto P_0c03a1c0;
+case 0x0c03a1c2u: goto P_0c03a1c2;
+case 0x0c03a1c4u: goto P_0c03a1c4;
+case 0x0c03a1c6u: goto P_0c03a1c6;
+case 0x0c03a1c8u: goto P_0c03a1c8;
+case 0x0c03a1cau: goto P_0c03a1ca;
+case 0x0c03a1ccu: goto P_0c03a1cc;
+case 0x0c03a1ceu: goto P_0c03a1ce;
+case 0x0c03a1d0u: goto P_0c03a1d0;
+case 0x0c03a1d2u: goto P_0c03a1d2;
+case 0x0c03a1d4u: goto P_0c03a1d4;
+case 0x0c03a1d6u: goto P_0c03a1d6;
+case 0x0c03a1d8u: goto P_0c03a1d8;
+case 0x0c03a6a4u: goto P_0c03a6a4;
+case 0x0c03a6a6u: goto P_0c03a6a6;
+case 0x0c03a6a8u: goto P_0c03a6a8;
+case 0x0c03a6aau: goto P_0c03a6aa;
+case 0x0c03a6acu: goto P_0c03a6ac;
+case 0x0c03a6aeu: goto P_0c03a6ae;
+case 0x0c03a6b0u: goto P_0c03a6b0;
+case 0x0c03a6b2u: goto P_0c03a6b2;
+case 0x0c03a6b4u: goto P_0c03a6b4;
+case 0x0c03a6b6u: goto P_0c03a6b6;
+case 0x0c03a6c0u: goto P_0c03a6c0;
+case 0x0c03a6c2u: goto P_0c03a6c2;
+case 0x0c03a6c4u: goto P_0c03a6c4;
+case 0x0c03a6c6u: goto P_0c03a6c6;
+case 0x0c03a6c8u: goto P_0c03a6c8;
+case 0x0c03a6cau: goto P_0c03a6ca;
+case 0x0c03a6ccu: goto P_0c03a6cc;
+case 0x0c03a6ceu: goto P_0c03a6ce;
+case 0x0c03a772u: goto P_0c03a772;
+case 0x0c03a774u: goto P_0c03a774;
+case 0x0c03a776u: goto P_0c03a776;
+case 0x0c03a778u: goto P_0c03a778;
+case 0x0c03a77au: goto P_0c03a77a;
+case 0x0c03a77cu: goto P_0c03a77c;
+case 0x0c03a77eu: goto P_0c03a77e;
+case 0x0c03a780u: goto P_0c03a780;
+case 0x0c03a782u: goto P_0c03a782;
+case 0x0c03a784u: goto P_0c03a784;
+case 0x0c03a786u: goto P_0c03a786;
+case 0x0c03a788u: goto P_0c03a788;
+case 0x0c03a78au: goto P_0c03a78a;
+case 0x0c03a78cu: goto P_0c03a78c;
+case 0x0c03a78eu: goto P_0c03a78e;
+case 0x0c03a790u: goto P_0c03a790;
+case 0x0c03a792u: goto P_0c03a792;
+case 0x0c03a794u: goto P_0c03a794;
+case 0x0c03a796u: goto P_0c03a796;
+case 0x0c03a7a0u: goto P_0c03a7a0;
+case 0x0c03a7a2u: goto P_0c03a7a2;
+case 0x0c03a7a4u: goto P_0c03a7a4;
+case 0x0c03a7a6u: goto P_0c03a7a6;
+case 0x0c03a7a8u: goto P_0c03a7a8;
+case 0x0c03a7aau: goto P_0c03a7aa;
+case 0x0c03a7acu: goto P_0c03a7ac;
+case 0x0c03a7aeu: goto P_0c03a7ae;
+case 0x0c03a7b0u: goto P_0c03a7b0;
+case 0x0c03a7b2u: goto P_0c03a7b2;
+case 0x0c03a7b4u: goto P_0c03a7b4;
+case 0x0c03a7c0u: goto P_0c03a7c0;
+case 0x0c03a7c2u: goto P_0c03a7c2;
+case 0x0c03a7c4u: goto P_0c03a7c4;
+case 0x0c03a7c6u: goto P_0c03a7c6;
+case 0x0c03a7c8u: goto P_0c03a7c8;
+case 0x0c03a7cau: goto P_0c03a7ca;
+case 0x0c03a7ccu: goto P_0c03a7cc;
+case 0x0c03a7ceu: goto P_0c03a7ce;
+case 0x0c03a7d0u: goto P_0c03a7d0;
+case 0x0c03a7d2u: goto P_0c03a7d2;
+case 0x0c03a7d4u: goto P_0c03a7d4;
+case 0x0c03a7d6u: goto P_0c03a7d6;
+case 0x0c03a7d8u: goto P_0c03a7d8;
+case 0x0c03a7dau: goto P_0c03a7da;
+case 0x0c03a7dcu: goto P_0c03a7dc;
+case 0x0c03a7deu: goto P_0c03a7de;
+case 0x0c03a7e0u: goto P_0c03a7e0;
+case 0x0c03a7e2u: goto P_0c03a7e2;
+case 0x0c03a7e4u: goto P_0c03a7e4;
+case 0x0c03a7e6u: goto P_0c03a7e6;
+case 0x0c03a7e8u: goto P_0c03a7e8;
+case 0x0c03a7eau: goto P_0c03a7ea;
+case 0x0c03a7ecu: goto P_0c03a7ec;
+case 0x0c03a7eeu: goto P_0c03a7ee;
+case 0x0c03a7f0u: goto P_0c03a7f0;
+case 0x0c03a7f2u: goto P_0c03a7f2;
+case 0x0c03a7f4u: goto P_0c03a7f4;
+case 0x0c03a7f6u: goto P_0c03a7f6;
+case 0x0c03a7f8u: goto P_0c03a7f8;
+case 0x0c03a800u: goto P_0c03a800;
+case 0x0c03a802u: goto P_0c03a802;
+case 0x0c03a804u: goto P_0c03a804;
+case 0x0c03a806u: goto P_0c03a806;
+case 0x0c03a808u: goto P_0c03a808;
+case 0x0c03a80au: goto P_0c03a80a;
+case 0x0c03a810u: goto P_0c03a810;
+case 0x0c03a812u: goto P_0c03a812;
+case 0x0c03a814u: goto P_0c03a814;
+case 0x0c03a816u: goto P_0c03a816;
+case 0x0c03a818u: goto P_0c03a818;
+case 0x0c03a81au: goto P_0c03a81a;
+case 0x0c03a820u: goto P_0c03a820;
+case 0x0c03a822u: goto P_0c03a822;
+case 0x0c03a824u: goto P_0c03a824;
+case 0x0c03a826u: goto P_0c03a826;
+case 0x0c03a828u: goto P_0c03a828;
+case 0x0c03a82au: goto P_0c03a82a;
+case 0x0c03a82cu: goto P_0c03a82c;
+case 0x0c03a82eu: goto P_0c03a82e;
+case 0x0c03a830u: goto P_0c03a830;
+case 0x0c03a832u: goto P_0c03a832;
+case 0x0c03a834u: goto P_0c03a834;
+case 0x0c03a836u: goto P_0c03a836;
+case 0x0c03a838u: goto P_0c03a838;
+case 0x0c03a83au: goto P_0c03a83a;
+case 0x0c03a83cu: goto P_0c03a83c;
+case 0x0c03a83eu: goto P_0c03a83e;
+case 0x0c03a840u: goto P_0c03a840;
+case 0x0c03a842u: goto P_0c03a842;
+case 0x0c03a844u: goto P_0c03a844;
+case 0x0c03a846u: goto P_0c03a846;
+case 0x0c03a848u: goto P_0c03a848;
+case 0x0c03a84au: goto P_0c03a84a;
+case 0x0c03a84cu: goto P_0c03a84c;
+case 0x0c03a84eu: goto P_0c03a84e;
+case 0x0c03a850u: goto P_0c03a850;
+case 0x0c03a852u: goto P_0c03a852;
+case 0x0c03a854u: goto P_0c03a854;
+case 0x0c03a856u: goto P_0c03a856;
+case 0x0c03a858u: goto P_0c03a858;
+case 0x0c03a85au: goto P_0c03a85a;
+case 0x0c03a85cu: goto P_0c03a85c;
+case 0x0c03a85eu: goto P_0c03a85e;
+case 0x0c03a860u: goto P_0c03a860;
+case 0x0c03a862u: goto P_0c03a862;
+case 0x0c03a864u: goto P_0c03a864;
+case 0x0c03a866u: goto P_0c03a866;
+case 0x0c03a868u: goto P_0c03a868;
+case 0x0c03a86au: goto P_0c03a86a;
+case 0x0c03a9fcu: goto P_0c03a9fc;
+case 0x0c03a9feu: goto P_0c03a9fe;
+case 0x0c03aa00u: goto P_0c03aa00;
+case 0x0c03aa02u: goto P_0c03aa02;
+case 0x0c03aa04u: goto P_0c03aa04;
+case 0x0c03aa06u: goto P_0c03aa06;
+case 0x0c03aa08u: goto P_0c03aa08;
+case 0x0c03aa0au: goto P_0c03aa0a;
+case 0x0c03aa0cu: goto P_0c03aa0c;
+case 0x0c03aa0eu: goto P_0c03aa0e;
+case 0x0c03aa10u: goto P_0c03aa10;
+case 0x0c03aa12u: goto P_0c03aa12;
+case 0x0c03aa14u: goto P_0c03aa14;
+case 0x0c03aa16u: goto P_0c03aa16;
+case 0x0c03aa18u: goto P_0c03aa18;
+case 0x0c03aa1au: goto P_0c03aa1a;
+case 0x0c03aa1cu: goto P_0c03aa1c;
+case 0x0c03aa1eu: goto P_0c03aa1e;
+case 0x0c03aa20u: goto P_0c03aa20;
+case 0x0c03aa30u: goto P_0c03aa30;
+case 0x0c03aa32u: goto P_0c03aa32;
+case 0x0c03aa34u: goto P_0c03aa34;
+case 0x0c03aa36u: goto P_0c03aa36;
+case 0x0c03aa38u: goto P_0c03aa38;
+case 0x0c03aa3au: goto P_0c03aa3a;
+case 0x0c03aa3cu: goto P_0c03aa3c;
+case 0x0c03aa3eu: goto P_0c03aa3e;
+case 0x0c03aa40u: goto P_0c03aa40;
+case 0x0c03aa42u: goto P_0c03aa42;
+case 0x0c03aa70u: goto P_0c03aa70;
+case 0x0c03aa72u: goto P_0c03aa72;
+case 0x0c03aa74u: goto P_0c03aa74;
+case 0x0c03aa76u: goto P_0c03aa76;
+case 0x0c03aa78u: goto P_0c03aa78;
+case 0x0c03aa7au: goto P_0c03aa7a;
+case 0x0c03aa7cu: goto P_0c03aa7c;
+case 0x0c03aa7eu: goto P_0c03aa7e;
+case 0x0c03aa80u: goto P_0c03aa80;
+case 0x0c03aa82u: goto P_0c03aa82;
+case 0x0c03aa84u: goto P_0c03aa84;
+case 0x0c03aa86u: goto P_0c03aa86;
+case 0x0c03aa88u: goto P_0c03aa88;
+case 0x0c03ce38u: goto P_0c03ce38;
+case 0x0c03ce3au: goto P_0c03ce3a;
+case 0x0c03ce3cu: goto P_0c03ce3c;
+case 0x0c03ce3eu: goto P_0c03ce3e;
+case 0x0c03ce40u: goto P_0c03ce40;
+case 0x0c03ce42u: goto P_0c03ce42;
+case 0x0c03ce44u: goto P_0c03ce44;
+case 0x0c03ce46u: goto P_0c03ce46;
+case 0x0c03ce48u: goto P_0c03ce48;
+case 0x0c03ce4au: goto P_0c03ce4a;
+case 0x0c03ce4cu: goto P_0c03ce4c;
+case 0x0c03ce4eu: goto P_0c03ce4e;
+case 0x0c03ce50u: goto P_0c03ce50;
+case 0x0c03ce52u: goto P_0c03ce52;
+case 0x0c03ce54u: goto P_0c03ce54;
+case 0x0c03ce56u: goto P_0c03ce56;
+case 0x0c03ce58u: goto P_0c03ce58;
+case 0x0c03ce5au: goto P_0c03ce5a;
+case 0x0c03ce5cu: goto P_0c03ce5c;
+case 0x0c03ce5eu: goto P_0c03ce5e;
+case 0x0c03ce60u: goto P_0c03ce60;
+case 0x0c03ce62u: goto P_0c03ce62;
+case 0x0c03ce64u: goto P_0c03ce64;
+case 0x0c03ce66u: goto P_0c03ce66;
+case 0x0c03ce68u: goto P_0c03ce68;
+case 0x0c03ce6au: goto P_0c03ce6a;
+case 0x0c03ce90u: goto P_0c03ce90;
+case 0x0c03ce92u: goto P_0c03ce92;
+case 0x0c03ce94u: goto P_0c03ce94;
+case 0x0c03ce96u: goto P_0c03ce96;
+case 0x0c03ce98u: goto P_0c03ce98;
+case 0x0c03ce9au: goto P_0c03ce9a;
+case 0x0c03ce9cu: goto P_0c03ce9c;
+case 0x0c03ce9eu: goto P_0c03ce9e;
+case 0x0c03cea0u: goto P_0c03cea0;
+case 0x0c03cea2u: goto P_0c03cea2;
+case 0x0c03d2b0u: goto P_0c03d2b0;
+case 0x0c03d2b2u: goto P_0c03d2b2;
+case 0x0c03d2b4u: goto P_0c03d2b4;
+case 0x0c03d2b6u: goto P_0c03d2b6;
+case 0x0c03d2b8u: goto P_0c03d2b8;
+case 0x0c03d2bau: goto P_0c03d2ba;
+case 0x0c03d2bcu: goto P_0c03d2bc;
+case 0x0c03d2beu: goto P_0c03d2be;
+case 0x0c03d2c0u: goto P_0c03d2c0;
+case 0x0c03d2c2u: goto P_0c03d2c2;
+case 0x0c03d2c4u: goto P_0c03d2c4;
+case 0x0c03d2c6u: goto P_0c03d2c6;
+case 0x0c03d2c8u: goto P_0c03d2c8;
+case 0x0c03d2cau: goto P_0c03d2ca;
+case 0x0c03d2ccu: goto P_0c03d2cc;
+case 0x0c03d2ceu: goto P_0c03d2ce;
 case 0x0c03da50u: goto P_0c03da50;
 case 0x0c03da52u: goto P_0c03da52;
 case 0x0c03da54u: goto P_0c03da54;
@@ -633,6 +980,54 @@ case 0x0c03db9cu: goto P_0c03db9c;
 case 0x0c03db9eu: goto P_0c03db9e;
 case 0x0c03dba0u: goto P_0c03dba0;
 case 0x0c03dba2u: goto P_0c03dba2;
+case 0x0c03e000u: goto P_0c03e000;
+case 0x0c03e002u: goto P_0c03e002;
+case 0x0c03e004u: goto P_0c03e004;
+case 0x0c03e006u: goto P_0c03e006;
+case 0x0c03e008u: goto P_0c03e008;
+case 0x0c03e00au: goto P_0c03e00a;
+case 0x0c03e00cu: goto P_0c03e00c;
+case 0x0c03e00eu: goto P_0c03e00e;
+case 0x0c03e010u: goto P_0c03e010;
+case 0x0c03e012u: goto P_0c03e012;
+case 0x0c03e014u: goto P_0c03e014;
+case 0x0c03e016u: goto P_0c03e016;
+case 0x0c03e018u: goto P_0c03e018;
+case 0x0c03e01au: goto P_0c03e01a;
+case 0x0c03e01cu: goto P_0c03e01c;
+case 0x0c03e01eu: goto P_0c03e01e;
+case 0x0c03e020u: goto P_0c03e020;
+case 0x0c03e070u: goto P_0c03e070;
+case 0x0c03e072u: goto P_0c03e072;
+case 0x0c03e080u: goto P_0c03e080;
+case 0x0c03e082u: goto P_0c03e082;
+case 0x0c03e084u: goto P_0c03e084;
+case 0x0c03e086u: goto P_0c03e086;
+case 0x0c03e088u: goto P_0c03e088;
+case 0x0c03e08au: goto P_0c03e08a;
+case 0x0c03e08cu: goto P_0c03e08c;
+case 0x0c03e08eu: goto P_0c03e08e;
+case 0x0c03e090u: goto P_0c03e090;
+case 0x0c03e092u: goto P_0c03e092;
+case 0x0c03e094u: goto P_0c03e094;
+case 0x0c03e0a0u: goto P_0c03e0a0;
+case 0x0c03e0a2u: goto P_0c03e0a2;
+case 0x0c03e0a4u: goto P_0c03e0a4;
+case 0x0c03e0a6u: goto P_0c03e0a6;
+case 0x0c03e0b0u: goto P_0c03e0b0;
+case 0x0c03e0b2u: goto P_0c03e0b2;
+case 0x0c03e0c0u: goto P_0c03e0c0;
+case 0x0c03e0c2u: goto P_0c03e0c2;
+case 0x0c03e0d0u: goto P_0c03e0d0;
+case 0x0c03e0d2u: goto P_0c03e0d2;
+case 0x0c03e0e0u: goto P_0c03e0e0;
+case 0x0c03e0e2u: goto P_0c03e0e2;
+case 0x0c03e0e4u: goto P_0c03e0e4;
+case 0x0c03e0e6u: goto P_0c03e0e6;
+case 0x0c03e0e8u: goto P_0c03e0e8;
+case 0x0c03e0eau: goto P_0c03e0ea;
+case 0x0c03e0ecu: goto P_0c03e0ec;
+case 0x0c03e0eeu: goto P_0c03e0ee;
 case 0x0c03ea22u: goto P_0c03ea22;
 case 0x0c03ea24u: goto P_0c03ea24;
 case 0x0c03ea26u: goto P_0c03ea26;
@@ -720,6 +1115,67 @@ case 0x0c03eac8u: goto P_0c03eac8;
 case 0x0c03eacau: goto P_0c03eaca;
 case 0x0c03eaccu: goto P_0c03eacc;
 case 0x0c03eaceu: goto P_0c03eace;
+case 0x0c03fff0u: goto P_0c03fff0;
+case 0x0c03fff2u: goto P_0c03fff2;
+case 0x0c03fff4u: goto P_0c03fff4;
+case 0x0c03fff6u: goto P_0c03fff6;
+case 0x0c03fff8u: goto P_0c03fff8;
+case 0x0c03fffau: goto P_0c03fffa;
+case 0x0c03fffcu: goto P_0c03fffc;
+case 0x0c03fffeu: goto P_0c03fffe;
+case 0x0c040000u: goto P_0c040000;
+case 0x0c040002u: goto P_0c040002;
+case 0x0c040004u: goto P_0c040004;
+case 0x0c040010u: goto P_0c040010;
+case 0x0c040012u: goto P_0c040012;
+case 0x0c040014u: goto P_0c040014;
+case 0x0c040016u: goto P_0c040016;
+case 0x0c040018u: goto P_0c040018;
+case 0x0c04001au: goto P_0c04001a;
+case 0x0c04001cu: goto P_0c04001c;
+case 0x0c04001eu: goto P_0c04001e;
+case 0x0c040020u: goto P_0c040020;
+case 0x0c040022u: goto P_0c040022;
+case 0x0c040024u: goto P_0c040024;
+case 0x0c040026u: goto P_0c040026;
+case 0x0c040028u: goto P_0c040028;
+case 0x0c04002au: goto P_0c04002a;
+case 0x0c04002cu: goto P_0c04002c;
+case 0x0c04002eu: goto P_0c04002e;
+case 0x0c040030u: goto P_0c040030;
+case 0x0c040032u: goto P_0c040032;
+case 0x0c040034u: goto P_0c040034;
+case 0x0c040036u: goto P_0c040036;
+case 0x0c040038u: goto P_0c040038;
+case 0x0c04003au: goto P_0c04003a;
+case 0x0c04003cu: goto P_0c04003c;
+case 0x0c04003eu: goto P_0c04003e;
+case 0x0c040040u: goto P_0c040040;
+case 0x0c040042u: goto P_0c040042;
+case 0x0c040044u: goto P_0c040044;
+case 0x0c040046u: goto P_0c040046;
+case 0x0c040048u: goto P_0c040048;
+case 0x0c04004au: goto P_0c04004a;
+case 0x0c04004cu: goto P_0c04004c;
+case 0x0c04004eu: goto P_0c04004e;
+case 0x0c040050u: goto P_0c040050;
+case 0x0c040052u: goto P_0c040052;
+case 0x0c040054u: goto P_0c040054;
+case 0x0c040056u: goto P_0c040056;
+case 0x0c040058u: goto P_0c040058;
+case 0x0c04005au: goto P_0c04005a;
+case 0x0c04005cu: goto P_0c04005c;
+case 0x0c04005eu: goto P_0c04005e;
+case 0x0c040060u: goto P_0c040060;
+case 0x0c040062u: goto P_0c040062;
+case 0x0c040064u: goto P_0c040064;
+case 0x0c040066u: goto P_0c040066;
+case 0x0c040068u: goto P_0c040068;
+case 0x0c04006au: goto P_0c04006a;
+case 0x0c04006cu: goto P_0c04006c;
+case 0x0c040070u: goto P_0c040070;
+case 0x0c040072u: goto P_0c040072;
+case 0x0c040074u: goto P_0c040074;
 case 0x0c043064u: goto P_0c043064;
 case 0x0c043066u: goto P_0c043066;
 case 0x0c043068u: goto P_0c043068;
@@ -737,6 +1193,51 @@ case 0x0c04307eu: goto P_0c04307e;
 case 0x0c043080u: goto P_0c043080;
 case 0x0c043082u: goto P_0c043082;
 case 0x0c043084u: goto P_0c043084;
+case 0x0c04341eu: goto P_0c04341e;
+case 0x0c043420u: goto P_0c043420;
+case 0x0c043422u: goto P_0c043422;
+case 0x0c043424u: goto P_0c043424;
+case 0x0c043426u: goto P_0c043426;
+case 0x0c043428u: goto P_0c043428;
+case 0x0c04342au: goto P_0c04342a;
+case 0x0c04342cu: goto P_0c04342c;
+case 0x0c04342eu: goto P_0c04342e;
+case 0x0c043430u: goto P_0c043430;
+case 0x0c043432u: goto P_0c043432;
+case 0x0c043434u: goto P_0c043434;
+case 0x0c043436u: goto P_0c043436;
+case 0x0c043438u: goto P_0c043438;
+case 0x0c04343au: goto P_0c04343a;
+case 0x0c043440u: goto P_0c043440;
+case 0x0c043442u: goto P_0c043442;
+case 0x0c043444u: goto P_0c043444;
+case 0x0c043446u: goto P_0c043446;
+case 0x0c043448u: goto P_0c043448;
+case 0x0c04344au: goto P_0c04344a;
+case 0x0c04344cu: goto P_0c04344c;
+case 0x0c04344eu: goto P_0c04344e;
+case 0x0c043450u: goto P_0c043450;
+case 0x0c043452u: goto P_0c043452;
+case 0x0c043454u: goto P_0c043454;
+case 0x0c043456u: goto P_0c043456;
+case 0x0c043458u: goto P_0c043458;
+case 0x0c04345au: goto P_0c04345a;
+case 0x0c04345cu: goto P_0c04345c;
+case 0x0c0434aau: goto P_0c0434aa;
+case 0x0c0434acu: goto P_0c0434ac;
+case 0x0c0434aeu: goto P_0c0434ae;
+case 0x0c0434b0u: goto P_0c0434b0;
+case 0x0c0434b2u: goto P_0c0434b2;
+case 0x0c0434b4u: goto P_0c0434b4;
+case 0x0c0434b6u: goto P_0c0434b6;
+case 0x0c0434b8u: goto P_0c0434b8;
+case 0x0c0434bau: goto P_0c0434ba;
+case 0x0c0434bcu: goto P_0c0434bc;
+case 0x0c0434beu: goto P_0c0434be;
+case 0x0c0434c0u: goto P_0c0434c0;
+case 0x0c0434c2u: goto P_0c0434c2;
+case 0x0c0434c4u: goto P_0c0434c4;
+case 0x0c0434c6u: goto P_0c0434c6;
 case 0x0c043518u: goto P_0c043518;
 case 0x0c04351au: goto P_0c04351a;
 case 0x0c04351cu: goto P_0c04351c;
@@ -1478,6 +1979,198 @@ case 0x0c04cec6u: goto P_0c04cec6;
 case 0x0c04cec8u: goto P_0c04cec8;
 case 0x0c04cecau: goto P_0c04ceca;
 case 0x0c04ceccu: goto P_0c04cecc;
+case 0x0c059028u: goto P_0c059028;
+case 0x0c05902au: goto P_0c05902a;
+case 0x0c05902cu: goto P_0c05902c;
+case 0x0c05902eu: goto P_0c05902e;
+case 0x0c059030u: goto P_0c059030;
+case 0x0c059032u: goto P_0c059032;
+case 0x0c059034u: goto P_0c059034;
+case 0x0c059036u: goto P_0c059036;
+case 0x0c059038u: goto P_0c059038;
+case 0x0c05903au: goto P_0c05903a;
+case 0x0c05903cu: goto P_0c05903c;
+case 0x0c05903eu: goto P_0c05903e;
+case 0x0c059040u: goto P_0c059040;
+case 0x0c059042u: goto P_0c059042;
+case 0x0c059044u: goto P_0c059044;
+case 0x0c059046u: goto P_0c059046;
+case 0x0c059048u: goto P_0c059048;
+case 0x0c05904au: goto P_0c05904a;
+case 0x0c05904cu: goto P_0c05904c;
+case 0x0c05904eu: goto P_0c05904e;
+case 0x0c059050u: goto P_0c059050;
+case 0x0c059060u: goto P_0c059060;
+case 0x0c059062u: goto P_0c059062;
+case 0x0c059064u: goto P_0c059064;
+case 0x0c059066u: goto P_0c059066;
+case 0x0c059068u: goto P_0c059068;
+case 0x0c05906au: goto P_0c05906a;
+case 0x0c05906cu: goto P_0c05906c;
+case 0x0c05906eu: goto P_0c05906e;
+case 0x0c059070u: goto P_0c059070;
+case 0x0c059072u: goto P_0c059072;
+case 0x0c059074u: goto P_0c059074;
+case 0x0c059076u: goto P_0c059076;
+case 0x0c059078u: goto P_0c059078;
+case 0x0c05907au: goto P_0c05907a;
+case 0x0c05907cu: goto P_0c05907c;
+case 0x0c05907eu: goto P_0c05907e;
+case 0x0c059080u: goto P_0c059080;
+case 0x0c059082u: goto P_0c059082;
+case 0x0c059084u: goto P_0c059084;
+case 0x0c059086u: goto P_0c059086;
+case 0x0c059088u: goto P_0c059088;
+case 0x0c05908au: goto P_0c05908a;
+case 0x0c05908cu: goto P_0c05908c;
+case 0x0c05908eu: goto P_0c05908e;
+case 0x0c059090u: goto P_0c059090;
+case 0x0c059092u: goto P_0c059092;
+case 0x0c059094u: goto P_0c059094;
+case 0x0c059096u: goto P_0c059096;
+case 0x0c059098u: goto P_0c059098;
+case 0x0c05909au: goto P_0c05909a;
+case 0x0c05909cu: goto P_0c05909c;
+case 0x0c05909eu: goto P_0c05909e;
+case 0x0c0590a0u: goto P_0c0590a0;
+case 0x0c0590a2u: goto P_0c0590a2;
+case 0x0c0590a4u: goto P_0c0590a4;
+case 0x0c0590a6u: goto P_0c0590a6;
+case 0x0c0590a8u: goto P_0c0590a8;
+case 0x0c0590aau: goto P_0c0590aa;
+case 0x0c0590acu: goto P_0c0590ac;
+case 0x0c0590aeu: goto P_0c0590ae;
+case 0x0c0590b0u: goto P_0c0590b0;
+case 0x0c0590b2u: goto P_0c0590b2;
+case 0x0c0590b4u: goto P_0c0590b4;
+case 0x0c0590b6u: goto P_0c0590b6;
+case 0x0c0590b8u: goto P_0c0590b8;
+case 0x0c0590bau: goto P_0c0590ba;
+case 0x0c0590bcu: goto P_0c0590bc;
+case 0x0c0590beu: goto P_0c0590be;
+case 0x0c0590c0u: goto P_0c0590c0;
+case 0x0c0590c2u: goto P_0c0590c2;
+case 0x0c0590c4u: goto P_0c0590c4;
+case 0x0c0590c6u: goto P_0c0590c6;
+case 0x0c0590c8u: goto P_0c0590c8;
+case 0x0c0590cau: goto P_0c0590ca;
+case 0x0c0590ccu: goto P_0c0590cc;
+case 0x0c0590ceu: goto P_0c0590ce;
+case 0x0c0590d0u: goto P_0c0590d0;
+case 0x0c0590d2u: goto P_0c0590d2;
+case 0x0c0590d4u: goto P_0c0590d4;
+case 0x0c0590d6u: goto P_0c0590d6;
+case 0x0c0590d8u: goto P_0c0590d8;
+case 0x0c0590dau: goto P_0c0590da;
+case 0x0c0590dcu: goto P_0c0590dc;
+case 0x0c0590deu: goto P_0c0590de;
+case 0x0c0590e0u: goto P_0c0590e0;
+case 0x0c0590e2u: goto P_0c0590e2;
+case 0x0c0590e4u: goto P_0c0590e4;
+case 0x0c0590e6u: goto P_0c0590e6;
+case 0x0c0590e8u: goto P_0c0590e8;
+case 0x0c0590eau: goto P_0c0590ea;
+case 0x0c0590ecu: goto P_0c0590ec;
+case 0x0c0590eeu: goto P_0c0590ee;
+case 0x0c0590f0u: goto P_0c0590f0;
+case 0x0c0590f2u: goto P_0c0590f2;
+case 0x0c0590f4u: goto P_0c0590f4;
+case 0x0c0590f6u: goto P_0c0590f6;
+case 0x0c0590f8u: goto P_0c0590f8;
+case 0x0c0590fau: goto P_0c0590fa;
+case 0x0c0590fcu: goto P_0c0590fc;
+case 0x0c0590feu: goto P_0c0590fe;
+case 0x0c059100u: goto P_0c059100;
+case 0x0c059102u: goto P_0c059102;
+case 0x0c059104u: goto P_0c059104;
+case 0x0c059106u: goto P_0c059106;
+case 0x0c059108u: goto P_0c059108;
+case 0x0c05910au: goto P_0c05910a;
+case 0x0c05910cu: goto P_0c05910c;
+case 0x0c05910eu: goto P_0c05910e;
+case 0x0c059110u: goto P_0c059110;
+case 0x0c059112u: goto P_0c059112;
+case 0x0c059114u: goto P_0c059114;
+case 0x0c059116u: goto P_0c059116;
+case 0x0c059118u: goto P_0c059118;
+case 0x0c05911au: goto P_0c05911a;
+case 0x0c05911cu: goto P_0c05911c;
+case 0x0c05911eu: goto P_0c05911e;
+case 0x0c059120u: goto P_0c059120;
+case 0x0c059122u: goto P_0c059122;
+case 0x0c059124u: goto P_0c059124;
+case 0x0c059126u: goto P_0c059126;
+case 0x0c059128u: goto P_0c059128;
+case 0x0c05912au: goto P_0c05912a;
+case 0x0c05912cu: goto P_0c05912c;
+case 0x0c05912eu: goto P_0c05912e;
+case 0x0c059130u: goto P_0c059130;
+case 0x0c059140u: goto P_0c059140;
+case 0x0c059142u: goto P_0c059142;
+case 0x0c059144u: goto P_0c059144;
+case 0x0c059146u: goto P_0c059146;
+case 0x0c059148u: goto P_0c059148;
+case 0x0c05914au: goto P_0c05914a;
+case 0x0c05914cu: goto P_0c05914c;
+case 0x0c05914eu: goto P_0c05914e;
+case 0x0c059150u: goto P_0c059150;
+case 0x0c059152u: goto P_0c059152;
+case 0x0c059154u: goto P_0c059154;
+case 0x0c059156u: goto P_0c059156;
+case 0x0c059158u: goto P_0c059158;
+case 0x0c05915au: goto P_0c05915a;
+case 0x0c05915cu: goto P_0c05915c;
+case 0x0c05915eu: goto P_0c05915e;
+case 0x0c059160u: goto P_0c059160;
+case 0x0c059162u: goto P_0c059162;
+case 0x0c059164u: goto P_0c059164;
+case 0x0c059166u: goto P_0c059166;
+case 0x0c059168u: goto P_0c059168;
+case 0x0c05916au: goto P_0c05916a;
+case 0x0c05916cu: goto P_0c05916c;
+case 0x0c05916eu: goto P_0c05916e;
+case 0x0c059170u: goto P_0c059170;
+case 0x0c059172u: goto P_0c059172;
+case 0x0c059174u: goto P_0c059174;
+case 0x0c059176u: goto P_0c059176;
+case 0x0c059178u: goto P_0c059178;
+case 0x0c05917au: goto P_0c05917a;
+case 0x0c05917cu: goto P_0c05917c;
+case 0x0c05917eu: goto P_0c05917e;
+case 0x0c059180u: goto P_0c059180;
+case 0x0c059182u: goto P_0c059182;
+case 0x0c059184u: goto P_0c059184;
+case 0x0c059186u: goto P_0c059186;
+case 0x0c059188u: goto P_0c059188;
+case 0x0c05918au: goto P_0c05918a;
+case 0x0c05918cu: goto P_0c05918c;
+case 0x0c05918eu: goto P_0c05918e;
+case 0x0c059190u: goto P_0c059190;
+case 0x0c059192u: goto P_0c059192;
+case 0x0c059194u: goto P_0c059194;
+case 0x0c059196u: goto P_0c059196;
+case 0x0c059198u: goto P_0c059198;
+case 0x0c05919au: goto P_0c05919a;
+case 0x0c05919cu: goto P_0c05919c;
+case 0x0c05919eu: goto P_0c05919e;
+case 0x0c0591a0u: goto P_0c0591a0;
+case 0x0c0591a2u: goto P_0c0591a2;
+case 0x0c0591a4u: goto P_0c0591a4;
+case 0x0c0591a6u: goto P_0c0591a6;
+case 0x0c0591a8u: goto P_0c0591a8;
+case 0x0c0591aau: goto P_0c0591aa;
+case 0x0c0591acu: goto P_0c0591ac;
+case 0x0c0591aeu: goto P_0c0591ae;
+case 0x0c0591b0u: goto P_0c0591b0;
+case 0x0c0591b2u: goto P_0c0591b2;
+case 0x0c0591b4u: goto P_0c0591b4;
+case 0x0c0591b6u: goto P_0c0591b6;
+case 0x0c0591b8u: goto P_0c0591b8;
+case 0x0c0591bau: goto P_0c0591ba;
+case 0x0c0591bcu: goto P_0c0591bc;
+case 0x0c0591beu: goto P_0c0591be;
+case 0x0c0591c0u: goto P_0c0591c0;
+case 0x0c0591c2u: goto P_0c0591c2;
 case 0x0c05bb38u: goto P_0c05bb38;
 case 0x0c05bb3au: goto P_0c05bb3a;
 case 0x0c05bb3cu: goto P_0c05bb3c;
@@ -3456,6 +4149,1314 @@ case 0x0c07206eu: goto P_0c07206e;
 case 0x0c072070u: goto P_0c072070;
 case 0x0c072072u: goto P_0c072072;
 case 0x0c072074u: goto P_0c072074;
+case 0x0c072076u: goto P_0c072076;
+case 0x0c072078u: goto P_0c072078;
+case 0x0c07207au: goto P_0c07207a;
+case 0x0c07207cu: goto P_0c07207c;
+case 0x0c07207eu: goto P_0c07207e;
+case 0x0c072080u: goto P_0c072080;
+case 0x0c072082u: goto P_0c072082;
+case 0x0c072084u: goto P_0c072084;
+case 0x0c072086u: goto P_0c072086;
+case 0x0c072088u: goto P_0c072088;
+case 0x0c07208au: goto P_0c07208a;
+case 0x0c07208cu: goto P_0c07208c;
+case 0x0c07208eu: goto P_0c07208e;
+case 0x0c072090u: goto P_0c072090;
+case 0x0c072092u: goto P_0c072092;
+case 0x0c072094u: goto P_0c072094;
+case 0x0c072096u: goto P_0c072096;
+case 0x0c072098u: goto P_0c072098;
+case 0x0c07209au: goto P_0c07209a;
+case 0x0c07209cu: goto P_0c07209c;
+case 0x0c07209eu: goto P_0c07209e;
+case 0x0c0720a0u: goto P_0c0720a0;
+case 0x0c0720a2u: goto P_0c0720a2;
+case 0x0c0720a4u: goto P_0c0720a4;
+case 0x0c0720a6u: goto P_0c0720a6;
+case 0x0c0720a8u: goto P_0c0720a8;
+case 0x0c0720aau: goto P_0c0720aa;
+case 0x0c0720acu: goto P_0c0720ac;
+case 0x0c0720aeu: goto P_0c0720ae;
+case 0x0c0720b0u: goto P_0c0720b0;
+case 0x0c0720b2u: goto P_0c0720b2;
+case 0x0c0720b4u: goto P_0c0720b4;
+case 0x0c0720b6u: goto P_0c0720b6;
+case 0x0c0720b8u: goto P_0c0720b8;
+case 0x0c0720bau: goto P_0c0720ba;
+case 0x0c0720bcu: goto P_0c0720bc;
+case 0x0c0720beu: goto P_0c0720be;
+case 0x0c0720c0u: goto P_0c0720c0;
+case 0x0c0720c2u: goto P_0c0720c2;
+case 0x0c0720c4u: goto P_0c0720c4;
+case 0x0c0720c6u: goto P_0c0720c6;
+case 0x0c0720c8u: goto P_0c0720c8;
+case 0x0c0720cau: goto P_0c0720ca;
+case 0x0c0720ccu: goto P_0c0720cc;
+case 0x0c0720ceu: goto P_0c0720ce;
+case 0x0c0720d0u: goto P_0c0720d0;
+case 0x0c0720d2u: goto P_0c0720d2;
+case 0x0c0720d4u: goto P_0c0720d4;
+case 0x0c0720d6u: goto P_0c0720d6;
+case 0x0c0720d8u: goto P_0c0720d8;
+case 0x0c0720dau: goto P_0c0720da;
+case 0x0c0720dcu: goto P_0c0720dc;
+case 0x0c0720deu: goto P_0c0720de;
+case 0x0c0720e0u: goto P_0c0720e0;
+case 0x0c0720e2u: goto P_0c0720e2;
+case 0x0c0720e4u: goto P_0c0720e4;
+case 0x0c0720e6u: goto P_0c0720e6;
+case 0x0c0720e8u: goto P_0c0720e8;
+case 0x0c0720eau: goto P_0c0720ea;
+case 0x0c0720ecu: goto P_0c0720ec;
+case 0x0c0720eeu: goto P_0c0720ee;
+case 0x0c0720f0u: goto P_0c0720f0;
+case 0x0c0720f2u: goto P_0c0720f2;
+case 0x0c0720f4u: goto P_0c0720f4;
+case 0x0c0720f6u: goto P_0c0720f6;
+case 0x0c072108u: goto P_0c072108;
+case 0x0c07210au: goto P_0c07210a;
+case 0x0c07210cu: goto P_0c07210c;
+case 0x0c07210eu: goto P_0c07210e;
+case 0x0c072110u: goto P_0c072110;
+case 0x0c072112u: goto P_0c072112;
+case 0x0c072114u: goto P_0c072114;
+case 0x0c072116u: goto P_0c072116;
+case 0x0c072118u: goto P_0c072118;
+case 0x0c07211au: goto P_0c07211a;
+case 0x0c07211cu: goto P_0c07211c;
+case 0x0c07211eu: goto P_0c07211e;
+case 0x0c072120u: goto P_0c072120;
+case 0x0c072122u: goto P_0c072122;
+case 0x0c072124u: goto P_0c072124;
+case 0x0c072126u: goto P_0c072126;
+case 0x0c072128u: goto P_0c072128;
+case 0x0c07212au: goto P_0c07212a;
+case 0x0c07212cu: goto P_0c07212c;
+case 0x0c07212eu: goto P_0c07212e;
+case 0x0c072130u: goto P_0c072130;
+case 0x0c072132u: goto P_0c072132;
+case 0x0c072134u: goto P_0c072134;
+case 0x0c072136u: goto P_0c072136;
+case 0x0c072138u: goto P_0c072138;
+case 0x0c07213au: goto P_0c07213a;
+case 0x0c07213cu: goto P_0c07213c;
+case 0x0c07213eu: goto P_0c07213e;
+case 0x0c072140u: goto P_0c072140;
+case 0x0c072142u: goto P_0c072142;
+case 0x0c072144u: goto P_0c072144;
+case 0x0c072146u: goto P_0c072146;
+case 0x0c072148u: goto P_0c072148;
+case 0x0c07214au: goto P_0c07214a;
+case 0x0c07214cu: goto P_0c07214c;
+case 0x0c07214eu: goto P_0c07214e;
+case 0x0c072150u: goto P_0c072150;
+case 0x0c072152u: goto P_0c072152;
+case 0x0c072154u: goto P_0c072154;
+case 0x0c072156u: goto P_0c072156;
+case 0x0c072158u: goto P_0c072158;
+case 0x0c07215au: goto P_0c07215a;
+case 0x0c07215cu: goto P_0c07215c;
+case 0x0c07215eu: goto P_0c07215e;
+case 0x0c072160u: goto P_0c072160;
+case 0x0c072162u: goto P_0c072162;
+case 0x0c072164u: goto P_0c072164;
+case 0x0c072166u: goto P_0c072166;
+case 0x0c072168u: goto P_0c072168;
+case 0x0c07216au: goto P_0c07216a;
+case 0x0c07216cu: goto P_0c07216c;
+case 0x0c07216eu: goto P_0c07216e;
+case 0x0c072170u: goto P_0c072170;
+case 0x0c072172u: goto P_0c072172;
+case 0x0c072174u: goto P_0c072174;
+case 0x0c072176u: goto P_0c072176;
+case 0x0c072178u: goto P_0c072178;
+case 0x0c07217au: goto P_0c07217a;
+case 0x0c07217cu: goto P_0c07217c;
+case 0x0c07217eu: goto P_0c07217e;
+case 0x0c072180u: goto P_0c072180;
+case 0x0c072182u: goto P_0c072182;
+case 0x0c072184u: goto P_0c072184;
+case 0x0c072186u: goto P_0c072186;
+case 0x0c072188u: goto P_0c072188;
+case 0x0c07218au: goto P_0c07218a;
+case 0x0c07218cu: goto P_0c07218c;
+case 0x0c07218eu: goto P_0c07218e;
+case 0x0c072190u: goto P_0c072190;
+case 0x0c072192u: goto P_0c072192;
+case 0x0c072194u: goto P_0c072194;
+case 0x0c072196u: goto P_0c072196;
+case 0x0c072198u: goto P_0c072198;
+case 0x0c07219au: goto P_0c07219a;
+case 0x0c07219cu: goto P_0c07219c;
+case 0x0c07219eu: goto P_0c07219e;
+case 0x0c0721a0u: goto P_0c0721a0;
+case 0x0c0721a2u: goto P_0c0721a2;
+case 0x0c0721a4u: goto P_0c0721a4;
+case 0x0c0721a6u: goto P_0c0721a6;
+case 0x0c0721a8u: goto P_0c0721a8;
+case 0x0c0721aau: goto P_0c0721aa;
+case 0x0c0721acu: goto P_0c0721ac;
+case 0x0c0721aeu: goto P_0c0721ae;
+case 0x0c0721b0u: goto P_0c0721b0;
+case 0x0c0721b2u: goto P_0c0721b2;
+case 0x0c0721b4u: goto P_0c0721b4;
+case 0x0c0721b6u: goto P_0c0721b6;
+case 0x0c0721b8u: goto P_0c0721b8;
+case 0x0c0721bau: goto P_0c0721ba;
+case 0x0c0721bcu: goto P_0c0721bc;
+case 0x0c0721beu: goto P_0c0721be;
+case 0x0c0721c0u: goto P_0c0721c0;
+case 0x0c0721c2u: goto P_0c0721c2;
+case 0x0c0721c4u: goto P_0c0721c4;
+case 0x0c0721c6u: goto P_0c0721c6;
+case 0x0c0721c8u: goto P_0c0721c8;
+case 0x0c0721cau: goto P_0c0721ca;
+case 0x0c0721ccu: goto P_0c0721cc;
+case 0x0c0721ceu: goto P_0c0721ce;
+case 0x0c0721d0u: goto P_0c0721d0;
+case 0x0c0721d2u: goto P_0c0721d2;
+case 0x0c0721d4u: goto P_0c0721d4;
+case 0x0c0721d6u: goto P_0c0721d6;
+case 0x0c0721d8u: goto P_0c0721d8;
+case 0x0c0721dau: goto P_0c0721da;
+case 0x0c0721dcu: goto P_0c0721dc;
+case 0x0c0721deu: goto P_0c0721de;
+case 0x0c0721e0u: goto P_0c0721e0;
+case 0x0c0721e2u: goto P_0c0721e2;
+case 0x0c0721e4u: goto P_0c0721e4;
+case 0x0c0721e6u: goto P_0c0721e6;
+case 0x0c0721e8u: goto P_0c0721e8;
+case 0x0c0721eau: goto P_0c0721ea;
+case 0x0c0721ecu: goto P_0c0721ec;
+case 0x0c0721eeu: goto P_0c0721ee;
+case 0x0c0721f0u: goto P_0c0721f0;
+case 0x0c0721f2u: goto P_0c0721f2;
+case 0x0c0721f4u: goto P_0c0721f4;
+case 0x0c0721f6u: goto P_0c0721f6;
+case 0x0c0721f8u: goto P_0c0721f8;
+case 0x0c0721fau: goto P_0c0721fa;
+case 0x0c0721fcu: goto P_0c0721fc;
+case 0x0c0721feu: goto P_0c0721fe;
+case 0x0c072200u: goto P_0c072200;
+case 0x0c072202u: goto P_0c072202;
+case 0x0c072204u: goto P_0c072204;
+case 0x0c072206u: goto P_0c072206;
+case 0x0c072208u: goto P_0c072208;
+case 0x0c07220au: goto P_0c07220a;
+case 0x0c07220cu: goto P_0c07220c;
+case 0x0c07220eu: goto P_0c07220e;
+case 0x0c072210u: goto P_0c072210;
+case 0x0c072212u: goto P_0c072212;
+case 0x0c072214u: goto P_0c072214;
+case 0x0c072216u: goto P_0c072216;
+case 0x0c072218u: goto P_0c072218;
+case 0x0c07221au: goto P_0c07221a;
+case 0x0c07221cu: goto P_0c07221c;
+case 0x0c07221eu: goto P_0c07221e;
+case 0x0c072220u: goto P_0c072220;
+case 0x0c072222u: goto P_0c072222;
+case 0x0c072224u: goto P_0c072224;
+case 0x0c072226u: goto P_0c072226;
+case 0x0c072228u: goto P_0c072228;
+case 0x0c07222au: goto P_0c07222a;
+case 0x0c07222cu: goto P_0c07222c;
+case 0x0c07222eu: goto P_0c07222e;
+case 0x0c072230u: goto P_0c072230;
+case 0x0c072232u: goto P_0c072232;
+case 0x0c072234u: goto P_0c072234;
+case 0x0c072236u: goto P_0c072236;
+case 0x0c072238u: goto P_0c072238;
+case 0x0c07223au: goto P_0c07223a;
+case 0x0c07223cu: goto P_0c07223c;
+case 0x0c07223eu: goto P_0c07223e;
+case 0x0c072240u: goto P_0c072240;
+case 0x0c072242u: goto P_0c072242;
+case 0x0c072244u: goto P_0c072244;
+case 0x0c072246u: goto P_0c072246;
+case 0x0c072248u: goto P_0c072248;
+case 0x0c07224au: goto P_0c07224a;
+case 0x0c07224cu: goto P_0c07224c;
+case 0x0c07224eu: goto P_0c07224e;
+case 0x0c072250u: goto P_0c072250;
+case 0x0c072252u: goto P_0c072252;
+case 0x0c072254u: goto P_0c072254;
+case 0x0c072256u: goto P_0c072256;
+case 0x0c072258u: goto P_0c072258;
+case 0x0c07225au: goto P_0c07225a;
+case 0x0c07225cu: goto P_0c07225c;
+case 0x0c07225eu: goto P_0c07225e;
+case 0x0c072260u: goto P_0c072260;
+case 0x0c072262u: goto P_0c072262;
+case 0x0c072264u: goto P_0c072264;
+case 0x0c072266u: goto P_0c072266;
+case 0x0c072268u: goto P_0c072268;
+case 0x0c07226au: goto P_0c07226a;
+case 0x0c07226cu: goto P_0c07226c;
+case 0x0c07226eu: goto P_0c07226e;
+case 0x0c072270u: goto P_0c072270;
+case 0x0c072272u: goto P_0c072272;
+case 0x0c072274u: goto P_0c072274;
+case 0x0c072276u: goto P_0c072276;
+case 0x0c072278u: goto P_0c072278;
+case 0x0c07227au: goto P_0c07227a;
+case 0x0c07227cu: goto P_0c07227c;
+case 0x0c07227eu: goto P_0c07227e;
+case 0x0c072284u: goto P_0c072284;
+case 0x0c072286u: goto P_0c072286;
+case 0x0c072288u: goto P_0c072288;
+case 0x0c07228au: goto P_0c07228a;
+case 0x0c07228cu: goto P_0c07228c;
+case 0x0c07228eu: goto P_0c07228e;
+case 0x0c072290u: goto P_0c072290;
+case 0x0c072292u: goto P_0c072292;
+case 0x0c072294u: goto P_0c072294;
+case 0x0c072296u: goto P_0c072296;
+case 0x0c072298u: goto P_0c072298;
+case 0x0c07229au: goto P_0c07229a;
+case 0x0c07229cu: goto P_0c07229c;
+case 0x0c07229eu: goto P_0c07229e;
+case 0x0c0722a0u: goto P_0c0722a0;
+case 0x0c0722a2u: goto P_0c0722a2;
+case 0x0c0722a4u: goto P_0c0722a4;
+case 0x0c0722a6u: goto P_0c0722a6;
+case 0x0c0722a8u: goto P_0c0722a8;
+case 0x0c0722aau: goto P_0c0722aa;
+case 0x0c0722acu: goto P_0c0722ac;
+case 0x0c0722aeu: goto P_0c0722ae;
+case 0x0c0722b0u: goto P_0c0722b0;
+case 0x0c0722b2u: goto P_0c0722b2;
+case 0x0c0722b4u: goto P_0c0722b4;
+case 0x0c0722b6u: goto P_0c0722b6;
+case 0x0c0722b8u: goto P_0c0722b8;
+case 0x0c0722bau: goto P_0c0722ba;
+case 0x0c0722bcu: goto P_0c0722bc;
+case 0x0c0722beu: goto P_0c0722be;
+case 0x0c0722c0u: goto P_0c0722c0;
+case 0x0c0722c2u: goto P_0c0722c2;
+case 0x0c0722c4u: goto P_0c0722c4;
+case 0x0c0722c6u: goto P_0c0722c6;
+case 0x0c0722c8u: goto P_0c0722c8;
+case 0x0c0722cau: goto P_0c0722ca;
+case 0x0c0722ccu: goto P_0c0722cc;
+case 0x0c0722ceu: goto P_0c0722ce;
+case 0x0c0722d0u: goto P_0c0722d0;
+case 0x0c0722d2u: goto P_0c0722d2;
+case 0x0c0722d4u: goto P_0c0722d4;
+case 0x0c0722d6u: goto P_0c0722d6;
+case 0x0c0722d8u: goto P_0c0722d8;
+case 0x0c0722dau: goto P_0c0722da;
+case 0x0c0722dcu: goto P_0c0722dc;
+case 0x0c0722deu: goto P_0c0722de;
+case 0x0c0722e0u: goto P_0c0722e0;
+case 0x0c0722e2u: goto P_0c0722e2;
+case 0x0c0722e4u: goto P_0c0722e4;
+case 0x0c0722e6u: goto P_0c0722e6;
+case 0x0c0722e8u: goto P_0c0722e8;
+case 0x0c0722eau: goto P_0c0722ea;
+case 0x0c0722ecu: goto P_0c0722ec;
+case 0x0c0722eeu: goto P_0c0722ee;
+case 0x0c0722f0u: goto P_0c0722f0;
+case 0x0c0722f2u: goto P_0c0722f2;
+case 0x0c0722f4u: goto P_0c0722f4;
+case 0x0c0722f6u: goto P_0c0722f6;
+case 0x0c0722f8u: goto P_0c0722f8;
+case 0x0c0722fau: goto P_0c0722fa;
+case 0x0c0722fcu: goto P_0c0722fc;
+case 0x0c0722feu: goto P_0c0722fe;
+case 0x0c072300u: goto P_0c072300;
+case 0x0c072302u: goto P_0c072302;
+case 0x0c072304u: goto P_0c072304;
+case 0x0c072306u: goto P_0c072306;
+case 0x0c072308u: goto P_0c072308;
+case 0x0c07230au: goto P_0c07230a;
+case 0x0c07230cu: goto P_0c07230c;
+case 0x0c07230eu: goto P_0c07230e;
+case 0x0c072310u: goto P_0c072310;
+case 0x0c072312u: goto P_0c072312;
+case 0x0c072314u: goto P_0c072314;
+case 0x0c072316u: goto P_0c072316;
+case 0x0c072318u: goto P_0c072318;
+case 0x0c07231au: goto P_0c07231a;
+case 0x0c07231cu: goto P_0c07231c;
+case 0x0c07231eu: goto P_0c07231e;
+case 0x0c072320u: goto P_0c072320;
+case 0x0c072322u: goto P_0c072322;
+case 0x0c072324u: goto P_0c072324;
+case 0x0c072326u: goto P_0c072326;
+case 0x0c072328u: goto P_0c072328;
+case 0x0c07232au: goto P_0c07232a;
+case 0x0c07232cu: goto P_0c07232c;
+case 0x0c07232eu: goto P_0c07232e;
+case 0x0c072330u: goto P_0c072330;
+case 0x0c072332u: goto P_0c072332;
+case 0x0c072334u: goto P_0c072334;
+case 0x0c07235cu: goto P_0c07235c;
+case 0x0c07235eu: goto P_0c07235e;
+case 0x0c072360u: goto P_0c072360;
+case 0x0c072362u: goto P_0c072362;
+case 0x0c072364u: goto P_0c072364;
+case 0x0c072366u: goto P_0c072366;
+case 0x0c072368u: goto P_0c072368;
+case 0x0c07236au: goto P_0c07236a;
+case 0x0c07236cu: goto P_0c07236c;
+case 0x0c07236eu: goto P_0c07236e;
+case 0x0c072370u: goto P_0c072370;
+case 0x0c072372u: goto P_0c072372;
+case 0x0c072374u: goto P_0c072374;
+case 0x0c072376u: goto P_0c072376;
+case 0x0c072378u: goto P_0c072378;
+case 0x0c07237au: goto P_0c07237a;
+case 0x0c07237cu: goto P_0c07237c;
+case 0x0c07237eu: goto P_0c07237e;
+case 0x0c072380u: goto P_0c072380;
+case 0x0c072382u: goto P_0c072382;
+case 0x0c072384u: goto P_0c072384;
+case 0x0c072386u: goto P_0c072386;
+case 0x0c072388u: goto P_0c072388;
+case 0x0c07238au: goto P_0c07238a;
+case 0x0c07238cu: goto P_0c07238c;
+case 0x0c07238eu: goto P_0c07238e;
+case 0x0c072390u: goto P_0c072390;
+case 0x0c072392u: goto P_0c072392;
+case 0x0c072394u: goto P_0c072394;
+case 0x0c072396u: goto P_0c072396;
+case 0x0c072398u: goto P_0c072398;
+case 0x0c07239au: goto P_0c07239a;
+case 0x0c07239cu: goto P_0c07239c;
+case 0x0c07239eu: goto P_0c07239e;
+case 0x0c0723a0u: goto P_0c0723a0;
+case 0x0c0723a2u: goto P_0c0723a2;
+case 0x0c0723a4u: goto P_0c0723a4;
+case 0x0c0723a6u: goto P_0c0723a6;
+case 0x0c0723a8u: goto P_0c0723a8;
+case 0x0c0723aau: goto P_0c0723aa;
+case 0x0c0723acu: goto P_0c0723ac;
+case 0x0c0723aeu: goto P_0c0723ae;
+case 0x0c0723b0u: goto P_0c0723b0;
+case 0x0c0723b2u: goto P_0c0723b2;
+case 0x0c0723b4u: goto P_0c0723b4;
+case 0x0c0723b6u: goto P_0c0723b6;
+case 0x0c0723b8u: goto P_0c0723b8;
+case 0x0c0723bau: goto P_0c0723ba;
+case 0x0c0723bcu: goto P_0c0723bc;
+case 0x0c0723beu: goto P_0c0723be;
+case 0x0c0723c0u: goto P_0c0723c0;
+case 0x0c0723c2u: goto P_0c0723c2;
+case 0x0c0723c4u: goto P_0c0723c4;
+case 0x0c0723c6u: goto P_0c0723c6;
+case 0x0c0723c8u: goto P_0c0723c8;
+case 0x0c0723cau: goto P_0c0723ca;
+case 0x0c0723ccu: goto P_0c0723cc;
+case 0x0c0723ceu: goto P_0c0723ce;
+case 0x0c0723d0u: goto P_0c0723d0;
+case 0x0c0723d2u: goto P_0c0723d2;
+case 0x0c0723d4u: goto P_0c0723d4;
+case 0x0c0723d6u: goto P_0c0723d6;
+case 0x0c0723d8u: goto P_0c0723d8;
+case 0x0c0723dau: goto P_0c0723da;
+case 0x0c0723dcu: goto P_0c0723dc;
+case 0x0c0723deu: goto P_0c0723de;
+case 0x0c0723e0u: goto P_0c0723e0;
+case 0x0c0723e2u: goto P_0c0723e2;
+case 0x0c0723e4u: goto P_0c0723e4;
+case 0x0c0723e6u: goto P_0c0723e6;
+case 0x0c0723e8u: goto P_0c0723e8;
+case 0x0c0723eau: goto P_0c0723ea;
+case 0x0c0723ecu: goto P_0c0723ec;
+case 0x0c0723eeu: goto P_0c0723ee;
+case 0x0c0723f0u: goto P_0c0723f0;
+case 0x0c0723f2u: goto P_0c0723f2;
+case 0x0c0723f4u: goto P_0c0723f4;
+case 0x0c0723f6u: goto P_0c0723f6;
+case 0x0c0723f8u: goto P_0c0723f8;
+case 0x0c0723fau: goto P_0c0723fa;
+case 0x0c0723fcu: goto P_0c0723fc;
+case 0x0c0723feu: goto P_0c0723fe;
+case 0x0c072400u: goto P_0c072400;
+case 0x0c072402u: goto P_0c072402;
+case 0x0c072404u: goto P_0c072404;
+case 0x0c072406u: goto P_0c072406;
+case 0x0c072408u: goto P_0c072408;
+case 0x0c07240au: goto P_0c07240a;
+case 0x0c07240cu: goto P_0c07240c;
+case 0x0c07240eu: goto P_0c07240e;
+case 0x0c072410u: goto P_0c072410;
+case 0x0c072412u: goto P_0c072412;
+case 0x0c072414u: goto P_0c072414;
+case 0x0c072416u: goto P_0c072416;
+case 0x0c072418u: goto P_0c072418;
+case 0x0c07241au: goto P_0c07241a;
+case 0x0c07241cu: goto P_0c07241c;
+case 0x0c07241eu: goto P_0c07241e;
+case 0x0c072420u: goto P_0c072420;
+case 0x0c072422u: goto P_0c072422;
+case 0x0c072424u: goto P_0c072424;
+case 0x0c072426u: goto P_0c072426;
+case 0x0c072428u: goto P_0c072428;
+case 0x0c07242au: goto P_0c07242a;
+case 0x0c07242cu: goto P_0c07242c;
+case 0x0c07242eu: goto P_0c07242e;
+case 0x0c072430u: goto P_0c072430;
+case 0x0c072432u: goto P_0c072432;
+case 0x0c072434u: goto P_0c072434;
+case 0x0c072436u: goto P_0c072436;
+case 0x0c072438u: goto P_0c072438;
+case 0x0c07243au: goto P_0c07243a;
+case 0x0c07243cu: goto P_0c07243c;
+case 0x0c07243eu: goto P_0c07243e;
+case 0x0c072440u: goto P_0c072440;
+case 0x0c072442u: goto P_0c072442;
+case 0x0c072444u: goto P_0c072444;
+case 0x0c072446u: goto P_0c072446;
+case 0x0c072448u: goto P_0c072448;
+case 0x0c07244au: goto P_0c07244a;
+case 0x0c07244cu: goto P_0c07244c;
+case 0x0c07244eu: goto P_0c07244e;
+case 0x0c072450u: goto P_0c072450;
+case 0x0c072452u: goto P_0c072452;
+case 0x0c072454u: goto P_0c072454;
+case 0x0c072456u: goto P_0c072456;
+case 0x0c072458u: goto P_0c072458;
+case 0x0c07245au: goto P_0c07245a;
+case 0x0c07245cu: goto P_0c07245c;
+case 0x0c07245eu: goto P_0c07245e;
+case 0x0c072460u: goto P_0c072460;
+case 0x0c072462u: goto P_0c072462;
+case 0x0c072464u: goto P_0c072464;
+case 0x0c072466u: goto P_0c072466;
+case 0x0c072468u: goto P_0c072468;
+case 0x0c07246au: goto P_0c07246a;
+case 0x0c07246cu: goto P_0c07246c;
+case 0x0c07246eu: goto P_0c07246e;
+case 0x0c072470u: goto P_0c072470;
+case 0x0c072472u: goto P_0c072472;
+case 0x0c072474u: goto P_0c072474;
+case 0x0c072476u: goto P_0c072476;
+case 0x0c072478u: goto P_0c072478;
+case 0x0c07247au: goto P_0c07247a;
+case 0x0c07247cu: goto P_0c07247c;
+case 0x0c07247eu: goto P_0c07247e;
+case 0x0c072480u: goto P_0c072480;
+case 0x0c072482u: goto P_0c072482;
+case 0x0c072484u: goto P_0c072484;
+case 0x0c072486u: goto P_0c072486;
+case 0x0c072488u: goto P_0c072488;
+case 0x0c07248au: goto P_0c07248a;
+case 0x0c07248cu: goto P_0c07248c;
+case 0x0c07248eu: goto P_0c07248e;
+case 0x0c072490u: goto P_0c072490;
+case 0x0c072492u: goto P_0c072492;
+case 0x0c072494u: goto P_0c072494;
+case 0x0c072496u: goto P_0c072496;
+case 0x0c072498u: goto P_0c072498;
+case 0x0c07249au: goto P_0c07249a;
+case 0x0c07249cu: goto P_0c07249c;
+case 0x0c07249eu: goto P_0c07249e;
+case 0x0c0724a0u: goto P_0c0724a0;
+case 0x0c0724a2u: goto P_0c0724a2;
+case 0x0c0724a4u: goto P_0c0724a4;
+case 0x0c0724a6u: goto P_0c0724a6;
+case 0x0c0724a8u: goto P_0c0724a8;
+case 0x0c0724aau: goto P_0c0724aa;
+case 0x0c0724acu: goto P_0c0724ac;
+case 0x0c0724aeu: goto P_0c0724ae;
+case 0x0c0724b0u: goto P_0c0724b0;
+case 0x0c0724b2u: goto P_0c0724b2;
+case 0x0c0724b4u: goto P_0c0724b4;
+case 0x0c0724b6u: goto P_0c0724b6;
+case 0x0c0724b8u: goto P_0c0724b8;
+case 0x0c0724bau: goto P_0c0724ba;
+case 0x0c0724bcu: goto P_0c0724bc;
+case 0x0c0724c4u: goto P_0c0724c4;
+case 0x0c0724c6u: goto P_0c0724c6;
+case 0x0c0724c8u: goto P_0c0724c8;
+case 0x0c0724cau: goto P_0c0724ca;
+case 0x0c0724ccu: goto P_0c0724cc;
+case 0x0c0724ceu: goto P_0c0724ce;
+case 0x0c0724d0u: goto P_0c0724d0;
+case 0x0c0724d2u: goto P_0c0724d2;
+case 0x0c0724d4u: goto P_0c0724d4;
+case 0x0c0724d6u: goto P_0c0724d6;
+case 0x0c0724d8u: goto P_0c0724d8;
+case 0x0c0724dau: goto P_0c0724da;
+case 0x0c0724dcu: goto P_0c0724dc;
+case 0x0c0724deu: goto P_0c0724de;
+case 0x0c0724e0u: goto P_0c0724e0;
+case 0x0c0724e2u: goto P_0c0724e2;
+case 0x0c0724e4u: goto P_0c0724e4;
+case 0x0c0724e6u: goto P_0c0724e6;
+case 0x0c0724e8u: goto P_0c0724e8;
+case 0x0c0724eau: goto P_0c0724ea;
+case 0x0c0724ecu: goto P_0c0724ec;
+case 0x0c0724eeu: goto P_0c0724ee;
+case 0x0c0724f0u: goto P_0c0724f0;
+case 0x0c0724f2u: goto P_0c0724f2;
+case 0x0c0724f4u: goto P_0c0724f4;
+case 0x0c0724f6u: goto P_0c0724f6;
+case 0x0c0724f8u: goto P_0c0724f8;
+case 0x0c0724fau: goto P_0c0724fa;
+case 0x0c0724fcu: goto P_0c0724fc;
+case 0x0c0724feu: goto P_0c0724fe;
+case 0x0c072500u: goto P_0c072500;
+case 0x0c072502u: goto P_0c072502;
+case 0x0c072504u: goto P_0c072504;
+case 0x0c072506u: goto P_0c072506;
+case 0x0c072508u: goto P_0c072508;
+case 0x0c07250au: goto P_0c07250a;
+case 0x0c07250cu: goto P_0c07250c;
+case 0x0c07250eu: goto P_0c07250e;
+case 0x0c072510u: goto P_0c072510;
+case 0x0c072512u: goto P_0c072512;
+case 0x0c072514u: goto P_0c072514;
+case 0x0c072516u: goto P_0c072516;
+case 0x0c072518u: goto P_0c072518;
+case 0x0c07251au: goto P_0c07251a;
+case 0x0c07251cu: goto P_0c07251c;
+case 0x0c07251eu: goto P_0c07251e;
+case 0x0c072520u: goto P_0c072520;
+case 0x0c072522u: goto P_0c072522;
+case 0x0c072524u: goto P_0c072524;
+case 0x0c072526u: goto P_0c072526;
+case 0x0c072528u: goto P_0c072528;
+case 0x0c07252au: goto P_0c07252a;
+case 0x0c07252cu: goto P_0c07252c;
+case 0x0c07252eu: goto P_0c07252e;
+case 0x0c072530u: goto P_0c072530;
+case 0x0c072532u: goto P_0c072532;
+case 0x0c072534u: goto P_0c072534;
+case 0x0c072536u: goto P_0c072536;
+case 0x0c072538u: goto P_0c072538;
+case 0x0c07253au: goto P_0c07253a;
+case 0x0c07253cu: goto P_0c07253c;
+case 0x0c07253eu: goto P_0c07253e;
+case 0x0c072540u: goto P_0c072540;
+case 0x0c072542u: goto P_0c072542;
+case 0x0c072544u: goto P_0c072544;
+case 0x0c072546u: goto P_0c072546;
+case 0x0c072548u: goto P_0c072548;
+case 0x0c07254au: goto P_0c07254a;
+case 0x0c07254cu: goto P_0c07254c;
+case 0x0c07254eu: goto P_0c07254e;
+case 0x0c072550u: goto P_0c072550;
+case 0x0c072552u: goto P_0c072552;
+case 0x0c072554u: goto P_0c072554;
+case 0x0c072556u: goto P_0c072556;
+case 0x0c072558u: goto P_0c072558;
+case 0x0c07255au: goto P_0c07255a;
+case 0x0c07255cu: goto P_0c07255c;
+case 0x0c07255eu: goto P_0c07255e;
+case 0x0c072560u: goto P_0c072560;
+case 0x0c072562u: goto P_0c072562;
+case 0x0c072564u: goto P_0c072564;
+case 0x0c072566u: goto P_0c072566;
+case 0x0c072568u: goto P_0c072568;
+case 0x0c07256au: goto P_0c07256a;
+case 0x0c07256cu: goto P_0c07256c;
+case 0x0c07256eu: goto P_0c07256e;
+case 0x0c072570u: goto P_0c072570;
+case 0x0c072572u: goto P_0c072572;
+case 0x0c072574u: goto P_0c072574;
+case 0x0c072576u: goto P_0c072576;
+case 0x0c072578u: goto P_0c072578;
+case 0x0c07257au: goto P_0c07257a;
+case 0x0c07257cu: goto P_0c07257c;
+case 0x0c07257eu: goto P_0c07257e;
+case 0x0c072580u: goto P_0c072580;
+case 0x0c072582u: goto P_0c072582;
+case 0x0c072584u: goto P_0c072584;
+case 0x0c072586u: goto P_0c072586;
+case 0x0c072588u: goto P_0c072588;
+case 0x0c07258au: goto P_0c07258a;
+case 0x0c07258cu: goto P_0c07258c;
+case 0x0c07258eu: goto P_0c07258e;
+case 0x0c072590u: goto P_0c072590;
+case 0x0c072592u: goto P_0c072592;
+case 0x0c072594u: goto P_0c072594;
+case 0x0c072596u: goto P_0c072596;
+case 0x0c072598u: goto P_0c072598;
+case 0x0c07259au: goto P_0c07259a;
+case 0x0c07259cu: goto P_0c07259c;
+case 0x0c07259eu: goto P_0c07259e;
+case 0x0c0725a0u: goto P_0c0725a0;
+case 0x0c0725a2u: goto P_0c0725a2;
+case 0x0c0725a4u: goto P_0c0725a4;
+case 0x0c0725a6u: goto P_0c0725a6;
+case 0x0c0725a8u: goto P_0c0725a8;
+case 0x0c0725aau: goto P_0c0725aa;
+case 0x0c0725acu: goto P_0c0725ac;
+case 0x0c0725aeu: goto P_0c0725ae;
+case 0x0c0725b0u: goto P_0c0725b0;
+case 0x0c0725b2u: goto P_0c0725b2;
+case 0x0c0725b4u: goto P_0c0725b4;
+case 0x0c0725b6u: goto P_0c0725b6;
+case 0x0c0725b8u: goto P_0c0725b8;
+case 0x0c0725bau: goto P_0c0725ba;
+case 0x0c0725bcu: goto P_0c0725bc;
+case 0x0c0725beu: goto P_0c0725be;
+case 0x0c0725c0u: goto P_0c0725c0;
+case 0x0c0725c2u: goto P_0c0725c2;
+case 0x0c0725c4u: goto P_0c0725c4;
+case 0x0c0725c6u: goto P_0c0725c6;
+case 0x0c0725c8u: goto P_0c0725c8;
+case 0x0c0725cau: goto P_0c0725ca;
+case 0x0c0725ccu: goto P_0c0725cc;
+case 0x0c0725ceu: goto P_0c0725ce;
+case 0x0c0725d0u: goto P_0c0725d0;
+case 0x0c0725d2u: goto P_0c0725d2;
+case 0x0c0725d4u: goto P_0c0725d4;
+case 0x0c0725d6u: goto P_0c0725d6;
+case 0x0c0725d8u: goto P_0c0725d8;
+case 0x0c0725dau: goto P_0c0725da;
+case 0x0c0725dcu: goto P_0c0725dc;
+case 0x0c0725deu: goto P_0c0725de;
+case 0x0c0725e0u: goto P_0c0725e0;
+case 0x0c0725e2u: goto P_0c0725e2;
+case 0x0c0725e4u: goto P_0c0725e4;
+case 0x0c0725e6u: goto P_0c0725e6;
+case 0x0c0725e8u: goto P_0c0725e8;
+case 0x0c0725eau: goto P_0c0725ea;
+case 0x0c0725ecu: goto P_0c0725ec;
+case 0x0c0725eeu: goto P_0c0725ee;
+case 0x0c0725f0u: goto P_0c0725f0;
+case 0x0c0725f2u: goto P_0c0725f2;
+case 0x0c0725f4u: goto P_0c0725f4;
+case 0x0c0725f6u: goto P_0c0725f6;
+case 0x0c0725f8u: goto P_0c0725f8;
+case 0x0c0725fau: goto P_0c0725fa;
+case 0x0c0725fcu: goto P_0c0725fc;
+case 0x0c0725feu: goto P_0c0725fe;
+case 0x0c072600u: goto P_0c072600;
+case 0x0c072602u: goto P_0c072602;
+case 0x0c072604u: goto P_0c072604;
+case 0x0c072606u: goto P_0c072606;
+case 0x0c072608u: goto P_0c072608;
+case 0x0c07260au: goto P_0c07260a;
+case 0x0c07260cu: goto P_0c07260c;
+case 0x0c07260eu: goto P_0c07260e;
+case 0x0c072610u: goto P_0c072610;
+case 0x0c072612u: goto P_0c072612;
+case 0x0c072614u: goto P_0c072614;
+case 0x0c072616u: goto P_0c072616;
+case 0x0c072618u: goto P_0c072618;
+case 0x0c07261au: goto P_0c07261a;
+case 0x0c07261cu: goto P_0c07261c;
+case 0x0c07261eu: goto P_0c07261e;
+case 0x0c072620u: goto P_0c072620;
+case 0x0c072622u: goto P_0c072622;
+case 0x0c072624u: goto P_0c072624;
+case 0x0c072626u: goto P_0c072626;
+case 0x0c072628u: goto P_0c072628;
+case 0x0c07262au: goto P_0c07262a;
+case 0x0c07262cu: goto P_0c07262c;
+case 0x0c07262eu: goto P_0c07262e;
+case 0x0c072630u: goto P_0c072630;
+case 0x0c072632u: goto P_0c072632;
+case 0x0c072634u: goto P_0c072634;
+case 0x0c072636u: goto P_0c072636;
+case 0x0c072638u: goto P_0c072638;
+case 0x0c07263au: goto P_0c07263a;
+case 0x0c07263cu: goto P_0c07263c;
+case 0x0c07263eu: goto P_0c07263e;
+case 0x0c072640u: goto P_0c072640;
+case 0x0c072642u: goto P_0c072642;
+case 0x0c072644u: goto P_0c072644;
+case 0x0c072646u: goto P_0c072646;
+case 0x0c072648u: goto P_0c072648;
+case 0x0c07264au: goto P_0c07264a;
+case 0x0c07264cu: goto P_0c07264c;
+case 0x0c07264eu: goto P_0c07264e;
+case 0x0c072650u: goto P_0c072650;
+case 0x0c072652u: goto P_0c072652;
+case 0x0c072654u: goto P_0c072654;
+case 0x0c072656u: goto P_0c072656;
+case 0x0c072658u: goto P_0c072658;
+case 0x0c07265au: goto P_0c07265a;
+case 0x0c07265cu: goto P_0c07265c;
+case 0x0c072664u: goto P_0c072664;
+case 0x0c072666u: goto P_0c072666;
+case 0x0c072668u: goto P_0c072668;
+case 0x0c07266au: goto P_0c07266a;
+case 0x0c07266cu: goto P_0c07266c;
+case 0x0c07266eu: goto P_0c07266e;
+case 0x0c072670u: goto P_0c072670;
+case 0x0c072672u: goto P_0c072672;
+case 0x0c072674u: goto P_0c072674;
+case 0x0c072676u: goto P_0c072676;
+case 0x0c072678u: goto P_0c072678;
+case 0x0c07267au: goto P_0c07267a;
+case 0x0c07267cu: goto P_0c07267c;
+case 0x0c07267eu: goto P_0c07267e;
+case 0x0c072680u: goto P_0c072680;
+case 0x0c072682u: goto P_0c072682;
+case 0x0c072684u: goto P_0c072684;
+case 0x0c072686u: goto P_0c072686;
+case 0x0c072688u: goto P_0c072688;
+case 0x0c07268au: goto P_0c07268a;
+case 0x0c07268cu: goto P_0c07268c;
+case 0x0c07268eu: goto P_0c07268e;
+case 0x0c072690u: goto P_0c072690;
+case 0x0c072692u: goto P_0c072692;
+case 0x0c072694u: goto P_0c072694;
+case 0x0c072696u: goto P_0c072696;
+case 0x0c072698u: goto P_0c072698;
+case 0x0c07269au: goto P_0c07269a;
+case 0x0c07269cu: goto P_0c07269c;
+case 0x0c07269eu: goto P_0c07269e;
+case 0x0c0726a0u: goto P_0c0726a0;
+case 0x0c0726a2u: goto P_0c0726a2;
+case 0x0c0726a4u: goto P_0c0726a4;
+case 0x0c0726a6u: goto P_0c0726a6;
+case 0x0c0726a8u: goto P_0c0726a8;
+case 0x0c0726aau: goto P_0c0726aa;
+case 0x0c0726acu: goto P_0c0726ac;
+case 0x0c0726aeu: goto P_0c0726ae;
+case 0x0c0726b0u: goto P_0c0726b0;
+case 0x0c0726b2u: goto P_0c0726b2;
+case 0x0c0726b4u: goto P_0c0726b4;
+case 0x0c0726b6u: goto P_0c0726b6;
+case 0x0c0726b8u: goto P_0c0726b8;
+case 0x0c0726bau: goto P_0c0726ba;
+case 0x0c0726bcu: goto P_0c0726bc;
+case 0x0c0726beu: goto P_0c0726be;
+case 0x0c0726c0u: goto P_0c0726c0;
+case 0x0c0726c2u: goto P_0c0726c2;
+case 0x0c0726c4u: goto P_0c0726c4;
+case 0x0c0726c6u: goto P_0c0726c6;
+case 0x0c0726c8u: goto P_0c0726c8;
+case 0x0c0726cau: goto P_0c0726ca;
+case 0x0c0726ccu: goto P_0c0726cc;
+case 0x0c0726ceu: goto P_0c0726ce;
+case 0x0c0726d0u: goto P_0c0726d0;
+case 0x0c0726d2u: goto P_0c0726d2;
+case 0x0c0726d4u: goto P_0c0726d4;
+case 0x0c0726d6u: goto P_0c0726d6;
+case 0x0c0726d8u: goto P_0c0726d8;
+case 0x0c0726dau: goto P_0c0726da;
+case 0x0c0726dcu: goto P_0c0726dc;
+case 0x0c0726deu: goto P_0c0726de;
+case 0x0c0726e0u: goto P_0c0726e0;
+case 0x0c0726e2u: goto P_0c0726e2;
+case 0x0c0726e4u: goto P_0c0726e4;
+case 0x0c0726e6u: goto P_0c0726e6;
+case 0x0c0726e8u: goto P_0c0726e8;
+case 0x0c0726eau: goto P_0c0726ea;
+case 0x0c0726ecu: goto P_0c0726ec;
+case 0x0c0726eeu: goto P_0c0726ee;
+case 0x0c0726f0u: goto P_0c0726f0;
+case 0x0c0726f2u: goto P_0c0726f2;
+case 0x0c0726f4u: goto P_0c0726f4;
+case 0x0c0726f6u: goto P_0c0726f6;
+case 0x0c0726f8u: goto P_0c0726f8;
+case 0x0c0726fau: goto P_0c0726fa;
+case 0x0c0726fcu: goto P_0c0726fc;
+case 0x0c0726feu: goto P_0c0726fe;
+case 0x0c072700u: goto P_0c072700;
+case 0x0c072702u: goto P_0c072702;
+case 0x0c072704u: goto P_0c072704;
+case 0x0c072706u: goto P_0c072706;
+case 0x0c072708u: goto P_0c072708;
+case 0x0c07270au: goto P_0c07270a;
+case 0x0c07270cu: goto P_0c07270c;
+case 0x0c07270eu: goto P_0c07270e;
+case 0x0c072710u: goto P_0c072710;
+case 0x0c072712u: goto P_0c072712;
+case 0x0c072714u: goto P_0c072714;
+case 0x0c072716u: goto P_0c072716;
+case 0x0c072718u: goto P_0c072718;
+case 0x0c07271au: goto P_0c07271a;
+case 0x0c07271cu: goto P_0c07271c;
+case 0x0c07271eu: goto P_0c07271e;
+case 0x0c072720u: goto P_0c072720;
+case 0x0c072722u: goto P_0c072722;
+case 0x0c072724u: goto P_0c072724;
+case 0x0c072726u: goto P_0c072726;
+case 0x0c072728u: goto P_0c072728;
+case 0x0c07272au: goto P_0c07272a;
+case 0x0c07272cu: goto P_0c07272c;
+case 0x0c07272eu: goto P_0c07272e;
+case 0x0c072730u: goto P_0c072730;
+case 0x0c072732u: goto P_0c072732;
+case 0x0c072734u: goto P_0c072734;
+case 0x0c072736u: goto P_0c072736;
+case 0x0c072738u: goto P_0c072738;
+case 0x0c07273au: goto P_0c07273a;
+case 0x0c07273cu: goto P_0c07273c;
+case 0x0c07273eu: goto P_0c07273e;
+case 0x0c072740u: goto P_0c072740;
+case 0x0c072742u: goto P_0c072742;
+case 0x0c072744u: goto P_0c072744;
+case 0x0c072746u: goto P_0c072746;
+case 0x0c072748u: goto P_0c072748;
+case 0x0c07274au: goto P_0c07274a;
+case 0x0c07274cu: goto P_0c07274c;
+case 0x0c07274eu: goto P_0c07274e;
+case 0x0c072750u: goto P_0c072750;
+case 0x0c072752u: goto P_0c072752;
+case 0x0c072754u: goto P_0c072754;
+case 0x0c072756u: goto P_0c072756;
+case 0x0c072758u: goto P_0c072758;
+case 0x0c07275au: goto P_0c07275a;
+case 0x0c07275cu: goto P_0c07275c;
+case 0x0c07275eu: goto P_0c07275e;
+case 0x0c072760u: goto P_0c072760;
+case 0x0c072762u: goto P_0c072762;
+case 0x0c072764u: goto P_0c072764;
+case 0x0c072766u: goto P_0c072766;
+case 0x0c072768u: goto P_0c072768;
+case 0x0c07276au: goto P_0c07276a;
+case 0x0c07276cu: goto P_0c07276c;
+case 0x0c07276eu: goto P_0c07276e;
+case 0x0c072770u: goto P_0c072770;
+case 0x0c072772u: goto P_0c072772;
+case 0x0c072774u: goto P_0c072774;
+case 0x0c072776u: goto P_0c072776;
+case 0x0c072778u: goto P_0c072778;
+case 0x0c07277au: goto P_0c07277a;
+case 0x0c07277cu: goto P_0c07277c;
+case 0x0c07277eu: goto P_0c07277e;
+case 0x0c072780u: goto P_0c072780;
+case 0x0c072782u: goto P_0c072782;
+case 0x0c072784u: goto P_0c072784;
+case 0x0c072786u: goto P_0c072786;
+case 0x0c072788u: goto P_0c072788;
+case 0x0c07278au: goto P_0c07278a;
+case 0x0c07278cu: goto P_0c07278c;
+case 0x0c07278eu: goto P_0c07278e;
+case 0x0c072790u: goto P_0c072790;
+case 0x0c072792u: goto P_0c072792;
+case 0x0c072794u: goto P_0c072794;
+case 0x0c072796u: goto P_0c072796;
+case 0x0c072798u: goto P_0c072798;
+case 0x0c07279au: goto P_0c07279a;
+case 0x0c07279cu: goto P_0c07279c;
+case 0x0c07279eu: goto P_0c07279e;
+case 0x0c0727a0u: goto P_0c0727a0;
+case 0x0c0727a2u: goto P_0c0727a2;
+case 0x0c0727a4u: goto P_0c0727a4;
+case 0x0c0727a6u: goto P_0c0727a6;
+case 0x0c0727a8u: goto P_0c0727a8;
+case 0x0c0727aau: goto P_0c0727aa;
+case 0x0c0727acu: goto P_0c0727ac;
+case 0x0c0727aeu: goto P_0c0727ae;
+case 0x0c0727b0u: goto P_0c0727b0;
+case 0x0c0727b2u: goto P_0c0727b2;
+case 0x0c0727b4u: goto P_0c0727b4;
+case 0x0c0727b6u: goto P_0c0727b6;
+case 0x0c0727b8u: goto P_0c0727b8;
+case 0x0c0727bau: goto P_0c0727ba;
+case 0x0c0727bcu: goto P_0c0727bc;
+case 0x0c0727beu: goto P_0c0727be;
+case 0x0c0727c0u: goto P_0c0727c0;
+case 0x0c0727c2u: goto P_0c0727c2;
+case 0x0c0727c4u: goto P_0c0727c4;
+case 0x0c0727c6u: goto P_0c0727c6;
+case 0x0c0727c8u: goto P_0c0727c8;
+case 0x0c0727cau: goto P_0c0727ca;
+case 0x0c0727ccu: goto P_0c0727cc;
+case 0x0c0727ceu: goto P_0c0727ce;
+case 0x0c0727d0u: goto P_0c0727d0;
+case 0x0c0727d2u: goto P_0c0727d2;
+case 0x0c0727d4u: goto P_0c0727d4;
+case 0x0c0727d6u: goto P_0c0727d6;
+case 0x0c0727d8u: goto P_0c0727d8;
+case 0x0c0727dau: goto P_0c0727da;
+case 0x0c0727dcu: goto P_0c0727dc;
+case 0x0c0727e4u: goto P_0c0727e4;
+case 0x0c0727e6u: goto P_0c0727e6;
+case 0x0c0727e8u: goto P_0c0727e8;
+case 0x0c0727eau: goto P_0c0727ea;
+case 0x0c0727ecu: goto P_0c0727ec;
+case 0x0c0727eeu: goto P_0c0727ee;
+case 0x0c0727f0u: goto P_0c0727f0;
+case 0x0c0727f2u: goto P_0c0727f2;
+case 0x0c0727f4u: goto P_0c0727f4;
+case 0x0c0727f6u: goto P_0c0727f6;
+case 0x0c0727f8u: goto P_0c0727f8;
+case 0x0c0727fau: goto P_0c0727fa;
+case 0x0c0727fcu: goto P_0c0727fc;
+case 0x0c0727feu: goto P_0c0727fe;
+case 0x0c072800u: goto P_0c072800;
+case 0x0c072802u: goto P_0c072802;
+case 0x0c072804u: goto P_0c072804;
+case 0x0c072806u: goto P_0c072806;
+case 0x0c072808u: goto P_0c072808;
+case 0x0c07280au: goto P_0c07280a;
+case 0x0c07280cu: goto P_0c07280c;
+case 0x0c07280eu: goto P_0c07280e;
+case 0x0c072810u: goto P_0c072810;
+case 0x0c072812u: goto P_0c072812;
+case 0x0c072814u: goto P_0c072814;
+case 0x0c072816u: goto P_0c072816;
+case 0x0c072818u: goto P_0c072818;
+case 0x0c07281au: goto P_0c07281a;
+case 0x0c07281cu: goto P_0c07281c;
+case 0x0c07281eu: goto P_0c07281e;
+case 0x0c072820u: goto P_0c072820;
+case 0x0c072822u: goto P_0c072822;
+case 0x0c072824u: goto P_0c072824;
+case 0x0c072826u: goto P_0c072826;
+case 0x0c072828u: goto P_0c072828;
+case 0x0c07282au: goto P_0c07282a;
+case 0x0c07282cu: goto P_0c07282c;
+case 0x0c07282eu: goto P_0c07282e;
+case 0x0c072830u: goto P_0c072830;
+case 0x0c072832u: goto P_0c072832;
+case 0x0c072834u: goto P_0c072834;
+case 0x0c072836u: goto P_0c072836;
+case 0x0c072838u: goto P_0c072838;
+case 0x0c07283au: goto P_0c07283a;
+case 0x0c07283cu: goto P_0c07283c;
+case 0x0c07283eu: goto P_0c07283e;
+case 0x0c072840u: goto P_0c072840;
+case 0x0c072842u: goto P_0c072842;
+case 0x0c072844u: goto P_0c072844;
+case 0x0c072846u: goto P_0c072846;
+case 0x0c072848u: goto P_0c072848;
+case 0x0c07284au: goto P_0c07284a;
+case 0x0c07284cu: goto P_0c07284c;
+case 0x0c07284eu: goto P_0c07284e;
+case 0x0c072850u: goto P_0c072850;
+case 0x0c072852u: goto P_0c072852;
+case 0x0c072854u: goto P_0c072854;
+case 0x0c072856u: goto P_0c072856;
+case 0x0c072858u: goto P_0c072858;
+case 0x0c07285au: goto P_0c07285a;
+case 0x0c07285cu: goto P_0c07285c;
+case 0x0c07285eu: goto P_0c07285e;
+case 0x0c072860u: goto P_0c072860;
+case 0x0c072862u: goto P_0c072862;
+case 0x0c072864u: goto P_0c072864;
+case 0x0c072866u: goto P_0c072866;
+case 0x0c072868u: goto P_0c072868;
+case 0x0c07286au: goto P_0c07286a;
+case 0x0c07286cu: goto P_0c07286c;
+case 0x0c07286eu: goto P_0c07286e;
+case 0x0c072870u: goto P_0c072870;
+case 0x0c072872u: goto P_0c072872;
+case 0x0c072874u: goto P_0c072874;
+case 0x0c072876u: goto P_0c072876;
+case 0x0c072878u: goto P_0c072878;
+case 0x0c07287au: goto P_0c07287a;
+case 0x0c07287cu: goto P_0c07287c;
+case 0x0c07287eu: goto P_0c07287e;
+case 0x0c072880u: goto P_0c072880;
+case 0x0c072882u: goto P_0c072882;
+case 0x0c072884u: goto P_0c072884;
+case 0x0c072886u: goto P_0c072886;
+case 0x0c072888u: goto P_0c072888;
+case 0x0c07288au: goto P_0c07288a;
+case 0x0c07288cu: goto P_0c07288c;
+case 0x0c07288eu: goto P_0c07288e;
+case 0x0c072890u: goto P_0c072890;
+case 0x0c072892u: goto P_0c072892;
+case 0x0c072894u: goto P_0c072894;
+case 0x0c072896u: goto P_0c072896;
+case 0x0c072898u: goto P_0c072898;
+case 0x0c07289au: goto P_0c07289a;
+case 0x0c07289cu: goto P_0c07289c;
+case 0x0c07289eu: goto P_0c07289e;
+case 0x0c0728a0u: goto P_0c0728a0;
+case 0x0c0728a2u: goto P_0c0728a2;
+case 0x0c0728a8u: goto P_0c0728a8;
+case 0x0c0728aau: goto P_0c0728aa;
+case 0x0c0728acu: goto P_0c0728ac;
+case 0x0c0728aeu: goto P_0c0728ae;
+case 0x0c0728b0u: goto P_0c0728b0;
+case 0x0c0728b2u: goto P_0c0728b2;
+case 0x0c0728b4u: goto P_0c0728b4;
+case 0x0c0728b6u: goto P_0c0728b6;
+case 0x0c0728b8u: goto P_0c0728b8;
+case 0x0c0728bau: goto P_0c0728ba;
+case 0x0c0728bcu: goto P_0c0728bc;
+case 0x0c0728beu: goto P_0c0728be;
+case 0x0c0728c0u: goto P_0c0728c0;
+case 0x0c0728c2u: goto P_0c0728c2;
+case 0x0c0728c4u: goto P_0c0728c4;
+case 0x0c0728c6u: goto P_0c0728c6;
+case 0x0c0728c8u: goto P_0c0728c8;
+case 0x0c0728cau: goto P_0c0728ca;
+case 0x0c0728ccu: goto P_0c0728cc;
+case 0x0c0728ceu: goto P_0c0728ce;
+case 0x0c0728d0u: goto P_0c0728d0;
+case 0x0c0728d2u: goto P_0c0728d2;
+case 0x0c0728d4u: goto P_0c0728d4;
+case 0x0c0728d6u: goto P_0c0728d6;
+case 0x0c0728d8u: goto P_0c0728d8;
+case 0x0c0728dau: goto P_0c0728da;
+case 0x0c0728dcu: goto P_0c0728dc;
+case 0x0c0728deu: goto P_0c0728de;
+case 0x0c0728e0u: goto P_0c0728e0;
+case 0x0c0728e2u: goto P_0c0728e2;
+case 0x0c0728e4u: goto P_0c0728e4;
+case 0x0c0728e6u: goto P_0c0728e6;
+case 0x0c0728e8u: goto P_0c0728e8;
+case 0x0c0728eau: goto P_0c0728ea;
+case 0x0c0728ecu: goto P_0c0728ec;
+case 0x0c0728eeu: goto P_0c0728ee;
+case 0x0c0728f0u: goto P_0c0728f0;
+case 0x0c0728f2u: goto P_0c0728f2;
+case 0x0c0728f4u: goto P_0c0728f4;
+case 0x0c0728f6u: goto P_0c0728f6;
+case 0x0c0728f8u: goto P_0c0728f8;
+case 0x0c0728fau: goto P_0c0728fa;
+case 0x0c0728fcu: goto P_0c0728fc;
+case 0x0c0728feu: goto P_0c0728fe;
+case 0x0c072900u: goto P_0c072900;
+case 0x0c072902u: goto P_0c072902;
+case 0x0c072904u: goto P_0c072904;
+case 0x0c072906u: goto P_0c072906;
+case 0x0c072908u: goto P_0c072908;
+case 0x0c07290au: goto P_0c07290a;
+case 0x0c07290cu: goto P_0c07290c;
+case 0x0c07290eu: goto P_0c07290e;
+case 0x0c072910u: goto P_0c072910;
+case 0x0c072912u: goto P_0c072912;
+case 0x0c072914u: goto P_0c072914;
+case 0x0c072916u: goto P_0c072916;
+case 0x0c072918u: goto P_0c072918;
+case 0x0c07291au: goto P_0c07291a;
+case 0x0c07291cu: goto P_0c07291c;
+case 0x0c07291eu: goto P_0c07291e;
+case 0x0c072920u: goto P_0c072920;
+case 0x0c072922u: goto P_0c072922;
+case 0x0c072924u: goto P_0c072924;
+case 0x0c072926u: goto P_0c072926;
+case 0x0c072928u: goto P_0c072928;
+case 0x0c07292au: goto P_0c07292a;
+case 0x0c07292cu: goto P_0c07292c;
+case 0x0c07292eu: goto P_0c07292e;
+case 0x0c072930u: goto P_0c072930;
+case 0x0c072932u: goto P_0c072932;
+case 0x0c072934u: goto P_0c072934;
+case 0x0c072936u: goto P_0c072936;
+case 0x0c072938u: goto P_0c072938;
+case 0x0c07293au: goto P_0c07293a;
+case 0x0c07293cu: goto P_0c07293c;
+case 0x0c07293eu: goto P_0c07293e;
+case 0x0c072940u: goto P_0c072940;
+case 0x0c072942u: goto P_0c072942;
+case 0x0c072944u: goto P_0c072944;
+case 0x0c072946u: goto P_0c072946;
+case 0x0c072948u: goto P_0c072948;
+case 0x0c07294au: goto P_0c07294a;
+case 0x0c07294cu: goto P_0c07294c;
+case 0x0c07294eu: goto P_0c07294e;
+case 0x0c072950u: goto P_0c072950;
+case 0x0c072952u: goto P_0c072952;
+case 0x0c072954u: goto P_0c072954;
+case 0x0c072956u: goto P_0c072956;
+case 0x0c072958u: goto P_0c072958;
+case 0x0c07295au: goto P_0c07295a;
+case 0x0c07295cu: goto P_0c07295c;
+case 0x0c07295eu: goto P_0c07295e;
+case 0x0c072960u: goto P_0c072960;
+case 0x0c072962u: goto P_0c072962;
+case 0x0c072964u: goto P_0c072964;
+case 0x0c072966u: goto P_0c072966;
+case 0x0c072968u: goto P_0c072968;
+case 0x0c07296au: goto P_0c07296a;
+case 0x0c07296cu: goto P_0c07296c;
+case 0x0c07296eu: goto P_0c07296e;
+case 0x0c072970u: goto P_0c072970;
+case 0x0c072972u: goto P_0c072972;
+case 0x0c072974u: goto P_0c072974;
+case 0x0c072976u: goto P_0c072976;
+case 0x0c072978u: goto P_0c072978;
+case 0x0c07297au: goto P_0c07297a;
+case 0x0c07297cu: goto P_0c07297c;
+case 0x0c07297eu: goto P_0c07297e;
+case 0x0c072980u: goto P_0c072980;
+case 0x0c072982u: goto P_0c072982;
+case 0x0c072984u: goto P_0c072984;
+case 0x0c072986u: goto P_0c072986;
+case 0x0c072988u: goto P_0c072988;
+case 0x0c07298au: goto P_0c07298a;
+case 0x0c07298cu: goto P_0c07298c;
+case 0x0c07298eu: goto P_0c07298e;
+case 0x0c072990u: goto P_0c072990;
+case 0x0c072992u: goto P_0c072992;
+case 0x0c072994u: goto P_0c072994;
+case 0x0c072996u: goto P_0c072996;
+case 0x0c072998u: goto P_0c072998;
+case 0x0c07299au: goto P_0c07299a;
+case 0x0c07299cu: goto P_0c07299c;
+case 0x0c07299eu: goto P_0c07299e;
+case 0x0c0729a0u: goto P_0c0729a0;
+case 0x0c0729a2u: goto P_0c0729a2;
+case 0x0c0729a4u: goto P_0c0729a4;
+case 0x0c0729a6u: goto P_0c0729a6;
+case 0x0c0729a8u: goto P_0c0729a8;
+case 0x0c0729aau: goto P_0c0729aa;
+case 0x0c0729acu: goto P_0c0729ac;
+case 0x0c0729aeu: goto P_0c0729ae;
+case 0x0c0729b0u: goto P_0c0729b0;
+case 0x0c0729b2u: goto P_0c0729b2;
+case 0x0c0729b4u: goto P_0c0729b4;
+case 0x0c0729b6u: goto P_0c0729b6;
+case 0x0c0729b8u: goto P_0c0729b8;
+case 0x0c0729bau: goto P_0c0729ba;
+case 0x0c0729bcu: goto P_0c0729bc;
+case 0x0c0729beu: goto P_0c0729be;
+case 0x0c0729c0u: goto P_0c0729c0;
+case 0x0c0729c2u: goto P_0c0729c2;
+case 0x0c0729c4u: goto P_0c0729c4;
+case 0x0c0729c6u: goto P_0c0729c6;
+case 0x0c0729c8u: goto P_0c0729c8;
+case 0x0c0729cau: goto P_0c0729ca;
+case 0x0c0729ccu: goto P_0c0729cc;
+case 0x0c0729ceu: goto P_0c0729ce;
+case 0x0c0729d0u: goto P_0c0729d0;
+case 0x0c0729d2u: goto P_0c0729d2;
+case 0x0c0729d4u: goto P_0c0729d4;
+case 0x0c0729d6u: goto P_0c0729d6;
+case 0x0c0729d8u: goto P_0c0729d8;
+case 0x0c0729dau: goto P_0c0729da;
+case 0x0c0729dcu: goto P_0c0729dc;
+case 0x0c0729deu: goto P_0c0729de;
+case 0x0c0729e0u: goto P_0c0729e0;
+case 0x0c0729e2u: goto P_0c0729e2;
+case 0x0c0729e4u: goto P_0c0729e4;
+case 0x0c0729e6u: goto P_0c0729e6;
+case 0x0c0729e8u: goto P_0c0729e8;
+case 0x0c0729eau: goto P_0c0729ea;
+case 0x0c0729ecu: goto P_0c0729ec;
+case 0x0c0729eeu: goto P_0c0729ee;
+case 0x0c0729f0u: goto P_0c0729f0;
+case 0x0c0729f2u: goto P_0c0729f2;
+case 0x0c0729f4u: goto P_0c0729f4;
+case 0x0c0729f6u: goto P_0c0729f6;
+case 0x0c0729f8u: goto P_0c0729f8;
+case 0x0c0729fau: goto P_0c0729fa;
+case 0x0c0729fcu: goto P_0c0729fc;
+case 0x0c0729feu: goto P_0c0729fe;
+case 0x0c072a00u: goto P_0c072a00;
+case 0x0c072a02u: goto P_0c072a02;
+case 0x0c072a04u: goto P_0c072a04;
+case 0x0c072a06u: goto P_0c072a06;
+case 0x0c072a08u: goto P_0c072a08;
+case 0x0c072a0au: goto P_0c072a0a;
+case 0x0c072a0cu: goto P_0c072a0c;
+case 0x0c072a0eu: goto P_0c072a0e;
+case 0x0c072a10u: goto P_0c072a10;
+case 0x0c072a12u: goto P_0c072a12;
+case 0x0c072a14u: goto P_0c072a14;
+case 0x0c072a16u: goto P_0c072a16;
+case 0x0c072a18u: goto P_0c072a18;
+case 0x0c072a1au: goto P_0c072a1a;
+case 0x0c072a1cu: goto P_0c072a1c;
+case 0x0c072a1eu: goto P_0c072a1e;
+case 0x0c072a24u: goto P_0c072a24;
+case 0x0c072a26u: goto P_0c072a26;
+case 0x0c072a28u: goto P_0c072a28;
+case 0x0c072a2au: goto P_0c072a2a;
+case 0x0c072a2cu: goto P_0c072a2c;
+case 0x0c072a2eu: goto P_0c072a2e;
+case 0x0c072a30u: goto P_0c072a30;
+case 0x0c072a32u: goto P_0c072a32;
+case 0x0c072a34u: goto P_0c072a34;
+case 0x0c072a36u: goto P_0c072a36;
+case 0x0c072a38u: goto P_0c072a38;
+case 0x0c072a3au: goto P_0c072a3a;
+case 0x0c072a3cu: goto P_0c072a3c;
+case 0x0c072a3eu: goto P_0c072a3e;
+case 0x0c072a40u: goto P_0c072a40;
+case 0x0c072a42u: goto P_0c072a42;
+case 0x0c072a44u: goto P_0c072a44;
+case 0x0c072a46u: goto P_0c072a46;
+case 0x0c072a48u: goto P_0c072a48;
+case 0x0c072a4au: goto P_0c072a4a;
+case 0x0c072a4cu: goto P_0c072a4c;
+case 0x0c072a4eu: goto P_0c072a4e;
+case 0x0c072a50u: goto P_0c072a50;
+case 0x0c072a52u: goto P_0c072a52;
+case 0x0c072a54u: goto P_0c072a54;
+case 0x0c072a56u: goto P_0c072a56;
+case 0x0c072a58u: goto P_0c072a58;
+case 0x0c072a5au: goto P_0c072a5a;
+case 0x0c072a5cu: goto P_0c072a5c;
+case 0x0c072a5eu: goto P_0c072a5e;
+case 0x0c072a60u: goto P_0c072a60;
+case 0x0c072a62u: goto P_0c072a62;
+case 0x0c072a64u: goto P_0c072a64;
+case 0x0c072a66u: goto P_0c072a66;
+case 0x0c072a68u: goto P_0c072a68;
+case 0x0c072a6au: goto P_0c072a6a;
+case 0x0c072a6cu: goto P_0c072a6c;
+case 0x0c072a6eu: goto P_0c072a6e;
+case 0x0c072a70u: goto P_0c072a70;
+case 0x0c072a72u: goto P_0c072a72;
+case 0x0c072a74u: goto P_0c072a74;
+case 0x0c072a76u: goto P_0c072a76;
+case 0x0c072a78u: goto P_0c072a78;
+case 0x0c072a7au: goto P_0c072a7a;
+case 0x0c072a7cu: goto P_0c072a7c;
+case 0x0c072a7eu: goto P_0c072a7e;
+case 0x0c072a80u: goto P_0c072a80;
+case 0x0c072a82u: goto P_0c072a82;
+case 0x0c072a84u: goto P_0c072a84;
+case 0x0c072a86u: goto P_0c072a86;
+case 0x0c072a88u: goto P_0c072a88;
+case 0x0c072a8au: goto P_0c072a8a;
+case 0x0c072a8cu: goto P_0c072a8c;
+case 0x0c072a8eu: goto P_0c072a8e;
+case 0x0c072a90u: goto P_0c072a90;
+case 0x0c072a92u: goto P_0c072a92;
+case 0x0c072a94u: goto P_0c072a94;
+case 0x0c072a96u: goto P_0c072a96;
+case 0x0c072a98u: goto P_0c072a98;
+case 0x0c072a9au: goto P_0c072a9a;
+case 0x0c072a9cu: goto P_0c072a9c;
+case 0x0c072a9eu: goto P_0c072a9e;
+case 0x0c072aa0u: goto P_0c072aa0;
+case 0x0c072aa2u: goto P_0c072aa2;
+case 0x0c072aa4u: goto P_0c072aa4;
+case 0x0c072aa6u: goto P_0c072aa6;
+case 0x0c072aa8u: goto P_0c072aa8;
+case 0x0c072aaau: goto P_0c072aaa;
+case 0x0c072aacu: goto P_0c072aac;
+case 0x0c072aaeu: goto P_0c072aae;
+case 0x0c072ab0u: goto P_0c072ab0;
+case 0x0c072ab2u: goto P_0c072ab2;
+case 0x0c072ab4u: goto P_0c072ab4;
+case 0x0c072ab6u: goto P_0c072ab6;
+case 0x0c072ab8u: goto P_0c072ab8;
+case 0x0c072abau: goto P_0c072aba;
+case 0x0c072abcu: goto P_0c072abc;
+case 0x0c072abeu: goto P_0c072abe;
+case 0x0c072ac0u: goto P_0c072ac0;
+case 0x0c072ac2u: goto P_0c072ac2;
+case 0x0c072ac4u: goto P_0c072ac4;
+case 0x0c072ac6u: goto P_0c072ac6;
+case 0x0c072ac8u: goto P_0c072ac8;
+case 0x0c072acau: goto P_0c072aca;
+case 0x0c072accu: goto P_0c072acc;
+case 0x0c072aceu: goto P_0c072ace;
+case 0x0c072ad0u: goto P_0c072ad0;
+case 0x0c072ad2u: goto P_0c072ad2;
+case 0x0c072ad4u: goto P_0c072ad4;
+case 0x0c072ad6u: goto P_0c072ad6;
+case 0x0c072ad8u: goto P_0c072ad8;
+case 0x0c072adau: goto P_0c072ada;
+case 0x0c072adcu: goto P_0c072adc;
+case 0x0c072adeu: goto P_0c072ade;
+case 0x0c072ae0u: goto P_0c072ae0;
+case 0x0c072ae2u: goto P_0c072ae2;
+case 0x0c072ae4u: goto P_0c072ae4;
+case 0x0c072ae6u: goto P_0c072ae6;
+case 0x0c072ae8u: goto P_0c072ae8;
+case 0x0c072aeau: goto P_0c072aea;
+case 0x0c072aecu: goto P_0c072aec;
+case 0x0c072aeeu: goto P_0c072aee;
+case 0x0c072af0u: goto P_0c072af0;
+case 0x0c072af2u: goto P_0c072af2;
+case 0x0c072af4u: goto P_0c072af4;
+case 0x0c072af6u: goto P_0c072af6;
+case 0x0c072af8u: goto P_0c072af8;
+case 0x0c072afau: goto P_0c072afa;
+case 0x0c072afcu: goto P_0c072afc;
+case 0x0c072afeu: goto P_0c072afe;
+case 0x0c072b00u: goto P_0c072b00;
 case 0x0c07d5cau: goto P_0c07d5ca;
 case 0x0c07d5ccu: goto P_0c07d5cc;
 case 0x0c07d5ceu: goto P_0c07d5ce;
@@ -4534,6 +6535,85 @@ case 0x0c087b4eu: goto P_0c087b4e;
 case 0x0c087b50u: goto P_0c087b50;
 case 0x0c087b52u: goto P_0c087b52;
 case 0x0c087b54u: goto P_0c087b54;
+case 0x0c0881dcu: goto P_0c0881dc;
+case 0x0c0881deu: goto P_0c0881de;
+case 0x0c0881e0u: goto P_0c0881e0;
+case 0x0c0881e2u: goto P_0c0881e2;
+case 0x0c0881e4u: goto P_0c0881e4;
+case 0x0c0881e6u: goto P_0c0881e6;
+case 0x0c0881e8u: goto P_0c0881e8;
+case 0x0c0881eau: goto P_0c0881ea;
+case 0x0c0881ecu: goto P_0c0881ec;
+case 0x0c0881eeu: goto P_0c0881ee;
+case 0x0c0881f0u: goto P_0c0881f0;
+case 0x0c0881f2u: goto P_0c0881f2;
+case 0x0c0881f4u: goto P_0c0881f4;
+case 0x0c0881f6u: goto P_0c0881f6;
+case 0x0c0881f8u: goto P_0c0881f8;
+case 0x0c088222u: goto P_0c088222;
+case 0x0c088224u: goto P_0c088224;
+case 0x0c088226u: goto P_0c088226;
+case 0x0c088228u: goto P_0c088228;
+case 0x0c08822au: goto P_0c08822a;
+case 0x0c08822cu: goto P_0c08822c;
+case 0x0c08822eu: goto P_0c08822e;
+case 0x0c088230u: goto P_0c088230;
+case 0x0c088232u: goto P_0c088232;
+case 0x0c088234u: goto P_0c088234;
+case 0x0c088236u: goto P_0c088236;
+case 0x0c088238u: goto P_0c088238;
+case 0x0c08823au: goto P_0c08823a;
+case 0x0c08823cu: goto P_0c08823c;
+case 0x0c08823eu: goto P_0c08823e;
+case 0x0c088240u: goto P_0c088240;
+case 0x0c088242u: goto P_0c088242;
+case 0x0c088244u: goto P_0c088244;
+case 0x0c088246u: goto P_0c088246;
+case 0x0c088248u: goto P_0c088248;
+case 0x0c08824au: goto P_0c08824a;
+case 0x0c08824cu: goto P_0c08824c;
+case 0x0c08824eu: goto P_0c08824e;
+case 0x0c088250u: goto P_0c088250;
+case 0x0c088252u: goto P_0c088252;
+case 0x0c088254u: goto P_0c088254;
+case 0x0c088256u: goto P_0c088256;
+case 0x0c088258u: goto P_0c088258;
+case 0x0c08825au: goto P_0c08825a;
+case 0x0c08825cu: goto P_0c08825c;
+case 0x0c08825eu: goto P_0c08825e;
+case 0x0c088260u: goto P_0c088260;
+case 0x0c088262u: goto P_0c088262;
+case 0x0c088264u: goto P_0c088264;
+case 0x0c088266u: goto P_0c088266;
+case 0x0c088268u: goto P_0c088268;
+case 0x0c08826au: goto P_0c08826a;
+case 0x0c08826cu: goto P_0c08826c;
+case 0x0c08826eu: goto P_0c08826e;
+case 0x0c088270u: goto P_0c088270;
+case 0x0c088272u: goto P_0c088272;
+case 0x0c088274u: goto P_0c088274;
+case 0x0c088276u: goto P_0c088276;
+case 0x0c088278u: goto P_0c088278;
+case 0x0c08827au: goto P_0c08827a;
+case 0x0c08827cu: goto P_0c08827c;
+case 0x0c08827eu: goto P_0c08827e;
+case 0x0c088280u: goto P_0c088280;
+case 0x0c088282u: goto P_0c088282;
+case 0x0c088284u: goto P_0c088284;
+case 0x0c088286u: goto P_0c088286;
+case 0x0c088288u: goto P_0c088288;
+case 0x0c08828au: goto P_0c08828a;
+case 0x0c08828cu: goto P_0c08828c;
+case 0x0c08828eu: goto P_0c08828e;
+case 0x0c088290u: goto P_0c088290;
+case 0x0c088292u: goto P_0c088292;
+case 0x0c088294u: goto P_0c088294;
+case 0x0c088296u: goto P_0c088296;
+case 0x0c088298u: goto P_0c088298;
+case 0x0c08829au: goto P_0c08829a;
+case 0x0c08829cu: goto P_0c08829c;
+case 0x0c08829eu: goto P_0c08829e;
+case 0x0c0882a0u: goto P_0c0882a0;
 case 0x0c088c4cu: goto P_0c088c4c;
 case 0x0c088c4eu: goto P_0c088c4e;
 case 0x0c088c50u: goto P_0c088c50;
@@ -5192,6 +7272,71 @@ case 0x0c08a782u: goto P_0c08a782;
 case 0x0c08a784u: goto P_0c08a784;
 case 0x0c08a786u: goto P_0c08a786;
 case 0x0c08a788u: goto P_0c08a788;
+case 0x0c08b73cu: goto P_0c08b73c;
+case 0x0c08b73eu: goto P_0c08b73e;
+case 0x0c08b740u: goto P_0c08b740;
+case 0x0c08b742u: goto P_0c08b742;
+case 0x0c08b744u: goto P_0c08b744;
+case 0x0c08b746u: goto P_0c08b746;
+case 0x0c08b748u: goto P_0c08b748;
+case 0x0c08b74au: goto P_0c08b74a;
+case 0x0c08b74cu: goto P_0c08b74c;
+case 0x0c08b74eu: goto P_0c08b74e;
+case 0x0c08b750u: goto P_0c08b750;
+case 0x0c08b752u: goto P_0c08b752;
+case 0x0c08b754u: goto P_0c08b754;
+case 0x0c08b756u: goto P_0c08b756;
+case 0x0c08b758u: goto P_0c08b758;
+case 0x0c08b75au: goto P_0c08b75a;
+case 0x0c08b75cu: goto P_0c08b75c;
+case 0x0c08b75eu: goto P_0c08b75e;
+case 0x0c08b760u: goto P_0c08b760;
+case 0x0c08b762u: goto P_0c08b762;
+case 0x0c08b764u: goto P_0c08b764;
+case 0x0c08b766u: goto P_0c08b766;
+case 0x0c08b768u: goto P_0c08b768;
+case 0x0c08b76au: goto P_0c08b76a;
+case 0x0c08b76cu: goto P_0c08b76c;
+case 0x0c08b76eu: goto P_0c08b76e;
+case 0x0c08b770u: goto P_0c08b770;
+case 0x0c08b772u: goto P_0c08b772;
+case 0x0c08b774u: goto P_0c08b774;
+case 0x0c08b776u: goto P_0c08b776;
+case 0x0c08b778u: goto P_0c08b778;
+case 0x0c08b77au: goto P_0c08b77a;
+case 0x0c08b77cu: goto P_0c08b77c;
+case 0x0c08b77eu: goto P_0c08b77e;
+case 0x0c08b7acu: goto P_0c08b7ac;
+case 0x0c08b7aeu: goto P_0c08b7ae;
+case 0x0c08b7b0u: goto P_0c08b7b0;
+case 0x0c08b7b2u: goto P_0c08b7b2;
+case 0x0c08b7b4u: goto P_0c08b7b4;
+case 0x0c08b7b6u: goto P_0c08b7b6;
+case 0x0c08b7b8u: goto P_0c08b7b8;
+case 0x0c08b7bau: goto P_0c08b7ba;
+case 0x0c08b7bcu: goto P_0c08b7bc;
+case 0x0c08b7beu: goto P_0c08b7be;
+case 0x0c08b7c0u: goto P_0c08b7c0;
+case 0x0c08b7c2u: goto P_0c08b7c2;
+case 0x0c08b7c4u: goto P_0c08b7c4;
+case 0x0c08b7c6u: goto P_0c08b7c6;
+case 0x0c08b7c8u: goto P_0c08b7c8;
+case 0x0c08b7cau: goto P_0c08b7ca;
+case 0x0c08b7ccu: goto P_0c08b7cc;
+case 0x0c08b7ceu: goto P_0c08b7ce;
+case 0x0c08b7d0u: goto P_0c08b7d0;
+case 0x0c08b7d2u: goto P_0c08b7d2;
+case 0x0c08b7d4u: goto P_0c08b7d4;
+case 0x0c08b7d6u: goto P_0c08b7d6;
+case 0x0c08b7d8u: goto P_0c08b7d8;
+case 0x0c08b7dau: goto P_0c08b7da;
+case 0x0c08b7dcu: goto P_0c08b7dc;
+case 0x0c08b7deu: goto P_0c08b7de;
+case 0x0c08b7e0u: goto P_0c08b7e0;
+case 0x0c08b7e2u: goto P_0c08b7e2;
+case 0x0c08b7e4u: goto P_0c08b7e4;
+case 0x0c08b7e6u: goto P_0c08b7e6;
+case 0x0c08b7e8u: goto P_0c08b7e8;
 case 0x0c08ce72u: goto P_0c08ce72;
 case 0x0c08ce74u: goto P_0c08ce74;
 case 0x0c08ce76u: goto P_0c08ce76;
@@ -8103,6 +10248,34 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c037788u,s,ram);
+P_0c037d90: /* original 2fe6, guest PC 0x0c037d90 */
+if(!s->budget--) { s->failed_pc=0x0c037d90u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c037d92;
+P_0c037d92: /* original 6e43, guest PC 0x0c037d92 */
+if(!s->budget--) { s->failed_pc=0x0c037d92u; return 0; }
+r[14]=r[4];
+goto P_0c037d94;
+P_0c037d94: /* original d32d, guest PC 0x0c037d94 */
+if(!s->budget--) { s->failed_pc=0x0c037d94u; return 0; }
+r[3]=read(ram,0x0c037e4cu,4);
+goto P_0c037d96;
+P_0c037d96: /* original e400, guest PC 0x0c037d96 */
+if(!s->budget--) { s->failed_pc=0x0c037d96u; return 0; }
+r[4]=0x00000000u;
+goto P_0c037d98;
+P_0c037d98: /* original e040, guest PC 0x0c037d98 */
+if(!s->budget--) { s->failed_pc=0x0c037d98u; return 0; }
+r[0]=0x00000040u;
+goto P_0c037d9a;
+P_0c037d9a: /* original 2e32, guest PC 0x0c037d9a */
+if(!s->budget--) { s->failed_pc=0x0c037d9au; return 0; }
+write(ram,r[14],r[3],4);
+goto P_0c037d9c;
+P_0c037d9c: /* original e308, guest PC 0x0c037d9c */
+if(!s->budget--) { s->failed_pc=0x0c037d9cu; return 0; }
+r[3]=0x00000008u;
+goto P_0c037d9e;
 P_0c037d9e: /* original 4f22, guest PC 0x0c037d9e */
 if(!s->budget--) { s->failed_pc=0x0c037d9eu; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -8409,6 +10582,22 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c037e28u,s,ram);
+P_0c0380a0: /* original 2fe6, guest PC 0x0c0380a0 */
+if(!s->budget--) { s->failed_pc=0x0c0380a0u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c0380a2;
+P_0c0380a2: /* original 6e43, guest PC 0x0c0380a2 */
+if(!s->budget--) { s->failed_pc=0x0c0380a2u; return 0; }
+r[14]=r[4];
+goto P_0c0380a4;
+P_0c0380a4: /* original d324, guest PC 0x0c0380a4 */
+if(!s->budget--) { s->failed_pc=0x0c0380a4u; return 0; }
+r[3]=read(ram,0x0c038138u,4);
+goto P_0c0380a6;
+P_0c0380a6: /* original e203, guest PC 0x0c0380a6 */
+if(!s->budget--) { s->failed_pc=0x0c0380a6u; return 0; }
+r[2]=0x00000003u;
+goto P_0c0380a8;
 P_0c0380a8: /* original 4f22, guest PC 0x0c0380a8 */
 if(!s->budget--) { s->failed_pc=0x0c0380a8u; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -8545,6 +10734,1481 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c0380deu,s,ram);
+P_0c0380e0: /* original 2fe6, guest PC 0x0c0380e0 */
+if(!s->budget--) { s->failed_pc=0x0c0380e0u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c0380e2;
+P_0c0380e2: /* original 6e43, guest PC 0x0c0380e2 */
+if(!s->budget--) { s->failed_pc=0x0c0380e2u; return 0; }
+r[14]=r[4];
+goto P_0c0380e4;
+P_0c0380e4: /* original d314, guest PC 0x0c0380e4 */
+if(!s->budget--) { s->failed_pc=0x0c0380e4u; return 0; }
+r[3]=read(ram,0x0c038138u,4);
+goto P_0c0380e6;
+P_0c0380e6: /* original e203, guest PC 0x0c0380e6 */
+if(!s->budget--) { s->failed_pc=0x0c0380e6u; return 0; }
+r[2]=0x00000003u;
+goto P_0c0380e8;
+P_0c0380e8: /* original 4f22, guest PC 0x0c0380e8 */
+if(!s->budget--) { s->failed_pc=0x0c0380e8u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c0380ea;
+P_0c0380ea: /* original 2e32, guest PC 0x0c0380ea */
+if(!s->budget--) { s->failed_pc=0x0c0380eau; return 0; }
+write(ram,r[14],r[3],4);
+goto P_0c0380ec;
+P_0c0380ec: /* original e33c, guest PC 0x0c0380ec */
+if(!s->budget--) { s->failed_pc=0x0c0380ecu; return 0; }
+r[3]=0x0000003cu;
+goto P_0c0380ee;
+P_0c0380ee: /* original e06c, guest PC 0x0c0380ee */
+if(!s->budget--) { s->failed_pc=0x0c0380eeu; return 0; }
+r[0]=0x0000006cu;
+goto P_0c0380f0;
+P_0c0380f0: /* original 4f12, guest PC 0x0c0380f0 */
+if(!s->budget--) { s->failed_pc=0x0c0380f0u; return 0; }
+r[15]-=4; write(ram,r[15],r[19],4);
+goto P_0c0380f2;
+P_0c0380f2: /* original 0537, guest PC 0x0c0380f2 */
+if(!s->budget--) { s->failed_pc=0x0c0380f2u; return 0; }
+r[19]=r[5]*r[3];
+goto P_0c0380f4;
+P_0c0380f4: /* original e300, guest PC 0x0c0380f4 */
+if(!s->budget--) { s->failed_pc=0x0c0380f4u; return 0; }
+r[3]=0x00000000u;
+goto P_0c0380f6;
+P_0c0380f6: /* original e401, guest PC 0x0c0380f6 */
+if(!s->budget--) { s->failed_pc=0x0c0380f6u; return 0; }
+r[4]=0x00000001u;
+goto P_0c0380f8;
+P_0c0380f8: /* original 1e41, guest PC 0x0c0380f8 */
+if(!s->budget--) { s->failed_pc=0x0c0380f8u; return 0; }
+write(ram,r[14]+4,r[4],4);
+goto P_0c0380fa;
+P_0c0380fa: /* original 051a, guest PC 0x0c0380fa */
+if(!s->budget--) { s->failed_pc=0x0c0380fau; return 0; }
+r[5]=r[19];
+goto P_0c0380fc;
+P_0c0380fc: /* original 1e42, guest PC 0x0c0380fc */
+if(!s->budget--) { s->failed_pc=0x0c0380fcu; return 0; }
+write(ram,r[14]+8,r[4],4);
+goto P_0c0380fe;
+P_0c0380fe: /* original 1e28, guest PC 0x0c0380fe */
+if(!s->budget--) { s->failed_pc=0x0c0380feu; return 0; }
+write(ram,r[14]+32,r[2],4);
+goto P_0c038100;
+P_0c038100: /* original d10e, guest PC 0x0c038100 */
+if(!s->budget--) { s->failed_pc=0x0c038100u; return 0; }
+r[1]=read(ram,0x0c03813cu,4);
+goto P_0c038102;
+P_0c038102: /* original 6212, guest PC 0x0c038102 */
+if(!s->budget--) { s->failed_pc=0x0c038102u; return 0; }
+tmp=read(ram,r[1],4);
+r[2]=tmp;
+goto P_0c038104;
+P_0c038104: /* original 352c, guest PC 0x0c038104 */
+if(!s->budget--) { s->failed_pc=0x0c038104u; return 0; }
+r[5]+=r[2];
+goto P_0c038106;
+P_0c038106: /* original 0e56, guest PC 0x0c038106 */
+if(!s->budget--) { s->failed_pc=0x0c038106u; return 0; }
+write(ram,r[14]+r[0],r[5],4);
+goto P_0c038108;
+P_0c038108: /* original 900b, guest PC 0x0c038108 */
+if(!s->budget--) { s->failed_pc=0x0c038108u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c038122u,2);
+goto P_0c03810a;
+P_0c03810a: /* original 0e36, guest PC 0x0c03810a */
+if(!s->budget--) { s->failed_pc=0x0c03810au; return 0; }
+write(ram,r[14]+r[0],r[3],4);
+goto P_0c03810c;
+P_0c03810c: /* original d308, guest PC 0x0c03810c */
+if(!s->budget--) { s->failed_pc=0x0c03810cu; return 0; }
+r[3]=read(ram,0x0c038130u,4);
+goto P_0c03810e;
+P_0c03810e: /* original 430b, guest PC 0x0c03810e */
+if(!s->budget--) { s->failed_pc=0x0c03810eu; return 0; }
+target=r[3];
+r[16]=0x0c038112u;
+r[4]=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c038112u) { target=s->pc; goto dispatch; }
+goto P_0c038112;
+P_0c038110: /* original 64e3, guest PC 0x0c038110 */
+if(!s->budget--) { s->failed_pc=0x0c038110u; return 0; }
+r[4]=r[14];
+goto P_0c038112;
+P_0c038112: /* original 4f16, guest PC 0x0c038112 */
+if(!s->budget--) { s->failed_pc=0x0c038112u; return 0; }
+r[19]=read(ram,r[15],4); r[15]+=4;
+goto P_0c038114;
+P_0c038114: /* original d207, guest PC 0x0c038114 */
+if(!s->budget--) { s->failed_pc=0x0c038114u; return 0; }
+r[2]=read(ram,0x0c038134u,4);
+goto P_0c038116;
+P_0c038116: /* original 64e3, guest PC 0x0c038116 */
+if(!s->budget--) { s->failed_pc=0x0c038116u; return 0; }
+r[4]=r[14];
+goto P_0c038118;
+P_0c038118: /* original 4f26, guest PC 0x0c038118 */
+if(!s->budget--) { s->failed_pc=0x0c038118u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03811a;
+P_0c03811a: /* original 422b, guest PC 0x0c03811a */
+if(!s->budget--) { s->failed_pc=0x0c03811au; return 0; }
+target=r[2];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c03811c: /* original 6ef6, guest PC 0x0c03811c */
+if(!s->budget--) { s->failed_pc=0x0c03811cu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c03811eu,s,ram);
+P_0c038150: /* original 2fe6, guest PC 0x0c038150 */
+if(!s->budget--) { s->failed_pc=0x0c038150u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c038152;
+P_0c038152: /* original 6e43, guest PC 0x0c038152 */
+if(!s->budget--) { s->failed_pc=0x0c038152u; return 0; }
+r[14]=r[4];
+goto P_0c038154;
+P_0c038154: /* original d319, guest PC 0x0c038154 */
+if(!s->budget--) { s->failed_pc=0x0c038154u; return 0; }
+r[3]=read(ram,0x0c0381bcu,4);
+goto P_0c038156;
+P_0c038156: /* original e203, guest PC 0x0c038156 */
+if(!s->budget--) { s->failed_pc=0x0c038156u; return 0; }
+r[2]=0x00000003u;
+goto P_0c038158;
+P_0c038158: /* original 4f22, guest PC 0x0c038158 */
+if(!s->budget--) { s->failed_pc=0x0c038158u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03815a;
+P_0c03815a: /* original 2e32, guest PC 0x0c03815a */
+if(!s->budget--) { s->failed_pc=0x0c03815au; return 0; }
+write(ram,r[14],r[3],4);
+goto P_0c03815c;
+P_0c03815c: /* original e33c, guest PC 0x0c03815c */
+if(!s->budget--) { s->failed_pc=0x0c03815cu; return 0; }
+r[3]=0x0000003cu;
+goto P_0c03815e;
+P_0c03815e: /* original e06c, guest PC 0x0c03815e */
+if(!s->budget--) { s->failed_pc=0x0c03815eu; return 0; }
+r[0]=0x0000006cu;
+goto P_0c038160;
+P_0c038160: /* original 4f12, guest PC 0x0c038160 */
+if(!s->budget--) { s->failed_pc=0x0c038160u; return 0; }
+r[15]-=4; write(ram,r[15],r[19],4);
+goto P_0c038162;
+P_0c038162: /* original 0537, guest PC 0x0c038162 */
+if(!s->budget--) { s->failed_pc=0x0c038162u; return 0; }
+r[19]=r[5]*r[3];
+goto P_0c038164;
+P_0c038164: /* original e300, guest PC 0x0c038164 */
+if(!s->budget--) { s->failed_pc=0x0c038164u; return 0; }
+r[3]=0x00000000u;
+goto P_0c038166;
+P_0c038166: /* original e401, guest PC 0x0c038166 */
+if(!s->budget--) { s->failed_pc=0x0c038166u; return 0; }
+r[4]=0x00000001u;
+goto P_0c038168;
+P_0c038168: /* original 1e41, guest PC 0x0c038168 */
+if(!s->budget--) { s->failed_pc=0x0c038168u; return 0; }
+write(ram,r[14]+4,r[4],4);
+goto P_0c03816a;
+P_0c03816a: /* original 051a, guest PC 0x0c03816a */
+if(!s->budget--) { s->failed_pc=0x0c03816au; return 0; }
+r[5]=r[19];
+goto P_0c03816c;
+P_0c03816c: /* original 1e42, guest PC 0x0c03816c */
+if(!s->budget--) { s->failed_pc=0x0c03816cu; return 0; }
+write(ram,r[14]+8,r[4],4);
+goto P_0c03816e;
+P_0c03816e: /* original 1e28, guest PC 0x0c03816e */
+if(!s->budget--) { s->failed_pc=0x0c03816eu; return 0; }
+write(ram,r[14]+32,r[2],4);
+goto P_0c038170;
+P_0c038170: /* original d113, guest PC 0x0c038170 */
+if(!s->budget--) { s->failed_pc=0x0c038170u; return 0; }
+r[1]=read(ram,0x0c0381c0u,4);
+goto P_0c038172;
+P_0c038172: /* original 6212, guest PC 0x0c038172 */
+if(!s->budget--) { s->failed_pc=0x0c038172u; return 0; }
+tmp=read(ram,r[1],4);
+r[2]=tmp;
+goto P_0c038174;
+P_0c038174: /* original 352c, guest PC 0x0c038174 */
+if(!s->budget--) { s->failed_pc=0x0c038174u; return 0; }
+r[5]+=r[2];
+goto P_0c038176;
+P_0c038176: /* original 0e56, guest PC 0x0c038176 */
+if(!s->budget--) { s->failed_pc=0x0c038176u; return 0; }
+write(ram,r[14]+r[0],r[5],4);
+goto P_0c038178;
+P_0c038178: /* original 901d, guest PC 0x0c038178 */
+if(!s->budget--) { s->failed_pc=0x0c038178u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0381b6u,2);
+goto P_0c03817a;
+P_0c03817a: /* original 0e36, guest PC 0x0c03817a */
+if(!s->budget--) { s->failed_pc=0x0c03817au; return 0; }
+write(ram,r[14]+r[0],r[3],4);
+goto P_0c03817c;
+P_0c03817c: /* original d311, guest PC 0x0c03817c */
+if(!s->budget--) { s->failed_pc=0x0c03817cu; return 0; }
+r[3]=read(ram,0x0c0381c4u,4);
+goto P_0c03817e;
+P_0c03817e: /* original 430b, guest PC 0x0c03817e */
+if(!s->budget--) { s->failed_pc=0x0c03817eu; return 0; }
+target=r[3];
+r[16]=0x0c038182u;
+r[4]=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c038182u) { target=s->pc; goto dispatch; }
+goto P_0c038182;
+P_0c038180: /* original 64e3, guest PC 0x0c038180 */
+if(!s->budget--) { s->failed_pc=0x0c038180u; return 0; }
+r[4]=r[14];
+goto P_0c038182;
+P_0c038182: /* original 4f16, guest PC 0x0c038182 */
+if(!s->budget--) { s->failed_pc=0x0c038182u; return 0; }
+r[19]=read(ram,r[15],4); r[15]+=4;
+goto P_0c038184;
+P_0c038184: /* original d210, guest PC 0x0c038184 */
+if(!s->budget--) { s->failed_pc=0x0c038184u; return 0; }
+r[2]=read(ram,0x0c0381c8u,4);
+goto P_0c038186;
+P_0c038186: /* original 64e3, guest PC 0x0c038186 */
+if(!s->budget--) { s->failed_pc=0x0c038186u; return 0; }
+r[4]=r[14];
+goto P_0c038188;
+P_0c038188: /* original 4f26, guest PC 0x0c038188 */
+if(!s->budget--) { s->failed_pc=0x0c038188u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03818a;
+P_0c03818a: /* original 422b, guest PC 0x0c03818a */
+if(!s->budget--) { s->failed_pc=0x0c03818au; return 0; }
+target=r[2];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c03818c: /* original 6ef6, guest PC 0x0c03818c */
+if(!s->budget--) { s->failed_pc=0x0c03818cu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c03818eu,s,ram);
+P_0c038192: /* original 4f22, guest PC 0x0c038192 */
+if(!s->budget--) { s->failed_pc=0x0c038192u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c038194;
+P_0c038194: /* original d40d, guest PC 0x0c038194 */
+if(!s->budget--) { s->failed_pc=0x0c038194u; return 0; }
+r[4]=read(ram,0x0c0381ccu,4);
+goto P_0c038196;
+P_0c038196: /* original bdfb, guest PC 0x0c038196 */
+if(!s->budget--) { s->failed_pc=0x0c038196u; return 0; }
+target=0x0c037d90u; r[16]=0x0c03819au;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03819au) { target=s->pc; goto dispatch; }
+goto P_0c03819a;
+P_0c038198: /* original 0009, guest PC 0x0c038198 */
+if(!s->budget--) { s->failed_pc=0x0c038198u; return 0; }
+goto P_0c03819a;
+P_0c03819a: /* original de0d, guest PC 0x0c03819a */
+if(!s->budget--) { s->failed_pc=0x0c03819au; return 0; }
+r[14]=read(ram,0x0c0381d0u,4);
+goto P_0c03819c;
+P_0c03819c: /* original e500, guest PC 0x0c03819c */
+if(!s->budget--) { s->failed_pc=0x0c03819cu; return 0; }
+r[5]=0x00000000u;
+goto P_0c03819e;
+P_0c03819e: /* original bf7f, guest PC 0x0c03819e */
+if(!s->budget--) { s->failed_pc=0x0c03819eu; return 0; }
+target=0x0c0380a0u; r[16]=0x0c0381a2u;
+r[4]=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c0381a2u) { target=s->pc; goto dispatch; }
+goto P_0c0381a2;
+P_0c0381a0: /* original 64e3, guest PC 0x0c0381a0 */
+if(!s->budget--) { s->failed_pc=0x0c0381a0u; return 0; }
+r[4]=r[14];
+goto P_0c0381a2;
+P_0c0381a2: /* original 9409, guest PC 0x0c0381a2 */
+if(!s->budget--) { s->failed_pc=0x0c0381a2u; return 0; }
+r[4]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0381b8u,2);
+goto P_0c0381a4;
+P_0c0381a4: /* original e500, guest PC 0x0c0381a4 */
+if(!s->budget--) { s->failed_pc=0x0c0381a4u; return 0; }
+r[5]=0x00000000u;
+goto P_0c0381a6;
+P_0c0381a6: /* original bf9b, guest PC 0x0c0381a6 */
+if(!s->budget--) { s->failed_pc=0x0c0381a6u; return 0; }
+target=0x0c0380e0u; r[16]=0x0c0381aau;
+r[4]+=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c0381aau) { target=s->pc; goto dispatch; }
+goto P_0c0381aa;
+P_0c0381a8: /* original 34ec, guest PC 0x0c0381a8 */
+if(!s->budget--) { s->failed_pc=0x0c0381a8u; return 0; }
+r[4]+=r[14];
+goto P_0c0381aa;
+P_0c0381aa: /* original 4f26, guest PC 0x0c0381aa */
+if(!s->budget--) { s->failed_pc=0x0c0381aau; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c0381ac;
+P_0c0381ac: /* original 9405, guest PC 0x0c0381ac */
+if(!s->budget--) { s->failed_pc=0x0c0381acu; return 0; }
+r[4]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0381bau,2);
+goto P_0c0381ae;
+P_0c0381ae: /* original e500, guest PC 0x0c0381ae */
+if(!s->budget--) { s->failed_pc=0x0c0381aeu; return 0; }
+r[5]=0x00000000u;
+goto P_0c0381b0;
+P_0c0381b0: /* original 34ec, guest PC 0x0c0381b0 */
+if(!s->budget--) { s->failed_pc=0x0c0381b0u; return 0; }
+r[4]+=r[14];
+goto P_0c0381b2;
+P_0c0381b2: /* original afcd, guest PC 0x0c0381b2 */
+if(!s->budget--) { s->failed_pc=0x0c0381b2u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+goto P_0c038150;
+P_0c0381b4: /* original 6ef6, guest PC 0x0c0381b4 */
+if(!s->budget--) { s->failed_pc=0x0c0381b4u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c0381b6u,s,ram);
+P_0c03a160: /* original 4f22, guest PC 0x0c03a160 */
+if(!s->budget--) { s->failed_pc=0x0c03a160u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a162;
+P_0c03a162: /* original 644d, guest PC 0x0c03a162 */
+if(!s->budget--) { s->failed_pc=0x0c03a162u; return 0; }
+r[4]=r[4]&65535u;
+goto P_0c03a164;
+P_0c03a164: /* original 2448, guest PC 0x0c03a164 */
+if(!s->budget--) { s->failed_pc=0x0c03a164u; return 0; }
+r[17]=(r[17]&~1u)|(((r[4]&r[4])==0)!=0);
+goto P_0c03a166;
+P_0c03a166: /* original 8902, guest PC 0x0c03a166 */
+if(!s->budget--) { s->failed_pc=0x0c03a166u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c03a16e; }
+goto P_0c03a168;
+P_0c03a168: /* original d32e, guest PC 0x0c03a168 */
+if(!s->budget--) { s->failed_pc=0x0c03a168u; return 0; }
+r[3]=read(ram,0x0c03a224u,4);
+goto P_0c03a16a;
+P_0c03a16a: /* original 3430, guest PC 0x0c03a16a */
+if(!s->budget--) { s->failed_pc=0x0c03a16au; return 0; }
+r[17]=(r[17]&~1u)|((r[4]==r[3])!=0);
+goto P_0c03a16c;
+P_0c03a16c: /* original 8b08, guest PC 0x0c03a16c */
+if(!s->budget--) { s->failed_pc=0x0c03a16cu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03a180; }
+goto P_0c03a16e;
+P_0c03a16e: /* original 4f26, guest PC 0x0c03a16e */
+if(!s->budget--) { s->failed_pc=0x0c03a16eu; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a170;
+P_0c03a170: /* original c72e, guest PC 0x0c03a170 */
+if(!s->budget--) { s->failed_pc=0x0c03a170u; return 0; }
+r[0]=0x0c03a22cu;
+goto P_0c03a172;
+P_0c03a172: /* original 000b, guest PC 0x0c03a172 */
+if(!s->budget--) { s->failed_pc=0x0c03a172u; return 0; }
+target=r[16];
+vf3_matrix_load(s,ram,0,r[0]);
+s->pc=target; return ram->oob==0;
+P_0c03a174: /* original f008, guest PC 0x0c03a174 */
+if(!s->budget--) { s->failed_pc=0x0c03a174u; return 0; }
+vf3_matrix_load(s,ram,0,r[0]);
+return vf3_matrix_family(0x0c03a176u,s,ram);
+P_0c03a180: /* original b2ae, guest PC 0x0c03a180 */
+if(!s->budget--) { s->failed_pc=0x0c03a180u; return 0; }
+target=0x0c03a6e0u; r[16]=0x0c03a184u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a184u) { target=s->pc; goto dispatch; }
+goto P_0c03a184;
+P_0c03a182: /* original 0009, guest PC 0x0c03a182 */
+if(!s->budget--) { s->failed_pc=0x0c03a182u; return 0; }
+goto P_0c03a184;
+P_0c03a184: /* original f30c, guest PC 0x0c03a184 */
+if(!s->budget--) { s->failed_pc=0x0c03a184u; return 0; }
+vf3_matrix_move(s,3,0);
+goto P_0c03a186;
+P_0c03a186: /* original f09d, guest PC 0x0c03a186 */
+if(!s->budget--) { s->failed_pc=0x0c03a186u; return 0; }
+fr[0]=0x3f800000u;
+goto P_0c03a188;
+P_0c03a188: /* original f033, guest PC 0x0c03a188 */
+if(!s->budget--) { s->failed_pc=0x0c03a188u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+goto P_0c03a18a;
+P_0c03a18a: /* original 4f26, guest PC 0x0c03a18a */
+if(!s->budget--) { s->failed_pc=0x0c03a18au; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a18c;
+P_0c03a18c: /* original 000b, guest PC 0x0c03a18c */
+if(!s->budget--) { s->failed_pc=0x0c03a18cu; return 0; }
+target=r[16];
+s->pc=target; return ram->oob==0;
+P_0c03a18e: /* original 0009, guest PC 0x0c03a18e */
+if(!s->budget--) { s->failed_pc=0x0c03a18eu; return 0; }
+return vf3_matrix_family(0x0c03a190u,s,ram);
+P_0c03a1ba: /* original 4f22, guest PC 0x0c03a1ba */
+if(!s->budget--) { s->failed_pc=0x0c03a1bau; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a1bc;
+P_0c03a1bc: /* original f32d, guest PC 0x0c03a1bc */
+if(!s->budget--) { s->failed_pc=0x0c03a1bcu; return 0; }
+fr[3]=vf3_fpu_float(r[53],r[18]);
+goto P_0c03a1be;
+P_0c03a1be: /* original f108, guest PC 0x0c03a1be */
+if(!s->budget--) { s->failed_pc=0x0c03a1beu; return 0; }
+vf3_matrix_load(s,ram,1,r[0]);
+goto P_0c03a1c0;
+P_0c03a1c0: /* original f322, guest PC 0x0c03a1c0 */
+if(!s->budget--) { s->failed_pc=0x0c03a1c0u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[2],r[18],'*');
+goto P_0c03a1c2;
+P_0c03a1c2: /* original f43c, guest PC 0x0c03a1c2 */
+if(!s->budget--) { s->failed_pc=0x0c03a1c2u; return 0; }
+vf3_matrix_move(s,4,3);
+goto P_0c03a1c4;
+P_0c03a1c4: /* original b044, guest PC 0x0c03a1c4 */
+if(!s->budget--) { s->failed_pc=0x0c03a1c4u; return 0; }
+target=0x0c03a250u; r[16]=0x0c03a1c8u;
+fr[4]=vf3_fpu_binary(fr[4],fr[1],r[18],'/');
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a1c8u) { target=s->pc; goto dispatch; }
+goto P_0c03a1c8;
+P_0c03a1c6: /* original f413, guest PC 0x0c03a1c6 */
+if(!s->budget--) { s->failed_pc=0x0c03a1c6u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[1],r[18],'/');
+goto P_0c03a1c8;
+P_0c03a1c8: /* original f40c, guest PC 0x0c03a1c8 */
+if(!s->budget--) { s->failed_pc=0x0c03a1c8u; return 0; }
+vf3_matrix_move(s,4,0);
+goto P_0c03a1ca;
+P_0c03a1ca: /* original c71c, guest PC 0x0c03a1ca */
+if(!s->budget--) { s->failed_pc=0x0c03a1cau; return 0; }
+r[0]=0x0c03a23cu;
+goto P_0c03a1cc;
+P_0c03a1cc: /* original f09d, guest PC 0x0c03a1cc */
+if(!s->budget--) { s->failed_pc=0x0c03a1ccu; return 0; }
+fr[0]=0x3f800000u;
+goto P_0c03a1ce;
+P_0c03a1ce: /* original f043, guest PC 0x0c03a1ce */
+if(!s->budget--) { s->failed_pc=0x0c03a1ceu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[4],r[18],'/');
+goto P_0c03a1d0;
+P_0c03a1d0: /* original 4f26, guest PC 0x0c03a1d0 */
+if(!s->budget--) { s->failed_pc=0x0c03a1d0u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a1d2;
+P_0c03a1d2: /* original f308, guest PC 0x0c03a1d2 */
+if(!s->budget--) { s->failed_pc=0x0c03a1d2u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a1d4;
+P_0c03a1d4: /* original f040, guest PC 0x0c03a1d4 */
+if(!s->budget--) { s->failed_pc=0x0c03a1d4u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[4],r[18],'+');
+goto P_0c03a1d6;
+P_0c03a1d6: /* original 000b, guest PC 0x0c03a1d6 */
+if(!s->budget--) { s->failed_pc=0x0c03a1d6u; return 0; }
+target=r[16];
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+s->pc=target; return ram->oob==0;
+P_0c03a1d8: /* original f033, guest PC 0x0c03a1d8 */
+if(!s->budget--) { s->failed_pc=0x0c03a1d8u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+return vf3_matrix_family(0x0c03a1dau,s,ram);
+P_0c03a6a4: /* original 4f22, guest PC 0x0c03a6a4 */
+if(!s->budget--) { s->failed_pc=0x0c03a6a4u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a6a6;
+P_0c03a6a6: /* original 3430, guest PC 0x0c03a6a6 */
+if(!s->budget--) { s->failed_pc=0x0c03a6a6u; return 0; }
+r[17]=(r[17]&~1u)|((r[4]==r[3])!=0);
+goto P_0c03a6a8;
+P_0c03a6a8: /* original 8902, guest PC 0x0c03a6a8 */
+if(!s->budget--) { s->failed_pc=0x0c03a6a8u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c03a6b0; }
+goto P_0c03a6aa;
+P_0c03a6aa: /* original d30b, guest PC 0x0c03a6aa */
+if(!s->budget--) { s->failed_pc=0x0c03a6aau; return 0; }
+r[3]=read(ram,0x0c03a6d8u,4);
+goto P_0c03a6ac;
+P_0c03a6ac: /* original 3430, guest PC 0x0c03a6ac */
+if(!s->budget--) { s->failed_pc=0x0c03a6acu; return 0; }
+r[17]=(r[17]&~1u)|((r[4]==r[3])!=0);
+goto P_0c03a6ae;
+P_0c03a6ae: /* original 8b07, guest PC 0x0c03a6ae */
+if(!s->budget--) { s->failed_pc=0x0c03a6aeu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03a6c0; }
+goto P_0c03a6b0;
+P_0c03a6b0: /* original 4f26, guest PC 0x0c03a6b0 */
+if(!s->budget--) { s->failed_pc=0x0c03a6b0u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a6b2;
+P_0c03a6b2: /* original c70a, guest PC 0x0c03a6b2 */
+if(!s->budget--) { s->failed_pc=0x0c03a6b2u; return 0; }
+r[0]=0x0c03a6dcu;
+goto P_0c03a6b4;
+P_0c03a6b4: /* original 000b, guest PC 0x0c03a6b4 */
+if(!s->budget--) { s->failed_pc=0x0c03a6b4u; return 0; }
+target=r[16];
+vf3_matrix_load(s,ram,0,r[0]);
+s->pc=target; return ram->oob==0;
+P_0c03a6b6: /* original f008, guest PC 0x0c03a6b6 */
+if(!s->budget--) { s->failed_pc=0x0c03a6b6u; return 0; }
+vf3_matrix_load(s,ram,0,r[0]);
+return vf3_matrix_family(0x0c03a6b8u,s,ram);
+P_0c03a6c0: /* original bd3e, guest PC 0x0c03a6c0 */
+if(!s->budget--) { s->failed_pc=0x0c03a6c0u; return 0; }
+target=0x0c03a140u; r[16]=0x0c03a6c4u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a6c4u) { target=s->pc; goto dispatch; }
+goto P_0c03a6c4;
+P_0c03a6c2: /* original 0009, guest PC 0x0c03a6c2 */
+if(!s->budget--) { s->failed_pc=0x0c03a6c2u; return 0; }
+goto P_0c03a6c4;
+P_0c03a6c4: /* original f30c, guest PC 0x0c03a6c4 */
+if(!s->budget--) { s->failed_pc=0x0c03a6c4u; return 0; }
+vf3_matrix_move(s,3,0);
+goto P_0c03a6c6;
+P_0c03a6c6: /* original f09d, guest PC 0x0c03a6c6 */
+if(!s->budget--) { s->failed_pc=0x0c03a6c6u; return 0; }
+fr[0]=0x3f800000u;
+goto P_0c03a6c8;
+P_0c03a6c8: /* original f033, guest PC 0x0c03a6c8 */
+if(!s->budget--) { s->failed_pc=0x0c03a6c8u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+goto P_0c03a6ca;
+P_0c03a6ca: /* original 4f26, guest PC 0x0c03a6ca */
+if(!s->budget--) { s->failed_pc=0x0c03a6cau; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a6cc;
+P_0c03a6cc: /* original 000b, guest PC 0x0c03a6cc */
+if(!s->budget--) { s->failed_pc=0x0c03a6ccu; return 0; }
+target=r[16];
+s->pc=target; return ram->oob==0;
+P_0c03a6ce: /* original 0009, guest PC 0x0c03a6ce */
+if(!s->budget--) { s->failed_pc=0x0c03a6ceu; return 0; }
+return vf3_matrix_family(0x0c03a6d0u,s,ram);
+P_0c03a772: /* original 4f22, guest PC 0x0c03a772 */
+if(!s->budget--) { s->failed_pc=0x0c03a772u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a774;
+P_0c03a774: /* original f322, guest PC 0x0c03a774 */
+if(!s->budget--) { s->failed_pc=0x0c03a774u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[2],r[18],'*');
+goto P_0c03a776;
+P_0c03a776: /* original f43c, guest PC 0x0c03a776 */
+if(!s->budget--) { s->failed_pc=0x0c03a776u; return 0; }
+vf3_matrix_move(s,4,3);
+goto P_0c03a778;
+P_0c03a778: /* original f413, guest PC 0x0c03a778 */
+if(!s->budget--) { s->failed_pc=0x0c03a778u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[1],r[18],'/');
+goto P_0c03a77a;
+P_0c03a77a: /* original f34c, guest PC 0x0c03a77a */
+if(!s->budget--) { s->failed_pc=0x0c03a77au; return 0; }
+vf3_matrix_move(s,3,4);
+goto P_0c03a77c;
+P_0c03a77c: /* original f35d, guest PC 0x0c03a77c */
+if(!s->budget--) { s->failed_pc=0x0c03a77cu; return 0; }
+fr[3]&=0x7fffffffu;
+goto P_0c03a77e;
+P_0c03a77e: /* original f305, guest PC 0x0c03a77e */
+if(!s->budget--) { s->failed_pc=0x0c03a77eu; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[3])>as_float(fr[0]))!=0);
+goto P_0c03a780;
+P_0c03a780: /* original 8b0e, guest PC 0x0c03a780 */
+if(!s->budget--) { s->failed_pc=0x0c03a780u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03a7a0; }
+goto P_0c03a782;
+P_0c03a782: /* original bd65, guest PC 0x0c03a782 */
+if(!s->budget--) { s->failed_pc=0x0c03a782u; return 0; }
+target=0x0c03a250u; r[16]=0x0c03a786u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a786u) { target=s->pc; goto dispatch; }
+goto P_0c03a786;
+P_0c03a784: /* original 0009, guest PC 0x0c03a784 */
+if(!s->budget--) { s->failed_pc=0x0c03a784u; return 0; }
+goto P_0c03a786;
+P_0c03a786: /* original f39d, guest PC 0x0c03a786 */
+if(!s->budget--) { s->failed_pc=0x0c03a786u; return 0; }
+fr[3]=0x3f800000u;
+goto P_0c03a788;
+P_0c03a788: /* original c764, guest PC 0x0c03a788 */
+if(!s->budget--) { s->failed_pc=0x0c03a788u; return 0; }
+r[0]=0x0c03a91cu;
+goto P_0c03a78a;
+P_0c03a78a: /* original f40c, guest PC 0x0c03a78a */
+if(!s->budget--) { s->failed_pc=0x0c03a78au; return 0; }
+vf3_matrix_move(s,4,0);
+goto P_0c03a78c;
+P_0c03a78c: /* original f343, guest PC 0x0c03a78c */
+if(!s->budget--) { s->failed_pc=0x0c03a78cu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'/');
+goto P_0c03a78e;
+P_0c03a78e: /* original 4f26, guest PC 0x0c03a78e */
+if(!s->budget--) { s->failed_pc=0x0c03a78eu; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a790;
+P_0c03a790: /* original f031, guest PC 0x0c03a790 */
+if(!s->budget--) { s->failed_pc=0x0c03a790u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c03a792;
+P_0c03a792: /* original f308, guest PC 0x0c03a792 */
+if(!s->budget--) { s->failed_pc=0x0c03a792u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a794;
+P_0c03a794: /* original 000b, guest PC 0x0c03a794 */
+if(!s->budget--) { s->failed_pc=0x0c03a794u; return 0; }
+target=r[16];
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+s->pc=target; return ram->oob==0;
+P_0c03a796: /* original f033, guest PC 0x0c03a796 */
+if(!s->budget--) { s->failed_pc=0x0c03a796u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+return vf3_matrix_family(0x0c03a798u,s,ram);
+P_0c03a7a0: /* original f04c, guest PC 0x0c03a7a0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7a0u; return 0; }
+vf3_matrix_move(s,0,4);
+goto P_0c03a7a2;
+P_0c03a7a2: /* original f042, guest PC 0x0c03a7a2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7a2u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[4],r[18],'*');
+goto P_0c03a7a4;
+P_0c03a7a4: /* original c763, guest PC 0x0c03a7a4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7a4u; return 0; }
+r[0]=0x0c03a934u;
+goto P_0c03a7a6;
+P_0c03a7a6: /* original f29d, guest PC 0x0c03a7a6 */
+if(!s->budget--) { s->failed_pc=0x0c03a7a6u; return 0; }
+fr[2]=0x3f800000u;
+goto P_0c03a7a8;
+P_0c03a7a8: /* original f308, guest PC 0x0c03a7a8 */
+if(!s->budget--) { s->failed_pc=0x0c03a7a8u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a7aa;
+P_0c03a7aa: /* original f033, guest PC 0x0c03a7aa */
+if(!s->budget--) { s->failed_pc=0x0c03a7aau; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+goto P_0c03a7ac;
+P_0c03a7ac: /* original f020, guest PC 0x0c03a7ac */
+if(!s->budget--) { s->failed_pc=0x0c03a7acu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[2],r[18],'+');
+goto P_0c03a7ae;
+P_0c03a7ae: /* original f042, guest PC 0x0c03a7ae */
+if(!s->budget--) { s->failed_pc=0x0c03a7aeu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[4],r[18],'*');
+goto P_0c03a7b0;
+P_0c03a7b0: /* original 4f26, guest PC 0x0c03a7b0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7b0u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a7b2;
+P_0c03a7b2: /* original 000b, guest PC 0x0c03a7b2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7b2u; return 0; }
+target=r[16];
+s->pc=target; return ram->oob==0;
+P_0c03a7b4: /* original 0009, guest PC 0x0c03a7b4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7b4u; return 0; }
+return vf3_matrix_family(0x0c03a7b6u,s,ram);
+P_0c03a7c0: /* original 4f22, guest PC 0x0c03a7c0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7c0u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a7c2;
+P_0c03a7c2: /* original e004, guest PC 0x0c03a7c2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7c2u; return 0; }
+r[0]=0x00000004u;
+goto P_0c03a7c4;
+P_0c03a7c4: /* original 7ff8, guest PC 0x0c03a7c4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7c4u; return 0; }
+r[15]+=0xfffffff8u;
+goto P_0c03a7c6;
+P_0c03a7c6: /* original ff47, guest PC 0x0c03a7c6 */
+if(!s->budget--) { s->failed_pc=0x0c03a7c6u; return 0; }
+vf3_matrix_store(s,ram,4,r[15]+r[0]);
+goto P_0c03a7c8;
+P_0c03a7c8: /* original c754, guest PC 0x0c03a7c8 */
+if(!s->budget--) { s->failed_pc=0x0c03a7c8u; return 0; }
+r[0]=0x0c03a91cu;
+goto P_0c03a7ca;
+P_0c03a7ca: /* original f308, guest PC 0x0c03a7ca */
+if(!s->budget--) { s->failed_pc=0x0c03a7cau; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a7cc;
+P_0c03a7cc: /* original 64f3, guest PC 0x0c03a7cc */
+if(!s->budget--) { s->failed_pc=0x0c03a7ccu; return 0; }
+r[4]=r[15];
+goto P_0c03a7ce;
+P_0c03a7ce: /* original b01f, guest PC 0x0c03a7ce */
+if(!s->budget--) { s->failed_pc=0x0c03a7ceu; return 0; }
+target=0x0c03a810u; r[16]=0x0c03a7d2u;
+fr[4]=vf3_fpu_binary(fr[4],fr[3],r[18],'/');
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a7d2u) { target=s->pc; goto dispatch; }
+goto P_0c03a7d2;
+P_0c03a7d0: /* original f433, guest PC 0x0c03a7d0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7d0u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[3],r[18],'/');
+goto P_0c03a7d2;
+P_0c03a7d2: /* original c752, guest PC 0x0c03a7d2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7d2u; return 0; }
+r[0]=0x0c03a91cu;
+goto P_0c03a7d4;
+P_0c03a7d4: /* original f20c, guest PC 0x0c03a7d4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7d4u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c03a7d6;
+P_0c03a7d6: /* original f308, guest PC 0x0c03a7d6 */
+if(!s->budget--) { s->failed_pc=0x0c03a7d6u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a7d8;
+P_0c03a7d8: /* original f40c, guest PC 0x0c03a7d8 */
+if(!s->budget--) { s->failed_pc=0x0c03a7d8u; return 0; }
+vf3_matrix_move(s,4,0);
+goto P_0c03a7da;
+P_0c03a7da: /* original f232, guest PC 0x0c03a7da */
+if(!s->budget--) { s->failed_pc=0x0c03a7dau; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c03a7dc;
+P_0c03a7dc: /* original d356, guest PC 0x0c03a7dc */
+if(!s->budget--) { s->failed_pc=0x0c03a7dcu; return 0; }
+r[3]=read(ram,0x0c03a938u,4);
+goto P_0c03a7de;
+P_0c03a7de: /* original 61f2, guest PC 0x0c03a7de */
+if(!s->budget--) { s->failed_pc=0x0c03a7deu; return 0; }
+tmp=read(ram,r[15],4);
+r[1]=tmp;
+goto P_0c03a7e0;
+P_0c03a7e0: /* original f12c, guest PC 0x0c03a7e0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7e0u; return 0; }
+vf3_matrix_move(s,1,2);
+goto P_0c03a7e2;
+P_0c03a7e2: /* original f29d, guest PC 0x0c03a7e2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7e2u; return 0; }
+fr[2]=0x3f800000u;
+goto P_0c03a7e4;
+P_0c03a7e4: /* original f24e, guest PC 0x0c03a7e4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7e4u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[4],fr[2],r[18]);
+goto P_0c03a7e6;
+P_0c03a7e6: /* original f41c, guest PC 0x0c03a7e6 */
+if(!s->budget--) { s->failed_pc=0x0c03a7e6u; return 0; }
+vf3_matrix_move(s,4,1);
+goto P_0c03a7e8;
+P_0c03a7e8: /* original f423, guest PC 0x0c03a7e8 */
+if(!s->budget--) { s->failed_pc=0x0c03a7e8u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[2],r[18],'/');
+goto P_0c03a7ea;
+P_0c03a7ea: /* original 430b, guest PC 0x0c03a7ea */
+if(!s->budget--) { s->failed_pc=0x0c03a7eau; return 0; }
+target=r[3];
+r[16]=0x0c03a7eeu;
+r[0]=0x00000002u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03a7eeu) { target=s->pc; goto dispatch; }
+goto P_0c03a7ee;
+P_0c03a7ec: /* original e002, guest PC 0x0c03a7ec */
+if(!s->budget--) { s->failed_pc=0x0c03a7ecu; return 0; }
+r[0]=0x00000002u;
+goto P_0c03a7ee;
+P_0c03a7ee: /* original 2008, guest PC 0x0c03a7ee */
+if(!s->budget--) { s->failed_pc=0x0c03a7eeu; return 0; }
+r[17]=(r[17]&~1u)|(((r[0]&r[0])==0)!=0);
+goto P_0c03a7f0;
+P_0c03a7f0: /* original 8b06, guest PC 0x0c03a7f0 */
+if(!s->budget--) { s->failed_pc=0x0c03a7f0u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03a800; }
+goto P_0c03a7f2;
+P_0c03a7f2: /* original 7f08, guest PC 0x0c03a7f2 */
+if(!s->budget--) { s->failed_pc=0x0c03a7f2u; return 0; }
+r[15]+=0x00000008u;
+goto P_0c03a7f4;
+P_0c03a7f4: /* original 4f26, guest PC 0x0c03a7f4 */
+if(!s->budget--) { s->failed_pc=0x0c03a7f4u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a7f6;
+P_0c03a7f6: /* original 000b, guest PC 0x0c03a7f6 */
+if(!s->budget--) { s->failed_pc=0x0c03a7f6u; return 0; }
+target=r[16];
+vf3_matrix_move(s,0,4);
+s->pc=target; return ram->oob==0;
+P_0c03a7f8: /* original f04c, guest PC 0x0c03a7f8 */
+if(!s->budget--) { s->failed_pc=0x0c03a7f8u; return 0; }
+vf3_matrix_move(s,0,4);
+return vf3_matrix_family(0x0c03a7fau,s,ram);
+P_0c03a800: /* original f04c, guest PC 0x0c03a800 */
+if(!s->budget--) { s->failed_pc=0x0c03a800u; return 0; }
+vf3_matrix_move(s,0,4);
+goto P_0c03a802;
+P_0c03a802: /* original f04d, guest PC 0x0c03a802 */
+if(!s->budget--) { s->failed_pc=0x0c03a802u; return 0; }
+fr[0]^=0x80000000u;
+goto P_0c03a804;
+P_0c03a804: /* original 7f08, guest PC 0x0c03a804 */
+if(!s->budget--) { s->failed_pc=0x0c03a804u; return 0; }
+r[15]+=0x00000008u;
+goto P_0c03a806;
+P_0c03a806: /* original 4f26, guest PC 0x0c03a806 */
+if(!s->budget--) { s->failed_pc=0x0c03a806u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03a808;
+P_0c03a808: /* original 000b, guest PC 0x0c03a808 */
+if(!s->budget--) { s->failed_pc=0x0c03a808u; return 0; }
+target=r[16];
+s->pc=target; return ram->oob==0;
+P_0c03a80a: /* original 0009, guest PC 0x0c03a80a */
+if(!s->budget--) { s->failed_pc=0x0c03a80au; return 0; }
+return vf3_matrix_family(0x0c03a80cu,s,ram);
+P_0c03a810: /* original f28d, guest PC 0x0c03a810 */
+if(!s->budget--) { s->failed_pc=0x0c03a810u; return 0; }
+fr[2]=0;
+goto P_0c03a812;
+P_0c03a812: /* original f245, guest PC 0x0c03a812 */
+if(!s->budget--) { s->failed_pc=0x0c03a812u; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[2])>as_float(fr[4]))!=0);
+goto P_0c03a814;
+P_0c03a814: /* original 8904, guest PC 0x0c03a814 */
+if(!s->budget--) { s->failed_pc=0x0c03a814u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c03a820; }
+goto P_0c03a816;
+P_0c03a816: /* original c745, guest PC 0x0c03a816 */
+if(!s->budget--) { s->failed_pc=0x0c03a816u; return 0; }
+r[0]=0x0c03a92cu;
+goto P_0c03a818;
+P_0c03a818: /* original a004, guest PC 0x0c03a818 */
+if(!s->budget--) { s->failed_pc=0x0c03a818u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a824;
+P_0c03a81a: /* original f308, guest PC 0x0c03a81a */
+if(!s->budget--) { s->failed_pc=0x0c03a81au; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+return vf3_matrix_family(0x0c03a81cu,s,ram);
+P_0c03a820: /* original c746, guest PC 0x0c03a820 */
+if(!s->budget--) { s->failed_pc=0x0c03a820u; return 0; }
+r[0]=0x0c03a93cu;
+goto P_0c03a822;
+P_0c03a822: /* original f308, guest PC 0x0c03a822 */
+if(!s->budget--) { s->failed_pc=0x0c03a822u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a824;
+P_0c03a824: /* original c740, guest PC 0x0c03a824 */
+if(!s->budget--) { s->failed_pc=0x0c03a824u; return 0; }
+r[0]=0x0c03a928u;
+goto P_0c03a826;
+P_0c03a826: /* original f14c, guest PC 0x0c03a826 */
+if(!s->budget--) { s->failed_pc=0x0c03a826u; return 0; }
+vf3_matrix_move(s,1,4);
+goto P_0c03a828;
+P_0c03a828: /* original f208, guest PC 0x0c03a828 */
+if(!s->budget--) { s->failed_pc=0x0c03a828u; return 0; }
+vf3_matrix_load(s,ram,2,r[0]);
+goto P_0c03a82a;
+P_0c03a82a: /* original c745, guest PC 0x0c03a82a */
+if(!s->budget--) { s->failed_pc=0x0c03a82au; return 0; }
+r[0]=0x0c03a940u;
+goto P_0c03a82c;
+P_0c03a82c: /* original f123, guest PC 0x0c03a82c */
+if(!s->budget--) { s->failed_pc=0x0c03a82cu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[2],r[18],'/');
+goto P_0c03a82e;
+P_0c03a82e: /* original f310, guest PC 0x0c03a82e */
+if(!s->budget--) { s->failed_pc=0x0c03a82eu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[1],r[18],'+');
+goto P_0c03a830;
+P_0c03a830: /* original f33d, guest PC 0x0c03a830 */
+if(!s->budget--) { s->failed_pc=0x0c03a830u; return 0; }
+r[53]=truncate_float(fr[3]);
+goto P_0c03a832;
+P_0c03a832: /* original 055a, guest PC 0x0c03a832 */
+if(!s->budget--) { s->failed_pc=0x0c03a832u; return 0; }
+r[5]=r[53];
+goto P_0c03a834;
+P_0c03a834: /* original 2452, guest PC 0x0c03a834 */
+if(!s->budget--) { s->failed_pc=0x0c03a834u; return 0; }
+write(ram,r[4],r[5],4);
+goto P_0c03a836;
+P_0c03a836: /* original e40b, guest PC 0x0c03a836 */
+if(!s->budget--) { s->failed_pc=0x0c03a836u; return 0; }
+r[4]=0x0000000bu;
+goto P_0c03a838;
+P_0c03a838: /* original 455a, guest PC 0x0c03a838 */
+if(!s->budget--) { s->failed_pc=0x0c03a838u; return 0; }
+r[53]=r[5];
+goto P_0c03a83a;
+P_0c03a83a: /* original e503, guest PC 0x0c03a83a */
+if(!s->budget--) { s->failed_pc=0x0c03a83au; return 0; }
+r[5]=0x00000003u;
+goto P_0c03a83c;
+P_0c03a83c: /* original f308, guest PC 0x0c03a83c */
+if(!s->budget--) { s->failed_pc=0x0c03a83cu; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03a83e;
+P_0c03a83e: /* original c741, guest PC 0x0c03a83e */
+if(!s->budget--) { s->failed_pc=0x0c03a83eu; return 0; }
+r[0]=0x0c03a944u;
+goto P_0c03a840;
+P_0c03a840: /* original f008, guest PC 0x0c03a840 */
+if(!s->budget--) { s->failed_pc=0x0c03a840u; return 0; }
+vf3_matrix_load(s,ram,0,r[0]);
+goto P_0c03a842;
+P_0c03a842: /* original f12d, guest PC 0x0c03a842 */
+if(!s->budget--) { s->failed_pc=0x0c03a842u; return 0; }
+fr[1]=vf3_fpu_float(r[53],r[18]);
+goto P_0c03a844;
+P_0c03a844: /* original f51c, guest PC 0x0c03a844 */
+if(!s->budget--) { s->failed_pc=0x0c03a844u; return 0; }
+vf3_matrix_move(s,5,1);
+goto P_0c03a846;
+P_0c03a846: /* original f132, guest PC 0x0c03a846 */
+if(!s->budget--) { s->failed_pc=0x0c03a846u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c03a848;
+P_0c03a848: /* original f411, guest PC 0x0c03a848 */
+if(!s->budget--) { s->failed_pc=0x0c03a848u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[1],r[18],'-');
+goto P_0c03a84a;
+P_0c03a84a: /* original f45e, guest PC 0x0c03a84a */
+if(!s->budget--) { s->failed_pc=0x0c03a84au; return 0; }
+fr[4]=vf3_fpu_mac(fr[0],fr[5],fr[4],r[18]);
+goto P_0c03a84c;
+P_0c03a84c: /* original f58d, guest PC 0x0c03a84c */
+if(!s->budget--) { s->failed_pc=0x0c03a84cu; return 0; }
+fr[5]=0;
+goto P_0c03a84e;
+P_0c03a84e: /* original f64c, guest PC 0x0c03a84e */
+if(!s->budget--) { s->failed_pc=0x0c03a84eu; return 0; }
+vf3_matrix_move(s,6,4);
+goto P_0c03a850;
+P_0c03a850: /* original f642, guest PC 0x0c03a850 */
+if(!s->budget--) { s->failed_pc=0x0c03a850u; return 0; }
+fr[6]=vf3_fpu_binary(fr[6],fr[4],r[18],'*');
+goto P_0c03a852;
+P_0c03a852: /* original 445a, guest PC 0x0c03a852 */
+if(!s->budget--) { s->failed_pc=0x0c03a852u; return 0; }
+r[53]=r[4];
+goto P_0c03a854;
+P_0c03a854: /* original 74fe, guest PC 0x0c03a854 */
+if(!s->budget--) { s->failed_pc=0x0c03a854u; return 0; }
+r[4]+=0xfffffffeu;
+goto P_0c03a856;
+P_0c03a856: /* original 3453, guest PC 0x0c03a856 */
+if(!s->budget--) { s->failed_pc=0x0c03a856u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[4]>=(int32_t)r[5])!=0);
+goto P_0c03a858;
+P_0c03a858: /* original f32d, guest PC 0x0c03a858 */
+if(!s->budget--) { s->failed_pc=0x0c03a858u; return 0; }
+fr[3]=vf3_fpu_float(r[53],r[18]);
+goto P_0c03a85a;
+P_0c03a85a: /* original f351, guest PC 0x0c03a85a */
+if(!s->budget--) { s->failed_pc=0x0c03a85au; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[5],r[18],'-');
+goto P_0c03a85c;
+P_0c03a85c: /* original f56c, guest PC 0x0c03a85c */
+if(!s->budget--) { s->failed_pc=0x0c03a85cu; return 0; }
+vf3_matrix_move(s,5,6);
+goto P_0c03a85e;
+P_0c03a85e: /* original 8df8, guest PC 0x0c03a85e */
+if(!s->budget--) { s->failed_pc=0x0c03a85eu; return 0; }
+cond=r[17]&1u;
+fr[5]=vf3_fpu_binary(fr[5],fr[3],r[18],'/');
+if(cond) { goto P_0c03a852; }
+goto P_0c03a862;
+P_0c03a860: /* original f533, guest PC 0x0c03a860 */
+if(!s->budget--) { s->failed_pc=0x0c03a860u; return 0; }
+fr[5]=vf3_fpu_binary(fr[5],fr[3],r[18],'/');
+goto P_0c03a862;
+P_0c03a862: /* original f39d, guest PC 0x0c03a862 */
+if(!s->budget--) { s->failed_pc=0x0c03a862u; return 0; }
+fr[3]=0x3f800000u;
+goto P_0c03a864;
+P_0c03a864: /* original f351, guest PC 0x0c03a864 */
+if(!s->budget--) { s->failed_pc=0x0c03a864u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[5],r[18],'-');
+goto P_0c03a866;
+P_0c03a866: /* original f04c, guest PC 0x0c03a866 */
+if(!s->budget--) { s->failed_pc=0x0c03a866u; return 0; }
+vf3_matrix_move(s,0,4);
+goto P_0c03a868;
+P_0c03a868: /* original 000b, guest PC 0x0c03a868 */
+if(!s->budget--) { s->failed_pc=0x0c03a868u; return 0; }
+target=r[16];
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+s->pc=target; return ram->oob==0;
+P_0c03a86a: /* original f033, guest PC 0x0c03a86a */
+if(!s->budget--) { s->failed_pc=0x0c03a86au; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'/');
+return vf3_matrix_family(0x0c03a86cu,s,ram);
+P_0c03a9fc: /* original 4f22, guest PC 0x0c03a9fc */
+if(!s->budget--) { s->failed_pc=0x0c03a9fcu; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03a9fe;
+P_0c03a9fe: /* original fd08, guest PC 0x0c03a9fe */
+if(!s->budget--) { s->failed_pc=0x0c03a9feu; return 0; }
+vf3_matrix_load(s,ram,13,r[0]);
+goto P_0c03aa00;
+P_0c03aa00: /* original f322, guest PC 0x0c03aa00 */
+if(!s->budget--) { s->failed_pc=0x0c03aa00u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[2],r[18],'*');
+goto P_0c03aa02;
+P_0c03aa02: /* original f43c, guest PC 0x0c03aa02 */
+if(!s->budget--) { s->failed_pc=0x0c03aa02u; return 0; }
+vf3_matrix_move(s,4,3);
+goto P_0c03aa04;
+P_0c03aa04: /* original f413, guest PC 0x0c03aa04 */
+if(!s->budget--) { s->failed_pc=0x0c03aa04u; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[1],r[18],'/');
+goto P_0c03aa06;
+P_0c03aa06: /* original f455, guest PC 0x0c03aa06 */
+if(!s->budget--) { s->failed_pc=0x0c03aa06u; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[4])>as_float(fr[5]))!=0);
+goto P_0c03aa08;
+P_0c03aa08: /* original fe4c, guest PC 0x0c03aa08 */
+if(!s->budget--) { s->failed_pc=0x0c03aa08u; return 0; }
+vf3_matrix_move(s,14,4);
+goto P_0c03aa0a;
+P_0c03aa0a: /* original 8f11, guest PC 0x0c03aa0a */
+if(!s->budget--) { s->failed_pc=0x0c03aa0au; return 0; }
+cond=r[17]&1u;
+fr[14]=vf3_fpu_binary(fr[14],fr[13],r[18],'*');
+if(!cond) { goto P_0c03aa30; }
+goto P_0c03aa0e;
+P_0c03aa0c: /* original fed2, guest PC 0x0c03aa0c */
+if(!s->budget--) { s->failed_pc=0x0c03aa0cu; return 0; }
+fr[14]=vf3_fpu_binary(fr[14],fr[13],r[18],'*');
+goto P_0c03aa0e;
+P_0c03aa0e: /* original f4ec, guest PC 0x0c03aa0e */
+if(!s->budget--) { s->failed_pc=0x0c03aa0eu; return 0; }
+vf3_matrix_move(s,4,14);
+goto P_0c03aa10;
+P_0c03aa10: /* original bc1e, guest PC 0x0c03aa10 */
+if(!s->budget--) { s->failed_pc=0x0c03aa10u; return 0; }
+target=0x0c03a250u; r[16]=0x0c03aa14u;
+fr[4]^=0x80000000u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03aa14u) { target=s->pc; goto dispatch; }
+goto P_0c03aa14;
+P_0c03aa12: /* original f44d, guest PC 0x0c03aa12 */
+if(!s->budget--) { s->failed_pc=0x0c03aa12u; return 0; }
+fr[4]^=0x80000000u;
+goto P_0c03aa14;
+P_0c03aa14: /* original f0f0, guest PC 0x0c03aa14 */
+if(!s->budget--) { s->failed_pc=0x0c03aa14u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[15],r[18],'+');
+goto P_0c03aa16;
+P_0c03aa16: /* original c710, guest PC 0x0c03aa16 */
+if(!s->budget--) { s->failed_pc=0x0c03aa16u; return 0; }
+r[0]=0x0c03aa58u;
+goto P_0c03aa18;
+P_0c03aa18: /* original f308, guest PC 0x0c03aa18 */
+if(!s->budget--) { s->failed_pc=0x0c03aa18u; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c03aa1a;
+P_0c03aa1a: /* original fd03, guest PC 0x0c03aa1a */
+if(!s->budget--) { s->failed_pc=0x0c03aa1au; return 0; }
+fr[13]=vf3_fpu_binary(fr[13],fr[0],r[18],'/');
+goto P_0c03aa1c;
+P_0c03aa1c: /* original f0dc, guest PC 0x0c03aa1c */
+if(!s->budget--) { s->failed_pc=0x0c03aa1cu; return 0; }
+vf3_matrix_move(s,0,13);
+goto P_0c03aa1e;
+P_0c03aa1e: /* original a02f, guest PC 0x0c03aa1e */
+if(!s->budget--) { s->failed_pc=0x0c03aa1eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c03aa80;
+P_0c03aa20: /* original f030, guest PC 0x0c03aa20 */
+if(!s->budget--) { s->failed_pc=0x0c03aa20u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+return vf3_matrix_family(0x0c03aa22u,s,ram);
+P_0c03aa30: /* original f545, guest PC 0x0c03aa30 */
+if(!s->budget--) { s->failed_pc=0x0c03aa30u; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[5])>as_float(fr[4]))!=0);
+goto P_0c03aa32;
+P_0c03aa32: /* original 8b1d, guest PC 0x0c03aa32 */
+if(!s->budget--) { s->failed_pc=0x0c03aa32u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03aa70; }
+goto P_0c03aa34;
+P_0c03aa34: /* original bc0c, guest PC 0x0c03aa34 */
+if(!s->budget--) { s->failed_pc=0x0c03aa34u; return 0; }
+target=0x0c03a250u; r[16]=0x0c03aa38u;
+vf3_matrix_move(s,4,14);
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03aa38u) { target=s->pc; goto dispatch; }
+goto P_0c03aa38;
+P_0c03aa36: /* original f4ec, guest PC 0x0c03aa36 */
+if(!s->budget--) { s->failed_pc=0x0c03aa36u; return 0; }
+vf3_matrix_move(s,4,14);
+goto P_0c03aa38;
+P_0c03aa38: /* original f0f0, guest PC 0x0c03aa38 */
+if(!s->budget--) { s->failed_pc=0x0c03aa38u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[15],r[18],'+');
+goto P_0c03aa3a;
+P_0c03aa3a: /* original fd03, guest PC 0x0c03aa3a */
+if(!s->budget--) { s->failed_pc=0x0c03aa3au; return 0; }
+fr[13]=vf3_fpu_binary(fr[13],fr[0],r[18],'/');
+goto P_0c03aa3c;
+P_0c03aa3c: /* original fd4d, guest PC 0x0c03aa3c */
+if(!s->budget--) { s->failed_pc=0x0c03aa3cu; return 0; }
+fr[13]^=0x80000000u;
+goto P_0c03aa3e;
+P_0c03aa3e: /* original f0dc, guest PC 0x0c03aa3e */
+if(!s->budget--) { s->failed_pc=0x0c03aa3eu; return 0; }
+vf3_matrix_move(s,0,13);
+goto P_0c03aa40;
+P_0c03aa40: /* original a01e, guest PC 0x0c03aa40 */
+if(!s->budget--) { s->failed_pc=0x0c03aa40u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[15],r[18],'+');
+goto P_0c03aa80;
+P_0c03aa42: /* original f0f0, guest PC 0x0c03aa42 */
+if(!s->budget--) { s->failed_pc=0x0c03aa42u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[15],r[18],'+');
+return vf3_matrix_family(0x0c03aa44u,s,ram);
+P_0c03aa70: /* original f34c, guest PC 0x0c03aa70 */
+if(!s->budget--) { s->failed_pc=0x0c03aa70u; return 0; }
+vf3_matrix_move(s,3,4);
+goto P_0c03aa72;
+P_0c03aa72: /* original f342, guest PC 0x0c03aa72 */
+if(!s->budget--) { s->failed_pc=0x0c03aa72u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c03aa74;
+P_0c03aa74: /* original c705, guest PC 0x0c03aa74 */
+if(!s->budget--) { s->failed_pc=0x0c03aa74u; return 0; }
+r[0]=0x0c03aa8cu;
+goto P_0c03aa76;
+P_0c03aa76: /* original f208, guest PC 0x0c03aa76 */
+if(!s->budget--) { s->failed_pc=0x0c03aa76u; return 0; }
+vf3_matrix_load(s,ram,2,r[0]);
+goto P_0c03aa78;
+P_0c03aa78: /* original f323, guest PC 0x0c03aa78 */
+if(!s->budget--) { s->failed_pc=0x0c03aa78u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[2],r[18],'/');
+goto P_0c03aa7a;
+P_0c03aa7a: /* original ff31, guest PC 0x0c03aa7a */
+if(!s->budget--) { s->failed_pc=0x0c03aa7au; return 0; }
+fr[15]=vf3_fpu_binary(fr[15],fr[3],r[18],'-');
+goto P_0c03aa7c;
+P_0c03aa7c: /* original f0fc, guest PC 0x0c03aa7c */
+if(!s->budget--) { s->failed_pc=0x0c03aa7cu; return 0; }
+vf3_matrix_move(s,0,15);
+goto P_0c03aa7e;
+P_0c03aa7e: /* original f042, guest PC 0x0c03aa7e */
+if(!s->budget--) { s->failed_pc=0x0c03aa7eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[4],r[18],'*');
+goto P_0c03aa80;
+P_0c03aa80: /* original 4f26, guest PC 0x0c03aa80 */
+if(!s->budget--) { s->failed_pc=0x0c03aa80u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03aa82;
+P_0c03aa82: /* original fdf9, guest PC 0x0c03aa82 */
+if(!s->budget--) { s->failed_pc=0x0c03aa82u; return 0; }
+vf3_matrix_load(s,ram,13,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c03aa84;
+P_0c03aa84: /* original fef9, guest PC 0x0c03aa84 */
+if(!s->budget--) { s->failed_pc=0x0c03aa84u; return 0; }
+vf3_matrix_load(s,ram,14,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c03aa86;
+P_0c03aa86: /* original 000b, guest PC 0x0c03aa86 */
+if(!s->budget--) { s->failed_pc=0x0c03aa86u; return 0; }
+target=r[16];
+vf3_matrix_load(s,ram,15,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+s->pc=target; return ram->oob==0;
+P_0c03aa88: /* original fff9, guest PC 0x0c03aa88 */
+if(!s->budget--) { s->failed_pc=0x0c03aa88u; return 0; }
+vf3_matrix_load(s,ram,15,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+return vf3_matrix_family(0x0c03aa8au,s,ram);
+P_0c03ce38: /* original 4f22, guest PC 0x0c03ce38 */
+if(!s->budget--) { s->failed_pc=0x0c03ce38u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03ce3a;
+P_0c03ce3a: /* original 7ffc, guest PC 0x0c03ce3a */
+if(!s->budget--) { s->failed_pc=0x0c03ce3au; return 0; }
+r[15]+=0xfffffffcu;
+goto P_0c03ce3c;
+P_0c03ce3c: /* original ff4a, guest PC 0x0c03ce3c */
+if(!s->budget--) { s->failed_pc=0x0c03ce3cu; return 0; }
+vf3_matrix_store(s,ram,4,r[15]);
+goto P_0c03ce3e;
+P_0c03ce3e: /* original d30b, guest PC 0x0c03ce3e */
+if(!s->budget--) { s->failed_pc=0x0c03ce3eu; return 0; }
+r[3]=read(ram,0x0c03ce6cu,4);
+goto P_0c03ce40;
+P_0c03ce40: /* original 430b, guest PC 0x0c03ce40 */
+if(!s->budget--) { s->failed_pc=0x0c03ce40u; return 0; }
+target=r[3];
+r[16]=0x0c03ce44u;
+r[4]=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03ce44u) { target=s->pc; goto dispatch; }
+goto P_0c03ce44;
+P_0c03ce42: /* original 64e3, guest PC 0x0c03ce42 */
+if(!s->budget--) { s->failed_pc=0x0c03ce42u; return 0; }
+r[4]=r[14];
+goto P_0c03ce44;
+P_0c03ce44: /* original f4f8, guest PC 0x0c03ce44 */
+if(!s->budget--) { s->failed_pc=0x0c03ce44u; return 0; }
+vf3_matrix_load(s,ram,4,r[15]);
+goto P_0c03ce46;
+P_0c03ce46: /* original e004, guest PC 0x0c03ce46 */
+if(!s->budget--) { s->failed_pc=0x0c03ce46u; return 0; }
+r[0]=0x00000004u;
+goto P_0c03ce48;
+P_0c03ce48: /* original f50c, guest PC 0x0c03ce48 */
+if(!s->budget--) { s->failed_pc=0x0c03ce48u; return 0; }
+vf3_matrix_move(s,5,0);
+goto P_0c03ce4a;
+P_0c03ce4a: /* original 7f04, guest PC 0x0c03ce4a */
+if(!s->budget--) { s->failed_pc=0x0c03ce4au; return 0; }
+r[15]+=0x00000004u;
+goto P_0c03ce4c;
+P_0c03ce4c: /* original f453, guest PC 0x0c03ce4c */
+if(!s->budget--) { s->failed_pc=0x0c03ce4cu; return 0; }
+fr[4]=vf3_fpu_binary(fr[4],fr[5],r[18],'/');
+goto P_0c03ce4e;
+P_0c03ce4e: /* original f3e8, guest PC 0x0c03ce4e */
+if(!s->budget--) { s->failed_pc=0x0c03ce4eu; return 0; }
+vf3_matrix_load(s,ram,3,r[14]);
+goto P_0c03ce50;
+P_0c03ce50: /* original 4f26, guest PC 0x0c03ce50 */
+if(!s->budget--) { s->failed_pc=0x0c03ce50u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03ce52;
+P_0c03ce52: /* original f342, guest PC 0x0c03ce52 */
+if(!s->budget--) { s->failed_pc=0x0c03ce52u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c03ce54;
+P_0c03ce54: /* original fd3a, guest PC 0x0c03ce54 */
+if(!s->budget--) { s->failed_pc=0x0c03ce54u; return 0; }
+vf3_matrix_store(s,ram,3,r[13]);
+goto P_0c03ce56;
+P_0c03ce56: /* original f2e6, guest PC 0x0c03ce56 */
+if(!s->budget--) { s->failed_pc=0x0c03ce56u; return 0; }
+vf3_matrix_load(s,ram,2,r[14]+r[0]);
+goto P_0c03ce58;
+P_0c03ce58: /* original f242, guest PC 0x0c03ce58 */
+if(!s->budget--) { s->failed_pc=0x0c03ce58u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[4],r[18],'*');
+goto P_0c03ce5a;
+P_0c03ce5a: /* original fd27, guest PC 0x0c03ce5a */
+if(!s->budget--) { s->failed_pc=0x0c03ce5au; return 0; }
+vf3_matrix_store(s,ram,2,r[13]+r[0]);
+goto P_0c03ce5c;
+P_0c03ce5c: /* original e008, guest PC 0x0c03ce5c */
+if(!s->budget--) { s->failed_pc=0x0c03ce5cu; return 0; }
+r[0]=0x00000008u;
+goto P_0c03ce5e;
+P_0c03ce5e: /* original f3e6, guest PC 0x0c03ce5e */
+if(!s->budget--) { s->failed_pc=0x0c03ce5eu; return 0; }
+vf3_matrix_load(s,ram,3,r[14]+r[0]);
+goto P_0c03ce60;
+P_0c03ce60: /* original f342, guest PC 0x0c03ce60 */
+if(!s->budget--) { s->failed_pc=0x0c03ce60u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c03ce62;
+P_0c03ce62: /* original fd37, guest PC 0x0c03ce62 */
+if(!s->budget--) { s->failed_pc=0x0c03ce62u; return 0; }
+vf3_matrix_store(s,ram,3,r[13]+r[0]);
+goto P_0c03ce64;
+P_0c03ce64: /* original 6df6, guest PC 0x0c03ce64 */
+if(!s->budget--) { s->failed_pc=0x0c03ce64u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c03ce66;
+P_0c03ce66: /* original f05c, guest PC 0x0c03ce66 */
+if(!s->budget--) { s->failed_pc=0x0c03ce66u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c03ce68;
+P_0c03ce68: /* original 000b, guest PC 0x0c03ce68 */
+if(!s->budget--) { s->failed_pc=0x0c03ce68u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c03ce6a: /* original 6ef6, guest PC 0x0c03ce6a */
+if(!s->budget--) { s->failed_pc=0x0c03ce6au; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c03ce6cu,s,ram);
+P_0c03ce90: /* original f049, guest PC 0x0c03ce90 */
+if(!s->budget--) { s->failed_pc=0x0c03ce90u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c03ce92;
+P_0c03ce92: /* original f149, guest PC 0x0c03ce92 */
+if(!s->budget--) { s->failed_pc=0x0c03ce92u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c03ce94;
+P_0c03ce94: /* original f249, guest PC 0x0c03ce94 */
+if(!s->budget--) { s->failed_pc=0x0c03ce94u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c03ce96;
+P_0c03ce96: /* original f38d, guest PC 0x0c03ce96 */
+if(!s->budget--) { s->failed_pc=0x0c03ce96u; return 0; }
+fr[3]=0;
+goto P_0c03ce98;
+P_0c03ce98: /* original f0ed, guest PC 0x0c03ce98 */
+if(!s->budget--) { s->failed_pc=0x0c03ce98u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c03ce9a;
+P_0c03ce9a: /* original f03c, guest PC 0x0c03ce9a */
+if(!s->budget--) { s->failed_pc=0x0c03ce9au; return 0; }
+vf3_matrix_move(s,0,3);
+goto P_0c03ce9c;
+P_0c03ce9c: /* original f06d, guest PC 0x0c03ce9c */
+if(!s->budget--) { s->failed_pc=0x0c03ce9cu; return 0; }
+fr[0]=vf3_fpu_sqrt(fr[0],r[18]);
+goto P_0c03ce9e;
+P_0c03ce9e: /* original 0009, guest PC 0x0c03ce9e */
+if(!s->budget--) { s->failed_pc=0x0c03ce9eu; return 0; }
+goto P_0c03cea0;
+P_0c03cea0: /* original 000b, guest PC 0x0c03cea0 */
+if(!s->budget--) { s->failed_pc=0x0c03cea0u; return 0; }
+target=r[16];
+s->pc=target; return ram->oob==0;
+P_0c03cea2: /* original 0009, guest PC 0x0c03cea2 */
+if(!s->budget--) { s->failed_pc=0x0c03cea2u; return 0; }
+return vf3_matrix_family(0x0c03cea4u,s,ram);
+P_0c03d2b0: /* original 4f22, guest PC 0x0c03d2b0 */
+if(!s->budget--) { s->failed_pc=0x0c03d2b0u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03d2b2;
+P_0c03d2b2: /* original d333, guest PC 0x0c03d2b2 */
+if(!s->budget--) { s->failed_pc=0x0c03d2b2u; return 0; }
+r[3]=read(ram,0x0c03d380u,4);
+goto P_0c03d2b4;
+P_0c03d2b4: /* original d437, guest PC 0x0c03d2b4 */
+if(!s->budget--) { s->failed_pc=0x0c03d2b4u; return 0; }
+r[4]=read(ram,0x0c03d394u,4);
+goto P_0c03d2b6;
+P_0c03d2b6: /* original 430b, guest PC 0x0c03d2b6 */
+if(!s->budget--) { s->failed_pc=0x0c03d2b6u; return 0; }
+target=r[3];
+r[16]=0x0c03d2bau;
+r[4]=read(ram,r[4]+8,4);
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03d2bau) { target=s->pc; goto dispatch; }
+goto P_0c03d2ba;
+P_0c03d2b8: /* original 5442, guest PC 0x0c03d2b8 */
+if(!s->budget--) { s->failed_pc=0x0c03d2b8u; return 0; }
+r[4]=read(ram,r[4]+8,4);
+goto P_0c03d2ba;
+P_0c03d2ba: /* original d232, guest PC 0x0c03d2ba */
+if(!s->budget--) { s->failed_pc=0x0c03d2bau; return 0; }
+r[2]=read(ram,0x0c03d384u,4);
+goto P_0c03d2bc;
+P_0c03d2bc: /* original 420b, guest PC 0x0c03d2bc */
+if(!s->budget--) { s->failed_pc=0x0c03d2bcu; return 0; }
+target=r[2];
+r[16]=0x0c03d2c0u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03d2c0u) { target=s->pc; goto dispatch; }
+goto P_0c03d2c0;
+P_0c03d2be: /* original 0009, guest PC 0x0c03d2be */
+if(!s->budget--) { s->failed_pc=0x0c03d2beu; return 0; }
+goto P_0c03d2c0;
+P_0c03d2c0: /* original d332, guest PC 0x0c03d2c0 */
+if(!s->budget--) { s->failed_pc=0x0c03d2c0u; return 0; }
+r[3]=read(ram,0x0c03d38cu,4);
+goto P_0c03d2c2;
+P_0c03d2c2: /* original d435, guest PC 0x0c03d2c2 */
+if(!s->budget--) { s->failed_pc=0x0c03d2c2u; return 0; }
+r[4]=read(ram,0x0c03d398u,4);
+goto P_0c03d2c4;
+P_0c03d2c4: /* original 430b, guest PC 0x0c03d2c4 */
+if(!s->budget--) { s->failed_pc=0x0c03d2c4u; return 0; }
+target=r[3];
+r[16]=0x0c03d2c8u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03d2c8u) { target=s->pc; goto dispatch; }
+goto P_0c03d2c8;
+P_0c03d2c6: /* original 0009, guest PC 0x0c03d2c6 */
+if(!s->budget--) { s->failed_pc=0x0c03d2c6u; return 0; }
+goto P_0c03d2c8;
+P_0c03d2c8: /* original d231, guest PC 0x0c03d2c8 */
+if(!s->budget--) { s->failed_pc=0x0c03d2c8u; return 0; }
+r[2]=read(ram,0x0c03d390u,4);
+goto P_0c03d2ca;
+P_0c03d2ca: /* original e401, guest PC 0x0c03d2ca */
+if(!s->budget--) { s->failed_pc=0x0c03d2cau; return 0; }
+r[4]=0x00000001u;
+goto P_0c03d2cc;
+P_0c03d2cc: /* original 422b, guest PC 0x0c03d2cc */
+if(!s->budget--) { s->failed_pc=0x0c03d2ccu; return 0; }
+target=r[2];
+r[16]=read(ram,r[15],4); r[15]+=4;
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c03d2ce: /* original 4f26, guest PC 0x0c03d2ce */
+if(!s->budget--) { s->failed_pc=0x0c03d2ceu; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+return vf3_matrix_family(0x0c03d2d0u,s,ram);
 P_0c03da50: /* original d579, guest PC 0x0c03da50 */
 if(!s->budget--) { s->failed_pc=0x0c03da50u; return 0; }
 r[5]=read(ram,0x0c03dc38u,4);
@@ -9214,6 +12878,241 @@ if(!s->budget--) { s->failed_pc=0x0c03dba2u; return 0; }
 vf3_matrix_load(s,ram,15,r[15]);
 r[15]+=(r[18]&0x100000u)?8:4;
 return vf3_matrix_family(0x0c03dba4u,s,ram);
+P_0c03e000: /* original 4f22, guest PC 0x0c03e000 */
+if(!s->budget--) { s->failed_pc=0x0c03e000u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03e002;
+P_0c03e002: /* original db08, guest PC 0x0c03e002 */
+if(!s->budget--) { s->failed_pc=0x0c03e002u; return 0; }
+r[11]=read(ram,0x0c03e024u,4);
+goto P_0c03e004;
+P_0c03e004: /* original 6da3, guest PC 0x0c03e004 */
+if(!s->budget--) { s->failed_pc=0x0c03e004u; return 0; }
+r[13]=r[10];
+goto P_0c03e006;
+P_0c03e006: /* original 5e43, guest PC 0x0c03e006 */
+if(!s->budget--) { s->failed_pc=0x0c03e006u; return 0; }
+r[14]=read(ram,r[4]+12,4);
+goto P_0c03e008;
+P_0c03e008: /* original 64e5, guest PC 0x0c03e008 */
+if(!s->budget--) { s->failed_pc=0x0c03e008u; return 0; }
+tmp=(uint32_t)(int32_t)(int16_t)read(ram,r[14],2);
+r[14]+=2;
+r[4]=tmp;
+goto P_0c03e00a;
+P_0c03e00a: /* original 4411, guest PC 0x0c03e00a */
+if(!s->budget--) { s->failed_pc=0x0c03e00au; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[4]>=0)!=0);
+goto P_0c03e00c;
+P_0c03e00c: /* original 8b68, guest PC 0x0c03e00c */
+if(!s->budget--) { s->failed_pc=0x0c03e00cu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c03e0e0; }
+goto P_0c03e00e;
+P_0c03e00e: /* original 604c, guest PC 0x0c03e00e */
+if(!s->budget--) { s->failed_pc=0x0c03e00eu; return 0; }
+r[0]=r[4]&255u;
+goto P_0c03e010;
+P_0c03e010: /* original e11e, guest PC 0x0c03e010 */
+if(!s->budget--) { s->failed_pc=0x0c03e010u; return 0; }
+r[1]=0x0000001eu;
+goto P_0c03e012;
+P_0c03e012: /* original 3012, guest PC 0x0c03e012 */
+if(!s->budget--) { s->failed_pc=0x0c03e012u; return 0; }
+r[17]=(r[17]&~1u)|((r[0]>=r[1])!=0);
+goto P_0c03e014;
+P_0c03e014: /* original 895c, guest PC 0x0c03e014 */
+if(!s->budget--) { s->failed_pc=0x0c03e014u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c03e0d0; }
+goto P_0c03e016;
+P_0c03e016: /* original 4000, guest PC 0x0c03e016 */
+if(!s->budget--) { s->failed_pc=0x0c03e016u; return 0; }
+r[17]=(r[17]&~1u)|((r[0]>>31)!=0);
+r[0]<<=1;
+goto P_0c03e018;
+P_0c03e018: /* original 6103, guest PC 0x0c03e018 */
+if(!s->budget--) { s->failed_pc=0x0c03e018u; return 0; }
+r[1]=r[0];
+goto P_0c03e01a;
+P_0c03e01a: /* original c703, guest PC 0x0c03e01a */
+if(!s->budget--) { s->failed_pc=0x0c03e01au; return 0; }
+r[0]=0x0c03e028u;
+goto P_0c03e01c;
+P_0c03e01c: /* original 001d, guest PC 0x0c03e01c */
+if(!s->budget--) { s->failed_pc=0x0c03e01cu; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,r[1]+r[0],2);
+goto P_0c03e01e;
+P_0c03e01e: /* original 0023, guest PC 0x0c03e01e */
+if(!s->budget--) { s->failed_pc=0x0c03e01eu; return 0; }
+target=r[0]+0x0c03e022u;
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c03e020: /* original 0009, guest PC 0x0c03e020 */
+if(!s->budget--) { s->failed_pc=0x0c03e020u; return 0; }
+return vf3_matrix_family(0x0c03e022u,s,ram);
+P_0c03e070: /* original afca, guest PC 0x0c03e070 */
+if(!s->budget--) { s->failed_pc=0x0c03e070u; return 0; }
+goto P_0c03e008;
+P_0c03e072: /* original 0009, guest PC 0x0c03e072 */
+if(!s->budget--) { s->failed_pc=0x0c03e072u; return 0; }
+return vf3_matrix_family(0x0c03e074u,s,ram);
+P_0c03e080: /* original 64e5, guest PC 0x0c03e080 */
+if(!s->budget--) { s->failed_pc=0x0c03e080u; return 0; }
+tmp=(uint32_t)(int32_t)(int16_t)read(ram,r[14],2);
+r[14]+=2;
+r[4]=tmp;
+goto P_0c03e082;
+P_0c03e082: /* original 4511, guest PC 0x0c03e082 */
+if(!s->budget--) { s->failed_pc=0x0c03e082u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[5]>=0)!=0);
+goto P_0c03e084;
+P_0c03e084: /* original 6de3, guest PC 0x0c03e084 */
+if(!s->budget--) { s->failed_pc=0x0c03e084u; return 0; }
+r[13]=r[14];
+goto P_0c03e086;
+P_0c03e086: /* original 644d, guest PC 0x0c03e086 */
+if(!s->budget--) { s->failed_pc=0x0c03e086u; return 0; }
+r[4]=r[4]&65535u;
+goto P_0c03e088;
+P_0c03e088: /* original 8fbe, guest PC 0x0c03e088 */
+if(!s->budget--) { s->failed_pc=0x0c03e088u; return 0; }
+cond=r[17]&1u;
+r[14]+=r[4];
+if(!cond) { goto P_0c03e008; }
+goto P_0c03e08c;
+P_0c03e08a: /* original 3e4c, guest PC 0x0c03e08a */
+if(!s->budget--) { s->failed_pc=0x0c03e08au; return 0; }
+r[14]+=r[4];
+goto P_0c03e08c;
+P_0c03e08c: /* original 4b0b, guest PC 0x0c03e08c */
+if(!s->budget--) { s->failed_pc=0x0c03e08cu; return 0; }
+target=r[11];
+r[16]=0x0c03e090u;
+r[4]=r[13];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03e090u) { target=s->pc; goto dispatch; }
+goto P_0c03e090;
+P_0c03e08e: /* original 64d3, guest PC 0x0c03e08e */
+if(!s->budget--) { s->failed_pc=0x0c03e08eu; return 0; }
+r[4]=r[13];
+goto P_0c03e090;
+P_0c03e090: /* original 65c3, guest PC 0x0c03e090 */
+if(!s->budget--) { s->failed_pc=0x0c03e090u; return 0; }
+r[5]=r[12];
+goto P_0c03e092;
+P_0c03e092: /* original afb9, guest PC 0x0c03e092 */
+if(!s->budget--) { s->failed_pc=0x0c03e092u; return 0; }
+r[13]=r[10];
+goto P_0c03e008;
+P_0c03e094: /* original 6da3, guest PC 0x0c03e094 */
+if(!s->budget--) { s->failed_pc=0x0c03e094u; return 0; }
+r[13]=r[10];
+return vf3_matrix_family(0x0c03e096u,s,ram);
+P_0c03e0a0: /* original 64e5, guest PC 0x0c03e0a0 */
+if(!s->budget--) { s->failed_pc=0x0c03e0a0u; return 0; }
+tmp=(uint32_t)(int32_t)(int16_t)read(ram,r[14],2);
+r[14]+=2;
+r[4]=tmp;
+goto P_0c03e0a2;
+P_0c03e0a2: /* original 644d, guest PC 0x0c03e0a2 */
+if(!s->budget--) { s->failed_pc=0x0c03e0a2u; return 0; }
+r[4]=r[4]&65535u;
+goto P_0c03e0a4;
+P_0c03e0a4: /* original afb0, guest PC 0x0c03e0a4 */
+if(!s->budget--) { s->failed_pc=0x0c03e0a4u; return 0; }
+r[14]+=r[4];
+goto P_0c03e008;
+P_0c03e0a6: /* original 3e4c, guest PC 0x0c03e0a6 */
+if(!s->budget--) { s->failed_pc=0x0c03e0a6u; return 0; }
+r[14]+=r[4];
+return vf3_matrix_family(0x0c03e0a8u,s,ram);
+P_0c03e0b0: /* original afaa, guest PC 0x0c03e0b0 */
+if(!s->budget--) { s->failed_pc=0x0c03e0b0u; return 0; }
+r[14]+=0x00000006u;
+goto P_0c03e008;
+P_0c03e0b2: /* original 7e06, guest PC 0x0c03e0b2 */
+if(!s->budget--) { s->failed_pc=0x0c03e0b2u; return 0; }
+r[14]+=0x00000006u;
+return vf3_matrix_family(0x0c03e0b4u,s,ram);
+P_0c03e0c0: /* original afa2, guest PC 0x0c03e0c0 */
+if(!s->budget--) { s->failed_pc=0x0c03e0c0u; return 0; }
+r[14]+=0x00000002u;
+goto P_0c03e008;
+P_0c03e0c2: /* original 7e02, guest PC 0x0c03e0c2 */
+if(!s->budget--) { s->failed_pc=0x0c03e0c2u; return 0; }
+r[14]+=0x00000002u;
+return vf3_matrix_family(0x0c03e0c4u,s,ram);
+P_0c03e0d0: /* original a007, guest PC 0x0c03e0d0 */
+if(!s->budget--) { s->failed_pc=0x0c03e0d0u; return 0; }
+r[0]=0xffffffffu;
+goto P_0c03e0e2;
+P_0c03e0d2: /* original e0ff, guest PC 0x0c03e0d2 */
+if(!s->budget--) { s->failed_pc=0x0c03e0d2u; return 0; }
+r[0]=0xffffffffu;
+return vf3_matrix_family(0x0c03e0d4u,s,ram);
+P_0c03e0e0: /* original e000, guest PC 0x0c03e0e0 */
+if(!s->budget--) { s->failed_pc=0x0c03e0e0u; return 0; }
+r[0]=0x00000000u;
+goto P_0c03e0e2;
+P_0c03e0e2: /* original 4f26, guest PC 0x0c03e0e2 */
+if(!s->budget--) { s->failed_pc=0x0c03e0e2u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c03e0e4;
+P_0c03e0e4: /* original 6af6, guest PC 0x0c03e0e4 */
+if(!s->budget--) { s->failed_pc=0x0c03e0e4u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[10]=tmp;
+goto P_0c03e0e6;
+P_0c03e0e6: /* original 6bf6, guest PC 0x0c03e0e6 */
+if(!s->budget--) { s->failed_pc=0x0c03e0e6u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[11]=tmp;
+goto P_0c03e0e8;
+P_0c03e0e8: /* original 6cf6, guest PC 0x0c03e0e8 */
+if(!s->budget--) { s->failed_pc=0x0c03e0e8u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[12]=tmp;
+goto P_0c03e0ea;
+P_0c03e0ea: /* original 6df6, guest PC 0x0c03e0ea */
+if(!s->budget--) { s->failed_pc=0x0c03e0eau; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c03e0ec;
+P_0c03e0ec: /* original 000b, guest PC 0x0c03e0ec */
+if(!s->budget--) { s->failed_pc=0x0c03e0ecu; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c03e0ee: /* original 6ef6, guest PC 0x0c03e0ee */
+if(!s->budget--) { s->failed_pc=0x0c03e0eeu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c03e0f0u,s,ram);
 P_0c03ea22: /* original 4f22, guest PC 0x0c03ea22 */
 if(!s->budget--) { s->failed_pc=0x0c03ea22u; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -9587,6 +13486,295 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c03ead0u,s,ram);
+P_0c03fff0: /* original 4f22, guest PC 0x0c03fff0 */
+if(!s->budget--) { s->failed_pc=0x0c03fff0u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c03fff2;
+P_0c03fff2: /* original 7ffc, guest PC 0x0c03fff2 */
+if(!s->budget--) { s->failed_pc=0x0c03fff2u; return 0; }
+r[15]+=0xfffffffcu;
+goto P_0c03fff4;
+P_0c03fff4: /* original 2f42, guest PC 0x0c03fff4 */
+if(!s->budget--) { s->failed_pc=0x0c03fff4u; return 0; }
+write(ram,r[15],r[4],4);
+goto P_0c03fff6;
+P_0c03fff6: /* original d323, guest PC 0x0c03fff6 */
+if(!s->budget--) { s->failed_pc=0x0c03fff6u; return 0; }
+r[3]=read(ram,0x0c040084u,4);
+goto P_0c03fff8;
+P_0c03fff8: /* original f58d, guest PC 0x0c03fff8 */
+if(!s->budget--) { s->failed_pc=0x0c03fff8u; return 0; }
+fr[5]=0;
+goto P_0c03fffa;
+P_0c03fffa: /* original 430b, guest PC 0x0c03fffa */
+if(!s->budget--) { s->failed_pc=0x0c03fffau; return 0; }
+target=r[3];
+r[16]=0x0c03fffeu;
+fr[4]=0;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c03fffeu) { target=s->pc; goto dispatch; }
+goto P_0c03fffe;
+P_0c03fffc: /* original f48d, guest PC 0x0c03fffc */
+if(!s->budget--) { s->failed_pc=0x0c03fffcu; return 0; }
+fr[4]=0;
+goto P_0c03fffe;
+P_0c03fffe: /* original 64f2, guest PC 0x0c03fffe */
+if(!s->budget--) { s->failed_pc=0x0c03fffeu; return 0; }
+tmp=read(ram,r[15],4);
+r[4]=tmp;
+goto P_0c040000;
+P_0c040000: /* original 7f04, guest PC 0x0c040000 */
+if(!s->budget--) { s->failed_pc=0x0c040000u; return 0; }
+r[15]+=0x00000004u;
+goto P_0c040002;
+P_0c040002: /* original a005, guest PC 0x0c040002 */
+if(!s->budget--) { s->failed_pc=0x0c040002u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c040010;
+P_0c040004: /* original 4f26, guest PC 0x0c040004 */
+if(!s->budget--) { s->failed_pc=0x0c040004u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+return vf3_matrix_family(0x0c040006u,s,ram);
+P_0c040010: /* original 2fe6, guest PC 0x0c040010 */
+if(!s->budget--) { s->failed_pc=0x0c040010u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c040012;
+P_0c040012: /* original 6e43, guest PC 0x0c040012 */
+if(!s->budget--) { s->failed_pc=0x0c040012u; return 0; }
+r[14]=r[4];
+goto P_0c040014;
+P_0c040014: /* original 63e2, guest PC 0x0c040014 */
+if(!s->budget--) { s->failed_pc=0x0c040014u; return 0; }
+tmp=read(ram,r[14],4);
+r[3]=tmp;
+goto P_0c040016;
+P_0c040016: /* original 4f22, guest PC 0x0c040016 */
+if(!s->budget--) { s->failed_pc=0x0c040016u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c040018;
+P_0c040018: /* original 4311, guest PC 0x0c040018 */
+if(!s->budget--) { s->failed_pc=0x0c040018u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[3]>=0)!=0);
+goto P_0c04001a;
+P_0c04001a: /* original 8b29, guest PC 0x0c04001a */
+if(!s->budget--) { s->failed_pc=0x0c04001au; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c040070; }
+goto P_0c04001c;
+P_0c04001c: /* original 51e6, guest PC 0x0c04001c */
+if(!s->budget--) { s->failed_pc=0x0c04001cu; return 0; }
+r[1]=read(ram,r[14]+24,4);
+goto P_0c04001e;
+P_0c04001e: /* original 2118, guest PC 0x0c04001e */
+if(!s->budget--) { s->failed_pc=0x0c04001eu; return 0; }
+r[17]=(r[17]&~1u)|(((r[1]&r[1])==0)!=0);
+goto P_0c040020;
+P_0c040020: /* original 8926, guest PC 0x0c040020 */
+if(!s->budget--) { s->failed_pc=0x0c040020u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c040070; }
+goto P_0c040022;
+P_0c040022: /* original d319, guest PC 0x0c040022 */
+if(!s->budget--) { s->failed_pc=0x0c040022u; return 0; }
+r[3]=read(ram,0x0c040088u,4);
+goto P_0c040024;
+P_0c040024: /* original e40c, guest PC 0x0c040024 */
+if(!s->budget--) { s->failed_pc=0x0c040024u; return 0; }
+r[4]=0x0000000cu;
+goto P_0c040026;
+P_0c040026: /* original 2342, guest PC 0x0c040026 */
+if(!s->budget--) { s->failed_pc=0x0c040026u; return 0; }
+write(ram,r[3],r[4],4);
+goto P_0c040028;
+P_0c040028: /* original d218, guest PC 0x0c040028 */
+if(!s->budget--) { s->failed_pc=0x0c040028u; return 0; }
+r[2]=read(ram,0x0c04008cu,4);
+goto P_0c04002a;
+P_0c04002a: /* original 2242, guest PC 0x0c04002a */
+if(!s->budget--) { s->failed_pc=0x0c04002au; return 0; }
+write(ram,r[2],r[4],4);
+goto P_0c04002c;
+P_0c04002c: /* original d118, guest PC 0x0c04002c */
+if(!s->budget--) { s->failed_pc=0x0c04002cu; return 0; }
+r[1]=read(ram,0x0c040090u,4);
+goto P_0c04002e;
+P_0c04002e: /* original 410b, guest PC 0x0c04002e */
+if(!s->budget--) { s->failed_pc=0x0c04002eu; return 0; }
+target=r[1];
+r[16]=0x0c040032u;
+r[4]=0x00000000u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c040032u) { target=s->pc; goto dispatch; }
+goto P_0c040032;
+P_0c040030: /* original e400, guest PC 0x0c040030 */
+if(!s->budget--) { s->failed_pc=0x0c040030u; return 0; }
+r[4]=0x00000000u;
+goto P_0c040032;
+P_0c040032: /* original d319, guest PC 0x0c040032 */
+if(!s->budget--) { s->failed_pc=0x0c040032u; return 0; }
+r[3]=read(ram,0x0c040098u,4);
+goto P_0c040034;
+P_0c040034: /* original d417, guest PC 0x0c040034 */
+if(!s->budget--) { s->failed_pc=0x0c040034u; return 0; }
+r[4]=read(ram,0x0c040094u,4);
+goto P_0c040036;
+P_0c040036: /* original 430b, guest PC 0x0c040036 */
+if(!s->budget--) { s->failed_pc=0x0c040036u; return 0; }
+target=r[3];
+r[16]=0x0c04003au;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c04003au) { target=s->pc; goto dispatch; }
+goto P_0c04003a;
+P_0c040038: /* original 0009, guest PC 0x0c040038 */
+if(!s->budget--) { s->failed_pc=0x0c040038u; return 0; }
+goto P_0c04003a;
+P_0c04003a: /* original d219, guest PC 0x0c04003a */
+if(!s->budget--) { s->failed_pc=0x0c04003au; return 0; }
+r[2]=read(ram,0x0c0400a0u,4);
+goto P_0c04003c;
+P_0c04003c: /* original d417, guest PC 0x0c04003c */
+if(!s->budget--) { s->failed_pc=0x0c04003cu; return 0; }
+r[4]=read(ram,0x0c04009cu,4);
+goto P_0c04003e;
+P_0c04003e: /* original 420b, guest PC 0x0c04003e */
+if(!s->budget--) { s->failed_pc=0x0c04003eu; return 0; }
+target=r[2];
+r[16]=0x0c040042u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c040042u) { target=s->pc; goto dispatch; }
+goto P_0c040042;
+P_0c040040: /* original 0009, guest PC 0x0c040040 */
+if(!s->budget--) { s->failed_pc=0x0c040040u; return 0; }
+goto P_0c040042;
+P_0c040042: /* original d119, guest PC 0x0c040042 */
+if(!s->budget--) { s->failed_pc=0x0c040042u; return 0; }
+r[1]=read(ram,0x0c0400a8u,4);
+goto P_0c040044;
+P_0c040044: /* original d019, guest PC 0x0c040044 */
+if(!s->budget--) { s->failed_pc=0x0c040044u; return 0; }
+r[0]=read(ram,0x0c0400acu,4);
+goto P_0c040046;
+P_0c040046: /* original 6212, guest PC 0x0c040046 */
+if(!s->budget--) { s->failed_pc=0x0c040046u; return 0; }
+tmp=read(ram,r[1],4);
+r[2]=tmp;
+goto P_0c040048;
+P_0c040048: /* original d316, guest PC 0x0c040048 */
+if(!s->budget--) { s->failed_pc=0x0c040048u; return 0; }
+r[3]=read(ram,0x0c0400a4u,4);
+goto P_0c04004a;
+P_0c04004a: /* original 4208, guest PC 0x0c04004a */
+if(!s->budget--) { s->failed_pc=0x0c04004au; return 0; }
+r[2]<<=2;
+goto P_0c04004c;
+P_0c04004c: /* original 022e, guest PC 0x0c04004c */
+if(!s->budget--) { s->failed_pc=0x0c04004cu; return 0; }
+r[2]=read(ram,r[2]+r[0],4);
+goto P_0c04004e;
+P_0c04004e: /* original 2322, guest PC 0x0c04004e */
+if(!s->budget--) { s->failed_pc=0x0c04004eu; return 0; }
+write(ram,r[3],r[2],4);
+goto P_0c040050;
+P_0c040050: /* original e200, guest PC 0x0c040050 */
+if(!s->budget--) { s->failed_pc=0x0c040050u; return 0; }
+r[2]=0x00000000u;
+goto P_0c040052;
+P_0c040052: /* original 7304, guest PC 0x0c040052 */
+if(!s->budget--) { s->failed_pc=0x0c040052u; return 0; }
+r[3]+=0x00000004u;
+goto P_0c040054;
+P_0c040054: /* original 2322, guest PC 0x0c040054 */
+if(!s->budget--) { s->failed_pc=0x0c040054u; return 0; }
+write(ram,r[3],r[2],4);
+goto P_0c040056;
+P_0c040056: /* original d217, guest PC 0x0c040056 */
+if(!s->budget--) { s->failed_pc=0x0c040056u; return 0; }
+r[2]=read(ram,0x0c0400b4u,4);
+goto P_0c040058;
+P_0c040058: /* original d115, guest PC 0x0c040058 */
+if(!s->budget--) { s->failed_pc=0x0c040058u; return 0; }
+r[1]=read(ram,0x0c0400b0u,4);
+goto P_0c04005a;
+P_0c04005a: /* original 2122, guest PC 0x0c04005a */
+if(!s->budget--) { s->failed_pc=0x0c04005au; return 0; }
+write(ram,r[1],r[2],4);
+goto P_0c04005c;
+P_0c04005c: /* original d216, guest PC 0x0c04005c */
+if(!s->budget--) { s->failed_pc=0x0c04005cu; return 0; }
+r[2]=read(ram,0x0c0400b8u,4);
+goto P_0c04005e;
+P_0c04005e: /* original d511, guest PC 0x0c04005e */
+if(!s->budget--) { s->failed_pc=0x0c04005eu; return 0; }
+r[5]=read(ram,0x0c0400a4u,4);
+goto P_0c040060;
+P_0c040060: /* original 420b, guest PC 0x0c040060 */
+if(!s->budget--) { s->failed_pc=0x0c040060u; return 0; }
+target=r[2];
+r[16]=0x0c040064u;
+r[4]=r[14];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c040064u) { target=s->pc; goto dispatch; }
+goto P_0c040064;
+P_0c040062: /* original 64e3, guest PC 0x0c040062 */
+if(!s->budget--) { s->failed_pc=0x0c040062u; return 0; }
+r[4]=r[14];
+goto P_0c040064;
+P_0c040064: /* original 4f26, guest PC 0x0c040064 */
+if(!s->budget--) { s->failed_pc=0x0c040064u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c040066;
+P_0c040066: /* original d315, guest PC 0x0c040066 */
+if(!s->budget--) { s->failed_pc=0x0c040066u; return 0; }
+r[3]=read(ram,0x0c0400bcu,4);
+goto P_0c040068;
+P_0c040068: /* original e401, guest PC 0x0c040068 */
+if(!s->budget--) { s->failed_pc=0x0c040068u; return 0; }
+r[4]=0x00000001u;
+goto P_0c04006a;
+P_0c04006a: /* original 432b, guest PC 0x0c04006a */
+if(!s->budget--) { s->failed_pc=0x0c04006au; return 0; }
+target=r[3];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c04006c: /* original 6ef6, guest PC 0x0c04006c */
+if(!s->budget--) { s->failed_pc=0x0c04006cu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c04006eu,s,ram);
+P_0c040070: /* original 4f26, guest PC 0x0c040070 */
+if(!s->budget--) { s->failed_pc=0x0c040070u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c040072;
+P_0c040072: /* original 000b, guest PC 0x0c040072 */
+if(!s->budget--) { s->failed_pc=0x0c040072u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c040074: /* original 6ef6, guest PC 0x0c040074 */
+if(!s->budget--) { s->failed_pc=0x0c040074u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c040076u,s,ram);
 P_0c043064: /* original 4f22, guest PC 0x0c043064 */
 if(!s->budget--) { s->failed_pc=0x0c043064u; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -9657,6 +13845,210 @@ s->pc=target; return ram->oob==0;
 P_0c043084: /* original 0009, guest PC 0x0c043084 */
 if(!s->budget--) { s->failed_pc=0x0c043084u; return 0; }
 return vf3_matrix_family(0x0c043086u,s,ram);
+P_0c04341e: /* original 4f22, guest PC 0x0c04341e */
+if(!s->budget--) { s->failed_pc=0x0c04341eu; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c043420;
+P_0c043420: /* original 7ff0, guest PC 0x0c043420 */
+if(!s->budget--) { s->failed_pc=0x0c043420u; return 0; }
+r[15]+=0xfffffff0u;
+goto P_0c043422;
+P_0c043422: /* original 6ef3, guest PC 0x0c043422 */
+if(!s->budget--) { s->failed_pc=0x0c043422u; return 0; }
+r[14]=r[15];
+goto P_0c043424;
+P_0c043424: /* original 2e42, guest PC 0x0c043424 */
+if(!s->budget--) { s->failed_pc=0x0c043424u; return 0; }
+write(ram,r[14],r[4],4);
+goto P_0c043426;
+P_0c043426: /* original 1e51, guest PC 0x0c043426 */
+if(!s->budget--) { s->failed_pc=0x0c043426u; return 0; }
+write(ram,r[14]+4,r[5],4);
+goto P_0c043428;
+P_0c043428: /* original 65e3, guest PC 0x0c043428 */
+if(!s->budget--) { s->failed_pc=0x0c043428u; return 0; }
+r[5]=r[14];
+goto P_0c04342a;
+P_0c04342a: /* original 1e62, guest PC 0x0c04342a */
+if(!s->budget--) { s->failed_pc=0x0c04342au; return 0; }
+write(ram,r[14]+8,r[6],4);
+goto P_0c04342c;
+P_0c04342c: /* original 1e33, guest PC 0x0c04342c */
+if(!s->budget--) { s->failed_pc=0x0c04342cu; return 0; }
+write(ram,r[14]+12,r[3],4);
+goto P_0c04342e;
+P_0c04342e: /* original d22e, guest PC 0x0c04342e */
+if(!s->budget--) { s->failed_pc=0x0c04342eu; return 0; }
+r[2]=read(ram,0x0c0434e8u,4);
+goto P_0c043430;
+P_0c043430: /* original 420b, guest PC 0x0c043430 */
+if(!s->budget--) { s->failed_pc=0x0c043430u; return 0; }
+target=r[2];
+r[16]=0x0c043434u;
+r[4]=0x00000014u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c043434u) { target=s->pc; goto dispatch; }
+goto P_0c043434;
+P_0c043432: /* original e414, guest PC 0x0c043432 */
+if(!s->budget--) { s->failed_pc=0x0c043432u; return 0; }
+r[4]=0x00000014u;
+goto P_0c043434;
+P_0c043434: /* original 7f10, guest PC 0x0c043434 */
+if(!s->budget--) { s->failed_pc=0x0c043434u; return 0; }
+r[15]+=0x00000010u;
+goto P_0c043436;
+P_0c043436: /* original 4f26, guest PC 0x0c043436 */
+if(!s->budget--) { s->failed_pc=0x0c043436u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c043438;
+P_0c043438: /* original 000b, guest PC 0x0c043438 */
+if(!s->budget--) { s->failed_pc=0x0c043438u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c04343a: /* original 6ef6, guest PC 0x0c04343a */
+if(!s->budget--) { s->failed_pc=0x0c04343au; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c04343cu,s,ram);
+P_0c043440: /* original 4f22, guest PC 0x0c043440 */
+if(!s->budget--) { s->failed_pc=0x0c043440u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c043442;
+P_0c043442: /* original 7ff0, guest PC 0x0c043442 */
+if(!s->budget--) { s->failed_pc=0x0c043442u; return 0; }
+r[15]+=0xfffffff0u;
+goto P_0c043444;
+P_0c043444: /* original 6ef3, guest PC 0x0c043444 */
+if(!s->budget--) { s->failed_pc=0x0c043444u; return 0; }
+r[14]=r[15];
+goto P_0c043446;
+P_0c043446: /* original 2e42, guest PC 0x0c043446 */
+if(!s->budget--) { s->failed_pc=0x0c043446u; return 0; }
+write(ram,r[14],r[4],4);
+goto P_0c043448;
+P_0c043448: /* original 1e51, guest PC 0x0c043448 */
+if(!s->budget--) { s->failed_pc=0x0c043448u; return 0; }
+write(ram,r[14]+4,r[5],4);
+goto P_0c04344a;
+P_0c04344a: /* original 65e3, guest PC 0x0c04344a */
+if(!s->budget--) { s->failed_pc=0x0c04344au; return 0; }
+r[5]=r[14];
+goto P_0c04344c;
+P_0c04344c: /* original 1e62, guest PC 0x0c04344c */
+if(!s->budget--) { s->failed_pc=0x0c04344cu; return 0; }
+write(ram,r[14]+8,r[6],4);
+goto P_0c04344e;
+P_0c04344e: /* original 1e33, guest PC 0x0c04344e */
+if(!s->budget--) { s->failed_pc=0x0c04344eu; return 0; }
+write(ram,r[14]+12,r[3],4);
+goto P_0c043450;
+P_0c043450: /* original d225, guest PC 0x0c043450 */
+if(!s->budget--) { s->failed_pc=0x0c043450u; return 0; }
+r[2]=read(ram,0x0c0434e8u,4);
+goto P_0c043452;
+P_0c043452: /* original 420b, guest PC 0x0c043452 */
+if(!s->budget--) { s->failed_pc=0x0c043452u; return 0; }
+target=r[2];
+r[16]=0x0c043456u;
+r[4]=0x00000015u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c043456u) { target=s->pc; goto dispatch; }
+goto P_0c043456;
+P_0c043454: /* original e415, guest PC 0x0c043454 */
+if(!s->budget--) { s->failed_pc=0x0c043454u; return 0; }
+r[4]=0x00000015u;
+goto P_0c043456;
+P_0c043456: /* original 7f10, guest PC 0x0c043456 */
+if(!s->budget--) { s->failed_pc=0x0c043456u; return 0; }
+r[15]+=0x00000010u;
+goto P_0c043458;
+P_0c043458: /* original 4f26, guest PC 0x0c043458 */
+if(!s->budget--) { s->failed_pc=0x0c043458u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c04345a;
+P_0c04345a: /* original 000b, guest PC 0x0c04345a */
+if(!s->budget--) { s->failed_pc=0x0c04345au; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c04345c: /* original 6ef6, guest PC 0x0c04345c */
+if(!s->budget--) { s->failed_pc=0x0c04345cu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c04345eu,s,ram);
+P_0c0434aa: /* original 4f22, guest PC 0x0c0434aa */
+if(!s->budget--) { s->failed_pc=0x0c0434aau; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c0434ac;
+P_0c0434ac: /* original 7ff0, guest PC 0x0c0434ac */
+if(!s->budget--) { s->failed_pc=0x0c0434acu; return 0; }
+r[15]+=0xfffffff0u;
+goto P_0c0434ae;
+P_0c0434ae: /* original 6ef3, guest PC 0x0c0434ae */
+if(!s->budget--) { s->failed_pc=0x0c0434aeu; return 0; }
+r[14]=r[15];
+goto P_0c0434b0;
+P_0c0434b0: /* original 2e42, guest PC 0x0c0434b0 */
+if(!s->budget--) { s->failed_pc=0x0c0434b0u; return 0; }
+write(ram,r[14],r[4],4);
+goto P_0c0434b2;
+P_0c0434b2: /* original 1e51, guest PC 0x0c0434b2 */
+if(!s->budget--) { s->failed_pc=0x0c0434b2u; return 0; }
+write(ram,r[14]+4,r[5],4);
+goto P_0c0434b4;
+P_0c0434b4: /* original 65e3, guest PC 0x0c0434b4 */
+if(!s->budget--) { s->failed_pc=0x0c0434b4u; return 0; }
+r[5]=r[14];
+goto P_0c0434b6;
+P_0c0434b6: /* original 1e62, guest PC 0x0c0434b6 */
+if(!s->budget--) { s->failed_pc=0x0c0434b6u; return 0; }
+write(ram,r[14]+8,r[6],4);
+goto P_0c0434b8;
+P_0c0434b8: /* original 1e73, guest PC 0x0c0434b8 */
+if(!s->budget--) { s->failed_pc=0x0c0434b8u; return 0; }
+write(ram,r[14]+12,r[7],4);
+goto P_0c0434ba;
+P_0c0434ba: /* original d30b, guest PC 0x0c0434ba */
+if(!s->budget--) { s->failed_pc=0x0c0434bau; return 0; }
+r[3]=read(ram,0x0c0434e8u,4);
+goto P_0c0434bc;
+P_0c0434bc: /* original 430b, guest PC 0x0c0434bc */
+if(!s->budget--) { s->failed_pc=0x0c0434bcu; return 0; }
+target=r[3];
+r[16]=0x0c0434c0u;
+r[4]=0x0000001du;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c0434c0u) { target=s->pc; goto dispatch; }
+goto P_0c0434c0;
+P_0c0434be: /* original e41d, guest PC 0x0c0434be */
+if(!s->budget--) { s->failed_pc=0x0c0434beu; return 0; }
+r[4]=0x0000001du;
+goto P_0c0434c0;
+P_0c0434c0: /* original 7f10, guest PC 0x0c0434c0 */
+if(!s->budget--) { s->failed_pc=0x0c0434c0u; return 0; }
+r[15]+=0x00000010u;
+goto P_0c0434c2;
+P_0c0434c2: /* original 4f26, guest PC 0x0c0434c2 */
+if(!s->budget--) { s->failed_pc=0x0c0434c2u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c0434c4;
+P_0c0434c4: /* original 000b, guest PC 0x0c0434c4 */
+if(!s->budget--) { s->failed_pc=0x0c0434c4u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c0434c6: /* original 6ef6, guest PC 0x0c0434c6 */
+if(!s->budget--) { s->failed_pc=0x0c0434c6u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c0434c8u,s,ram);
 P_0c043518: /* original 2fe6, guest PC 0x0c043518 */
 if(!s->budget--) { s->failed_pc=0x0c043518u; return 0; }
 tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
@@ -12993,6 +17385,824 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c04ceceu,s,ram);
+P_0c059028: /* original f049, guest PC 0x0c059028 */
+if(!s->budget--) { s->failed_pc=0x0c059028u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c05902a;
+P_0c05902a: /* original f149, guest PC 0x0c05902a */
+if(!s->budget--) { s->failed_pc=0x0c05902au; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c05902c;
+P_0c05902c: /* original f249, guest PC 0x0c05902c */
+if(!s->budget--) { s->failed_pc=0x0c05902cu; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c05902e;
+P_0c05902e: /* original f39d, guest PC 0x0c05902e */
+if(!s->budget--) { s->failed_pc=0x0c05902eu; return 0; }
+fr[3]=0x3f800000u;
+goto P_0c059030;
+P_0c059030: /* original f449, guest PC 0x0c059030 */
+if(!s->budget--) { s->failed_pc=0x0c059030u; return 0; }
+vf3_matrix_load(s,ram,4,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c059032;
+P_0c059032: /* original f549, guest PC 0x0c059032 */
+if(!s->budget--) { s->failed_pc=0x0c059032u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c059034;
+P_0c059034: /* original f649, guest PC 0x0c059034 */
+if(!s->budget--) { s->failed_pc=0x0c059034u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c059036;
+P_0c059036: /* original d06a, guest PC 0x0c059036 */
+if(!s->budget--) { s->failed_pc=0x0c059036u; return 0; }
+r[0]=read(ram,0x0c0591e0u,4);
+goto P_0c059038;
+P_0c059038: /* original de6a, guest PC 0x0c059038 */
+if(!s->budget--) { s->failed_pc=0x0c059038u; return 0; }
+r[14]=read(ram,0x0c0591e4u,4);
+goto P_0c05903a;
+P_0c05903a: /* original 7004, guest PC 0x0c05903a */
+if(!s->budget--) { s->failed_pc=0x0c05903au; return 0; }
+r[0]+=0x00000004u;
+goto P_0c05903c;
+P_0c05903c: /* original fc09, guest PC 0x0c05903c */
+if(!s->budget--) { s->failed_pc=0x0c05903cu; return 0; }
+vf3_matrix_load(s,ram,12,r[0]);
+r[0]+=(r[18]&0x100000u)?8:4;
+goto P_0c05903e;
+P_0c05903e: /* original 6d93, guest PC 0x0c05903e */
+if(!s->budget--) { s->failed_pc=0x0c05903eu; return 0; }
+r[13]=r[9];
+goto P_0c059040;
+P_0c059040: /* original fd09, guest PC 0x0c059040 */
+if(!s->budget--) { s->failed_pc=0x0c059040u; return 0; }
+vf3_matrix_load(s,ram,13,r[0]);
+r[0]+=(r[18]&0x100000u)?8:4;
+goto P_0c059042;
+P_0c059042: /* original 2dd8, guest PC 0x0c059042 */
+if(!s->budget--) { s->failed_pc=0x0c059042u; return 0; }
+r[17]=(r[17]&~1u)|(((r[13]&r[13])==0)!=0);
+goto P_0c059044;
+P_0c059044: /* original fe08, guest PC 0x0c059044 */
+if(!s->budget--) { s->failed_pc=0x0c059044u; return 0; }
+vf3_matrix_load(s,ram,14,r[0]);
+goto P_0c059046;
+P_0c059046: /* original 8b00, guest PC 0x0c059046 */
+if(!s->budget--) { s->failed_pc=0x0c059046u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c05904a; }
+goto P_0c059048;
+P_0c059048: /* original a07a, guest PC 0x0c059048 */
+if(!s->budget--) { s->failed_pc=0x0c059048u; return 0; }
+r[17]=(r[17]&~1u)|((r[13]&1)!=0);
+r[13]>>=1;
+goto P_0c059140;
+P_0c05904a: /* original 4d01, guest PC 0x0c05904a */
+if(!s->budget--) { s->failed_pc=0x0c05904au; return 0; }
+r[17]=(r[17]&~1u)|((r[13]&1)!=0);
+r[13]>>=1;
+goto P_0c05904c;
+P_0c05904c: /* original 8908, guest PC 0x0c05904c */
+if(!s->budget--) { s->failed_pc=0x0c05904cu; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c059060; }
+goto P_0c05904e;
+P_0c05904e: /* original a066, guest PC 0x0c05904e */
+if(!s->budget--) { s->failed_pc=0x0c05904eu; return 0; }
+goto P_0c05911e;
+P_0c059050: /* original 0009, guest PC 0x0c059050 */
+if(!s->budget--) { s->failed_pc=0x0c059050u; return 0; }
+return vf3_matrix_family(0x0c059052u,s,ram);
+P_0c059060: /* original e002, guest PC 0x0c059060 */
+if(!s->budget--) { s->failed_pc=0x0c059060u; return 0; }
+r[0]=0x00000002u;
+goto P_0c059062;
+P_0c059062: /* original 00ed, guest PC 0x0c059062 */
+if(!s->budget--) { s->failed_pc=0x0c059062u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,r[14]+r[0],2);
+goto P_0c059064;
+P_0c059064: /* original e180, guest PC 0x0c059064 */
+if(!s->budget--) { s->failed_pc=0x0c059064u; return 0; }
+r[1]=0xffffff80u;
+goto P_0c059066;
+P_0c059066: /* original 8802, guest PC 0x0c059066 */
+if(!s->budget--) { s->failed_pc=0x0c059066u; return 0; }
+r[17]=(r[17]&~1u)|((r[0]==0x00000002u)!=0);
+goto P_0c059068;
+P_0c059068: /* original 611c, guest PC 0x0c059068 */
+if(!s->budget--) { s->failed_pc=0x0c059068u; return 0; }
+r[1]=r[1]&255u;
+goto P_0c05906a;
+P_0c05906a: /* original 8f09, guest PC 0x0c05906a */
+if(!s->budget--) { s->failed_pc=0x0c05906au; return 0; }
+cond=r[17]&1u;
+fr[11]=0;
+if(!cond) { goto P_0c059080; }
+goto P_0c05906e;
+P_0c05906c: /* original fb8d, guest PC 0x0c05906c */
+if(!s->budget--) { s->failed_pc=0x0c05906cu; return 0; }
+fr[11]=0;
+goto P_0c05906e;
+P_0c05906e: /* original 31ec, guest PC 0x0c05906e */
+if(!s->budget--) { s->failed_pc=0x0c05906eu; return 0; }
+r[1]+=r[14];
+goto P_0c059070;
+P_0c059070: /* original f819, guest PC 0x0c059070 */
+if(!s->budget--) { s->failed_pc=0x0c059070u; return 0; }
+vf3_matrix_load(s,ram,8,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c059072;
+P_0c059072: /* original f919, guest PC 0x0c059072 */
+if(!s->budget--) { s->failed_pc=0x0c059072u; return 0; }
+vf3_matrix_load(s,ram,9,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c059074;
+P_0c059074: /* original fa19, guest PC 0x0c059074 */
+if(!s->budget--) { s->failed_pc=0x0c059074u; return 0; }
+vf3_matrix_load(s,ram,10,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c059076;
+P_0c059076: /* original f6ed, guest PC 0x0c059076 */
+if(!s->budget--) { s->failed_pc=0x0c059076u; return 0; }
+if(!vf3_fpu_fipr(fr+8,fr+4,r[18],fr+7)) goto unsupported;
+goto P_0c059078;
+P_0c059078: /* original fb75, guest PC 0x0c059078 */
+if(!s->budget--) { s->failed_pc=0x0c059078u; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[11])>as_float(fr[7]))!=0);
+goto P_0c05907a;
+P_0c05907a: /* original 8b45, guest PC 0x0c05907a */
+if(!s->budget--) { s->failed_pc=0x0c05907au; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c059108; }
+goto P_0c05907c;
+P_0c05907c: /* original a04f, guest PC 0x0c05907c */
+if(!s->budget--) { s->failed_pc=0x0c05907cu; return 0; }
+goto P_0c05911e;
+P_0c05907e: /* original 0009, guest PC 0x0c05907e */
+if(!s->budget--) { s->failed_pc=0x0c05907eu; return 0; }
+goto P_0c059080;
+P_0c059080: /* original 71f4, guest PC 0x0c059080 */
+if(!s->budget--) { s->failed_pc=0x0c059080u; return 0; }
+r[1]+=0xfffffff4u;
+goto P_0c059082;
+P_0c059082: /* original f38d, guest PC 0x0c059082 */
+if(!s->budget--) { s->failed_pc=0x0c059082u; return 0; }
+fr[3]=0;
+goto P_0c059084;
+P_0c059084: /* original 31ec, guest PC 0x0c059084 */
+if(!s->budget--) { s->failed_pc=0x0c059084u; return 0; }
+r[1]+=r[14];
+goto P_0c059086;
+P_0c059086: /* original f78d, guest PC 0x0c059086 */
+if(!s->budget--) { s->failed_pc=0x0c059086u; return 0; }
+fr[7]=0;
+goto P_0c059088;
+P_0c059088: /* original f819, guest PC 0x0c059088 */
+if(!s->budget--) { s->failed_pc=0x0c059088u; return 0; }
+vf3_matrix_load(s,ram,8,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c05908a;
+P_0c05908a: /* original f919, guest PC 0x0c05908a */
+if(!s->budget--) { s->failed_pc=0x0c05908au; return 0; }
+vf3_matrix_load(s,ram,9,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c05908c;
+P_0c05908c: /* original fa19, guest PC 0x0c05908c */
+if(!s->budget--) { s->failed_pc=0x0c05908cu; return 0; }
+vf3_matrix_load(s,ram,10,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c05908e;
+P_0c05908e: /* original f801, guest PC 0x0c05908e */
+if(!s->budget--) { s->failed_pc=0x0c05908eu; return 0; }
+fr[8]=vf3_fpu_binary(fr[8],fr[0],r[18],'-');
+goto P_0c059090;
+P_0c059090: /* original 7118, guest PC 0x0c059090 */
+if(!s->budget--) { s->failed_pc=0x0c059090u; return 0; }
+r[1]+=0x00000018u;
+goto P_0c059092;
+P_0c059092: /* original f911, guest PC 0x0c059092 */
+if(!s->budget--) { s->failed_pc=0x0c059092u; return 0; }
+fr[9]=vf3_fpu_binary(fr[9],fr[1],r[18],'-');
+goto P_0c059094;
+P_0c059094: /* original ff18, guest PC 0x0c059094 */
+if(!s->budget--) { s->failed_pc=0x0c059094u; return 0; }
+vf3_matrix_load(s,ram,15,r[1]);
+goto P_0c059096;
+P_0c059096: /* original fa21, guest PC 0x0c059096 */
+if(!s->budget--) { s->failed_pc=0x0c059096u; return 0; }
+fr[10]=vf3_fpu_binary(fr[10],fr[2],r[18],'-');
+goto P_0c059098;
+P_0c059098: /* original f6ed, guest PC 0x0c059098 */
+if(!s->budget--) { s->failed_pc=0x0c059098u; return 0; }
+if(!vf3_fpu_fipr(fr+8,fr+4,r[18],fr+7)) goto unsupported;
+goto P_0c05909a;
+P_0c05909a: /* original f375, guest PC 0x0c05909a */
+if(!s->budget--) { s->failed_pc=0x0c05909au; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[3])>as_float(fr[7]))!=0);
+goto P_0c05909c;
+P_0c05909c: /* original 893f, guest PC 0x0c05909c */
+if(!s->budget--) { s->failed_pc=0x0c05909cu; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c05911e; }
+goto P_0c05909e;
+P_0c05909e: /* original faed, guest PC 0x0c05909e */
+if(!s->budget--) { s->failed_pc=0x0c05909eu; return 0; }
+if(!vf3_fpu_fipr(fr+8,fr+8,r[18],fr+11)) goto unsupported;
+goto P_0c0590a0;
+P_0c0590a0: /* original ffb5, guest PC 0x0c0590a0 */
+if(!s->budget--) { s->failed_pc=0x0c0590a0u; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[15])>as_float(fr[11]))!=0);
+goto P_0c0590a2;
+P_0c0590a2: /* original 8b3c, guest PC 0x0c0590a2 */
+if(!s->budget--) { s->failed_pc=0x0c0590a2u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c05911e; }
+goto P_0c0590a4;
+P_0c0590a4: /* original 8803, guest PC 0x0c0590a4 */
+if(!s->budget--) { s->failed_pc=0x0c0590a4u; return 0; }
+r[17]=(r[17]&~1u)|((r[0]==0x00000003u)!=0);
+goto P_0c0590a6;
+P_0c0590a6: /* original 891b, guest PC 0x0c0590a6 */
+if(!s->budget--) { s->failed_pc=0x0c0590a6u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c0590e0; }
+goto P_0c0590a8;
+P_0c0590a8: /* original ff0c, guest PC 0x0c0590a8 */
+if(!s->budget--) { s->failed_pc=0x0c0590a8u; return 0; }
+vf3_matrix_move(s,15,0);
+goto P_0c0590aa;
+P_0c0590aa: /* original 71e8, guest PC 0x0c0590aa */
+if(!s->budget--) { s->failed_pc=0x0c0590aau; return 0; }
+r[1]+=0xffffffe8u;
+goto P_0c0590ac;
+P_0c0590ac: /* original f319, guest PC 0x0c0590ac */
+if(!s->budget--) { s->failed_pc=0x0c0590acu; return 0; }
+vf3_matrix_load(s,ram,3,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c0590ae;
+P_0c0590ae: /* original f019, guest PC 0x0c0590ae */
+if(!s->budget--) { s->failed_pc=0x0c0590aeu; return 0; }
+vf3_matrix_load(s,ram,0,r[1]);
+r[1]+=(r[18]&0x100000u)?8:4;
+goto P_0c0590b0;
+P_0c0590b0: /* original fb1d, guest PC 0x0c0590b0 */
+if(!s->budget--) { s->failed_pc=0x0c0590b0u; return 0; }
+r[53]=fr[11];
+goto P_0c0590b2;
+P_0c0590b2: /* original f382, guest PC 0x0c0590b2 */
+if(!s->budget--) { s->failed_pc=0x0c0590b2u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0590b4;
+P_0c0590b4: /* original fb7d, guest PC 0x0c0590b4 */
+if(!s->budget--) { s->failed_pc=0x0c0590b4u; return 0; }
+if(!vf3_fpu_fsrra(fr[11],r[18],&fr[11])) goto unsupported;
+goto P_0c0590b6;
+P_0c0590b6: /* original f39e, guest PC 0x0c0590b6 */
+if(!s->budget--) { s->failed_pc=0x0c0590b6u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0590b8;
+P_0c0590b8: /* original f018, guest PC 0x0c0590b8 */
+if(!s->budget--) { s->failed_pc=0x0c0590b8u; return 0; }
+vf3_matrix_load(s,ram,0,r[1]);
+goto P_0c0590ba;
+P_0c0590ba: /* original 71d0, guest PC 0x0c0590ba */
+if(!s->budget--) { s->failed_pc=0x0c0590bau; return 0; }
+r[1]+=0xffffffd0u;
+goto P_0c0590bc;
+P_0c0590bc: /* original f3ae, guest PC 0x0c0590bc */
+if(!s->budget--) { s->failed_pc=0x0c0590bcu; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[10],fr[3],r[18]);
+goto P_0c0590be;
+P_0c0590be: /* original f0fc, guest PC 0x0c0590be */
+if(!s->budget--) { s->failed_pc=0x0c0590beu; return 0; }
+vf3_matrix_move(s,0,15);
+goto P_0c0590c0;
+P_0c0590c0: /* original ff18, guest PC 0x0c0590c0 */
+if(!s->budget--) { s->failed_pc=0x0c0590c0u; return 0; }
+vf3_matrix_load(s,ram,15,r[1]);
+goto P_0c0590c2;
+P_0c0590c2: /* original f34d, guest PC 0x0c0590c2 */
+if(!s->budget--) { s->failed_pc=0x0c0590c2u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0590c4;
+P_0c0590c4: /* original 7144, guest PC 0x0c0590c4 */
+if(!s->budget--) { s->failed_pc=0x0c0590c4u; return 0; }
+r[1]+=0x00000044u;
+goto P_0c0590c6;
+P_0c0590c6: /* original f3b2, guest PC 0x0c0590c6 */
+if(!s->budget--) { s->failed_pc=0x0c0590c6u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[11],r[18],'*');
+goto P_0c0590c8;
+P_0c0590c8: /* original f7b2, guest PC 0x0c0590c8 */
+if(!s->budget--) { s->failed_pc=0x0c0590c8u; return 0; }
+fr[7]=vf3_fpu_binary(fr[7],fr[11],r[18],'*');
+goto P_0c0590ca;
+P_0c0590ca: /* original ff35, guest PC 0x0c0590ca */
+if(!s->budget--) { s->failed_pc=0x0c0590cau; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[15])>as_float(fr[3]))!=0);
+goto P_0c0590cc;
+P_0c0590cc: /* original f3f1, guest PC 0x0c0590cc */
+if(!s->budget--) { s->failed_pc=0x0c0590ccu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[15],r[18],'-');
+goto P_0c0590ce;
+P_0c0590ce: /* original ff18, guest PC 0x0c0590ce */
+if(!s->budget--) { s->failed_pc=0x0c0590ceu; return 0; }
+vf3_matrix_load(s,ram,15,r[1]);
+goto P_0c0590d0;
+P_0c0590d0: /* original 8925, guest PC 0x0c0590d0 */
+if(!s->budget--) { s->failed_pc=0x0c0590d0u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c05911e; }
+goto P_0c0590d2;
+P_0c0590d2: /* original f3f2, guest PC 0x0c0590d2 */
+if(!s->budget--) { s->failed_pc=0x0c0590d2u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[15],r[18],'*');
+goto P_0c0590d4;
+P_0c0590d4: /* original ff0c, guest PC 0x0c0590d4 */
+if(!s->budget--) { s->failed_pc=0x0c0590d4u; return 0; }
+vf3_matrix_move(s,15,0);
+goto P_0c0590d6;
+P_0c0590d6: /* original 71b8, guest PC 0x0c0590d6 */
+if(!s->budget--) { s->failed_pc=0x0c0590d6u; return 0; }
+r[1]+=0xffffffb8u;
+goto P_0c0590d8;
+P_0c0590d8: /* original f00d, guest PC 0x0c0590d8 */
+if(!s->budget--) { s->failed_pc=0x0c0590d8u; return 0; }
+fr[0]=r[53];
+goto P_0c0590da;
+P_0c0590da: /* original ff1d, guest PC 0x0c0590da */
+if(!s->budget--) { s->failed_pc=0x0c0590dau; return 0; }
+r[53]=fr[15];
+goto P_0c0590dc;
+P_0c0590dc: /* original a005, guest PC 0x0c0590dc */
+if(!s->budget--) { s->failed_pc=0x0c0590dcu; return 0; }
+fr[7]=vf3_fpu_binary(fr[7],fr[3],r[18],'*');
+goto P_0c0590ea;
+P_0c0590de: /* original f732, guest PC 0x0c0590de */
+if(!s->budget--) { s->failed_pc=0x0c0590deu; return 0; }
+fr[7]=vf3_fpu_binary(fr[7],fr[3],r[18],'*');
+goto P_0c0590e0;
+P_0c0590e0: /* original f01d, guest PC 0x0c0590e0 */
+if(!s->budget--) { s->failed_pc=0x0c0590e0u; return 0; }
+r[53]=fr[0];
+goto P_0c0590e2;
+P_0c0590e2: /* original 71bc, guest PC 0x0c0590e2 */
+if(!s->budget--) { s->failed_pc=0x0c0590e2u; return 0; }
+r[1]+=0xffffffbcu;
+goto P_0c0590e4;
+P_0c0590e4: /* original f0bc, guest PC 0x0c0590e4 */
+if(!s->budget--) { s->failed_pc=0x0c0590e4u; return 0; }
+vf3_matrix_move(s,0,11);
+goto P_0c0590e6;
+P_0c0590e6: /* original fb7d, guest PC 0x0c0590e6 */
+if(!s->budget--) { s->failed_pc=0x0c0590e6u; return 0; }
+if(!vf3_fpu_fsrra(fr[11],r[18],&fr[11])) goto unsupported;
+goto P_0c0590e8;
+P_0c0590e8: /* original f7b2, guest PC 0x0c0590e8 */
+if(!s->budget--) { s->failed_pc=0x0c0590e8u; return 0; }
+fr[7]=vf3_fpu_binary(fr[7],fr[11],r[18],'*');
+goto P_0c0590ea;
+P_0c0590ea: /* original f318, guest PC 0x0c0590ea */
+if(!s->budget--) { s->failed_pc=0x0c0590eau; return 0; }
+vf3_matrix_load(s,ram,3,r[1]);
+goto P_0c0590ec;
+P_0c0590ec: /* original 71f8, guest PC 0x0c0590ec */
+if(!s->budget--) { s->failed_pc=0x0c0590ecu; return 0; }
+r[1]+=0xfffffff8u;
+goto P_0c0590ee;
+P_0c0590ee: /* original ff18, guest PC 0x0c0590ee */
+if(!s->budget--) { s->failed_pc=0x0c0590eeu; return 0; }
+vf3_matrix_load(s,ram,15,r[1]);
+goto P_0c0590f0;
+P_0c0590f0: /* original 7104, guest PC 0x0c0590f0 */
+if(!s->budget--) { s->failed_pc=0x0c0590f0u; return 0; }
+r[1]+=0x00000004u;
+goto P_0c0590f2;
+P_0c0590f2: /* original ff3e, guest PC 0x0c0590f2 */
+if(!s->budget--) { s->failed_pc=0x0c0590f2u; return 0; }
+fr[15]=vf3_fpu_mac(fr[0],fr[3],fr[15],r[18]);
+goto P_0c0590f4;
+P_0c0590f4: /* original f318, guest PC 0x0c0590f4 */
+if(!s->budget--) { s->failed_pc=0x0c0590f4u; return 0; }
+vf3_matrix_load(s,ram,3,r[1]);
+goto P_0c0590f6;
+P_0c0590f6: /* original f0b2, guest PC 0x0c0590f6 */
+if(!s->budget--) { s->failed_pc=0x0c0590f6u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[11],r[18],'*');
+goto P_0c0590f8;
+P_0c0590f8: /* original ff3e, guest PC 0x0c0590f8 */
+if(!s->budget--) { s->failed_pc=0x0c0590f8u; return 0; }
+fr[15]=vf3_fpu_mac(fr[0],fr[3],fr[15],r[18]);
+goto P_0c0590fa;
+P_0c0590fa: /* original f39d, guest PC 0x0c0590fa */
+if(!s->budget--) { s->failed_pc=0x0c0590fau; return 0; }
+fr[3]=0x3f800000u;
+goto P_0c0590fc;
+P_0c0590fc: /* original ff35, guest PC 0x0c0590fc */
+if(!s->budget--) { s->failed_pc=0x0c0590fcu; return 0; }
+r[17]=(r[17]&~1u)|((as_float(fr[15])>as_float(fr[3]))!=0);
+goto P_0c0590fe;
+P_0c0590fe: /* original 8f03, guest PC 0x0c0590fe */
+if(!s->budget--) { s->failed_pc=0x0c0590feu; return 0; }
+cond=r[17]&1u;
+fr[0]=r[53];
+if(!cond) { goto P_0c059108; }
+goto P_0c059102;
+P_0c059100: /* original f00d, guest PC 0x0c059100 */
+if(!s->budget--) { s->failed_pc=0x0c059100u; return 0; }
+fr[0]=r[53];
+goto P_0c059102;
+P_0c059102: /* original fff2, guest PC 0x0c059102 */
+if(!s->budget--) { s->failed_pc=0x0c059102u; return 0; }
+fr[15]=vf3_fpu_binary(fr[15],fr[15],r[18],'*');
+goto P_0c059104;
+P_0c059104: /* original ff7d, guest PC 0x0c059104 */
+if(!s->budget--) { s->failed_pc=0x0c059104u; return 0; }
+if(!vf3_fpu_fsrra(fr[15],r[18],&fr[15])) goto unsupported;
+goto P_0c059106;
+P_0c059106: /* original f7f2, guest PC 0x0c059106 */
+if(!s->budget--) { s->failed_pc=0x0c059106u; return 0; }
+fr[7]=vf3_fpu_binary(fr[7],fr[15],r[18],'*');
+goto P_0c059108;
+P_0c059108: /* original 60e3, guest PC 0x0c059108 */
+if(!s->budget--) { s->failed_pc=0x0c059108u; return 0; }
+r[0]=r[14];
+goto P_0c05910a;
+P_0c05910a: /* original ff0c, guest PC 0x0c05910a */
+if(!s->budget--) { s->failed_pc=0x0c05910au; return 0; }
+vf3_matrix_move(s,15,0);
+goto P_0c05910c;
+P_0c05910c: /* original f07c, guest PC 0x0c05910c */
+if(!s->budget--) { s->failed_pc=0x0c05910cu; return 0; }
+vf3_matrix_move(s,0,7);
+goto P_0c05910e;
+P_0c05910e: /* original 7018, guest PC 0x0c05910e */
+if(!s->budget--) { s->failed_pc=0x0c05910eu; return 0; }
+r[0]+=0x00000018u;
+goto P_0c059110;
+P_0c059110: /* original f809, guest PC 0x0c059110 */
+if(!s->budget--) { s->failed_pc=0x0c059110u; return 0; }
+vf3_matrix_load(s,ram,8,r[0]);
+r[0]+=(r[18]&0x100000u)?8:4;
+goto P_0c059112;
+P_0c059112: /* original f909, guest PC 0x0c059112 */
+if(!s->budget--) { s->failed_pc=0x0c059112u; return 0; }
+vf3_matrix_load(s,ram,9,r[0]);
+r[0]+=(r[18]&0x100000u)?8:4;
+goto P_0c059114;
+P_0c059114: /* original fa09, guest PC 0x0c059114 */
+if(!s->budget--) { s->failed_pc=0x0c059114u; return 0; }
+vf3_matrix_load(s,ram,10,r[0]);
+r[0]+=(r[18]&0x100000u)?8:4;
+goto P_0c059116;
+P_0c059116: /* original fc8e, guest PC 0x0c059116 */
+if(!s->budget--) { s->failed_pc=0x0c059116u; return 0; }
+fr[12]=vf3_fpu_mac(fr[0],fr[8],fr[12],r[18]);
+goto P_0c059118;
+P_0c059118: /* original fd9e, guest PC 0x0c059118 */
+if(!s->budget--) { s->failed_pc=0x0c059118u; return 0; }
+fr[13]=vf3_fpu_mac(fr[0],fr[9],fr[13],r[18]);
+goto P_0c05911a;
+P_0c05911a: /* original feae, guest PC 0x0c05911a */
+if(!s->budget--) { s->failed_pc=0x0c05911au; return 0; }
+fr[14]=vf3_fpu_mac(fr[0],fr[10],fr[14],r[18]);
+goto P_0c05911c;
+P_0c05911c: /* original f0fc, guest PC 0x0c05911c */
+if(!s->budget--) { s->failed_pc=0x0c05911cu; return 0; }
+vf3_matrix_move(s,0,15);
+goto P_0c05911e;
+P_0c05911e: /* original e0b0, guest PC 0x0c05911e */
+if(!s->budget--) { s->failed_pc=0x0c05911eu; return 0; }
+r[0]=0xffffffb0u;
+goto P_0c059120;
+P_0c059120: /* original 2dd8, guest PC 0x0c059120 */
+if(!s->budget--) { s->failed_pc=0x0c059120u; return 0; }
+r[17]=(r[17]&~1u)|(((r[13]&r[13])==0)!=0);
+goto P_0c059122;
+P_0c059122: /* original 600c, guest PC 0x0c059122 */
+if(!s->budget--) { s->failed_pc=0x0c059122u; return 0; }
+r[0]=r[0]&255u;
+goto P_0c059124;
+P_0c059124: /* original 8d0c, guest PC 0x0c059124 */
+if(!s->budget--) { s->failed_pc=0x0c059124u; return 0; }
+cond=r[17]&1u;
+fr[3]=0x3f800000u;
+if(cond) { goto P_0c059140; }
+goto P_0c059128;
+P_0c059126: /* original f39d, guest PC 0x0c059126 */
+if(!s->budget--) { s->failed_pc=0x0c059126u; return 0; }
+fr[3]=0x3f800000u;
+goto P_0c059128;
+P_0c059128: /* original 4d01, guest PC 0x0c059128 */
+if(!s->budget--) { s->failed_pc=0x0c059128u; return 0; }
+r[17]=(r[17]&~1u)|((r[13]&1)!=0);
+r[13]>>=1;
+goto P_0c05912a;
+P_0c05912a: /* original 3e0c, guest PC 0x0c05912a */
+if(!s->budget--) { s->failed_pc=0x0c05912au; return 0; }
+r[14]+=r[0];
+goto P_0c05912c;
+P_0c05912c: /* original 8bf7, guest PC 0x0c05912c */
+if(!s->budget--) { s->failed_pc=0x0c05912cu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c05911e; }
+goto P_0c05912e;
+P_0c05912e: /* original af97, guest PC 0x0c05912e */
+if(!s->budget--) { s->failed_pc=0x0c05912eu; return 0; }
+goto P_0c059060;
+P_0c059130: /* original 0e83, guest PC 0x0c059130 */
+if(!s->budget--) { s->failed_pc=0x0c059130u; return 0; }
+return vf3_matrix_family(0x0c059132u,s,ram);
+P_0c059140: /* original f1fd, guest PC 0x0c059140 */
+if(!s->budget--) { s->failed_pc=0x0c059140u; return 0; }
+if(!vf3_fpu_ftrv(xf,fr+0,r[18],fr+0)) goto unsupported;
+goto P_0c059142;
+P_0c059142: /* original e043, guest PC 0x0c059142 */
+if(!s->budget--) { s->failed_pc=0x0c059142u; return 0; }
+r[0]=0x00000043u;
+goto P_0c059144;
+P_0c059144: /* original 4018, guest PC 0x0c059144 */
+if(!s->budget--) { s->failed_pc=0x0c059144u; return 0; }
+r[0]<<=8;
+goto P_0c059146;
+P_0c059146: /* original cb7f, guest PC 0x0c059146 */
+if(!s->budget--) { s->failed_pc=0x0c059146u; return 0; }
+r[0]|=127u;
+goto P_0c059148;
+P_0c059148: /* original 4028, guest PC 0x0c059148 */
+if(!s->budget--) { s->failed_pc=0x0c059148u; return 0; }
+r[0]<<=16;
+goto P_0c05914a;
+P_0c05914a: /* original 405a, guest PC 0x0c05914a */
+if(!s->budget--) { s->failed_pc=0x0c05914au; return 0; }
+r[53]=r[0];
+goto P_0c05914c;
+P_0c05914c: /* original eeff, guest PC 0x0c05914c */
+if(!s->budget--) { s->failed_pc=0x0c05914cu; return 0; }
+r[14]=0xffffffffu;
+goto P_0c05914e;
+P_0c05914e: /* original ff0d, guest PC 0x0c05914e */
+if(!s->budget--) { s->failed_pc=0x0c05914eu; return 0; }
+fr[15]=r[53];
+goto P_0c059150;
+P_0c059150: /* original fcf2, guest PC 0x0c059150 */
+if(!s->budget--) { s->failed_pc=0x0c059150u; return 0; }
+fr[12]=vf3_fpu_binary(fr[12],fr[15],r[18],'*');
+goto P_0c059152;
+P_0c059152: /* original f29d, guest PC 0x0c059152 */
+if(!s->budget--) { s->failed_pc=0x0c059152u; return 0; }
+fr[2]=0x3f800000u;
+goto P_0c059154;
+P_0c059154: /* original fdf2, guest PC 0x0c059154 */
+if(!s->budget--) { s->failed_pc=0x0c059154u; return 0; }
+fr[13]=vf3_fpu_binary(fr[13],fr[15],r[18],'*');
+goto P_0c059156;
+P_0c059156: /* original f233, guest PC 0x0c059156 */
+if(!s->budget--) { s->failed_pc=0x0c059156u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'/');
+goto P_0c059158;
+P_0c059158: /* original 60ec, guest PC 0x0c059158 */
+if(!s->budget--) { s->failed_pc=0x0c059158u; return 0; }
+r[0]=r[14]&255u;
+goto P_0c05915a;
+P_0c05915a: /* original fef2, guest PC 0x0c05915a */
+if(!s->budget--) { s->failed_pc=0x0c05915au; return 0; }
+fr[14]=vf3_fpu_binary(fr[14],fr[15],r[18],'*');
+goto P_0c05915c;
+P_0c05915c: /* original ee00, guest PC 0x0c05915c */
+if(!s->budget--) { s->failed_pc=0x0c05915cu; return 0; }
+r[14]=0x00000000u;
+goto P_0c05915e;
+P_0c05915e: /* original fc3d, guest PC 0x0c05915e */
+if(!s->budget--) { s->failed_pc=0x0c05915eu; return 0; }
+r[53]=truncate_float(fr[12]);
+goto P_0c059160;
+P_0c059160: /* original 0b5a, guest PC 0x0c059160 */
+if(!s->budget--) { s->failed_pc=0x0c059160u; return 0; }
+r[11]=r[53];
+goto P_0c059162;
+P_0c059162: /* original fd3d, guest PC 0x0c059162 */
+if(!s->budget--) { s->failed_pc=0x0c059162u; return 0; }
+r[53]=truncate_float(fr[13]);
+goto P_0c059164;
+P_0c059164: /* original 0c5a, guest PC 0x0c059164 */
+if(!s->budget--) { s->failed_pc=0x0c059164u; return 0; }
+r[12]=r[53];
+goto P_0c059166;
+P_0c059166: /* original fe3d, guest PC 0x0c059166 */
+if(!s->budget--) { s->failed_pc=0x0c059166u; return 0; }
+r[53]=truncate_float(fr[14]);
+goto P_0c059168;
+P_0c059168: /* original 0d5a, guest PC 0x0c059168 */
+if(!s->budget--) { s->failed_pc=0x0c059168u; return 0; }
+r[13]=r[53];
+goto P_0c05916a;
+P_0c05916a: /* original 3b07, guest PC 0x0c05916a */
+if(!s->budget--) { s->failed_pc=0x0c05916au; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[11]>(int32_t)r[0])!=0);
+goto P_0c05916c;
+P_0c05916c: /* original 8b00, guest PC 0x0c05916c */
+if(!s->budget--) { s->failed_pc=0x0c05916cu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c059170; }
+goto P_0c05916e;
+P_0c05916e: /* original 6b03, guest PC 0x0c05916e */
+if(!s->budget--) { s->failed_pc=0x0c05916eu; return 0; }
+r[11]=r[0];
+goto P_0c059170;
+P_0c059170: /* original 4b11, guest PC 0x0c059170 */
+if(!s->budget--) { s->failed_pc=0x0c059170u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[11]>=0)!=0);
+goto P_0c059172;
+P_0c059172: /* original 8900, guest PC 0x0c059172 */
+if(!s->budget--) { s->failed_pc=0x0c059172u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c059176; }
+goto P_0c059174;
+P_0c059174: /* original eb00, guest PC 0x0c059174 */
+if(!s->budget--) { s->failed_pc=0x0c059174u; return 0; }
+r[11]=0x00000000u;
+goto P_0c059176;
+P_0c059176: /* original 3c07, guest PC 0x0c059176 */
+if(!s->budget--) { s->failed_pc=0x0c059176u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[12]>(int32_t)r[0])!=0);
+goto P_0c059178;
+P_0c059178: /* original 2ebb, guest PC 0x0c059178 */
+if(!s->budget--) { s->failed_pc=0x0c059178u; return 0; }
+r[14]|=r[11];
+goto P_0c05917a;
+P_0c05917a: /* original 8b00, guest PC 0x0c05917a */
+if(!s->budget--) { s->failed_pc=0x0c05917au; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c05917e; }
+goto P_0c05917c;
+P_0c05917c: /* original 6c03, guest PC 0x0c05917c */
+if(!s->budget--) { s->failed_pc=0x0c05917cu; return 0; }
+r[12]=r[0];
+goto P_0c05917e;
+P_0c05917e: /* original 4c11, guest PC 0x0c05917e */
+if(!s->budget--) { s->failed_pc=0x0c05917eu; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[12]>=0)!=0);
+goto P_0c059180;
+P_0c059180: /* original f52b, guest PC 0x0c059180 */
+if(!s->budget--) { s->failed_pc=0x0c059180u; return 0; }
+r[5]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[5]);
+goto P_0c059182;
+P_0c059182: /* original 8900, guest PC 0x0c059182 */
+if(!s->budget--) { s->failed_pc=0x0c059182u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c059186; }
+goto P_0c059184;
+P_0c059184: /* original ec00, guest PC 0x0c059184 */
+if(!s->budget--) { s->failed_pc=0x0c059184u; return 0; }
+r[12]=0x00000000u;
+goto P_0c059186;
+P_0c059186: /* original 3d07, guest PC 0x0c059186 */
+if(!s->budget--) { s->failed_pc=0x0c059186u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[13]>(int32_t)r[0])!=0);
+goto P_0c059188;
+P_0c059188: /* original 4c18, guest PC 0x0c059188 */
+if(!s->budget--) { s->failed_pc=0x0c059188u; return 0; }
+r[12]<<=8;
+goto P_0c05918a;
+P_0c05918a: /* original 8b00, guest PC 0x0c05918a */
+if(!s->budget--) { s->failed_pc=0x0c05918au; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c05918e; }
+goto P_0c05918c;
+P_0c05918c: /* original 6d03, guest PC 0x0c05918c */
+if(!s->budget--) { s->failed_pc=0x0c05918cu; return 0; }
+r[13]=r[0];
+goto P_0c05918e;
+P_0c05918e: /* original 4d11, guest PC 0x0c05918e */
+if(!s->budget--) { s->failed_pc=0x0c05918eu; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[13]>=0)!=0);
+goto P_0c059190;
+P_0c059190: /* original f122, guest PC 0x0c059190 */
+if(!s->budget--) { s->failed_pc=0x0c059190u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[2],r[18],'*');
+goto P_0c059192;
+P_0c059192: /* original 8900, guest PC 0x0c059192 */
+if(!s->budget--) { s->failed_pc=0x0c059192u; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c059196; }
+goto P_0c059194;
+P_0c059194: /* original ed00, guest PC 0x0c059194 */
+if(!s->budget--) { s->failed_pc=0x0c059194u; return 0; }
+r[13]=0x00000000u;
+goto P_0c059196;
+P_0c059196: /* original 4e28, guest PC 0x0c059196 */
+if(!s->budget--) { s->failed_pc=0x0c059196u; return 0; }
+r[14]<<=16;
+goto P_0c059198;
+P_0c059198: /* original f022, guest PC 0x0c059198 */
+if(!s->budget--) { s->failed_pc=0x0c059198u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[2],r[18],'*');
+goto P_0c05919a;
+P_0c05919a: /* original 2cdb, guest PC 0x0c05919a */
+if(!s->budget--) { s->failed_pc=0x0c05919au; return 0; }
+r[12]|=r[13];
+goto P_0c05919c;
+P_0c05919c: /* original f51b, guest PC 0x0c05919c */
+if(!s->budget--) { s->failed_pc=0x0c05919cu; return 0; }
+r[5]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[5]);
+goto P_0c05919e;
+P_0c05919e: /* original 2ecb, guest PC 0x0c05919e */
+if(!s->budget--) { s->failed_pc=0x0c05919eu; return 0; }
+r[14]|=r[12];
+goto P_0c0591a0;
+P_0c0591a0: /* original f50b, guest PC 0x0c0591a0 */
+if(!s->budget--) { s->failed_pc=0x0c0591a0u; return 0; }
+r[5]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[5]);
+goto P_0c0591a2;
+P_0c0591a2: /* original 4610, guest PC 0x0c0591a2 */
+if(!s->budget--) { s->failed_pc=0x0c0591a2u; return 0; }
+--r[6];
+r[17]=(r[17]&~1u)|((r[6]==0)!=0);
+goto P_0c0591a4;
+P_0c0591a4: /* original 28e6, guest PC 0x0c0591a4 */
+if(!s->budget--) { s->failed_pc=0x0c0591a4u; return 0; }
+tmp=r[14]; r[8]-=4; write(ram,r[8],tmp,4);
+goto P_0c0591a6;
+P_0c0591a6: /* original 751c, guest PC 0x0c0591a6 */
+if(!s->budget--) { s->failed_pc=0x0c0591a6u; return 0; }
+r[5]+=0x0000001cu;
+goto P_0c0591a8;
+P_0c0591a8: /* original 28e6, guest PC 0x0c0591a8 */
+if(!s->budget--) { s->failed_pc=0x0c0591a8u; return 0; }
+tmp=r[14]; r[8]-=4; write(ram,r[8],tmp,4);
+goto P_0c0591aa;
+P_0c0591aa: /* original 8900, guest PC 0x0c0591aa */
+if(!s->budget--) { s->failed_pc=0x0c0591aau; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c0591ae; }
+goto P_0c0591ac;
+P_0c0591ac: /* original af3c, guest PC 0x0c0591ac */
+if(!s->budget--) { s->failed_pc=0x0c0591acu; return 0; }
+r[8]+=0x00000010u;
+goto P_0c059028;
+P_0c0591ae: /* original 7810, guest PC 0x0c0591ae */
+if(!s->budget--) { s->failed_pc=0x0c0591aeu; return 0; }
+r[8]+=0x00000010u;
+goto P_0c0591b0;
+P_0c0591b0: /* original d00f, guest PC 0x0c0591b0 */
+if(!s->budget--) { s->failed_pc=0x0c0591b0u; return 0; }
+r[0]=read(ram,0x0c0591f0u,4);
+goto P_0c0591b2;
+P_0c0591b2: /* original d110, guest PC 0x0c0591b2 */
+if(!s->budget--) { s->failed_pc=0x0c0591b2u; return 0; }
+r[1]=read(ram,0x0c0591f4u,4);
+goto P_0c0591b4;
+P_0c0591b4: /* original 75f4, guest PC 0x0c0591b4 */
+if(!s->budget--) { s->failed_pc=0x0c0591b4u; return 0; }
+r[5]+=0xfffffff4u;
+goto P_0c0591b6;
+P_0c0591b6: /* original 2052, guest PC 0x0c0591b6 */
+if(!s->budget--) { s->failed_pc=0x0c0591b6u; return 0; }
+write(ram,r[0],r[5],4);
+goto P_0c0591b8;
+P_0c0591b8: /* original 78f8, guest PC 0x0c0591b8 */
+if(!s->budget--) { s->failed_pc=0x0c0591b8u; return 0; }
+r[8]+=0xfffffff8u;
+goto P_0c0591ba;
+P_0c0591ba: /* original 2182, guest PC 0x0c0591ba */
+if(!s->budget--) { s->failed_pc=0x0c0591bau; return 0; }
+write(ram,r[1],r[8],4);
+goto P_0c0591bc;
+P_0c0591bc: /* original 6cf6, guest PC 0x0c0591bc */
+if(!s->budget--) { s->failed_pc=0x0c0591bcu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[12]=tmp;
+goto P_0c0591be;
+P_0c0591be: /* original 6df6, guest PC 0x0c0591be */
+if(!s->budget--) { s->failed_pc=0x0c0591beu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c0591c0;
+P_0c0591c0: /* original 000b, guest PC 0x0c0591c0 */
+if(!s->budget--) { s->failed_pc=0x0c0591c0u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c0591c2: /* original 6ef6, guest PC 0x0c0591c2 */
+if(!s->budget--) { s->failed_pc=0x0c0591c2u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c0591c4u,s,ram);
 P_0c05bb38: /* original 2fe6, guest PC 0x0c05bb38 */
 if(!s->budget--) { s->failed_pc=0x0c05bb38u; return 0; }
 tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
@@ -21619,7 +26829,5763 @@ if(!s->budget--) { s->failed_pc=0x0c072074u; return 0; }
 tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
-return vf3_matrix_family(0x0c072076u,s,ram);
+goto P_0c072076;
+P_0c072076: /* original 2fe6, guest PC 0x0c072076 */
+if(!s->budget--) { s->failed_pc=0x0c072076u; return 0; }
+tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072078;
+P_0c072078: /* original 6643, guest PC 0x0c072078 */
+if(!s->budget--) { s->failed_pc=0x0c072078u; return 0; }
+r[6]=r[4];
+goto P_0c07207a;
+P_0c07207a: /* original 2fd6, guest PC 0x0c07207a */
+if(!s->budget--) { s->failed_pc=0x0c07207au; return 0; }
+tmp=r[13]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c07207c;
+P_0c07207c: /* original e058, guest PC 0x0c07207c */
+if(!s->budget--) { s->failed_pc=0x0c07207cu; return 0; }
+r[0]=0x00000058u;
+goto P_0c07207e;
+P_0c07207e: /* original 2fc6, guest PC 0x0c07207e */
+if(!s->budget--) { s->failed_pc=0x0c07207eu; return 0; }
+tmp=r[12]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072080;
+P_0c072080: /* original 2fb6, guest PC 0x0c072080 */
+if(!s->budget--) { s->failed_pc=0x0c072080u; return 0; }
+tmp=r[11]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072082;
+P_0c072082: /* original 2fa6, guest PC 0x0c072082 */
+if(!s->budget--) { s->failed_pc=0x0c072082u; return 0; }
+tmp=r[10]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072084;
+P_0c072084: /* original 2f96, guest PC 0x0c072084 */
+if(!s->budget--) { s->failed_pc=0x0c072084u; return 0; }
+tmp=r[9]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072086;
+P_0c072086: /* original 2f86, guest PC 0x0c072086 */
+if(!s->budget--) { s->failed_pc=0x0c072086u; return 0; }
+tmp=r[8]; r[15]-=4; write(ram,r[15],tmp,4);
+goto P_0c072088;
+P_0c072088: /* original fffb, guest PC 0x0c072088 */
+if(!s->budget--) { s->failed_pc=0x0c072088u; return 0; }
+r[15]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,15,r[15]);
+goto P_0c07208a;
+P_0c07208a: /* original 7fa0, guest PC 0x0c07208a */
+if(!s->budget--) { s->failed_pc=0x0c07208au; return 0; }
+r[15]+=0xffffffa0u;
+goto P_0c07208c;
+P_0c07208c: /* original 1f43, guest PC 0x0c07208c */
+if(!s->budget--) { s->failed_pc=0x0c07208cu; return 0; }
+write(ram,r[15]+12,r[4],4);
+goto P_0c07208e;
+P_0c07208e: /* original 056e, guest PC 0x0c07208e */
+if(!s->budget--) { s->failed_pc=0x0c07208eu; return 0; }
+r[5]=read(ram,r[6]+r[0],4);
+goto P_0c072090;
+P_0c072090: /* original e05c, guest PC 0x0c072090 */
+if(!s->budget--) { s->failed_pc=0x0c072090u; return 0; }
+r[0]=0x0000005cu;
+goto P_0c072092;
+P_0c072092: /* original 036e, guest PC 0x0c072092 */
+if(!s->budget--) { s->failed_pc=0x0c072092u; return 0; }
+r[3]=read(ram,r[6]+r[0],4);
+goto P_0c072094;
+P_0c072094: /* original 1f32, guest PC 0x0c072094 */
+if(!s->budget--) { s->failed_pc=0x0c072094u; return 0; }
+write(ram,r[15]+8,r[3],4);
+goto P_0c072096;
+P_0c072096: /* original 902f, guest PC 0x0c072096 */
+if(!s->budget--) { s->failed_pc=0x0c072096u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0720f8u,2);
+goto P_0c072098;
+P_0c072098: /* original 932f, guest PC 0x0c072098 */
+if(!s->budget--) { s->failed_pc=0x0c072098u; return 0; }
+r[3]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0720fau,2);
+goto P_0c07209a;
+P_0c07209a: /* original 046e, guest PC 0x0c07209a */
+if(!s->budget--) { s->failed_pc=0x0c07209au; return 0; }
+r[4]=read(ram,r[6]+r[0],4);
+goto P_0c07209c;
+P_0c07209c: /* original 3430, guest PC 0x0c07209c */
+if(!s->budget--) { s->failed_pc=0x0c07209cu; return 0; }
+r[17]=(r[17]&~1u)|((r[4]==r[3])!=0);
+goto P_0c07209e;
+P_0c07209e: /* original 8902, guest PC 0x0c07209e */
+if(!s->budget--) { s->failed_pc=0x0c07209eu; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c0720a6; }
+goto P_0c0720a0;
+P_0c0720a0: /* original 912c, guest PC 0x0c0720a0 */
+if(!s->budget--) { s->failed_pc=0x0c0720a0u; return 0; }
+r[1]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0720fcu,2);
+goto P_0c0720a2;
+P_0c0720a2: /* original 3410, guest PC 0x0c0720a2 */
+if(!s->budget--) { s->failed_pc=0x0c0720a2u; return 0; }
+r[17]=(r[17]&~1u)|((r[4]==r[1])!=0);
+goto P_0c0720a4;
+P_0c0720a4: /* original 8b02, guest PC 0x0c0720a4 */
+if(!s->budget--) { s->failed_pc=0x0c0720a4u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c0720ac; }
+goto P_0c0720a6;
+P_0c0720a6: /* original c716, guest PC 0x0c0720a6 */
+if(!s->budget--) { s->failed_pc=0x0c0720a6u; return 0; }
+r[0]=0x0c072100u;
+goto P_0c0720a8;
+P_0c0720a8: /* original a001, guest PC 0x0c0720a8 */
+if(!s->budget--) { s->failed_pc=0x0c0720a8u; return 0; }
+vf3_matrix_load(s,ram,15,r[0]);
+goto P_0c0720ae;
+P_0c0720aa: /* original ff08, guest PC 0x0c0720aa */
+if(!s->budget--) { s->failed_pc=0x0c0720aau; return 0; }
+vf3_matrix_load(s,ram,15,r[0]);
+goto P_0c0720ac;
+P_0c0720ac: /* original ff9d, guest PC 0x0c0720ac */
+if(!s->budget--) { s->failed_pc=0x0c0720acu; return 0; }
+fr[15]=0x3f800000u;
+goto P_0c0720ae;
+P_0c0720ae: /* original 54f3, guest PC 0x0c0720ae */
+if(!s->budget--) { s->failed_pc=0x0c0720aeu; return 0; }
+r[4]=read(ram,r[15]+12,4);
+goto P_0c0720b0;
+P_0c0720b0: /* original 6953, guest PC 0x0c0720b0 */
+if(!s->budget--) { s->failed_pc=0x0c0720b0u; return 0; }
+r[9]=r[5];
+goto P_0c0720b2;
+P_0c0720b2: /* original 4900, guest PC 0x0c0720b2 */
+if(!s->budget--) { s->failed_pc=0x0c0720b2u; return 0; }
+r[17]=(r[17]&~1u)|((r[9]>>31)!=0);
+r[9]<<=1;
+goto P_0c0720b4;
+P_0c0720b4: /* original 6353, guest PC 0x0c0720b4 */
+if(!s->budget--) { s->failed_pc=0x0c0720b4u; return 0; }
+r[3]=r[5];
+goto P_0c0720b6;
+P_0c0720b6: /* original 5441, guest PC 0x0c0720b6 */
+if(!s->budget--) { s->failed_pc=0x0c0720b6u; return 0; }
+r[4]=read(ram,r[4]+4,4);
+goto P_0c0720b8;
+P_0c0720b8: /* original 393c, guest PC 0x0c0720b8 */
+if(!s->budget--) { s->failed_pc=0x0c0720b8u; return 0; }
+r[9]+=r[3];
+goto P_0c0720ba;
+P_0c0720ba: /* original 4908, guest PC 0x0c0720ba */
+if(!s->budget--) { s->failed_pc=0x0c0720bau; return 0; }
+r[9]<<=2;
+goto P_0c0720bc;
+P_0c0720bc: /* original 6df3, guest PC 0x0c0720bc */
+if(!s->budget--) { s->failed_pc=0x0c0720bcu; return 0; }
+r[13]=r[15];
+goto P_0c0720be;
+P_0c0720be: /* original 6b43, guest PC 0x0c0720be */
+if(!s->budget--) { s->failed_pc=0x0c0720beu; return 0; }
+r[11]=r[4];
+goto P_0c0720c0;
+P_0c0720c0: /* original 7b18, guest PC 0x0c0720c0 */
+if(!s->budget--) { s->failed_pc=0x0c0720c0u; return 0; }
+r[11]+=0x00000018u;
+goto P_0c0720c2;
+P_0c0720c2: /* original 75ff, guest PC 0x0c0720c2 */
+if(!s->budget--) { s->failed_pc=0x0c0720c2u; return 0; }
+r[5]+=0xffffffffu;
+goto P_0c0720c4;
+P_0c0720c4: /* original 6af3, guest PC 0x0c0720c4 */
+if(!s->budget--) { s->failed_pc=0x0c0720c4u; return 0; }
+r[10]=r[15];
+goto P_0c0720c6;
+P_0c0720c6: /* original 4900, guest PC 0x0c0720c6 */
+if(!s->budget--) { s->failed_pc=0x0c0720c6u; return 0; }
+r[17]=(r[17]&~1u)|((r[9]>>31)!=0);
+r[9]<<=1;
+goto P_0c0720c8;
+P_0c0720c8: /* original 6253, guest PC 0x0c0720c8 */
+if(!s->budget--) { s->failed_pc=0x0c0720c8u; return 0; }
+r[2]=r[5];
+goto P_0c0720ca;
+P_0c0720ca: /* original e301, guest PC 0x0c0720ca */
+if(!s->budget--) { s->failed_pc=0x0c0720cau; return 0; }
+r[3]=0x00000001u;
+goto P_0c0720cc;
+P_0c0720cc: /* original 6eb3, guest PC 0x0c0720cc */
+if(!s->budget--) { s->failed_pc=0x0c0720ccu; return 0; }
+r[14]=r[11];
+goto P_0c0720ce;
+P_0c0720ce: /* original 394c, guest PC 0x0c0720ce */
+if(!s->budget--) { s->failed_pc=0x0c0720ceu; return 0; }
+r[9]+=r[4];
+goto P_0c0720d0;
+P_0c0720d0: /* original 6cf3, guest PC 0x0c0720d0 */
+if(!s->budget--) { s->failed_pc=0x0c0720d0u; return 0; }
+r[12]=r[15];
+goto P_0c0720d2;
+P_0c0720d2: /* original 7a3c, guest PC 0x0c0720d2 */
+if(!s->budget--) { s->failed_pc=0x0c0720d2u; return 0; }
+r[10]+=0x0000003cu;
+goto P_0c0720d4;
+P_0c0720d4: /* original 3237, guest PC 0x0c0720d4 */
+if(!s->budget--) { s->failed_pc=0x0c0720d4u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[2]>(int32_t)r[3])!=0);
+goto P_0c0720d6;
+P_0c0720d6: /* original 6843, guest PC 0x0c0720d6 */
+if(!s->budget--) { s->failed_pc=0x0c0720d6u; return 0; }
+r[8]=r[4];
+goto P_0c0720d8;
+P_0c0720d8: /* original 2f42, guest PC 0x0c0720d8 */
+if(!s->budget--) { s->failed_pc=0x0c0720d8u; return 0; }
+write(ram,r[15],r[4],4);
+goto P_0c0720da;
+P_0c0720da: /* original 7b18, guest PC 0x0c0720da */
+if(!s->budget--) { s->failed_pc=0x0c0720dau; return 0; }
+r[11]+=0x00000018u;
+goto P_0c0720dc;
+P_0c0720dc: /* original 1f55, guest PC 0x0c0720dc */
+if(!s->budget--) { s->failed_pc=0x0c0720dcu; return 0; }
+write(ram,r[15]+20,r[5],4);
+goto P_0c0720de;
+P_0c0720de: /* original 7918, guest PC 0x0c0720de */
+if(!s->budget--) { s->failed_pc=0x0c0720deu; return 0; }
+r[9]+=0x00000018u;
+goto P_0c0720e0;
+P_0c0720e0: /* original 1f51, guest PC 0x0c0720e0 */
+if(!s->budget--) { s->failed_pc=0x0c0720e0u; return 0; }
+write(ram,r[15]+4,r[5],4);
+goto P_0c0720e2;
+P_0c0720e2: /* original 7d30, guest PC 0x0c0720e2 */
+if(!s->budget--) { s->failed_pc=0x0c0720e2u; return 0; }
+r[13]+=0x00000030u;
+goto P_0c0720e4;
+P_0c0720e4: /* original 8d03, guest PC 0x0c0720e4 */
+if(!s->budget--) { s->failed_pc=0x0c0720e4u; return 0; }
+cond=r[17]&1u;
+r[12]+=0x00000048u;
+if(cond) { goto P_0c0720ee; }
+goto P_0c0720e8;
+P_0c0720e6: /* original 7c48, guest PC 0x0c0720e6 */
+if(!s->budget--) { s->failed_pc=0x0c0720e6u; return 0; }
+r[12]+=0x00000048u;
+goto P_0c0720e8;
+P_0c0720e8: /* original d106, guest PC 0x0c0720e8 */
+if(!s->budget--) { s->failed_pc=0x0c0720e8u; return 0; }
+r[1]=read(ram,0x0c072104u,4);
+goto P_0c0720ea;
+P_0c0720ea: /* original 412b, guest PC 0x0c0720ea */
+if(!s->budget--) { s->failed_pc=0x0c0720eau; return 0; }
+target=r[1];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c0720ec: /* original 0009, guest PC 0x0c0720ec */
+if(!s->budget--) { s->failed_pc=0x0c0720ecu; return 0; }
+goto P_0c0720ee;
+P_0c0720ee: /* original 65f2, guest PC 0x0c0720ee */
+if(!s->budget--) { s->failed_pc=0x0c0720eeu; return 0; }
+tmp=read(ram,r[15],4);
+r[5]=tmp;
+goto P_0c0720f0;
+P_0c0720f0: /* original 64d3, guest PC 0x0c0720f0 */
+if(!s->budget--) { s->failed_pc=0x0c0720f0u; return 0; }
+r[4]=r[13];
+goto P_0c0720f2;
+P_0c0720f2: /* original 66e3, guest PC 0x0c0720f2 */
+if(!s->budget--) { s->failed_pc=0x0c0720f2u; return 0; }
+r[6]=r[14];
+goto P_0c0720f4;
+P_0c0720f4: /* original a008, guest PC 0x0c0720f4 */
+if(!s->budget--) { s->failed_pc=0x0c0720f4u; return 0; }
+goto P_0c072108;
+P_0c0720f6: /* original 0009, guest PC 0x0c0720f6 */
+if(!s->budget--) { s->failed_pc=0x0c0720f6u; return 0; }
+return vf3_matrix_family(0x0c0720f8u,s,ram);
+P_0c072108: /* original f059, guest PC 0x0c072108 */
+if(!s->budget--) { s->failed_pc=0x0c072108u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07210a;
+P_0c07210a: /* original f369, guest PC 0x0c07210a */
+if(!s->budget--) { s->failed_pc=0x0c07210au; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07210c;
+P_0c07210c: /* original f159, guest PC 0x0c07210c */
+if(!s->budget--) { s->failed_pc=0x0c07210cu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07210e;
+P_0c07210e: /* original f469, guest PC 0x0c07210e */
+if(!s->budget--) { s->failed_pc=0x0c07210eu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072110;
+P_0c072110: /* original f031, guest PC 0x0c072110 */
+if(!s->budget--) { s->failed_pc=0x0c072110u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072112;
+P_0c072112: /* original f258, guest PC 0x0c072112 */
+if(!s->budget--) { s->failed_pc=0x0c072112u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072114;
+P_0c072114: /* original f568, guest PC 0x0c072114 */
+if(!s->budget--) { s->failed_pc=0x0c072114u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072116;
+P_0c072116: /* original f141, guest PC 0x0c072116 */
+if(!s->budget--) { s->failed_pc=0x0c072116u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072118;
+P_0c072118: /* original f251, guest PC 0x0c072118 */
+if(!s->budget--) { s->failed_pc=0x0c072118u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c07211a;
+P_0c07211a: /* original 7408, guest PC 0x0c07211a */
+if(!s->budget--) { s->failed_pc=0x0c07211au; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07211c;
+P_0c07211c: /* original f42a, guest PC 0x0c07211c */
+if(!s->budget--) { s->failed_pc=0x0c07211cu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07211e;
+P_0c07211e: /* original f41b, guest PC 0x0c07211e */
+if(!s->budget--) { s->failed_pc=0x0c07211eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072120;
+P_0c072120: /* original f40b, guest PC 0x0c072120 */
+if(!s->budget--) { s->failed_pc=0x0c072120u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072122;
+P_0c072122: /* original 0009, guest PC 0x0c072122 */
+if(!s->budget--) { s->failed_pc=0x0c072122u; return 0; }
+goto P_0c072124;
+P_0c072124: /* original 64a3, guest PC 0x0c072124 */
+if(!s->budget--) { s->failed_pc=0x0c072124u; return 0; }
+r[4]=r[10];
+goto P_0c072126;
+P_0c072126: /* original 65b3, guest PC 0x0c072126 */
+if(!s->budget--) { s->failed_pc=0x0c072126u; return 0; }
+r[5]=r[11];
+goto P_0c072128;
+P_0c072128: /* original 66e3, guest PC 0x0c072128 */
+if(!s->budget--) { s->failed_pc=0x0c072128u; return 0; }
+r[6]=r[14];
+goto P_0c07212a;
+P_0c07212a: /* original f059, guest PC 0x0c07212a */
+if(!s->budget--) { s->failed_pc=0x0c07212au; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07212c;
+P_0c07212c: /* original f369, guest PC 0x0c07212c */
+if(!s->budget--) { s->failed_pc=0x0c07212cu; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07212e;
+P_0c07212e: /* original f159, guest PC 0x0c07212e */
+if(!s->budget--) { s->failed_pc=0x0c07212eu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072130;
+P_0c072130: /* original f469, guest PC 0x0c072130 */
+if(!s->budget--) { s->failed_pc=0x0c072130u; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072132;
+P_0c072132: /* original f031, guest PC 0x0c072132 */
+if(!s->budget--) { s->failed_pc=0x0c072132u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072134;
+P_0c072134: /* original f258, guest PC 0x0c072134 */
+if(!s->budget--) { s->failed_pc=0x0c072134u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072136;
+P_0c072136: /* original f568, guest PC 0x0c072136 */
+if(!s->budget--) { s->failed_pc=0x0c072136u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072138;
+P_0c072138: /* original f141, guest PC 0x0c072138 */
+if(!s->budget--) { s->failed_pc=0x0c072138u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c07213a;
+P_0c07213a: /* original f251, guest PC 0x0c07213a */
+if(!s->budget--) { s->failed_pc=0x0c07213au; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c07213c;
+P_0c07213c: /* original 7408, guest PC 0x0c07213c */
+if(!s->budget--) { s->failed_pc=0x0c07213cu; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07213e;
+P_0c07213e: /* original f42a, guest PC 0x0c07213e */
+if(!s->budget--) { s->failed_pc=0x0c07213eu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072140;
+P_0c072140: /* original f41b, guest PC 0x0c072140 */
+if(!s->budget--) { s->failed_pc=0x0c072140u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072142;
+P_0c072142: /* original f40b, guest PC 0x0c072142 */
+if(!s->budget--) { s->failed_pc=0x0c072142u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072144;
+P_0c072144: /* original 64c3, guest PC 0x0c072144 */
+if(!s->budget--) { s->failed_pc=0x0c072144u; return 0; }
+r[4]=r[12];
+goto P_0c072146;
+P_0c072146: /* original 6593, guest PC 0x0c072146 */
+if(!s->budget--) { s->failed_pc=0x0c072146u; return 0; }
+r[5]=r[9];
+goto P_0c072148;
+P_0c072148: /* original 66e3, guest PC 0x0c072148 */
+if(!s->budget--) { s->failed_pc=0x0c072148u; return 0; }
+r[6]=r[14];
+goto P_0c07214a;
+P_0c07214a: /* original f059, guest PC 0x0c07214a */
+if(!s->budget--) { s->failed_pc=0x0c07214au; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07214c;
+P_0c07214c: /* original f369, guest PC 0x0c07214c */
+if(!s->budget--) { s->failed_pc=0x0c07214cu; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07214e;
+P_0c07214e: /* original f159, guest PC 0x0c07214e */
+if(!s->budget--) { s->failed_pc=0x0c07214eu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072150;
+P_0c072150: /* original f469, guest PC 0x0c072150 */
+if(!s->budget--) { s->failed_pc=0x0c072150u; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072152;
+P_0c072152: /* original f031, guest PC 0x0c072152 */
+if(!s->budget--) { s->failed_pc=0x0c072152u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072154;
+P_0c072154: /* original f258, guest PC 0x0c072154 */
+if(!s->budget--) { s->failed_pc=0x0c072154u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072156;
+P_0c072156: /* original f568, guest PC 0x0c072156 */
+if(!s->budget--) { s->failed_pc=0x0c072156u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072158;
+P_0c072158: /* original f141, guest PC 0x0c072158 */
+if(!s->budget--) { s->failed_pc=0x0c072158u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c07215a;
+P_0c07215a: /* original f251, guest PC 0x0c07215a */
+if(!s->budget--) { s->failed_pc=0x0c07215au; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c07215c;
+P_0c07215c: /* original 7408, guest PC 0x0c07215c */
+if(!s->budget--) { s->failed_pc=0x0c07215cu; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07215e;
+P_0c07215e: /* original f42a, guest PC 0x0c07215e */
+if(!s->budget--) { s->failed_pc=0x0c07215eu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072160;
+P_0c072160: /* original f41b, guest PC 0x0c072160 */
+if(!s->budget--) { s->failed_pc=0x0c072160u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072162;
+P_0c072162: /* original f40b, guest PC 0x0c072162 */
+if(!s->budget--) { s->failed_pc=0x0c072162u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072164;
+P_0c072164: /* original 66f3, guest PC 0x0c072164 */
+if(!s->budget--) { s->failed_pc=0x0c072164u; return 0; }
+r[6]=r[15];
+goto P_0c072166;
+P_0c072166: /* original 64c3, guest PC 0x0c072166 */
+if(!s->budget--) { s->failed_pc=0x0c072166u; return 0; }
+r[4]=r[12];
+goto P_0c072168;
+P_0c072168: /* original 65d3, guest PC 0x0c072168 */
+if(!s->budget--) { s->failed_pc=0x0c072168u; return 0; }
+r[5]=r[13];
+goto P_0c07216a;
+P_0c07216a: /* original 7624, guest PC 0x0c07216a */
+if(!s->budget--) { s->failed_pc=0x0c07216au; return 0; }
+r[6]+=0x00000024u;
+goto P_0c07216c;
+P_0c07216c: /* original f049, guest PC 0x0c07216c */
+if(!s->budget--) { s->failed_pc=0x0c07216cu; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07216e;
+P_0c07216e: /* original f549, guest PC 0x0c07216e */
+if(!s->budget--) { s->failed_pc=0x0c07216eu; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072170;
+P_0c072170: /* original f648, guest PC 0x0c072170 */
+if(!s->budget--) { s->failed_pc=0x0c072170u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c072172;
+P_0c072172: /* original f859, guest PC 0x0c072172 */
+if(!s->budget--) { s->failed_pc=0x0c072172u; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072174;
+P_0c072174: /* original f959, guest PC 0x0c072174 */
+if(!s->budget--) { s->failed_pc=0x0c072174u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072176;
+P_0c072176: /* original fa58, guest PC 0x0c072176 */
+if(!s->budget--) { s->failed_pc=0x0c072176u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072178;
+P_0c072178: /* original 760c, guest PC 0x0c072178 */
+if(!s->budget--) { s->failed_pc=0x0c072178u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c07217a;
+P_0c07217a: /* original f35c, guest PC 0x0c07217a */
+if(!s->budget--) { s->failed_pc=0x0c07217au; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c07217c;
+P_0c07217c: /* original f382, guest PC 0x0c07217c */
+if(!s->budget--) { s->failed_pc=0x0c07217cu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c07217e;
+P_0c07217e: /* original f20c, guest PC 0x0c07217e */
+if(!s->budget--) { s->failed_pc=0x0c07217eu; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072180;
+P_0c072180: /* original f2a2, guest PC 0x0c072180 */
+if(!s->budget--) { s->failed_pc=0x0c072180u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c072182;
+P_0c072182: /* original f16c, guest PC 0x0c072182 */
+if(!s->budget--) { s->failed_pc=0x0c072182u; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072184;
+P_0c072184: /* original f192, guest PC 0x0c072184 */
+if(!s->budget--) { s->failed_pc=0x0c072184u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c072186;
+P_0c072186: /* original f34d, guest PC 0x0c072186 */
+if(!s->budget--) { s->failed_pc=0x0c072186u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072188;
+P_0c072188: /* original f39e, guest PC 0x0c072188 */
+if(!s->budget--) { s->failed_pc=0x0c072188u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c07218a;
+P_0c07218a: /* original f24d, guest PC 0x0c07218a */
+if(!s->budget--) { s->failed_pc=0x0c07218au; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c07218c;
+P_0c07218c: /* original f06c, guest PC 0x0c07218c */
+if(!s->budget--) { s->failed_pc=0x0c07218cu; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c07218e;
+P_0c07218e: /* original f28e, guest PC 0x0c07218e */
+if(!s->budget--) { s->failed_pc=0x0c07218eu; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072190;
+P_0c072190: /* original f14d, guest PC 0x0c072190 */
+if(!s->budget--) { s->failed_pc=0x0c072190u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c072192;
+P_0c072192: /* original f63b, guest PC 0x0c072192 */
+if(!s->budget--) { s->failed_pc=0x0c072192u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072194;
+P_0c072194: /* original f05c, guest PC 0x0c072194 */
+if(!s->budget--) { s->failed_pc=0x0c072194u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c072196;
+P_0c072196: /* original f1ae, guest PC 0x0c072196 */
+if(!s->budget--) { s->failed_pc=0x0c072196u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072198;
+P_0c072198: /* original f62b, guest PC 0x0c072198 */
+if(!s->budget--) { s->failed_pc=0x0c072198u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c07219a;
+P_0c07219a: /* original f61b, guest PC 0x0c07219a */
+if(!s->budget--) { s->failed_pc=0x0c07219au; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c07219c;
+P_0c07219c: /* original 66f3, guest PC 0x0c07219c */
+if(!s->budget--) { s->failed_pc=0x0c07219cu; return 0; }
+r[6]=r[15];
+goto P_0c07219e;
+P_0c07219e: /* original 64a3, guest PC 0x0c07219e */
+if(!s->budget--) { s->failed_pc=0x0c07219eu; return 0; }
+r[4]=r[10];
+goto P_0c0721a0;
+P_0c0721a0: /* original 65c3, guest PC 0x0c0721a0 */
+if(!s->budget--) { s->failed_pc=0x0c0721a0u; return 0; }
+r[5]=r[12];
+goto P_0c0721a2;
+P_0c0721a2: /* original 7618, guest PC 0x0c0721a2 */
+if(!s->budget--) { s->failed_pc=0x0c0721a2u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c0721a4;
+P_0c0721a4: /* original f049, guest PC 0x0c0721a4 */
+if(!s->budget--) { s->failed_pc=0x0c0721a4u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721a6;
+P_0c0721a6: /* original f549, guest PC 0x0c0721a6 */
+if(!s->budget--) { s->failed_pc=0x0c0721a6u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721a8;
+P_0c0721a8: /* original f648, guest PC 0x0c0721a8 */
+if(!s->budget--) { s->failed_pc=0x0c0721a8u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c0721aa;
+P_0c0721aa: /* original f859, guest PC 0x0c0721aa */
+if(!s->budget--) { s->failed_pc=0x0c0721aau; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721ac;
+P_0c0721ac: /* original f959, guest PC 0x0c0721ac */
+if(!s->budget--) { s->failed_pc=0x0c0721acu; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721ae;
+P_0c0721ae: /* original fa58, guest PC 0x0c0721ae */
+if(!s->budget--) { s->failed_pc=0x0c0721aeu; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c0721b0;
+P_0c0721b0: /* original 760c, guest PC 0x0c0721b0 */
+if(!s->budget--) { s->failed_pc=0x0c0721b0u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0721b2;
+P_0c0721b2: /* original f35c, guest PC 0x0c0721b2 */
+if(!s->budget--) { s->failed_pc=0x0c0721b2u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c0721b4;
+P_0c0721b4: /* original f382, guest PC 0x0c0721b4 */
+if(!s->budget--) { s->failed_pc=0x0c0721b4u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0721b6;
+P_0c0721b6: /* original f20c, guest PC 0x0c0721b6 */
+if(!s->budget--) { s->failed_pc=0x0c0721b6u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c0721b8;
+P_0c0721b8: /* original f2a2, guest PC 0x0c0721b8 */
+if(!s->budget--) { s->failed_pc=0x0c0721b8u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c0721ba;
+P_0c0721ba: /* original f16c, guest PC 0x0c0721ba */
+if(!s->budget--) { s->failed_pc=0x0c0721bau; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c0721bc;
+P_0c0721bc: /* original f192, guest PC 0x0c0721bc */
+if(!s->budget--) { s->failed_pc=0x0c0721bcu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c0721be;
+P_0c0721be: /* original f34d, guest PC 0x0c0721be */
+if(!s->budget--) { s->failed_pc=0x0c0721beu; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0721c0;
+P_0c0721c0: /* original f39e, guest PC 0x0c0721c0 */
+if(!s->budget--) { s->failed_pc=0x0c0721c0u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0721c2;
+P_0c0721c2: /* original f24d, guest PC 0x0c0721c2 */
+if(!s->budget--) { s->failed_pc=0x0c0721c2u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c0721c4;
+P_0c0721c4: /* original f06c, guest PC 0x0c0721c4 */
+if(!s->budget--) { s->failed_pc=0x0c0721c4u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c0721c6;
+P_0c0721c6: /* original f28e, guest PC 0x0c0721c6 */
+if(!s->budget--) { s->failed_pc=0x0c0721c6u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c0721c8;
+P_0c0721c8: /* original f14d, guest PC 0x0c0721c8 */
+if(!s->budget--) { s->failed_pc=0x0c0721c8u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c0721ca;
+P_0c0721ca: /* original f63b, guest PC 0x0c0721ca */
+if(!s->budget--) { s->failed_pc=0x0c0721cau; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c0721cc;
+P_0c0721cc: /* original f05c, guest PC 0x0c0721cc */
+if(!s->budget--) { s->failed_pc=0x0c0721ccu; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c0721ce;
+P_0c0721ce: /* original f1ae, guest PC 0x0c0721ce */
+if(!s->budget--) { s->failed_pc=0x0c0721ceu; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c0721d0;
+P_0c0721d0: /* original f62b, guest PC 0x0c0721d0 */
+if(!s->budget--) { s->failed_pc=0x0c0721d0u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c0721d2;
+P_0c0721d2: /* original f61b, guest PC 0x0c0721d2 */
+if(!s->budget--) { s->failed_pc=0x0c0721d2u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c0721d4;
+P_0c0721d4: /* original 64f3, guest PC 0x0c0721d4 */
+if(!s->budget--) { s->failed_pc=0x0c0721d4u; return 0; }
+r[4]=r[15];
+goto P_0c0721d6;
+P_0c0721d6: /* original 7424, guest PC 0x0c0721d6 */
+if(!s->budget--) { s->failed_pc=0x0c0721d6u; return 0; }
+r[4]+=0x00000024u;
+goto P_0c0721d8;
+P_0c0721d8: /* original f049, guest PC 0x0c0721d8 */
+if(!s->budget--) { s->failed_pc=0x0c0721d8u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721da;
+P_0c0721da: /* original f149, guest PC 0x0c0721da */
+if(!s->budget--) { s->failed_pc=0x0c0721dau; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721dc;
+P_0c0721dc: /* original f249, guest PC 0x0c0721dc */
+if(!s->budget--) { s->failed_pc=0x0c0721dcu; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721de;
+P_0c0721de: /* original f38d, guest PC 0x0c0721de */
+if(!s->budget--) { s->failed_pc=0x0c0721deu; return 0; }
+fr[3]=0;
+goto P_0c0721e0;
+P_0c0721e0: /* original f0ed, guest PC 0x0c0721e0 */
+if(!s->budget--) { s->failed_pc=0x0c0721e0u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0721e2;
+P_0c0721e2: /* original f37d, guest PC 0x0c0721e2 */
+if(!s->budget--) { s->failed_pc=0x0c0721e2u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0721e4;
+P_0c0721e4: /* original f232, guest PC 0x0c0721e4 */
+if(!s->budget--) { s->failed_pc=0x0c0721e4u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0721e6;
+P_0c0721e6: /* original f132, guest PC 0x0c0721e6 */
+if(!s->budget--) { s->failed_pc=0x0c0721e6u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0721e8;
+P_0c0721e8: /* original f032, guest PC 0x0c0721e8 */
+if(!s->budget--) { s->failed_pc=0x0c0721e8u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0721ea;
+P_0c0721ea: /* original f42b, guest PC 0x0c0721ea */
+if(!s->budget--) { s->failed_pc=0x0c0721eau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0721ec;
+P_0c0721ec: /* original f41b, guest PC 0x0c0721ec */
+if(!s->budget--) { s->failed_pc=0x0c0721ecu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0721ee;
+P_0c0721ee: /* original f40b, guest PC 0x0c0721ee */
+if(!s->budget--) { s->failed_pc=0x0c0721eeu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0721f0;
+P_0c0721f0: /* original 64f3, guest PC 0x0c0721f0 */
+if(!s->budget--) { s->failed_pc=0x0c0721f0u; return 0; }
+r[4]=r[15];
+goto P_0c0721f2;
+P_0c0721f2: /* original 7418, guest PC 0x0c0721f2 */
+if(!s->budget--) { s->failed_pc=0x0c0721f2u; return 0; }
+r[4]+=0x00000018u;
+goto P_0c0721f4;
+P_0c0721f4: /* original f049, guest PC 0x0c0721f4 */
+if(!s->budget--) { s->failed_pc=0x0c0721f4u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721f6;
+P_0c0721f6: /* original f149, guest PC 0x0c0721f6 */
+if(!s->budget--) { s->failed_pc=0x0c0721f6u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721f8;
+P_0c0721f8: /* original f249, guest PC 0x0c0721f8 */
+if(!s->budget--) { s->failed_pc=0x0c0721f8u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0721fa;
+P_0c0721fa: /* original f38d, guest PC 0x0c0721fa */
+if(!s->budget--) { s->failed_pc=0x0c0721fau; return 0; }
+fr[3]=0;
+goto P_0c0721fc;
+P_0c0721fc: /* original f0ed, guest PC 0x0c0721fc */
+if(!s->budget--) { s->failed_pc=0x0c0721fcu; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0721fe;
+P_0c0721fe: /* original f37d, guest PC 0x0c0721fe */
+if(!s->budget--) { s->failed_pc=0x0c0721feu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072200;
+P_0c072200: /* original f232, guest PC 0x0c072200 */
+if(!s->budget--) { s->failed_pc=0x0c072200u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072202;
+P_0c072202: /* original f132, guest PC 0x0c072202 */
+if(!s->budget--) { s->failed_pc=0x0c072202u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072204;
+P_0c072204: /* original f032, guest PC 0x0c072204 */
+if(!s->budget--) { s->failed_pc=0x0c072204u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072206;
+P_0c072206: /* original f42b, guest PC 0x0c072206 */
+if(!s->budget--) { s->failed_pc=0x0c072206u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072208;
+P_0c072208: /* original f41b, guest PC 0x0c072208 */
+if(!s->budget--) { s->failed_pc=0x0c072208u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07220a;
+P_0c07220a: /* original f40b, guest PC 0x0c07220a */
+if(!s->budget--) { s->failed_pc=0x0c07220au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07220c;
+P_0c07220c: /* original 65f3, guest PC 0x0c07220c */
+if(!s->budget--) { s->failed_pc=0x0c07220cu; return 0; }
+r[5]=r[15];
+goto P_0c07220e;
+P_0c07220e: /* original 64e3, guest PC 0x0c07220e */
+if(!s->budget--) { s->failed_pc=0x0c07220eu; return 0; }
+r[4]=r[14];
+goto P_0c072210;
+P_0c072210: /* original 66f3, guest PC 0x0c072210 */
+if(!s->budget--) { s->failed_pc=0x0c072210u; return 0; }
+r[6]=r[15];
+goto P_0c072212;
+P_0c072212: /* original 740c, guest PC 0x0c072212 */
+if(!s->budget--) { s->failed_pc=0x0c072212u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072214;
+P_0c072214: /* original 7618, guest PC 0x0c072214 */
+if(!s->budget--) { s->failed_pc=0x0c072214u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072216;
+P_0c072216: /* original 7524, guest PC 0x0c072216 */
+if(!s->budget--) { s->failed_pc=0x0c072216u; return 0; }
+r[5]+=0x00000024u;
+goto P_0c072218;
+P_0c072218: /* original f059, guest PC 0x0c072218 */
+if(!s->budget--) { s->failed_pc=0x0c072218u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07221a;
+P_0c07221a: /* original f369, guest PC 0x0c07221a */
+if(!s->budget--) { s->failed_pc=0x0c07221au; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07221c;
+P_0c07221c: /* original f159, guest PC 0x0c07221c */
+if(!s->budget--) { s->failed_pc=0x0c07221cu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07221e;
+P_0c07221e: /* original f469, guest PC 0x0c07221e */
+if(!s->budget--) { s->failed_pc=0x0c07221eu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072220;
+P_0c072220: /* original f259, guest PC 0x0c072220 */
+if(!s->budget--) { s->failed_pc=0x0c072220u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072222;
+P_0c072222: /* original f569, guest PC 0x0c072222 */
+if(!s->budget--) { s->failed_pc=0x0c072222u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072224;
+P_0c072224: /* original 740c, guest PC 0x0c072224 */
+if(!s->budget--) { s->failed_pc=0x0c072224u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072226;
+P_0c072226: /* original f030, guest PC 0x0c072226 */
+if(!s->budget--) { s->failed_pc=0x0c072226u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c072228;
+P_0c072228: /* original f250, guest PC 0x0c072228 */
+if(!s->budget--) { s->failed_pc=0x0c072228u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'+');
+goto P_0c07222a;
+P_0c07222a: /* original f140, guest PC 0x0c07222a */
+if(!s->budget--) { s->failed_pc=0x0c07222au; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'+');
+goto P_0c07222c;
+P_0c07222c: /* original f42b, guest PC 0x0c07222c */
+if(!s->budget--) { s->failed_pc=0x0c07222cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07222e;
+P_0c07222e: /* original f41b, guest PC 0x0c07222e */
+if(!s->budget--) { s->failed_pc=0x0c07222eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072230;
+P_0c072230: /* original f40b, guest PC 0x0c072230 */
+if(!s->budget--) { s->failed_pc=0x0c072230u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072232;
+P_0c072232: /* original 0009, guest PC 0x0c072232 */
+if(!s->budget--) { s->failed_pc=0x0c072232u; return 0; }
+goto P_0c072234;
+P_0c072234: /* original 64e3, guest PC 0x0c072234 */
+if(!s->budget--) { s->failed_pc=0x0c072234u; return 0; }
+r[4]=r[14];
+goto P_0c072236;
+P_0c072236: /* original 65e3, guest PC 0x0c072236 */
+if(!s->budget--) { s->failed_pc=0x0c072236u; return 0; }
+r[5]=r[14];
+goto P_0c072238;
+P_0c072238: /* original 740c, guest PC 0x0c072238 */
+if(!s->budget--) { s->failed_pc=0x0c072238u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c07223a;
+P_0c07223a: /* original f4fc, guest PC 0x0c07223a */
+if(!s->budget--) { s->failed_pc=0x0c07223au; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c07223c;
+P_0c07223c: /* original 750c, guest PC 0x0c07223c */
+if(!s->budget--) { s->failed_pc=0x0c07223cu; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c07223e;
+P_0c07223e: /* original f059, guest PC 0x0c07223e */
+if(!s->budget--) { s->failed_pc=0x0c07223eu; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072240;
+P_0c072240: /* original f159, guest PC 0x0c072240 */
+if(!s->budget--) { s->failed_pc=0x0c072240u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072242;
+P_0c072242: /* original f259, guest PC 0x0c072242 */
+if(!s->budget--) { s->failed_pc=0x0c072242u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072244;
+P_0c072244: /* original f38d, guest PC 0x0c072244 */
+if(!s->budget--) { s->failed_pc=0x0c072244u; return 0; }
+fr[3]=0;
+goto P_0c072246;
+P_0c072246: /* original f0ed, guest PC 0x0c072246 */
+if(!s->budget--) { s->failed_pc=0x0c072246u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c072248;
+P_0c072248: /* original f37d, guest PC 0x0c072248 */
+if(!s->budget--) { s->failed_pc=0x0c072248u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c07224a;
+P_0c07224a: /* original f342, guest PC 0x0c07224a */
+if(!s->budget--) { s->failed_pc=0x0c07224au; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c07224c;
+P_0c07224c: /* original 740c, guest PC 0x0c07224c */
+if(!s->budget--) { s->failed_pc=0x0c07224cu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c07224e;
+P_0c07224e: /* original f232, guest PC 0x0c07224e */
+if(!s->budget--) { s->failed_pc=0x0c07224eu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072250;
+P_0c072250: /* original f132, guest PC 0x0c072250 */
+if(!s->budget--) { s->failed_pc=0x0c072250u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072252;
+P_0c072252: /* original f032, guest PC 0x0c072252 */
+if(!s->budget--) { s->failed_pc=0x0c072252u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072254;
+P_0c072254: /* original f42b, guest PC 0x0c072254 */
+if(!s->budget--) { s->failed_pc=0x0c072254u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072256;
+P_0c072256: /* original f41b, guest PC 0x0c072256 */
+if(!s->budget--) { s->failed_pc=0x0c072256u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072258;
+P_0c072258: /* original f40b, guest PC 0x0c072258 */
+if(!s->budget--) { s->failed_pc=0x0c072258u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07225a;
+P_0c07225a: /* original 0009, guest PC 0x0c07225a */
+if(!s->budget--) { s->failed_pc=0x0c07225au; return 0; }
+goto P_0c07225c;
+P_0c07225c: /* original 2fe2, guest PC 0x0c07225c */
+if(!s->budget--) { s->failed_pc=0x0c07225cu; return 0; }
+write(ram,r[15],r[14],4);
+goto P_0c07225e;
+P_0c07225e: /* original e201, guest PC 0x0c07225e */
+if(!s->budget--) { s->failed_pc=0x0c07225eu; return 0; }
+r[2]=0x00000001u;
+goto P_0c072260;
+P_0c072260: /* original 53f1, guest PC 0x0c072260 */
+if(!s->budget--) { s->failed_pc=0x0c072260u; return 0; }
+r[3]=read(ram,r[15]+4,4);
+goto P_0c072262;
+P_0c072262: /* original 6eb3, guest PC 0x0c072262 */
+if(!s->budget--) { s->failed_pc=0x0c072262u; return 0; }
+r[14]=r[11];
+goto P_0c072264;
+P_0c072264: /* original 7b18, guest PC 0x0c072264 */
+if(!s->budget--) { s->failed_pc=0x0c072264u; return 0; }
+r[11]+=0x00000018u;
+goto P_0c072266;
+P_0c072266: /* original 73ff, guest PC 0x0c072266 */
+if(!s->budget--) { s->failed_pc=0x0c072266u; return 0; }
+r[3]+=0xffffffffu;
+goto P_0c072268;
+P_0c072268: /* original 3327, guest PC 0x0c072268 */
+if(!s->budget--) { s->failed_pc=0x0c072268u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[3]>(int32_t)r[2])!=0);
+goto P_0c07226a;
+P_0c07226a: /* original 7918, guest PC 0x0c07226a */
+if(!s->budget--) { s->failed_pc=0x0c07226au; return 0; }
+r[9]+=0x00000018u;
+goto P_0c07226c;
+P_0c07226c: /* original 8f03, guest PC 0x0c07226c */
+if(!s->budget--) { s->failed_pc=0x0c07226cu; return 0; }
+cond=r[17]&1u;
+write(ram,r[15]+4,r[3],4);
+if(!cond) { goto P_0c072276; }
+goto P_0c072270;
+P_0c07226e: /* original 1f31, guest PC 0x0c07226e */
+if(!s->budget--) { s->failed_pc=0x0c07226eu; return 0; }
+write(ram,r[15]+4,r[3],4);
+goto P_0c072270;
+P_0c072270: /* original d103, guest PC 0x0c072270 */
+if(!s->budget--) { s->failed_pc=0x0c072270u; return 0; }
+r[1]=read(ram,0x0c072280u,4);
+goto P_0c072272;
+P_0c072272: /* original 412b, guest PC 0x0c072272 */
+if(!s->budget--) { s->failed_pc=0x0c072272u; return 0; }
+target=r[1];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c072274: /* original 0009, guest PC 0x0c072274 */
+if(!s->budget--) { s->failed_pc=0x0c072274u; return 0; }
+goto P_0c072276;
+P_0c072276: /* original 65f2, guest PC 0x0c072276 */
+if(!s->budget--) { s->failed_pc=0x0c072276u; return 0; }
+tmp=read(ram,r[15],4);
+r[5]=tmp;
+goto P_0c072278;
+P_0c072278: /* original 64d3, guest PC 0x0c072278 */
+if(!s->budget--) { s->failed_pc=0x0c072278u; return 0; }
+r[4]=r[13];
+goto P_0c07227a;
+P_0c07227a: /* original 66e3, guest PC 0x0c07227a */
+if(!s->budget--) { s->failed_pc=0x0c07227au; return 0; }
+r[6]=r[14];
+goto P_0c07227c;
+P_0c07227c: /* original a002, guest PC 0x0c07227c */
+if(!s->budget--) { s->failed_pc=0x0c07227cu; return 0; }
+goto P_0c072284;
+P_0c07227e: /* original 0009, guest PC 0x0c07227e */
+if(!s->budget--) { s->failed_pc=0x0c07227eu; return 0; }
+return vf3_matrix_family(0x0c072280u,s,ram);
+P_0c072284: /* original f059, guest PC 0x0c072284 */
+if(!s->budget--) { s->failed_pc=0x0c072284u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072286;
+P_0c072286: /* original f369, guest PC 0x0c072286 */
+if(!s->budget--) { s->failed_pc=0x0c072286u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072288;
+P_0c072288: /* original f159, guest PC 0x0c072288 */
+if(!s->budget--) { s->failed_pc=0x0c072288u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07228a;
+P_0c07228a: /* original f469, guest PC 0x0c07228a */
+if(!s->budget--) { s->failed_pc=0x0c07228au; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07228c;
+P_0c07228c: /* original f031, guest PC 0x0c07228c */
+if(!s->budget--) { s->failed_pc=0x0c07228cu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c07228e;
+P_0c07228e: /* original f258, guest PC 0x0c07228e */
+if(!s->budget--) { s->failed_pc=0x0c07228eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072290;
+P_0c072290: /* original f568, guest PC 0x0c072290 */
+if(!s->budget--) { s->failed_pc=0x0c072290u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072292;
+P_0c072292: /* original f141, guest PC 0x0c072292 */
+if(!s->budget--) { s->failed_pc=0x0c072292u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072294;
+P_0c072294: /* original f251, guest PC 0x0c072294 */
+if(!s->budget--) { s->failed_pc=0x0c072294u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072296;
+P_0c072296: /* original 7408, guest PC 0x0c072296 */
+if(!s->budget--) { s->failed_pc=0x0c072296u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c072298;
+P_0c072298: /* original f42a, guest PC 0x0c072298 */
+if(!s->budget--) { s->failed_pc=0x0c072298u; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07229a;
+P_0c07229a: /* original f41b, guest PC 0x0c07229a */
+if(!s->budget--) { s->failed_pc=0x0c07229au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07229c;
+P_0c07229c: /* original f40b, guest PC 0x0c07229c */
+if(!s->budget--) { s->failed_pc=0x0c07229cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07229e;
+P_0c07229e: /* original 0009, guest PC 0x0c07229e */
+if(!s->budget--) { s->failed_pc=0x0c07229eu; return 0; }
+goto P_0c0722a0;
+P_0c0722a0: /* original 64a3, guest PC 0x0c0722a0 */
+if(!s->budget--) { s->failed_pc=0x0c0722a0u; return 0; }
+r[4]=r[10];
+goto P_0c0722a2;
+P_0c0722a2: /* original 6593, guest PC 0x0c0722a2 */
+if(!s->budget--) { s->failed_pc=0x0c0722a2u; return 0; }
+r[5]=r[9];
+goto P_0c0722a4;
+P_0c0722a4: /* original 66e3, guest PC 0x0c0722a4 */
+if(!s->budget--) { s->failed_pc=0x0c0722a4u; return 0; }
+r[6]=r[14];
+goto P_0c0722a6;
+P_0c0722a6: /* original f059, guest PC 0x0c0722a6 */
+if(!s->budget--) { s->failed_pc=0x0c0722a6u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722a8;
+P_0c0722a8: /* original f369, guest PC 0x0c0722a8 */
+if(!s->budget--) { s->failed_pc=0x0c0722a8u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722aa;
+P_0c0722aa: /* original f159, guest PC 0x0c0722aa */
+if(!s->budget--) { s->failed_pc=0x0c0722aau; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722ac;
+P_0c0722ac: /* original f469, guest PC 0x0c0722ac */
+if(!s->budget--) { s->failed_pc=0x0c0722acu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722ae;
+P_0c0722ae: /* original f031, guest PC 0x0c0722ae */
+if(!s->budget--) { s->failed_pc=0x0c0722aeu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0722b0;
+P_0c0722b0: /* original f258, guest PC 0x0c0722b0 */
+if(!s->budget--) { s->failed_pc=0x0c0722b0u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0722b2;
+P_0c0722b2: /* original f568, guest PC 0x0c0722b2 */
+if(!s->budget--) { s->failed_pc=0x0c0722b2u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0722b4;
+P_0c0722b4: /* original f141, guest PC 0x0c0722b4 */
+if(!s->budget--) { s->failed_pc=0x0c0722b4u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0722b6;
+P_0c0722b6: /* original f251, guest PC 0x0c0722b6 */
+if(!s->budget--) { s->failed_pc=0x0c0722b6u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0722b8;
+P_0c0722b8: /* original 7408, guest PC 0x0c0722b8 */
+if(!s->budget--) { s->failed_pc=0x0c0722b8u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0722ba;
+P_0c0722ba: /* original f42a, guest PC 0x0c0722ba */
+if(!s->budget--) { s->failed_pc=0x0c0722bau; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0722bc;
+P_0c0722bc: /* original f41b, guest PC 0x0c0722bc */
+if(!s->budget--) { s->failed_pc=0x0c0722bcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0722be;
+P_0c0722be: /* original f40b, guest PC 0x0c0722be */
+if(!s->budget--) { s->failed_pc=0x0c0722beu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0722c0;
+P_0c0722c0: /* original 66e3, guest PC 0x0c0722c0 */
+if(!s->budget--) { s->failed_pc=0x0c0722c0u; return 0; }
+r[6]=r[14];
+goto P_0c0722c2;
+P_0c0722c2: /* original 64a3, guest PC 0x0c0722c2 */
+if(!s->budget--) { s->failed_pc=0x0c0722c2u; return 0; }
+r[4]=r[10];
+goto P_0c0722c4;
+P_0c0722c4: /* original 65d3, guest PC 0x0c0722c4 */
+if(!s->budget--) { s->failed_pc=0x0c0722c4u; return 0; }
+r[5]=r[13];
+goto P_0c0722c6;
+P_0c0722c6: /* original 760c, guest PC 0x0c0722c6 */
+if(!s->budget--) { s->failed_pc=0x0c0722c6u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0722c8;
+P_0c0722c8: /* original f049, guest PC 0x0c0722c8 */
+if(!s->budget--) { s->failed_pc=0x0c0722c8u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722ca;
+P_0c0722ca: /* original f549, guest PC 0x0c0722ca */
+if(!s->budget--) { s->failed_pc=0x0c0722cau; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722cc;
+P_0c0722cc: /* original f648, guest PC 0x0c0722cc */
+if(!s->budget--) { s->failed_pc=0x0c0722ccu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c0722ce;
+P_0c0722ce: /* original f859, guest PC 0x0c0722ce */
+if(!s->budget--) { s->failed_pc=0x0c0722ceu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722d0;
+P_0c0722d0: /* original f959, guest PC 0x0c0722d0 */
+if(!s->budget--) { s->failed_pc=0x0c0722d0u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0722d2;
+P_0c0722d2: /* original fa58, guest PC 0x0c0722d2 */
+if(!s->budget--) { s->failed_pc=0x0c0722d2u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c0722d4;
+P_0c0722d4: /* original 760c, guest PC 0x0c0722d4 */
+if(!s->budget--) { s->failed_pc=0x0c0722d4u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0722d6;
+P_0c0722d6: /* original f35c, guest PC 0x0c0722d6 */
+if(!s->budget--) { s->failed_pc=0x0c0722d6u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c0722d8;
+P_0c0722d8: /* original f382, guest PC 0x0c0722d8 */
+if(!s->budget--) { s->failed_pc=0x0c0722d8u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0722da;
+P_0c0722da: /* original f20c, guest PC 0x0c0722da */
+if(!s->budget--) { s->failed_pc=0x0c0722dau; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c0722dc;
+P_0c0722dc: /* original f2a2, guest PC 0x0c0722dc */
+if(!s->budget--) { s->failed_pc=0x0c0722dcu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c0722de;
+P_0c0722de: /* original f16c, guest PC 0x0c0722de */
+if(!s->budget--) { s->failed_pc=0x0c0722deu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c0722e0;
+P_0c0722e0: /* original f192, guest PC 0x0c0722e0 */
+if(!s->budget--) { s->failed_pc=0x0c0722e0u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c0722e2;
+P_0c0722e2: /* original f34d, guest PC 0x0c0722e2 */
+if(!s->budget--) { s->failed_pc=0x0c0722e2u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0722e4;
+P_0c0722e4: /* original f39e, guest PC 0x0c0722e4 */
+if(!s->budget--) { s->failed_pc=0x0c0722e4u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0722e6;
+P_0c0722e6: /* original f24d, guest PC 0x0c0722e6 */
+if(!s->budget--) { s->failed_pc=0x0c0722e6u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c0722e8;
+P_0c0722e8: /* original f06c, guest PC 0x0c0722e8 */
+if(!s->budget--) { s->failed_pc=0x0c0722e8u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c0722ea;
+P_0c0722ea: /* original f28e, guest PC 0x0c0722ea */
+if(!s->budget--) { s->failed_pc=0x0c0722eau; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c0722ec;
+P_0c0722ec: /* original f14d, guest PC 0x0c0722ec */
+if(!s->budget--) { s->failed_pc=0x0c0722ecu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c0722ee;
+P_0c0722ee: /* original f63b, guest PC 0x0c0722ee */
+if(!s->budget--) { s->failed_pc=0x0c0722eeu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c0722f0;
+P_0c0722f0: /* original f05c, guest PC 0x0c0722f0 */
+if(!s->budget--) { s->failed_pc=0x0c0722f0u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c0722f2;
+P_0c0722f2: /* original f1ae, guest PC 0x0c0722f2 */
+if(!s->budget--) { s->failed_pc=0x0c0722f2u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c0722f4;
+P_0c0722f4: /* original f62b, guest PC 0x0c0722f4 */
+if(!s->budget--) { s->failed_pc=0x0c0722f4u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c0722f6;
+P_0c0722f6: /* original f61b, guest PC 0x0c0722f6 */
+if(!s->budget--) { s->failed_pc=0x0c0722f6u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c0722f8;
+P_0c0722f8: /* original 64e3, guest PC 0x0c0722f8 */
+if(!s->budget--) { s->failed_pc=0x0c0722f8u; return 0; }
+r[4]=r[14];
+goto P_0c0722fa;
+P_0c0722fa: /* original 65e3, guest PC 0x0c0722fa */
+if(!s->budget--) { s->failed_pc=0x0c0722fau; return 0; }
+r[5]=r[14];
+goto P_0c0722fc;
+P_0c0722fc: /* original 740c, guest PC 0x0c0722fc */
+if(!s->budget--) { s->failed_pc=0x0c0722fcu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0722fe;
+P_0c0722fe: /* original f4fc, guest PC 0x0c0722fe */
+if(!s->budget--) { s->failed_pc=0x0c0722feu; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072300;
+P_0c072300: /* original 750c, guest PC 0x0c072300 */
+if(!s->budget--) { s->failed_pc=0x0c072300u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c072302;
+P_0c072302: /* original f059, guest PC 0x0c072302 */
+if(!s->budget--) { s->failed_pc=0x0c072302u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072304;
+P_0c072304: /* original f159, guest PC 0x0c072304 */
+if(!s->budget--) { s->failed_pc=0x0c072304u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072306;
+P_0c072306: /* original f259, guest PC 0x0c072306 */
+if(!s->budget--) { s->failed_pc=0x0c072306u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072308;
+P_0c072308: /* original f38d, guest PC 0x0c072308 */
+if(!s->budget--) { s->failed_pc=0x0c072308u; return 0; }
+fr[3]=0;
+goto P_0c07230a;
+P_0c07230a: /* original f0ed, guest PC 0x0c07230a */
+if(!s->budget--) { s->failed_pc=0x0c07230au; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07230c;
+P_0c07230c: /* original f37d, guest PC 0x0c07230c */
+if(!s->budget--) { s->failed_pc=0x0c07230cu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c07230e;
+P_0c07230e: /* original f342, guest PC 0x0c07230e */
+if(!s->budget--) { s->failed_pc=0x0c07230eu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c072310;
+P_0c072310: /* original 740c, guest PC 0x0c072310 */
+if(!s->budget--) { s->failed_pc=0x0c072310u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072312;
+P_0c072312: /* original f232, guest PC 0x0c072312 */
+if(!s->budget--) { s->failed_pc=0x0c072312u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072314;
+P_0c072314: /* original f132, guest PC 0x0c072314 */
+if(!s->budget--) { s->failed_pc=0x0c072314u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072316;
+P_0c072316: /* original f032, guest PC 0x0c072316 */
+if(!s->budget--) { s->failed_pc=0x0c072316u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072318;
+P_0c072318: /* original f42b, guest PC 0x0c072318 */
+if(!s->budget--) { s->failed_pc=0x0c072318u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07231a;
+P_0c07231a: /* original f41b, guest PC 0x0c07231a */
+if(!s->budget--) { s->failed_pc=0x0c07231au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07231c;
+P_0c07231c: /* original f40b, guest PC 0x0c07231c */
+if(!s->budget--) { s->failed_pc=0x0c07231cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07231e;
+P_0c07231e: /* original 0009, guest PC 0x0c07231e */
+if(!s->budget--) { s->failed_pc=0x0c07231eu; return 0; }
+goto P_0c072320;
+P_0c072320: /* original 53f2, guest PC 0x0c072320 */
+if(!s->budget--) { s->failed_pc=0x0c072320u; return 0; }
+r[3]=read(ram,r[15]+8,4);
+goto P_0c072322;
+P_0c072322: /* original 62f3, guest PC 0x0c072322 */
+if(!s->budget--) { s->failed_pc=0x0c072322u; return 0; }
+r[2]=r[15];
+goto P_0c072324;
+P_0c072324: /* original 6eb3, guest PC 0x0c072324 */
+if(!s->budget--) { s->failed_pc=0x0c072324u; return 0; }
+r[14]=r[11];
+goto P_0c072326;
+P_0c072326: /* original 7254, guest PC 0x0c072326 */
+if(!s->budget--) { s->failed_pc=0x0c072326u; return 0; }
+r[2]+=0x00000054u;
+goto P_0c072328;
+P_0c072328: /* original 73ff, guest PC 0x0c072328 */
+if(!s->budget--) { s->failed_pc=0x0c072328u; return 0; }
+r[3]+=0xffffffffu;
+goto P_0c07232a;
+P_0c07232a: /* original 7b18, guest PC 0x0c07232a */
+if(!s->budget--) { s->failed_pc=0x0c07232au; return 0; }
+r[11]+=0x00000018u;
+goto P_0c07232c;
+P_0c07232c: /* original 1f34, guest PC 0x0c07232c */
+if(!s->budget--) { s->failed_pc=0x0c07232cu; return 0; }
+write(ram,r[15]+16,r[3],4);
+goto P_0c07232e;
+P_0c07232e: /* original d104, guest PC 0x0c07232e */
+if(!s->budget--) { s->failed_pc=0x0c07232eu; return 0; }
+r[1]=read(ram,0x0c072340u,4);
+goto P_0c072330;
+P_0c072330: /* original 7918, guest PC 0x0c072330 */
+if(!s->budget--) { s->failed_pc=0x0c072330u; return 0; }
+r[9]+=0x00000018u;
+goto P_0c072332;
+P_0c072332: /* original 412b, guest PC 0x0c072332 */
+if(!s->budget--) { s->failed_pc=0x0c072332u; return 0; }
+target=r[1];
+write(ram,r[15]+8,r[2],4);
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c072334: /* original 1f22, guest PC 0x0c072334 */
+if(!s->budget--) { s->failed_pc=0x0c072334u; return 0; }
+write(ram,r[15]+8,r[2],4);
+return vf3_matrix_family(0x0c072336u,s,ram);
+P_0c07235c: /* original f40b, guest PC 0x0c07235c */
+if(!s->budget--) { s->failed_pc=0x0c07235cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07235e;
+P_0c07235e: /* original 0009, guest PC 0x0c07235e */
+if(!s->budget--) { s->failed_pc=0x0c07235eu; return 0; }
+goto P_0c072360;
+P_0c072360: /* original 64a3, guest PC 0x0c072360 */
+if(!s->budget--) { s->failed_pc=0x0c072360u; return 0; }
+r[4]=r[10];
+goto P_0c072362;
+P_0c072362: /* original 6593, guest PC 0x0c072362 */
+if(!s->budget--) { s->failed_pc=0x0c072362u; return 0; }
+r[5]=r[9];
+goto P_0c072364;
+P_0c072364: /* original 66e3, guest PC 0x0c072364 */
+if(!s->budget--) { s->failed_pc=0x0c072364u; return 0; }
+r[6]=r[14];
+goto P_0c072366;
+P_0c072366: /* original f059, guest PC 0x0c072366 */
+if(!s->budget--) { s->failed_pc=0x0c072366u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072368;
+P_0c072368: /* original f369, guest PC 0x0c072368 */
+if(!s->budget--) { s->failed_pc=0x0c072368u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07236a;
+P_0c07236a: /* original f159, guest PC 0x0c07236a */
+if(!s->budget--) { s->failed_pc=0x0c07236au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07236c;
+P_0c07236c: /* original f469, guest PC 0x0c07236c */
+if(!s->budget--) { s->failed_pc=0x0c07236cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07236e;
+P_0c07236e: /* original f031, guest PC 0x0c07236e */
+if(!s->budget--) { s->failed_pc=0x0c07236eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072370;
+P_0c072370: /* original f258, guest PC 0x0c072370 */
+if(!s->budget--) { s->failed_pc=0x0c072370u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072372;
+P_0c072372: /* original f568, guest PC 0x0c072372 */
+if(!s->budget--) { s->failed_pc=0x0c072372u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072374;
+P_0c072374: /* original f141, guest PC 0x0c072374 */
+if(!s->budget--) { s->failed_pc=0x0c072374u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072376;
+P_0c072376: /* original f251, guest PC 0x0c072376 */
+if(!s->budget--) { s->failed_pc=0x0c072376u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072378;
+P_0c072378: /* original 7408, guest PC 0x0c072378 */
+if(!s->budget--) { s->failed_pc=0x0c072378u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07237a;
+P_0c07237a: /* original f42a, guest PC 0x0c07237a */
+if(!s->budget--) { s->failed_pc=0x0c07237au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07237c;
+P_0c07237c: /* original f41b, guest PC 0x0c07237c */
+if(!s->budget--) { s->failed_pc=0x0c07237cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07237e;
+P_0c07237e: /* original f40b, guest PC 0x0c07237e */
+if(!s->budget--) { s->failed_pc=0x0c07237eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072380;
+P_0c072380: /* original 64c3, guest PC 0x0c072380 */
+if(!s->budget--) { s->failed_pc=0x0c072380u; return 0; }
+r[4]=r[12];
+goto P_0c072382;
+P_0c072382: /* original 6583, guest PC 0x0c072382 */
+if(!s->budget--) { s->failed_pc=0x0c072382u; return 0; }
+r[5]=r[8];
+goto P_0c072384;
+P_0c072384: /* original 66e3, guest PC 0x0c072384 */
+if(!s->budget--) { s->failed_pc=0x0c072384u; return 0; }
+r[6]=r[14];
+goto P_0c072386;
+P_0c072386: /* original f059, guest PC 0x0c072386 */
+if(!s->budget--) { s->failed_pc=0x0c072386u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072388;
+P_0c072388: /* original f369, guest PC 0x0c072388 */
+if(!s->budget--) { s->failed_pc=0x0c072388u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07238a;
+P_0c07238a: /* original f159, guest PC 0x0c07238a */
+if(!s->budget--) { s->failed_pc=0x0c07238au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07238c;
+P_0c07238c: /* original f469, guest PC 0x0c07238c */
+if(!s->budget--) { s->failed_pc=0x0c07238cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07238e;
+P_0c07238e: /* original f031, guest PC 0x0c07238e */
+if(!s->budget--) { s->failed_pc=0x0c07238eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072390;
+P_0c072390: /* original f258, guest PC 0x0c072390 */
+if(!s->budget--) { s->failed_pc=0x0c072390u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072392;
+P_0c072392: /* original f568, guest PC 0x0c072392 */
+if(!s->budget--) { s->failed_pc=0x0c072392u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072394;
+P_0c072394: /* original f141, guest PC 0x0c072394 */
+if(!s->budget--) { s->failed_pc=0x0c072394u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072396;
+P_0c072396: /* original f251, guest PC 0x0c072396 */
+if(!s->budget--) { s->failed_pc=0x0c072396u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072398;
+P_0c072398: /* original 7408, guest PC 0x0c072398 */
+if(!s->budget--) { s->failed_pc=0x0c072398u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07239a;
+P_0c07239a: /* original f42a, guest PC 0x0c07239a */
+if(!s->budget--) { s->failed_pc=0x0c07239au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07239c;
+P_0c07239c: /* original f41b, guest PC 0x0c07239c */
+if(!s->budget--) { s->failed_pc=0x0c07239cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07239e;
+P_0c07239e: /* original f40b, guest PC 0x0c07239e */
+if(!s->budget--) { s->failed_pc=0x0c07239eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0723a0;
+P_0c0723a0: /* original 66f3, guest PC 0x0c0723a0 */
+if(!s->budget--) { s->failed_pc=0x0c0723a0u; return 0; }
+r[6]=r[15];
+goto P_0c0723a2;
+P_0c0723a2: /* original 64d3, guest PC 0x0c0723a2 */
+if(!s->budget--) { s->failed_pc=0x0c0723a2u; return 0; }
+r[4]=r[13];
+goto P_0c0723a4;
+P_0c0723a4: /* original 65a3, guest PC 0x0c0723a4 */
+if(!s->budget--) { s->failed_pc=0x0c0723a4u; return 0; }
+r[5]=r[10];
+goto P_0c0723a6;
+P_0c0723a6: /* original 7624, guest PC 0x0c0723a6 */
+if(!s->budget--) { s->failed_pc=0x0c0723a6u; return 0; }
+r[6]+=0x00000024u;
+goto P_0c0723a8;
+P_0c0723a8: /* original f049, guest PC 0x0c0723a8 */
+if(!s->budget--) { s->failed_pc=0x0c0723a8u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723aa;
+P_0c0723aa: /* original f549, guest PC 0x0c0723aa */
+if(!s->budget--) { s->failed_pc=0x0c0723aau; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723ac;
+P_0c0723ac: /* original f648, guest PC 0x0c0723ac */
+if(!s->budget--) { s->failed_pc=0x0c0723acu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c0723ae;
+P_0c0723ae: /* original f859, guest PC 0x0c0723ae */
+if(!s->budget--) { s->failed_pc=0x0c0723aeu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723b0;
+P_0c0723b0: /* original f959, guest PC 0x0c0723b0 */
+if(!s->budget--) { s->failed_pc=0x0c0723b0u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723b2;
+P_0c0723b2: /* original fa58, guest PC 0x0c0723b2 */
+if(!s->budget--) { s->failed_pc=0x0c0723b2u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c0723b4;
+P_0c0723b4: /* original 760c, guest PC 0x0c0723b4 */
+if(!s->budget--) { s->failed_pc=0x0c0723b4u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0723b6;
+P_0c0723b6: /* original f35c, guest PC 0x0c0723b6 */
+if(!s->budget--) { s->failed_pc=0x0c0723b6u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c0723b8;
+P_0c0723b8: /* original f382, guest PC 0x0c0723b8 */
+if(!s->budget--) { s->failed_pc=0x0c0723b8u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0723ba;
+P_0c0723ba: /* original f20c, guest PC 0x0c0723ba */
+if(!s->budget--) { s->failed_pc=0x0c0723bau; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c0723bc;
+P_0c0723bc: /* original f2a2, guest PC 0x0c0723bc */
+if(!s->budget--) { s->failed_pc=0x0c0723bcu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c0723be;
+P_0c0723be: /* original f16c, guest PC 0x0c0723be */
+if(!s->budget--) { s->failed_pc=0x0c0723beu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c0723c0;
+P_0c0723c0: /* original f192, guest PC 0x0c0723c0 */
+if(!s->budget--) { s->failed_pc=0x0c0723c0u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c0723c2;
+P_0c0723c2: /* original f34d, guest PC 0x0c0723c2 */
+if(!s->budget--) { s->failed_pc=0x0c0723c2u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0723c4;
+P_0c0723c4: /* original f39e, guest PC 0x0c0723c4 */
+if(!s->budget--) { s->failed_pc=0x0c0723c4u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0723c6;
+P_0c0723c6: /* original f24d, guest PC 0x0c0723c6 */
+if(!s->budget--) { s->failed_pc=0x0c0723c6u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c0723c8;
+P_0c0723c8: /* original f06c, guest PC 0x0c0723c8 */
+if(!s->budget--) { s->failed_pc=0x0c0723c8u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c0723ca;
+P_0c0723ca: /* original f28e, guest PC 0x0c0723ca */
+if(!s->budget--) { s->failed_pc=0x0c0723cau; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c0723cc;
+P_0c0723cc: /* original f14d, guest PC 0x0c0723cc */
+if(!s->budget--) { s->failed_pc=0x0c0723ccu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c0723ce;
+P_0c0723ce: /* original f63b, guest PC 0x0c0723ce */
+if(!s->budget--) { s->failed_pc=0x0c0723ceu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c0723d0;
+P_0c0723d0: /* original f05c, guest PC 0x0c0723d0 */
+if(!s->budget--) { s->failed_pc=0x0c0723d0u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c0723d2;
+P_0c0723d2: /* original f1ae, guest PC 0x0c0723d2 */
+if(!s->budget--) { s->failed_pc=0x0c0723d2u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c0723d4;
+P_0c0723d4: /* original f62b, guest PC 0x0c0723d4 */
+if(!s->budget--) { s->failed_pc=0x0c0723d4u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c0723d6;
+P_0c0723d6: /* original f61b, guest PC 0x0c0723d6 */
+if(!s->budget--) { s->failed_pc=0x0c0723d6u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c0723d8;
+P_0c0723d8: /* original 66f3, guest PC 0x0c0723d8 */
+if(!s->budget--) { s->failed_pc=0x0c0723d8u; return 0; }
+r[6]=r[15];
+goto P_0c0723da;
+P_0c0723da: /* original 64c3, guest PC 0x0c0723da */
+if(!s->budget--) { s->failed_pc=0x0c0723dau; return 0; }
+r[4]=r[12];
+goto P_0c0723dc;
+P_0c0723dc: /* original 65d3, guest PC 0x0c0723dc */
+if(!s->budget--) { s->failed_pc=0x0c0723dcu; return 0; }
+r[5]=r[13];
+goto P_0c0723de;
+P_0c0723de: /* original 7618, guest PC 0x0c0723de */
+if(!s->budget--) { s->failed_pc=0x0c0723deu; return 0; }
+r[6]+=0x00000018u;
+goto P_0c0723e0;
+P_0c0723e0: /* original f049, guest PC 0x0c0723e0 */
+if(!s->budget--) { s->failed_pc=0x0c0723e0u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723e2;
+P_0c0723e2: /* original f549, guest PC 0x0c0723e2 */
+if(!s->budget--) { s->failed_pc=0x0c0723e2u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723e4;
+P_0c0723e4: /* original f648, guest PC 0x0c0723e4 */
+if(!s->budget--) { s->failed_pc=0x0c0723e4u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c0723e6;
+P_0c0723e6: /* original f859, guest PC 0x0c0723e6 */
+if(!s->budget--) { s->failed_pc=0x0c0723e6u; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723e8;
+P_0c0723e8: /* original f959, guest PC 0x0c0723e8 */
+if(!s->budget--) { s->failed_pc=0x0c0723e8u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0723ea;
+P_0c0723ea: /* original fa58, guest PC 0x0c0723ea */
+if(!s->budget--) { s->failed_pc=0x0c0723eau; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c0723ec;
+P_0c0723ec: /* original 760c, guest PC 0x0c0723ec */
+if(!s->budget--) { s->failed_pc=0x0c0723ecu; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0723ee;
+P_0c0723ee: /* original f35c, guest PC 0x0c0723ee */
+if(!s->budget--) { s->failed_pc=0x0c0723eeu; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c0723f0;
+P_0c0723f0: /* original f382, guest PC 0x0c0723f0 */
+if(!s->budget--) { s->failed_pc=0x0c0723f0u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0723f2;
+P_0c0723f2: /* original f20c, guest PC 0x0c0723f2 */
+if(!s->budget--) { s->failed_pc=0x0c0723f2u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c0723f4;
+P_0c0723f4: /* original f2a2, guest PC 0x0c0723f4 */
+if(!s->budget--) { s->failed_pc=0x0c0723f4u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c0723f6;
+P_0c0723f6: /* original f16c, guest PC 0x0c0723f6 */
+if(!s->budget--) { s->failed_pc=0x0c0723f6u; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c0723f8;
+P_0c0723f8: /* original f192, guest PC 0x0c0723f8 */
+if(!s->budget--) { s->failed_pc=0x0c0723f8u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c0723fa;
+P_0c0723fa: /* original f34d, guest PC 0x0c0723fa */
+if(!s->budget--) { s->failed_pc=0x0c0723fau; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0723fc;
+P_0c0723fc: /* original f39e, guest PC 0x0c0723fc */
+if(!s->budget--) { s->failed_pc=0x0c0723fcu; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0723fe;
+P_0c0723fe: /* original f24d, guest PC 0x0c0723fe */
+if(!s->budget--) { s->failed_pc=0x0c0723feu; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072400;
+P_0c072400: /* original f06c, guest PC 0x0c072400 */
+if(!s->budget--) { s->failed_pc=0x0c072400u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c072402;
+P_0c072402: /* original f28e, guest PC 0x0c072402 */
+if(!s->budget--) { s->failed_pc=0x0c072402u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072404;
+P_0c072404: /* original f14d, guest PC 0x0c072404 */
+if(!s->budget--) { s->failed_pc=0x0c072404u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c072406;
+P_0c072406: /* original f63b, guest PC 0x0c072406 */
+if(!s->budget--) { s->failed_pc=0x0c072406u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072408;
+P_0c072408: /* original f05c, guest PC 0x0c072408 */
+if(!s->budget--) { s->failed_pc=0x0c072408u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c07240a;
+P_0c07240a: /* original f1ae, guest PC 0x0c07240a */
+if(!s->budget--) { s->failed_pc=0x0c07240au; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c07240c;
+P_0c07240c: /* original f62b, guest PC 0x0c07240c */
+if(!s->budget--) { s->failed_pc=0x0c07240cu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c07240e;
+P_0c07240e: /* original f61b, guest PC 0x0c07240e */
+if(!s->budget--) { s->failed_pc=0x0c07240eu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072410;
+P_0c072410: /* original 64f3, guest PC 0x0c072410 */
+if(!s->budget--) { s->failed_pc=0x0c072410u; return 0; }
+r[4]=r[15];
+goto P_0c072412;
+P_0c072412: /* original 7424, guest PC 0x0c072412 */
+if(!s->budget--) { s->failed_pc=0x0c072412u; return 0; }
+r[4]+=0x00000024u;
+goto P_0c072414;
+P_0c072414: /* original f049, guest PC 0x0c072414 */
+if(!s->budget--) { s->failed_pc=0x0c072414u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072416;
+P_0c072416: /* original f149, guest PC 0x0c072416 */
+if(!s->budget--) { s->failed_pc=0x0c072416u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072418;
+P_0c072418: /* original f249, guest PC 0x0c072418 */
+if(!s->budget--) { s->failed_pc=0x0c072418u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07241a;
+P_0c07241a: /* original f38d, guest PC 0x0c07241a */
+if(!s->budget--) { s->failed_pc=0x0c07241au; return 0; }
+fr[3]=0;
+goto P_0c07241c;
+P_0c07241c: /* original f0ed, guest PC 0x0c07241c */
+if(!s->budget--) { s->failed_pc=0x0c07241cu; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07241e;
+P_0c07241e: /* original f37d, guest PC 0x0c07241e */
+if(!s->budget--) { s->failed_pc=0x0c07241eu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072420;
+P_0c072420: /* original f232, guest PC 0x0c072420 */
+if(!s->budget--) { s->failed_pc=0x0c072420u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072422;
+P_0c072422: /* original f132, guest PC 0x0c072422 */
+if(!s->budget--) { s->failed_pc=0x0c072422u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072424;
+P_0c072424: /* original f032, guest PC 0x0c072424 */
+if(!s->budget--) { s->failed_pc=0x0c072424u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072426;
+P_0c072426: /* original f42b, guest PC 0x0c072426 */
+if(!s->budget--) { s->failed_pc=0x0c072426u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072428;
+P_0c072428: /* original f41b, guest PC 0x0c072428 */
+if(!s->budget--) { s->failed_pc=0x0c072428u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07242a;
+P_0c07242a: /* original f40b, guest PC 0x0c07242a */
+if(!s->budget--) { s->failed_pc=0x0c07242au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07242c;
+P_0c07242c: /* original 64f3, guest PC 0x0c07242c */
+if(!s->budget--) { s->failed_pc=0x0c07242cu; return 0; }
+r[4]=r[15];
+goto P_0c07242e;
+P_0c07242e: /* original 7418, guest PC 0x0c07242e */
+if(!s->budget--) { s->failed_pc=0x0c07242eu; return 0; }
+r[4]+=0x00000018u;
+goto P_0c072430;
+P_0c072430: /* original f049, guest PC 0x0c072430 */
+if(!s->budget--) { s->failed_pc=0x0c072430u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072432;
+P_0c072432: /* original f149, guest PC 0x0c072432 */
+if(!s->budget--) { s->failed_pc=0x0c072432u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072434;
+P_0c072434: /* original f249, guest PC 0x0c072434 */
+if(!s->budget--) { s->failed_pc=0x0c072434u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072436;
+P_0c072436: /* original f38d, guest PC 0x0c072436 */
+if(!s->budget--) { s->failed_pc=0x0c072436u; return 0; }
+fr[3]=0;
+goto P_0c072438;
+P_0c072438: /* original f0ed, guest PC 0x0c072438 */
+if(!s->budget--) { s->failed_pc=0x0c072438u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07243a;
+P_0c07243a: /* original f37d, guest PC 0x0c07243a */
+if(!s->budget--) { s->failed_pc=0x0c07243au; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c07243c;
+P_0c07243c: /* original f232, guest PC 0x0c07243c */
+if(!s->budget--) { s->failed_pc=0x0c07243cu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c07243e;
+P_0c07243e: /* original f132, guest PC 0x0c07243e */
+if(!s->budget--) { s->failed_pc=0x0c07243eu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072440;
+P_0c072440: /* original f032, guest PC 0x0c072440 */
+if(!s->budget--) { s->failed_pc=0x0c072440u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072442;
+P_0c072442: /* original f42b, guest PC 0x0c072442 */
+if(!s->budget--) { s->failed_pc=0x0c072442u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072444;
+P_0c072444: /* original f41b, guest PC 0x0c072444 */
+if(!s->budget--) { s->failed_pc=0x0c072444u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072446;
+P_0c072446: /* original f40b, guest PC 0x0c072446 */
+if(!s->budget--) { s->failed_pc=0x0c072446u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072448;
+P_0c072448: /* original 65f3, guest PC 0x0c072448 */
+if(!s->budget--) { s->failed_pc=0x0c072448u; return 0; }
+r[5]=r[15];
+goto P_0c07244a;
+P_0c07244a: /* original 64e3, guest PC 0x0c07244a */
+if(!s->budget--) { s->failed_pc=0x0c07244au; return 0; }
+r[4]=r[14];
+goto P_0c07244c;
+P_0c07244c: /* original 66f3, guest PC 0x0c07244c */
+if(!s->budget--) { s->failed_pc=0x0c07244cu; return 0; }
+r[6]=r[15];
+goto P_0c07244e;
+P_0c07244e: /* original 740c, guest PC 0x0c07244e */
+if(!s->budget--) { s->failed_pc=0x0c07244eu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072450;
+P_0c072450: /* original 7618, guest PC 0x0c072450 */
+if(!s->budget--) { s->failed_pc=0x0c072450u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072452;
+P_0c072452: /* original 7524, guest PC 0x0c072452 */
+if(!s->budget--) { s->failed_pc=0x0c072452u; return 0; }
+r[5]+=0x00000024u;
+goto P_0c072454;
+P_0c072454: /* original f059, guest PC 0x0c072454 */
+if(!s->budget--) { s->failed_pc=0x0c072454u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072456;
+P_0c072456: /* original f369, guest PC 0x0c072456 */
+if(!s->budget--) { s->failed_pc=0x0c072456u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072458;
+P_0c072458: /* original f159, guest PC 0x0c072458 */
+if(!s->budget--) { s->failed_pc=0x0c072458u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07245a;
+P_0c07245a: /* original f469, guest PC 0x0c07245a */
+if(!s->budget--) { s->failed_pc=0x0c07245au; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07245c;
+P_0c07245c: /* original f259, guest PC 0x0c07245c */
+if(!s->budget--) { s->failed_pc=0x0c07245cu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07245e;
+P_0c07245e: /* original f569, guest PC 0x0c07245e */
+if(!s->budget--) { s->failed_pc=0x0c07245eu; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072460;
+P_0c072460: /* original 740c, guest PC 0x0c072460 */
+if(!s->budget--) { s->failed_pc=0x0c072460u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072462;
+P_0c072462: /* original f030, guest PC 0x0c072462 */
+if(!s->budget--) { s->failed_pc=0x0c072462u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c072464;
+P_0c072464: /* original f250, guest PC 0x0c072464 */
+if(!s->budget--) { s->failed_pc=0x0c072464u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'+');
+goto P_0c072466;
+P_0c072466: /* original f140, guest PC 0x0c072466 */
+if(!s->budget--) { s->failed_pc=0x0c072466u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'+');
+goto P_0c072468;
+P_0c072468: /* original f42b, guest PC 0x0c072468 */
+if(!s->budget--) { s->failed_pc=0x0c072468u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07246a;
+P_0c07246a: /* original f41b, guest PC 0x0c07246a */
+if(!s->budget--) { s->failed_pc=0x0c07246au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07246c;
+P_0c07246c: /* original f40b, guest PC 0x0c07246c */
+if(!s->budget--) { s->failed_pc=0x0c07246cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07246e;
+P_0c07246e: /* original 0009, guest PC 0x0c07246e */
+if(!s->budget--) { s->failed_pc=0x0c07246eu; return 0; }
+goto P_0c072470;
+P_0c072470: /* original 64e3, guest PC 0x0c072470 */
+if(!s->budget--) { s->failed_pc=0x0c072470u; return 0; }
+r[4]=r[14];
+goto P_0c072472;
+P_0c072472: /* original 65e3, guest PC 0x0c072472 */
+if(!s->budget--) { s->failed_pc=0x0c072472u; return 0; }
+r[5]=r[14];
+goto P_0c072474;
+P_0c072474: /* original 740c, guest PC 0x0c072474 */
+if(!s->budget--) { s->failed_pc=0x0c072474u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072476;
+P_0c072476: /* original f4fc, guest PC 0x0c072476 */
+if(!s->budget--) { s->failed_pc=0x0c072476u; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072478;
+P_0c072478: /* original 750c, guest PC 0x0c072478 */
+if(!s->budget--) { s->failed_pc=0x0c072478u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c07247a;
+P_0c07247a: /* original f059, guest PC 0x0c07247a */
+if(!s->budget--) { s->failed_pc=0x0c07247au; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07247c;
+P_0c07247c: /* original f159, guest PC 0x0c07247c */
+if(!s->budget--) { s->failed_pc=0x0c07247cu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07247e;
+P_0c07247e: /* original f259, guest PC 0x0c07247e */
+if(!s->budget--) { s->failed_pc=0x0c07247eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072480;
+P_0c072480: /* original f38d, guest PC 0x0c072480 */
+if(!s->budget--) { s->failed_pc=0x0c072480u; return 0; }
+fr[3]=0;
+goto P_0c072482;
+P_0c072482: /* original f0ed, guest PC 0x0c072482 */
+if(!s->budget--) { s->failed_pc=0x0c072482u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c072484;
+P_0c072484: /* original f37d, guest PC 0x0c072484 */
+if(!s->budget--) { s->failed_pc=0x0c072484u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072486;
+P_0c072486: /* original f342, guest PC 0x0c072486 */
+if(!s->budget--) { s->failed_pc=0x0c072486u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c072488;
+P_0c072488: /* original 740c, guest PC 0x0c072488 */
+if(!s->budget--) { s->failed_pc=0x0c072488u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c07248a;
+P_0c07248a: /* original f232, guest PC 0x0c07248a */
+if(!s->budget--) { s->failed_pc=0x0c07248au; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c07248c;
+P_0c07248c: /* original f132, guest PC 0x0c07248c */
+if(!s->budget--) { s->failed_pc=0x0c07248cu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c07248e;
+P_0c07248e: /* original f032, guest PC 0x0c07248e */
+if(!s->budget--) { s->failed_pc=0x0c07248eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072490;
+P_0c072490: /* original f42b, guest PC 0x0c072490 */
+if(!s->budget--) { s->failed_pc=0x0c072490u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072492;
+P_0c072492: /* original f41b, guest PC 0x0c072492 */
+if(!s->budget--) { s->failed_pc=0x0c072492u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072494;
+P_0c072494: /* original f40b, guest PC 0x0c072494 */
+if(!s->budget--) { s->failed_pc=0x0c072494u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072496;
+P_0c072496: /* original 0009, guest PC 0x0c072496 */
+if(!s->budget--) { s->failed_pc=0x0c072496u; return 0; }
+goto P_0c072498;
+P_0c072498: /* original 2fe2, guest PC 0x0c072498 */
+if(!s->budget--) { s->failed_pc=0x0c072498u; return 0; }
+write(ram,r[15],r[14],4);
+goto P_0c07249a;
+P_0c07249a: /* original 6eb3, guest PC 0x0c07249a */
+if(!s->budget--) { s->failed_pc=0x0c07249au; return 0; }
+r[14]=r[11];
+goto P_0c07249c;
+P_0c07249c: /* original 53f5, guest PC 0x0c07249c */
+if(!s->budget--) { s->failed_pc=0x0c07249cu; return 0; }
+r[3]=read(ram,r[15]+20,4);
+goto P_0c07249e;
+P_0c07249e: /* original e201, guest PC 0x0c07249e */
+if(!s->budget--) { s->failed_pc=0x0c07249eu; return 0; }
+r[2]=0x00000001u;
+goto P_0c0724a0;
+P_0c0724a0: /* original 7b18, guest PC 0x0c0724a0 */
+if(!s->budget--) { s->failed_pc=0x0c0724a0u; return 0; }
+r[11]+=0x00000018u;
+goto P_0c0724a2;
+P_0c0724a2: /* original 6133, guest PC 0x0c0724a2 */
+if(!s->budget--) { s->failed_pc=0x0c0724a2u; return 0; }
+r[1]=r[3];
+goto P_0c0724a4;
+P_0c0724a4: /* original 3127, guest PC 0x0c0724a4 */
+if(!s->budget--) { s->failed_pc=0x0c0724a4u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[1]>(int32_t)r[2])!=0);
+goto P_0c0724a6;
+P_0c0724a6: /* original 7918, guest PC 0x0c0724a6 */
+if(!s->budget--) { s->failed_pc=0x0c0724a6u; return 0; }
+r[9]+=0x00000018u;
+goto P_0c0724a8;
+P_0c0724a8: /* original 1f31, guest PC 0x0c0724a8 */
+if(!s->budget--) { s->failed_pc=0x0c0724a8u; return 0; }
+write(ram,r[15]+4,r[3],4);
+goto P_0c0724aa;
+P_0c0724aa: /* original 8d03, guest PC 0x0c0724aa */
+if(!s->budget--) { s->failed_pc=0x0c0724aau; return 0; }
+cond=r[17]&1u;
+r[8]+=0x00000018u;
+if(cond) { goto P_0c0724b4; }
+goto P_0c0724ae;
+P_0c0724ac: /* original 7818, guest PC 0x0c0724ac */
+if(!s->budget--) { s->failed_pc=0x0c0724acu; return 0; }
+r[8]+=0x00000018u;
+goto P_0c0724ae;
+P_0c0724ae: /* original d304, guest PC 0x0c0724ae */
+if(!s->budget--) { s->failed_pc=0x0c0724aeu; return 0; }
+r[3]=read(ram,0x0c0724c0u,4);
+goto P_0c0724b0;
+P_0c0724b0: /* original 432b, guest PC 0x0c0724b0 */
+if(!s->budget--) { s->failed_pc=0x0c0724b0u; return 0; }
+target=r[3];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c0724b2: /* original 0009, guest PC 0x0c0724b2 */
+if(!s->budget--) { s->failed_pc=0x0c0724b2u; return 0; }
+goto P_0c0724b4;
+P_0c0724b4: /* original 65f2, guest PC 0x0c0724b4 */
+if(!s->budget--) { s->failed_pc=0x0c0724b4u; return 0; }
+tmp=read(ram,r[15],4);
+r[5]=tmp;
+goto P_0c0724b6;
+P_0c0724b6: /* original 64d3, guest PC 0x0c0724b6 */
+if(!s->budget--) { s->failed_pc=0x0c0724b6u; return 0; }
+r[4]=r[13];
+goto P_0c0724b8;
+P_0c0724b8: /* original 66e3, guest PC 0x0c0724b8 */
+if(!s->budget--) { s->failed_pc=0x0c0724b8u; return 0; }
+r[6]=r[14];
+goto P_0c0724ba;
+P_0c0724ba: /* original a003, guest PC 0x0c0724ba */
+if(!s->budget--) { s->failed_pc=0x0c0724bau; return 0; }
+goto P_0c0724c4;
+P_0c0724bc: /* original 0009, guest PC 0x0c0724bc */
+if(!s->budget--) { s->failed_pc=0x0c0724bcu; return 0; }
+return vf3_matrix_family(0x0c0724beu,s,ram);
+P_0c0724c4: /* original f059, guest PC 0x0c0724c4 */
+if(!s->budget--) { s->failed_pc=0x0c0724c4u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724c6;
+P_0c0724c6: /* original f369, guest PC 0x0c0724c6 */
+if(!s->budget--) { s->failed_pc=0x0c0724c6u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724c8;
+P_0c0724c8: /* original f159, guest PC 0x0c0724c8 */
+if(!s->budget--) { s->failed_pc=0x0c0724c8u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724ca;
+P_0c0724ca: /* original f469, guest PC 0x0c0724ca */
+if(!s->budget--) { s->failed_pc=0x0c0724cau; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724cc;
+P_0c0724cc: /* original f031, guest PC 0x0c0724cc */
+if(!s->budget--) { s->failed_pc=0x0c0724ccu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0724ce;
+P_0c0724ce: /* original f258, guest PC 0x0c0724ce */
+if(!s->budget--) { s->failed_pc=0x0c0724ceu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0724d0;
+P_0c0724d0: /* original f568, guest PC 0x0c0724d0 */
+if(!s->budget--) { s->failed_pc=0x0c0724d0u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0724d2;
+P_0c0724d2: /* original f141, guest PC 0x0c0724d2 */
+if(!s->budget--) { s->failed_pc=0x0c0724d2u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0724d4;
+P_0c0724d4: /* original f251, guest PC 0x0c0724d4 */
+if(!s->budget--) { s->failed_pc=0x0c0724d4u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0724d6;
+P_0c0724d6: /* original 7408, guest PC 0x0c0724d6 */
+if(!s->budget--) { s->failed_pc=0x0c0724d6u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0724d8;
+P_0c0724d8: /* original f42a, guest PC 0x0c0724d8 */
+if(!s->budget--) { s->failed_pc=0x0c0724d8u; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0724da;
+P_0c0724da: /* original f41b, guest PC 0x0c0724da */
+if(!s->budget--) { s->failed_pc=0x0c0724dau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0724dc;
+P_0c0724dc: /* original f40b, guest PC 0x0c0724dc */
+if(!s->budget--) { s->failed_pc=0x0c0724dcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0724de;
+P_0c0724de: /* original 0009, guest PC 0x0c0724de */
+if(!s->budget--) { s->failed_pc=0x0c0724deu; return 0; }
+goto P_0c0724e0;
+P_0c0724e0: /* original 64a3, guest PC 0x0c0724e0 */
+if(!s->budget--) { s->failed_pc=0x0c0724e0u; return 0; }
+r[4]=r[10];
+goto P_0c0724e2;
+P_0c0724e2: /* original 65b3, guest PC 0x0c0724e2 */
+if(!s->budget--) { s->failed_pc=0x0c0724e2u; return 0; }
+r[5]=r[11];
+goto P_0c0724e4;
+P_0c0724e4: /* original 66e3, guest PC 0x0c0724e4 */
+if(!s->budget--) { s->failed_pc=0x0c0724e4u; return 0; }
+r[6]=r[14];
+goto P_0c0724e6;
+P_0c0724e6: /* original f059, guest PC 0x0c0724e6 */
+if(!s->budget--) { s->failed_pc=0x0c0724e6u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724e8;
+P_0c0724e8: /* original f369, guest PC 0x0c0724e8 */
+if(!s->budget--) { s->failed_pc=0x0c0724e8u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724ea;
+P_0c0724ea: /* original f159, guest PC 0x0c0724ea */
+if(!s->budget--) { s->failed_pc=0x0c0724eau; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724ec;
+P_0c0724ec: /* original f469, guest PC 0x0c0724ec */
+if(!s->budget--) { s->failed_pc=0x0c0724ecu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0724ee;
+P_0c0724ee: /* original f031, guest PC 0x0c0724ee */
+if(!s->budget--) { s->failed_pc=0x0c0724eeu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0724f0;
+P_0c0724f0: /* original f258, guest PC 0x0c0724f0 */
+if(!s->budget--) { s->failed_pc=0x0c0724f0u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0724f2;
+P_0c0724f2: /* original f568, guest PC 0x0c0724f2 */
+if(!s->budget--) { s->failed_pc=0x0c0724f2u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0724f4;
+P_0c0724f4: /* original f141, guest PC 0x0c0724f4 */
+if(!s->budget--) { s->failed_pc=0x0c0724f4u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0724f6;
+P_0c0724f6: /* original f251, guest PC 0x0c0724f6 */
+if(!s->budget--) { s->failed_pc=0x0c0724f6u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0724f8;
+P_0c0724f8: /* original 7408, guest PC 0x0c0724f8 */
+if(!s->budget--) { s->failed_pc=0x0c0724f8u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0724fa;
+P_0c0724fa: /* original f42a, guest PC 0x0c0724fa */
+if(!s->budget--) { s->failed_pc=0x0c0724fau; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0724fc;
+P_0c0724fc: /* original f41b, guest PC 0x0c0724fc */
+if(!s->budget--) { s->failed_pc=0x0c0724fcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0724fe;
+P_0c0724fe: /* original f40b, guest PC 0x0c0724fe */
+if(!s->budget--) { s->failed_pc=0x0c0724feu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072500;
+P_0c072500: /* original 64c3, guest PC 0x0c072500 */
+if(!s->budget--) { s->failed_pc=0x0c072500u; return 0; }
+r[4]=r[12];
+goto P_0c072502;
+P_0c072502: /* original 6593, guest PC 0x0c072502 */
+if(!s->budget--) { s->failed_pc=0x0c072502u; return 0; }
+r[5]=r[9];
+goto P_0c072504;
+P_0c072504: /* original 66e3, guest PC 0x0c072504 */
+if(!s->budget--) { s->failed_pc=0x0c072504u; return 0; }
+r[6]=r[14];
+goto P_0c072506;
+P_0c072506: /* original f059, guest PC 0x0c072506 */
+if(!s->budget--) { s->failed_pc=0x0c072506u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072508;
+P_0c072508: /* original f369, guest PC 0x0c072508 */
+if(!s->budget--) { s->failed_pc=0x0c072508u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07250a;
+P_0c07250a: /* original f159, guest PC 0x0c07250a */
+if(!s->budget--) { s->failed_pc=0x0c07250au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07250c;
+P_0c07250c: /* original f469, guest PC 0x0c07250c */
+if(!s->budget--) { s->failed_pc=0x0c07250cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07250e;
+P_0c07250e: /* original f031, guest PC 0x0c07250e */
+if(!s->budget--) { s->failed_pc=0x0c07250eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072510;
+P_0c072510: /* original f258, guest PC 0x0c072510 */
+if(!s->budget--) { s->failed_pc=0x0c072510u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072512;
+P_0c072512: /* original f568, guest PC 0x0c072512 */
+if(!s->budget--) { s->failed_pc=0x0c072512u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072514;
+P_0c072514: /* original f141, guest PC 0x0c072514 */
+if(!s->budget--) { s->failed_pc=0x0c072514u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072516;
+P_0c072516: /* original f251, guest PC 0x0c072516 */
+if(!s->budget--) { s->failed_pc=0x0c072516u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072518;
+P_0c072518: /* original 7408, guest PC 0x0c072518 */
+if(!s->budget--) { s->failed_pc=0x0c072518u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07251a;
+P_0c07251a: /* original f42a, guest PC 0x0c07251a */
+if(!s->budget--) { s->failed_pc=0x0c07251au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07251c;
+P_0c07251c: /* original f41b, guest PC 0x0c07251c */
+if(!s->budget--) { s->failed_pc=0x0c07251cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07251e;
+P_0c07251e: /* original f40b, guest PC 0x0c07251e */
+if(!s->budget--) { s->failed_pc=0x0c07251eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072520;
+P_0c072520: /* original 54f2, guest PC 0x0c072520 */
+if(!s->budget--) { s->failed_pc=0x0c072520u; return 0; }
+r[4]=read(ram,r[15]+8,4);
+goto P_0c072522;
+P_0c072522: /* original 6583, guest PC 0x0c072522 */
+if(!s->budget--) { s->failed_pc=0x0c072522u; return 0; }
+r[5]=r[8];
+goto P_0c072524;
+P_0c072524: /* original 66e3, guest PC 0x0c072524 */
+if(!s->budget--) { s->failed_pc=0x0c072524u; return 0; }
+r[6]=r[14];
+goto P_0c072526;
+P_0c072526: /* original f059, guest PC 0x0c072526 */
+if(!s->budget--) { s->failed_pc=0x0c072526u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072528;
+P_0c072528: /* original f369, guest PC 0x0c072528 */
+if(!s->budget--) { s->failed_pc=0x0c072528u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07252a;
+P_0c07252a: /* original f159, guest PC 0x0c07252a */
+if(!s->budget--) { s->failed_pc=0x0c07252au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07252c;
+P_0c07252c: /* original f469, guest PC 0x0c07252c */
+if(!s->budget--) { s->failed_pc=0x0c07252cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07252e;
+P_0c07252e: /* original f031, guest PC 0x0c07252e */
+if(!s->budget--) { s->failed_pc=0x0c07252eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072530;
+P_0c072530: /* original f258, guest PC 0x0c072530 */
+if(!s->budget--) { s->failed_pc=0x0c072530u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072532;
+P_0c072532: /* original f568, guest PC 0x0c072532 */
+if(!s->budget--) { s->failed_pc=0x0c072532u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072534;
+P_0c072534: /* original f141, guest PC 0x0c072534 */
+if(!s->budget--) { s->failed_pc=0x0c072534u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072536;
+P_0c072536: /* original f251, guest PC 0x0c072536 */
+if(!s->budget--) { s->failed_pc=0x0c072536u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072538;
+P_0c072538: /* original 7408, guest PC 0x0c072538 */
+if(!s->budget--) { s->failed_pc=0x0c072538u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07253a;
+P_0c07253a: /* original f42a, guest PC 0x0c07253a */
+if(!s->budget--) { s->failed_pc=0x0c07253au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07253c;
+P_0c07253c: /* original f41b, guest PC 0x0c07253c */
+if(!s->budget--) { s->failed_pc=0x0c07253cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07253e;
+P_0c07253e: /* original f40b, guest PC 0x0c07253e */
+if(!s->budget--) { s->failed_pc=0x0c07253eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072540;
+P_0c072540: /* original 66f3, guest PC 0x0c072540 */
+if(!s->budget--) { s->failed_pc=0x0c072540u; return 0; }
+r[6]=r[15];
+goto P_0c072542;
+P_0c072542: /* original 64c3, guest PC 0x0c072542 */
+if(!s->budget--) { s->failed_pc=0x0c072542u; return 0; }
+r[4]=r[12];
+goto P_0c072544;
+P_0c072544: /* original 65d3, guest PC 0x0c072544 */
+if(!s->budget--) { s->failed_pc=0x0c072544u; return 0; }
+r[5]=r[13];
+goto P_0c072546;
+P_0c072546: /* original 7624, guest PC 0x0c072546 */
+if(!s->budget--) { s->failed_pc=0x0c072546u; return 0; }
+r[6]+=0x00000024u;
+goto P_0c072548;
+P_0c072548: /* original f049, guest PC 0x0c072548 */
+if(!s->budget--) { s->failed_pc=0x0c072548u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07254a;
+P_0c07254a: /* original f549, guest PC 0x0c07254a */
+if(!s->budget--) { s->failed_pc=0x0c07254au; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07254c;
+P_0c07254c: /* original f648, guest PC 0x0c07254c */
+if(!s->budget--) { s->failed_pc=0x0c07254cu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c07254e;
+P_0c07254e: /* original f859, guest PC 0x0c07254e */
+if(!s->budget--) { s->failed_pc=0x0c07254eu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072550;
+P_0c072550: /* original f959, guest PC 0x0c072550 */
+if(!s->budget--) { s->failed_pc=0x0c072550u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072552;
+P_0c072552: /* original fa58, guest PC 0x0c072552 */
+if(!s->budget--) { s->failed_pc=0x0c072552u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072554;
+P_0c072554: /* original 760c, guest PC 0x0c072554 */
+if(!s->budget--) { s->failed_pc=0x0c072554u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072556;
+P_0c072556: /* original f35c, guest PC 0x0c072556 */
+if(!s->budget--) { s->failed_pc=0x0c072556u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072558;
+P_0c072558: /* original f382, guest PC 0x0c072558 */
+if(!s->budget--) { s->failed_pc=0x0c072558u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c07255a;
+P_0c07255a: /* original f20c, guest PC 0x0c07255a */
+if(!s->budget--) { s->failed_pc=0x0c07255au; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c07255c;
+P_0c07255c: /* original f2a2, guest PC 0x0c07255c */
+if(!s->budget--) { s->failed_pc=0x0c07255cu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c07255e;
+P_0c07255e: /* original f16c, guest PC 0x0c07255e */
+if(!s->budget--) { s->failed_pc=0x0c07255eu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072560;
+P_0c072560: /* original f192, guest PC 0x0c072560 */
+if(!s->budget--) { s->failed_pc=0x0c072560u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c072562;
+P_0c072562: /* original f34d, guest PC 0x0c072562 */
+if(!s->budget--) { s->failed_pc=0x0c072562u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072564;
+P_0c072564: /* original f39e, guest PC 0x0c072564 */
+if(!s->budget--) { s->failed_pc=0x0c072564u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c072566;
+P_0c072566: /* original f24d, guest PC 0x0c072566 */
+if(!s->budget--) { s->failed_pc=0x0c072566u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072568;
+P_0c072568: /* original f06c, guest PC 0x0c072568 */
+if(!s->budget--) { s->failed_pc=0x0c072568u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c07256a;
+P_0c07256a: /* original f28e, guest PC 0x0c07256a */
+if(!s->budget--) { s->failed_pc=0x0c07256au; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c07256c;
+P_0c07256c: /* original f14d, guest PC 0x0c07256c */
+if(!s->budget--) { s->failed_pc=0x0c07256cu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c07256e;
+P_0c07256e: /* original f63b, guest PC 0x0c07256e */
+if(!s->budget--) { s->failed_pc=0x0c07256eu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072570;
+P_0c072570: /* original f05c, guest PC 0x0c072570 */
+if(!s->budget--) { s->failed_pc=0x0c072570u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c072572;
+P_0c072572: /* original f1ae, guest PC 0x0c072572 */
+if(!s->budget--) { s->failed_pc=0x0c072572u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072574;
+P_0c072574: /* original f62b, guest PC 0x0c072574 */
+if(!s->budget--) { s->failed_pc=0x0c072574u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c072576;
+P_0c072576: /* original f61b, guest PC 0x0c072576 */
+if(!s->budget--) { s->failed_pc=0x0c072576u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072578;
+P_0c072578: /* original 54f2, guest PC 0x0c072578 */
+if(!s->budget--) { s->failed_pc=0x0c072578u; return 0; }
+r[4]=read(ram,r[15]+8,4);
+goto P_0c07257a;
+P_0c07257a: /* original 66f3, guest PC 0x0c07257a */
+if(!s->budget--) { s->failed_pc=0x0c07257au; return 0; }
+r[6]=r[15];
+goto P_0c07257c;
+P_0c07257c: /* original 65a3, guest PC 0x0c07257c */
+if(!s->budget--) { s->failed_pc=0x0c07257cu; return 0; }
+r[5]=r[10];
+goto P_0c07257e;
+P_0c07257e: /* original 7618, guest PC 0x0c07257e */
+if(!s->budget--) { s->failed_pc=0x0c07257eu; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072580;
+P_0c072580: /* original f049, guest PC 0x0c072580 */
+if(!s->budget--) { s->failed_pc=0x0c072580u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072582;
+P_0c072582: /* original f549, guest PC 0x0c072582 */
+if(!s->budget--) { s->failed_pc=0x0c072582u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072584;
+P_0c072584: /* original f648, guest PC 0x0c072584 */
+if(!s->budget--) { s->failed_pc=0x0c072584u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c072586;
+P_0c072586: /* original f859, guest PC 0x0c072586 */
+if(!s->budget--) { s->failed_pc=0x0c072586u; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072588;
+P_0c072588: /* original f959, guest PC 0x0c072588 */
+if(!s->budget--) { s->failed_pc=0x0c072588u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07258a;
+P_0c07258a: /* original fa58, guest PC 0x0c07258a */
+if(!s->budget--) { s->failed_pc=0x0c07258au; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c07258c;
+P_0c07258c: /* original 760c, guest PC 0x0c07258c */
+if(!s->budget--) { s->failed_pc=0x0c07258cu; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c07258e;
+P_0c07258e: /* original f35c, guest PC 0x0c07258e */
+if(!s->budget--) { s->failed_pc=0x0c07258eu; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072590;
+P_0c072590: /* original f382, guest PC 0x0c072590 */
+if(!s->budget--) { s->failed_pc=0x0c072590u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c072592;
+P_0c072592: /* original f20c, guest PC 0x0c072592 */
+if(!s->budget--) { s->failed_pc=0x0c072592u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072594;
+P_0c072594: /* original f2a2, guest PC 0x0c072594 */
+if(!s->budget--) { s->failed_pc=0x0c072594u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c072596;
+P_0c072596: /* original f16c, guest PC 0x0c072596 */
+if(!s->budget--) { s->failed_pc=0x0c072596u; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072598;
+P_0c072598: /* original f192, guest PC 0x0c072598 */
+if(!s->budget--) { s->failed_pc=0x0c072598u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c07259a;
+P_0c07259a: /* original f34d, guest PC 0x0c07259a */
+if(!s->budget--) { s->failed_pc=0x0c07259au; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c07259c;
+P_0c07259c: /* original f39e, guest PC 0x0c07259c */
+if(!s->budget--) { s->failed_pc=0x0c07259cu; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c07259e;
+P_0c07259e: /* original f24d, guest PC 0x0c07259e */
+if(!s->budget--) { s->failed_pc=0x0c07259eu; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c0725a0;
+P_0c0725a0: /* original f06c, guest PC 0x0c0725a0 */
+if(!s->budget--) { s->failed_pc=0x0c0725a0u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c0725a2;
+P_0c0725a2: /* original f28e, guest PC 0x0c0725a2 */
+if(!s->budget--) { s->failed_pc=0x0c0725a2u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c0725a4;
+P_0c0725a4: /* original f14d, guest PC 0x0c0725a4 */
+if(!s->budget--) { s->failed_pc=0x0c0725a4u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c0725a6;
+P_0c0725a6: /* original f63b, guest PC 0x0c0725a6 */
+if(!s->budget--) { s->failed_pc=0x0c0725a6u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c0725a8;
+P_0c0725a8: /* original f05c, guest PC 0x0c0725a8 */
+if(!s->budget--) { s->failed_pc=0x0c0725a8u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c0725aa;
+P_0c0725aa: /* original f1ae, guest PC 0x0c0725aa */
+if(!s->budget--) { s->failed_pc=0x0c0725aau; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c0725ac;
+P_0c0725ac: /* original f62b, guest PC 0x0c0725ac */
+if(!s->budget--) { s->failed_pc=0x0c0725acu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c0725ae;
+P_0c0725ae: /* original f61b, guest PC 0x0c0725ae */
+if(!s->budget--) { s->failed_pc=0x0c0725aeu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c0725b0;
+P_0c0725b0: /* original 64f3, guest PC 0x0c0725b0 */
+if(!s->budget--) { s->failed_pc=0x0c0725b0u; return 0; }
+r[4]=r[15];
+goto P_0c0725b2;
+P_0c0725b2: /* original 7424, guest PC 0x0c0725b2 */
+if(!s->budget--) { s->failed_pc=0x0c0725b2u; return 0; }
+r[4]+=0x00000024u;
+goto P_0c0725b4;
+P_0c0725b4: /* original f049, guest PC 0x0c0725b4 */
+if(!s->budget--) { s->failed_pc=0x0c0725b4u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725b6;
+P_0c0725b6: /* original f149, guest PC 0x0c0725b6 */
+if(!s->budget--) { s->failed_pc=0x0c0725b6u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725b8;
+P_0c0725b8: /* original f249, guest PC 0x0c0725b8 */
+if(!s->budget--) { s->failed_pc=0x0c0725b8u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725ba;
+P_0c0725ba: /* original f38d, guest PC 0x0c0725ba */
+if(!s->budget--) { s->failed_pc=0x0c0725bau; return 0; }
+fr[3]=0;
+goto P_0c0725bc;
+P_0c0725bc: /* original f0ed, guest PC 0x0c0725bc */
+if(!s->budget--) { s->failed_pc=0x0c0725bcu; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0725be;
+P_0c0725be: /* original f37d, guest PC 0x0c0725be */
+if(!s->budget--) { s->failed_pc=0x0c0725beu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0725c0;
+P_0c0725c0: /* original f232, guest PC 0x0c0725c0 */
+if(!s->budget--) { s->failed_pc=0x0c0725c0u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0725c2;
+P_0c0725c2: /* original f132, guest PC 0x0c0725c2 */
+if(!s->budget--) { s->failed_pc=0x0c0725c2u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0725c4;
+P_0c0725c4: /* original f032, guest PC 0x0c0725c4 */
+if(!s->budget--) { s->failed_pc=0x0c0725c4u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0725c6;
+P_0c0725c6: /* original f42b, guest PC 0x0c0725c6 */
+if(!s->budget--) { s->failed_pc=0x0c0725c6u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0725c8;
+P_0c0725c8: /* original f41b, guest PC 0x0c0725c8 */
+if(!s->budget--) { s->failed_pc=0x0c0725c8u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0725ca;
+P_0c0725ca: /* original f40b, guest PC 0x0c0725ca */
+if(!s->budget--) { s->failed_pc=0x0c0725cau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0725cc;
+P_0c0725cc: /* original 64f3, guest PC 0x0c0725cc */
+if(!s->budget--) { s->failed_pc=0x0c0725ccu; return 0; }
+r[4]=r[15];
+goto P_0c0725ce;
+P_0c0725ce: /* original 7418, guest PC 0x0c0725ce */
+if(!s->budget--) { s->failed_pc=0x0c0725ceu; return 0; }
+r[4]+=0x00000018u;
+goto P_0c0725d0;
+P_0c0725d0: /* original f049, guest PC 0x0c0725d0 */
+if(!s->budget--) { s->failed_pc=0x0c0725d0u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725d2;
+P_0c0725d2: /* original f149, guest PC 0x0c0725d2 */
+if(!s->budget--) { s->failed_pc=0x0c0725d2u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725d4;
+P_0c0725d4: /* original f249, guest PC 0x0c0725d4 */
+if(!s->budget--) { s->failed_pc=0x0c0725d4u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725d6;
+P_0c0725d6: /* original f38d, guest PC 0x0c0725d6 */
+if(!s->budget--) { s->failed_pc=0x0c0725d6u; return 0; }
+fr[3]=0;
+goto P_0c0725d8;
+P_0c0725d8: /* original f0ed, guest PC 0x0c0725d8 */
+if(!s->budget--) { s->failed_pc=0x0c0725d8u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0725da;
+P_0c0725da: /* original f37d, guest PC 0x0c0725da */
+if(!s->budget--) { s->failed_pc=0x0c0725dau; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0725dc;
+P_0c0725dc: /* original f232, guest PC 0x0c0725dc */
+if(!s->budget--) { s->failed_pc=0x0c0725dcu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0725de;
+P_0c0725de: /* original f132, guest PC 0x0c0725de */
+if(!s->budget--) { s->failed_pc=0x0c0725deu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0725e0;
+P_0c0725e0: /* original f032, guest PC 0x0c0725e0 */
+if(!s->budget--) { s->failed_pc=0x0c0725e0u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0725e2;
+P_0c0725e2: /* original f42b, guest PC 0x0c0725e2 */
+if(!s->budget--) { s->failed_pc=0x0c0725e2u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0725e4;
+P_0c0725e4: /* original f41b, guest PC 0x0c0725e4 */
+if(!s->budget--) { s->failed_pc=0x0c0725e4u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0725e6;
+P_0c0725e6: /* original f40b, guest PC 0x0c0725e6 */
+if(!s->budget--) { s->failed_pc=0x0c0725e6u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0725e8;
+P_0c0725e8: /* original 65f3, guest PC 0x0c0725e8 */
+if(!s->budget--) { s->failed_pc=0x0c0725e8u; return 0; }
+r[5]=r[15];
+goto P_0c0725ea;
+P_0c0725ea: /* original 64e3, guest PC 0x0c0725ea */
+if(!s->budget--) { s->failed_pc=0x0c0725eau; return 0; }
+r[4]=r[14];
+goto P_0c0725ec;
+P_0c0725ec: /* original 66f3, guest PC 0x0c0725ec */
+if(!s->budget--) { s->failed_pc=0x0c0725ecu; return 0; }
+r[6]=r[15];
+goto P_0c0725ee;
+P_0c0725ee: /* original 740c, guest PC 0x0c0725ee */
+if(!s->budget--) { s->failed_pc=0x0c0725eeu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0725f0;
+P_0c0725f0: /* original 7618, guest PC 0x0c0725f0 */
+if(!s->budget--) { s->failed_pc=0x0c0725f0u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c0725f2;
+P_0c0725f2: /* original 7524, guest PC 0x0c0725f2 */
+if(!s->budget--) { s->failed_pc=0x0c0725f2u; return 0; }
+r[5]+=0x00000024u;
+goto P_0c0725f4;
+P_0c0725f4: /* original f059, guest PC 0x0c0725f4 */
+if(!s->budget--) { s->failed_pc=0x0c0725f4u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725f6;
+P_0c0725f6: /* original f369, guest PC 0x0c0725f6 */
+if(!s->budget--) { s->failed_pc=0x0c0725f6u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725f8;
+P_0c0725f8: /* original f159, guest PC 0x0c0725f8 */
+if(!s->budget--) { s->failed_pc=0x0c0725f8u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725fa;
+P_0c0725fa: /* original f469, guest PC 0x0c0725fa */
+if(!s->budget--) { s->failed_pc=0x0c0725fau; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725fc;
+P_0c0725fc: /* original f259, guest PC 0x0c0725fc */
+if(!s->budget--) { s->failed_pc=0x0c0725fcu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0725fe;
+P_0c0725fe: /* original f569, guest PC 0x0c0725fe */
+if(!s->budget--) { s->failed_pc=0x0c0725feu; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072600;
+P_0c072600: /* original 740c, guest PC 0x0c072600 */
+if(!s->budget--) { s->failed_pc=0x0c072600u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072602;
+P_0c072602: /* original f030, guest PC 0x0c072602 */
+if(!s->budget--) { s->failed_pc=0x0c072602u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c072604;
+P_0c072604: /* original f250, guest PC 0x0c072604 */
+if(!s->budget--) { s->failed_pc=0x0c072604u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'+');
+goto P_0c072606;
+P_0c072606: /* original f140, guest PC 0x0c072606 */
+if(!s->budget--) { s->failed_pc=0x0c072606u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'+');
+goto P_0c072608;
+P_0c072608: /* original f42b, guest PC 0x0c072608 */
+if(!s->budget--) { s->failed_pc=0x0c072608u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07260a;
+P_0c07260a: /* original f41b, guest PC 0x0c07260a */
+if(!s->budget--) { s->failed_pc=0x0c07260au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07260c;
+P_0c07260c: /* original f40b, guest PC 0x0c07260c */
+if(!s->budget--) { s->failed_pc=0x0c07260cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07260e;
+P_0c07260e: /* original 0009, guest PC 0x0c07260e */
+if(!s->budget--) { s->failed_pc=0x0c07260eu; return 0; }
+goto P_0c072610;
+P_0c072610: /* original 64e3, guest PC 0x0c072610 */
+if(!s->budget--) { s->failed_pc=0x0c072610u; return 0; }
+r[4]=r[14];
+goto P_0c072612;
+P_0c072612: /* original 65e3, guest PC 0x0c072612 */
+if(!s->budget--) { s->failed_pc=0x0c072612u; return 0; }
+r[5]=r[14];
+goto P_0c072614;
+P_0c072614: /* original 740c, guest PC 0x0c072614 */
+if(!s->budget--) { s->failed_pc=0x0c072614u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072616;
+P_0c072616: /* original f4fc, guest PC 0x0c072616 */
+if(!s->budget--) { s->failed_pc=0x0c072616u; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072618;
+P_0c072618: /* original 750c, guest PC 0x0c072618 */
+if(!s->budget--) { s->failed_pc=0x0c072618u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c07261a;
+P_0c07261a: /* original f059, guest PC 0x0c07261a */
+if(!s->budget--) { s->failed_pc=0x0c07261au; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07261c;
+P_0c07261c: /* original f159, guest PC 0x0c07261c */
+if(!s->budget--) { s->failed_pc=0x0c07261cu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07261e;
+P_0c07261e: /* original f259, guest PC 0x0c07261e */
+if(!s->budget--) { s->failed_pc=0x0c07261eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072620;
+P_0c072620: /* original f38d, guest PC 0x0c072620 */
+if(!s->budget--) { s->failed_pc=0x0c072620u; return 0; }
+fr[3]=0;
+goto P_0c072622;
+P_0c072622: /* original f0ed, guest PC 0x0c072622 */
+if(!s->budget--) { s->failed_pc=0x0c072622u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c072624;
+P_0c072624: /* original f37d, guest PC 0x0c072624 */
+if(!s->budget--) { s->failed_pc=0x0c072624u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072626;
+P_0c072626: /* original f342, guest PC 0x0c072626 */
+if(!s->budget--) { s->failed_pc=0x0c072626u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c072628;
+P_0c072628: /* original 740c, guest PC 0x0c072628 */
+if(!s->budget--) { s->failed_pc=0x0c072628u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c07262a;
+P_0c07262a: /* original f232, guest PC 0x0c07262a */
+if(!s->budget--) { s->failed_pc=0x0c07262au; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c07262c;
+P_0c07262c: /* original f132, guest PC 0x0c07262c */
+if(!s->budget--) { s->failed_pc=0x0c07262cu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c07262e;
+P_0c07262e: /* original f032, guest PC 0x0c07262e */
+if(!s->budget--) { s->failed_pc=0x0c07262eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072630;
+P_0c072630: /* original f42b, guest PC 0x0c072630 */
+if(!s->budget--) { s->failed_pc=0x0c072630u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072632;
+P_0c072632: /* original f41b, guest PC 0x0c072632 */
+if(!s->budget--) { s->failed_pc=0x0c072632u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072634;
+P_0c072634: /* original f40b, guest PC 0x0c072634 */
+if(!s->budget--) { s->failed_pc=0x0c072634u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072636;
+P_0c072636: /* original 0009, guest PC 0x0c072636 */
+if(!s->budget--) { s->failed_pc=0x0c072636u; return 0; }
+goto P_0c072638;
+P_0c072638: /* original 2fe2, guest PC 0x0c072638 */
+if(!s->budget--) { s->failed_pc=0x0c072638u; return 0; }
+write(ram,r[15],r[14],4);
+goto P_0c07263a;
+P_0c07263a: /* original e201, guest PC 0x0c07263a */
+if(!s->budget--) { s->failed_pc=0x0c07263au; return 0; }
+r[2]=0x00000001u;
+goto P_0c07263c;
+P_0c07263c: /* original 53f1, guest PC 0x0c07263c */
+if(!s->budget--) { s->failed_pc=0x0c07263cu; return 0; }
+r[3]=read(ram,r[15]+4,4);
+goto P_0c07263e;
+P_0c07263e: /* original 6eb3, guest PC 0x0c07263e */
+if(!s->budget--) { s->failed_pc=0x0c07263eu; return 0; }
+r[14]=r[11];
+goto P_0c072640;
+P_0c072640: /* original 7b18, guest PC 0x0c072640 */
+if(!s->budget--) { s->failed_pc=0x0c072640u; return 0; }
+r[11]+=0x00000018u;
+goto P_0c072642;
+P_0c072642: /* original 73ff, guest PC 0x0c072642 */
+if(!s->budget--) { s->failed_pc=0x0c072642u; return 0; }
+r[3]+=0xffffffffu;
+goto P_0c072644;
+P_0c072644: /* original 3327, guest PC 0x0c072644 */
+if(!s->budget--) { s->failed_pc=0x0c072644u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[3]>(int32_t)r[2])!=0);
+goto P_0c072646;
+P_0c072646: /* original 7918, guest PC 0x0c072646 */
+if(!s->budget--) { s->failed_pc=0x0c072646u; return 0; }
+r[9]+=0x00000018u;
+goto P_0c072648;
+P_0c072648: /* original 7818, guest PC 0x0c072648 */
+if(!s->budget--) { s->failed_pc=0x0c072648u; return 0; }
+r[8]+=0x00000018u;
+goto P_0c07264a;
+P_0c07264a: /* original 8f03, guest PC 0x0c07264a */
+if(!s->budget--) { s->failed_pc=0x0c07264au; return 0; }
+cond=r[17]&1u;
+write(ram,r[15]+4,r[3],4);
+if(!cond) { goto P_0c072654; }
+goto P_0c07264e;
+P_0c07264c: /* original 1f31, guest PC 0x0c07264c */
+if(!s->budget--) { s->failed_pc=0x0c07264cu; return 0; }
+write(ram,r[15]+4,r[3],4);
+goto P_0c07264e;
+P_0c07264e: /* original d104, guest PC 0x0c07264e */
+if(!s->budget--) { s->failed_pc=0x0c07264eu; return 0; }
+r[1]=read(ram,0x0c072660u,4);
+goto P_0c072650;
+P_0c072650: /* original 412b, guest PC 0x0c072650 */
+if(!s->budget--) { s->failed_pc=0x0c072650u; return 0; }
+target=r[1];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c072652: /* original 0009, guest PC 0x0c072652 */
+if(!s->budget--) { s->failed_pc=0x0c072652u; return 0; }
+goto P_0c072654;
+P_0c072654: /* original 65f2, guest PC 0x0c072654 */
+if(!s->budget--) { s->failed_pc=0x0c072654u; return 0; }
+tmp=read(ram,r[15],4);
+r[5]=tmp;
+goto P_0c072656;
+P_0c072656: /* original 64d3, guest PC 0x0c072656 */
+if(!s->budget--) { s->failed_pc=0x0c072656u; return 0; }
+r[4]=r[13];
+goto P_0c072658;
+P_0c072658: /* original 66e3, guest PC 0x0c072658 */
+if(!s->budget--) { s->failed_pc=0x0c072658u; return 0; }
+r[6]=r[14];
+goto P_0c07265a;
+P_0c07265a: /* original a003, guest PC 0x0c07265a */
+if(!s->budget--) { s->failed_pc=0x0c07265au; return 0; }
+goto P_0c072664;
+P_0c07265c: /* original 0009, guest PC 0x0c07265c */
+if(!s->budget--) { s->failed_pc=0x0c07265cu; return 0; }
+return vf3_matrix_family(0x0c07265eu,s,ram);
+P_0c072664: /* original f059, guest PC 0x0c072664 */
+if(!s->budget--) { s->failed_pc=0x0c072664u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072666;
+P_0c072666: /* original f369, guest PC 0x0c072666 */
+if(!s->budget--) { s->failed_pc=0x0c072666u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072668;
+P_0c072668: /* original f159, guest PC 0x0c072668 */
+if(!s->budget--) { s->failed_pc=0x0c072668u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07266a;
+P_0c07266a: /* original f469, guest PC 0x0c07266a */
+if(!s->budget--) { s->failed_pc=0x0c07266au; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07266c;
+P_0c07266c: /* original f031, guest PC 0x0c07266c */
+if(!s->budget--) { s->failed_pc=0x0c07266cu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c07266e;
+P_0c07266e: /* original f258, guest PC 0x0c07266e */
+if(!s->budget--) { s->failed_pc=0x0c07266eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072670;
+P_0c072670: /* original f568, guest PC 0x0c072670 */
+if(!s->budget--) { s->failed_pc=0x0c072670u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072672;
+P_0c072672: /* original f141, guest PC 0x0c072672 */
+if(!s->budget--) { s->failed_pc=0x0c072672u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072674;
+P_0c072674: /* original f251, guest PC 0x0c072674 */
+if(!s->budget--) { s->failed_pc=0x0c072674u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072676;
+P_0c072676: /* original 7408, guest PC 0x0c072676 */
+if(!s->budget--) { s->failed_pc=0x0c072676u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c072678;
+P_0c072678: /* original f42a, guest PC 0x0c072678 */
+if(!s->budget--) { s->failed_pc=0x0c072678u; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07267a;
+P_0c07267a: /* original f41b, guest PC 0x0c07267a */
+if(!s->budget--) { s->failed_pc=0x0c07267au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07267c;
+P_0c07267c: /* original f40b, guest PC 0x0c07267c */
+if(!s->budget--) { s->failed_pc=0x0c07267cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07267e;
+P_0c07267e: /* original 0009, guest PC 0x0c07267e */
+if(!s->budget--) { s->failed_pc=0x0c07267eu; return 0; }
+goto P_0c072680;
+P_0c072680: /* original 64a3, guest PC 0x0c072680 */
+if(!s->budget--) { s->failed_pc=0x0c072680u; return 0; }
+r[4]=r[10];
+goto P_0c072682;
+P_0c072682: /* original 6593, guest PC 0x0c072682 */
+if(!s->budget--) { s->failed_pc=0x0c072682u; return 0; }
+r[5]=r[9];
+goto P_0c072684;
+P_0c072684: /* original 66e3, guest PC 0x0c072684 */
+if(!s->budget--) { s->failed_pc=0x0c072684u; return 0; }
+r[6]=r[14];
+goto P_0c072686;
+P_0c072686: /* original f059, guest PC 0x0c072686 */
+if(!s->budget--) { s->failed_pc=0x0c072686u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072688;
+P_0c072688: /* original f369, guest PC 0x0c072688 */
+if(!s->budget--) { s->failed_pc=0x0c072688u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07268a;
+P_0c07268a: /* original f159, guest PC 0x0c07268a */
+if(!s->budget--) { s->failed_pc=0x0c07268au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07268c;
+P_0c07268c: /* original f469, guest PC 0x0c07268c */
+if(!s->budget--) { s->failed_pc=0x0c07268cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07268e;
+P_0c07268e: /* original f031, guest PC 0x0c07268e */
+if(!s->budget--) { s->failed_pc=0x0c07268eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072690;
+P_0c072690: /* original f258, guest PC 0x0c072690 */
+if(!s->budget--) { s->failed_pc=0x0c072690u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072692;
+P_0c072692: /* original f568, guest PC 0x0c072692 */
+if(!s->budget--) { s->failed_pc=0x0c072692u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072694;
+P_0c072694: /* original f141, guest PC 0x0c072694 */
+if(!s->budget--) { s->failed_pc=0x0c072694u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072696;
+P_0c072696: /* original f251, guest PC 0x0c072696 */
+if(!s->budget--) { s->failed_pc=0x0c072696u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072698;
+P_0c072698: /* original 7408, guest PC 0x0c072698 */
+if(!s->budget--) { s->failed_pc=0x0c072698u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07269a;
+P_0c07269a: /* original f42a, guest PC 0x0c07269a */
+if(!s->budget--) { s->failed_pc=0x0c07269au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07269c;
+P_0c07269c: /* original f41b, guest PC 0x0c07269c */
+if(!s->budget--) { s->failed_pc=0x0c07269cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07269e;
+P_0c07269e: /* original f40b, guest PC 0x0c07269e */
+if(!s->budget--) { s->failed_pc=0x0c07269eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0726a0;
+P_0c0726a0: /* original 64c3, guest PC 0x0c0726a0 */
+if(!s->budget--) { s->failed_pc=0x0c0726a0u; return 0; }
+r[4]=r[12];
+goto P_0c0726a2;
+P_0c0726a2: /* original 6583, guest PC 0x0c0726a2 */
+if(!s->budget--) { s->failed_pc=0x0c0726a2u; return 0; }
+r[5]=r[8];
+goto P_0c0726a4;
+P_0c0726a4: /* original 66e3, guest PC 0x0c0726a4 */
+if(!s->budget--) { s->failed_pc=0x0c0726a4u; return 0; }
+r[6]=r[14];
+goto P_0c0726a6;
+P_0c0726a6: /* original f059, guest PC 0x0c0726a6 */
+if(!s->budget--) { s->failed_pc=0x0c0726a6u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726a8;
+P_0c0726a8: /* original f369, guest PC 0x0c0726a8 */
+if(!s->budget--) { s->failed_pc=0x0c0726a8u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726aa;
+P_0c0726aa: /* original f159, guest PC 0x0c0726aa */
+if(!s->budget--) { s->failed_pc=0x0c0726aau; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726ac;
+P_0c0726ac: /* original f469, guest PC 0x0c0726ac */
+if(!s->budget--) { s->failed_pc=0x0c0726acu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726ae;
+P_0c0726ae: /* original f031, guest PC 0x0c0726ae */
+if(!s->budget--) { s->failed_pc=0x0c0726aeu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0726b0;
+P_0c0726b0: /* original f258, guest PC 0x0c0726b0 */
+if(!s->budget--) { s->failed_pc=0x0c0726b0u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0726b2;
+P_0c0726b2: /* original f568, guest PC 0x0c0726b2 */
+if(!s->budget--) { s->failed_pc=0x0c0726b2u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0726b4;
+P_0c0726b4: /* original f141, guest PC 0x0c0726b4 */
+if(!s->budget--) { s->failed_pc=0x0c0726b4u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0726b6;
+P_0c0726b6: /* original f251, guest PC 0x0c0726b6 */
+if(!s->budget--) { s->failed_pc=0x0c0726b6u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0726b8;
+P_0c0726b8: /* original 7408, guest PC 0x0c0726b8 */
+if(!s->budget--) { s->failed_pc=0x0c0726b8u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0726ba;
+P_0c0726ba: /* original f42a, guest PC 0x0c0726ba */
+if(!s->budget--) { s->failed_pc=0x0c0726bau; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0726bc;
+P_0c0726bc: /* original f41b, guest PC 0x0c0726bc */
+if(!s->budget--) { s->failed_pc=0x0c0726bcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0726be;
+P_0c0726be: /* original f40b, guest PC 0x0c0726be */
+if(!s->budget--) { s->failed_pc=0x0c0726beu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0726c0;
+P_0c0726c0: /* original 66f3, guest PC 0x0c0726c0 */
+if(!s->budget--) { s->failed_pc=0x0c0726c0u; return 0; }
+r[6]=r[15];
+goto P_0c0726c2;
+P_0c0726c2: /* original 64d3, guest PC 0x0c0726c2 */
+if(!s->budget--) { s->failed_pc=0x0c0726c2u; return 0; }
+r[4]=r[13];
+goto P_0c0726c4;
+P_0c0726c4: /* original 65c3, guest PC 0x0c0726c4 */
+if(!s->budget--) { s->failed_pc=0x0c0726c4u; return 0; }
+r[5]=r[12];
+goto P_0c0726c6;
+P_0c0726c6: /* original 7624, guest PC 0x0c0726c6 */
+if(!s->budget--) { s->failed_pc=0x0c0726c6u; return 0; }
+r[6]+=0x00000024u;
+goto P_0c0726c8;
+P_0c0726c8: /* original f049, guest PC 0x0c0726c8 */
+if(!s->budget--) { s->failed_pc=0x0c0726c8u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726ca;
+P_0c0726ca: /* original f549, guest PC 0x0c0726ca */
+if(!s->budget--) { s->failed_pc=0x0c0726cau; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726cc;
+P_0c0726cc: /* original f648, guest PC 0x0c0726cc */
+if(!s->budget--) { s->failed_pc=0x0c0726ccu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c0726ce;
+P_0c0726ce: /* original f859, guest PC 0x0c0726ce */
+if(!s->budget--) { s->failed_pc=0x0c0726ceu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726d0;
+P_0c0726d0: /* original f959, guest PC 0x0c0726d0 */
+if(!s->budget--) { s->failed_pc=0x0c0726d0u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0726d2;
+P_0c0726d2: /* original fa58, guest PC 0x0c0726d2 */
+if(!s->budget--) { s->failed_pc=0x0c0726d2u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c0726d4;
+P_0c0726d4: /* original 760c, guest PC 0x0c0726d4 */
+if(!s->budget--) { s->failed_pc=0x0c0726d4u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c0726d6;
+P_0c0726d6: /* original f35c, guest PC 0x0c0726d6 */
+if(!s->budget--) { s->failed_pc=0x0c0726d6u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c0726d8;
+P_0c0726d8: /* original f382, guest PC 0x0c0726d8 */
+if(!s->budget--) { s->failed_pc=0x0c0726d8u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c0726da;
+P_0c0726da: /* original f20c, guest PC 0x0c0726da */
+if(!s->budget--) { s->failed_pc=0x0c0726dau; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c0726dc;
+P_0c0726dc: /* original f2a2, guest PC 0x0c0726dc */
+if(!s->budget--) { s->failed_pc=0x0c0726dcu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c0726de;
+P_0c0726de: /* original f16c, guest PC 0x0c0726de */
+if(!s->budget--) { s->failed_pc=0x0c0726deu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c0726e0;
+P_0c0726e0: /* original f192, guest PC 0x0c0726e0 */
+if(!s->budget--) { s->failed_pc=0x0c0726e0u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c0726e2;
+P_0c0726e2: /* original f34d, guest PC 0x0c0726e2 */
+if(!s->budget--) { s->failed_pc=0x0c0726e2u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c0726e4;
+P_0c0726e4: /* original f39e, guest PC 0x0c0726e4 */
+if(!s->budget--) { s->failed_pc=0x0c0726e4u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c0726e6;
+P_0c0726e6: /* original f24d, guest PC 0x0c0726e6 */
+if(!s->budget--) { s->failed_pc=0x0c0726e6u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c0726e8;
+P_0c0726e8: /* original f06c, guest PC 0x0c0726e8 */
+if(!s->budget--) { s->failed_pc=0x0c0726e8u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c0726ea;
+P_0c0726ea: /* original f28e, guest PC 0x0c0726ea */
+if(!s->budget--) { s->failed_pc=0x0c0726eau; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c0726ec;
+P_0c0726ec: /* original f14d, guest PC 0x0c0726ec */
+if(!s->budget--) { s->failed_pc=0x0c0726ecu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c0726ee;
+P_0c0726ee: /* original f63b, guest PC 0x0c0726ee */
+if(!s->budget--) { s->failed_pc=0x0c0726eeu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c0726f0;
+P_0c0726f0: /* original f05c, guest PC 0x0c0726f0 */
+if(!s->budget--) { s->failed_pc=0x0c0726f0u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c0726f2;
+P_0c0726f2: /* original f1ae, guest PC 0x0c0726f2 */
+if(!s->budget--) { s->failed_pc=0x0c0726f2u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c0726f4;
+P_0c0726f4: /* original f62b, guest PC 0x0c0726f4 */
+if(!s->budget--) { s->failed_pc=0x0c0726f4u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c0726f6;
+P_0c0726f6: /* original f61b, guest PC 0x0c0726f6 */
+if(!s->budget--) { s->failed_pc=0x0c0726f6u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c0726f8;
+P_0c0726f8: /* original 66f3, guest PC 0x0c0726f8 */
+if(!s->budget--) { s->failed_pc=0x0c0726f8u; return 0; }
+r[6]=r[15];
+goto P_0c0726fa;
+P_0c0726fa: /* original 64a3, guest PC 0x0c0726fa */
+if(!s->budget--) { s->failed_pc=0x0c0726fau; return 0; }
+r[4]=r[10];
+goto P_0c0726fc;
+P_0c0726fc: /* original 65d3, guest PC 0x0c0726fc */
+if(!s->budget--) { s->failed_pc=0x0c0726fcu; return 0; }
+r[5]=r[13];
+goto P_0c0726fe;
+P_0c0726fe: /* original 7618, guest PC 0x0c0726fe */
+if(!s->budget--) { s->failed_pc=0x0c0726feu; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072700;
+P_0c072700: /* original f049, guest PC 0x0c072700 */
+if(!s->budget--) { s->failed_pc=0x0c072700u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072702;
+P_0c072702: /* original f549, guest PC 0x0c072702 */
+if(!s->budget--) { s->failed_pc=0x0c072702u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072704;
+P_0c072704: /* original f648, guest PC 0x0c072704 */
+if(!s->budget--) { s->failed_pc=0x0c072704u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c072706;
+P_0c072706: /* original f859, guest PC 0x0c072706 */
+if(!s->budget--) { s->failed_pc=0x0c072706u; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072708;
+P_0c072708: /* original f959, guest PC 0x0c072708 */
+if(!s->budget--) { s->failed_pc=0x0c072708u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07270a;
+P_0c07270a: /* original fa58, guest PC 0x0c07270a */
+if(!s->budget--) { s->failed_pc=0x0c07270au; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c07270c;
+P_0c07270c: /* original 760c, guest PC 0x0c07270c */
+if(!s->budget--) { s->failed_pc=0x0c07270cu; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c07270e;
+P_0c07270e: /* original f35c, guest PC 0x0c07270e */
+if(!s->budget--) { s->failed_pc=0x0c07270eu; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072710;
+P_0c072710: /* original f382, guest PC 0x0c072710 */
+if(!s->budget--) { s->failed_pc=0x0c072710u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c072712;
+P_0c072712: /* original f20c, guest PC 0x0c072712 */
+if(!s->budget--) { s->failed_pc=0x0c072712u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072714;
+P_0c072714: /* original f2a2, guest PC 0x0c072714 */
+if(!s->budget--) { s->failed_pc=0x0c072714u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c072716;
+P_0c072716: /* original f16c, guest PC 0x0c072716 */
+if(!s->budget--) { s->failed_pc=0x0c072716u; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072718;
+P_0c072718: /* original f192, guest PC 0x0c072718 */
+if(!s->budget--) { s->failed_pc=0x0c072718u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c07271a;
+P_0c07271a: /* original f34d, guest PC 0x0c07271a */
+if(!s->budget--) { s->failed_pc=0x0c07271au; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c07271c;
+P_0c07271c: /* original f39e, guest PC 0x0c07271c */
+if(!s->budget--) { s->failed_pc=0x0c07271cu; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c07271e;
+P_0c07271e: /* original f24d, guest PC 0x0c07271e */
+if(!s->budget--) { s->failed_pc=0x0c07271eu; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072720;
+P_0c072720: /* original f06c, guest PC 0x0c072720 */
+if(!s->budget--) { s->failed_pc=0x0c072720u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c072722;
+P_0c072722: /* original f28e, guest PC 0x0c072722 */
+if(!s->budget--) { s->failed_pc=0x0c072722u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072724;
+P_0c072724: /* original f14d, guest PC 0x0c072724 */
+if(!s->budget--) { s->failed_pc=0x0c072724u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c072726;
+P_0c072726: /* original f63b, guest PC 0x0c072726 */
+if(!s->budget--) { s->failed_pc=0x0c072726u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072728;
+P_0c072728: /* original f05c, guest PC 0x0c072728 */
+if(!s->budget--) { s->failed_pc=0x0c072728u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c07272a;
+P_0c07272a: /* original f1ae, guest PC 0x0c07272a */
+if(!s->budget--) { s->failed_pc=0x0c07272au; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c07272c;
+P_0c07272c: /* original f62b, guest PC 0x0c07272c */
+if(!s->budget--) { s->failed_pc=0x0c07272cu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c07272e;
+P_0c07272e: /* original f61b, guest PC 0x0c07272e */
+if(!s->budget--) { s->failed_pc=0x0c07272eu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072730;
+P_0c072730: /* original 64f3, guest PC 0x0c072730 */
+if(!s->budget--) { s->failed_pc=0x0c072730u; return 0; }
+r[4]=r[15];
+goto P_0c072732;
+P_0c072732: /* original 7424, guest PC 0x0c072732 */
+if(!s->budget--) { s->failed_pc=0x0c072732u; return 0; }
+r[4]+=0x00000024u;
+goto P_0c072734;
+P_0c072734: /* original f049, guest PC 0x0c072734 */
+if(!s->budget--) { s->failed_pc=0x0c072734u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072736;
+P_0c072736: /* original f149, guest PC 0x0c072736 */
+if(!s->budget--) { s->failed_pc=0x0c072736u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072738;
+P_0c072738: /* original f249, guest PC 0x0c072738 */
+if(!s->budget--) { s->failed_pc=0x0c072738u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07273a;
+P_0c07273a: /* original f38d, guest PC 0x0c07273a */
+if(!s->budget--) { s->failed_pc=0x0c07273au; return 0; }
+fr[3]=0;
+goto P_0c07273c;
+P_0c07273c: /* original f0ed, guest PC 0x0c07273c */
+if(!s->budget--) { s->failed_pc=0x0c07273cu; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07273e;
+P_0c07273e: /* original f37d, guest PC 0x0c07273e */
+if(!s->budget--) { s->failed_pc=0x0c07273eu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072740;
+P_0c072740: /* original f232, guest PC 0x0c072740 */
+if(!s->budget--) { s->failed_pc=0x0c072740u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072742;
+P_0c072742: /* original f132, guest PC 0x0c072742 */
+if(!s->budget--) { s->failed_pc=0x0c072742u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072744;
+P_0c072744: /* original f032, guest PC 0x0c072744 */
+if(!s->budget--) { s->failed_pc=0x0c072744u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072746;
+P_0c072746: /* original f42b, guest PC 0x0c072746 */
+if(!s->budget--) { s->failed_pc=0x0c072746u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072748;
+P_0c072748: /* original f41b, guest PC 0x0c072748 */
+if(!s->budget--) { s->failed_pc=0x0c072748u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07274a;
+P_0c07274a: /* original f40b, guest PC 0x0c07274a */
+if(!s->budget--) { s->failed_pc=0x0c07274au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07274c;
+P_0c07274c: /* original 64f3, guest PC 0x0c07274c */
+if(!s->budget--) { s->failed_pc=0x0c07274cu; return 0; }
+r[4]=r[15];
+goto P_0c07274e;
+P_0c07274e: /* original 7418, guest PC 0x0c07274e */
+if(!s->budget--) { s->failed_pc=0x0c07274eu; return 0; }
+r[4]+=0x00000018u;
+goto P_0c072750;
+P_0c072750: /* original f049, guest PC 0x0c072750 */
+if(!s->budget--) { s->failed_pc=0x0c072750u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072752;
+P_0c072752: /* original f149, guest PC 0x0c072752 */
+if(!s->budget--) { s->failed_pc=0x0c072752u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072754;
+P_0c072754: /* original f249, guest PC 0x0c072754 */
+if(!s->budget--) { s->failed_pc=0x0c072754u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072756;
+P_0c072756: /* original f38d, guest PC 0x0c072756 */
+if(!s->budget--) { s->failed_pc=0x0c072756u; return 0; }
+fr[3]=0;
+goto P_0c072758;
+P_0c072758: /* original f0ed, guest PC 0x0c072758 */
+if(!s->budget--) { s->failed_pc=0x0c072758u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07275a;
+P_0c07275a: /* original f37d, guest PC 0x0c07275a */
+if(!s->budget--) { s->failed_pc=0x0c07275au; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c07275c;
+P_0c07275c: /* original f232, guest PC 0x0c07275c */
+if(!s->budget--) { s->failed_pc=0x0c07275cu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c07275e;
+P_0c07275e: /* original f132, guest PC 0x0c07275e */
+if(!s->budget--) { s->failed_pc=0x0c07275eu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072760;
+P_0c072760: /* original f032, guest PC 0x0c072760 */
+if(!s->budget--) { s->failed_pc=0x0c072760u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072762;
+P_0c072762: /* original f42b, guest PC 0x0c072762 */
+if(!s->budget--) { s->failed_pc=0x0c072762u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072764;
+P_0c072764: /* original f41b, guest PC 0x0c072764 */
+if(!s->budget--) { s->failed_pc=0x0c072764u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072766;
+P_0c072766: /* original f40b, guest PC 0x0c072766 */
+if(!s->budget--) { s->failed_pc=0x0c072766u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072768;
+P_0c072768: /* original 65f3, guest PC 0x0c072768 */
+if(!s->budget--) { s->failed_pc=0x0c072768u; return 0; }
+r[5]=r[15];
+goto P_0c07276a;
+P_0c07276a: /* original 64e3, guest PC 0x0c07276a */
+if(!s->budget--) { s->failed_pc=0x0c07276au; return 0; }
+r[4]=r[14];
+goto P_0c07276c;
+P_0c07276c: /* original 66f3, guest PC 0x0c07276c */
+if(!s->budget--) { s->failed_pc=0x0c07276cu; return 0; }
+r[6]=r[15];
+goto P_0c07276e;
+P_0c07276e: /* original 740c, guest PC 0x0c07276e */
+if(!s->budget--) { s->failed_pc=0x0c07276eu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072770;
+P_0c072770: /* original 7618, guest PC 0x0c072770 */
+if(!s->budget--) { s->failed_pc=0x0c072770u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072772;
+P_0c072772: /* original 7524, guest PC 0x0c072772 */
+if(!s->budget--) { s->failed_pc=0x0c072772u; return 0; }
+r[5]+=0x00000024u;
+goto P_0c072774;
+P_0c072774: /* original f059, guest PC 0x0c072774 */
+if(!s->budget--) { s->failed_pc=0x0c072774u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072776;
+P_0c072776: /* original f369, guest PC 0x0c072776 */
+if(!s->budget--) { s->failed_pc=0x0c072776u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072778;
+P_0c072778: /* original f159, guest PC 0x0c072778 */
+if(!s->budget--) { s->failed_pc=0x0c072778u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07277a;
+P_0c07277a: /* original f469, guest PC 0x0c07277a */
+if(!s->budget--) { s->failed_pc=0x0c07277au; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07277c;
+P_0c07277c: /* original f259, guest PC 0x0c07277c */
+if(!s->budget--) { s->failed_pc=0x0c07277cu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07277e;
+P_0c07277e: /* original f569, guest PC 0x0c07277e */
+if(!s->budget--) { s->failed_pc=0x0c07277eu; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072780;
+P_0c072780: /* original 740c, guest PC 0x0c072780 */
+if(!s->budget--) { s->failed_pc=0x0c072780u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072782;
+P_0c072782: /* original f030, guest PC 0x0c072782 */
+if(!s->budget--) { s->failed_pc=0x0c072782u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c072784;
+P_0c072784: /* original f250, guest PC 0x0c072784 */
+if(!s->budget--) { s->failed_pc=0x0c072784u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'+');
+goto P_0c072786;
+P_0c072786: /* original f140, guest PC 0x0c072786 */
+if(!s->budget--) { s->failed_pc=0x0c072786u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'+');
+goto P_0c072788;
+P_0c072788: /* original f42b, guest PC 0x0c072788 */
+if(!s->budget--) { s->failed_pc=0x0c072788u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07278a;
+P_0c07278a: /* original f41b, guest PC 0x0c07278a */
+if(!s->budget--) { s->failed_pc=0x0c07278au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07278c;
+P_0c07278c: /* original f40b, guest PC 0x0c07278c */
+if(!s->budget--) { s->failed_pc=0x0c07278cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07278e;
+P_0c07278e: /* original 0009, guest PC 0x0c07278e */
+if(!s->budget--) { s->failed_pc=0x0c07278eu; return 0; }
+goto P_0c072790;
+P_0c072790: /* original 64e3, guest PC 0x0c072790 */
+if(!s->budget--) { s->failed_pc=0x0c072790u; return 0; }
+r[4]=r[14];
+goto P_0c072792;
+P_0c072792: /* original 65e3, guest PC 0x0c072792 */
+if(!s->budget--) { s->failed_pc=0x0c072792u; return 0; }
+r[5]=r[14];
+goto P_0c072794;
+P_0c072794: /* original 740c, guest PC 0x0c072794 */
+if(!s->budget--) { s->failed_pc=0x0c072794u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072796;
+P_0c072796: /* original f4fc, guest PC 0x0c072796 */
+if(!s->budget--) { s->failed_pc=0x0c072796u; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072798;
+P_0c072798: /* original 750c, guest PC 0x0c072798 */
+if(!s->budget--) { s->failed_pc=0x0c072798u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c07279a;
+P_0c07279a: /* original f059, guest PC 0x0c07279a */
+if(!s->budget--) { s->failed_pc=0x0c07279au; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07279c;
+P_0c07279c: /* original f159, guest PC 0x0c07279c */
+if(!s->budget--) { s->failed_pc=0x0c07279cu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07279e;
+P_0c07279e: /* original f259, guest PC 0x0c07279e */
+if(!s->budget--) { s->failed_pc=0x0c07279eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0727a0;
+P_0c0727a0: /* original f38d, guest PC 0x0c0727a0 */
+if(!s->budget--) { s->failed_pc=0x0c0727a0u; return 0; }
+fr[3]=0;
+goto P_0c0727a2;
+P_0c0727a2: /* original f0ed, guest PC 0x0c0727a2 */
+if(!s->budget--) { s->failed_pc=0x0c0727a2u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0727a4;
+P_0c0727a4: /* original f37d, guest PC 0x0c0727a4 */
+if(!s->budget--) { s->failed_pc=0x0c0727a4u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0727a6;
+P_0c0727a6: /* original f342, guest PC 0x0c0727a6 */
+if(!s->budget--) { s->failed_pc=0x0c0727a6u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c0727a8;
+P_0c0727a8: /* original 740c, guest PC 0x0c0727a8 */
+if(!s->budget--) { s->failed_pc=0x0c0727a8u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0727aa;
+P_0c0727aa: /* original f232, guest PC 0x0c0727aa */
+if(!s->budget--) { s->failed_pc=0x0c0727aau; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0727ac;
+P_0c0727ac: /* original f132, guest PC 0x0c0727ac */
+if(!s->budget--) { s->failed_pc=0x0c0727acu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0727ae;
+P_0c0727ae: /* original f032, guest PC 0x0c0727ae */
+if(!s->budget--) { s->failed_pc=0x0c0727aeu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0727b0;
+P_0c0727b0: /* original f42b, guest PC 0x0c0727b0 */
+if(!s->budget--) { s->failed_pc=0x0c0727b0u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0727b2;
+P_0c0727b2: /* original f41b, guest PC 0x0c0727b2 */
+if(!s->budget--) { s->failed_pc=0x0c0727b2u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0727b4;
+P_0c0727b4: /* original f40b, guest PC 0x0c0727b4 */
+if(!s->budget--) { s->failed_pc=0x0c0727b4u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0727b6;
+P_0c0727b6: /* original 0009, guest PC 0x0c0727b6 */
+if(!s->budget--) { s->failed_pc=0x0c0727b6u; return 0; }
+goto P_0c0727b8;
+P_0c0727b8: /* original 52f4, guest PC 0x0c0727b8 */
+if(!s->budget--) { s->failed_pc=0x0c0727b8u; return 0; }
+r[2]=read(ram,r[15]+16,4);
+goto P_0c0727ba;
+P_0c0727ba: /* original 6eb3, guest PC 0x0c0727ba */
+if(!s->budget--) { s->failed_pc=0x0c0727bau; return 0; }
+r[14]=r[11];
+goto P_0c0727bc;
+P_0c0727bc: /* original 7b18, guest PC 0x0c0727bc */
+if(!s->budget--) { s->failed_pc=0x0c0727bcu; return 0; }
+r[11]+=0x00000018u;
+goto P_0c0727be;
+P_0c0727be: /* original 72ff, guest PC 0x0c0727be */
+if(!s->budget--) { s->failed_pc=0x0c0727beu; return 0; }
+r[2]+=0xffffffffu;
+goto P_0c0727c0;
+P_0c0727c0: /* original 1f24, guest PC 0x0c0727c0 */
+if(!s->budget--) { s->failed_pc=0x0c0727c0u; return 0; }
+write(ram,r[15]+16,r[2],4);
+goto P_0c0727c2;
+P_0c0727c2: /* original 7918, guest PC 0x0c0727c2 */
+if(!s->budget--) { s->failed_pc=0x0c0727c2u; return 0; }
+r[9]+=0x00000018u;
+goto P_0c0727c4;
+P_0c0727c4: /* original 7818, guest PC 0x0c0727c4 */
+if(!s->budget--) { s->failed_pc=0x0c0727c4u; return 0; }
+r[8]+=0x00000018u;
+goto P_0c0727c6;
+P_0c0727c6: /* original 51f4, guest PC 0x0c0727c6 */
+if(!s->budget--) { s->failed_pc=0x0c0727c6u; return 0; }
+r[1]=read(ram,r[15]+16,4);
+goto P_0c0727c8;
+P_0c0727c8: /* original e307, guest PC 0x0c0727c8 */
+if(!s->budget--) { s->failed_pc=0x0c0727c8u; return 0; }
+r[3]=0x00000007u;
+goto P_0c0727ca;
+P_0c0727ca: /* original 3137, guest PC 0x0c0727ca */
+if(!s->budget--) { s->failed_pc=0x0c0727cau; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[1]>(int32_t)r[3])!=0);
+goto P_0c0727cc;
+P_0c0727cc: /* original 8b02, guest PC 0x0c0727cc */
+if(!s->budget--) { s->failed_pc=0x0c0727ccu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c0727d4; }
+goto P_0c0727ce;
+P_0c0727ce: /* original d204, guest PC 0x0c0727ce */
+if(!s->budget--) { s->failed_pc=0x0c0727ceu; return 0; }
+r[2]=read(ram,0x0c0727e0u,4);
+goto P_0c0727d0;
+P_0c0727d0: /* original 422b, guest PC 0x0c0727d0 */
+if(!s->budget--) { s->failed_pc=0x0c0727d0u; return 0; }
+target=r[2];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c0727d2: /* original 0009, guest PC 0x0c0727d2 */
+if(!s->budget--) { s->failed_pc=0x0c0727d2u; return 0; }
+goto P_0c0727d4;
+P_0c0727d4: /* original 64d3, guest PC 0x0c0727d4 */
+if(!s->budget--) { s->failed_pc=0x0c0727d4u; return 0; }
+r[4]=r[13];
+goto P_0c0727d6;
+P_0c0727d6: /* original 65b3, guest PC 0x0c0727d6 */
+if(!s->budget--) { s->failed_pc=0x0c0727d6u; return 0; }
+r[5]=r[11];
+goto P_0c0727d8;
+P_0c0727d8: /* original 66e3, guest PC 0x0c0727d8 */
+if(!s->budget--) { s->failed_pc=0x0c0727d8u; return 0; }
+r[6]=r[14];
+goto P_0c0727da;
+P_0c0727da: /* original a003, guest PC 0x0c0727da */
+if(!s->budget--) { s->failed_pc=0x0c0727dau; return 0; }
+goto P_0c0727e4;
+P_0c0727dc: /* original 0009, guest PC 0x0c0727dc */
+if(!s->budget--) { s->failed_pc=0x0c0727dcu; return 0; }
+return vf3_matrix_family(0x0c0727deu,s,ram);
+P_0c0727e4: /* original f059, guest PC 0x0c0727e4 */
+if(!s->budget--) { s->failed_pc=0x0c0727e4u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0727e6;
+P_0c0727e6: /* original f369, guest PC 0x0c0727e6 */
+if(!s->budget--) { s->failed_pc=0x0c0727e6u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0727e8;
+P_0c0727e8: /* original f159, guest PC 0x0c0727e8 */
+if(!s->budget--) { s->failed_pc=0x0c0727e8u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0727ea;
+P_0c0727ea: /* original f469, guest PC 0x0c0727ea */
+if(!s->budget--) { s->failed_pc=0x0c0727eau; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0727ec;
+P_0c0727ec: /* original f031, guest PC 0x0c0727ec */
+if(!s->budget--) { s->failed_pc=0x0c0727ecu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0727ee;
+P_0c0727ee: /* original f258, guest PC 0x0c0727ee */
+if(!s->budget--) { s->failed_pc=0x0c0727eeu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0727f0;
+P_0c0727f0: /* original f568, guest PC 0x0c0727f0 */
+if(!s->budget--) { s->failed_pc=0x0c0727f0u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0727f2;
+P_0c0727f2: /* original f141, guest PC 0x0c0727f2 */
+if(!s->budget--) { s->failed_pc=0x0c0727f2u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0727f4;
+P_0c0727f4: /* original f251, guest PC 0x0c0727f4 */
+if(!s->budget--) { s->failed_pc=0x0c0727f4u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0727f6;
+P_0c0727f6: /* original 7408, guest PC 0x0c0727f6 */
+if(!s->budget--) { s->failed_pc=0x0c0727f6u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0727f8;
+P_0c0727f8: /* original f42a, guest PC 0x0c0727f8 */
+if(!s->budget--) { s->failed_pc=0x0c0727f8u; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0727fa;
+P_0c0727fa: /* original f41b, guest PC 0x0c0727fa */
+if(!s->budget--) { s->failed_pc=0x0c0727fau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0727fc;
+P_0c0727fc: /* original f40b, guest PC 0x0c0727fc */
+if(!s->budget--) { s->failed_pc=0x0c0727fcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0727fe;
+P_0c0727fe: /* original 0009, guest PC 0x0c0727fe */
+if(!s->budget--) { s->failed_pc=0x0c0727feu; return 0; }
+goto P_0c072800;
+P_0c072800: /* original 64a3, guest PC 0x0c072800 */
+if(!s->budget--) { s->failed_pc=0x0c072800u; return 0; }
+r[4]=r[10];
+goto P_0c072802;
+P_0c072802: /* original 6583, guest PC 0x0c072802 */
+if(!s->budget--) { s->failed_pc=0x0c072802u; return 0; }
+r[5]=r[8];
+goto P_0c072804;
+P_0c072804: /* original 66e3, guest PC 0x0c072804 */
+if(!s->budget--) { s->failed_pc=0x0c072804u; return 0; }
+r[6]=r[14];
+goto P_0c072806;
+P_0c072806: /* original f059, guest PC 0x0c072806 */
+if(!s->budget--) { s->failed_pc=0x0c072806u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072808;
+P_0c072808: /* original f369, guest PC 0x0c072808 */
+if(!s->budget--) { s->failed_pc=0x0c072808u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07280a;
+P_0c07280a: /* original f159, guest PC 0x0c07280a */
+if(!s->budget--) { s->failed_pc=0x0c07280au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07280c;
+P_0c07280c: /* original f469, guest PC 0x0c07280c */
+if(!s->budget--) { s->failed_pc=0x0c07280cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c07280e;
+P_0c07280e: /* original f031, guest PC 0x0c07280e */
+if(!s->budget--) { s->failed_pc=0x0c07280eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072810;
+P_0c072810: /* original f258, guest PC 0x0c072810 */
+if(!s->budget--) { s->failed_pc=0x0c072810u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072812;
+P_0c072812: /* original f568, guest PC 0x0c072812 */
+if(!s->budget--) { s->failed_pc=0x0c072812u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072814;
+P_0c072814: /* original f141, guest PC 0x0c072814 */
+if(!s->budget--) { s->failed_pc=0x0c072814u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072816;
+P_0c072816: /* original f251, guest PC 0x0c072816 */
+if(!s->budget--) { s->failed_pc=0x0c072816u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072818;
+P_0c072818: /* original 7408, guest PC 0x0c072818 */
+if(!s->budget--) { s->failed_pc=0x0c072818u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c07281a;
+P_0c07281a: /* original f42a, guest PC 0x0c07281a */
+if(!s->budget--) { s->failed_pc=0x0c07281au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07281c;
+P_0c07281c: /* original f41b, guest PC 0x0c07281c */
+if(!s->budget--) { s->failed_pc=0x0c07281cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07281e;
+P_0c07281e: /* original f40b, guest PC 0x0c07281e */
+if(!s->budget--) { s->failed_pc=0x0c07281eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072820;
+P_0c072820: /* original 66e3, guest PC 0x0c072820 */
+if(!s->budget--) { s->failed_pc=0x0c072820u; return 0; }
+r[6]=r[14];
+goto P_0c072822;
+P_0c072822: /* original 64a3, guest PC 0x0c072822 */
+if(!s->budget--) { s->failed_pc=0x0c072822u; return 0; }
+r[4]=r[10];
+goto P_0c072824;
+P_0c072824: /* original 65d3, guest PC 0x0c072824 */
+if(!s->budget--) { s->failed_pc=0x0c072824u; return 0; }
+r[5]=r[13];
+goto P_0c072826;
+P_0c072826: /* original 760c, guest PC 0x0c072826 */
+if(!s->budget--) { s->failed_pc=0x0c072826u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072828;
+P_0c072828: /* original f049, guest PC 0x0c072828 */
+if(!s->budget--) { s->failed_pc=0x0c072828u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07282a;
+P_0c07282a: /* original f549, guest PC 0x0c07282a */
+if(!s->budget--) { s->failed_pc=0x0c07282au; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07282c;
+P_0c07282c: /* original f648, guest PC 0x0c07282c */
+if(!s->budget--) { s->failed_pc=0x0c07282cu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c07282e;
+P_0c07282e: /* original f859, guest PC 0x0c07282e */
+if(!s->budget--) { s->failed_pc=0x0c07282eu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072830;
+P_0c072830: /* original f959, guest PC 0x0c072830 */
+if(!s->budget--) { s->failed_pc=0x0c072830u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072832;
+P_0c072832: /* original fa58, guest PC 0x0c072832 */
+if(!s->budget--) { s->failed_pc=0x0c072832u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072834;
+P_0c072834: /* original 760c, guest PC 0x0c072834 */
+if(!s->budget--) { s->failed_pc=0x0c072834u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072836;
+P_0c072836: /* original f35c, guest PC 0x0c072836 */
+if(!s->budget--) { s->failed_pc=0x0c072836u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072838;
+P_0c072838: /* original f382, guest PC 0x0c072838 */
+if(!s->budget--) { s->failed_pc=0x0c072838u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c07283a;
+P_0c07283a: /* original f20c, guest PC 0x0c07283a */
+if(!s->budget--) { s->failed_pc=0x0c07283au; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c07283c;
+P_0c07283c: /* original f2a2, guest PC 0x0c07283c */
+if(!s->budget--) { s->failed_pc=0x0c07283cu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c07283e;
+P_0c07283e: /* original f16c, guest PC 0x0c07283e */
+if(!s->budget--) { s->failed_pc=0x0c07283eu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072840;
+P_0c072840: /* original f192, guest PC 0x0c072840 */
+if(!s->budget--) { s->failed_pc=0x0c072840u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c072842;
+P_0c072842: /* original f34d, guest PC 0x0c072842 */
+if(!s->budget--) { s->failed_pc=0x0c072842u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072844;
+P_0c072844: /* original f39e, guest PC 0x0c072844 */
+if(!s->budget--) { s->failed_pc=0x0c072844u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c072846;
+P_0c072846: /* original f24d, guest PC 0x0c072846 */
+if(!s->budget--) { s->failed_pc=0x0c072846u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072848;
+P_0c072848: /* original f06c, guest PC 0x0c072848 */
+if(!s->budget--) { s->failed_pc=0x0c072848u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c07284a;
+P_0c07284a: /* original f28e, guest PC 0x0c07284a */
+if(!s->budget--) { s->failed_pc=0x0c07284au; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c07284c;
+P_0c07284c: /* original f14d, guest PC 0x0c07284c */
+if(!s->budget--) { s->failed_pc=0x0c07284cu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c07284e;
+P_0c07284e: /* original f63b, guest PC 0x0c07284e */
+if(!s->budget--) { s->failed_pc=0x0c07284eu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072850;
+P_0c072850: /* original f05c, guest PC 0x0c072850 */
+if(!s->budget--) { s->failed_pc=0x0c072850u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c072852;
+P_0c072852: /* original f1ae, guest PC 0x0c072852 */
+if(!s->budget--) { s->failed_pc=0x0c072852u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072854;
+P_0c072854: /* original f62b, guest PC 0x0c072854 */
+if(!s->budget--) { s->failed_pc=0x0c072854u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c072856;
+P_0c072856: /* original f61b, guest PC 0x0c072856 */
+if(!s->budget--) { s->failed_pc=0x0c072856u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072858;
+P_0c072858: /* original 64e3, guest PC 0x0c072858 */
+if(!s->budget--) { s->failed_pc=0x0c072858u; return 0; }
+r[4]=r[14];
+goto P_0c07285a;
+P_0c07285a: /* original 65e3, guest PC 0x0c07285a */
+if(!s->budget--) { s->failed_pc=0x0c07285au; return 0; }
+r[5]=r[14];
+goto P_0c07285c;
+P_0c07285c: /* original 740c, guest PC 0x0c07285c */
+if(!s->budget--) { s->failed_pc=0x0c07285cu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c07285e;
+P_0c07285e: /* original f4fc, guest PC 0x0c07285e */
+if(!s->budget--) { s->failed_pc=0x0c07285eu; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072860;
+P_0c072860: /* original 750c, guest PC 0x0c072860 */
+if(!s->budget--) { s->failed_pc=0x0c072860u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c072862;
+P_0c072862: /* original f059, guest PC 0x0c072862 */
+if(!s->budget--) { s->failed_pc=0x0c072862u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072864;
+P_0c072864: /* original f159, guest PC 0x0c072864 */
+if(!s->budget--) { s->failed_pc=0x0c072864u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072866;
+P_0c072866: /* original f259, guest PC 0x0c072866 */
+if(!s->budget--) { s->failed_pc=0x0c072866u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072868;
+P_0c072868: /* original f38d, guest PC 0x0c072868 */
+if(!s->budget--) { s->failed_pc=0x0c072868u; return 0; }
+fr[3]=0;
+goto P_0c07286a;
+P_0c07286a: /* original f0ed, guest PC 0x0c07286a */
+if(!s->budget--) { s->failed_pc=0x0c07286au; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07286c;
+P_0c07286c: /* original f37d, guest PC 0x0c07286c */
+if(!s->budget--) { s->failed_pc=0x0c07286cu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c07286e;
+P_0c07286e: /* original f342, guest PC 0x0c07286e */
+if(!s->budget--) { s->failed_pc=0x0c07286eu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c072870;
+P_0c072870: /* original 740c, guest PC 0x0c072870 */
+if(!s->budget--) { s->failed_pc=0x0c072870u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072872;
+P_0c072872: /* original f232, guest PC 0x0c072872 */
+if(!s->budget--) { s->failed_pc=0x0c072872u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072874;
+P_0c072874: /* original f132, guest PC 0x0c072874 */
+if(!s->budget--) { s->failed_pc=0x0c072874u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072876;
+P_0c072876: /* original f032, guest PC 0x0c072876 */
+if(!s->budget--) { s->failed_pc=0x0c072876u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072878;
+P_0c072878: /* original f42b, guest PC 0x0c072878 */
+if(!s->budget--) { s->failed_pc=0x0c072878u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07287a;
+P_0c07287a: /* original f41b, guest PC 0x0c07287a */
+if(!s->budget--) { s->failed_pc=0x0c07287au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07287c;
+P_0c07287c: /* original f40b, guest PC 0x0c07287c */
+if(!s->budget--) { s->failed_pc=0x0c07287cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c07287e;
+P_0c07287e: /* original 0009, guest PC 0x0c07287e */
+if(!s->budget--) { s->failed_pc=0x0c07287eu; return 0; }
+goto P_0c072880;
+P_0c072880: /* original 53f5, guest PC 0x0c072880 */
+if(!s->budget--) { s->failed_pc=0x0c072880u; return 0; }
+r[3]=read(ram,r[15]+20,4);
+goto P_0c072882;
+P_0c072882: /* original 69e3, guest PC 0x0c072882 */
+if(!s->budget--) { s->failed_pc=0x0c072882u; return 0; }
+r[9]=r[14];
+goto P_0c072884;
+P_0c072884: /* original e201, guest PC 0x0c072884 */
+if(!s->budget--) { s->failed_pc=0x0c072884u; return 0; }
+r[2]=0x00000001u;
+goto P_0c072886;
+P_0c072886: /* original 6eb3, guest PC 0x0c072886 */
+if(!s->budget--) { s->failed_pc=0x0c072886u; return 0; }
+r[14]=r[11];
+goto P_0c072888;
+P_0c072888: /* original 6133, guest PC 0x0c072888 */
+if(!s->budget--) { s->failed_pc=0x0c072888u; return 0; }
+r[1]=r[3];
+goto P_0c07288a;
+P_0c07288a: /* original 3127, guest PC 0x0c07288a */
+if(!s->budget--) { s->failed_pc=0x0c07288au; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[1]>(int32_t)r[2])!=0);
+goto P_0c07288c;
+P_0c07288c: /* original 7b18, guest PC 0x0c07288c */
+if(!s->budget--) { s->failed_pc=0x0c07288cu; return 0; }
+r[11]+=0x00000018u;
+goto P_0c07288e;
+P_0c07288e: /* original 2f32, guest PC 0x0c07288e */
+if(!s->budget--) { s->failed_pc=0x0c07288eu; return 0; }
+write(ram,r[15],r[3],4);
+goto P_0c072890;
+P_0c072890: /* original 8d03, guest PC 0x0c072890 */
+if(!s->budget--) { s->failed_pc=0x0c072890u; return 0; }
+cond=r[17]&1u;
+r[8]+=0x00000018u;
+if(cond) { goto P_0c07289a; }
+goto P_0c072894;
+P_0c072892: /* original 7818, guest PC 0x0c072892 */
+if(!s->budget--) { s->failed_pc=0x0c072892u; return 0; }
+r[8]+=0x00000018u;
+goto P_0c072894;
+P_0c072894: /* original d303, guest PC 0x0c072894 */
+if(!s->budget--) { s->failed_pc=0x0c072894u; return 0; }
+r[3]=read(ram,0x0c0728a4u,4);
+goto P_0c072896;
+P_0c072896: /* original 432b, guest PC 0x0c072896 */
+if(!s->budget--) { s->failed_pc=0x0c072896u; return 0; }
+target=r[3];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c072898: /* original 0009, guest PC 0x0c072898 */
+if(!s->budget--) { s->failed_pc=0x0c072898u; return 0; }
+goto P_0c07289a;
+P_0c07289a: /* original 64d3, guest PC 0x0c07289a */
+if(!s->budget--) { s->failed_pc=0x0c07289au; return 0; }
+r[4]=r[13];
+goto P_0c07289c;
+P_0c07289c: /* original 6593, guest PC 0x0c07289c */
+if(!s->budget--) { s->failed_pc=0x0c07289cu; return 0; }
+r[5]=r[9];
+goto P_0c07289e;
+P_0c07289e: /* original 66e3, guest PC 0x0c07289e */
+if(!s->budget--) { s->failed_pc=0x0c07289eu; return 0; }
+r[6]=r[14];
+goto P_0c0728a0;
+P_0c0728a0: /* original a002, guest PC 0x0c0728a0 */
+if(!s->budget--) { s->failed_pc=0x0c0728a0u; return 0; }
+goto P_0c0728a8;
+P_0c0728a2: /* original 0009, guest PC 0x0c0728a2 */
+if(!s->budget--) { s->failed_pc=0x0c0728a2u; return 0; }
+return vf3_matrix_family(0x0c0728a4u,s,ram);
+P_0c0728a8: /* original f059, guest PC 0x0c0728a8 */
+if(!s->budget--) { s->failed_pc=0x0c0728a8u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728aa;
+P_0c0728aa: /* original f369, guest PC 0x0c0728aa */
+if(!s->budget--) { s->failed_pc=0x0c0728aau; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728ac;
+P_0c0728ac: /* original f159, guest PC 0x0c0728ac */
+if(!s->budget--) { s->failed_pc=0x0c0728acu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728ae;
+P_0c0728ae: /* original f469, guest PC 0x0c0728ae */
+if(!s->budget--) { s->failed_pc=0x0c0728aeu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728b0;
+P_0c0728b0: /* original f031, guest PC 0x0c0728b0 */
+if(!s->budget--) { s->failed_pc=0x0c0728b0u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0728b2;
+P_0c0728b2: /* original f258, guest PC 0x0c0728b2 */
+if(!s->budget--) { s->failed_pc=0x0c0728b2u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0728b4;
+P_0c0728b4: /* original f568, guest PC 0x0c0728b4 */
+if(!s->budget--) { s->failed_pc=0x0c0728b4u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0728b6;
+P_0c0728b6: /* original f141, guest PC 0x0c0728b6 */
+if(!s->budget--) { s->failed_pc=0x0c0728b6u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0728b8;
+P_0c0728b8: /* original f251, guest PC 0x0c0728b8 */
+if(!s->budget--) { s->failed_pc=0x0c0728b8u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0728ba;
+P_0c0728ba: /* original 7408, guest PC 0x0c0728ba */
+if(!s->budget--) { s->failed_pc=0x0c0728bau; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0728bc;
+P_0c0728bc: /* original f42a, guest PC 0x0c0728bc */
+if(!s->budget--) { s->failed_pc=0x0c0728bcu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0728be;
+P_0c0728be: /* original f41b, guest PC 0x0c0728be */
+if(!s->budget--) { s->failed_pc=0x0c0728beu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0728c0;
+P_0c0728c0: /* original f40b, guest PC 0x0c0728c0 */
+if(!s->budget--) { s->failed_pc=0x0c0728c0u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0728c2;
+P_0c0728c2: /* original 0009, guest PC 0x0c0728c2 */
+if(!s->budget--) { s->failed_pc=0x0c0728c2u; return 0; }
+goto P_0c0728c4;
+P_0c0728c4: /* original 64a3, guest PC 0x0c0728c4 */
+if(!s->budget--) { s->failed_pc=0x0c0728c4u; return 0; }
+r[4]=r[10];
+goto P_0c0728c6;
+P_0c0728c6: /* original 65b3, guest PC 0x0c0728c6 */
+if(!s->budget--) { s->failed_pc=0x0c0728c6u; return 0; }
+r[5]=r[11];
+goto P_0c0728c8;
+P_0c0728c8: /* original 66e3, guest PC 0x0c0728c8 */
+if(!s->budget--) { s->failed_pc=0x0c0728c8u; return 0; }
+r[6]=r[14];
+goto P_0c0728ca;
+P_0c0728ca: /* original f059, guest PC 0x0c0728ca */
+if(!s->budget--) { s->failed_pc=0x0c0728cau; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728cc;
+P_0c0728cc: /* original f369, guest PC 0x0c0728cc */
+if(!s->budget--) { s->failed_pc=0x0c0728ccu; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728ce;
+P_0c0728ce: /* original f159, guest PC 0x0c0728ce */
+if(!s->budget--) { s->failed_pc=0x0c0728ceu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728d0;
+P_0c0728d0: /* original f469, guest PC 0x0c0728d0 */
+if(!s->budget--) { s->failed_pc=0x0c0728d0u; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728d2;
+P_0c0728d2: /* original f031, guest PC 0x0c0728d2 */
+if(!s->budget--) { s->failed_pc=0x0c0728d2u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0728d4;
+P_0c0728d4: /* original f258, guest PC 0x0c0728d4 */
+if(!s->budget--) { s->failed_pc=0x0c0728d4u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0728d6;
+P_0c0728d6: /* original f568, guest PC 0x0c0728d6 */
+if(!s->budget--) { s->failed_pc=0x0c0728d6u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0728d8;
+P_0c0728d8: /* original f141, guest PC 0x0c0728d8 */
+if(!s->budget--) { s->failed_pc=0x0c0728d8u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0728da;
+P_0c0728da: /* original f251, guest PC 0x0c0728da */
+if(!s->budget--) { s->failed_pc=0x0c0728dau; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0728dc;
+P_0c0728dc: /* original 7408, guest PC 0x0c0728dc */
+if(!s->budget--) { s->failed_pc=0x0c0728dcu; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0728de;
+P_0c0728de: /* original f42a, guest PC 0x0c0728de */
+if(!s->budget--) { s->failed_pc=0x0c0728deu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0728e0;
+P_0c0728e0: /* original f41b, guest PC 0x0c0728e0 */
+if(!s->budget--) { s->failed_pc=0x0c0728e0u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0728e2;
+P_0c0728e2: /* original f40b, guest PC 0x0c0728e2 */
+if(!s->budget--) { s->failed_pc=0x0c0728e2u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0728e4;
+P_0c0728e4: /* original 64c3, guest PC 0x0c0728e4 */
+if(!s->budget--) { s->failed_pc=0x0c0728e4u; return 0; }
+r[4]=r[12];
+goto P_0c0728e6;
+P_0c0728e6: /* original 6583, guest PC 0x0c0728e6 */
+if(!s->budget--) { s->failed_pc=0x0c0728e6u; return 0; }
+r[5]=r[8];
+goto P_0c0728e8;
+P_0c0728e8: /* original 66e3, guest PC 0x0c0728e8 */
+if(!s->budget--) { s->failed_pc=0x0c0728e8u; return 0; }
+r[6]=r[14];
+goto P_0c0728ea;
+P_0c0728ea: /* original f059, guest PC 0x0c0728ea */
+if(!s->budget--) { s->failed_pc=0x0c0728eau; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728ec;
+P_0c0728ec: /* original f369, guest PC 0x0c0728ec */
+if(!s->budget--) { s->failed_pc=0x0c0728ecu; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728ee;
+P_0c0728ee: /* original f159, guest PC 0x0c0728ee */
+if(!s->budget--) { s->failed_pc=0x0c0728eeu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728f0;
+P_0c0728f0: /* original f469, guest PC 0x0c0728f0 */
+if(!s->budget--) { s->failed_pc=0x0c0728f0u; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0728f2;
+P_0c0728f2: /* original f031, guest PC 0x0c0728f2 */
+if(!s->budget--) { s->failed_pc=0x0c0728f2u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c0728f4;
+P_0c0728f4: /* original f258, guest PC 0x0c0728f4 */
+if(!s->budget--) { s->failed_pc=0x0c0728f4u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c0728f6;
+P_0c0728f6: /* original f568, guest PC 0x0c0728f6 */
+if(!s->budget--) { s->failed_pc=0x0c0728f6u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c0728f8;
+P_0c0728f8: /* original f141, guest PC 0x0c0728f8 */
+if(!s->budget--) { s->failed_pc=0x0c0728f8u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c0728fa;
+P_0c0728fa: /* original f251, guest PC 0x0c0728fa */
+if(!s->budget--) { s->failed_pc=0x0c0728fau; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c0728fc;
+P_0c0728fc: /* original 7408, guest PC 0x0c0728fc */
+if(!s->budget--) { s->failed_pc=0x0c0728fcu; return 0; }
+r[4]+=0x00000008u;
+goto P_0c0728fe;
+P_0c0728fe: /* original f42a, guest PC 0x0c0728fe */
+if(!s->budget--) { s->failed_pc=0x0c0728feu; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072900;
+P_0c072900: /* original f41b, guest PC 0x0c072900 */
+if(!s->budget--) { s->failed_pc=0x0c072900u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072902;
+P_0c072902: /* original f40b, guest PC 0x0c072902 */
+if(!s->budget--) { s->failed_pc=0x0c072902u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072904;
+P_0c072904: /* original 66f3, guest PC 0x0c072904 */
+if(!s->budget--) { s->failed_pc=0x0c072904u; return 0; }
+r[6]=r[15];
+goto P_0c072906;
+P_0c072906: /* original 64c3, guest PC 0x0c072906 */
+if(!s->budget--) { s->failed_pc=0x0c072906u; return 0; }
+r[4]=r[12];
+goto P_0c072908;
+P_0c072908: /* original 65a3, guest PC 0x0c072908 */
+if(!s->budget--) { s->failed_pc=0x0c072908u; return 0; }
+r[5]=r[10];
+goto P_0c07290a;
+P_0c07290a: /* original 7624, guest PC 0x0c07290a */
+if(!s->budget--) { s->failed_pc=0x0c07290au; return 0; }
+r[6]+=0x00000024u;
+goto P_0c07290c;
+P_0c07290c: /* original f049, guest PC 0x0c07290c */
+if(!s->budget--) { s->failed_pc=0x0c07290cu; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07290e;
+P_0c07290e: /* original f549, guest PC 0x0c07290e */
+if(!s->budget--) { s->failed_pc=0x0c07290eu; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072910;
+P_0c072910: /* original f648, guest PC 0x0c072910 */
+if(!s->budget--) { s->failed_pc=0x0c072910u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c072912;
+P_0c072912: /* original f859, guest PC 0x0c072912 */
+if(!s->budget--) { s->failed_pc=0x0c072912u; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072914;
+P_0c072914: /* original f959, guest PC 0x0c072914 */
+if(!s->budget--) { s->failed_pc=0x0c072914u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072916;
+P_0c072916: /* original fa58, guest PC 0x0c072916 */
+if(!s->budget--) { s->failed_pc=0x0c072916u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072918;
+P_0c072918: /* original 760c, guest PC 0x0c072918 */
+if(!s->budget--) { s->failed_pc=0x0c072918u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c07291a;
+P_0c07291a: /* original f35c, guest PC 0x0c07291a */
+if(!s->budget--) { s->failed_pc=0x0c07291au; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c07291c;
+P_0c07291c: /* original f382, guest PC 0x0c07291c */
+if(!s->budget--) { s->failed_pc=0x0c07291cu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c07291e;
+P_0c07291e: /* original f20c, guest PC 0x0c07291e */
+if(!s->budget--) { s->failed_pc=0x0c07291eu; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072920;
+P_0c072920: /* original f2a2, guest PC 0x0c072920 */
+if(!s->budget--) { s->failed_pc=0x0c072920u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c072922;
+P_0c072922: /* original f16c, guest PC 0x0c072922 */
+if(!s->budget--) { s->failed_pc=0x0c072922u; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072924;
+P_0c072924: /* original f192, guest PC 0x0c072924 */
+if(!s->budget--) { s->failed_pc=0x0c072924u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c072926;
+P_0c072926: /* original f34d, guest PC 0x0c072926 */
+if(!s->budget--) { s->failed_pc=0x0c072926u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072928;
+P_0c072928: /* original f39e, guest PC 0x0c072928 */
+if(!s->budget--) { s->failed_pc=0x0c072928u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c07292a;
+P_0c07292a: /* original f24d, guest PC 0x0c07292a */
+if(!s->budget--) { s->failed_pc=0x0c07292au; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c07292c;
+P_0c07292c: /* original f06c, guest PC 0x0c07292c */
+if(!s->budget--) { s->failed_pc=0x0c07292cu; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c07292e;
+P_0c07292e: /* original f28e, guest PC 0x0c07292e */
+if(!s->budget--) { s->failed_pc=0x0c07292eu; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072930;
+P_0c072930: /* original f14d, guest PC 0x0c072930 */
+if(!s->budget--) { s->failed_pc=0x0c072930u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c072932;
+P_0c072932: /* original f63b, guest PC 0x0c072932 */
+if(!s->budget--) { s->failed_pc=0x0c072932u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072934;
+P_0c072934: /* original f05c, guest PC 0x0c072934 */
+if(!s->budget--) { s->failed_pc=0x0c072934u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c072936;
+P_0c072936: /* original f1ae, guest PC 0x0c072936 */
+if(!s->budget--) { s->failed_pc=0x0c072936u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072938;
+P_0c072938: /* original f62b, guest PC 0x0c072938 */
+if(!s->budget--) { s->failed_pc=0x0c072938u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c07293a;
+P_0c07293a: /* original f61b, guest PC 0x0c07293a */
+if(!s->budget--) { s->failed_pc=0x0c07293au; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c07293c;
+P_0c07293c: /* original 66f3, guest PC 0x0c07293c */
+if(!s->budget--) { s->failed_pc=0x0c07293cu; return 0; }
+r[6]=r[15];
+goto P_0c07293e;
+P_0c07293e: /* original 64d3, guest PC 0x0c07293e */
+if(!s->budget--) { s->failed_pc=0x0c07293eu; return 0; }
+r[4]=r[13];
+goto P_0c072940;
+P_0c072940: /* original 65c3, guest PC 0x0c072940 */
+if(!s->budget--) { s->failed_pc=0x0c072940u; return 0; }
+r[5]=r[12];
+goto P_0c072942;
+P_0c072942: /* original 7618, guest PC 0x0c072942 */
+if(!s->budget--) { s->failed_pc=0x0c072942u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c072944;
+P_0c072944: /* original f049, guest PC 0x0c072944 */
+if(!s->budget--) { s->failed_pc=0x0c072944u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072946;
+P_0c072946: /* original f549, guest PC 0x0c072946 */
+if(!s->budget--) { s->failed_pc=0x0c072946u; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072948;
+P_0c072948: /* original f648, guest PC 0x0c072948 */
+if(!s->budget--) { s->failed_pc=0x0c072948u; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c07294a;
+P_0c07294a: /* original f859, guest PC 0x0c07294a */
+if(!s->budget--) { s->failed_pc=0x0c07294au; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07294c;
+P_0c07294c: /* original f959, guest PC 0x0c07294c */
+if(!s->budget--) { s->failed_pc=0x0c07294cu; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c07294e;
+P_0c07294e: /* original fa58, guest PC 0x0c07294e */
+if(!s->budget--) { s->failed_pc=0x0c07294eu; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072950;
+P_0c072950: /* original 760c, guest PC 0x0c072950 */
+if(!s->budget--) { s->failed_pc=0x0c072950u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072952;
+P_0c072952: /* original f35c, guest PC 0x0c072952 */
+if(!s->budget--) { s->failed_pc=0x0c072952u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072954;
+P_0c072954: /* original f382, guest PC 0x0c072954 */
+if(!s->budget--) { s->failed_pc=0x0c072954u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c072956;
+P_0c072956: /* original f20c, guest PC 0x0c072956 */
+if(!s->budget--) { s->failed_pc=0x0c072956u; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072958;
+P_0c072958: /* original f2a2, guest PC 0x0c072958 */
+if(!s->budget--) { s->failed_pc=0x0c072958u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c07295a;
+P_0c07295a: /* original f16c, guest PC 0x0c07295a */
+if(!s->budget--) { s->failed_pc=0x0c07295au; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c07295c;
+P_0c07295c: /* original f192, guest PC 0x0c07295c */
+if(!s->budget--) { s->failed_pc=0x0c07295cu; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c07295e;
+P_0c07295e: /* original f34d, guest PC 0x0c07295e */
+if(!s->budget--) { s->failed_pc=0x0c07295eu; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072960;
+P_0c072960: /* original f39e, guest PC 0x0c072960 */
+if(!s->budget--) { s->failed_pc=0x0c072960u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c072962;
+P_0c072962: /* original f24d, guest PC 0x0c072962 */
+if(!s->budget--) { s->failed_pc=0x0c072962u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072964;
+P_0c072964: /* original f06c, guest PC 0x0c072964 */
+if(!s->budget--) { s->failed_pc=0x0c072964u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c072966;
+P_0c072966: /* original f28e, guest PC 0x0c072966 */
+if(!s->budget--) { s->failed_pc=0x0c072966u; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072968;
+P_0c072968: /* original f14d, guest PC 0x0c072968 */
+if(!s->budget--) { s->failed_pc=0x0c072968u; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c07296a;
+P_0c07296a: /* original f63b, guest PC 0x0c07296a */
+if(!s->budget--) { s->failed_pc=0x0c07296au; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c07296c;
+P_0c07296c: /* original f05c, guest PC 0x0c07296c */
+if(!s->budget--) { s->failed_pc=0x0c07296cu; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c07296e;
+P_0c07296e: /* original f1ae, guest PC 0x0c07296e */
+if(!s->budget--) { s->failed_pc=0x0c07296eu; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072970;
+P_0c072970: /* original f62b, guest PC 0x0c072970 */
+if(!s->budget--) { s->failed_pc=0x0c072970u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c072972;
+P_0c072972: /* original f61b, guest PC 0x0c072972 */
+if(!s->budget--) { s->failed_pc=0x0c072972u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072974;
+P_0c072974: /* original 64f3, guest PC 0x0c072974 */
+if(!s->budget--) { s->failed_pc=0x0c072974u; return 0; }
+r[4]=r[15];
+goto P_0c072976;
+P_0c072976: /* original 7424, guest PC 0x0c072976 */
+if(!s->budget--) { s->failed_pc=0x0c072976u; return 0; }
+r[4]+=0x00000024u;
+goto P_0c072978;
+P_0c072978: /* original f049, guest PC 0x0c072978 */
+if(!s->budget--) { s->failed_pc=0x0c072978u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07297a;
+P_0c07297a: /* original f149, guest PC 0x0c07297a */
+if(!s->budget--) { s->failed_pc=0x0c07297au; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07297c;
+P_0c07297c: /* original f249, guest PC 0x0c07297c */
+if(!s->budget--) { s->failed_pc=0x0c07297cu; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07297e;
+P_0c07297e: /* original f38d, guest PC 0x0c07297e */
+if(!s->budget--) { s->failed_pc=0x0c07297eu; return 0; }
+fr[3]=0;
+goto P_0c072980;
+P_0c072980: /* original f0ed, guest PC 0x0c072980 */
+if(!s->budget--) { s->failed_pc=0x0c072980u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c072982;
+P_0c072982: /* original f37d, guest PC 0x0c072982 */
+if(!s->budget--) { s->failed_pc=0x0c072982u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072984;
+P_0c072984: /* original f232, guest PC 0x0c072984 */
+if(!s->budget--) { s->failed_pc=0x0c072984u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072986;
+P_0c072986: /* original f132, guest PC 0x0c072986 */
+if(!s->budget--) { s->failed_pc=0x0c072986u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072988;
+P_0c072988: /* original f032, guest PC 0x0c072988 */
+if(!s->budget--) { s->failed_pc=0x0c072988u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c07298a;
+P_0c07298a: /* original f42b, guest PC 0x0c07298a */
+if(!s->budget--) { s->failed_pc=0x0c07298au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c07298c;
+P_0c07298c: /* original f41b, guest PC 0x0c07298c */
+if(!s->budget--) { s->failed_pc=0x0c07298cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c07298e;
+P_0c07298e: /* original f40b, guest PC 0x0c07298e */
+if(!s->budget--) { s->failed_pc=0x0c07298eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072990;
+P_0c072990: /* original 64f3, guest PC 0x0c072990 */
+if(!s->budget--) { s->failed_pc=0x0c072990u; return 0; }
+r[4]=r[15];
+goto P_0c072992;
+P_0c072992: /* original 7418, guest PC 0x0c072992 */
+if(!s->budget--) { s->failed_pc=0x0c072992u; return 0; }
+r[4]+=0x00000018u;
+goto P_0c072994;
+P_0c072994: /* original f049, guest PC 0x0c072994 */
+if(!s->budget--) { s->failed_pc=0x0c072994u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072996;
+P_0c072996: /* original f149, guest PC 0x0c072996 */
+if(!s->budget--) { s->failed_pc=0x0c072996u; return 0; }
+vf3_matrix_load(s,ram,1,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072998;
+P_0c072998: /* original f249, guest PC 0x0c072998 */
+if(!s->budget--) { s->failed_pc=0x0c072998u; return 0; }
+vf3_matrix_load(s,ram,2,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c07299a;
+P_0c07299a: /* original f38d, guest PC 0x0c07299a */
+if(!s->budget--) { s->failed_pc=0x0c07299au; return 0; }
+fr[3]=0;
+goto P_0c07299c;
+P_0c07299c: /* original f0ed, guest PC 0x0c07299c */
+if(!s->budget--) { s->failed_pc=0x0c07299cu; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c07299e;
+P_0c07299e: /* original f37d, guest PC 0x0c07299e */
+if(!s->budget--) { s->failed_pc=0x0c07299eu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0729a0;
+P_0c0729a0: /* original f232, guest PC 0x0c0729a0 */
+if(!s->budget--) { s->failed_pc=0x0c0729a0u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0729a2;
+P_0c0729a2: /* original f132, guest PC 0x0c0729a2 */
+if(!s->budget--) { s->failed_pc=0x0c0729a2u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0729a4;
+P_0c0729a4: /* original f032, guest PC 0x0c0729a4 */
+if(!s->budget--) { s->failed_pc=0x0c0729a4u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0729a6;
+P_0c0729a6: /* original f42b, guest PC 0x0c0729a6 */
+if(!s->budget--) { s->failed_pc=0x0c0729a6u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0729a8;
+P_0c0729a8: /* original f41b, guest PC 0x0c0729a8 */
+if(!s->budget--) { s->failed_pc=0x0c0729a8u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0729aa;
+P_0c0729aa: /* original f40b, guest PC 0x0c0729aa */
+if(!s->budget--) { s->failed_pc=0x0c0729aau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0729ac;
+P_0c0729ac: /* original 65f3, guest PC 0x0c0729ac */
+if(!s->budget--) { s->failed_pc=0x0c0729acu; return 0; }
+r[5]=r[15];
+goto P_0c0729ae;
+P_0c0729ae: /* original 64e3, guest PC 0x0c0729ae */
+if(!s->budget--) { s->failed_pc=0x0c0729aeu; return 0; }
+r[4]=r[14];
+goto P_0c0729b0;
+P_0c0729b0: /* original 66f3, guest PC 0x0c0729b0 */
+if(!s->budget--) { s->failed_pc=0x0c0729b0u; return 0; }
+r[6]=r[15];
+goto P_0c0729b2;
+P_0c0729b2: /* original 740c, guest PC 0x0c0729b2 */
+if(!s->budget--) { s->failed_pc=0x0c0729b2u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0729b4;
+P_0c0729b4: /* original 7618, guest PC 0x0c0729b4 */
+if(!s->budget--) { s->failed_pc=0x0c0729b4u; return 0; }
+r[6]+=0x00000018u;
+goto P_0c0729b6;
+P_0c0729b6: /* original 7524, guest PC 0x0c0729b6 */
+if(!s->budget--) { s->failed_pc=0x0c0729b6u; return 0; }
+r[5]+=0x00000024u;
+goto P_0c0729b8;
+P_0c0729b8: /* original f059, guest PC 0x0c0729b8 */
+if(!s->budget--) { s->failed_pc=0x0c0729b8u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729ba;
+P_0c0729ba: /* original f369, guest PC 0x0c0729ba */
+if(!s->budget--) { s->failed_pc=0x0c0729bau; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729bc;
+P_0c0729bc: /* original f159, guest PC 0x0c0729bc */
+if(!s->budget--) { s->failed_pc=0x0c0729bcu; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729be;
+P_0c0729be: /* original f469, guest PC 0x0c0729be */
+if(!s->budget--) { s->failed_pc=0x0c0729beu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729c0;
+P_0c0729c0: /* original f259, guest PC 0x0c0729c0 */
+if(!s->budget--) { s->failed_pc=0x0c0729c0u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729c2;
+P_0c0729c2: /* original f569, guest PC 0x0c0729c2 */
+if(!s->budget--) { s->failed_pc=0x0c0729c2u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729c4;
+P_0c0729c4: /* original 740c, guest PC 0x0c0729c4 */
+if(!s->budget--) { s->failed_pc=0x0c0729c4u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0729c6;
+P_0c0729c6: /* original f030, guest PC 0x0c0729c6 */
+if(!s->budget--) { s->failed_pc=0x0c0729c6u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'+');
+goto P_0c0729c8;
+P_0c0729c8: /* original f250, guest PC 0x0c0729c8 */
+if(!s->budget--) { s->failed_pc=0x0c0729c8u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'+');
+goto P_0c0729ca;
+P_0c0729ca: /* original f140, guest PC 0x0c0729ca */
+if(!s->budget--) { s->failed_pc=0x0c0729cau; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'+');
+goto P_0c0729cc;
+P_0c0729cc: /* original f42b, guest PC 0x0c0729cc */
+if(!s->budget--) { s->failed_pc=0x0c0729ccu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0729ce;
+P_0c0729ce: /* original f41b, guest PC 0x0c0729ce */
+if(!s->budget--) { s->failed_pc=0x0c0729ceu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0729d0;
+P_0c0729d0: /* original f40b, guest PC 0x0c0729d0 */
+if(!s->budget--) { s->failed_pc=0x0c0729d0u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0729d2;
+P_0c0729d2: /* original 0009, guest PC 0x0c0729d2 */
+if(!s->budget--) { s->failed_pc=0x0c0729d2u; return 0; }
+goto P_0c0729d4;
+P_0c0729d4: /* original 64e3, guest PC 0x0c0729d4 */
+if(!s->budget--) { s->failed_pc=0x0c0729d4u; return 0; }
+r[4]=r[14];
+goto P_0c0729d6;
+P_0c0729d6: /* original 65e3, guest PC 0x0c0729d6 */
+if(!s->budget--) { s->failed_pc=0x0c0729d6u; return 0; }
+r[5]=r[14];
+goto P_0c0729d8;
+P_0c0729d8: /* original 740c, guest PC 0x0c0729d8 */
+if(!s->budget--) { s->failed_pc=0x0c0729d8u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0729da;
+P_0c0729da: /* original f4fc, guest PC 0x0c0729da */
+if(!s->budget--) { s->failed_pc=0x0c0729dau; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c0729dc;
+P_0c0729dc: /* original 750c, guest PC 0x0c0729dc */
+if(!s->budget--) { s->failed_pc=0x0c0729dcu; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c0729de;
+P_0c0729de: /* original f059, guest PC 0x0c0729de */
+if(!s->budget--) { s->failed_pc=0x0c0729deu; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729e0;
+P_0c0729e0: /* original f159, guest PC 0x0c0729e0 */
+if(!s->budget--) { s->failed_pc=0x0c0729e0u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729e2;
+P_0c0729e2: /* original f259, guest PC 0x0c0729e2 */
+if(!s->budget--) { s->failed_pc=0x0c0729e2u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c0729e4;
+P_0c0729e4: /* original f38d, guest PC 0x0c0729e4 */
+if(!s->budget--) { s->failed_pc=0x0c0729e4u; return 0; }
+fr[3]=0;
+goto P_0c0729e6;
+P_0c0729e6: /* original f0ed, guest PC 0x0c0729e6 */
+if(!s->budget--) { s->failed_pc=0x0c0729e6u; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c0729e8;
+P_0c0729e8: /* original f37d, guest PC 0x0c0729e8 */
+if(!s->budget--) { s->failed_pc=0x0c0729e8u; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c0729ea;
+P_0c0729ea: /* original f342, guest PC 0x0c0729ea */
+if(!s->budget--) { s->failed_pc=0x0c0729eau; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c0729ec;
+P_0c0729ec: /* original 740c, guest PC 0x0c0729ec */
+if(!s->budget--) { s->failed_pc=0x0c0729ecu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c0729ee;
+P_0c0729ee: /* original f232, guest PC 0x0c0729ee */
+if(!s->budget--) { s->failed_pc=0x0c0729eeu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c0729f0;
+P_0c0729f0: /* original f132, guest PC 0x0c0729f0 */
+if(!s->budget--) { s->failed_pc=0x0c0729f0u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c0729f2;
+P_0c0729f2: /* original f032, guest PC 0x0c0729f2 */
+if(!s->budget--) { s->failed_pc=0x0c0729f2u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c0729f4;
+P_0c0729f4: /* original f42b, guest PC 0x0c0729f4 */
+if(!s->budget--) { s->failed_pc=0x0c0729f4u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c0729f6;
+P_0c0729f6: /* original f41b, guest PC 0x0c0729f6 */
+if(!s->budget--) { s->failed_pc=0x0c0729f6u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c0729f8;
+P_0c0729f8: /* original f40b, guest PC 0x0c0729f8 */
+if(!s->budget--) { s->failed_pc=0x0c0729f8u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c0729fa;
+P_0c0729fa: /* original 0009, guest PC 0x0c0729fa */
+if(!s->budget--) { s->failed_pc=0x0c0729fau; return 0; }
+goto P_0c0729fc;
+P_0c0729fc: /* original 63f2, guest PC 0x0c0729fc */
+if(!s->budget--) { s->failed_pc=0x0c0729fcu; return 0; }
+tmp=read(ram,r[15],4);
+r[3]=tmp;
+goto P_0c0729fe;
+P_0c0729fe: /* original 69e3, guest PC 0x0c0729fe */
+if(!s->budget--) { s->failed_pc=0x0c0729feu; return 0; }
+r[9]=r[14];
+goto P_0c072a00;
+P_0c072a00: /* original e201, guest PC 0x0c072a00 */
+if(!s->budget--) { s->failed_pc=0x0c072a00u; return 0; }
+r[2]=0x00000001u;
+goto P_0c072a02;
+P_0c072a02: /* original 6eb3, guest PC 0x0c072a02 */
+if(!s->budget--) { s->failed_pc=0x0c072a02u; return 0; }
+r[14]=r[11];
+goto P_0c072a04;
+P_0c072a04: /* original 73ff, guest PC 0x0c072a04 */
+if(!s->budget--) { s->failed_pc=0x0c072a04u; return 0; }
+r[3]+=0xffffffffu;
+goto P_0c072a06;
+P_0c072a06: /* original 3327, guest PC 0x0c072a06 */
+if(!s->budget--) { s->failed_pc=0x0c072a06u; return 0; }
+r[17]=(r[17]&~1u)|(((int32_t)r[3]>(int32_t)r[2])!=0);
+goto P_0c072a08;
+P_0c072a08: /* original 7b18, guest PC 0x0c072a08 */
+if(!s->budget--) { s->failed_pc=0x0c072a08u; return 0; }
+r[11]+=0x00000018u;
+goto P_0c072a0a;
+P_0c072a0a: /* original 7818, guest PC 0x0c072a0a */
+if(!s->budget--) { s->failed_pc=0x0c072a0au; return 0; }
+r[8]+=0x00000018u;
+goto P_0c072a0c;
+P_0c072a0c: /* original 8f03, guest PC 0x0c072a0c */
+if(!s->budget--) { s->failed_pc=0x0c072a0cu; return 0; }
+cond=r[17]&1u;
+write(ram,r[15],r[3],4);
+if(!cond) { goto P_0c072a16; }
+goto P_0c072a10;
+P_0c072a0e: /* original 2f32, guest PC 0x0c072a0e */
+if(!s->budget--) { s->failed_pc=0x0c072a0eu; return 0; }
+write(ram,r[15],r[3],4);
+goto P_0c072a10;
+P_0c072a10: /* original d103, guest PC 0x0c072a10 */
+if(!s->budget--) { s->failed_pc=0x0c072a10u; return 0; }
+r[1]=read(ram,0x0c072a20u,4);
+goto P_0c072a12;
+P_0c072a12: /* original 412b, guest PC 0x0c072a12 */
+if(!s->budget--) { s->failed_pc=0x0c072a12u; return 0; }
+target=r[1];
+switch(target&0x1fffffffu) {
+case 0x0c03b450u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b4b0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b530u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b620u: return vf3_matrix_family(target,s,ram);
+case 0x0c03b820u: return vf3_matrix_family(target,s,ram);
+case 0x0c03bd80u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c0e0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4a0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c4f0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c610u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c6c0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c880u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c940u: return vf3_matrix_family(target,s,ram);
+case 0x0c03c970u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cbd0u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc60u: return vf3_matrix_family(target,s,ram);
+case 0x0c03cc90u: return vf3_matrix_family(target,s,ram);
+case 0x0c03ccb0u: return vf3_matrix_family(target,s,ram);
+default: goto dispatch; }
+P_0c072a14: /* original 0009, guest PC 0x0c072a14 */
+if(!s->budget--) { s->failed_pc=0x0c072a14u; return 0; }
+goto P_0c072a16;
+P_0c072a16: /* original 64d3, guest PC 0x0c072a16 */
+if(!s->budget--) { s->failed_pc=0x0c072a16u; return 0; }
+r[4]=r[13];
+goto P_0c072a18;
+P_0c072a18: /* original 6593, guest PC 0x0c072a18 */
+if(!s->budget--) { s->failed_pc=0x0c072a18u; return 0; }
+r[5]=r[9];
+goto P_0c072a1a;
+P_0c072a1a: /* original 66e3, guest PC 0x0c072a1a */
+if(!s->budget--) { s->failed_pc=0x0c072a1au; return 0; }
+r[6]=r[14];
+goto P_0c072a1c;
+P_0c072a1c: /* original a002, guest PC 0x0c072a1c */
+if(!s->budget--) { s->failed_pc=0x0c072a1cu; return 0; }
+goto P_0c072a24;
+P_0c072a1e: /* original 0009, guest PC 0x0c072a1e */
+if(!s->budget--) { s->failed_pc=0x0c072a1eu; return 0; }
+return vf3_matrix_family(0x0c072a20u,s,ram);
+P_0c072a24: /* original f059, guest PC 0x0c072a24 */
+if(!s->budget--) { s->failed_pc=0x0c072a24u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a26;
+P_0c072a26: /* original f369, guest PC 0x0c072a26 */
+if(!s->budget--) { s->failed_pc=0x0c072a26u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a28;
+P_0c072a28: /* original f159, guest PC 0x0c072a28 */
+if(!s->budget--) { s->failed_pc=0x0c072a28u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a2a;
+P_0c072a2a: /* original f469, guest PC 0x0c072a2a */
+if(!s->budget--) { s->failed_pc=0x0c072a2au; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a2c;
+P_0c072a2c: /* original f031, guest PC 0x0c072a2c */
+if(!s->budget--) { s->failed_pc=0x0c072a2cu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072a2e;
+P_0c072a2e: /* original f258, guest PC 0x0c072a2e */
+if(!s->budget--) { s->failed_pc=0x0c072a2eu; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072a30;
+P_0c072a30: /* original f568, guest PC 0x0c072a30 */
+if(!s->budget--) { s->failed_pc=0x0c072a30u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072a32;
+P_0c072a32: /* original f141, guest PC 0x0c072a32 */
+if(!s->budget--) { s->failed_pc=0x0c072a32u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072a34;
+P_0c072a34: /* original f251, guest PC 0x0c072a34 */
+if(!s->budget--) { s->failed_pc=0x0c072a34u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072a36;
+P_0c072a36: /* original 7408, guest PC 0x0c072a36 */
+if(!s->budget--) { s->failed_pc=0x0c072a36u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c072a38;
+P_0c072a38: /* original f42a, guest PC 0x0c072a38 */
+if(!s->budget--) { s->failed_pc=0x0c072a38u; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072a3a;
+P_0c072a3a: /* original f41b, guest PC 0x0c072a3a */
+if(!s->budget--) { s->failed_pc=0x0c072a3au; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072a3c;
+P_0c072a3c: /* original f40b, guest PC 0x0c072a3c */
+if(!s->budget--) { s->failed_pc=0x0c072a3cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072a3e;
+P_0c072a3e: /* original 0009, guest PC 0x0c072a3e */
+if(!s->budget--) { s->failed_pc=0x0c072a3eu; return 0; }
+goto P_0c072a40;
+P_0c072a40: /* original 64a3, guest PC 0x0c072a40 */
+if(!s->budget--) { s->failed_pc=0x0c072a40u; return 0; }
+r[4]=r[10];
+goto P_0c072a42;
+P_0c072a42: /* original 6583, guest PC 0x0c072a42 */
+if(!s->budget--) { s->failed_pc=0x0c072a42u; return 0; }
+r[5]=r[8];
+goto P_0c072a44;
+P_0c072a44: /* original 66e3, guest PC 0x0c072a44 */
+if(!s->budget--) { s->failed_pc=0x0c072a44u; return 0; }
+r[6]=r[14];
+goto P_0c072a46;
+P_0c072a46: /* original f059, guest PC 0x0c072a46 */
+if(!s->budget--) { s->failed_pc=0x0c072a46u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a48;
+P_0c072a48: /* original f369, guest PC 0x0c072a48 */
+if(!s->budget--) { s->failed_pc=0x0c072a48u; return 0; }
+vf3_matrix_load(s,ram,3,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a4a;
+P_0c072a4a: /* original f159, guest PC 0x0c072a4a */
+if(!s->budget--) { s->failed_pc=0x0c072a4au; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a4c;
+P_0c072a4c: /* original f469, guest PC 0x0c072a4c */
+if(!s->budget--) { s->failed_pc=0x0c072a4cu; return 0; }
+vf3_matrix_load(s,ram,4,r[6]);
+r[6]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a4e;
+P_0c072a4e: /* original f031, guest PC 0x0c072a4e */
+if(!s->budget--) { s->failed_pc=0x0c072a4eu; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'-');
+goto P_0c072a50;
+P_0c072a50: /* original f258, guest PC 0x0c072a50 */
+if(!s->budget--) { s->failed_pc=0x0c072a50u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+goto P_0c072a52;
+P_0c072a52: /* original f568, guest PC 0x0c072a52 */
+if(!s->budget--) { s->failed_pc=0x0c072a52u; return 0; }
+vf3_matrix_load(s,ram,5,r[6]);
+goto P_0c072a54;
+P_0c072a54: /* original f141, guest PC 0x0c072a54 */
+if(!s->budget--) { s->failed_pc=0x0c072a54u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[4],r[18],'-');
+goto P_0c072a56;
+P_0c072a56: /* original f251, guest PC 0x0c072a56 */
+if(!s->budget--) { s->failed_pc=0x0c072a56u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[5],r[18],'-');
+goto P_0c072a58;
+P_0c072a58: /* original 7408, guest PC 0x0c072a58 */
+if(!s->budget--) { s->failed_pc=0x0c072a58u; return 0; }
+r[4]+=0x00000008u;
+goto P_0c072a5a;
+P_0c072a5a: /* original f42a, guest PC 0x0c072a5a */
+if(!s->budget--) { s->failed_pc=0x0c072a5au; return 0; }
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072a5c;
+P_0c072a5c: /* original f41b, guest PC 0x0c072a5c */
+if(!s->budget--) { s->failed_pc=0x0c072a5cu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072a5e;
+P_0c072a5e: /* original f40b, guest PC 0x0c072a5e */
+if(!s->budget--) { s->failed_pc=0x0c072a5eu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072a60;
+P_0c072a60: /* original 66e3, guest PC 0x0c072a60 */
+if(!s->budget--) { s->failed_pc=0x0c072a60u; return 0; }
+r[6]=r[14];
+goto P_0c072a62;
+P_0c072a62: /* original 64d3, guest PC 0x0c072a62 */
+if(!s->budget--) { s->failed_pc=0x0c072a62u; return 0; }
+r[4]=r[13];
+goto P_0c072a64;
+P_0c072a64: /* original 65a3, guest PC 0x0c072a64 */
+if(!s->budget--) { s->failed_pc=0x0c072a64u; return 0; }
+r[5]=r[10];
+goto P_0c072a66;
+P_0c072a66: /* original 760c, guest PC 0x0c072a66 */
+if(!s->budget--) { s->failed_pc=0x0c072a66u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072a68;
+P_0c072a68: /* original f049, guest PC 0x0c072a68 */
+if(!s->budget--) { s->failed_pc=0x0c072a68u; return 0; }
+vf3_matrix_load(s,ram,0,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a6a;
+P_0c072a6a: /* original f549, guest PC 0x0c072a6a */
+if(!s->budget--) { s->failed_pc=0x0c072a6au; return 0; }
+vf3_matrix_load(s,ram,5,r[4]);
+r[4]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a6c;
+P_0c072a6c: /* original f648, guest PC 0x0c072a6c */
+if(!s->budget--) { s->failed_pc=0x0c072a6cu; return 0; }
+vf3_matrix_load(s,ram,6,r[4]);
+goto P_0c072a6e;
+P_0c072a6e: /* original f859, guest PC 0x0c072a6e */
+if(!s->budget--) { s->failed_pc=0x0c072a6eu; return 0; }
+vf3_matrix_load(s,ram,8,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a70;
+P_0c072a70: /* original f959, guest PC 0x0c072a70 */
+if(!s->budget--) { s->failed_pc=0x0c072a70u; return 0; }
+vf3_matrix_load(s,ram,9,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072a72;
+P_0c072a72: /* original fa58, guest PC 0x0c072a72 */
+if(!s->budget--) { s->failed_pc=0x0c072a72u; return 0; }
+vf3_matrix_load(s,ram,10,r[5]);
+goto P_0c072a74;
+P_0c072a74: /* original 760c, guest PC 0x0c072a74 */
+if(!s->budget--) { s->failed_pc=0x0c072a74u; return 0; }
+r[6]+=0x0000000cu;
+goto P_0c072a76;
+P_0c072a76: /* original f35c, guest PC 0x0c072a76 */
+if(!s->budget--) { s->failed_pc=0x0c072a76u; return 0; }
+vf3_matrix_move(s,3,5);
+goto P_0c072a78;
+P_0c072a78: /* original f382, guest PC 0x0c072a78 */
+if(!s->budget--) { s->failed_pc=0x0c072a78u; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[8],r[18],'*');
+goto P_0c072a7a;
+P_0c072a7a: /* original f20c, guest PC 0x0c072a7a */
+if(!s->budget--) { s->failed_pc=0x0c072a7au; return 0; }
+vf3_matrix_move(s,2,0);
+goto P_0c072a7c;
+P_0c072a7c: /* original f2a2, guest PC 0x0c072a7c */
+if(!s->budget--) { s->failed_pc=0x0c072a7cu; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[10],r[18],'*');
+goto P_0c072a7e;
+P_0c072a7e: /* original f16c, guest PC 0x0c072a7e */
+if(!s->budget--) { s->failed_pc=0x0c072a7eu; return 0; }
+vf3_matrix_move(s,1,6);
+goto P_0c072a80;
+P_0c072a80: /* original f192, guest PC 0x0c072a80 */
+if(!s->budget--) { s->failed_pc=0x0c072a80u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[9],r[18],'*');
+goto P_0c072a82;
+P_0c072a82: /* original f34d, guest PC 0x0c072a82 */
+if(!s->budget--) { s->failed_pc=0x0c072a82u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072a84;
+P_0c072a84: /* original f39e, guest PC 0x0c072a84 */
+if(!s->budget--) { s->failed_pc=0x0c072a84u; return 0; }
+fr[3]=vf3_fpu_mac(fr[0],fr[9],fr[3],r[18]);
+goto P_0c072a86;
+P_0c072a86: /* original f24d, guest PC 0x0c072a86 */
+if(!s->budget--) { s->failed_pc=0x0c072a86u; return 0; }
+fr[2]^=0x80000000u;
+goto P_0c072a88;
+P_0c072a88: /* original f06c, guest PC 0x0c072a88 */
+if(!s->budget--) { s->failed_pc=0x0c072a88u; return 0; }
+vf3_matrix_move(s,0,6);
+goto P_0c072a8a;
+P_0c072a8a: /* original f28e, guest PC 0x0c072a8a */
+if(!s->budget--) { s->failed_pc=0x0c072a8au; return 0; }
+fr[2]=vf3_fpu_mac(fr[0],fr[8],fr[2],r[18]);
+goto P_0c072a8c;
+P_0c072a8c: /* original f14d, guest PC 0x0c072a8c */
+if(!s->budget--) { s->failed_pc=0x0c072a8cu; return 0; }
+fr[1]^=0x80000000u;
+goto P_0c072a8e;
+P_0c072a8e: /* original f63b, guest PC 0x0c072a8e */
+if(!s->budget--) { s->failed_pc=0x0c072a8eu; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,3,r[6]);
+goto P_0c072a90;
+P_0c072a90: /* original f05c, guest PC 0x0c072a90 */
+if(!s->budget--) { s->failed_pc=0x0c072a90u; return 0; }
+vf3_matrix_move(s,0,5);
+goto P_0c072a92;
+P_0c072a92: /* original f1ae, guest PC 0x0c072a92 */
+if(!s->budget--) { s->failed_pc=0x0c072a92u; return 0; }
+fr[1]=vf3_fpu_mac(fr[0],fr[10],fr[1],r[18]);
+goto P_0c072a94;
+P_0c072a94: /* original f62b, guest PC 0x0c072a94 */
+if(!s->budget--) { s->failed_pc=0x0c072a94u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[6]);
+goto P_0c072a96;
+P_0c072a96: /* original f61b, guest PC 0x0c072a96 */
+if(!s->budget--) { s->failed_pc=0x0c072a96u; return 0; }
+r[6]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[6]);
+goto P_0c072a98;
+P_0c072a98: /* original 64e3, guest PC 0x0c072a98 */
+if(!s->budget--) { s->failed_pc=0x0c072a98u; return 0; }
+r[4]=r[14];
+goto P_0c072a9a;
+P_0c072a9a: /* original 65e3, guest PC 0x0c072a9a */
+if(!s->budget--) { s->failed_pc=0x0c072a9au; return 0; }
+r[5]=r[14];
+goto P_0c072a9c;
+P_0c072a9c: /* original 740c, guest PC 0x0c072a9c */
+if(!s->budget--) { s->failed_pc=0x0c072a9cu; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072a9e;
+P_0c072a9e: /* original f4fc, guest PC 0x0c072a9e */
+if(!s->budget--) { s->failed_pc=0x0c072a9eu; return 0; }
+vf3_matrix_move(s,4,15);
+goto P_0c072aa0;
+P_0c072aa0: /* original 750c, guest PC 0x0c072aa0 */
+if(!s->budget--) { s->failed_pc=0x0c072aa0u; return 0; }
+r[5]+=0x0000000cu;
+goto P_0c072aa2;
+P_0c072aa2: /* original f059, guest PC 0x0c072aa2 */
+if(!s->budget--) { s->failed_pc=0x0c072aa2u; return 0; }
+vf3_matrix_load(s,ram,0,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072aa4;
+P_0c072aa4: /* original f159, guest PC 0x0c072aa4 */
+if(!s->budget--) { s->failed_pc=0x0c072aa4u; return 0; }
+vf3_matrix_load(s,ram,1,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072aa6;
+P_0c072aa6: /* original f259, guest PC 0x0c072aa6 */
+if(!s->budget--) { s->failed_pc=0x0c072aa6u; return 0; }
+vf3_matrix_load(s,ram,2,r[5]);
+r[5]+=(r[18]&0x100000u)?8:4;
+goto P_0c072aa8;
+P_0c072aa8: /* original f38d, guest PC 0x0c072aa8 */
+if(!s->budget--) { s->failed_pc=0x0c072aa8u; return 0; }
+fr[3]=0;
+goto P_0c072aaa;
+P_0c072aaa: /* original f0ed, guest PC 0x0c072aaa */
+if(!s->budget--) { s->failed_pc=0x0c072aaau; return 0; }
+if(!vf3_fpu_fipr(fr+0,fr+0,r[18],fr+3)) goto unsupported;
+goto P_0c072aac;
+P_0c072aac: /* original f37d, guest PC 0x0c072aac */
+if(!s->budget--) { s->failed_pc=0x0c072aacu; return 0; }
+if(!vf3_fpu_fsrra(fr[3],r[18],&fr[3])) goto unsupported;
+goto P_0c072aae;
+P_0c072aae: /* original f342, guest PC 0x0c072aae */
+if(!s->budget--) { s->failed_pc=0x0c072aaeu; return 0; }
+fr[3]=vf3_fpu_binary(fr[3],fr[4],r[18],'*');
+goto P_0c072ab0;
+P_0c072ab0: /* original 740c, guest PC 0x0c072ab0 */
+if(!s->budget--) { s->failed_pc=0x0c072ab0u; return 0; }
+r[4]+=0x0000000cu;
+goto P_0c072ab2;
+P_0c072ab2: /* original f232, guest PC 0x0c072ab2 */
+if(!s->budget--) { s->failed_pc=0x0c072ab2u; return 0; }
+fr[2]=vf3_fpu_binary(fr[2],fr[3],r[18],'*');
+goto P_0c072ab4;
+P_0c072ab4: /* original f132, guest PC 0x0c072ab4 */
+if(!s->budget--) { s->failed_pc=0x0c072ab4u; return 0; }
+fr[1]=vf3_fpu_binary(fr[1],fr[3],r[18],'*');
+goto P_0c072ab6;
+P_0c072ab6: /* original f032, guest PC 0x0c072ab6 */
+if(!s->budget--) { s->failed_pc=0x0c072ab6u; return 0; }
+fr[0]=vf3_fpu_binary(fr[0],fr[3],r[18],'*');
+goto P_0c072ab8;
+P_0c072ab8: /* original f42b, guest PC 0x0c072ab8 */
+if(!s->budget--) { s->failed_pc=0x0c072ab8u; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,2,r[4]);
+goto P_0c072aba;
+P_0c072aba: /* original f41b, guest PC 0x0c072aba */
+if(!s->budget--) { s->failed_pc=0x0c072abau; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,1,r[4]);
+goto P_0c072abc;
+P_0c072abc: /* original f40b, guest PC 0x0c072abc */
+if(!s->budget--) { s->failed_pc=0x0c072abcu; return 0; }
+r[4]-=(r[18]&0x100000u)?8:4;
+vf3_matrix_store(s,ram,0,r[4]);
+goto P_0c072abe;
+P_0c072abe: /* original 0009, guest PC 0x0c072abe */
+if(!s->budget--) { s->failed_pc=0x0c072abeu; return 0; }
+goto P_0c072ac0;
+P_0c072ac0: /* original 54f3, guest PC 0x0c072ac0 */
+if(!s->budget--) { s->failed_pc=0x0c072ac0u; return 0; }
+r[4]=read(ram,r[15]+12,4);
+goto P_0c072ac2;
+P_0c072ac2: /* original 7e18, guest PC 0x0c072ac2 */
+if(!s->budget--) { s->failed_pc=0x0c072ac2u; return 0; }
+r[14]+=0x00000018u;
+goto P_0c072ac4;
+P_0c072ac4: /* original 5441, guest PC 0x0c072ac4 */
+if(!s->budget--) { s->failed_pc=0x0c072ac4u; return 0; }
+r[4]=read(ram,r[4]+4,4);
+goto P_0c072ac6;
+P_0c072ac6: /* original 7418, guest PC 0x0c072ac6 */
+if(!s->budget--) { s->failed_pc=0x0c072ac6u; return 0; }
+r[4]+=0x00000018u;
+goto P_0c072ac8;
+P_0c072ac8: /* original a00f, guest PC 0x0c072ac8 */
+if(!s->budget--) { s->failed_pc=0x0c072ac8u; return 0; }
+r[5]=0x0000001eu;
+goto P_0c072aea;
+P_0c072aca: /* original e51e, guest PC 0x0c072aca */
+if(!s->budget--) { s->failed_pc=0x0c072acau; return 0; }
+r[5]=0x0000001eu;
+goto P_0c072acc;
+P_0c072acc: /* original e00c, guest PC 0x0c072acc */
+if(!s->budget--) { s->failed_pc=0x0c072accu; return 0; }
+r[0]=0x0000000cu;
+goto P_0c072ace;
+P_0c072ace: /* original f346, guest PC 0x0c072ace */
+if(!s->budget--) { s->failed_pc=0x0c072aceu; return 0; }
+vf3_matrix_load(s,ram,3,r[4]+r[0]);
+goto P_0c072ad0;
+P_0c072ad0: /* original 75ff, guest PC 0x0c072ad0 */
+if(!s->budget--) { s->failed_pc=0x0c072ad0u; return 0; }
+r[5]+=0xffffffffu;
+goto P_0c072ad2;
+P_0c072ad2: /* original f34d, guest PC 0x0c072ad2 */
+if(!s->budget--) { s->failed_pc=0x0c072ad2u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072ad4;
+P_0c072ad4: /* original fe37, guest PC 0x0c072ad4 */
+if(!s->budget--) { s->failed_pc=0x0c072ad4u; return 0; }
+vf3_matrix_store(s,ram,3,r[14]+r[0]);
+goto P_0c072ad6;
+P_0c072ad6: /* original e010, guest PC 0x0c072ad6 */
+if(!s->budget--) { s->failed_pc=0x0c072ad6u; return 0; }
+r[0]=0x00000010u;
+goto P_0c072ad8;
+P_0c072ad8: /* original f346, guest PC 0x0c072ad8 */
+if(!s->budget--) { s->failed_pc=0x0c072ad8u; return 0; }
+vf3_matrix_load(s,ram,3,r[4]+r[0]);
+goto P_0c072ada;
+P_0c072ada: /* original f34d, guest PC 0x0c072ada */
+if(!s->budget--) { s->failed_pc=0x0c072adau; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072adc;
+P_0c072adc: /* original fe37, guest PC 0x0c072adc */
+if(!s->budget--) { s->failed_pc=0x0c072adcu; return 0; }
+vf3_matrix_store(s,ram,3,r[14]+r[0]);
+goto P_0c072ade;
+P_0c072ade: /* original e014, guest PC 0x0c072ade */
+if(!s->budget--) { s->failed_pc=0x0c072adeu; return 0; }
+r[0]=0x00000014u;
+goto P_0c072ae0;
+P_0c072ae0: /* original f346, guest PC 0x0c072ae0 */
+if(!s->budget--) { s->failed_pc=0x0c072ae0u; return 0; }
+vf3_matrix_load(s,ram,3,r[4]+r[0]);
+goto P_0c072ae2;
+P_0c072ae2: /* original 7418, guest PC 0x0c072ae2 */
+if(!s->budget--) { s->failed_pc=0x0c072ae2u; return 0; }
+r[4]+=0x00000018u;
+goto P_0c072ae4;
+P_0c072ae4: /* original f34d, guest PC 0x0c072ae4 */
+if(!s->budget--) { s->failed_pc=0x0c072ae4u; return 0; }
+fr[3]^=0x80000000u;
+goto P_0c072ae6;
+P_0c072ae6: /* original fe37, guest PC 0x0c072ae6 */
+if(!s->budget--) { s->failed_pc=0x0c072ae6u; return 0; }
+vf3_matrix_store(s,ram,3,r[14]+r[0]);
+goto P_0c072ae8;
+P_0c072ae8: /* original 7e18, guest PC 0x0c072ae8 */
+if(!s->budget--) { s->failed_pc=0x0c072ae8u; return 0; }
+r[14]+=0x00000018u;
+goto P_0c072aea;
+P_0c072aea: /* original 2558, guest PC 0x0c072aea */
+if(!s->budget--) { s->failed_pc=0x0c072aeau; return 0; }
+r[17]=(r[17]&~1u)|(((r[5]&r[5])==0)!=0);
+goto P_0c072aec;
+P_0c072aec: /* original 8bee, guest PC 0x0c072aec */
+if(!s->budget--) { s->failed_pc=0x0c072aecu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c072acc; }
+goto P_0c072aee;
+P_0c072aee: /* original 7f60, guest PC 0x0c072aee */
+if(!s->budget--) { s->failed_pc=0x0c072aeeu; return 0; }
+r[15]+=0x00000060u;
+goto P_0c072af0;
+P_0c072af0: /* original fff9, guest PC 0x0c072af0 */
+if(!s->budget--) { s->failed_pc=0x0c072af0u; return 0; }
+vf3_matrix_load(s,ram,15,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c072af2;
+P_0c072af2: /* original 68f6, guest PC 0x0c072af2 */
+if(!s->budget--) { s->failed_pc=0x0c072af2u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[8]=tmp;
+goto P_0c072af4;
+P_0c072af4: /* original 69f6, guest PC 0x0c072af4 */
+if(!s->budget--) { s->failed_pc=0x0c072af4u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[9]=tmp;
+goto P_0c072af6;
+P_0c072af6: /* original 6af6, guest PC 0x0c072af6 */
+if(!s->budget--) { s->failed_pc=0x0c072af6u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[10]=tmp;
+goto P_0c072af8;
+P_0c072af8: /* original 6bf6, guest PC 0x0c072af8 */
+if(!s->budget--) { s->failed_pc=0x0c072af8u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[11]=tmp;
+goto P_0c072afa;
+P_0c072afa: /* original 6cf6, guest PC 0x0c072afa */
+if(!s->budget--) { s->failed_pc=0x0c072afau; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[12]=tmp;
+goto P_0c072afc;
+P_0c072afc: /* original 6df6, guest PC 0x0c072afc */
+if(!s->budget--) { s->failed_pc=0x0c072afcu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c072afe;
+P_0c072afe: /* original 000b, guest PC 0x0c072afe */
+if(!s->budget--) { s->failed_pc=0x0c072afeu; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c072b00: /* original 6ef6, guest PC 0x0c072b00 */
+if(!s->budget--) { s->failed_pc=0x0c072b00u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c072b02u,s,ram);
 P_0c07d5ca: /* original 4f22, guest PC 0x0c07d5ca */
 if(!s->budget--) { s->failed_pc=0x0c07d5cau; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -26252,6 +37218,350 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c087b56u,s,ram);
+P_0c0881dc: /* original 5341, guest PC 0x0c0881dc */
+if(!s->budget--) { s->failed_pc=0x0c0881dcu; return 0; }
+r[3]=read(ram,r[4]+4,4);
+goto P_0c0881de;
+P_0c0881de: /* original d542, guest PC 0x0c0881de */
+if(!s->budget--) { s->failed_pc=0x0c0881deu; return 0; }
+r[5]=read(ram,0x0c0882e8u,4);
+goto P_0c0881e0;
+P_0c0881e0: /* original 4f12, guest PC 0x0c0881e0 */
+if(!s->budget--) { s->failed_pc=0x0c0881e0u; return 0; }
+r[15]-=4; write(ram,r[15],r[19],4);
+goto P_0c0881e2;
+P_0c0881e2: /* original 0537, guest PC 0x0c0881e2 */
+if(!s->budget--) { s->failed_pc=0x0c0881e2u; return 0; }
+r[19]=r[5]*r[3];
+goto P_0c0881e4;
+P_0c0881e4: /* original 927d, guest PC 0x0c0881e4 */
+if(!s->budget--) { s->failed_pc=0x0c0881e4u; return 0; }
+r[2]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0882e2u,2);
+goto P_0c0881e6;
+P_0c0881e6: /* original 051a, guest PC 0x0c0881e6 */
+if(!s->budget--) { s->failed_pc=0x0c0881e6u; return 0; }
+r[5]=r[19];
+goto P_0c0881e8;
+P_0c0881e8: /* original 352c, guest PC 0x0c0881e8 */
+if(!s->budget--) { s->failed_pc=0x0c0881e8u; return 0; }
+r[5]+=r[2];
+goto P_0c0881ea;
+P_0c0881ea: /* original 1451, guest PC 0x0c0881ea */
+if(!s->budget--) { s->failed_pc=0x0c0881eau; return 0; }
+write(ram,r[4]+4,r[5],4);
+goto P_0c0881ec;
+P_0c0881ec: /* original 4529, guest PC 0x0c0881ec */
+if(!s->budget--) { s->failed_pc=0x0c0881ecu; return 0; }
+r[5]>>=16;
+goto P_0c0881ee;
+P_0c0881ee: /* original 9379, guest PC 0x0c0881ee */
+if(!s->budget--) { s->failed_pc=0x0c0881eeu; return 0; }
+r[3]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0882e4u,2);
+goto P_0c0881f0;
+P_0c0881f0: /* original 655f, guest PC 0x0c0881f0 */
+if(!s->budget--) { s->failed_pc=0x0c0881f0u; return 0; }
+r[5]=(uint32_t)(int32_t)(int16_t)r[5];
+goto P_0c0881f2;
+P_0c0881f2: /* original 2539, guest PC 0x0c0881f2 */
+if(!s->budget--) { s->failed_pc=0x0c0881f2u; return 0; }
+r[5]&=r[3];
+goto P_0c0881f4;
+P_0c0881f4: /* original 6053, guest PC 0x0c0881f4 */
+if(!s->budget--) { s->failed_pc=0x0c0881f4u; return 0; }
+r[0]=r[5];
+goto P_0c0881f6;
+P_0c0881f6: /* original 000b, guest PC 0x0c0881f6 */
+if(!s->budget--) { s->failed_pc=0x0c0881f6u; return 0; }
+target=r[16];
+r[19]=read(ram,r[15],4); r[15]+=4;
+s->pc=target; return ram->oob==0;
+P_0c0881f8: /* original 4f16, guest PC 0x0c0881f8 */
+if(!s->budget--) { s->failed_pc=0x0c0881f8u; return 0; }
+r[19]=read(ram,r[15],4); r[15]+=4;
+return vf3_matrix_family(0x0c0881fau,s,ram);
+P_0c088222: /* original 4f22, guest PC 0x0c088222 */
+if(!s->budget--) { s->failed_pc=0x0c088222u; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c088224;
+P_0c088224: /* original fa37, guest PC 0x0c088224 */
+if(!s->budget--) { s->failed_pc=0x0c088224u; return 0; }
+vf3_matrix_store(s,ram,3,r[10]+r[0]);
+goto P_0c088226;
+P_0c088226: /* original c733, guest PC 0x0c088226 */
+if(!s->budget--) { s->failed_pc=0x0c088226u; return 0; }
+r[0]=0x0c0882f4u;
+goto P_0c088228;
+P_0c088228: /* original 5baa, guest PC 0x0c088228 */
+if(!s->budget--) { s->failed_pc=0x0c088228u; return 0; }
+r[11]=read(ram,r[10]+40,4);
+goto P_0c08822a;
+P_0c08822a: /* original fc08, guest PC 0x0c08822a */
+if(!s->budget--) { s->failed_pc=0x0c08822au; return 0; }
+vf3_matrix_load(s,ram,12,r[0]);
+goto P_0c08822c;
+P_0c08822c: /* original a02a, guest PC 0x0c08822c */
+if(!s->budget--) { s->failed_pc=0x0c08822cu; return 0; }
+r[12]=0x0000003fu;
+goto P_0c088284;
+P_0c08822e: /* original ec3f, guest PC 0x0c08822e */
+if(!s->budget--) { s->failed_pc=0x0c08822eu; return 0; }
+r[12]=0x0000003fu;
+goto P_0c088230;
+P_0c088230: /* original bfd4, guest PC 0x0c088230 */
+if(!s->budget--) { s->failed_pc=0x0c088230u; return 0; }
+target=0x0c0881dcu; r[16]=0x0c088234u;
+r[4]=r[10];
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c088234u) { target=s->pc; goto dispatch; }
+goto P_0c088234;
+P_0c088232: /* original 64a3, guest PC 0x0c088232 */
+if(!s->budget--) { s->failed_pc=0x0c088232u; return 0; }
+r[4]=r[10];
+goto P_0c088234;
+P_0c088234: /* original 6403, guest PC 0x0c088234 */
+if(!s->budget--) { s->failed_pc=0x0c088234u; return 0; }
+r[4]=r[0];
+goto P_0c088236;
+P_0c088236: /* original 24c9, guest PC 0x0c088236 */
+if(!s->budget--) { s->failed_pc=0x0c088236u; return 0; }
+r[4]&=r[12];
+goto P_0c088238;
+P_0c088238: /* original 74e1, guest PC 0x0c088238 */
+if(!s->budget--) { s->failed_pc=0x0c088238u; return 0; }
+r[4]+=0xffffffe1u;
+goto P_0c08823a;
+P_0c08823a: /* original 6d03, guest PC 0x0c08823a */
+if(!s->budget--) { s->failed_pc=0x0c08823au; return 0; }
+r[13]=r[0];
+goto P_0c08823c;
+P_0c08823c: /* original 445a, guest PC 0x0c08823c */
+if(!s->budget--) { s->failed_pc=0x0c08823cu; return 0; }
+r[53]=r[4];
+goto P_0c08823e;
+P_0c08823e: /* original e3fa, guest PC 0x0c08823e */
+if(!s->budget--) { s->failed_pc=0x0c08823eu; return 0; }
+r[3]=0xfffffffau;
+goto P_0c088240;
+P_0c088240: /* original 6403, guest PC 0x0c088240 */
+if(!s->budget--) { s->failed_pc=0x0c088240u; return 0; }
+r[4]=r[0];
+goto P_0c088242;
+P_0c088242: /* original 443c, guest PC 0x0c088242 */
+if(!s->budget--) { s->failed_pc=0x0c088242u; return 0; }
+r[4]=(r[3]&0x80000000u)?((r[3]&31u)?(uint32_t)((int32_t)r[4]>>((-r[3])&31u)):((int32_t)r[4]<0?0xffffffffu:0)):r[4]<<(r[3]&31u);
+goto P_0c088244;
+P_0c088244: /* original 24c9, guest PC 0x0c088244 */
+if(!s->budget--) { s->failed_pc=0x0c088244u; return 0; }
+r[4]&=r[12];
+goto P_0c088246;
+P_0c088246: /* original d32d, guest PC 0x0c088246 */
+if(!s->budget--) { s->failed_pc=0x0c088246u; return 0; }
+r[3]=read(ram,0x0c0882fcu,4);
+goto P_0c088248;
+P_0c088248: /* original f32d, guest PC 0x0c088248 */
+if(!s->budget--) { s->failed_pc=0x0c088248u; return 0; }
+fr[3]=vf3_fpu_float(r[53],r[18]);
+goto P_0c08824a;
+P_0c08824a: /* original 74e1, guest PC 0x0c08824a */
+if(!s->budget--) { s->failed_pc=0x0c08824au; return 0; }
+r[4]+=0xffffffe1u;
+goto P_0c08824c;
+P_0c08824c: /* original 445a, guest PC 0x0c08824c */
+if(!s->budget--) { s->failed_pc=0x0c08824cu; return 0; }
+r[53]=r[4];
+goto P_0c08824e;
+P_0c08824e: /* original c72a, guest PC 0x0c08824e */
+if(!s->budget--) { s->failed_pc=0x0c08824eu; return 0; }
+r[0]=0x0c0882f8u;
+goto P_0c088250;
+P_0c088250: /* original fe3c, guest PC 0x0c088250 */
+if(!s->budget--) { s->failed_pc=0x0c088250u; return 0; }
+vf3_matrix_move(s,14,3);
+goto P_0c088252;
+P_0c088252: /* original f32d, guest PC 0x0c088252 */
+if(!s->budget--) { s->failed_pc=0x0c088252u; return 0; }
+fr[3]=vf3_fpu_float(r[53],r[18]);
+goto P_0c088254;
+P_0c088254: /* original fed2, guest PC 0x0c088254 */
+if(!s->budget--) { s->failed_pc=0x0c088254u; return 0; }
+fr[14]=vf3_fpu_binary(fr[14],fr[13],r[18],'*');
+goto P_0c088256;
+P_0c088256: /* original ff3c, guest PC 0x0c088256 */
+if(!s->budget--) { s->failed_pc=0x0c088256u; return 0; }
+vf3_matrix_move(s,15,3);
+goto P_0c088258;
+P_0c088258: /* original ffd2, guest PC 0x0c088258 */
+if(!s->budget--) { s->failed_pc=0x0c088258u; return 0; }
+fr[15]=vf3_fpu_binary(fr[15],fr[13],r[18],'*');
+goto P_0c08825a;
+P_0c08825a: /* original f308, guest PC 0x0c08825a */
+if(!s->budget--) { s->failed_pc=0x0c08825au; return 0; }
+vf3_matrix_load(s,ram,3,r[0]);
+goto P_0c08825c;
+P_0c08825c: /* original fec2, guest PC 0x0c08825c */
+if(!s->budget--) { s->failed_pc=0x0c08825cu; return 0; }
+fr[14]=vf3_fpu_binary(fr[14],fr[12],r[18],'*');
+goto P_0c08825e;
+P_0c08825e: /* original ff31, guest PC 0x0c08825e */
+if(!s->budget--) { s->failed_pc=0x0c08825eu; return 0; }
+fr[15]=vf3_fpu_binary(fr[15],fr[3],r[18],'-');
+goto P_0c088260;
+P_0c088260: /* original f5fc, guest PC 0x0c088260 */
+if(!s->budget--) { s->failed_pc=0x0c088260u; return 0; }
+vf3_matrix_move(s,5,15);
+goto P_0c088262;
+P_0c088262: /* original 430b, guest PC 0x0c088262 */
+if(!s->budget--) { s->failed_pc=0x0c088262u; return 0; }
+target=r[3];
+r[16]=0x0c088266u;
+vf3_matrix_move(s,4,14);
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c088266u) { target=s->pc; goto dispatch; }
+goto P_0c088266;
+P_0c088264: /* original f4ec, guest PC 0x0c088264 */
+if(!s->budget--) { s->failed_pc=0x0c088264u; return 0; }
+vf3_matrix_move(s,4,14);
+goto P_0c088266;
+P_0c088266: /* original e004, guest PC 0x0c088266 */
+if(!s->budget--) { s->failed_pc=0x0c088266u; return 0; }
+r[0]=0x00000004u;
+goto P_0c088268;
+P_0c088268: /* original f40c, guest PC 0x0c088268 */
+if(!s->budget--) { s->failed_pc=0x0c088268u; return 0; }
+vf3_matrix_move(s,4,0);
+goto P_0c08826a;
+P_0c08826a: /* original 64d3, guest PC 0x0c08826a */
+if(!s->budget--) { s->failed_pc=0x0c08826au; return 0; }
+r[4]=r[13];
+goto P_0c08826c;
+P_0c08826c: /* original 2489, guest PC 0x0c08826c */
+if(!s->budget--) { s->failed_pc=0x0c08826cu; return 0; }
+r[4]&=r[8];
+goto P_0c08826e;
+P_0c08826e: /* original feea, guest PC 0x0c08826e */
+if(!s->budget--) { s->failed_pc=0x0c08826eu; return 0; }
+vf3_matrix_store(s,ram,14,r[14]);
+goto P_0c088270;
+P_0c088270: /* original 7bff, guest PC 0x0c088270 */
+if(!s->budget--) { s->failed_pc=0x0c088270u; return 0; }
+r[11]+=0xffffffffu;
+goto P_0c088272;
+P_0c088272: /* original fe47, guest PC 0x0c088272 */
+if(!s->budget--) { s->failed_pc=0x0c088272u; return 0; }
+vf3_matrix_store(s,ram,4,r[14]+r[0]);
+goto P_0c088274;
+P_0c088274: /* original e008, guest PC 0x0c088274 */
+if(!s->budget--) { s->failed_pc=0x0c088274u; return 0; }
+r[0]=0x00000008u;
+goto P_0c088276;
+P_0c088276: /* original ff4d, guest PC 0x0c088276 */
+if(!s->budget--) { s->failed_pc=0x0c088276u; return 0; }
+fr[15]^=0x80000000u;
+goto P_0c088278;
+P_0c088278: /* original fef7, guest PC 0x0c088278 */
+if(!s->budget--) { s->failed_pc=0x0c088278u; return 0; }
+vf3_matrix_store(s,ram,15,r[14]+r[0]);
+goto P_0c08827a;
+P_0c08827a: /* original e020, guest PC 0x0c08827a */
+if(!s->budget--) { s->failed_pc=0x0c08827au; return 0; }
+r[0]=0x00000020u;
+goto P_0c08827c;
+P_0c08827c: /* original 0e44, guest PC 0x0c08827c */
+if(!s->budget--) { s->failed_pc=0x0c08827cu; return 0; }
+write(ram,r[14]+r[0],r[4],1);
+goto P_0c08827e;
+P_0c08827e: /* original e023, guest PC 0x0c08827e */
+if(!s->budget--) { s->failed_pc=0x0c08827eu; return 0; }
+r[0]=0x00000023u;
+goto P_0c088280;
+P_0c088280: /* original 0e94, guest PC 0x0c088280 */
+if(!s->budget--) { s->failed_pc=0x0c088280u; return 0; }
+write(ram,r[14]+r[0],r[9],1);
+goto P_0c088282;
+P_0c088282: /* original 7e24, guest PC 0x0c088282 */
+if(!s->budget--) { s->failed_pc=0x0c088282u; return 0; }
+r[14]+=0x00000024u;
+goto P_0c088284;
+P_0c088284: /* original 2bb8, guest PC 0x0c088284 */
+if(!s->budget--) { s->failed_pc=0x0c088284u; return 0; }
+r[17]=(r[17]&~1u)|(((r[11]&r[11])==0)!=0);
+goto P_0c088286;
+P_0c088286: /* original 8bd3, guest PC 0x0c088286 */
+if(!s->budget--) { s->failed_pc=0x0c088286u; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c088230; }
+goto P_0c088288;
+P_0c088288: /* original 4f26, guest PC 0x0c088288 */
+if(!s->budget--) { s->failed_pc=0x0c088288u; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c08828a;
+P_0c08828a: /* original fcf9, guest PC 0x0c08828a */
+if(!s->budget--) { s->failed_pc=0x0c08828au; return 0; }
+vf3_matrix_load(s,ram,12,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c08828c;
+P_0c08828c: /* original fdf9, guest PC 0x0c08828c */
+if(!s->budget--) { s->failed_pc=0x0c08828cu; return 0; }
+vf3_matrix_load(s,ram,13,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c08828e;
+P_0c08828e: /* original fef9, guest PC 0x0c08828e */
+if(!s->budget--) { s->failed_pc=0x0c08828eu; return 0; }
+vf3_matrix_load(s,ram,14,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c088290;
+P_0c088290: /* original fff9, guest PC 0x0c088290 */
+if(!s->budget--) { s->failed_pc=0x0c088290u; return 0; }
+vf3_matrix_load(s,ram,15,r[15]);
+r[15]+=(r[18]&0x100000u)?8:4;
+goto P_0c088292;
+P_0c088292: /* original 68f6, guest PC 0x0c088292 */
+if(!s->budget--) { s->failed_pc=0x0c088292u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[8]=tmp;
+goto P_0c088294;
+P_0c088294: /* original 69f6, guest PC 0x0c088294 */
+if(!s->budget--) { s->failed_pc=0x0c088294u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[9]=tmp;
+goto P_0c088296;
+P_0c088296: /* original 6af6, guest PC 0x0c088296 */
+if(!s->budget--) { s->failed_pc=0x0c088296u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[10]=tmp;
+goto P_0c088298;
+P_0c088298: /* original 6bf6, guest PC 0x0c088298 */
+if(!s->budget--) { s->failed_pc=0x0c088298u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[11]=tmp;
+goto P_0c08829a;
+P_0c08829a: /* original 6cf6, guest PC 0x0c08829a */
+if(!s->budget--) { s->failed_pc=0x0c08829au; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[12]=tmp;
+goto P_0c08829c;
+P_0c08829c: /* original 6df6, guest PC 0x0c08829c */
+if(!s->budget--) { s->failed_pc=0x0c08829cu; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c08829e;
+P_0c08829e: /* original 000b, guest PC 0x0c08829e */
+if(!s->budget--) { s->failed_pc=0x0c08829eu; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c0882a0: /* original 6ef6, guest PC 0x0c0882a0 */
+if(!s->budget--) { s->failed_pc=0x0c0882a0u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c0882a2u,s,ram);
 P_0c088c4c: /* original 4f22, guest PC 0x0c088c4c */
 if(!s->budget--) { s->failed_pc=0x0c088c4cu; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -29109,6 +40419,288 @@ tmp=read(ram,r[15],4);
 r[15]+=4;
 r[14]=tmp;
 return vf3_matrix_family(0x0c08a78au,s,ram);
+P_0c08b73c: /* original 4f22, guest PC 0x0c08b73c */
+if(!s->budget--) { s->failed_pc=0x0c08b73cu; return 0; }
+r[15]-=4; write(ram,r[15],r[16],4);
+goto P_0c08b73e;
+P_0c08b73e: /* original d317, guest PC 0x0c08b73e */
+if(!s->budget--) { s->failed_pc=0x0c08b73eu; return 0; }
+r[3]=read(ram,0x0c08b79cu,4);
+goto P_0c08b740;
+P_0c08b740: /* original dd14, guest PC 0x0c08b740 */
+if(!s->budget--) { s->failed_pc=0x0c08b740u; return 0; }
+r[13]=read(ram,0x0c08b794u,4);
+goto P_0c08b742;
+P_0c08b742: /* original 7ffc, guest PC 0x0c08b742 */
+if(!s->budget--) { s->failed_pc=0x0c08b742u; return 0; }
+r[15]+=0xfffffffcu;
+goto P_0c08b744;
+P_0c08b744: /* original 6433, guest PC 0x0c08b744 */
+if(!s->budget--) { s->failed_pc=0x0c08b744u; return 0; }
+r[4]=r[3];
+goto P_0c08b746;
+P_0c08b746: /* original 2f32, guest PC 0x0c08b746 */
+if(!s->budget--) { s->failed_pc=0x0c08b746u; return 0; }
+write(ram,r[15],r[3],4);
+goto P_0c08b748;
+P_0c08b748: /* original db15, guest PC 0x0c08b748 */
+if(!s->budget--) { s->failed_pc=0x0c08b748u; return 0; }
+r[11]=read(ram,0x0c08b7a0u,4);
+goto P_0c08b74a;
+P_0c08b74a: /* original d316, guest PC 0x0c08b74a */
+if(!s->budget--) { s->failed_pc=0x0c08b74au; return 0; }
+r[3]=read(ram,0x0c08b7a4u,4);
+goto P_0c08b74c;
+P_0c08b74c: /* original 0ebc, guest PC 0x0c08b74c */
+if(!s->budget--) { s->failed_pc=0x0c08b74cu; return 0; }
+r[14]=(uint32_t)(int32_t)(int8_t)read(ram,r[11]+r[0],1);
+goto P_0c08b74e;
+P_0c08b74e: /* original 430b, guest PC 0x0c08b74e */
+if(!s->budget--) { s->failed_pc=0x0c08b74eu; return 0; }
+target=r[3];
+r[16]=0x0c08b752u;
+r[4]+=0x00000002u;
+if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x0c08b752u) { target=s->pc; goto dispatch; }
+goto P_0c08b752;
+P_0c08b750: /* original 7402, guest PC 0x0c08b750 */
+if(!s->budget--) { s->failed_pc=0x0c08b750u; return 0; }
+r[4]+=0x00000002u;
+goto P_0c08b752;
+P_0c08b752: /* original 640c, guest PC 0x0c08b752 */
+if(!s->budget--) { s->failed_pc=0x0c08b752u; return 0; }
+r[4]=r[0]&255u;
+goto P_0c08b754;
+P_0c08b754: /* original e04f, guest PC 0x0c08b754 */
+if(!s->budget--) { s->failed_pc=0x0c08b754u; return 0; }
+r[0]=0x0000004fu;
+goto P_0c08b756;
+P_0c08b756: /* original 0c44, guest PC 0x0c08b756 */
+if(!s->budget--) { s->failed_pc=0x0c08b756u; return 0; }
+write(ram,r[12]+r[0],r[4],1);
+goto P_0c08b758;
+P_0c08b758: /* original 52b2, guest PC 0x0c08b758 */
+if(!s->budget--) { s->failed_pc=0x0c08b758u; return 0; }
+r[2]=read(ram,r[11]+8,4);
+goto P_0c08b75a;
+P_0c08b75a: /* original d313, guest PC 0x0c08b75a */
+if(!s->budget--) { s->failed_pc=0x0c08b75au; return 0; }
+r[3]=read(ram,0x0c08b7a8u,4);
+goto P_0c08b75c;
+P_0c08b75c: /* original 2238, guest PC 0x0c08b75c */
+if(!s->budget--) { s->failed_pc=0x0c08b75cu; return 0; }
+r[17]=(r[17]&~1u)|(((r[2]&r[3])==0)!=0);
+goto P_0c08b75e;
+P_0c08b75e: /* original 892c, guest PC 0x0c08b75e */
+if(!s->budget--) { s->failed_pc=0x0c08b75eu; return 0; }
+cond=r[17]&1u;
+if(cond) { goto P_0c08b7ba; }
+goto P_0c08b760;
+P_0c08b760: /* original 9012, guest PC 0x0c08b760 */
+if(!s->budget--) { s->failed_pc=0x0c08b760u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c08b788u,2);
+goto P_0c08b762;
+P_0c08b762: /* original 0edc, guest PC 0x0c08b762 */
+if(!s->budget--) { s->failed_pc=0x0c08b762u; return 0; }
+r[14]=(uint32_t)(int32_t)(int8_t)read(ram,r[13]+r[0],1);
+goto P_0c08b764;
+P_0c08b764: /* original e02b, guest PC 0x0c08b764 */
+if(!s->budget--) { s->failed_pc=0x0c08b764u; return 0; }
+r[0]=0x0000002bu;
+goto P_0c08b766;
+P_0c08b766: /* original 0be4, guest PC 0x0c08b766 */
+if(!s->budget--) { s->failed_pc=0x0c08b766u; return 0; }
+write(ram,r[11]+r[0],r[14],1);
+goto P_0c08b768;
+P_0c08b768: /* original 900f, guest PC 0x0c08b768 */
+if(!s->budget--) { s->failed_pc=0x0c08b768u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c08b78au,2);
+goto P_0c08b76a;
+P_0c08b76a: /* original 00dc, guest PC 0x0c08b76a */
+if(!s->budget--) { s->failed_pc=0x0c08b76au; return 0; }
+r[0]=(uint32_t)(int32_t)(int8_t)read(ram,r[13]+r[0],1);
+goto P_0c08b76c;
+P_0c08b76c: /* original 8802, guest PC 0x0c08b76c */
+if(!s->budget--) { s->failed_pc=0x0c08b76cu; return 0; }
+r[17]=(r[17]&~1u)|((r[0]==0x00000002u)!=0);
+goto P_0c08b76e;
+P_0c08b76e: /* original 8b1d, guest PC 0x0c08b76e */
+if(!s->budget--) { s->failed_pc=0x0c08b76eu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c08b7ac; }
+goto P_0c08b770;
+P_0c08b770: /* original 9009, guest PC 0x0c08b770 */
+if(!s->budget--) { s->failed_pc=0x0c08b770u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c08b786u,2);
+goto P_0c08b772;
+P_0c08b772: /* original e504, guest PC 0x0c08b772 */
+if(!s->budget--) { s->failed_pc=0x0c08b772u; return 0; }
+r[5]=0x00000004u;
+goto P_0c08b774;
+P_0c08b774: /* original 6453, guest PC 0x0c08b774 */
+if(!s->budget--) { s->failed_pc=0x0c08b774u; return 0; }
+r[4]=r[5];
+goto P_0c08b776;
+P_0c08b776: /* original 0edc, guest PC 0x0c08b776 */
+if(!s->budget--) { s->failed_pc=0x0c08b776u; return 0; }
+r[14]=(uint32_t)(int32_t)(int8_t)read(ram,r[13]+r[0],1);
+goto P_0c08b778;
+P_0c08b778: /* original e04f, guest PC 0x0c08b778 */
+if(!s->budget--) { s->failed_pc=0x0c08b778u; return 0; }
+r[0]=0x0000004fu;
+goto P_0c08b77a;
+P_0c08b77a: /* original 7e01, guest PC 0x0c08b77a */
+if(!s->budget--) { s->failed_pc=0x0c08b77au; return 0; }
+r[14]+=0x00000001u;
+goto P_0c08b77c;
+P_0c08b77c: /* original a01d, guest PC 0x0c08b77c */
+if(!s->budget--) { s->failed_pc=0x0c08b77cu; return 0; }
+write(ram,r[12]+r[0],r[4],1);
+goto P_0c08b7ba;
+P_0c08b77e: /* original 0c44, guest PC 0x0c08b77e */
+if(!s->budget--) { s->failed_pc=0x0c08b77eu; return 0; }
+write(ram,r[12]+r[0],r[4],1);
+return vf3_matrix_family(0x0c08b780u,s,ram);
+P_0c08b7ac: /* original 2ee8, guest PC 0x0c08b7ac */
+if(!s->budget--) { s->failed_pc=0x0c08b7acu; return 0; }
+r[17]=(r[17]&~1u)|(((r[14]&r[14])==0)!=0);
+goto P_0c08b7ae;
+P_0c08b7ae: /* original 8b01, guest PC 0x0c08b7ae */
+if(!s->budget--) { s->failed_pc=0x0c08b7aeu; return 0; }
+cond=r[17]&1u;
+if(!cond) { goto P_0c08b7b4; }
+goto P_0c08b7b0;
+P_0c08b7b0: /* original a001, guest PC 0x0c08b7b0 */
+if(!s->budget--) { s->failed_pc=0x0c08b7b0u; return 0; }
+r[2]=0x00000001u;
+goto P_0c08b7b6;
+P_0c08b7b2: /* original e201, guest PC 0x0c08b7b2 */
+if(!s->budget--) { s->failed_pc=0x0c08b7b2u; return 0; }
+r[2]=0x00000001u;
+goto P_0c08b7b4;
+P_0c08b7b4: /* original e200, guest PC 0x0c08b7b4 */
+if(!s->budget--) { s->failed_pc=0x0c08b7b4u; return 0; }
+r[2]=0x00000000u;
+goto P_0c08b7b6;
+P_0c08b7b6: /* original 9068, guest PC 0x0c08b7b6 */
+if(!s->budget--) { s->failed_pc=0x0c08b7b6u; return 0; }
+r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c08b88au,2);
+goto P_0c08b7b8;
+P_0c08b7b8: /* original 0d24, guest PC 0x0c08b7b8 */
+if(!s->budget--) { s->failed_pc=0x0c08b7b8u; return 0; }
+write(ram,r[13]+r[0],r[2],1);
+goto P_0c08b7ba;
+P_0c08b7ba: /* original d034, guest PC 0x0c08b7ba */
+if(!s->budget--) { s->failed_pc=0x0c08b7bau; return 0; }
+r[0]=read(ram,0x0c08b88cu,4);
+goto P_0c08b7bc;
+P_0c08b7bc: /* original 4408, guest PC 0x0c08b7bc */
+if(!s->budget--) { s->failed_pc=0x0c08b7bcu; return 0; }
+r[4]<<=2;
+goto P_0c08b7be;
+P_0c08b7be: /* original 4e08, guest PC 0x0c08b7be */
+if(!s->budget--) { s->failed_pc=0x0c08b7beu; return 0; }
+r[14]<<=2;
+goto P_0c08b7c0;
+P_0c08b7c0: /* original 044e, guest PC 0x0c08b7c0 */
+if(!s->budget--) { s->failed_pc=0x0c08b7c0u; return 0; }
+r[4]=read(ram,r[4]+r[0],4);
+goto P_0c08b7c2;
+P_0c08b7c2: /* original 4e08, guest PC 0x0c08b7c2 */
+if(!s->budget--) { s->failed_pc=0x0c08b7c2u; return 0; }
+r[14]<<=2;
+goto P_0c08b7c4;
+P_0c08b7c4: /* original e50f, guest PC 0x0c08b7c4 */
+if(!s->budget--) { s->failed_pc=0x0c08b7c4u; return 0; }
+r[5]=0x0000000fu;
+goto P_0c08b7c6;
+P_0c08b7c6: /* original 3e4c, guest PC 0x0c08b7c6 */
+if(!s->budget--) { s->failed_pc=0x0c08b7c6u; return 0; }
+r[14]+=r[4];
+goto P_0c08b7c8;
+P_0c08b7c8: /* original 64c3, guest PC 0x0c08b7c8 */
+if(!s->budget--) { s->failed_pc=0x0c08b7c8u; return 0; }
+r[4]=r[12];
+goto P_0c08b7ca;
+P_0c08b7ca: /* original 742e, guest PC 0x0c08b7ca */
+if(!s->budget--) { s->failed_pc=0x0c08b7cau; return 0; }
+r[4]+=0x0000002eu;
+goto P_0c08b7cc;
+P_0c08b7cc: /* original 61e4, guest PC 0x0c08b7cc */
+if(!s->budget--) { s->failed_pc=0x0c08b7ccu; return 0; }
+tmp=(uint32_t)(int32_t)(int8_t)read(ram,r[14],1);
+r[14]+=1;
+r[1]=tmp;
+goto P_0c08b7ce;
+P_0c08b7ce: /* original 75ff, guest PC 0x0c08b7ce */
+if(!s->budget--) { s->failed_pc=0x0c08b7ceu; return 0; }
+r[5]+=0xffffffffu;
+goto P_0c08b7d0;
+P_0c08b7d0: /* original 2558, guest PC 0x0c08b7d0 */
+if(!s->budget--) { s->failed_pc=0x0c08b7d0u; return 0; }
+r[17]=(r[17]&~1u)|(((r[5]&r[5])==0)!=0);
+goto P_0c08b7d2;
+P_0c08b7d2: /* original 2410, guest PC 0x0c08b7d2 */
+if(!s->budget--) { s->failed_pc=0x0c08b7d2u; return 0; }
+write(ram,r[4],r[1],1);
+goto P_0c08b7d4;
+P_0c08b7d4: /* original 8ffa, guest PC 0x0c08b7d4 */
+if(!s->budget--) { s->failed_pc=0x0c08b7d4u; return 0; }
+cond=r[17]&1u;
+r[4]+=0x00000001u;
+if(!cond) { goto P_0c08b7cc; }
+goto P_0c08b7d8;
+P_0c08b7d6: /* original 7401, guest PC 0x0c08b7d6 */
+if(!s->budget--) { s->failed_pc=0x0c08b7d6u; return 0; }
+r[4]+=0x00000001u;
+goto P_0c08b7d8;
+P_0c08b7d8: /* original 7f04, guest PC 0x0c08b7d8 */
+if(!s->budget--) { s->failed_pc=0x0c08b7d8u; return 0; }
+r[15]+=0x00000004u;
+goto P_0c08b7da;
+P_0c08b7da: /* original 62e0, guest PC 0x0c08b7da */
+if(!s->budget--) { s->failed_pc=0x0c08b7dau; return 0; }
+tmp=(uint32_t)(int32_t)(int8_t)read(ram,r[14],1);
+r[2]=tmp;
+goto P_0c08b7dc;
+P_0c08b7dc: /* original 4f26, guest PC 0x0c08b7dc */
+if(!s->budget--) { s->failed_pc=0x0c08b7dcu; return 0; }
+r[16]=read(ram,r[15],4); r[15]+=4;
+goto P_0c08b7de;
+P_0c08b7de: /* original 2420, guest PC 0x0c08b7de */
+if(!s->budget--) { s->failed_pc=0x0c08b7deu; return 0; }
+write(ram,r[4],r[2],1);
+goto P_0c08b7e0;
+P_0c08b7e0: /* original 6bf6, guest PC 0x0c08b7e0 */
+if(!s->budget--) { s->failed_pc=0x0c08b7e0u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[11]=tmp;
+goto P_0c08b7e2;
+P_0c08b7e2: /* original 6cf6, guest PC 0x0c08b7e2 */
+if(!s->budget--) { s->failed_pc=0x0c08b7e2u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[12]=tmp;
+goto P_0c08b7e4;
+P_0c08b7e4: /* original 6df6, guest PC 0x0c08b7e4 */
+if(!s->budget--) { s->failed_pc=0x0c08b7e4u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[13]=tmp;
+goto P_0c08b7e6;
+P_0c08b7e6: /* original 000b, guest PC 0x0c08b7e6 */
+if(!s->budget--) { s->failed_pc=0x0c08b7e6u; return 0; }
+target=r[16];
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+s->pc=target; return ram->oob==0;
+P_0c08b7e8: /* original 6ef6, guest PC 0x0c08b7e8 */
+if(!s->budget--) { s->failed_pc=0x0c08b7e8u; return 0; }
+tmp=read(ram,r[15],4);
+r[15]+=4;
+r[14]=tmp;
+return vf3_matrix_family(0x0c08b7eau,s,ram);
 P_0c08ce72: /* original 4f22, guest PC 0x0c08ce72 */
 if(!s->budget--) { s->failed_pc=0x0c08ce72u; return 0; }
 r[15]-=4; write(ram,r[15],r[16],4);
@@ -34423,266 +46015,396 @@ static const uint32_t owned_pcs[]={
 0x0c0363c2u,0x0c0363c4u,0x0c03772cu,0x0c03772eu,0x0c037730u,0x0c037732u,0x0c037734u,0x0c037736u,0x0c037738u,0x0c03773au,0x0c03773cu,0x0c03773eu,0x0c037740u,0x0c037742u,0x0c037744u,0x0c037746u,
 0x0c037748u,0x0c03774au,0x0c03774cu,0x0c03774eu,0x0c037750u,0x0c037752u,0x0c037754u,0x0c037756u,0x0c037758u,0x0c03775au,0x0c03775cu,0x0c03775eu,0x0c037760u,0x0c037762u,0x0c037764u,0x0c037766u,
 0x0c037768u,0x0c03776au,0x0c03776cu,0x0c03776eu,0x0c037770u,0x0c037772u,0x0c037774u,0x0c037776u,0x0c037778u,0x0c03777au,0x0c03777cu,0x0c03777eu,0x0c037780u,0x0c037782u,0x0c037784u,0x0c037786u,
-0x0c037d9eu,0x0c037da0u,0x0c037da2u,0x0c037da4u,0x0c037da6u,0x0c037da8u,0x0c037daau,0x0c037dacu,0x0c037daeu,0x0c037db0u,0x0c037db2u,0x0c037db4u,0x0c037db6u,0x0c037db8u,0x0c037dbau,0x0c037dbcu,
-0x0c037dbeu,0x0c037dc0u,0x0c037dc2u,0x0c037dc4u,0x0c037dc6u,0x0c037dc8u,0x0c037dcau,0x0c037dccu,0x0c037dceu,0x0c037dd0u,0x0c037dd2u,0x0c037dd4u,0x0c037dd6u,0x0c037dd8u,0x0c037ddau,0x0c037ddcu,
-0x0c037ddeu,0x0c037de0u,0x0c037de2u,0x0c037de4u,0x0c037de6u,0x0c037de8u,0x0c037deau,0x0c037decu,0x0c037deeu,0x0c037df0u,0x0c037df2u,0x0c037df4u,0x0c037df6u,0x0c037df8u,0x0c037dfau,0x0c037dfcu,
-0x0c037dfeu,0x0c037e00u,0x0c037e02u,0x0c037e04u,0x0c037e06u,0x0c037e08u,0x0c037e0au,0x0c037e0cu,0x0c037e0eu,0x0c037e10u,0x0c037e12u,0x0c037e14u,0x0c037e16u,0x0c037e18u,0x0c037e1au,0x0c037e1cu,
-0x0c037e1eu,0x0c037e20u,0x0c037e22u,0x0c037e24u,0x0c037e26u,0x0c0380a8u,0x0c0380aau,0x0c0380acu,0x0c0380aeu,0x0c0380b0u,0x0c0380b2u,0x0c0380b4u,0x0c0380b6u,0x0c0380b8u,0x0c0380bau,0x0c0380bcu,
-0x0c0380beu,0x0c0380c0u,0x0c0380c2u,0x0c0380c4u,0x0c0380c6u,0x0c0380c8u,0x0c0380cau,0x0c0380ccu,0x0c0380ceu,0x0c0380d0u,0x0c0380d2u,0x0c0380d4u,0x0c0380d6u,0x0c0380d8u,0x0c0380dau,0x0c0380dcu,
-0x0c03da50u,0x0c03da52u,0x0c03da54u,0x0c03da56u,0x0c03da58u,0x0c03da5au,0x0c03da5cu,0x0c03da5eu,0x0c03da60u,0x0c03da62u,0x0c03da64u,0x0c03da66u,0x0c03da68u,0x0c03da6au,0x0c03da6cu,0x0c03da6eu,
-0x0c03da70u,0x0c03da72u,0x0c03da74u,0x0c03da76u,0x0c03da78u,0x0c03da7au,0x0c03da7cu,0x0c03da7eu,0x0c03da80u,0x0c03da82u,0x0c03da84u,0x0c03da86u,0x0c03da88u,0x0c03da8au,0x0c03da8cu,0x0c03da8eu,
-0x0c03da90u,0x0c03da92u,0x0c03da94u,0x0c03da96u,0x0c03da98u,0x0c03da9au,0x0c03da9cu,0x0c03da9eu,0x0c03daa0u,0x0c03daa2u,0x0c03daa4u,0x0c03daa6u,0x0c03daa8u,0x0c03daaau,0x0c03daacu,0x0c03daaeu,
-0x0c03dab0u,0x0c03dab2u,0x0c03dab4u,0x0c03dab6u,0x0c03dab8u,0x0c03dabau,0x0c03dad0u,0x0c03dad2u,0x0c03dad4u,0x0c03dad6u,0x0c03dad8u,0x0c03dadau,0x0c03dadcu,0x0c03dadeu,0x0c03dae0u,0x0c03dae2u,
-0x0c03dae4u,0x0c03dae6u,0x0c03dae8u,0x0c03daeau,0x0c03daecu,0x0c03daeeu,0x0c03daf0u,0x0c03daf2u,0x0c03daf4u,0x0c03daf6u,0x0c03daf8u,0x0c03dafau,0x0c03dafcu,0x0c03dafeu,0x0c03db00u,0x0c03db02u,
-0x0c03db04u,0x0c03db06u,0x0c03db08u,0x0c03db10u,0x0c03db12u,0x0c03db14u,0x0c03db16u,0x0c03db18u,0x0c03db1au,0x0c03db1cu,0x0c03db1eu,0x0c03db20u,0x0c03db22u,0x0c03db24u,0x0c03db26u,0x0c03db28u,
-0x0c03db2au,0x0c03db2cu,0x0c03db2eu,0x0c03db30u,0x0c03db32u,0x0c03db34u,0x0c03db36u,0x0c03db38u,0x0c03db40u,0x0c03db42u,0x0c03db44u,0x0c03db46u,0x0c03db48u,0x0c03db4au,0x0c03db4cu,0x0c03db4eu,
-0x0c03db50u,0x0c03db52u,0x0c03db54u,0x0c03db56u,0x0c03db58u,0x0c03db5au,0x0c03db5cu,0x0c03db5eu,0x0c03db60u,0x0c03db62u,0x0c03db64u,0x0c03db66u,0x0c03db68u,0x0c03db6au,0x0c03db6cu,0x0c03db6eu,
-0x0c03db70u,0x0c03db72u,0x0c03db74u,0x0c03db76u,0x0c03db78u,0x0c03db7au,0x0c03db7cu,0x0c03db80u,0x0c03db82u,0x0c03db84u,0x0c03db86u,0x0c03db88u,0x0c03db8au,0x0c03db8cu,0x0c03db8eu,0x0c03db90u,
-0x0c03db92u,0x0c03db94u,0x0c03db96u,0x0c03db98u,0x0c03db9au,0x0c03db9cu,0x0c03db9eu,0x0c03dba0u,0x0c03dba2u,0x0c03ea22u,0x0c03ea24u,0x0c03ea26u,0x0c03ea28u,0x0c03ea2au,0x0c03ea2cu,0x0c03ea2eu,
-0x0c03ea30u,0x0c03ea32u,0x0c03ea34u,0x0c03ea36u,0x0c03ea38u,0x0c03ea3au,0x0c03ea3cu,0x0c03ea3eu,0x0c03ea40u,0x0c03ea42u,0x0c03ea44u,0x0c03ea46u,0x0c03ea48u,0x0c03ea4au,0x0c03ea4cu,0x0c03ea4eu,
-0x0c03ea50u,0x0c03ea52u,0x0c03ea54u,0x0c03ea56u,0x0c03ea58u,0x0c03ea5au,0x0c03ea5cu,0x0c03ea5eu,0x0c03ea60u,0x0c03ea62u,0x0c03ea64u,0x0c03ea66u,0x0c03ea68u,0x0c03ea6au,0x0c03ea6cu,0x0c03ea6eu,
-0x0c03ea70u,0x0c03ea72u,0x0c03ea74u,0x0c03ea76u,0x0c03ea78u,0x0c03ea7au,0x0c03ea7cu,0x0c03ea7eu,0x0c03ea80u,0x0c03ea82u,0x0c03ea84u,0x0c03ea86u,0x0c03ea88u,0x0c03ea8au,0x0c03ea8cu,0x0c03ea8eu,
-0x0c03ea90u,0x0c03ea92u,0x0c03ea94u,0x0c03ea96u,0x0c03ea98u,0x0c03ea9au,0x0c03ea9cu,0x0c03ea9eu,0x0c03eaa0u,0x0c03eaa2u,0x0c03eaa4u,0x0c03eaa6u,0x0c03eaa8u,0x0c03eaaau,0x0c03eaacu,0x0c03eaaeu,
-0x0c03eab0u,0x0c03eab2u,0x0c03eab4u,0x0c03eab6u,0x0c03eab8u,0x0c03eabau,0x0c03eabcu,0x0c03eabeu,0x0c03eac0u,0x0c03eac2u,0x0c03eac4u,0x0c03eac6u,0x0c03eac8u,0x0c03eacau,0x0c03eaccu,0x0c03eaceu,
-0x0c043064u,0x0c043066u,0x0c043068u,0x0c04306au,0x0c04306cu,0x0c04306eu,0x0c043070u,0x0c043072u,0x0c043074u,0x0c043076u,0x0c043078u,0x0c04307au,0x0c04307cu,0x0c04307eu,0x0c043080u,0x0c043082u,
-0x0c043084u,0x0c043518u,0x0c04351au,0x0c04351cu,0x0c04351eu,0x0c043520u,0x0c043522u,0x0c043524u,0x0c043526u,0x0c043528u,0x0c04352au,0x0c04352cu,0x0c04352eu,0x0c043530u,0x0c043532u,0x0c043534u,
-0x0c043536u,0x0c043538u,0x0c04353au,0x0c04353cu,0x0c04353eu,0x0c043540u,0x0c043542u,0x0c043544u,0x0c043546u,0x0c043548u,0x0c04354au,0x0c04354cu,0x0c04354eu,0x0c043550u,0x0c043552u,0x0c043554u,
-0x0c043556u,0x0c043558u,0x0c04355au,0x0c04355cu,0x0c04355eu,0x0c043560u,0x0c043562u,0x0c043564u,0x0c043566u,0x0c043568u,0x0c04356au,0x0c04356cu,0x0c0435dau,0x0c0435dcu,0x0c0435deu,0x0c0435e0u,
-0x0c0435e2u,0x0c0435e4u,0x0c0435e6u,0x0c0435e8u,0x0c0435eau,0x0c0435ecu,0x0c0435eeu,0x0c0435f0u,0x0c0435f2u,0x0c0435f4u,0x0c0435f6u,0x0c0435f8u,0x0c0435fau,0x0c0435fcu,0x0c0435feu,0x0c043600u,
-0x0c043602u,0x0c043604u,0x0c043606u,0x0c043608u,0x0c043632u,0x0c043634u,0x0c043636u,0x0c043638u,0x0c04363au,0x0c04363cu,0x0c043704u,0x0c043706u,0x0c043708u,0x0c04370au,0x0c04370cu,0x0c04370eu,
-0x0c043710u,0x0c043712u,0x0c043714u,0x0c043716u,0x0c043718u,0x0c043724u,0x0c043726u,0x0c043728u,0x0c04372au,0x0c04372cu,0x0c04372eu,0x0c043730u,0x0c043732u,0x0c043734u,0x0c043736u,0x0c043738u,
-0x0c04373au,0x0c04373cu,0x0c04373eu,0x0c043740u,0x0c043742u,0x0c043744u,0x0c043746u,0x0c043748u,0x0c04374au,0x0c04374cu,0x0c04374eu,0x0c043750u,0x0c043752u,0x0c043754u,0x0c043756u,0x0c043758u,
-0x0c04375au,0x0c04375cu,0x0c04375eu,0x0c043760u,0x0c043762u,0x0c043764u,0x0c043766u,0x0c043768u,0x0c04376au,0x0c04376cu,0x0c04376eu,0x0c043770u,0x0c043772u,0x0c043774u,0x0c043776u,0x0c043778u,
-0x0c04377au,0x0c04377cu,0x0c04377eu,0x0c043780u,0x0c043782u,0x0c043784u,0x0c043786u,0x0c043788u,0x0c04378au,0x0c04378cu,0x0c04378eu,0x0c043790u,0x0c043792u,0x0c043794u,0x0c043796u,0x0c043798u,
-0x0c04379au,0x0c043844u,0x0c043846u,0x0c043848u,0x0c04384au,0x0c04384cu,0x0c04384eu,0x0c043850u,0x0c043852u,0x0c043854u,0x0c043856u,0x0c043858u,0x0c04385au,0x0c04385cu,0x0c04385eu,0x0c043860u,
-0x0c043862u,0x0c043864u,0x0c043866u,0x0c043868u,0x0c04386au,0x0c04386cu,0x0c04386eu,0x0c043870u,0x0c043872u,0x0c043874u,0x0c043876u,0x0c043878u,0x0c04387au,0x0c04387cu,0x0c04387eu,0x0c043880u,
-0x0c043882u,0x0c043884u,0x0c043886u,0x0c043888u,0x0c04388au,0x0c04388cu,0x0c04388eu,0x0c043890u,0x0c043892u,0x0c043894u,0x0c043896u,0x0c043898u,0x0c04389au,0x0c04389cu,0x0c04389eu,0x0c0438a0u,
-0x0c0438a2u,0x0c0438a4u,0x0c0438a6u,0x0c0438a8u,0x0c0438aau,0x0c0438acu,0x0c0438aeu,0x0c0438b0u,0x0c0438b2u,0x0c0438b4u,0x0c0438b6u,0x0c0438b8u,0x0c0438bau,0x0c0438bcu,0x0c0438beu,0x0c0438c0u,
-0x0c0438c2u,0x0c0438c4u,0x0c0438c6u,0x0c0438c8u,0x0c0438cau,0x0c0438ccu,0x0c0438ceu,0x0c0438d0u,0x0c0438d2u,0x0c0438d4u,0x0c0438d6u,0x0c0438d8u,0x0c0438dau,0x0c0438dcu,0x0c0438deu,0x0c0438e0u,
-0x0c0438e2u,0x0c0438e4u,0x0c0438e6u,0x0c0438e8u,0x0c0438eau,0x0c0438ecu,0x0c0438eeu,0x0c0438f0u,0x0c0438f2u,0x0c0438f4u,0x0c0438f6u,0x0c0438f8u,0x0c0438fau,0x0c0438fcu,0x0c0438feu,0x0c043900u,
-0x0c043902u,0x0c043904u,0x0c043906u,0x0c043908u,0x0c04390au,0x0c04390cu,0x0c04390eu,0x0c043910u,0x0c043912u,0x0c043914u,0x0c043916u,0x0c043918u,0x0c04391au,0x0c04391cu,0x0c043d04u,0x0c043d06u,
-0x0c043d08u,0x0c043d0au,0x0c043d0cu,0x0c043d0eu,0x0c043d10u,0x0c043d12u,0x0c043d14u,0x0c043d16u,0x0c043d18u,0x0c043d1au,0x0c043d1cu,0x0c043d1eu,0x0c043d20u,0x0c043d22u,0x0c043d24u,0x0c043d26u,
-0x0c043d28u,0x0c043d2au,0x0c043d2cu,0x0c043d2eu,0x0c043d30u,0x0c043d32u,0x0c043d34u,0x0c043d36u,0x0c043d38u,0x0c043d3au,0x0c043d3cu,0x0c043d3eu,0x0c043d40u,0x0c043d42u,0x0c043d44u,0x0c043d46u,
-0x0c043d48u,0x0c043d4au,0x0c043d4cu,0x0c043d4eu,0x0c043d50u,0x0c043d52u,0x0c043d54u,0x0c043d56u,0x0c043d58u,0x0c043d5au,0x0c043d5cu,0x0c043d5eu,0x0c043d60u,0x0c043d62u,0x0c043d64u,0x0c043d66u,
-0x0c043d68u,0x0c043d6au,0x0c043d6cu,0x0c043d6eu,0x0c043d70u,0x0c043d72u,0x0c043d74u,0x0c043d76u,0x0c043d78u,0x0c043d7au,0x0c043d7cu,0x0c043d7eu,0x0c043db4u,0x0c043db6u,0x0c043db8u,0x0c043dbau,
-0x0c043dbcu,0x0c043dbeu,0x0c043dc0u,0x0c043dc2u,0x0c043dc4u,0x0c043dc6u,0x0c043dc8u,0x0c043dcau,0x0c043dccu,0x0c043dceu,0x0c043dd0u,0x0c043dd2u,0x0c043dd4u,0x0c043dd6u,0x0c043dd8u,0x0c043ddau,
-0x0c043ddcu,0x0c043ddeu,0x0c043de0u,0x0c043de2u,0x0c043de4u,0x0c043de6u,0x0c043de8u,0x0c043deau,0x0c043decu,0x0c043deeu,0x0c043df0u,0x0c043df2u,0x0c043df4u,0x0c043df6u,0x0c043df8u,0x0c043dfau,
-0x0c043dfcu,0x0c043dfeu,0x0c043e00u,0x0c043e02u,0x0c043e04u,0x0c043e06u,0x0c043e08u,0x0c043e0au,0x0c043e0cu,0x0c043e0eu,0x0c043e10u,0x0c043e12u,0x0c043e14u,0x0c043e16u,0x0c043e18u,0x0c043e1au,
-0x0c043e1cu,0x0c043e1eu,0x0c043e20u,0x0c043e22u,0x0c043e24u,0x0c043e26u,0x0c043e28u,0x0c043e2au,0x0c043e2cu,0x0c043e2eu,0x0c043e30u,0x0c043e32u,0x0c043e34u,0x0c043e36u,0x0c043e38u,0x0c043e3au,
-0x0c043e3cu,0x0c043e3eu,0x0c043e40u,0x0c043e42u,0x0c043e44u,0x0c043e46u,0x0c043e48u,0x0c043e4au,0x0c043e4cu,0x0c043e4eu,0x0c043e50u,0x0c0442feu,0x0c044300u,0x0c045f62u,0x0c045f64u,0x0c045f66u,
-0x0c045f68u,0x0c045f6au,0x0c045f6cu,0x0c045f6eu,0x0c045f70u,0x0c045f72u,0x0c045f74u,0x0c045f76u,0x0c045f78u,0x0c045f7au,0x0c045f7cu,0x0c047230u,0x0c047232u,0x0c047234u,0x0c047236u,0x0c047238u,
-0x0c04723au,0x0c04723cu,0x0c04723eu,0x0c047240u,0x0c047242u,0x0c047244u,0x0c047246u,0x0c047248u,0x0c04724au,0x0c04724cu,0x0c04724eu,0x0c047250u,0x0c047252u,0x0c047254u,0x0c047256u,0x0c047258u,
-0x0c04725au,0x0c04725cu,0x0c04725eu,0x0c047260u,0x0c047262u,0x0c047264u,0x0c047266u,0x0c047268u,0x0c04726au,0x0c04726cu,0x0c04726eu,0x0c047270u,0x0c047272u,0x0c047274u,0x0c047276u,0x0c047278u,
-0x0c04727au,0x0c04727cu,0x0c04727eu,0x0c047280u,0x0c047282u,0x0c047284u,0x0c047286u,0x0c047288u,0x0c04728au,0x0c04728cu,0x0c047670u,0x0c047672u,0x0c047674u,0x0c047676u,0x0c047678u,0x0c04767au,
-0x0c04767cu,0x0c04767eu,0x0c047680u,0x0c047682u,0x0c047684u,0x0c047686u,0x0c047688u,0x0c04768au,0x0c04768cu,0x0c04768eu,0x0c047690u,0x0c047692u,0x0c047694u,0x0c047696u,0x0c047698u,0x0c04769au,
-0x0c04769cu,0x0c04769eu,0x0c0476a0u,0x0c0476a2u,0x0c0476a4u,0x0c0476a6u,0x0c0476a8u,0x0c0476aau,0x0c0476acu,0x0c0476aeu,0x0c0476b0u,0x0c0476b2u,0x0c0476b4u,0x0c0476b6u,0x0c0476b8u,0x0c0476bau,
-0x0c0476bcu,0x0c0476beu,0x0c0476c0u,0x0c0476c2u,0x0c0476c4u,0x0c0476c6u,0x0c0476c8u,0x0c0476cau,0x0c0476ccu,0x0c0476ceu,0x0c0476d0u,0x0c0476d2u,0x0c0476d4u,0x0c0476d6u,0x0c0476d8u,0x0c0476dau,
-0x0c0476dcu,0x0c0476deu,0x0c0476e0u,0x0c0476e2u,0x0c0476e4u,0x0c0476e6u,0x0c0476e8u,0x0c0476eau,0x0c0476ecu,0x0c0476eeu,0x0c0476f0u,0x0c0476f2u,0x0c0476f4u,0x0c0476f6u,0x0c0476f8u,0x0c0476fau,
-0x0c0476fcu,0x0c0476feu,0x0c047700u,0x0c047702u,0x0c047704u,0x0c047706u,0x0c047720u,0x0c047722u,0x0c047724u,0x0c047726u,0x0c047728u,0x0c04772au,0x0c04772cu,0x0c04772eu,0x0c047730u,0x0c047732u,
-0x0c047734u,0x0c047736u,0x0c047738u,0x0c04773au,0x0c04773cu,0x0c04773eu,0x0c047740u,0x0c047742u,0x0c047744u,0x0c047746u,0x0c047748u,0x0c04774au,0x0c04774cu,0x0c04774eu,0x0c047750u,0x0c047752u,
-0x0c047754u,0x0c047756u,0x0c047758u,0x0c04775au,0x0c04775cu,0x0c04775eu,0x0c047760u,0x0c047762u,0x0c047764u,0x0c047766u,0x0c047768u,0x0c04776au,0x0c04baf6u,0x0c04baf8u,0x0c04bafau,0x0c04bafcu,
-0x0c04bafeu,0x0c04bb00u,0x0c04bb02u,0x0c04bb04u,0x0c04bb06u,0x0c04bb08u,0x0c04bb0au,0x0c04bb0cu,0x0c04bb0eu,0x0c04bb10u,0x0c04bb12u,0x0c04bb14u,0x0c04bb16u,0x0c04bb18u,0x0c04bb1au,0x0c04bb1cu,
-0x0c04bb1eu,0x0c04bb20u,0x0c04bb22u,0x0c04bb24u,0x0c04bb26u,0x0c04bb28u,0x0c04bb58u,0x0c04bb5au,0x0c04bb5cu,0x0c04bb5eu,0x0c04bb60u,0x0c04bb62u,0x0c04bb64u,0x0c04bb66u,0x0c04bb68u,0x0c04bb6au,
-0x0c04bb6cu,0x0c04bb6eu,0x0c04bb70u,0x0c04bb72u,0x0c04bb74u,0x0c04bb76u,0x0c04bb78u,0x0c04bb7au,0x0c04bb7cu,0x0c04bb7eu,0x0c04bb80u,0x0c04bb82u,0x0c04bb84u,0x0c04bb86u,0x0c04bb88u,0x0c04bb8au,
-0x0c04bb8cu,0x0c04bb8eu,0x0c04bb90u,0x0c04bb92u,0x0c04bb94u,0x0c04bb96u,0x0c04bb98u,0x0c04bb9au,0x0c04bb9cu,0x0c04bb9eu,0x0c04bba0u,0x0c04bba2u,0x0c04bba4u,0x0c04bba6u,0x0c04bba8u,0x0c04bbaau,
-0x0c04bbacu,0x0c04bbaeu,0x0c04bbb0u,0x0c04bbb2u,0x0c04bbb4u,0x0c04bbb6u,0x0c04bbb8u,0x0c04bbbau,0x0c04bbbcu,0x0c04bbbeu,0x0c04bbc0u,0x0c04bbc2u,0x0c04bbc4u,0x0c04cb72u,0x0c04cb74u,0x0c04cb76u,
-0x0c04cb78u,0x0c04cb7au,0x0c04cb7cu,0x0c04cb7eu,0x0c04cb80u,0x0c04cb82u,0x0c04cb84u,0x0c04cb86u,0x0c04cb88u,0x0c04cb8au,0x0c04cb8cu,0x0c04cb8eu,0x0c04cb90u,0x0c04cb92u,0x0c04cb94u,0x0c04cb96u,
-0x0c04ce42u,0x0c04ce44u,0x0c04ce46u,0x0c04ce48u,0x0c04ce4au,0x0c04ce4cu,0x0c04ce4eu,0x0c04ce50u,0x0c04ce52u,0x0c04ce54u,0x0c04ce56u,0x0c04ce58u,0x0c04ce5au,0x0c04ce5cu,0x0c04ce5eu,0x0c04ce60u,
-0x0c04ce62u,0x0c04ce64u,0x0c04ce66u,0x0c04ce68u,0x0c04ce6au,0x0c04ce6cu,0x0c04ce6eu,0x0c04ce70u,0x0c04ce72u,0x0c04ce74u,0x0c04ce76u,0x0c04ce78u,0x0c04ce7au,0x0c04ce7cu,0x0c04ce7eu,0x0c04ce80u,
-0x0c04ce82u,0x0c04ce84u,0x0c04ce86u,0x0c04ce88u,0x0c04ce8au,0x0c04ce8cu,0x0c04ce8eu,0x0c04ce90u,0x0c04ce92u,0x0c04ce94u,0x0c04ce96u,0x0c04ce98u,0x0c04ce9au,0x0c04ce9cu,0x0c04ce9eu,0x0c04cea0u,
-0x0c04cea2u,0x0c04cea4u,0x0c04cea6u,0x0c04cea8u,0x0c04ceaau,0x0c04ceacu,0x0c04ceaeu,0x0c04ceb0u,0x0c04ceb2u,0x0c04ceb4u,0x0c04ceb6u,0x0c04ceb8u,0x0c04cebau,0x0c04cebcu,0x0c04cebeu,0x0c04cec0u,
-0x0c04cec2u,0x0c04cec4u,0x0c04cec6u,0x0c04cec8u,0x0c04cecau,0x0c04ceccu,0x0c05bb38u,0x0c05bb3au,0x0c05bb3cu,0x0c05bb3eu,0x0c05bb40u,0x0c05bb42u,0x0c05bb44u,0x0c05bb46u,0x0c05bb48u,0x0c05bb4au,
-0x0c05bb4cu,0x0c05bb4eu,0x0c05bb50u,0x0c05bb52u,0x0c05bb54u,0x0c05bb56u,0x0c05bb58u,0x0c05bb5au,0x0c05bb5cu,0x0c05bb5eu,0x0c05bb60u,0x0c05bb62u,0x0c05bb64u,0x0c05bb66u,0x0c05bb68u,0x0c05bb6au,
-0x0c05bb6cu,0x0c05bb6eu,0x0c05bb70u,0x0c05bb72u,0x0c05bb74u,0x0c05bb76u,0x0c05bb78u,0x0c05bb7au,0x0c05bb7cu,0x0c05bb7eu,0x0c05bb80u,0x0c05bb82u,0x0c05bb84u,0x0c05bb86u,0x0c05bb88u,0x0c05bb8au,
-0x0c05bb8cu,0x0c05bb8eu,0x0c05bb90u,0x0c05bb92u,0x0c05bb94u,0x0c05bb96u,0x0c05bb98u,0x0c05bb9au,0x0c05bb9cu,0x0c05bb9eu,0x0c05bba0u,0x0c05bba2u,0x0c05bba4u,0x0c05bba6u,0x0c05bba8u,0x0c05bbaau,
-0x0c05bbacu,0x0c05bbaeu,0x0c05bbb0u,0x0c05bbb2u,0x0c05bbb4u,0x0c05bbb6u,0x0c05bbb8u,0x0c05bbbau,0x0c05bbbcu,0x0c05bbbeu,0x0c05bbc0u,0x0c05bbc2u,0x0c05bbc4u,0x0c05bbc6u,0x0c05bbc8u,0x0c05bbcau,
-0x0c05bbccu,0x0c05bbceu,0x0c05bbd0u,0x0c05bbd2u,0x0c05bbd4u,0x0c05bbd6u,0x0c05bbd8u,0x0c05bbdau,0x0c05bbdcu,0x0c05bbdeu,0x0c05bbe0u,0x0c05bbe2u,0x0c05bbe4u,0x0c05bbe6u,0x0c05bbe8u,0x0c05bbeau,
-0x0c05bbecu,0x0c05bbeeu,0x0c05bbf0u,0x0c05bbf2u,0x0c05bbf4u,0x0c05bbf6u,0x0c05bbf8u,0x0c05bbfau,0x0c05bbfcu,0x0c05bbfeu,0x0c05bc00u,0x0c05bc02u,0x0c05bc04u,0x0c05bc06u,0x0c05bc08u,0x0c05bc0au,
-0x0c05bc0cu,0x0c05bc0eu,0x0c05bc10u,0x0c05bc12u,0x0c05bc14u,0x0c05bc16u,0x0c05bc18u,0x0c05bc1au,0x0c05bc1cu,0x0c05bc1eu,0x0c05bc20u,0x0c05bc22u,0x0c05bc24u,0x0c05bc26u,0x0c05bc28u,0x0c05bc2au,
-0x0c05bc2cu,0x0c05bc2eu,0x0c05bc30u,0x0c05bc32u,0x0c05bc34u,0x0c05bc36u,0x0c05bc38u,0x0c05bc3au,0x0c05bc3cu,0x0c05bc3eu,0x0c05bc40u,0x0c05bc42u,0x0c05bc44u,0x0c05bc46u,0x0c05bc48u,0x0c05bc4au,
-0x0c05bc4cu,0x0c05bc4eu,0x0c05bc50u,0x0c05bc52u,0x0c05bc54u,0x0c05bc56u,0x0c05bc58u,0x0c05bc5au,0x0c05bc5cu,0x0c05bc5eu,0x0c05bc60u,0x0c05bc62u,0x0c05bc64u,0x0c05bc66u,0x0c05bc68u,0x0c05bc6au,
-0x0c05bc6cu,0x0c05bc6eu,0x0c05bc70u,0x0c05bc72u,0x0c05bc74u,0x0c05bc76u,0x0c05bc78u,0x0c05bc7au,0x0c05bc7cu,0x0c05bc7eu,0x0c05bc80u,0x0c05bc82u,0x0c05bca8u,0x0c05bcaau,0x0c05bcacu,0x0c05bcaeu,
-0x0c05bcb0u,0x0c05bcb2u,0x0c05bcb4u,0x0c05bcb6u,0x0c05bcb8u,0x0c05bcbau,0x0c05bcbcu,0x0c05bcbeu,0x0c05bcc0u,0x0c05bcc2u,0x0c05bcc4u,0x0c05bcc6u,0x0c05bcc8u,0x0c05bccau,0x0c05bcccu,0x0c05bcceu,
-0x0c05bcd0u,0x0c05bcd2u,0x0c05bcd4u,0x0c05bcd6u,0x0c05bcd8u,0x0c05bcdau,0x0c05bcdcu,0x0c05bcdeu,0x0c05bce0u,0x0c05bce2u,0x0c05bce4u,0x0c05bce6u,0x0c05bce8u,0x0c05bceau,0x0c05bcecu,0x0c05bceeu,
-0x0c05bcf0u,0x0c05bcf2u,0x0c05bcf4u,0x0c05bcf6u,0x0c05bcf8u,0x0c05bcfau,0x0c05bcfcu,0x0c05bcfeu,0x0c05bd00u,0x0c05bd02u,0x0c05bd04u,0x0c05bd06u,0x0c05bd08u,0x0c05bd0au,0x0c05bd0cu,0x0c05bd0eu,
-0x0c05bd10u,0x0c05bd12u,0x0c05bd14u,0x0c05bd16u,0x0c05bd18u,0x0c05bd1au,0x0c05bd1cu,0x0c05bd1eu,0x0c05bd20u,0x0c05bd22u,0x0c05bd24u,0x0c05bd26u,0x0c05bd28u,0x0c05bd2au,0x0c05bd2cu,0x0c05bd2eu,
-0x0c05bd30u,0x0c05bd32u,0x0c05bd34u,0x0c05bd36u,0x0c05bd38u,0x0c05bd3au,0x0c05bd3cu,0x0c05bd3eu,0x0c05bd40u,0x0c05bd42u,0x0c05bd44u,0x0c05bd46u,0x0c05bd48u,0x0c05bd4au,0x0c05bd4cu,0x0c05bd4eu,
-0x0c05bd50u,0x0c05bd52u,0x0c05bd54u,0x0c05bd56u,0x0c05bd58u,0x0c05bd5au,0x0c05bd5cu,0x0c05bd5eu,0x0c05bd60u,0x0c05bd62u,0x0c05bd64u,0x0c05bd66u,0x0c05bd68u,0x0c05bd6au,0x0c05bd6cu,0x0c05bd6eu,
-0x0c05bd70u,0x0c05bd72u,0x0c05bd74u,0x0c05bd76u,0x0c05bd78u,0x0c05bd7au,0x0c05bd7cu,0x0c05bd7eu,0x0c05bd80u,0x0c05bd82u,0x0c05bd84u,0x0c05bd86u,0x0c05bd88u,0x0c05bd8au,0x0c05bd8cu,0x0c05bd8eu,
-0x0c05bd90u,0x0c05bd92u,0x0c05bd94u,0x0c05bd96u,0x0c05bd98u,0x0c05bd9au,0x0c05bd9cu,0x0c05bd9eu,0x0c05bda0u,0x0c05bda2u,0x0c05bda4u,0x0c05bda6u,0x0c05bda8u,0x0c05bdaau,0x0c05bdacu,0x0c05cb0au,
-0x0c05cb0cu,0x0c05cb0eu,0x0c05cb10u,0x0c05cb12u,0x0c05cb14u,0x0c05cb16u,0x0c05cb18u,0x0c05cb1au,0x0c05cb1cu,0x0c05cb1eu,0x0c05cb20u,0x0c05cb22u,0x0c05cb24u,0x0c05cb26u,0x0c05cb28u,0x0c05cb2au,
-0x0c05cb2cu,0x0c05cb2eu,0x0c05cb30u,0x0c05cb32u,0x0c05cb34u,0x0c05cb36u,0x0c05cb38u,0x0c05cb3au,0x0c05cb3cu,0x0c05cb3eu,0x0c05cb40u,0x0c05cb42u,0x0c05cb44u,0x0c05cb46u,0x0c05cb48u,0x0c05cb4au,
-0x0c05cb4cu,0x0c05cb4eu,0x0c05cb50u,0x0c05cb52u,0x0c05cb54u,0x0c05cb56u,0x0c05cb58u,0x0c05cb5au,0x0c05cb5cu,0x0c05cb5eu,0x0c05cb60u,0x0c05cb62u,0x0c05cb64u,0x0c05cb66u,0x0c05cb68u,0x0c05cb6au,
-0x0c05cb6cu,0x0c05d5a8u,0x0c05d5aau,0x0c05d5acu,0x0c05d5aeu,0x0c05d5b0u,0x0c05d5b2u,0x0c05d5b4u,0x0c05d5b6u,0x0c05d5b8u,0x0c05d5bau,0x0c05d5bcu,0x0c05d5beu,0x0c05d5c0u,0x0c05d5c2u,0x0c05d5c4u,
-0x0c05d5c6u,0x0c05d5c8u,0x0c05d5cau,0x0c05d5ccu,0x0c05d5ceu,0x0c05d5d0u,0x0c05d5d2u,0x0c05d5d4u,0x0c05d5d6u,0x0c05d5d8u,0x0c05d5dau,0x0c05d5dcu,0x0c05d5deu,0x0c05d5e0u,0x0c05d5e2u,0x0c05d5e4u,
-0x0c05d5e6u,0x0c05d5e8u,0x0c05d5eau,0x0c05d5ecu,0x0c05d5eeu,0x0c05d5f0u,0x0c05d5f2u,0x0c05d5f4u,0x0c05d5f6u,0x0c05d5f8u,0x0c05d5fau,0x0c05d5fcu,0x0c05d5feu,0x0c05d600u,0x0c05d602u,0x0c05d604u,
-0x0c05d606u,0x0c05d608u,0x0c05d60au,0x0c05d60cu,0x0c05d60eu,0x0c05d610u,0x0c05d612u,0x0c05d614u,0x0c05d616u,0x0c05d618u,0x0c05d61au,0x0c05d61cu,0x0c05d61eu,0x0c05d620u,0x0c05d622u,0x0c05d624u,
-0x0c05d626u,0x0c05d628u,0x0c05d62au,0x0c05d62cu,0x0c05d62eu,0x0c05d630u,0x0c05d632u,0x0c05d634u,0x0c05d636u,0x0c05d638u,0x0c05d63au,0x0c05d63cu,0x0c05d63eu,0x0c05d640u,0x0c05d642u,0x0c05d644u,
-0x0c05d646u,0x0c05d648u,0x0c05d64au,0x0c05d64cu,0x0c05e1d2u,0x0c05e1d4u,0x0c05e1d6u,0x0c05e1d8u,0x0c05e1dau,0x0c05e1dcu,0x0c05e1deu,0x0c05e1e0u,0x0c05e1e2u,0x0c05e1e4u,0x0c05e1e6u,0x0c05e1e8u,
-0x0c05e1eau,0x0c05e1ecu,0x0c05e46cu,0x0c05e46eu,0x0c05e470u,0x0c05e472u,0x0c05e474u,0x0c05e476u,0x0c05e478u,0x0c05e47au,0x0c05e47cu,0x0c05e47eu,0x0c05e480u,0x0c05e482u,0x0c05e484u,0x0c05e486u,
-0x0c05e488u,0x0c05e48au,0x0c05e48cu,0x0c05e48eu,0x0c05e490u,0x0c05e492u,0x0c05e494u,0x0c05e496u,0x0c05e498u,0x0c05e49au,0x0c05e49cu,0x0c05e49eu,0x0c05e4a0u,0x0c05e4a2u,0x0c05e4a4u,0x0c05e4a6u,
-0x0c05e4a8u,0x0c05e4aau,0x0c05e4acu,0x0c05e4aeu,0x0c05e4b0u,0x0c05e4b2u,0x0c05e4b4u,0x0c05e4b6u,0x0c05e4b8u,0x0c05e4bau,0x0c05e4bcu,0x0c05e4beu,0x0c05e4c0u,0x0c05e4c2u,0x0c05e4c4u,0x0c05e4c6u,
-0x0c06120eu,0x0c061210u,0x0c061212u,0x0c061214u,0x0c061216u,0x0c061218u,0x0c06121au,0x0c06121cu,0x0c06121eu,0x0c061220u,0x0c061222u,0x0c061224u,0x0c061226u,0x0c061228u,0x0c06122au,0x0c06122cu,
-0x0c06122eu,0x0c061230u,0x0c061232u,0x0c061234u,0x0c061236u,0x0c061238u,0x0c06123au,0x0c06123cu,0x0c06123eu,0x0c061240u,0x0c061242u,0x0c061244u,0x0c061246u,0x0c061248u,0x0c06124au,0x0c06124cu,
-0x0c06124eu,0x0c061250u,0x0c061252u,0x0c061254u,0x0c061256u,0x0c061258u,0x0c06125au,0x0c06125cu,0x0c06125eu,0x0c061260u,0x0c061262u,0x0c061264u,0x0c061266u,0x0c061268u,0x0c06126au,0x0c06126cu,
-0x0c06126eu,0x0c061270u,0x0c061272u,0x0c061274u,0x0c061276u,0x0c061278u,0x0c06127au,0x0c06127cu,0x0c06127eu,0x0c061280u,0x0c061282u,0x0c0612fcu,0x0c0612feu,0x0c061300u,0x0c061302u,0x0c061304u,
-0x0c061306u,0x0c061308u,0x0c06130au,0x0c06130cu,0x0c06130eu,0x0c061310u,0x0c061312u,0x0c061314u,0x0c061316u,0x0c061318u,0x0c06131au,0x0c06131cu,0x0c06131eu,0x0c061320u,0x0c061322u,0x0c061324u,
-0x0c061326u,0x0c061328u,0x0c06132au,0x0c06132cu,0x0c06132eu,0x0c061330u,0x0c061332u,0x0c061334u,0x0c061336u,0x0c061338u,0x0c0624e4u,0x0c0624e6u,0x0c0624e8u,0x0c0624eau,0x0c0624ecu,0x0c0624eeu,
-0x0c0624f0u,0x0c0624f2u,0x0c0624f4u,0x0c0624f6u,0x0c0624f8u,0x0c0624fau,0x0c0624fcu,0x0c0624feu,0x0c062500u,0x0c062502u,0x0c062504u,0x0c062506u,0x0c062dd2u,0x0c062dd4u,0x0c062dd6u,0x0c062dd8u,
-0x0c062ddau,0x0c062ddcu,0x0c062ddeu,0x0c062de0u,0x0c062de2u,0x0c062de4u,0x0c062de6u,0x0c062de8u,0x0c062deau,0x0c062decu,0x0c062deeu,0x0c062df0u,0x0c062df2u,0x0c062ec4u,0x0c062ec6u,0x0c062ec8u,
-0x0c062ecau,0x0c062eccu,0x0c062eceu,0x0c062ed0u,0x0c062ed2u,0x0c062ed4u,0x0c062ed6u,0x0c062ed8u,0x0c062edau,0x0c062edcu,0x0c062edeu,0x0c062ee0u,0x0c062ee2u,0x0c062ee4u,0x0c062ee6u,0x0c062ee8u,
-0x0c062eeau,0x0c062eecu,0x0c062eeeu,0x0c062ef0u,0x0c062ef2u,0x0c062ef4u,0x0c06c406u,0x0c06c408u,0x0c06c40au,0x0c06c40cu,0x0c06c40eu,0x0c06c410u,0x0c06c412u,0x0c06c414u,0x0c06c416u,0x0c06c418u,
-0x0c06c41au,0x0c06c41cu,0x0c06c41eu,0x0c06c420u,0x0c06c5d0u,0x0c06c5d2u,0x0c06c5d4u,0x0c06c5d6u,0x0c06c5d8u,0x0c06c5dau,0x0c06c5dcu,0x0c06c5deu,0x0c06c5e0u,0x0c06c5e2u,0x0c06c5e4u,0x0c06c5e6u,
-0x0c06c5e8u,0x0c06c5eau,0x0c06c5ecu,0x0c06c5eeu,0x0c06c5f0u,0x0c06c5f2u,0x0c06c5f4u,0x0c06c5f6u,0x0c06c5f8u,0x0c06c5fau,0x0c06c5fcu,0x0c06c5feu,0x0c06c600u,0x0c06c602u,0x0c06c604u,0x0c06c606u,
-0x0c06c608u,0x0c06c60au,0x0c06c60cu,0x0c06c60eu,0x0c06c610u,0x0c06c612u,0x0c06c614u,0x0c06c616u,0x0c06c618u,0x0c06c61au,0x0c06c61cu,0x0c06c61eu,0x0c06c620u,0x0c06c622u,0x0c06c624u,0x0c06c626u,
-0x0c06c628u,0x0c06c62au,0x0c06c62cu,0x0c06c62eu,0x0c06c630u,0x0c06c632u,0x0c06c634u,0x0c06c636u,0x0c06c638u,0x0c06c63au,0x0c06c63cu,0x0c06c63eu,0x0c06c640u,0x0c06c642u,0x0c06c644u,0x0c06c646u,
-0x0c06c648u,0x0c06c64au,0x0c06c64cu,0x0c06c64eu,0x0c06c650u,0x0c06c652u,0x0c06c654u,0x0c06c656u,0x0c06c658u,0x0c06c65au,0x0c06c65cu,0x0c06c65eu,0x0c06c660u,0x0c06c662u,0x0c06c664u,0x0c06c666u,
-0x0c06c668u,0x0c06c66au,0x0c06c66cu,0x0c06c66eu,0x0c06c670u,0x0c06c672u,0x0c06c674u,0x0c06c676u,0x0c06c678u,0x0c06c67au,0x0c06c67cu,0x0c06c67eu,0x0c06c680u,0x0c06c682u,0x0c06c684u,0x0c06c686u,
-0x0c06c688u,0x0c06c68au,0x0c06c68cu,0x0c06c68eu,0x0c06c690u,0x0c06c692u,0x0c06c694u,0x0c06c696u,0x0c06c698u,0x0c06c69au,0x0c06c69cu,0x0c06c69eu,0x0c06c6a0u,0x0c06c6a2u,0x0c06c6a4u,0x0c06c6a6u,
-0x0c06c6a8u,0x0c06c6d6u,0x0c06c6d8u,0x0c06c6dau,0x0c06c6dcu,0x0c06c6deu,0x0c06c720u,0x0c06c722u,0x0c06c724u,0x0c06c726u,0x0c06c728u,0x0c06c72au,0x0c06c72cu,0x0c06c72eu,0x0c06c730u,0x0c06c732u,
-0x0c06c734u,0x0c06c736u,0x0c06c738u,0x0c06c73au,0x0c06c73cu,0x0c06c73eu,0x0c06c740u,0x0c06c742u,0x0c06c744u,0x0c06c746u,0x0c06c748u,0x0c06c74au,0x0c06c74cu,0x0c06c74eu,0x0c06c750u,0x0c06c752u,
-0x0c06c754u,0x0c06c756u,0x0c06c758u,0x0c06c75au,0x0c06c75cu,0x0c06c75eu,0x0c06c760u,0x0c06c762u,0x0c06c764u,0x0c06c766u,0x0c06c768u,0x0c06c76au,0x0c06c76cu,0x0c06c76eu,0x0c06c770u,0x0c06c772u,
-0x0c06c774u,0x0c06c776u,0x0c06c778u,0x0c06c77au,0x0c06c77cu,0x0c06c77eu,0x0c06c780u,0x0c06c782u,0x0c06c784u,0x0c06c786u,0x0c06c788u,0x0c06c78au,0x0c06c78cu,0x0c06c78eu,0x0c06c790u,0x0c06c792u,
-0x0c06c794u,0x0c06c796u,0x0c06c798u,0x0c06c79au,0x0c06c79cu,0x0c06c79eu,0x0c06c7a0u,0x0c06c7a2u,0x0c06c7a4u,0x0c06c7a6u,0x0c06c7a8u,0x0c06c7aau,0x0c06c7acu,0x0c06c7aeu,0x0c06c7b0u,0x0c06c7b2u,
-0x0c06c7b4u,0x0c06c7b6u,0x0c06c7b8u,0x0c06c7bau,0x0c06c7bcu,0x0c06c7beu,0x0c06c7c0u,0x0c06c7c2u,0x0c06c7c4u,0x0c06c7c6u,0x0c06c7c8u,0x0c06c7cau,0x0c06c7e4u,0x0c06c7e6u,0x0c06c7e8u,0x0c06c7eau,
-0x0c06c7ecu,0x0c06c7eeu,0x0c06c7f0u,0x0c06c7f2u,0x0c06c7f4u,0x0c06c7f6u,0x0c06c7f8u,0x0c06c7fau,0x0c06c7fcu,0x0c06c7feu,0x0c06c800u,0x0c06c802u,0x0c06c804u,0x0c06c806u,0x0c06c808u,0x0c06c80au,
-0x0c06c80cu,0x0c06c80eu,0x0c06c810u,0x0c06c812u,0x0c06c814u,0x0c06c816u,0x0c06c818u,0x0c06c81au,0x0c06c81cu,0x0c06c81eu,0x0c06c820u,0x0c06c822u,0x0c06c824u,0x0c06c826u,0x0c06c828u,0x0c06c82au,
-0x0c06c82cu,0x0c06c82eu,0x0c06c830u,0x0c06c832u,0x0c06c834u,0x0c06c836u,0x0c06c838u,0x0c06c83au,0x0c06c83cu,0x0c06c83eu,0x0c06c840u,0x0c06c842u,0x0c06c844u,0x0c06c846u,0x0c06c848u,0x0c06c84au,
-0x0c06c84cu,0x0c06c84eu,0x0c06c850u,0x0c06c852u,0x0c06c854u,0x0c06c856u,0x0c06c858u,0x0c06c85au,0x0c06c85cu,0x0c06c85eu,0x0c06c860u,0x0c06c862u,0x0c06c864u,0x0c06c866u,0x0c06c868u,0x0c06c86au,
-0x0c06c86cu,0x0c06c86eu,0x0c06c870u,0x0c06c872u,0x0c06c874u,0x0c06c876u,0x0c06c878u,0x0c06c87au,0x0c06c87cu,0x0c06c87eu,0x0c06c880u,0x0c06c882u,0x0c06c884u,0x0c06c886u,0x0c06c888u,0x0c06c88au,
-0x0c06c88cu,0x0c06c88eu,0x0c06c890u,0x0c06c892u,0x0c06c894u,0x0c06c896u,0x0c06c898u,0x0c06c89au,0x0c06c89cu,0x0c06c89eu,0x0c06c8a0u,0x0c06c8a2u,0x0c06c95eu,0x0c06c960u,0x0c06c962u,0x0c06c964u,
-0x0c06c966u,0x0c06c968u,0x0c06c96au,0x0c06c96cu,0x0c06c96eu,0x0c06c970u,0x0c06c972u,0x0c06c974u,0x0c06c976u,0x0c06c978u,0x0c06c97au,0x0c06c97cu,0x0c06c97eu,0x0c06c980u,0x0c06c982u,0x0c06c984u,
-0x0c06c986u,0x0c06c988u,0x0c06c98au,0x0c06c98cu,0x0c06c98eu,0x0c06c990u,0x0c06c992u,0x0c06c994u,0x0c06c996u,0x0c06c998u,0x0c06c99au,0x0c06c99cu,0x0c06c99eu,0x0c06c9a0u,0x0c06c9a2u,0x0c06c9a4u,
-0x0c06c9a6u,0x0c06c9a8u,0x0c06c9aau,0x0c06c9acu,0x0c06c9aeu,0x0c06c9b0u,0x0c06c9b2u,0x0c06c9b4u,0x0c06c9b6u,0x0c06c9b8u,0x0c06c9bau,0x0c06c9bcu,0x0c06c9beu,0x0c06c9c0u,0x0c06c9c2u,0x0c06c9c4u,
-0x0c06c9c6u,0x0c06c9c8u,0x0c06c9cau,0x0c06c9ccu,0x0c06c9ceu,0x0c06c9d0u,0x0c06c9d2u,0x0c06c9d4u,0x0c06c9d6u,0x0c06c9d8u,0x0c06c9dau,0x0c06c9dcu,0x0c06c9deu,0x0c06c9e0u,0x0c06c9e2u,0x0c06c9e4u,
-0x0c06c9e6u,0x0c06c9e8u,0x0c06c9eau,0x0c06c9ecu,0x0c06c9eeu,0x0c06c9f0u,0x0c06c9f2u,0x0c06c9f4u,0x0c06c9f6u,0x0c06ca30u,0x0c06ca32u,0x0c06ca34u,0x0c06ca36u,0x0c06ca38u,0x0c06ca3au,0x0c06ca3cu,
-0x0c06ca3eu,0x0c06ca40u,0x0c06ca42u,0x0c06ca44u,0x0c06ca46u,0x0c06ca48u,0x0c06ca4au,0x0c06ca4cu,0x0c06ca4eu,0x0c06ca50u,0x0c06ca52u,0x0c06ca54u,0x0c06ca56u,0x0c06ca58u,0x0c06ca5au,0x0c06ca5cu,
-0x0c06ca5eu,0x0c06ca60u,0x0c06ca62u,0x0c06ca64u,0x0c06ca66u,0x0c06ca68u,0x0c06ca6au,0x0c06ca6cu,0x0c06ca6eu,0x0c06ca70u,0x0c06ca72u,0x0c06ca74u,0x0c06ca76u,0x0c06ca78u,0x0c06ca7au,0x0c06ca7cu,
-0x0c06ca7eu,0x0c06ca80u,0x0c06ca82u,0x0c06ca84u,0x0c06ca86u,0x0c06ca88u,0x0c06ca8au,0x0c06ca8cu,0x0c06ca8eu,0x0c06ca90u,0x0c06ca92u,0x0c06ca94u,0x0c06ca96u,0x0c06ca98u,0x0c06ca9au,0x0c06ca9cu,
-0x0c06ca9eu,0x0c06caa0u,0x0c06caa2u,0x0c06caa4u,0x0c06caa6u,0x0c06caa8u,0x0c06caaau,0x0c06caacu,0x0c06caaeu,0x0c06cab0u,0x0c06cab2u,0x0c06cab4u,0x0c06cab6u,0x0c06cab8u,0x0c06cabau,0x0c06cabcu,
-0x0c06cabeu,0x0c06cac0u,0x0c06cac2u,0x0c06cac4u,0x0c06cac6u,0x0c06cac8u,0x0c06cacau,0x0c06caccu,0x0c06caceu,0x0c06cad0u,0x0c06cad2u,0x0c06cad4u,0x0c06cad6u,0x0c06cad8u,0x0c06cadau,0x0c06cadcu,
-0x0c06cadeu,0x0c06cae0u,0x0c06cae2u,0x0c06cae4u,0x0c06cae6u,0x0c06cae8u,0x0c06caeau,0x0c06caecu,0x0c06caeeu,0x0c06caf0u,0x0c06caf2u,0x0c06caf4u,0x0c06caf6u,0x0c06caf8u,0x0c06cafau,0x0c06cafcu,
-0x0c06cafeu,0x0c06cb00u,0x0c06cb02u,0x0c06cb04u,0x0c06cb06u,0x0c06cb08u,0x0c06cb0au,0x0c06cb0cu,0x0c06cb0eu,0x0c06cb10u,0x0c06cb12u,0x0c06cb14u,0x0c06cb16u,0x0c06cb18u,0x0c06cb1au,0x0c06cb1cu,
-0x0c06cb1eu,0x0c06cb20u,0x0c06cb22u,0x0c06cb24u,0x0c06cb26u,0x0c06cb28u,0x0c06cb2au,0x0c06cb2cu,0x0c06cb2eu,0x0c06cb30u,0x0c06cb32u,0x0c06cb34u,0x0c06cb36u,0x0c06cb38u,0x0c06cb60u,0x0c06cb62u,
-0x0c06cb64u,0x0c06cb66u,0x0c06cb68u,0x0c06cb6au,0x0c06cb6cu,0x0c06cb6eu,0x0c06cb70u,0x0c06cb72u,0x0c06cb74u,0x0c06cb76u,0x0c06cb78u,0x0c06cb7au,0x0c06cb7cu,0x0c06cb7eu,0x0c06cb80u,0x0c06cb82u,
-0x0c06cb84u,0x0c06cb86u,0x0c06cb88u,0x0c06cb8au,0x0c06cb8cu,0x0c06cb8eu,0x0c06cb90u,0x0c06cb92u,0x0c06cb94u,0x0c06cb96u,0x0c06cb98u,0x0c06cb9au,0x0c06cb9cu,0x0c06cb9eu,0x0c06cba0u,0x0c06cba2u,
-0x0c06cba4u,0x0c06cba6u,0x0c06cba8u,0x0c06cbaau,0x0c06cbacu,0x0c06cbaeu,0x0c06cbb0u,0x0c06cbb2u,0x0c06cbb4u,0x0c06cbb6u,0x0c06cbb8u,0x0c06cbbau,0x0c06cbbcu,0x0c06cbbeu,0x0c06cbc0u,0x0c06cbc2u,
-0x0c06cbc4u,0x0c06cbc6u,0x0c06cbc8u,0x0c06cbcau,0x0c06cbccu,0x0c06cbceu,0x0c06cbd0u,0x0c06cbd2u,0x0c06cbd4u,0x0c06cbd6u,0x0c06cbd8u,0x0c06cbdau,0x0c06cbdcu,0x0c06cbdeu,0x0c06cbe0u,0x0c06cbe2u,
-0x0c06cbe4u,0x0c06cbe6u,0x0c06cbe8u,0x0c06cbeau,0x0c06cbecu,0x0c06cbeeu,0x0c06cbf0u,0x0c06cbf2u,0x0c06cbf4u,0x0c06cbf6u,0x0c06cbf8u,0x0c06cbfau,0x0c06cbfcu,0x0c06cbfeu,0x0c06cc00u,0x0c06cc02u,
-0x0c06cc04u,0x0c06cc06u,0x0c06cc08u,0x0c06cc0au,0x0c06cc0cu,0x0c06cc0eu,0x0c06cc10u,0x0c06cc12u,0x0c06cc14u,0x0c06cc16u,0x0c06cc18u,0x0c06cc1au,0x0c06cc1cu,0x0c071abcu,0x0c071abeu,0x0c071ac0u,
-0x0c071ac2u,0x0c071ac4u,0x0c071ac6u,0x0c071ac8u,0x0c071acau,0x0c071accu,0x0c071aceu,0x0c071ad0u,0x0c071ad2u,0x0c071ad4u,0x0c071ad6u,0x0c071ad8u,0x0c071adau,0x0c071adcu,0x0c071adeu,0x0c071ae0u,
-0x0c071ae2u,0x0c071ae4u,0x0c071ae6u,0x0c071ae8u,0x0c071aeau,0x0c071aecu,0x0c071aeeu,0x0c071af0u,0x0c071af2u,0x0c071af4u,0x0c071af6u,0x0c071af8u,0x0c071afau,0x0c071afcu,0x0c071afeu,0x0c071b00u,
-0x0c071b02u,0x0c071b04u,0x0c071b06u,0x0c071b08u,0x0c071b0au,0x0c071b0cu,0x0c071b0eu,0x0c071b10u,0x0c071b12u,0x0c071b14u,0x0c071b16u,0x0c071b18u,0x0c071b1au,0x0c071b1cu,0x0c071b1eu,0x0c071b20u,
-0x0c071b22u,0x0c071b24u,0x0c071b26u,0x0c071b28u,0x0c071b2au,0x0c071b2cu,0x0c071b2eu,0x0c071b30u,0x0c071b32u,0x0c071b34u,0x0c071b36u,0x0c071b38u,0x0c071b3au,0x0c071b3cu,0x0c071b3eu,0x0c071b40u,
-0x0c071b42u,0x0c071b44u,0x0c071b46u,0x0c071b48u,0x0c071b4au,0x0c071b4cu,0x0c071b4eu,0x0c071b50u,0x0c071b52u,0x0c071b54u,0x0c071b56u,0x0c071b58u,0x0c071b5au,0x0c071b5cu,0x0c071b5eu,0x0c071b60u,
-0x0c071b62u,0x0c071b64u,0x0c071b66u,0x0c071b68u,0x0c071b6au,0x0c071b6cu,0x0c071b6eu,0x0c071b70u,0x0c071b72u,0x0c071b74u,0x0c071b76u,0x0c071b78u,0x0c071b7au,0x0c071b7cu,0x0c071b7eu,0x0c071b80u,
-0x0c071b82u,0x0c071b84u,0x0c071b86u,0x0c071b88u,0x0c071b8au,0x0c071b8cu,0x0c071b8eu,0x0c071b90u,0x0c071b92u,0x0c071b94u,0x0c071b96u,0x0c071b98u,0x0c071b9au,0x0c071b9cu,0x0c071b9eu,0x0c071ba0u,
-0x0c071ba2u,0x0c071ba4u,0x0c071ba6u,0x0c071ba8u,0x0c071baau,0x0c071bacu,0x0c071baeu,0x0c071bb0u,0x0c071bb2u,0x0c071bb4u,0x0c071bb6u,0x0c071bb8u,0x0c071bbau,0x0c071bbcu,0x0c071bbeu,0x0c071bc0u,
-0x0c071bc2u,0x0c071bc4u,0x0c071bc6u,0x0c071bc8u,0x0c071bcau,0x0c071bccu,0x0c071bceu,0x0c071bd0u,0x0c071bd2u,0x0c071bd4u,0x0c071bd6u,0x0c071bd8u,0x0c071bdau,0x0c071bdcu,0x0c071bdeu,0x0c071be0u,
-0x0c071be2u,0x0c071be4u,0x0c071be6u,0x0c071be8u,0x0c071beau,0x0c071becu,0x0c071beeu,0x0c071bf0u,0x0c071bf2u,0x0c071bf4u,0x0c071bf6u,0x0c071bf8u,0x0c071bfau,0x0c071bfcu,0x0c071bfeu,0x0c071c00u,
-0x0c071c02u,0x0c071c04u,0x0c071c06u,0x0c071c08u,0x0c071c0au,0x0c071c0cu,0x0c071c0eu,0x0c071c10u,0x0c071c12u,0x0c071c14u,0x0c071c16u,0x0c071c18u,0x0c071c1au,0x0c071c1cu,0x0c071c1eu,0x0c071c20u,
-0x0c071c22u,0x0c071c24u,0x0c071c26u,0x0c071c28u,0x0c071c2au,0x0c071c2cu,0x0c071c2eu,0x0c071c30u,0x0c071c32u,0x0c071c38u,0x0c071c3au,0x0c071c3cu,0x0c071c3eu,0x0c071c40u,0x0c071c42u,0x0c071c44u,
-0x0c071c46u,0x0c071c48u,0x0c071c4au,0x0c071c4cu,0x0c071c4eu,0x0c071c50u,0x0c071c52u,0x0c071c54u,0x0c071c56u,0x0c071c58u,0x0c071c5au,0x0c071c5cu,0x0c071c5eu,0x0c071c60u,0x0c071c62u,0x0c071c64u,
-0x0c071c66u,0x0c071c68u,0x0c071c6au,0x0c071c6cu,0x0c071c6eu,0x0c071c70u,0x0c071c72u,0x0c071c74u,0x0c071c76u,0x0c071c78u,0x0c071c7au,0x0c071c7cu,0x0c071c7eu,0x0c071c80u,0x0c071c82u,0x0c071c84u,
-0x0c071c86u,0x0c071c88u,0x0c071c8au,0x0c071c8cu,0x0c071c8eu,0x0c071c90u,0x0c071c92u,0x0c071c94u,0x0c071c96u,0x0c071c98u,0x0c071c9au,0x0c071c9cu,0x0c071c9eu,0x0c071ca0u,0x0c071ca2u,0x0c071ca4u,
-0x0c071ca6u,0x0c071ca8u,0x0c071caau,0x0c071cacu,0x0c071caeu,0x0c071cb0u,0x0c071cb2u,0x0c071cb4u,0x0c071cb6u,0x0c071cb8u,0x0c071cbau,0x0c071cbcu,0x0c071cbeu,0x0c071cc0u,0x0c071cc2u,0x0c071cc4u,
-0x0c071cc6u,0x0c071cc8u,0x0c071ccau,0x0c071cccu,0x0c071cceu,0x0c071cd0u,0x0c071cd2u,0x0c071cd4u,0x0c071cd6u,0x0c071cd8u,0x0c071cdau,0x0c071cdcu,0x0c071cdeu,0x0c071ce0u,0x0c071ce2u,0x0c071ce4u,
-0x0c071ce6u,0x0c071ce8u,0x0c071ceau,0x0c071cecu,0x0c071ceeu,0x0c071cf0u,0x0c071cf2u,0x0c071cf4u,0x0c071cf6u,0x0c071cf8u,0x0c071cfau,0x0c071cfcu,0x0c071cfeu,0x0c071d00u,0x0c071d02u,0x0c071d04u,
-0x0c071d06u,0x0c071d08u,0x0c071d0au,0x0c071d0cu,0x0c071d0eu,0x0c071d10u,0x0c071d12u,0x0c071d14u,0x0c071d16u,0x0c071d18u,0x0c071d1au,0x0c071d1cu,0x0c071d1eu,0x0c071d20u,0x0c071d22u,0x0c071d24u,
-0x0c071d26u,0x0c071d28u,0x0c071d2au,0x0c071d2cu,0x0c071d2eu,0x0c071d30u,0x0c071d32u,0x0c071d34u,0x0c071d36u,0x0c071d38u,0x0c071d3au,0x0c071d3cu,0x0c071d3eu,0x0c071d40u,0x0c071d42u,0x0c071d44u,
-0x0c071d46u,0x0c071d48u,0x0c071d4au,0x0c071d4cu,0x0c071d4eu,0x0c071d50u,0x0c071d52u,0x0c071d54u,0x0c071d56u,0x0c071d58u,0x0c071d5au,0x0c071d5cu,0x0c071d5eu,0x0c071d60u,0x0c071d62u,0x0c071d64u,
-0x0c071d66u,0x0c071d68u,0x0c071d6au,0x0c071d6cu,0x0c071d6eu,0x0c071d70u,0x0c071d72u,0x0c071d74u,0x0c071d76u,0x0c071d78u,0x0c071d7au,0x0c071d7cu,0x0c071d7eu,0x0c071d80u,0x0c071d82u,0x0c071d84u,
-0x0c071d86u,0x0c071d88u,0x0c071d8au,0x0c071d8cu,0x0c071d8eu,0x0c071d90u,0x0c071d92u,0x0c071d94u,0x0c071d96u,0x0c071d98u,0x0c071d9au,0x0c071d9cu,0x0c071d9eu,0x0c071da0u,0x0c071da2u,0x0c071da4u,
-0x0c071da6u,0x0c071dacu,0x0c071daeu,0x0c071db0u,0x0c071db2u,0x0c071db4u,0x0c071db6u,0x0c071db8u,0x0c071dbau,0x0c071dbcu,0x0c071dbeu,0x0c071dc0u,0x0c071dc2u,0x0c071dc4u,0x0c071dc6u,0x0c071dc8u,
-0x0c071dcau,0x0c071dccu,0x0c071dceu,0x0c071dd0u,0x0c071dd2u,0x0c071dd4u,0x0c071dd6u,0x0c071dd8u,0x0c071ddau,0x0c071ddcu,0x0c071ddeu,0x0c071de0u,0x0c071de2u,0x0c071de4u,0x0c071de6u,0x0c071de8u,
-0x0c071deau,0x0c071decu,0x0c071deeu,0x0c071df0u,0x0c071df2u,0x0c071df4u,0x0c071df6u,0x0c071df8u,0x0c071dfau,0x0c071dfcu,0x0c071dfeu,0x0c071e00u,0x0c071e02u,0x0c071e04u,0x0c071e06u,0x0c071e08u,
-0x0c071e0au,0x0c071e0cu,0x0c071e0eu,0x0c071e10u,0x0c071e12u,0x0c071e14u,0x0c071e16u,0x0c071e18u,0x0c071e1au,0x0c071e1cu,0x0c071e1eu,0x0c071e20u,0x0c071e22u,0x0c071e24u,0x0c071e26u,0x0c071e28u,
-0x0c071e2au,0x0c071e2cu,0x0c071e2eu,0x0c071e30u,0x0c071e32u,0x0c071e34u,0x0c071e36u,0x0c071e38u,0x0c071e3au,0x0c071e3cu,0x0c071e3eu,0x0c071e40u,0x0c071e42u,0x0c071e44u,0x0c071e46u,0x0c071e48u,
-0x0c071e4au,0x0c071e4cu,0x0c071e4eu,0x0c071e50u,0x0c071e52u,0x0c071e54u,0x0c071e56u,0x0c071e58u,0x0c071e5au,0x0c071e5cu,0x0c071e64u,0x0c071e66u,0x0c071e68u,0x0c071e6au,0x0c071e6cu,0x0c071e6eu,
-0x0c071e70u,0x0c071e72u,0x0c071e74u,0x0c071e76u,0x0c071e78u,0x0c071e7au,0x0c071e7cu,0x0c071e7eu,0x0c071e80u,0x0c071e82u,0x0c071e84u,0x0c071e86u,0x0c071e88u,0x0c071e8au,0x0c071e8cu,0x0c071e8eu,
-0x0c071e90u,0x0c071e92u,0x0c071e94u,0x0c071e96u,0x0c071e98u,0x0c071e9au,0x0c071e9cu,0x0c071e9eu,0x0c071ea0u,0x0c071ea2u,0x0c071ea4u,0x0c071ea6u,0x0c071ea8u,0x0c071eaau,0x0c071eacu,0x0c071eaeu,
-0x0c071eb0u,0x0c071eb2u,0x0c071eb4u,0x0c071eb6u,0x0c071eb8u,0x0c071ebau,0x0c071ebcu,0x0c071ebeu,0x0c071ec0u,0x0c071ec2u,0x0c071ec4u,0x0c071ec6u,0x0c071ec8u,0x0c071ecau,0x0c071eccu,0x0c071eceu,
-0x0c071ed0u,0x0c071ed2u,0x0c071ed4u,0x0c071ed6u,0x0c071ed8u,0x0c071edau,0x0c071edcu,0x0c071edeu,0x0c071ee0u,0x0c071ee2u,0x0c071ee4u,0x0c071ee6u,0x0c071ee8u,0x0c071eeau,0x0c071eecu,0x0c071eeeu,
-0x0c071ef0u,0x0c071ef2u,0x0c071ef4u,0x0c071ef6u,0x0c071ef8u,0x0c071efau,0x0c071efcu,0x0c071efeu,0x0c071f00u,0x0c071f02u,0x0c071f04u,0x0c071f06u,0x0c071f08u,0x0c071f0au,0x0c071f0cu,0x0c071f0eu,
-0x0c071f10u,0x0c071f12u,0x0c071f14u,0x0c071f16u,0x0c071f18u,0x0c071f1au,0x0c071f1cu,0x0c071f1eu,0x0c071f20u,0x0c071f22u,0x0c071f24u,0x0c071f26u,0x0c071f28u,0x0c071f2au,0x0c071f2cu,0x0c071f2eu,
-0x0c071f30u,0x0c071f32u,0x0c071f34u,0x0c071f36u,0x0c071f38u,0x0c071f3au,0x0c071f3cu,0x0c071f3eu,0x0c071f40u,0x0c071f42u,0x0c071f44u,0x0c071f46u,0x0c071f48u,0x0c071f4au,0x0c071f4cu,0x0c071f4eu,
-0x0c071f50u,0x0c071f52u,0x0c071f54u,0x0c071f56u,0x0c071f58u,0x0c071f5au,0x0c071f5cu,0x0c071f5eu,0x0c071f60u,0x0c071f62u,0x0c071f64u,0x0c071f66u,0x0c071f68u,0x0c071f6au,0x0c071f6cu,0x0c071f6eu,
-0x0c071f70u,0x0c071f72u,0x0c071f74u,0x0c071f76u,0x0c071f78u,0x0c071f7au,0x0c071f7cu,0x0c071f7eu,0x0c071f80u,0x0c071f82u,0x0c071f84u,0x0c071f86u,0x0c071f88u,0x0c071f8au,0x0c071f8cu,0x0c071f8eu,
-0x0c071f90u,0x0c071f92u,0x0c071f94u,0x0c071f96u,0x0c071f98u,0x0c071f9au,0x0c071f9cu,0x0c071f9eu,0x0c071fa0u,0x0c071fa2u,0x0c071fa4u,0x0c071fa6u,0x0c071fa8u,0x0c071faau,0x0c071facu,0x0c071faeu,
-0x0c071fb0u,0x0c071fb2u,0x0c071fb4u,0x0c071fb6u,0x0c071fb8u,0x0c071fbau,0x0c071fbcu,0x0c071fbeu,0x0c071fc0u,0x0c071fc2u,0x0c071fc4u,0x0c071fc6u,0x0c071fc8u,0x0c071fcau,0x0c071fccu,0x0c071fd4u,
-0x0c071fd6u,0x0c071fd8u,0x0c071fdau,0x0c071fdcu,0x0c071fdeu,0x0c071fe0u,0x0c071fe2u,0x0c071fe4u,0x0c071fe6u,0x0c071fe8u,0x0c071feau,0x0c071fecu,0x0c071feeu,0x0c071ff0u,0x0c071ff2u,0x0c071ff4u,
-0x0c071ff6u,0x0c071ff8u,0x0c071ffau,0x0c071ffcu,0x0c071ffeu,0x0c072000u,0x0c072002u,0x0c072004u,0x0c072006u,0x0c072008u,0x0c07200au,0x0c07200cu,0x0c07200eu,0x0c072010u,0x0c072012u,0x0c072014u,
-0x0c072016u,0x0c072018u,0x0c07201au,0x0c07201cu,0x0c07201eu,0x0c072020u,0x0c072022u,0x0c072024u,0x0c072026u,0x0c072028u,0x0c07202au,0x0c07202cu,0x0c07202eu,0x0c072030u,0x0c072032u,0x0c072034u,
-0x0c072036u,0x0c072038u,0x0c07203au,0x0c07203cu,0x0c07203eu,0x0c072040u,0x0c072042u,0x0c072044u,0x0c072046u,0x0c072048u,0x0c07204au,0x0c07204cu,0x0c07204eu,0x0c072050u,0x0c072052u,0x0c072054u,
-0x0c072056u,0x0c072058u,0x0c07205au,0x0c07205cu,0x0c07205eu,0x0c072060u,0x0c072062u,0x0c072064u,0x0c072066u,0x0c072068u,0x0c07206au,0x0c07206cu,0x0c07206eu,0x0c072070u,0x0c072072u,0x0c072074u,
-0x0c07d5cau,0x0c07d5ccu,0x0c07d5ceu,0x0c07d5d0u,0x0c07d5d2u,0x0c07d5d4u,0x0c07d5d6u,0x0c07d5d8u,0x0c07d5dau,0x0c07d5dcu,0x0c07d5deu,0x0c07d5e0u,0x0c07d5e2u,0x0c07d5e4u,0x0c07d5e6u,0x0c07d5e8u,
-0x0c07d5eau,0x0c07d5ecu,0x0c07d5eeu,0x0c07d5f0u,0x0c07d5f2u,0x0c07d5f4u,0x0c07d5f6u,0x0c07d5f8u,0x0c07d5fau,0x0c07d5fcu,0x0c07d5feu,0x0c07d600u,0x0c07d602u,0x0c07d604u,0x0c07d606u,0x0c07d608u,
-0x0c07d60au,0x0c07d60cu,0x0c07d60eu,0x0c07d610u,0x0c07d612u,0x0c07d614u,0x0c07d616u,0x0c07d618u,0x0c07d61au,0x0c07d61cu,0x0c07d61eu,0x0c07d620u,0x0c07d622u,0x0c07d624u,0x0c07d626u,0x0c07d628u,
-0x0c07d62au,0x0c07d62cu,0x0c07d62eu,0x0c07d630u,0x0c07d632u,0x0c07d634u,0x0c07d636u,0x0c07d638u,0x0c07d63au,0x0c07d63cu,0x0c07d63eu,0x0c07d640u,0x0c07d642u,0x0c07d644u,0x0c07d646u,0x0c07d648u,
-0x0c07d64au,0x0c07d64cu,0x0c07d64eu,0x0c07d650u,0x0c07d652u,0x0c07d654u,0x0c07d656u,0x0c07d658u,0x0c07d65au,0x0c07d65cu,0x0c07d65eu,0x0c07d660u,0x0c07d662u,0x0c07d664u,0x0c07d666u,0x0c07d668u,
-0x0c07d66au,0x0c07d684u,0x0c07d686u,0x0c07d688u,0x0c07d68au,0x0c07d68cu,0x0c07d68eu,0x0c07d690u,0x0c07d692u,0x0c07d694u,0x0c07d696u,0x0c07d698u,0x0c07d69au,0x0c07d69cu,0x0c07d69eu,0x0c07d6a0u,
-0x0c07d6a2u,0x0c07d6a4u,0x0c07d6a6u,0x0c07d6a8u,0x0c07d6aau,0x0c07d6acu,0x0c07d6aeu,0x0c07d6b0u,0x0c07d6b2u,0x0c07d6b4u,0x0c07d6b6u,0x0c07d6b8u,0x0c07d6bau,0x0c07d6bcu,0x0c07d6beu,0x0c07d6c0u,
-0x0c07d6c2u,0x0c07d6c4u,0x0c07d6c6u,0x0c07d6c8u,0x0c07d6cau,0x0c07d6ccu,0x0c07d6ceu,0x0c07d6d0u,0x0c07d6d2u,0x0c07d6d4u,0x0c07d6d6u,0x0c07d6d8u,0x0c07d6dau,0x0c07d6dcu,0x0c07d6deu,0x0c07d6e0u,
-0x0c07d6e2u,0x0c07d6e4u,0x0c07d6e6u,0x0c07d6e8u,0x0c07d6eau,0x0c07d6ecu,0x0c07d6eeu,0x0c07d6f0u,0x0c07d6f2u,0x0c07d6f4u,0x0c07d6f6u,0x0c07d6f8u,0x0c07d6fau,0x0c07d6fcu,0x0c07d6feu,0x0c07d700u,
-0x0c07d702u,0x0c07d704u,0x0c07d706u,0x0c07d708u,0x0c07d70au,0x0c07d70cu,0x0c07d70eu,0x0c07d710u,0x0c07d712u,0x0c07d714u,0x0c07d716u,0x0c07d718u,0x0c07d71au,0x0c07d71cu,0x0c07d71eu,0x0c07d720u,
-0x0c07d722u,0x0c07d724u,0x0c07d726u,0x0c07d728u,0x0c07d72au,0x0c07d72cu,0x0c07d72eu,0x0c07d730u,0x0c07d732u,0x0c07d734u,0x0c07d736u,0x0c07d738u,0x0c07d73au,0x0c07d73cu,0x0c07d73eu,0x0c07d740u,
-0x0c07d742u,0x0c07d744u,0x0c07d746u,0x0c07d748u,0x0c07d74au,0x0c07d74cu,0x0c07d74eu,0x0c07d750u,0x0c07d752u,0x0c07d754u,0x0c07d756u,0x0c07d758u,0x0c07d75au,0x0c07d75cu,0x0c07d75eu,0x0c07d760u,
-0x0c07d762u,0x0c07d764u,0x0c07d766u,0x0c07d768u,0x0c07d76au,0x0c07d76cu,0x0c07d76eu,0x0c07d770u,0x0c07d772u,0x0c07d774u,0x0c07d776u,0x0c07d778u,0x0c07d77au,0x0c07d77cu,0x0c07d77eu,0x0c07d780u,
-0x0c07d782u,0x0c07d784u,0x0c07d786u,0x0c07d788u,0x0c07d78au,0x0c07d78cu,0x0c07d78eu,0x0c07d790u,0x0c07d792u,0x0c07d794u,0x0c07d796u,0x0c07d798u,0x0c07d79au,0x0c07d79cu,0x0c07d79eu,0x0c07d7a0u,
-0x0c07d7a2u,0x0c07d7a4u,0x0c07d7a6u,0x0c07d7a8u,0x0c07d7aau,0x0c07d7acu,0x0c07d7aeu,0x0c07d7b0u,0x0c07d7b2u,0x0c07d7b4u,0x0c07d7b6u,0x0c07d7b8u,0x0c07d7bau,0x0c07d7bcu,0x0c07d7beu,0x0c07d7c0u,
-0x0c07d7c2u,0x0c07d7c4u,0x0c07d7c6u,0x0c07d7c8u,0x0c08066au,0x0c08066cu,0x0c08066eu,0x0c080670u,0x0c080672u,0x0c080674u,0x0c080676u,0x0c080678u,0x0c08067au,0x0c08067cu,0x0c08067eu,0x0c080680u,
-0x0c080682u,0x0c080684u,0x0c080686u,0x0c080688u,0x0c08068au,0x0c08068cu,0x0c08068eu,0x0c080690u,0x0c080692u,0x0c080694u,0x0c080696u,0x0c080698u,0x0c08069au,0x0c08069cu,0x0c08069eu,0x0c0806a0u,
-0x0c0806a2u,0x0c0806a4u,0x0c0806a6u,0x0c0806a8u,0x0c0806aau,0x0c0806acu,0x0c0806aeu,0x0c0806b0u,0x0c0806b2u,0x0c0806b4u,0x0c0806b6u,0x0c0806b8u,0x0c0806bau,0x0c0806bcu,0x0c0806beu,0x0c0806c0u,
-0x0c0806c2u,0x0c0806c4u,0x0c0806c6u,0x0c0806c8u,0x0c084ddcu,0x0c084ddeu,0x0c084de0u,0x0c084de2u,0x0c084de4u,0x0c084de6u,0x0c084de8u,0x0c084e36u,0x0c084e38u,0x0c084e3au,0x0c084e3cu,0x0c084e3eu,
-0x0c084e40u,0x0c084e42u,0x0c084e44u,0x0c084e46u,0x0c084e48u,0x0c084e4au,0x0c084e4cu,0x0c084e4eu,0x0c084e50u,0x0c084e52u,0x0c084e54u,0x0c084e56u,0x0c084e58u,0x0c084e5au,0x0c084e5cu,0x0c084e5eu,
-0x0c084e60u,0x0c084e62u,0x0c084e64u,0x0c084e66u,0x0c084e68u,0x0c084e6au,0x0c084e6cu,0x0c084e6eu,0x0c084e70u,0x0c084e72u,0x0c084e74u,0x0c084e76u,0x0c084e78u,0x0c084e7au,0x0c084e7cu,0x0c084e7eu,
-0x0c084e80u,0x0c084e82u,0x0c084e84u,0x0c084e86u,0x0c084e88u,0x0c084e8au,0x0c084e8cu,0x0c084e8eu,0x0c084e90u,0x0c084e92u,0x0c084e94u,0x0c084e96u,0x0c084e98u,0x0c084e9au,0x0c084e9cu,0x0c084e9eu,
-0x0c084ea0u,0x0c084ea2u,0x0c084ea4u,0x0c084ea6u,0x0c084ea8u,0x0c084eaau,0x0c084eacu,0x0c084eaeu,0x0c084eb0u,0x0c084eb2u,0x0c084eb4u,0x0c084eb6u,0x0c084eb8u,0x0c084ebau,0x0c084ebcu,0x0c084ebeu,
-0x0c084ec0u,0x0c084ec2u,0x0c084ec4u,0x0c084ec6u,0x0c084ec8u,0x0c084ecau,0x0c084eccu,0x0c084eceu,0x0c084ed0u,0x0c084ed2u,0x0c084ed4u,0x0c084ed6u,0x0c084ed8u,0x0c084edau,0x0c084edcu,0x0c084edeu,
-0x0c084ee0u,0x0c084ee2u,0x0c084ee4u,0x0c084ee6u,0x0c084ee8u,0x0c084eeau,0x0c085666u,0x0c085668u,0x0c08566au,0x0c08566cu,0x0c08566eu,0x0c085670u,0x0c085672u,0x0c085674u,0x0c085676u,0x0c085678u,
-0x0c08567au,0x0c08567cu,0x0c08567eu,0x0c085680u,0x0c085682u,0x0c085684u,0x0c085686u,0x0c085688u,0x0c08568au,0x0c08568cu,0x0c08568eu,0x0c085690u,0x0c085692u,0x0c085694u,0x0c085696u,0x0c085698u,
-0x0c08569au,0x0c08569cu,0x0c08569eu,0x0c0856a0u,0x0c0856a2u,0x0c0856a4u,0x0c0856a6u,0x0c0856a8u,0x0c0856aau,0x0c0856acu,0x0c0856aeu,0x0c0856b0u,0x0c0856b2u,0x0c0856b4u,0x0c0856b6u,0x0c0856b8u,
-0x0c0856bau,0x0c0856bcu,0x0c0856beu,0x0c0856c0u,0x0c0856c2u,0x0c0856c4u,0x0c0856c6u,0x0c0856c8u,0x0c0856cau,0x0c0856ccu,0x0c0856ceu,0x0c0856d0u,0x0c0856d2u,0x0c0856d4u,0x0c0856d6u,0x0c0856d8u,
-0x0c0856dau,0x0c0856dcu,0x0c0856deu,0x0c0856e0u,0x0c0856e2u,0x0c0856e4u,0x0c0856e6u,0x0c0856e8u,0x0c0856eau,0x0c0856ecu,0x0c0856eeu,0x0c0856f0u,0x0c0856f2u,0x0c0856f4u,0x0c0856f6u,0x0c0856f8u,
-0x0c0856fau,0x0c0856fcu,0x0c0856feu,0x0c085700u,0x0c085702u,0x0c085704u,0x0c085706u,0x0c085708u,0x0c08570au,0x0c08570cu,0x0c08570eu,0x0c085710u,0x0c085712u,0x0c085714u,0x0c085716u,0x0c085718u,
-0x0c08571au,0x0c08571cu,0x0c08571eu,0x0c085720u,0x0c085722u,0x0c085724u,0x0c085726u,0x0c085728u,0x0c08572au,0x0c08572cu,0x0c08572eu,0x0c085730u,0x0c085732u,0x0c085734u,0x0c085736u,0x0c085738u,
-0x0c08573au,0x0c08573cu,0x0c08573eu,0x0c085740u,0x0c085742u,0x0c085744u,0x0c085746u,0x0c085748u,0x0c08574au,0x0c08574cu,0x0c08574eu,0x0c085750u,0x0c085752u,0x0c085754u,0x0c085756u,0x0c085758u,
-0x0c08575au,0x0c08575cu,0x0c08575eu,0x0c085760u,0x0c085762u,0x0c085764u,0x0c085766u,0x0c085768u,0x0c08576au,0x0c08576cu,0x0c08576eu,0x0c085770u,0x0c085772u,0x0c085774u,0x0c085776u,0x0c085778u,
-0x0c08577au,0x0c08577cu,0x0c08577eu,0x0c085780u,0x0c085782u,0x0c085784u,0x0c085786u,0x0c085788u,0x0c08578au,0x0c08578cu,0x0c08578eu,0x0c085790u,0x0c085792u,0x0c085794u,0x0c085796u,0x0c085798u,
-0x0c08579au,0x0c08579cu,0x0c08579eu,0x0c0857a0u,0x0c0857a2u,0x0c0857dcu,0x0c0857deu,0x0c0857e0u,0x0c0857e2u,0x0c0857e4u,0x0c0857e6u,0x0c0857e8u,0x0c0857eau,0x0c0857ecu,0x0c0857eeu,0x0c0857f0u,
-0x0c0857f2u,0x0c0857f4u,0x0c0857f6u,0x0c0857f8u,0x0c0857fau,0x0c0857fcu,0x0c0857feu,0x0c085800u,0x0c085802u,0x0c085804u,0x0c085806u,0x0c085808u,0x0c08580au,0x0c08580cu,0x0c08580eu,0x0c085810u,
-0x0c085812u,0x0c085814u,0x0c085816u,0x0c085818u,0x0c08581au,0x0c08581cu,0x0c08581eu,0x0c085820u,0x0c085822u,0x0c085824u,0x0c085826u,0x0c085828u,0x0c08582au,0x0c08582cu,0x0c08582eu,0x0c085830u,
-0x0c085832u,0x0c085834u,0x0c085836u,0x0c085838u,0x0c08583au,0x0c0858e8u,0x0c0858eau,0x0c0858ecu,0x0c0858eeu,0x0c0858f0u,0x0c0858f2u,0x0c0858f4u,0x0c0858f6u,0x0c0858f8u,0x0c0858fau,0x0c0858fcu,
-0x0c0858feu,0x0c085900u,0x0c085902u,0x0c085904u,0x0c085906u,0x0c085908u,0x0c08590au,0x0c08590cu,0x0c08590eu,0x0c085910u,0x0c085912u,0x0c085914u,0x0c085916u,0x0c085918u,0x0c08591au,0x0c08591cu,
-0x0c08591eu,0x0c085920u,0x0c085922u,0x0c085924u,0x0c085926u,0x0c085928u,0x0c08592au,0x0c08592cu,0x0c08592eu,0x0c085930u,0x0c085932u,0x0c085934u,0x0c085936u,0x0c085938u,0x0c08593au,0x0c08593cu,
-0x0c08593eu,0x0c085940u,0x0c085942u,0x0c085944u,0x0c085946u,0x0c085948u,0x0c08594au,0x0c08594cu,0x0c08594eu,0x0c085950u,0x0c085952u,0x0c085954u,0x0c085956u,0x0c085958u,0x0c08595au,0x0c08595cu,
-0x0c08595eu,0x0c085960u,0x0c085962u,0x0c085964u,0x0c085966u,0x0c085968u,0x0c08596au,0x0c08596cu,0x0c08596eu,0x0c085970u,0x0c085972u,0x0c085974u,0x0c085976u,0x0c085978u,0x0c08597au,0x0c08597cu,
-0x0c08597eu,0x0c085980u,0x0c085982u,0x0c085984u,0x0c085986u,0x0c085988u,0x0c08598au,0x0c08598cu,0x0c08598eu,0x0c085990u,0x0c085992u,0x0c085994u,0x0c085996u,0x0c085998u,0x0c08599au,0x0c08599cu,
-0x0c08599eu,0x0c0859a0u,0x0c0859a2u,0x0c0859a4u,0x0c0859a6u,0x0c0859a8u,0x0c0859aau,0x0c0859acu,0x0c0859aeu,0x0c0859b0u,0x0c0859b2u,0x0c0859b4u,0x0c0859b6u,0x0c0859b8u,0x0c0859bau,0x0c0859bcu,
-0x0c0859beu,0x0c0859c0u,0x0c0859c2u,0x0c0859c4u,0x0c0859c6u,0x0c0859c8u,0x0c0859cau,0x0c0859ccu,0x0c0859ceu,0x0c0859d0u,0x0c0859d2u,0x0c085a0cu,0x0c085a0eu,0x0c085a10u,0x0c085a12u,0x0c085a14u,
-0x0c085a16u,0x0c085a18u,0x0c085a1au,0x0c085a1cu,0x0c085a1eu,0x0c085a20u,0x0c085a22u,0x0c085a24u,0x0c085a26u,0x0c085a28u,0x0c085a2au,0x0c085a2cu,0x0c085a2eu,0x0c085a30u,0x0c085a32u,0x0c085a34u,
-0x0c085a36u,0x0c085a38u,0x0c085a3au,0x0c085a3cu,0x0c085a3eu,0x0c085a40u,0x0c085a42u,0x0c085a44u,0x0c085a46u,0x0c085a48u,0x0c085a4au,0x0c085a4cu,0x0c085a4eu,0x0c085a50u,0x0c085a52u,0x0c085a54u,
-0x0c085a56u,0x0c085a58u,0x0c085a5au,0x0c085a5cu,0x0c085a5eu,0x0c085a60u,0x0c085a62u,0x0c085a64u,0x0c085a66u,0x0c085a68u,0x0c085a6au,0x0c085a6cu,0x0c085a6eu,0x0c085a70u,0x0c085a72u,0x0c085a74u,
-0x0c085a76u,0x0c085a78u,0x0c085a7au,0x0c085a7cu,0x0c085a7eu,0x0c085a80u,0x0c085a82u,0x0c085a84u,0x0c085a86u,0x0c085a88u,0x0c085a8au,0x0c085a8cu,0x0c085a8eu,0x0c085a90u,0x0c085a92u,0x0c085a94u,
-0x0c085a96u,0x0c085a98u,0x0c085a9au,0x0c085a9cu,0x0c085a9eu,0x0c085aa0u,0x0c085aa2u,0x0c085aa4u,0x0c085aa6u,0x0c085aa8u,0x0c085aaau,0x0c085aacu,0x0c085aaeu,0x0c085ab0u,0x0c085ab2u,0x0c085ab4u,
-0x0c085ab6u,0x0c085ab8u,0x0c085abau,0x0c085abcu,0x0c085abeu,0x0c085ac0u,0x0c085ac2u,0x0c085ac4u,0x0c085ac6u,0x0c085ac8u,0x0c085acau,0x0c085accu,0x0c085aceu,0x0c085ad0u,0x0c085ad2u,0x0c085ad4u,
-0x0c085ad6u,0x0c085ad8u,0x0c085adau,0x0c085adcu,0x0c085adeu,0x0c085ae0u,0x0c085ae2u,0x0c085ae4u,0x0c085ae6u,0x0c085ae8u,0x0c085aeau,0x0c085aecu,0x0c085aeeu,0x0c085af0u,0x0c085af2u,0x0c085af4u,
-0x0c085af6u,0x0c085af8u,0x0c085afau,0x0c085afcu,0x0c085afeu,0x0c085b00u,0x0c085b02u,0x0c085b04u,0x0c085b06u,0x0c085b08u,0x0c085b0au,0x0c085b0cu,0x0c085b0eu,0x0c085b10u,0x0c085b12u,0x0c085b14u,
-0x0c085b16u,0x0c085b18u,0x0c085b1au,0x0c085b1cu,0x0c085b1eu,0x0c085b20u,0x0c085b22u,0x0c085b24u,0x0c085b26u,0x0c085b28u,0x0c085b2au,0x0c085b2cu,0x0c085b2eu,0x0c085b30u,0x0c085b32u,0x0c085b34u,
-0x0c085b36u,0x0c085b38u,0x0c085b3au,0x0c085b3cu,0x0c085b3eu,0x0c085b40u,0x0c085b42u,0x0c085b44u,0x0c085b46u,0x0c085b48u,0x0c085b4au,0x0c085b88u,0x0c085b8au,0x0c085b8cu,0x0c085b8eu,0x0c085b90u,
-0x0c085b92u,0x0c085b94u,0x0c085b96u,0x0c085b98u,0x0c085b9au,0x0c085b9cu,0x0c085b9eu,0x0c085ba0u,0x0c085ba2u,0x0c085ba4u,0x0c085ba6u,0x0c085ba8u,0x0c085baau,0x0c085bacu,0x0c085baeu,0x0c085bb0u,
-0x0c085bb2u,0x0c085bb4u,0x0c085bb6u,0x0c085bb8u,0x0c085bbau,0x0c085bbcu,0x0c085bbeu,0x0c085bc0u,0x0c085bc2u,0x0c085bc4u,0x0c0876f2u,0x0c0876f4u,0x0c0876f6u,0x0c0876f8u,0x0c0876fau,0x0c0876fcu,
-0x0c0876feu,0x0c087700u,0x0c087702u,0x0c087704u,0x0c087706u,0x0c087708u,0x0c08770au,0x0c08770cu,0x0c08770eu,0x0c087710u,0x0c087712u,0x0c087714u,0x0c087716u,0x0c087718u,0x0c08771au,0x0c08771cu,
-0x0c08771eu,0x0c087720u,0x0c087722u,0x0c087724u,0x0c087726u,0x0c087728u,0x0c08772au,0x0c08772cu,0x0c08772eu,0x0c087730u,0x0c087732u,0x0c087a40u,0x0c087a42u,0x0c087a44u,0x0c087a46u,0x0c087a48u,
-0x0c087a4au,0x0c087a4cu,0x0c087a4eu,0x0c087a50u,0x0c087a52u,0x0c087a54u,0x0c087a56u,0x0c087a58u,0x0c087a5au,0x0c087a5cu,0x0c087a5eu,0x0c087a60u,0x0c087a62u,0x0c087a64u,0x0c087a66u,0x0c087a68u,
-0x0c087a6au,0x0c087a6cu,0x0c087a6eu,0x0c087a70u,0x0c087a72u,0x0c087a74u,0x0c087a76u,0x0c087a78u,0x0c087a7au,0x0c087a7cu,0x0c087a7eu,0x0c087a80u,0x0c087a82u,0x0c087a84u,0x0c087a86u,0x0c087a88u,
-0x0c087a8au,0x0c087a8cu,0x0c087a8eu,0x0c087a90u,0x0c087a92u,0x0c087a94u,0x0c087a96u,0x0c087a98u,0x0c087a9au,0x0c087a9cu,0x0c087a9eu,0x0c087aa0u,0x0c087aa2u,0x0c087aa4u,0x0c087aa6u,0x0c087aa8u,
-0x0c087aaau,0x0c087aacu,0x0c087aaeu,0x0c087ab0u,0x0c087ab2u,0x0c087ab4u,0x0c087ab6u,0x0c087ab8u,0x0c087abau,0x0c087abcu,0x0c087abeu,0x0c087ac0u,0x0c087ac2u,0x0c087ac4u,0x0c087ac6u,0x0c087ac8u,
-0x0c087acau,0x0c087accu,0x0c087aceu,0x0c087ad0u,0x0c087ad2u,0x0c087ad4u,0x0c087ad6u,0x0c087ad8u,0x0c087adau,0x0c087adcu,0x0c087adeu,0x0c087ae0u,0x0c087ae2u,0x0c087ae4u,0x0c087ae6u,0x0c087ae8u,
-0x0c087aeau,0x0c087aecu,0x0c087aeeu,0x0c087af0u,0x0c087af2u,0x0c087af4u,0x0c087af6u,0x0c087af8u,0x0c087afau,0x0c087afcu,0x0c087afeu,0x0c087b00u,0x0c087b02u,0x0c087b04u,0x0c087b06u,0x0c087b08u,
-0x0c087b0au,0x0c087b0cu,0x0c087b0eu,0x0c087b10u,0x0c087b12u,0x0c087b14u,0x0c087b16u,0x0c087b18u,0x0c087b1au,0x0c087b1cu,0x0c087b1eu,0x0c087b20u,0x0c087b22u,0x0c087b24u,0x0c087b26u,0x0c087b28u,
-0x0c087b2au,0x0c087b2cu,0x0c087b2eu,0x0c087b30u,0x0c087b32u,0x0c087b34u,0x0c087b36u,0x0c087b38u,0x0c087b3au,0x0c087b3cu,0x0c087b3eu,0x0c087b40u,0x0c087b42u,0x0c087b44u,0x0c087b46u,0x0c087b48u,
-0x0c087b4au,0x0c087b4cu,0x0c087b4eu,0x0c087b50u,0x0c087b52u,0x0c087b54u,0x0c088c4cu,0x0c088c4eu,0x0c088c50u,0x0c088c52u,0x0c088c54u,0x0c088c56u,0x0c088c58u,0x0c088c5au,0x0c088c5cu,0x0c088c5eu,
+0x0c037d90u,0x0c037d92u,0x0c037d94u,0x0c037d96u,0x0c037d98u,0x0c037d9au,0x0c037d9cu,0x0c037d9eu,0x0c037da0u,0x0c037da2u,0x0c037da4u,0x0c037da6u,0x0c037da8u,0x0c037daau,0x0c037dacu,0x0c037daeu,
+0x0c037db0u,0x0c037db2u,0x0c037db4u,0x0c037db6u,0x0c037db8u,0x0c037dbau,0x0c037dbcu,0x0c037dbeu,0x0c037dc0u,0x0c037dc2u,0x0c037dc4u,0x0c037dc6u,0x0c037dc8u,0x0c037dcau,0x0c037dccu,0x0c037dceu,
+0x0c037dd0u,0x0c037dd2u,0x0c037dd4u,0x0c037dd6u,0x0c037dd8u,0x0c037ddau,0x0c037ddcu,0x0c037ddeu,0x0c037de0u,0x0c037de2u,0x0c037de4u,0x0c037de6u,0x0c037de8u,0x0c037deau,0x0c037decu,0x0c037deeu,
+0x0c037df0u,0x0c037df2u,0x0c037df4u,0x0c037df6u,0x0c037df8u,0x0c037dfau,0x0c037dfcu,0x0c037dfeu,0x0c037e00u,0x0c037e02u,0x0c037e04u,0x0c037e06u,0x0c037e08u,0x0c037e0au,0x0c037e0cu,0x0c037e0eu,
+0x0c037e10u,0x0c037e12u,0x0c037e14u,0x0c037e16u,0x0c037e18u,0x0c037e1au,0x0c037e1cu,0x0c037e1eu,0x0c037e20u,0x0c037e22u,0x0c037e24u,0x0c037e26u,0x0c0380a0u,0x0c0380a2u,0x0c0380a4u,0x0c0380a6u,
+0x0c0380a8u,0x0c0380aau,0x0c0380acu,0x0c0380aeu,0x0c0380b0u,0x0c0380b2u,0x0c0380b4u,0x0c0380b6u,0x0c0380b8u,0x0c0380bau,0x0c0380bcu,0x0c0380beu,0x0c0380c0u,0x0c0380c2u,0x0c0380c4u,0x0c0380c6u,
+0x0c0380c8u,0x0c0380cau,0x0c0380ccu,0x0c0380ceu,0x0c0380d0u,0x0c0380d2u,0x0c0380d4u,0x0c0380d6u,0x0c0380d8u,0x0c0380dau,0x0c0380dcu,0x0c0380e0u,0x0c0380e2u,0x0c0380e4u,0x0c0380e6u,0x0c0380e8u,
+0x0c0380eau,0x0c0380ecu,0x0c0380eeu,0x0c0380f0u,0x0c0380f2u,0x0c0380f4u,0x0c0380f6u,0x0c0380f8u,0x0c0380fau,0x0c0380fcu,0x0c0380feu,0x0c038100u,0x0c038102u,0x0c038104u,0x0c038106u,0x0c038108u,
+0x0c03810au,0x0c03810cu,0x0c03810eu,0x0c038110u,0x0c038112u,0x0c038114u,0x0c038116u,0x0c038118u,0x0c03811au,0x0c03811cu,0x0c038150u,0x0c038152u,0x0c038154u,0x0c038156u,0x0c038158u,0x0c03815au,
+0x0c03815cu,0x0c03815eu,0x0c038160u,0x0c038162u,0x0c038164u,0x0c038166u,0x0c038168u,0x0c03816au,0x0c03816cu,0x0c03816eu,0x0c038170u,0x0c038172u,0x0c038174u,0x0c038176u,0x0c038178u,0x0c03817au,
+0x0c03817cu,0x0c03817eu,0x0c038180u,0x0c038182u,0x0c038184u,0x0c038186u,0x0c038188u,0x0c03818au,0x0c03818cu,0x0c038192u,0x0c038194u,0x0c038196u,0x0c038198u,0x0c03819au,0x0c03819cu,0x0c03819eu,
+0x0c0381a0u,0x0c0381a2u,0x0c0381a4u,0x0c0381a6u,0x0c0381a8u,0x0c0381aau,0x0c0381acu,0x0c0381aeu,0x0c0381b0u,0x0c0381b2u,0x0c0381b4u,0x0c03a160u,0x0c03a162u,0x0c03a164u,0x0c03a166u,0x0c03a168u,
+0x0c03a16au,0x0c03a16cu,0x0c03a16eu,0x0c03a170u,0x0c03a172u,0x0c03a174u,0x0c03a180u,0x0c03a182u,0x0c03a184u,0x0c03a186u,0x0c03a188u,0x0c03a18au,0x0c03a18cu,0x0c03a18eu,0x0c03a1bau,0x0c03a1bcu,
+0x0c03a1beu,0x0c03a1c0u,0x0c03a1c2u,0x0c03a1c4u,0x0c03a1c6u,0x0c03a1c8u,0x0c03a1cau,0x0c03a1ccu,0x0c03a1ceu,0x0c03a1d0u,0x0c03a1d2u,0x0c03a1d4u,0x0c03a1d6u,0x0c03a1d8u,0x0c03a6a4u,0x0c03a6a6u,
+0x0c03a6a8u,0x0c03a6aau,0x0c03a6acu,0x0c03a6aeu,0x0c03a6b0u,0x0c03a6b2u,0x0c03a6b4u,0x0c03a6b6u,0x0c03a6c0u,0x0c03a6c2u,0x0c03a6c4u,0x0c03a6c6u,0x0c03a6c8u,0x0c03a6cau,0x0c03a6ccu,0x0c03a6ceu,
+0x0c03a772u,0x0c03a774u,0x0c03a776u,0x0c03a778u,0x0c03a77au,0x0c03a77cu,0x0c03a77eu,0x0c03a780u,0x0c03a782u,0x0c03a784u,0x0c03a786u,0x0c03a788u,0x0c03a78au,0x0c03a78cu,0x0c03a78eu,0x0c03a790u,
+0x0c03a792u,0x0c03a794u,0x0c03a796u,0x0c03a7a0u,0x0c03a7a2u,0x0c03a7a4u,0x0c03a7a6u,0x0c03a7a8u,0x0c03a7aau,0x0c03a7acu,0x0c03a7aeu,0x0c03a7b0u,0x0c03a7b2u,0x0c03a7b4u,0x0c03a7c0u,0x0c03a7c2u,
+0x0c03a7c4u,0x0c03a7c6u,0x0c03a7c8u,0x0c03a7cau,0x0c03a7ccu,0x0c03a7ceu,0x0c03a7d0u,0x0c03a7d2u,0x0c03a7d4u,0x0c03a7d6u,0x0c03a7d8u,0x0c03a7dau,0x0c03a7dcu,0x0c03a7deu,0x0c03a7e0u,0x0c03a7e2u,
+0x0c03a7e4u,0x0c03a7e6u,0x0c03a7e8u,0x0c03a7eau,0x0c03a7ecu,0x0c03a7eeu,0x0c03a7f0u,0x0c03a7f2u,0x0c03a7f4u,0x0c03a7f6u,0x0c03a7f8u,0x0c03a800u,0x0c03a802u,0x0c03a804u,0x0c03a806u,0x0c03a808u,
+0x0c03a80au,0x0c03a810u,0x0c03a812u,0x0c03a814u,0x0c03a816u,0x0c03a818u,0x0c03a81au,0x0c03a820u,0x0c03a822u,0x0c03a824u,0x0c03a826u,0x0c03a828u,0x0c03a82au,0x0c03a82cu,0x0c03a82eu,0x0c03a830u,
+0x0c03a832u,0x0c03a834u,0x0c03a836u,0x0c03a838u,0x0c03a83au,0x0c03a83cu,0x0c03a83eu,0x0c03a840u,0x0c03a842u,0x0c03a844u,0x0c03a846u,0x0c03a848u,0x0c03a84au,0x0c03a84cu,0x0c03a84eu,0x0c03a850u,
+0x0c03a852u,0x0c03a854u,0x0c03a856u,0x0c03a858u,0x0c03a85au,0x0c03a85cu,0x0c03a85eu,0x0c03a860u,0x0c03a862u,0x0c03a864u,0x0c03a866u,0x0c03a868u,0x0c03a86au,0x0c03a9fcu,0x0c03a9feu,0x0c03aa00u,
+0x0c03aa02u,0x0c03aa04u,0x0c03aa06u,0x0c03aa08u,0x0c03aa0au,0x0c03aa0cu,0x0c03aa0eu,0x0c03aa10u,0x0c03aa12u,0x0c03aa14u,0x0c03aa16u,0x0c03aa18u,0x0c03aa1au,0x0c03aa1cu,0x0c03aa1eu,0x0c03aa20u,
+0x0c03aa30u,0x0c03aa32u,0x0c03aa34u,0x0c03aa36u,0x0c03aa38u,0x0c03aa3au,0x0c03aa3cu,0x0c03aa3eu,0x0c03aa40u,0x0c03aa42u,0x0c03aa70u,0x0c03aa72u,0x0c03aa74u,0x0c03aa76u,0x0c03aa78u,0x0c03aa7au,
+0x0c03aa7cu,0x0c03aa7eu,0x0c03aa80u,0x0c03aa82u,0x0c03aa84u,0x0c03aa86u,0x0c03aa88u,0x0c03ce38u,0x0c03ce3au,0x0c03ce3cu,0x0c03ce3eu,0x0c03ce40u,0x0c03ce42u,0x0c03ce44u,0x0c03ce46u,0x0c03ce48u,
+0x0c03ce4au,0x0c03ce4cu,0x0c03ce4eu,0x0c03ce50u,0x0c03ce52u,0x0c03ce54u,0x0c03ce56u,0x0c03ce58u,0x0c03ce5au,0x0c03ce5cu,0x0c03ce5eu,0x0c03ce60u,0x0c03ce62u,0x0c03ce64u,0x0c03ce66u,0x0c03ce68u,
+0x0c03ce6au,0x0c03ce90u,0x0c03ce92u,0x0c03ce94u,0x0c03ce96u,0x0c03ce98u,0x0c03ce9au,0x0c03ce9cu,0x0c03ce9eu,0x0c03cea0u,0x0c03cea2u,0x0c03d2b0u,0x0c03d2b2u,0x0c03d2b4u,0x0c03d2b6u,0x0c03d2b8u,
+0x0c03d2bau,0x0c03d2bcu,0x0c03d2beu,0x0c03d2c0u,0x0c03d2c2u,0x0c03d2c4u,0x0c03d2c6u,0x0c03d2c8u,0x0c03d2cau,0x0c03d2ccu,0x0c03d2ceu,0x0c03da50u,0x0c03da52u,0x0c03da54u,0x0c03da56u,0x0c03da58u,
+0x0c03da5au,0x0c03da5cu,0x0c03da5eu,0x0c03da60u,0x0c03da62u,0x0c03da64u,0x0c03da66u,0x0c03da68u,0x0c03da6au,0x0c03da6cu,0x0c03da6eu,0x0c03da70u,0x0c03da72u,0x0c03da74u,0x0c03da76u,0x0c03da78u,
+0x0c03da7au,0x0c03da7cu,0x0c03da7eu,0x0c03da80u,0x0c03da82u,0x0c03da84u,0x0c03da86u,0x0c03da88u,0x0c03da8au,0x0c03da8cu,0x0c03da8eu,0x0c03da90u,0x0c03da92u,0x0c03da94u,0x0c03da96u,0x0c03da98u,
+0x0c03da9au,0x0c03da9cu,0x0c03da9eu,0x0c03daa0u,0x0c03daa2u,0x0c03daa4u,0x0c03daa6u,0x0c03daa8u,0x0c03daaau,0x0c03daacu,0x0c03daaeu,0x0c03dab0u,0x0c03dab2u,0x0c03dab4u,0x0c03dab6u,0x0c03dab8u,
+0x0c03dabau,0x0c03dad0u,0x0c03dad2u,0x0c03dad4u,0x0c03dad6u,0x0c03dad8u,0x0c03dadau,0x0c03dadcu,0x0c03dadeu,0x0c03dae0u,0x0c03dae2u,0x0c03dae4u,0x0c03dae6u,0x0c03dae8u,0x0c03daeau,0x0c03daecu,
+0x0c03daeeu,0x0c03daf0u,0x0c03daf2u,0x0c03daf4u,0x0c03daf6u,0x0c03daf8u,0x0c03dafau,0x0c03dafcu,0x0c03dafeu,0x0c03db00u,0x0c03db02u,0x0c03db04u,0x0c03db06u,0x0c03db08u,0x0c03db10u,0x0c03db12u,
+0x0c03db14u,0x0c03db16u,0x0c03db18u,0x0c03db1au,0x0c03db1cu,0x0c03db1eu,0x0c03db20u,0x0c03db22u,0x0c03db24u,0x0c03db26u,0x0c03db28u,0x0c03db2au,0x0c03db2cu,0x0c03db2eu,0x0c03db30u,0x0c03db32u,
+0x0c03db34u,0x0c03db36u,0x0c03db38u,0x0c03db40u,0x0c03db42u,0x0c03db44u,0x0c03db46u,0x0c03db48u,0x0c03db4au,0x0c03db4cu,0x0c03db4eu,0x0c03db50u,0x0c03db52u,0x0c03db54u,0x0c03db56u,0x0c03db58u,
+0x0c03db5au,0x0c03db5cu,0x0c03db5eu,0x0c03db60u,0x0c03db62u,0x0c03db64u,0x0c03db66u,0x0c03db68u,0x0c03db6au,0x0c03db6cu,0x0c03db6eu,0x0c03db70u,0x0c03db72u,0x0c03db74u,0x0c03db76u,0x0c03db78u,
+0x0c03db7au,0x0c03db7cu,0x0c03db80u,0x0c03db82u,0x0c03db84u,0x0c03db86u,0x0c03db88u,0x0c03db8au,0x0c03db8cu,0x0c03db8eu,0x0c03db90u,0x0c03db92u,0x0c03db94u,0x0c03db96u,0x0c03db98u,0x0c03db9au,
+0x0c03db9cu,0x0c03db9eu,0x0c03dba0u,0x0c03dba2u,0x0c03e000u,0x0c03e002u,0x0c03e004u,0x0c03e006u,0x0c03e008u,0x0c03e00au,0x0c03e00cu,0x0c03e00eu,0x0c03e010u,0x0c03e012u,0x0c03e014u,0x0c03e016u,
+0x0c03e018u,0x0c03e01au,0x0c03e01cu,0x0c03e01eu,0x0c03e020u,0x0c03e070u,0x0c03e072u,0x0c03e080u,0x0c03e082u,0x0c03e084u,0x0c03e086u,0x0c03e088u,0x0c03e08au,0x0c03e08cu,0x0c03e08eu,0x0c03e090u,
+0x0c03e092u,0x0c03e094u,0x0c03e0a0u,0x0c03e0a2u,0x0c03e0a4u,0x0c03e0a6u,0x0c03e0b0u,0x0c03e0b2u,0x0c03e0c0u,0x0c03e0c2u,0x0c03e0d0u,0x0c03e0d2u,0x0c03e0e0u,0x0c03e0e2u,0x0c03e0e4u,0x0c03e0e6u,
+0x0c03e0e8u,0x0c03e0eau,0x0c03e0ecu,0x0c03e0eeu,0x0c03ea22u,0x0c03ea24u,0x0c03ea26u,0x0c03ea28u,0x0c03ea2au,0x0c03ea2cu,0x0c03ea2eu,0x0c03ea30u,0x0c03ea32u,0x0c03ea34u,0x0c03ea36u,0x0c03ea38u,
+0x0c03ea3au,0x0c03ea3cu,0x0c03ea3eu,0x0c03ea40u,0x0c03ea42u,0x0c03ea44u,0x0c03ea46u,0x0c03ea48u,0x0c03ea4au,0x0c03ea4cu,0x0c03ea4eu,0x0c03ea50u,0x0c03ea52u,0x0c03ea54u,0x0c03ea56u,0x0c03ea58u,
+0x0c03ea5au,0x0c03ea5cu,0x0c03ea5eu,0x0c03ea60u,0x0c03ea62u,0x0c03ea64u,0x0c03ea66u,0x0c03ea68u,0x0c03ea6au,0x0c03ea6cu,0x0c03ea6eu,0x0c03ea70u,0x0c03ea72u,0x0c03ea74u,0x0c03ea76u,0x0c03ea78u,
+0x0c03ea7au,0x0c03ea7cu,0x0c03ea7eu,0x0c03ea80u,0x0c03ea82u,0x0c03ea84u,0x0c03ea86u,0x0c03ea88u,0x0c03ea8au,0x0c03ea8cu,0x0c03ea8eu,0x0c03ea90u,0x0c03ea92u,0x0c03ea94u,0x0c03ea96u,0x0c03ea98u,
+0x0c03ea9au,0x0c03ea9cu,0x0c03ea9eu,0x0c03eaa0u,0x0c03eaa2u,0x0c03eaa4u,0x0c03eaa6u,0x0c03eaa8u,0x0c03eaaau,0x0c03eaacu,0x0c03eaaeu,0x0c03eab0u,0x0c03eab2u,0x0c03eab4u,0x0c03eab6u,0x0c03eab8u,
+0x0c03eabau,0x0c03eabcu,0x0c03eabeu,0x0c03eac0u,0x0c03eac2u,0x0c03eac4u,0x0c03eac6u,0x0c03eac8u,0x0c03eacau,0x0c03eaccu,0x0c03eaceu,0x0c03fff0u,0x0c03fff2u,0x0c03fff4u,0x0c03fff6u,0x0c03fff8u,
+0x0c03fffau,0x0c03fffcu,0x0c03fffeu,0x0c040000u,0x0c040002u,0x0c040004u,0x0c040010u,0x0c040012u,0x0c040014u,0x0c040016u,0x0c040018u,0x0c04001au,0x0c04001cu,0x0c04001eu,0x0c040020u,0x0c040022u,
+0x0c040024u,0x0c040026u,0x0c040028u,0x0c04002au,0x0c04002cu,0x0c04002eu,0x0c040030u,0x0c040032u,0x0c040034u,0x0c040036u,0x0c040038u,0x0c04003au,0x0c04003cu,0x0c04003eu,0x0c040040u,0x0c040042u,
+0x0c040044u,0x0c040046u,0x0c040048u,0x0c04004au,0x0c04004cu,0x0c04004eu,0x0c040050u,0x0c040052u,0x0c040054u,0x0c040056u,0x0c040058u,0x0c04005au,0x0c04005cu,0x0c04005eu,0x0c040060u,0x0c040062u,
+0x0c040064u,0x0c040066u,0x0c040068u,0x0c04006au,0x0c04006cu,0x0c040070u,0x0c040072u,0x0c040074u,0x0c043064u,0x0c043066u,0x0c043068u,0x0c04306au,0x0c04306cu,0x0c04306eu,0x0c043070u,0x0c043072u,
+0x0c043074u,0x0c043076u,0x0c043078u,0x0c04307au,0x0c04307cu,0x0c04307eu,0x0c043080u,0x0c043082u,0x0c043084u,0x0c04341eu,0x0c043420u,0x0c043422u,0x0c043424u,0x0c043426u,0x0c043428u,0x0c04342au,
+0x0c04342cu,0x0c04342eu,0x0c043430u,0x0c043432u,0x0c043434u,0x0c043436u,0x0c043438u,0x0c04343au,0x0c043440u,0x0c043442u,0x0c043444u,0x0c043446u,0x0c043448u,0x0c04344au,0x0c04344cu,0x0c04344eu,
+0x0c043450u,0x0c043452u,0x0c043454u,0x0c043456u,0x0c043458u,0x0c04345au,0x0c04345cu,0x0c0434aau,0x0c0434acu,0x0c0434aeu,0x0c0434b0u,0x0c0434b2u,0x0c0434b4u,0x0c0434b6u,0x0c0434b8u,0x0c0434bau,
+0x0c0434bcu,0x0c0434beu,0x0c0434c0u,0x0c0434c2u,0x0c0434c4u,0x0c0434c6u,0x0c043518u,0x0c04351au,0x0c04351cu,0x0c04351eu,0x0c043520u,0x0c043522u,0x0c043524u,0x0c043526u,0x0c043528u,0x0c04352au,
+0x0c04352cu,0x0c04352eu,0x0c043530u,0x0c043532u,0x0c043534u,0x0c043536u,0x0c043538u,0x0c04353au,0x0c04353cu,0x0c04353eu,0x0c043540u,0x0c043542u,0x0c043544u,0x0c043546u,0x0c043548u,0x0c04354au,
+0x0c04354cu,0x0c04354eu,0x0c043550u,0x0c043552u,0x0c043554u,0x0c043556u,0x0c043558u,0x0c04355au,0x0c04355cu,0x0c04355eu,0x0c043560u,0x0c043562u,0x0c043564u,0x0c043566u,0x0c043568u,0x0c04356au,
+0x0c04356cu,0x0c0435dau,0x0c0435dcu,0x0c0435deu,0x0c0435e0u,0x0c0435e2u,0x0c0435e4u,0x0c0435e6u,0x0c0435e8u,0x0c0435eau,0x0c0435ecu,0x0c0435eeu,0x0c0435f0u,0x0c0435f2u,0x0c0435f4u,0x0c0435f6u,
+0x0c0435f8u,0x0c0435fau,0x0c0435fcu,0x0c0435feu,0x0c043600u,0x0c043602u,0x0c043604u,0x0c043606u,0x0c043608u,0x0c043632u,0x0c043634u,0x0c043636u,0x0c043638u,0x0c04363au,0x0c04363cu,0x0c043704u,
+0x0c043706u,0x0c043708u,0x0c04370au,0x0c04370cu,0x0c04370eu,0x0c043710u,0x0c043712u,0x0c043714u,0x0c043716u,0x0c043718u,0x0c043724u,0x0c043726u,0x0c043728u,0x0c04372au,0x0c04372cu,0x0c04372eu,
+0x0c043730u,0x0c043732u,0x0c043734u,0x0c043736u,0x0c043738u,0x0c04373au,0x0c04373cu,0x0c04373eu,0x0c043740u,0x0c043742u,0x0c043744u,0x0c043746u,0x0c043748u,0x0c04374au,0x0c04374cu,0x0c04374eu,
+0x0c043750u,0x0c043752u,0x0c043754u,0x0c043756u,0x0c043758u,0x0c04375au,0x0c04375cu,0x0c04375eu,0x0c043760u,0x0c043762u,0x0c043764u,0x0c043766u,0x0c043768u,0x0c04376au,0x0c04376cu,0x0c04376eu,
+0x0c043770u,0x0c043772u,0x0c043774u,0x0c043776u,0x0c043778u,0x0c04377au,0x0c04377cu,0x0c04377eu,0x0c043780u,0x0c043782u,0x0c043784u,0x0c043786u,0x0c043788u,0x0c04378au,0x0c04378cu,0x0c04378eu,
+0x0c043790u,0x0c043792u,0x0c043794u,0x0c043796u,0x0c043798u,0x0c04379au,0x0c043844u,0x0c043846u,0x0c043848u,0x0c04384au,0x0c04384cu,0x0c04384eu,0x0c043850u,0x0c043852u,0x0c043854u,0x0c043856u,
+0x0c043858u,0x0c04385au,0x0c04385cu,0x0c04385eu,0x0c043860u,0x0c043862u,0x0c043864u,0x0c043866u,0x0c043868u,0x0c04386au,0x0c04386cu,0x0c04386eu,0x0c043870u,0x0c043872u,0x0c043874u,0x0c043876u,
+0x0c043878u,0x0c04387au,0x0c04387cu,0x0c04387eu,0x0c043880u,0x0c043882u,0x0c043884u,0x0c043886u,0x0c043888u,0x0c04388au,0x0c04388cu,0x0c04388eu,0x0c043890u,0x0c043892u,0x0c043894u,0x0c043896u,
+0x0c043898u,0x0c04389au,0x0c04389cu,0x0c04389eu,0x0c0438a0u,0x0c0438a2u,0x0c0438a4u,0x0c0438a6u,0x0c0438a8u,0x0c0438aau,0x0c0438acu,0x0c0438aeu,0x0c0438b0u,0x0c0438b2u,0x0c0438b4u,0x0c0438b6u,
+0x0c0438b8u,0x0c0438bau,0x0c0438bcu,0x0c0438beu,0x0c0438c0u,0x0c0438c2u,0x0c0438c4u,0x0c0438c6u,0x0c0438c8u,0x0c0438cau,0x0c0438ccu,0x0c0438ceu,0x0c0438d0u,0x0c0438d2u,0x0c0438d4u,0x0c0438d6u,
+0x0c0438d8u,0x0c0438dau,0x0c0438dcu,0x0c0438deu,0x0c0438e0u,0x0c0438e2u,0x0c0438e4u,0x0c0438e6u,0x0c0438e8u,0x0c0438eau,0x0c0438ecu,0x0c0438eeu,0x0c0438f0u,0x0c0438f2u,0x0c0438f4u,0x0c0438f6u,
+0x0c0438f8u,0x0c0438fau,0x0c0438fcu,0x0c0438feu,0x0c043900u,0x0c043902u,0x0c043904u,0x0c043906u,0x0c043908u,0x0c04390au,0x0c04390cu,0x0c04390eu,0x0c043910u,0x0c043912u,0x0c043914u,0x0c043916u,
+0x0c043918u,0x0c04391au,0x0c04391cu,0x0c043d04u,0x0c043d06u,0x0c043d08u,0x0c043d0au,0x0c043d0cu,0x0c043d0eu,0x0c043d10u,0x0c043d12u,0x0c043d14u,0x0c043d16u,0x0c043d18u,0x0c043d1au,0x0c043d1cu,
+0x0c043d1eu,0x0c043d20u,0x0c043d22u,0x0c043d24u,0x0c043d26u,0x0c043d28u,0x0c043d2au,0x0c043d2cu,0x0c043d2eu,0x0c043d30u,0x0c043d32u,0x0c043d34u,0x0c043d36u,0x0c043d38u,0x0c043d3au,0x0c043d3cu,
+0x0c043d3eu,0x0c043d40u,0x0c043d42u,0x0c043d44u,0x0c043d46u,0x0c043d48u,0x0c043d4au,0x0c043d4cu,0x0c043d4eu,0x0c043d50u,0x0c043d52u,0x0c043d54u,0x0c043d56u,0x0c043d58u,0x0c043d5au,0x0c043d5cu,
+0x0c043d5eu,0x0c043d60u,0x0c043d62u,0x0c043d64u,0x0c043d66u,0x0c043d68u,0x0c043d6au,0x0c043d6cu,0x0c043d6eu,0x0c043d70u,0x0c043d72u,0x0c043d74u,0x0c043d76u,0x0c043d78u,0x0c043d7au,0x0c043d7cu,
+0x0c043d7eu,0x0c043db4u,0x0c043db6u,0x0c043db8u,0x0c043dbau,0x0c043dbcu,0x0c043dbeu,0x0c043dc0u,0x0c043dc2u,0x0c043dc4u,0x0c043dc6u,0x0c043dc8u,0x0c043dcau,0x0c043dccu,0x0c043dceu,0x0c043dd0u,
+0x0c043dd2u,0x0c043dd4u,0x0c043dd6u,0x0c043dd8u,0x0c043ddau,0x0c043ddcu,0x0c043ddeu,0x0c043de0u,0x0c043de2u,0x0c043de4u,0x0c043de6u,0x0c043de8u,0x0c043deau,0x0c043decu,0x0c043deeu,0x0c043df0u,
+0x0c043df2u,0x0c043df4u,0x0c043df6u,0x0c043df8u,0x0c043dfau,0x0c043dfcu,0x0c043dfeu,0x0c043e00u,0x0c043e02u,0x0c043e04u,0x0c043e06u,0x0c043e08u,0x0c043e0au,0x0c043e0cu,0x0c043e0eu,0x0c043e10u,
+0x0c043e12u,0x0c043e14u,0x0c043e16u,0x0c043e18u,0x0c043e1au,0x0c043e1cu,0x0c043e1eu,0x0c043e20u,0x0c043e22u,0x0c043e24u,0x0c043e26u,0x0c043e28u,0x0c043e2au,0x0c043e2cu,0x0c043e2eu,0x0c043e30u,
+0x0c043e32u,0x0c043e34u,0x0c043e36u,0x0c043e38u,0x0c043e3au,0x0c043e3cu,0x0c043e3eu,0x0c043e40u,0x0c043e42u,0x0c043e44u,0x0c043e46u,0x0c043e48u,0x0c043e4au,0x0c043e4cu,0x0c043e4eu,0x0c043e50u,
+0x0c0442feu,0x0c044300u,0x0c045f62u,0x0c045f64u,0x0c045f66u,0x0c045f68u,0x0c045f6au,0x0c045f6cu,0x0c045f6eu,0x0c045f70u,0x0c045f72u,0x0c045f74u,0x0c045f76u,0x0c045f78u,0x0c045f7au,0x0c045f7cu,
+0x0c047230u,0x0c047232u,0x0c047234u,0x0c047236u,0x0c047238u,0x0c04723au,0x0c04723cu,0x0c04723eu,0x0c047240u,0x0c047242u,0x0c047244u,0x0c047246u,0x0c047248u,0x0c04724au,0x0c04724cu,0x0c04724eu,
+0x0c047250u,0x0c047252u,0x0c047254u,0x0c047256u,0x0c047258u,0x0c04725au,0x0c04725cu,0x0c04725eu,0x0c047260u,0x0c047262u,0x0c047264u,0x0c047266u,0x0c047268u,0x0c04726au,0x0c04726cu,0x0c04726eu,
+0x0c047270u,0x0c047272u,0x0c047274u,0x0c047276u,0x0c047278u,0x0c04727au,0x0c04727cu,0x0c04727eu,0x0c047280u,0x0c047282u,0x0c047284u,0x0c047286u,0x0c047288u,0x0c04728au,0x0c04728cu,0x0c047670u,
+0x0c047672u,0x0c047674u,0x0c047676u,0x0c047678u,0x0c04767au,0x0c04767cu,0x0c04767eu,0x0c047680u,0x0c047682u,0x0c047684u,0x0c047686u,0x0c047688u,0x0c04768au,0x0c04768cu,0x0c04768eu,0x0c047690u,
+0x0c047692u,0x0c047694u,0x0c047696u,0x0c047698u,0x0c04769au,0x0c04769cu,0x0c04769eu,0x0c0476a0u,0x0c0476a2u,0x0c0476a4u,0x0c0476a6u,0x0c0476a8u,0x0c0476aau,0x0c0476acu,0x0c0476aeu,0x0c0476b0u,
+0x0c0476b2u,0x0c0476b4u,0x0c0476b6u,0x0c0476b8u,0x0c0476bau,0x0c0476bcu,0x0c0476beu,0x0c0476c0u,0x0c0476c2u,0x0c0476c4u,0x0c0476c6u,0x0c0476c8u,0x0c0476cau,0x0c0476ccu,0x0c0476ceu,0x0c0476d0u,
+0x0c0476d2u,0x0c0476d4u,0x0c0476d6u,0x0c0476d8u,0x0c0476dau,0x0c0476dcu,0x0c0476deu,0x0c0476e0u,0x0c0476e2u,0x0c0476e4u,0x0c0476e6u,0x0c0476e8u,0x0c0476eau,0x0c0476ecu,0x0c0476eeu,0x0c0476f0u,
+0x0c0476f2u,0x0c0476f4u,0x0c0476f6u,0x0c0476f8u,0x0c0476fau,0x0c0476fcu,0x0c0476feu,0x0c047700u,0x0c047702u,0x0c047704u,0x0c047706u,0x0c047720u,0x0c047722u,0x0c047724u,0x0c047726u,0x0c047728u,
+0x0c04772au,0x0c04772cu,0x0c04772eu,0x0c047730u,0x0c047732u,0x0c047734u,0x0c047736u,0x0c047738u,0x0c04773au,0x0c04773cu,0x0c04773eu,0x0c047740u,0x0c047742u,0x0c047744u,0x0c047746u,0x0c047748u,
+0x0c04774au,0x0c04774cu,0x0c04774eu,0x0c047750u,0x0c047752u,0x0c047754u,0x0c047756u,0x0c047758u,0x0c04775au,0x0c04775cu,0x0c04775eu,0x0c047760u,0x0c047762u,0x0c047764u,0x0c047766u,0x0c047768u,
+0x0c04776au,0x0c04baf6u,0x0c04baf8u,0x0c04bafau,0x0c04bafcu,0x0c04bafeu,0x0c04bb00u,0x0c04bb02u,0x0c04bb04u,0x0c04bb06u,0x0c04bb08u,0x0c04bb0au,0x0c04bb0cu,0x0c04bb0eu,0x0c04bb10u,0x0c04bb12u,
+0x0c04bb14u,0x0c04bb16u,0x0c04bb18u,0x0c04bb1au,0x0c04bb1cu,0x0c04bb1eu,0x0c04bb20u,0x0c04bb22u,0x0c04bb24u,0x0c04bb26u,0x0c04bb28u,0x0c04bb58u,0x0c04bb5au,0x0c04bb5cu,0x0c04bb5eu,0x0c04bb60u,
+0x0c04bb62u,0x0c04bb64u,0x0c04bb66u,0x0c04bb68u,0x0c04bb6au,0x0c04bb6cu,0x0c04bb6eu,0x0c04bb70u,0x0c04bb72u,0x0c04bb74u,0x0c04bb76u,0x0c04bb78u,0x0c04bb7au,0x0c04bb7cu,0x0c04bb7eu,0x0c04bb80u,
+0x0c04bb82u,0x0c04bb84u,0x0c04bb86u,0x0c04bb88u,0x0c04bb8au,0x0c04bb8cu,0x0c04bb8eu,0x0c04bb90u,0x0c04bb92u,0x0c04bb94u,0x0c04bb96u,0x0c04bb98u,0x0c04bb9au,0x0c04bb9cu,0x0c04bb9eu,0x0c04bba0u,
+0x0c04bba2u,0x0c04bba4u,0x0c04bba6u,0x0c04bba8u,0x0c04bbaau,0x0c04bbacu,0x0c04bbaeu,0x0c04bbb0u,0x0c04bbb2u,0x0c04bbb4u,0x0c04bbb6u,0x0c04bbb8u,0x0c04bbbau,0x0c04bbbcu,0x0c04bbbeu,0x0c04bbc0u,
+0x0c04bbc2u,0x0c04bbc4u,0x0c04cb72u,0x0c04cb74u,0x0c04cb76u,0x0c04cb78u,0x0c04cb7au,0x0c04cb7cu,0x0c04cb7eu,0x0c04cb80u,0x0c04cb82u,0x0c04cb84u,0x0c04cb86u,0x0c04cb88u,0x0c04cb8au,0x0c04cb8cu,
+0x0c04cb8eu,0x0c04cb90u,0x0c04cb92u,0x0c04cb94u,0x0c04cb96u,0x0c04ce42u,0x0c04ce44u,0x0c04ce46u,0x0c04ce48u,0x0c04ce4au,0x0c04ce4cu,0x0c04ce4eu,0x0c04ce50u,0x0c04ce52u,0x0c04ce54u,0x0c04ce56u,
+0x0c04ce58u,0x0c04ce5au,0x0c04ce5cu,0x0c04ce5eu,0x0c04ce60u,0x0c04ce62u,0x0c04ce64u,0x0c04ce66u,0x0c04ce68u,0x0c04ce6au,0x0c04ce6cu,0x0c04ce6eu,0x0c04ce70u,0x0c04ce72u,0x0c04ce74u,0x0c04ce76u,
+0x0c04ce78u,0x0c04ce7au,0x0c04ce7cu,0x0c04ce7eu,0x0c04ce80u,0x0c04ce82u,0x0c04ce84u,0x0c04ce86u,0x0c04ce88u,0x0c04ce8au,0x0c04ce8cu,0x0c04ce8eu,0x0c04ce90u,0x0c04ce92u,0x0c04ce94u,0x0c04ce96u,
+0x0c04ce98u,0x0c04ce9au,0x0c04ce9cu,0x0c04ce9eu,0x0c04cea0u,0x0c04cea2u,0x0c04cea4u,0x0c04cea6u,0x0c04cea8u,0x0c04ceaau,0x0c04ceacu,0x0c04ceaeu,0x0c04ceb0u,0x0c04ceb2u,0x0c04ceb4u,0x0c04ceb6u,
+0x0c04ceb8u,0x0c04cebau,0x0c04cebcu,0x0c04cebeu,0x0c04cec0u,0x0c04cec2u,0x0c04cec4u,0x0c04cec6u,0x0c04cec8u,0x0c04cecau,0x0c04ceccu,0x0c059028u,0x0c05902au,0x0c05902cu,0x0c05902eu,0x0c059030u,
+0x0c059032u,0x0c059034u,0x0c059036u,0x0c059038u,0x0c05903au,0x0c05903cu,0x0c05903eu,0x0c059040u,0x0c059042u,0x0c059044u,0x0c059046u,0x0c059048u,0x0c05904au,0x0c05904cu,0x0c05904eu,0x0c059050u,
+0x0c059060u,0x0c059062u,0x0c059064u,0x0c059066u,0x0c059068u,0x0c05906au,0x0c05906cu,0x0c05906eu,0x0c059070u,0x0c059072u,0x0c059074u,0x0c059076u,0x0c059078u,0x0c05907au,0x0c05907cu,0x0c05907eu,
+0x0c059080u,0x0c059082u,0x0c059084u,0x0c059086u,0x0c059088u,0x0c05908au,0x0c05908cu,0x0c05908eu,0x0c059090u,0x0c059092u,0x0c059094u,0x0c059096u,0x0c059098u,0x0c05909au,0x0c05909cu,0x0c05909eu,
+0x0c0590a0u,0x0c0590a2u,0x0c0590a4u,0x0c0590a6u,0x0c0590a8u,0x0c0590aau,0x0c0590acu,0x0c0590aeu,0x0c0590b0u,0x0c0590b2u,0x0c0590b4u,0x0c0590b6u,0x0c0590b8u,0x0c0590bau,0x0c0590bcu,0x0c0590beu,
+0x0c0590c0u,0x0c0590c2u,0x0c0590c4u,0x0c0590c6u,0x0c0590c8u,0x0c0590cau,0x0c0590ccu,0x0c0590ceu,0x0c0590d0u,0x0c0590d2u,0x0c0590d4u,0x0c0590d6u,0x0c0590d8u,0x0c0590dau,0x0c0590dcu,0x0c0590deu,
+0x0c0590e0u,0x0c0590e2u,0x0c0590e4u,0x0c0590e6u,0x0c0590e8u,0x0c0590eau,0x0c0590ecu,0x0c0590eeu,0x0c0590f0u,0x0c0590f2u,0x0c0590f4u,0x0c0590f6u,0x0c0590f8u,0x0c0590fau,0x0c0590fcu,0x0c0590feu,
+0x0c059100u,0x0c059102u,0x0c059104u,0x0c059106u,0x0c059108u,0x0c05910au,0x0c05910cu,0x0c05910eu,0x0c059110u,0x0c059112u,0x0c059114u,0x0c059116u,0x0c059118u,0x0c05911au,0x0c05911cu,0x0c05911eu,
+0x0c059120u,0x0c059122u,0x0c059124u,0x0c059126u,0x0c059128u,0x0c05912au,0x0c05912cu,0x0c05912eu,0x0c059130u,0x0c059140u,0x0c059142u,0x0c059144u,0x0c059146u,0x0c059148u,0x0c05914au,0x0c05914cu,
+0x0c05914eu,0x0c059150u,0x0c059152u,0x0c059154u,0x0c059156u,0x0c059158u,0x0c05915au,0x0c05915cu,0x0c05915eu,0x0c059160u,0x0c059162u,0x0c059164u,0x0c059166u,0x0c059168u,0x0c05916au,0x0c05916cu,
+0x0c05916eu,0x0c059170u,0x0c059172u,0x0c059174u,0x0c059176u,0x0c059178u,0x0c05917au,0x0c05917cu,0x0c05917eu,0x0c059180u,0x0c059182u,0x0c059184u,0x0c059186u,0x0c059188u,0x0c05918au,0x0c05918cu,
+0x0c05918eu,0x0c059190u,0x0c059192u,0x0c059194u,0x0c059196u,0x0c059198u,0x0c05919au,0x0c05919cu,0x0c05919eu,0x0c0591a0u,0x0c0591a2u,0x0c0591a4u,0x0c0591a6u,0x0c0591a8u,0x0c0591aau,0x0c0591acu,
+0x0c0591aeu,0x0c0591b0u,0x0c0591b2u,0x0c0591b4u,0x0c0591b6u,0x0c0591b8u,0x0c0591bau,0x0c0591bcu,0x0c0591beu,0x0c0591c0u,0x0c0591c2u,0x0c05bb38u,0x0c05bb3au,0x0c05bb3cu,0x0c05bb3eu,0x0c05bb40u,
+0x0c05bb42u,0x0c05bb44u,0x0c05bb46u,0x0c05bb48u,0x0c05bb4au,0x0c05bb4cu,0x0c05bb4eu,0x0c05bb50u,0x0c05bb52u,0x0c05bb54u,0x0c05bb56u,0x0c05bb58u,0x0c05bb5au,0x0c05bb5cu,0x0c05bb5eu,0x0c05bb60u,
+0x0c05bb62u,0x0c05bb64u,0x0c05bb66u,0x0c05bb68u,0x0c05bb6au,0x0c05bb6cu,0x0c05bb6eu,0x0c05bb70u,0x0c05bb72u,0x0c05bb74u,0x0c05bb76u,0x0c05bb78u,0x0c05bb7au,0x0c05bb7cu,0x0c05bb7eu,0x0c05bb80u,
+0x0c05bb82u,0x0c05bb84u,0x0c05bb86u,0x0c05bb88u,0x0c05bb8au,0x0c05bb8cu,0x0c05bb8eu,0x0c05bb90u,0x0c05bb92u,0x0c05bb94u,0x0c05bb96u,0x0c05bb98u,0x0c05bb9au,0x0c05bb9cu,0x0c05bb9eu,0x0c05bba0u,
+0x0c05bba2u,0x0c05bba4u,0x0c05bba6u,0x0c05bba8u,0x0c05bbaau,0x0c05bbacu,0x0c05bbaeu,0x0c05bbb0u,0x0c05bbb2u,0x0c05bbb4u,0x0c05bbb6u,0x0c05bbb8u,0x0c05bbbau,0x0c05bbbcu,0x0c05bbbeu,0x0c05bbc0u,
+0x0c05bbc2u,0x0c05bbc4u,0x0c05bbc6u,0x0c05bbc8u,0x0c05bbcau,0x0c05bbccu,0x0c05bbceu,0x0c05bbd0u,0x0c05bbd2u,0x0c05bbd4u,0x0c05bbd6u,0x0c05bbd8u,0x0c05bbdau,0x0c05bbdcu,0x0c05bbdeu,0x0c05bbe0u,
+0x0c05bbe2u,0x0c05bbe4u,0x0c05bbe6u,0x0c05bbe8u,0x0c05bbeau,0x0c05bbecu,0x0c05bbeeu,0x0c05bbf0u,0x0c05bbf2u,0x0c05bbf4u,0x0c05bbf6u,0x0c05bbf8u,0x0c05bbfau,0x0c05bbfcu,0x0c05bbfeu,0x0c05bc00u,
+0x0c05bc02u,0x0c05bc04u,0x0c05bc06u,0x0c05bc08u,0x0c05bc0au,0x0c05bc0cu,0x0c05bc0eu,0x0c05bc10u,0x0c05bc12u,0x0c05bc14u,0x0c05bc16u,0x0c05bc18u,0x0c05bc1au,0x0c05bc1cu,0x0c05bc1eu,0x0c05bc20u,
+0x0c05bc22u,0x0c05bc24u,0x0c05bc26u,0x0c05bc28u,0x0c05bc2au,0x0c05bc2cu,0x0c05bc2eu,0x0c05bc30u,0x0c05bc32u,0x0c05bc34u,0x0c05bc36u,0x0c05bc38u,0x0c05bc3au,0x0c05bc3cu,0x0c05bc3eu,0x0c05bc40u,
+0x0c05bc42u,0x0c05bc44u,0x0c05bc46u,0x0c05bc48u,0x0c05bc4au,0x0c05bc4cu,0x0c05bc4eu,0x0c05bc50u,0x0c05bc52u,0x0c05bc54u,0x0c05bc56u,0x0c05bc58u,0x0c05bc5au,0x0c05bc5cu,0x0c05bc5eu,0x0c05bc60u,
+0x0c05bc62u,0x0c05bc64u,0x0c05bc66u,0x0c05bc68u,0x0c05bc6au,0x0c05bc6cu,0x0c05bc6eu,0x0c05bc70u,0x0c05bc72u,0x0c05bc74u,0x0c05bc76u,0x0c05bc78u,0x0c05bc7au,0x0c05bc7cu,0x0c05bc7eu,0x0c05bc80u,
+0x0c05bc82u,0x0c05bca8u,0x0c05bcaau,0x0c05bcacu,0x0c05bcaeu,0x0c05bcb0u,0x0c05bcb2u,0x0c05bcb4u,0x0c05bcb6u,0x0c05bcb8u,0x0c05bcbau,0x0c05bcbcu,0x0c05bcbeu,0x0c05bcc0u,0x0c05bcc2u,0x0c05bcc4u,
+0x0c05bcc6u,0x0c05bcc8u,0x0c05bccau,0x0c05bcccu,0x0c05bcceu,0x0c05bcd0u,0x0c05bcd2u,0x0c05bcd4u,0x0c05bcd6u,0x0c05bcd8u,0x0c05bcdau,0x0c05bcdcu,0x0c05bcdeu,0x0c05bce0u,0x0c05bce2u,0x0c05bce4u,
+0x0c05bce6u,0x0c05bce8u,0x0c05bceau,0x0c05bcecu,0x0c05bceeu,0x0c05bcf0u,0x0c05bcf2u,0x0c05bcf4u,0x0c05bcf6u,0x0c05bcf8u,0x0c05bcfau,0x0c05bcfcu,0x0c05bcfeu,0x0c05bd00u,0x0c05bd02u,0x0c05bd04u,
+0x0c05bd06u,0x0c05bd08u,0x0c05bd0au,0x0c05bd0cu,0x0c05bd0eu,0x0c05bd10u,0x0c05bd12u,0x0c05bd14u,0x0c05bd16u,0x0c05bd18u,0x0c05bd1au,0x0c05bd1cu,0x0c05bd1eu,0x0c05bd20u,0x0c05bd22u,0x0c05bd24u,
+0x0c05bd26u,0x0c05bd28u,0x0c05bd2au,0x0c05bd2cu,0x0c05bd2eu,0x0c05bd30u,0x0c05bd32u,0x0c05bd34u,0x0c05bd36u,0x0c05bd38u,0x0c05bd3au,0x0c05bd3cu,0x0c05bd3eu,0x0c05bd40u,0x0c05bd42u,0x0c05bd44u,
+0x0c05bd46u,0x0c05bd48u,0x0c05bd4au,0x0c05bd4cu,0x0c05bd4eu,0x0c05bd50u,0x0c05bd52u,0x0c05bd54u,0x0c05bd56u,0x0c05bd58u,0x0c05bd5au,0x0c05bd5cu,0x0c05bd5eu,0x0c05bd60u,0x0c05bd62u,0x0c05bd64u,
+0x0c05bd66u,0x0c05bd68u,0x0c05bd6au,0x0c05bd6cu,0x0c05bd6eu,0x0c05bd70u,0x0c05bd72u,0x0c05bd74u,0x0c05bd76u,0x0c05bd78u,0x0c05bd7au,0x0c05bd7cu,0x0c05bd7eu,0x0c05bd80u,0x0c05bd82u,0x0c05bd84u,
+0x0c05bd86u,0x0c05bd88u,0x0c05bd8au,0x0c05bd8cu,0x0c05bd8eu,0x0c05bd90u,0x0c05bd92u,0x0c05bd94u,0x0c05bd96u,0x0c05bd98u,0x0c05bd9au,0x0c05bd9cu,0x0c05bd9eu,0x0c05bda0u,0x0c05bda2u,0x0c05bda4u,
+0x0c05bda6u,0x0c05bda8u,0x0c05bdaau,0x0c05bdacu,0x0c05cb0au,0x0c05cb0cu,0x0c05cb0eu,0x0c05cb10u,0x0c05cb12u,0x0c05cb14u,0x0c05cb16u,0x0c05cb18u,0x0c05cb1au,0x0c05cb1cu,0x0c05cb1eu,0x0c05cb20u,
+0x0c05cb22u,0x0c05cb24u,0x0c05cb26u,0x0c05cb28u,0x0c05cb2au,0x0c05cb2cu,0x0c05cb2eu,0x0c05cb30u,0x0c05cb32u,0x0c05cb34u,0x0c05cb36u,0x0c05cb38u,0x0c05cb3au,0x0c05cb3cu,0x0c05cb3eu,0x0c05cb40u,
+0x0c05cb42u,0x0c05cb44u,0x0c05cb46u,0x0c05cb48u,0x0c05cb4au,0x0c05cb4cu,0x0c05cb4eu,0x0c05cb50u,0x0c05cb52u,0x0c05cb54u,0x0c05cb56u,0x0c05cb58u,0x0c05cb5au,0x0c05cb5cu,0x0c05cb5eu,0x0c05cb60u,
+0x0c05cb62u,0x0c05cb64u,0x0c05cb66u,0x0c05cb68u,0x0c05cb6au,0x0c05cb6cu,0x0c05d5a8u,0x0c05d5aau,0x0c05d5acu,0x0c05d5aeu,0x0c05d5b0u,0x0c05d5b2u,0x0c05d5b4u,0x0c05d5b6u,0x0c05d5b8u,0x0c05d5bau,
+0x0c05d5bcu,0x0c05d5beu,0x0c05d5c0u,0x0c05d5c2u,0x0c05d5c4u,0x0c05d5c6u,0x0c05d5c8u,0x0c05d5cau,0x0c05d5ccu,0x0c05d5ceu,0x0c05d5d0u,0x0c05d5d2u,0x0c05d5d4u,0x0c05d5d6u,0x0c05d5d8u,0x0c05d5dau,
+0x0c05d5dcu,0x0c05d5deu,0x0c05d5e0u,0x0c05d5e2u,0x0c05d5e4u,0x0c05d5e6u,0x0c05d5e8u,0x0c05d5eau,0x0c05d5ecu,0x0c05d5eeu,0x0c05d5f0u,0x0c05d5f2u,0x0c05d5f4u,0x0c05d5f6u,0x0c05d5f8u,0x0c05d5fau,
+0x0c05d5fcu,0x0c05d5feu,0x0c05d600u,0x0c05d602u,0x0c05d604u,0x0c05d606u,0x0c05d608u,0x0c05d60au,0x0c05d60cu,0x0c05d60eu,0x0c05d610u,0x0c05d612u,0x0c05d614u,0x0c05d616u,0x0c05d618u,0x0c05d61au,
+0x0c05d61cu,0x0c05d61eu,0x0c05d620u,0x0c05d622u,0x0c05d624u,0x0c05d626u,0x0c05d628u,0x0c05d62au,0x0c05d62cu,0x0c05d62eu,0x0c05d630u,0x0c05d632u,0x0c05d634u,0x0c05d636u,0x0c05d638u,0x0c05d63au,
+0x0c05d63cu,0x0c05d63eu,0x0c05d640u,0x0c05d642u,0x0c05d644u,0x0c05d646u,0x0c05d648u,0x0c05d64au,0x0c05d64cu,0x0c05e1d2u,0x0c05e1d4u,0x0c05e1d6u,0x0c05e1d8u,0x0c05e1dau,0x0c05e1dcu,0x0c05e1deu,
+0x0c05e1e0u,0x0c05e1e2u,0x0c05e1e4u,0x0c05e1e6u,0x0c05e1e8u,0x0c05e1eau,0x0c05e1ecu,0x0c05e46cu,0x0c05e46eu,0x0c05e470u,0x0c05e472u,0x0c05e474u,0x0c05e476u,0x0c05e478u,0x0c05e47au,0x0c05e47cu,
+0x0c05e47eu,0x0c05e480u,0x0c05e482u,0x0c05e484u,0x0c05e486u,0x0c05e488u,0x0c05e48au,0x0c05e48cu,0x0c05e48eu,0x0c05e490u,0x0c05e492u,0x0c05e494u,0x0c05e496u,0x0c05e498u,0x0c05e49au,0x0c05e49cu,
+0x0c05e49eu,0x0c05e4a0u,0x0c05e4a2u,0x0c05e4a4u,0x0c05e4a6u,0x0c05e4a8u,0x0c05e4aau,0x0c05e4acu,0x0c05e4aeu,0x0c05e4b0u,0x0c05e4b2u,0x0c05e4b4u,0x0c05e4b6u,0x0c05e4b8u,0x0c05e4bau,0x0c05e4bcu,
+0x0c05e4beu,0x0c05e4c0u,0x0c05e4c2u,0x0c05e4c4u,0x0c05e4c6u,0x0c06120eu,0x0c061210u,0x0c061212u,0x0c061214u,0x0c061216u,0x0c061218u,0x0c06121au,0x0c06121cu,0x0c06121eu,0x0c061220u,0x0c061222u,
+0x0c061224u,0x0c061226u,0x0c061228u,0x0c06122au,0x0c06122cu,0x0c06122eu,0x0c061230u,0x0c061232u,0x0c061234u,0x0c061236u,0x0c061238u,0x0c06123au,0x0c06123cu,0x0c06123eu,0x0c061240u,0x0c061242u,
+0x0c061244u,0x0c061246u,0x0c061248u,0x0c06124au,0x0c06124cu,0x0c06124eu,0x0c061250u,0x0c061252u,0x0c061254u,0x0c061256u,0x0c061258u,0x0c06125au,0x0c06125cu,0x0c06125eu,0x0c061260u,0x0c061262u,
+0x0c061264u,0x0c061266u,0x0c061268u,0x0c06126au,0x0c06126cu,0x0c06126eu,0x0c061270u,0x0c061272u,0x0c061274u,0x0c061276u,0x0c061278u,0x0c06127au,0x0c06127cu,0x0c06127eu,0x0c061280u,0x0c061282u,
+0x0c0612fcu,0x0c0612feu,0x0c061300u,0x0c061302u,0x0c061304u,0x0c061306u,0x0c061308u,0x0c06130au,0x0c06130cu,0x0c06130eu,0x0c061310u,0x0c061312u,0x0c061314u,0x0c061316u,0x0c061318u,0x0c06131au,
+0x0c06131cu,0x0c06131eu,0x0c061320u,0x0c061322u,0x0c061324u,0x0c061326u,0x0c061328u,0x0c06132au,0x0c06132cu,0x0c06132eu,0x0c061330u,0x0c061332u,0x0c061334u,0x0c061336u,0x0c061338u,0x0c0624e4u,
+0x0c0624e6u,0x0c0624e8u,0x0c0624eau,0x0c0624ecu,0x0c0624eeu,0x0c0624f0u,0x0c0624f2u,0x0c0624f4u,0x0c0624f6u,0x0c0624f8u,0x0c0624fau,0x0c0624fcu,0x0c0624feu,0x0c062500u,0x0c062502u,0x0c062504u,
+0x0c062506u,0x0c062dd2u,0x0c062dd4u,0x0c062dd6u,0x0c062dd8u,0x0c062ddau,0x0c062ddcu,0x0c062ddeu,0x0c062de0u,0x0c062de2u,0x0c062de4u,0x0c062de6u,0x0c062de8u,0x0c062deau,0x0c062decu,0x0c062deeu,
+0x0c062df0u,0x0c062df2u,0x0c062ec4u,0x0c062ec6u,0x0c062ec8u,0x0c062ecau,0x0c062eccu,0x0c062eceu,0x0c062ed0u,0x0c062ed2u,0x0c062ed4u,0x0c062ed6u,0x0c062ed8u,0x0c062edau,0x0c062edcu,0x0c062edeu,
+0x0c062ee0u,0x0c062ee2u,0x0c062ee4u,0x0c062ee6u,0x0c062ee8u,0x0c062eeau,0x0c062eecu,0x0c062eeeu,0x0c062ef0u,0x0c062ef2u,0x0c062ef4u,0x0c06c406u,0x0c06c408u,0x0c06c40au,0x0c06c40cu,0x0c06c40eu,
+0x0c06c410u,0x0c06c412u,0x0c06c414u,0x0c06c416u,0x0c06c418u,0x0c06c41au,0x0c06c41cu,0x0c06c41eu,0x0c06c420u,0x0c06c5d0u,0x0c06c5d2u,0x0c06c5d4u,0x0c06c5d6u,0x0c06c5d8u,0x0c06c5dau,0x0c06c5dcu,
+0x0c06c5deu,0x0c06c5e0u,0x0c06c5e2u,0x0c06c5e4u,0x0c06c5e6u,0x0c06c5e8u,0x0c06c5eau,0x0c06c5ecu,0x0c06c5eeu,0x0c06c5f0u,0x0c06c5f2u,0x0c06c5f4u,0x0c06c5f6u,0x0c06c5f8u,0x0c06c5fau,0x0c06c5fcu,
+0x0c06c5feu,0x0c06c600u,0x0c06c602u,0x0c06c604u,0x0c06c606u,0x0c06c608u,0x0c06c60au,0x0c06c60cu,0x0c06c60eu,0x0c06c610u,0x0c06c612u,0x0c06c614u,0x0c06c616u,0x0c06c618u,0x0c06c61au,0x0c06c61cu,
+0x0c06c61eu,0x0c06c620u,0x0c06c622u,0x0c06c624u,0x0c06c626u,0x0c06c628u,0x0c06c62au,0x0c06c62cu,0x0c06c62eu,0x0c06c630u,0x0c06c632u,0x0c06c634u,0x0c06c636u,0x0c06c638u,0x0c06c63au,0x0c06c63cu,
+0x0c06c63eu,0x0c06c640u,0x0c06c642u,0x0c06c644u,0x0c06c646u,0x0c06c648u,0x0c06c64au,0x0c06c64cu,0x0c06c64eu,0x0c06c650u,0x0c06c652u,0x0c06c654u,0x0c06c656u,0x0c06c658u,0x0c06c65au,0x0c06c65cu,
+0x0c06c65eu,0x0c06c660u,0x0c06c662u,0x0c06c664u,0x0c06c666u,0x0c06c668u,0x0c06c66au,0x0c06c66cu,0x0c06c66eu,0x0c06c670u,0x0c06c672u,0x0c06c674u,0x0c06c676u,0x0c06c678u,0x0c06c67au,0x0c06c67cu,
+0x0c06c67eu,0x0c06c680u,0x0c06c682u,0x0c06c684u,0x0c06c686u,0x0c06c688u,0x0c06c68au,0x0c06c68cu,0x0c06c68eu,0x0c06c690u,0x0c06c692u,0x0c06c694u,0x0c06c696u,0x0c06c698u,0x0c06c69au,0x0c06c69cu,
+0x0c06c69eu,0x0c06c6a0u,0x0c06c6a2u,0x0c06c6a4u,0x0c06c6a6u,0x0c06c6a8u,0x0c06c6d6u,0x0c06c6d8u,0x0c06c6dau,0x0c06c6dcu,0x0c06c6deu,0x0c06c720u,0x0c06c722u,0x0c06c724u,0x0c06c726u,0x0c06c728u,
+0x0c06c72au,0x0c06c72cu,0x0c06c72eu,0x0c06c730u,0x0c06c732u,0x0c06c734u,0x0c06c736u,0x0c06c738u,0x0c06c73au,0x0c06c73cu,0x0c06c73eu,0x0c06c740u,0x0c06c742u,0x0c06c744u,0x0c06c746u,0x0c06c748u,
+0x0c06c74au,0x0c06c74cu,0x0c06c74eu,0x0c06c750u,0x0c06c752u,0x0c06c754u,0x0c06c756u,0x0c06c758u,0x0c06c75au,0x0c06c75cu,0x0c06c75eu,0x0c06c760u,0x0c06c762u,0x0c06c764u,0x0c06c766u,0x0c06c768u,
+0x0c06c76au,0x0c06c76cu,0x0c06c76eu,0x0c06c770u,0x0c06c772u,0x0c06c774u,0x0c06c776u,0x0c06c778u,0x0c06c77au,0x0c06c77cu,0x0c06c77eu,0x0c06c780u,0x0c06c782u,0x0c06c784u,0x0c06c786u,0x0c06c788u,
+0x0c06c78au,0x0c06c78cu,0x0c06c78eu,0x0c06c790u,0x0c06c792u,0x0c06c794u,0x0c06c796u,0x0c06c798u,0x0c06c79au,0x0c06c79cu,0x0c06c79eu,0x0c06c7a0u,0x0c06c7a2u,0x0c06c7a4u,0x0c06c7a6u,0x0c06c7a8u,
+0x0c06c7aau,0x0c06c7acu,0x0c06c7aeu,0x0c06c7b0u,0x0c06c7b2u,0x0c06c7b4u,0x0c06c7b6u,0x0c06c7b8u,0x0c06c7bau,0x0c06c7bcu,0x0c06c7beu,0x0c06c7c0u,0x0c06c7c2u,0x0c06c7c4u,0x0c06c7c6u,0x0c06c7c8u,
+0x0c06c7cau,0x0c06c7e4u,0x0c06c7e6u,0x0c06c7e8u,0x0c06c7eau,0x0c06c7ecu,0x0c06c7eeu,0x0c06c7f0u,0x0c06c7f2u,0x0c06c7f4u,0x0c06c7f6u,0x0c06c7f8u,0x0c06c7fau,0x0c06c7fcu,0x0c06c7feu,0x0c06c800u,
+0x0c06c802u,0x0c06c804u,0x0c06c806u,0x0c06c808u,0x0c06c80au,0x0c06c80cu,0x0c06c80eu,0x0c06c810u,0x0c06c812u,0x0c06c814u,0x0c06c816u,0x0c06c818u,0x0c06c81au,0x0c06c81cu,0x0c06c81eu,0x0c06c820u,
+0x0c06c822u,0x0c06c824u,0x0c06c826u,0x0c06c828u,0x0c06c82au,0x0c06c82cu,0x0c06c82eu,0x0c06c830u,0x0c06c832u,0x0c06c834u,0x0c06c836u,0x0c06c838u,0x0c06c83au,0x0c06c83cu,0x0c06c83eu,0x0c06c840u,
+0x0c06c842u,0x0c06c844u,0x0c06c846u,0x0c06c848u,0x0c06c84au,0x0c06c84cu,0x0c06c84eu,0x0c06c850u,0x0c06c852u,0x0c06c854u,0x0c06c856u,0x0c06c858u,0x0c06c85au,0x0c06c85cu,0x0c06c85eu,0x0c06c860u,
+0x0c06c862u,0x0c06c864u,0x0c06c866u,0x0c06c868u,0x0c06c86au,0x0c06c86cu,0x0c06c86eu,0x0c06c870u,0x0c06c872u,0x0c06c874u,0x0c06c876u,0x0c06c878u,0x0c06c87au,0x0c06c87cu,0x0c06c87eu,0x0c06c880u,
+0x0c06c882u,0x0c06c884u,0x0c06c886u,0x0c06c888u,0x0c06c88au,0x0c06c88cu,0x0c06c88eu,0x0c06c890u,0x0c06c892u,0x0c06c894u,0x0c06c896u,0x0c06c898u,0x0c06c89au,0x0c06c89cu,0x0c06c89eu,0x0c06c8a0u,
+0x0c06c8a2u,0x0c06c95eu,0x0c06c960u,0x0c06c962u,0x0c06c964u,0x0c06c966u,0x0c06c968u,0x0c06c96au,0x0c06c96cu,0x0c06c96eu,0x0c06c970u,0x0c06c972u,0x0c06c974u,0x0c06c976u,0x0c06c978u,0x0c06c97au,
+0x0c06c97cu,0x0c06c97eu,0x0c06c980u,0x0c06c982u,0x0c06c984u,0x0c06c986u,0x0c06c988u,0x0c06c98au,0x0c06c98cu,0x0c06c98eu,0x0c06c990u,0x0c06c992u,0x0c06c994u,0x0c06c996u,0x0c06c998u,0x0c06c99au,
+0x0c06c99cu,0x0c06c99eu,0x0c06c9a0u,0x0c06c9a2u,0x0c06c9a4u,0x0c06c9a6u,0x0c06c9a8u,0x0c06c9aau,0x0c06c9acu,0x0c06c9aeu,0x0c06c9b0u,0x0c06c9b2u,0x0c06c9b4u,0x0c06c9b6u,0x0c06c9b8u,0x0c06c9bau,
+0x0c06c9bcu,0x0c06c9beu,0x0c06c9c0u,0x0c06c9c2u,0x0c06c9c4u,0x0c06c9c6u,0x0c06c9c8u,0x0c06c9cau,0x0c06c9ccu,0x0c06c9ceu,0x0c06c9d0u,0x0c06c9d2u,0x0c06c9d4u,0x0c06c9d6u,0x0c06c9d8u,0x0c06c9dau,
+0x0c06c9dcu,0x0c06c9deu,0x0c06c9e0u,0x0c06c9e2u,0x0c06c9e4u,0x0c06c9e6u,0x0c06c9e8u,0x0c06c9eau,0x0c06c9ecu,0x0c06c9eeu,0x0c06c9f0u,0x0c06c9f2u,0x0c06c9f4u,0x0c06c9f6u,0x0c06ca30u,0x0c06ca32u,
+0x0c06ca34u,0x0c06ca36u,0x0c06ca38u,0x0c06ca3au,0x0c06ca3cu,0x0c06ca3eu,0x0c06ca40u,0x0c06ca42u,0x0c06ca44u,0x0c06ca46u,0x0c06ca48u,0x0c06ca4au,0x0c06ca4cu,0x0c06ca4eu,0x0c06ca50u,0x0c06ca52u,
+0x0c06ca54u,0x0c06ca56u,0x0c06ca58u,0x0c06ca5au,0x0c06ca5cu,0x0c06ca5eu,0x0c06ca60u,0x0c06ca62u,0x0c06ca64u,0x0c06ca66u,0x0c06ca68u,0x0c06ca6au,0x0c06ca6cu,0x0c06ca6eu,0x0c06ca70u,0x0c06ca72u,
+0x0c06ca74u,0x0c06ca76u,0x0c06ca78u,0x0c06ca7au,0x0c06ca7cu,0x0c06ca7eu,0x0c06ca80u,0x0c06ca82u,0x0c06ca84u,0x0c06ca86u,0x0c06ca88u,0x0c06ca8au,0x0c06ca8cu,0x0c06ca8eu,0x0c06ca90u,0x0c06ca92u,
+0x0c06ca94u,0x0c06ca96u,0x0c06ca98u,0x0c06ca9au,0x0c06ca9cu,0x0c06ca9eu,0x0c06caa0u,0x0c06caa2u,0x0c06caa4u,0x0c06caa6u,0x0c06caa8u,0x0c06caaau,0x0c06caacu,0x0c06caaeu,0x0c06cab0u,0x0c06cab2u,
+0x0c06cab4u,0x0c06cab6u,0x0c06cab8u,0x0c06cabau,0x0c06cabcu,0x0c06cabeu,0x0c06cac0u,0x0c06cac2u,0x0c06cac4u,0x0c06cac6u,0x0c06cac8u,0x0c06cacau,0x0c06caccu,0x0c06caceu,0x0c06cad0u,0x0c06cad2u,
+0x0c06cad4u,0x0c06cad6u,0x0c06cad8u,0x0c06cadau,0x0c06cadcu,0x0c06cadeu,0x0c06cae0u,0x0c06cae2u,0x0c06cae4u,0x0c06cae6u,0x0c06cae8u,0x0c06caeau,0x0c06caecu,0x0c06caeeu,0x0c06caf0u,0x0c06caf2u,
+0x0c06caf4u,0x0c06caf6u,0x0c06caf8u,0x0c06cafau,0x0c06cafcu,0x0c06cafeu,0x0c06cb00u,0x0c06cb02u,0x0c06cb04u,0x0c06cb06u,0x0c06cb08u,0x0c06cb0au,0x0c06cb0cu,0x0c06cb0eu,0x0c06cb10u,0x0c06cb12u,
+0x0c06cb14u,0x0c06cb16u,0x0c06cb18u,0x0c06cb1au,0x0c06cb1cu,0x0c06cb1eu,0x0c06cb20u,0x0c06cb22u,0x0c06cb24u,0x0c06cb26u,0x0c06cb28u,0x0c06cb2au,0x0c06cb2cu,0x0c06cb2eu,0x0c06cb30u,0x0c06cb32u,
+0x0c06cb34u,0x0c06cb36u,0x0c06cb38u,0x0c06cb60u,0x0c06cb62u,0x0c06cb64u,0x0c06cb66u,0x0c06cb68u,0x0c06cb6au,0x0c06cb6cu,0x0c06cb6eu,0x0c06cb70u,0x0c06cb72u,0x0c06cb74u,0x0c06cb76u,0x0c06cb78u,
+0x0c06cb7au,0x0c06cb7cu,0x0c06cb7eu,0x0c06cb80u,0x0c06cb82u,0x0c06cb84u,0x0c06cb86u,0x0c06cb88u,0x0c06cb8au,0x0c06cb8cu,0x0c06cb8eu,0x0c06cb90u,0x0c06cb92u,0x0c06cb94u,0x0c06cb96u,0x0c06cb98u,
+0x0c06cb9au,0x0c06cb9cu,0x0c06cb9eu,0x0c06cba0u,0x0c06cba2u,0x0c06cba4u,0x0c06cba6u,0x0c06cba8u,0x0c06cbaau,0x0c06cbacu,0x0c06cbaeu,0x0c06cbb0u,0x0c06cbb2u,0x0c06cbb4u,0x0c06cbb6u,0x0c06cbb8u,
+0x0c06cbbau,0x0c06cbbcu,0x0c06cbbeu,0x0c06cbc0u,0x0c06cbc2u,0x0c06cbc4u,0x0c06cbc6u,0x0c06cbc8u,0x0c06cbcau,0x0c06cbccu,0x0c06cbceu,0x0c06cbd0u,0x0c06cbd2u,0x0c06cbd4u,0x0c06cbd6u,0x0c06cbd8u,
+0x0c06cbdau,0x0c06cbdcu,0x0c06cbdeu,0x0c06cbe0u,0x0c06cbe2u,0x0c06cbe4u,0x0c06cbe6u,0x0c06cbe8u,0x0c06cbeau,0x0c06cbecu,0x0c06cbeeu,0x0c06cbf0u,0x0c06cbf2u,0x0c06cbf4u,0x0c06cbf6u,0x0c06cbf8u,
+0x0c06cbfau,0x0c06cbfcu,0x0c06cbfeu,0x0c06cc00u,0x0c06cc02u,0x0c06cc04u,0x0c06cc06u,0x0c06cc08u,0x0c06cc0au,0x0c06cc0cu,0x0c06cc0eu,0x0c06cc10u,0x0c06cc12u,0x0c06cc14u,0x0c06cc16u,0x0c06cc18u,
+0x0c06cc1au,0x0c06cc1cu,0x0c071abcu,0x0c071abeu,0x0c071ac0u,0x0c071ac2u,0x0c071ac4u,0x0c071ac6u,0x0c071ac8u,0x0c071acau,0x0c071accu,0x0c071aceu,0x0c071ad0u,0x0c071ad2u,0x0c071ad4u,0x0c071ad6u,
+0x0c071ad8u,0x0c071adau,0x0c071adcu,0x0c071adeu,0x0c071ae0u,0x0c071ae2u,0x0c071ae4u,0x0c071ae6u,0x0c071ae8u,0x0c071aeau,0x0c071aecu,0x0c071aeeu,0x0c071af0u,0x0c071af2u,0x0c071af4u,0x0c071af6u,
+0x0c071af8u,0x0c071afau,0x0c071afcu,0x0c071afeu,0x0c071b00u,0x0c071b02u,0x0c071b04u,0x0c071b06u,0x0c071b08u,0x0c071b0au,0x0c071b0cu,0x0c071b0eu,0x0c071b10u,0x0c071b12u,0x0c071b14u,0x0c071b16u,
+0x0c071b18u,0x0c071b1au,0x0c071b1cu,0x0c071b1eu,0x0c071b20u,0x0c071b22u,0x0c071b24u,0x0c071b26u,0x0c071b28u,0x0c071b2au,0x0c071b2cu,0x0c071b2eu,0x0c071b30u,0x0c071b32u,0x0c071b34u,0x0c071b36u,
+0x0c071b38u,0x0c071b3au,0x0c071b3cu,0x0c071b3eu,0x0c071b40u,0x0c071b42u,0x0c071b44u,0x0c071b46u,0x0c071b48u,0x0c071b4au,0x0c071b4cu,0x0c071b4eu,0x0c071b50u,0x0c071b52u,0x0c071b54u,0x0c071b56u,
+0x0c071b58u,0x0c071b5au,0x0c071b5cu,0x0c071b5eu,0x0c071b60u,0x0c071b62u,0x0c071b64u,0x0c071b66u,0x0c071b68u,0x0c071b6au,0x0c071b6cu,0x0c071b6eu,0x0c071b70u,0x0c071b72u,0x0c071b74u,0x0c071b76u,
+0x0c071b78u,0x0c071b7au,0x0c071b7cu,0x0c071b7eu,0x0c071b80u,0x0c071b82u,0x0c071b84u,0x0c071b86u,0x0c071b88u,0x0c071b8au,0x0c071b8cu,0x0c071b8eu,0x0c071b90u,0x0c071b92u,0x0c071b94u,0x0c071b96u,
+0x0c071b98u,0x0c071b9au,0x0c071b9cu,0x0c071b9eu,0x0c071ba0u,0x0c071ba2u,0x0c071ba4u,0x0c071ba6u,0x0c071ba8u,0x0c071baau,0x0c071bacu,0x0c071baeu,0x0c071bb0u,0x0c071bb2u,0x0c071bb4u,0x0c071bb6u,
+0x0c071bb8u,0x0c071bbau,0x0c071bbcu,0x0c071bbeu,0x0c071bc0u,0x0c071bc2u,0x0c071bc4u,0x0c071bc6u,0x0c071bc8u,0x0c071bcau,0x0c071bccu,0x0c071bceu,0x0c071bd0u,0x0c071bd2u,0x0c071bd4u,0x0c071bd6u,
+0x0c071bd8u,0x0c071bdau,0x0c071bdcu,0x0c071bdeu,0x0c071be0u,0x0c071be2u,0x0c071be4u,0x0c071be6u,0x0c071be8u,0x0c071beau,0x0c071becu,0x0c071beeu,0x0c071bf0u,0x0c071bf2u,0x0c071bf4u,0x0c071bf6u,
+0x0c071bf8u,0x0c071bfau,0x0c071bfcu,0x0c071bfeu,0x0c071c00u,0x0c071c02u,0x0c071c04u,0x0c071c06u,0x0c071c08u,0x0c071c0au,0x0c071c0cu,0x0c071c0eu,0x0c071c10u,0x0c071c12u,0x0c071c14u,0x0c071c16u,
+0x0c071c18u,0x0c071c1au,0x0c071c1cu,0x0c071c1eu,0x0c071c20u,0x0c071c22u,0x0c071c24u,0x0c071c26u,0x0c071c28u,0x0c071c2au,0x0c071c2cu,0x0c071c2eu,0x0c071c30u,0x0c071c32u,0x0c071c38u,0x0c071c3au,
+0x0c071c3cu,0x0c071c3eu,0x0c071c40u,0x0c071c42u,0x0c071c44u,0x0c071c46u,0x0c071c48u,0x0c071c4au,0x0c071c4cu,0x0c071c4eu,0x0c071c50u,0x0c071c52u,0x0c071c54u,0x0c071c56u,0x0c071c58u,0x0c071c5au,
+0x0c071c5cu,0x0c071c5eu,0x0c071c60u,0x0c071c62u,0x0c071c64u,0x0c071c66u,0x0c071c68u,0x0c071c6au,0x0c071c6cu,0x0c071c6eu,0x0c071c70u,0x0c071c72u,0x0c071c74u,0x0c071c76u,0x0c071c78u,0x0c071c7au,
+0x0c071c7cu,0x0c071c7eu,0x0c071c80u,0x0c071c82u,0x0c071c84u,0x0c071c86u,0x0c071c88u,0x0c071c8au,0x0c071c8cu,0x0c071c8eu,0x0c071c90u,0x0c071c92u,0x0c071c94u,0x0c071c96u,0x0c071c98u,0x0c071c9au,
+0x0c071c9cu,0x0c071c9eu,0x0c071ca0u,0x0c071ca2u,0x0c071ca4u,0x0c071ca6u,0x0c071ca8u,0x0c071caau,0x0c071cacu,0x0c071caeu,0x0c071cb0u,0x0c071cb2u,0x0c071cb4u,0x0c071cb6u,0x0c071cb8u,0x0c071cbau,
+0x0c071cbcu,0x0c071cbeu,0x0c071cc0u,0x0c071cc2u,0x0c071cc4u,0x0c071cc6u,0x0c071cc8u,0x0c071ccau,0x0c071cccu,0x0c071cceu,0x0c071cd0u,0x0c071cd2u,0x0c071cd4u,0x0c071cd6u,0x0c071cd8u,0x0c071cdau,
+0x0c071cdcu,0x0c071cdeu,0x0c071ce0u,0x0c071ce2u,0x0c071ce4u,0x0c071ce6u,0x0c071ce8u,0x0c071ceau,0x0c071cecu,0x0c071ceeu,0x0c071cf0u,0x0c071cf2u,0x0c071cf4u,0x0c071cf6u,0x0c071cf8u,0x0c071cfau,
+0x0c071cfcu,0x0c071cfeu,0x0c071d00u,0x0c071d02u,0x0c071d04u,0x0c071d06u,0x0c071d08u,0x0c071d0au,0x0c071d0cu,0x0c071d0eu,0x0c071d10u,0x0c071d12u,0x0c071d14u,0x0c071d16u,0x0c071d18u,0x0c071d1au,
+0x0c071d1cu,0x0c071d1eu,0x0c071d20u,0x0c071d22u,0x0c071d24u,0x0c071d26u,0x0c071d28u,0x0c071d2au,0x0c071d2cu,0x0c071d2eu,0x0c071d30u,0x0c071d32u,0x0c071d34u,0x0c071d36u,0x0c071d38u,0x0c071d3au,
+0x0c071d3cu,0x0c071d3eu,0x0c071d40u,0x0c071d42u,0x0c071d44u,0x0c071d46u,0x0c071d48u,0x0c071d4au,0x0c071d4cu,0x0c071d4eu,0x0c071d50u,0x0c071d52u,0x0c071d54u,0x0c071d56u,0x0c071d58u,0x0c071d5au,
+0x0c071d5cu,0x0c071d5eu,0x0c071d60u,0x0c071d62u,0x0c071d64u,0x0c071d66u,0x0c071d68u,0x0c071d6au,0x0c071d6cu,0x0c071d6eu,0x0c071d70u,0x0c071d72u,0x0c071d74u,0x0c071d76u,0x0c071d78u,0x0c071d7au,
+0x0c071d7cu,0x0c071d7eu,0x0c071d80u,0x0c071d82u,0x0c071d84u,0x0c071d86u,0x0c071d88u,0x0c071d8au,0x0c071d8cu,0x0c071d8eu,0x0c071d90u,0x0c071d92u,0x0c071d94u,0x0c071d96u,0x0c071d98u,0x0c071d9au,
+0x0c071d9cu,0x0c071d9eu,0x0c071da0u,0x0c071da2u,0x0c071da4u,0x0c071da6u,0x0c071dacu,0x0c071daeu,0x0c071db0u,0x0c071db2u,0x0c071db4u,0x0c071db6u,0x0c071db8u,0x0c071dbau,0x0c071dbcu,0x0c071dbeu,
+0x0c071dc0u,0x0c071dc2u,0x0c071dc4u,0x0c071dc6u,0x0c071dc8u,0x0c071dcau,0x0c071dccu,0x0c071dceu,0x0c071dd0u,0x0c071dd2u,0x0c071dd4u,0x0c071dd6u,0x0c071dd8u,0x0c071ddau,0x0c071ddcu,0x0c071ddeu,
+0x0c071de0u,0x0c071de2u,0x0c071de4u,0x0c071de6u,0x0c071de8u,0x0c071deau,0x0c071decu,0x0c071deeu,0x0c071df0u,0x0c071df2u,0x0c071df4u,0x0c071df6u,0x0c071df8u,0x0c071dfau,0x0c071dfcu,0x0c071dfeu,
+0x0c071e00u,0x0c071e02u,0x0c071e04u,0x0c071e06u,0x0c071e08u,0x0c071e0au,0x0c071e0cu,0x0c071e0eu,0x0c071e10u,0x0c071e12u,0x0c071e14u,0x0c071e16u,0x0c071e18u,0x0c071e1au,0x0c071e1cu,0x0c071e1eu,
+0x0c071e20u,0x0c071e22u,0x0c071e24u,0x0c071e26u,0x0c071e28u,0x0c071e2au,0x0c071e2cu,0x0c071e2eu,0x0c071e30u,0x0c071e32u,0x0c071e34u,0x0c071e36u,0x0c071e38u,0x0c071e3au,0x0c071e3cu,0x0c071e3eu,
+0x0c071e40u,0x0c071e42u,0x0c071e44u,0x0c071e46u,0x0c071e48u,0x0c071e4au,0x0c071e4cu,0x0c071e4eu,0x0c071e50u,0x0c071e52u,0x0c071e54u,0x0c071e56u,0x0c071e58u,0x0c071e5au,0x0c071e5cu,0x0c071e64u,
+0x0c071e66u,0x0c071e68u,0x0c071e6au,0x0c071e6cu,0x0c071e6eu,0x0c071e70u,0x0c071e72u,0x0c071e74u,0x0c071e76u,0x0c071e78u,0x0c071e7au,0x0c071e7cu,0x0c071e7eu,0x0c071e80u,0x0c071e82u,0x0c071e84u,
+0x0c071e86u,0x0c071e88u,0x0c071e8au,0x0c071e8cu,0x0c071e8eu,0x0c071e90u,0x0c071e92u,0x0c071e94u,0x0c071e96u,0x0c071e98u,0x0c071e9au,0x0c071e9cu,0x0c071e9eu,0x0c071ea0u,0x0c071ea2u,0x0c071ea4u,
+0x0c071ea6u,0x0c071ea8u,0x0c071eaau,0x0c071eacu,0x0c071eaeu,0x0c071eb0u,0x0c071eb2u,0x0c071eb4u,0x0c071eb6u,0x0c071eb8u,0x0c071ebau,0x0c071ebcu,0x0c071ebeu,0x0c071ec0u,0x0c071ec2u,0x0c071ec4u,
+0x0c071ec6u,0x0c071ec8u,0x0c071ecau,0x0c071eccu,0x0c071eceu,0x0c071ed0u,0x0c071ed2u,0x0c071ed4u,0x0c071ed6u,0x0c071ed8u,0x0c071edau,0x0c071edcu,0x0c071edeu,0x0c071ee0u,0x0c071ee2u,0x0c071ee4u,
+0x0c071ee6u,0x0c071ee8u,0x0c071eeau,0x0c071eecu,0x0c071eeeu,0x0c071ef0u,0x0c071ef2u,0x0c071ef4u,0x0c071ef6u,0x0c071ef8u,0x0c071efau,0x0c071efcu,0x0c071efeu,0x0c071f00u,0x0c071f02u,0x0c071f04u,
+0x0c071f06u,0x0c071f08u,0x0c071f0au,0x0c071f0cu,0x0c071f0eu,0x0c071f10u,0x0c071f12u,0x0c071f14u,0x0c071f16u,0x0c071f18u,0x0c071f1au,0x0c071f1cu,0x0c071f1eu,0x0c071f20u,0x0c071f22u,0x0c071f24u,
+0x0c071f26u,0x0c071f28u,0x0c071f2au,0x0c071f2cu,0x0c071f2eu,0x0c071f30u,0x0c071f32u,0x0c071f34u,0x0c071f36u,0x0c071f38u,0x0c071f3au,0x0c071f3cu,0x0c071f3eu,0x0c071f40u,0x0c071f42u,0x0c071f44u,
+0x0c071f46u,0x0c071f48u,0x0c071f4au,0x0c071f4cu,0x0c071f4eu,0x0c071f50u,0x0c071f52u,0x0c071f54u,0x0c071f56u,0x0c071f58u,0x0c071f5au,0x0c071f5cu,0x0c071f5eu,0x0c071f60u,0x0c071f62u,0x0c071f64u,
+0x0c071f66u,0x0c071f68u,0x0c071f6au,0x0c071f6cu,0x0c071f6eu,0x0c071f70u,0x0c071f72u,0x0c071f74u,0x0c071f76u,0x0c071f78u,0x0c071f7au,0x0c071f7cu,0x0c071f7eu,0x0c071f80u,0x0c071f82u,0x0c071f84u,
+0x0c071f86u,0x0c071f88u,0x0c071f8au,0x0c071f8cu,0x0c071f8eu,0x0c071f90u,0x0c071f92u,0x0c071f94u,0x0c071f96u,0x0c071f98u,0x0c071f9au,0x0c071f9cu,0x0c071f9eu,0x0c071fa0u,0x0c071fa2u,0x0c071fa4u,
+0x0c071fa6u,0x0c071fa8u,0x0c071faau,0x0c071facu,0x0c071faeu,0x0c071fb0u,0x0c071fb2u,0x0c071fb4u,0x0c071fb6u,0x0c071fb8u,0x0c071fbau,0x0c071fbcu,0x0c071fbeu,0x0c071fc0u,0x0c071fc2u,0x0c071fc4u,
+0x0c071fc6u,0x0c071fc8u,0x0c071fcau,0x0c071fccu,0x0c071fd4u,0x0c071fd6u,0x0c071fd8u,0x0c071fdau,0x0c071fdcu,0x0c071fdeu,0x0c071fe0u,0x0c071fe2u,0x0c071fe4u,0x0c071fe6u,0x0c071fe8u,0x0c071feau,
+0x0c071fecu,0x0c071feeu,0x0c071ff0u,0x0c071ff2u,0x0c071ff4u,0x0c071ff6u,0x0c071ff8u,0x0c071ffau,0x0c071ffcu,0x0c071ffeu,0x0c072000u,0x0c072002u,0x0c072004u,0x0c072006u,0x0c072008u,0x0c07200au,
+0x0c07200cu,0x0c07200eu,0x0c072010u,0x0c072012u,0x0c072014u,0x0c072016u,0x0c072018u,0x0c07201au,0x0c07201cu,0x0c07201eu,0x0c072020u,0x0c072022u,0x0c072024u,0x0c072026u,0x0c072028u,0x0c07202au,
+0x0c07202cu,0x0c07202eu,0x0c072030u,0x0c072032u,0x0c072034u,0x0c072036u,0x0c072038u,0x0c07203au,0x0c07203cu,0x0c07203eu,0x0c072040u,0x0c072042u,0x0c072044u,0x0c072046u,0x0c072048u,0x0c07204au,
+0x0c07204cu,0x0c07204eu,0x0c072050u,0x0c072052u,0x0c072054u,0x0c072056u,0x0c072058u,0x0c07205au,0x0c07205cu,0x0c07205eu,0x0c072060u,0x0c072062u,0x0c072064u,0x0c072066u,0x0c072068u,0x0c07206au,
+0x0c07206cu,0x0c07206eu,0x0c072070u,0x0c072072u,0x0c072074u,0x0c072076u,0x0c072078u,0x0c07207au,0x0c07207cu,0x0c07207eu,0x0c072080u,0x0c072082u,0x0c072084u,0x0c072086u,0x0c072088u,0x0c07208au,
+0x0c07208cu,0x0c07208eu,0x0c072090u,0x0c072092u,0x0c072094u,0x0c072096u,0x0c072098u,0x0c07209au,0x0c07209cu,0x0c07209eu,0x0c0720a0u,0x0c0720a2u,0x0c0720a4u,0x0c0720a6u,0x0c0720a8u,0x0c0720aau,
+0x0c0720acu,0x0c0720aeu,0x0c0720b0u,0x0c0720b2u,0x0c0720b4u,0x0c0720b6u,0x0c0720b8u,0x0c0720bau,0x0c0720bcu,0x0c0720beu,0x0c0720c0u,0x0c0720c2u,0x0c0720c4u,0x0c0720c6u,0x0c0720c8u,0x0c0720cau,
+0x0c0720ccu,0x0c0720ceu,0x0c0720d0u,0x0c0720d2u,0x0c0720d4u,0x0c0720d6u,0x0c0720d8u,0x0c0720dau,0x0c0720dcu,0x0c0720deu,0x0c0720e0u,0x0c0720e2u,0x0c0720e4u,0x0c0720e6u,0x0c0720e8u,0x0c0720eau,
+0x0c0720ecu,0x0c0720eeu,0x0c0720f0u,0x0c0720f2u,0x0c0720f4u,0x0c0720f6u,0x0c072108u,0x0c07210au,0x0c07210cu,0x0c07210eu,0x0c072110u,0x0c072112u,0x0c072114u,0x0c072116u,0x0c072118u,0x0c07211au,
+0x0c07211cu,0x0c07211eu,0x0c072120u,0x0c072122u,0x0c072124u,0x0c072126u,0x0c072128u,0x0c07212au,0x0c07212cu,0x0c07212eu,0x0c072130u,0x0c072132u,0x0c072134u,0x0c072136u,0x0c072138u,0x0c07213au,
+0x0c07213cu,0x0c07213eu,0x0c072140u,0x0c072142u,0x0c072144u,0x0c072146u,0x0c072148u,0x0c07214au,0x0c07214cu,0x0c07214eu,0x0c072150u,0x0c072152u,0x0c072154u,0x0c072156u,0x0c072158u,0x0c07215au,
+0x0c07215cu,0x0c07215eu,0x0c072160u,0x0c072162u,0x0c072164u,0x0c072166u,0x0c072168u,0x0c07216au,0x0c07216cu,0x0c07216eu,0x0c072170u,0x0c072172u,0x0c072174u,0x0c072176u,0x0c072178u,0x0c07217au,
+0x0c07217cu,0x0c07217eu,0x0c072180u,0x0c072182u,0x0c072184u,0x0c072186u,0x0c072188u,0x0c07218au,0x0c07218cu,0x0c07218eu,0x0c072190u,0x0c072192u,0x0c072194u,0x0c072196u,0x0c072198u,0x0c07219au,
+0x0c07219cu,0x0c07219eu,0x0c0721a0u,0x0c0721a2u,0x0c0721a4u,0x0c0721a6u,0x0c0721a8u,0x0c0721aau,0x0c0721acu,0x0c0721aeu,0x0c0721b0u,0x0c0721b2u,0x0c0721b4u,0x0c0721b6u,0x0c0721b8u,0x0c0721bau,
+0x0c0721bcu,0x0c0721beu,0x0c0721c0u,0x0c0721c2u,0x0c0721c4u,0x0c0721c6u,0x0c0721c8u,0x0c0721cau,0x0c0721ccu,0x0c0721ceu,0x0c0721d0u,0x0c0721d2u,0x0c0721d4u,0x0c0721d6u,0x0c0721d8u,0x0c0721dau,
+0x0c0721dcu,0x0c0721deu,0x0c0721e0u,0x0c0721e2u,0x0c0721e4u,0x0c0721e6u,0x0c0721e8u,0x0c0721eau,0x0c0721ecu,0x0c0721eeu,0x0c0721f0u,0x0c0721f2u,0x0c0721f4u,0x0c0721f6u,0x0c0721f8u,0x0c0721fau,
+0x0c0721fcu,0x0c0721feu,0x0c072200u,0x0c072202u,0x0c072204u,0x0c072206u,0x0c072208u,0x0c07220au,0x0c07220cu,0x0c07220eu,0x0c072210u,0x0c072212u,0x0c072214u,0x0c072216u,0x0c072218u,0x0c07221au,
+0x0c07221cu,0x0c07221eu,0x0c072220u,0x0c072222u,0x0c072224u,0x0c072226u,0x0c072228u,0x0c07222au,0x0c07222cu,0x0c07222eu,0x0c072230u,0x0c072232u,0x0c072234u,0x0c072236u,0x0c072238u,0x0c07223au,
+0x0c07223cu,0x0c07223eu,0x0c072240u,0x0c072242u,0x0c072244u,0x0c072246u,0x0c072248u,0x0c07224au,0x0c07224cu,0x0c07224eu,0x0c072250u,0x0c072252u,0x0c072254u,0x0c072256u,0x0c072258u,0x0c07225au,
+0x0c07225cu,0x0c07225eu,0x0c072260u,0x0c072262u,0x0c072264u,0x0c072266u,0x0c072268u,0x0c07226au,0x0c07226cu,0x0c07226eu,0x0c072270u,0x0c072272u,0x0c072274u,0x0c072276u,0x0c072278u,0x0c07227au,
+0x0c07227cu,0x0c07227eu,0x0c072284u,0x0c072286u,0x0c072288u,0x0c07228au,0x0c07228cu,0x0c07228eu,0x0c072290u,0x0c072292u,0x0c072294u,0x0c072296u,0x0c072298u,0x0c07229au,0x0c07229cu,0x0c07229eu,
+0x0c0722a0u,0x0c0722a2u,0x0c0722a4u,0x0c0722a6u,0x0c0722a8u,0x0c0722aau,0x0c0722acu,0x0c0722aeu,0x0c0722b0u,0x0c0722b2u,0x0c0722b4u,0x0c0722b6u,0x0c0722b8u,0x0c0722bau,0x0c0722bcu,0x0c0722beu,
+0x0c0722c0u,0x0c0722c2u,0x0c0722c4u,0x0c0722c6u,0x0c0722c8u,0x0c0722cau,0x0c0722ccu,0x0c0722ceu,0x0c0722d0u,0x0c0722d2u,0x0c0722d4u,0x0c0722d6u,0x0c0722d8u,0x0c0722dau,0x0c0722dcu,0x0c0722deu,
+0x0c0722e0u,0x0c0722e2u,0x0c0722e4u,0x0c0722e6u,0x0c0722e8u,0x0c0722eau,0x0c0722ecu,0x0c0722eeu,0x0c0722f0u,0x0c0722f2u,0x0c0722f4u,0x0c0722f6u,0x0c0722f8u,0x0c0722fau,0x0c0722fcu,0x0c0722feu,
+0x0c072300u,0x0c072302u,0x0c072304u,0x0c072306u,0x0c072308u,0x0c07230au,0x0c07230cu,0x0c07230eu,0x0c072310u,0x0c072312u,0x0c072314u,0x0c072316u,0x0c072318u,0x0c07231au,0x0c07231cu,0x0c07231eu,
+0x0c072320u,0x0c072322u,0x0c072324u,0x0c072326u,0x0c072328u,0x0c07232au,0x0c07232cu,0x0c07232eu,0x0c072330u,0x0c072332u,0x0c072334u,0x0c07235cu,0x0c07235eu,0x0c072360u,0x0c072362u,0x0c072364u,
+0x0c072366u,0x0c072368u,0x0c07236au,0x0c07236cu,0x0c07236eu,0x0c072370u,0x0c072372u,0x0c072374u,0x0c072376u,0x0c072378u,0x0c07237au,0x0c07237cu,0x0c07237eu,0x0c072380u,0x0c072382u,0x0c072384u,
+0x0c072386u,0x0c072388u,0x0c07238au,0x0c07238cu,0x0c07238eu,0x0c072390u,0x0c072392u,0x0c072394u,0x0c072396u,0x0c072398u,0x0c07239au,0x0c07239cu,0x0c07239eu,0x0c0723a0u,0x0c0723a2u,0x0c0723a4u,
+0x0c0723a6u,0x0c0723a8u,0x0c0723aau,0x0c0723acu,0x0c0723aeu,0x0c0723b0u,0x0c0723b2u,0x0c0723b4u,0x0c0723b6u,0x0c0723b8u,0x0c0723bau,0x0c0723bcu,0x0c0723beu,0x0c0723c0u,0x0c0723c2u,0x0c0723c4u,
+0x0c0723c6u,0x0c0723c8u,0x0c0723cau,0x0c0723ccu,0x0c0723ceu,0x0c0723d0u,0x0c0723d2u,0x0c0723d4u,0x0c0723d6u,0x0c0723d8u,0x0c0723dau,0x0c0723dcu,0x0c0723deu,0x0c0723e0u,0x0c0723e2u,0x0c0723e4u,
+0x0c0723e6u,0x0c0723e8u,0x0c0723eau,0x0c0723ecu,0x0c0723eeu,0x0c0723f0u,0x0c0723f2u,0x0c0723f4u,0x0c0723f6u,0x0c0723f8u,0x0c0723fau,0x0c0723fcu,0x0c0723feu,0x0c072400u,0x0c072402u,0x0c072404u,
+0x0c072406u,0x0c072408u,0x0c07240au,0x0c07240cu,0x0c07240eu,0x0c072410u,0x0c072412u,0x0c072414u,0x0c072416u,0x0c072418u,0x0c07241au,0x0c07241cu,0x0c07241eu,0x0c072420u,0x0c072422u,0x0c072424u,
+0x0c072426u,0x0c072428u,0x0c07242au,0x0c07242cu,0x0c07242eu,0x0c072430u,0x0c072432u,0x0c072434u,0x0c072436u,0x0c072438u,0x0c07243au,0x0c07243cu,0x0c07243eu,0x0c072440u,0x0c072442u,0x0c072444u,
+0x0c072446u,0x0c072448u,0x0c07244au,0x0c07244cu,0x0c07244eu,0x0c072450u,0x0c072452u,0x0c072454u,0x0c072456u,0x0c072458u,0x0c07245au,0x0c07245cu,0x0c07245eu,0x0c072460u,0x0c072462u,0x0c072464u,
+0x0c072466u,0x0c072468u,0x0c07246au,0x0c07246cu,0x0c07246eu,0x0c072470u,0x0c072472u,0x0c072474u,0x0c072476u,0x0c072478u,0x0c07247au,0x0c07247cu,0x0c07247eu,0x0c072480u,0x0c072482u,0x0c072484u,
+0x0c072486u,0x0c072488u,0x0c07248au,0x0c07248cu,0x0c07248eu,0x0c072490u,0x0c072492u,0x0c072494u,0x0c072496u,0x0c072498u,0x0c07249au,0x0c07249cu,0x0c07249eu,0x0c0724a0u,0x0c0724a2u,0x0c0724a4u,
+0x0c0724a6u,0x0c0724a8u,0x0c0724aau,0x0c0724acu,0x0c0724aeu,0x0c0724b0u,0x0c0724b2u,0x0c0724b4u,0x0c0724b6u,0x0c0724b8u,0x0c0724bau,0x0c0724bcu,0x0c0724c4u,0x0c0724c6u,0x0c0724c8u,0x0c0724cau,
+0x0c0724ccu,0x0c0724ceu,0x0c0724d0u,0x0c0724d2u,0x0c0724d4u,0x0c0724d6u,0x0c0724d8u,0x0c0724dau,0x0c0724dcu,0x0c0724deu,0x0c0724e0u,0x0c0724e2u,0x0c0724e4u,0x0c0724e6u,0x0c0724e8u,0x0c0724eau,
+0x0c0724ecu,0x0c0724eeu,0x0c0724f0u,0x0c0724f2u,0x0c0724f4u,0x0c0724f6u,0x0c0724f8u,0x0c0724fau,0x0c0724fcu,0x0c0724feu,0x0c072500u,0x0c072502u,0x0c072504u,0x0c072506u,0x0c072508u,0x0c07250au,
+0x0c07250cu,0x0c07250eu,0x0c072510u,0x0c072512u,0x0c072514u,0x0c072516u,0x0c072518u,0x0c07251au,0x0c07251cu,0x0c07251eu,0x0c072520u,0x0c072522u,0x0c072524u,0x0c072526u,0x0c072528u,0x0c07252au,
+0x0c07252cu,0x0c07252eu,0x0c072530u,0x0c072532u,0x0c072534u,0x0c072536u,0x0c072538u,0x0c07253au,0x0c07253cu,0x0c07253eu,0x0c072540u,0x0c072542u,0x0c072544u,0x0c072546u,0x0c072548u,0x0c07254au,
+0x0c07254cu,0x0c07254eu,0x0c072550u,0x0c072552u,0x0c072554u,0x0c072556u,0x0c072558u,0x0c07255au,0x0c07255cu,0x0c07255eu,0x0c072560u,0x0c072562u,0x0c072564u,0x0c072566u,0x0c072568u,0x0c07256au,
+0x0c07256cu,0x0c07256eu,0x0c072570u,0x0c072572u,0x0c072574u,0x0c072576u,0x0c072578u,0x0c07257au,0x0c07257cu,0x0c07257eu,0x0c072580u,0x0c072582u,0x0c072584u,0x0c072586u,0x0c072588u,0x0c07258au,
+0x0c07258cu,0x0c07258eu,0x0c072590u,0x0c072592u,0x0c072594u,0x0c072596u,0x0c072598u,0x0c07259au,0x0c07259cu,0x0c07259eu,0x0c0725a0u,0x0c0725a2u,0x0c0725a4u,0x0c0725a6u,0x0c0725a8u,0x0c0725aau,
+0x0c0725acu,0x0c0725aeu,0x0c0725b0u,0x0c0725b2u,0x0c0725b4u,0x0c0725b6u,0x0c0725b8u,0x0c0725bau,0x0c0725bcu,0x0c0725beu,0x0c0725c0u,0x0c0725c2u,0x0c0725c4u,0x0c0725c6u,0x0c0725c8u,0x0c0725cau,
+0x0c0725ccu,0x0c0725ceu,0x0c0725d0u,0x0c0725d2u,0x0c0725d4u,0x0c0725d6u,0x0c0725d8u,0x0c0725dau,0x0c0725dcu,0x0c0725deu,0x0c0725e0u,0x0c0725e2u,0x0c0725e4u,0x0c0725e6u,0x0c0725e8u,0x0c0725eau,
+0x0c0725ecu,0x0c0725eeu,0x0c0725f0u,0x0c0725f2u,0x0c0725f4u,0x0c0725f6u,0x0c0725f8u,0x0c0725fau,0x0c0725fcu,0x0c0725feu,0x0c072600u,0x0c072602u,0x0c072604u,0x0c072606u,0x0c072608u,0x0c07260au,
+0x0c07260cu,0x0c07260eu,0x0c072610u,0x0c072612u,0x0c072614u,0x0c072616u,0x0c072618u,0x0c07261au,0x0c07261cu,0x0c07261eu,0x0c072620u,0x0c072622u,0x0c072624u,0x0c072626u,0x0c072628u,0x0c07262au,
+0x0c07262cu,0x0c07262eu,0x0c072630u,0x0c072632u,0x0c072634u,0x0c072636u,0x0c072638u,0x0c07263au,0x0c07263cu,0x0c07263eu,0x0c072640u,0x0c072642u,0x0c072644u,0x0c072646u,0x0c072648u,0x0c07264au,
+0x0c07264cu,0x0c07264eu,0x0c072650u,0x0c072652u,0x0c072654u,0x0c072656u,0x0c072658u,0x0c07265au,0x0c07265cu,0x0c072664u,0x0c072666u,0x0c072668u,0x0c07266au,0x0c07266cu,0x0c07266eu,0x0c072670u,
+0x0c072672u,0x0c072674u,0x0c072676u,0x0c072678u,0x0c07267au,0x0c07267cu,0x0c07267eu,0x0c072680u,0x0c072682u,0x0c072684u,0x0c072686u,0x0c072688u,0x0c07268au,0x0c07268cu,0x0c07268eu,0x0c072690u,
+0x0c072692u,0x0c072694u,0x0c072696u,0x0c072698u,0x0c07269au,0x0c07269cu,0x0c07269eu,0x0c0726a0u,0x0c0726a2u,0x0c0726a4u,0x0c0726a6u,0x0c0726a8u,0x0c0726aau,0x0c0726acu,0x0c0726aeu,0x0c0726b0u,
+0x0c0726b2u,0x0c0726b4u,0x0c0726b6u,0x0c0726b8u,0x0c0726bau,0x0c0726bcu,0x0c0726beu,0x0c0726c0u,0x0c0726c2u,0x0c0726c4u,0x0c0726c6u,0x0c0726c8u,0x0c0726cau,0x0c0726ccu,0x0c0726ceu,0x0c0726d0u,
+0x0c0726d2u,0x0c0726d4u,0x0c0726d6u,0x0c0726d8u,0x0c0726dau,0x0c0726dcu,0x0c0726deu,0x0c0726e0u,0x0c0726e2u,0x0c0726e4u,0x0c0726e6u,0x0c0726e8u,0x0c0726eau,0x0c0726ecu,0x0c0726eeu,0x0c0726f0u,
+0x0c0726f2u,0x0c0726f4u,0x0c0726f6u,0x0c0726f8u,0x0c0726fau,0x0c0726fcu,0x0c0726feu,0x0c072700u,0x0c072702u,0x0c072704u,0x0c072706u,0x0c072708u,0x0c07270au,0x0c07270cu,0x0c07270eu,0x0c072710u,
+0x0c072712u,0x0c072714u,0x0c072716u,0x0c072718u,0x0c07271au,0x0c07271cu,0x0c07271eu,0x0c072720u,0x0c072722u,0x0c072724u,0x0c072726u,0x0c072728u,0x0c07272au,0x0c07272cu,0x0c07272eu,0x0c072730u,
+0x0c072732u,0x0c072734u,0x0c072736u,0x0c072738u,0x0c07273au,0x0c07273cu,0x0c07273eu,0x0c072740u,0x0c072742u,0x0c072744u,0x0c072746u,0x0c072748u,0x0c07274au,0x0c07274cu,0x0c07274eu,0x0c072750u,
+0x0c072752u,0x0c072754u,0x0c072756u,0x0c072758u,0x0c07275au,0x0c07275cu,0x0c07275eu,0x0c072760u,0x0c072762u,0x0c072764u,0x0c072766u,0x0c072768u,0x0c07276au,0x0c07276cu,0x0c07276eu,0x0c072770u,
+0x0c072772u,0x0c072774u,0x0c072776u,0x0c072778u,0x0c07277au,0x0c07277cu,0x0c07277eu,0x0c072780u,0x0c072782u,0x0c072784u,0x0c072786u,0x0c072788u,0x0c07278au,0x0c07278cu,0x0c07278eu,0x0c072790u,
+0x0c072792u,0x0c072794u,0x0c072796u,0x0c072798u,0x0c07279au,0x0c07279cu,0x0c07279eu,0x0c0727a0u,0x0c0727a2u,0x0c0727a4u,0x0c0727a6u,0x0c0727a8u,0x0c0727aau,0x0c0727acu,0x0c0727aeu,0x0c0727b0u,
+0x0c0727b2u,0x0c0727b4u,0x0c0727b6u,0x0c0727b8u,0x0c0727bau,0x0c0727bcu,0x0c0727beu,0x0c0727c0u,0x0c0727c2u,0x0c0727c4u,0x0c0727c6u,0x0c0727c8u,0x0c0727cau,0x0c0727ccu,0x0c0727ceu,0x0c0727d0u,
+0x0c0727d2u,0x0c0727d4u,0x0c0727d6u,0x0c0727d8u,0x0c0727dau,0x0c0727dcu,0x0c0727e4u,0x0c0727e6u,0x0c0727e8u,0x0c0727eau,0x0c0727ecu,0x0c0727eeu,0x0c0727f0u,0x0c0727f2u,0x0c0727f4u,0x0c0727f6u,
+0x0c0727f8u,0x0c0727fau,0x0c0727fcu,0x0c0727feu,0x0c072800u,0x0c072802u,0x0c072804u,0x0c072806u,0x0c072808u,0x0c07280au,0x0c07280cu,0x0c07280eu,0x0c072810u,0x0c072812u,0x0c072814u,0x0c072816u,
+0x0c072818u,0x0c07281au,0x0c07281cu,0x0c07281eu,0x0c072820u,0x0c072822u,0x0c072824u,0x0c072826u,0x0c072828u,0x0c07282au,0x0c07282cu,0x0c07282eu,0x0c072830u,0x0c072832u,0x0c072834u,0x0c072836u,
+0x0c072838u,0x0c07283au,0x0c07283cu,0x0c07283eu,0x0c072840u,0x0c072842u,0x0c072844u,0x0c072846u,0x0c072848u,0x0c07284au,0x0c07284cu,0x0c07284eu,0x0c072850u,0x0c072852u,0x0c072854u,0x0c072856u,
+0x0c072858u,0x0c07285au,0x0c07285cu,0x0c07285eu,0x0c072860u,0x0c072862u,0x0c072864u,0x0c072866u,0x0c072868u,0x0c07286au,0x0c07286cu,0x0c07286eu,0x0c072870u,0x0c072872u,0x0c072874u,0x0c072876u,
+0x0c072878u,0x0c07287au,0x0c07287cu,0x0c07287eu,0x0c072880u,0x0c072882u,0x0c072884u,0x0c072886u,0x0c072888u,0x0c07288au,0x0c07288cu,0x0c07288eu,0x0c072890u,0x0c072892u,0x0c072894u,0x0c072896u,
+0x0c072898u,0x0c07289au,0x0c07289cu,0x0c07289eu,0x0c0728a0u,0x0c0728a2u,0x0c0728a8u,0x0c0728aau,0x0c0728acu,0x0c0728aeu,0x0c0728b0u,0x0c0728b2u,0x0c0728b4u,0x0c0728b6u,0x0c0728b8u,0x0c0728bau,
+0x0c0728bcu,0x0c0728beu,0x0c0728c0u,0x0c0728c2u,0x0c0728c4u,0x0c0728c6u,0x0c0728c8u,0x0c0728cau,0x0c0728ccu,0x0c0728ceu,0x0c0728d0u,0x0c0728d2u,0x0c0728d4u,0x0c0728d6u,0x0c0728d8u,0x0c0728dau,
+0x0c0728dcu,0x0c0728deu,0x0c0728e0u,0x0c0728e2u,0x0c0728e4u,0x0c0728e6u,0x0c0728e8u,0x0c0728eau,0x0c0728ecu,0x0c0728eeu,0x0c0728f0u,0x0c0728f2u,0x0c0728f4u,0x0c0728f6u,0x0c0728f8u,0x0c0728fau,
+0x0c0728fcu,0x0c0728feu,0x0c072900u,0x0c072902u,0x0c072904u,0x0c072906u,0x0c072908u,0x0c07290au,0x0c07290cu,0x0c07290eu,0x0c072910u,0x0c072912u,0x0c072914u,0x0c072916u,0x0c072918u,0x0c07291au,
+0x0c07291cu,0x0c07291eu,0x0c072920u,0x0c072922u,0x0c072924u,0x0c072926u,0x0c072928u,0x0c07292au,0x0c07292cu,0x0c07292eu,0x0c072930u,0x0c072932u,0x0c072934u,0x0c072936u,0x0c072938u,0x0c07293au,
+0x0c07293cu,0x0c07293eu,0x0c072940u,0x0c072942u,0x0c072944u,0x0c072946u,0x0c072948u,0x0c07294au,0x0c07294cu,0x0c07294eu,0x0c072950u,0x0c072952u,0x0c072954u,0x0c072956u,0x0c072958u,0x0c07295au,
+0x0c07295cu,0x0c07295eu,0x0c072960u,0x0c072962u,0x0c072964u,0x0c072966u,0x0c072968u,0x0c07296au,0x0c07296cu,0x0c07296eu,0x0c072970u,0x0c072972u,0x0c072974u,0x0c072976u,0x0c072978u,0x0c07297au,
+0x0c07297cu,0x0c07297eu,0x0c072980u,0x0c072982u,0x0c072984u,0x0c072986u,0x0c072988u,0x0c07298au,0x0c07298cu,0x0c07298eu,0x0c072990u,0x0c072992u,0x0c072994u,0x0c072996u,0x0c072998u,0x0c07299au,
+0x0c07299cu,0x0c07299eu,0x0c0729a0u,0x0c0729a2u,0x0c0729a4u,0x0c0729a6u,0x0c0729a8u,0x0c0729aau,0x0c0729acu,0x0c0729aeu,0x0c0729b0u,0x0c0729b2u,0x0c0729b4u,0x0c0729b6u,0x0c0729b8u,0x0c0729bau,
+0x0c0729bcu,0x0c0729beu,0x0c0729c0u,0x0c0729c2u,0x0c0729c4u,0x0c0729c6u,0x0c0729c8u,0x0c0729cau,0x0c0729ccu,0x0c0729ceu,0x0c0729d0u,0x0c0729d2u,0x0c0729d4u,0x0c0729d6u,0x0c0729d8u,0x0c0729dau,
+0x0c0729dcu,0x0c0729deu,0x0c0729e0u,0x0c0729e2u,0x0c0729e4u,0x0c0729e6u,0x0c0729e8u,0x0c0729eau,0x0c0729ecu,0x0c0729eeu,0x0c0729f0u,0x0c0729f2u,0x0c0729f4u,0x0c0729f6u,0x0c0729f8u,0x0c0729fau,
+0x0c0729fcu,0x0c0729feu,0x0c072a00u,0x0c072a02u,0x0c072a04u,0x0c072a06u,0x0c072a08u,0x0c072a0au,0x0c072a0cu,0x0c072a0eu,0x0c072a10u,0x0c072a12u,0x0c072a14u,0x0c072a16u,0x0c072a18u,0x0c072a1au,
+0x0c072a1cu,0x0c072a1eu,0x0c072a24u,0x0c072a26u,0x0c072a28u,0x0c072a2au,0x0c072a2cu,0x0c072a2eu,0x0c072a30u,0x0c072a32u,0x0c072a34u,0x0c072a36u,0x0c072a38u,0x0c072a3au,0x0c072a3cu,0x0c072a3eu,
+0x0c072a40u,0x0c072a42u,0x0c072a44u,0x0c072a46u,0x0c072a48u,0x0c072a4au,0x0c072a4cu,0x0c072a4eu,0x0c072a50u,0x0c072a52u,0x0c072a54u,0x0c072a56u,0x0c072a58u,0x0c072a5au,0x0c072a5cu,0x0c072a5eu,
+0x0c072a60u,0x0c072a62u,0x0c072a64u,0x0c072a66u,0x0c072a68u,0x0c072a6au,0x0c072a6cu,0x0c072a6eu,0x0c072a70u,0x0c072a72u,0x0c072a74u,0x0c072a76u,0x0c072a78u,0x0c072a7au,0x0c072a7cu,0x0c072a7eu,
+0x0c072a80u,0x0c072a82u,0x0c072a84u,0x0c072a86u,0x0c072a88u,0x0c072a8au,0x0c072a8cu,0x0c072a8eu,0x0c072a90u,0x0c072a92u,0x0c072a94u,0x0c072a96u,0x0c072a98u,0x0c072a9au,0x0c072a9cu,0x0c072a9eu,
+0x0c072aa0u,0x0c072aa2u,0x0c072aa4u,0x0c072aa6u,0x0c072aa8u,0x0c072aaau,0x0c072aacu,0x0c072aaeu,0x0c072ab0u,0x0c072ab2u,0x0c072ab4u,0x0c072ab6u,0x0c072ab8u,0x0c072abau,0x0c072abcu,0x0c072abeu,
+0x0c072ac0u,0x0c072ac2u,0x0c072ac4u,0x0c072ac6u,0x0c072ac8u,0x0c072acau,0x0c072accu,0x0c072aceu,0x0c072ad0u,0x0c072ad2u,0x0c072ad4u,0x0c072ad6u,0x0c072ad8u,0x0c072adau,0x0c072adcu,0x0c072adeu,
+0x0c072ae0u,0x0c072ae2u,0x0c072ae4u,0x0c072ae6u,0x0c072ae8u,0x0c072aeau,0x0c072aecu,0x0c072aeeu,0x0c072af0u,0x0c072af2u,0x0c072af4u,0x0c072af6u,0x0c072af8u,0x0c072afau,0x0c072afcu,0x0c072afeu,
+0x0c072b00u,0x0c07d5cau,0x0c07d5ccu,0x0c07d5ceu,0x0c07d5d0u,0x0c07d5d2u,0x0c07d5d4u,0x0c07d5d6u,0x0c07d5d8u,0x0c07d5dau,0x0c07d5dcu,0x0c07d5deu,0x0c07d5e0u,0x0c07d5e2u,0x0c07d5e4u,0x0c07d5e6u,
+0x0c07d5e8u,0x0c07d5eau,0x0c07d5ecu,0x0c07d5eeu,0x0c07d5f0u,0x0c07d5f2u,0x0c07d5f4u,0x0c07d5f6u,0x0c07d5f8u,0x0c07d5fau,0x0c07d5fcu,0x0c07d5feu,0x0c07d600u,0x0c07d602u,0x0c07d604u,0x0c07d606u,
+0x0c07d608u,0x0c07d60au,0x0c07d60cu,0x0c07d60eu,0x0c07d610u,0x0c07d612u,0x0c07d614u,0x0c07d616u,0x0c07d618u,0x0c07d61au,0x0c07d61cu,0x0c07d61eu,0x0c07d620u,0x0c07d622u,0x0c07d624u,0x0c07d626u,
+0x0c07d628u,0x0c07d62au,0x0c07d62cu,0x0c07d62eu,0x0c07d630u,0x0c07d632u,0x0c07d634u,0x0c07d636u,0x0c07d638u,0x0c07d63au,0x0c07d63cu,0x0c07d63eu,0x0c07d640u,0x0c07d642u,0x0c07d644u,0x0c07d646u,
+0x0c07d648u,0x0c07d64au,0x0c07d64cu,0x0c07d64eu,0x0c07d650u,0x0c07d652u,0x0c07d654u,0x0c07d656u,0x0c07d658u,0x0c07d65au,0x0c07d65cu,0x0c07d65eu,0x0c07d660u,0x0c07d662u,0x0c07d664u,0x0c07d666u,
+0x0c07d668u,0x0c07d66au,0x0c07d684u,0x0c07d686u,0x0c07d688u,0x0c07d68au,0x0c07d68cu,0x0c07d68eu,0x0c07d690u,0x0c07d692u,0x0c07d694u,0x0c07d696u,0x0c07d698u,0x0c07d69au,0x0c07d69cu,0x0c07d69eu,
+0x0c07d6a0u,0x0c07d6a2u,0x0c07d6a4u,0x0c07d6a6u,0x0c07d6a8u,0x0c07d6aau,0x0c07d6acu,0x0c07d6aeu,0x0c07d6b0u,0x0c07d6b2u,0x0c07d6b4u,0x0c07d6b6u,0x0c07d6b8u,0x0c07d6bau,0x0c07d6bcu,0x0c07d6beu,
+0x0c07d6c0u,0x0c07d6c2u,0x0c07d6c4u,0x0c07d6c6u,0x0c07d6c8u,0x0c07d6cau,0x0c07d6ccu,0x0c07d6ceu,0x0c07d6d0u,0x0c07d6d2u,0x0c07d6d4u,0x0c07d6d6u,0x0c07d6d8u,0x0c07d6dau,0x0c07d6dcu,0x0c07d6deu,
+0x0c07d6e0u,0x0c07d6e2u,0x0c07d6e4u,0x0c07d6e6u,0x0c07d6e8u,0x0c07d6eau,0x0c07d6ecu,0x0c07d6eeu,0x0c07d6f0u,0x0c07d6f2u,0x0c07d6f4u,0x0c07d6f6u,0x0c07d6f8u,0x0c07d6fau,0x0c07d6fcu,0x0c07d6feu,
+0x0c07d700u,0x0c07d702u,0x0c07d704u,0x0c07d706u,0x0c07d708u,0x0c07d70au,0x0c07d70cu,0x0c07d70eu,0x0c07d710u,0x0c07d712u,0x0c07d714u,0x0c07d716u,0x0c07d718u,0x0c07d71au,0x0c07d71cu,0x0c07d71eu,
+0x0c07d720u,0x0c07d722u,0x0c07d724u,0x0c07d726u,0x0c07d728u,0x0c07d72au,0x0c07d72cu,0x0c07d72eu,0x0c07d730u,0x0c07d732u,0x0c07d734u,0x0c07d736u,0x0c07d738u,0x0c07d73au,0x0c07d73cu,0x0c07d73eu,
+0x0c07d740u,0x0c07d742u,0x0c07d744u,0x0c07d746u,0x0c07d748u,0x0c07d74au,0x0c07d74cu,0x0c07d74eu,0x0c07d750u,0x0c07d752u,0x0c07d754u,0x0c07d756u,0x0c07d758u,0x0c07d75au,0x0c07d75cu,0x0c07d75eu,
+0x0c07d760u,0x0c07d762u,0x0c07d764u,0x0c07d766u,0x0c07d768u,0x0c07d76au,0x0c07d76cu,0x0c07d76eu,0x0c07d770u,0x0c07d772u,0x0c07d774u,0x0c07d776u,0x0c07d778u,0x0c07d77au,0x0c07d77cu,0x0c07d77eu,
+0x0c07d780u,0x0c07d782u,0x0c07d784u,0x0c07d786u,0x0c07d788u,0x0c07d78au,0x0c07d78cu,0x0c07d78eu,0x0c07d790u,0x0c07d792u,0x0c07d794u,0x0c07d796u,0x0c07d798u,0x0c07d79au,0x0c07d79cu,0x0c07d79eu,
+0x0c07d7a0u,0x0c07d7a2u,0x0c07d7a4u,0x0c07d7a6u,0x0c07d7a8u,0x0c07d7aau,0x0c07d7acu,0x0c07d7aeu,0x0c07d7b0u,0x0c07d7b2u,0x0c07d7b4u,0x0c07d7b6u,0x0c07d7b8u,0x0c07d7bau,0x0c07d7bcu,0x0c07d7beu,
+0x0c07d7c0u,0x0c07d7c2u,0x0c07d7c4u,0x0c07d7c6u,0x0c07d7c8u,0x0c08066au,0x0c08066cu,0x0c08066eu,0x0c080670u,0x0c080672u,0x0c080674u,0x0c080676u,0x0c080678u,0x0c08067au,0x0c08067cu,0x0c08067eu,
+0x0c080680u,0x0c080682u,0x0c080684u,0x0c080686u,0x0c080688u,0x0c08068au,0x0c08068cu,0x0c08068eu,0x0c080690u,0x0c080692u,0x0c080694u,0x0c080696u,0x0c080698u,0x0c08069au,0x0c08069cu,0x0c08069eu,
+0x0c0806a0u,0x0c0806a2u,0x0c0806a4u,0x0c0806a6u,0x0c0806a8u,0x0c0806aau,0x0c0806acu,0x0c0806aeu,0x0c0806b0u,0x0c0806b2u,0x0c0806b4u,0x0c0806b6u,0x0c0806b8u,0x0c0806bau,0x0c0806bcu,0x0c0806beu,
+0x0c0806c0u,0x0c0806c2u,0x0c0806c4u,0x0c0806c6u,0x0c0806c8u,0x0c084ddcu,0x0c084ddeu,0x0c084de0u,0x0c084de2u,0x0c084de4u,0x0c084de6u,0x0c084de8u,0x0c084e36u,0x0c084e38u,0x0c084e3au,0x0c084e3cu,
+0x0c084e3eu,0x0c084e40u,0x0c084e42u,0x0c084e44u,0x0c084e46u,0x0c084e48u,0x0c084e4au,0x0c084e4cu,0x0c084e4eu,0x0c084e50u,0x0c084e52u,0x0c084e54u,0x0c084e56u,0x0c084e58u,0x0c084e5au,0x0c084e5cu,
+0x0c084e5eu,0x0c084e60u,0x0c084e62u,0x0c084e64u,0x0c084e66u,0x0c084e68u,0x0c084e6au,0x0c084e6cu,0x0c084e6eu,0x0c084e70u,0x0c084e72u,0x0c084e74u,0x0c084e76u,0x0c084e78u,0x0c084e7au,0x0c084e7cu,
+0x0c084e7eu,0x0c084e80u,0x0c084e82u,0x0c084e84u,0x0c084e86u,0x0c084e88u,0x0c084e8au,0x0c084e8cu,0x0c084e8eu,0x0c084e90u,0x0c084e92u,0x0c084e94u,0x0c084e96u,0x0c084e98u,0x0c084e9au,0x0c084e9cu,
+0x0c084e9eu,0x0c084ea0u,0x0c084ea2u,0x0c084ea4u,0x0c084ea6u,0x0c084ea8u,0x0c084eaau,0x0c084eacu,0x0c084eaeu,0x0c084eb0u,0x0c084eb2u,0x0c084eb4u,0x0c084eb6u,0x0c084eb8u,0x0c084ebau,0x0c084ebcu,
+0x0c084ebeu,0x0c084ec0u,0x0c084ec2u,0x0c084ec4u,0x0c084ec6u,0x0c084ec8u,0x0c084ecau,0x0c084eccu,0x0c084eceu,0x0c084ed0u,0x0c084ed2u,0x0c084ed4u,0x0c084ed6u,0x0c084ed8u,0x0c084edau,0x0c084edcu,
+0x0c084edeu,0x0c084ee0u,0x0c084ee2u,0x0c084ee4u,0x0c084ee6u,0x0c084ee8u,0x0c084eeau,0x0c085666u,0x0c085668u,0x0c08566au,0x0c08566cu,0x0c08566eu,0x0c085670u,0x0c085672u,0x0c085674u,0x0c085676u,
+0x0c085678u,0x0c08567au,0x0c08567cu,0x0c08567eu,0x0c085680u,0x0c085682u,0x0c085684u,0x0c085686u,0x0c085688u,0x0c08568au,0x0c08568cu,0x0c08568eu,0x0c085690u,0x0c085692u,0x0c085694u,0x0c085696u,
+0x0c085698u,0x0c08569au,0x0c08569cu,0x0c08569eu,0x0c0856a0u,0x0c0856a2u,0x0c0856a4u,0x0c0856a6u,0x0c0856a8u,0x0c0856aau,0x0c0856acu,0x0c0856aeu,0x0c0856b0u,0x0c0856b2u,0x0c0856b4u,0x0c0856b6u,
+0x0c0856b8u,0x0c0856bau,0x0c0856bcu,0x0c0856beu,0x0c0856c0u,0x0c0856c2u,0x0c0856c4u,0x0c0856c6u,0x0c0856c8u,0x0c0856cau,0x0c0856ccu,0x0c0856ceu,0x0c0856d0u,0x0c0856d2u,0x0c0856d4u,0x0c0856d6u,
+0x0c0856d8u,0x0c0856dau,0x0c0856dcu,0x0c0856deu,0x0c0856e0u,0x0c0856e2u,0x0c0856e4u,0x0c0856e6u,0x0c0856e8u,0x0c0856eau,0x0c0856ecu,0x0c0856eeu,0x0c0856f0u,0x0c0856f2u,0x0c0856f4u,0x0c0856f6u,
+0x0c0856f8u,0x0c0856fau,0x0c0856fcu,0x0c0856feu,0x0c085700u,0x0c085702u,0x0c085704u,0x0c085706u,0x0c085708u,0x0c08570au,0x0c08570cu,0x0c08570eu,0x0c085710u,0x0c085712u,0x0c085714u,0x0c085716u,
+0x0c085718u,0x0c08571au,0x0c08571cu,0x0c08571eu,0x0c085720u,0x0c085722u,0x0c085724u,0x0c085726u,0x0c085728u,0x0c08572au,0x0c08572cu,0x0c08572eu,0x0c085730u,0x0c085732u,0x0c085734u,0x0c085736u,
+0x0c085738u,0x0c08573au,0x0c08573cu,0x0c08573eu,0x0c085740u,0x0c085742u,0x0c085744u,0x0c085746u,0x0c085748u,0x0c08574au,0x0c08574cu,0x0c08574eu,0x0c085750u,0x0c085752u,0x0c085754u,0x0c085756u,
+0x0c085758u,0x0c08575au,0x0c08575cu,0x0c08575eu,0x0c085760u,0x0c085762u,0x0c085764u,0x0c085766u,0x0c085768u,0x0c08576au,0x0c08576cu,0x0c08576eu,0x0c085770u,0x0c085772u,0x0c085774u,0x0c085776u,
+0x0c085778u,0x0c08577au,0x0c08577cu,0x0c08577eu,0x0c085780u,0x0c085782u,0x0c085784u,0x0c085786u,0x0c085788u,0x0c08578au,0x0c08578cu,0x0c08578eu,0x0c085790u,0x0c085792u,0x0c085794u,0x0c085796u,
+0x0c085798u,0x0c08579au,0x0c08579cu,0x0c08579eu,0x0c0857a0u,0x0c0857a2u,0x0c0857dcu,0x0c0857deu,0x0c0857e0u,0x0c0857e2u,0x0c0857e4u,0x0c0857e6u,0x0c0857e8u,0x0c0857eau,0x0c0857ecu,0x0c0857eeu,
+0x0c0857f0u,0x0c0857f2u,0x0c0857f4u,0x0c0857f6u,0x0c0857f8u,0x0c0857fau,0x0c0857fcu,0x0c0857feu,0x0c085800u,0x0c085802u,0x0c085804u,0x0c085806u,0x0c085808u,0x0c08580au,0x0c08580cu,0x0c08580eu,
+0x0c085810u,0x0c085812u,0x0c085814u,0x0c085816u,0x0c085818u,0x0c08581au,0x0c08581cu,0x0c08581eu,0x0c085820u,0x0c085822u,0x0c085824u,0x0c085826u,0x0c085828u,0x0c08582au,0x0c08582cu,0x0c08582eu,
+0x0c085830u,0x0c085832u,0x0c085834u,0x0c085836u,0x0c085838u,0x0c08583au,0x0c0858e8u,0x0c0858eau,0x0c0858ecu,0x0c0858eeu,0x0c0858f0u,0x0c0858f2u,0x0c0858f4u,0x0c0858f6u,0x0c0858f8u,0x0c0858fau,
+0x0c0858fcu,0x0c0858feu,0x0c085900u,0x0c085902u,0x0c085904u,0x0c085906u,0x0c085908u,0x0c08590au,0x0c08590cu,0x0c08590eu,0x0c085910u,0x0c085912u,0x0c085914u,0x0c085916u,0x0c085918u,0x0c08591au,
+0x0c08591cu,0x0c08591eu,0x0c085920u,0x0c085922u,0x0c085924u,0x0c085926u,0x0c085928u,0x0c08592au,0x0c08592cu,0x0c08592eu,0x0c085930u,0x0c085932u,0x0c085934u,0x0c085936u,0x0c085938u,0x0c08593au,
+0x0c08593cu,0x0c08593eu,0x0c085940u,0x0c085942u,0x0c085944u,0x0c085946u,0x0c085948u,0x0c08594au,0x0c08594cu,0x0c08594eu,0x0c085950u,0x0c085952u,0x0c085954u,0x0c085956u,0x0c085958u,0x0c08595au,
+0x0c08595cu,0x0c08595eu,0x0c085960u,0x0c085962u,0x0c085964u,0x0c085966u,0x0c085968u,0x0c08596au,0x0c08596cu,0x0c08596eu,0x0c085970u,0x0c085972u,0x0c085974u,0x0c085976u,0x0c085978u,0x0c08597au,
+0x0c08597cu,0x0c08597eu,0x0c085980u,0x0c085982u,0x0c085984u,0x0c085986u,0x0c085988u,0x0c08598au,0x0c08598cu,0x0c08598eu,0x0c085990u,0x0c085992u,0x0c085994u,0x0c085996u,0x0c085998u,0x0c08599au,
+0x0c08599cu,0x0c08599eu,0x0c0859a0u,0x0c0859a2u,0x0c0859a4u,0x0c0859a6u,0x0c0859a8u,0x0c0859aau,0x0c0859acu,0x0c0859aeu,0x0c0859b0u,0x0c0859b2u,0x0c0859b4u,0x0c0859b6u,0x0c0859b8u,0x0c0859bau,
+0x0c0859bcu,0x0c0859beu,0x0c0859c0u,0x0c0859c2u,0x0c0859c4u,0x0c0859c6u,0x0c0859c8u,0x0c0859cau,0x0c0859ccu,0x0c0859ceu,0x0c0859d0u,0x0c0859d2u,0x0c085a0cu,0x0c085a0eu,0x0c085a10u,0x0c085a12u,
+0x0c085a14u,0x0c085a16u,0x0c085a18u,0x0c085a1au,0x0c085a1cu,0x0c085a1eu,0x0c085a20u,0x0c085a22u,0x0c085a24u,0x0c085a26u,0x0c085a28u,0x0c085a2au,0x0c085a2cu,0x0c085a2eu,0x0c085a30u,0x0c085a32u,
+0x0c085a34u,0x0c085a36u,0x0c085a38u,0x0c085a3au,0x0c085a3cu,0x0c085a3eu,0x0c085a40u,0x0c085a42u,0x0c085a44u,0x0c085a46u,0x0c085a48u,0x0c085a4au,0x0c085a4cu,0x0c085a4eu,0x0c085a50u,0x0c085a52u,
+0x0c085a54u,0x0c085a56u,0x0c085a58u,0x0c085a5au,0x0c085a5cu,0x0c085a5eu,0x0c085a60u,0x0c085a62u,0x0c085a64u,0x0c085a66u,0x0c085a68u,0x0c085a6au,0x0c085a6cu,0x0c085a6eu,0x0c085a70u,0x0c085a72u,
+0x0c085a74u,0x0c085a76u,0x0c085a78u,0x0c085a7au,0x0c085a7cu,0x0c085a7eu,0x0c085a80u,0x0c085a82u,0x0c085a84u,0x0c085a86u,0x0c085a88u,0x0c085a8au,0x0c085a8cu,0x0c085a8eu,0x0c085a90u,0x0c085a92u,
+0x0c085a94u,0x0c085a96u,0x0c085a98u,0x0c085a9au,0x0c085a9cu,0x0c085a9eu,0x0c085aa0u,0x0c085aa2u,0x0c085aa4u,0x0c085aa6u,0x0c085aa8u,0x0c085aaau,0x0c085aacu,0x0c085aaeu,0x0c085ab0u,0x0c085ab2u,
+0x0c085ab4u,0x0c085ab6u,0x0c085ab8u,0x0c085abau,0x0c085abcu,0x0c085abeu,0x0c085ac0u,0x0c085ac2u,0x0c085ac4u,0x0c085ac6u,0x0c085ac8u,0x0c085acau,0x0c085accu,0x0c085aceu,0x0c085ad0u,0x0c085ad2u,
+0x0c085ad4u,0x0c085ad6u,0x0c085ad8u,0x0c085adau,0x0c085adcu,0x0c085adeu,0x0c085ae0u,0x0c085ae2u,0x0c085ae4u,0x0c085ae6u,0x0c085ae8u,0x0c085aeau,0x0c085aecu,0x0c085aeeu,0x0c085af0u,0x0c085af2u,
+0x0c085af4u,0x0c085af6u,0x0c085af8u,0x0c085afau,0x0c085afcu,0x0c085afeu,0x0c085b00u,0x0c085b02u,0x0c085b04u,0x0c085b06u,0x0c085b08u,0x0c085b0au,0x0c085b0cu,0x0c085b0eu,0x0c085b10u,0x0c085b12u,
+0x0c085b14u,0x0c085b16u,0x0c085b18u,0x0c085b1au,0x0c085b1cu,0x0c085b1eu,0x0c085b20u,0x0c085b22u,0x0c085b24u,0x0c085b26u,0x0c085b28u,0x0c085b2au,0x0c085b2cu,0x0c085b2eu,0x0c085b30u,0x0c085b32u,
+0x0c085b34u,0x0c085b36u,0x0c085b38u,0x0c085b3au,0x0c085b3cu,0x0c085b3eu,0x0c085b40u,0x0c085b42u,0x0c085b44u,0x0c085b46u,0x0c085b48u,0x0c085b4au,0x0c085b88u,0x0c085b8au,0x0c085b8cu,0x0c085b8eu,
+0x0c085b90u,0x0c085b92u,0x0c085b94u,0x0c085b96u,0x0c085b98u,0x0c085b9au,0x0c085b9cu,0x0c085b9eu,0x0c085ba0u,0x0c085ba2u,0x0c085ba4u,0x0c085ba6u,0x0c085ba8u,0x0c085baau,0x0c085bacu,0x0c085baeu,
+0x0c085bb0u,0x0c085bb2u,0x0c085bb4u,0x0c085bb6u,0x0c085bb8u,0x0c085bbau,0x0c085bbcu,0x0c085bbeu,0x0c085bc0u,0x0c085bc2u,0x0c085bc4u,0x0c0876f2u,0x0c0876f4u,0x0c0876f6u,0x0c0876f8u,0x0c0876fau,
+0x0c0876fcu,0x0c0876feu,0x0c087700u,0x0c087702u,0x0c087704u,0x0c087706u,0x0c087708u,0x0c08770au,0x0c08770cu,0x0c08770eu,0x0c087710u,0x0c087712u,0x0c087714u,0x0c087716u,0x0c087718u,0x0c08771au,
+0x0c08771cu,0x0c08771eu,0x0c087720u,0x0c087722u,0x0c087724u,0x0c087726u,0x0c087728u,0x0c08772au,0x0c08772cu,0x0c08772eu,0x0c087730u,0x0c087732u,0x0c087a40u,0x0c087a42u,0x0c087a44u,0x0c087a46u,
+0x0c087a48u,0x0c087a4au,0x0c087a4cu,0x0c087a4eu,0x0c087a50u,0x0c087a52u,0x0c087a54u,0x0c087a56u,0x0c087a58u,0x0c087a5au,0x0c087a5cu,0x0c087a5eu,0x0c087a60u,0x0c087a62u,0x0c087a64u,0x0c087a66u,
+0x0c087a68u,0x0c087a6au,0x0c087a6cu,0x0c087a6eu,0x0c087a70u,0x0c087a72u,0x0c087a74u,0x0c087a76u,0x0c087a78u,0x0c087a7au,0x0c087a7cu,0x0c087a7eu,0x0c087a80u,0x0c087a82u,0x0c087a84u,0x0c087a86u,
+0x0c087a88u,0x0c087a8au,0x0c087a8cu,0x0c087a8eu,0x0c087a90u,0x0c087a92u,0x0c087a94u,0x0c087a96u,0x0c087a98u,0x0c087a9au,0x0c087a9cu,0x0c087a9eu,0x0c087aa0u,0x0c087aa2u,0x0c087aa4u,0x0c087aa6u,
+0x0c087aa8u,0x0c087aaau,0x0c087aacu,0x0c087aaeu,0x0c087ab0u,0x0c087ab2u,0x0c087ab4u,0x0c087ab6u,0x0c087ab8u,0x0c087abau,0x0c087abcu,0x0c087abeu,0x0c087ac0u,0x0c087ac2u,0x0c087ac4u,0x0c087ac6u,
+0x0c087ac8u,0x0c087acau,0x0c087accu,0x0c087aceu,0x0c087ad0u,0x0c087ad2u,0x0c087ad4u,0x0c087ad6u,0x0c087ad8u,0x0c087adau,0x0c087adcu,0x0c087adeu,0x0c087ae0u,0x0c087ae2u,0x0c087ae4u,0x0c087ae6u,
+0x0c087ae8u,0x0c087aeau,0x0c087aecu,0x0c087aeeu,0x0c087af0u,0x0c087af2u,0x0c087af4u,0x0c087af6u,0x0c087af8u,0x0c087afau,0x0c087afcu,0x0c087afeu,0x0c087b00u,0x0c087b02u,0x0c087b04u,0x0c087b06u,
+0x0c087b08u,0x0c087b0au,0x0c087b0cu,0x0c087b0eu,0x0c087b10u,0x0c087b12u,0x0c087b14u,0x0c087b16u,0x0c087b18u,0x0c087b1au,0x0c087b1cu,0x0c087b1eu,0x0c087b20u,0x0c087b22u,0x0c087b24u,0x0c087b26u,
+0x0c087b28u,0x0c087b2au,0x0c087b2cu,0x0c087b2eu,0x0c087b30u,0x0c087b32u,0x0c087b34u,0x0c087b36u,0x0c087b38u,0x0c087b3au,0x0c087b3cu,0x0c087b3eu,0x0c087b40u,0x0c087b42u,0x0c087b44u,0x0c087b46u,
+0x0c087b48u,0x0c087b4au,0x0c087b4cu,0x0c087b4eu,0x0c087b50u,0x0c087b52u,0x0c087b54u,0x0c0881dcu,0x0c0881deu,0x0c0881e0u,0x0c0881e2u,0x0c0881e4u,0x0c0881e6u,0x0c0881e8u,0x0c0881eau,0x0c0881ecu,
+0x0c0881eeu,0x0c0881f0u,0x0c0881f2u,0x0c0881f4u,0x0c0881f6u,0x0c0881f8u,0x0c088222u,0x0c088224u,0x0c088226u,0x0c088228u,0x0c08822au,0x0c08822cu,0x0c08822eu,0x0c088230u,0x0c088232u,0x0c088234u,
+0x0c088236u,0x0c088238u,0x0c08823au,0x0c08823cu,0x0c08823eu,0x0c088240u,0x0c088242u,0x0c088244u,0x0c088246u,0x0c088248u,0x0c08824au,0x0c08824cu,0x0c08824eu,0x0c088250u,0x0c088252u,0x0c088254u,
+0x0c088256u,0x0c088258u,0x0c08825au,0x0c08825cu,0x0c08825eu,0x0c088260u,0x0c088262u,0x0c088264u,0x0c088266u,0x0c088268u,0x0c08826au,0x0c08826cu,0x0c08826eu,0x0c088270u,0x0c088272u,0x0c088274u,
+0x0c088276u,0x0c088278u,0x0c08827au,0x0c08827cu,0x0c08827eu,0x0c088280u,0x0c088282u,0x0c088284u,0x0c088286u,0x0c088288u,0x0c08828au,0x0c08828cu,0x0c08828eu,0x0c088290u,0x0c088292u,0x0c088294u,
+0x0c088296u,0x0c088298u,0x0c08829au,0x0c08829cu,0x0c08829eu,0x0c0882a0u,0x0c088c4cu,0x0c088c4eu,0x0c088c50u,0x0c088c52u,0x0c088c54u,0x0c088c56u,0x0c088c58u,0x0c088c5au,0x0c088c5cu,0x0c088c5eu,
 0x0c088c60u,0x0c088c62u,0x0c088c64u,0x0c088c66u,0x0c088c68u,0x0c088c6au,0x0c088c6cu,0x0c088c6eu,0x0c088c70u,0x0c088c72u,0x0c088c74u,0x0c088c76u,0x0c088c78u,0x0c088c7au,0x0c088c7cu,0x0c088c7eu,
 0x0c088c80u,0x0c088c82u,0x0c088c84u,0x0c088c86u,0x0c088c88u,0x0c088c8au,0x0c088c8cu,0x0c088c8eu,0x0c088c90u,0x0c088c92u,0x0c088c94u,0x0c088c96u,0x0c088c98u,0x0c088c9au,0x0c088c9cu,0x0c088c9eu,
 0x0c088ca0u,0x0c088ca2u,0x0c088ca4u,0x0c088ca6u,0x0c088ca8u,0x0c088caau,0x0c088cacu,0x0c088caeu,0x0c088cb0u,0x0c088cb2u,0x0c088cb4u,0x0c088cb6u,0x0c088cb8u,0x0c088cbau,0x0c088cbcu,0x0c088cbeu,
@@ -34723,85 +46445,89 @@ static const uint32_t owned_pcs[]={
 0x0c08a71au,0x0c08a71cu,0x0c08a71eu,0x0c08a720u,0x0c08a722u,0x0c08a724u,0x0c08a726u,0x0c08a728u,0x0c08a72au,0x0c08a72cu,0x0c08a72eu,0x0c08a730u,0x0c08a732u,0x0c08a734u,0x0c08a736u,0x0c08a738u,
 0x0c08a73au,0x0c08a73cu,0x0c08a73eu,0x0c08a740u,0x0c08a742u,0x0c08a744u,0x0c08a746u,0x0c08a748u,0x0c08a74au,0x0c08a74cu,0x0c08a74eu,0x0c08a750u,0x0c08a752u,0x0c08a754u,0x0c08a756u,0x0c08a758u,
 0x0c08a75au,0x0c08a75cu,0x0c08a75eu,0x0c08a760u,0x0c08a762u,0x0c08a764u,0x0c08a766u,0x0c08a768u,0x0c08a76au,0x0c08a76cu,0x0c08a76eu,0x0c08a770u,0x0c08a772u,0x0c08a774u,0x0c08a776u,0x0c08a778u,
-0x0c08a77au,0x0c08a77cu,0x0c08a77eu,0x0c08a780u,0x0c08a782u,0x0c08a784u,0x0c08a786u,0x0c08a788u,0x0c08ce72u,0x0c08ce74u,0x0c08ce76u,0x0c08ce78u,0x0c08ce7au,0x0c08ce7cu,0x0c08ce7eu,0x0c08ce80u,
-0x0c08ce82u,0x0c08ce84u,0x0c08ce86u,0x0c08ce88u,0x0c08ce8au,0x0c08ce8cu,0x0c08ce8eu,0x0c08ce90u,0x0c08ce92u,0x0c08ce94u,0x0c08ce96u,0x0c08ce98u,0x0c08ce9au,0x0c08ce9cu,0x0c08ce9eu,0x0c08cea0u,
-0x0c08cea2u,0x0c08cebcu,0x0c08cebeu,0x0c08cec0u,0x0c08cec2u,0x0c08cec4u,0x0c08cec6u,0x0c08cec8u,0x0c08cecau,0x0c08ceccu,0x0c08ceceu,0x0c08ced0u,0x0c08ced2u,0x0c08ced4u,0x0c08ced6u,0x0c08ced8u,
-0x0c08cedau,0x0c08cedcu,0x0c08cedeu,0x0c08cee0u,0x0c08cee2u,0x0c08cee4u,0x0c08cee6u,0x0c08cee8u,0x0c08ceeau,0x0c08ceecu,0x0c08ceeeu,0x0c08cef0u,0x0c08cef2u,0x0c08cef4u,0x0c08cef6u,0x0c08cef8u,
-0x0c08cefau,0x0c08cefcu,0x0c08cefeu,0x0c08cf00u,0x0c08cf02u,0x0c08cf04u,0x0c08cf06u,0x0c08cf08u,0x0c08cf0au,0x0c08cf0cu,0x0c08cf0eu,0x0c08cf10u,0x0c08cf12u,0x0c08cf14u,0x0c08cf16u,0x0c08cf18u,
-0x0c08cf1au,0x0c08cf1cu,0x0c08cf1eu,0x0c08cf20u,0x0c08cf22u,0x0c08cf24u,0x0c08cf26u,0x0c08cf28u,0x0c08d250u,0x0c08d252u,0x0c08d254u,0x0c08d256u,0x0c08d258u,0x0c08d25au,0x0c08d25cu,0x0c08d25eu,
-0x0c08d260u,0x0c08d262u,0x0c08d264u,0x0c08d266u,0x0c08d268u,0x0c08d26au,0x0c08d26cu,0x0c08d26eu,0x0c08d270u,0x0c08d272u,0x0c08d274u,0x0c08d276u,0x0c08d278u,0x0c08d27au,0x0c08d27cu,0x0c08d27eu,
-0x0c08d280u,0x0c08d282u,0x0c08d284u,0x0c08d286u,0x0c08d288u,0x0c08d28au,0x0c08d28cu,0x0c08d28eu,0x0c08d290u,0x0c08d292u,0x0c08d294u,0x0c08d296u,0x0c08d298u,0x0c08d29au,0x0c08d29cu,0x0c08d29eu,
-0x0c08d2a0u,0x0c08d2a2u,0x0c08d2a4u,0x0c08d2a6u,0x0c08d2a8u,0x0c08d2aau,0x0c08d2acu,0x0c08d2aeu,0x0c08d2b0u,0x0c08d2b2u,0x0c08d2b4u,0x0c08d2b6u,0x0c08d2b8u,0x0c08d2bau,0x0c08d2bcu,0x0c08d2beu,
-0x0c08d2c0u,0x0c08d2c2u,0x0c08d2c4u,0x0c08d2c6u,0x0c08d2c8u,0x0c08d2cau,0x0c08d2ccu,0x0c08d2ceu,0x0c08d46eu,0x0c08d470u,0x0c08d472u,0x0c08d474u,0x0c08d476u,0x0c08d478u,0x0c08d47au,0x0c08d47cu,
-0x0c08d47eu,0x0c08d480u,0x0c08d482u,0x0c08d484u,0x0c08d486u,0x0c08d488u,0x0c08d48au,0x0c08d48cu,0x0c08d48eu,0x0c08d490u,0x0c08d492u,0x0c08d494u,0x0c08d496u,0x0c08d498u,0x0c08d49au,0x0c08d49cu,
-0x0c08d49eu,0x0c08d4a0u,0x0c08d4a2u,0x0c08d4a4u,0x0c08d4a6u,0x0c08d4a8u,0x0c08d4aau,0x0c08d4acu,0x0c08d4aeu,0x0c08d4b0u,0x0c08d4b2u,0x0c08d4b4u,0x0c08d4b6u,0x0c08d4b8u,0x0c08d4bau,0x0c08d4bcu,
-0x0c08d4beu,0x0c08d4c0u,0x0c08d4c2u,0x0c08d4c4u,0x0c08d4c6u,0x0c08d4c8u,0x0c08d4cau,0x0c08d4ccu,0x0c08d4ceu,0x0c08d4d0u,0x0c08d4d2u,0x0c08d4d4u,0x0c08d4d6u,0x0c08d4d8u,0x0c08d4dau,0x0c08d4dcu,
-0x0c08d4deu,0x0c08d4e0u,0x0c08d4e2u,0x0c08d4e4u,0x0c08d4e6u,0x0c08d4e8u,0x0c08d4eau,0x0c08d4ecu,0x0c08d4eeu,0x0c08d4f0u,0x0c08d4f2u,0x0c08d4f4u,0x0c08d4f6u,0x0c08d4f8u,0x0c08d4fau,0x0c08d4fcu,
-0x0c08d4feu,0x0c08d500u,0x0c08d502u,0x0c08d504u,0x0c08d506u,0x0c08d508u,0x0c08d50au,0x0c08d50cu,0x0c08d50eu,0x0c08d510u,0x0c0907f0u,0x0c0907f2u,0x0c0907f4u,0x0c0907f6u,0x0c0907f8u,0x0c0907fau,
-0x0c0907fcu,0x0c0907feu,0x0c090800u,0x0c090802u,0x0c090804u,0x0c090806u,0x0c090808u,0x0c09080au,0x0c09080cu,0x0c09080eu,0x0c090810u,0x0c090812u,0x0c090814u,0x0c090816u,0x0c090818u,0x0c09081au,
-0x0c09081cu,0x0c09081eu,0x0c090820u,0x0c090822u,0x0c090824u,0x0c090826u,0x0c090828u,0x0c09082au,0x0c09082cu,0x0c09082eu,0x0c090830u,0x0c090832u,0x0c090834u,0x0c090836u,0x0c090838u,0x0c09083au,
-0x0c09083cu,0x0c09083eu,0x0c090840u,0x0c090842u,0x0c090844u,0x0c090846u,0x0c090848u,0x0c09084au,0x0c09084cu,0x0c09084eu,0x0c090850u,0x0c090852u,0x0c090854u,0x0c090856u,0x0c090858u,0x0c09085au,
-0x0c09085cu,0x0c09085eu,0x0c090860u,0x0c090862u,0x0c090864u,0x0c090866u,0x0c090868u,0x0c09086au,0x0c09086cu,0x0c09086eu,0x0c090870u,0x0c090872u,0x0c090874u,0x0c090876u,0x0c090878u,0x0c09087au,
-0x0c09087cu,0x0c09087eu,0x0c090880u,0x0c090882u,0x0c090884u,0x0c090886u,0x0c090888u,0x0c09088au,0x0c09088cu,0x0c09088eu,0x0c090890u,0x0c090892u,0x0c090894u,0x0c090896u,0x0c090898u,0x0c09089au,
-0x0c09089cu,0x0c09089eu,0x0c0908a0u,0x0c0908a2u,0x0c0908a4u,0x0c0908a6u,0x0c0908a8u,0x0c0908aau,0x0c0908acu,0x0c0908aeu,0x0c0908b0u,0x0c0908b2u,0x0c0908b4u,0x0c0908b6u,0x0c0908b8u,0x0c0908bau,
-0x0c0908bcu,0x0c0908beu,0x0c0908c0u,0x0c0908c2u,0x0c0908c4u,0x0c0908c6u,0x0c0908c8u,0x0c0908cau,0x0c0908ccu,0x0c0908ceu,0x0c0908d0u,0x0c0908d2u,0x0c0908d4u,0x0c0908d6u,0x0c0908d8u,0x0c0908dau,
-0x0c0908dcu,0x0c0908deu,0x0c0908e0u,0x0c0908e2u,0x0c0908e4u,0x0c0908e6u,0x0c0908e8u,0x0c0908eau,0x0c0908ecu,0x0c0908eeu,0x0c0908f0u,0x0c0908f2u,0x0c0908f4u,0x0c0908f6u,0x0c0908f8u,0x0c0908fau,
-0x0c0908fcu,0x0c0908feu,0x0c090900u,0x0c090902u,0x0c090904u,0x0c090906u,0x0c090908u,0x0c09090au,0x0c09090cu,0x0c09090eu,0x0c090910u,0x0c090912u,0x0c090914u,0x0c090916u,0x0c090918u,0x0c09091au,
-0x0c09091cu,0x0c09091eu,0x0c090920u,0x0c090922u,0x0c090924u,0x0c090926u,0x0c090928u,0x0c09092au,0x0c09092cu,0x0c09092eu,0x0c090930u,0x0c090932u,0x0c090934u,0x0c090c94u,0x0c090c96u,0x0c090c98u,
-0x0c090c9au,0x0c090c9cu,0x0c090c9eu,0x0c090ca0u,0x0c090ca2u,0x0c090ca4u,0x0c090ca6u,0x0c090ca8u,0x0c090caau,0x0c090cacu,0x0c090caeu,0x0c090cb0u,0x0c090cb2u,0x0c090cb4u,0x0c090cb6u,0x0c090cb8u,
-0x0c090cbau,0x0c090cbcu,0x0c090cbeu,0x0c090cc0u,0x0c090cc2u,0x0c090cc4u,0x0c090cc6u,0x0c090cc8u,0x0c090ccau,0x0c090cccu,0x0c090cceu,0x0c090cd0u,0x0c090cd2u,0x0c090cd4u,0x0c090cd6u,0x0c090cd8u,
-0x0c090cdau,0x0c090cdcu,0x0c090cdeu,0x0c090ce0u,0x0c090ce2u,0x0c090ce4u,0x0c090ce6u,0x0c090ce8u,0x0c090ceau,0x0c090cecu,0x0c090ceeu,0x0c090cf0u,0x0c090cf2u,0x0c090cf4u,0x0c090cf6u,0x0c090cf8u,
-0x0c090cfau,0x0c090cfcu,0x0c090cfeu,0x0c090d00u,0x0c090d02u,0x0c090d04u,0x0c090d06u,0x0c090d08u,0x0c090d0au,0x0c090d0cu,0x0c090d0eu,0x0c090d10u,0x0c090d12u,0x0c090d14u,0x0c090d16u,0x0c090d18u,
-0x0c090d1au,0x0c090d1cu,0x0c090d1eu,0x0c090d20u,0x0c090d22u,0x0c090d24u,0x0c090d26u,0x0c090d28u,0x0c090d2au,0x0c090d2cu,0x0c090d2eu,0x0c090d30u,0x0c090d32u,0x0c090d34u,0x0c090d36u,0x0c090d38u,
-0x0c090d3au,0x0c090d3cu,0x0c090d3eu,0x0c090d40u,0x0c090d42u,0x0c090d44u,0x0c090d46u,0x0c090d48u,0x0c090d4au,0x0c090d4cu,0x0c090d4eu,0x0c090d50u,0x0c090d52u,0x0c090d54u,0x0c090d56u,0x0c090d58u,
-0x0c090d5au,0x0c090d5cu,0x0c090d5eu,0x0c090d60u,0x0c090d62u,0x0c090d64u,0x0c090d66u,0x0c090d68u,0x0c090d6au,0x0c090d6cu,0x0c090d6eu,0x0c090d70u,0x0c090d72u,0x0c090d74u,0x0c090d76u,0x0c090d78u,
-0x0c090d7au,0x0c090d7cu,0x0c090d7eu,0x0c090d80u,0x0c090d82u,0x0c090d84u,0x0c090d86u,0x0c090d88u,0x0c090d8au,0x0c090d8cu,0x0c090d8eu,0x0c090d90u,0x0c090d92u,0x0c090d94u,0x0c090d96u,0x0c090d98u,
-0x0c090d9au,0x0c090d9cu,0x0c090d9eu,0x0c090da0u,0x0c090da2u,0x0c090da4u,0x0c090da6u,0x0c090da8u,0x0c090daau,0x0c090dacu,0x0c090daeu,0x0c090db0u,0x0c090db2u,0x0c090db4u,0x0c090db6u,0x0c090db8u,
-0x0c090dbau,0x0c090dbcu,0x0c090dbeu,0x0c090dc0u,0x0c090dc2u,0x0c090dc4u,0x0c090dc6u,0x0c090dc8u,0x0c090dcau,0x0c090dccu,0x0c090dceu,0x0c090dd0u,0x0c090dd2u,0x0c090dd4u,0x0c090dd6u,0x0c090dd8u,
-0x0c090ddau,0x0c090ddcu,0x0c090ddeu,0x0c090de0u,0x0c094242u,0x0c094244u,0x0c094246u,0x0c094248u,0x0c09424au,0x0c09424cu,0x0c09424eu,0x0c094250u,0x0c094252u,0x0c094254u,0x0c094256u,0x0c094258u,
-0x0c09425au,0x0c09425cu,0x0c09425eu,0x0c094260u,0x0c094262u,0x0c094264u,0x0c094266u,0x0c094268u,0x0c09426au,0x0c09426cu,0x0c09426eu,0x0c094270u,0x0c094272u,0x0c094274u,0x0c094276u,0x0c094278u,
-0x0c09427au,0x0c09427cu,0x0c09427eu,0x0c094280u,0x0c094282u,0x0c094284u,0x0c094286u,0x0c094288u,0x0c09428au,0x0c09428cu,0x0c09428eu,0x0c094290u,0x0c094292u,0x0c094294u,0x0c094296u,0x0c094298u,
-0x0c096a60u,0x0c096a62u,0x0c096a64u,0x0c096a66u,0x0c096a68u,0x0c096a6au,0x0c096a6cu,0x0c096a6eu,0x0c096a70u,0x0c096a72u,0x0c096a74u,0x0c096a76u,0x0c096a78u,0x0c096a7au,0x0c096a7cu,0x0c096a7eu,
-0x0c096a80u,0x0c096a82u,0x0c096a84u,0x0c096a86u,0x0c096a88u,0x0c096a8au,0x0c096a8cu,0x0c096a8eu,0x0c096a90u,0x0c096a92u,0x0c096a94u,0x0c096a96u,0x0c096a98u,0x0c096a9au,0x0c096a9cu,0x0c096a9eu,
-0x0c096aa0u,0x0c096aa2u,0x0c096aa4u,0x0c096aa6u,0x0c096aa8u,0x0c096aaau,0x0c096aacu,0x0c096aaeu,0x0c096ab0u,0x0c096ab2u,0x0c096ab4u,0x0c096ab6u,0x0c096ab8u,0x0c096abau,0x0c096abcu,0x0c096abeu,
-0x0c096ac0u,0x0c096ac2u,0x0c096ac4u,0x0c096ac6u,0x0c096ac8u,0x0c096acau,0x0c096accu,0x0c096aceu,0x0c096ad0u,0x0c096ad2u,0x0c096ad4u,0x0c096ad6u,0x0c0a7442u,0x0c0a7444u,0x0c0a7446u,0x0c0a7448u,
-0x0c0a744au,0x0c0a744cu,0x0c0a744eu,0x0c0abcdcu,0x0c0abcdeu,0x0c0abce0u,0x0c0abce2u,0x0c0abce4u,0x0c0abce6u,0x0c0abce8u,0x0c0abceau,0x0c0abd2cu,0x0c0abd2eu,0x0c0abd30u,0x0c0abd32u,0x0c0abd34u,
-0x0c0abd36u,0x0c0abd38u,0x0c0abd3au,0x0c0abd3cu,0x0c0abd3eu,0x0c0abd40u,0x0c0abd42u,0x0c0abd44u,0x0c0abd46u,0x0c0abd48u,0x0c0abd4au,0x0c0abd4cu,0x0c0abd4eu,0x0c0abd50u,0x0c0abd52u,0x0c0abd54u,
-0x0c0abd56u,0x0c0abd58u,0x0c0abd5au,0x0c0abd5cu,0x0c0abd5eu,0x0c0abd60u,0x0c0abd62u,0x0c0abd64u,0x0c0abd66u,0x0c0abd68u,0x0c0abd6au,0x0c0abd6cu,0x0c0abd6eu,0x0c0abd70u,0x0c0abd72u,0x0c0abd74u,
-0x0c0abd76u,0x0c0abd78u,0x0c0abd7au,0x0c0abd7cu,0x0c0abd7eu,0x0c0abd80u,0x0c0abd82u,0x0c0abd84u,0x0c0abd86u,0x0c0abd88u,0x0c0abd8au,0x0c0abd8cu,0x0c0abd8eu,0x0c0abd90u,0x0c0abd92u,0x0c0abd94u,
-0x0c0abd96u,0x0c0abd98u,0x0c0abd9au,0x0c0abd9cu,0x0c0abd9eu,0x0c0abda0u,0x0c0abda2u,0x0c0abda4u,0x0c0abda6u,0x0c0abda8u,0x0c0abdaau,0x0c0abdacu,0x0c0abdaeu,0x0c0abdb0u,0x0c0abdb2u,0x0c0abdb4u,
-0x0c0abdb6u,0x0c0abdb8u,0x0c0abdbau,0x0c0abdbcu,0x0c0abdbeu,0x0c0abdc0u,0x0c0abdc2u,0x0c0b1470u,0x0c0b1472u,0x0c0b1474u,0x0c0b1476u,0x0c0b1478u,0x0c0b147au,0x0c0b147cu,0x0c0b147eu,0x0c0b1480u,
-0x0c0b1482u,0x0c0b1484u,0x0c0b1486u,0x0c0b1488u,0x0c0b148au,0x0c0b148cu,0x0c0b148eu,0x0c0b1490u,0x0c0b1492u,0x0c0b1494u,0x0c0b1496u,0x0c0b1498u,0x0c0b149au,0x0c0b149cu,0x0c0b149eu,0x0c0b14a0u,
-0x0c0b14a2u,0x0c0b14a4u,0x0c0b14a6u,0x0c0b14a8u,0x0c0b14aau,0x0c0b14acu,0x0c0b14aeu,0x0c0b14b0u,0x0c0b14b2u,0x0c0b14b4u,0x0c0b14b6u,0x0c0b14b8u,0x0c0b14bau,0x0c0b14bcu,0x0c0b14beu,0x0c0b14c0u,
-0x0c0b14c2u,0x0c0b14c4u,0x0c0b14c6u,0x0c0b14c8u,0x0c0b14cau,0x0c0b14ccu,0x0c0b14ceu,0x0c0b14d0u,0x0c0b14d2u,0x0c0b14d4u,0x0c0b14d6u,0x0c0b14d8u,0x0c0b14dau,0x0c0b14dcu,0x0c0b14deu,0x0c0b14e0u,
-0x0c0b14e2u,0x0c0b14e4u,0x0c0b14e6u,0x0c0b14e8u,0x0c0b14eau,0x0c0b14ecu,0x0c0b14eeu,0x0c0b14f0u,0x0c0b14f2u,0x0c0b14f4u,0x0c0b14f6u,0x0c0b14f8u,0x0c0b14fau,0x0c0b14fcu,0x0c0b14feu,0x0c0b1500u,
-0x0c0b1502u,0x0c0b1504u,0x0c0b1506u,0x0c0b1508u,0x0c0b150au,0x0c0b150cu,0x0c0b150eu,0x0c0b1510u,0x0c0b1512u,0x0c0b1514u,0x0c0b1516u,0x0c0b1518u,0x0c0b151au,0x0c0b151cu,0x0c0b151eu,0x0c0c0218u,
-0x0c0c021au,0x0c0c021cu,0x0c0c021eu,0x0c0c0220u,0x0c0c0222u,0x0c0c0224u,0x0c0c0226u,0x0c0c0228u,0x0c0c022au,0x0c0c022cu,0x0c0c022eu,0x0c0c0230u,0x0c0c0232u,0x0c0c0234u,0x0c0c0236u,0x0c0c0238u,
-0x0c0c023au,0x0c0c023cu,0x0c0c023eu,0x0c0c0240u,0x0c0c0242u,0x0c0c0244u,0x0c0c0246u,0x0c0c0248u,0x0c0c024au,0x0c0c024cu,0x0c0c024eu,0x0c0c0250u,0x0c0c0252u,0x0c0c0254u,0x0c0c0256u,0x0c0c0258u,
-0x0c0c025au,0x0c0c025cu,0x0c0c025eu,0x0c0c0260u,0x0c0c0262u,0x0c0c0264u,0x0c0c0266u,0x0c0c0268u,0x0c0c026au,0x0c0c026cu,0x0c0c026eu,0x0c0c0270u,0x0c0c0272u,0x0c0c0274u,0x0c0c0276u,0x0c0c0278u,
-0x0c0c027au,0x0c0c027cu,0x0c0c027eu,0x0c0c0280u,0x0c0c0282u,0x0c0c0284u,0x0c0c0286u,0x0c0c0288u,0x0c0c028au,0x0c0c028cu,0x0c0c028eu,0x0c0c0290u,0x0c0c0292u,0x0c0c0294u,0x0c0c0296u,0x0c0c0298u,
-0x0c0c029au,0x0c0c029cu,0x0c0c029eu,0x0c0c02a0u,0x0c0c02a2u,0x0c0c02a4u,0x0c0c02a6u,0x0c0c02a8u,0x0c0c02aau,0x0c0c02acu,0x0c0c02aeu,0x0c0c02b0u,0x0c0c02b2u,0x0c0c02b4u,0x0c0c02b6u,0x0c0c02b8u,
-0x0c0c02bau,0x0c0c02bcu,0x0c0c02beu,0x0c0c02c0u,0x0c0c02c2u,0x0c0c02c4u,0x0c0c02c6u,0x0c0c02c8u,0x0c0c02cau,0x0c0c02ccu,0x0c0c02ceu,0x0c0c02d0u,0x0c0c02d2u,0x0c0c02d4u,0x0c0c02d6u,0x0c0c02d8u,
-0x0c0c02dau,0x0c0c02dcu,0x0c0c02deu,0x0c0c02e0u,0x0c0c02e2u,0x0c0c02e4u,0x0c0c02e6u,0x0c0c02e8u,0x0c0c02eau,0x0c0c02ecu,0x0c0c02eeu,0x0c0c02f0u,0x0c0c02f2u,0x0c0c02f4u,0x0c0c02f6u,0x0c0c02f8u,
-0x0c0c02fau,0x0c0c02fcu,0x0c0c02feu,0x0c0c0300u,0x0c0c0302u,0x0c0c0304u,0x0c0c0306u,0x0c0c0308u,0x0c0c030au,0x0c0c030cu,0x0c0c030eu,0x0c0c0310u,0x0c0c0312u,0x0c0c0314u,0x0c0c0316u,0x0c0c0318u,
-0x0c0c031au,0x0c0c031cu,0x0c0c031eu,0x0c0c0320u,0x0c0c0322u,0x0c0c0324u,0x0c0c0326u,0x0c0c0328u,0x0c0c032au,0x0c0c032cu,0x0c0c032eu,0x0c0c0330u,0x0c0c0332u,0x0c0c0334u,0x0c0c0336u,0x0c0c0338u,
-0x0c0c033au,0x0c0c033cu,0x0c0c033eu,0x0c0c0340u,0x0c0c0342u,0x0c0c0344u,0x0c0c0346u,0x0c0c0348u,0x0c0c034au,0x0c0c034cu,0x0c0c034eu,0x0c0c0350u,0x0c0c0352u,0x0c0c0354u,0x0c0c0356u,0x0c0c0358u,
-0x0c0c035au,0x0c0c035cu,0x0c0c035eu,0x0c0c0360u,0x0c0c0362u,0x0c0c0364u,0x0c0c0366u,0x0c0c0368u,0x0c0c036au,0x0c0c036cu,0x0c0c036eu,0x0c0c0370u,0x0c0c0372u,0x0c0c0374u,0x0c0c0376u,0x0c0c0378u,
-0x0c0c037au,0x0c0c037cu,0x0c0c037eu,0x0c0c0380u,0x0c0c0382u,0x0c0c0384u,0x0c0c0386u,0x0c0c0388u,0x0c0c038au,0x0c0c03c4u,0x0c0c03c6u,0x0c0c03c8u,0x0c0c03cau,0x0c0c03ccu,0x0c0c03ceu,0x0c0c03d0u,
-0x0c0c03d2u,0x0c0c03d4u,0x0c0c03d6u,0x0c0c03d8u,0x0c0c03dau,0x0c0c03dcu,0x0c0c03deu,0x0c0c03e0u,0x0c0c03e2u,0x0c0c03e4u,0x0c0c03e6u,0x0c0c03e8u,0x0c0c03eau,0x0c0c03ecu,0x0c0c03eeu,0x0c0c03f0u,
-0x0c0c03f2u,0x0c0c03f4u,0x0c0c03f6u,0x0c0c03f8u,0x0c0c03fau,0x0c0c03fcu,0x0c0c03feu,0x0c0c0400u,0x0c0c0402u,0x0c0c0404u,0x0c0c0406u,0x0c0c0408u,0x0c0c040au,0x0c0c040cu,0x0c0c040eu,0x0c0c0410u,
-0x0c0c0412u,0x0c0c0414u,0x0c0c0416u,0x0c0c0418u,0x0c0c041au,0x0c0c041cu,0x0c0c041eu,0x0c0c0420u,0x0c0c9c62u,0x0c0c9c64u,0x0c0c9c66u,0x0c0c9c68u,0x0c0c9c6au,0x0c0c9c6cu,0x0c0c9c6eu,0x0c0c9c70u,
-0x0c0c9c72u,0x0c0c9c74u,0x0c0c9c76u,0x0c0c9c78u,0x0c0c9c7au,0x0c0c9c7cu,0x0c0c9c7eu,0x0c0c9c80u,0x0c0c9c82u,0x0c0ca0c6u,0x0c0ca0c8u,0x0c0ca0cau,0x0c0ca0ccu,0x0c0ca0ceu,0x0c0ca0d0u,0x0c0ca0d2u,
-0x0c0ca0d4u,0x0c0ca0d6u,0x0c0ca0d8u,0x0c0ca0dau,0x0c0ca0dcu,0x0c0ca0deu,0x0c0ca0e0u,0x0c0ca0e2u,0x0c0ca0e4u,0x0c0ca0e6u,0x0c0ca0e8u,0x0c0ca0eau,0x0c0ca0ecu,0x0c0ca0eeu,0x0c0ca0f0u,0x0c0ca0f2u,
-0x0c0ca0f4u,0x0c0ca0f6u,0x0c0ca0f8u,0x0c0ca0fau,0x0c0ca0fcu,0x0c0ca0feu,0x0c0ca100u,0x0c0ca102u,0x0c0ca104u,0x0c0ca106u,0x0c0ca108u,0x0c0ca10au,0x0c0ca10cu,0x0c0ca10eu,0x0c0ca110u,0x0c0ca112u,
-0x0c0ca114u,0x0c0ca116u,0x0c0ca118u,0x0c0ca11au,0x0c0ca11cu,0x0c0ca11eu,0x0c0ca120u,0x0c0ca122u,0x0c0ca124u,0x0c0ca126u,0x0c0ca128u,0x0c0ca12au,0x0c0ca12cu,0x0c0ca12eu,0x0c0ca130u,0x0c0ca132u,
-0x0c0ca134u,0x0c0ca136u,0x0c0ca138u,0x0c0ca13au,0x0c0ca13cu,0x0c0ca13eu,0x0c0ca140u,0x0c0ca142u,0x0c0ca144u,0x0c0ca146u,0x0c0ca148u,0x0c0ca14au,0x0c0ca14cu,0x0c0ca14eu,0x0c0ca150u,0x0c0ca152u,
-0x0c0ca154u,0x0c0ca156u,0x0c0ca158u,0x0c0ca15au,0x0c0ca15cu,0x0c0ca15eu,0x0c0ca196u,0x0c0ca198u,0x0c0ca19au,0x0c0ca19cu,0x0c0ca19eu,0x0c0ca1a0u,0x0c0ca1a2u,0x0c0ca1a4u,0x0c0ca1a6u,0x0c0ca1a8u,
-0x0c0ca1aau,0x0c0ca1acu,0x0c0ca1aeu,0x0c0ca1b0u,0x0c0ca1b2u,0x0c0ca1b4u,0x0c0ca1b6u,0x0c0ca1b8u,0x0c0ca1bau,0x0c0ca1bcu,0x0c0ca1beu,0x0c0ca1c0u,0x0c0ca1c2u,0x0c0ca1c4u,0x0c0ca1c6u,0x0c0ca1c8u,
-0x0c0ca1cau,0x0c0ca1ccu,0x0c0ca1ceu,0x0c0ca1d0u,0x0c0ca1d2u,0x0c0ca1d4u,0x0c0ca1d6u,0x0c0ca1d8u,0x0c0ca1dau,0x0c0ca1dcu,0x0c0ca1deu,0x0c0ca1e0u,0x0c0ca1e2u,0x0c0ca1e4u,0x0c0ca1e6u,0x0c0ca1e8u,
-0x0c0ca1eau,0x0c0ca1ecu,0x0c0ca1eeu,0x0c0ca1f0u,0x0c0ca1f2u,0x0c0ca1f4u,0x0c0ca1f6u,0x0c0ca1f8u,0x0c0ca1fau,0x0c0ca1fcu,0x0c0ca1feu,0x0c0ca200u,0x0c0ca202u,0x0c0ca204u,0x0c0ca206u,0x0c0ca208u,
-0x0c0ca20au,0x0c0ca20cu,0x0c0ca20eu,0x0c0ca210u,0x0c0ca212u,0x0c0ca214u,0x0c0ca216u,0x0c0ca218u,0x0c0ca21au,0x0c0ca21cu,0x0c0ca21eu,0x0c0ca220u,0x0c0ca222u,0x0c0ca224u,0x0c0ca226u,0x0c0ca228u,
-0x0c0ca22au,0x0c0ca22cu,0x0c0ca22eu,0x0c0ca326u,0x0c0ca328u,
+0x0c08a77au,0x0c08a77cu,0x0c08a77eu,0x0c08a780u,0x0c08a782u,0x0c08a784u,0x0c08a786u,0x0c08a788u,0x0c08b73cu,0x0c08b73eu,0x0c08b740u,0x0c08b742u,0x0c08b744u,0x0c08b746u,0x0c08b748u,0x0c08b74au,
+0x0c08b74cu,0x0c08b74eu,0x0c08b750u,0x0c08b752u,0x0c08b754u,0x0c08b756u,0x0c08b758u,0x0c08b75au,0x0c08b75cu,0x0c08b75eu,0x0c08b760u,0x0c08b762u,0x0c08b764u,0x0c08b766u,0x0c08b768u,0x0c08b76au,
+0x0c08b76cu,0x0c08b76eu,0x0c08b770u,0x0c08b772u,0x0c08b774u,0x0c08b776u,0x0c08b778u,0x0c08b77au,0x0c08b77cu,0x0c08b77eu,0x0c08b7acu,0x0c08b7aeu,0x0c08b7b0u,0x0c08b7b2u,0x0c08b7b4u,0x0c08b7b6u,
+0x0c08b7b8u,0x0c08b7bau,0x0c08b7bcu,0x0c08b7beu,0x0c08b7c0u,0x0c08b7c2u,0x0c08b7c4u,0x0c08b7c6u,0x0c08b7c8u,0x0c08b7cau,0x0c08b7ccu,0x0c08b7ceu,0x0c08b7d0u,0x0c08b7d2u,0x0c08b7d4u,0x0c08b7d6u,
+0x0c08b7d8u,0x0c08b7dau,0x0c08b7dcu,0x0c08b7deu,0x0c08b7e0u,0x0c08b7e2u,0x0c08b7e4u,0x0c08b7e6u,0x0c08b7e8u,0x0c08ce72u,0x0c08ce74u,0x0c08ce76u,0x0c08ce78u,0x0c08ce7au,0x0c08ce7cu,0x0c08ce7eu,
+0x0c08ce80u,0x0c08ce82u,0x0c08ce84u,0x0c08ce86u,0x0c08ce88u,0x0c08ce8au,0x0c08ce8cu,0x0c08ce8eu,0x0c08ce90u,0x0c08ce92u,0x0c08ce94u,0x0c08ce96u,0x0c08ce98u,0x0c08ce9au,0x0c08ce9cu,0x0c08ce9eu,
+0x0c08cea0u,0x0c08cea2u,0x0c08cebcu,0x0c08cebeu,0x0c08cec0u,0x0c08cec2u,0x0c08cec4u,0x0c08cec6u,0x0c08cec8u,0x0c08cecau,0x0c08ceccu,0x0c08ceceu,0x0c08ced0u,0x0c08ced2u,0x0c08ced4u,0x0c08ced6u,
+0x0c08ced8u,0x0c08cedau,0x0c08cedcu,0x0c08cedeu,0x0c08cee0u,0x0c08cee2u,0x0c08cee4u,0x0c08cee6u,0x0c08cee8u,0x0c08ceeau,0x0c08ceecu,0x0c08ceeeu,0x0c08cef0u,0x0c08cef2u,0x0c08cef4u,0x0c08cef6u,
+0x0c08cef8u,0x0c08cefau,0x0c08cefcu,0x0c08cefeu,0x0c08cf00u,0x0c08cf02u,0x0c08cf04u,0x0c08cf06u,0x0c08cf08u,0x0c08cf0au,0x0c08cf0cu,0x0c08cf0eu,0x0c08cf10u,0x0c08cf12u,0x0c08cf14u,0x0c08cf16u,
+0x0c08cf18u,0x0c08cf1au,0x0c08cf1cu,0x0c08cf1eu,0x0c08cf20u,0x0c08cf22u,0x0c08cf24u,0x0c08cf26u,0x0c08cf28u,0x0c08d250u,0x0c08d252u,0x0c08d254u,0x0c08d256u,0x0c08d258u,0x0c08d25au,0x0c08d25cu,
+0x0c08d25eu,0x0c08d260u,0x0c08d262u,0x0c08d264u,0x0c08d266u,0x0c08d268u,0x0c08d26au,0x0c08d26cu,0x0c08d26eu,0x0c08d270u,0x0c08d272u,0x0c08d274u,0x0c08d276u,0x0c08d278u,0x0c08d27au,0x0c08d27cu,
+0x0c08d27eu,0x0c08d280u,0x0c08d282u,0x0c08d284u,0x0c08d286u,0x0c08d288u,0x0c08d28au,0x0c08d28cu,0x0c08d28eu,0x0c08d290u,0x0c08d292u,0x0c08d294u,0x0c08d296u,0x0c08d298u,0x0c08d29au,0x0c08d29cu,
+0x0c08d29eu,0x0c08d2a0u,0x0c08d2a2u,0x0c08d2a4u,0x0c08d2a6u,0x0c08d2a8u,0x0c08d2aau,0x0c08d2acu,0x0c08d2aeu,0x0c08d2b0u,0x0c08d2b2u,0x0c08d2b4u,0x0c08d2b6u,0x0c08d2b8u,0x0c08d2bau,0x0c08d2bcu,
+0x0c08d2beu,0x0c08d2c0u,0x0c08d2c2u,0x0c08d2c4u,0x0c08d2c6u,0x0c08d2c8u,0x0c08d2cau,0x0c08d2ccu,0x0c08d2ceu,0x0c08d46eu,0x0c08d470u,0x0c08d472u,0x0c08d474u,0x0c08d476u,0x0c08d478u,0x0c08d47au,
+0x0c08d47cu,0x0c08d47eu,0x0c08d480u,0x0c08d482u,0x0c08d484u,0x0c08d486u,0x0c08d488u,0x0c08d48au,0x0c08d48cu,0x0c08d48eu,0x0c08d490u,0x0c08d492u,0x0c08d494u,0x0c08d496u,0x0c08d498u,0x0c08d49au,
+0x0c08d49cu,0x0c08d49eu,0x0c08d4a0u,0x0c08d4a2u,0x0c08d4a4u,0x0c08d4a6u,0x0c08d4a8u,0x0c08d4aau,0x0c08d4acu,0x0c08d4aeu,0x0c08d4b0u,0x0c08d4b2u,0x0c08d4b4u,0x0c08d4b6u,0x0c08d4b8u,0x0c08d4bau,
+0x0c08d4bcu,0x0c08d4beu,0x0c08d4c0u,0x0c08d4c2u,0x0c08d4c4u,0x0c08d4c6u,0x0c08d4c8u,0x0c08d4cau,0x0c08d4ccu,0x0c08d4ceu,0x0c08d4d0u,0x0c08d4d2u,0x0c08d4d4u,0x0c08d4d6u,0x0c08d4d8u,0x0c08d4dau,
+0x0c08d4dcu,0x0c08d4deu,0x0c08d4e0u,0x0c08d4e2u,0x0c08d4e4u,0x0c08d4e6u,0x0c08d4e8u,0x0c08d4eau,0x0c08d4ecu,0x0c08d4eeu,0x0c08d4f0u,0x0c08d4f2u,0x0c08d4f4u,0x0c08d4f6u,0x0c08d4f8u,0x0c08d4fau,
+0x0c08d4fcu,0x0c08d4feu,0x0c08d500u,0x0c08d502u,0x0c08d504u,0x0c08d506u,0x0c08d508u,0x0c08d50au,0x0c08d50cu,0x0c08d50eu,0x0c08d510u,0x0c0907f0u,0x0c0907f2u,0x0c0907f4u,0x0c0907f6u,0x0c0907f8u,
+0x0c0907fau,0x0c0907fcu,0x0c0907feu,0x0c090800u,0x0c090802u,0x0c090804u,0x0c090806u,0x0c090808u,0x0c09080au,0x0c09080cu,0x0c09080eu,0x0c090810u,0x0c090812u,0x0c090814u,0x0c090816u,0x0c090818u,
+0x0c09081au,0x0c09081cu,0x0c09081eu,0x0c090820u,0x0c090822u,0x0c090824u,0x0c090826u,0x0c090828u,0x0c09082au,0x0c09082cu,0x0c09082eu,0x0c090830u,0x0c090832u,0x0c090834u,0x0c090836u,0x0c090838u,
+0x0c09083au,0x0c09083cu,0x0c09083eu,0x0c090840u,0x0c090842u,0x0c090844u,0x0c090846u,0x0c090848u,0x0c09084au,0x0c09084cu,0x0c09084eu,0x0c090850u,0x0c090852u,0x0c090854u,0x0c090856u,0x0c090858u,
+0x0c09085au,0x0c09085cu,0x0c09085eu,0x0c090860u,0x0c090862u,0x0c090864u,0x0c090866u,0x0c090868u,0x0c09086au,0x0c09086cu,0x0c09086eu,0x0c090870u,0x0c090872u,0x0c090874u,0x0c090876u,0x0c090878u,
+0x0c09087au,0x0c09087cu,0x0c09087eu,0x0c090880u,0x0c090882u,0x0c090884u,0x0c090886u,0x0c090888u,0x0c09088au,0x0c09088cu,0x0c09088eu,0x0c090890u,0x0c090892u,0x0c090894u,0x0c090896u,0x0c090898u,
+0x0c09089au,0x0c09089cu,0x0c09089eu,0x0c0908a0u,0x0c0908a2u,0x0c0908a4u,0x0c0908a6u,0x0c0908a8u,0x0c0908aau,0x0c0908acu,0x0c0908aeu,0x0c0908b0u,0x0c0908b2u,0x0c0908b4u,0x0c0908b6u,0x0c0908b8u,
+0x0c0908bau,0x0c0908bcu,0x0c0908beu,0x0c0908c0u,0x0c0908c2u,0x0c0908c4u,0x0c0908c6u,0x0c0908c8u,0x0c0908cau,0x0c0908ccu,0x0c0908ceu,0x0c0908d0u,0x0c0908d2u,0x0c0908d4u,0x0c0908d6u,0x0c0908d8u,
+0x0c0908dau,0x0c0908dcu,0x0c0908deu,0x0c0908e0u,0x0c0908e2u,0x0c0908e4u,0x0c0908e6u,0x0c0908e8u,0x0c0908eau,0x0c0908ecu,0x0c0908eeu,0x0c0908f0u,0x0c0908f2u,0x0c0908f4u,0x0c0908f6u,0x0c0908f8u,
+0x0c0908fau,0x0c0908fcu,0x0c0908feu,0x0c090900u,0x0c090902u,0x0c090904u,0x0c090906u,0x0c090908u,0x0c09090au,0x0c09090cu,0x0c09090eu,0x0c090910u,0x0c090912u,0x0c090914u,0x0c090916u,0x0c090918u,
+0x0c09091au,0x0c09091cu,0x0c09091eu,0x0c090920u,0x0c090922u,0x0c090924u,0x0c090926u,0x0c090928u,0x0c09092au,0x0c09092cu,0x0c09092eu,0x0c090930u,0x0c090932u,0x0c090934u,0x0c090c94u,0x0c090c96u,
+0x0c090c98u,0x0c090c9au,0x0c090c9cu,0x0c090c9eu,0x0c090ca0u,0x0c090ca2u,0x0c090ca4u,0x0c090ca6u,0x0c090ca8u,0x0c090caau,0x0c090cacu,0x0c090caeu,0x0c090cb0u,0x0c090cb2u,0x0c090cb4u,0x0c090cb6u,
+0x0c090cb8u,0x0c090cbau,0x0c090cbcu,0x0c090cbeu,0x0c090cc0u,0x0c090cc2u,0x0c090cc4u,0x0c090cc6u,0x0c090cc8u,0x0c090ccau,0x0c090cccu,0x0c090cceu,0x0c090cd0u,0x0c090cd2u,0x0c090cd4u,0x0c090cd6u,
+0x0c090cd8u,0x0c090cdau,0x0c090cdcu,0x0c090cdeu,0x0c090ce0u,0x0c090ce2u,0x0c090ce4u,0x0c090ce6u,0x0c090ce8u,0x0c090ceau,0x0c090cecu,0x0c090ceeu,0x0c090cf0u,0x0c090cf2u,0x0c090cf4u,0x0c090cf6u,
+0x0c090cf8u,0x0c090cfau,0x0c090cfcu,0x0c090cfeu,0x0c090d00u,0x0c090d02u,0x0c090d04u,0x0c090d06u,0x0c090d08u,0x0c090d0au,0x0c090d0cu,0x0c090d0eu,0x0c090d10u,0x0c090d12u,0x0c090d14u,0x0c090d16u,
+0x0c090d18u,0x0c090d1au,0x0c090d1cu,0x0c090d1eu,0x0c090d20u,0x0c090d22u,0x0c090d24u,0x0c090d26u,0x0c090d28u,0x0c090d2au,0x0c090d2cu,0x0c090d2eu,0x0c090d30u,0x0c090d32u,0x0c090d34u,0x0c090d36u,
+0x0c090d38u,0x0c090d3au,0x0c090d3cu,0x0c090d3eu,0x0c090d40u,0x0c090d42u,0x0c090d44u,0x0c090d46u,0x0c090d48u,0x0c090d4au,0x0c090d4cu,0x0c090d4eu,0x0c090d50u,0x0c090d52u,0x0c090d54u,0x0c090d56u,
+0x0c090d58u,0x0c090d5au,0x0c090d5cu,0x0c090d5eu,0x0c090d60u,0x0c090d62u,0x0c090d64u,0x0c090d66u,0x0c090d68u,0x0c090d6au,0x0c090d6cu,0x0c090d6eu,0x0c090d70u,0x0c090d72u,0x0c090d74u,0x0c090d76u,
+0x0c090d78u,0x0c090d7au,0x0c090d7cu,0x0c090d7eu,0x0c090d80u,0x0c090d82u,0x0c090d84u,0x0c090d86u,0x0c090d88u,0x0c090d8au,0x0c090d8cu,0x0c090d8eu,0x0c090d90u,0x0c090d92u,0x0c090d94u,0x0c090d96u,
+0x0c090d98u,0x0c090d9au,0x0c090d9cu,0x0c090d9eu,0x0c090da0u,0x0c090da2u,0x0c090da4u,0x0c090da6u,0x0c090da8u,0x0c090daau,0x0c090dacu,0x0c090daeu,0x0c090db0u,0x0c090db2u,0x0c090db4u,0x0c090db6u,
+0x0c090db8u,0x0c090dbau,0x0c090dbcu,0x0c090dbeu,0x0c090dc0u,0x0c090dc2u,0x0c090dc4u,0x0c090dc6u,0x0c090dc8u,0x0c090dcau,0x0c090dccu,0x0c090dceu,0x0c090dd0u,0x0c090dd2u,0x0c090dd4u,0x0c090dd6u,
+0x0c090dd8u,0x0c090ddau,0x0c090ddcu,0x0c090ddeu,0x0c090de0u,0x0c094242u,0x0c094244u,0x0c094246u,0x0c094248u,0x0c09424au,0x0c09424cu,0x0c09424eu,0x0c094250u,0x0c094252u,0x0c094254u,0x0c094256u,
+0x0c094258u,0x0c09425au,0x0c09425cu,0x0c09425eu,0x0c094260u,0x0c094262u,0x0c094264u,0x0c094266u,0x0c094268u,0x0c09426au,0x0c09426cu,0x0c09426eu,0x0c094270u,0x0c094272u,0x0c094274u,0x0c094276u,
+0x0c094278u,0x0c09427au,0x0c09427cu,0x0c09427eu,0x0c094280u,0x0c094282u,0x0c094284u,0x0c094286u,0x0c094288u,0x0c09428au,0x0c09428cu,0x0c09428eu,0x0c094290u,0x0c094292u,0x0c094294u,0x0c094296u,
+0x0c094298u,0x0c096a60u,0x0c096a62u,0x0c096a64u,0x0c096a66u,0x0c096a68u,0x0c096a6au,0x0c096a6cu,0x0c096a6eu,0x0c096a70u,0x0c096a72u,0x0c096a74u,0x0c096a76u,0x0c096a78u,0x0c096a7au,0x0c096a7cu,
+0x0c096a7eu,0x0c096a80u,0x0c096a82u,0x0c096a84u,0x0c096a86u,0x0c096a88u,0x0c096a8au,0x0c096a8cu,0x0c096a8eu,0x0c096a90u,0x0c096a92u,0x0c096a94u,0x0c096a96u,0x0c096a98u,0x0c096a9au,0x0c096a9cu,
+0x0c096a9eu,0x0c096aa0u,0x0c096aa2u,0x0c096aa4u,0x0c096aa6u,0x0c096aa8u,0x0c096aaau,0x0c096aacu,0x0c096aaeu,0x0c096ab0u,0x0c096ab2u,0x0c096ab4u,0x0c096ab6u,0x0c096ab8u,0x0c096abau,0x0c096abcu,
+0x0c096abeu,0x0c096ac0u,0x0c096ac2u,0x0c096ac4u,0x0c096ac6u,0x0c096ac8u,0x0c096acau,0x0c096accu,0x0c096aceu,0x0c096ad0u,0x0c096ad2u,0x0c096ad4u,0x0c096ad6u,0x0c0a7442u,0x0c0a7444u,0x0c0a7446u,
+0x0c0a7448u,0x0c0a744au,0x0c0a744cu,0x0c0a744eu,0x0c0abcdcu,0x0c0abcdeu,0x0c0abce0u,0x0c0abce2u,0x0c0abce4u,0x0c0abce6u,0x0c0abce8u,0x0c0abceau,0x0c0abd2cu,0x0c0abd2eu,0x0c0abd30u,0x0c0abd32u,
+0x0c0abd34u,0x0c0abd36u,0x0c0abd38u,0x0c0abd3au,0x0c0abd3cu,0x0c0abd3eu,0x0c0abd40u,0x0c0abd42u,0x0c0abd44u,0x0c0abd46u,0x0c0abd48u,0x0c0abd4au,0x0c0abd4cu,0x0c0abd4eu,0x0c0abd50u,0x0c0abd52u,
+0x0c0abd54u,0x0c0abd56u,0x0c0abd58u,0x0c0abd5au,0x0c0abd5cu,0x0c0abd5eu,0x0c0abd60u,0x0c0abd62u,0x0c0abd64u,0x0c0abd66u,0x0c0abd68u,0x0c0abd6au,0x0c0abd6cu,0x0c0abd6eu,0x0c0abd70u,0x0c0abd72u,
+0x0c0abd74u,0x0c0abd76u,0x0c0abd78u,0x0c0abd7au,0x0c0abd7cu,0x0c0abd7eu,0x0c0abd80u,0x0c0abd82u,0x0c0abd84u,0x0c0abd86u,0x0c0abd88u,0x0c0abd8au,0x0c0abd8cu,0x0c0abd8eu,0x0c0abd90u,0x0c0abd92u,
+0x0c0abd94u,0x0c0abd96u,0x0c0abd98u,0x0c0abd9au,0x0c0abd9cu,0x0c0abd9eu,0x0c0abda0u,0x0c0abda2u,0x0c0abda4u,0x0c0abda6u,0x0c0abda8u,0x0c0abdaau,0x0c0abdacu,0x0c0abdaeu,0x0c0abdb0u,0x0c0abdb2u,
+0x0c0abdb4u,0x0c0abdb6u,0x0c0abdb8u,0x0c0abdbau,0x0c0abdbcu,0x0c0abdbeu,0x0c0abdc0u,0x0c0abdc2u,0x0c0b1470u,0x0c0b1472u,0x0c0b1474u,0x0c0b1476u,0x0c0b1478u,0x0c0b147au,0x0c0b147cu,0x0c0b147eu,
+0x0c0b1480u,0x0c0b1482u,0x0c0b1484u,0x0c0b1486u,0x0c0b1488u,0x0c0b148au,0x0c0b148cu,0x0c0b148eu,0x0c0b1490u,0x0c0b1492u,0x0c0b1494u,0x0c0b1496u,0x0c0b1498u,0x0c0b149au,0x0c0b149cu,0x0c0b149eu,
+0x0c0b14a0u,0x0c0b14a2u,0x0c0b14a4u,0x0c0b14a6u,0x0c0b14a8u,0x0c0b14aau,0x0c0b14acu,0x0c0b14aeu,0x0c0b14b0u,0x0c0b14b2u,0x0c0b14b4u,0x0c0b14b6u,0x0c0b14b8u,0x0c0b14bau,0x0c0b14bcu,0x0c0b14beu,
+0x0c0b14c0u,0x0c0b14c2u,0x0c0b14c4u,0x0c0b14c6u,0x0c0b14c8u,0x0c0b14cau,0x0c0b14ccu,0x0c0b14ceu,0x0c0b14d0u,0x0c0b14d2u,0x0c0b14d4u,0x0c0b14d6u,0x0c0b14d8u,0x0c0b14dau,0x0c0b14dcu,0x0c0b14deu,
+0x0c0b14e0u,0x0c0b14e2u,0x0c0b14e4u,0x0c0b14e6u,0x0c0b14e8u,0x0c0b14eau,0x0c0b14ecu,0x0c0b14eeu,0x0c0b14f0u,0x0c0b14f2u,0x0c0b14f4u,0x0c0b14f6u,0x0c0b14f8u,0x0c0b14fau,0x0c0b14fcu,0x0c0b14feu,
+0x0c0b1500u,0x0c0b1502u,0x0c0b1504u,0x0c0b1506u,0x0c0b1508u,0x0c0b150au,0x0c0b150cu,0x0c0b150eu,0x0c0b1510u,0x0c0b1512u,0x0c0b1514u,0x0c0b1516u,0x0c0b1518u,0x0c0b151au,0x0c0b151cu,0x0c0b151eu,
+0x0c0c0218u,0x0c0c021au,0x0c0c021cu,0x0c0c021eu,0x0c0c0220u,0x0c0c0222u,0x0c0c0224u,0x0c0c0226u,0x0c0c0228u,0x0c0c022au,0x0c0c022cu,0x0c0c022eu,0x0c0c0230u,0x0c0c0232u,0x0c0c0234u,0x0c0c0236u,
+0x0c0c0238u,0x0c0c023au,0x0c0c023cu,0x0c0c023eu,0x0c0c0240u,0x0c0c0242u,0x0c0c0244u,0x0c0c0246u,0x0c0c0248u,0x0c0c024au,0x0c0c024cu,0x0c0c024eu,0x0c0c0250u,0x0c0c0252u,0x0c0c0254u,0x0c0c0256u,
+0x0c0c0258u,0x0c0c025au,0x0c0c025cu,0x0c0c025eu,0x0c0c0260u,0x0c0c0262u,0x0c0c0264u,0x0c0c0266u,0x0c0c0268u,0x0c0c026au,0x0c0c026cu,0x0c0c026eu,0x0c0c0270u,0x0c0c0272u,0x0c0c0274u,0x0c0c0276u,
+0x0c0c0278u,0x0c0c027au,0x0c0c027cu,0x0c0c027eu,0x0c0c0280u,0x0c0c0282u,0x0c0c0284u,0x0c0c0286u,0x0c0c0288u,0x0c0c028au,0x0c0c028cu,0x0c0c028eu,0x0c0c0290u,0x0c0c0292u,0x0c0c0294u,0x0c0c0296u,
+0x0c0c0298u,0x0c0c029au,0x0c0c029cu,0x0c0c029eu,0x0c0c02a0u,0x0c0c02a2u,0x0c0c02a4u,0x0c0c02a6u,0x0c0c02a8u,0x0c0c02aau,0x0c0c02acu,0x0c0c02aeu,0x0c0c02b0u,0x0c0c02b2u,0x0c0c02b4u,0x0c0c02b6u,
+0x0c0c02b8u,0x0c0c02bau,0x0c0c02bcu,0x0c0c02beu,0x0c0c02c0u,0x0c0c02c2u,0x0c0c02c4u,0x0c0c02c6u,0x0c0c02c8u,0x0c0c02cau,0x0c0c02ccu,0x0c0c02ceu,0x0c0c02d0u,0x0c0c02d2u,0x0c0c02d4u,0x0c0c02d6u,
+0x0c0c02d8u,0x0c0c02dau,0x0c0c02dcu,0x0c0c02deu,0x0c0c02e0u,0x0c0c02e2u,0x0c0c02e4u,0x0c0c02e6u,0x0c0c02e8u,0x0c0c02eau,0x0c0c02ecu,0x0c0c02eeu,0x0c0c02f0u,0x0c0c02f2u,0x0c0c02f4u,0x0c0c02f6u,
+0x0c0c02f8u,0x0c0c02fau,0x0c0c02fcu,0x0c0c02feu,0x0c0c0300u,0x0c0c0302u,0x0c0c0304u,0x0c0c0306u,0x0c0c0308u,0x0c0c030au,0x0c0c030cu,0x0c0c030eu,0x0c0c0310u,0x0c0c0312u,0x0c0c0314u,0x0c0c0316u,
+0x0c0c0318u,0x0c0c031au,0x0c0c031cu,0x0c0c031eu,0x0c0c0320u,0x0c0c0322u,0x0c0c0324u,0x0c0c0326u,0x0c0c0328u,0x0c0c032au,0x0c0c032cu,0x0c0c032eu,0x0c0c0330u,0x0c0c0332u,0x0c0c0334u,0x0c0c0336u,
+0x0c0c0338u,0x0c0c033au,0x0c0c033cu,0x0c0c033eu,0x0c0c0340u,0x0c0c0342u,0x0c0c0344u,0x0c0c0346u,0x0c0c0348u,0x0c0c034au,0x0c0c034cu,0x0c0c034eu,0x0c0c0350u,0x0c0c0352u,0x0c0c0354u,0x0c0c0356u,
+0x0c0c0358u,0x0c0c035au,0x0c0c035cu,0x0c0c035eu,0x0c0c0360u,0x0c0c0362u,0x0c0c0364u,0x0c0c0366u,0x0c0c0368u,0x0c0c036au,0x0c0c036cu,0x0c0c036eu,0x0c0c0370u,0x0c0c0372u,0x0c0c0374u,0x0c0c0376u,
+0x0c0c0378u,0x0c0c037au,0x0c0c037cu,0x0c0c037eu,0x0c0c0380u,0x0c0c0382u,0x0c0c0384u,0x0c0c0386u,0x0c0c0388u,0x0c0c038au,0x0c0c03c4u,0x0c0c03c6u,0x0c0c03c8u,0x0c0c03cau,0x0c0c03ccu,0x0c0c03ceu,
+0x0c0c03d0u,0x0c0c03d2u,0x0c0c03d4u,0x0c0c03d6u,0x0c0c03d8u,0x0c0c03dau,0x0c0c03dcu,0x0c0c03deu,0x0c0c03e0u,0x0c0c03e2u,0x0c0c03e4u,0x0c0c03e6u,0x0c0c03e8u,0x0c0c03eau,0x0c0c03ecu,0x0c0c03eeu,
+0x0c0c03f0u,0x0c0c03f2u,0x0c0c03f4u,0x0c0c03f6u,0x0c0c03f8u,0x0c0c03fau,0x0c0c03fcu,0x0c0c03feu,0x0c0c0400u,0x0c0c0402u,0x0c0c0404u,0x0c0c0406u,0x0c0c0408u,0x0c0c040au,0x0c0c040cu,0x0c0c040eu,
+0x0c0c0410u,0x0c0c0412u,0x0c0c0414u,0x0c0c0416u,0x0c0c0418u,0x0c0c041au,0x0c0c041cu,0x0c0c041eu,0x0c0c0420u,0x0c0c9c62u,0x0c0c9c64u,0x0c0c9c66u,0x0c0c9c68u,0x0c0c9c6au,0x0c0c9c6cu,0x0c0c9c6eu,
+0x0c0c9c70u,0x0c0c9c72u,0x0c0c9c74u,0x0c0c9c76u,0x0c0c9c78u,0x0c0c9c7au,0x0c0c9c7cu,0x0c0c9c7eu,0x0c0c9c80u,0x0c0c9c82u,0x0c0ca0c6u,0x0c0ca0c8u,0x0c0ca0cau,0x0c0ca0ccu,0x0c0ca0ceu,0x0c0ca0d0u,
+0x0c0ca0d2u,0x0c0ca0d4u,0x0c0ca0d6u,0x0c0ca0d8u,0x0c0ca0dau,0x0c0ca0dcu,0x0c0ca0deu,0x0c0ca0e0u,0x0c0ca0e2u,0x0c0ca0e4u,0x0c0ca0e6u,0x0c0ca0e8u,0x0c0ca0eau,0x0c0ca0ecu,0x0c0ca0eeu,0x0c0ca0f0u,
+0x0c0ca0f2u,0x0c0ca0f4u,0x0c0ca0f6u,0x0c0ca0f8u,0x0c0ca0fau,0x0c0ca0fcu,0x0c0ca0feu,0x0c0ca100u,0x0c0ca102u,0x0c0ca104u,0x0c0ca106u,0x0c0ca108u,0x0c0ca10au,0x0c0ca10cu,0x0c0ca10eu,0x0c0ca110u,
+0x0c0ca112u,0x0c0ca114u,0x0c0ca116u,0x0c0ca118u,0x0c0ca11au,0x0c0ca11cu,0x0c0ca11eu,0x0c0ca120u,0x0c0ca122u,0x0c0ca124u,0x0c0ca126u,0x0c0ca128u,0x0c0ca12au,0x0c0ca12cu,0x0c0ca12eu,0x0c0ca130u,
+0x0c0ca132u,0x0c0ca134u,0x0c0ca136u,0x0c0ca138u,0x0c0ca13au,0x0c0ca13cu,0x0c0ca13eu,0x0c0ca140u,0x0c0ca142u,0x0c0ca144u,0x0c0ca146u,0x0c0ca148u,0x0c0ca14au,0x0c0ca14cu,0x0c0ca14eu,0x0c0ca150u,
+0x0c0ca152u,0x0c0ca154u,0x0c0ca156u,0x0c0ca158u,0x0c0ca15au,0x0c0ca15cu,0x0c0ca15eu,0x0c0ca196u,0x0c0ca198u,0x0c0ca19au,0x0c0ca19cu,0x0c0ca19eu,0x0c0ca1a0u,0x0c0ca1a2u,0x0c0ca1a4u,0x0c0ca1a6u,
+0x0c0ca1a8u,0x0c0ca1aau,0x0c0ca1acu,0x0c0ca1aeu,0x0c0ca1b0u,0x0c0ca1b2u,0x0c0ca1b4u,0x0c0ca1b6u,0x0c0ca1b8u,0x0c0ca1bau,0x0c0ca1bcu,0x0c0ca1beu,0x0c0ca1c0u,0x0c0ca1c2u,0x0c0ca1c4u,0x0c0ca1c6u,
+0x0c0ca1c8u,0x0c0ca1cau,0x0c0ca1ccu,0x0c0ca1ceu,0x0c0ca1d0u,0x0c0ca1d2u,0x0c0ca1d4u,0x0c0ca1d6u,0x0c0ca1d8u,0x0c0ca1dau,0x0c0ca1dcu,0x0c0ca1deu,0x0c0ca1e0u,0x0c0ca1e2u,0x0c0ca1e4u,0x0c0ca1e6u,
+0x0c0ca1e8u,0x0c0ca1eau,0x0c0ca1ecu,0x0c0ca1eeu,0x0c0ca1f0u,0x0c0ca1f2u,0x0c0ca1f4u,0x0c0ca1f6u,0x0c0ca1f8u,0x0c0ca1fau,0x0c0ca1fcu,0x0c0ca1feu,0x0c0ca200u,0x0c0ca202u,0x0c0ca204u,0x0c0ca206u,
+0x0c0ca208u,0x0c0ca20au,0x0c0ca20cu,0x0c0ca20eu,0x0c0ca210u,0x0c0ca212u,0x0c0ca214u,0x0c0ca216u,0x0c0ca218u,0x0c0ca21au,0x0c0ca21cu,0x0c0ca21eu,0x0c0ca220u,0x0c0ca222u,0x0c0ca224u,0x0c0ca226u,
+0x0c0ca228u,0x0c0ca22au,0x0c0ca22cu,0x0c0ca22eu,0x0c0ca326u,0x0c0ca328u,
 };
 int vf3_advance_worker_adapter_contains(uint32_t pc) {
 pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(owned_pcs)/sizeof(owned_pcs[0]);

@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--watch', type=Path, required=True)
+    ap.add_argument('--observe-watch', type=Path,
+                    help='also observe these nested entries without probing them directly')
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--start', type=int, default=0)
     ap.add_argument('--limit', type=int, default=1000)
@@ -52,12 +54,18 @@ def main():
             continue
         watch, patch = directory / 'watch.txt', directory / 'entry.patch'
         watch.write_text(''.join(f'pc 0x{root:08x}\n' for root in group))
+        probe_watch = directory / 'probe_watch.txt'
+        probe_watch.write_text(watch.read_text())
+        if a.observe_watch:
+            from campaign_io import read_watch, write_watch
+            write_watch(watch, set(group) | read_watch(a.observe_watch),
+                        'Original prologue probes and observed nested entries.')
         if a.asset_fixtures:
             from asset_probe_plan import generate as generate_assets
-            generate_assets(watch, patch, a.trigger, a.variants,
+            generate_assets(probe_watch, patch, a.trigger, a.variants,
                             base=0x0c400000 + a.relocation, holdout=a.holdout_inputs)
         else:
-            generate(watch, patch, a.trigger, a.variants, relocation=a.relocation,
+            generate(probe_watch, patch, a.trigger, a.variants, relocation=a.relocation,
                      fpscr=0x40001, bounded_arguments=True, floating_arguments=True,
                      alternate_fields=True, holdout_inputs=a.holdout_inputs,
                      global_fields=a.global_fields, scalar_fields=a.scalar_fields,
@@ -65,8 +73,10 @@ def main():
                      expanded_inputs=a.expanded_inputs, preserve_fields=a.preserve_fields)
         command = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
-                   str(patch), '--capsule', '--probe-debug', '--probe-only',
+                   str(patch), '--capsule', '--probe-debug',
                    '--max-samples', str(a.variants), '--timeout', str(a.timeout)]
+        if not a.observe_watch:
+            command.append('--probe-only')
         for state in a.states.split(','):
             command += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as output:

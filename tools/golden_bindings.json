@@ -658,6 +658,97 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c037ffe"
   },
+  "advance-leaf-next:0x8c0380e8": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c0380e8.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0380e8"
+  },
+  "advance-leaf-next:0x8c038158": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c038158.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038158"
+  },
+  "advance-leaf-next:0x8c038192": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c038192.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038192"
+  },
+  "advance-leaf-next:0x8c03a160": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a160.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a160"
+  },
+  "advance-leaf-next:0x8c03a1ba": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a1ba.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a1ba"
+  },
+  "advance-leaf-next:0x8c03a6a4": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a6a4.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a6a4"
+  },
+  "advance-leaf-next:0x8c03a772": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a772.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a772"
+  },
+  "advance-leaf-next:0x8c03a7c0": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a7c0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a7c0"
+  },
+  "advance-leaf-next:0x8c03a9fc": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03a9fc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03a9fc"
+  },
+  "advance-leaf-next:0x8c03ce38": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03ce38.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ce38"
+  },
+  "advance-leaf-next:0x8c03d2b0": {
+    "golden": "extract/analysis/advance_leaf_next_cases/f_8c03d2b0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03d2b0"
+  },
+  "advance-leaf-recovery:0x8c03e000": {
+    "golden": "extract/analysis/advance_leaf_recovery_cases/f_8c03e000.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh isolated captures replace a rejected short grouped run; full-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03e000"
+  },
+  "advance-leaf-recovery:0x8c03fff0": {
+    "golden": "extract/analysis/advance_leaf_recovery_cases/f_8c03fff0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh isolated captures replace a rejected short grouped run; full-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03fff0"
+  },
   "advance-leaf:0x8c037d9e": {
     "golden": "extract/analysis/advance_leaf_dev/advance_leaf_dev_8c0108ea_8c0380a8/f_8c037d9e.cases",
     "port": "src/fight/advance_worker_adapters.c",
@@ -825,6 +916,188 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0ca0c6"
+  },
+  "advance_grid:0x8c072162": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072162.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072162"
+  },
+  "advance_grid:0x8c07235c": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07235c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07235c"
+  },
+  "advance_grid:0x8c07237e": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07237e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07237e"
+  },
+  "advance_grid:0x8c07239e": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07239e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07239e"
+  },
+  "advance_grid:0x8c07242a": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07242a.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07242a"
+  },
+  "advance_grid:0x8c072446": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072446.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072446"
+  },
+  "advance_grid:0x8c07246c": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07246c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07246c"
+  },
+  "advance_grid:0x8c072494": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072494.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072494"
+  },
+  "advance_grid:0x8c0724dc": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c0724dc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0724dc"
+  },
+  "advance_grid:0x8c0724fe": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c0724fe.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0724fe"
+  },
+  "advance_grid:0x8c07251e": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07251e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07251e"
+  },
+  "advance_grid:0x8c07253e": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07253e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07253e"
+  },
+  "advance_grid:0x8c0725ca": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c0725ca.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0725ca"
+  },
+  "advance_grid:0x8c0725e6": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c0725e6.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0725e6"
+  },
+  "advance_grid:0x8c07260c": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07260c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07260c"
+  },
+  "advance_grid:0x8c072634": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072634.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072634"
+  },
+  "advance_grid:0x8c07267c": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07267c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07267c"
+  },
+  "advance_grid:0x8c07269e": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07269e.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07269e"
+  },
+  "advance_grid:0x8c0726be": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c0726be.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0726be"
+  },
+  "advance_grid:0x8c07274a": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07274a.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07274a"
+  },
+  "advance_grid:0x8c072766": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072766.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072766"
+  },
+  "advance_grid:0x8c07278c": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c07278c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07278c"
+  },
+  "advance_grid:0x8c072902": {
+    "golden": "extract/analysis/advance_grid_large_dev/f_8c072902.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original 072076 prologue initializes nested frozen vector-grid blocks; finite bounded input contract and relocated independent holdout, zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c072902"
+  },
+  "advance_ranked_second:0x8c0591a0": {
+    "golden": "extract/analysis/advance_ranked_second_cases/f_8c0591a0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Ranked leaf captures across states 21/27 with independent relocated holdout acceptance across 23/29; complete state matches and zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0591a0"
+  },
+  "advance_ranked_second:0x8c088222": {
+    "golden": "extract/analysis/advance_ranked_second_cases/f_8c088222.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Ranked leaf captures across states 21/27 with independent relocated holdout acceptance across 23/29; complete state matches and zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c088222"
+  },
+  "advance_ranked_second:0x8c08b73c": {
+    "golden": "extract/analysis/advance_ranked_second_cases/f_8c08b73c.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Ranked leaf captures across states 21/27 with independent relocated holdout acceptance across 23/29; complete state matches and zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08b73c"
   },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",

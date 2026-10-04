@@ -29,11 +29,12 @@ def read_watch(path):
     return entries
 
 
-def write_watch(path, entries, comment):
+def write_watch(path, entries, comment, preserve_order=False):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
+    ordered = list(dict.fromkeys(entries)) if preserve_order else sorted(set(entries))
     path.write_text('# ' + comment + '\n' + ''.join(
-        f'pc 0x{entry:08x}\n' for entry in sorted(set(entries))), encoding='utf-8')
+        f'pc 0x{entry:08x}\n' for entry in ordered), encoding='utf-8')
 
 
 if __name__ == '__main__':

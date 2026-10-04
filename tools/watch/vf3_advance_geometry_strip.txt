@@ -1,0 +1,8 @@
+# Frozen entries reached through original prologues; capture and replay required.
+pc 0x8c071140
+pc 0x8c0711b0
+pc 0x8c07128e
+pc 0x8c0713ce
+pc 0x8c0713f0
+pc 0x8c071428
+pc 0x8c071506

@@ -83,7 +83,13 @@ def main():
     parser.add_argument('--failed-watch', type=Path,
                         help='export roots from failed or short capture batches for isolated retry')
     args = parser.parse_args()
-    rows = report(discover(args.inputs), args.include_credited, read_watch(args.watch) if args.watch else None)
+    try:
+        directories = discover(args.inputs)
+    except ValueError:
+        if not args.failed_watch:
+            raise
+        directories = []
+    rows = report(directories, args.include_credited, read_watch(args.watch) if args.watch else None)
     if args.failed_watch:
         failed_roots = set()
         for directory in discover(args.inputs, 'batch_manifest.json'):

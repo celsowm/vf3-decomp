@@ -19,8 +19,13 @@ def main():
     parser.add_argument('--minimum-size', type=int, default=16)
     parser.add_argument('--exclude-watch', type=Path, action='append', default=[],
                         help='omit roots already attempted; repeatable')
+    parser.add_argument('--exclude-progress', type=Path, action='append', default=[],
+                        help='omit entries attempted in isolate_planned progress JSON; repeatable')
     args = parser.parse_args()
     attempted = {entry for watch in args.exclude_watch for entry in read_watch(watch)}
+    attempted.update(int(entry, 16) for path in args.exclude_progress
+                     for row in json.loads(path.read_text())
+                     for entry in row.get('entries', [row['entry']]))
     credited = {int(r['entry'], 16) for r in csv.DictReader(
         (ROOT / 'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
     baseline = json.loads(args.baseline.read_text())
@@ -50,7 +55,9 @@ def main():
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(dict(advisory=True, baseline_bytes=before,
         potential_unique_bytes=potential, candidates=selected), indent=1) + '\n')
-    write_watch(args.watch, [int(r['entry'], 16) for r in selected], 'Unported bodies ranked by closure and marginal C bytes; no credit.')
+    write_watch(args.watch, [int(r['entry'], 16) for r in selected],
+                'Unported bodies ranked by closure and marginal C bytes; no credit.',
+                preserve_order=True)
     print(f'{len(selected)}/{len(candidates)} candidates; potential union +{potential} B')
     for row in selected[:25]:
         print(f"{row['entry']} +{row['marginal_bytes']} B dyn={row['dynamic_calls']} campaign={row['campaign']}")
