@@ -80,8 +80,18 @@ def main():
                         help='write complete-body varied roots blocked only on capture completion')
     parser.add_argument('--merge-ready', type=Path,
                         help='merge only corpora with eligible roots into this directory')
+    parser.add_argument('--failed-watch', type=Path,
+                        help='export roots from failed or short capture batches for isolated retry')
     args = parser.parse_args()
     rows = report(discover(args.inputs), args.include_credited, read_watch(args.watch) if args.watch else None)
+    if args.failed_watch:
+        failed_roots = set()
+        for directory in discover(args.inputs, 'batch_manifest.json'):
+            batch = json.loads((directory / 'batch_manifest.json').read_text())
+            if any(run['returncode'] or not run.get('frame_complete', False) for run in batch['runs']):
+                failed_roots.update(read_watch(batch['watch']))
+        write_watch(args.failed_watch, failed_roots,
+                    'Failed or short batches; retry each root in a fresh state; no credit.')
     if args.ready_watch:
         write_watch(args.ready_watch, {int(row['entry'], 16) for row in rows if not row['reasons']},
                     'Capture gates passed in at least one corpus; strict replay and acceptance required.')

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify every matrix cohort entry once, recording successes and failures."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -15,6 +16,13 @@ def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None,timeout=1
     env["VF3_STRICT_REPLAY"]="1"
     rows={}
     executable=Path(executable) if executable else ROOT/'build/vf3matrixfamily.exe'
+    executable=executable.resolve()
+    with executable.open('rb') as stream:
+        executable_hash=hashlib.file_digest(stream,'sha256').hexdigest()
+    try:
+        executable_name=executable.relative_to(ROOT).as_posix()
+    except ValueError:
+        executable_name=str(executable)
     counts=json.loads((directory/'capsule_manifest.json').read_text())['entries']
     selected={int(line.split()[1],16)|0x80000000 for line in Path(watch).read_text().splitlines()
               if line.startswith('pc ')} if watch else None
@@ -29,7 +37,7 @@ def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None,timeout=1
         entry=int(path.stem.split('_')[1],16)
         start=time.monotonic()
         p=subprocess.run([str(executable.resolve()),hex(entry),str(path.resolve())],cwd=ROOT,env=env,capture_output=True,text=True,timeout=timeout)
-        return hex(entry),{"pass":p.returncode==0,"seconds":round(time.monotonic()-start,3),"stdout":p.stdout.strip(),"stderr":p.stderr.strip(),"cases":str(path)}
+        return hex(entry),{"pass":p.returncode==0,"seconds":round(time.monotonic()-start,3),"stdout":p.stdout.strip(),"stderr":p.stderr.strip(),"cases":str(path),"executable":executable_name,"executable_sha256":executable_hash}
     with ThreadPoolExecutor(max_workers=jobs) as executor:
         futures=[executor.submit(replay,path) for path in paths]
         for future in as_completed(futures):

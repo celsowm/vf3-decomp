@@ -95,6 +95,13 @@ and `promote_tenpp_batch.py` for frozen promotion evidence. The shared
 `campaign_io.py` provides discovery and watch I/O for future tools. No new
 dependencies are required.
 
+`build_snapshot.py --out build/NAME.exe` builds the core and links a separate
+matrix replay executable with the configured GCC/Clang compiler. It refuses
+overwrite and leaves live regression executables in place. New replay reports
+retain the executable path and SHA-256; hash audits verify that binary too.
+Set `VF3_REPLAY_OOB=1` to print the first uncaptured RAM access in a failing
+case. Successful replay behavior is unchanged.
+
 ## Start another coverage campaign
 
 Refresh `decomp_stats.py`, then freeze a separate baseline with

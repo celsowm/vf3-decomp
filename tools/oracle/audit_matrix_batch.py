@@ -31,6 +31,10 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
         for name, proof in evidence['proofs'].items():
             report = json.loads((ROOT/'extract/analysis'/name).read_text())
             assert report[entry] == proof, f'Stale proof: {name} {entry}'
+            if check_hashes and proof.get('executable_sha256'):
+                with (ROOT / proof['executable']).open('rb') as stream:
+                    digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+                assert digest == proof['executable_sha256'], f'Changed proof executable: {name}'
             match = re.fullmatch(r'matrix_family: (\d+)/(\d+) cases match \(0 skipped\) - PASS', proof['stdout'])
             assert proof['pass'] and match and int(match[1]) == int(match[2]) > 0
         chosen = next(p for p in evidence['proofs'].values() if p['cases'].replace('\\','/') == binding['golden'])

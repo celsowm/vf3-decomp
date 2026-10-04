@@ -25,6 +25,8 @@ int vf3_advance_worker_adapter_contains(uint32_t);
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define rd vf3_matrix_read
 #define wr vf3_matrix_write
 #define load vf3_matrix_load
@@ -50,7 +52,11 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
         for(int i=0;i<ram->n;++i) if(addr+j>=ram->wins[i].base && addr+j-ram->wins[i].base<ram->wins[i].len) {
             value|=(uint32_t)ram->wins[i].data[addr+j-ram->wins[i].base]<<(8*j); found=1; break;
         }
-        if(!found) ++((vf3_ram_map*)ram)->oob;
+        if(!found) {
+            if(!ram->oob && getenv("VF3_REPLAY_OOB"))
+                fprintf(stderr,"uncaptured read: %08x/%u\n",addr,size);
+            ++((vf3_ram_map*)ram)->oob;
+        }
     }
     return value;
 }
@@ -66,7 +72,11 @@ void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsign
         for(int i=0;i<ram->n;++i) if(addr+j>=ram->wins[i].base && addr+j-ram->wins[i].base<ram->wins[i].len) {
             ram->wins[i].data[addr+j-ram->wins[i].base]=(uint8_t)(value>>(8*j)); found=1; break;
         }
-        if(!found) ++((vf3_ram_map*)ram)->oob;
+        if(!found) {
+            if(!ram->oob && getenv("VF3_REPLAY_OOB"))
+                fprintf(stderr,"uncaptured write: %08x/%u=%08x\n",addr,size,value);
+            ++((vf3_ram_map*)ram)->oob;
+        }
     }
 }
 void vf3_matrix_swap(vf3_matrix_state*s) {
