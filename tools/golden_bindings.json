@@ -5635,6 +5635,111 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0bec2e"
   },
+  "tenpp-typed:0x8c038eae": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c038eae.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038eae"
+  },
+  "tenpp-typed:0x8c038f4e": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c038f4e.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038f4e"
+  },
+  "tenpp-typed:0x8c03bb40": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03bb40.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03bb40"
+  },
+  "tenpp-typed:0x8c03bfb6": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03bfb6.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03bfb6"
+  },
+  "tenpp-typed:0x8c03c252": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03c252.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03c252"
+  },
+  "tenpp-typed:0x8c03c324": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03c324.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03c324"
+  },
+  "tenpp-typed:0x8c03d0e8": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03d0e8.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03d0e8"
+  },
+  "tenpp-typed:0x8c03d1a8": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c03d1a8.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03d1a8"
+  },
+  "tenpp-typed:0x8c0645fa": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c0645fa.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0645fa"
+  },
+  "tenpp-typed:0x8c064930": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c064930.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c064930"
+  },
+  "tenpp-typed:0x8c0657fc": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c0657fc.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0657fc"
+  },
+  "tenpp-typed:0x8c065932": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c065932.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c065932"
+  },
+  "tenpp-typed:0x8c088370": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c088370.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c088370"
+  },
+  "tenpp-typed:0x8c08f3d8": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c08f3d8.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08f3d8"
+  },
+  "tenpp-typed:0x8c0a7302": {
+    "golden": "extract/analysis/tenpp_arch_second_cases/f_8c0a7302.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh per-root states 21 and 27; synchronized FPSCR; independent relocated descriptors and distinct finite floating point acceptance inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a7302"
+  },
   "tenpp-vertices-more:0x8c065c4c": {
     "golden": "extract/analysis/tenpp_pack_remaining_typed_cases/f_8c065c4c.cases",
     "port": "src/fight/tenpp_complex_adapters.c",

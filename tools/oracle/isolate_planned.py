@@ -20,6 +20,7 @@ def main():
     ap.add_argument('--states', default='21,27')
     ap.add_argument('--trigger', type=lambda x: int(x, 16), default=0x8c0432e2)
     ap.add_argument('--relocation', type=lambda x: int(x, 16), default=0)
+    ap.add_argument('--holdout-inputs', action='store_true')
     a = ap.parse_args()
     roots = [int(line.split()[1], 16) for line in a.watch.read_text().splitlines()
              if line.startswith('pc ')][a.start:a.start + a.limit]
@@ -37,7 +38,7 @@ def main():
         watch.write_text(f'pc 0x{entry:08x}\n')
         generate(watch, patch, a.trigger, a.variants, relocation=a.relocation,
                  fpscr=0x40001, bounded_arguments=True, floating_arguments=True,
-                 alternate_fields=True)
+                 alternate_fields=True, holdout_inputs=a.holdout_inputs)
         command = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
                    str(patch), '--capsule', '--probe-debug', '--probe-only',

@@ -6,7 +6,7 @@ from pointer_seeds import fixture
 
 def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalars=(),
              float_vectors=False, fpscr=None, bounded_arguments=False,
-             floating_arguments=False, alternate_fields=False):
+             floating_arguments=False, alternate_fields=False, holdout_inputs=False):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
@@ -21,6 +21,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
     lines = ['# Typed original-image inputs; expected results come only from execution.',
              f'entry 0x{trigger:08x} 0x{roots[0]:08x}']
     first = True
+    palette = (-3.0, -0.75, 0.25, 0.75, 1.5, 3.0, 8.0, 24.0) if holdout_inputs else (-2.0, -1.0, 0.0, 0.5, 1.0, 2.0, 10.0, 50.0)
     for variant in range(variants):
         for entry in roots:
             if not first:
@@ -35,7 +36,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             words = dict(words)
             if float_vectors or field_mode == 'vectors':
                 import struct
-                values = (-2.0, -1.0, 0.0, 0.5, 1.0, 2.0, 10.0, 50.0)
+                values = palette
                 pages = {value for value in (*words.values(), *registers.values())
                          if 0x0c400000 <= value < 0x0c480000 and value % 4096 == 0}
                 for page in pages:
@@ -46,11 +47,10 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{relocated(value):08x}'
                       for reg, value in sorted(registers.items())]
             if bounded_arguments:
-                lines += [f'reg 0x{trigger:08x} r{reg} 0x{(variant + reg * 13) & (7 if reg < 8 else 511):08x}'
+                lines += [f'reg 0x{trigger:08x} r{reg} 0x{(variant + reg * 13 + (256 if holdout_inputs else 0)) & (7 if reg < 8 else 511):08x}'
                           for reg in range(15) if reg not in registers]
             if floating_arguments:
                 import struct
-                palette = (-2.0, -1.0, 0.0, 0.5, 1.0, 2.0, 10.0, 50.0)
                 lines += [f'reg 0x{trigger:08x} {bank}{reg} 0x' +
                           f'{struct.unpack("<I", struct.pack("<f", palette[(variant + reg) & 7]))[0]:08x}'
                           for bank in ('fr', 'xf') for reg in range(16)]
