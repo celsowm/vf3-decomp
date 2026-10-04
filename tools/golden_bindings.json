@@ -483,6 +483,27 @@
     "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
     "test": "build/vf3cc148.exe"
   },
+  "advance-helpers:0x8c06c398": {
+    "golden": "extract/analysis/advance_nested_clean_dev/f_8c06c398.cases",
+    "port": "src/fight/tenpp_recovery_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh nested observations with rollback descendants rejected and coherent cache snapshots; states 21/27 development, independent relocated holdout states 23/29 acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c398"
+  },
+  "advance-helpers:0x8c06c5c8": {
+    "golden": "extract/analysis/advance_nested_clean_dev/f_8c06c5c8.cases",
+    "port": "src/fight/motion_adapters_1.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh nested observations with rollback descendants rejected and coherent cache snapshots; states 21/27 development, independent relocated holdout states 23/29 acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c5c8"
+  },
+  "advance-helpers:0x8c08583c": {
+    "golden": "extract/analysis/advance_nested_clean_dev/f_8c08583c.cases",
+    "port": "src/fight/tenpp_planned_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Fresh nested observations with rollback descendants rejected and coherent cache snapshots; states 21/27 development, independent relocated holdout states 23/29 acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08583c"
+  },
   "advance-initializers:0x8c037e6e": {
     "golden": "extract/analysis/advance_initializers_contract_cases/f_8c037e6e.cases",
     "port": "src/fight/advance_closure_adapters.c",
@@ -503,6 +524,48 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original descriptor initializer prologue contracts; independent states 23/29, input palette and relocated memory; immutable build/vf3matrixfamily_advance_initializers.exe",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c037ffe"
+  },
+  "advance-workers:0x8c03dad0": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03dad0"
+  },
+  "advance-workers:0x8c03ea22": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c03ea22.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ea22"
+  },
+  "advance-workers:0x8c06c6d6": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c06c6d6.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c6d6"
+  },
+  "advance-workers:0x8c085666": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c085666.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c085666"
+  },
+  "advance-workers:0x8c0abcdc": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c0abcdc.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0abcdc"
+  },
+  "advance-workers:0x8c0ca0c6": {
+    "golden": "extract/analysis/advance_closure_complete_cases/f_8c0ca0c6.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Seven descriptor and scene workers; complete development across states 21/27, independent relocated holdout acceptance across states 23/29, strict zero-skip complete-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ca0c6"
   },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",

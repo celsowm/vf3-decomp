@@ -19,6 +19,8 @@ int vf3_tenpp_expanded_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_expanded_adapter_contains(uint32_t);
 int vf3_advance_closure_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_closure_adapter_contains(uint32_t);
+int vf3_advance_worker_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_worker_adapter_contains(uint32_t);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -203,6 +205,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     default:
         /* Ownership is selected before execution; failed calls never retry. */
         if(vf3_advance_closure_adapter_contains(entry)) return vf3_advance_closure_adapter(entry,s,ram);
+        if(vf3_advance_worker_adapter_contains(entry)) return vf3_advance_worker_adapter(entry,s,ram);
         if(vf3_tenpp_large_adapter_contains(entry)) return vf3_tenpp_large_adapter(entry,s,ram);
         if(vf3_tenpp_planned_adapter_contains(entry)) return vf3_tenpp_planned_adapter(entry,s,ram);
         if(vf3_tenpp_expanded_adapter_contains(entry)) return vf3_tenpp_expanded_adapter(entry,s,ram);

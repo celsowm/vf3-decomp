@@ -1,8 +1,8 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-The first accepted batch adds **488 bytes**, reaching **206,550 / 434,656
-(47.5203%)**. The remaining shortfall is **42,978 bytes**.
+Three accepted batches add **1,988 bytes**, reaching **208,050 / 434,656
+(47.8655%)**. The remaining shortfall is **41,478 bytes**.
 
 ## Descriptor initializers
 
@@ -29,11 +29,38 @@ regression log is `extract/analysis/advance_initializers_regression.log`.
 
 ## Capture triage
 
+## Scene workers and nested helpers
+
+Six new worker bodies add 1,278 unique bytes: `0x8c03dad0`, `0x8c03ea22`,
+`0x8c06c6d6`, `0x8c085666`, `0x8c0abcdc`, and `0x8c0ca0c6`.
+Development passes 2,669 strict cases. Independent acceptance uses states
+23/29, relocated fixtures and holdout inputs. The seventh implemented worker,
+`0x8c04baf6`, passes replay but remains uncredited because its acceptance
+capture includes an incomplete invocation.
+
+The worker source is `src/fight/advance_worker_adapters.c`; the immutable proof
+executable is `build/vf3matrixfamily_advance_workers.exe`. Three existing shared
+helpers receive fresh whole-body proof and add another 222 bytes:
+`0x8c06c398`, `0x8c06c5c8`, and `0x8c08583c`. Their development replay passes
+1,485 cases and acceptance passes 1,376 cases, with zero skips. Ownership is
+recorded per source in `tools/oracle/advance_helper_ports.json`.
+
+Nested capture exposed an oracle rollback bug, fixed in `cb36f29`. See
+`docs/re/nested_capture_boundary.md`. Only fresh corrected child observations
+support the helper milestone. The campaign union and all three manifests pass
+the artifact-hash audit. Repository regression is still running; its retained
+log is `extract/analysis/advance_workers_regression.log`.
+
+## Further queues
+
 The first broad queue comprises 150 roots with 40,984 potential marginal bytes;
 potential is not credit. Captures are serial and resumable with
 `isolate_planned.py`; a `STOP` file pauses between roots for acceptance captures.
 The next queue contains 150 roots with one unresolved dynamic call site each,
 representing another 29,384 potential bytes before overlap and proof.
+The next 500 previously unattempted zero-dynamic-call roots represent 32,840
+potential unique bytes. They include smaller SDK-attributed routines needing
+actual C invocation proof; attribution is not counted as C coverage.
 
 `0x8c04a4c4` reaches 500/506 body bytes, but its entry path sets R11=1 before
 the missing R11=0 exit. Keep it uncredited while the frozen boundary is reviewed.
