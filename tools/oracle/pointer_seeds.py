@@ -334,6 +334,12 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
         # 03b620. Its descriptor constructor takes a writable r4 buffer.
         address(('arg', 4))
         assignments[6] = 3  # true prologue at 03b872
+    if entry in (0x8c037e6e, 0x8c037f2e, 0x8c037ffe):
+        # Frozen initializer seeds follow their true prologues by 14 bytes.
+        # Those prologues establish the +64 indexed store, zero-valued
+        # fields and the eight-entry selector before saving PR.
+        assignments.update({0: 64, 3: 8, 4: 0})
+        words[assignments[14]] = 0x03f3ffff  # original prologue header store
     if entry in (0x8c080930, 0x8c07d222) and global_fields:
         # Original reads count +0x413 and two five-byte character lists
         # at +0x415/+0x41a through a loop index. Static operand inference

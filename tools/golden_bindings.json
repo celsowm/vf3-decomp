@@ -483,6 +483,27 @@
     "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
     "test": "build/vf3cc148.exe"
   },
+  "advance-initializers:0x8c037e6e": {
+    "golden": "extract/analysis/advance_initializers_contract_cases/f_8c037e6e.cases",
+    "port": "src/fight/advance_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original descriptor initializer prologue contracts; independent states 23/29, input palette and relocated memory; immutable build/vf3matrixfamily_advance_initializers.exe",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c037e6e"
+  },
+  "advance-initializers:0x8c037f2e": {
+    "golden": "extract/analysis/advance_initializers_contract_cases/f_8c037f2e.cases",
+    "port": "src/fight/advance_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original descriptor initializer prologue contracts; independent states 23/29, input palette and relocated memory; immutable build/vf3matrixfamily_advance_initializers.exe",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c037f2e"
+  },
+  "advance-initializers:0x8c037ffe": {
+    "golden": "extract/analysis/advance_initializers_contract_cases/f_8c037ffe.cases",
+    "port": "src/fight/advance_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original descriptor initializer prologue contracts; independent states 23/29, input palette and relocated memory; immutable build/vf3matrixfamily_advance_initializers.exe",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c037ffe"
+  },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",
     "port": "src/fight/device_adapters.c",

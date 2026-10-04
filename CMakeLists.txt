@@ -98,6 +98,7 @@ add_library(vf3core STATIC
     src/fight/tenpp_asset_adapters.c
     src/fight/tenpp_complex_adapters.c
     src/fight/tenpp_expanded_adapters.c
+    src/fight/advance_closure_adapters.c
     src/fight/tenpp_leaf_adapters.c
     src/fight/tenpp_leaf_adapters_0.c
     src/fight/tenpp_leaf_adapters_1.c
@@ -191,6 +192,7 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/tenpp_asset_adapters.c
       src/fight/tenpp_complex_adapters.c
       src/fight/tenpp_expanded_adapters.c
+      src/fight/advance_closure_adapters.c
       src/fight/tenpp_leaf_adapters.c
       src/fight/tenpp_leaf_adapters_0.c
       src/fight/tenpp_leaf_adapters_1.c

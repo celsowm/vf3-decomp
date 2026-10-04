@@ -1,0 +1,4 @@
+# Original descriptor initializer fragments with their established prologue values.
+pc 0x8c037e6e
+pc 0x8c037f2e
+pc 0x8c037ffe
