@@ -14729,3 +14729,14 @@ return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;
 #undef truncate_float
 #undef divide_step
 #undef owned_pcs
+#define as_float vf3_tenpp_recovery_as_float
+#define as_bits vf3_tenpp_recovery_as_bits
+#define truncate_float vf3_tenpp_recovery_truncate_float
+#define divide_step vf3_tenpp_recovery_divide_step
+#define owned_pcs vf3_tenpp_recovery_owned_pcs
+#include "tenpp_recovery_adapters.inc"
+#undef as_float
+#undef as_bits
+#undef truncate_float
+#undef divide_step
+#undef owned_pcs

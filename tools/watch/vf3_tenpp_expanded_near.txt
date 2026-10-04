@@ -1,0 +1,12 @@
+# Partial bodies requiring independent floating arguments and indexed globals.
+pc 0x8c05cc38
+pc 0x8c0698fc
+pc 0x8c07d222
+pc 0x8c08d618
+pc 0x8c08f8de
+pc 0x8c0c0772
+pc 0x8c0c8334
+pc 0x8c04a4c4
+pc 0x8c080930
+pc 0x8c08f13e
+pc 0x8c0c051a

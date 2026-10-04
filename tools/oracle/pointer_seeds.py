@@ -63,6 +63,10 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
         narrow_fields[base] = narrow_fields.get(base, 0) | (1 << ((addr & 3) * 8))
 
     def flag(expr, mask):
+        while expr is not None and expr[0] == 'shift':
+            shift = expr[2]
+            mask = mask >> shift if shift >= 0 else mask << -shift
+            expr = expr[1]
         if expr is None or expr[0] != 'field':
             return
         parent = address(expr[1])
@@ -138,7 +142,26 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
         elif top == 7:
             immediate = (op & 255) - (256 if op & 128 else 0)
             if regs.get(n) is not None:
-                regs[n] = ('add', regs[n], immediate)
+                regs[n] = ('literal', regs[n][1] + immediate) if regs[n][0] == 'literal' else ('add', regs[n], immediate)
+        elif top == 3 and low == 12:
+            left, right = regs.get(n), regs.get(m)
+            if left is not None and right is not None:
+                if left[0] == right[0] == 'literal':
+                    regs[n] = ('literal', (left[1] + right[1]) & 0xffffffff)
+                elif right[0] == 'literal':
+                    regs[n] = ('add', left, right[1])
+                elif left[0] == 'literal':
+                    regs[n] = ('add', right, left[1])
+                else:
+                    regs[n] = None
+            else:
+                regs[n] = None
+        elif top == 4 and op & 255 in (0, 1, 8, 9, 0x18, 0x19, 0x28, 0x29):
+            shifts = {0: 1, 1: -1, 8: 2, 9: -2, 0x18: 8, 0x19: -8, 0x28: 16, 0x29: -16}
+            shift = shifts[op & 255]
+            value = regs.get(n)
+            if value is not None:
+                regs[n] = ('literal', ((value[1] << shift) if shift > 0 else ((value[1] & 0xffffffff) >> -shift)) & 0xffffffff) if value[0] == 'literal' else ('shift', value, shift)
         elif top == 6 and low == 3:
             regs[n] = regs.get(m)
         elif top == 8 and n in (0, 1, 4, 5):
@@ -157,8 +180,14 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
                 assignments[0] = 0
             index = regs.get(0)
             global_base = index is not None and index[0] == 'literal' and 0x0c000000 <= index[1] < 0x10000000
-            base = None if global_base else regs.get(m if low >= 12 else n)
-            offset = index[1] if index is not None and index[0] == 'literal' and not global_base else 0
+            operand = regs.get(m if low >= 12 else n)
+            if global_base and operand is not None and operand[0] == 'literal':
+                # Indexed operands add both registers. The address literal may
+                # be in r0 and the small displacement in the other register.
+                base, offset = index, operand[1]
+            else:
+                base = None if global_base else operand
+                offset = index[1] if index is not None and index[0] == 'literal' and not global_base else 0
             if low >= 12:
                 regs[n] = load(base, offset) if low == 14 else None
                 if low != 14:
@@ -193,6 +222,8 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
         elif op & 0xf0ff in (0x400b, 0x402b):
             callback(regs.get(n))
         elif top == 2 and low == 8:
+            if regs.get(n) == regs.get(m) and regs.get(n) is not None and regs[n][0] == 'shift':
+                flag(regs[n], 0xffffffff)
             flags.update(expr for expr in (regs.get(n), regs.get(m))
                          if expr is not None and expr[0] == 'field')
             for source, other in ((regs.get(n), regs.get(m)), (regs.get(m), regs.get(n))):

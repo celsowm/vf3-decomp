@@ -29,6 +29,6 @@ expected results. Partial bodies and incomplete captures receive no credit.
 The larger C module is included by the existing adapter translation unit.
 Previously owned roots are preserved when regenerating shared modules.
 
-A full regression runs against an immutable executable snapshot so further
+The full regression passes against an immutable executable snapshot so further
 capture and compilation cannot replace its tested executable. Local output:
 `extract/analysis/tenpp_store_regression.log`.

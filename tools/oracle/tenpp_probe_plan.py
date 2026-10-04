@@ -8,7 +8,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              float_vectors=False, fpscr=None, bounded_arguments=False,
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
              global_fields=False, scalar_fields=False, field_crosses=False,
-             random_fields=False):
+             random_fields=False, expanded_inputs=False):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
@@ -67,7 +67,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 words = dict(baseline)
                 protected = {addr for addr, value in words.items()
                              if 0x0c000000 <= (value & 0x1fffffff) < 0x10000000}
-                integers = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16)
+                integers = tuple(range(32)) if expanded_inputs else (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16)
                 for addr in types['scalars']:
                     if addr in words and addr not in protected:
                         words[addr] = rng.choice(integers)
@@ -101,12 +101,18 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{relocated(value):08x}'
                       for reg, value in sorted(registers.items())]
             if bounded_arguments:
-                lines += [f'reg 0x{trigger:08x} r{reg} 0x{(variant + reg * 13 + (256 if holdout_inputs else 0)) & (7 if reg < 8 else 511):08x}'
-                          for reg in range(15) if reg not in registers]
+                for reg in range(15):
+                    if reg in registers:
+                        continue
+                    if expanded_inputs and random_fields and variant >= 128:
+                        value = rng.randrange(8)
+                    else:
+                        value = (variant + reg * 13 + (256 if holdout_inputs else 0)) & (7 if reg < 8 else 511)
+                    lines.append(f'reg 0x{trigger:08x} r{reg} 0x{value:08x}')
             if floating_arguments:
                 import struct
                 lines += [f'reg 0x{trigger:08x} {bank}{reg} 0x' +
-                          f'{struct.unpack("<I", struct.pack("<f", palette[(variant + reg) & 7]))[0]:08x}'
+                          f'{struct.unpack("<I", struct.pack("<f", rng.choice(palette) if expanded_inputs and random_fields and variant >= 128 else palette[(variant + reg) & 7]))[0]:08x}'
                           for bank in ('fr', 'xf') for reg in range(16)]
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'
