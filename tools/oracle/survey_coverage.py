@@ -15,10 +15,11 @@ def union(spans):
         size+=max(0,stop-max(start,end)); end=max(end,stop)
     return size
 
-def report(batches, out):
+def report(batches, out, plan=None):
     baseline=list(map(tuple,json.loads((ROOT/'extract/analysis/coverage.json').read_text())['ported_spans']))
     done={int(r['entry'],16) for r in csv.DictReader((ROOT/'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
-    candidates={int(r['entry'],16):r for r in csv.DictReader((ROOT/'extract/analysis/port_plan.csv').open()) if r['campaign']!='accounted' and int(r['entry'],16) not in done}
+    candidates={int(r['entry'],16):r for r in csv.DictReader(Path(plan or ROOT/'extract/analysis/port_plan.csv').open())
+                if int(r['entry'],16) not in done and (plan is not None or r['campaign']!='accounted')}
     spans=defaultdict(list)
     for row in csv.DictReader((ROOT/'extract/analysis/function_body_ranges.csv').open()):
         spans[int(row['entry'],16)].append((int(row['start'],16),int(row['end'],16)))
@@ -57,4 +58,5 @@ if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('batches',nargs='+')
     ap.add_argument('--out',required=True)
-    a=ap.parse_args();report(a.batches,a.out)
+    ap.add_argument('--plan',help='refreshed port plan; SDK-attributed bodies remain C candidates')
+    a=ap.parse_args();report(a.batches,a.out,a.plan)

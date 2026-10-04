@@ -12,7 +12,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 from body_cover import body_spans, corpus_pcs, measure
-from campaign_io import discover, read_watch
+from campaign_io import discover, read_watch, write_watch
 
 
 def report(directories, include_credited=False, entries=None):
@@ -74,8 +74,13 @@ def main():
     parser.add_argument('--include-credited', action='store_true')
     parser.add_argument('--limit', type=int, default=40, help='printed rows; JSON retains every row')
     parser.add_argument('--out', type=Path, help='optional complete JSON report')
+    parser.add_argument('--ready-watch', type=Path,
+                        help='write roots passing capture gates; replay and acceptance still required')
     args = parser.parse_args()
     rows = report(discover(args.inputs), args.include_credited, read_watch(args.watch) if args.watch else None)
+    if args.ready_watch:
+        write_watch(args.ready_watch, {int(row['entry'], 16) for row in rows if not row['reasons']},
+                    'Capture gates passed in at least one corpus; strict replay and acceptance required.')
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(dict(advisory=True, entries=rows), indent=1) + '\n')

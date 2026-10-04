@@ -94,3 +94,21 @@ annotated disassembly, `translate_adapters.py` for adapter generation,
 and `promote_tenpp_batch.py` for frozen promotion evidence. The shared
 `campaign_io.py` provides discovery and watch I/O for future tools. No new
 dependencies are required.
+
+## Start another coverage campaign
+
+Refresh `decomp_stats.py`, then freeze a separate baseline with
+`freeze_campaign.py --out tools/oracle/advance_coverage_baseline.json`. The command
+refuses overwrite and checks original artifact hashes and the current ledger
+against the dashboard. `promote_tenpp_batch.py --baseline FILE` selects that
+baseline while preserving its original default.
+
+`campaign_queue.py --plan PLAN.csv --baseline BASELINE.json --out QUEUE.json
+--watch ROOTS.txt` ranks unported bodies by dynamic-call count and marginal
+address-union bytes. `--min-dynamic`, `--max-dynamic`, `--minimum-size` and
+`--limit` bound a cohort. Queue totals are prospective and never grant credit.
+
+`capture_report.py --ready-watch ROOTS.txt` exports entries passing capture
+gates in at least one input corpus. Select compatible corpora when merging:
+other captures of the same entry can still contain incomplete invocations.
+Strict replay and independent acceptance remain required after capture gates.

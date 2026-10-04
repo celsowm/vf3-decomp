@@ -31,6 +31,11 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 active_palette = palette + (-1e-9, 1e-9, -1e-7, 1e-7)
             if expanded_inputs and entry in (0x8c084c64, 0x8c0877ac):
                 active_palette = palette + (-0.2, -0.1, 0.01, 0.05, 0.1, 0.15, 0.16, 0.18, 0.19, 0.2, 0.21, 0.24, 0.3, 0.4, 0.7, 0.9)
+            if expanded_inputs and entry == 0x8c0877ac:
+                # Original comparisons load 0.001 and a tiny positive
+                # threshold from 0878d0/0878d8, then clamp against -1.
+                active_palette += (-1e-9, 0.0, 1e-9, 1e-5, 0.0001, 0.0005,
+                                   0.0009, 0.001, 0.0011)
             if not first:
                 lines.append(f'seed 0x{trigger:08x}')
             first = False
@@ -135,6 +140,17 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 registers = dict(registers)
                 registers[0] = registers[4] = variant & 7
                 lines.append(f'reg 0x{trigger:08x} sr 0x{0x60000000 | int((variant & 7) == 0):08x}')
+            if expanded_inputs and global_fields and entry == 0x8c0c8334:
+                # Original byte read at 0c83d4 selects the 4132 message.
+                # The global object starts at 0c29bcc4, selector +0x92.
+                addr = 0x0c29bd54
+                words[addr] = (words.get(addr, 0) & ~0x00ff0000) | ((variant & 1) << 16)
+                # At 0c8460 the current slot points to a descriptor whose
+                # first word is tested for zero. Preserve the inferred
+                # descriptor pointer and vary that word independently.
+                descriptor = words.get(0x0c29bc40)
+                if descriptor and 0x0c400000 <= descriptor < 0x0c480000:
+                    words[descriptor] = 0 if variant & 2 else words.get(descriptor, 0)
             if expanded_inputs and entry == 0x8c0ade3c:
                 # Three original little-endian float records, separated by a
                 # one-byte selector. Supply the decoder's established r0/r3.
@@ -200,7 +216,18 @@ if __name__ == '__main__':
                     help='finite floating point input registers in both banks')
     ap.add_argument('--alternate-fields', action='store_true',
                     help='rotate zero, scalar-one, open-flag and finite-vector fixtures')
+    ap.add_argument('--global-fields', action='store_true')
+    ap.add_argument('--scalar-fields', action='store_true')
+    ap.add_argument('--field-crosses', action='store_true')
+    ap.add_argument('--random-fields', action='store_true')
+    ap.add_argument('--expanded-inputs', action='store_true')
+    ap.add_argument('--preserve-fields', action='store_true')
+    ap.add_argument('--holdout-inputs', action='store_true')
     a = ap.parse_args()
     generate(a.watch, a.out, a.trigger, a.variants, a.relocation, a.mode,
              a.scalar_register, a.float_vectors, a.fpscr, a.bounded_arguments,
-             a.floating_arguments, a.alternate_fields)
+             a.floating_arguments, a.alternate_fields,
+             holdout_inputs=a.holdout_inputs, global_fields=a.global_fields,
+             scalar_fields=a.scalar_fields, field_crosses=a.field_crosses,
+             random_fields=a.random_fields, expanded_inputs=a.expanded_inputs,
+             preserve_fields=a.preserve_fields)

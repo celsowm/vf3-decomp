@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--watch', type=Path, required=True)
     parser.add_argument('--limit', type=int, default=100)
     parser.add_argument('--max-dynamic', type=int)
+    parser.add_argument('--min-dynamic', type=int, default=0)
     parser.add_argument('--minimum-size', type=int, default=16)
     args = parser.parse_args()
     credited = {int(r['entry'], 16) for r in csv.DictReader(
@@ -30,6 +31,8 @@ def main():
     for row in csv.DictReader(args.plan.open()):
         entry = int(row['entry'], 16)
         dynamic = int(row.get('sh4_dyn') or 0)
+        if dynamic < args.min_dynamic:
+            continue
         if entry in credited or int(row['size']) < args.minimum_size:
             continue
         if args.max_dynamic is not None and dynamic > args.max_dynamic:

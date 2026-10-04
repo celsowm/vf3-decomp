@@ -1,0 +1,3 @@
+# Near-complete original bodies; strict proof required before promotion.
+pc 0x8c0877ac
+pc 0x8c0c8334
