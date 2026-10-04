@@ -1,0 +1,2 @@
+# Simple pre-modeled matrix leaf from the static-closure queue.
+pc 0x8c047914

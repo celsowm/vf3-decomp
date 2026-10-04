@@ -1,0 +1,2 @@
+# Probe the missing clamp and empty-resource branches in the 1,290-byte updater.
+pc 0x8c05cc38

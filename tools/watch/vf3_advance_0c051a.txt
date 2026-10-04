@@ -1,0 +1,2 @@
+# Complete the remaining descriptor-selected paths in this 506-byte routine.
+pc 0x8c0c051a

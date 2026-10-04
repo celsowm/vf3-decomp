@@ -17,6 +17,8 @@ def main():
     parser.add_argument('--max-dynamic', type=int)
     parser.add_argument('--min-dynamic', type=int, default=0)
     parser.add_argument('--minimum-size', type=int, default=16)
+    parser.add_argument('--require-closure', action='store_true',
+                        help='select only rows with a complete static call closure')
     parser.add_argument('--exclude-watch', type=Path, action='append', default=[],
                         help='omit roots already attempted; repeatable')
     parser.add_argument('--exclude-progress', type=Path, action='append', default=[],
@@ -39,6 +41,8 @@ def main():
     for row in csv.DictReader(args.plan.open()):
         entry = int(row['entry'], 16)
         dynamic = int(row.get('sh4_dyn') or 0)
+        if args.require_closure and row.get('closure_ok') != 'Y':
+            continue
         if dynamic < args.min_dynamic:
             continue
         if entry in credited or entry in attempted or int(row['size']) < args.minimum_size:

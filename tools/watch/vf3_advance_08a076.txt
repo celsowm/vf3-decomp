@@ -1,0 +1,2 @@
+# Existing complete adapter body; recapture clean proof scenarios.
+pc 0x8c08a076

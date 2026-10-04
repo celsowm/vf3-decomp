@@ -1,0 +1,3 @@
+# Helpers called when the synthetic three-node list changes order.
+pc 0x8c062508
+pc 0x8c062524

@@ -483,6 +483,41 @@
     "source": "FPU vector transform with two verified range-reduction helper calls; 64 paired register+RAM cases across 3 windows",
     "test": "build/vf3cc148.exe"
   },
+  "advance-05b20e:0x8c05b20e": {
+    "golden": "extract/analysis/advance_05b20e_final_dev_merged/f_8c05b20e.cases",
+    "port": "src/fight/advance_05b20e_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; complete 1,322-byte codec body; 509 strict dev cases in state21 and state21/m26 scenarios; independent relocated state21/m26 holdout",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05b20e"
+  },
+  "advance-062616:0x8c062616": {
+    "golden": "extract/analysis/advance_062616_dev_final/f_8c062616.cases",
+    "port": "src/fight/tenpp_survey_adapters_3.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete 142-byte linked-list routine; development and relocated holdout use an explicitly initialized three-node ordering.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c062616"
+  },
+  "advance-0632d2:0x8c0632d2": {
+    "golden": "extract/analysis/advance_0632d2_dev_final/f_8c0632d2.cases",
+    "port": "src/fight/tenpp_acceptance_adapters.inc",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; table-query branch and no-match path; explicit register/RAM overrides",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0632d2"
+  },
+  "advance-0c051a:0x8c0c051a": {
+    "golden": "extract/analysis/advance_0c051a_dev_final_merged/f_8c0c051a.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete 506-byte descriptor routine; 789 development and 128 relocated holdout cases, with selector and frame-threshold paths exercised.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c051a"
+  },
+  "advance-0c0772:0x8c0c0772": {
+    "golden": "extract/analysis/advance_0c0772_dev_v2_merged/f_8c0c0772.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; existing expanded C adapter; bounded counters and indirect helper paths",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c0772"
+  },
   "advance-completion:0x8c03772c": {
     "golden": "extract/analysis/advance_completion_complete_cases/f_8c03772c.cases",
     "port": "src/fight/advance_worker_adapters.c",
@@ -658,6 +693,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c037ffe"
   },
+  "advance-large:0x8c0c2278": {
+    "golden": "extract/analysis/advance_large_c2278_dev_merged/f_8c0c2278.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 984-byte body fully executed; development used state21 with and without m26 playback; relocated state21/m26 holdout; strict replay passed with zero skips",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c2278"
+  },
   "advance-leaf-next:0x8c0380e8": {
     "golden": "extract/analysis/advance_leaf_next_cases/f_8c0380e8.cases",
     "port": "src/fight/advance_worker_adapters.c",
@@ -734,6 +776,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional typed descriptor and arithmetic leaves; complete-body development states 21/27 and independent relocated holdout states 23/29; strict complete-state replay without skips; three GD-ROM firmware wrappers excluded.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c03d2b0"
+  },
+  "advance-leaf-ranked:0x8c041b94": {
+    "golden": "extract/analysis/advance_leaf_041b94_dev_merged/f_8c041b94.cases",
+    "port": "src/fight/advance_leaf_041b94_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; r5=9 remainder branches, full selector cross-product, state21/m26 independent relocated holdout",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041b94"
   },
   "advance-leaf-recovery:0x8c03e000": {
     "golden": "extract/analysis/advance_leaf_recovery_cases/f_8c03e000.cases",
@@ -1078,6 +1127,27 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c072902"
   },
+  "advance_ranked_fourth:0x8c0876f2": {
+    "golden": "extract/analysis/advance_leaf_ranked_more_dev_merged/f_8c0876f2.cases",
+    "port": "src/fight/advance_leaf_ranked_more_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete-body relocated holdout replay in states 23/29 with bounded mixed inputs.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0876f2"
+  },
+  "advance_ranked_fourth:0x8c08d406": {
+    "golden": "extract/analysis/advance_leaf_ranked_more_dev_merged/f_8c08d406.cases",
+    "port": "src/fight/advance_leaf_ranked_more_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete-body relocated holdout replay in states 23/29 with bounded mixed inputs.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08d406"
+  },
+  "advance_ranked_fourth:0x8c0ac192": {
+    "golden": "extract/analysis/advance_leaf_ranked_more_dev_merged/f_8c0ac192.cases",
+    "port": "src/fight/advance_leaf_ranked_more_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete-body relocated holdout replay in states 23/29 with bounded mixed inputs.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ac192"
+  },
   "advance_ranked_second:0x8c0591a0": {
     "golden": "extract/analysis/advance_ranked_second_cases/f_8c0591a0.cases",
     "port": "src/fight/advance_worker_adapters.c",
@@ -1098,6 +1168,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Ranked leaf captures across states 21/27 with independent relocated holdout acceptance across 23/29; complete state matches and zero skips.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c08b73c"
+  },
+  "advance_ranked_third:0x8c07ef90": {
+    "golden": "extract/analysis/advance_leaf_ranked_next_cases/f_8c07ef90.cases",
+    "port": "src/fight/advance_worker_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Ranked zero-dynamic leaf with complete 100-byte body across two development states and independently relocated finite holdout input across two acceptance states; all cases pass strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07ef90"
   },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",

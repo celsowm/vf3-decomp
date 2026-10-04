@@ -1,8 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twelve accepted batches add **9,958 bytes**, reaching **216,020 / 434,656
-(49.6991%)**. The remaining shortfall is **33,508 bytes**.
+Twenty-one accepted batches add **14,674 bytes**, reaching **220,736 / 434,656
+(50.7841%)**, a gain of **3.3760 percentage points**. The remaining shortfall
+to the ten-point campaign target is **28,792 bytes**.
 
 ## Descriptor initializers
 
@@ -81,10 +82,12 @@ counted. The larger gameplay bodies also retain missing body paths.
 Two additional leaf batches add 638 unique bytes. Development and relocated
 holdout acceptance pass strictly; firmware-dependent leaves remain excluded.
 
-The next ranked leaf batch accepts three entries for 406 unique bytes. `0x8c0591a0`
+The next ranked leaf batch accepts four entries for 506 unique bytes. `0x8c0591a0`
 matches its complete body across 478 development cases and 223 independent
 holdout cases. `0x8c088222` and `0x8c08b73c` match 510/511 development cases and
-256 acceptance cases each. Reports record zero skipped cases.
+256 acceptance cases each. `0x8c07ef90` covers all 100 body bytes across 132
+development cases and 61 independent holdout cases. Strict replay has zero
+skipped cases.
 
 The vector-grid batch adds 1,380 unique bytes from 23 frozen entries. Starting
 at the real `0x8c072076` prologue initializes the stack and 24-byte record stride
@@ -96,6 +99,49 @@ complete registers and captured RAM with zero skips. Proof executable:
 `build/vf3matrixfamily_advance_grid.exe`; manifest:
 `tools/oracle/advance_grid_milestone.json`. The off-inventory parent receives no
 credit, and `0x8c0727b4` remains excluded for incomplete body execution.
+
+The next ranked leaf batch adds 218 unique bytes across `0x8c0ac192`,
+`0x8c08d406`, and `0x8c0876f2`. Development captures contain 192, 415, and 415
+distinct cases; independent relocated acceptance contains 768, 1,024, and
+1,024. Each root executes its full frozen body. All six strict replays match
+complete state with zero skips. `translate_adapters.py` emits a separate
+1,417-statement adapter with no unsupported instructions. The full build passes;
+the milestone is `tools/oracle/advance_ranked_fourth_milestone.json`.
+
+`0x8c0c8b52` is not credited. Its body executed completely, but the generic
+trigger produced acceptance cases in only one state, short of the two-scenario
+holdout gate.
+
+Two final ranked leaves add 1,346 unique bytes: manager `0x8c0c2278` contributes
+984 bytes and `0x8c041b94` contributes 362. The manager's existing adapter
+already owned its root; its 939 development cases across two scenarios and 128
+relocated holdout cases pass strict replay with zero skips. The leaf adapter is
+newly emitted as 181 statements with no unsupported instructions. Its complete
+362-byte body executes across 366 development cases from state21 and state21
+with the m26 input script; 128 independent state21/m26 holdout cases relocate
+fixture pointers by `0x100000`. Both leaf replay reports pass with zero skips.
+Proof manifests are `tools/oracle/advance_large_manager_milestone.json` and
+`tools/oracle/advance_leaf_041b94_milestone.json`.
+
+The reusable capsule inspector now summarizes initial aligned RAM words with
+`inspect_capsule.py --memory-summary`, which helped isolate the leaf's selector
+cross-product and shift threshold.
+
+The original-image codec at `0x8c05b20e` adds 1,322 unique bytes. Its 661-
+statement adapter has no unsupported instructions and reuses the existing
+`0x8c042efc` and `0x8c05af5c` helper owners. Strict development replay passes
+509/509 cases across state21 and state21/m26 scenarios; the complete 1,322-byte
+body executes. Independent relocated state21/m26 acceptance passes 128/128
+cases, with zero skips. The immutable replay executable is
+`build/vf3matrixfamily_advance_05b20e.exe`; proof is recorded in
+`tools/oracle/advance_05b20e_milestone.json`.
+
+The reusable `tools/oracle/rampc_audit.py` parses RAM-window snapshots directly
+from Flycast traces and summarizes nonzero and changing words. On trigger
+`0x8c048284`, the full 512 KiB at `0x0c500000` was zero in 32 snapshots across
+states 21/27. The equally sized `0x0c700000` window contained 96,054 nonzero
+words. This is recorded as memory observation only; it does not change any
+probe allocator or earn C coverage.
 
 Watching repeated loop blocks revealed that the oracle must retain one active
 observation per entry and call depth. Revisiting a block at the same depth now
@@ -119,6 +165,31 @@ The next 500 previously unattempted zero-dynamic-call roots represent 32,840
 potential unique bytes. They include smaller SDK-attributed routines needing
 actual C invocation proof; attribution is not counted as C coverage.
 
+`0x8c0c051a` adds 506 unique bytes. Its 789 development cases span state21
+without input and state21 with the m26 input script; every frozen body PC ran.
+The independent relocated state21/m26 holdout passes 128/128 strict cases and
+also covers the complete body. The reusable register and RAM override files
+exercise the descriptor tag, selector, and frame-threshold branches. Proof is
+recorded in `tools/oracle/advance_0c051a_milestone.json` using the immutable
+`build/vf3matrixfamily_advance_05b20e.exe` snapshot.
+
+`0x8c062616` adds 142 unique bytes. Existing state20/21 captures and a synthetic
+three-node ordering provide 132 distinct development cases; every frozen body
+PC executes and strict replay passes with zero skips. A separate three-node
+holdout relocates the RAM graph by `0x100000` and passes 128/128 strict cases.
+The existing survey adapter owns the routine; register and RAM profiles are
+`tools/oracle/advance_062616_register_overrides.json` and
+`tools/oracle/advance_062616_memory_overrides.json`. Proof is recorded in
+`tools/oracle/advance_062616_milestone.json`.
+
+`0x8c0632d2` adds 92 unique bytes. The merged development corpus combines
+natural state20/21 runs with an explicit table-match fixture and has 513
+distinct complete cases; every frozen body PC executes. Strict replay passes
+513/513 development cases and 256/256 independent state23/29 holdout cases.
+The holdout reaches 74/92 body bytes, while development reaches 92/92. Register
+and table-word profiles are recorded in `tools/oracle/advance_0632d2_*` and
+the milestone proof is `tools/oracle/advance_0632d2_milestone.json`.
+
 `0x8c04a4c4` reaches 500/506 body bytes, but its entry path sets R11=1 before
 the missing R11=0 exit. Keep it uncredited while the frozen boundary is reviewed.
 The revised `0x8c0877ac` probe reaches 276/280 bytes; its remaining conditional
@@ -126,6 +197,31 @@ exit appears incompatible with the preceding squared-value comparison and
 needs a reachability review. `0x8c0c8334` remains blocked on descriptor/table
 state and incomplete variants. Failed or incomplete corpora remain uncredited.
 
-Reusable preparation is committed as `a36d511`. The previous sixteen-milestone
-chain was reaudited with all artifact hashes; all passed. Frozen original image,
+`0x8c0c0772` adds 990 unique bytes. Its merged development corpus contains
+3,532 distinct complete cases and executes every frozen body PC. Independent
+relocated acceptance across states 23/29 passes 256/256 strict cases with zero
+skips. The existing expanded adapter owns the body; the manifest is
+`tools/oracle/advance_0c0772_milestone.json`.
+
+`0x8c05cc38` remains uncredited. An R13 selector sweep and a combined floating
+input/selector sweep leave its body at 1,072/1,290 executed bytes. The merged
+development corpus retains 2,529 distinct complete cases. Its indirect resource
+lookup now has a shared readable C implementation in
+`src/fight/advance_dynamic_06129c.c`; this dependency implementation receives
+no independent coverage credit. All 2,529 merged cases pass strict replay with
+zero skips against `build/vf3matrixfamily_advance_final.exe`, recorded in
+`extract/analysis/advance_05cc38_final_replay.json`. The remaining branch clusters require
+different resource/table state. `0x8c0c8334` similarly remains uncredited at
+628/638 executed body bytes after two descriptor profiles.
+
+The final twenty-one-milestone chain is audited with all artifact hashes in
+`extract/analysis/advance_series_final_audit.json`. The `0x8c0632d2` development
+and acceptance proofs were replayed against the immutable final executable
+snapshot before rebinding their proof records. Frozen original image,
 inventory, body ranges, prior baseline, and prior manifests are preserved.
+
+Final integration passes the full CMake build and
+`python tools/verify_all.py --no-build --jobs 4`: all 1,048 bound replays,
+native replay checks, prior batch audits, complete body coverage, SDK union,
+and call-resolution checks pass. The retained regression log is
+`extract/analysis/advance_final_regression.log`.

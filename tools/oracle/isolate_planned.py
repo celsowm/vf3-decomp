@@ -22,6 +22,8 @@ def main():
     ap.add_argument('--variants', type=int, default=512)
     ap.add_argument('--frames', type=int, default=60)
     ap.add_argument('--states', default='21,27')
+    ap.add_argument('--play', type=Path,
+                    help='optional repository-relative Flycast input script for every state')
     ap.add_argument('--trigger', type=lambda x: int(x, 16), default=0x8c0432e2)
     ap.add_argument('--relocation', type=lambda x: int(x, 16), default=0)
     ap.add_argument('--holdout-inputs', action='store_true')
@@ -36,7 +38,13 @@ def main():
                     help='initializer descriptor and asset-table input contracts')
     ap.add_argument('--preserve-fields', action='store_true',
                     help='vary register inputs while keeping the typed memory contract')
+    ap.add_argument('--register-overrides', type=Path,
+                    help='JSON map of entry PCs to per-register values or variant sequences')
+    ap.add_argument('--memory-overrides', type=Path,
+                    help='JSON map of entry PCs to RAM word addresses and values or variant sequences')
     a = ap.parse_args()
+    register_overrides = json.loads(a.register_overrides.read_text()) if a.register_overrides else None
+    memory_overrides = json.loads(a.memory_overrides.read_text()) if a.memory_overrides else None
     roots = [int(line.split()[1], 16) for line in a.watch.read_text().splitlines()
              if line.startswith('pc ')][a.start:a.start + a.limit]
     a.out.mkdir(parents=True, exist_ok=True)
@@ -70,15 +78,18 @@ def main():
                      alternate_fields=True, holdout_inputs=a.holdout_inputs,
                      global_fields=a.global_fields, scalar_fields=a.scalar_fields,
                      field_crosses=a.field_crosses, random_fields=a.random_fields,
-                     expanded_inputs=a.expanded_inputs, preserve_fields=a.preserve_fields)
+                     expanded_inputs=a.expanded_inputs, preserve_fields=a.preserve_fields,
+                     register_overrides=register_overrides,
+                     memory_overrides=memory_overrides)
         command = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
                    str(patch), '--capsule', '--probe-debug',
                    '--max-samples', str(a.variants), '--timeout', str(a.timeout)]
         if not a.observe_watch:
             command.append('--probe-only')
+        play = a.play.as_posix() if a.play else ''
         for state in a.states.split(','):
-            command += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
+            command += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state:{play}:{a.frames}']
         with (directory / 'capture.log').open('w') as output:
             result = subprocess.run(command, cwd=ROOT, stdout=output, stderr=output)
         manifest = directory / 'capsule_manifest.json'

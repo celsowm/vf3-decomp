@@ -1,0 +1,3 @@
+# Existing nested semantic dependencies of 0x8c05b20e.
+pc 0x8c042efc
+pc 0x8c05af5c

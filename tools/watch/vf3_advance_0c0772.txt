@@ -1,0 +1,2 @@
+# Sweep the two bounded counters and the slot-selection flags.
+pc 0x8c0c0772

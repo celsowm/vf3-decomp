@@ -1,0 +1,2 @@
+# Close the two conditional tail words in the existing 92-byte table query.
+pc 0x8c0632d2

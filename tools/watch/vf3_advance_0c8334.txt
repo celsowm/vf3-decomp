@@ -1,0 +1,2 @@
+# Close descriptor-cursor and boundary paths in the 638-byte update routine.
+pc 0x8c0c8334

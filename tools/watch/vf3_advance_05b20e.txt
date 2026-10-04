@@ -1,0 +1,2 @@
+# Direct capture of the 1,322-byte ranked leaf.
+pc 0x8c05b20e

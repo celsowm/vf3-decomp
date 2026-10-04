@@ -8,7 +8,8 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              float_vectors=False, fpscr=None, bounded_arguments=False,
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
              global_fields=False, scalar_fields=False, field_crosses=False,
-             random_fields=False, expanded_inputs=False, preserve_fields=False):
+             random_fields=False, expanded_inputs=False, preserve_fields=False,
+             register_overrides=None, memory_overrides=None):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
@@ -16,6 +17,34 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
     fixtures = {entry: fixture(entry, mode, global_fields, random_fields) for entry in roots}
     alternatives = {name: {entry: fixture(entry, name, global_fields, random_fields) for entry in roots}
                     for name in ('one', 'open')} if alternate_fields else {}
+    overrides = {}
+    for entry_text, fields in (register_overrides or {}).items():
+        entry = int(entry_text, 0) if isinstance(entry_text, str) else int(entry_text)
+        overrides[entry] = {}
+        for register_text, values in fields.items():
+            register = int(register_text[1:], 0) if register_text.startswith('r') else int(register_text, 0)
+            sequence = values if isinstance(values, list) else [values]
+            sequence = [int(value, 0) if isinstance(value, str) else value
+                        for value in sequence]
+            if not 0 <= register < 15 or not sequence:
+                raise ValueError(f'invalid register override for {entry:#x}: {register_text}')
+            if any(not isinstance(value, int) or not 0 <= value <= 0xffffffff for value in sequence):
+                raise ValueError(f'override values must be uint32 integers for {entry:#x} r{register}')
+            overrides[entry][register] = sequence
+    ram_overrides = {}
+    for entry_text, fields in (memory_overrides or {}).items():
+        entry = int(entry_text, 0) if isinstance(entry_text, str) else int(entry_text)
+        ram_overrides[entry] = {}
+        for address_text, values in fields.items():
+            address = int(address_text, 0) if isinstance(address_text, str) else int(address_text)
+            sequence = values if isinstance(values, list) else [values]
+            sequence = [int(value, 0) if isinstance(value, str) else value
+                        for value in sequence]
+            if address % 4 or not 0x0c000000 <= address < 0x0d000000 or not sequence:
+                raise ValueError(f'invalid RAM override address for {entry:#x}: {address:#x}')
+            if any(not isinstance(value, int) or not 0 <= value <= 0xffffffff for value in sequence):
+                raise ValueError(f'RAM override values must be uint32 integers for {entry:#x} at {address:#x}')
+            ram_overrides[entry][address] = sequence
 
     def relocated(value):
         return value + relocation if 0x0c400000 <= value < 0x0c480000 else value
@@ -44,9 +73,10 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             if fpscr is not None:
                 lines.append(f'reg 0x{trigger:08x} fpscr 0x{fpscr:08x}')
             field_modes = ('zero', 'one', 'open', 'vectors') + tuple(f'scalar{n}' for n in (2,3,4,5,6,7,8,16)) if scalar_fields else ('zero', 'one', 'open', 'vectors')
-            field_mode = field_modes[(variant >> 3) % len(field_modes)] if alternate_fields else mode
+            field_mode = field_modes[(variant >> 3) % len(field_modes)] if alternate_fields and not preserve_fields else mode
             template_mode = 'one' if field_mode.startswith('scalar') else field_mode
             registers, words = (alternatives[template_mode][entry] if template_mode in alternatives else fixtures[entry])[:2]
+            registers = dict(registers)
             words = dict(words)
             if field_mode.startswith('scalar'):
                 scalar = int(field_mode[6:])
@@ -190,8 +220,14 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                           f'{struct.unpack("<I", struct.pack("<f", rng.choice(active_palette) if expanded_inputs and random_fields and variant >= 128 else palette[(variant + reg) & 7]))[0]:08x}'
                           for bank in ('fr', 'xf') for reg in range(16)]
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
+            for register, values in overrides.get(entry, {}).items():
+                value = values[variant % len(values)]
+                lines.append(f'reg 0x{trigger:08x} r{register} 0x{value:08x}')
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'
                       for addr, value in sorted(words.items())]
+            lines += [f'ram 0x{trigger:08x} 0x{relocated(address):08x} '
+                      f'0x{relocated(values[variant % len(values)]):08x}'
+                      for address, values in sorted(ram_overrides.get(entry, {}).items())]
     output.write_text('\n'.join(lines) + '\n')
     print(f'{len(roots)} roots, {variants} rounds, {len(lines)} fixture lines')
 

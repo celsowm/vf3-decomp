@@ -1,0 +1,4 @@
+# Compare two candidate 512 KiB windows across repeated ordinary calls.
+# The audit observes state only; it does not allocate or seed these pages.
+rampc 0x8c048284 0x0c500000 0x80000
+rampc 0x8c048284 0x0c700000 0x80000

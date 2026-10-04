@@ -1,5 +1,11 @@
 # Synthetic entry capture
 
+Current codec status: the later campaign completed and verified the full
+1,322-byte `0x8c05b20e` body with 509 development and 128 independent relocated
+acceptance cases. See `tools/oracle/advance_05b20e_milestone.json` and
+`docs/re/advance_progress.md`. The Phase 3 parking notes below describe the
+earlier fixture investigation.
+
 `VF3_ENTRY_PATCH` extends the true image oracle for functions that no current
 gameplay scenario reaches. The emulator still executes the original SH-4
 instructions; the hook only redirects from a naturally executed trigger and
@@ -195,6 +201,16 @@ words back during the probe. That is a sufficient explanation on its own for
 seeds appearing to do nothing, and it is independent of the gate-calibration
 question above. **The scratch constant must be re-chosen against the live state
 before any further campaign is trusted.**
+
+### Reusable RAM-window audit
+
+`tools/oracle/rampc_audit.py` reads `rampc` windows from Flycast traces using a
+memory-mapped parser, then reports nonzero words and changes across samples.
+For ordinary calls at `0x8C048284`, two saved states produced 32 snapshots of
+each 512 KiB candidate window. `0x0C500000` was all zero in every snapshot;
+`0x0C700000` had 96,054 nonzero words and did not change. This narrows a future
+scratch investigation, but does not satisfy the existing `vf3_fight_keep.state`
+check or establish allocator safety. The seed allocator remains unchanged.
 
 ### Consequences for work already banked
 

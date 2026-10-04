@@ -95,10 +95,39 @@ and `promote_tenpp_batch.py` for frozen promotion evidence. The shared
 `campaign_io.py` provides discovery and watch I/O for future tools. No new
 dependencies are required.
 
+`isolate_planned.py --preserve-fields` varies register inputs without rotating
+the inferred typed memory fixtures. Use `--register-overrides JSON` when a
+register holds a scalar index that the memory analyzer inferred as a pointer;
+each entry maps register names such as `r0` to a fixed uint32 value or a cyclic
+list of values. Use `--memory-overrides JSON` to set aligned RAM words after
+fixture generation, including pointers read from global image data and the
+objects they reference. RAM addresses and pointer-valued words in the fixture
+pool relocate together for held-out runs. Explicit register override values are
+literal; provide the already-relocated pointer value when using `--relocation`.
+Both override maps accept decimal or `0x` strings and cyclic value lists.
+`--play FILE` runs a repository-relative Flycast input script with each selected
+state, so scenario provenance includes both the savestate and input script.
+These options change probe inputs only; captures and strict replay remain the
+promotion evidence.
+
+When a root fails a branch gate, `isolate_planned.py --observe-watch FILE`
+records nested helper invocations in the same capsule. Use
+`inspect_capsule.py CAPSULE --entry PC --summary r0 r1` to count each helper's
+input/output register tuple without dumping every architectural snapshot. Add
+`--memory-summary 0xADDR ...` to count distinct initial aligned RAM-word tuples;
+this is useful for checking that planned selector overrides actually reached
+the invocation fixture. Combine it with `--ops-presence PC` to group field
+tuples by whether a branch PC ran, or use `--require-ops PC` to inspect only
+invocations containing a selected instruction.
+
 `build_snapshot.py --out build/NAME.exe` builds the core and links a separate
 matrix replay executable with the configured GCC/Clang compiler. It refuses
 overwrite and leaves live regression executables in place. New replay reports
 retain the executable path and SHA-256; hash audits verify that binary too.
+When replacing an older proof executable, rerun the same corpus against a new
+snapshot and use `rebind_milestone_proofs.py MANIFEST REPORT...` to refresh the
+manifest only after confirming each report is strict, hashed and uses the same
+corpus path.
 Set `VF3_REPLAY_OOB=1` to print the first uncaptured RAM access in a failing
 case. Successful replay behavior is unchanged.
 
@@ -113,8 +142,10 @@ baseline while preserving its original default.
 `campaign_queue.py --plan PLAN.csv --baseline BASELINE.json --out QUEUE.json
 --watch ROOTS.txt` ranks unported bodies by dynamic-call count and marginal
 address-union bytes. `--min-dynamic`, `--max-dynamic`, `--minimum-size` and
-`--limit` bound a cohort. Queue totals are prospective and never grant credit.
-`--exclude-watch FILE` omits previously attempted roots; it is repeatable.
+`--limit` bound a cohort; `--require-closure` keeps only roots whose static
+call closure is complete. Queue totals are prospective and never grant credit.
+`--exclude-watch FILE` and `--exclude-progress FILE` omit previously attempted
+roots; both options are repeatable.
 
 `capture_report.py --ready-watch ROOTS.txt` exports entries passing capture
 gates in at least one input corpus. Select compatible corpora when merging:
@@ -124,6 +155,9 @@ Strict replay and independent acceptance remain required after capture gates.
 source corpora, checks the raw records again and preserves their provenance.
 Unrelated quarantined entries remain in the original evidence, outside the
 filtered development corpus.
+`filter_capture_runs.py BATCH --run s21 --out DIRECTORY` keeps selected complete
+scenarios from a batch when another run contains an incomplete invocation; the
+original raw capsule and state/play provenance remain attached.
 
 `campaign_io.py WATCH... --out ROOTS.txt` forms a canonical deduplicated watch
 union. `survey_coverage.py --watch ROOTS.txt --minimum-hits N` exports observed

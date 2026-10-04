@@ -1,0 +1,4 @@
+# Observe manager callees during a normal 0x8c0c2278 probe.
+pc 0x8c07b4d4
+pc 0x8c07b66e
+pc 0x8c042c20
