@@ -4,7 +4,7 @@ import csv
 import json
 from pathlib import Path
 from select_next import ROOT, union
-from campaign_io import write_watch
+from campaign_io import read_watch, write_watch
 
 
 def main():
@@ -17,7 +17,10 @@ def main():
     parser.add_argument('--max-dynamic', type=int)
     parser.add_argument('--min-dynamic', type=int, default=0)
     parser.add_argument('--minimum-size', type=int, default=16)
+    parser.add_argument('--exclude-watch', type=Path, action='append', default=[],
+                        help='omit roots already attempted; repeatable')
     args = parser.parse_args()
+    attempted = {entry for watch in args.exclude_watch for entry in read_watch(watch)}
     credited = {int(r['entry'], 16) for r in csv.DictReader(
         (ROOT / 'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
     baseline = json.loads(args.baseline.read_text())
@@ -33,7 +36,7 @@ def main():
         dynamic = int(row.get('sh4_dyn') or 0)
         if dynamic < args.min_dynamic:
             continue
-        if entry in credited or int(row['size']) < args.minimum_size:
+        if entry in credited or entry in attempted or int(row['size']) < args.minimum_size:
             continue
         if args.max_dynamic is not None and dynamic > args.max_dynamic:
             continue

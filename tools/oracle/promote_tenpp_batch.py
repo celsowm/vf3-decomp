@@ -41,9 +41,12 @@ def main():
     ap.add_argument('--acceptance-report', type=Path, required=True)
     ap.add_argument('--manifest', type=Path, required=True)
     ap.add_argument('--port', required=True)
+    ap.add_argument('--port-map', type=Path,
+                    help='optional JSON entry-to-source ownership for shared helpers')
     ap.add_argument('--label', required=True)
     ap.add_argument('--note', required=True)
     a = ap.parse_args()
+    ports = json.loads(a.port_map.read_text()) if a.port_map else {}
     a.development = a.development.resolve()
     a.acceptance = a.acceptance.resolve()
     assert not a.manifest.exists(), 'milestone already recorded'
@@ -93,16 +96,18 @@ def main():
             excluded[entry] = str(error)
             continue
         case = a.development / f'f_{e:08x}.cases'
+        port = ports.get(entry, a.port)
+        assert (ROOT / port).is_file(), f'missing C source: {port}'
         key = a.label + ':' + entry
         bindings[key] = dict(test='build/vf3matrixfamily.exe ' + entry,
-            golden=case.relative_to(ROOT).as_posix(), strict=True, port=a.port,
+            golden=case.relative_to(ROOT).as_posix(), strict=True, port=port,
             source='100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; ' + a.note)
-        entries[entry] = dict(new_credit=True, size=sizes[e], binding=key,
+        entries[entry] = dict(new_credit=True, size=sizes[e], binding=key, port=port,
             proofs={name: report[entry] for name, report in reports.items()},
             artifacts=artifacts(case), covered_bytes=sizes[e])
         line = io.StringIO()
         csv.writer(line, lineterminator='\n').writerow([entry, 'ported-invocation',
-            a.port, sizes[e], 'static original-image C; complete body and helper behavior',
+            port, sizes[e], 'static original-image C; complete body and helper behavior',
             next(iter(reports.values()))[entry]['stdout'] + '; ' + a.note])
         additions.append(line.getvalue())
     if not entries:

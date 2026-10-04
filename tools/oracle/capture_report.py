@@ -76,11 +76,18 @@ def main():
     parser.add_argument('--out', type=Path, help='optional complete JSON report')
     parser.add_argument('--ready-watch', type=Path,
                         help='write roots passing capture gates; replay and acceptance still required')
+    parser.add_argument('--retry-watch', type=Path,
+                        help='write complete-body varied roots blocked only on capture completion')
     args = parser.parse_args()
     rows = report(discover(args.inputs), args.include_credited, read_watch(args.watch) if args.watch else None)
     if args.ready_watch:
         write_watch(args.ready_watch, {int(row['entry'], 16) for row in rows if not row['reasons']},
                     'Capture gates passed in at least one corpus; strict replay and acceptance required.')
+    if args.retry_watch:
+        completion = {'incomplete invocation', 'failed/incomplete capture run'}
+        write_watch(args.retry_watch, {int(row['entry'], 16) for row in rows
+                    if row['reasons'] and set(row['reasons']) <= completion},
+                    'Complete-body varied candidates needing a fresh completed capture; no credit.')
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(dict(advisory=True, entries=rows), indent=1) + '\n')

@@ -10,6 +10,7 @@ def main():
     parser.add_argument('capsules', nargs='+', type=Path)
     parser.add_argument('--entry', type=lambda s: int(s, 0), required=True)
     parser.add_argument('--invocation', type=int)
+    parser.add_argument('--valid-only', action='store_true')
     parser.add_argument('--limit', type=int, default=1)
     parser.add_argument('--word', type=lambda s: int(s, 0), action='append', default=[])
     parser.add_argument('--stack-words', type=int, default=8)
@@ -20,6 +21,8 @@ def main():
             if record['entry'] | 0x80000000 != args.entry | 0x80000000:
                 continue
             if args.invocation is not None and record['id'] != args.invocation:
+                continue
+            if args.valid_only and record['flags']:
                 continue
             before = struct.unpack(f"<{record['nstate']}I", record['before'])
             after = struct.unpack(f"<{record['nstate']}I", record['after'])

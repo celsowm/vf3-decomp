@@ -107,8 +107,24 @@ baseline while preserving its original default.
 --watch ROOTS.txt` ranks unported bodies by dynamic-call count and marginal
 address-union bytes. `--min-dynamic`, `--max-dynamic`, `--minimum-size` and
 `--limit` bound a cohort. Queue totals are prospective and never grant credit.
+`--exclude-watch FILE` omits previously attempted roots; it is repeatable.
 
 `capture_report.py --ready-watch ROOTS.txt` exports entries passing capture
 gates in at least one input corpus. Select compatible corpora when merging:
 other captures of the same entry can still contain incomplete invocations.
 Strict replay and independent acceptance remain required after capture gates.
+
+`capture_report.py --retry-watch ROOTS.txt` selects varied, complete-body entries
+whose only blockers are capture completion or incomplete invocations. Recapture
+them with a larger frame budget; do not drop the incomplete records from a proof.
+
+`isolate_planned.py --group-size N` batches up to 64 roots per fresh state while
+retaining serial emulator execution. The default remains one root. `--start` and
+`--limit` count roots, and progress records list every member of a group. Increase
+the frame budget to finish all variants; grouped captures have the same proof
+gates as isolated captures. A STOP file pauses between groups.
+
+`promote_tenpp_batch.py --port-map MAP.json` accepts an entry-to-source ownership
+map for existing shared helpers. Unmapped entries use `--port`; every selected
+source must exist. The ledger, replay binding and milestone record retain the
+actual source owner.

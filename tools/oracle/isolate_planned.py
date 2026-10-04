@@ -15,6 +15,8 @@ def main():
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--start', type=int, default=0)
     ap.add_argument('--limit', type=int, default=1000)
+    ap.add_argument('--group-size', type=int, default=1, choices=range(1, 65),
+                    help='probe this many roots per fresh state; default isolates each root')
     ap.add_argument('--variants', type=int, default=512)
     ap.add_argument('--frames', type=int, default=60)
     ap.add_argument('--states', default='21,27')
@@ -38,15 +40,18 @@ def main():
     a.out.mkdir(parents=True, exist_ok=True)
     progress_path = a.out / 'progress.json'
     progress = json.loads(progress_path.read_text()) if progress_path.exists() else []
-    for index, entry in enumerate(roots, a.start):
-        name = f'{a.out.name}_{entry:08x}'
+    for offset in range(0, len(roots), a.group_size):
+        group = roots[offset:offset + a.group_size]
+        index, entry = a.start + offset, group[0]
+        suffix = f'_{group[-1]:08x}' if len(group) > 1 else ''
+        name = f'{a.out.name}_{entry:08x}{suffix}'
         directory = a.out / name
         directory.mkdir(parents=True, exist_ok=True)
         if (directory / 'batch_manifest.json').exists():
             print(f'{index}: {entry:08x} already attempted', flush=True)
             continue
         watch, patch = directory / 'watch.txt', directory / 'entry.patch'
-        watch.write_text(f'pc 0x{entry:08x}\n')
+        watch.write_text(''.join(f'pc 0x{root:08x}\n' for root in group))
         if a.asset_fixtures:
             from asset_probe_plan import generate as generate_assets
             generate_assets(watch, patch, a.trigger, a.variants,
@@ -67,11 +72,13 @@ def main():
         with (directory / 'capture.log').open('w') as output:
             result = subprocess.run(command, cwd=ROOT, stdout=output, stderr=output)
         manifest = directory / 'capsule_manifest.json'
-        cases = len(json.loads(manifest.read_text())['entries'].get(hex(entry), [])) if manifest.exists() else 0
+        captured = json.loads(manifest.read_text())['entries'] if manifest.exists() else {}
+        cases = sum(len(captured.get(hex(root), [])) for root in group)
         progress.append(dict(index=index, entry=hex(entry), returncode=result.returncode,
+                             entries=[hex(root) for root in group],
                              complete_cases=cases, directory=str(directory)))
         progress_path.write_text(json.dumps(progress, indent=1) + '\n')
-        print(f'{index}: {entry:08x} rc={result.returncode} complete={cases}', flush=True)
+        print(f'{index}: {entry:08x} roots={len(group)} rc={result.returncode} complete={cases}', flush=True)
         if (a.out / 'STOP').exists():
             print('Stopped between roots; completed capture evidence retained.', flush=True)
             break
