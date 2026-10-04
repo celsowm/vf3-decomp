@@ -9,11 +9,12 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ROOT=Path(__file__).resolve().parents[2]
-def verify(directory,out,min_cases=1,jobs=1,watch=None):
+def verify(directory,out,min_cases=1,jobs=1,watch=None,executable=None):
     directory=Path(directory)
     env=dict(os.environ); env["PATH"]="C:/msys64/ucrt64/bin;"+env["PATH"]
     env["VF3_STRICT_REPLAY"]="1"
     rows={}
+    executable=Path(executable) if executable else ROOT/'build/vf3matrixfamily.exe'
     counts=json.loads((directory/'capsule_manifest.json').read_text())['entries']
     selected={int(line.split()[1],16)|0x80000000 for line in Path(watch).read_text().splitlines()
               if line.startswith('pc ')} if watch else None
@@ -27,7 +28,7 @@ def verify(directory,out,min_cases=1,jobs=1,watch=None):
     def replay(path):
         entry=int(path.stem.split('_')[1],16)
         start=time.monotonic()
-        p=subprocess.run([str(ROOT/"build/vf3matrixfamily.exe"),hex(entry),str(path.resolve())],cwd=ROOT,env=env,capture_output=True,text=True,timeout=120)
+        p=subprocess.run([str(executable.resolve()),hex(entry),str(path.resolve())],cwd=ROOT,env=env,capture_output=True,text=True,timeout=120)
         return hex(entry),{"pass":p.returncode==0,"seconds":round(time.monotonic()-start,3),"stdout":p.stdout.strip(),"stderr":p.stderr.strip(),"cases":str(path)}
     with ThreadPoolExecutor(max_workers=jobs) as executor:
         futures=[executor.submit(replay,path) for path in paths]
@@ -45,5 +46,6 @@ if __name__=="__main__":
     ap.add_argument('--min-cases',type=int,default=1,help='minimum corpus size for discovery; omitted entries receive no proof')
     ap.add_argument('--watch',help='replay only selected entry PCs')
     ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='independent replay processes (1-4); do not rebuild their executable concurrently')
-    a=ap.parse_args(); rows=verify(a.directory,a.out,a.min_cases,a.jobs,a.watch)
+    ap.add_argument('--executable',help='immutable replay executable snapshot for concurrent capture or other replay cohorts')
+    a=ap.parse_args(); rows=verify(a.directory,a.out,a.min_cases,a.jobs,a.watch,a.executable)
     raise SystemExit(0 if a.discover or (rows and all(r['pass'] for r in rows.values())) else 1)

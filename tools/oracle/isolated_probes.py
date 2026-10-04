@@ -55,7 +55,8 @@ def main():
                     output.write(f'ram 0x{a.trigger:08x} 0x{addr:08x} 0x{value:08x}\n')
         cmd = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                '--watch', str(watch), '--out', str(directory), '--entry-patch',
-               str(patch), '--capsule', '--probe-debug', '--max-samples', str(a.max_samples)]
+               str(patch), '--capsule', '--probe-debug', '--probe-only',
+               '--max-samples', str(a.max_samples)]
         for state in a.states.split(','):
             cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as log:

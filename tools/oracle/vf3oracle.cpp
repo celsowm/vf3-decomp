@@ -17,6 +17,7 @@
 #include "hw/sh4/sh4_mem.h"
 #include "hw/sh4/sh4_opcode_list.h"
 #include "hw/sh4/sh4_cache.h"
+#include "hw/sh4/sh4_interrupts.h"
 #include "hw/sh4/modules/mmu.h"
 #include <algorithm>
 #include <array>
@@ -80,7 +81,7 @@ struct SyntheticPatch {
     unsigned cursor = 0;
 };
 FILE *output;
-bool initialized, copying;
+bool initialized, copying, probeOnly;
 unsigned depth, samples = 64;
 /* Instruction budget for a synthetic probe before it is retired as invalid. */
 unsigned probeOps = 20000;
@@ -162,7 +163,16 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
          * after the trigger, so the interpreter has already resumed the game's
          * own instruction stream. Restore every other piece of architectural
          * state while leaving the PC progression the fetch unit chose alone. */
+        /* CpuRunning is the host's stop request, not guest architectural state.
+         * A rollback must never turn execution back on after Emulator::stop(). */
+        const bool running=m->CpuRunning;
         *m=c.saved;
+        m->CpuRunning=running;
+        if (!running) m->cycle_counter=0;
+        /* Fixtures can cover live code pages, and SR's decoded interrupt mask
+         * lives outside the copied context. Restore both derived states. */
+        icache.Invalidate();
+        SRdecode();
         /* Re-fetch the original trigger after restoring its pre-instruction
          * state. Skipping a prologue loses its stack push; skipping a call
          * loses its result. The re-fetch bypasses this observer once. */
@@ -232,9 +242,14 @@ void applySyntheticRegs(Sh4Context *ctx, const SeedVariant &variant) {
         else if (kind==16) ctx->pr=value;
         else if (kind==17) ctx->gbr=value;
         else if (kind==18) ctx->fpul=value;
-        else if (kind==19) ctx->fpscr.full=value;
+        else if (kind==19) {
+            ctx->fpscr.full=value;
+            Sh4Context::UpdateFPSCR(ctx);
+        }
         else if (kind==20) ctx->sr.setFull(value);
         else if (kind==21) ctx->pc=value;
+        else if (kind>=32 && kind<48) std::memcpy(&ctx->fr[kind-32],&value,4);
+        else if (kind>=48 && kind<64) std::memcpy(&ctx->xf[kind-48],&value,4);
     }
 }
 void touch(unsigned addr, unsigned size) {
@@ -335,6 +350,7 @@ void opcode_oracle(const Sh4Context *ctx) {
 }
 void init(const Sh4Context *ctx) {
     initialized=true;
+    probeOnly=getenv("VF3_PROBE_ONLY")!=nullptr;
     opcode_oracle(ctx);
     /* Development fixtures: "addr value" applies at startup; "entry addr
      * value" applies at that watched entry before its before-state snapshot.
@@ -393,6 +409,8 @@ void init(const Sh4Context *ctx) {
                 else if (!std::strcmp(field,"fpscr")) kindCode=19;
                 else if (!std::strcmp(field,"sr")) kindCode=20;
                 else if (!std::strcmp(field,"pc")) kindCode=21;
+                else if (std::sscanf(field,"fr%u",&kindCode)==1 && kindCode<16) kindCode+=32;
+                else if (std::sscanf(field,"xf%u",&kindCode)==1 && kindCode<16) kindCode+=48;
                 else { std::fprintf(stderr,"[vf3oracle] invalid entry register: %s\n",line); std::abort(); }
                 auto &patch=syntheticPatches[trigger|0x80000000u];
                 if (patch.variants.empty()) patch.variants.push_back(SeedVariant{});
@@ -447,6 +465,7 @@ void init(const Sh4Context *ctx) {
     std::sort(specs.begin(),specs.end(),[](const Spec &a,const Spec &b){return a.pc<b.pc;});
 }
 }
+void vf3OraclePrepare() { if(!initialized) init(&Sh4cntx); }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
 bool vf3OracleTakeSkip() { if (!pendingSkip) return false; pendingSkip=false; return true; }
 bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op) {
@@ -527,7 +546,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             /* Round-robin the trigger's seed variants so consecutive firings walk
              * the seed plan instead of repeating one input. */
             Call c; c.id=++sequence; c.entry=watchPc; c.depth=depth;
-            c.synthetic=true; c.saved=*ctx; c.savedDepth=depth; c.triggerPc=canon;
+            c.synthetic=true; c.saved=*ctx; c.savedDepth=depth; c.triggerPc=pc;
             /* A callee can perform bulk RAM writes outside the scalar hooks.
              * Such specimens remain invalid, but rollback must undo them too.
              * Flush dirty game lines before taking the complete RAM image. */
@@ -584,7 +603,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     }
     auto spec=std::lower_bound(specs.begin(),specs.end(),canon,
         [](const Spec &s,unsigned value){return s.pc<value;});
-    if(canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
+    if(!probeOnly && canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
         ++spec->count;
         if(active.size()>=64) vf3OracleInvalidate(4);
         else {
@@ -633,6 +652,11 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
          * the next instruction boundary so the rollback is clean. */
         if(c.synthetic && !c.aborted && c.ops.size()>=probeOps) {
             c.aborted=true; c.skipFetched=true; c.countdown=1;
+        }
+        /* Stop recording over-budget natural calls without changing execution.
+         * A task entry that never returns must not occupy every capture slot. */
+        if(!c.synthetic && c.ops.size()>=probeOps) {
+            c.flags|=4; c.countdown=1;
         }
         if(c.transfer==canon) c.countdown=2;
         if(op==0x000B && (c.depth==depth || (ctx->pr==c.in[16] && ctx->r[15]>=c.in[15]))) c.countdown=2;

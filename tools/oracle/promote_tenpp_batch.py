@@ -104,7 +104,9 @@ def main():
             a.port, sizes[e], 'static original-image C; complete body and helper behavior',
             next(iter(reports.values()))[entry]['stdout'] + '; ' + a.note])
         additions.append(line.getvalue())
-    assert entries, 'no candidates passed every gate'
+    if not entries:
+        print(json.dumps(excluded, indent=1))
+        raise AssertionError('no candidates passed every gate')
     gain = union(before_spans + [s for entry in entries for s in ranges[int(entry, 16)]]) - before
     remaining = frozen['target_bytes'] - before
     manifest = dict(baseline_unique_bytes=before, baseline_spans=before_spans,

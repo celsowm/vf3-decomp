@@ -5635,6 +5635,27 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0bec2e"
   },
+  "tenpp-vertices-more:0x8c065c4c": {
+    "golden": "extract/analysis/tenpp_pack_remaining_typed_cases/f_8c065c4c.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Single-width finite-coordinate fixtures; fresh per-root development states 21 and 27; relocated held inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c065c4c"
+  },
+  "tenpp-vertices-more:0x8c065de4": {
+    "golden": "extract/analysis/tenpp_pack_remaining_typed_cases/f_8c065de4.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Single-width finite-coordinate fixtures; fresh per-root development states 21 and 27; relocated held inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c065de4"
+  },
+  "tenpp-vertices-more:0x8c06604c": {
+    "golden": "extract/analysis/tenpp_pack_remaining_typed_cases/f_8c06604c.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Single-width finite-coordinate fixtures; fresh per-root development states 21 and 27; relocated held inputs",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06604c"
+  },
   "tenpp-vertices:0x8c064772": {
     "golden": "extract/analysis/tenpp_pack_fp2_cases/f_8c064772.cases",
     "port": "src/fight/tenpp_complex_adapters.c",

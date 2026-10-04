@@ -1,5 +1,7 @@
 #pragma once
 struct Sh4Context;
+/* Load large fixture plans while guest execution is stopped, before frames. */
+void vf3OraclePrepare(void);
 void vf3OracleBefore(unsigned pc, unsigned short op, const Sh4Context *ctx);
 void vf3OracleInvalidate(unsigned reason);
 /* True when a synthetic-entry probe was active and has just been rolled back

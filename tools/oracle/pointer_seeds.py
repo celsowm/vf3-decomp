@@ -93,14 +93,41 @@ def fixture(entry, mode='zero'):
             continue
         op = struct.unpack_from('<H', image, pc - 0x8c010000)[0]
         n, m, top, low = (op >> 8) & 15, (op >> 4) & 15, op >> 12, op & 15
-        if top == 14 or top in (9, 13):
-            regs[n] = None
+        if top == 14:
+            value = (op & 255) - (256 if op & 128 else 0)
+            regs[n] = ('literal', value)
+        elif top in (9, 13):
+            pool = pc + 4 + (op & 255) * 2 if top == 9 else ((pc + 4) & ~3) + (op & 255) * 4
+            offset = pool - 0x8c010000
+            value = struct.unpack_from('<h' if top == 9 else '<I', image, offset)[0] if 0 <= offset <= len(image) - 4 else 0
+            regs[n] = ('literal', value)
         elif top == 7:
             immediate = (op & 255) - (256 if op & 128 else 0)
             if regs.get(n) is not None:
                 regs[n] = ('add', regs[n], immediate)
         elif top == 6 and low == 3:
             regs[n] = regs.get(m)
+        elif top == 8 and n in (0, 1, 4, 5):
+            base = regs.get(m)
+            offset = low * (2 if n in (1, 5) else 1)
+            if n < 4:
+                store(base, regs.get(0), offset)
+            else:
+                address(base)
+                regs[0] = None  # byte/word scalar load
+        elif top == 0 and low in (4, 5, 6, 12, 13, 14):
+            # Indexed data operands use r0 as a byte offset. Seed an initial
+            # r0 index at zero while allocating the actual base argument.
+            if regs.get(0) == ('arg', 0):
+                assignments[0] = 0
+            index = regs.get(0)
+            global_base = index is not None and index[0] == 'literal' and 0x0c000000 <= index[1] < 0x10000000
+            base = None if global_base else regs.get(m if low >= 12 else n)
+            if low >= 12:
+                regs[n] = load(base) if low == 14 else None
+                address(base)
+            else:
+                store(base, regs.get(m))
         elif top == 5:
             old = regs.get(m)
             regs[n] = load(old, low * 4)
@@ -136,8 +163,10 @@ def fixture(entry, mode='zero'):
             expr = regs.get(n)
             if expr is not None and expr[0] == 'field':
                 counts.add(expr)
-        elif top == 15 and low in (8, 9, 10, 11):
-            address(regs.get(m if low in (8, 9) else n))
+        elif top == 15 and low in (6, 7, 8, 9, 10, 11):
+            if low in (6, 7) and regs.get(0) == ('arg', 0):
+                assignments[0] = 0
+            address(regs.get(m if low in (6, 8, 9) else n))
     if mode == 'one':
         # One is a bounded scalar/count and supplies a nonempty one-byte
         # string. Preserve inferred pointers and keep a terminal zero word.

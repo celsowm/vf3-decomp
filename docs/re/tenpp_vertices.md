@@ -44,3 +44,24 @@ exit and capsule finalization. This avoids GUI teardown hangs after the frame
 budget. Timed-out or incomplete runs receive no acceptance credit;
 `successful_runs.py` records their exclusion when exporting successful runs
 from a mixed survey.
+
+## Completing the remaining three packers
+
+Fresh per-root captures in states 21 and 27 supply 767 distinct valid inputs
+for the three entries held back above. All three execute their complete frozen
+bodies and pass strict replay; independent relocated acceptance also passes.
+`tools/oracle/tenpp_pack_remaining_milestone.json` credits another **1,440
+unique bytes**, bringing the C union to **186,536 / 434,656 (42.91%)** and
+the cumulative gain to **5.532 percentage points**. **19,420 bytes remain**
+before the requested ten-point milestone is met.
+
+The per-root runner uses finite FR/XF inputs, bounded scalar registers and
+alternating descriptor fields. Its sample budget finishes before shutdown;
+earlier incomplete captures remain excluded. Rollback preserves the host's
+CPU stop request rather than restoring `CpuRunning` from a guest snapshot.
+
+Further capture setup now calls `UpdateFPSCR` after an explicit FPSCR seed,
+keeping the interpreter's bank bookkeeping and rounding mode synchronized.
+The three promoted packer traces contain no FRCHG or FPSCR loads, so that
+bookkeeping correction does not affect their evidence. Broader matrix
+candidates are being recaptured with the correction and remain uncredited.

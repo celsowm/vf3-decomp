@@ -18,6 +18,12 @@ def insert(path, anchor, replacement):
 def main():
     for name in ("vf3oracle.cpp", "vf3oracle.h"):
         shutil.copyfile(Path(__file__).parent / name, CORE / name)
+    insert(Path('windows/winmain.cpp'), '#include "build.h"',
+           '#include "build.h"\n#include "vf3oracle.h"')
+    insert(Path('windows/winmain.cpp'), '\t\t\t\tdc_loadstate(0);',
+           '\t\t\t\tdc_loadstate(0);\n'
+           '\t\t\t\t/* Fixture parsing must finish before the frame budget starts. */\n'
+           '\t\t\t\tvf3OraclePrepare();')
     insert(Path('windows/winmain.cpp'),
            '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);',
            '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);\n'

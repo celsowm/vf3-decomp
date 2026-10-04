@@ -14694,3 +14694,27 @@ pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(owned_pcs)/sizeof(owned_pcs[0]);
 while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(owned_pcs[mid]<pc) lo=mid+1; else hi=mid; }
 return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;
 }
+
+/* Further original-image adapters share this translation unit. */
+#define as_float vf3_tenpp_acceptance_as_float
+#define as_bits vf3_tenpp_acceptance_as_bits
+#define truncate_float vf3_tenpp_acceptance_truncate_float
+#define divide_step vf3_tenpp_acceptance_divide_step
+#define owned_pcs vf3_tenpp_acceptance_owned_pcs
+#include "tenpp_acceptance_adapters.inc"
+#undef as_float
+#undef as_bits
+#undef truncate_float
+#undef divide_step
+#undef owned_pcs
+#define as_float vf3_tenpp_planned_as_float
+#define as_bits vf3_tenpp_planned_as_bits
+#define truncate_float vf3_tenpp_planned_truncate_float
+#define divide_step vf3_tenpp_planned_divide_step
+#define owned_pcs vf3_tenpp_planned_owned_pcs
+#include "tenpp_planned_adapters.inc"
+#undef as_float
+#undef as_bits
+#undef truncate_float
+#undef divide_step
+#undef owned_pcs
