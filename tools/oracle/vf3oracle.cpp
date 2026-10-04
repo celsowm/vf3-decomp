@@ -129,8 +129,17 @@ void flushPage(unsigned base) {
         ocache.WriteBack(0x8C000000u+base+off, true, true);
 }
 void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
+    /* Rollback ends every nested observation too. A child still active here
+     * did not return within the probe; letting it survive would splice restored
+     * game execution onto the child's instruction stream and falsely certify it. */
+    if (active[i].synthetic) {
+        for (size_t j=active.size(); j-->i+1;) {
+            active[j].flags|=4;
+            finish(j, pc, ctx);
+        }
+    }
     auto &c=active[i];
-    if (c.synthetic) for (const auto &p:c.pages) flushPage(p.first);
+    for (const auto &p:c.pages) flushPage(p.first);
     if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
     State out=snapshot(ctx);
     unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),63,(unsigned)c.device.size()};
@@ -263,7 +272,8 @@ void touch(unsigned addr, unsigned size) {
     for (auto &c:active) for (unsigned a=first&~(PAGE-1); a<=((first+size-1)&~(PAGE-1)); a+=PAGE) {
         if (c.pages.count(a)) continue;
         if (c.pages.size()==LIMIT) { c.flags|=4; continue; }
-        if (c.synthetic) flushPage(a);
+        /* Nested natural observations must see the parent's cached stores. */
+        flushPage(a);
         auto &page=c.pages[a];
         std::memcpy(page.data(), &mem_b[a], PAGE);
         /* A synthetic probe must not leave RAM modified, so keep an
