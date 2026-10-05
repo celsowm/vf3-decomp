@@ -11,7 +11,8 @@ static const Editor editors[] = {
     {0x0c08e396,17,1,0,1,1}, {0x0c08e3ce,18,1,0,3,1},
     {0x0c08e426,19,1,0,10,1}, {0x0c08e45e,14,1,0,1,1},
     {0x0c08e49a,15,1,0,1,1}, {0x0c08e4d6,21,1,0,1,1},
-    {0x0c08e50e,20,1,0,1,1}, {0x0c08e57e,12,1,0,1,1}
+    {0x0c08e50e,20,1,0,1,1}, {0x0c08e546,22,1,0,1,1},
+    {0x0c08e57e,12,1,0,1,1}
 };
 static uint32_t pop(vf3_matrix_state *s,const vf3_ram_map *ram)
 { uint32_t value=vf3_matrix_read(ram,R(15),4); R(15)+=4; return value; }
@@ -27,7 +28,7 @@ int vf3_advance_config_editors_contains(uint32_t entry)
     case 0x0c08e200: case 0x0c08e238: case 0x0c08e2b6: case 0x0c08e2ee:
     case 0x0c08e326: case 0x0c08e35e: case 0x0c08e396: case 0x0c08e3ce:
     case 0x0c08e426: case 0x0c08e45e: case 0x0c08e49a: case 0x0c08e4d6:
-    case 0x0c08e50e: case 0x0c08e57e: return 1;
+    case 0x0c08e50e: case 0x0c08e546: case 0x0c08e57e: return 1;
     default: return 0;
     }
 }

@@ -21,9 +21,110 @@ from expand_memory_profile import expand
 from config_editor_map import decode as decode_editor
 from inspect_capsule import format_register, register_index
 import capture_catalog
+import portcheck
+import regression_status
+import state_checksum_table
+import struct
+from types import SimpleNamespace
+from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_regression_status_requires_complete_binding_reports(self):
+        expected = {'first': {}, 'second': {}}
+        partial = 'binding first: PASS\n'
+        data = regression_status.summarize(partial, expected)
+        self.assertEqual(data['reported_bindings'], 1)
+        self.assertFalse(data['complete'])
+        self.assertFalse(data['passed'])
+        self.assertFalse(regression_status.summarize(partial+'portcheck: PASS\n',expected)['passed'])
+        full = partial+'binding second: PASS\ngolden-bound ports:\n  first PASS\n  second PASS\nportcheck: PASS\n'
+        self.assertTrue(regression_status.summarize(full,expected)['passed'])
+        self.assertEqual(regression_status.summarize(full,expected)['reported_bindings'],2)
+        self.assertFalse(regression_status.summarize(full,expected,'verify_all')['complete'])
+        self.assertTrue(regression_status.summarize(full+'verify_all: PASS\n',expected,'verify_all')['passed'])
+        self.assertTrue(regression_status.summarize(
+            'golden-bound ports:\n  first PASS\n  second PASS\nportcheck: PASS\n',expected)['passed'])
+        self.assertFalse(regression_status.summarize(full+'verify_all: FAIL\n',expected)['passed'])
+        self.assertFalse(regression_status.summarize(full.replace('second PASS','second FAIL'),expected)['passed'])
+
+    def test_snapshot_override_preserves_bindings_and_other_executables(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root/'build').mkdir()
+            for name in ('vf3matrixfamily.exe','other.exe','snapshot.exe','vectors.cases'):
+                (root/'build'/name).touch()
+            bindings = root/'bindings.json'
+            bindings.write_text(json.dumps({
+                'matrix':dict(test='build/vf3matrixfamily.exe 0x8c010100',golden='build/vectors.cases',strict=True),
+                'other':dict(test='build/other.exe',golden='build/vectors.cases')}))
+            before = bindings.read_bytes()
+            with patch.object(portcheck,'REPO',root), patch.object(portcheck.subprocess,'run',
+                    return_value=SimpleNamespace(returncode=0,stdout='PASS',stderr='')) as run:
+                results = portcheck.run_bindings(bindings,matrix_executable=root/'build/snapshot.exe')
+            self.assertTrue(all(status=='PASS' for _,status,_ in results))
+            commands = {Path(call.args[0][0]).name:call for call in run.call_args_list}
+            self.assertEqual(set(commands),{'snapshot.exe','other.exe'})
+            self.assertEqual(commands['snapshot.exe'].kwargs['env']['VF3_STRICT_REPLAY'],'1')
+            self.assertEqual(bindings.read_bytes(),before)
+
+    def test_checksum_table_validates_original_stride_and_packed_crc(self):
+        image = bytearray(0xe3868+1024)
+        for address,opcode in ((0x8c076b4e,0xd006),(0x8c076b50,0x4700),
+                               (0x8c076b52,0x4700),(0x8c076b54,0x027d)):
+            struct.pack_into('<H',image,address-state_checksum_table.BASE,opcode)
+        struct.pack_into('<I',image,0x8c076b68-state_checksum_table.BASE,0x0c0f3868)
+        struct.pack_into('<256H',image,0xe3868,*state_checksum_table.crc_table())
+        data = state_checksum_table.inspect(image,2)
+        self.assertTrue(data['packed_table_match'])
+        self.assertFalse(data['generic_crc_replacement_equivalent'])
+        self.assertEqual(data['original_lookup_stride'],4)
+        self.assertEqual(data['preview'][1]['packed_word'],'0x1021')
+        self.assertEqual(data['preview'][1]['original_lookup_word'],'0x2042')
+        image[0xe3868]=1
+        self.assertFalse(state_checksum_table.inspect(image)['packed_table_match'])
+        image[0x8c076b50-state_checksum_table.BASE]=0x09
+        with self.assertRaises(ValueError):
+            state_checksum_table.inspect(image)
+        with self.assertRaises(ValueError):
+            state_checksum_table.inspect(b'')
+
+    def test_comparison_hints_use_bounded_original_literals(self):
+        self.assertEqual(literal_comparisons(0x8840,{}),[64])
+        self.assertEqual(literal_comparisons(0x88ff,{}),[-1])
+        self.assertEqual(literal_comparisons(0x3423,
+            {2:('literal',512),4:('field',None,0)}),[512])
+        self.assertEqual(literal_comparisons(0x3423,
+            {2:('literal',0x0c420000)}),[])
+        values = boundary_palette([64,-1])
+        self.assertTrue({63,64,65,0xfffffffe,0xffffffff} <= set(values))
+        self.assertEqual(boundary_palette([64,-1],True),tuple(reversed(values)))
+        self.assertEqual(replace_narrow(0xaabbccdd,0x0c420001,2,0x10001),0xaa0001dd)
+        self.assertEqual(replace_narrow(0xaabbccdd,0x0c420001,2,-1),0xaaffffdd)
+        with self.assertRaises(ValueError):
+            replace_narrow(0,0x0c420003,2,64)
+
+    def test_comparison_sampling_is_optional_and_preserves_pointer_fields(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            watch = root / 'watch.txt'
+            watch.write_text('pc 0x8c010100\n')
+            words = {0x0c420000:0xaabbccdd,0x0c420004:0x0c430000}
+            metadata = dict(scalars=[0x0c420004],signed_arguments=[],argument_flags={},
+                narrow_widths={0x0c420001:1,0x0c420004:2},
+                comparisons=[dict(pc='0x8c010104',value=64)])
+            with patch.object(tenpp_probe_plan,'fixture',return_value=({},words,metadata)):
+                for enabled in (False,True):
+                    output = root / f'{enabled}.txt'
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        tenpp_probe_plan.generate(watch,output,0x8c010200,66,
+                                                 comparison_boundaries=enabled)
+            legacy = (root / 'False.txt').read_text()
+            sampled = (root / 'True.txt').read_text()
+            self.assertEqual(legacy.count('0x0c420000 0xaabbccdd'),66)
+            self.assertIn('0x0c420000 0xaabb41dd',sampled)
+            self.assertEqual(sampled.count('0x0c420004 0x0c430000'),66)
+
     def test_capture_catalog_is_advisory_and_excludes_holdouts(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

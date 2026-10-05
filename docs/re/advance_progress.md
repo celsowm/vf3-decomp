@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Thirty-two accepted batches add **22,718 bytes**, reaching **228,780 / 434,656
-(52.6347%)**, a gain of **5.2267 percentage points**. The remaining shortfall
-to the ten-point campaign target is **20,748 bytes**. The first checkpoint
+Thirty-six accepted batches add **24,646 bytes**, reaching **230,708 / 434,656
+(53.0783%)**, a gain of **5.6702 percentage points**. The remaining shortfall
+to the ten-point campaign target is **18,820 bytes**. The first checkpoint
 at 227,795 bytes has passed; the next checkpoint is 239,061 bytes.
 
 ## Descriptor initializers
@@ -500,3 +500,109 @@ Development uses `build/vf3matrixfamily_advance_clients_final.exe`; acceptance
 uses `build/vf3matrixfamily_advance_small_tail_final_dev.exe`. The owner is
 unchanged from the passing integrated regression; the new root has separate
 strict proofs and independent artifact hashes.
+
+## Allocator alignment and state helpers
+
+`0x8c0620f8` adds **406 unique bytes** in
+`tools/oracle/advance_resume_allocator_milestone.json`. Generic and original
+prologue captures leave seven instructions absent from their union. Typed
+acyclic heap nodes exercise exact-size class-zero allocation and a block that
+straddles a 2 KiB boundary. Merged evidence executes every frozen body PC and
+passes **1,172/1,172 strict development cases**. Changed requested sizes, node
+flags and relocated pointers in states 23/29 pass **511/511 independent
+acceptance cases** with zero skips. The existing matrix adapter owns the body;
+the original list and alignment helpers remain intact.
+
+Eight roots add **448 unique bytes** in
+`tools/oracle/advance_resume_small_tail_milestone.json`. All **3,023/3,023
+development cases** and **3,799/3,799 independent acceptance cases** pass with
+complete frozen bodies in both corpora. `advance_state_helpers.c` models the
+state-record comparison, change counter and original checksum/copy/notification
+calls. `advance_small_tail_adapters.c` supplies 360 original statements with
+zero unsupported instructions, including the actual comparison and checksum
+dependencies. The additional readable editor `0x8c08e546` operates on byte
+field 22, bounded to 0..1. Remaining roots use existing source owners.
+Unproved dependency bodies receive no independent credit.
+
+The two-pool cleanup wrapper `0x8c0619d2` adds another **56 bytes** in
+`tools/oracle/advance_resume_pool_milestone.json`. Its **289/289 development
+cases** execute every frozen body PC in states 21/27. The initial generic
+holdout supplies only one valid scenario. A coherent empty-list contract for
+the original mutable allocator heads and tails gives **512/512 strict
+independent acceptance cases**, complete bodies and two reserved scenarios.
+The original cleanup callees execute unchanged; the existing complex adapter
+owns the wrapper.
+
+The three milestone artifact-hash and interval-union audits pass. Development
+and acceptance use immutable snapshot
+`build/vf3matrixfamily_advance_small_tail_final_dev.exe` (SHA-256
+`8d8723dd40c5af1f1c8e10990b49f9cb84129a4b783509ccfaa9a90722884b53`).
+The integrated build and full repository regression pass in
+`extract/analysis/advance_resume_small_tail_regression.log`.
+
+## Integer comparison boundaries and medium bodies
+
+Three roots add **1,018 unique bytes** in
+`tools/oracle/advance_resume_medium_milestone.json`: `0x8c081e7c`,
+`0x8c08af6c` and `0x8c08ef62`. Their complete frozen development bodies pass
+**1,145/1,145 strict cases** across states 21/27. Independent changed inputs
+and pointers relocated by `0x20000` in states 23/29 pass **1,157/1,157 strict
+acceptance cases**, with zero skips. The last root's acceptance body covers
+68/388 bytes; its development body covers all 388 bytes. This satisfies the
+existing campaign gates without changing the frozen intervals.
+
+`advance_medium_adapters.c` contains 509 original statements with no unsupported
+instructions. The immutable proof executable is
+`build/vf3matrixfamily_advance_medium_dev.exe`. The artifact-hash and union
+audit passes. The repeated integration replay passes all 1,140 bindings in
+`extract/analysis/advance_resume_medium_verified_regression.log`. The earlier
+unfinished regression log is retained; both reported failures pass fresh
+512-case strict checks without source changes.
+
+Reusable `comparison_inputs.py` records bounded original integer comparands.
+The optional probe boundary palette varies narrow fields while preserving
+adjacent bytes and protected pointers. All 21 campaign-tool checks pass.
+
+## Readable state-record dependencies
+
+`advance_state_helpers.c` now expresses `0x8c042fdc` as a bounded byte
+comparison loop and `0x8c076b3c` as a table-driven 16-bit checksum loop.
+Original disassembly confirms the unsigned-byte subtraction, postincremented
+cursors, final comparison rereads, four-byte checksum table stride, signed
+word load and scratch-stack writes. Zero comparison length reads no buffer;
+zero checksum length retains the original wrapping do/while countdown, bounded
+by the replay budget. Interior entry points retain the static adapters.
+
+The first 256 packed words at `0x8c0f3868` match a generated polynomial-`0x1021`
+CRC table exactly (`extract/analysis/advance_resume_state_checksum_table.json`).
+Its packed stride is two bytes, while this original caller scales its index by
+four. High indices therefore read beyond that packed table. A conventional CRC
+replacement would change behavior; the port retains the original address
+calculation and actual RAM reads.
+
+`tests/state_helpers_replay.c` passes **8,836 differential cases**, comparing
+every ABI register and RAM byte against the retained original static C
+translation. Lengths 0..64, every mismatch position and high-bit byte palettes
+exercise comparison boundaries; poisoned table padding checks checksum stride
+and signed words. Separate zero-length checks cover unmapped comparison buffers
+and checksum budget exhaustion. The test is included in `portcheck.py`.
+
+The unchanged caller `0x8c076aa8` passes **509/509 development cases** and
+**510/510 independent acceptance cases** with zero skips. All nine retained
+small-tail development roots and eight acceptance roots pass again using
+immutable `build/vf3matrixfamily_advance_state_readable.exe` (SHA-256
+`7f5267cee07721c2ed000e56c32ea8181941385463a15f6d8cb6fc8f44d64bc6`).
+Reports are `extract/analysis/advance_resume_state_readable_{dev,accept}_proof.json`.
+These dependencies receive no additional body credit. The 36-milestone series
+artifact-hash and interval-union audit passes at 230,708 unique C bytes.
+
+The complete replay suite passes all **1,140/1,140 bindings** with the readable
+models using the immutable snapshot, plus the native tests. The log is
+`extract/analysis/advance_resume_state_readable_regression.log`. Reusable
+regression reporting, snapshot executable overrides and original checksum
+table inspection replace this session's inline Python commands; all **24**
+campaign-tool checks pass.
+The final integrated CMake build and full repository verification also pass;
+the build log is `extract/analysis/advance_resume_state_readable_build.log`,
+and the repository gate ends with `verify_all: PASS` in the repeated integration
+log above.

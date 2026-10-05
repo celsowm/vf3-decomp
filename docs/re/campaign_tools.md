@@ -244,7 +244,7 @@ Each entry has optional `words` and `ranges`; a range specifies `start`, `count`
 Aligned addresses must lie beyond the original image in mutable Dreamcast RAM;
 overlaps, invalid dimensions and ranges crossing RAM end are rejected. This
 avoids handwritten arrays of record-field addresses. It produces input fixtures
-only. Nineteen campaign-tool checks pass, including range validation and
+only. Twenty-one campaign-tool checks pass, including range validation and
 configuration editor decoding.
 
 `config_editor_map.py --help` describes extraction of bounded editor parameters
@@ -261,3 +261,32 @@ indexes retained complete-body development reports against current C credit.
 It excludes acceptance and holdout paths, deduplicates corpora and reports
 potential interval-union gain and existing source ownership. This is an advisory
 index: re-run `capture_report.py` on the raw corpora before replay and promotion.
+
+`comparison_inputs.py --watch ROOTS.txt --out REPORT.json` records bounded
+integer comparison literals from the original image. `tenpp_probe_plan.py` and
+`isolate_planned.py` accept `--comparison-boundaries` to sample below, at and
+above those literals after the first 64 variants. Narrow fields preserve their
+adjacent bytes, and protected pointers remain intact. These are advisory input
+fixtures; original capture and strict replay still decide acceptance.
+
+Use `portcheck.py --matrix-executable SNAPSHOT.exe --jobs 4` to replay the
+existing matrix bindings with an immutable executable. This preserves the
+binding file and leaves other replay executables unchanged. `verify_all.py`
+accepts the same option. Snapshot overrides retain each binding's strict flag.
+
+`regression_status.py LOG --out STATUS.json` summarizes running and completed
+`portcheck.py` or `verify_all.py` logs against the current binding inventory.
+It supports serial final summaries and parallel progress lines, deduplicates
+their repeated binding names and refuses a passing status for truncated logs.
+An unfinished run remains `RUNNING`; replay failures return a nonzero exit code.
+For full repository gates, add `--suite verify_all` so a finished `portcheck`
+does not prematurely mark the remaining audit and coverage stages complete.
+
+`state_checksum_table.py --out TABLE.json --preview 16` checks the original
+checksum lookup instructions and table pointer, compares the packed table with
+generated polynomial-`0x1021` words, hashes it and optionally displays packed
+words beside actual indexed reads. The packed two-byte stride differs from the
+original four-byte lookup stride; this metadata receives no body credit.
+`--image FILE` selects an alternate original-image input for verification.
+These tools replace the session's inline Python inspection and binding edits.
+All 24 campaign-tool checks pass.

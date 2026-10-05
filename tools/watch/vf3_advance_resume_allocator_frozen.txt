@@ -1,0 +1,2 @@
+# Frozen allocator seed; full body evidence requires merged original captures.
+pc 0x8c0620f8

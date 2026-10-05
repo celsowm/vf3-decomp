@@ -110,6 +110,9 @@ add_library(vf3core STATIC
     src/fight/advance_record_render.c
     src/fight/advance_config_editors.c
     src/fight/advance_client_wrappers.c
+    src/fight/advance_state_helpers.c
+    src/fight/advance_small_tail_adapters.c
+    src/fight/advance_medium_adapters.c
     src/fight/advance_client_helper_adapters.c
     src/fight/advance_branch_adapters.c
     src/fight/advance_leaf_ranked_more_adapters.c
@@ -318,6 +321,7 @@ add_port_test(vf3fd9ec tests/d9ec_replay.c)
 add_port_test(vf3matrix tests/matrix_kernel_replay.c)
 add_port_test(vf3fpu tests/sh4_fpu_replay.c)
 add_port_test(vf3matrixfamily tests/matrix_family_replay.c)
+add_port_test(vf3statehelpers tests/state_helpers_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

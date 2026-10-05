@@ -3,6 +3,7 @@ import argparse
 from pathlib import Path
 from pointer_seeds import fixture
 from inspect_capsule import REGISTER_NAMES
+from comparison_inputs import boundary_palette, replace_narrow
 
 
 def override_sequence(value, label):
@@ -35,13 +36,13 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
              global_fields=False, scalar_fields=False, field_crosses=False,
              random_fields=False, expanded_inputs=False, preserve_fields=False,
-             register_overrides=None, memory_overrides=None):
+             register_overrides=None, memory_overrides=None, comparison_boundaries=False):
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
         raise ValueError('empty watch')
-    fixtures = {entry: fixture(entry, mode, global_fields, random_fields) for entry in roots}
-    alternatives = {name: {entry: fixture(entry, name, global_fields, random_fields) for entry in roots}
+    fixtures = {entry: fixture(entry, mode, global_fields, random_fields or comparison_boundaries) for entry in roots}
+    alternatives = {name: {entry: fixture(entry, name, global_fields, random_fields or comparison_boundaries) for entry in roots}
                     for name in ('one', 'open')} if alternate_fields else {}
     overrides = {}
     for entry_text, fields in (register_overrides or {}).items():
@@ -176,6 +177,20 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                     for addr in types['nullable_fields']:
                         if addr in protected and rng.randrange(2):
                             words[addr] = 0
+            if comparison_boundaries and variant >= 64 and not preserve_fields:
+                hints = fixtures[entry][2]
+                domain = boundary_palette(hints.get('comparisons', ()), holdout_inputs)
+                protected = {addr for addr, value in words.items()
+                             if 0x0c000000 <= (value & 0x1fffffff) < 0x10000000}
+                if hints.get('comparisons'):
+                    for index, addr in enumerate(hints['scalars']):
+                        if addr in words and addr not in protected:
+                            words[addr] = domain[(variant // 2 + index * 7) % len(domain)]
+                    for index, (addr, width) in enumerate(sorted(hints['narrow_widths'].items())):
+                        aligned = addr & ~3
+                        if aligned in words and aligned not in protected:
+                            value = domain[(variant // (1 << (index % 4)) + index * 7) % len(domain)]
+                            words[aligned] = replace_narrow(words[aligned], addr, width, value)
             if float_vectors or field_mode == 'vectors':
                 import struct
                 values = palette
@@ -234,6 +249,11 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                                 value &= ~mask
                     else:
                         value = (variant + reg * 13 + (256 if holdout_inputs else 0)) & (7 if reg < 8 else 511)
+                    if comparison_boundaries and variant >= 64:
+                        hints = fixtures[entry][2]
+                        if hints.get('comparisons'):
+                            domain = boundary_palette(hints['comparisons'], holdout_inputs)
+                            value = domain[(variant // 2 + reg * 7) % len(domain)]
                     lines.append(f'reg 0x{trigger:08x} r{reg} 0x{value:08x}')
             if floating_arguments:
                 import struct
@@ -281,6 +301,8 @@ if __name__ == '__main__':
     ap.add_argument('--random-fields', action='store_true')
     ap.add_argument('--expanded-inputs', action='store_true')
     ap.add_argument('--preserve-fields', action='store_true')
+    ap.add_argument('--comparison-boundaries', action='store_true',
+                    help='also sample around bounded original integer comparands')
     ap.add_argument('--holdout-inputs', action='store_true')
     a = ap.parse_args()
     generate(a.watch, a.out, a.trigger, a.variants, a.relocation, a.mode,
@@ -289,4 +311,4 @@ if __name__ == '__main__':
              holdout_inputs=a.holdout_inputs, global_fields=a.global_fields,
              scalar_fields=a.scalar_fields, field_crosses=a.field_crosses,
              random_fields=a.random_fields, expanded_inputs=a.expanded_inputs,
-             preserve_fields=a.preserve_fields)
+             preserve_fields=a.preserve_fields, comparison_boundaries=a.comparison_boundaries)

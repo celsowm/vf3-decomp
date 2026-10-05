@@ -19,5 +19,8 @@
   "0x8c046b08": "src/fight/advance_client_wrappers.c",
   "0x8c076aec": "src/fight/advance_client_wrappers.c",
   "0x8c0c5f52": "src/fight/advance_client_wrappers.c",
-  "0x8c04ff62": "src/fight/advance_client_wrappers.c"
+  "0x8c04ff62": "src/fight/advance_client_wrappers.c",
+  "0x8c076aa8": "src/fight/advance_state_helpers.c",
+  "0x8c042fdc": "src/fight/advance_state_helpers.c",
+  "0x8c076b3c": "src/fight/advance_state_helpers.c"
 }

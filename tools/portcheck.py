@@ -35,7 +35,7 @@ TESTS = ["vf3dl", "vf3walker", "vf3mtmount", "vf3loop", "vf3taskvm",
          "vf3c788", "vf3f096258", "vf3matrix",
          "vf3bootmix",
          "vf3fvecnorm070x", "vf3fvecnorm070a84", "vf3fvecnorm070120",
-         "vf3fvecnorm07030c", "vf3fvecnorm070cf0", "vf3fpu"]
+         "vf3fvecnorm07030c", "vf3fvecnorm070cf0", "vf3fpu", "vf3statehelpers"]
 # NOTE: vf3fvecmix2 (0x8C070852) builds but is NOT gated: its window's float
 # exits carry loop-carried pipeline state and the exit RAM contains stores
 # from below-window code — parked until re-captured with tighter windows.
@@ -75,7 +75,7 @@ def run_tests():
     return out
 
 
-def run_bindings(bindings: Path, jobs=1):
+def run_bindings(bindings: Path, jobs=1, matrix_executable=None):
     if not bindings.exists():
         return []
     cfg = json.loads(bindings.read_text(encoding="utf-8"))
@@ -83,7 +83,9 @@ def run_bindings(bindings: Path, jobs=1):
         pc,spec=item
         test = str(spec["test"]).split()
         golden = REPO / spec["golden"]
-        exe = REPO / test[0]
+        exe = (Path(matrix_executable).resolve()
+               if matrix_executable and test[0] == 'build/vf3matrixfamily.exe'
+               else REPO / test[0])
         if not exe.exists():
             return pc, "MISSING-TEST", str(exe)
         if not golden.exists():
@@ -109,7 +111,11 @@ def main() -> int:
     ap.add_argument("--goldens", default="extract/analysis/goldens")
     ap.add_argument("--bindings", default="tools/golden_bindings.json")
     ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='independent bound replay processes (1-4)')
+    ap.add_argument('--matrix-executable', type=Path,
+                    help='use an immutable matrix replay snapshot without editing bindings')
     a = ap.parse_args()
+    if a.matrix_executable and not a.matrix_executable.is_file():
+        ap.error('matrix replay executable does not exist')
 
     rows, errs = validate_goldens(REPO / a.goldens)
     print(f"goldens: {len(rows)} fns, {len(errs)} issues")
@@ -119,7 +125,7 @@ def main() -> int:
     print("replay tests:")
     for t, st, last in tests:
         print(f"  {t:12} {st:6} {last[:80]}")
-    binds = run_bindings(REPO / a.bindings,a.jobs)
+    binds = run_bindings(REPO / a.bindings,a.jobs,a.matrix_executable)
     print("golden-bound ports:")
     if not binds:
         print("  (none yet - add tools/golden_bindings.json)")

@@ -938,6 +938,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c061910"
   },
+  "advance-resume-allocator:0x8c0620f8": {
+    "golden": "extract/analysis/advance_resume_allocator_merged_dev/f_8c0620f8.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; All frozen allocator PCs from merged generic, original-prologue and exact-size/2KiB-boundary development; changed sizes, flags and relocated acyclic list nodes in reserved states 23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0620f8"
+  },
   "advance-resume-branch:0x8c0ab8f0": {
     "golden": "extract/analysis/advance_resume_branch_merged_dev/f_8c0ab8f0.cases",
     "port": "src/fight/advance_branch_adapters.c",
@@ -1141,12 +1148,40 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c2992"
   },
+  "advance-resume-medium:0x8c081e7c": {
+    "golden": "extract/analysis/advance_resume_medium_final_dev/f_8c081e7c.cases",
+    "port": "src/fight/advance_medium_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete development bodies; independent changed boundary inputs and relocated fixtures in states 23/29; strict replay with zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081e7c"
+  },
+  "advance-resume-medium:0x8c08af6c": {
+    "golden": "extract/analysis/advance_resume_medium_final_dev/f_8c08af6c.cases",
+    "port": "src/fight/advance_medium_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete development bodies; independent changed boundary inputs and relocated fixtures in states 23/29; strict replay with zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08af6c"
+  },
+  "advance-resume-medium:0x8c08ef62": {
+    "golden": "extract/analysis/advance_resume_medium_final_dev/f_8c08ef62.cases",
+    "port": "src/fight/advance_medium_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete development bodies; independent changed boundary inputs and relocated fixtures in states 23/29; strict replay with zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08ef62"
+  },
   "advance-resume-pair:0x8c0c8b52": {
     "golden": "extract/analysis/advance_resume_pair_final_dev/f_8c0c8b52.cases",
     "port": "src/fight/device_adapters.c",
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original body; retained complete development and fresh changed relocated pair records in reserved states 23/29; actual RNG and scene guard retained.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c8b52"
+  },
+  "advance-resume-pool:0x8c0619d2": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c0619d2.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full original wrapper body; retained varied development in states 21/27; coherent empty mutable allocator list heads/tails in independent relocated states 23/29, retaining original cleanup helpers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0619d2"
   },
   "advance-resume-records:0x8c04f912": {
     "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c04f912.cases",
@@ -1238,6 +1273,62 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Indicator callbacks, transform records and existing source owners; full frozen development bodies; independently changed inputs, relocated fixtures and strict zero-skip reserved-state replay",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c398a"
+  },
+  "advance-resume-small-tail:0x8c04bc8e": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c04bc8e.cases",
+    "port": "src/fight/advance_small_tail_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04bc8e"
+  },
+  "advance-resume-small-tail:0x8c04bcc6": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c04bcc6.cases",
+    "port": "src/fight/advance_small_tail_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04bcc6"
+  },
+  "advance-resume-small-tail:0x8c05f12c": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c05f12c.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05f12c"
+  },
+  "advance-resume-small-tail:0x8c0613c2": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c0613c2.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0613c2"
+  },
+  "advance-resume-small-tail:0x8c076aa8": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c076aa8.cases",
+    "port": "src/fight/advance_state_helpers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c076aa8"
+  },
+  "advance-resume-small-tail:0x8c0819fa": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c0819fa.cases",
+    "port": "src/fight/advance_small_tail_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0819fa"
+  },
+  "advance-resume-small-tail:0x8c08e546": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c08e546.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e546"
+  },
+  "advance-resume-small-tail:0x8c09b926": {
+    "golden": "extract/analysis/advance_resume_small_tail_final_dev/f_8c09b926.cases",
+    "port": "src/fight/advance_small_tail_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original image; complete frozen development bodies; changed relocated inputs across independent reserved states 23/29; actual original state comparison/checksum/copy and configuration calls.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09b926"
   },
   "advance-resume-small:0x8c03c220": {
     "golden": "extract/analysis/advance_resume_small_final_dev/f_8c03c220.cases",

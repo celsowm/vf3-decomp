@@ -1,0 +1,8 @@
+# New complete-body roots and their original helper entrypoints; helpers uncredited.
+pc 0x8c04bc8e
+pc 0x8c04bcc6
+pc 0x8c0819fa
+pc 0x8c09b926
+pc 0x8c042fdc
+pc 0x8c076b3c
+pc 0x8c0c9c18

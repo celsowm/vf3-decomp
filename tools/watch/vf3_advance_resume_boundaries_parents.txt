@@ -1,0 +1,14 @@
+# Advisory prologue candidates; inspect and capture before any coverage credit.
+pc 0x8c0490d0
+pc 0x8c0395e0
+pc 0x8c03be20
+pc 0x8c040854
+pc 0x8c047794
+pc 0x8c05d2d0
+pc 0x8c06079c
+pc 0x8c08a068
+pc 0x8c094e6c
+pc 0x8c0a00b6
+pc 0x8c0af198
+pc 0x8c0c80a8
+pc 0x8c0c95f4

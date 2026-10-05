@@ -5,6 +5,7 @@ capture and strict C replay are still required for every candidate.
 """
 import struct
 from pathlib import Path
+from comparison_inputs import literal_comparisons
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -24,6 +25,8 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
     flags = set()
     counts = set()
     narrow_fields = {}
+    narrow_widths = {}
+    comparisons = []
     scalar_reads = set()
     float_reads = set()
     flag_masks = {}
@@ -81,6 +84,8 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
         base = addr & ~3
         words.setdefault(base, 0)
         narrow_fields[base] = narrow_fields.get(base, 0) | (1 << ((addr & 3) * 8))
+        if size in (1, 2) and (addr & 3) + size <= 4:
+            narrow_widths[addr] = max(size, narrow_widths.get(addr, 0))
 
     def flag(expr, mask):
         if expr is not None and expr[0] == 'or':
@@ -161,6 +166,9 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
             continue
         op = struct.unpack_from('<H', image, pc - 0x8c010000)[0]
         n, m, top, low = (op >> 8) & 15, (op >> 4) & 15, op >> 12, op & 15
+        if metadata:
+            comparisons.extend(dict(pc=f'0x{pc:08x}', value=value)
+                               for value in literal_comparisons(op, regs))
         if top == 14:
             value = (op & 255) - (256 if op & 128 else 0)
             regs[n] = ('literal', value)
@@ -378,5 +386,6 @@ def fixture(entry, mode='zero', global_fields=False, metadata=False):
             argument_flags={reg: sorted(masks) for reg, masks in argument_masks.items()},
             signed_arguments=sorted(signed_arguments),
             counts=sorted(count_fields), nullable_args=sorted(nullable_args),
-            nullable_fields=sorted(nullable_fields))
+            nullable_fields=sorted(nullable_fields), narrow_widths=narrow_widths,
+            comparisons=comparisons)
     return assignments, words

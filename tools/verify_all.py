@@ -37,12 +37,17 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-build", action="store_true")
     ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='parallel independent bound replays')
+    ap.add_argument('--matrix-executable', type=Path,
+                    help='use an immutable matrix replay snapshot without editing bindings')
     a = ap.parse_args()
     ok = True
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
     ok &= run([PY, 'tools/oracle/test_campaign_tools.py'])
-    ok &= run([PY, "tools/portcheck.py",'--jobs',str(a.jobs)])
+    replay_command = [PY, "tools/portcheck.py",'--jobs',str(a.jobs)]
+    if a.matrix_executable:
+        replay_command.extend(['--matrix-executable',str(a.matrix_executable)])
+    ok &= run(replay_command)
     for batch in sorted((REPO/'tools/oracle').glob('*_batch.json')):
         ok &= run([PY, 'tools/oracle/audit_matrix_batch.py', '--manifest', str(batch)])
         manifest=json.loads(batch.read_text())

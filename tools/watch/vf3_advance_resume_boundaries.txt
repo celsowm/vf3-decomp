@@ -1,0 +1,17 @@
+# Unported bodies ranked by closure and marginal C bytes; no credit.
+pc 0x8c04a4c4
+pc 0x8c08a076
+pc 0x8c0609b8
+pc 0x8c0607a2
+pc 0x8c0af1a4
+pc 0x8c0c80be
+pc 0x8c0477a4
+pc 0x8c0a00c8
+pc 0x8c03be34
+pc 0x8c094e8c
+pc 0x8c040856
+pc 0x8c0395f0
+pc 0x8c0492be
+pc 0x8c05d2dc
+pc 0x8c049416
+pc 0x8c0c9610
