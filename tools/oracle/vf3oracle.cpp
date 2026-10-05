@@ -81,7 +81,7 @@ struct SyntheticPatch {
     unsigned cursor = 0;
 };
 FILE *output;
-bool initialized, copying, probeOnly;
+bool initialized, copying, probeOnly, probeChildren;
 unsigned depth, samples = 64;
 /* Instruction budget for a synthetic probe before it is retired as invalid. */
 unsigned probeOps = 20000;
@@ -361,6 +361,7 @@ void opcode_oracle(const Sh4Context *ctx) {
 void init(const Sh4Context *ctx) {
     initialized=true;
     probeOnly=getenv("VF3_PROBE_ONLY")!=nullptr;
+    probeChildren=getenv("VF3_PROBE_CHILDREN")!=nullptr;
     opcode_oracle(ctx);
     /* Development fixtures: "addr value" applies at startup; "entry addr
      * value" applies at that watched entry before its before-state snapshot.
@@ -618,7 +619,9 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
      * not another nested call. Actual recursion has a greater depth. */
     const bool alreadyActive=std::any_of(active.begin(),active.end(),
         [canon](const Call &call) { return (call.entry|0x80000000u)==canon && call.depth==depth; });
-    if(!probeOnly && !alreadyActive && canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
+    const bool observingProbe=probeChildren && std::any_of(active.begin(),active.end(),
+        [](const Call &call) { return call.synthetic && !call.aborted; });
+    if((!probeOnly || observingProbe) && !alreadyActive && canon!=redirected && spec!=specs.end() && spec->pc==canon && spec->count<samples) {
         ++spec->count;
         if(active.size()>=64) vf3OracleInvalidate(4);
         else {

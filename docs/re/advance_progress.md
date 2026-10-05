@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twenty-four accepted batches add **16,228 bytes**, reaching **222,290 / 434,656
-(51.1416%)**, a gain of **3.7335 percentage points**. The remaining shortfall
-to the ten-point campaign target is **27,238 bytes**.
+Twenty-seven accepted batches add **18,236 bytes**, reaching **224,298 / 434,656
+(51.6036%)**, a gain of **4.1955 percentage points**. The remaining shortfall
+to the ten-point campaign target is **25,230 bytes**.
 
 ## Descriptor initializers
 
@@ -358,3 +358,60 @@ The full integration regression passes in
 C bindings and frozen-body, SDK-union and call-resolution checks. All 24
 milestone hashes and the campaign byte-union chain pass in
 `extract/analysis/advance_resume_small_series_audit.json`.
+
+## Calendar, record and render helpers
+
+Ten roots add **854 unique bytes** in
+`tools/oracle/advance_resume_static_milestone.json`. All **6,797 development
+cases** and **2,312 independent acceptance cases** pass strict replay with zero
+skips. Development executes every frozen body PC; acceptance uses states 23/29,
+changed inputs and fixture relocation by `0x100000`. The source ownership map is
+`tools/oracle/advance_resume_static_ports.json`.
+
+Six further roots add **760 unique bytes** in
+`tools/oracle/advance_resume_render_milestone.json`. All **2,452 development
+cases** and **2,670 independent acceptance cases** pass. These implement scene
+indicator callbacks and repeated record transforms, and verify additional
+existing C owners. Some acceptance paths cover fewer PCs than development;
+full development bodies, varied acceptance inputs and strict replay remain the
+credit gates. Ownership is in `tools/oracle/advance_resume_render_ports.json`.
+Both batches use immutable snapshot
+`build/vf3matrixfamily_advance_render_final.exe`.
+
+The original scene/controller dependency and both indicator callbacks are
+statically translated in `src/fight/advance_controller_adapters.c`; 517 original
+statements have zero unsupported instructions. The readable entry models are
+`src/fight/advance_static_helpers.c` and `src/fight/advance_render_helpers.c`.
+Helpers without their own accepted frozen-body proof receive no independent
+credit.
+
+The fixture generator now relocates explicitly overridden GPR pointers with
+their RAM words while preserving FR/XF bit patterns. A dedicated regression
+check passes. With the optional longer prologue-prefix check, 15 reusable-tool
+checks pass. The initial mismatched
+acceptance fixtures remain archived; credit uses the repeated, correctly
+relocated capture only. Promotion also explicitly requires at least 64 distinct
+acceptance cases in two scenarios disjoint from development.
+
+Nested rollback capture is checked separately with the verified calendar entry
+and its original unsigned arithmetic callees: **128/128 cases per entry** pass
+strict replay, across states 21/27. Proof:
+`extract/analysis/advance_resume_probe_children_regression_proof.json`.
+The prologue finder preserves its 32-byte default; `--prefix-distance 64` finds
+the saved-r14 prefix at `0x8c08ffd0`, 48 bytes before the frozen vector entry.
+That wider-prefix development capture reaches 1,574/1,586 vector-body bytes.
+Additional projection and zero-distance contracts bring the merged development
+corpus to 1,586/1,586 bytes across 1,265 cases in two scenarios. The routine
+remains uncredited pending C replay and independent acceptance.
+
+The family campaign also verifies the original `0x8c0c298c` prologue and frozen
+child `0x8c0c2992`, both owned by existing `src/fight/next_adapters.c`. Complete
+development bodies and **632/632 strict development cases** pass. Reserved
+states 23/29 provide **338/338 changed acceptance cases** with relocated fixture
+pointers, at least 64 inputs and two scenarios per entry. Their **394-byte**
+union gain is recorded in `tools/oracle/advance_resume_family_milestone.json`.
+
+The integrated native build and full repository regression pass after the
+static and render source changes (`advance_resume_static_final_regression.log`).
+The family milestone reuses unchanged native sources and has separate strict
+development and acceptance proofs.

@@ -83,6 +83,8 @@ def main() -> int:
                     help='maximum seconds per emulator run; zero disables the limit')
     ap.add_argument('--probe-only', action='store_true',
                     help='capture redirected probes only, without natural watch entries')
+    ap.add_argument('--probe-children', action='store_true',
+                    help='capture nested watched entries only while a rollback probe is active')
     a = ap.parse_args()
     if a.hits and (a.capsule or a.instr or a.edges):
         ap.error('--hits cannot be combined with --capsule, --instr or --edges')
@@ -113,6 +115,7 @@ def main() -> int:
         env.pop("VF3_RAM_PATCH", None)
         env.pop("VF3_ENTRY_PATCH", None)
         env.pop('VF3_PROBE_ONLY', None)
+        env.pop('VF3_PROBE_CHILDREN', None)
         patch_path = ((REPO / patch) if not Path(patch).is_absolute() else Path(patch)) if patch else None
         if patch_path:
             if not patch_path.is_file():
@@ -120,8 +123,10 @@ def main() -> int:
             env["VF3_RAM_PATCH"] = str(patch_path)
         if entry_patch:
             env["VF3_ENTRY_PATCH"] = str(entry_patch)
-            if a.probe_only:
+            if a.probe_only or a.probe_children:
                 env['VF3_PROBE_ONLY'] = '1'
+            if a.probe_children:
+                env['VF3_PROBE_CHILDREN'] = '1'
         if a.probe_debug and entry_patch and a.capsule:
             probe_debug = trace_dir / f"probe_{a.name}_{name}.json"
             env["VF3_ORACLE_DEBUG"] = str(probe_debug)

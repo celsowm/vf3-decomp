@@ -14,6 +14,8 @@ def main():
     ap.add_argument('--watch', type=Path, required=True)
     ap.add_argument('--observe-watch', type=Path,
                     help='also observe these nested entries without probing them directly')
+    ap.add_argument('--probe-children', action='store_true',
+                    help='restrict observed entries to active rollback probes')
     ap.add_argument('--out', type=Path, required=True)
     ap.add_argument('--start', type=int, default=0)
     ap.add_argument('--limit', type=int, default=1000)
@@ -85,7 +87,9 @@ def main():
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
                    str(patch), '--capsule', '--probe-debug',
                    '--max-samples', str(a.variants), '--timeout', str(a.timeout)]
-        if not a.observe_watch:
+        if a.probe_children:
+            command.append('--probe-children')
+        elif not a.observe_watch:
             command.append('--probe-only')
         play = a.play.as_posix() if a.play else ''
         for state in a.states.split(','):

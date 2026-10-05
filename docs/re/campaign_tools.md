@@ -223,3 +223,16 @@ Register and memory override dimensions also accept
 `values[(n // stride + phase) % len(values)]`. Different strides exercise
 independent field combinations; scalar and list overrides retain their existing
 behavior. Strides must be positive integers and phases nonnegative integers.
+Explicit GPR fixture pointers relocate with their RAM addresses; FR/XF values
+remain raw bits.
+
+`isolate_planned.py --observe-watch CHILDREN.txt --probe-children` records watched
+nested entries only while a rollback probe is active. It uses
+`golden_batch.py --probe-children` and the opt-in `VF3_PROBE_CHILDREN` oracle
+switch, which also enables `VF3_PROBE_ONLY`. Unrelated natural invocations are
+excluded. The default capture modes remain unchanged. Reinstall oracle hooks
+and rebuild Flycast before using the option. Prologue candidates and frozen
+children come from `prologue_roots.py`; original image/body intervals are kept.
+`prologue_roots.py --prefix-distance 64` can find floating-register save prefixes
+longer than its unchanged 32-byte default. Inspect the suggested parent and
+retain the original frozen child/body interval for credit.

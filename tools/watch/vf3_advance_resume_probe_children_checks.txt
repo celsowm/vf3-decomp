@@ -1,0 +1,3 @@
+# Verified unsigned arithmetic helpers; regression only, no new credit.
+pc 0x8c042c20
+pc 0x8c042d7c

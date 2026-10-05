@@ -54,7 +54,7 @@ def main():
     for key in ('inventory', 'body_ranges', 'image'):
         assert hashlib.sha256((ROOT / frozen[key]).read_bytes()).hexdigest() == frozen[key + '_sha256']
     development, scenarios = corpus(a.development)
-    acceptance, _ = corpus(a.acceptance)
+    acceptance, acceptance_scenarios = corpus(a.acceptance)
     reports = {p.relative_to(ROOT / 'extract/analysis').as_posix(): json.loads(p.read_text())
                for p in (a.development_report.resolve(), a.acceptance_report.resolve())}
     ranges = body_spans()
@@ -84,6 +84,11 @@ def main():
                     for record in records for source in record['sources']}
             assert len(used) >= 2, 'fewer than two development scenarios'
             assert measure(e, ranges[e], pcs[e][0])[:2] == (sizes[e], sizes[e]), 'incomplete body execution'
+            assert len(acceptance['entries'].get(entry, [])) >= 64, 'fewer than 64 distinct acceptance cases'
+            acceptance_used = {acceptance_scenarios[str(Path(source['source']).resolve())]
+                for record in acceptance['entries'].get(entry, []) for source in record['sources']}
+            assert len(acceptance_used) >= 2, 'fewer than two acceptance scenarios'
+            assert used.isdisjoint(acceptance_used), 'development scenario reused in acceptance'
             for campaign in (development, acceptance):
                 assert entry in campaign['entries'], 'no independent acceptance'
                 assert not any(int(r['entry'], 16) | 0x80000000 == e

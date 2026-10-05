@@ -103,6 +103,9 @@ add_library(vf3core STATIC
     src/fight/advance_dynamic_06129c.c
     src/fight/advance_resource_descriptor.c
     src/fight/advance_scene_commands.c
+    src/fight/advance_static_helpers.c
+    src/fight/advance_controller_adapters.c
+    src/fight/advance_render_helpers.c
     src/fight/advance_leaf_ranked_more_adapters.c
     src/fight/advance_leaf_041b94_adapters.c
     src/fight/advance_05b20e_adapters.c

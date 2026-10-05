@@ -1,0 +1,8 @@
+{
+ "0x8c04b95c": "src/fight/seventh_c14_adapters.c",
+ "0x8c06c4a2": "src/fight/advance_render_helpers.c",
+ "0x8c08aa64": "src/fight/advance_render_helpers.c",
+ "0x8c09669c": "src/fight/matrix_adapters.c",
+ "0x8c0b1cd8": "src/fight/fight_adapters.c",
+ "0x8c0c398a": "src/fight/vf3_ultimate_adapter.c"
+}

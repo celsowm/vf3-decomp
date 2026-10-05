@@ -243,6 +243,8 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             for register, values in overrides.get(entry, {}).items():
                 value = override_value(values, variant)
+                if register.startswith('r'):
+                    value = relocated(value)
                 lines.append(f'reg 0x{trigger:08x} {register} 0x{value:08x}')
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'
                       for addr, value in sorted(words.items())]

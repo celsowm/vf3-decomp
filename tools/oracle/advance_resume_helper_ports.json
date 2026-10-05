@@ -2,5 +2,9 @@
   "0x8c042efc": "src/fight/matrix_adapters.c",
   "0x8c06129c": "src/fight/advance_dynamic_06129c.c",
   "0x8c05c7c6": "src/fight/advance_resource_descriptor.c",
-  "0x8c09abc4": "src/fight/advance_scene_commands.c"
+  "0x8c09abc4": "src/fight/advance_scene_commands.c",
+  "0x8c0a00b6": "src/fight/advance_controller_adapters.c",
+  "0x8c0a0718": "src/fight/advance_controller_adapters.c",
+  "0x8c06c51e": "src/fight/advance_controller_adapters.c",
+  "0x8c06ccc0": "src/fight/advance_controller_adapters.c"
 }

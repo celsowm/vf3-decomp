@@ -15,10 +15,48 @@ from family_queue import rank_families, marginal_bytes, merged_spans
 from campaign_io import attempted_entries
 import source_owners
 from tenpp_probe_plan import override_sequence, override_value
+import tenpp_probe_plan
+import prologue_roots
 from inspect_capsule import format_register, register_index
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_long_float_save_prefix_can_find_original_prologue(self):
+        import struct
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'extract/exe').mkdir(parents=True)
+            (root / 'docs').mkdir()
+            (root / 'docs/decomp_status.csv').write_text('entry,status\n')
+            words = [9] * 40
+            words[0], words[24] = 0x2fe6, 0x4f22
+            (root / 'extract/exe/1ST_READ.unsc.bin').write_bytes(struct.pack('<40H', *words))
+            watch, output = root / 'watch.txt', root / 'out.txt'
+            watch.write_text('pc 0x8c010030\n')
+            argv = ['prologue_roots', str(watch), '--out', str(output), '--report', str(root / 'report.json')]
+            with patch.object(prologue_roots, 'ROOT', root), patch.object(sys, 'argv', argv), contextlib.redirect_stdout(io.StringIO()):
+                prologue_roots.main()
+            self.assertIn('pc 0x8c010030', output.read_text())
+            with patch.object(prologue_roots, 'ROOT', root), patch.object(sys, 'argv', argv + ['--prefix-distance', '64']), contextlib.redirect_stdout(io.StringIO()):
+                prologue_roots.main()
+            self.assertIn('pc 0x8c010000', output.read_text())
+
+    def test_override_pointers_relocate_with_ram_and_float_bits_remain_exact(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watch, output = root / 'watch.txt', root / 'probe.txt'
+            watch.write_text('pc 0x8c010100\n')
+            empty_fixture = ({}, {}, {'signed_arguments': [], 'argument_flags': {}})
+            with patch.object(tenpp_probe_plan, 'fixture', return_value=empty_fixture):
+                tenpp_probe_plan.generate(watch, output, 0x8c010200, 1,
+                    relocation=0x100000,
+                    register_overrides={'0x8c010100': {'r4':'0x0c404000', 'fr4':'0x0c404000'}},
+                    memory_overrides={'0x8c010100': {'0x0c404000':'0x0c405000'}})
+            text = output.read_text()
+            self.assertIn('r4 0x0c504000', text)
+            self.assertIn('fr4 0x0c404000', text)
+            self.assertIn('ram 0x8c010200 0x0c504000 0x0c505000', text)
+
     def test_strided_overrides_cover_independent_fields_and_keep_legacy_order(self):
         fast = override_sequence([0,1], 'fast')
         slow = override_sequence({'values':[0,1], 'stride':2}, 'slow')

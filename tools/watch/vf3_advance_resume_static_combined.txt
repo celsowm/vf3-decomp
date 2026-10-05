@@ -1,0 +1,11 @@
+# Union of supplied watch lists; no coverage credit.
+pc 0x8c0376a0
+pc 0x8c03ada4
+pc 0x8c0469c0
+pc 0x8c04f304
+pc 0x8c07d77c
+pc 0x8c080e08
+pc 0x8c0853a2
+pc 0x8c08cf9a
+pc 0x8c08d51e
+pc 0x8c09a758

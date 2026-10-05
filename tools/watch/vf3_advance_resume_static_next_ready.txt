@@ -1,0 +1,7 @@
+# Capture gates passed in at least one corpus; strict replay and acceptance required.
+pc 0x8c04b95c
+pc 0x8c06c4a2
+pc 0x8c08aa64
+pc 0x8c09669c
+pc 0x8c0b1cd8
+pc 0x8c0c398a

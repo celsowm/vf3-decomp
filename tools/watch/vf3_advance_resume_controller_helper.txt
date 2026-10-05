@@ -1,0 +1,4 @@
+# Unported original scene/controller dependency; no independent credit.
+pc 0x8c0a00b6
+pc 0x8c06c51e
+pc 0x8c06ccc0

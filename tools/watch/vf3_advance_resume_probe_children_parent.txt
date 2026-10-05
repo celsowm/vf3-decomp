@@ -1,0 +1,2 @@
+# Verified calendar entry for nested rollback-capture regression.
+pc 0x8c0376a0

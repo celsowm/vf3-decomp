@@ -109,6 +109,7 @@ def main():
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
     entries = {int(row['entry'], 16) for row in csv.DictReader(io.StringIO(args.inventory.read_text()))}
+    inventory_count = len(entries)
     if args.resolved_calls:
         entries.update(int(row['target'], 16) for row in
                        csv.DictReader(io.StringIO(args.resolved_calls.read_text()))
@@ -125,7 +126,7 @@ def main():
     args.out.write_text(json.dumps({hex(entry): owner for entry, owner in sorted(owners.items())}, indent=1) + '\n')
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(dict(advisory=True, ledger_credit=False,
-        inventory_entries=len(entries), mapped_entries=len(owners),
+        inventory_entries=inventory_count, requested_entries=len(entries), mapped_entries=len(owners),
         linked_sources=[path.relative_to(ROOT).as_posix() for path in sources],
         unresolved_routes=unresolved), indent=1) + '\n')
     print(f'{len(owners)} advisory C owners; {len(unresolved)} unresolved adapter routes; no ledger credit')
