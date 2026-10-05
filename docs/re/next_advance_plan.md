@@ -2,6 +2,10 @@
 
 Prepared 2026-10-04 at `a280c4d`.
 
+For execution after `70dcb1f`, use [the continuation plan](advance_continuation_plan.md).
+The figures and candidate states below describe the initial campaign snapshot;
+the current ledger is [advance_progress.md](advance_progress.md).
+
 ## Objective and current evidence
 
 Target another **+10 percentage points of verified readable C**, from
