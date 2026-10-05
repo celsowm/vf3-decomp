@@ -33,6 +33,10 @@ def main():
     ap.add_argument('--scalar-fields', action='store_true')
     ap.add_argument('--field-crosses', action='store_true')
     ap.add_argument('--timeout', type=int, default=25)
+    ap.add_argument('--probe-ops', type=int, choices=range(1, 100001),
+                    metavar='1..100000', help='original interpreter synthetic-call budget')
+    ap.add_argument('--rollback-text-control', action='store_true',
+                    help='opt in to the headless PVR TEXT_CONTROL checkpoint pilot')
     ap.add_argument('--random-fields', action='store_true')
     ap.add_argument('--expanded-inputs', action='store_true',
                     help='independent bounded GPR/FR/XF values and integer fields 0..31')
@@ -94,6 +98,10 @@ def main():
             command.append('--probe-children')
         elif not a.observe_watch:
             command.append('--probe-only')
+        if a.probe_ops is not None:
+            command += ['--probe-ops', str(a.probe_ops)]
+        if a.rollback_text_control:
+            command.append('--rollback-text-control')
         play = a.play.as_posix() if a.play else ''
         for state in a.states.split(','):
             command += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state:{play}:{a.frames}']

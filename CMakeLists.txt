@@ -112,6 +112,9 @@ add_library(vf3core STATIC
     src/fight/advance_client_wrappers.c
     src/fight/advance_state_helpers.c
     src/fight/continuation_input_controls.c
+    src/fight/command_encoders.c
+    src/fight/target_family_adapters.c
+    src/fight/target_extra_adapters.c
     src/fight/continuation_allocator_helpers.c
     src/fight/continuation_matrix_adapters.c
     src/fight/advance_small_tail_adapters.c

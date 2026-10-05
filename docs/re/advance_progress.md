@@ -1,10 +1,14 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Thirty-nine accepted batches add **27,776 bytes**, reaching **233,838 / 434,656
-(53.7984%)**, a gain of **6.3903 percentage points**. The remaining shortfall
-to the ten-point campaign target is **15,690 bytes**. The first checkpoint
+Forty-four accepted batches add **31,204 bytes**, reaching **237,266 / 434,656
+(54.5871%)**, a gain of **7.1790 percentage points**. The remaining shortfall
+to the ten-point campaign target is **12,262 bytes**. The first checkpoint
 at 227,795 bytes has passed; the next checkpoint is 239,061 bytes.
+
+The latest five milestones, readable command encoders, original motion
+contracts and independently audited PVR checkpoint pilot are documented in
+[target_campaign.md](target_campaign.md). The campaign remains active.
 
 ## Descriptor initializers
 

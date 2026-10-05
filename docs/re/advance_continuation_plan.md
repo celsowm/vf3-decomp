@@ -167,3 +167,18 @@ its real initialization helper writes PVR `TEXT_CONTROL`, which synthetic
 rollback correctly rejects. Two 600-frame natural post-initialization runs
 do not enter its child. Park those scenarios and pursue an original resource
 initialization capture before changing the device model or parent source.
+
+## Target checkpoint after five additional milestones
+
+The next continuation closes motion-record traversal, nine readable sound
+command encoders and sixteen additional static family/helper roots:
+**27 roots, +3,428 bytes, 237,266/434,656 (54.5871%)**. There remain **12,262
+bytes** to 249,528 and **23,528 bytes** to 60%. The checkpoint at 239,061 is
+still 1,795 bytes away. See [target_campaign.md](target_campaign.md) for
+development/acceptance evidence and the independently checked PVR pilot.
+
+The expanded development queue now probes 112 previously unattempted original
+prologues without known indirect calls. The queue is advisory; no capture-only
+gain is counted. Complete development bodies must pass immutable C replay
+before separate acceptance starts. Continue with the frozen campaign baseline
+until the 249,528-byte target and all final checks actually pass.

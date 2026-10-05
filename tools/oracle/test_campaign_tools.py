@@ -26,12 +26,63 @@ import regression_status
 import state_checksum_table
 import boundary_probe_plan
 import allocator_probe_plan
+import motion_record_probe_plan
+import unattempted_parents
+import command_selector_probe_plan
+import text_control_probe_plan
 import struct
 from types import SimpleNamespace
 from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_text_control_inputs_are_distinct_and_acceptance_relocates(self):
+        development = [text_control_probe_plan.fixture(i) for i in range(128)]
+        acceptance = [text_control_probe_plan.fixture(i, relocation=0x100000, holdout=True)
+                      for i in range(128)]
+        self.assertEqual(len({r['r5'] for r in development}), 128)
+        self.assertEqual(len({r['r5'] for r in acceptance}), 128)
+        self.assertTrue({r['r5'] for r in development}.isdisjoint(r['r5'] for r in acceptance))
+        for original, moved in zip(development, acceptance):
+            self.assertEqual(original['r4'], 0xe4)
+            self.assertEqual(moved['r15'], original['r15'] + 0x100000)
+        self.assertEqual(text_control_probe_plan.fixture(0, offset=0xe8)['r4'], 0xe8)
+        self.assertEqual(text_control_probe_plan.fixture(0, offset=0x400000e4)['r4'], 0x400000e4)
+
+    def test_command_encoders_keep_queue_and_channel_inputs_coherent(self):
+        for variant in (0, 8, 10, 16, 63, 127):
+            regs, words = command_selector_probe_plan.fixture(0x8c041d04, variant)
+            relocated, moved = command_selector_probe_plan.fixture(0x8c041d04, variant, 0x100000, True)
+            self.assertLess(regs['r4'], 8)
+            self.assertEqual(moved[0x0c19e218], words[0x0c19e218] + 0x100000)
+            self.assertEqual(relocated['r15'], regs['r15'] + 0x100000)
+            for channel in range(8):
+                self.assertIn(words[0x0c19e250 + channel * 24], (0, 1))
+            self.assertIn(words[words[0x0c19e218]], (0, 1))
+
+    def test_parent_queue_excludes_probed_parent_but_keeps_new_prologue(self):
+        with tempfile.TemporaryDirectory() as directory:
+            history = Path(directory) / 'progress.json'
+            history.write_text(json.dumps([{'entries': ['0x8c010000', '0x8c010100']}]))
+            selected = unattempted_parents.select({'0x8c010000': ['0x8c010004'],
+                '0x8c010200': ['0x8c010100']}, [history])
+            self.assertEqual(selected, {0x8c010200: [0x8c010100]})
+            self.assertEqual(unattempted_parents.select(
+                {'0x8c010200': ['0x8c010100']}, [history], {0x8c010200}), {})
+
+    def test_motion_walker_contract_has_120_records_and_relocates_pointers(self):
+        for variant in (0, 1, 7, 8, 119):
+            regs, words = motion_record_probe_plan.fixture(variant)
+            relocated, moved = motion_record_probe_plan.fixture(variant, 0x100000, True)
+            self.assertEqual(words[regs['r4'] + 12], 0x0c430000)
+            self.assertEqual(moved[relocated['r4'] + 12], 0x0c530000)
+            for base, memory in ((0x0c430000, words), (0x0c530000, moved)):
+                flags = [memory[base + i * 68] & 1 for i in range(120)]
+                self.assertEqual(sum(flags), int(variant % 8 != 0))
+                self.assertTrue(all(base + offset in memory for offset in range(0, 8160, 4)))
+            self.assertIn(words[0x0c2a0144], (regs['r4'], regs['r4'] + 44))
+            self.assertNotEqual(words[0x0c2a0140], moved[0x0c2a0140])
+
     def test_allocator_contracts_keep_links_and_global_pool_addresses(self):
         for variant in (0, 1, 2, 4, 5, 6, 7, 32, 33):
             registers, words = allocator_probe_plan.fixture(0x8c062390, variant)

@@ -45,6 +45,11 @@ int vf3_advance_config_editors_contains(uint32_t);
 int vf3_advance_client_wrappers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_state_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_input_controls(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_command_encoders(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_family_adapter_contains(uint32_t);
+int vf3_target_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_extra_adapter_contains(uint32_t);
 int vf3_continuation_allocator_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_matrix_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_matrix_adapter_contains(uint32_t);
@@ -144,6 +149,20 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    switch(entry) {
+    case 0x0c040f1e:
+    case 0x0c040c90: case 0x0c040c92: case 0x0c040d1c: case 0x0c040d20:
+    case 0x0c040e24: case 0x0c040e28:
+    case 0x0c040ec2: case 0x0c040ec6:
+    case 0x0c041d04: case 0x0c041d06: case 0x0c041d7c: case 0x0c041d7e:
+    case 0x0c041de0: case 0x0c041de2: case 0x0c041e58: case 0x0c041e5a:
+    case 0x0c041ebc: case 0x0c041ebe: return vf3_command_encoders(entry,s,ram);
+    default: break;
+    }
+    if(vf3_target_family_adapter_contains(entry))
+        return vf3_target_family_adapter(entry,s,ram);
+    if(vf3_target_extra_adapter_contains(entry))
+        return vf3_target_extra_adapter(entry,s,ram);
     if(vf3_advance_controller_adapter_contains(entry))
         return vf3_advance_controller_adapter(entry,s,ram);
     if(vf3_advance_vector_adapter_contains(entry))

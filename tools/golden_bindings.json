@@ -1652,6 +1652,195 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c090000"
   },
+  "advance-target-command-pair:0x8c040ec6": {
+    "golden": "extract/analysis/target_command_pair_dev/f_8c040ec6.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original paired 0xa3 command encoder; full frozen body; relocated RAM queue and changed scalar acceptance; zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c040ec6"
+  },
+  "advance-target-commands:0x8c040c92": {
+    "golden": "extract/analysis/target_command_dev/f_8c040c92.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c040c92"
+  },
+  "advance-target-commands:0x8c040d20": {
+    "golden": "extract/analysis/target_command_dev/f_8c040d20.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c040d20"
+  },
+  "advance-target-commands:0x8c040e28": {
+    "golden": "extract/analysis/target_command_dev/f_8c040e28.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c040e28"
+  },
+  "advance-target-commands:0x8c041d06": {
+    "golden": "extract/analysis/target_command_dev/f_8c041d06.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041d06"
+  },
+  "advance-target-commands:0x8c041d7e": {
+    "golden": "extract/analysis/target_command_dev/f_8c041d7e.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041d7e"
+  },
+  "advance-target-commands:0x8c041de2": {
+    "golden": "extract/analysis/target_command_dev/f_8c041de2.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041de2"
+  },
+  "advance-target-commands:0x8c041e5a": {
+    "golden": "extract/analysis/target_command_dev/f_8c041e5a.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041e5a"
+  },
+  "advance-target-commands:0x8c041ebe": {
+    "golden": "extract/analysis/target_command_dev/f_8c041ebe.cases",
+    "port": "src/fight/command_encoders.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c041ebe"
+  },
+  "advance-target-extra:0x8c04fe46": {
+    "golden": "extract/analysis/target_extra_dev/f_8c04fe46.cases",
+    "port": "src/fight/target_extra_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04fe46"
+  },
+  "advance-target-extra:0x8c05ae5a": {
+    "golden": "extract/analysis/target_extra_dev/f_8c05ae5a.cases",
+    "port": "src/fight/target_extra_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05ae5a"
+  },
+  "advance-target-extra:0x8c07f08e": {
+    "golden": "extract/analysis/target_extra_dev/f_8c07f08e.cases",
+    "port": "src/fight/target_extra_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07f08e"
+  },
+  "advance-target-extra:0x8c080796": {
+    "golden": "extract/analysis/target_extra_dev/f_8c080796.cases",
+    "port": "src/fight/target_extra_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c080796"
+  },
+  "advance-target-extra:0x8c0a1fd2": {
+    "golden": "extract/analysis/target_extra_dev/f_8c0a1fd2.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a1fd2"
+  },
+  "advance-target-extra:0x8c0a65d4": {
+    "golden": "extract/analysis/target_extra_dev/f_8c0a65d4.cases",
+    "port": "src/fight/target_extra_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 2589 strict development cases; independent states 23/29, changed inputs and relocated memory; immutable extra development executable; six complete frozen bodies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a65d4"
+  },
+  "advance-target-families:0x8c03c720": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c03c720.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03c720"
+  },
+  "advance-target-families:0x8c03c72e": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c03c72e.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03c72e"
+  },
+  "advance-target-families:0x8c07fca4": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c07fca4.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07fca4"
+  },
+  "advance-target-families:0x8c0858f2": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c0858f2.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0858f2"
+  },
+  "advance-target-families:0x8c08a076": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c08a076.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08a076"
+  },
+  "advance-target-families:0x8c08c90e": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c08c90e.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08c90e"
+  },
+  "advance-target-families:0x8c09b69e": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c09b69e.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09b69e"
+  },
+  "advance-target-families:0x8c09ba8c": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c09ba8c.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09ba8c"
+  },
+  "advance-target-families:0x8c09ca8e": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c09ca8e.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09ca8e"
+  },
+  "advance-target-families:0x8c0a6494": {
+    "golden": "extract/analysis/target_combined_ready_dev/f_8c0a6494.cases",
+    "port": "src/fight/target_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original bodies across development state21/27; original image checked static adapters and existing helper owners; changed input relocated acceptance state23/29; no foreign instructions and zero skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a6494"
+  },
+  "advance-target-motion:0x8c0c1bd0": {
+    "golden": "extract/analysis/target_motion_dev/f_8c0c1bd0.cases",
+    "port": "src/fight/phase1_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original parent 0x8c0c1bd0, 120 records of 68 bytes; complete development state21/27; independent changed-input relocated acceptance state23/29; strict zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c1bd0"
+  },
+  "advance-target-motion:0x8c0c1bec": {
+    "golden": "extract/analysis/target_motion_dev/f_8c0c1bec.cases",
+    "port": "src/fight/phase1_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original parent 0x8c0c1bd0, 120 records of 68 bytes; complete development state21/27; independent changed-input relocated acceptance state23/29; strict zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c1bec"
+  },
   "advance-workers:0x8c03dad0": {
     "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",
     "port": "src/fight/advance_worker_adapters.c",

@@ -66,6 +66,7 @@ struct Call {
     unsigned triggerPc = 0;
     std::map<unsigned, std::array<unsigned char, PAGE>> restorePages;
     std::vector<unsigned char> restoreRam;
+    std::map<unsigned, unsigned> restoreTextControl;
 };
 struct SeedVariant {
     unsigned target = 0;
@@ -94,6 +95,7 @@ std::string hitsPath;
  * the probe path refusing to fire. */
 std::string debugPath;
 unsigned long long probes, probeBusy, probeNotWatched, probeSampled, targetArmed, restores;
+unsigned long long textControlRestores;
 std::map<unsigned,unsigned long long> probeByTrigger;
 /* The redirect takes effect on the NEXT fetch, so the arm suppression has to
  * survive one instruction boundary; otherwise the generic watch re-arms the same
@@ -159,6 +161,14 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
      * so the following instruction runs as if the probe never happened. */
     if (c.synthetic) {
         Sh4Context *m=const_cast<Sh4Context *>(ctx);
+        for (const auto &saved:c.restoreTextControl) {
+            wr32(saved.first,saved.second);
+            if (rd32(saved.first)!=saved.second) {
+                std::fprintf(stderr,"[vf3oracle] TEXT_CONTROL rollback failed\n");
+                std::abort();
+            }
+            ++textControlRestores;
+        }
         /* The emulated operand cache is write-back: the probe's stores are still
          * sitting in dirty cache lines, and the game's own dirty lines for the
          * same pages have not reached main memory either. Write every affected
@@ -218,7 +228,7 @@ void close_output() {
                      first?"":",",item.first.first,item.first.second,item.second);
         first=false;
     }
-    std::fprintf(f,"]}\n");
+    std::fprintf(f,"],\"text_control_restores\":%llu}\n",textControlRestores);
     if (std::fclose(f)!=0) std::abort();
     if (debugPath[0]) {
         FILE *d=std::fopen(debugPath.c_str(),"wb");
@@ -292,9 +302,23 @@ void device(unsigned addr,unsigned size,unsigned value,unsigned write) {
     }
 }
 bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
-bool blockSyntheticDevice(unsigned addr) {
+bool blockSyntheticDevice(unsigned addr,unsigned size) {
     bool blocked=false;
     for (auto &c:active) if (c.synthetic) {
+#ifdef VF3_HEADLESS
+        /* This trace build forces norend (Renderer_if.cpp); no texture-cache
+         * worker reads TEXT_CONTROL. pvr_WriteReg's handler for offset 0xe4
+         * only stores its word, with no timing/TA/renderer side effects.
+         * Journal the real original value and verify its exact restoration.
+         * All other MMIO, widths and non-headless builds stay fail-closed. */
+        if (size==4 && addr==0xa05f80e4u &&
+            std::getenv("VF3_ROLLBACK_TEXT_CONTROL")) {
+            constexpr unsigned canonicalTextControl=0xa05f80e4u;
+            if (!c.restoreTextControl.count(canonicalTextControl))
+                c.restoreTextControl[canonicalTextControl]=rd32(canonicalTextControl);
+            continue;
+        }
+#endif
         /* Device state cannot be restored from RAM pages. Reject the specimen
          * before issuing an access, then restore at the next instruction. */
         c.flags|=2; c.invalidAddress=addr;
@@ -302,14 +326,14 @@ bool blockSyntheticDevice(unsigned addr) {
     }
     return blocked;
 }
-u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
-u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
-u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
-u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
-void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,1,v,1); } else touch(a,1); wr8(a,v); }
-void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,2,v,1); } else touch(a,2); wr16(a,v); }
-void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,4,v,1); } else touch(a,4); wr32(a,v); }
-void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { if(blockSyntheticDevice(a)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
+u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,1)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
+u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,2)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
+u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,4)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
+u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,8)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
+void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { if(blockSyntheticDevice(a,1)) return; device(a,1,v,1); } else touch(a,1); wr8(a,v); }
+void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { if(blockSyntheticDevice(a,2)) return; device(a,2,v,1); } else touch(a,2); wr16(a,v); }
+void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { if(blockSyntheticDevice(a,4)) return; device(a,4,v,1); } else touch(a,4); wr32(a,v); }
+void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { if(blockSyntheticDevice(a,8)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
 void hooks() {
     if (ReadMem32==r32) return;
     rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
