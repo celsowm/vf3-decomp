@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Thirty-one accepted batches add **22,636 bytes**, reaching **228,698 / 434,656
-(52.6159%)**, a gain of **5.2078 percentage points**. The remaining shortfall
-to the ten-point campaign target is **20,830 bytes**. The first checkpoint
+Thirty-two accepted batches add **22,718 bytes**, reaching **228,780 / 434,656
+(52.6347%)**, a gain of **5.2267 percentage points**. The remaining shortfall
+to the ten-point campaign target is **20,748 bytes**. The first checkpoint
 at 227,795 bytes has passed; the next checkpoint is 239,061 bytes.
 
 ## Descriptor initializers
@@ -484,3 +484,19 @@ All four new milestone artifact-hash and interval-union audits pass. Two SDK
 child capture attempts, including explicit output-buffer contracts, add no new
 body PCs. These partial helpers remain uncredited and that fixture approach is
 parked pending a supported runtime contract.
+
+## Randomized pair selector
+
+The retained-capture catalog identifies `0x8c0c8b52`, whose earlier acceptance
+lacked a second valid scenario. Rechecking its untouched raw development
+evidence gives complete frozen-body execution and **135/135 strict cases** in
+states 21/27. Fresh states 23/29 use changed pair record flags, relocated object
+pointers and the original scene guard. They execute the complete body and pass
+**512/512 strict acceptance cases**, with zero skips. The actual RNG and scene
+callee remain intact. The existing owner is `src/fight/device_adapters.c`.
+
+`tools/oracle/advance_resume_pair_milestone.json` adds **82 unique bytes**.
+Development uses `build/vf3matrixfamily_advance_clients_final.exe`; acceptance
+uses `build/vf3matrixfamily_advance_small_tail_final_dev.exe`. The owner is
+unchanged from the passing integrated regression; the new root has separate
+strict proofs and independent artifact hashes.

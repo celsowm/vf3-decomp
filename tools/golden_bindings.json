@@ -1141,6 +1141,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c2992"
   },
+  "advance-resume-pair:0x8c0c8b52": {
+    "golden": "extract/analysis/advance_resume_pair_final_dev/f_8c0c8b52.cases",
+    "port": "src/fight/device_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Untouched original body; retained complete development and fresh changed relocated pair records in reserved states 23/29; actual RNG and scene guard retained.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c8b52"
+  },
   "advance-resume-records:0x8c04f912": {
     "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c04f912.cases",
     "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
