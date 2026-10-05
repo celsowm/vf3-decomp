@@ -22,5 +22,10 @@
   "0x8c04ff62": "src/fight/advance_client_wrappers.c",
   "0x8c076aa8": "src/fight/advance_state_helpers.c",
   "0x8c042fdc": "src/fight/advance_state_helpers.c",
-  "0x8c076b3c": "src/fight/advance_state_helpers.c"
+  "0x8c076b3c": "src/fight/advance_state_helpers.c",
+  "0x8c05d2d0": "src/fight/continuation_input_controls.c",
+  "0x8c05d2dc": "src/fight/continuation_input_controls.c",
+  "0x8c062490": "src/fight/continuation_allocator_helpers.c",
+  "0x8c0624ba": "src/fight/continuation_allocator_helpers.c",
+  "0x8c062524": "src/fight/continuation_allocator_helpers.c"
 }

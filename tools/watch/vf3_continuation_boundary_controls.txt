@@ -1,0 +1,3 @@
+# Probe original prologue, including caller stack arguments; observe frozen child.
+pc 0x8c05d2d0
+pc 0x8c05d2dc

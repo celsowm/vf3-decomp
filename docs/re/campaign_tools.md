@@ -290,3 +290,31 @@ original four-byte lookup stride; this metadata receives no body credit.
 `--image FILE` selects an alternate original-image input for verification.
 These tools replace the session's inline Python inspection and binding edits.
 All 24 campaign-tool checks pass.
+
+## Continuation boundary and allocator fixtures
+
+`boundary_probe_plan.py --family matrix|controls --out PLAN.patch` generates
+original-prologue inputs for `0x8c03be20` or `0x8c05d2d0`. Matrix fixtures include
+finite permuted diagonal matrices and zero columns. Control fixtures supply the
+two caller-stack arguments, integer arguments and original scene overrides.
+The tool validates the original prologue/branch patterns, uses an isolated
+scratch stack and writes advisory input metadata beside the patch. Add
+`--holdout --relocation 0x100000` for changed inputs and relocated buffers.
+
+`allocator_probe_plan.py --out PLAN.patch --variants 128` generates coherent
+lists and split/coalesce/exhaustion cases for eight original allocator targets.
+Descriptors belong to the fixed original pool, whose stride is 24 bytes;
+category headers use 20-byte strides. `--parent PC` restricts the targets and is
+repeatable. `--holdout --relocation 0x100000` changes sizes and relocates client
+records, backing storage and stacks while preserving pool membership.
+
+Use `golden_batch.py --probe-children --probe-ops 100000` with the allocator
+prologue watch. The explicit budget is recorded in run provenance and cannot
+exceed the oracle's existing 100,000-op record cap. The exhausted-pool paths
+need more than its default 20,000 operations. Capture 300 frames per state to
+finish sampled invocations; an incomplete shutdown record blocks that entry's
+promotion even when the earlier cases match. Invalid earlier captures remain
+archived. These fixture plans define inputs only and never earn coverage.
+
+All 27 campaign-tool checks pass, including descriptor-pool membership,
+acyclic list links, relocated clients, caller-stack modes and matrix degeneracy.

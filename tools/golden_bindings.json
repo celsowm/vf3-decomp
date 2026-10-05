@@ -651,6 +651,90 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0ca196"
   },
+  "advance-continuation-allocator:0x8c061c12": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c061c12.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061c12"
+  },
+  "advance-continuation-allocator:0x8c061e86": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c061e86.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061e86"
+  },
+  "advance-continuation-allocator:0x8c061fe0": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c061fe0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061fe0"
+  },
+  "advance-continuation-allocator:0x8c0623a4": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c0623a4.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0623a4"
+  },
+  "advance-continuation-allocator:0x8c062490": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c062490.cases",
+    "port": "src/fight/continuation_allocator_helpers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c062490"
+  },
+  "advance-continuation-allocator:0x8c0624ba": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c0624ba.cases",
+    "port": "src/fight/continuation_allocator_helpers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0624ba"
+  },
+  "advance-continuation-allocator:0x8c062524": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c062524.cases",
+    "port": "src/fight/continuation_allocator_helpers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c062524"
+  },
+  "advance-continuation-allocator:0x8c06289a": {
+    "golden": "extract/analysis/continuation_allocator_pool_long_dev/f_8c06289a.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologues, fixed 24-byte descriptor pool, coherent list splits/coalescing/exhaustion; changed sizes and relocated clients in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06289a"
+  },
+  "advance-continuation-boundaries:0x8c03be34": {
+    "golden": "extract/analysis/continuation_boundaries_merged_dev/f_8c03be34.cases",
+    "port": "src/fight/continuation_matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologue matrix degeneracy and caller-stack control statuses; relocated changed-input acceptance in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03be34"
+  },
+  "advance-continuation-boundaries:0x8c05d2dc": {
+    "golden": "extract/analysis/continuation_boundaries_merged_dev/f_8c05d2dc.cases",
+    "port": "src/fight/continuation_input_controls.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologue matrix degeneracy and caller-stack control statuses; relocated changed-input acceptance in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05d2dc"
+  },
+  "advance-continuation-grid:0x8c0711b0": {
+    "golden": "extract/analysis/continuation_grid_dev/f_8c0711b0.cases",
+    "port": "src/fight/phase1_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Rechecked retained complete-body development; original 071140 grid prologue, changed finite inputs, dimensions and relocated descriptors in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0711b0"
+  },
+  "advance-continuation-grid:0x8c071428": {
+    "golden": "extract/analysis/continuation_grid_dev/f_8c071428.cases",
+    "port": "src/fight/phase1_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Rechecked retained complete-body development; original 071140 grid prologue, changed finite inputs, dimensions and relocated descriptors in states23/29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c071428"
+  },
   "advance-helpers:0x8c06c398": {
     "golden": "extract/analysis/advance_nested_clean_dev/f_8c06c398.cases",
     "port": "src/fight/tenpp_recovery_adapters.inc",

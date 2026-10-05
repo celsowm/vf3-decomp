@@ -24,12 +24,72 @@ import capture_catalog
 import portcheck
 import regression_status
 import state_checksum_table
+import boundary_probe_plan
+import allocator_probe_plan
 import struct
 from types import SimpleNamespace
 from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_allocator_contracts_keep_links_and_global_pool_addresses(self):
+        for variant in (0, 1, 2, 4, 5, 6, 7, 32, 33):
+            registers, words = allocator_probe_plan.fixture(0x8c062390, variant)
+            self.assertTrue(allocator_probe_plan.POOL <= registers['r5'] < allocator_probe_plan.POOL + 24 * 4096)
+            self.assertEqual((registers['r5'] - allocator_probe_plan.POOL) % 24, 0)
+            header = allocator_probe_plan.HEADERS + ((variant // 8) % 2) * 20
+            visited, previous = set(), 0
+            current = words[header + 8]
+            while current:
+                self.assertNotIn(current, visited)
+                visited.add(current)
+                self.assertEqual(words[current + 4], previous)
+                previous, current = current, words[current + 8]
+            self.assertEqual(previous, words[header + 12])
+            moved, shifted = allocator_probe_plan.fixture(0x8c062390, variant, 0x100000, True)
+            self.assertEqual(moved['r15'] - registers['r15'], 0x100000)
+            self.assertEqual(moved['r5'], registers['r5'])
+            self.assertIn(allocator_probe_plan.POOL, shifted)
+            self.assertIn(header + 8, shifted)
+        _, words = allocator_probe_plan.fixture(0x8c061c04, 11)
+        self.assertTrue(all(words[allocator_probe_plan.POOL + 24 * slot] == 1 for slot in range(1, 4096)))
+        self.assertEqual(words[allocator_probe_plan.POOL], 0)
+
+    def test_boundary_matrix_contract_and_relocation(self):
+        singular, regular = 0, 0
+        for variant in range(64):
+            registers, words = boundary_probe_plan.fixture('matrix', variant)
+            rows = [[struct.unpack('<f', struct.pack('<I', words[registers['r4'] + 16 * row + 4 * col]))[0]
+                     for col in range(4)] for row in range(4)]
+            if all(row[0] == 0 for row in rows):
+                singular += 1
+            else:
+                regular += 1
+                self.assertTrue(all(sum(value != 0 for value in row) == 1 for row in rows))
+            relocated, shifted = boundary_probe_plan.fixture('matrix', variant, 0x100000, True)
+            self.assertEqual(relocated['r15'] - registers['r15'], 0x100000)
+            self.assertEqual(relocated['r4'] - registers['r4'], 0x100000)
+            self.assertTrue(all(0x0c500000 <= address < 0x0c580000 for address in shifted))
+            if variant == 4:
+                self.assertNotEqual(words[registers['r4'] + 20], shifted[relocated['r4'] + 20])
+        self.assertEqual((singular, regular), (32, 32))
+        with self.assertRaises(ValueError):
+            boundary_probe_plan.fixture('matrix', 0, relocation=1)
+
+    def test_boundary_controls_cover_stack_modes_and_scene_overrides(self):
+        modes, selectors, flags = set(), set(), set()
+        for variant in range(256):
+            registers, words = boundary_probe_plan.fixture('controls', variant)
+            modes.add(words[registers['r15'] + 4])
+            selectors.add(words[0x0c16cea0])
+            flags.add(words[0x0c16ca90])
+            moved, shifted = boundary_probe_plan.fixture('controls', variant, 0x100000, True)
+            self.assertEqual(shifted[moved['r15'] + 4], words[registers['r15'] + 4])
+            self.assertEqual(shifted[0x0c16cea0], words[0x0c16cea0])
+        self.assertEqual(modes, {0, 1, 2})
+        self.assertEqual(selectors, set(range(32, 37)))
+        self.assertEqual(flags, {0, 32})
+
     def test_regression_status_requires_complete_binding_reports(self):
         expected = {'first': {}, 'second': {}}
         partial = 'binding first: PASS\n'

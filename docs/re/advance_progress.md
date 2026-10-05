@@ -1,9 +1,9 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Thirty-six accepted batches add **24,646 bytes**, reaching **230,708 / 434,656
-(53.0783%)**, a gain of **5.6702 percentage points**. The remaining shortfall
-to the ten-point campaign target is **18,820 bytes**. The first checkpoint
+Thirty-nine accepted batches add **27,776 bytes**, reaching **233,838 / 434,656
+(53.7984%)**, a gain of **6.3903 percentage points**. The remaining shortfall
+to the ten-point campaign target is **15,690 bytes**. The first checkpoint
 at 227,795 bytes has passed; the next checkpoint is 239,061 bytes.
 
 ## Descriptor initializers
@@ -606,3 +606,128 @@ The final integrated CMake build and full repository verification also pass;
 the build log is `extract/analysis/advance_resume_state_readable_build.log`,
 and the repository gate ends with `verify_all: PASS` in the repeated integration
 log above.
+
+## Continuation: matrix degeneracy and packed control statuses
+
+Two roots add **614 unique bytes** in
+`tools/oracle/advance_continuation_boundaries_milestone.json`.
+Original prologue `0x8c03be20` initializes the matrix worker's index buffer,
+saved registers and floating stack state. Finite diagonal/permuted matrices
+with a zero column exercise its missing zero-pivot exit at `0x8c03be90`.
+Merged retained and new development evidence executes all **338/338** frozen
+bytes of `0x8c03be34`; **582/582 strict development cases** pass.
+`continuation_matrix_adapters.c` emits 179 original statements with zero
+unsupported instructions. This matrix implementation remains a static adapter.
+
+Original prologue `0x8c05d2d0` saves the registers before child `0x8c05d2dc`.
+Its two additional caller arguments become reads at local-stack offsets 44/48.
+Explicit caller-stack modes and scene overrides execute all **276/276** body
+bytes. `continuation_input_controls.c` expresses the five two-bit statuses,
+valid bit and optional all-active flag as readable branches and bit operations,
+preserving the original local copy, register residue, T flag and stack writes.
+All **1,024/1,024 strict merged development cases** pass.
+
+Independent states 23/29 change finite matrix scales and integer inputs and
+relocate matrix buffers, index buffers and scratch stacks by `0x100000`.
+Acceptance passes **510/510 matrix cases** and **512/512 control cases**, with
+zero skips. Matrix acceptance covers 324/338 bytes; the complete development
+union supplies the required body proof. All control acceptance bytes execute.
+The original proof snapshot is `build/vf3matrixfamily_continuation_boundaries_dev.exe`.
+Both corpora also pass against the final integrated immutable snapshot below.
+
+## Continuation: allocator family closure
+
+Eight roots add **2,112 unique bytes** in
+`tools/oracle/advance_continuation_allocator_milestone.json`:
+`0x8c061c12`, `0x8c061e86`, `0x8c061fe0`, `0x8c0623a4`, `0x8c062490`,
+`0x8c0624ba`, `0x8c062524` and `0x8c06289a`.
+All frozen bodies execute completely in the final development corpus. Strict
+development passes **3,865/3,865 cases**; independent states 23/29 pass
+**3,920/3,920 acceptance cases**, with zero skips and full acceptance bodies.
+
+`allocator_probe_plan.py` constructs coherent acyclic allocated/free lists,
+20-byte category headers and descriptors belonging to the original fixed
+24-byte-stride pool at `0x0c16cf6c`. It varies exact fits, leading/trailing/middle
+splits, rejected candidates, adjacency order, full pools and failure of a second
+descriptor allocation. Client records, backing storage and scratch stacks
+relocate together by `0x100000`; the game's fixed pool remains at its original
+address. Requested sizes and preserved-register inputs change in acceptance.
+
+The initial exploratory captures used scratch descriptor records. They are
+retained but do not supply this milestone's proof. The final corpus uses real
+pool membership, so releasing a descriptor changes its actual allocation flag.
+A one-free-slot fixture initially placed that slot last, exceeding the oracle's
+100,000-op record cap when allocation, failed second allocation and cleanup
+were combined. Putting the one free slot first reaches the same original
+rollback branch within the unchanged cap. Short 150-frame pool captures also
+leave a shutdown invocation incomplete; fresh 300-frame captures close it.
+All these earlier specimens remain archived and uncredited.
+
+`continuation_allocator_helpers.c` replaces descriptor search, descriptor
+release and list removal with readable loops/branches. It preserves the
+4096-slot limit, 24-byte stride, flag widths, saved registers, scratch writes,
+original rereads and head/tail alias behavior. Parent routines retain existing
+verified static source owners; fresh whole-body proof earns their new credit.
+
+The final immutable executable is `build/vf3matrixfamily_continuation_final.exe`,
+SHA-256 `9b7f496d4f05d8baf710d703670ca6c8cc693af723bd9ae72e437ae216dee935`.
+The development/acceptance reports are
+`extract/analysis/continuation_allocator_pool_{dev,accept}_proof.json`.
+
+## Continuation: retained grid proof recovery
+
+Rechecking raw retained captures from original parent `0x8c071140` confirms
+complete bodies for `0x8c0711b0` and `0x8c071428`. The existing owner remains
+`src/fight/phase1_adapters.c`. Their **510/510** and **244/244** strict
+development cases pass against the final immutable snapshot. Fresh states
+23/29 use `grid_probe_plan.py` with changed finite inputs/dimensions and
+relocated descriptors/vertices, passing **502/502 acceptance cases per root**
+with zero skips. Each acceptance body covers 102/202 bytes; development executes
+all 202/202 bytes. No acceptance results were used to change implementations.
+
+`tools/oracle/advance_continuation_grid_milestone.json` adds **404 unique bytes**.
+The three continuation milestones therefore add **3,130 bytes across 12 roots**.
+Reusable tools replace inline Python, and **27 campaign-tool checks** pass.
+The integrated CMake build passes in `extract/analysis/continuation_integrated_build.log`.
+Final artifact-hash and cumulative-union auditing passes all **39 milestones**
+in `extract/analysis/continuation_series_final_audit.json`. The full repository
+gate finishes with **`verify_all: PASS`**, **1,152/1,152 bound replays**, zero
+replay failures, passing native replay tests and all 27 campaign-tool checks.
+The final log and parsed terminal status are
+`extract/analysis/continuation_full_regression.log` and
+`extract/analysis/continuation_full_regression_status.json`. Historical
+fragment-body coverage remains advisory in the repository-wide body scan;
+the 12 newly credited roots separately satisfy the strict whole-body
+development and independent acceptance requirements above.
+
+## Next resource boundary: original device access
+
+The original resource-updater prologue at `0x8c05cc20` loads the real
+initialization callee `0x0c060fc8` before entering frozen root `0x8c05cc38`.
+The reusable planned-probe runner captures this parent in states 21/27,
+with 256 variants and the child observer. All 1,024 attempts finish, but
+none yields an admissible replay specimen. Their rejection flags are
+`4:511`, `6:511`, `5:1`, and `1:1`; no bytes earn credit.
+
+The original helper at `0x8c060d14` writes to `0xa05f80e4`, the PVR
+`TEXT_CONTROL` register (`tools/emu/flycast/core/hw/pvr/pvr_regs.h`). The
+state-21 shutdown summary records this address for 255 attempts.
+`blockSyntheticDevice` in `tools/emu/flycast/core/vf3oracle.cpp` rejects
+synthetic device accesses before issuing them because RAM rollback cannot
+restore device state. Replacing this initialization callee with an RTS leaf
+would remove part of the original parent contract and does not resolve proof.
+The next investigation needs natural captures with the existing ordered
+device tape, or a separately verified device-state capture mechanism.
+The pilot and summaries remain under
+`extract/analysis/continuation_resource_prologue_dev`; the parent/child watch
+files are reusable. The frozen body, oracle rejection policy, and credit
+criteria remain unchanged.
+
+A bounded natural follow-up watches the frozen child without entry patches in
+states 21/27 for 600 frames each. Both runs finish all requested frames with
+return code zero, but neither enters the child: their capsule files contain
+only the eight-byte header. The report is
+`extract/analysis/continuation_resource_natural_dev_report.json`. These
+post-initialization scenes cannot provide this parent contract; repeating
+them for more synthetic variants is parked pending a resource-initialization
+scenario or verified device capture support.

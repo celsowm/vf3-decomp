@@ -138,3 +138,32 @@ alone does not demonstrate a runnable game or complete engine integration.
 Execution begins with A and family ranking; C supplies new scenarios early.
 Move into B as shared contracts become clear, and run D only with a bounded,
 evidence-backed pilot. Reassess feasibility at every byte checkpoint.
+
+## Execution checkpoint
+
+The first continuation batch closes the matrix zero-pivot boundary, packed
+control statuses, allocator descriptor/list families and retained grid proofs:
+**12 roots, +3,130 unique C bytes, 233,838/434,656 (53.7984%)**. Original fixed
+pool membership and failure rollback are now captured and checked; three
+allocator helpers and control packing have readable C models. New fixture
+generators are reusable tools. See `advance_progress.md` for the proof ledger.
+
+There remain **15,690 bytes** to the current campaign target and **26,956** to
+60% C coverage. The refreshed queue of 30 unattempted families contains only
+**13,532 potential marginal bytes**, without acceptance credit. New runtime
+contracts and scenario discovery are necessary even if that entire queue
+eventually passes. Prioritize naturally observed `0x8c0c1bec`, then larger
+families with recoverable caller state; rerank each against the current union.
+
+For `0x8c0c1bec`, the original entry requires an existing record through
+`R11+12` and a 16-bit `R3` index into the float table at `0x0c10feb4`.
+It compares `R11` with the global pointer at `0x0c29f2f0+0x0e54`, tests the
+record's low flag bit, and can call `0x0c07b4d4`, `0x0c07b35c` and
+`0x0c07b398`. Recover those caller inputs from retained natural captures;
+independent random pointer substitutions are not a coherent entry contract.
+
+The resource parent `0x8c05cc20` supplies a concrete external-device pilot:
+its real initialization helper writes PVR `TEXT_CONTROL`, which synthetic
+rollback correctly rejects. Two 600-frame natural post-initialization runs
+do not enter its child. Park those scenarios and pursue an original resource
+initialization capture before changing the device model or parent source.

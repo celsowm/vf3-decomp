@@ -44,6 +44,10 @@ int vf3_advance_config_editors(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_config_editors_contains(uint32_t);
 int vf3_advance_client_wrappers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_state_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_continuation_input_controls(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_continuation_allocator_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_continuation_matrix_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_continuation_matrix_adapter_contains(uint32_t);
 int vf3_advance_small_tail_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_small_tail_adapter_contains(uint32_t);
 int vf3_advance_medium_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -146,6 +150,12 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         return vf3_advance_vector_adapter(entry,s,ram);
     if(entry==0x0c076aa8 || entry==0x0c042fdc || entry==0x0c076b3c)
         return vf3_advance_state_helpers(entry,s,ram);
+    if(entry==0x0c05d2d0 || entry==0x0c05d2dc)
+        return vf3_continuation_input_controls(entry,s,ram);
+    if(entry==0x0c062490 || entry==0x0c0624ba || entry==0x0c062524)
+        return vf3_continuation_allocator_helpers(entry,s,ram);
+    if(vf3_continuation_matrix_adapter_contains(entry))
+        return vf3_continuation_matrix_adapter(entry,s,ram);
     if(vf3_advance_config_editors_contains(entry))
         return vf3_advance_config_editors(entry,s,ram);
     if(vf3_advance_client_helper_adapter_contains(entry))

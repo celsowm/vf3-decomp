@@ -1,0 +1,4 @@
+# Original grid prologue and two complete-body retained development children.
+pc 0x8c071140
+pc 0x8c0711b0
+pc 0x8c071428

@@ -78,6 +78,8 @@ def main() -> int:
                     help="start the seed sweep at this variant index "
                          "(VF3_PROBE_CURSOR); use to walk a long seed plan "
                          "across successive runs")
+    ap.add_argument('--probe-ops', type=int,
+                    help='synthetic-call budget, 1..100000; recorded in run provenance')
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument('--timeout', type=int, default=0,
                     help='maximum seconds per emulator run; zero disables the limit')
@@ -86,6 +88,8 @@ def main() -> int:
     ap.add_argument('--probe-children', action='store_true',
                     help='capture nested watched entries only while a rollback probe is active')
     a = ap.parse_args()
+    if a.probe_ops is not None and not 1 <= a.probe_ops <= 100000:
+        ap.error('--probe-ops must be 1..100000 (the oracle record limit)')
     if a.hits and (a.capsule or a.instr or a.edges):
         ap.error('--hits cannot be combined with --capsule, --instr or --edges')
 
@@ -123,6 +127,8 @@ def main() -> int:
             env["VF3_RAM_PATCH"] = str(patch_path)
         if entry_patch:
             env["VF3_ENTRY_PATCH"] = str(entry_patch)
+            if a.probe_ops is not None:
+                env['VF3_PROBE_OPS'] = str(a.probe_ops)
             if a.probe_only or a.probe_children:
                 env['VF3_PROBE_ONLY'] = '1'
             if a.probe_children:
@@ -183,6 +189,7 @@ def main() -> int:
         if entry_patch:
             runs[-1]["entry_patch"] = str(entry_patch)
             runs[-1]["entry_patch_sha256"] = hashlib.sha256(entry_patch.read_bytes()).hexdigest()
+            runs[-1]['probe_ops'] = int(env.get('VF3_PROBE_OPS', '20000'))
         if a.capsule:
             runs[-1]["capsule"] = str(capsule)
         if probe_debug:

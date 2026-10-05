@@ -1,0 +1,2 @@
+# Original resource-updater prologue; preserve its actual initialization callee.
+pc 0x8c05cc20
