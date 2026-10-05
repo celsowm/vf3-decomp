@@ -1,0 +1,6 @@
+# Original targets of the validated two-argument client wrappers.
+pc 0x8c04d50c
+pc 0x8c04d62c
+pc 0x8c04e4e0
+pc 0x8c04e600
+pc 0x8c04ef8c

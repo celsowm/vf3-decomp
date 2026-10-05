@@ -938,6 +938,195 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c061910"
   },
+  "advance-resume-branch:0x8c0ab8f0": {
+    "golden": "extract/analysis/advance_resume_branch_merged_dev/f_8c0ab8f0.cases",
+    "port": "src/fight/advance_branch_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original scene predicates and projection record loop; complete merged development bodies in two scenarios; independent changed and relocated RAM holdout in states 23/29; strict zero skips; original helpers preserved.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ab8f0"
+  },
+  "advance-resume-branch:0x8c0c1ac2": {
+    "golden": "extract/analysis/advance_resume_branch_merged_dev/f_8c0c1ac2.cases",
+    "port": "src/fight/advance_branch_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original scene predicates and projection record loop; complete merged development bodies in two scenarios; independent changed and relocated RAM holdout in states 23/29; strict zero skips; original helpers preserved.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c1ac2"
+  },
+  "advance-resume-config:0x8c04667a": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c04667a.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04667a"
+  },
+  "advance-resume-config:0x8c0466a8": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c0466a8.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0466a8"
+  },
+  "advance-resume-config:0x8c046730": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c046730.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046730"
+  },
+  "advance-resume-config:0x8c04675e": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c04675e.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04675e"
+  },
+  "advance-resume-config:0x8c04678c": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c04678c.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04678c"
+  },
+  "advance-resume-config:0x8c046b08": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c046b08.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046b08"
+  },
+  "advance-resume-config:0x8c076aec": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c076aec.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c076aec"
+  },
+  "advance-resume-config:0x8c0810f6": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c0810f6.cases",
+    "port": "src/fight/motion_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0810f6"
+  },
+  "advance-resume-config:0x8c08e1cc": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e1cc.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e1cc"
+  },
+  "advance-resume-config:0x8c08e200": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e200.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e200"
+  },
+  "advance-resume-config:0x8c08e238": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e238.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e238"
+  },
+  "advance-resume-config:0x8c08e2b6": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e2b6.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e2b6"
+  },
+  "advance-resume-config:0x8c08e2ee": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e2ee.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e2ee"
+  },
+  "advance-resume-config:0x8c08e326": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e326.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e326"
+  },
+  "advance-resume-config:0x8c08e35e": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e35e.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e35e"
+  },
+  "advance-resume-config:0x8c08e396": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e396.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e396"
+  },
+  "advance-resume-config:0x8c08e3ce": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e3ce.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e3ce"
+  },
+  "advance-resume-config:0x8c08e426": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e426.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e426"
+  },
+  "advance-resume-config:0x8c08e45e": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e45e.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e45e"
+  },
+  "advance-resume-config:0x8c08e49a": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e49a.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e49a"
+  },
+  "advance-resume-config:0x8c08e4d6": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e4d6.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e4d6"
+  },
+  "advance-resume-config:0x8c08e50e": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e50e.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e50e"
+  },
+  "advance-resume-config:0x8c08e57e": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c08e57e.cases",
+    "port": "src/fight/advance_config_editors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08e57e"
+  },
+  "advance-resume-config:0x8c096718": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c096718.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c096718"
+  },
+  "advance-resume-config:0x8c0c5f52": {
+    "golden": "extract/analysis/advance_resume_static_last_final_dev/f_8c0c5f52.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original configuration bounds and resource-client validation; complete development bodies in states 21/27; independent relocated holdout in 23/29; strict zero skips; original SDK callees translated from identity image.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c5f52"
+  },
   "advance-resume-family:0x8c0c298c": {
     "golden": "extract/analysis/advance_resume_family_probe_final_dev/f_8c0c298c.cases",
     "port": "src/fight/next_adapters.c",
@@ -951,6 +1140,55 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologue and frozen child captured in rollback probes; complete frozen development bodies; reserved-state changed inputs, relocated fixtures and strict zero-skip acceptance replay",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c2992"
+  },
+  "advance-resume-records:0x8c04f912": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c04f912.cases",
+    "port": "src/fight/vf3_motion_unowned_extra_adapter.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04f912"
+  },
+  "advance-resume-records:0x8c08559a": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c08559a.cases",
+    "port": "src/fight/advance_record_render.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08559a"
+  },
+  "advance-resume-records:0x8c086372": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c086372.cases",
+    "port": "src/fight/advance_record_render.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c086372"
+  },
+  "advance-resume-records:0x8c087cf2": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c087cf2.cases",
+    "port": "src/fight/advance_record_render.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c087cf2"
+  },
+  "advance-resume-records:0x8c088158": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c088158.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c088158"
+  },
+  "advance-resume-records:0x8c089fa8": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c089fa8.cases",
+    "port": "src/fight/advance_record_render.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c089fa8"
+  },
+  "advance-resume-records:0x8c0c41cc": {
+    "golden": "extract/analysis/advance_resume_static_tail_final_dev/f_8c0c41cc.cases",
+    "port": "src/fight/motion_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original image scene record render helpers; complete frozen bodies; independent states 23/29 and relocated changed fixtures; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c41cc"
   },
   "advance-resume-render:0x8c04b95c": {
     "golden": "extract/analysis/advance_resume_static_next_final_dev/f_8c04b95c.cases",
@@ -1224,6 +1462,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original calendar, numeric text, record and scene helpers; strict zero-skip replay; changed reserved-state inputs and pointer relocation; full frozen development bodies",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09a758"
+  },
+  "advance-resume-vector:0x8c090000": {
+    "golden": "extract/analysis/advance_resume_vector_merged_dev/f_8c090000.cases",
+    "port": "src/fight/advance_vector_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original saved-r14 prologue; projection and zero-distance RAM contracts; every frozen body PC in development and holdout; states 23/29 with changed floats and relocated pointers; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c090000"
   },
   "advance-workers:0x8c03dad0": {
     "golden": "extract/analysis/advance_closure_complete_cases/f_8c03dad0.cases",

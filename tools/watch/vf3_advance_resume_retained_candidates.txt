@@ -1,0 +1,4 @@
+# Retained complete-body report leads; recheck raw evidence before credit.
+pc 0x8c06c8b2
+pc 0x8c076aa8
+pc 0x8c0c8b52

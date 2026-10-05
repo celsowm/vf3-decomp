@@ -1,0 +1,9 @@
+{
+ "0x8c04f912": "src/fight/vf3_motion_unowned_extra_adapter.c",
+ "0x8c08559a": "src/fight/advance_record_render.c",
+ "0x8c086372": "src/fight/advance_record_render.c",
+ "0x8c087cf2": "src/fight/advance_record_render.c",
+ "0x8c088158": "src/fight/tenpp_complex_adapters.c",
+ "0x8c089fa8": "src/fight/advance_record_render.c",
+ "0x8c0c41cc": "src/fight/motion_adapters.c"
+}

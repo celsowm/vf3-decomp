@@ -374,5 +374,15 @@ if __name__=="__main__":
     ap.add_argument('--reuse-matrix',action='store_true')
     ap.add_argument('--split-size',type=int,default=0)
     ap.add_argument('--reuse-adapter',action='append',default=[],help='existing source glob whose PCs dispatch to their current owner')
+    ap.add_argument('--reuse-sources-report',type=Path,
+                    help='source_owners report providing linked C sources without a long command line')
     a=ap.parse_args()
+    if a.reuse_sources_report:
+        linked=json.loads(a.reuse_sources_report.read_text())['linked_sources']
+        for source in linked:
+            if not source.endswith('.c'): continue
+            path=(ROOT/source).resolve()
+            if not path.is_relative_to(ROOT/'src') or not path.is_file():
+                raise ValueError(f'invalid linked C source: {source}')
+            a.reuse_adapter.append(path.relative_to(ROOT).as_posix())
     generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter)

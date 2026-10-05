@@ -37,6 +37,16 @@ int vf3_advance_static_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_controller_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_controller_adapter_contains(uint32_t);
 int vf3_advance_render_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_vector_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_vector_adapter_contains(uint32_t);
+int vf3_advance_record_render(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_config_editors(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_config_editors_contains(uint32_t);
+int vf3_advance_client_wrappers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_client_helper_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_client_helper_adapter_contains(uint32_t);
+int vf3_advance_branch_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_advance_branch_adapter_contains(uint32_t);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
@@ -127,7 +137,21 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(!vf3_fpu_supported(FPSCR)) return 0;
     if(vf3_advance_controller_adapter_contains(entry))
         return vf3_advance_controller_adapter(entry,s,ram);
+    if(vf3_advance_vector_adapter_contains(entry))
+        return vf3_advance_vector_adapter(entry,s,ram);
+    if(vf3_advance_config_editors_contains(entry))
+        return vf3_advance_config_editors(entry,s,ram);
+    if(vf3_advance_client_helper_adapter_contains(entry))
+        return vf3_advance_client_helper_adapter(entry,s,ram);
+    if(vf3_advance_branch_adapter_contains(entry))
+        return vf3_advance_branch_adapter(entry,s,ram);
     switch(entry) {
+    case 0x0c04ff62: return vf3_advance_client_wrappers(entry,s,ram);
+    case 0x0c04667a: case 0x0c0466a8: case 0x0c046730: case 0x0c04675e:
+    case 0x0c04678c: case 0x0c046b08: case 0x0c076aec: case 0x0c0c5f52:
+        return vf3_advance_client_wrappers(entry,s,ram);
+    case 0x0c08559a: case 0x0c086372: case 0x0c087cf2: case 0x0c089fa8:
+        return vf3_advance_record_render(entry,s,ram);
     case 0x0c06129c: return vf3_advance_dynamic_06129c(s,ram);
     case 0x0c05c7c6: return vf3_advance_resource_descriptor(s,ram);
     case 0x0c05c128: return vf3_advance_descriptor_flags(s,ram);

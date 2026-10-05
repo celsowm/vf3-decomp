@@ -1,0 +1,23 @@
+{
+ "0x8c0ab8ea": {
+  "words": {
+   "0x0c40403c":{"values":[0,"0x00080000","0x001f0000"],"stride":2},
+   "0x0c404060":{"values":[0,"0x00000900"],"stride":4},
+   "0x0c406000":{"values":[0,"0x8000","0x800"],"stride":8},
+   "0x0c4053c8":0,
+   "0x0c4053d0":1
+  },
+  "ranges": []
+ },
+ "0x8c0c1ac2": {
+  "words": {
+   "0x0c40400c":"0x0c420000",
+   "0x0c19e208":"0x0c41f000"
+  },
+  "ranges": [
+   {"start":"0x0c41f000","count":32,"stride":4,"value":"0xffffffff"},
+   {"start":"0x0c420000","count":120,"stride":68,"value":{"values":[0,1,9],"stride":8}},
+   {"start":"0x0c420010","count":120,"stride":68,"value":0}
+  ]
+ }
+}

@@ -1,9 +1,10 @@
 # Next ten-point campaign progress
 
 The campaign starts at 206,062 unique C bytes and targets 249,528 bytes.
-Twenty-seven accepted batches add **18,236 bytes**, reaching **224,298 / 434,656
-(51.6036%)**, a gain of **4.1955 percentage points**. The remaining shortfall
-to the ten-point campaign target is **25,230 bytes**.
+Thirty-one accepted batches add **22,636 bytes**, reaching **228,698 / 434,656
+(52.6159%)**, a gain of **5.2078 percentage points**. The remaining shortfall
+to the ten-point campaign target is **20,830 bytes**. The first checkpoint
+at 227,795 bytes has passed; the next checkpoint is 239,061 bytes.
 
 ## Descriptor initializers
 
@@ -337,9 +338,10 @@ at `0x8c09abc4` is also implemented there; 512 direct development cases and
 because it has no frozen inventory interval.
 
 The diagnostic resource replay identifies the first uncaptured read as
-`0x0c001006/4` for `0x8c064246` and `0x8c09635a`. That RAM failure replaces
-the earlier device-access diagnosis. Their unsupported low-RAM helper is a
-separate dependency and remains outside the accepted cohort.
+`0x0c001006/4` for `0x8c064246` and `0x8c09635a`. The original opcode there
+is the `0x085b` REIOS GD-ROM firmware trap (see Flycast's `reios.h` and
+`reios.cpp`), so this is a firmware dependency. The existing low-RAM C adapter
+does not model that trap; both parents remain outside the accepted cohort.
 
 Boot and scripted gameplay discovery both complete 3,000 frames within the
 120-second cap. The longer 4,800-frame attempts timed out and are excluded.
@@ -402,7 +404,7 @@ the saved-r14 prefix at `0x8c08ffd0`, 48 bytes before the frozen vector entry.
 That wider-prefix development capture reaches 1,574/1,586 vector-body bytes.
 Additional projection and zero-distance contracts bring the merged development
 corpus to 1,586/1,586 bytes across 1,265 cases in two scenarios. The routine
-remains uncredited pending C replay and independent acceptance.
+is accepted below following C replay and independent acceptance.
 
 The family campaign also verifies the original `0x8c0c298c` prologue and frozen
 child `0x8c0c2992`, both owned by existing `src/fight/next_adapters.c`. Complete
@@ -415,3 +417,70 @@ The integrated native build and full repository regression pass after the
 static and render source changes (`advance_resume_static_final_regression.log`).
 The family milestone reuses unchanged native sources and has separate strict
 development and acceptance proofs.
+
+## Record rendering and vector projection
+
+Seven roots add **958 unique bytes** in
+`tools/oracle/advance_resume_records_milestone.json`. All **3,576/3,576
+development cases** and **3,576/3,576 independent acceptance cases** pass
+strict replay with zero skips. Four readable models in
+`src/fight/advance_record_render.c` preserve the original matrix stack, draw
+calls, floating registers and repeated record writes. The other three roots
+use existing C owners listed in `advance_resume_records_ports.json`.
+
+The vector root `0x8c090000` adds **1,586 unique bytes** in
+`tools/oracle/advance_resume_vector_milestone.json`. Its original prologue at
+`0x8c08ffd0` supplies the saved r14 and float registers. Projection and
+zero-distance RAM contracts give **1,265/1,265 development cases** and
+**505/505 independent acceptance cases**, across two scenarios each. Both
+corpora execute every frozen body PC. Acceptance uses changed finite floats,
+independent flags and coordinate strides, and relocated pointers in states
+23/29. The 793 original statements have zero unsupported instructions.
+
+Both milestones use immutable snapshot
+`build/vf3matrixfamily_advance_records_dev.exe` (SHA-256
+`5965b6a0a797277a0445ad7ad2746fe30247c90d53a85af8b3ad01b31c820870`).
+Their complete artifact-hash and interval-union audits pass. The preceding
+27-milestone series audit also passes; the campaign target remains unmet.
+
+The integrated build and full repository regression pass in
+`extract/analysis/advance_resume_records_regression.log`.
+
+## Configuration editors and SDK clients
+
+Twenty-five roots add **1,244 unique bytes** in
+`tools/oracle/advance_resume_config_milestone.json`. Strict replay passes
+**12,673/12,673 development cases** and **12,588/12,588 independent acceptance
+cases**, with zero skips and complete frozen bodies in both corpora.
+Fifteen readable configuration editors preserve byte/word access, bounds,
+steps and calls to the original editor. `config_editor_map.py` recovers their
+parameters and validates their instruction patterns against the original image.
+
+`src/fight/advance_client_wrappers.c` preserves client validation, error returns,
+SDK calls and the original slot-index helper. Actual SDK operation bodies are
+translated in `advance_client_helper_adapters.c`; they retain query loops and
+status/error calls. Those dependencies receive no independent body credit.
+Two existing C owners also receive fresh complete-body proof. The immutable
+snapshot is `build/vf3matrixfamily_advance_clients_final.exe`.
+
+## Scene predicates and projected record loops
+
+`0x8c0ab8f0` and `0x8c0c1ac2` add **612 unique bytes** in
+`tools/oracle/advance_resume_branch_milestone.json`. All **836/836 development
+cases** and **851/851 independent acceptance cases** pass strict replay with
+zero skips. Merged development evidence executes every frozen body PC across
+two scenarios per root. Acceptance changes counters, scene and descriptor flags,
+record identifiers and fixture addresses in reserved states 23/29; it need not
+repeat every development branch. The 448 translated statements have zero
+unsupported instructions and preserve the original rendering dependencies.
+
+The complete 31-milestone artifact-hash audit passes: 177 newly credited entries
+add 22,636 unique bytes with the frozen image and body ranges unchanged.
+The integrated build and full repository regression also pass in
+`extract/analysis/advance_resume_config_regression.log`. Nineteen reusable-tool
+checks pass, including the new advisory retained-capture catalog.
+
+All four new milestone artifact-hash and interval-union audits pass. Two SDK
+child capture attempts, including explicit output-buffer contracts, add no new
+body PCs. These partial helpers remain uncredited and that fixture approach is
+parked pending a supported runtime contract.

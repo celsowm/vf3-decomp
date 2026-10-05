@@ -236,3 +236,28 @@ children come from `prologue_roots.py`; original image/body intervals are kept.
 `prologue_roots.py --prefix-distance 64` can find floating-register save prefixes
 longer than its unchanged 32-byte default. Inspect the suggested parent and
 retain the original frozen child/body interval for credit.
+
+`expand_memory_profile.py PROFILE.json --out WORDS.json` expands repeated
+record/table fields for `isolate_planned.py --memory-overrides WORDS.json`.
+Each entry has optional `words` and `ranges`; a range specifies `start`, `count`,
+`stride` and `value`. Values retain scalar/list/strided-variant semantics.
+Aligned addresses must lie beyond the original image in mutable Dreamcast RAM;
+overlaps, invalid dimensions and ranges crossing RAM end are rejected. This
+avoids handwritten arrays of record-field addresses. It produces input fixtures
+only. Nineteen campaign-tool checks pass, including range validation and
+configuration editor decoding.
+
+`config_editor_map.py --help` describes extraction of bounded editor parameters
+from the untouched retail image. The decoder validates prologue, helper ABI,
+getter/setter targets and epilogue before reporting field width, offset, bounds
+and step. Its output is recovered metadata, not expected replay results.
+
+`translate_adapters.py --reuse-sources-report REPORT.json` reuses the compiled
+source paths recorded by `source_owners.py`. It avoids repeatedly spelling out
+long adapter lists on Windows; source paths must resolve to existing C files.
+
+`capture_catalog.py --pattern 'extract/analysis/*report.json' --baseline BASELINE`
+indexes retained complete-body development reports against current C credit.
+It excludes acceptance and holdout paths, deduplicates corpora and reports
+potential interval-union gain and existing source ownership. This is an advisory
+index: re-run `capture_report.py` on the raw corpora before replay and promotion.

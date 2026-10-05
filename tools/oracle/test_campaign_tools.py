@@ -17,10 +17,85 @@ import source_owners
 from tenpp_probe_plan import override_sequence, override_value
 import tenpp_probe_plan
 import prologue_roots
+from expand_memory_profile import expand
+from config_editor_map import decode as decode_editor
 from inspect_capsule import format_register, register_index
+import capture_catalog
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_capture_catalog_is_advisory_and_excludes_holdouts(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'docs').mkdir()
+            (root / 'docs/decomp_status.csv').write_text(
+                'entry,status\n0x8c010100,ported-invocation\n')
+            (root / 'ranges.csv').write_text('entry,start,end\n'
+                '8c010100,8c010100,8c010110\n'
+                '8c010200,8c010200,8c010210\n')
+            baseline = root / 'baseline.json'
+            baseline.write_text(json.dumps(dict(body_ranges='ranges.csv',
+                baseline_spans=[[0x8c010100,0x8c010110]])))
+            directory = root / 'development'
+            directory.mkdir()
+            row = dict(entry='0x8c010200', directory=str(directory), reasons=[],
+                distinct_cases=128, scenarios=[['a',''],['b','']],
+                covered_bytes=16, body_bytes=16, missing_pcs=[])
+            development = root / 'dev_report.json'
+            development.write_text(json.dumps(dict(entries=[row,row,
+                dict(row,entry='0x8c010100'),dict(row,reasons=['unexecuted body PCs'])])))
+            holdout = root / 'accept_report.json'
+            holdout.write_text(json.dumps(dict(entries=[row])))
+            with patch.object(capture_catalog,'ROOT',root):
+                data = capture_catalog.catalog([development,holdout],baseline)
+            self.assertTrue(data['advisory'])
+            self.assertEqual(data['baseline_bytes'],16)
+            self.assertEqual(data['potential_unique_bytes'],16)
+            self.assertEqual(len(data['candidates']),1)
+            self.assertEqual(len(data['candidates'][0]['corpora']),1)
+
+    def test_config_editor_parameters_and_helper_targets(self):
+        import struct
+        words = (0x4f22,0x7ff8,0x1f41,0xde12,0xd313,0x64e3,0x430b,0x7401,
+                 0x600c,0xe305,0x2f02,0x2f36,0xe702,0x55f2,0xe601,0xd211,
+                 0x420b,0x54f1,0x1f01,0x7f0c,0x4f26,0xd310,0x64e3,0x6503,
+                 0x7401,0x432b,0x6ef6)
+        image = bytearray(256)
+        struct.pack_into('<27H',image,0,*words)
+        for offset,value in ((80,0x0c11e504),(88,0x0c0c66b8),
+                             (100,0x0c072ec2),(108,0x0c0c66d0)):
+            struct.pack_into('<I',image,offset,value)
+        row = decode_editor(image,0x8c010000)
+        self.assertEqual((row['offset'],row['width'],row['minimum'],row['maximum'],row['step']),
+                         (1,1,2,5,1))
+        short = [op for index,op in enumerate(words) if index not in (5,24)]
+        short[6] = 0x64e3
+        struct.pack_into('<25H',image,0,*short)
+        first = decode_editor(image,0x8c010000)
+        self.assertEqual((first['offset'],first['getter_return'],first['editor_return']),
+                         (0,0x0c01000e,0x0c010022))
+        struct.pack_into('<I',image,100,0x0c010100)
+        with self.assertRaises(ValueError): decode_editor(image,0x8c010000)
+
+    def test_record_ranges_expand_and_preserve_variant_values(self):
+        dimension = {'values': [1, 9, 0], 'stride': 8}
+        rows = expand({'0x8c010000': {'ranges': [
+            {'start': '0x0c420000', 'count': 3, 'stride': 68, 'value': dimension}]}}, 0x0c200000)
+        self.assertEqual(list(rows['0x8c010000']),
+                         ['0x0c420000', '0x0c420044', '0x0c420088'])
+        self.assertEqual(rows['0x8c010000']['0x0c420088'], dimension)
+
+    def test_record_ranges_reject_image_mutation_and_overlap(self):
+        for ranges in (
+            [{'start': '0x0c010000', 'count': 1, 'stride': 4, 'value': 0}],
+            [{'start': '0x0c420000', 'count': 2, 'stride': 2, 'value': 0}],
+            [{'start': '0x0cfffffc', 'count': 2, 'stride': 4, 'value': 0}],
+            [{'start': '0x0c420000', 'count': 2, 'stride': 4, 'value': 0},
+             {'start': '0x0c420004', 'count': 1, 'stride': 4, 'value': 1}],
+        ):
+            with self.subTest(ranges=ranges), self.assertRaises(ValueError):
+                expand({'0x8c010000': {'ranges': ranges}}, 0x0c200000)
+
     def test_long_float_save_prefix_can_find_original_prologue(self):
         import struct
         with tempfile.TemporaryDirectory() as directory:

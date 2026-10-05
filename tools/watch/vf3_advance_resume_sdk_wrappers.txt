@@ -1,0 +1,6 @@
+# Original validated client entry points that execute the SDK operation bodies.
+pc 0x8c04667a
+pc 0x8c0466a8
+pc 0x8c046730
+pc 0x8c04675e
+pc 0x8c04678c

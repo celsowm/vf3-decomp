@@ -1,0 +1,6 @@
+# Frozen SDK operation seeds, observed inside the original client calls.
+pc 0x8c04d516
+pc 0x8c04d638
+pc 0x8c04e4ec
+pc 0x8c04e60c
+pc 0x8c04ef92

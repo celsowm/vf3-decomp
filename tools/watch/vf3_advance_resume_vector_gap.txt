@@ -1,0 +1,2 @@
+# Frozen vector body with 20 bytes still unexecuted; development only.
+pc 0x8c090000

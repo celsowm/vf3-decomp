@@ -6,5 +6,18 @@
   "0x8c0a00b6": "src/fight/advance_controller_adapters.c",
   "0x8c0a0718": "src/fight/advance_controller_adapters.c",
   "0x8c06c51e": "src/fight/advance_controller_adapters.c",
-  "0x8c06ccc0": "src/fight/advance_controller_adapters.c"
+  "0x8c06ccc0": "src/fight/advance_controller_adapters.c",
+  "0x8c08559a": "src/fight/advance_record_render.c",
+  "0x8c086372": "src/fight/advance_record_render.c",
+  "0x8c087cf2": "src/fight/advance_record_render.c",
+  "0x8c089fa8": "src/fight/advance_record_render.c",
+  "0x8c04667a": "src/fight/advance_client_wrappers.c",
+  "0x8c0466a8": "src/fight/advance_client_wrappers.c",
+  "0x8c046730": "src/fight/advance_client_wrappers.c",
+  "0x8c04675e": "src/fight/advance_client_wrappers.c",
+  "0x8c04678c": "src/fight/advance_client_wrappers.c",
+  "0x8c046b08": "src/fight/advance_client_wrappers.c",
+  "0x8c076aec": "src/fight/advance_client_wrappers.c",
+  "0x8c0c5f52": "src/fight/advance_client_wrappers.c",
+  "0x8c04ff62": "src/fight/advance_client_wrappers.c"
 }
