@@ -11,10 +11,12 @@ if (-not $taskPlan.dry_run -or $taskPlan.mode -ne 'decoded_cache' -or
     $taskPlan.analysis -ne $taskAnalysis) { throw 'Expected a decoded_storage plan for this workspace' }
 $taskProtected = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 foreach ($directory in $taskPlan.protected_directories) { [void]$taskProtected.Add($directory) }
+$taskExplicit = [System.Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
+foreach ($directory in $taskPlan.explicit_corpora) { [void]$taskExplicit.Add($directory) }
 foreach ($directory in $taskPlan.corpora.Keys) {
     $resolved = (Resolve-Path -LiteralPath $directory).Path
     if ($resolved -ne $directory -or -not $resolved.StartsWith($taskAnalysis+'\', [StringComparison]::OrdinalIgnoreCase) -or
-        $resolved -like '*target*' -or $taskProtected.Contains($resolved)) {
+        (($resolved -like '*target*') -and -not $taskExplicit.Contains($resolved)) -or $taskProtected.Contains($resolved)) {
         throw "Protected or unsafe corpus: $directory"
     }
     $batch = Get-Content -LiteralPath (Join-Path $directory 'batch_manifest.json') -Raw | ConvertFrom-Json -AsHashtable

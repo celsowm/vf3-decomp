@@ -153,3 +153,95 @@ status is `target_checkpoint_regression_status.json`. Later captures and
 source additions do not change that executable. The four subsequent
 scene-recovery roots and the remaining fresh prologue queue are still
 uncredited at this checkpoint.
+
+## 2026-10-06 continuation
+
+Eight further accepted milestones add **3,094 unique bytes across 41 roots**
+after the 243,256 checkpoint, reaching **246,350 / 434,656**. The campaign
+still needs **3,178 bytes** to reach 249,528. Static instruction adapters
+provide part of this gain; this is not a claim that every new body is already
+expressed as readable game-level C.
+
+| Milestone suffix | Roots | Unique bytes |
+|---|---:|---:|
+| `scene_recovery` | 1 | 160 |
+| `extra_scene` | 1 | 108 |
+| `remaining` | 26 | 1,564 |
+| `retained_scene` | 9 | 618 |
+| `record_selector` | 1 | 148 |
+| `dependency` | 1 | 180 |
+| `configuration` | 1 | 254 |
+| `retained_extra_scenes` | 1 | 62 |
+
+Each is an `advance_target_*_milestone.json` with whole-body development,
+independent acceptance, zero-skip strict replay and checked artifacts. The
+remaining batch passes 32/32 acceptance replays, but six roots have only 50
+acceptance cases and receive no credit. Retained scenes yield fewer accepted
+roots than their raw size ceiling: some callers never enter the child in the
+held-out scenes. `07ac6e` fails at unresolved helper PC `0c0597ba`; `080238`
+and `080444` retain their development RAM mismatches. None earns credit.
+
+The 52-caller dependency campaign produces two eligible development bodies:
+`087e1c` (750 bytes) and `08dbee` (180 bytes). Only `08dbee` passes strict
+development and acceptance. `087e1c` matches 190/334 development cases and
+differs in the sign of NaN in `fr1`; it remains uncredited. An experimental
+binary-operation NaN precedence change did not fix it and was reverted.
+No shared FPU behavior change is shipped by this continuation.
+
+Directed record inputs exercise `0370fc` through its true `0370f0` prologue:
+slot indices 0..7, selectors 1/2/11, arguments including zero, and mutable
+global gate `0c19c900`. Original instructions at `037170..17e` explain the
+joint selector-11/zero-argument condition. All 148 frozen bytes execute;
+development matches **508/508**, independent acceptance **504/504**.
+Reusable inputs are `tools/oracle/record_selector_{registers,memory}.json`
+and `tools/watch/vf3_record_selector_{parent,child}.txt`.
+
+The configuration gate uses the original byte reader at `0c0c66b8` and
+mutable configuration base `0c11e504`, also used by the original editor and
+setter documented by `config_editor_map.py`. Input byte +0x13 is enabled,
+the global selector byte at `0c29bced` includes 3, and the global word at
+`0c29bccc` includes 1. The initial word at `0c11e514` was observed as
+`00010001`; its other bytes are retained when changing its high byte.
+No opcode or literal pool is patched. The true prologue is `0a8574`, frozen
+root `0a8582`: **511/511 development and 512/512 independent acceptance cases**
+match. The input contract is `tools/oracle/config_gate_memory.json` with
+parent/child watch files under `tools/watch`.
+
+Near-zero float sampling adds cases to `08fe62` and `0ca8da` but no missing
+PCs; neither is credited. A different lead, `0853fe`, contains an impossible
+signed comparison: `mov.w @(30,r10),r0` at `085418` sign-extends a 16-bit
+value, then `cmp/gt r2,r4` compares it with positive 32768. Thus the path at
+`085420..424` cannot execute from that predecessor. The frozen body is kept.
+The unmapped small entries near `0204e8`/`0345c6` are data-like words rather
+than verified callable leaves; advisory ranking is not sufficient to port them.
+
+The immutable integration checkpoint
+`build/vf3matrixfamily_target_20261006_checkpoint.exe` has SHA-256
+`e3878590f0b278ee302093398a1c21c467fe05ee4e6773f9882871c9ffd89daf`.
+Full regression passes **1,269/1,269 bindings**, native tests and the 36
+campaign-tool tests present when it started (`verify_all: PASS`). The
+binding inventory is frozen in `target_20261006_checkpoint_bindings.json`;
+log and machine status are `target_20261006_regression{.log,_status.json}`.
+Later record, dependency and configuration additions have their own immutable
+proof snapshots and still require the next integrated regression checkpoint.
+The current expanded tool suite independently passes **37 tests**.
+
+`verify_all.py --bindings` now pins both bound replay and body coverage to
+the same inventory. `isolate_planned.py --float-palette` permits eight finite
+float32 boundary inputs without altering expected results. Parent mappings
+can be restored with `catalog_parents.py --sources --watch`, which validates
+the original watch and development provenance. Artifact promotion reports
+per-root hash progress. Cache planners protect uncommitted milestone proofs
+as well as tracked ones, permit explicit unbound staging-cache selection,
+and retain all original capsules. Additional cleanup journals are
+`target_small_cache_cleanup{,2}_applied.json` and
+`target_staging_cache_cleanup_applied.json`; about 12.5 GiB of rebuildable
+shadows were reclaimed after the earlier cleanup.
+
+The remaining retained roots are being recaptured in development through
+nearby true prologues, including `07f714` for `07f722` and `0a0280` for
+`0a028a`. Earlier retained probe-parent maps sometimes began at a frozen
+interior entry. Inspect original setup and stack saves before treating the
+advisory prologue map as a callable input contract. The 4 GiB reserve stopped
+the new capture campaign between groups; incomplete or absent proofs do not
+receive credit.

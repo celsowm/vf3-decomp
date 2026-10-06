@@ -7406,6 +7406,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c4e4a"
   },
+  "target_configuration:0x8c0a8582": {
+    "golden": "extract/analysis/target_config_gate_dev/target_config_gate_dev_8c0a8574/f_8c0a8582.cases",
+    "port": "src/fight/target_configuration_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original mutable configuration byte and bounded global selectors; complete original body, independent relocated acceptance, immutable strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a8582"
+  },
+  "target_dependency:0x8c08dbee": {
+    "golden": "extract/analysis/target_missing_closure_final_dev/f_8c08dbee.cases",
+    "port": "src/fight/target_dependency_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original helper closure, full body in two development scenes, independent relocated acceptance and immutable zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08dbee"
+  },
   "target_extended_scenes:0x8c038956": {
     "golden": "extract/analysis/target_extended_final_dev/f_8c038956.cases",
     "port": "src/fight/target_extended_adapters.c",
@@ -7427,6 +7441,202 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07e918"
   },
+  "target_extra_scene:0x8c089ab2": {
+    "golden": "extract/analysis/target_closure_third_final_dev/f_8c089ab2.cases",
+    "port": "src/fight/target_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original caller capture, independent extra acceptance scenes, immutable strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c089ab2"
+  },
+  "target_record_selector:0x8c0370fc": {
+    "golden": "extract/analysis/target_record_selector_final_dev/f_8c0370fc.cases",
+    "port": "src/fight/target_record_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record table selector 11, bounded slot indices and explicit mutable global gate; full development body and independent relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0370fc"
+  },
+  "target_remaining:0x8c038b4e": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c038b4e.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038b4e"
+  },
+  "target_remaining:0x8c03ca00": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca00.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca00"
+  },
+  "target_remaining:0x8c03ca0c": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca0c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca0c"
+  },
+  "target_remaining:0x8c03ca20": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca20.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca20"
+  },
+  "target_remaining:0x8c03ca2c": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca2c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca2c"
+  },
+  "target_remaining:0x8c03ca40": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca40.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca40"
+  },
+  "target_remaining:0x8c03ca4c": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03ca4c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca4c"
+  },
+  "target_remaining:0x8c03e7c0": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03e7c0.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03e7c0"
+  },
+  "target_remaining:0x8c03e7ce": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c03e7ce.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03e7ce"
+  },
+  "target_remaining:0x8c04236a": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c04236a.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04236a"
+  },
+  "target_remaining:0x8c0443f2": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0443f2.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0443f2"
+  },
+  "target_remaining:0x8c058b80": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c058b80.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c058b80"
+  },
+  "target_remaining:0x8c058d70": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c058d70.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c058d70"
+  },
+  "target_remaining:0x8c060d28": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c060d28.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c060d28"
+  },
+  "target_remaining:0x8c0804f6": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0804f6.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0804f6"
+  },
+  "target_remaining:0x8c081d38": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c081d38.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081d38"
+  },
+  "target_remaining:0x8c083d70": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c083d70.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c083d70"
+  },
+  "target_remaining:0x8c08935a": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c08935a.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08935a"
+  },
+  "target_remaining:0x8c08a8e4": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c08a8e4.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08a8e4"
+  },
+  "target_remaining:0x8c08b528": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c08b528.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08b528"
+  },
+  "target_remaining:0x8c09ce4c": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c09ce4c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09ce4c"
+  },
+  "target_remaining:0x8c09cf60": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c09cf60.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09cf60"
+  },
+  "target_remaining:0x8c0a9452": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0a9452.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a9452"
+  },
+  "target_remaining:0x8c0c2c88": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0c2c88.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c2c88"
+  },
+  "target_remaining:0x8c0c426c": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0c426c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c426c"
+  },
+  "target_remaining:0x8c0c82e6": {
+    "golden": "extract/analysis/target_more_closure_final_dev/f_8c0c82e6.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original caller body, callback-filtered development, independent relocated acceptance, zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c82e6"
+  },
   "target_retained:0x8c06c8b2": {
     "golden": "extract/analysis/advance_resume_06c8b2_dev_merged/f_8c06c8b2.cases",
     "port": "src/fight/target_extended_adapters.c",
@@ -7434,12 +7644,89 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c06c8b2"
   },
+  "target_retained_extra_scenes:0x8c06233e": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c06233e.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Additional independent original scenes 24/26, unchanged C, complete development body and zero-skip immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06233e"
+  },
+  "target_retained_scene:0x8c07ad12": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c07ad12.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07ad12"
+  },
+  "target_retained_scene:0x8c08605a": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c08605a.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08605a"
+  },
+  "target_retained_scene:0x8c08b648": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c08b648.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08b648"
+  },
+  "target_retained_scene:0x8c08b668": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c08b668.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08b668"
+  },
+  "target_retained_scene:0x8c09102a": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c09102a.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09102a"
+  },
+  "target_retained_scene:0x8c09514a": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c09514a.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09514a"
+  },
+  "target_retained_scene:0x8c0adb86": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c0adb86.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0adb86"
+  },
+  "target_retained_scene:0x8c0adc72": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c0adc72.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0adc72"
+  },
+  "target_retained_scene:0x8c0adf70": {
+    "golden": "extract/analysis/target_retained_scene_final_dev/f_8c0adf70.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original development scenes, complete body, fresh relocated independent acceptance and strict immutable replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0adf70"
+  },
   "target_scenario:0x8c090e14": {
     "golden": "extract/analysis/target_scenario_dev/f_8c090e14.cases",
     "port": "src/fight/tenpp_complex_adapters.c",
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original whole-body scenarios 21/25, independent acceptance 23/29 with relocated inputs; existing C replay, frozen inventory.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c090e14"
+  },
+  "target_scene_recovery:0x8c0c7fbc": {
+    "golden": "extract/analysis/target_closure_third_final_dev/f_8c0c7fbc.cases",
+    "port": "src/fight/target_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original second development scenario22; independent acceptance23/24/26/29, changed inputs and relocated stack; unchanged frozen bodies, no skipped cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c7fbc"
   },
   "tenpp-assets:0x8c0b2de6": {
     "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b2de6.cases",

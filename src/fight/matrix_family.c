@@ -58,6 +58,16 @@ int vf3_target_closure_step(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_closure_step_contains(uint32_t);
 int vf3_target_scene_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_scene_adapter_contains(uint32_t);
+int vf3_target_remaining_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_remaining_adapter_contains(uint32_t);
+int vf3_target_retained_scene_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_retained_scene_adapter_contains(uint32_t);
+int vf3_target_dependency_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_dependency_adapter_contains(uint32_t);
+int vf3_target_record_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_record_adapter_contains(uint32_t);
+int vf3_target_configuration_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_target_configuration_adapter_contains(uint32_t);
 int vf3_continuation_allocator_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_matrix_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_matrix_adapter_contains(uint32_t);
@@ -179,6 +189,16 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         return vf3_target_closure_step(entry,s,ram);
     if(vf3_target_scene_adapter_contains(entry))
         return vf3_target_scene_adapter(entry,s,ram);
+    if(vf3_target_remaining_adapter_contains(entry))
+        return vf3_target_remaining_adapter(entry,s,ram);
+    if(vf3_target_retained_scene_adapter_contains(entry))
+        return vf3_target_retained_scene_adapter(entry,s,ram);
+    if(vf3_target_dependency_adapter_contains(entry))
+        return vf3_target_dependency_adapter(entry,s,ram);
+    if(vf3_target_record_adapter_contains(entry))
+        return vf3_target_record_adapter(entry,s,ram);
+    if(vf3_target_configuration_adapter_contains(entry))
+        return vf3_target_configuration_adapter(entry,s,ram);
     if(vf3_advance_controller_adapter_contains(entry))
         return vf3_advance_controller_adapter(entry,s,ram);
     if(vf3_advance_vector_adapter_contains(entry))

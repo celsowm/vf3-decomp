@@ -16,9 +16,14 @@ SHADOW = re.compile(r'f_[0-9a-f]{8}_[0-9]+\.(?:in|out)\.bin$')
 
 
 def plan(root=ROOT, minimum_age_hours=24, reclaim_gib=40, maximum_files=200000,
-         preserve_sources=()):
+         preserve_sources=(), minimum_file_bytes=65536, include_corpora=()):
+    if minimum_file_bytes < 0:
+        raise ValueError('minimum file size must be nonnegative')
     root = Path(root).resolve()
     analysis = (root / 'extract/analysis').resolve()
+    explicit = {Path(directory).resolve() for directory in include_corpora}
+    if any(not directory.is_relative_to(analysis) or directory == analysis for directory in explicit):
+        raise ValueError('explicit cache corpora must be inside workspace analysis')
     protected, _ = bound_sources(root)
     for source_file in preserve_sources:
         data = json.loads(Path(source_file).read_text())
@@ -31,7 +36,9 @@ def plan(root=ROOT, minimum_age_hours=24, reclaim_gib=40, maximum_files=200000,
     total = 0
     for manifest in manifests(analysis):
         directory = manifest.parent.resolve()
-        if directory in protected or 'target' in str(directory).lower():
+        if explicit and directory not in explicit:
+            continue
+        if directory in protected or ('target' in str(directory).lower() and directory not in explicit):
             continue
         batch_path = directory / 'batch_manifest.json'
         if not batch_path.is_file():
@@ -39,7 +46,7 @@ def plan(root=ROOT, minimum_age_hours=24, reclaim_gib=40, maximum_files=200000,
         # Only inspect a corpus with substantial old decoded shadows.
         files = [Path(entry.path) for entry in os.scandir(directory)
                  if entry.is_file(follow_symlinks=False) and SHADOW.fullmatch(entry.name)
-                 and entry.stat().st_mtime <= cutoff and entry.stat().st_size >= 65536]
+                 and entry.stat().st_mtime <= cutoff and entry.stat().st_size >= minimum_file_bytes]
         if not files:
             continue
         try:
@@ -67,7 +74,9 @@ def plan(root=ROOT, minimum_age_hours=24, reclaim_gib=40, maximum_files=200000,
         if total >= reclaim_gib * 2**30 or len(candidates) >= maximum_files:
             break
     return dict(dry_run=True, mode='decoded_cache', analysis=str(analysis),
-                minimum_age_hours=minimum_age_hours, protected_directories=sorted(map(str, protected)),
+                minimum_age_hours=minimum_age_hours, minimum_file_bytes=minimum_file_bytes,
+                explicit_corpora=sorted(map(str, explicit)),
+                protected_directories=sorted(map(str, protected)),
                 corpora=corpora, candidates=candidates, allocated_bytes=total)
 
 
@@ -76,13 +85,18 @@ def main():
     parser.add_argument('--minimum-age-hours', type=float, default=24)
     parser.add_argument('--reclaim-gib', type=float, default=40)
     parser.add_argument('--maximum-files', type=int, default=200000)
+    parser.add_argument('--minimum-file-bytes', type=int, default=65536,
+                        help='minimum decoded shadow size; default 65536')
     parser.add_argument('--preserve-sources', type=Path, action='append', default=[])
+    parser.add_argument('--include-corpus', type=Path, action='append', default=[],
+                        help='explicit unbound staging corpus allowed despite target-name protection')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
-    if args.minimum_age_hours < 0 or args.reclaim_gib <= 0 or args.maximum_files < 1:
+    if args.minimum_age_hours < 0 or args.reclaim_gib <= 0 or args.maximum_files < 1 or args.minimum_file_bytes < 0:
         parser.error('invalid age or pruning budget')
     result = plan(minimum_age_hours=args.minimum_age_hours, reclaim_gib=args.reclaim_gib,
-                  maximum_files=args.maximum_files, preserve_sources=args.preserve_sources)
+                  maximum_files=args.maximum_files, preserve_sources=args.preserve_sources,
+                  minimum_file_bytes=args.minimum_file_bytes, include_corpora=args.include_corpus)
     args.out.write_text(json.dumps(result, indent=1) + '\n')
     print(f"{len(result['candidates'])} old unbound shadows; "
           f"{result['allocated_bytes'] / 2**30:.2f} GiB; original capsules retained; no deletion")

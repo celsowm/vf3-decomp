@@ -1,5 +1,6 @@
 """Rotate typed input fixtures through a rollback-safe original interpreter probe."""
 import argparse
+import math
 from pathlib import Path
 from pointer_seeds import fixture
 from inspect_capsule import REGISTER_NAMES
@@ -36,7 +37,13 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              floating_arguments=False, alternate_fields=False, holdout_inputs=False,
              global_fields=False, scalar_fields=False, field_crosses=False,
              random_fields=False, expanded_inputs=False, preserve_fields=False,
-             register_overrides=None, memory_overrides=None, comparison_boundaries=False):
+             register_overrides=None, memory_overrides=None, comparison_boundaries=False,
+             float_palette=None):
+    if float_palette is not None:
+        float_palette = tuple(float(value) for value in float_palette)
+        if len(float_palette) != 8 or not all(math.isfinite(value) and abs(value) <= 3.4028234663852886e38
+                                             for value in float_palette):
+            raise ValueError('float palette must contain eight finite float32 values')
     roots = [int(line.split()[1], 16) for line in watch.read_text().splitlines()
              if line.startswith('pc ')]
     if not roots:
@@ -75,6 +82,8 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
              f'entry 0x{trigger:08x} 0x{roots[0]:08x}']
     first = True
     palette = (-3.0, -0.75, 0.25, 0.75, 1.5, 3.0, 8.0, 24.0) if holdout_inputs else (-2.0, -1.0, 0.0, 0.5, 1.0, 2.0, 10.0, 50.0)
+    if float_palette is not None:
+        palette = float_palette
     for variant in range(variants):
         for entry in roots:
             active_palette = palette
@@ -304,6 +313,8 @@ if __name__ == '__main__':
     ap.add_argument('--comparison-boundaries', action='store_true',
                     help='also sample around bounded original integer comparands')
     ap.add_argument('--holdout-inputs', action='store_true')
+    ap.add_argument('--float-palette', type=float, nargs=8,
+                    help='eight finite float32 inputs for original float comparison boundaries')
     a = ap.parse_args()
     generate(a.watch, a.out, a.trigger, a.variants, a.relocation, a.mode,
              a.scalar_register, a.float_vectors, a.fpscr, a.bounded_arguments,
@@ -311,4 +322,5 @@ if __name__ == '__main__':
              holdout_inputs=a.holdout_inputs, global_fields=a.global_fields,
              scalar_fields=a.scalar_fields, field_crosses=a.field_crosses,
              random_fields=a.random_fields, expanded_inputs=a.expanded_inputs,
-             preserve_fields=a.preserve_fields, comparison_boundaries=a.comparison_boundaries)
+             preserve_fields=a.preserve_fields, comparison_boundaries=a.comparison_boundaries,
+             float_palette=a.float_palette)

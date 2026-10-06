@@ -49,6 +49,8 @@ def main():
                     help='vary register inputs while keeping the typed memory contract')
     ap.add_argument('--comparison-boundaries', action='store_true',
                     help='also sample around bounded original integer comparands')
+    ap.add_argument('--float-palette', type=float, nargs=8,
+                    help='eight finite float32 values for directed development or independent acceptance')
     ap.add_argument('--register-overrides', type=Path,
                     help='JSON map of entry PCs to per-register values or variant sequences')
     ap.add_argument('--memory-overrides', type=Path,
@@ -100,7 +102,8 @@ def main():
                      expanded_inputs=a.expanded_inputs, preserve_fields=a.preserve_fields,
                      register_overrides=register_overrides,
                      memory_overrides=memory_overrides,
-                     comparison_boundaries=a.comparison_boundaries)
+                     comparison_boundaries=a.comparison_boundaries,
+                     float_palette=a.float_palette)
         command = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                    '--watch', str(watch), '--out', str(directory), '--entry-patch',
                    str(patch), '--capsule', '--probe-debug',

@@ -111,6 +111,8 @@ def main():
         entries[entry] = dict(new_credit=True, size=sizes[e], binding=key, port=port,
             proofs={name: report[entry] for name, report in reports.items()},
             artifacts=artifacts(case), covered_bytes=sizes[e])
+        print(f'{entry}: proof gates and {entries[entry]["artifacts"]["count"]} artifact hashes checked',
+              flush=True)
         line = io.StringIO()
         csv.writer(line, lineterminator='\n').writerow([entry, 'ported-invocation',
             port, sizes[e], 'static original-image C; complete body and helper behavior',

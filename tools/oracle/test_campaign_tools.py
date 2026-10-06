@@ -21,6 +21,7 @@ from expand_memory_profile import expand
 from config_editor_map import decode as decode_editor
 from inspect_capsule import format_register, register_index
 import capture_catalog
+import catalog_parents
 import capture_storage
 import isolate_planned
 import decoded_storage
@@ -40,6 +41,37 @@ from comparison_inputs import literal_comparisons, boundary_palette, replace_nar
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_restored_parents_validate_original_watch_and_development_role(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary) / 'original_dev'
+            directory.mkdir()
+            watch = directory / 'probe_watch.txt'
+            watch.write_text('pc 0x8c010000\n')
+            data = {'selected': {'0x8c010002': {'directory': str(directory),
+                                             'parents': ['0x8c010000']}}}
+            self.assertEqual(set(catalog_parents.restore(data)), {'0x8c010002'})
+            self.assertEqual(catalog_parents.restore(data, {0x8c010002}), {})
+            watch.write_text('pc 0x8c010004\n')
+            with self.assertRaises(ValueError):
+                catalog_parents.restore(data)
+            data['selected']['0x8c010002']['directory'] = str(Path(temporary) / 'held_accept')
+            with self.assertRaises(ValueError):
+                catalog_parents.restore(data)
+
+    def test_directed_float_palette_and_invalid_values(self):
+        with tempfile.TemporaryDirectory() as directory:
+            watch = Path(directory) / 'watch.txt'
+            output = Path(directory) / 'input.patch'
+            watch.write_text('pc 0x8c08fe62\n')
+            palette = (0.0, 1e-5, -1e-5, 2e-5, -2e-5, 5e-5, -5e-5, 1e-4)
+            with patch.object(tenpp_probe_plan, 'fixture', return_value=({}, {})):
+                tenpp_probe_plan.generate(watch, output, 0x8c0432e2, 1,
+                                          floating_arguments=True, float_palette=palette)
+                self.assertIn('fr1 0x' + struct.pack('<f', palette[1])[::-1].hex(), output.read_text())
+                for invalid in ((0.0,), (float('nan'),) * 8, (float('inf'),) * 8, (1e40,) * 8):
+                    with self.assertRaises(ValueError):
+                        tenpp_probe_plan.generate(watch, output, 0x8c0432e2, 1, float_palette=invalid)
+
     def test_text_control_inputs_are_distinct_and_acceptance_relocates(self):
         development = [text_control_probe_plan.fixture(i) for i in range(128)]
         acceptance = [text_control_probe_plan.fixture(i, relocation=0x100000, holdout=True)
@@ -277,6 +309,13 @@ class CampaignToolsTests(unittest.TestCase):
             self.assertTrue(all(Path(row['path']).parent.name == 'unbound' for row in result['candidates']))
             self.assertTrue(source.is_file())
             self.assertTrue(all(Path(row['path']).is_file() for row in result['candidates']))
+            with patch.object(decoded_storage, 'bound_sources', return_value=({protected}, set())):
+                explicit = decoded_storage.plan(root, include_corpora=[protected, analysis / 'target_current'])
+            self.assertEqual(len(explicit['candidates']), 2)
+            self.assertTrue(all(Path(row['path']).parent.name == 'target_current'
+                                for row in explicit['candidates']))
+            with self.assertRaises(ValueError):
+                decoded_storage.plan(root, include_corpora=[root.parent])
 
     def test_capture_stops_before_writing_when_disk_reserve_is_low(self):
         from types import SimpleNamespace
@@ -328,6 +367,19 @@ class CampaignToolsTests(unittest.TestCase):
                              [str(sources[1].resolve())])
             self.assertEqual(result['protected_sources'], 1)
             self.assertTrue(all(source.is_file() for source in sources))
+            oracle = root / 'tools/oracle'
+            oracle.mkdir()
+            pending = analysis / 'pending_proof'
+            pending.mkdir()
+            (pending / 'capsule_manifest.json').write_text(json.dumps({
+                'entries': {'0x8c010002': [1]}, 'inputs': [str(sources[1])]}))
+            (oracle / 'untracked_milestone.json').write_text(json.dumps({
+                'proof': {'cases': 'extract/analysis/pending_proof/f_8c010002.cases'}}))
+            with patch.object(capture_storage.subprocess, 'run',
+                              return_value=SimpleNamespace(stdout='')):
+                protected_pending = capture_storage.plan(root)
+            self.assertEqual(protected_pending['candidates'], [])
+            self.assertEqual(protected_pending['protected_sources'], 2)
 
     def test_capture_catalog_is_advisory_and_excludes_holdouts(self):
         with tempfile.TemporaryDirectory() as temporary:

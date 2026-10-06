@@ -39,12 +39,14 @@ def main() -> int:
     ap.add_argument('--jobs',type=int,default=1,choices=range(1,5),help='parallel independent bound replays')
     ap.add_argument('--matrix-executable', type=Path,
                     help='use an immutable matrix replay snapshot without editing bindings')
+    ap.add_argument('--bindings', type=Path, default=Path('tools/golden_bindings.json'),
+                    help='frozen binding inventory for reproducible replay and body coverage')
     a = ap.parse_args()
     ok = True
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
     ok &= run([PY, 'tools/oracle/test_campaign_tools.py'])
-    replay_command = [PY, "tools/portcheck.py",'--jobs',str(a.jobs)]
+    replay_command = [PY, "tools/portcheck.py",'--jobs',str(a.jobs), '--bindings', str(a.bindings)]
     if a.matrix_executable:
         replay_command.extend(['--matrix-executable',str(a.matrix_executable)])
     ok &= run(replay_command)
@@ -56,7 +58,7 @@ def main() -> int:
     if (REPO/'tools/oracle/sixth_batch.json').is_file():
         ok &= run([PY, 'tools/oracle/audit_sixth_batch.py'])
     ok &= run([PY, "tools/decomp_stats.py"])
-    ok &= run([PY, "tools/body_cover.py", "--bindings", "tools/golden_bindings.json",
+    ok &= run([PY, "tools/body_cover.py", "--bindings", str(a.bindings),
                "--min-cover", "100", "--quiet"])
     ok &= run([PY, "tools/verify_union.py"])
     ok &= run([PY, "tools/sh4_calls.py"])

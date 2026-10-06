@@ -69,7 +69,9 @@ def bound_sources(root):
     tracked = subprocess.run(['git', 'ls-files', 'tools/oracle/*.json'],
                              cwd=root, check=True, capture_output=True,
                              text=True).stdout.splitlines()
-    metadata = [root / name for name in tracked] + [root / 'tools/golden_bindings.json']
+    # A newly promoted milestone is proof evidence before its git commit too.
+    metadata = sorted({root / name for name in tracked} |
+                      set((root / 'tools/oracle').glob('*.json'))) + [root / 'tools/golden_bindings.json']
     bound_directories = set()
     direct_sources = set()
     for path in metadata:
