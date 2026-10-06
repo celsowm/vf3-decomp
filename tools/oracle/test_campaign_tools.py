@@ -21,6 +21,10 @@ from expand_memory_profile import expand
 from config_editor_map import decode as decode_editor
 from inspect_capsule import format_register, register_index
 import capture_catalog
+import capture_storage
+import isolate_planned
+import decoded_storage
+import filter_capture_closure
 import portcheck
 import regression_status
 import state_checksum_table
@@ -235,6 +239,95 @@ class CampaignToolsTests(unittest.TestCase):
             self.assertEqual(legacy.count('0x0c420000 0xaabbccdd'),66)
             self.assertIn('0x0c420000 0xaabb41dd',sampled)
             self.assertEqual(sampled.count('0x0c420004 0x0c430000'),66)
+
+    def test_closure_filter_rejects_forbidden_aliases_and_missing_tapes(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'f_8c010000.ops.json').write_text('{"0c010000":"e100"}')
+            (root / 'f_8c010010.ops.json').write_text('{"ac0671aa":"000b"}')
+            selected, excluded = filter_capture_closure.select(
+                root, {0x8c010000, 0x8c010010, 0x8c010020}, {0x8c0671aa})
+            self.assertEqual(selected, {0x8c010000})
+            self.assertEqual(excluded['0x8c010010'], ['0x0c0671aa'])
+            self.assertIn('0x8c010020', excluded)
+
+    def test_decoded_cleanup_keeps_bound_current_and_original_sources(self):
+        import os
+        import time
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            analysis = root / 'extract/analysis'
+            analysis.mkdir(parents=True)
+            source = analysis / 'capsule_original.bin'
+            source.write_bytes(b'original')
+            protected = analysis / 'bound'
+            for name in ('bound', 'unbound', 'target_current'):
+                directory = analysis / name
+                directory.mkdir()
+                (directory / 'capsule_manifest.json').write_text(json.dumps({'inputs':[str(source)]}))
+                (directory / 'batch_manifest.json').write_text(json.dumps({'runs':[
+                    {'returncode':0,'frame_complete':True}]}))
+                for suffix in ('in', 'out'):
+                    shadow = directory / f'f_8c010000_0.{suffix}.bin'
+                    shadow.write_bytes(bytes(65536))
+                    os.utime(shadow, (time.time()-100000, time.time()-100000))
+            with patch.object(decoded_storage, 'bound_sources', return_value=({protected}, set())):
+                result = decoded_storage.plan(root, reclaim_gib=1)
+            self.assertEqual(len(result['candidates']), 2)
+            self.assertTrue(all(Path(row['path']).parent.name == 'unbound' for row in result['candidates']))
+            self.assertTrue(source.is_file())
+            self.assertTrue(all(Path(row['path']).is_file() for row in result['candidates']))
+
+    def test_capture_stops_before_writing_when_disk_reserve_is_low(self):
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            watch = root / 'watch.txt'
+            watch.write_text('pc 0x8c010000\n')
+            output = io.StringIO()
+            argv = ['isolate_planned', '--watch', str(watch), '--out', str(root / 'captures')]
+            with patch.object(sys, 'argv', argv), \
+                    patch.object(isolate_planned.shutil, 'disk_usage', return_value=SimpleNamespace(free=0)), \
+                    patch.object(isolate_planned, 'generate') as generate, \
+                    patch.object(isolate_planned.subprocess, 'run') as capture, \
+                    contextlib.redirect_stdout(output):
+                isolate_planned.main()
+            generate.assert_not_called()
+            capture.assert_not_called()
+            self.assertIn('reserve required', output.getvalue())
+            self.assertEqual(list((root / 'captures').iterdir()), [])
+
+    def test_storage_cleanup_protects_bound_sources_and_current_captures(self):
+        import os
+        import time
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            analysis = root / 'extract/analysis'
+            accepted = analysis / 'accepted'
+            empty = analysis / 'old_empty'
+            accepted.mkdir(parents=True)
+            empty.mkdir()
+            (root / 'tools').mkdir()
+            (accepted / 'f_8c010000.cases').write_text('specimens')
+            (root / 'tools/golden_bindings.json').write_text(json.dumps({
+                'binding': {'golden': 'extract/analysis/accepted/f_8c010000.cases'}}))
+            sources = [analysis / name for name in
+                       ('capsule_bound.bin', 'capsule_old_empty.bin', 'capsule_target_current.bin')]
+            for source in sources:
+                source.write_bytes(b'original')
+                os.utime(source, (time.time() - 100000, time.time() - 100000))
+            (accepted / 'capsule_manifest.json').write_text(json.dumps({
+                'entries': {'0x8c010000': [1]}, 'inputs': [str(sources[0])]}))
+            (empty / 'capsule_manifest.json').write_text(json.dumps({
+                'entries': {}, 'inputs': list(map(str, sources))}))
+            with patch.object(capture_storage.subprocess, 'run',
+                              return_value=SimpleNamespace(stdout='')):
+                result = capture_storage.plan(root)
+            self.assertEqual([row['path'] for row in result['candidates']],
+                             [str(sources[1].resolve())])
+            self.assertEqual(result['protected_sources'], 1)
+            self.assertTrue(all(source.is_file() for source in sources))
 
     def test_capture_catalog_is_advisory_and_excludes_holdouts(self):
         with tempfile.TemporaryDirectory() as temporary:

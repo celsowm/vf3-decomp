@@ -1,6 +1,7 @@
 """Capture varied inputs in fresh states for each root, preserving all evidence."""
 import argparse
 import json
+import shutil
 from pathlib import Path
 import subprocess
 import sys
@@ -33,6 +34,8 @@ def main():
     ap.add_argument('--scalar-fields', action='store_true')
     ap.add_argument('--field-crosses', action='store_true')
     ap.add_argument('--timeout', type=int, default=25)
+    ap.add_argument('--minimum-free-gib', type=float, default=4,
+                    help='stop between groups below this free-disk reserve')
     ap.add_argument('--probe-ops', type=int, choices=range(1, 100001),
                     metavar='1..100000', help='original interpreter synthetic-call budget')
     ap.add_argument('--rollback-text-control', action='store_true',
@@ -51,6 +54,8 @@ def main():
     ap.add_argument('--memory-overrides', type=Path,
                     help='JSON map of entry PCs to RAM word addresses and values or variant sequences')
     a = ap.parse_args()
+    if a.minimum_free_gib < 0:
+        ap.error('free-disk reserve must be nonnegative')
     register_overrides = json.loads(a.register_overrides.read_text()) if a.register_overrides else None
     memory_overrides = json.loads(a.memory_overrides.read_text()) if a.memory_overrides else None
     roots = [int(line.split()[1], 16) for line in a.watch.read_text().splitlines()
@@ -59,6 +64,12 @@ def main():
     progress_path = a.out / 'progress.json'
     progress = json.loads(progress_path.read_text()) if progress_path.exists() else []
     for offset in range(0, len(roots), a.group_size):
+        free_bytes = shutil.disk_usage(a.out).free
+        if free_bytes < a.minimum_free_gib * 2**30:
+            print(f'Stopped before next group: {free_bytes / 2**30:.2f} GiB free; '
+                  f'{a.minimum_free_gib:g} GiB reserve required. '
+                  'Existing capture evidence retained.', flush=True)
+            break
         group = roots[offset:offset + a.group_size]
         index, entry = a.start + offset, group[0]
         suffix = f'_{group[-1]:08x}' if len(group) > 1 else ''
