@@ -1,8 +1,8 @@
 # Target campaign continuation, 2026-10-05
 
 The campaign target remains **249,528 verified unique C bytes**. Starting at
-233,838, five accepted milestones add **3,428 bytes across 27 frozen roots**,
-reaching **237,266 / 434,656 (54.5871%)**. **12,262 bytes remain**. These gains
+233,838, twelve accepted milestones add **9,418 bytes across 80 frozen roots**,
+reaching **243,256 / 434,656 (55.9652%)**. **6,272 bytes remain**. These gains
 include newly verified existing static translations; they are not all new
 readable implementations. SDK attribution supplies no coverage credit.
 
@@ -13,10 +13,17 @@ readable implementations. SDK attribution supplies no coverage credit.
 | `advance_target_command_pair_milestone.json` | 1 | 84 | 152 development and 152 acceptance cases |
 | `advance_target_families_milestone.json` | 10 | 1,476 | 5,168 development and 4,376 acceptance cases |
 | `advance_target_extra_milestone.json` | 6 | 522 | 2,589 development and 2,596 acceptance cases |
+| `advance_target_broad_milestone.json` | 12 | 2,240 | Whole bodies; 4,562 development and 5,423 acceptance cases |
+| `advance_target_extended_milestone.json` | 24 | 1,326 | Strict development and independent acceptance; BIOS cases excluded |
+| `advance_target_scenario_milestone.json` | 1 | 246 | 483 development cases in states 21/25; 484 acceptance cases in 23/29 |
+| `advance_target_extended_scenes_milestone.json` | 3 | 184 | Additional independent acceptance states 24/26; unchanged C |
+| `advance_target_retained_milestone.json` | 1 | 142 | Retained whole-body development in 21/22; 671 fresh acceptance cases |
+| `advance_target_closure_milestone.json` | 11 | 1,750 | New helper closure; original bodies in 21/27 and independent acceptance |
+| `advance_target_closure_tail_milestone.json` | 1 | 102 | Final completed replay report: 446 development and 449 acceptance cases |
 
 Every newly credited root executes its entire frozen body in development,
-with at least 64 distinct complete inputs across original states 21/27.
-Acceptance uses independent states 23/29, changed inputs and relocation by
+with at least 64 distinct complete inputs across two original scenarios.
+Acceptance uses independent scenarios, changed inputs and relocation by
 `0x100000`. Complete architectural, captured RAM and ordered device replay
 passes with zero skips. Acceptance results did not drive implementation edits.
 The original image, inventory and body ranges retain their frozen hashes.
@@ -107,3 +114,42 @@ captures are split into independent `target_broad{,_a,_b,_c}_dev` directories;
 the initial runner stopped between roots after index 6 and the three shards
 cover indices 7..41, 42..76 and 77..111. New roots still require whole-body
 execution, implementation, immutable strict replay and fresh acceptance.
+
+## Expanded continuation checkpoint
+
+The expanded static C owners are `target_broad_adapters.c`,
+`target_extended_adapters.c` and `target_closure_adapters.c`. Their translation
+reports contain 1,815, 2,947 and 1,296 original statements respectively, with
+zero unsupported emitted instructions. No accepted closure uses the generic
+`0x8c0671aa/0x8c0671ac` RTS fixture callback. Development and acceptance replay
+use immutable snapshots recorded separately in each proof. The closure
+snapshot has SHA-256
+`10d3beb0eb0f118822410ffafc9c3ec074888baf7867bcc882695a0b64b6cc10`.
+
+Seven extended roots (`04326c`, `0433c6`, `04341e`, `043440`, `043472`,
+`04348e`, `0434aa`) execute the original GD-ROM BIOS bridge via `04308c`
+and the external REIOS opcode at `8c001006`. The current C capture/replay does
+not model that platform boundary; all seven fail strict development replay
+and receive no credit. Three different roots passed replay but initially had
+only one acceptance scenario. Fresh states 24/26 resolved that diversity gap
+without changing C. One closure root was initially omitted while its replay
+report was still being written; its final passing result is credited by a
+separate tail milestone, preserving the earlier manifest.
+
+`ready_parents.py` recovers actual original parent groups from capture
+reports. `capture_catalog.py --single-scenario` finds retained full bodies
+needing another development scenario; it excludes acceptance, holdout and
+held reports. `catalog_parents.py` exports their actual parent watches and
+development directories without granting credit. Raw original capsules must
+still be merged and revalidated, replayed and independently accepted.
+The current retained index has 35 leads and 2,894 potential union bytes,
+including already scheduled entries. These are advisory totals only.
+
+The expanded full gate passes **1,232/1,232 bindings**, native tests and all
+31 campaign-tool checks (`verify_all: PASS`) in
+`target_checkpoint_regression.log` against the immutable closure snapshot.
+Its frozen binding inventory is `target_checkpoint_bindings.json`; machine
+status is `target_checkpoint_regression_status.json`. Later captures and
+source additions do not change that executable. The four subsequent
+scene-recovery roots and the remaining fresh prologue queue are still
+uncredited at this checkpoint.

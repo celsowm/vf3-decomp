@@ -265,6 +265,27 @@ class CampaignToolsTests(unittest.TestCase):
             self.assertEqual(data['potential_unique_bytes'],16)
             self.assertEqual(len(data['candidates']),1)
             self.assertEqual(len(data['candidates'][0]['corpora']),1)
+            single = dict(row, reasons=['fewer than two scenarios'], scenarios=[['a','']])
+            development.write_text(json.dumps(dict(entries=[single])))
+            held = root / 'held_report.json'
+            held.write_text(json.dumps(dict(entries=[single])))
+            with patch.object(capture_catalog,'ROOT',root):
+                self.assertEqual(capture_catalog.catalog([development],baseline)['candidates'], [])
+                recovered = capture_catalog.catalog([development,held],baseline,single_scenario=True)
+                self.assertEqual(len(recovered['candidates']),1)
+                self.assertEqual(len(recovered['candidates'][0]['corpora']),1)
+                single['distinct_cases'] = 63
+                development.write_text(json.dumps(dict(entries=[single])))
+                self.assertEqual(capture_catalog.catalog([development],baseline,single_scenario=True)['candidates'], [])
+                partial = dict(row, reasons=['unexecuted body PCs'], covered_bytes=12,
+                               missing_pcs=['0x8c01020c','0x8c01020e'])
+                development.write_text(json.dumps(dict(entries=[partial])))
+                self.assertEqual(capture_catalog.catalog([development],baseline)['candidates'], [])
+                self.assertEqual(capture_catalog.catalog([development],baseline,maximum_gap=2)['candidates'], [])
+                gaps = capture_catalog.catalog([development],baseline,maximum_gap=4)
+                self.assertEqual(gaps['candidates'][0]['corpora'][0]['missing_bytes'],4)
+                with self.assertRaises(ValueError):
+                    capture_catalog.catalog([development],baseline,single_scenario=True,maximum_gap=4)
 
     def test_config_editor_parameters_and_helper_targets(self):
         import struct

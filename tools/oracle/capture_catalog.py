@@ -12,7 +12,10 @@ from campaign_io import write_watch
 from select_next import ROOT, union
 
 
-def catalog(reports, baseline, owners=None):
+def catalog(reports, baseline, owners=None, single_scenario=False,
+            maximum_gap=None, minimum_body=0):
+    if maximum_gap is not None and (maximum_gap < 1 or single_scenario):
+        raise ValueError('body-gap mode needs a positive gap and two scenarios')
     frozen = json.loads(Path(baseline).read_text())
     with (ROOT / 'docs/decomp_status.csv').open() as ledger:
         credited = {int(row['entry'], 16) for row in csv.DictReader(ledger)
@@ -28,24 +31,30 @@ def catalog(reports, baseline, owners=None):
     linked = json.loads(Path(owners).read_text()) if owners else {}
     found = {}
     for report in sorted(set(map(Path, reports))):
-        if any(word in report.name.lower() for word in ('accept', 'holdout')):
+        if any(word in report.name.lower() for word in ('accept', 'holdout', 'held')):
             continue
         data = json.loads(report.read_text())
         entries = data.get('entries') if isinstance(data, dict) else None
         if not isinstance(entries, list):
             continue
         for row in entries:
-            if not isinstance(row, dict) or row.get('reasons') != []:
+            required_reasons = (['unexecuted body PCs'] if maximum_gap is not None else
+                                ['fewer than two scenarios'] if single_scenario else [])
+            if not isinstance(row, dict) or row.get('reasons') != required_reasons:
                 continue
             entry = int(row['entry'], 16)
             directory = Path(row['directory'])
             if (entry in credited or entry not in ranges or not directory.is_dir()
-                    or any(word in str(directory).lower() for word in ('accept', 'holdout'))
+                    or any(word in str(directory).lower() for word in ('accept', 'holdout', 'held'))
                     or row.get('distinct_cases', 0) < 64
-                    or len(row.get('scenarios', [])) < 2
-                    or row.get('body_bytes', 0) <= 0
-                    or row.get('covered_bytes') != row['body_bytes']
-                    or row.get('missing_pcs') != []):
+                    or len(row.get('scenarios', [])) < (1 if single_scenario else 2)
+                    or row.get('body_bytes', 0) < max(1, minimum_body)):
+                continue
+            gap = row['body_bytes'] - row.get('covered_bytes', 0)
+            if maximum_gap is None:
+                if gap != 0 or row.get('missing_pcs') != []:
+                    continue
+            elif not 0 < gap <= maximum_gap or not row.get('missing_pcs'):
                 continue
             gain = union(spans + ranges[entry]) - before
             if gain <= 0:
@@ -53,12 +62,14 @@ def catalog(reports, baseline, owners=None):
             item = found.setdefault(entry, dict(entry=f'0x{entry:08x}',
                 marginal_bytes=gain, source=linked.get(f'0x{entry:08x}'), corpora=[]))
             evidence = dict(directory=str(directory), report=str(report),
-                distinct_cases=row['distinct_cases'], scenarios=row['scenarios'])
+                distinct_cases=row['distinct_cases'], scenarios=row['scenarios'],
+                missing_bytes=gap, missing_pcs=row['missing_pcs'])
             if not any(previous['directory'] == evidence['directory'] for previous in item['corpora']):
                 item['corpora'].append(evidence)
     rows = sorted(found.values(), key=lambda row: (-row['marginal_bytes'], row['entry']))
     potential = union(spans + [span for entry in found for span in ranges[entry]]) - before
-    return dict(advisory=True, baseline_bytes=before, potential_unique_bytes=potential,
+    return dict(advisory=True, single_scenario=single_scenario, maximum_gap=maximum_gap,
+                baseline_bytes=before, potential_unique_bytes=potential,
                 candidates=rows, note='Retained report leads; fresh raw capture gates required.')
 
 
@@ -70,9 +81,15 @@ def main():
     parser.add_argument('--owners', type=Path)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--watch', type=Path)
+    parser.add_argument('--single-scenario', action='store_true',
+                        help='find complete bodies needing a second development scenario')
+    parser.add_argument('--maximum-gap', type=int,
+                        help='find two-scenario development bodies missing at most this many bytes')
+    parser.add_argument('--minimum-body', type=int, default=0)
     args = parser.parse_args()
     reports = [report for pattern in args.pattern for report in ROOT.glob(pattern)]
-    data = catalog(reports, args.baseline, args.owners)
+    data = catalog(reports, args.baseline, args.owners, args.single_scenario,
+                   args.maximum_gap, args.minimum_body)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(data, indent=1) + '\n')
     if args.watch:

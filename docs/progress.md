@@ -2,16 +2,18 @@
 
 ## Target continuation checkpoint (2026-10-05)
 
-Five independently accepted batches add **27 frozen roots and 3,428 unique C
-bytes**, reaching **237,266/434,656 (54.5871%)**. The 249,528-byte campaign
-target remains **12,262 bytes away**. Nine sound command roots now have
+Twelve independently accepted batches add **80 frozen roots and 9,418 unique C
+bytes**, reaching **243,256/434,656 (55.9652%)**. The 249,528-byte campaign
+target remains **6,272 bytes away**. Nine sound command roots now have
 readable C; other gains include newly verified existing static translations.
 All new roots execute complete development bodies and pass independent
 acceptance with strict architectural/RAM/device replay and zero skips.
 Reusable Python tools cover caller fixtures, parent selection and the
 independently audited PVR checkpoint; no infrastructure bytes receive credit.
-Full verification passes **1,179/1,179 bindings**, native tests and 31 tool
-checks, with **44 passing milestone artifact-hash/union audits**.
+The expanded full checkpoint passes **1,232/1,232 bindings**, native tests and
+31 tool checks against an immutable closure snapshot. Individual strict
+development and acceptance gates pass for all 80 newly credited roots.
+Additional original development leads receive no credit yet.
 See [target_campaign.md](re/target_campaign.md) for immutable proofs and
 remaining work. The campaign continues beyond this checkpoint.
 

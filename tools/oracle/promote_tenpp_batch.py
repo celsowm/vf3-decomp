@@ -95,7 +95,8 @@ def main():
                                for run in campaign['runs'] for r in run.get('incomplete', [])), 'incomplete invocation'
             for report in reports.values():
                 proof = report.get(entry)
-                assert proof and proof['pass'] and re.fullmatch(
+                assert proof is not None, 'strict replay report incomplete'
+                assert proof['pass'] and re.fullmatch(
                     r'matrix_family: (\d+)/(\d+) cases match \(0 skipped\) - PASS', proof['stdout']), 'strict replay failed'
         except AssertionError as error:
             excluded[entry] = str(error)

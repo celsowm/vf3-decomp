@@ -1652,6 +1652,90 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c090000"
   },
+  "advance-target-broad:0x8c07b02c": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c07b02c.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07b02c"
+  },
+  "advance-target-broad:0x8c0887ec": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0887ec.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0887ec"
+  },
+  "advance-target-broad:0x8c08927e": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c08927e.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08927e"
+  },
+  "advance-target-broad:0x8c089d66": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c089d66.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c089d66"
+  },
+  "advance-target-broad:0x8c089e40": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c089e40.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c089e40"
+  },
+  "advance-target-broad:0x8c093390": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c093390.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c093390"
+  },
+  "advance-target-broad:0x8c09d844": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c09d844.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09d844"
+  },
+  "advance-target-broad:0x8c0a2f90": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0a2f90.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a2f90"
+  },
+  "advance-target-broad:0x8c0ace3e": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0ace3e.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ace3e"
+  },
+  "advance-target-broad:0x8c0b2518": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0b2518.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0b2518"
+  },
+  "advance-target-broad:0x8c0c6482": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0c6482.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c6482"
+  },
+  "advance-target-broad:0x8c0c99fe": {
+    "golden": "extract/analysis/target_broad_final_dev/f_8c0c99fe.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 4562 strict development cases; all twelve frozen bodies executed; independent original states 23/29 with changed inputs and relocation; immutable broad development executable; 1815 original statements with no unsupported or foreign code.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c99fe"
+  },
   "advance-target-command-pair:0x8c040ec6": {
     "golden": "extract/analysis/target_command_pair_dev/f_8c040ec6.cases",
     "port": "src/fight/command_encoders.c",
@@ -1714,6 +1798,174 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original scalar command packing and enabled-channel encoders; 1400 strict development cases state21/27; changed scalar inputs and relocated RAM queue acceptance state23/29; real enqueue operation, zero skipped.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c041ebe"
+  },
+  "advance-target-extended:0x8c0356d4": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0356d4.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0356d4"
+  },
+  "advance-target-extended:0x8c04bbf2": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c04bbf2.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04bbf2"
+  },
+  "advance-target-extended:0x8c04bc1e": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c04bc1e.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04bc1e"
+  },
+  "advance-target-extended:0x8c04f8be": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c04f8be.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04f8be"
+  },
+  "advance-target-extended:0x8c05fc14": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c05fc14.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05fc14"
+  },
+  "advance-target-extended:0x8c0696e6": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0696e6.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0696e6"
+  },
+  "advance-target-extended:0x8c07aa34": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c07aa34.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07aa34"
+  },
+  "advance-target-extended:0x8c07d890": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c07d890.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07d890"
+  },
+  "advance-target-extended:0x8c07f022": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c07f022.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07f022"
+  },
+  "advance-target-extended:0x8c0807d2": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0807d2.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0807d2"
+  },
+  "advance-target-extended:0x8c0810c0": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0810c0.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0810c0"
+  },
+  "advance-target-extended:0x8c081982": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c081982.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081982"
+  },
+  "advance-target-extended:0x8c0819b0": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0819b0.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0819b0"
+  },
+  "advance-target-extended:0x8c084aa2": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c084aa2.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c084aa2"
+  },
+  "advance-target-extended:0x8c08612c": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c08612c.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08612c"
+  },
+  "advance-target-extended:0x8c087190": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c087190.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c087190"
+  },
+  "advance-target-extended:0x8c090fc0": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c090fc0.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c090fc0"
+  },
+  "advance-target-extended:0x8c091048": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c091048.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c091048"
+  },
+  "advance-target-extended:0x8c092210": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c092210.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c092210"
+  },
+  "advance-target-extended:0x8c094242": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c094242.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094242"
+  },
+  "advance-target-extended:0x8c0978ee": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0978ee.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0978ee"
+  },
+  "advance-target-extended:0x8c09a992": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c09a992.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09a992"
+  },
+  "advance-target-extended:0x8c0abad8": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0abad8.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0abad8"
+  },
+  "advance-target-extended:0x8c0c94b2": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c0c94b2.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Twenty-seven complete frozen bodies; strict complete-state development and independent states 23/29 acceptance with changed inputs and relocation; seven unsupported BIOS GD-ROM wrappers excluded; immutable extended development executable.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c94b2"
   },
   "advance-target-extra:0x8c04fe46": {
     "golden": "extract/analysis/target_extra_dev/f_8c04fe46.cases",
@@ -7069,6 +7321,125 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0be05e"
+  },
+  "target_closure:0x8c03b8f4": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c03b8f4.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03b8f4"
+  },
+  "target_closure:0x8c054b84": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c054b84.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c054b84"
+  },
+  "target_closure:0x8c06d638": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c06d638.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06d638"
+  },
+  "target_closure:0x8c07e104": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c07e104.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07e104"
+  },
+  "target_closure:0x8c0806e4": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0806e4.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0806e4"
+  },
+  "target_closure:0x8c080d2c": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c080d2c.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c080d2c"
+  },
+  "target_closure:0x8c089c9c": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c089c9c.cases",
+    "port": "src/fight/target_broad_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c089c9c"
+  },
+  "target_closure:0x8c0acf68": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0acf68.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0acf68"
+  },
+  "target_closure:0x8c0c4d2c": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0c4d2c.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c4d2c"
+  },
+  "target_closure:0x8c0c6104": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0c6104.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c6104"
+  },
+  "target_closure:0x8c0c8274": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0c8274.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; 12 original whole-body candidates, strict fixed C development, independent changed-input relocated acceptance23/29. Frozen inventory and gate thresholds unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c8274"
+  },
+  "target_closure_tail:0x8c0c4e4a": {
+    "golden": "extract/analysis/target_new_closure_final_dev/f_8c0c4e4a.cases",
+    "port": "src/fight/target_closure_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Final completed strict acceptance report; original full body21/27, independent holdout23/29, unchanged C and frozen inventory.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c4e4a"
+  },
+  "target_extended_scenes:0x8c038956": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c038956.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent acceptance enriched with fresh24/26 scenarios and relocated changed inputs; fixed C and original inventory unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c038956"
+  },
+  "target_extended_scenes:0x8c06199c": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c06199c.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent acceptance enriched with fresh24/26 scenarios and relocated changed inputs; fixed C and original inventory unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06199c"
+  },
+  "target_extended_scenes:0x8c07e918": {
+    "golden": "extract/analysis/target_extended_final_dev/f_8c07e918.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent acceptance enriched with fresh24/26 scenarios and relocated changed inputs; fixed C and original inventory unchanged.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07e918"
+  },
+  "target_retained:0x8c06c8b2": {
+    "golden": "extract/analysis/advance_resume_06c8b2_dev_merged/f_8c06c8b2.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Retained original whole body21/22 and fixed C; independent acceptance23/24/26/29 changed inputs, relocated stack, zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c8b2"
+  },
+  "target_scenario:0x8c090e14": {
+    "golden": "extract/analysis/target_scenario_dev/f_8c090e14.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original whole-body scenarios 21/25, independent acceptance 23/29 with relocated inputs; existing C replay, frozen inventory.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c090e14"
   },
   "tenpp-assets:0x8c0b2de6": {
     "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b2de6.cases",
