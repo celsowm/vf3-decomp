@@ -1354,6 +1354,7 @@
  "0x8c0a86ba": "src/fight/target_configuration_adapters.c",
  "0x8c0a8f98": "src/fight/target_configuration_adapters.c",
  "0x8c0a9040": "src/fight/target_configuration_adapters.c",
+ "0x8c0a92da": "src/fight/target_action_selector_adapters.c",
  "0x8c0a9452": "src/fight/target_remaining_adapters.c",
  "0x8c0a95c0": "src/fight/eighth_adapters.c",
  "0x8c0a99aa": "src/fight/eighth_adapters.c",

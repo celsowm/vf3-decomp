@@ -124,6 +124,7 @@ add_library(vf3core STATIC
     src/fight/target_dependency_adapters.c
     src/fight/target_record_adapters.c
     src/fight/target_configuration_adapters.c
+    src/fight/target_action_selector_adapters.c
     src/fight/continuation_allocator_helpers.c
     src/fight/continuation_matrix_adapters.c
     src/fight/advance_small_tail_adapters.c

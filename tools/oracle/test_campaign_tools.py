@@ -36,6 +36,7 @@ import unattempted_parents
 import command_selector_probe_plan
 import text_control_probe_plan
 import struct
+import save_record_inputs
 from types import SimpleNamespace
 from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
@@ -679,6 +680,21 @@ class CampaignToolsTests(unittest.TestCase):
             report = json.loads(output.read_text())
             self.assertEqual([row['entry'] for row in report['candidates']], ['0x8c010100'])
             self.assertEqual(report['candidates'][0]['dynamic_calls'], 2)
+
+
+class SaveRecordInputTests(unittest.TestCase):
+    def test_crc_reference(self):
+        self.assertEqual(save_record_inputs.crc16(b'123456789'), 0x31c3)
+
+    def test_wrapped_length_and_stored_crc(self):
+        for index, record in enumerate(save_record_inputs.records()):
+            optional = int.from_bytes(record[68:70], 'little')
+            payload = int.from_bytes(record[72:76], 'little')
+            self.assertEqual((128 + 512 + (0,8064,4544,2048)[optional] + payload) & 0xffffffff, 640)
+            stored = int.from_bytes(record[70:72], 'little')
+            data = bytearray(record)
+            data[70:72] = b'\x00\x00'
+            self.assertEqual(stored ^ save_record_inputs.crc16(data), index & 1)
 
 
 if __name__ == '__main__':

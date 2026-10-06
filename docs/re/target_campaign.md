@@ -245,3 +245,65 @@ interior entry. Inspect original setup and stack saves before treating the
 advisory prologue map as a callable input contract. The 4 GiB reserve stopped
 the new capture campaign between groups; incomplete or absent proofs do not
 receive credit.
+
+### Directed inputs after the 246,350-byte checkpoint (2026-10-06)
+
+Three further frozen bodies passed independent original-image acceptance:
+
+| Root | Bytes | DEV | ACCEPT | Implementation |
+| --- | ---: | ---: | ---: | --- |
+| `0x8c0a00c8` | 362 | 1,446 | 512 | `advance_controller_adapters.c` |
+| `0x8c0a92da` | 320 | 512 | 511 | `target_action_selector_adapters.c` |
+| `0x8c04709a` | 294 | 714 | 423 | `target_record_adapters.c` |
+
+All rows cover the complete frozen body in development, use at least two
+development and two disjoint acceptance scenarios, and replay architecture,
+all captured RAM and the ordered device tape with zero skipped cases. The
+three `advance_target_{name_entry,action_selector,save_record}_milestone.json`
+manifests were individually audited with hashes. Verified unique coverage is
+**247,326 / 434,656**, with **2,202 bytes** left to the 249,528-byte target.
+
+`name_entry_memory.json` varies the cursor, count, status and button words
+together, supplies writable task objects, and leaves the original character
+table untouched. `action_selector_{memory,registers}.json` exercises the
+joint object-selector/button-mask conditions. Its new C module contains 160
+original statements and no unsupported instructions; existing helper routes
+are reused. Both use independent acceptance objects relocated by `0x100000`.
+
+`save_record_inputs.py` generates CRC-16/0x1021 records with correct and
+incorrect stored checksums. Original section-size tables remain unchanged.
+The record reader adds 128, the 512-byte primary section, an optional section
+of 0/8064/4544/2048 bytes and an untrusted uint32 payload length. Inputs with
+payload `-optional_size` modulo 2^32 make the original sum wrap to 640.
+This tests malformed-length behavior as well as the normal optional-size-zero
+record. The original interpreter executes and checks each specimen; the tool
+supplies no expected register, RAM or device outputs. Existing ordinary
+development records are retained in the merged 714-case proof. The opcode
+budget remains 100,000. There are now 39 passing campaign-tool tests, including
+the independent CRC reference `123456789 -> 0x31c3` and fixture consistency.
+
+The corrected-prologue retained development merge passed 17/17 strict entry
+replays against the immutable configuration checkpoint. Acceptance through
+states 23/29 still fails to produce complete invocations for most graphics
+families; states 30/41 likewise produced no valid invocations in their second
+and third groups before the disk guard stopped the next group. These roots
+remain uncredited. New independent quadrant inputs for `03a070` execute the
+axis cases but still do not cover the complete 244-byte frozen body; the
+initial replay lacks its entry adapter. Its retained input JSON is advisory.
+
+The whole hash audit started before these three promotions and passed through
+246,350 bytes: `target_20261006_chain_audit.json`, 324 new roots and +40,288
+unique bytes over the frozen 206,062-byte baseline. The three subsequent
+individual hash audits extend that verified chain to 247,326. An integrated
+1,274-binding regression is running against frozen
+`target_20261006_name_checkpoint_bindings.json` and immutable
+`vf3matrixfamily_target_configuration_dev.exe`; its status must be read from
+`target_20261006_name_regression_status.json`, not assumed complete. Later
+action-selector integration and record promotion require the final checkpoint.
+
+Cleanup journals `target_small_cache_cleanup3_applied.json`,
+`target_small_cache_cleanup4_applied.json` and
+`target_gap_staging_cleanup_applied.json` record removal of 312,942, 217,856
+and 37,190 rebuildable RAM-shadow files (about 8.00, 5.50 and 1.04 GiB).
+Original capsules, case headers, opcode maps, manifests, bound proofs and
+selected analysis leads were preserved. No ROM, SDK or frozen range changed.

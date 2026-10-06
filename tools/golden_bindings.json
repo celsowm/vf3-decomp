@@ -7322,6 +7322,27 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0be05e"
   },
+  "target-action-selector:0x8c0a92da": {
+    "golden": "extract/analysis/target_action_selector_dev/target_action_selector_dev_8c0a92c8/f_8c0a92da.cases",
+    "port": "src/fight/target_action_selector_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original object selector and joint controller masks; independent acceptance relocates task objects and varies bounded input fields.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a92da"
+  },
+  "target-name-entry:0x8c0a00c8": {
+    "golden": "extract/analysis/target_name_entry_final_dev/f_8c0a00c8.cases",
+    "port": "src/fight/advance_controller_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Directed original name-entry cursor, count and button data; task objects relocated in independent acceptance; original immutable character table preserved.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a00c8"
+  },
+  "target-save-record:0x8c04709a": {
+    "golden": "extract/analysis/target_save_record_final_dev/f_8c04709a.cases",
+    "port": "src/fight/target_record_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record CRC and uint32 section-length wrap; fixed size tables preserved, matching and mismatching CRCs observed; relocated independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04709a"
+  },
   "target_closure:0x8c03b8f4": {
     "golden": "extract/analysis/target_new_closure_final_dev/f_8c03b8f4.cases",
     "port": "src/fight/target_closure_adapters.c",
