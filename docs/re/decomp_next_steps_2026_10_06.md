@@ -116,14 +116,18 @@ checks, and the full milestone audit with hashes. Update coverage and status
 documents from the verified unique union. Completion requires **at least
 249,528 unique bytes**, passing final checks and reviewable commits; candidate
 ceilings do not satisfy the objective.
-# Execution checkpoint: 247,326 verified bytes
+# Execution checkpoint: 248,092 verified bytes
 
 After the original plan, independent acceptance added the name-entry,
-action-selector and save-record bodies: +976 bytes after the 246,350-byte
-checkpoint. The target remains 249,528; the current gap is 2,202. See
+action-selector and save-record bodies, followed by motion choice, motion
+command and score formatting: +1,742 bytes after the 246,350-byte checkpoint.
+The target remains 249,528; the current gap is 1,436. See
 `docs/re/target_campaign.md` for manifests, exact case counts and validation
 boundaries. Continue directed branch contracts, helper closure and semantic
 diagnostics; unchanged broad random capture no longer has a demonstrated
 return. Finish with an integrated immutable replay checkpoint, complete hash
-audit and milestone commit. The 1,274-binding regression is still running;
-do not report it as complete based on partial PASS lines.
+audit and milestone commit. The frozen 1,274-binding regression completed
+with `verify_all: PASS` and zero replay failures. It precedes the latest
+action-selector integration and subsequent promotions; those additions have
+individual strict proofs and hash audits, while their final integrated
+checkpoint remains pending.

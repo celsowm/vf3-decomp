@@ -294,12 +294,15 @@ initial replay lacks its entry adapter. Its retained input JSON is advisory.
 The whole hash audit started before these three promotions and passed through
 246,350 bytes: `target_20261006_chain_audit.json`, 324 new roots and +40,288
 unique bytes over the frozen 206,062-byte baseline. The three subsequent
-individual hash audits extend that verified chain to 247,326. An integrated
-1,274-binding regression is running against frozen
+individual hash audits extend that verified chain to 247,326. The integrated
+1,274-binding regression passed against frozen
 `target_20261006_name_checkpoint_bindings.json` and immutable
-`vf3matrixfamily_target_configuration_dev.exe`; its status must be read from
-`target_20261006_name_regression_status.json`, not assumed complete. Later
-action-selector integration and record promotion require the final checkpoint.
+`vf3matrixfamily_target_configuration_dev.exe`, with zero replay failures and
+terminal `verify_all: PASS`, recorded in
+`target_20261006_name_regression_status.json`. It ran 37 campaign-tool tests;
+the later 39-test suite also passed separately. Later action-selector
+integration and record/motion promotions still require the final integrated
+checkpoint.
 
 Cleanup journals `target_small_cache_cleanup3_applied.json`,
 `target_small_cache_cleanup4_applied.json` and
@@ -307,3 +310,28 @@ Cleanup journals `target_small_cache_cleanup3_applied.json`,
 and 37,190 rebuildable RAM-shadow files (about 8.00, 5.50 and 1.04 GiB).
 Original capsules, case headers, opcode maps, manifests, bound proofs and
 selected analysis leads were preserved. No ROM, SDK or frozen range changed.
+
+### Motion and score checkpoint (2026-10-06)
+
+| Root | Bytes | DEV | ACCEPT | Implementation |
+| --- | ---: | ---: | ---: | --- |
+| `0x8c08cae2` | 286 | 511 | 511 | `motion_adapters.c` |
+| `0x8c094cd2` | 204 | 470 | 474 | `target_retained_scene_adapters.c` |
+| `0x8c06c0da` | 276 | 266 | 82 | `fight_adapters.c` |
+
+These three complete frozen bodies add 766 unique bytes using existing C
+implementations. Each passes strict development and independent relocated
+acceptance replay, with zero skips and at least two disjoint scenarios in
+each corpus. The corresponding `advance_target_{motion_choice,motion_command,
+score_format}_milestone.json` manifests preserve artifact hashes and pass
+individual hash audits. Verified unique coverage is **248,092 / 434,656**;
+**1,436 bytes** remain to the 249,528-byte target.
+
+Motion-choice inputs vary the original writable RNG seed to reach both
+selection outcomes. Motion-command inputs vary command words and finite
+interpolation values. Score-format inputs vary the mode, score pairs and
+threshold. Original code and constant tables remain unchanged. These proofs
+use immutable `vf3matrixfamily_target_action_selector_dev.exe`, SHA-256
+`5a9d9c12826eadc6576709c51025738c043a16fd307917416608f7a8e4f4c10e`.
+The effect-pool input contract is advisory and receives no coverage credit;
+its parent address was corrected to the actual prologue at `0x8c089088`.

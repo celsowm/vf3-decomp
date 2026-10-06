@@ -4,7 +4,7 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 1226 (+22 off-baseline leaves) | 51.1% | 248204 | 57.1% |
+| ported (src/) | 1229 (+22 off-baseline leaves) | 51.3% | 248970 | 57.3% |
 | SDK-attributed (masked byte match) | 76 | 3.2% | 16658 | 3.8% |
 | SDK-attributed (reloc-aware, L2 verified) | 0 | 0.0% | 0 | 0.0% |
 | SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 14 | 0.6% | 1286 | 0.3% |
@@ -13,10 +13,10 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 | SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | 21 | 0.9% | 802 | 0.2% |
 | SDK-fragment (union corpus partial) | 0 | 0.0% | 0 | 0.0% |
 | trace-executed (execution-ID, NOT ported/matched) | 12 | 0.5% | 2042 | 0.5% |
-| **rigorous accounted (ported+SDK)** | 1400 | 58.4% | 273096 | 62.8% |
-| **total incl. trace** | 1412 | 58.9% | 275138 | 63.3% |
+| **rigorous accounted (ported+SDK)** | 1403 | 58.5% | 273862 | 63.0% |
+| **total incl. trace** | 1415 | 59.0% | 275904 | 63.5% |
 
-Verified C address union: **247326 bytes** (56.9% of the frozen body denominator). Legacy port sums contain 878 overlapping bytes.
+Verified C address union: **248092 bytes** (57.1% of the frozen body denominator). Legacy port sums contain 878 overlapping bytes.
 
 SDK attribution by library (fn count):
 - ninja: 60

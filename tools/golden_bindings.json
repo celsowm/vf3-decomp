@@ -7329,6 +7329,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a92da"
   },
+  "target-motion-choice:0x8c08cae2": {
+    "golden": "extract/analysis/target_motion_choice_rng_dev/target_motion_choice_rng_dev_8c08cad4/f_8c08cae2.cases",
+    "port": "src/fight/motion_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original RNG state, joint descriptor coordinates, fighter selector and global mode; independent acceptance uses relocated object graphs.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08cae2"
+  },
+  "target-motion-command:0x8c094cd2": {
+    "golden": "extract/analysis/target_motion_command_dev/target_motion_command_dev_8c094ccc/f_8c094cd2.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original motion-command records 0x80/0x81 and finite interpolation boundaries; independent relocated acceptance, all complete cases retained.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094cd2"
+  },
   "target-name-entry:0x8c0a00c8": {
     "golden": "extract/analysis/target_name_entry_final_dev/f_8c0a00c8.cases",
     "port": "src/fight/advance_controller_adapters.c",
@@ -7748,6 +7762,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Recovered original second development scenario22; independent acceptance23/24/26/29, changed inputs and relocated stack; unchanged frozen bodies, no skipped cases.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c7fbc"
+  },
+  "target_score_format:0x8c06c0da": {
+    "golden": "extract/analysis/target_score_format_dev/target_score_format_dev_8c06c0cc/f_8c06c0da.cases",
+    "port": "src/fight/fight_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Directed score mode and threshold inputs; complete original development and independently relocated acceptance cases, strict replay with zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06c0da"
   },
   "tenpp-assets:0x8c0b2de6": {
     "golden": "extract/analysis/tenpp_asset_dev_more_cases/f_8c0b2de6.cases",
