@@ -7329,6 +7329,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a92da"
   },
+  "target-final:0x8c08d00e": {
+    "golden": "extract/analysis/target_final_dev_08d00e_full/f_8c08d00e.cases",
+    "port": "src/fight/phase1_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Directed float-threshold inputs reach the 06a tail; independent relocated acceptance",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08d00e"
+  },
   "target-motion-choice:0x8c08cae2": {
     "golden": "extract/analysis/target_motion_choice_rng_dev/target_motion_choice_rng_dev_8c08cad4/f_8c08cae2.cases",
     "port": "src/fight/motion_adapters.c",

@@ -335,3 +335,37 @@ use immutable `vf3matrixfamily_target_action_selector_dev.exe`, SHA-256
 `5a9d9c12826eadc6576709c51025738c043a16fd307917416608f7a8e4f4c10e`.
 The effect-pool input contract is advisory and receives no coverage credit;
 its parent address was corrected to the actual prologue at `0x8c089088`.
+
+### Final-push checkpoint (2026-10-07)
+
+An integrated regression over the frozen 1,279-binding inventory passes
+with the immutable `build/vf3matrixfamily_target_20261006_final.exe`
+(SHA-256 `e419fea4593a62cd6fc70f37df6a6c13e6a8499605cb10a3d2097c567917cb3d`):
+portcheck 1,279/1,279, 39 campaign-tool tests, body-cover quiet gate and
+union 31/31 (`target_20261006_final_regression_status.json`).
+
+One further frozen body was promoted with a directed tail-closure input:
+
+| Root | Bytes | DEV | ACCEPT | Implementation |
+| --- | ---: | ---: | ---: | --- |
+| `0x8c08d00e` | 156 | 490 | 128 | `phase1_adapters.c` |
+
+The pre-existing 362-case development corpus covered only 128/156 bytes:
+the `0x8c08d06a` tail needs `float([r14+36])` strictly inside `(2.0, 5.0]`
+together with sign-bit conditions at `0x8c08d070/07e/084`, read from the
+existing static translation (`tail_08d00e_inputs.py`). Merged development
+(362 prior + 128 directed, states 21/27) covers 156/156 and replays
+490/490 strict with zero skips against the immutable final executable;
+independent relocated acceptance (states 23/29, +0x100000) replays 128/128.
+Manifest `advance_target_final_08d00e_milestone.json` passes its hash audit
+(+156 bytes). Verified unique coverage is **248,248 / 434,656**;
+**1,280 bytes** remain to the 249,528-byte target.
+
+Near-misses banked for the next session (all measured, none credited):
+`0x8c0c8334` (638 B, 6,493 cases across 9 states, 98.4%) is blocked on five
+PCs needing `[[r10]]==0` through a live-stack word that no longer survives
+from seed to read (verified in captured dumps); `0x8c05cc38` (1,290 B,
+81.4%) needs branches whose taken side dereferences an invalid pointer and
+never completes; `0x8c04a4c4` (506 B, 98.8%) fails replay on an untranslated
+BRAF table at `0x8c04a446`. Broad natural capture does not fire these roots
+in states 20-29; blind synthetic fuzz crashes (flag 6) on object contracts.
