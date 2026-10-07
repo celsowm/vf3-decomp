@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Keep docs/coverage.md current: on every commit, re-run tools/decomp_stats.py and stage its output.
+# Skipped quietly where the (gitignored) extract/analysis inputs are missing, e.g. a fresh clone.
+# Enable once per clone: git config core.hooksPath tools/hooks
+cd "$(git rev-parse --show-toplevel)" || exit 0
+[ -f extract/analysis/funcs_1ST_READ.unsc.bin.csv ] || exit 0
+PY=python3; command -v "$PY" >/dev/null 2>&1 || PY=python
+if "$PY" tools/decomp_stats.py >/dev/null 2>&1; then
+  git add docs/coverage.md
+else
+  echo "[pre-commit] tools/decomp_stats.py failed: docs/coverage.md left as is" >&2
+fi
+exit 0
