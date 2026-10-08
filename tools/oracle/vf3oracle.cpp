@@ -1,7 +1,7 @@
 /* Research-only interpreter observer. Game implementations live in src/.
  * VF3_CAPSULE=<file>, VF3_WATCH="pc <entry>" / "exitpc <entry> <transfer>".
  * VF3_ENTRY_PATCH=<file> supports "entry <trigger> <target>",
- * "seed <trigger>" (next seed variant), "reg <trigger> rN|pr|gbr|fpul|fpscr|sr <value>"
+ * "seed <trigger>" (next seed variant), "reg <trigger> rN|pr|gbr|fpul|fpscr|sr|macl|mach <value>"
  * and "ram <trigger> <address> <value>". At a trigger instruction the hook
  * redirects the next fetch to target and starts a synthetic target capsule.
  * The probe is non-destructive: the pre-trigger register file, depth, the RAM
@@ -281,6 +281,8 @@ void applySyntheticRegs(Sh4Context *ctx, const SeedVariant &variant) {
         }
         else if (kind==20) ctx->sr.setFull(value);
         else if (kind==21) ctx->pc=value;
+        else if (kind==22) ctx->mac.l=value;
+        else if (kind==23) ctx->mac.h=value;
         else if (kind>=32 && kind<48) std::memcpy(&ctx->fr[kind-32],&value,4);
         else if (kind>=48 && kind<64) std::memcpy(&ctx->xf[kind-48],&value,4);
     }
@@ -474,6 +476,8 @@ void init(const Sh4Context *ctx) {
                 else if (!std::strcmp(field,"fpscr")) kindCode=19;
                 else if (!std::strcmp(field,"sr")) kindCode=20;
                 else if (!std::strcmp(field,"pc")) kindCode=21;
+                else if (!std::strcmp(field,"macl")) kindCode=22;
+                else if (!std::strcmp(field,"mach")) kindCode=23;
                 else if (std::sscanf(field,"fr%u",&kindCode)==1 && kindCode<16) kindCode+=32;
                 else if (std::sscanf(field,"xf%u",&kindCode)==1 && kindCode<16) kindCode+=48;
                 else { std::fprintf(stderr,"[vf3oracle] invalid entry register: %s\n",line); std::abort(); }

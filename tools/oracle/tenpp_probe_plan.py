@@ -61,7 +61,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
                 name = f'r{int(name, 0)}'
             register = REGISTER_NAMES.get(name, -1)
             sequence = override_sequence(values, f'{entry:#x} {register_text}')
-            if not (0 <= register < 15 or 21 <= register < 53):
+            if not (0 <= register < 15 or 19 <= register < 53):
                 raise ValueError(f'invalid register override for {entry:#x}: {register_text}')
             overrides[entry][name] = sequence
     ram_overrides = {}
@@ -272,7 +272,7 @@ def generate(watch, output, trigger, variants, relocation=0, mode='zero', scalar
             lines += [f'reg 0x{trigger:08x} r{reg} 0x{variant & 7:08x}' for reg in scalars]
             for register, values in overrides.get(entry, {}).items():
                 value = override_value(values, variant)
-                if register.startswith('r'):
+                if register.startswith('r') or register in ('macl', 'mach'):
                     value = relocated(value)
                 lines.append(f'reg 0x{trigger:08x} {register} 0x{value:08x}')
             lines += [f'ram 0x{trigger:08x} 0x{relocated(addr):08x} 0x{relocated(value):08x}'

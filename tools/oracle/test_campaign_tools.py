@@ -615,11 +615,14 @@ class CampaignToolsTests(unittest.TestCase):
             with patch.object(tenpp_probe_plan, 'fixture', return_value=empty_fixture):
                 tenpp_probe_plan.generate(watch, output, 0x8c010200, 1,
                     relocation=0x100000,
-                    register_overrides={'0x8c010100': {'r4':'0x0c404000', 'fr4':'0x0c404000'}},
+                    register_overrides={'0x8c010100': {'r4':'0x0c404000', 'fr4':'0x0c404000',
+                                                     'macl':'0x0c406000', 'mach':17}},
                     memory_overrides={'0x8c010100': {'0x0c404000':'0x0c405000'}})
             text = output.read_text()
             self.assertIn('r4 0x0c504000', text)
             self.assertIn('fr4 0x0c404000', text)
+            self.assertIn('macl 0x0c506000', text)
+            self.assertIn('mach 0x00000011', text)
             self.assertIn('ram 0x8c010200 0x0c504000 0x0c505000', text)
 
     def test_strided_overrides_cover_independent_fields_and_keep_legacy_order(self):
