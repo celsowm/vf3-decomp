@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Percentage campaign: readable packed motion command (2026-10-08)
+
+The complete 406-byte motion-transition command passes **4,860 development
+and 3,783 independent relocated acceptance cases**, zero skips. Both corpora
+execute the full frozen body. New readable C preserves packed decoding,
+flag-pair selection, threshold behavior and the real motion dispatcher.
+The hash-audited milestone reaches **249,566 / 434,656 (57.42%)**, exceeding
+the old target by 38 bytes. The new 65% campaign needs **32,961 more bytes**.
+All 43 tool checks pass; integrated checkpoint regression is still due.
+See [percentage_campaign.md](re/percentage_campaign.md).
+
 ## Percentage campaign: resource and callback milestone (2026-10-08)
 
 Nine independently accepted complete bodies add **406 unique C bytes**,

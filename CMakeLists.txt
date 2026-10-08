@@ -115,6 +115,7 @@ add_library(vf3core STATIC
     src/fight/command_encoders.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c
+    src/fight/motion_flag_command.c
     src/fight/target_family_adapters.c
     src/fight/target_extra_adapters.c
     src/fight/target_broad_adapters.c

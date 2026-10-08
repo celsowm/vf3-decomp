@@ -6391,6 +6391,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "percentage-motion-flags:0x8c0af1a4": {
+    "golden": "extract/analysis/percentage_motion_flags_complete_dev/f_8c0af1a4.cases",
+    "port": "src/fight/motion_flag_command.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable packed motion transition command; full frozen body in development and independent relocated acceptance, states 21/27 versus 23/29, zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af1a4"
+  },
   "percentage-resources:0x8c03666e": {
     "golden": "extract/analysis/percentage_static_complete_dev/f_8c03666e.cases",
     "port": "src/fight/next_adapters.c",

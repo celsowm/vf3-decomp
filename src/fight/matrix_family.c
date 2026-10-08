@@ -48,6 +48,7 @@ int vf3_continuation_input_controls(uint32_t,vf3_matrix_state*,const vf3_ram_map
 int vf3_command_encoders(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter_contains(uint32_t);
 int vf3_target_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -172,6 +173,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
     if(entry==0x0c059400u) return vf3_task_callback_select(entry,s,ram);
+    if(entry==0x0c0af1a4u) return vf3_motion_flag_command(s,ram);
     if(entry==0x0c05caceu || entry==0x0c061ba8u)
         return vf3_resource_ranges(entry,s,ram);
     switch(entry) {

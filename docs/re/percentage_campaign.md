@@ -32,6 +32,45 @@ under `extract/analysis`. Immutable executable:
 Manifest: `tools/oracle/percentage_resources_milestone.json`.
 The full integrated regression remains due at the planned checkpoints.
 
+## Packed motion-transition command
+
+Readable `src/fight/motion_flag_command.c` adds **406 unique bytes**, reaching
+**249,566 / 434,656 (57.42%)**. This completes the older 249,528-byte campaign
+target by 38 bytes. The new 65% checkpoint still needs **32,961 bytes**.
+
+The command decodes unaligned little-endian words, tests the record's selector
+and object flags, applies the float threshold, selects one of two motion
+pairs, checks the prior motion's flag combination, and advances the real
+motion dispatcher by twelve bytes. Original scratch registers, stack stores,
+callee and return behavior remain part of strict replay. Development caught
+and corrected two reversed branch conditions before acceptance began.
+
+Merged development executes **406/406 bytes** and passes **4,860/4,860 cases**
+in states 21/27. Independent acceptance changes record ordering, unknown
+selectors, prior motions, finite float values and object initialization, with
+buffers relocated by `0x100000` in states 23/29. It executes **406/406 bytes**
+and passes **3,783/3,783 cases**, zero skips. The milestone hash audit passes.
+Invalid specimens are retained; neither final corpus has an incomplete
+invocation or nondeterministic entry.
+
+Input recipes are `tools/oracle/motion_flag_{registers,development_memory,
+development_crosses,acceptance_memory}.json`. Use `isolate_planned.py` with
+the register recipe and the corresponding memory recipe. Development merges
+384 variants of the memory recipe (160 frames) and 2,048 variants of the
+crosses recipe (600 frames), states 21/27, `--global-fields`. Acceptance uses
+2,048 variants and 600 frames, states 23/29, `--holdout-inputs --relocation
+0x100000`. The frozen watch is `pc 0x8c0af1a4`; record seeds supply no expected
+outputs. An earlier 200-frame development pilot ended during an invocation
+and was not used in the accepted proof.
+
+Evidence: `percentage_motion_flags_complete_dev`,
+`percentage_motion_flags_v3_replay.json`, `percentage_motion_flags_accept`,
+and `percentage_motion_flags_accept_replay.json` under `extract/analysis`.
+Immutable executable: `build/vf3matrixfamily_percentage_motion_v3_dev.exe`,
+SHA-256 `bc3889b07e5df50172c69b6ff6599871357e2db660373b2c10f9f7e1bc8b8d47`.
+Manifest: `tools/oracle/percentage_motion_flags_milestone.json`.
+All **43** campaign-tool checks pass; integrated regression is still due.
+
 ## Development triage
 
 The retained-report catalog has 40 uncredited full-body leads with 3,096
@@ -50,7 +89,7 @@ manifests and provide no proof. Raw evidence is retained under
 is not a next step: most larger families need original caller contracts or
 specific missing predicates.
 
-Directed motion-flag and menu input work is ongoing. No bytes from those
-partial bodies have been credited. Free space rose from about 4.9 to 50 GiB
+Directed menu input work is ongoing and receives no partial-body credit.
+Free space rose from about 4.9 to 50 GiB
 during the session. The decoded-cache scan was stopped without applying any
 deletion; captures retain a 4 GiB reserve.

@@ -1,5 +1,11 @@
 # Target campaign continuation, 2026-10-05
 
+**2026-10-08 update:** the original 249,528-byte target is achieved.
+Two independently accepted milestones in the
+[percentage expansion campaign](percentage_campaign.md) add 812 unique bytes,
+reaching **249,566 / 434,656 (57.42%)**. The next main checkpoint is **65%**.
+The dated checkpoint sections below preserve their historical totals.
+
 The campaign target remains **249,528 verified unique C bytes**. Starting at
 233,838, twelve accepted milestones add **9,418 bytes across 80 frozen roots**,
 reaching **243,256 / 434,656 (55.9652%)**. **6,272 bytes remain**. These gains
