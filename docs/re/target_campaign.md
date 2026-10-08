@@ -369,3 +369,18 @@ from seed to read (verified in captured dumps); `0x8c05cc38` (1,290 B,
 never completes; `0x8c04a4c4` (506 B, 98.8%) fails replay on an untranslated
 BRAF table at `0x8c04a446`. Broad natural capture does not fire these roots
 in states 20-29; blind synthetic fuzz crashes (flag 6) on object contracts.
+
+### Matrix dispatch continuation (2026-10-07)
+
+The `04a4c4` replay blocker is resolved: completing the five BRAF destinations
+and matching the capture interpreter's two-NaN operand priority passes all
+852/852 retained development cases with zero skips. The FPU suite passes
+213,056 cases and the campaign tools pass 41 tests. No new coverage credit
+is claimed: the missing six body bytes form the no-emission exit, which
+requires the original callable entry at `0x8c04a320` to initialize R11 to
+zero. The current interior entry sets it to one before that exit. Storage
+is below the existing capture reserve. See [matrix_clip_dispatch.md](matrix_clip_dispatch.md)
+for the original dispatch map, proof limits and next input contract.
+The integrated immutable snapshot passes `verify_all`, **1,280/1,280** bound
+replays, native tests and all **41** tool checks, with zero replay failures.
+Logs and parsed terminal status are `target_matrix_braf_regression{.log,_status.json}`.

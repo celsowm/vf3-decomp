@@ -37,11 +37,53 @@ import command_selector_probe_plan
 import text_control_probe_plan
 import struct
 import save_record_inputs
+import translate_adapters
 from types import SimpleNamespace
 from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_indirect_cfg_leads_validate_image_and_preserve_aliases(self):
+        image = struct.pack('<4H', 0x0023, 0x0009, 0x000b, 0x0009)
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / 'targets.json'
+            path.write_text(json.dumps({'0x8c010000': ['0x8c010004', '0x0c010004']}))
+            self.assertEqual(translate_adapters.indirect_destinations(path, image),
+                             {0x0c010000: [0x0c010004]})
+            for site, targets in (('0x8c010002', ['0x8c010004']),
+                                  ('0x8c010000', ['0x8c010003']),
+                                  ('0x8c010000', ['0x8c010008']),
+                                  ('0x8c010000', [])):
+                path.write_text(json.dumps({site: targets}))
+                with self.assertRaises(ValueError):
+                    translate_adapters.indirect_destinations(path, image)
+        self.assertEqual(translate_adapters.indirect_destinations(None, image), {})
+
+    def test_indirect_cfg_leads_close_uncaptured_branch(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            analysis = root / 'extract/analysis'
+            analysis.mkdir(parents=True)
+            binary = root / 'extract/exe/1ST_READ.unsc.bin'
+            binary.parent.mkdir()
+            binary.write_bytes(struct.pack('<4H', 0x0023, 0x0009, 0x000b, 0x0009))
+            (analysis / 'sh4_resolved.csv').write_text('site,target,class\n')
+            (analysis / 'f_8c010000.ops.json').write_text(
+                json.dumps({'0x0c010000': '0023', '0x0c010002': '0009'}))
+            watch = root / 'watch.txt'
+            watch.write_text('pc 0x8c010000\n')
+            targets = root / 'targets.json'
+            targets.write_text(json.dumps({'0x8c010000': ['0x8c010004']}))
+            output = root / 'adapter.c'
+            with patch.object(translate_adapters, 'ROOT', root), contextlib.redirect_stdout(io.StringIO()):
+                translate_adapters.generate([analysis], output, watch,
+                                            indirect_targets=targets)
+            source = output.read_text()
+            self.assertIn('P_0c010004: /* original 000b', source)
+            self.assertIn('case 0x0c010004u: goto P_0c010004;', source)
+            self.assertIn('default: goto dispatch;', source)
+            self.assertIn('target=r[0]+0x0c010004u;', source)
+
     def test_restored_parents_validate_original_watch_and_development_role(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary) / 'original_dev'

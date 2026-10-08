@@ -160,7 +160,34 @@ def emit(pc,w):
             if k==0x9D: return [f"{fn}=0x3f800000u;"]
     raise ValueError(f"unsupported {pc:08x}: {w:04x}")
 
-def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=()):
+def indirect_destinations(path, image):
+    """Validate reviewed indirect-branch leads against the original image.
+
+    These are CFG expansion hints, not a restriction on runtime destinations
+    and not evidence of body execution or equivalent behavior.
+    """
+    if path is None:
+        return {}
+    base = 0x0c010000
+    result = {}
+    for site, targets in json.loads(Path(path).read_text()).items():
+        site = int(site, 0) & 0x1fffffff
+        if site & 1 or not base <= site < base + len(image) - 1:
+            raise ValueError('indirect site outside original image or unaligned')
+        opcode = struct.unpack_from('<H', image, site - base)[0]
+        if opcode & 0xf0ff not in (0x402b, 0x0023):
+            raise ValueError(f'not an indirect jump at {site:08x}')
+        if not isinstance(targets, list) or not targets:
+            raise ValueError('indirect targets must be a nonempty list')
+        destinations = {int(target, 0) & 0x1fffffff for target in targets}
+        if any(target & 1 or not base <= target < base + len(image) - 1
+               for target in destinations):
+            raise ValueError('indirect target outside original image or unaligned')
+        result[site] = sorted(destinations)
+    return result
+
+
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None):
     legacy=watch is None
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
@@ -196,6 +223,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     # Drop capture-only legacy regression workers from this new family.
     ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
     image=(ROOT/"extract/exe/1ST_READ.unsc.bin").read_bytes()
+    indirect = indirect_destinations(indirect_targets, image)
     if reuse_matrix or reuse_adapters:
         sys.path.insert(0,str(ROOT))
         from tools.batch_plan import implementation_graph
@@ -219,9 +247,9 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     # Close statically reachable branches from the original image, including
     # paths absent from development captures. Delay slots do not fall through
     # a return/jump into pools. Dynamic destinations still fail closed.
-    resolved={int(r['site'],16)&0x1fffffff:int(r['target'],16)&0x1fffffff
-              for r in csv.DictReader(open(ROOT/'extract/analysis/sh4_resolved.csv'))
-              if r['class']=='STATIC'}
+    with (ROOT/'extract/analysis/sh4_resolved.csv').open() as stream:
+        resolved={int(r['site'],16)&0x1fffffff:int(r['target'],16)&0x1fffffff
+                  for r in csv.DictReader(stream) if r['class']=='STATIC'}
     delayed=set()
     def delay(w):
         return w>>12 in (0xA,0xB) or w==0xB or (w&0xf0ff) in (0x400b,0x402b,0x0003,0x0023) or (w&0xff00) in (0x8d00,0x8f00)
@@ -252,6 +280,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         elif w in (0xB,0x2B): pass
         elif (w&0xf0ff) in (0x402b,0x0023):
             if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
+            todo.extend(indirect.get(a, ()))
         elif (w&0xf0ff) in (0x400b,0x0003):
             todo.append(a+4)
             if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
@@ -309,6 +338,9 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
                 lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
             else:
                 lines.append('switch(target&0x1fffffffu) {')
+                for dest in indirect.get(a, ()):
+                    if dest not in MANUAL:
+                        lines.append(f'case 0x{dest:08x}u: {jump(dest)}')
                 for helper in sorted(MANUAL): lines.append(f'case 0x{helper:08x}u: return vf3_matrix_family(target,s,ram);')
                 lines.append('default: goto dispatch; }')
         elif w==0xB:
@@ -373,6 +405,8 @@ if __name__=="__main__":
     ap.add_argument('--function',default='vf3_matrix_adapter')
     ap.add_argument('--reuse-matrix',action='store_true')
     ap.add_argument('--split-size',type=int,default=0)
+    ap.add_argument('--indirect-targets',type=Path,
+                    help='reviewed JSON jump-site to original-image target lists; no coverage credit')
     ap.add_argument('--reuse-adapter',action='append',default=[],help='existing source glob whose PCs dispatch to their current owner')
     ap.add_argument('--reuse-sources-report',type=Path,
                     help='source_owners report providing linked C sources without a long command line')
@@ -385,4 +419,4 @@ if __name__=="__main__":
             if not path.is_relative_to(ROOT/'src') or not path.is_file():
                 raise ValueError(f'invalid linked C source: {source}')
             a.reuse_adapter.append(path.relative_to(ROOT).as_posix())
-    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter)
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter,a.indirect_targets)

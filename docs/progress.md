@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Matrix clipping continuation (2026-10-07)
+
+The blocked `0x8c04a4c4` helper now passes **852/852** retained strict cases:
+five BRAF destinations and their interpolation paths are translated, and
+two-NaN payload selection matches the capture interpreter independent of
+compiler allocation. **213,056** FPU checks and **41** campaign-tool tests
+pass. Coverage remains **248,248/434,656**: the missing six body bytes require
+the real `0x8c04a320` entry's no-emission exit and independent acceptance.
+The full repository gate passes **1,280/1,280** bound replays and all native
+tests (`verify_all: PASS`), using an immutable replay snapshot.
+Fresh captures are held by the existing disk reserve. See
+[matrix_clip_dispatch.md](re/matrix_clip_dispatch.md).
+
 ## Target continuation checkpoint (2026-10-05)
 
 Twelve independently accepted batches add **80 frozen roots and 9,418 unique C

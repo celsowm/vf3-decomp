@@ -50,7 +50,15 @@ uint32_t vf3_fpu_binary(uint32_t a,uint32_t b,uint32_t fpscr,char operation) {
     HostEnv e; volatile float x=as_float(a),y=as_float(b),z=0;
     begin(&e,fpscr);
     switch(operation) { case '+': z=x+y; break; case '-': z=x-y; break; case '*': z=x*y; break; case '/': z=x/y; break; }
-    uint32_t result=as_bits(flush(z,fpscr)); end(&e); return result;
+    uint32_t result=as_bits(flush(z,fpscr));
+    /* The capture interpreter's ADDSS/MULSS put FRm in the destination,
+     * whereas SUBSS/DIVSS put FRn there. When both operands are NaNs,
+     * SSE preserves that destination's payload. C may exchange the operands
+     * of + and *, so make this oracle behavior independent of allocation.
+     * This models the capture host, not the Dreamcast's reversed NaN bit. */
+    if((a&0x7fffffffu)>0x7f800000u && (b&0x7fffffffu)>0x7f800000u)
+        result=((operation=='+' || operation=='*')?b:a)|0x00400000u;
+    end(&e); return result;
 }
 uint32_t vf3_fpu_sqrt(uint32_t a,uint32_t fpscr) {
     HostEnv e; begin(&e,fpscr); volatile float z=sqrtf(as_float(a));

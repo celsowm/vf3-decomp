@@ -42,6 +42,31 @@ int main(int argc,char **argv) {
     }
     if(ferror(f) || (total!=65536+12288 && total!=65536+147456)) return 2;
     fclose(f);
+    /* Independent scalar expectations from the capture interpreter's SSE
+     * operand order, including signaling NaNs and preserved sign/payload.
+     * The corpus above does not exercise scalar binary arithmetic directly. */
+    static const struct { uint32_t a,b,commutative,ordered; } nan_pairs[] = {
+        {0xffffffffu,0xffc00000u,0xffc00000u,0xffffffffu},
+        {0xffc00000u,0xffffffffu,0xffffffffu,0xffc00000u},
+        {0x7f800001u,0xff800002u,0xffc00002u,0x7fc00001u},
+        {0xff800002u,0x7f800001u,0x7fc00001u,0xffc00002u}
+    };
+    for(unsigned mode=0;mode<4;++mode) {
+        uint32_t fpscr=(mode&1u)|((mode&2u)?0x40000u:0);
+        for(unsigned i=0;i<sizeof(nan_pairs)/sizeof(nan_pairs[0]);++i) {
+            const char operations[]="+*-/";
+            for(unsigned j=0;j<sizeof(operations)-1;++j) {
+                char operation=operations[j];
+                uint32_t want=(operation=='+' || operation=='*')?
+                    nan_pairs[i].commutative:nan_pairs[i].ordered;
+                uint32_t got=vf3_fpu_binary(nan_pairs[i].a,nan_pairs[i].b,fpscr,operation);
+                if(got!=want || fegetround()!=FE_UPWARD) {
+                    if(bad++<8) fprintf(stderr,"NaN pair %u op %c mode %x: %08x != %08x\n",i,operation,fpscr,got,want);
+                }
+                ++total;
+            }
+        }
+    }
     uint32_t sentinel=0x12345678u;
     if(vf3_fpu_fsrra(0x3F800000u,0x80000u,&sentinel) || sentinel!=0x12345678u || vf3_fpu_supported(2)) ++bad;
     fesetround(FE_TONEAREST);
