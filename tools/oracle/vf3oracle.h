@@ -20,3 +20,6 @@ bool vf3OracleTakeSkip(void);
  * rewrite pr from the redirected PC and leave the caller with a broken return
  * chain). Returns the substitute PC and opcode through the out parameters. */
 bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op);
+/* Retire an AICA RAM checkpoint probe before any scheduler/ARM7 time advances.
+ * The interpreter must re-fetch the restored trigger, without ticking devices. */
+bool vf3OracleBeforeTimeslice(void);

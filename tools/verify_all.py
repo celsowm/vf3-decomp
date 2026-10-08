@@ -46,6 +46,7 @@ def main() -> int:
     if not a.no_build:
         ok &= run(["cmake", "--build", "build"])
     ok &= run([PY, 'tools/oracle/test_campaign_tools.py'])
+    ok &= run([PY, 'tools/oracle/test_aica_ram_audit.py'])
     replay_command = [PY, "tools/portcheck.py",'--jobs',str(a.jobs), '--bindings', str(a.bindings)]
     if a.matrix_executable:
         replay_command.extend(['--matrix-executable',str(a.matrix_executable)])

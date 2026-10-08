@@ -40,6 +40,8 @@ def main():
                     metavar='1..100000', help='original interpreter synthetic-call budget')
     ap.add_argument('--rollback-text-control', action='store_true',
                     help='opt in to the headless PVR TEXT_CONTROL checkpoint pilot')
+    ap.add_argument('--rollback-aica-ram', action='store_true',
+                    help='opt in to sound RAM journal with scheduler crossing rejection')
     ap.add_argument('--random-fields', action='store_true')
     ap.add_argument('--expanded-inputs', action='store_true',
                     help='independent bounded GPR/FR/XF values and integer fields 0..31')
@@ -116,6 +118,8 @@ def main():
             command += ['--probe-ops', str(a.probe_ops)]
         if a.rollback_text_control:
             command.append('--rollback-text-control')
+        if a.rollback_aica_ram:
+            command.append('--rollback-aica-ram')
         play = a.play.as_posix() if a.play else ''
         for state in a.states.split(','):
             command += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state:{play}:{a.frames}']

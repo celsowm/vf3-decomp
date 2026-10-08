@@ -19,6 +19,7 @@
 #include "hw/sh4/sh4_cache.h"
 #include "hw/sh4/sh4_interrupts.h"
 #include "hw/sh4/modules/mmu.h"
+#include "hw/aica/aica_if.h"
 #include <algorithm>
 #include <array>
 #include <cstdio>
@@ -67,6 +68,7 @@ struct Call {
     std::map<unsigned, std::array<unsigned char, PAGE>> restorePages;
     std::vector<unsigned char> restoreRam;
     std::map<unsigned, unsigned> restoreTextControl;
+    std::map<unsigned, std::array<unsigned char, PAGE>> restoreAicaPages;
 };
 struct SeedVariant {
     unsigned target = 0;
@@ -96,6 +98,8 @@ std::string hitsPath;
 std::string debugPath;
 unsigned long long probes, probeBusy, probeNotWatched, probeSampled, targetArmed, restores;
 unsigned long long textControlRestores;
+unsigned long long aicaPageRestores, aicaTimesliceAborts;
+bool rollbackAicaRam;
 std::map<unsigned,unsigned long long> probeByTrigger;
 /* The redirect takes effect on the NEXT fetch, so the arm suppression has to
  * survive one instruction boundary; otherwise the generic watch re-arms the same
@@ -161,6 +165,14 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
      * so the following instruction runs as if the probe never happened. */
     if (c.synthetic) {
         Sh4Context *m=const_cast<Sh4Context *>(ctx);
+        for (const auto &page:c.restoreAicaPages) {
+            std::memcpy(&aica::aica_ram[page.first],page.second.data(),PAGE);
+            if (std::memcmp(&aica::aica_ram[page.first],page.second.data(),PAGE)) {
+                std::fprintf(stderr,"[vf3oracle] AICA RAM rollback failed\n");
+                std::abort();
+            }
+            ++aicaPageRestores;
+        }
         for (const auto &saved:c.restoreTextControl) {
             wr32(saved.first,saved.second);
             if (rd32(saved.first)!=saved.second) {
@@ -228,7 +240,9 @@ void close_output() {
                      first?"":",",item.first.first,item.first.second,item.second);
         first=false;
     }
-    std::fprintf(f,"],\"text_control_restores\":%llu}\n",textControlRestores);
+    std::fprintf(f,"],\"text_control_restores\":%llu,\"aica_page_restores\":%llu,"
+                   "\"aica_timeslice_aborts\":%llu}\n",
+                   textControlRestores,aicaPageRestores,aicaTimesliceAborts);
     if (std::fclose(f)!=0) std::abort();
     if (debugPath[0]) {
         FILE *d=std::fopen(debugPath.c_str(),"wb");
@@ -306,6 +320,21 @@ bool blockSyntheticDevice(unsigned addr,unsigned size) {
     bool blocked=false;
     for (auto &c:active) if (c.synthetic) {
 #ifdef VF3_HEADLESS
+        /* Only the canonical uncached 2 MiB sound RAM window, never AICA
+         * registers or aliases. No scheduler tick may occur during this opt-in
+         * probe (see vf3OracleBeforeTimeslice), so ARM7, DSP and DMA cannot
+         * observe its temporary bytes. Preserve ordered device accesses. */
+        if (rollbackAicaRam && size && size<=8 && !(addr&(size-1)) &&
+            addr>=0xa0800000u && addr<=0xa0a00000u-size) {
+            const unsigned first=addr-0xa0800000u;
+            for (unsigned base=first&~(PAGE-1);
+                 base<=((first+size-1)&~(PAGE-1));base+=PAGE) {
+                if (c.restoreAicaPages.count(base)) continue;
+                auto &page=c.restoreAicaPages[base];
+                std::memcpy(page.data(),&aica::aica_ram[base],PAGE);
+            }
+            continue;
+        }
         /* This trace build forces norend (Renderer_if.cpp); no texture-cache
          * worker reads TEXT_CONTROL. pvr_WriteReg's handler for offset 0xe4
          * only stores its word, with no timing/TA/renderer side effects.
@@ -384,6 +413,7 @@ void opcode_oracle(const Sh4Context *ctx) {
 }
 void init(const Sh4Context *ctx) {
     initialized=true;
+    rollbackAicaRam=getenv("VF3_ROLLBACK_AICA_RAM")!=nullptr;
     probeOnly=getenv("VF3_PROBE_ONLY")!=nullptr;
     probeChildren=getenv("VF3_PROBE_CHILDREN")!=nullptr;
     opcode_oracle(ctx);
@@ -521,6 +551,18 @@ bool vf3OracleAbortProbe() {
         active[i].flags|=1;
         active[i].skipFetched=true;
         finish(i, 0, lastCtx);
+        return true;
+    }
+    return false;
+}
+bool vf3OracleBeforeTimeslice() {
+    if (!rollbackAicaRam || !output || !lastCtx) return false;
+    for (size_t i=active.size();i-->0;) {
+        if (!active[i].synthetic) continue;
+        active[i].flags|=4;
+        active[i].skipFetched=true;
+        ++aicaTimesliceAborts;
+        finish(i,0,lastCtx);
         return true;
     }
     return false;

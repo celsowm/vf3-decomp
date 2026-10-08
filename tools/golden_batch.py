@@ -82,6 +82,8 @@ def main() -> int:
                     help='synthetic-call budget, 1..100000; recorded in run provenance')
     ap.add_argument('--rollback-text-control', action='store_true',
                     help='headless original PVR TEXT_CONTROL checkpoint/restore pilot')
+    ap.add_argument('--rollback-aica-ram', action='store_true',
+                    help='headless canonical sound RAM journal; reject scheduler crossings')
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument('--timeout', type=int, default=0,
                     help='maximum seconds per emulator run; zero disables the limit')
@@ -92,6 +94,8 @@ def main() -> int:
     a = ap.parse_args()
     if a.rollback_text_control and not (a.capsule and a.entry_patch):
         ap.error('--rollback-text-control requires --capsule and --entry-patch')
+    if a.rollback_aica_ram and not (a.capsule and a.entry_patch):
+        ap.error('--rollback-aica-ram requires --capsule and --entry-patch')
     if a.probe_ops is not None and not 1 <= a.probe_ops <= 100000:
         ap.error('--probe-ops must be 1..100000 (the oracle record limit)')
     if a.hits and (a.capsule or a.instr or a.edges):
@@ -125,6 +129,9 @@ def main() -> int:
         env.pop('VF3_PROBE_ONLY', None)
         env.pop('VF3_PROBE_CHILDREN', None)
         env.pop('VF3_ROLLBACK_TEXT_CONTROL', None)
+        env.pop('VF3_ROLLBACK_AICA_RAM', None)
+        if a.rollback_aica_ram:
+            env['VF3_ROLLBACK_AICA_RAM'] = '1'
         if a.rollback_text_control:
             env['VF3_ROLLBACK_TEXT_CONTROL'] = '1'
         patch_path = ((REPO / patch) if not Path(patch).is_absolute() else Path(patch)) if patch else None
@@ -198,7 +205,8 @@ def main() -> int:
             runs[-1]["entry_patch_sha256"] = hashlib.sha256(entry_patch.read_bytes()).hexdigest()
             runs[-1]['probe_ops'] = int(env.get('VF3_PROBE_OPS', '20000'))
             runs[-1]['rollback_text_control'] = a.rollback_text_control
-            if a.rollback_text_control and not a.dry_run:
+            runs[-1]['rollback_aica_ram'] = a.rollback_aica_ram
+            if (a.rollback_text_control or a.rollback_aica_ram) and not a.dry_run:
                 with EMU.open('rb') as executable:
                     runs[-1]['emulator_sha256'] = hashlib.file_digest(executable, 'sha256').hexdigest()
                 runs[-1]['oracle_source_sha256'] = hashlib.sha256(

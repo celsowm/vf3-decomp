@@ -38,6 +38,11 @@ def main():
            "target_sources(${PROJECT_NAME} PRIVATE\n        ../../vf3oracle.cpp")
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), '#include "vf3trace.h"',
            '#include "vf3trace.h"\n#include "vf3oracle.h"')
+    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'),
+           '\t\t\t\tctx->cycle_counter += SH4_TIMESLICE;',
+           '\t\t\t\t/* Sound RAM probes must finish before any ARM7/device tick. */\n'
+           '\t\t\t\tif (vf3OracleBeforeTimeslice()) continue;\n'
+           '\t\t\t\tctx->cycle_counter += SH4_TIMESLICE;')
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceInstr(addr, op);",
            "\tvf3OracleBefore(addr, op, ctx);\n\tvf3TraceInstr(addr, op);")
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceDepthOp(addr, op, ctx);",
