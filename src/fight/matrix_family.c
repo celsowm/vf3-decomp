@@ -50,6 +50,12 @@ int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_percentage_aux_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_group_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_group_adapter_contains(uint32_t);
+int vf3_motion_initialize_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_initialize_adapter_contains(uint32_t);
+int vf3_motion_style_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_motion_style_adapter_contains(uint32_t);
 int vf3_percentage_aux_adapter_contains(uint32_t);
 int vf3_percentage_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_percentage_family_adapter_contains(uint32_t);
@@ -191,6 +197,12 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         return vf3_resource_ranges(entry,s,ram);
     if(entry==0x0c06c52au || entry==0x0c06cea2u)
         return vf3_task_text_command(entry,s,ram);
+    if(vf3_motion_style_adapter_contains(entry))
+        return vf3_motion_style_adapter(entry,s,ram);
+    if(vf3_motion_initialize_adapter_contains(entry))
+        return vf3_motion_initialize_adapter(entry,s,ram);
+    if(vf3_motion_group_adapter_contains(entry))
+        return vf3_motion_group_adapter(entry,s,ram);
     if(vf3_percentage_aux_adapter_contains(entry))
         return vf3_percentage_aux_adapter(entry,s,ram);
     if(vf3_percentage_family_adapter_contains(entry))

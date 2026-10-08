@@ -120,3 +120,16 @@ independent proof manifests, integrated regression results, and unresolved
 blockers. Do not claim the campaign target from queue potential or partial
 body coverage. Revise the scope after the first checkpoint using actual
 acceptance yield; no defensible elapsed-time estimate exists yet.
+
+## Execution status after the first campaign pass
+
+Accepted C union is **253,834 / 434,656 (58.40%)**, up **5,080 bytes / 1.169 percentage points** across 35 entries. Sixteen independently accepted milestone manifests pass their hash audits and union-chain audit. See [percentage_campaign.md](percentage_campaign.md) for sources, exact recipes, immutable executables, evidence and measured blockers. The full frozen 1,295-binding gate passes; the latest executable passes 53 affected/new bindings selected through known reverse call dependencies, plus native tests. Fifty tool/audit tests pass.
+
+| Objective | Verified bytes still needed | Status |
+| --- | ---: | --- |
+| 60% | 6,960 | Not reached |
+| 62.5% | 17,826 | Not reached |
+| 65% | 28,693 | Not reached |
+| Stretch 67.23% | 38,386 | Not reached |
+
+The bounded triage and discovery passes are complete for the selected queues. Original caller contracts closed the motion family; generic and loaded-state pilots had low yield and remain advisory. A sound-RAM checkpoint now validates short original accesses and rejects scheduler crossings; longer audio paths remain unsupported. These measured results do not establish that the original 51,522-byte opportunity pool can supply the remaining target. This is an execution checkpoint, not completion of the percentage objective.

@@ -6510,6 +6510,48 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0af1a4"
   },
+  "percentage-motion-flow:0x8c09497a": {
+    "golden": "extract/analysis/percentage_motion_flow_dev/f_8c09497a.cases",
+    "port": "src/fight/target_retained_scene_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologue R0/R7 contexts, motion commands 0x80/0x81, finite vectors and real six-float copy; independent relocated full-body acceptance, immutable strict zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09497a"
+  },
+  "percentage-motion-flow:0x8c094b2a": {
+    "golden": "extract/analysis/percentage_motion_flow_dev/f_8c094b2a.cases",
+    "port": "src/fight/motion_initialize_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prologue R0/R7 contexts, motion commands 0x80/0x81, finite vectors and real six-float copy; independent relocated full-body acceptance, immutable strict zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094b2a"
+  },
+  "percentage-motion-group:0x8c094e8c": {
+    "golden": "extract/analysis/percentage_motion_group_helper_dev/percentage_motion_group_helper_dev_8c094e8c/f_8c094e8c.cases",
+    "port": "src/fight/motion_group_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prefix-derived contiguous five-object contract and real animation helper; full bodies in development 21/27 and relocated independent acceptance 23/29; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094e8c"
+  },
+  "percentage-motion-group:0x8c095040": {
+    "golden": "extract/analysis/percentage_motion_group_helper_dev/percentage_motion_group_helper_dev_8c094e8c/f_8c095040.cases",
+    "port": "src/fight/motion_group_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original prefix-derived contiguous five-object contract and real animation helper; full bodies in development 21/27 and relocated independent acceptance 23/29; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c095040"
+  },
+  "percentage-motion-style:0x8c094a36": {
+    "golden": "extract/analysis/percentage_motion_style_complete_dev/f_8c094a36.cases",
+    "port": "src/fight/motion_style_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original five-object and actor-context contracts; real descriptor initialization and animation helpers; complete bodies in development and independent relocated acceptance; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094a36"
+  },
+  "percentage-motion-style:0x8c094dc6": {
+    "golden": "extract/analysis/percentage_motion_style_complete_dev/f_8c094dc6.cases",
+    "port": "src/fight/motion_style_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original five-object and actor-context contracts; real descriptor initialization and animation helpers; complete bodies in development and independent relocated acceptance; strict zero skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c094dc6"
+  },
   "percentage-random-fraction:0x8c0c9d04": {
     "golden": "extract/analysis/percentage_rng_complete_dev/f_8c0c9d04.cases",
     "port": "src/fight/random_fraction.c",
