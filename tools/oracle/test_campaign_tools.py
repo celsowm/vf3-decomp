@@ -11,6 +11,8 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import port_plan
 import campaign_queue
+import callee_global_inputs
+import promote_tenpp_batch
 from family_queue import rank_families, marginal_bytes, merged_spans
 from campaign_io import attempted_entries
 import source_owners
@@ -46,6 +48,15 @@ from comparison_inputs import literal_comparisons, boundary_palette, replace_nar
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_promotion_rejects_partial_independent_acceptance_body(self):
+        entry = 0x8c010000
+        spans = [(entry, entry + 6)]
+        complete = {entry, entry + 2, entry + 4}
+        promote_tenpp_batch.require_complete_body(entry, spans, complete, 6, 'development')
+        promote_tenpp_batch.require_complete_body(entry, spans, complete, 6, 'acceptance')
+        with self.assertRaisesRegex(AssertionError, 'incomplete acceptance body'):
+            promote_tenpp_batch.require_complete_body(entry, spans, {entry, entry + 2}, 6, 'acceptance')
+
     def test_callable_body_requires_original_callers_and_complete_image(self):
         base = 0x8c010000
         image = struct.pack('<12H', 0xb006, 9, 0xb004, 9, 9, 9, 9, 9,
@@ -780,6 +791,43 @@ class CampaignToolsTests(unittest.TestCase):
             report = json.loads(output.read_text())
             self.assertEqual([row['entry'] for row in report['candidates']], ['0x8c010100'])
             self.assertEqual(report['candidates'][0]['dynamic_calls'], 2)
+
+
+class CalleeGlobalInputTests(unittest.TestCase):
+    def test_subword_domains_preserve_neighbor_bytes_and_flag_boundaries(self):
+        hints = dict(flags={0x0c200000: [0x80000000]},
+                     comparisons=[dict(value=8)], narrow_widths={})
+        domain = callee_global_inputs.scalar_domain(0, hints, 0x0c200000)
+        self.assertTrue({7, 8, 9, 0x80000000, 0x7fffffff} <= set(domain))
+        hints['narrow_widths'] = {0x0c200001: 1}
+        domain = callee_global_inputs.scalar_domain(0xaabbccdd, hints, 0x0c200000)
+        self.assertTrue(all(value & 0xffff00ff == 0xaabb00dd for value in domain))
+        self.assertIn(0xaabb08dd, domain)
+
+    def test_only_mutable_global_scalars_are_exported(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'extract/gamedata').mkdir(parents=True)
+            (root / 'extract/analysis').mkdir()
+            (root / 'extract/gamedata/1ST_READ.BIN').write_bytes(bytes(256))
+            (root / 'extract/analysis/sh4_resolved.csv').write_text('site,class,target\n')
+            watch, out = root / 'watch.txt', root / 'out.json'
+            watch.write_text('pc 0x8c010000\n')
+            words = {0x0c200000: 0, 0x0c200004: 0x0c420000,
+                     0x0c200008: 0x0c0671aa, 0x0c20000c: 0,
+                     0x0c010020: 0, 0x0c400000: 0}
+            hints = dict(flags={}, comparisons=[], narrow_widths={}, floats=[0x0c20000c])
+            scan = lambda entry: (set(), {0x8c010100} if entry == 0x8c010000 else set(), set())
+            with patch.object(callee_global_inputs, 'ROOT', root), \
+                 patch.object(callee_global_inputs, 'implementation_graph', return_value=scan), \
+                 patch.object(callee_global_inputs, 'fixture', return_value=({}, words, hints)), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                callee_global_inputs.generate(watch, out)
+            self.assertEqual(set(json.loads(out.read_text())['0x8c010000']), {'0xc200000'})
+            report = json.loads(out.with_suffix('.sources.json').read_text())
+            self.assertTrue(report['advisory'])
+            self.assertTrue(report['input_only'])
+            self.assertEqual(report['roots']['0x8c010000']['callees'], ['0x8c010100'])
 
 
 class SaveRecordInputTests(unittest.TestCase):

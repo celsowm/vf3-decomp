@@ -6391,6 +6391,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "percentage-menu:0x8c0c80be": {
+    "golden": "extract/analysis/percentage_menu_verified_dev/f_8c0c80be.cases",
+    "port": "src/fight/target_extended_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Menu navigation: original caller register contract; previous/current button and repeat paths; 2303 development and 2560 independent relocated acceptance cases; complete body in both.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c80be"
+  },
   "percentage-motion-flags:0x8c0af1a4": {
     "golden": "extract/analysis/percentage_motion_flags_complete_dev/f_8c0af1a4.cases",
     "port": "src/fight/motion_flag_command.c",

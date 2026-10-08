@@ -89,7 +89,40 @@ manifests and provide no proof. Raw evidence is retained under
 is not a next step: most larger families need original caller contracts or
 specific missing predicates.
 
-Directed menu input work is ongoing and receives no partial-body credit.
+The menu milestone below completes the directed input work.
 Free space rose from about 4.9 to 50 GiB
 during the session. The decoded-cache scan was stopped without applying any
 deletion; captures retain a 4 GiB reserve.
+
+## Menu navigation and stronger acceptance gates
+
+The existing static C translation of `0x8c0c80be` now contributes **372
+unique bytes**, reaching **249,938 / 434,656 (57.50%)**. This is newly verified
+existing C, rather than a new readable module. The 65% objective still needs
+**32,589 bytes**. Development covers previous/current buttons, selection
+coordinates, style and repeat counter paths using the original prefix-derived
+register setup. Its merged corpus executes 372/372 bytes and passes all
+2,303 strict cases. Independent relocated acceptance in states 23/29 executes
+372/372 bytes and passes all 2,560 cases, with zero skips. No incomplete or
+nondeterministic invocations occur in the final corpora.
+
+The initial acceptance missed a previous-button branch, despite passing every
+captured case. A targeted original-input capture closed the gap before
+promotion. `promote_tenpp_batch.py` now explicitly requires full-body
+acceptance as well as development; a regression check prevents partial
+acceptance from satisfying that gate. All 46 campaign-tool checks pass.
+
+Evidence: `percentage_menu_verified_dev`, `percentage_menu_verified_replay.json`,
+`percentage_menu_final_accept`, `percentage_menu_final_accept_replay.json`.
+Immutable executable is the motion-v3 snapshot documented above. Manifest:
+`tools/oracle/percentage_menu_milestone.json`; artifact hash audit passes.
+The `menu_navigation_*.json` recipes preserve the original-input dimensions.
+Development uses the general (1024 variants, 600 frames) and repeat (128,
+160) memory profiles; acceptance adds the previous-button (128,160) profile.
+All use the register profile, global/scalar/random/expanded fields and the
+independent states and relocation convention described above.
+
+`callee_global_inputs.py` now discovers bounded mutable scalar inputs in real
+static callees, with source provenance, excluding code, pointers, callback
+stubs and float fields. These input hypotheses carry no coverage credit.
+The sound and larger-family acceptance investigations remain uncredited.

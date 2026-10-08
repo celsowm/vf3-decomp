@@ -33,6 +33,10 @@ def artifacts(case):
     return dict(count=len(files), sha256=archive.hexdigest())
 
 
+def require_complete_body(entry, spans, executed, size, label):
+    assert measure(entry, spans, executed)[:2] == (size, size), f'incomplete {label} body execution'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--baseline', type=Path, default=ROOT / 'tools/oracle/tenpp_coverage_baseline.json')
@@ -64,6 +68,7 @@ def main():
                for p in (a.development_report.resolve(), a.acceptance_report.resolve())}
     ranges = body_spans()
     pcs = corpus_pcs([a.development])
+    acceptance_pcs = corpus_pcs([a.acceptance])
     sizes = {int(r['entry'], 16): int(r['size']) for r in csv.DictReader(
         (ROOT / frozen['inventory']).open())}
     ledger_path = ROOT / 'docs/decomp_status.csv'
@@ -94,7 +99,8 @@ def main():
             used = {scenarios[str(Path(source['source']).resolve())]
                     for record in records for source in record['sources']}
             assert len(used) >= 2, 'fewer than two development scenarios'
-            assert measure(e, ranges[e], pcs[invoked][0])[:2] == (sizes[e], sizes[e]), 'incomplete body execution'
+            require_complete_body(e, ranges[e], pcs[invoked][0], sizes[e], 'development')
+            require_complete_body(e, ranges[e], acceptance_pcs.get(invoked, (set(),))[0], sizes[e], 'acceptance')
             assert len(acceptance['entries'].get(invocation, [])) >= 64, 'fewer than 64 distinct acceptance cases'
             acceptance_used = {acceptance_scenarios[str(Path(source['source']).resolve())]
                 for record in acceptance['entries'].get(invocation, []) for source in record['sources']}
