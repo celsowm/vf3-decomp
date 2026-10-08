@@ -6391,6 +6391,69 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "percentage-resources:0x8c03666e": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c03666e.cases",
+    "port": "src/fight/next_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03666e"
+  },
+  "percentage-resources:0x8c03ca6c": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c03ca6c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca6c"
+  },
+  "percentage-resources:0x8c049788": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c049788.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c049788"
+  },
+  "percentage-resources:0x8c059400": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c059400.cases",
+    "port": "src/fight/task_callback_selectors.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c059400"
+  },
+  "percentage-resources:0x8c05cace": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c05cace.cases",
+    "port": "src/fight/resource_ranges.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05cace"
+  },
+  "percentage-resources:0x8c061ba8": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c061ba8.cases",
+    "port": "src/fight/resource_ranges.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c061ba8"
+  },
+  "percentage-resources:0x8c093612": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c093612.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c093612"
+  },
+  "percentage-resources:0x8c0c01b4": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c0c01b4.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c01b4"
+  },
+  "percentage-resources:0x8c0c0208": {
+    "golden": "extract/analysis/percentage_static_complete_dev/f_8c0c0208.cases",
+    "port": "src/fight/tenpp_leaf_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c0208"
+  },
   "phase1:0x8c0721ee": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c0721ee.cases",
     "port": "src/fight/phase1_adapters.c",

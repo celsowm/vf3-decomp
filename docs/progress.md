@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Percentage campaign: resource and callback milestone (2026-10-08)
+
+Nine independently accepted complete bodies add **406 unique C bytes**,
+reaching **249,160 / 434,656 (57.32%)**. Readable C now models callback
+selection and two resource helpers (262 bytes); six other roots use existing
+owners. Strict replay passes **1,368 development and 4,400 acceptance cases**,
+zero skips, with complete bodies and disjoint relocated acceptance inputs.
+The milestone hash audit passes. The campaign continues toward **65%**;
+the full integrated regression is due at its planned checkpoints.
+See [percentage_campaign.md](re/percentage_campaign.md).
+
 ## Callable matrix clipping proof (2026-10-07)
 
 Directed original-helper captures close the no-emission exit: **256/256**
