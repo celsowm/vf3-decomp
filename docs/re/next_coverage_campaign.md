@@ -80,8 +80,9 @@ python @queueArgs
    Establish style-8/21 model references, loop termination and the real render
    helper contracts using the accepted descriptor-chain work. Separate pure
    motion updates from calls that reach hardware. The previously partial
-   `0x8c09518c` entry stays uncredited until its original callable attribution
-   and complete body pass. Translate accepted motion scaffolding into readable
+   `0x8c09518c` entry needs its legacy partial proof replaced by original callable
+   observations and a complete body pass; its bytes are already in the frozen
+   historical baseline and cannot earn a second credit. Translate motion scaffolding into readable
    object/descriptor operations as a separate quality milestone. This tranche
    has no promised byte allocation before body-union and contract inspection.
 
@@ -167,4 +168,5 @@ a successful corpus. Stop oversized captures before exhausting the reserve.
 For each checkpoint publish accepted union and percentage, readable C work,
 newly verified existing C, full-body evidence, current regression scope,
 remaining target bytes and parked blockers. Planning itself earns no coverage.
-Execution of this next campaign has not started.
+Execution is recorded in [next_coverage_execution.md](next_coverage_execution.md).
+The 65% objective remains open.

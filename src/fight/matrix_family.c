@@ -62,6 +62,18 @@ int vf3_percentage_family_adapter_contains(uint32_t);
 int vf3_scene_indicator(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_random_fraction(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_index_reset(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_texture_storage(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_texture_size_class(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_model_render_fields(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_vertex_weight_curve(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_weighted_vertex(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_record_pool_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_record_pool_adapter_contains(uint32_t);
+int vf3_indexed_vertex_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_indexed_vertex_adapter_contains(uint32_t);
+int vf3_object_pool_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_object_pool_adapter_contains(uint32_t);
+int vf3_motion_model_selection(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_text_command(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter_contains(uint32_t);
@@ -191,6 +203,22 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c045e4eu || entry==0x0c0801deu)
         return vf3_advance_client_wrappers(entry,s,ram);
     if(entry==0x0c07abf8u) return vf3_resource_index_reset(s,ram);
+    if(entry==0x0c05f28au || entry==0x0c05f294u)
+        return vf3_texture_storage(entry,s,ram);
+    if(entry==0x0c05f0b8u) return vf3_texture_size_class(s,ram);
+    if(entry==0x0c09517au || entry==0x0c09518cu)
+        return vf3_motion_model_selection(entry,s,ram);
+    if(entry==0x0c09528cu || entry==0x0c0952a4u)
+        return vf3_model_render_fields(entry,s,ram);
+    if(entry==0x0c056c66u) return vf3_vertex_weight_curve(s,ram);
+    if(entry==0x0c051b74u || entry==0x0c0521acu || entry==0x0c052824u)
+        return vf3_weighted_vertex(entry,s,ram);
+    if(vf3_record_pool_adapter_contains(entry))
+        return vf3_record_pool_adapter(entry,s,ram);
+    if(vf3_indexed_vertex_adapter_contains(entry))
+        return vf3_indexed_vertex_adapter(entry,s,ram);
+    if(vf3_object_pool_adapter_contains(entry))
+        return vf3_object_pool_adapter(entry,s,ram);
     if(entry==0x0c059400u) return vf3_task_callback_select(entry,s,ram);
     if(entry==0x0c0af1a4u) return vf3_motion_flag_command(s,ram);
     if(entry==0x0c05caceu || entry==0x0c061ba8u || entry==0x0c05c90eu)

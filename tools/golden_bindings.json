@@ -5447,9 +5447,9 @@
     "test": "build/vf3matrixfamily.exe 0x8c0cc692"
   },
   "motion_adapters:0x8c09518c": {
-    "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c09518c.cases",
-    "port": "src/fight/unknown.c",
-    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 4 strict cases from fifth_leaf_fresh_v6_cases corpus (body cover 42.9%)",
+    "golden": "extract/analysis/percentage_motion_models_complete_proof_dev/f_8c09518c.cases",
+    "port": "src/fight/motion_model_selection.c",
+    "source": "Replaces historical 4-case partial proof with 510 development and 512 independent acceptance inputs, full 70-byte body, readable style selection; zero additional coverage credit.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09518c"
   },
@@ -6461,6 +6461,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0801de"
   },
+  "percentage-damage:0x8c0ae5b0": {
+    "golden": "extract/analysis/percentage_damage_proof_dev/f_8c0ae5b0.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original fight-script opcode 8 callable prefix 0x8c0ae5a0; two fighters and four-byte damage record; original opcode 1 flag toggle exercises shared dispatch tail; 256 complete inputs per corpus, relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ae5b0"
+  },
   "percentage-family:0x8c06e1ae": {
     "golden": "extract/analysis/percentage_globals_completion_dev/percentage_globals_completion_dev_8c09c044_8c06e1ae/f_8c06e1ae.cases",
     "port": "src/fight/tenpp_expanded_adapters.c",
@@ -6482,6 +6489,69 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07abf8"
   },
+  "percentage-indexed-vertex:0x8c0567e0": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c0567e0.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0567e0"
+  },
+  "percentage-indexed-vertex:0x8c056820": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056820.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056820"
+  },
+  "percentage-indexed-vertex:0x8c056860": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056860.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056860"
+  },
+  "percentage-indexed-vertex:0x8c056b60": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056b60.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056b60"
+  },
+  "percentage-indexed-vertex:0x8c056bc0": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056bc0.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056bc0"
+  },
+  "percentage-indexed-vertex:0x8c056c20": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056c20.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056c20"
+  },
+  "percentage-indexed-vertex:0x8c056fa0": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056fa0.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056fa0"
+  },
+  "percentage-indexed-vertex:0x8c056fe0": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c056fe0.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c056fe0"
+  },
+  "percentage-indexed-vertex:0x8c057020": {
+    "golden": "extract/analysis/percentage_indexed_vertex_proof_dev/f_8c057020.cases",
+    "port": "src/fight/indexed_vertex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; MACL supplies original indexed vertex buffer; typed short indices and all eleven curve modes; changed float holdout with independent relocated input and output buffers.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c057020"
+  },
   "percentage-indicator:0x8c07ae30": {
     "golden": "extract/analysis/percentage_rng_ui_complete_dev/f_8c07ae30.cases",
     "port": "src/fight/tenpp_expanded_adapters.c",
@@ -6495,6 +6565,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable transform/render/RNG composition and existing resource-index claim C; full body in both corpora; real helpers; independent relocated acceptance with zero and nonzero RNG low bits; 759/1152 indicator and 457/896 claim cases.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c08a61c"
+  },
+  "percentage-matrix-frame:0x8c0875f0": {
+    "golden": "extract/analysis/percentage_matrix_frame_proof_dev/f_8c0875f0.cases",
+    "port": "src/fight/target_dependency_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Matrix helper observed through original callable prefix 0x8c08779c; parent 0x8c0877ac remains uncredited because finite inputs cover only 276 of 280 bytes.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0875f0"
   },
   "percentage-menu:0x8c0c80be": {
     "golden": "extract/analysis/percentage_menu_verified_dev/f_8c0c80be.cases",
@@ -6538,6 +6615,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c095040"
   },
+  "percentage-motion-models:0x8c09517a": {
+    "golden": "extract/analysis/percentage_motion_models_complete_proof_dev/f_8c09517a.cases",
+    "port": "src/fight/motion_model_selection.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable style-8/21 slot selection through untouched 0x8c095178 prefix; independent changed relocated acceptance; legacy 09518c receives no new byte credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09517a"
+  },
+  "percentage-motion-records:0x8c0951e4": {
+    "golden": "extract/analysis/percentage_motion_records_proof_dev/f_8c0951e4.cases",
+    "port": "src/fight/motion_adapters_2.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full model-slot loop observed through untouched 0x8c0951d2 prefix; null and sentinel slots, two model kinds and signed loop termination; changed relocated holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0951e4"
+  },
   "percentage-motion-style:0x8c094a36": {
     "golden": "extract/analysis/percentage_motion_style_complete_dev/f_8c094a36.cases",
     "port": "src/fight/motion_style_adapters.c",
@@ -6552,12 +6643,166 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c094dc6"
   },
+  "percentage-object-pool-status:0x8c04d516": {
+    "golden": "extract/analysis/percentage_object_pool_proof_dev/f_8c04d516.cases",
+    "port": "src/fight/advance_client_helper_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original caller prefix with live object and GDFS status contracts; independent status table closes negative return path; complete changed relocated holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04d516"
+  },
+  "percentage-object-pool:0x8c04d72e": {
+    "golden": "extract/analysis/percentage_object_pool_remaining_proof_dev/f_8c04d72e.cases",
+    "port": "src/fight/object_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original object pool indices and channel/status contracts; complete body and helper replay; independently changed relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04d72e"
+  },
+  "percentage-object-pool:0x8c04f0e2": {
+    "golden": "extract/analysis/percentage_object_pool_remaining_proof_dev/f_8c04f0e2.cases",
+    "port": "src/fight/object_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original object pool indices and channel/status contracts; complete body and helper replay; independently changed relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04f0e2"
+  },
   "percentage-random-fraction:0x8c0c9d04": {
     "golden": "extract/analysis/percentage_rng_complete_dev/f_8c0c9d04.cases",
     "port": "src/fight/random_fraction.c",
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable real 15-bit generator to float scaling; zero, nonzero, upper-range seeds and varied multipliers/increments; 618 development and 512 independent acceptance cases; full body in both.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c9d04"
+  },
+  "percentage-record-pool:0x8c046598": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046598.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046598"
+  },
+  "percentage-record-pool:0x8c0465d4": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c0465d4.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0465d4"
+  },
+  "percentage-record-pool:0x8c046620": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046620.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046620"
+  },
+  "percentage-record-pool:0x8c0467ba": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c0467ba.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0467ba"
+  },
+  "percentage-record-pool:0x8c0467ec": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c0467ec.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0467ec"
+  },
+  "percentage-record-pool:0x8c046822": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046822.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046822"
+  },
+  "percentage-record-pool:0x8c046976": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046976.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046976"
+  },
+  "percentage-record-pool:0x8c046a3a": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046a3a.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046a3a"
+  },
+  "percentage-record-pool:0x8c046a8e": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046a8e.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046a8e"
+  },
+  "percentage-record-pool:0x8c046abc": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046abc.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046abc"
+  },
+  "percentage-record-pool:0x8c046b34": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046b34.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046b34"
+  },
+  "percentage-record-pool:0x8c046b7e": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046b7e.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046b7e"
+  },
+  "percentage-record-pool:0x8c046bb2": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046bb2.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046bb2"
+  },
+  "percentage-record-pool:0x8c046bfa": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046bfa.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046bfa"
+  },
+  "percentage-record-pool:0x8c046c50": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046c50.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046c50"
+  },
+  "percentage-record-pool:0x8c046cd4": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046cd4.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046cd4"
+  },
+  "percentage-record-pool:0x8c046d32": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046d32.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046d32"
+  },
+  "percentage-record-pool:0x8c046d86": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046d86.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046d86"
+  },
+  "percentage-record-pool:0x8c046dca": {
+    "golden": "extract/analysis/percentage_record_pool_proof_dev/f_8c046dca.cases",
+    "port": "src/fight/record_pool_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original record pool slots 0..7 with free/busy status and valid copy buffers; observed frozen entries after original prologues; independent relocated changed-buffer holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c046dca"
   },
   "percentage-resource-result:0x8c05c90e": {
     "golden": "extract/analysis/percentage_callee_globals_complete_dev/f_8c05c90e.cases",
@@ -6629,12 +6874,54 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c0208"
   },
+  "percentage-script-clamp:0x8c0ae9f6": {
+    "golden": "extract/analysis/percentage_script_clamp_complete_proof_dev/f_8c0ae9f6.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original opcode 16 callable prefix 0x8c0ae9ec; bounded signed style-scale increment with upper clamp 40, followed by original terminator or flag-toggle opcode; 256 complete strict inputs in each corpus.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ae9f6"
+  },
   "percentage-selection:0x8c0c2f4e": {
     "golden": "extract/analysis/percentage_selection_complete_dev/f_8c0c2f4e.cases",
     "port": "src/fight/percentage_family_adapters.c",
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete selection body in both corpora; original prefix-derived r11/r14 constants for directed branch; real callees; 677 development and 606 independent relocated acceptance cases; failed 400-frame acceptance excluded.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c2f4e"
+  },
+  "percentage-texture-storage:0x8c05f0b8": {
+    "golden": "extract/analysis/percentage_texture_proof_dev/f_8c05f0b8.cases",
+    "port": "src/fight/texture_storage.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable texture word-count and size class; observed after untouched callable prefix 0x8c05f28a; changed holdout dimensions and relocated descriptors.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05f0b8"
+  },
+  "percentage-texture-storage:0x8c05f294": {
+    "golden": "extract/analysis/percentage_texture_proof_dev/f_8c05f294.cases",
+    "port": "src/fight/texture_storage.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable texture word-count and size class; observed after untouched callable prefix 0x8c05f28a; changed holdout dimensions and relocated descriptors.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05f294"
+  },
+  "percentage-weighted-vertex:0x8c051b74": {
+    "golden": "extract/analysis/percentage_weighted_vertex_proof_dev/f_8c051b74.cases",
+    "port": "src/fight/vertex_weight_curve.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable vertex emitters and original eleven-mode float weight response; corrected development ABI then fresh changed relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c051b74"
+  },
+  "percentage-weighted-vertex:0x8c0521ac": {
+    "golden": "extract/analysis/percentage_weighted_vertex_proof_dev/f_8c0521ac.cases",
+    "port": "src/fight/vertex_weight_curve.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable vertex emitters and original eleven-mode float weight response; corrected development ABI then fresh changed relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0521ac"
+  },
+  "percentage-weighted-vertex:0x8c052824": {
+    "golden": "extract/analysis/percentage_weighted_vertex_proof_dev/f_8c052824.cases",
+    "port": "src/fight/vertex_weight_curve.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable vertex emitters and original eleven-mode float weight response; corrected development ABI then fresh changed relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c052824"
   },
   "phase1:0x8c0721ee": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c0721ee.cases",

@@ -1,0 +1,72 @@
+family,entry,state,covered_bytes,body_bytes,reason
+record_pool,0x8c046598,accepted,56,56,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c0465d4,accepted,56,56,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046620,accepted,90,90,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c0467ba,accepted,42,42,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c0467ec,accepted,46,46,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046822,accepted,46,46,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046976,accepted,68,68,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046a3a,accepted,84,84,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046a8e,accepted,38,38,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046abc,accepted,42,42,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046b34,accepted,74,74,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046b7e,accepted,38,38,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046bb2,accepted,62,62,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046bfa,accepted,78,78,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046c50,accepted,86,86,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046cd4,accepted,86,86,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046d32,accepted,78,78,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046d86,accepted,62,62,full development and independent acceptance; milestone hash audit required
+record_pool,0x8c046dca,accepted,62,62,full development and independent acceptance; milestone hash audit required
+object_pool_status,0x8c04d516,accepted,260,260,full development and independent acceptance; milestone hash audit required
+object_pool,0x8c04d72e,accepted,172,172,full development and independent acceptance; milestone hash audit required
+object_pool,0x8c04f0e2,accepted,136,136,full development and independent acceptance; milestone hash audit required
+weighted_vertex,0x8c051b74,accepted,10,10,full development and independent acceptance; milestone hash audit required
+weighted_vertex,0x8c0521ac,accepted,10,10,full development and independent acceptance; milestone hash audit required
+weighted_vertex,0x8c052824,accepted,22,22,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c0567e0,accepted,48,48,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056820,accepted,52,52,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056860,accepted,52,52,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056b60,accepted,66,66,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056bc0,accepted,70,70,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056c20,accepted,70,70,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056fa0,accepted,52,52,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c056fe0,accepted,56,56,full development and independent acceptance; milestone hash audit required
+indexed_vertex,0x8c057020,accepted,56,56,full development and independent acceptance; milestone hash audit required
+texture_storage,0x8c05f0b8,accepted,112,112,full development and independent acceptance; milestone hash audit required
+texture_storage,0x8c05f294,accepted,124,124,full development and independent acceptance; milestone hash audit required
+motion_models,0x8c09517a,accepted,18,18,full development and independent acceptance; milestone hash audit required
+motion_records,0x8c0951e4,accepted,144,144,full development and independent acceptance; milestone hash audit required
+object_pool,0x8c04cf16,parked,140,210,unexecuted body PCs
+object_pool,0x8c04d638,parked,162,200,unexecuted body PCs
+object_pool,0x8c04d638,parked,180,200,fewer than 64 distinct inputs; fewer than two scenarios; unexecuted body PCs
+object_pool,0x8c04d812,parked,154,284,unexecuted body PCs
+object_pool,0x8c04d970,parked,318,348,unexecuted body PCs
+object_pool,0x8c04db6a,parked,270,304,unexecuted body PCs
+object_pool,0x8c04dcd4,parked,42,138,fewer than 64 distinct inputs; unexecuted body PCs
+object_pool,0x8c04dda8,parked,46,388,fewer than 64 distinct inputs; unexecuted body PCs
+object_pool,0x8c04e4ec,parked,186,226,unexecuted body PCs
+object_pool,0x8c04e60c,parked,184,218,unexecuted body PCs
+object_pool,0x8c04e7e6,parked,170,204,unexecuted body PCs
+object_pool,0x8c04ea52,parked,180,250,unexecuted body PCs
+object_pool,0x8c04eb78,parked,162,226,unexecuted body PCs
+object_pool,0x8c04ec8e,parked,138,190,unexecuted body PCs
+object_pool,0x8c04ed8c,parked,194,248,unexecuted body PCs
+object_pool,0x8c04eec2,parked,136,144,unexecuted body PCs
+object_pool,0x8c04ef92,parked,122,152,unexecuted body PCs
+object_pool,0x8c04f18a,parked,104,170,unexecuted body PCs
+object_pool,0x8c04f408,parked,112,314,unexecuted body PCs
+geometry,0x8c058a5c,parked,0,254,256 rollback rejections; recover GBR/caller pipeline state
+diagnostic_io,0x8c04453a,parked,0,,original caller uses TAS lock and varargs diagnostics; recover actual stack and callbacks
+audio,0x8c040fa4,parked,0,,scheduler/ARM7/DSP/timer state exceeds current RAM journal; restriction unchanged
+matrix_frame,0x8c0875f0,accepted,72,72,observed through original prefix 0x8c08779c; 255 development and 255 independent acceptance cases
+matrix_frame,0x8c0877ac,parked,276,280,finite squared magnitude branch requires contradictory thresholds; no exception
+scene_diagnostic,0x8c0831f8,parked,0,1964,original prefix 0x8c0831ea calls diagnostic output repeatedly; recover real state and output boundary before capture
+script_damage,0x8c0ae5b0,accepted,318,318,original opcode 8 plus opcode 1 dispatch tail; 256 development and 256 acceptance strict cases
+script_scale,0x8c0ae9f6,accepted,102,102,original opcode 16 signed scale clamp 40; 256 development and 256 acceptance strict cases
+script_scale,0x8c0af44e,implementation_pending,60,60,complete original capture; strict replay unsupported entry; no credit
+script_scale,0x8c0af610,implementation_pending,182,182,complete original capture; strict replay unsupported entry; no credit
+texture_stream,0x8c05ea24,contract_pending,0,104,original prefix 0x8c05ea1c has descriptor R4 source R5 offset R6 length R7 and calls transfer 0x8c060d78
+texture_stream,0x8c05c8a6,contract_pending,0,104,original prefix 0x8c05c892 selects table slot and retries 0x8c062fc2 while result 256; needs original transfer contract
+scene_selection,0x8c0c74bc,contract_pending,0,234,original prefix 0x8c0c74b8 uses RNG 0x8c0c9ce6 actor globals and scene transition tail
+scene_timeline,0x8c08acd8,contract_pending,0,512,original prefix 0x8c08acc0 updates two fighter records and submits commands through 0x8c0c5d86

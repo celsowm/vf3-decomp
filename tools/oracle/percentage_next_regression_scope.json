@@ -1,0 +1,142 @@
+{
+ "passed": true,
+ "current_bindings": 1357,
+ "inventory": {
+  "path": "tools/golden_bindings.json",
+  "sha256": "08b3db387ad14ecf937ec1a412e999a1e94a32d9f783c28edd97e4c64cb00889"
+ },
+ "executable": {
+  "path": "build/vf3matrixfamily_next_models_v1_dev.exe",
+  "sha256": "79dd7c7b77505a3a8439a7a3fb181433b91c01885930f0b1d1db8bb054df1d1f"
+ },
+ "parts": [
+  {
+   "bindings": 1354,
+   "inventory": {
+    "path": "extract/analysis/percentage_next_complete_bindings.json",
+    "sha256": "39144a8c363ebaac123a49edccee4dfeac18735f86ebcf48ba5ee1df445943bc"
+   },
+   "log": {
+    "path": "extract/analysis/percentage_next_complete_integrated_regression.log",
+    "sha256": "36c6ac138d6b3db56b23318ad51f19b9a370dbd07889635791fc16ec8cc5ecf2"
+   },
+   "status": {
+    "expected_bindings": 1354,
+    "reported_bindings": 1354,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+     "portcheck": "PASS"
+    },
+    "last_lines": [
+     "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "portcheck: PASS"
+    ]
+   }
+  },
+  {
+   "bindings": 3,
+   "inventory": {
+    "path": "extract/analysis/percentage_next_final_delta_bindings.json",
+    "sha256": "777ace5cce2fa6a85c0107285f8c0bef1f1ee98a4a01a2d72dbe19f44d09692d"
+   },
+   "log": {
+    "path": "extract/analysis/percentage_next_final_delta_regression.log",
+    "sha256": "630b477343e1c1c5171c6fc3c366e19191cdd7622e8504298c87b432f4c0a602"
+   },
+   "status": {
+    "expected_bindings": 3,
+    "reported_bindings": 3,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+     "portcheck": "PASS"
+    },
+    "last_lines": [
+     "  percentage-matrix-frame:0x8c0875f0 PASS   matrix_family: 255/255 cases match (0 skipped) - PASS",
+     "  percentage-script-clamp:0x8c0ae9f6 PASS   matrix_family: 256/256 cases match (0 skipped) - PASS",
+     "portcheck: PASS"
+    ]
+   }
+  }
+ ],
+ "exact_disjoint_inventory_union": true,
+ "source_artifacts": [
+  {
+   "path": "CMakeLists.txt",
+   "sha256": "366a4d2d013fbf8e1b8a9162385a2aaa13338a023a81ddabf032f9158eb300c1"
+  },
+  {
+   "path": "src/fight/matrix_family.c",
+   "sha256": "f41f7527bf1ab803da12c147ea7841148afc4be974061d04cfdf905750bd7e89"
+  },
+  {
+   "path": "src/fight/texture_storage.c",
+   "sha256": "a93850ef846f3eaec4d279f2afb0ef684277c36f150a50b0380750ec80c76b68"
+  },
+  {
+   "path": "src/fight/model_render_fields.c",
+   "sha256": "989fa2a325bb4d3e6fa3b1e552cfa3ea46ef9a8d66ad3a79cfdd49bc3cdc99f4"
+  },
+  {
+   "path": "src/fight/vertex_weight_curve.c",
+   "sha256": "b73925cd91a04722a87ad320de7f8c4ebdf1d53e26bb69c0e6b5497c63e14f98"
+  },
+  {
+   "path": "src/fight/record_pool_adapters.c",
+   "sha256": "f5dbd3e410f38b8219d63dec7db5106ec64323225c1351f464a0af2d2b25f138"
+  },
+  {
+   "path": "src/fight/indexed_vertex_adapters.c",
+   "sha256": "859766067485805ec5eb5b4d1acb7aff0437f3f4c18ac49df9d15b56860cabee"
+  },
+  {
+   "path": "src/fight/object_pool_adapters.c",
+   "sha256": "b7aa05048b71a8ec845230562c1f11f0262b881ce206b882c41b52770177fc92"
+  },
+  {
+   "path": "src/fight/motion_model_selection.c",
+   "sha256": "7f4a673a01d00f68d9bb78c9ab2d7db988f19cb7d64eb450683c4a3fed8c1393"
+  }
+ ],
+ "campaign_start_bytes": 253834,
+ "current_unique_bytes": 257050,
+ "gain_bytes": 3216,
+ "new_bodies": 41,
+ "denominator": 434656,
+ "percentage": 59.13872119561216,
+ "target_65_met": false,
+ "chain_audit": {
+  "path": "extract/analysis/percentage_next_final_series_audit.json",
+  "sha256": "a5361b5df9d7ab19dee67172072e3afa87b0178330b4887fb1548c76155237f1"
+ },
+ "earlier_24_hash_audits": {
+  "path": "extract/analysis/percentage_next_complete_series_audit.json",
+  "sha256": "cba845daba89b1051693cb88964c5d3b523bc4721f36c215c7f6ddfa0e6548f7"
+ },
+ "final_three_hash_audits": [
+  {
+   "path": "extract/analysis/percentage_matrix_frame_audit.log",
+   "sha256": "23c31074d80eceff874ee5b84d52559d21421281d809b9ae00508f67317ef4ad"
+  },
+  {
+   "path": "extract/analysis/percentage_damage_audit.log",
+   "sha256": "deebb99121f186f091791052d890864bde39381e10191418f6756379b67f945d"
+  },
+  {
+   "path": "extract/analysis/percentage_script_clamp_audit.log",
+   "sha256": "c100ee22cef4d3b878f512804398c4133228d633784c645c9dcba44d3e604e32"
+  }
+ ],
+ "tool_tests": {
+  "path": "extract/analysis/percentage_next_final_tool_tests.log",
+  "sha256": "1255985d07d55cfc284ffbe2134ee6da4899b2c5c6e15b0f27806b79db51ff34"
+ },
+ "tool_test_count": 50,
+ "native_test_count": 39
+}
