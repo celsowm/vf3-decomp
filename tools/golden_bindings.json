@@ -7336,6 +7336,20 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c08d00e"
   },
+  "target-matrix-clip:0x8c04a4c4": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c04a2c0",
+        "0x8c04a2f4"
+      ],
+      "entry": "0x8c04a320"
+    },
+    "golden": "extract/analysis/target_clip_complete_dev/f_8c04a320.cases",
+    "port": "src/fight/matrix_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original callable entry 8c04a320; audited BSR callers and complete image-matching prefix/body; relocated finite independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c04a320"
+  },
   "target-motion-choice:0x8c08cae2": {
     "golden": "extract/analysis/target_motion_choice_rng_dev/target_motion_choice_rng_dev_8c08cad4/f_8c08cae2.cases",
     "port": "src/fight/motion_adapters.c",

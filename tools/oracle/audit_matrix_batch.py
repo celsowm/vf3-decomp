@@ -6,6 +6,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from callable_body import validate as validate_callable
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -25,12 +28,15 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
         e = int(entry, 16)
         assert entry not in manifest['excluded'], f'Excluded entry promoted: {entry}'
         binding = bindings[evidence['binding']]
+        attribution = evidence.get('callable_body')
+        invocation = attribution['entry'] if attribution else entry
+        assert binding.get('callable_body') == attribution
         assert binding['strict'] is True
-        assert binding['test'] == 'build/vf3matrixfamily.exe '+entry
+        assert binding['test'] == 'build/vf3matrixfamily.exe '+invocation
         assert (ROOT/binding['golden']).is_file()
         for name, proof in evidence['proofs'].items():
             report = json.loads((ROOT/'extract/analysis'/name).read_text())
-            assert report[entry] == proof, f'Stale proof: {name} {entry}'
+            assert report[invocation] == proof, f'Stale proof: {name} {entry}'
             if check_hashes and proof.get('executable_sha256'):
                 with (ROOT / proof['executable']).open('rb') as stream:
                     digest = hashlib.file_digest(stream, 'sha256').hexdigest()
@@ -53,8 +59,8 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
             campaigns[case.parent] = campaign
         campaign=campaigns[case.parent]
         for run in campaign.get('runs', []):
-            assert entry not in {hex(int(r['entry'],16)|0x80000000) for r in run.get('incomplete',[])}
-        records=campaign['entries'][entry]
+            assert invocation not in {hex(int(r['entry'],16)|0x80000000) for r in run.get('incomplete',[])}
+        records=campaign['entries'][invocation]
         assert len(records) == count
         minimum=evidence.get('minimum_cases',manifest.get('minimum_cases',1))
         assert count>=minimum, f'Insufficient distinct cases: {entry}'
@@ -73,6 +79,34 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                 archive_hash.update((artifact+'\\0'+digest+'\\n').encode())
         if check_hashes:
             assert archive_hash.hexdigest() == evidence['artifacts']['sha256'], f'Changed corpus: {entry}'
+        if attribution:
+            scenario_sets = []
+            for proof_name, proof in evidence['proofs'].items():
+                proof_case = ROOT / proof['cases']
+                proof_dir = proof_case.parent
+                archive = evidence['proof_artifacts'][proof_name]
+                files = sorted(p for p in proof_dir.glob(proof_case.stem+'*') if p.is_file())
+                assert len(files) == archive['count'], 'proof artifact count changed'
+                if check_hashes:
+                    digest = hashlib.sha256()
+                    for path in files:
+                        with path.open('rb') as stream:
+                            file_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
+                        digest.update((path.relative_to(ROOT).as_posix()+'\\0'+file_hash+'\\n').encode())
+                    assert digest.hexdigest() == archive['sha256'], 'proof corpus changed'
+                validate_callable(e, attribution, ranges[e], proof_dir)
+                cm = json.loads((proof_dir/'capsule_manifest.json').read_text())
+                bm = json.loads((proof_dir/'batch_manifest.json').read_text())
+                assert all(r['returncode'] == 0 and r['frame_complete'] for r in bm['runs'])
+                assert not cm.get('nondeterministic_entries')
+                assert not any(int(r['entry'],16)|0x80000000 == int(invocation,16) for run in cm['runs'] for r in run.get('incomplete',[]))
+                rows = cm['entries'][invocation]
+                assert len(rows) == int(re.search(r'(\d+)/', proof['stdout'])[1]) >= manifest['minimum_cases']
+                sources = {str(Path(r['capsule']).resolve()):(r['state'],r['play']) for r in bm['runs']}
+                used = {sources[str(Path(s['source']).resolve())] for row in rows for s in row['sources']}
+                assert len(used) >= manifest['minimum_scenarios']
+                scenario_sets.append(used)
+            assert len(scenario_sets) == 2 and scenario_sets[0].isdisjoint(scenario_sets[1])
         if evidence['new_credit']:
             assert e in sizes and int(ledger[e]['size']) == evidence['size'] == sizes[e]
             assert ledger[e]['status'] == 'ported-invocation'

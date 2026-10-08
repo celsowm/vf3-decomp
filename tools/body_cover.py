@@ -23,6 +23,7 @@ import argparse
 import csv
 import json
 from collections import defaultdict
+from callable_body import validate as validate_callable
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -127,7 +128,19 @@ def main() -> int:
     only = {int(x, 16) for x in a.entry}
     if a.bindings:
         only.update(int(key.split(":")[-1], 16) for key in bindings)
-    corpora = corpus_pcs(dirs)
+    # Many bindings share a corpus; scan its opcode files only once.
+    corpora = corpus_pcs(list(dict.fromkeys(dirs)))
+    if a.bindings:
+        for key, spec in bindings.items():
+            if 'callable_body' not in spec:
+                continue
+            owner = int(key.split(':')[-1], 16)
+            case = ROOT / spec['golden']
+            parent, captured = validate_callable(owner, spec['callable_body'], spans[owner], case.parent)
+            assert spec['test'].split()[-1] == hex(parent), 'callable test mismatch'
+            assert case.stem == f'f_{parent:08x}', 'callable corpus mismatch'
+            previous = corpora.get(owner, (set(), 0, []))
+            corpora[owner] = (previous[0] | captured, previous[1] + 1, previous[2] + [case.parent.name])
     if not corpora:
         raise SystemExit("no f_*.ops.json found in the given corpora")
 

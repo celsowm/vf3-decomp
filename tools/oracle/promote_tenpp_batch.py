@@ -11,6 +11,7 @@ from select_next import ROOT, union
 
 sys.path.insert(0, str(ROOT / 'tools'))
 from body_cover import body_spans, corpus_pcs, measure
+from callable_body import validate as validate_callable
 
 
 def corpus(path):
@@ -45,7 +46,11 @@ def main():
                     help='optional JSON entry-to-source ownership for shared helpers')
     ap.add_argument('--label', required=True)
     ap.add_argument('--note', required=True)
+    ap.add_argument('--callable-map', type=Path, help='explicit frozen-owner to original callable-entry attribution')
     a = ap.parse_args()
+    attributions = json.loads(a.callable_map.read_text()) if a.callable_map else {}
+    owners = {v['entry']: k for k, v in attributions.items()}
+    assert len(owners) == len(attributions), 'duplicate callable entry'
     ports = json.loads(a.port_map.read_text()) if a.port_map else {}
     a.development = a.development.resolve()
     a.acceptance = a.acceptance.resolve()
@@ -73,50 +78,61 @@ def main():
     bindings_path = ROOT / 'tools/golden_bindings.json'
     bindings = json.loads(bindings_path.read_text())
     entries, excluded, additions = {}, {}, []
-    for entry, records in sorted(development['entries'].items()):
+    for invocation, records in sorted(development['entries'].items()):
+        entry = owners.get(invocation, invocation)
         e = int(entry, 16)
+        invoked = int(invocation, 16)
+        attribution = attributions.get(entry)
         if e in old:
             continue
         try:
-            assert e in sizes and e in pcs, 'no frozen body'
+            assert e in sizes and invoked in pcs, 'no frozen body'
+            if attribution:
+                for path in (a.development, a.acceptance):
+                    validate_callable(e, attribution, ranges[e], path)
             assert len(records) >= 64, 'fewer than 64 distinct development cases'
             used = {scenarios[str(Path(source['source']).resolve())]
                     for record in records for source in record['sources']}
             assert len(used) >= 2, 'fewer than two development scenarios'
-            assert measure(e, ranges[e], pcs[e][0])[:2] == (sizes[e], sizes[e]), 'incomplete body execution'
-            assert len(acceptance['entries'].get(entry, [])) >= 64, 'fewer than 64 distinct acceptance cases'
+            assert measure(e, ranges[e], pcs[invoked][0])[:2] == (sizes[e], sizes[e]), 'incomplete body execution'
+            assert len(acceptance['entries'].get(invocation, [])) >= 64, 'fewer than 64 distinct acceptance cases'
             acceptance_used = {acceptance_scenarios[str(Path(source['source']).resolve())]
-                for record in acceptance['entries'].get(entry, []) for source in record['sources']}
+                for record in acceptance['entries'].get(invocation, []) for source in record['sources']}
             assert len(acceptance_used) >= 2, 'fewer than two acceptance scenarios'
             assert used.isdisjoint(acceptance_used), 'development scenario reused in acceptance'
             for campaign in (development, acceptance):
-                assert entry in campaign['entries'], 'no independent acceptance'
-                assert not any(int(r['entry'], 16) | 0x80000000 == e
+                assert invocation in campaign['entries'], 'no independent acceptance'
+                assert not any(int(r['entry'], 16) | 0x80000000 == invoked
                                for run in campaign['runs'] for r in run.get('incomplete', [])), 'incomplete invocation'
             for report in reports.values():
-                proof = report.get(entry)
+                proof = report.get(invocation)
                 assert proof is not None, 'strict replay report incomplete'
                 assert proof['pass'] and re.fullmatch(
                     r'matrix_family: (\d+)/(\d+) cases match \(0 skipped\) - PASS', proof['stdout']), 'strict replay failed'
         except AssertionError as error:
             excluded[entry] = str(error)
             continue
-        case = a.development / f'f_{e:08x}.cases'
+        case = a.development / f'f_{invoked:08x}.cases'
         port = ports.get(entry, a.port)
         assert (ROOT / port).is_file(), f'missing C source: {port}'
         key = a.label + ':' + entry
-        bindings[key] = dict(test='build/vf3matrixfamily.exe ' + entry,
+        bindings[key] = dict(test='build/vf3matrixfamily.exe ' + invocation,
             golden=case.relative_to(ROOT).as_posix(), strict=True, port=port,
             source='100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; ' + a.note)
         entries[entry] = dict(new_credit=True, size=sizes[e], binding=key, port=port,
-            proofs={name: report[entry] for name, report in reports.items()},
+            proofs={name: report[invocation] for name, report in reports.items()},
             artifacts=artifacts(case), covered_bytes=sizes[e])
+        if attribution:
+            entries[entry]['callable_body'] = attribution
+            entries[entry]['proof_artifacts'] = {name: artifacts(ROOT / report[invocation]['cases'])
+                for name, report in reports.items()}
+            bindings[key]['callable_body'] = attribution
         print(f'{entry}: proof gates and {entries[entry]["artifacts"]["count"]} artifact hashes checked',
               flush=True)
         line = io.StringIO()
         csv.writer(line, lineterminator='\n').writerow([entry, 'ported-invocation',
             port, sizes[e], 'static original-image C; complete body and helper behavior',
-            next(iter(reports.values()))[entry]['stdout'] + '; ' + a.note])
+            next(iter(reports.values()))[invocation]['stdout'] + '; ' + a.note])
         additions.append(line.getvalue())
     if not entries:
         print(json.dumps(excluded, indent=1))

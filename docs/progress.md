@@ -1,5 +1,22 @@
 # VF3tb decomp — progress log
 
+## Callable matrix clipping proof (2026-10-07)
+
+Directed original-helper captures close the no-emission exit: **256/256**
+development and **256/256** independent relocated acceptance cases pass
+strict replay with zero skips against the unchanged immutable executable.
+Both corpora execute all **644 helper bytes**, including the entire frozen
+**506-byte** body owned by `0x8c04a4c4`. Explicit callable-entry attribution
+preserves the frozen inventory and checks two original BSR callers, the
+straight entry prefix, image-identical instructions and complete coverage.
+The hash-audited promotion adds **506 unique bytes**, reaching
+**248,754/434,656**; **774 bytes** remain to the campaign target.
+The input planner and attribution checks pass **43** tool tests. The full
+repository gate passes **1,281/1,281** bound replays, native tests and final
+audits (`verify_all: PASS`).
+See [matrix_clip_dispatch.md](re/matrix_clip_dispatch.md) for retained
+capture artifacts and reproduction commands.
+
 ## Matrix clipping continuation (2026-10-07)
 
 The blocked `0x8c04a4c4` helper now passes **852/852** retained strict cases:

@@ -384,3 +384,27 @@ for the original dispatch map, proof limits and next input contract.
 The integrated immutable snapshot passes `verify_all`, **1,280/1,280** bound
 replays, native tests and all **41** tool checks, with zero replay failures.
 Logs and parsed terminal status are `target_matrix_braf_regression{.log,_status.json}`.
+
+
+### Original matrix helper acceptance (2026-10-07)
+
+Callable-entry captures resolve the last six missing bytes of frozen owner
+`0x8c04a4c4`. All 506 frozen bytes execute in both development (states 21/27)
+and independent acceptance (23/29, relocated buffers and different finite
+values); each passes **256/256 strict cases, zero skips**, against the
+unchanged `vf3matrixfamily_target_braf_final.exe` snapshot.
+`advance_target_matrix_clip_milestone.json` passes its hash audit and adds
+**506 unique bytes**, reaching **248,754/434,656** with **774 bytes** remaining.
+Explicit attribution to original callable entry `0x8c04a320` preserves the
+frozen inventory and requires two original BSR callers, a straight prefix,
+image-identical captured instructions and full body execution in both
+corpora. No credit is claimed for the additional 138 bytes outside the
+frozen body. The tool suite now passes **43 tests**. Details and evidence
+are in [matrix_clip_dispatch.md](matrix_clip_dispatch.md).
+
+The integrated gate uses frozen `target_clip_complete_bindings.json` and the
+same immutable snapshot. It finishes **`verify_all: PASS`**, **1,281/1,281**
+bound replays, zero failures, **43** tool tests, native tests and union
+checks. Log/status artifacts are
+`target_clip_complete_regression{.log,_status.json}`. The full milestone
+chain audit also passes (`target_clip_complete_series_audit.json`).

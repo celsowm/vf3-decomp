@@ -38,11 +38,69 @@ import text_control_probe_plan
 import struct
 import save_record_inputs
 import translate_adapters
+import matrix_clip_probe_plan
+import callable_body
+import math
 from types import SimpleNamespace
 from comparison_inputs import literal_comparisons, boundary_palette, replace_narrow
 
 
 class CampaignToolsTests(unittest.TestCase):
+    def test_callable_body_requires_original_callers_and_complete_image(self):
+        base = 0x8c010000
+        image = struct.pack('<12H', 0xb006, 9, 0xb004, 9, 9, 9, 9, 9,
+                            0xe000, 9, 9, 9)
+        attribution = dict(entry=hex(base+16), call_sites=[hex(base), hex(base+4)])
+        spans = [(base+20, base+24)]
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/'f_8c010010.ops.json'
+            ops = {f'{pc:08x}': f'{struct.unpack_from("<H",image,pc-base)[0]:04x}'
+                   for pc in range(base+16,base+24,2)}
+            path.write_text(json.dumps(ops))
+            self.assertEqual(callable_body.validate(base+20, attribution, spans, directory, image)[0], base+16)
+            for changed in (dict(attribution, call_sites=[hex(base),hex(base+6)]),
+                            dict(attribution, entry=hex(base+18))):
+                with self.assertRaises(AssertionError):
+                    callable_body.validate(base+20, changed, spans, directory, image)
+            for missing, altered in ((True, False), (False, True)):
+                bad = dict(ops)
+                if missing:
+                    del bad[f'{base+22:08x}']
+                if altered:
+                    bad[f'{base+16:08x}'] = 'e001'
+                path.write_text(json.dumps(bad))
+                with self.assertRaises(AssertionError):
+                    callable_body.validate(base+20, attribution, spans, directory, image)
+
+    def test_clip_plan_covers_masks_layouts_terminators_and_relocation(self):
+        combinations = set()
+        for variant in range(128):
+            dev, words = matrix_clip_probe_plan.fixture(variant)
+            accept, relocated = matrix_clip_probe_plan.fixture(variant, 0x100000, True)
+            cursor = dev['r4'] + 4
+            mask, layout = 0, 0
+            for vertex in range(3):
+                if words[cursor] & 1:
+                    payload = cursor
+                    cursor += 32
+                else:
+                    layout |= 1 << vertex
+                    payload = cursor + 8 + words[cursor+4]
+                    cursor += 8
+                values = [struct.unpack('<f',struct.pack('<I',words[payload+offset]))[0]
+                          for offset in range(0,16,4)]
+                self.assertTrue(all(math.isfinite(v) for v in values))
+                if values[1] > 0:
+                    mask |= 4 >> vertex
+                self.assertNotEqual(words[payload+4], relocated[payload+0x100000+4])
+            combinations.add((mask,layout,words[cursor]))
+            self.assertEqual(accept['r4']-dev['r4'],0x100000)
+            self.assertNotEqual(accept['r12'],dev['r12'])
+        self.assertEqual(len(combinations),128)
+        for invalid in (-4096,1,0x800000):
+            with self.assertRaises(ValueError):
+                matrix_clip_probe_plan.fixture(0, invalid)
+
     def test_indirect_cfg_leads_validate_image_and_preserve_aliases(self):
         image = struct.pack('<4H', 0x0023, 0x0009, 0x000b, 0x0009)
         with tempfile.TemporaryDirectory() as temporary:
