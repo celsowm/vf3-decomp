@@ -16,6 +16,22 @@ int vf3_advance_client_wrappers(uint32_t entry,vf3_matrix_state *s,const vf3_ram
     uint32_t operation=0;
     entry&=0x1fffffffu;
     switch(entry) {
+    case 0x0c045e4e: /* Forward three fields to real command 14, mode 1. */
+        push(s,ram,R(16)); R(15)-=12;
+        write(R(15)+4,R(6),4); write(R(15)+8,R(7),4);
+        R(7)=1; write(R(15),R(5),4);
+        R(3)=read(R(15)+8,4); push(s,ram,R(3));
+        R(2)=read(R(15)+8,4); push(s,ram,R(2));
+        R(6)=R(15)+8; R(3)=0x0c044cc0; R(5)=14;
+        if(!call(s,ram,R(3),0x0c045e6c)) return 0;
+        R(15)+=20; R(16)=pop(s,ram); s->pc=R(16); return ram->oob==0;
+    case 0x0c0801de: /* Prepare the resource, then tail-call its operation. */
+        push(s,ram,R(16)); R(15)-=8;
+        write(R(15),R(4),4); write(R(15)+4,R(5),4);
+        if(!call(s,ram,0x0c08019e,0x0c0801e8)) return 0;
+        R(3)=0x0c07ba28; R(4)=read(R(15),4); R(5)=read(R(15)+4,4);
+        R(15)+=8; R(16)=pop(s,ram); return vf3_matrix_family(R(3),s,ram);
+
     case 0x0c04ff62: /* Address a 32-byte slot in a validated client record. */
         R(3)=0x148; R(0)=R(5); push(s,ram,R(19));
         R(19)=(uint32_t)((int32_t)(int16_t)R(3)*(int32_t)(int16_t)R(4));

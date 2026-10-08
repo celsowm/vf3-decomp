@@ -6391,6 +6391,111 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "percentage-angular:0x8c0abcb8": {
+    "golden": "extract/analysis/percentage_small_complete_dev/f_8c0abcb8.cases",
+    "port": "src/fight/percentage_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Static original-image C; full body in both corpora; directed style-5 and style-7 angular branches; 1152 development and 794 independent relocated acceptance cases; resource-index excluded from this proof.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0abcb8"
+  },
+  "percentage-aux-completion:0x8c08919e": {
+    "golden": "extract/analysis/percentage_aux_completion_dev/percentage_aux_completion_dev_8c08919e/f_8c08919e.cases",
+    "port": "src/fight/percentage_aux_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent relocated acceptance; complete 210-byte body in both corpora, real helper calls, strict zero-skip replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08919e"
+  },
+  "percentage-auxiliary:0x8c07385c": {
+    "golden": "extract/analysis/percentage_aux_complete_dev/f_8c07385c.cases",
+    "port": "src/fight/percentage_aux_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Three static original-image C bodies; full development and independent relocated acceptance; strict architectural and RAM replay with zero skips; real helper implementations.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07385c"
+  },
+  "percentage-auxiliary:0x8c081a46": {
+    "golden": "extract/analysis/percentage_aux_complete_dev/f_8c081a46.cases",
+    "port": "src/fight/percentage_aux_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Three static original-image C bodies; full development and independent relocated acceptance; strict architectural and RAM replay with zero skips; real helper implementations.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081a46"
+  },
+  "percentage-auxiliary:0x8c081a9e": {
+    "golden": "extract/analysis/percentage_aux_complete_dev/f_8c081a9e.cases",
+    "port": "src/fight/percentage_aux_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Three static original-image C bodies; full development and independent relocated acceptance; strict architectural and RAM replay with zero skips; real helper implementations.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c081a9e"
+  },
+  "percentage-clients:0x8c03ca8c": {
+    "golden": "extract/analysis/percentage_fullbody_complete_dev/f_8c03ca8c.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two readable argument-forwarding clients and three existing leaf translations; full body in development and independent relocated acceptance; real callees; text wrappers excluded pending acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03ca8c"
+  },
+  "percentage-clients:0x8c03caac": {
+    "golden": "extract/analysis/percentage_fullbody_complete_dev/f_8c03caac.cases",
+    "port": "src/fight/target_remaining_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two readable argument-forwarding clients and three existing leaf translations; full body in development and independent relocated acceptance; real callees; text wrappers excluded pending acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03caac"
+  },
+  "percentage-clients:0x8c03e79e": {
+    "golden": "extract/analysis/percentage_fullbody_complete_dev/f_8c03e79e.cases",
+    "port": "src/fight/tenpp_complex_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two readable argument-forwarding clients and three existing leaf translations; full body in development and independent relocated acceptance; real callees; text wrappers excluded pending acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03e79e"
+  },
+  "percentage-clients:0x8c045e4e": {
+    "golden": "extract/analysis/percentage_fullbody_complete_dev/f_8c045e4e.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two readable argument-forwarding clients and three existing leaf translations; full body in development and independent relocated acceptance; real callees; text wrappers excluded pending acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c045e4e"
+  },
+  "percentage-clients:0x8c0801de": {
+    "golden": "extract/analysis/percentage_fullbody_complete_dev/f_8c0801de.cases",
+    "port": "src/fight/advance_client_wrappers.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Two readable argument-forwarding clients and three existing leaf translations; full body in development and independent relocated acceptance; real callees; text wrappers excluded pending acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0801de"
+  },
+  "percentage-family:0x8c06e1ae": {
+    "golden": "extract/analysis/percentage_globals_completion_dev/percentage_globals_completion_dev_8c09c044_8c06e1ae/f_8c06e1ae.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-image body in development and independent relocated acceptance; real helper calls; input-only callee-global and record-sentinel dimensions; static C scaffold plus existing interpolation C.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c06e1ae"
+  },
+  "percentage-family:0x8c09c044": {
+    "golden": "extract/analysis/percentage_globals_completion_dev/percentage_globals_completion_dev_8c09c044_8c06e1ae/f_8c09c044.cases",
+    "port": "src/fight/percentage_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original-image body in development and independent relocated acceptance; real helper calls; input-only callee-global and record-sentinel dimensions; static C scaffold plus existing interpolation C.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09c044"
+  },
+  "percentage-index:0x8c07abf8": {
+    "golden": "extract/analysis/percentage_index_contract_dev/percentage_index_contract_dev_8c07abf8/f_8c07abf8.cases",
+    "port": "src/fight/resource_index_reset.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable table sentinel reset with real per-index helper; original caller constants r14=10/r11=82/r13=0; complete original body; 247 development and 247 independent acceptance cases. Generic out-of-caller-range helper mismatch remains outside this contract.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07abf8"
+  },
+  "percentage-indicator:0x8c07ae30": {
+    "golden": "extract/analysis/percentage_rng_ui_complete_dev/f_8c07ae30.cases",
+    "port": "src/fight/tenpp_expanded_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable transform/render/RNG composition and existing resource-index claim C; full body in both corpora; real helpers; independent relocated acceptance with zero and nonzero RNG low bits; 759/1152 indicator and 457/896 claim cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07ae30"
+  },
+  "percentage-indicator:0x8c08a61c": {
+    "golden": "extract/analysis/percentage_rng_ui_complete_dev/f_8c08a61c.cases",
+    "port": "src/fight/scene_indicator.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable transform/render/RNG composition and existing resource-index claim C; full body in both corpora; real helpers; independent relocated acceptance with zero and nonzero RNG low bits; 759/1152 indicator and 457/896 claim cases.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08a61c"
+  },
   "percentage-menu:0x8c0c80be": {
     "golden": "extract/analysis/percentage_menu_verified_dev/f_8c0c80be.cases",
     "port": "src/fight/target_extended_adapters.c",
@@ -6404,6 +6509,20 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable packed motion transition command; full frozen body in development and independent relocated acceptance, states 21/27 versus 23/29, zero-skip strict replay.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0af1a4"
+  },
+  "percentage-random-fraction:0x8c0c9d04": {
+    "golden": "extract/analysis/percentage_rng_complete_dev/f_8c0c9d04.cases",
+    "port": "src/fight/random_fraction.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable real 15-bit generator to float scaling; zero, nonzero, upper-range seeds and varied multipliers/increments; 618 development and 512 independent acceptance cases; full body in both.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c9d04"
+  },
+  "percentage-resource-result:0x8c05c90e": {
+    "golden": "extract/analysis/percentage_callee_globals_complete_dev/f_8c05c90e.cases",
+    "port": "src/fight/resource_ranges.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable real resource helper return mapping; full body in both corpora; independent relocated acceptance; sound wrappers excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05c90e"
   },
   "percentage-resources:0x8c03666e": {
     "golden": "extract/analysis/percentage_static_complete_dev/f_8c03666e.cases",
@@ -6467,6 +6586,13 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable callback selection and resource ranges; complete original development bodies, independent states 23/29 and relocated inputs; zero-skip strict replay.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c0208"
+  },
+  "percentage-selection:0x8c0c2f4e": {
+    "golden": "extract/analysis/percentage_selection_complete_dev/f_8c0c2f4e.cases",
+    "port": "src/fight/percentage_family_adapters.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete selection body in both corpora; original prefix-derived r11/r14 constants for directed branch; real callees; 677 development and 606 independent relocated acceptance cases; failed 400-frame acceptance excluded.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c2f4e"
   },
   "phase1:0x8c0721ee": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c0721ee.cases",

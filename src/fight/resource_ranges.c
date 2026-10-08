@@ -22,6 +22,15 @@ int vf3_resource_ranges(uint32_t entry, vf3_matrix_state *s,
     R(15) -= 4;
     vf3_matrix_write(ram, R(15), R(16), 4);
     switch (entry & 0x1fffffffu) {
+    case 0x0c05c90e:
+        R(3) = 0x0c16cea8;
+        R(2) = 0x0c0632d2;
+        R(4) = read_word(R(3));
+        if (!call(s, ram, R(2), 0x0c05c918)) return 0;
+        condition(s, R(0) == 1);
+        R(0) = (R(17) & 1u) ? 0 : 13;
+        break;
+
     case 0x0c05cace:
         R(5) = read_word(0x0c16ca70);
         R(4) = read_word(0x0c16ca6c);

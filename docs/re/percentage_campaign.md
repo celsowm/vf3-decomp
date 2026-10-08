@@ -126,3 +126,38 @@ independent states and relocation convention described above.
 static callees, with source provenance, excluding code, pointers, callback
 stubs and float fields. These input hypotheses carry no coverage credit.
 The sound and larger-family acceptance investigations remain uncredited.
+
+## Accepted family and helper expansion
+
+The next ten milestones add **2,436 unique bytes**, moving from 249,938 to **252,374 / 434,656 (58.06%)**. Campaign gain is **3,620 bytes / 0.833 percentage points**, across 29 newly credited entries. The 65% objective still needs **30,153 bytes**. Every listed body executes completely in both development and independent acceptance; all strict replays have zero skips. All thirteen milestone hash audits and their address-union chain pass.
+
+| Milestone manifest | Roots | Unique gain | Development / acceptance cases |
+| --- | --- | ---: | --- |
+| [percentage_family_milestone](../../tools/oracle/percentage_family_milestone.json) | 0x8c06e1ae, 0x8c09c044 | 674 | 0x8c06e1ae: 1024/1279; 0x8c09c044: 1016/1015 |
+| [percentage_resource_result_milestone](../../tools/oracle/percentage_resource_result_milestone.json) | 0x8c05c90e | 28 | 0x8c05c90e: 864/1023 |
+| [percentage_selection_milestone](../../tools/oracle/percentage_selection_milestone.json) | 0x8c0c2f4e | 650 | 0x8c0c2f4e: 677/606 |
+| [percentage_index_milestone](../../tools/oracle/percentage_index_milestone.json) | 0x8c07abf8 | 48 | 0x8c07abf8: 247/247 |
+| [percentage_angular_milestone](../../tools/oracle/percentage_angular_milestone.json) | 0x8c0abcb8 | 140 | 0x8c0abcb8: 1152/794 |
+| [percentage_clients_milestone](../../tools/oracle/percentage_clients_milestone.json) | 0x8c03ca8c, 0x8c03caac, 0x8c03e79e, 0x8c045e4e, 0x8c0801de | 120 | 0x8c03ca8c: 512/879; 0x8c03caac: 511/881; 0x8c03e79e: 258/881; 0x8c045e4e: 66/148; 0x8c0801de: 465/904 |
+| [percentage_rng_milestone](../../tools/oracle/percentage_rng_milestone.json) | 0x8c0c9d04 | 26 | 0x8c0c9d04: 618/512 |
+| [percentage_indicator_milestone](../../tools/oracle/percentage_indicator_milestone.json) | 0x8c07ae30, 0x8c08a61c | 236 | 0x8c07ae30: 457/896; 0x8c08a61c: 759/1152 |
+| [percentage_aux_milestone](../../tools/oracle/percentage_aux_milestone.json) | 0x8c07385c, 0x8c081a46, 0x8c081a9e | 304 | 0x8c07385c: 237/563; 0x8c081a46: 371/718; 0x8c081a9e: 364/716 |
+| [percentage_aux_completion_milestone](../../tools/oracle/percentage_aux_completion_milestone.json) | 0x8c08919e | 210 | 0x8c08919e: 449/402 |
+
+New readable modules cover indexed resource reset (`resource_index_reset.c`), a real-generator floating random fraction (`random_fraction.c`), and a scene indicator with real transform and render calls (`scene_indicator.c`). Existing readable resource/client wrappers gained small entry points. The larger selection, angular and auxiliary bodies use static instruction adapters as integration scaffolding; they still need semantic cleanup. Newly verified existing C contributes the interpolation, resource-claim and three client bodies.
+
+The indexed reset is verified under the original caller contract R14=10, R11=82, R13=0, established by the prefix at 0x8c07abe8. A generic out-of-contract large-index specimen exposed a helper RAM mismatch and is retained uncredited. This proof does not claim arbitrary index limits.
+
+Input recipes for these milestones are retained in `tools/oracle/percentage_inputs/`. The manifests freeze exact corpus paths, case hashes, immutable executable names and SHA-256 hashes. Regeneration uses `isolate_planned.py`; original input recipes contain no expected outputs or executable patches. Development uses states 21/27, acceptance uses states 23/29 with holdout values and relocation 0x100000. Merged corpora close individually documented branch gaps; raw failed or incomplete runs provide no credit.
+
+## Parked hypotheses and remaining boundaries
+
+`task_text_commands.c` is development-only C for 0x8c06c52a / 0x8c06cea2. These are text-rendering commands; the exploratory `percentage_sound_*` artifact names were an incorrect initial label. Both bodies pass full-body development replay, but independent acceptance misses 14 bytes per body. Attempts to reach the nonzero helper-return path encounter invalid render callbacks. Neither wrapper receives coverage credit.
+
+The loaded-state pilot used new development states 31/35 for forty roots with 9,276 advisory bytes. It produced no new qualifying body: successful cases were sparse, often only one scenario, and some runs incomplete. It is parked; changing game state alone did not resolve the caller contracts. Other bounded pilots covered additional shared families and one hundred previously unattempted static roots. Their queue potential is not accepted coverage.
+
+Original-instruction inspection found apparently unreachable paths in 0x8c0853fe (sign-extended 16-bit value compared above 0x8000), 0x8c0c15f8 (negative tests after masking with 63), and helper 0x8c0a2e06 (contradictory table tests without intervening writes). No denominator adjustment or dead-code exemption is applied. The first two remain at 326/332 and 310/342 bytes; all three families remain uncredited.
+
+Campaign-tool tests: **46 passed**. The full integrated gate uses its frozen 1,295-binding inventory and family-v1 executable; additional bindings and changed client dispatch require a separate current-executable affected regression. Completion of either gate is reported separately, rather than inferred from progress output.
+
+Current-executable affected regression: **37/37 bindings PASS**, plus all native replay tests and golden metadata checks (`percentage_checkpoint_affected_regression.log`). It uses immutable `vf3matrixfamily_percentage_aux_v2_dev.exe`, covering every percentage binding and earlier bindings owned by changed resource/client wrappers.

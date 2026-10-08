@@ -49,6 +49,14 @@ int vf3_command_encoders(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_percentage_aux_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_percentage_aux_adapter_contains(uint32_t);
+int vf3_percentage_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_percentage_family_adapter_contains(uint32_t);
+int vf3_scene_indicator(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_random_fraction(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_resource_index_reset(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_task_text_command(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_target_family_adapter_contains(uint32_t);
 int vf3_target_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -172,10 +180,21 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    if(entry==0x0c08a61cu) return vf3_scene_indicator(s,ram);
+    if(entry==0x0c0c9d04u) return vf3_random_fraction(s,ram);
+    if(entry==0x0c045e4eu || entry==0x0c0801deu)
+        return vf3_advance_client_wrappers(entry,s,ram);
+    if(entry==0x0c07abf8u) return vf3_resource_index_reset(s,ram);
     if(entry==0x0c059400u) return vf3_task_callback_select(entry,s,ram);
     if(entry==0x0c0af1a4u) return vf3_motion_flag_command(s,ram);
-    if(entry==0x0c05caceu || entry==0x0c061ba8u)
+    if(entry==0x0c05caceu || entry==0x0c061ba8u || entry==0x0c05c90eu)
         return vf3_resource_ranges(entry,s,ram);
+    if(entry==0x0c06c52au || entry==0x0c06cea2u)
+        return vf3_task_text_command(entry,s,ram);
+    if(vf3_percentage_aux_adapter_contains(entry))
+        return vf3_percentage_aux_adapter(entry,s,ram);
+    if(vf3_percentage_family_adapter_contains(entry))
+        return vf3_percentage_family_adapter(entry,s,ram);
     switch(entry) {
     case 0x0c040f1e:
     case 0x0c040c90: case 0x0c040c92: case 0x0c040d1c: case 0x0c040d20:
