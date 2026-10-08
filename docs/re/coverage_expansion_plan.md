@@ -1,5 +1,9 @@
 # Coverage expansion plan — 2026-10-08
 
+The next execution plan is [next_coverage_campaign.md](next_coverage_campaign.md),
+rebased on the accepted 58.40% checkpoint and the measured first-pass blockers.
+The original objectives and execution record below remain historical context.
+
 ## Objective and accounting
 
 Advance verified unique C coverage from **248,754 / 434,656 (57.23%)** to
