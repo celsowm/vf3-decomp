@@ -125,6 +125,9 @@ add_library(vf3core STATIC
     src/fight/indexed_vertex_adapters.c
     src/fight/object_pool_adapters.c
     src/fight/motion_model_selection.c
+    src/fight/script_scale_commands.c
+    src/fight/script_position_command.c
+    src/fight/motion_descriptor_command.c
     src/fight/random_fraction.c
     src/fight/scene_indicator.c
     src/fight/percentage_family_adapters.c

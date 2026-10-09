@@ -1,0 +1,61 @@
+{
+ "passed": true,
+ "current_bindings": 1361,
+ "inventory": {
+  "path": "tools/golden_bindings.json",
+  "sha256": "7f36533cbec985bb688af5904fbebb27918967208952510a61814ab101ccd18a"
+ },
+ "executable": {
+  "path": "build/vf3matrixfamily_5914_motion_v1_dev.exe",
+  "sha256": "8a9a1920ccd88aa80fecd091c83af9f696d0a918cffec2e52bb2e0271bedca5b"
+ },
+ "parts": [
+  {
+   "bindings": 1361,
+   "inventory": {
+    "path": "extract/analysis/percentage_5914_final_bindings.json",
+    "sha256": "7f36533cbec985bb688af5904fbebb27918967208952510a61814ab101ccd18a"
+   },
+   "log": {
+    "path": "extract/analysis/percentage_5914_final_regression.log",
+    "sha256": "2eeee345621acb1a35924889558834d6b388998c9831d7dcd4338b83027a311a"
+   },
+   "status": {
+    "expected_bindings": 1361,
+    "reported_bindings": 1361,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+     "portcheck": "PASS"
+    },
+    "last_lines": [
+     "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+     "portcheck: PASS"
+    ]
+   }
+  }
+ ],
+ "native_test_count": 39,
+ "native_results": {
+  "path": "extract/analysis/percentage_5914_native_results.json",
+  "sha256": "80eb62525a0f1f5ad93a386f5f1b08fc4e09c22fb261e118e06fb18347ff4826"
+ },
+ "tool_test_count": 54,
+ "tool_tests": {
+  "path": "extract/analysis/percentage_5914_final_tool_tests.log",
+  "sha256": "19e79d394f3feb2034b6d4b8379b35ef44e3f45f76926fb03dfaffd8b5ef450e"
+ },
+ "chain_audit": {
+  "path": "extract/analysis/percentage_5914_final_chain_audit.json",
+  "sha256": "84cae1fadc4514f91cbc2fb4b7d5d7d5f85427831e6883ea5c981100f71909ae"
+ },
+ "baseline_bytes": 257050,
+ "accepted_bytes": 257644,
+ "new_bytes": 594,
+ "new_bodies": 4,
+ "total_body_bytes": 434656,
+ "percentage": 59.27538099094456
+}

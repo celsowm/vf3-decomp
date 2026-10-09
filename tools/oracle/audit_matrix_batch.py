@@ -9,8 +9,21 @@ import re
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from callable_body import validate as validate_callable
+from body_cover import corpus_pcs, measure
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def check_proof_archive(case, archive, check_hashes, root=ROOT):
+    files = sorted(p for p in case.parent.glob(case.stem+'*') if p.is_file())
+    assert len(files) == archive['count'], 'proof artifact count changed'
+    if check_hashes:
+        digest = hashlib.sha256()
+        for path in files:
+            with path.open('rb') as stream:
+                file_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
+            digest.update((path.relative_to(root).as_posix()+'\\0'+file_hash+'\\n').encode())
+        assert digest.hexdigest() == archive['sha256'], 'proof corpus changed'
 
 
 def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
@@ -79,22 +92,18 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                 archive_hash.update((artifact+'\\0'+digest+'\\n').encode())
         if check_hashes:
             assert archive_hash.hexdigest() == evidence['artifacts']['sha256'], f'Changed corpus: {entry}'
-        if attribution:
+        if attribution or evidence.get('proof_artifacts'):
             scenario_sets = []
             for proof_name, proof in evidence['proofs'].items():
                 proof_case = ROOT / proof['cases']
                 proof_dir = proof_case.parent
                 archive = evidence['proof_artifacts'][proof_name]
-                files = sorted(p for p in proof_dir.glob(proof_case.stem+'*') if p.is_file())
-                assert len(files) == archive['count'], 'proof artifact count changed'
-                if check_hashes:
-                    digest = hashlib.sha256()
-                    for path in files:
-                        with path.open('rb') as stream:
-                            file_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
-                        digest.update((path.relative_to(ROOT).as_posix()+'\\0'+file_hash+'\\n').encode())
-                    assert digest.hexdigest() == archive['sha256'], 'proof corpus changed'
-                validate_callable(e, attribution, ranges[e], proof_dir)
+                check_proof_archive(proof_case, archive, check_hashes)
+                if attribution:
+                    validate_callable(e, attribution, ranges[e], proof_dir)
+                else:
+                    proof_pcs = corpus_pcs([proof_dir])
+                    assert measure(e, ranges[e], proof_pcs[int(invocation,16)][0])[:2] == (evidence['size'], evidence['size']), 'incomplete proof body execution'
                 cm = json.loads((proof_dir/'capsule_manifest.json').read_text())
                 bm = json.loads((proof_dir/'batch_manifest.json').read_text())
                 assert all(r['returncode'] == 0 and r['frame_complete'] for r in bm['runs'])

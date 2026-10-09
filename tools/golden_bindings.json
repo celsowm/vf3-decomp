@@ -6391,6 +6391,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "percentage-5914-motion-descriptor:0x8c0a8d5c": {
+    "golden": "extract/analysis/percentage_5914_motion_proof_dev/f_8c0a8d5c.cases",
+    "port": "src/fight/motion_descriptor_command.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable motion descriptor install; original packed runtime motion table and real frame helpers; 241 development inputs in states 27/29 and 485 changed relocated acceptance inputs in states 26/28.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a8d5c"
+  },
+  "percentage-5914-script-position:0x8c0af38c": {
+    "golden": "extract/analysis/percentage_5914_position_proof_dev/f_8c0af38c.cases",
+    "port": "src/fight/script_position_command.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable original opcode 34 position update; original prefix, sine/cosine helpers and dispatcher; independent relocated changed finite positions in states 23 and 29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af38c"
+  },
+  "percentage-5914-script-scale:0x8c0af44e": {
+    "golden": "extract/analysis/percentage_script_siblings_proof_dev/f_8c0af44e.cases",
+    "port": "src/fight/script_scale_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable scaled word and bounded decrement; real prefixes, dispatcher and model selector; independently relocated changed-input acceptance in states 23 and 29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af44e"
+  },
+  "percentage-5914-script-scale:0x8c0af610": {
+    "golden": "extract/analysis/percentage_script_siblings_proof_dev/f_8c0af610.cases",
+    "port": "src/fight/script_scale_commands.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable scaled word and bounded decrement; real prefixes, dispatcher and model selector; independently relocated changed-input acceptance in states 23 and 29.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0af610"
+  },
   "percentage-angular:0x8c0abcb8": {
     "golden": "extract/analysis/percentage_small_complete_dev/f_8c0abcb8.cases",
     "port": "src/fight/percentage_family_adapters.c",

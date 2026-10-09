@@ -1,0 +1,100 @@
+{
+ "advisory": true,
+ "coverage_credit": false,
+ "passed": false,
+ "note": "Repeatability fails within the observed repetitions; cannot infer observer equivalence or causation. No scheduler guard changed.",
+ "runs": [
+  {
+   "state": "state27",
+   "ram": [
+    {
+     "run": "repeat1",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134102383.bin",
+     "bytes": 16777216,
+     "sha256": "45a3597876e09a4b1f0fab647cda210786660b1b12e360469cb1ba38f256d27b"
+    },
+    {
+     "run": "repeat2",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134107911.bin",
+     "bytes": 16777216,
+     "sha256": "0db5ff68dcb4edb6de7daa8ce6c13d1fae92fd033c6a426356dc10f5bb34c8f6"
+    },
+    {
+     "run": "repeat3",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134113475.bin",
+     "bytes": 16777216,
+     "sha256": "b0768d8695244030531c3e714eb0d365dda6a29a7c2400daf36bf836d452a998"
+    },
+    {
+     "run": "control",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134119211.bin",
+     "bytes": 16777216,
+     "sha256": "693b1935ea88ad18981d14799b77dd0dd608fec33c5eb1c3987c3f4538607c66"
+    }
+   ],
+   "repetition_equal": false,
+   "observed_control_equal": false
+  },
+  {
+   "state": "state31",
+   "ram": [
+    {
+     "run": "repeat1",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134262818.bin",
+     "bytes": 16777216,
+     "sha256": "6a7806cbbacb2ea28ab091af9b28e7d6a09de632320e42b1c73801b4cf6c9339"
+    },
+    {
+     "run": "repeat2",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134268962.bin",
+     "bytes": 16777216,
+     "sha256": "0d99eafda1f23de216ea494ac888c33371bce6770ea31deae5395e76e556df4a"
+    },
+    {
+     "run": "repeat3",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134275098.bin",
+     "bytes": 16777216,
+     "sha256": "56db89a474d21501dd747f98944445beb2f1bd7d08adcaef26b3b27790b857ab"
+    },
+    {
+     "run": "control",
+     "path": "extract/analysis/shots/mem_passive_final_v2_134281510.bin",
+     "bytes": 16777216,
+     "sha256": "53156f73cbe6eba5824a42b52b68e9539ba795518b25115a2850f6278d39bd92"
+    }
+   ],
+   "repetition_equal": false,
+   "observed_control_equal": false
+  }
+ ],
+ "provenance": [
+  {
+   "path": "tools/emu/flycast-build/flycast.exe",
+   "sha256": "70f8d1ef53c9890e47f93f1376cb2b74c0aa5dea7f13e1994a19e8b34360d504"
+  },
+  {
+   "path": "tools/oracle/vf3oracle.cpp",
+   "sha256": "b75dbd9ee6c356e864291d49189f1b95b6bb5b3d17625fc1a9e08fa776d791ef"
+  },
+  {
+   "path": "extract/analysis/percentage_5914_passive_play.txt",
+   "sha256": "80738c070f11041e0a7761625850d273bd466d2adcb5667e6a1414c60d263c20"
+  },
+  {
+   "path": "extract/analysis/percentage_5914_passive_repetition_v2/batch_manifest.json",
+   "sha256": "c9328e911332bbbae877c1201e588577cecd3dd9de1d4f5af65a6f10944ab914"
+  },
+  {
+   "path": "extract/analysis/percentage_5914_passive_control_v2/batch_manifest.json",
+   "sha256": "27a96ff005d27b22eab1a9964cdd4cee67af818bb34c202d05d881a318bab8a9"
+  },
+  {
+   "path": "extract/analysis/percentage_5914_fight_passive_repetition/batch_manifest.json",
+   "sha256": "889b99f0d2bb915526be5d626b09ad27cb1d744e1a18fadd95c13fdcafb768e3"
+  },
+  {
+   "path": "extract/analysis/percentage_5914_fight_passive_control/batch_manifest.json",
+   "sha256": "82f564c47275e0777b5bb4b18dd5a164e3e3ca64ea9c8d0b9e9acb2b62020a82"
+  }
+ ]
+}

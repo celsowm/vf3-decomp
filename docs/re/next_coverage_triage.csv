@@ -64,9 +64,27 @@ matrix_frame,0x8c0877ac,parked,276,280,finite squared magnitude branch requires 
 scene_diagnostic,0x8c0831f8,parked,0,1964,original prefix 0x8c0831ea calls diagnostic output repeatedly; recover real state and output boundary before capture
 script_damage,0x8c0ae5b0,accepted,318,318,original opcode 8 plus opcode 1 dispatch tail; 256 development and 256 acceptance strict cases
 script_scale,0x8c0ae9f6,accepted,102,102,original opcode 16 signed scale clamp 40; 256 development and 256 acceptance strict cases
-script_scale,0x8c0af44e,implementation_pending,60,60,complete original capture; strict replay unsupported entry; no credit
-script_scale,0x8c0af610,implementation_pending,182,182,complete original capture; strict replay unsupported entry; no credit
+script_scale,0x8c0af44e,accepted,60,60,readable scaled word; 256 development and 512 independently relocated acceptance inputs; original prefix and dispatcher
+script_scale,0x8c0af610,accepted,182,182,readable bounded decrement and model refresh; 256 development and 512 acceptance inputs; all frozen branches covered
 texture_stream,0x8c05ea24,contract_pending,0,104,original prefix 0x8c05ea1c has descriptor R4 source R5 offset R6 length R7 and calls transfer 0x8c060d78
 texture_stream,0x8c05c8a6,contract_pending,0,104,original prefix 0x8c05c892 selects table slot and retries 0x8c062fc2 while result 256; needs original transfer contract
 scene_selection,0x8c0c74bc,contract_pending,0,234,original prefix 0x8c0c74b8 uses RNG 0x8c0c9ce6 actor globals and scene transition tail
 scene_timeline,0x8c08acd8,contract_pending,0,512,original prefix 0x8c08acc0 updates two fighter records and submits commands through 0x8c0c5d86
+script_position,0x8c0af38c,accepted,188,188,readable position recomposition; 256 development and 256 independent acceptance inputs; original trig helpers
+motion_descriptor,0x8c0a8d5c,accepted,164,164,readable descriptor install; 241 development states 27/29 and 485 independent relocated acceptance states 26/28; original runtime motion table
+script_submission,0x8c0af0f6,contract_pending,46,124,original prefix 0x8c0af0f2 reaches actual AICA pool; only 32 complete distinct inputs; scheduler rejection retained
+object_callback,0x8c04f598,contract_pending,108,112,original callback 0x8c066d32 recovered naturally; negative 0x8c04bf28 result branch remains uncovered
+object_callback,0x8c04f632,contract_pending,94,258,typed descriptor pilot reaches 88 complete inputs; copy and retry branches remain uncovered
+object_callback,0x8c04f75e,contract_pending,110,276,256 complete pilot inputs; descriptor loop body remains incomplete
+object_callback,0x8c04fc96,contract_pending,88,116,256 complete pilot inputs; positive lookup path remains uncovered
+object_callback,0x8c050008,contract_pending,0,240,original prefix 0x8c04fffc produced no qualifying complete corpus in bounded pilot; recover status and callback contract
+motion_descriptor,0x8c0a9040,contract_pending,210,348,real runtime motion table and actors recovered; global 0x800 special path and nested frame branches remain uncovered
+motion_descriptor,0x8c0a94d4,contract_pending,178,188,real runtime motion table; equal motion with frame selector other than one remains uncovered
+scene_input,0x8c09b2a4,contract_pending,0,176,original prefix 0x8c09b298; bounded input-mode pilot rejected at scheduler crossings; helper has only 27 complete inputs
+scene_input,0x8c09b6e4,contract_pending,0,490,original prefix 0x8c09b6d6; bounded input-mode pilot rejected at scheduler crossings; helper has only 17 complete inputs
+scene_input,0x8c09b982,contract_pending,0,236,original prefix 0x8c09b978; no complete caller; input helper is not a packed motion decoder
+scene_input,0x8c09ce96,contract_pending,0,200,original prefix 0x8c09ce8c; no complete caller; scheduler guard retained
+scene_input,0x8c09cfb6,contract_pending,0,200,original prefix 0x8c09cfac; no complete caller; scheduler guard retained
+style_commands,0x8c098042,contract_pending,0,72,original prefix 0x8c098040; no complete caller through real sound pool
+style_commands,0x8c099070,contract_pending,66,232,original prefix 0x8c099060; 106 complete inputs but special-command paths uncovered
+style_commands,0x8c0c9f62,contract_pending,128,188,original prefix 0x8c0c9f54; 36 complete inputs; input clamp and style-command branches uncovered

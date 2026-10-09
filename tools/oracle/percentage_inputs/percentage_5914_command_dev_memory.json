@@ -1,0 +1,98 @@
+{
+ "0x8c0c5d86": {
+  "0xc29b86c": {
+   "values": [
+    0,
+    3,
+    7
+   ],
+   "stride": 3
+  },
+  "0xc11e504": {
+   "values": [
+    0,
+    16777216
+   ],
+   "stride": 5
+  },
+  "0xc1fd758": {
+   "values": [
+    0,
+    1,
+    2,
+    7
+   ],
+   "stride": 7
+  },
+  "0xc2cfa00": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa04": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa08": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa0c": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa10": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa14": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa18": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfa1c": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2d0170": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  },
+  "0xc2cfb90": {
+   "values": [
+    0,
+    2
+   ],
+   "stride": 13
+  }
+ }
+}

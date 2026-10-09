@@ -127,11 +127,11 @@ def main():
             source='100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; ' + a.note)
         entries[entry] = dict(new_credit=True, size=sizes[e], binding=key, port=port,
             proofs={name: report[invocation] for name, report in reports.items()},
-            artifacts=artifacts(case), covered_bytes=sizes[e])
+            artifacts=artifacts(case), covered_bytes=sizes[e],
+            proof_artifacts={name: artifacts(ROOT / report[invocation]['cases'])
+                             for name, report in reports.items()})
         if attribution:
             entries[entry]['callable_body'] = attribution
-            entries[entry]['proof_artifacts'] = {name: artifacts(ROOT / report[invocation]['cases'])
-                for name, report in reports.items()}
             bindings[key]['callable_body'] = attribution
         print(f'{entry}: proof gates and {entries[entry]["artifacts"]["count"]} artifact hashes checked',
               flush=True)

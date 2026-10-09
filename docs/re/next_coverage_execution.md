@@ -186,3 +186,7 @@ capture, negative controls and a C model before longer audio calls can qualify.
 No scheduler-crossing restriction is relaxed and `0x8c040fa4` remains uncredited.
 
 The next execution order is recorded in [coverage_after_5914_plan.md](coverage_after_5914_plan.md), starting from this accepted checkpoint.
+
+Execution of that plan is recorded in [coverage_5914_execution.md](coverage_5914_execution.md):
+four readable bodies add 594 unique bytes, reaching 257,644 / 434,656 (59.28%).
+The larger percentage objective remains open.
