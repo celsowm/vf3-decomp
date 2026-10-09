@@ -63,7 +63,7 @@ entry,status,file,size,method,oracle
 0x8C0403C0,ported-invocation,src/fight/seventh_c_adapters.c,182,static original-image C control flow; complete invocation replay,2 distinct development cases; docs/re/seventh_coverage_batch.md
 0x8c0406b8,ported,src/fight/unknown.c,250,capture-driven port,partial-cover promotion: 5 cases from fifth_combined_cases corpus - PASS (body cover 76.0%); see docs/re/fourteenth_coverage_batch.md
 0x8c0409d2,ported,src/fight/vf3_motion_final_adapter.c,260,capture-driven port,matrix_final: 2 strict cases from motion_final corpus - PASS; see docs/re/eleventh_coverage_batch.md
-0x8C040B7E,ported-invocation,src/fight/seventh_c_adapters.c,226,static original-image C control flow; complete invocation replay,8 distinct development cases; docs/re/seventh_coverage_batch.md
+0x8C040B7E,ported-invocation,src/fight/audio_encoder.c,226,readable general A0 command encoder; complete invocation replay,8 historical fragment cases plus 128 original callable captures and 126 distinct native cases; no live C acceptance; docs/re/audio_encoder.md
 0x8c040f1e,ported,src/fight/f040f1e.c,74,oracle-verified (RAM shadow diff),f040f1e_replay 1/1 PASS (paired register+RAM case over SH-4 and AICA alias windows; allocator success path)
 0x8c042e44,ported-invocation,src/fight/c788.c,0,static original-image C control flow; complete invocation replay,"matrix_family: 288/288 development strict; 512/512 holdout strict; 512/512 fresh strict; zero skips, zero OOB; >=2 scenarios; full registers/banked/XF/FPUL/GBR/return-PC/RAM; see docs/re/eighth_coverage_batch.md"
 0x8c042fdc,ported,src/lib/sh4rt.c,60,byte-exact,tests/libutil_replay.c PASS

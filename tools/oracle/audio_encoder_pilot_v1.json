@@ -1,0 +1,801 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "pack_00_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397760,
+        "r5": 416,
+        "r6": 0,
+        "r14": 1988689920
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_00_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397761,
+        "r5": 416,
+        "r6": 63,
+        "r14": 1988689921
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_00_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397762,
+        "r5": 416,
+        "r6": 128,
+        "r14": 1988689922
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_00_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397763,
+        "r5": 416,
+        "r6": 4294967295,
+        "r14": 1988689923
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_01_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397779,
+        "r5": 1184,
+        "r6": 0,
+        "r14": 1988689924
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_01_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397780,
+        "r5": 1184,
+        "r6": 63,
+        "r14": 1988689925
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_01_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397781,
+        "r5": 1184,
+        "r6": 128,
+        "r14": 1988689926
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_01_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397782,
+        "r5": 1184,
+        "r6": 4294967295,
+        "r14": 1988689927
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_02_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397798,
+        "r5": 1440,
+        "r6": 0,
+        "r14": 1988689928
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_02_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397799,
+        "r5": 1440,
+        "r6": 63,
+        "r14": 1988689929
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_02_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397800,
+        "r5": 1440,
+        "r6": 128,
+        "r14": 1988689930
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_02_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397801,
+        "r5": 1440,
+        "r6": 4294967295,
+        "r14": 1988689931
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_03_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397817,
+        "r5": 1696,
+        "r6": 0,
+        "r14": 1988689932
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_03_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397818,
+        "r5": 1696,
+        "r6": 63,
+        "r14": 1988689933
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_03_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397819,
+        "r5": 1696,
+        "r6": 128,
+        "r14": 1988689934
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_03_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397820,
+        "r5": 1696,
+        "r6": 4294967295,
+        "r14": 1988689935
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_04_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397836,
+        "r5": 1952,
+        "r6": 0,
+        "r14": 1988689936
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_04_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397837,
+        "r5": 1952,
+        "r6": 63,
+        "r14": 1988689937
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_04_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397838,
+        "r5": 1952,
+        "r6": 128,
+        "r14": 1988689938
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_04_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397839,
+        "r5": 1952,
+        "r6": 4294967295,
+        "r14": 1988689939
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_05_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397855,
+        "r5": 2464,
+        "r6": 0,
+        "r14": 1988689940
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_05_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397856,
+        "r5": 2464,
+        "r6": 63,
+        "r14": 1988689941
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_05_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397857,
+        "r5": 2464,
+        "r6": 128,
+        "r14": 1988689942
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_05_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397858,
+        "r5": 2464,
+        "r6": 4294967295,
+        "r14": 1988689943
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_06_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397874,
+        "r5": 2720,
+        "r6": 0,
+        "r14": 1988689944
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_06_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397875,
+        "r5": 2720,
+        "r6": 63,
+        "r14": 1988689945
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_06_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397876,
+        "r5": 2720,
+        "r6": 128,
+        "r14": 1988689946
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_06_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397877,
+        "r5": 2720,
+        "r6": 4294967295,
+        "r14": 1988689947
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_07_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397893,
+        "r5": 4256,
+        "r6": 0,
+        "r14": 1988689948
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_07_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397894,
+        "r5": 4256,
+        "r6": 63,
+        "r14": 1988689949
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_07_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397895,
+        "r5": 4256,
+        "r6": 128,
+        "r14": 1988689950
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_07_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397896,
+        "r5": 4256,
+        "r6": 4294967295,
+        "r14": 1988689951
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_08_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397912,
+        "r5": 4512,
+        "r6": 0,
+        "r14": 1988689952
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_08_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397913,
+        "r5": 4512,
+        "r6": 63,
+        "r14": 1988689953
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_08_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397914,
+        "r5": 4512,
+        "r6": 128,
+        "r14": 1988689954
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_08_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397915,
+        "r5": 4512,
+        "r6": 4294967295,
+        "r14": 1988689955
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_09_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397931,
+        "r5": 2208,
+        "r6": 0,
+        "r14": 1988689956
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_09_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397932,
+        "r5": 2208,
+        "r6": 63,
+        "r14": 1988689957
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_09_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397933,
+        "r5": 2208,
+        "r6": 128,
+        "r14": 1988689958
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_09_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397934,
+        "r5": 2208,
+        "r6": 4294967295,
+        "r14": 1988689959
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_10_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397950,
+        "r5": 1114272,
+        "r6": 0,
+        "r14": 1988689960
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_10_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397951,
+        "r5": 1114272,
+        "r6": 63,
+        "r14": 1988689961
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_10_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397952,
+        "r5": 1114272,
+        "r6": 128,
+        "r14": 1988689962
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_10_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397953,
+        "r5": 1114272,
+        "r6": 4294967295,
+        "r14": 1988689963
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_11_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397969,
+        "r5": 305398176,
+        "r6": 0,
+        "r14": 1988689964
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_11_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397970,
+        "r5": 305398176,
+        "r6": 63,
+        "r14": 1988689965
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_11_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397971,
+        "r5": 305398176,
+        "r6": 128,
+        "r14": 1988689966
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_11_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397972,
+        "r5": 305398176,
+        "r6": 4294967295,
+        "r14": 1988689967
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_12_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397988,
+        "r5": 0,
+        "r6": 0,
+        "r14": 1988689968
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_12_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397989,
+        "r5": 0,
+        "r6": 63,
+        "r14": 1988689969
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_12_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397990,
+        "r5": 0,
+        "r6": 128,
+        "r14": 1988689970
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_12_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397991,
+        "r5": 0,
+        "r6": 4294967295,
+        "r14": 1988689971
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "pack_13_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398007,
+        "r5": 4294967295,
+        "r6": 0,
+        "r14": 1988689972
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_13_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398008,
+        "r5": 4294967295,
+        "r6": 63,
+        "r14": 1988689973
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_13_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398009,
+        "r5": 4294967295,
+        "r6": 128,
+        "r14": 1988689974
+      },
+      "event_window": true
+    },
+    {
+      "name": "pack_13_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398010,
+        "r5": 4294967295,
+        "r6": 4294967295,
+        "r14": 1988689975
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "broadcast_0_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true
+    },
+    {
+      "name": "broadcast_0_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "broadcast_1_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 0,
+        "0xc19e334": 0,
+        "0xc19e340": 0,
+        "0xc19e34c": 0,
+        "0xc19e358": 0,
+        "0xc19e364": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "broadcast_1_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 0,
+        "0xc19e334": 0,
+        "0xc19e340": 0,
+        "0xc19e34c": 0,
+        "0xc19e358": 0,
+        "0xc19e364": 0
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "broadcast_2_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 0,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 0,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "broadcast_2_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 0,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 0,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "broadcast_3_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "broadcast_3_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 65535,
+        "r5": 2031776,
+        "r6": 2309737967,
+        "r14": 1432778632
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    }
+  ]
+}

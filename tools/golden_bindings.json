@@ -7663,8 +7663,8 @@
   },
   "seventh_c:0x8c040b7e": {
     "golden": "extract/analysis/seventh_c_cases/f_8c040b7e.cases",
-    "port": "src/fight/seventh_c_adapters.c",
-    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device tape; >=64 distinct development inputs in two scenarios; independent holdout and fresh replay",
+    "port": "src/fight/audio_encoder.c",
+    "source": "Readable general A0 encoder; 8 strict historical fragment cases plus 128 original callable-entry captures represented by 126 distinct native pilot cases; observed device tape, no live C acceptance; docs/re/audio_encoder.md",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c040b7e"
   },

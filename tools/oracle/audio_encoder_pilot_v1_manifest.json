@@ -1,0 +1,1125 @@
+{
+  "passed": true,
+  "advisory": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "scope": "Original SH-4 versus native readable C; device reads replayed from an observed tape. No live C/device acceptance.",
+  "entry": "0x8c040b7c",
+  "frozen_owner": "0x8c040b7e",
+  "body_bytes": 226,
+  "original_runs": 128,
+  "native_cases": 126,
+  "legacy_fragment_cases": 8,
+  "aica_crossings": 128,
+  "original": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_original_pilot_v1\\manifest.json",
+    "sha256": "bb0e12b91d01caf64e55030dad40a6e1b4dc5fbb130164fe50531fdd92c4becb"
+  },
+  "recipe": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_encoder_pilot_v1.json",
+    "sha256": "36795d333ef6f81ae314c8321738046d8052a1ba976097d35eadb1dc0811afa5"
+  },
+  "corpus": {
+    "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\capsule_manifest.json",
+    "sha256": "e0c5fa339dc8210029a0893b53565eb804b5b1e9d7c62810f4f7b054196b861c"
+  },
+  "auditor": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_original_v1_inputs\\auditor.py",
+    "sha256": "aa81200de7b906fef0a5e7e560cc71a1dae0ed1a18eb95d7e3a39ea28e006b6f"
+  },
+  "native": {
+    "path": "extract\\analysis\\audio_encoder_pilot_v2_native_report.json",
+    "sha256": "64bc1fb63d3ee49162bae3be37f415b4a89748f11e4515e6bd07140684f35a83"
+  },
+  "fragment": {
+    "path": "extract\\analysis\\audio_encoder_fragment_v2_native_report.json",
+    "sha256": "fd7dbd7832b89d1633b7be6df657d0a32fa1f936b5996fcefc9dc318da298be7"
+  },
+  "executable": {
+    "path": "E:\\vf3-decomp\\build\\vf3matrixfamily_audio_encoder_v2.exe",
+    "sha256": "c714013be8896833b0ca3d7fc7739b60c6222b10127ff9c0f06777fd72776244"
+  },
+  "native_inputs": [
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\capsule_manifest.json",
+      "sha256": "e0c5fa339dc8210029a0893b53565eb804b5b1e9d7c62810f4f7b054196b861c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.bank.bin",
+      "sha256": "a031296f295530badc14e55a4d37b4ebf1d518411e6fb9ce192aa461c4302e54"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.cases",
+      "sha256": "8b247a3e847673535acb6d4817d6f6e6002f7e91924b4e0b94923058be77cda5"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.dev.bin",
+      "sha256": "22027dc210c62ea5929247b0830e83f4755c661a9e573c96ea5e4c201591f64b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.extra.bin",
+      "sha256": "839371b651235a0ff245212a432c523a07e59799ad3667212f267d072a06ce38"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.gbr.bin",
+      "sha256": "91b4e3d5f301c857908d00713184b553841a534b588b91a8f11a29237e10c5b8"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.ops.json",
+      "sha256": "2d4cf485956bc23c11fea590e9d478fd4e59361d318e97ee16580ae08c8465ee"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.xfin.bin",
+      "sha256": "9789887f5afa34aedb1652bbcc5968cc6bcdd1fdb4f6520b38d4c26c97ad8fc1"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c.xfout.bin",
+      "sha256": "9789887f5afa34aedb1652bbcc5968cc6bcdd1fdb4f6520b38d4c26c97ad8fc1"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_0.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_0.out.bin",
+      "sha256": "b0dfae6dd2c3dd6338266440cd8acf32c38f3417e7d401fb9fc89e265f81ceaa"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_1.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_1.out.bin",
+      "sha256": "202a80cd58cc1384fc1904f8dd165f729c8598d9027590364c6889a90af68253"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_10.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_10.out.bin",
+      "sha256": "527ea7f8d8bb97cc936164557eda9f139c10228604c0b76bf45825cab9c0959e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_100.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_100.out.bin",
+      "sha256": "f4e7bc63da617dd6e66cc99bbd251037326e089b33829fa9132c2959b2d37beb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_101.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_101.out.bin",
+      "sha256": "5b476ca503df0f05f03b42829c83bb0f748f7fe2a7245e18d9bc81b5f61e88a0"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_102.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_102.out.bin",
+      "sha256": "cd824f82c51be96e5d1280c6b38126230c708f6bd08e114e4df653ba854fa7eb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_103.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_103.out.bin",
+      "sha256": "cf000abc940080da8ac5766569b984bfa78a6b1058e755c9c07ab03e34802d8f"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_104.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_104.out.bin",
+      "sha256": "b577320510f741a356b328083de9ec9b06c11b731acc4dc87891d47dcad752d4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_105.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_105.out.bin",
+      "sha256": "2cbea5dc00a6a3724711ed5ec52c38aea0c1799ec5b89c1e758f8f8d61b9fc17"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_106.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_106.out.bin",
+      "sha256": "a5f74f1ef49b49be27ff99a661bbf898f65c8814efd386238934ee88a6927b19"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_107.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_107.out.bin",
+      "sha256": "5d601e8cdcb88a060c8d040310615a78e2cc9cbb80be6a7709b1b0d57d4d9837"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_108.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_108.out.bin",
+      "sha256": "184d3f05a3ed10e25b9db5c13904e1f63ee9c082686ada4ef458a04d57e3f09c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_109.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_109.out.bin",
+      "sha256": "3512cc1991cf2a77c8e313200683e55a3157454f6a1359f092b0dfce8a02c61e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_11.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_11.out.bin",
+      "sha256": "3d093b13d1189576808b532f77ccc8035c3ece582eee2a4647a7c742cf6d711a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_110.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_110.out.bin",
+      "sha256": "b20d4a3684abba1189a96959046f480716f9b30144c8f70a1c556ca101bc4f19"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_111.in.bin",
+      "sha256": "79a7d56e9cdc6493f78d5bc1a1393dfae052fd450bf5e164ed0070d7db50178e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_111.out.bin",
+      "sha256": "5ef560e9c3cc7748fe07803ce1c7ca42ffa080ad394b6d947ef9576d4485e32c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_112.in.bin",
+      "sha256": "79a7d56e9cdc6493f78d5bc1a1393dfae052fd450bf5e164ed0070d7db50178e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_112.out.bin",
+      "sha256": "43caec0a3a8b03389e24c2552b06824691743f881b6d3921ccc4bd3c06c38f3f"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_113.in.bin",
+      "sha256": "79a7d56e9cdc6493f78d5bc1a1393dfae052fd450bf5e164ed0070d7db50178e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_113.out.bin",
+      "sha256": "10d30209ee1f276193cf63bc627694fb5a404572d59ebe9063ac221b07ff4d4e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_114.in.bin",
+      "sha256": "79a7d56e9cdc6493f78d5bc1a1393dfae052fd450bf5e164ed0070d7db50178e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_114.out.bin",
+      "sha256": "f06b96929fc2ca2ac3f82d087e2e4d993dc0194c5d3f3aa3fe6da3aad1fcf7ac"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_115.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_115.out.bin",
+      "sha256": "d066aa5572b6f6856312c0536b9ea01e35dec6504677dfabd4ff9c85366c1010"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_116.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_116.out.bin",
+      "sha256": "585427edca72bc16c0740d9872eb32b318c44df5c4f2ad4bc5b397a8cc0e556b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_117.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_117.out.bin",
+      "sha256": "26ecced149068acd6e276dc5332331963760868a96a69c5ec772bb9b7ab5222a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_118.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_118.out.bin",
+      "sha256": "2330a27b14e292ac0e2503344423b32fcd4631d10843d8e428313b654af0d4db"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_119.in.bin",
+      "sha256": "0dd5b3559144116b135f15dc23250e3af83eace698e9f3b76379020b4d127321"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_119.out.bin",
+      "sha256": "ef14fde6e9bca10961935d8e04c463871699104fbc208ee1ef6ee1dc5044537e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_12.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_12.out.bin",
+      "sha256": "dd617ce9a1e8dc7f202b27e70d9848bb08ca533d82cdbacf8188e173b7ca2d49"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_120.in.bin",
+      "sha256": "f1b34e98497c01fbaaa7e05a24e22ecb6960b9350be3aa542371463497be859a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_120.out.bin",
+      "sha256": "7a3e08e79b888643b44fa163c272b692dc0247469b41824b62d3b89294b5bf16"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_121.in.bin",
+      "sha256": "f1b34e98497c01fbaaa7e05a24e22ecb6960b9350be3aa542371463497be859a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_121.out.bin",
+      "sha256": "f9c0eb9c6dbc6d083f9310cd89183fb18ebe94f2b7de443abc01816a44202481"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_122.in.bin",
+      "sha256": "f9fdcbe787735782d113f62b3a6344dd820722bda098f5f152a6305529372863"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_122.out.bin",
+      "sha256": "0fa647cc87983424f74053738e9cdc7654e906ff07f789af77ba890008a09dec"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_123.in.bin",
+      "sha256": "f9fdcbe787735782d113f62b3a6344dd820722bda098f5f152a6305529372863"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_123.out.bin",
+      "sha256": "22b04970226350963eb0e4b50fe876f4ffd47ec51d61d5591c313f754687820c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_124.in.bin",
+      "sha256": "554ece1cdd76b050734ac3bcb6b1d835b42f478d9531bff6cd6d6dc0750e8eeb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_124.out.bin",
+      "sha256": "3944e12b7aca7b9557937fe0c86c19a72b2a39614a20405793b0af3d6d7158ea"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_125.in.bin",
+      "sha256": "554ece1cdd76b050734ac3bcb6b1d835b42f478d9531bff6cd6d6dc0750e8eeb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_125.out.bin",
+      "sha256": "6aa15676e07edc442f7af7cfd5787ad513980aa7a389f3bb31865e9b8e0829e5"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_13.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_13.out.bin",
+      "sha256": "1ac58732cf6a6562e9bc5b981f1b9ebd6e042e7dafb40b2849d888da2c7d4926"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_14.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_14.out.bin",
+      "sha256": "510a793c83f73137906150aeb47ed0ea171619d22a9e03ec8f13646ab17c2d52"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_15.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_15.out.bin",
+      "sha256": "2e760094fd477a942bb8a75f09862d87211ae249e70bb4b058c3601131ba10b8"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_16.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_16.out.bin",
+      "sha256": "507390200e22d03efdd3d51516c588ee50111e515af0b258eb03f2bc92bad8da"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_17.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_17.out.bin",
+      "sha256": "85f6642e1ec7ea9e63f67b087a09e1af3bc6c445d8386a8fd1ce6036177d2c81"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_18.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_18.out.bin",
+      "sha256": "52fffe40a2395e5ef7ede8779035d75736cbe8a99d5cbfac182ad8d7f7e5360d"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_19.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_19.out.bin",
+      "sha256": "16012e094a5459fd32d97fde185b25fc7a74ac224e1fedbff835a8907d540624"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_2.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_2.out.bin",
+      "sha256": "cdc9ab17f0c14a999f8aef337499d0613284365635e319c6378502e889d50bd4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_20.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_20.out.bin",
+      "sha256": "d573c6da97a5f5bab737ef6e8c1cb3de194fea1be1ade7df5faa922749eb9729"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_21.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_21.out.bin",
+      "sha256": "a16358925eacf1dca68ad1bca839bffee2a1458a7b563bde0aa26be9ee96ca2b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_22.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_22.out.bin",
+      "sha256": "df349fd88c3763f52816a881ef201e9c7925c888a5fd02b2e8ebed01e6d2cd94"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_23.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_23.out.bin",
+      "sha256": "8c9daae0299b0e5f0f243661a26451a9024e5471b3e49339c24f5b37e10c0d19"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_24.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_24.out.bin",
+      "sha256": "fcd4e9486bc1bbc34df07d58db47e6a4460e467a75169a513512ec93d8d2aa56"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_25.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_25.out.bin",
+      "sha256": "5ae027ab1c73419eba681f207b5f69c00308ff58df5a2929b0821db6faf21591"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_26.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_26.out.bin",
+      "sha256": "1e8c51f0af5576b46986ebb650982ca24b6c2bbd355c19d180be092663a8e66b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_27.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_27.out.bin",
+      "sha256": "ccc5835b88f68efde5cc5240f800c937274d898c85ae98e103854f710bd423ec"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_28.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_28.out.bin",
+      "sha256": "d2dfdaf8d0c7bf45daa9005aed3ef29f15ead63137643994e2c3d2e555c72c8a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_29.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_29.out.bin",
+      "sha256": "32dae918fcbad021ae911a97982f172e1aab98201d09a8b2ae5488fb6f3efbfb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_3.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_3.out.bin",
+      "sha256": "1b93540760eba823732455b4ca736807729129a27dc0bd75fa3ca59ea433c9bb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_30.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_30.out.bin",
+      "sha256": "560b16e7ae6842851de993aeb8de9965a1f0357197d3cad7bef108c2ced3f233"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_31.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_31.out.bin",
+      "sha256": "f3ee930f58dd5f7b11366e39a6d66f534b013407de5a5b4ce8c9386366aa3d8d"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_32.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_32.out.bin",
+      "sha256": "736d885a5c8552aca279ae6ea20fd245bfedc6616b96306e1ee5f4702f56dce0"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_33.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_33.out.bin",
+      "sha256": "dacdc495268a6a5c8b44fac368f6f244df809debdc2c216d7555791c312a4ece"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_34.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_34.out.bin",
+      "sha256": "3a14718cfdcb15122de6751e2ce230babd0fdc6bc664b89c748368549b4f072a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_35.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_35.out.bin",
+      "sha256": "f4cbaef03411901ca41facac40a4e60266f0e3a8a7cd88a7605eba3792764fec"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_36.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_36.out.bin",
+      "sha256": "f9ffeb29f961164200d2ec8e39a53560d819926190e46fe218bd8bacd6ca1996"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_37.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_37.out.bin",
+      "sha256": "c308b1c8682ff23f6a208c1b3976acfba1b771a1c28e2e634887d6ced45eabe4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_38.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_38.out.bin",
+      "sha256": "1119957d1ddd005cb095461505fbd7dfa100b440106e4235bedb9904f090ca5c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_39.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_39.out.bin",
+      "sha256": "d1441c3c27ce51a12dd617eb92c5f03482597a5cad2fd4615e113ae7ef8a87bf"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_4.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_4.out.bin",
+      "sha256": "3301b2376c4ea181156a4b8331fdb6fc3ebdeb0754c8831cfa2de28694cf8b4f"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_40.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_40.out.bin",
+      "sha256": "39ab9be352df98bad9dc07aff6f90fa1d8d05239069f9e4c5e2f1ca5e3cc951b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_41.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_41.out.bin",
+      "sha256": "de237b609412026b58e51043a577effab924f24a966980ebbdae280954c559e2"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_42.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_42.out.bin",
+      "sha256": "b827438dfe282d3e2a11c95fac111e15d4890192fc4cb2899f69900c5fccc32f"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_43.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_43.out.bin",
+      "sha256": "8d583fdd30fccdfd2c5789e19a6ae3c766ce05e44388ad9470edc3f79b154388"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_44.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_44.out.bin",
+      "sha256": "841e1511b11a4cc35c9c2bd383fba222e6ca34631e73133e236be59c5510763d"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_45.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_45.out.bin",
+      "sha256": "a7d3d13a43f1b9f15fbaff6a2677e1559494d7b5d605892770fad13aa55ba7fb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_46.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_46.out.bin",
+      "sha256": "237ad5c9009a6e8c84cabce6822b6eae5bfa4375f606fb50cf62e2b9d9aaa3be"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_47.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_47.out.bin",
+      "sha256": "ad403d693e0eb47e513c1461fdc2f8a90bb3104d4edd3f16738cb0f9293a1066"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_48.in.bin",
+      "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_48.out.bin",
+      "sha256": "0faeeec28f9693355dc0913adcbc8954620a970ff6a070f7bbad457f549e2ddb"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_49.in.bin",
+      "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_49.out.bin",
+      "sha256": "cb1773919bad9f1c22fbdceada5203cef2a1174a8d7312bbb8ba0924dae9a136"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_5.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_5.out.bin",
+      "sha256": "46c61d22352e2f35fb6d79c4c794771674dd1a18544642254de4b0b2e26da8aa"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_50.in.bin",
+      "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_50.out.bin",
+      "sha256": "0043c51a458d513891872f638dfe17cd65d5ce3915b25ac8a2f03364743d057a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_51.in.bin",
+      "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_51.out.bin",
+      "sha256": "1237a076b82e02de09b973839ec181387a86099fae78ae3f0c6a57292faaff55"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_52.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_52.out.bin",
+      "sha256": "997989f2025cd64f9f88535d553d6abc53702fabde6191920cd26250a03ae98d"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_53.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_53.out.bin",
+      "sha256": "14615c2d37d95017f6fc8c7a599827d93413c2a4ae71a73ef9a1d2d2badf3203"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_54.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_54.out.bin",
+      "sha256": "f6a58103319504f0867bec4e941fb07b1a7be5553746667dee7a6dfb0b292581"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_55.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_55.out.bin",
+      "sha256": "3095d5473ced3d9e30c3b2a9e4394ea04981d9a99b54f2368dac060476143261"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_56.in.bin",
+      "sha256": "25f78c3f49811b2e012bb5ef73f5888674da2d86b9fb67e2c55478a57722b1ca"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_56.out.bin",
+      "sha256": "f24ac472b0c1ff4d8d610b7377777f0138423a815c90931d9ab369d55fa051fc"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_57.in.bin",
+      "sha256": "ebde39c6ab8c8548e08a82dd498d91c0f2cb05331a8e7df53b35682c4f0c5d52"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_57.out.bin",
+      "sha256": "919964f43de839201fdb14f815ff50cef67fc6eedd37a785e83b5261ad30b968"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_58.in.bin",
+      "sha256": "ebde39c6ab8c8548e08a82dd498d91c0f2cb05331a8e7df53b35682c4f0c5d52"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_58.out.bin",
+      "sha256": "65c74f90cd28e67761fe4f473a831cf3bd9ea5f1fc6e6e468636759f77fac37b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_59.in.bin",
+      "sha256": "02cf40314dfdc5aa5e1e2a51977f00cdd8b2864a7e831b5e79221b01bac2a25a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_59.out.bin",
+      "sha256": "bcefd73552e9e1dcb1b3e362508e48e190ac408906aa8bbfbaf5b9c17beeaba1"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_6.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_6.out.bin",
+      "sha256": "644d5338feef145b3cf74300bd663ab537f5948397fe769adbc953bf87a067ff"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_60.in.bin",
+      "sha256": "02cf40314dfdc5aa5e1e2a51977f00cdd8b2864a7e831b5e79221b01bac2a25a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_60.out.bin",
+      "sha256": "ffe7aa2aa74173970a96cd170fcf2ff46e3cdfeb77b99b5ed1d23fca22441f7a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_61.in.bin",
+      "sha256": "cc3a389a8754e0e45c5c709086e5aea3091f15145b2a916e4cb382aa09442a09"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_61.out.bin",
+      "sha256": "a30c28d59941818c818b58b41bd9fdf8c96db2b1d6ec2cad2337e1547b2ceb6a"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_62.in.bin",
+      "sha256": "cc3a389a8754e0e45c5c709086e5aea3091f15145b2a916e4cb382aa09442a09"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_62.out.bin",
+      "sha256": "fb9694979a73572627808e950a3072cc36f612265a8d8434105bb2d882f50930"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_63.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_63.out.bin",
+      "sha256": "76098f12b1f236c820983e34167c1a5cf3f79269c5d57163a19ce7e5cacd4f3c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_64.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_64.out.bin",
+      "sha256": "c4227978c9c4dcf7ff15d2d0635d18572fe753fac4e80a6b541fdc170dd69f88"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_65.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_65.out.bin",
+      "sha256": "c0c4680321c4e377319416a878492c2e0672e687aa2b9db86ee334330cf60260"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_66.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_66.out.bin",
+      "sha256": "f0f3f3bb0f3151994edbee53f199868ec33821d9bd768f4b9a7879684630f6dd"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_67.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_67.out.bin",
+      "sha256": "38421c2d2ec2857f6d0855b61a756e649673d01eadf16c7ebf81e1faca4e8895"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_68.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_68.out.bin",
+      "sha256": "8082308175f12ff820428a9c69db68d05e2e0ad1f7f25dc96efd71460f8d811c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_69.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_69.out.bin",
+      "sha256": "fd192e1e5a0b5d30b3ad7a7a372fa55ebaad1b0620c5d69056aa6abde10b7786"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_7.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_7.out.bin",
+      "sha256": "e4476bb0f8d04bedcf0102c9665199cd34303ff53118af668c4b91d26bc3b844"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_70.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_70.out.bin",
+      "sha256": "5d2cd42ca979a5a04a40f8478121155d3cbef63135e59bed2c0a0d9d083b2b42"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_71.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_71.out.bin",
+      "sha256": "ce47a2116ba0135401bba94dfb5e8a853463eb3f7858da101a35aeb741cd6cb4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_72.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_72.out.bin",
+      "sha256": "50dc4dc22e979db380c6d95b2ab5b992aae1c8acb23ff709f07a294fa5b86594"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_73.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_73.out.bin",
+      "sha256": "5d97841af0762ca4f3227a9a7147203a67c7372fc1f1439daf726e2c114e92b5"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_74.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_74.out.bin",
+      "sha256": "47e11ca10f6c9aa3be81c69b35967bfe5f7a1a1ba76bd78da0b6d470e301304b"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_75.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_75.out.bin",
+      "sha256": "271de4f5b8b8dbe6337fe41cf3d18e802264322a904cb8d91f036e5ab5572c5e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_76.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_76.out.bin",
+      "sha256": "42bd8816c5d3caf2af93469c8e8e10431abd7b6490ee0ae620ade80b133c5c31"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_77.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_77.out.bin",
+      "sha256": "4cd1316d9b2098da7d5f4ea5b03c7e0939dac3b1ca77e54e0feff406e5f5e903"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_78.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_78.out.bin",
+      "sha256": "dda1275da23cdd92efd86a0660e4d6dbc0f8be0bcf7e2ccd3f3afce084ee8791"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_79.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_79.out.bin",
+      "sha256": "70041f410a0d5e9d059640725622d7afe2e67bbdfc7b50dce00295cc21805627"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_8.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_8.out.bin",
+      "sha256": "7fc7690d75e94cb113cf749dbc73d8b099ae895e069b6570abc5ef88783f656e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_80.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_80.out.bin",
+      "sha256": "fa1289e1cb31dc1950ded80c23d89ad66596deb60472f57a653e392ce23951d3"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_81.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_81.out.bin",
+      "sha256": "f4137a72ca06cf8ccfd60baf9b5aef10568c74e7e268553f13c5babcdec60352"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_82.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_82.out.bin",
+      "sha256": "0dcd1281b2a385c1196c92998f4f0cfdfba91dda215a4b7378c422933f09f9c1"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_83.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_83.out.bin",
+      "sha256": "c36dd90152641d7d6391d878058fd73d48c93db71bdf6f3b8229690c4dacfacd"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_84.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_84.out.bin",
+      "sha256": "fc04d12412925f7377a9395145aab579b147522c1dd9c5a8655c920638fd92c4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_85.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_85.out.bin",
+      "sha256": "760f1d16478f471da3ed8fb122d967406e471dd97218e28945f3b3323bc71cc3"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_86.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_86.out.bin",
+      "sha256": "466cd8973f47526bc04a757d1c862333c02de4a4f5a683a478c7a94fea231f06"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_87.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_87.out.bin",
+      "sha256": "cdbaf7d43e610b9e84b30b9c2d5a13a27689df3d16df26a7907183eb36f6b9fc"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_88.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_88.out.bin",
+      "sha256": "b65123346374e5eeb21b20325289acfe9efa455ac953d54d3d78bc9a5d770ae9"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_89.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_89.out.bin",
+      "sha256": "b27d1e0b99e140689ece33d9c84745e0a0765b3d1db76c4ab65e6b00e33c9c95"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_9.in.bin",
+      "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_9.out.bin",
+      "sha256": "5e5d8097f36fd878415b414cd5c025b79eb0c7fa32e331873be820ccf9c26730"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_90.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_90.out.bin",
+      "sha256": "183b5625b73f9e052b0792ef8224aae77deddde372f55e85503c67c41952570e"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_91.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_91.out.bin",
+      "sha256": "d6e71d7a3755d132ecddf4ba03c16c022b9eafea59a07f5dec9d9ba7ed27af61"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_92.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_92.out.bin",
+      "sha256": "522a5bbe914159b6b8f98ca7f5f8c0f472cd730427e3275237fd2963dd9b48b3"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_93.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_93.out.bin",
+      "sha256": "7cd20bc8417bf74713500b6a66561a40504632b824e65500318f8c9dd76c7730"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_94.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_94.out.bin",
+      "sha256": "ce4e9a3004b319940423c3c5f0cc88b3c225faf435d7ad8ce86c45572954d567"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_95.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_95.out.bin",
+      "sha256": "9c88b54d134de175671086156ee6d19cf841ef36a8b3121e0ac40bfe469d3f38"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_96.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_96.out.bin",
+      "sha256": "cf296db6e93c0b944c34e39c288cb999b21f401c508c487c437c9797648e4c93"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_97.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_97.out.bin",
+      "sha256": "ad617b94be3537ff72c26c490714958482035874528db10744d01dd64ba366a4"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_98.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_98.out.bin",
+      "sha256": "eedb4782db2bc3c515e2995461f63e6f5ffe85127162826ec489947823c19c93"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_99.in.bin",
+      "sha256": "4cd090fc5eae57ec6a8ae350921df84bd5c7074ba4a566e19135a3a5da6cdf4c"
+    },
+    {
+      "path": "extract\\analysis\\audio_encoder_pilot_v1_cases\\f_8c040b7c_99.out.bin",
+      "sha256": "81c1f7c2849760dc7480bd7581737e46b099db61da29cefc143338ea4d03bd1e"
+    }
+  ],
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_v2_sources\\manifest.json",
+    "sha256": "3950e8756103ad237bc4ac68f54e15914afe51158bb8edf014c86c10038b8518"
+  },
+  "capture_inputs": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_original_v1_inputs\\manifest.json",
+    "sha256": "80afc71ded29a5f130935b31fcc5a5e54adbaa92dd670a1ea38ef7a763c3ef87"
+  },
+  "baseline_regression": {
+    "path": "tools\\oracle\\audio_actor_clear_v1_regression_scope.json",
+    "sha256": "76a93f75fe36332b564e54fea0cb1e6b9364c1ab3aa943ebea64b6ca88a0c54f"
+  },
+  "baseline_bindings": 1363,
+  "baseline_inventory": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_v2_baseline_bindings.json",
+    "sha256": "28cba1cda1945fe29f2871c0ca7e61d43e76e8359662db7fbc1a431a77dd9400"
+  },
+  "inventory": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "756d41d3a2379ba70c8ec4eebccd8b399bf9e12b865555123d62938d31a8d8ab"
+  },
+  "fresh_native_checks": {
+    "path": "extract\\analysis\\audio_encoder_v2_native_checks.json",
+    "sha256": "b3e4de09dcc946251cc419b97dcc3850f13c265223b67b1316d54d998c5b4d10"
+  },
+  "tool_checks": {
+    "path": "extract\\analysis\\audio_encoder_v2_tool_checks.log",
+    "sha256": "8387b1d37b51ffc9f34bf45da8237f9a4470e457738f40ba374f6c79b809cb7f"
+  },
+  "chain_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_v2_chain_audit.json",
+    "sha256": "be877b1a419479e658e859ebc9bf8d94612f936d2bcbfaa3c906c223cf69c233"
+  },
+  "readable_bytes": 258502,
+  "total_body_bytes": 434656,
+  "regression_scope": "Reuse accepted 1363-binding baseline; changed fragment verified separately against 8 strict cases in the new executable. Broader repeated regression was stopped and supplies no new acceptance.",
+  "remaining": "Live C scheduling and independent held-out acceptance for the callable entry; ARM/DSP playback and song/reset attribution."
+}

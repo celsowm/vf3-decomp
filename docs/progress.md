@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Readable general audio encoder (2026-10-09)
+
+The general A0 command encoder now uses readable C, covering parameter packing
+and the seven-channel two-request loop. **128 original callable captures**,
+**126 distinct native cases** and **8 historical fragment cases** pass with zero skips; the pilot executes
+all 226 frozen body bytes. The existing owner was already credited, so coverage
+stays **258,502 / 434,656 (59.47%)**. The accepted 1,363-binding baseline is
+reused with focused verification of the changed fragment; **39 freshly linked
+native suites** and **86 tool checks** pass. General-encoder live C scheduling,
+held-out acceptance, song/reset attribution and standalone playback remain open.
+See [encoder evidence and scope](re/audio_encoder.md).
+
 ## Audio submission and actor cleanup (2026-10-09)
 
 Readable actor cleanup adds **72 unique bytes**, reaching

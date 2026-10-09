@@ -50,6 +50,7 @@ int vf3_audio_channels_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_submission_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_style_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_actor_clear_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_encoder_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -202,6 +203,7 @@ static int transform(vf3_matrix_state*s,unsigned base) {
 static void push(vf3_matrix_state*s,const vf3_ram_map*ram,uint32_t value) { R(15)-=4; wr(ram,R(15),value,4); }
 static uint32_t pop(vf3_matrix_state*s,const vf3_ram_map*ram) { uint32_t a=rd(ram,R(15),4); R(15)+=4; return a; }
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
+    uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
@@ -253,6 +255,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     case 0x0c0c5d86: return vf3_audio_submission_c(s,ram);
     case 0x0c0ca05c: return vf3_audio_style_c(s,ram);
     case 0x0c098040: return vf3_audio_actor_clear_c(s,ram);
+    case 0x0c040b7c: case 0x0c040b7e:
+        return vf3_audio_encoder_c(s,ram,audio_alias,entry==0x0c040b7c);
     case 0x0c040f1e:
     case 0x0c040c90: case 0x0c040c92: case 0x0c040d1c: case 0x0c040d20:
     case 0x0c040e24: case 0x0c040e28:

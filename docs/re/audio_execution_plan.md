@@ -20,6 +20,12 @@ sound-dependent scene/input callers, transition/reset attribution and portable
 playback remain pending. The bounded ARM A0 handoff model is a protocol fragment;
 it does not complete the original ARM/DSP replacement gate.
 
+The general A0 encoder now has a readable native replacement with 128 original
+callable captures, 126 distinct native cases and eight historical fragment cases. Its already credited
+226-byte owner adds no percentage. This [native pilot](audio_encoder.md) uses
+observed device tapes; live C scheduling and independently held-out acceptance
+are still required before incorporating it into the live actor/scene paths.
+
 ## Evidence and scope
 
 - DTPK extraction and AICA ADPCM already have bit-exact C implementations in
