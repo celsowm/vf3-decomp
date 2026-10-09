@@ -1,4 +1,4 @@
-/* sys/soundcmd.c — libsnd 0.82 "mpdrv" command layer model (M37).
+/* sys/soundcmd.c — unattributed libsnd 0.82 "mpdrv" endpoint facade (M37).
  *
  * Static evidence (true image):
  *   string cluster 0x8C0CD600..0x8C0CD9xx = mpdrv_* debug prints
@@ -9,28 +9,17 @@
  *   (the command endpoints live in the 0x8C035Exx..0x8C0368xx block —
  *    adjacent to the task-VM helpers; both are manager-style services).
  *
- * Runtime evidence: M26 (docs/re/sound_bgm_m26.md) kit writes land as
- * bulk suffix overwrites at AICA 0x086E54.. with a steady 12 KB streaming
- * ring at 0x00A0B4..0x00CF5D; the corresponding SH4-side issuance of
- * dreset/dreq commands is what these calls encode.
+ * Updated evidence: the complete BGM_VAN bank begins at AICA 0x086E50.
+ * The old 0x00A0B4..0x00CF5D change window includes ARM stack, command
+ * queue and software work records; PCM streaming is not established.
  *
- * The mailbox bytes themselves travel GD/G2 -> ARM7 RELOAD driver; the
- * exact body semantics of each endpoint are trace-open-thread. This file
- * ports the *command framing* model so callers in the engine can issue
- * well-formed requests; bodies resolved by name lookup in trace windows.
+ * SNDDRV.BIN is the resident ARM firmware. Verified SH-4 producers live
+ * in fight/audio_*.c. Debug strings do not establish these endpoints or
+ * their opcodes, and no voice-reset framing is claimed by this facade.
  */
 #include <stdint.h>
 
 #include "mainloop.h"   /* vf3_sys_lookup */
-
-/* mpdrv command opcodes as ordered by the string cluster and slot tables */
-enum {
-    VF3_SND_DREQ,          /* dma request  */
-    VF3_SND_DRESET,        /* voice reset  */
-    VF3_SND_HRESET,        /* hard reset   */
-    VF3_SND_FT4CTRL,       /* filter/FXT4  */
-    VF3_SND_EXDEV_CMD,
-};
 
 /* Issue a dreset (voice reset) for slot v through the driver endpoint —
  * resolves the endpoint once from the host registry; returns endpoint

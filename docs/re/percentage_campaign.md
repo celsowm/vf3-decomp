@@ -211,3 +211,21 @@ Manifest `percentage_motion_style_milestone.json` hash audit passes; immutable `
 The motion-family tranche adds **1,460 unique bytes** in six entries. Campaign total is **253,834 / 434,656 (58.40%)**, **+5,080 bytes / +1.169 percentage points**, 35 entries. Current inventory has 1,316 bindings. Reverse-dependency affected regression passes **53/53 bindings** and native replay/metadata checks against the frozen style executable. All sixteen milestone hash audits and the address-union chain pass. The full 1,295-binding frozen gate reported above predates this tranche; the current dependency regression covers the changed routes and new bindings.
 
 The 60% checkpoint still needs **6,960 bytes**; 65% still needs **28,693**. The percentage objective is unfinished. The campaign retains the fixed denominator and full-body gate, including apparently unreachable branches. Next work needs additional original caller/data contracts and broader platform models for the parked boundaries; repeating the tested generic queues without a new hypothesis is not evidence of progress.
+
+## Audio actor cleanup checkpoint (2026-10-09)
+
+The complete 72-byte frozen owner `0x8c098042`, callable at `0x8c098040`, passes
+128 development and 128 disjoint relocated acceptance native cases, plus all
+256 live C/device comparisons. It posts six startup channel words, submits two
+styles and clears six task-object active bits. Specialized helpers earn no extra
+credit. Submission's existing 56-byte credit is strengthened with complete-body
+readable C and a 32-pair live pilot; it is not counted again.
+
+`percentage_audio_actor_clear_milestone.json` adds exactly **72 unique bytes**,
+reaching **258,502 / 434,656 (59.47%)**. All 1,363 bindings are covered by the
+frozen baseline replay and independently verified changed/added bindings, with
+39 freshly linked native suites and 86 tool checks passing. The complete
+hash-audited chain contains 82 new entries, **+9,748 bytes / +2.243 percentage
+points** from the campaign baseline. The 60% checkpoint needs 2,292 more bytes;
+65% needs 24,025. Reset/song-transition attribution and standalone ARM/DSP audio
+remain open; protocol/observation tooling earns no percentage credit.

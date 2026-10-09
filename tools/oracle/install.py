@@ -70,10 +70,16 @@ def main():
     marker = '# VF3 live-device C queue backend'
     source = (ROOT/'src/fight/command_encoders.c').as_posix()
     channels = (ROOT/'src/fight/audio_channels.c').as_posix()
+    submission = (ROOT/'src/fight/audio_submission.c').as_posix()
+    actors = (ROOT/'src/fight/audio_actor_clear.c').as_posix()
     block = (f'{marker}\ntarget_sources(${{PROJECT_NAME}} PRIVATE "{source}")\n'
              f'set_source_files_properties("{source}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_sources(${{PROJECT_NAME}} PRIVATE "{channels}")\n'
              f'set_source_files_properties("{channels}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_sources(${{PROJECT_NAME}} PRIVATE "{submission}")\n'
+             f'set_source_files_properties("{submission}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_sources(${{PROJECT_NAME}} PRIVATE "{actors}")\n'
+             f'set_source_files_properties("{actors}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_include_directories(${{PROJECT_NAME}} PRIVATE "{(ROOT/"src").as_posix()}")\n')
     text = p.read_text(encoding='utf-8')
     if marker in text:

@@ -217,6 +217,51 @@ Evidence is sealed in `audio_channels_v3_manifest.json`; byte credit is in
 `percentage_audio_channels_milestone.json`. Marginal union increases exactly
 786 bytes, from 257,644 to 258,430.
 
+## D: submission and actor cleanup accepted
+
+`src/fight/audio_submission.c` replaces the existing submission adapter with
+readable scene/config gating, signed ID rejection, immutable command mapping
+and generation-based deduplication. The stamp updates before enqueue, including
+enqueue failure. The paired 32-run pilot covers IDs, scene 3 configuration,
+deduplication, queue-busy behavior and style lookup. All live architectural,
+memory, instruction, device, AICA and PCM comparisons pass. Its native cohorts
+contain 26 submission and six style inputs; both also pass against the final
+actor executable. The complete 56-byte submission body is exercised. Existing
+credit is retained; style has no standalone frozen inventory entry.
+
+`audio_id_map.py` compares all 477 map words with the original image. Both
+observed states match exactly, and submissions leave the map unchanged. This
+prevents confusing a negative map slot with a dynamically initialized table.
+The pilot is sealed in `audio_submission_pilot_v1_manifest.json`.
+
+`src/fight/audio_actor_clear.c` implements callable `0x8c098040`, whose frozen
+owner is `0x8c098042` (72 bytes). It requests startup words for channels
+**1, 2, 4, 5, 6, 7**, submits both actor styles, and clears bit 0 on six task
+objects. The private startup encoder is specialized to this caller's constant
+arguments; it does not claim the complete general selector/encoder helpers.
+Two original BSR/NOP callers establish the entry. The prefix audit additionally
+requires the declared saved register, its original restoration, complete image
+PCs and preserved stack/register values in every native case.
+
+Development uses states 26/27; acceptance uses 28/29, different styles, flags
+and generations, actor objects moved from `0x0c404000` to `0x0c480000`, and
+stack `0x0c3fd000`. Both cohorts contain 128 distinct complete inputs, execute
+the complete frozen body and pass native replay with zero skips. **256/256**
+strict live comparisons pass, each crossing a real AICA event. The eight-pair
+actor pilot also passes. The frozen executable is
+`build/vf3matrixfamily_audio_actor_clear_v1.exe`; matching research sources are
+archived in the explicitly selected local audio-evidence cache. Large new
+captures use that cache because drive E remains close to its 4 GiB reserve.
+Hash-verified hard links preserve every evidence path.
+
+Evidence is sealed in `audio_actor_clear_v1_manifest.json` and
+`percentage_audio_actor_clear_milestone.json`. The marginal union grows exactly
+**72 bytes**, to **258,502 / 434,656 (59.47%)**. The full 1,362-binding baseline,
+upgraded submission's 26 strict cases and added cleanup's 128 strict cases all
+use the same frozen matrix executable. All 39 native suites were freshly linked,
+rerun and archived; 86 tool tests and the complete milestone hash chain pass.
+The final 1,363-binding scope is `audio_actor_clear_v1_regression_scope.json`.
+
 ## E: bank identity and ARM observation
 
 `audio_state.py` distinguishes requested key bits from actually enabled voices.
@@ -250,7 +295,34 @@ Bank identity and queue reads alone do not establish menu/fight/second-song
 C agreement, voice reset semantics or standalone playback. Those gates and
 sound-dependent SH-4 callers remain open.
 
+`src/media/driver_queue.c` now recovers the bounded A0 handoff: stable double
+reads, scratch publication, clearing the external slot, advancing its 256-byte
+ring, byte reversal, ORing bit 6 and appending to the internal 1,024-byte ring
+at `0xa400`. Nine independent observed inputs reproduce all nine ordered store
+sequences. A separate synthetic wrap fixture and unsupported/empty/input guards
+pass. The API validates its owned inputs; its status values are host API results,
+not attributed ARM return values. It does not model instruction timing, ARM
+registers/interrupts, non-A0 classes, later dispatch, DSP or PCM generation.
+No extra ARM or SH-4 coverage is claimed. Evidence is
+`audio_arm_handoff_v1_manifest.json`; the native runner builds as `vf3driverqueue`.
+
+The older purported streaming window overlaps the ARM stack, driver context,
+internal command ring and sixteen 48-byte software records. Static literal/layout
+evidence is `audio_arm_workspace_v1.json`; the command-ring stores are separately
+observed. Sample streaming and reset semantics are still unproved.
+
+`audio_pcm_compare.py` uses the existing PCM exporter after strict original/
+observer equality. State28 exports 14,446 stereo frames at 44,100 Hz, about
+0.328 seconds, with reversible right/left-to-left/right channel ordering and
+sample-perfect WAV reconstruction. This is a bounded research rendering; manual
+listening and standalone playback are not claimed. Unused opcodes guessed from
+debug-string order have been removed from `src/sys/soundcmd.c`; unresolved
+endpoint addresses remain zero until attribution is proved.
+
 ## Accepted milestone checks
+
+The section below records the preceding channel milestone. The actor-cleanup
+scope above supersedes its final inventory counts.
 
 The 1,361 unchanged bindings pass against the immutable channel executable;
 the added binding passes its 128 distinct strict cases against that same

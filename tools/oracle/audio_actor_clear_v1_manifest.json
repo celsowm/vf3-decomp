@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "entry": "0x8c098040",
+  "frozen_owner": "0x8c098042",
+  "frozen_body_bytes": 72,
+  "scope": "SH-4 actor cleanup, specialized startup and style submission; no voice/reset attribution",
+  "campaigns": {
+    "dev": {
+      "batch": {
+        "path": "extract\\analysis\\audio_actor_clear_dev_v1_cases\\batch_manifest.json",
+        "sha256": "97cbcf138a2a9ded31a43db8ad88db44737c335aaf5a1eeb2e2a494e2e9a5ddc"
+      },
+      "comparison": {
+        "path": "extract\\analysis\\audio_actor_clear_dev_v1_cases\\live_audio_comparison.json",
+        "sha256": "987fd008ea5ba812a85484b12666a5e57b188e5459a18e006fff98d183aa1a64"
+      },
+      "native": {
+        "path": "extract\\analysis\\audio_actor_clear_dev_v1_native_report.json",
+        "sha256": "4fc31c80f2712c4cbb79480055cb681c93455f6f98d4e0b4cf52cf17f0e56541"
+      },
+      "executable": {
+        "path": "build\\vf3matrixfamily_audio_actor_clear_v1.exe",
+        "sha256": "cee5dd6ad5ba7bbe72025b5f896e2641824ba54fbef2031c04b7df314f009543"
+      },
+      "distinct_cases": 128,
+      "runs": 128,
+      "aica_crossings": 128,
+      "states": [
+        "tools\\emu\\flycast-build\\data\\vf3_26.state",
+        "tools\\emu\\flycast-build\\data\\vf3_27.state"
+      ],
+      "stack_values": [
+        204601644,
+        204601768
+      ],
+      "owned_actors": [
+        205537280
+      ]
+    },
+    "accept": {
+      "batch": {
+        "path": "extract\\analysis\\audio_actor_clear_accept_v1_cases\\batch_manifest.json",
+        "sha256": "08f144da5415efdfe49a60764cb5e68ba3b09f220b02306f825c9505edda5e86"
+      },
+      "comparison": {
+        "path": "extract\\analysis\\audio_actor_clear_accept_v1_cases\\live_audio_comparison.json",
+        "sha256": "5f321a2e4b01992098e1a9e077833081482a3b36904874f53981dadade1dd84b"
+      },
+      "native": {
+        "path": "extract\\analysis\\audio_actor_clear_accept_v1_native_report.json",
+        "sha256": "f35f89dc3ed6723f73e248eeae6bc9eadfc68dda5e9510c9054eb31695e2dd87"
+      },
+      "executable": {
+        "path": "build\\vf3matrixfamily_audio_actor_clear_v1.exe",
+        "sha256": "cee5dd6ad5ba7bbe72025b5f896e2641824ba54fbef2031c04b7df314f009543"
+      },
+      "distinct_cases": 128,
+      "runs": 128,
+      "aica_crossings": 128,
+      "states": [
+        "tools\\emu\\flycast-build\\data\\vf3_28.state",
+        "tools\\emu\\flycast-build\\data\\vf3_29.state"
+      ],
+      "stack_values": [
+        205508608
+      ],
+      "owned_actors": [
+        206045184
+      ]
+    }
+  },
+  "callable_attribution": {
+    "path": "tools\\oracle\\audio_actor_clear_callable_v1.json",
+    "sha256": "c4a6ffd41204a95bee01c7491286d1730062bee93a1b209142fa244be44640d6"
+  },
+  "auditor": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_actor_clear_audit.py",
+    "sha256": "b6fd9f00a5ffbc43a176142fefa14e7be1f47d29697acd62a2678b37ed02825b"
+  }
+}

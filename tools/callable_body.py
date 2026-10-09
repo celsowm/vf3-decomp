@@ -41,6 +41,20 @@ def validate(owner, attribution, spans, corpus, image=None):
     # prefix requiring additional control-flow reasoning.
     for pc in range(parent, start, 2):
         opcode = word(pc)
+        if opcode & 0xff0f == 0x2f06:
+            register = (opcode >> 4) & 15
+            assert register in (8, 9, 10, 11, 12, 13, 14), 'unsupported saved register'
+            assert attribution.get('callee_save_prefix') == [f'r{register}'], 'undeclared saved prefix'
+            assert start-parent == 2, 'only a single saved-register prefix is supported'
+            restore = 0x60f6 | (register << 8)
+            assert any(ops.get(pc) == restore for s,e in spans for pc in range(s,e,2)), 'missing register restoration'
+            cases = (Path(corpus)/f'f_{parent:08x}.cases').read_text().splitlines()
+            assert cases, 'missing native stack invariant evidence'
+            for line in cases:
+                values = [int(v,16) for v in line.split()[:74]]
+                assert len(values)==74 and values[register]==values[37+register], 'saved register changed'
+                assert values[15]==values[52], 'stack pointer changed'
+            continue
         assert (opcode >> 12 in (0x6, 0xe) or opcode in
                 (0x0009, 0x4c5a, 0x405a, 0xf3fd, 0xf20d)), 'unsupported prefix instruction'
     return parent, set(ops)

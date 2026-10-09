@@ -22,7 +22,7 @@ def validate_batch(batch, hashes=False):
     assert comparison['passed'] and comparison['positive_aica_crossings']>0
     original=json.loads(Path(proof['original']['path']).read_text())
     c=json.loads(Path(proof['c']['path']).read_text())
-    assert original['passed'] and c['passed'] and c['execution']=='readable_c_channels'
+    assert original['passed'] and c['passed'] and c['execution'] in ('readable_c_channels','readable_c_submission_family')
     assert len(comparison['comparisons'])==len(original['runs'])==len(c['runs'])==len(batch['runs'])
     assert all(r['passed'] for r in original['runs']+c['runs'])
     for row, source in zip(batch['runs'], original['runs']):
@@ -34,7 +34,7 @@ def validate_batch(batch, hashes=False):
             assert row[key]==source['summary'][key], 'audio batch completion changed'
     if hashes:
         load_runs(proof['original']['path'],'original_sh4')
-        load_runs(proof['c']['path'],'readable_c_channels')
+        load_runs(proof['c']['path'],c['execution'])
 
 
 def build(original_path,c_path,out):
@@ -51,7 +51,7 @@ def build(original_path,c_path,out):
     for r in original['runs']:
         summary=r['summary']
         batch['runs'].append(dict(capsule=r['capsule'],state=r['state'],
-            play='channel_configuration',returncode=r['returncode'],frame_complete=False,
+            play='audio_invocation',returncode=r['returncode'],frame_complete=False,
             one_shot_done=summary['one_shot_done'],restores=summary['restores'],
             case=r['case'],incomplete=summary['incomplete']))
     validate_batch(batch,True)

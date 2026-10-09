@@ -12,6 +12,9 @@ from audio_deduplicate import retain_hard_link
 
 
 def run(a):
+    if not a.out.resolve().is_relative_to((ROOT/'extract/analysis').resolve()) and not any(
+            a.out.resolve().is_relative_to(p.resolve()) for p in a.evidence_root):
+        raise ValueError('external evidence output requires an explicit evidence root')
     shared_audio = {}
     for directory in a.dedup_dir:
         for path in sorted(directory.glob('*.audio.gz')):
@@ -23,7 +26,8 @@ def run(a):
     out.mkdir(parents=True, exist_ok=True)
     manifest = dict(advisory=True, coverage_credit=False, passed=False, runs=[],
         mode='rollback_guard_control' if a.rollback else 'nonrollback_one_shot',
-        execution=('readable_c_channels' if all(int(c['entry'],0)==0x8c040fa4 for c in recipe['cases'])
+        execution=('readable_c_submission_family' if any(int(c['entry'],0) in (0x8c0c5d86,0x8c0ca05c,0x8c098040) for c in recipe['cases'])
+                   else 'readable_c_channels' if all(int(c['entry'],0)==0x8c040fa4 for c in recipe['cases'])
                    else 'readable_c_queue') if a.c_replay else 'original_sh4',
         device_control=a.control, corrupt_command=a.corrupt_command,
         provenance={str(p): sha(p) for p in [a.emulator, a.recipe,
@@ -31,6 +35,8 @@ def run(a):
             ROOT/'tools/oracle/install.py', ROOT/'tools/oracle/vf3audiobridge.cpp',
             ROOT/'src/fight/command_encoders.c', ROOT/'extract/gamedata/1ST_READ.BIN',
             ROOT/'src/fight/audio_channels.c',
+            ROOT/'src/fight/audio_submission.c',
+            ROOT/'src/fight/audio_actor_clear.c',
             Path(__file__)]})
     target_manifest = out/'manifest.json'
     def save():
@@ -90,8 +96,8 @@ def run(a):
                         raise ValueError('command corruption is a live C negative control')
                     env['VF3_AUDIO_CORRUPT_COMMAND'] = '1'
                 if a.c_replay:
-                    if entry not in (0x8c040f1e,0x8c040fa4) or a.rollback:
-                        raise ValueError('live C replay supports queue and channel configuration')
+                    if entry not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040) or a.rollback:
+                        raise ValueError('unsupported live C audio entry')
                     env['VF3_C_AUDIO_REPLAY'] = '1'
                 with log.open('wb') as f:
                     try:
@@ -115,7 +121,7 @@ def run(a):
                     row.update(capsule=str(capsule), capsule_sha256=sha(capsule),
                         summary=summary, audio=describe(audio))
                     digest=row['audio']['sha256']
-                    if digest in shared_audio and retain_hard_link(audio,shared_audio[digest],digest):
+                    if digest in shared_audio and retain_hard_link(audio,shared_audio[digest],digest,a.evidence_root):
                         row['shared_audio_source']=str(shared_audio[digest])
                     if len(samples) == 1:
                         s = samples[0]
@@ -178,6 +184,8 @@ def main():
     ap.add_argument('--compress', action='store_true', help='hash-verified gzip storage for new audio evidence')
     ap.add_argument('--dedup-dir', type=Path, action='append', default=[],
                     help='retain identical generated output via verified hard links')
+    ap.add_argument('--evidence-root',type=Path,action='append',default=[],
+                    help='explicit local cache root for captures outside extract/analysis')
     a = ap.parse_args()
     with emulator_lock(a.emulator):
         return run(a)

@@ -5,7 +5,8 @@
 #ifdef VF3_AUDIO_BRIDGE
 /* Research clock boundaries; the ordinary portable build has no dependency. */
 extern void vf3_audio_queue_step(vf3_matrix_state*,uint32_t);
-#define QUEUE_STEP(pc) vf3_audio_queue_step(s,0x8c000000u+(pc))
+static uint32_t queue_alias=0x8c000000u;
+#define QUEUE_STEP(pc) vf3_audio_queue_step(s,queue_alias+(pc))
 #else
 #define QUEUE_STEP(pc) ((void)0)
 #endif
@@ -71,6 +72,20 @@ static int enqueue(vf3_matrix_state *s,const vf3_ram_map *ram)
 
 int vf3_audio_queue_c(vf3_matrix_state *s,const vf3_ram_map *ram)
 { return enqueue(s,ram); }
+
+int vf3_audio_queue_at_c(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t alias)
+{
+#ifdef VF3_AUDIO_BRIDGE
+    uint32_t previous_alias=queue_alias;
+    queue_alias=alias;
+    int result=enqueue(s,ram);
+    queue_alias=previous_alias;
+    return result;
+#else
+    (void)alias;
+    return enqueue(s,ram);
+#endif
+}
 
 static int send(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t continuation)
 { R(4)=R(14); R(16)=continuation; return enqueue(s,ram); }

@@ -1,0 +1,217 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "id_-1",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": -1
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_0",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 0
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2cfa00": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_1",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 1
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2cfa04": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_4",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 4
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2cfa10": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_10",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 10
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2cfa28": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_35",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 35
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2cfa8c": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_476",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 476
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0xc2d0170": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "id_477",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 477
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660
+      },
+      "event_window": true
+    },
+    {
+      "name": "scene3_config_0",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 1
+      },
+      "memory": {
+        "0x0c29b86c": 3,
+        "0x0c11e504": 0,
+        "0x0c1fd758": 4660,
+        "0x0c2cfa04": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "scene3_config_1",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 1
+      },
+      "memory": {
+        "0x0c29b86c": 3,
+        "0x0c11e504": 16777216,
+        "0x0c1fd758": 4660,
+        "0x0c2cfa04": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "scene3_config_128",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 1
+      },
+      "memory": {
+        "0x0c29b86c": 3,
+        "0x0c11e504": 2147483648,
+        "0x0c1fd758": 4660,
+        "0x0c2cfa04": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "dedup",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 1
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0x0c2cfa04": 4660
+      },
+      "event_window": true
+    },
+    {
+      "name": "busy",
+      "entry": "0x8c0c5d86",
+      "registers": {
+        "r4": 4
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0x0c2cfa10": 0
+      },
+      "control": "queue_busy",
+      "event_window": true
+    },
+    {
+      "name": "style_0",
+      "entry": "0x8c0ca05c",
+      "registers": {
+        "r4": "0x0c404000"
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0x0c404060": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "style_9",
+      "entry": "0x8c0ca05c",
+      "registers": {
+        "r4": "0x0c404000"
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0x0c404060": 2304
+      },
+      "event_window": true
+    },
+    {
+      "name": "style_15",
+      "entry": "0x8c0ca05c",
+      "registers": {
+        "r4": "0x0c404000"
+      },
+      "memory": {
+        "0x0c29b86c": 2,
+        "0x0c1fd758": 4660,
+        "0x0c404060": 3840
+      },
+      "event_window": true
+    }
+  ]
+}

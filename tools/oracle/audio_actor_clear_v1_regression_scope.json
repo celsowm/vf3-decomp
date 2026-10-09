@@ -1,0 +1,246 @@
+{
+  "passed": true,
+  "current_bindings": 1363,
+  "inventory": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "28cba1cda1945fe29f2871c0ca7e61d43e76e8359662db7fbc1a431a77dd9400"
+  },
+  "executable": {
+    "path": "E:\\vf3-decomp\\build\\vf3matrixfamily_audio_actor_clear_v1.exe",
+    "sha256": "cee5dd6ad5ba7bbe72025b5f896e2641824ba54fbef2031c04b7df314f009543"
+  },
+  "baseline_inventory": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_v1_baseline_bindings.json",
+    "sha256": "ca5fed2ae74ce53ec686ec32d3d28a5c9554d382d52785cdf21ac4f6de1c5ea5"
+  },
+  "regression": {
+    "baseline": {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_v1_regression.log",
+      "sha256": "0f6953531672dc993c0dc332d335faece15ffffea1fbf02cbf93aa83bfbcb0b5"
+    },
+    "baseline_status": {
+      "expected_bindings": 1362,
+      "reported_bindings": 1362,
+      "failures": [],
+      "errors": false,
+      "complete": true,
+      "passed": true,
+      "terminal": {
+        "portcheck": "PASS"
+      },
+      "last_lines": [
+        "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+        "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+        "portcheck: PASS"
+      ]
+    },
+    "native_test_count": 39,
+    "coverage": "1362 baseline bindings; upgraded submission verified in 26 cases; added cleanup verified in 128 cases",
+    "native_results": [
+      [
+        "vf3dl",
+        "PASS"
+      ],
+      [
+        "vf3walker",
+        "PASS"
+      ],
+      [
+        "vf3mtmount",
+        "PASS"
+      ],
+      [
+        "vf3loop",
+        "PASS"
+      ],
+      [
+        "vf3taskvm",
+        "PASS"
+      ],
+      [
+        "vf3vm",
+        "PASS"
+      ],
+      [
+        "vf3frame",
+        "PASS"
+      ],
+      [
+        "vf3libutil",
+        "PASS"
+      ],
+      [
+        "vf3orient2",
+        "PASS"
+      ],
+      [
+        "vf3poly",
+        "PASS"
+      ],
+      [
+        "vf3vecpush",
+        "PASS"
+      ],
+      [
+        "vf3tailcall",
+        "PASS"
+      ],
+      [
+        "vf3walker2",
+        "PASS"
+      ],
+      [
+        "vf3fvecadd",
+        "PASS"
+      ],
+      [
+        "vf3scaler3",
+        "PASS"
+      ],
+      [
+        "vf3frameseq",
+        "PASS"
+      ],
+      [
+        "vf3cbefc",
+        "PASS"
+      ],
+      [
+        "vf3f040f1e",
+        "PASS"
+      ],
+      [
+        "vf3f0747d8",
+        "PASS"
+      ],
+      [
+        "vf3f9f6fc",
+        "PASS"
+      ],
+      [
+        "vf3f9f6dc",
+        "PASS"
+      ],
+      [
+        "vf3cc148",
+        "PASS"
+      ],
+      [
+        "vf3c5dbe",
+        "PASS"
+      ],
+      [
+        "vf3b10aa",
+        "PASS"
+      ],
+      [
+        "vf3c6ec4",
+        "PASS"
+      ],
+      [
+        "vf3maplookup",
+        "PASS"
+      ],
+      [
+        "vf3meshnode",
+        "PASS"
+      ],
+      [
+        "vf3d0fa",
+        "PASS"
+      ],
+      [
+        "vf3c788",
+        "PASS"
+      ],
+      [
+        "vf3f096258",
+        "PASS"
+      ],
+      [
+        "vf3matrix",
+        "PASS"
+      ],
+      [
+        "vf3bootmix",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070x",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070a84",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070120",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm07030c",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070cf0",
+        "PASS"
+      ],
+      [
+        "vf3fpu",
+        "PASS"
+      ],
+      [
+        "vf3statehelpers",
+        "PASS"
+      ]
+    ],
+    "final_native_suites": {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_v1_native_checks.json",
+      "sha256": "f3f199b478088f3d690a52f4f35f8ae2926873bb18d99f9d7a242e664cfb9fd6"
+    },
+    "strict_components": {
+      "actor_clear_dev": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_dev_v1_native_report.json",
+        "sha256": "4fc31c80f2712c4cbb79480055cb681c93455f6f98d4e0b4cf52cf17f0e56541"
+      },
+      "submission_pilot": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_submission_pilot_v1_actor_executable_report.json",
+        "sha256": "9f18bc32967356da8f9a3ca9ea89c1d6e5140c59823fa077da6eac194b9c33b4"
+      }
+    }
+  },
+  "tool_test_count": 86,
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_all_tools_v2.log",
+    "sha256": "5e9855337c638dd717a45e742774f85bfc00c5869caba0354c9334c55375bffc"
+  },
+  "chain_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_actor_clear_v1_chain_audit.json",
+    "sha256": "be877b1a419479e658e859ebc9bf8d94612f936d2bcbfaa3c906c223cf69c233"
+  },
+  "accepted_audio": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_actor_clear_v1_manifest.json",
+    "sha256": "2b4ab3b97df8ed961a8bf80099bc5f66e9f7ccd2cbef558283de586de699df49"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_audio_actor_clear_milestone.json",
+    "sha256": "b0c0efcd6a6cea27a706585d41bab93a3f93d49c9388adec5d199550c5662a50"
+  },
+  "submission": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_submission_pilot_v1_manifest.json",
+    "sha256": "575615993dd24392243813cd21f0398e851b5beeee803fb93c1ddc853929f5b6"
+  },
+  "protocol": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_arm_handoff_v1_manifest.json",
+    "sha256": "8de97c45dfa865d5ff7756454b413365ca86142f73b52887aa65c7464c847430"
+  },
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\actor_clear_v1_sources\\manifest.json",
+    "sha256": "b79f40e2f8314e8a13a052974d9bc8a0759b48cce24e2a4aefbb74e3a3556ffd"
+  },
+  "readable_bytes": 258502,
+  "total_body_bytes": 434656,
+  "percentage": 59.47277847309137,
+  "new_credit": 72,
+  "remaining": "Two further style callers; sound-dependent scene/input callers; attributed menu/fight/second-song reset transitions; standalone ARM/DSP audio"
+}

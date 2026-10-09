@@ -6,10 +6,10 @@ from pathlib import Path
 from audio_determinism import ROOT, sha
 
 
-def retain_hard_link(path, canonical, digest):
-    allowed = (ROOT/'extract/analysis').resolve()
+def retain_hard_link(path, canonical, digest, extra_roots=()):
+    allowed = [(ROOT/'extract/analysis').resolve()]+[Path(p).resolve() for p in extra_roots]
     for p in (path,canonical):
-        if p.is_symlink() or not p.resolve().is_relative_to(allowed):
+        if p.is_symlink() or not any(p.resolve().is_relative_to(root) for root in allowed):
             raise ValueError('audio evidence path must be local and regular')
     if canonical.stat().st_ino == path.stat().st_ino:
         return False

@@ -1,0 +1,12 @@
+{
+  "0x8c098042": {
+    "entry": "0x8c098040",
+    "call_sites": [
+      "0x8c098118",
+      "0x8c09848c"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  }
+}

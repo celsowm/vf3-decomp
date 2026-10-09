@@ -114,6 +114,8 @@ add_library(vf3core STATIC
     src/fight/continuation_input_controls.c
     src/fight/command_encoders.c
     src/fight/audio_channels.c
+    src/fight/audio_submission.c
+    src/fight/audio_actor_clear.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c
     src/fight/motion_flag_command.c
@@ -197,6 +199,7 @@ add_library(vf3core STATIC
     src/fight/task_run_c.c
     src/fight/task_vm.c
     src/media/aica_adpcm.c
+    src/media/driver_queue.c
     src/media/dtpk.c
     src/media/mt.c
     src/media/pol.c
@@ -360,6 +363,7 @@ add_port_test(vf3fd9ec tests/d9ec_replay.c)
 add_port_test(vf3matrix tests/matrix_kernel_replay.c)
 add_port_test(vf3fpu tests/sh4_fpu_replay.c)
 add_port_test(vf3matrixfamily tests/matrix_family_replay.c)
+add_port_test(vf3driverqueue tests/driver_queue_replay.c)
 add_port_test(vf3statehelpers tests/state_helpers_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)

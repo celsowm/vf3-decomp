@@ -83,6 +83,25 @@ class CampaignToolsTests(unittest.TestCase):
                 with self.assertRaises(AssertionError):
                     callable_body.validate(base+20, attribution, spans, directory, image)
 
+    def test_callable_saved_prefix_requires_restoration_and_stack_invariants(self):
+        base=0x8c010000
+        image=struct.pack('<12H',0xb006,9,0xb004,9,9,9,9,9,0x2fe6,9,0x6ef6,9)
+        attribution=dict(entry=hex(base+16),call_sites=[hex(base),hex(base+4)],callee_save_prefix=['r14'])
+        spans=[(base+18,base+24)]
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)
+            ops={f'{pc:08x}':f'{struct.unpack_from("<H",image,pc-base)[0]:04x}' for pc in range(base+16,base+24,2)}
+            (path/'f_8c010010.ops.json').write_text(json.dumps(ops))
+            values=[0]*74
+            (path/'f_8c010010.cases').write_text(' '.join(f'{v:08x}' for v in values))
+            self.assertEqual(callable_body.validate(base+18,attribution,spans,path,image)[0],base+16)
+            for slot in (51,52):
+                changed=list(values);changed[slot]=1
+                (path/'f_8c010010.cases').write_text(' '.join(f'{v:08x}' for v in changed))
+                with self.assertRaises(AssertionError):callable_body.validate(base+18,attribution,spans,path,image)
+            with self.assertRaises(AssertionError):
+                callable_body.validate(base+18,dict(attribution,callee_save_prefix=[]),spans,path,image)
+
     def test_clip_plan_covers_masks_layouts_terminators_and_relocation(self):
         combinations = set()
         for variant in range(128):

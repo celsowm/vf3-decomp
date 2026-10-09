@@ -12,8 +12,13 @@ Aligned observation and original-call pilots pass. A live C enqueue bridge now
 passes positive and genuine negative/input controls. Channel allocation now
 passes 128 development and 128 disjoint acceptance cases, with independent live
 C/device comparisons and a relocated acceptance stack. Its complete body adds
-786 bytes, reaching 258,430 / 434,656 (59.46%). Sound-dependent callers,
-transition/reset attribution and portable playback remain pending.
+786 bytes. Submission/style now pass a 32-pair pilot, and actor cleanup adds
+72 bytes after 256 live comparisons and 256 independent native cases. Current
+readable coverage is 258,502 / 434,656 (59.47%), with 1,363 bindings, 39 freshly
+linked native suites and 86 tool tests passing. Two further style callers,
+sound-dependent scene/input callers, transition/reset attribution and portable
+playback remain pending. The bounded ARM A0 handoff model is a protocol fragment;
+it does not complete the original ARM/DSP replacement gate.
 
 ## Evidence and scope
 
@@ -31,8 +36,9 @@ transition/reset attribution and portable playback remain pending.
   `tools/oracle/percentage_5914_observation_pilot.json` and
   [the execution ledger](coverage_5914_execution.md). This does not establish
   that the observer caused the differences.
-- `src/sys/soundcmd.c` has unresolved zero-address endpoints and speculative
-  command naming. Treat it as a research model, not verified playback.
+- `src/sys/soundcmd.c` has unresolved zero-address endpoints. Its unused guessed
+  opcode enum has been removed; debug names remain attribution leads. Treat the
+  facade as unresolved, not verified playback.
   The old [AICA adapter note](aica_stub.md) covers a SH-4 copy/dispatch helper,
   not a complete audio device implementation.
 

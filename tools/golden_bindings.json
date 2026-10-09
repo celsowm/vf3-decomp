@@ -4453,9 +4453,9 @@
     "test": "build/vf3matrixfamily.exe 0x8c0c1fd8"
   },
   "fight:0x8c0c5d86": {
-    "golden": "extract/analysis/fight_release_cases/f_8c0c5d86.cases",
-    "port": "src/fight/fight_adapters.c",
-    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 58 strict cases from fight_release_cases corpus (body cover 85.7%)",
+    "golden": "extract/analysis/audio_submission_pilot_v1_cases/f_8c0c5d86.cases",
+    "port": "src/fight/audio_submission.c",
+    "source": "Readable submission/config/dedup C; 26 distinct strict native cases and 32 paired live-device submission/style pilot comparisons; no additional byte credit",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c5d86"
   },
@@ -6425,6 +6425,23 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Static original-image C; full body in both corpora; directed style-5 and style-7 angular branches; 1152 development and 794 independent relocated acceptance cases; resource-index excluded from this proof.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0abcb8"
+  },
+  "percentage-audio-actor-clear:0x8c098042": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c098118",
+        "0x8c09848c"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c098040"
+    },
+    "golden": "extract/analysis/audio_actor_clear_dev_v1_cases/f_8c098040.cases",
+    "port": "src/fight/audio_actor_clear.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete cleanup with specialized six-channel startup and actor style submission; 256 strict live-device pairs and disjoint 128-case native corpora; acceptance actors and stack relocated; original ARM/DSP remain backend dependencies",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c098040"
   },
   "percentage-audio-channels:0x8c040fa4": {
     "golden": "extract/analysis/audio_channels_dev_v3_cases/f_8c040fa4.cases",

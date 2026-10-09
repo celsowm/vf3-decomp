@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "scope": "A0 protocol ordered stores only; observer WAV export",
+  "observed_cases": 9,
+  "synthetic_wrap_fixture": true,
+  "standalone_audio": false,
+  "manual_listening_completed": false,
+  "artifacts": [
+    {
+      "path": "src/media/driver_queue.c",
+      "sha256": "503f39e3a1816ff55451b59c2d97b5f96bfe70ca283109a5bdbc64549f79631b"
+    },
+    {
+      "path": "src/media/driver_queue.h",
+      "sha256": "a963b94bfe97705e62e311cdaf52a140050b729b0a561fff5084abb9cd3f89a9"
+    },
+    {
+      "path": "tests/driver_queue_replay.c",
+      "sha256": "76b55afcf11ea3a80b2db9db5f3c223fe798dee924d5254131f46d671be3b97e"
+    },
+    {
+      "path": "tools/oracle/arm_handoff.py",
+      "sha256": "76b87feb83b6bb5da129988ac6a54997558fedb231549208f3bc8a1b7c2ce457"
+    },
+    {
+      "path": "build/vf3driverqueue_v1.exe",
+      "sha256": "d2bc2f69dee546388ed09b6b535719b320cd57694837993ed2cdec340ca3825d"
+    },
+    {
+      "path": "extract/analysis/audio_arm_handoff_v1/manifest.json",
+      "sha256": "39c0b6978693bf32824e78000b2ebc8af1f607993cf7ca4efa2072ba7c42e095"
+    },
+    {
+      "path": "extract/analysis/audio_arm_handoff_v1/handoff.cases",
+      "sha256": "9185c66a5dbb0b6d4c4a5d848a33df12e31bdba15f06de006c9ab50dec7de844"
+    },
+    {
+      "path": "extract\\analysis\\audio_arm_handoff_v1\\native.log",
+      "sha256": "fcf9ae70c8058397b7c7131eb7f5211994098ee2a0bdc0123df0c0c3b95fd72b"
+    },
+    {
+      "path": "extract/gamedata/SNDDRV.BIN",
+      "sha256": "75ff2ae6f353df3d08418dc2658af447efe42fe052d389471c4883ff67def199"
+    },
+    {
+      "path": "extract/analysis/audio_arm_observer_v2_pcm_state28_v2/manifest.json",
+      "sha256": "18692eff4defbd8be648fe8e1aa9605eb500ee22125ed8832ae6e11d7a37418d"
+    },
+    {
+      "path": "tools/oracle/audio_pcm.py",
+      "sha256": "fb1cf0df5023d1ca4fe56c8cb1e9bab49242695f1be7713f9746f411c388231b"
+    },
+    {
+      "path": "tools/oracle/audio_pcm_compare.py",
+      "sha256": "dcd8dbe8d7ce23a110d2772cae34b3cba16cb83303626fe7a7599ffad13c6e2f"
+    },
+    {
+      "path": "build/vf3driverqueue.exe",
+      "sha256": "86a3389e539aa222084d3d05d287d0c559978a5802b2eb05ec0624d691dd18fa"
+    },
+    {
+      "path": "extract/analysis/audio_arm_handoff_v1/integrated_native.log",
+      "sha256": "fcf9ae70c8058397b7c7131eb7f5211994098ee2a0bdc0123df0c0c3b95fd72b"
+    }
+  ]
+}

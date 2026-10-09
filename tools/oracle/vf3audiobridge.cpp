@@ -16,6 +16,9 @@ extern "C" {
 #include "fight/matrix_family.h"
 int vf3_audio_queue_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_channels_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_submission_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_style_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_actor_clear_c(vf3_matrix_state*,const vf3_ram_map*);
 }
 namespace {
 Sh4Context *cpu;
@@ -90,7 +93,10 @@ bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     if (!std::getenv("VF3_C_AUDIO_REPLAY") || !vf3OracleOneShotActive()) return false;
     if (!std::getenv("VF3_ONESHOT") || mmu_enabled()) std::abort();
     const bool channels=ctx->pc==0x8c040fa6u;
-    if (!channels && ctx->pc!=0x8c040f20u) return false;
+    const bool submission=ctx->pc==0x8c0c5d88u;
+    const bool style=ctx->pc==0x8c0ca05eu;
+    const bool actors=ctx->pc==0x8c098042u;
+    if (!channels && !submission && !style && !actors && ctx->pc!=0x8c040f20u) return false;
     cpu=ctx; previous=op; deferred=0; first=true; instructions=0;
     vf3_matrix_state s{};
     for (unsigned i=0;i<16;++i) {
@@ -100,8 +106,13 @@ bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     s.v[16]=ctx->pr; s.v[17]=ctx->sr.getFull(); s.v[18]=ctx->fpscr.full;
     s.v[19]=ctx->mac.l; s.v[20]=ctx->mac.h; s.v[53]=ctx->fpul; s.gbr=ctx->gbr;
     vf3_ram_map ram{};
-    std::fprintf(stderr,"[vf3audiobridge] executing C %s with live devices\n",channels?"channels":"queue");
-    if (!(channels?vf3_audio_channels_c(&s,&ram):vf3_audio_queue_c(&s,&ram))) std::abort();
+    std::fprintf(stderr,"[vf3audiobridge] executing C %s with live devices\n",
+        channels?"channels":submission?"submission":style?"style":actors?"actors":"queue");
+    const int result=channels?vf3_audio_channels_c(&s,&ram):
+        submission?vf3_audio_submission_c(&s,&ram):style?vf3_audio_style_c(&s,&ram):
+        actors?vf3_audio_actor_clear_c(&s,&ram):
+        vf3_audio_queue_c(&s,&ram);
+    if (!result) std::abort();
     toGuest(&s);
     retire(s.pc);
     const unsigned short next=IReadMem16(s.pc);

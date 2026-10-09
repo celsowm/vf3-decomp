@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Audio submission and actor cleanup (2026-10-09)
+
+Readable actor cleanup adds **72 unique bytes**, reaching
+**258,502 / 434,656 (59.47%)**. Its two disjoint corpora pass **256/256 live
+comparisons** and **256/256 native replays**, with relocated acceptance actors
+and stack. Submission/style also pass a 32-pair pilot; the existing submission
+binding now uses readable C and 26 complete-body cases, without extra credit.
+The **1,363-binding** inventory, **39 freshly linked native suites**, **86 tool
+tests** and full milestone hash chain pass. A small ARM A0 handoff model matches
+nine observed ordered-store sequences; it supplies no ARM/SH-4 coverage credit.
+The remaining style/scene callers, attributed song/reset transitions and
+standalone ARM/DSP playback remain open. See [audio execution](re/audio_execution.md).
+
 ## Audio channel allocation and ARM observation (2026-10-09)
 
 Complete readable C channel allocation adds **786 unique bytes**, reaching

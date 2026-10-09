@@ -1,5 +1,45 @@
 # Sound / BGM subsystem (2026-09-19, static pass; M13 evidence 2026-09-22)
 
+## 2026-10-09 corrections from aligned runtime evidence
+
+The historical observations below retain their original dates; their driver,
+bank-boundary and reset interpretations are superseded by the following:
+
+- The resident ARM driver is `SNDDRV.BIN`, not `RELOAD.BIN`. All eight retained
+  state26/state28 checkpoints match its complete `0x0510..0x9fff` code range.
+  `RELOAD.BIN` starts with SH-4 code. The identity ledger is
+  `extract/analysis/audio_snddrv_identity_v1.json`.
+- Whole-package equality places `BGM_VAN.BIN` at AICA `0x086e50`, length
+  1,014,948 bytes. `0x086e54` was the first changed byte in older captures;
+  it does not establish an allocation boundary or a reset contract.
+- Read-only ARM observation passed paired fresh-process equivalence in states
+  26 and 28, with 44,380 and 85,342 retained events and no truncation. Event
+  ordering and guest PC are exact; timestamps identify the enclosing SH-4
+  scheduler callback and do not resolve individual ARM cycles.
+- State26 contains nine nonzero A0 queue handoffs: two reads at ARM `0x668`
+  and `0x674`, clearing at `0x688`, byte reversal through `0x48..0x4f`, then
+  publication at `0x245c` into the internal `0xa400` ring. The consumer ORs
+  bit 6 into the reversed A0 word. This does not identify a voice-reset API.
+- State28 contains 277 hardware voice-register writes and no nonzero external
+  queue consumption in this bounded observation. Thirteen enabled voices in
+  a retained longer state26 checkpoint point inside the proved BGM_VAN bank.
+  Register key requests alone are not proof that a voice is enabled.
+- The historical `0x00a0b4..0x00cf5d` change window overlaps the ARM stack
+  (initial SP `0x00a100`), driver context at `0x00a200`, the proved command
+  ring `0x00a400..0x00a7ff`, and sixteen 48-byte software work records at
+  `0x00cc50..0x00cf4f`. Calling the entire window a PCM streaming ring is
+  unsupported. The literal/record-layout derivation is retained in
+  `extract/analysis/audio_arm_workspace_v1.json`; runtime command-ring stores
+  are proved separately. Sample streaming and wrap behavior remain open.
+
+The accepted observer manifest is
+`tools/oracle/audio_arm_observer_v2_manifest.json`. A separately bounded C
+handoff model in `src/media/driver_queue.c` reproduces all nine ordered store
+sequences; it does not replace ARM execution, interrupt timing or DSP. The
+observer's state28 PCM exports contain 14,446 exact stereo frames (about
+0.328 seconds); WAV round-trip preserves all samples. A full menu/fight/second
+song comparison and a manual listening check remain required.
+
 ## M13 voice-reset boundary LOCATED (extract/analysis/shots/aica_load_*)
 - Full song-kit write: one contiguous block `0x086E54 .. 0x1CC29D`
   (1,222,259 B) replacing attract/menu kit with the fight kit (AICAF 24200 ->

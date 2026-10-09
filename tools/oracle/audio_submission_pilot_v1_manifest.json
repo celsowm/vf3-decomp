@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "scope": "submission/style pilot; submission already credited and style absent from frozen inventory",
+  "live_pairs": 32,
+  "aica_crossings": 32,
+  "native_distinct_cases": 32,
+  "batch": {
+    "path": "extract\\analysis\\audio_submission_pilot_v1_cases\\batch_manifest.json",
+    "sha256": "6bb61328445290d5e6f31debeb79286298d870c2d81e1573e7ea83f0ed64e0f1"
+  },
+  "native": {
+    "path": "extract\\analysis\\audio_submission_pilot_v1_native_report.json",
+    "sha256": "7ad07af8c799b7ffdfd811b5313c1971504b31986a595ed3d4cf61afb86cd179"
+  },
+  "sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\submission_v1_sources\\manifest.json",
+    "sha256": "68973e5a03e2a4fd1beafcb37e66c522d23279f30b3c360967e9ff489e666c71"
+  },
+  "comparison": {
+    "path": "extract\\analysis\\audio_submission_pilot_v1_cases\\live_audio_comparison.json",
+    "sha256": "ef863b61f11666c24d0a23d318f0fa30737290d5d582d568237986a5310ef1bf"
+  },
+  "current_executable_native": {
+    "path": "extract/analysis/audio_submission_pilot_v1_actor_executable_report.json",
+    "sha256": "9f18bc32967356da8f9a3ca9ea89c1d6e5140c59823fa077da6eac194b9c33b4"
+  },
+  "full_body_bytes": 56,
+  "id_map_identity": {
+    "path": "extract/analysis/audio_id_map_residency_v1.json",
+    "sha256": "b7560a2c76fd6cc2bb61744791efe7454e84df130473204386d7700a8cd14c43"
+  }
+}
