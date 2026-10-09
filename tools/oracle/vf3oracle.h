@@ -23,3 +23,5 @@ bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op);
 /* Retire an AICA RAM checkpoint probe before any scheduler/ARM7 time advances.
  * The interpreter must re-fetch the restored trigger, without ticking devices. */
 bool vf3OracleBeforeTimeslice(void);
+/* Separate process-owned invocation; never resumes the game or rolls back. */
+bool vf3OracleOneShotDone(void);

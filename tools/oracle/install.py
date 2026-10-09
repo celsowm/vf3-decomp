@@ -15,9 +15,31 @@ def insert(path, anchor, replacement):
         raise SystemExit(f"Expected one anchor in {p}: {anchor!r}")
     p.write_text(text.replace(anchor, replacement), encoding="utf-8")
 
+
+def normalize_observer():
+    """One pre-dispatch hook even when upgrading an already patched fork."""
+    import re
+    p = CORE / 'hw/sh4/interpr/sh4_interpreter.cpp'
+    original = p.read_text(encoding='utf-8')
+    text = re.sub(r'^\t(?:vf3OracleBefore\(addr, op, ctx\);|'
+                  r'if \(vf3AudioBefore\(addr,op,ctx\)\) throw debugger::Stop\(\);|'
+                  r'if \(vf3OracleOneShotDone\(\)\) throw debugger::Stop\(\);)\n',
+                  '', original, flags=re.M)
+    anchor = '\tvf3TraceInstr(addr, op);'
+    if text.count(anchor) != 1:
+        raise SystemExit('Expected one interpreter trace dispatch')
+    text = text.replace(anchor,
+        '\tif (vf3AudioBefore(addr,op,ctx)) throw debugger::Stop();\n'
+        '\tvf3OracleBefore(addr, op, ctx);\n'
+        '\tif (vf3OracleOneShotDone()) throw debugger::Stop();\n' + anchor)
+    if text != original:
+        p.write_text(text, encoding='utf-8')
+
 def main():
     for name in ("vf3oracle.cpp", "vf3oracle.h", "vf3audio.cpp", "vf3audio.h"):
-        shutil.copyfile(Path(__file__).parent / name, CORE / name)
+        source, dest = Path(__file__).parent / name, CORE / name
+        if not dest.exists() or source.read_bytes() != dest.read_bytes():
+            shutil.copyfile(source, dest)
     insert(Path('windows/winmain.cpp'), '#include "build.h"',
            '#include "build.h"\n#include "vf3oracle.h"')
     runner = CORE / 'windows/winmain.cpp'
@@ -60,9 +82,6 @@ def main():
            '#include "vf3trace.h"\n#include "vf3oracle.h"')
     insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '#include "vf3oracle.h"',
            '#include "vf3oracle.h"\n#include "vf3audio.h"')
-    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '\tvf3OracleBefore(addr, op, ctx);',
-           '\tif (vf3AudioBefore(addr,op,ctx)) throw debugger::Stop();\n'
-           '\tvf3OracleBefore(addr, op, ctx);')
     insert(Path('hw/aica/sgc_if.cpp'), '#include "serialize.h"',
            '#include "serialize.h"\n#include "vf3audio.h"')
     insert(Path('hw/aica/sgc_if.cpp'), '\tWriteSample(mixr, mixl);',
@@ -77,8 +96,6 @@ def main():
            '\t\t\t\t/* Sound RAM probes must finish before any ARM7/device tick. */\n'
            '\t\t\t\tif (vf3OracleBeforeTimeslice()) continue;\n'
            '\t\t\t\tctx->cycle_counter += SH4_TIMESLICE;')
-    insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceInstr(addr, op);",
-           "\tvf3OracleBefore(addr, op, ctx);\n\tvf3TraceInstr(addr, op);")
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), "\tvf3TraceDepthOp(addr, op, ctx);",
            "\tvf3TraceDepthOp(addr, op, ctx);\n"
            "\t/* A synthetic probe substitutes the target's first opcode for the\n"
@@ -144,14 +161,17 @@ sh4op(i1111_nnnn_0011_1101)
             raise SystemExit("Missing original FTRC opcode implementation")
         p.write_text(text, encoding="utf-8")
     p = CORE / "hw/sh4/sh4_mem.cpp"
-    text = p.read_text(encoding="utf-8")
+    original = p.read_text(encoding="utf-8")
+    text = original
     for name in ("WriteMemBlock_nommu_ptr", "WriteMemBlock_nommu_sq", "WriteMemBlock_nommu_dma"):
         if re.search(rf'{name}\([^;]*?\)\s*\{{\s*vf3OracleInvalidate', text):
             continue
         text, count = re.subn(rf'({name}\([^;]*?\)\s*\{{)', r'\1\n\tvf3OracleInvalidate(8);', text, count=1)
         if count != 1:
             raise SystemExit(f"Missing asynchronous-copy hook: {name}")
-    p.write_text(text, encoding="utf-8")
+    if text != original:
+        p.write_text(text, encoding="utf-8")
+    normalize_observer()
     print("Oracle hooks installed; rebuild tools/emu/flycast-build.")
 
 if __name__ == "__main__":

@@ -1,0 +1,12 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {"name": "ram_only_invalid_command", "entry": "0x8c040f1e", "registers": {"r4": 0}, "expected_result": -2},
+    {"name": "channels_positive", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": 0}, "expected_result": 0, "event_crossing": true},
+    {"name": "channels_bad_argument", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": 1}, "expected_result": -2},
+    {"name": "style_tail_transfer", "entry": "0x8c0ca05c", "registers": {"r4": "0x0c1fefe4"}, "memory": {"0x0c1ff044": 0}, "transfer": "0x8c0ca06a", "expected_exit": "0x8c0c5d86"},
+    {"name": "channels_budget_abort", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": 0}, "budget": 1, "rejected": true}
+  ]
+}

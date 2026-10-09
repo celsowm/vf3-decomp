@@ -53,6 +53,41 @@ target; it does not establish the ARM7 meaning of command `0xa1`.
 
 ## Remaining gates
 
+## B: process-owned original calls pass
+
+`VF3_ONESHOT` is separate from rollback probes and forbids rollback flags or
+threaded execution. Each process arms one redirected original invocation,
+captures audio at entry and its completed return/tail boundary, and stops via
+the interpreter's normal stop exception before executing the caller. No game
+state is restored. The capsule summary records mode, completion and restores.
+
+The fixed-installer pilot `audio_one_shot_acceptance_v3` passes 30/30 runs:
+three repetitions of five cases in states 26 and 28. All 20 repetition
+comparisons match full audio checkpoint bytes. Cases cover invalid-command
+RAM-only execution, positive channel configuration with a real AICA callback,
+argument rejection, an actual style-helper tail jump after its delay slot,
+and rejected instruction-budget exhaustion. Positive configuration completes
+with result zero and one AICA callback; all one-shot restore counts are zero.
+The nested division/enqueue calls are included in the positive invocation.
+
+`audio_rollback_guard_v3` rejects both positive configuration attempts with
+flag 4 and a recorded timeslice abort. This is the existing guard: it rejects
+any scheduler timeslice, even one before the next actual AICA callback.
+Short one-shot controls do not imply a short rollback control will fit the
+remaining cycles at this particular trigger.
+
+A tail-transfer negative control found an installer upgrade defect: adding the
+one-shot stop check made the previous textual hook replacement appear absent,
+so the old installer inserted a second observer call. The new normalization
+installs exactly one hook and has an idempotence/upgrade regression test.
+Earlier one-shot/guard v1/v2 evidence is invalidated and retained; the passing
+v3 captures use the repaired executable. The phase-A recorder had one hook.
+
+The 60 oracle-tool tests pass. These results establish original-call capture,
+not C/device replay or portable playback. Fault/timeout rejection is enforced
+by the runner's completion checks; broader live fault/interrupt campaigns
+remain work alongside the device bridge.
+
 One-shot return-boundary capture, a positive AICA event crossing with unchanged
 rollback rejection, causally generated C/device replay, actual timer/ARM input
 controls, attributed bank/voice transitions and portable playback remain open.

@@ -14,6 +14,7 @@
  * tape; interrupts, MMU translation and asynchronous copies still invalidate
  * a specimen rather than being mistaken for game behavior. */
 #include "vf3oracle.h"
+#include "vf3audio.h"
 #include "hw/sh4/sh4_mem.h"
 #include "hw/sh4/sh4_opcode_list.h"
 #include "hw/sh4/sh4_cache.h"
@@ -49,6 +50,7 @@ struct Call {
      * when the hook fires, so snapshotting here would rewind effects such as
      * a prologue stack push. */
     bool synthetic = false;
+    bool oneShot = false;
     bool needsSnapshot = false;
     /* Set when the probe exceeds its instruction budget: a seed that never
      * returns. The specimen is retired at the next instruction boundary, flagged
@@ -100,6 +102,7 @@ unsigned long long probes, probeBusy, probeNotWatched, probeSampled, targetArmed
 unsigned long long textControlRestores;
 unsigned long long aicaPageRestores, aicaTimesliceAborts;
 bool rollbackAicaRam;
+bool oneShotMode, oneShotStarted, oneShotDone;
 std::map<unsigned,unsigned long long> probeByTrigger;
 /* The redirect takes effect on the NEXT fetch, so the arm suppression has to
  * survive one instruction boundary; otherwise the generic watch re-arms the same
@@ -145,6 +148,10 @@ void finish(size_t i, unsigned pc, const Sh4Context *ctx) {
         }
     }
     auto &c=active[i];
+    if (c.oneShot) {
+        vf3AudioEnd(pc,ctx);
+        oneShotDone=true;
+    }
     for (const auto &p:c.pages) flushPage(p.first);
     if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
     State out=snapshot(ctx);
@@ -241,8 +248,9 @@ void close_output() {
         first=false;
     }
     std::fprintf(f,"],\"text_control_restores\":%llu,\"aica_page_restores\":%llu,"
-                   "\"aica_timeslice_aborts\":%llu}\n",
-                   textControlRestores,aicaPageRestores,aicaTimesliceAborts);
+                   "\"aica_timeslice_aborts\":%llu,\"restores\":%llu,\"one_shot\":%s,\"one_shot_done\":%s}\n",
+                   textControlRestores,aicaPageRestores,aicaTimesliceAborts,
+                   restores,oneShotMode?"true":"false",oneShotDone?"true":"false");
     if (std::fclose(f)!=0) std::abort();
     if (debugPath[0]) {
         FILE *d=std::fopen(debugPath.c_str(),"wb");
@@ -416,6 +424,13 @@ void opcode_oracle(const Sh4Context *ctx) {
 void init(const Sh4Context *ctx) {
     initialized=true;
     rollbackAicaRam=getenv("VF3_ROLLBACK_AICA_RAM")!=nullptr;
+    oneShotMode=getenv("VF3_ONESHOT")!=nullptr;
+    if (oneShotMode && (rollbackAicaRam || getenv("VF3_ROLLBACK_TEXT_CONTROL") ||
+        !getenv("VF3_AUDIO_CHECKPOINTS") || !getenv("VF3_CAPSULE") ||
+        !getenv("VF3_ENTRY_PATCH") || getenv("VF3_AUDIO_THREADED"))) {
+        std::fprintf(stderr,"[vf3oracle] one-shot requires synchronous capsule/audio/entry-patch; rollback flags forbidden\n");
+        std::abort();
+    }
     probeOnly=getenv("VF3_PROBE_ONLY")!=nullptr;
     probeChildren=getenv("VF3_PROBE_CHILDREN")!=nullptr;
     opcode_oracle(ctx);
@@ -535,6 +550,7 @@ void init(const Sh4Context *ctx) {
 }
 }
 void vf3OraclePrepare() { if(!initialized) init(&Sh4cntx); }
+bool vf3OracleOneShotDone() { return oneShotDone; }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
 bool vf3OracleTakeSkip() { if (!pendingSkip) return false; pendingSkip=false; return true; }
 bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op) {
@@ -572,6 +588,7 @@ bool vf3OracleBeforeTimeslice() {
     return false;
 }
 void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
+    if (oneShotDone) return;
     if(!initialized) init(ctx);
     lastCtx=ctx;
     /* Exception rollback happens outside ReadNexOp. Its next fetch must replay
@@ -599,6 +616,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
         if (--active[i].countdown) continue;
         if (active[i].aborted) active[i].flags|=4;
         finish(i,pc,ctx);
+        if (oneShotDone) return;
         if (pendingSkip) return;
     }
     unsigned canon=pc|0x80000000u;
@@ -606,6 +624,7 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     pendingRedirect=0;
     auto synthetic=syntheticPatches.find(canon);
     if (synthetic!=syntheticPatches.end() && synthetic->second.target) {
+        if (oneShotMode && oneShotStarted) return;
         ++probeByTrigger[canon|0x40000000u];
         if (!active.empty()) { ++probeBusy; vf3OracleInvalidate(4); }
         else {
@@ -627,7 +646,8 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             /* Round-robin the trigger's seed variants so consecutive firings walk
              * the seed plan instead of repeating one input. */
             Call c; c.id=++sequence; c.entry=watchPc; c.depth=depth;
-            c.synthetic=true; c.saved=*ctx; c.savedDepth=depth; c.triggerPc=pc;
+            c.synthetic=!oneShotMode; c.oneShot=oneShotMode;
+            c.saved=*ctx; c.savedDepth=depth; c.triggerPc=pc;
             /* A callee can perform bulk RAM writes outside the scalar hooks.
              * Such specimens remain invalid, but rollback must undo them too.
              * Flush dirty game lines before taking the complete RAM image. */
@@ -674,6 +694,10 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
                 c.transfer=target->transfer; c.in=snapshot(mutableCtx); c.deferRecord=true;
                 c.gameResume=mutableCtx->pr;
                 c.subPc=pendingSubPc; c.subOp=pendingSubOp;
+                if (c.oneShot) {
+                    oneShotStarted=true;
+                    vf3AudioBegin(targetPc,pendingSubOp,mutableCtx);
+                }
                 active.push_back(std::move(c));
             }
             /* The redirect already owns the target's invocation: the generic watch

@@ -13,9 +13,12 @@
 #include <cstring>
 #include <vector>
 
+namespace aica { extern int aica_schid, rtc_schid, dma_sched_id; }
+extern int gdrom_schid, maple_schid, render_end_schid, vblank_schid, tmu_sched[3];
+
 namespace {
 FILE *out;
-bool ready, done;
+bool ready, done, callMode, inCall;
 unsigned long long count;
 size_t cursor;
 std::vector<unsigned long long> points;
@@ -42,22 +45,25 @@ void close() {
     if (out && std::fclose(out)) std::abort();
     out=nullptr;
 }
+void checkpoint(unsigned pc, unsigned short op, const Sh4Context *c);
 }
 void vf3AudioPrepare() {
     if (ready) return;
     ready=true;
     const char *path=std::getenv("VF3_AUDIO_CHECKPOINTS");
     if (!path || !*path) return;
+    callMode=std::getenv("VF3_ONESHOT")!=nullptr;
     const char *p=std::getenv("VF3_AUDIO_POINTS");
-    if (!p) { std::fprintf(stderr,"[vf3audio] VF3_AUDIO_POINTS required\n"); std::abort(); }
-    while (*p) {
+    if (!p && !callMode) { std::fprintf(stderr,"[vf3audio] VF3_AUDIO_POINTS required\n"); std::abort(); }
+    if (p && callMode) std::abort();
+    while (p && *p) {
         char *end;
         auto value=std::strtoull(p,&end,0);
         if (end==p || !value || value>1000000000ull || (*end && *end!=',')) std::abort();
         points.push_back(value);
         p=*end?end+1:end;
     }
-    if (points.empty() || points.size()>64 || !std::is_sorted(points.begin(),points.end()) ||
+    if ((!callMode && points.empty()) || points.size()>64 || !std::is_sorted(points.begin(),points.end()) ||
         std::adjacent_find(points.begin(),points.end())!=points.end()) std::abort();
     out=std::fopen(path,"wb");
     if (!out) std::abort();
@@ -66,21 +72,26 @@ void vf3AudioPrepare() {
 }
 bool vf3AudioDone() { return done; }
 void vf3AudioSample(int right, int left) {
-    if (!out || done) return;
+    if (!out || done || (callMode && !inCall)) return;
     if (pcm.size()>=32*1024*1024) std::abort();
     pcm.push_back((short)right); pcm.push_back((short)left);
 }
 void vf3AudioEvent(int id, int tag, int duration, int jitter) {
-    if (!out || done) return;
+    if (!out || done || (callMode && !inCall)) return;
     if (events.size()>=1000000) std::abort();
     const auto time=sh4_sched_now64();
-    events.push_back({(unsigned)time,(unsigned)(time>>32),(unsigned)id,
+    const int ids[]={aica::aica_schid,aica::rtc_schid,gdrom_schid,maple_schid,
+                     aica::dma_sched_id,render_end_schid,vblank_schid,
+                     tmu_sched[0],tmu_sched[1],tmu_sched[2]};
+    unsigned role=0;
+    for (unsigned i=0;i<10;++i) if (ids[i]==id) role=i+1;
+    // Unknown callbacks keep a high-bit marker; known IDs become device roles.
+    if (!role) role=0x80000000u|(unsigned)id;
+    events.push_back({(unsigned)time,(unsigned)(time>>32),role,
                      (unsigned)tag,(unsigned)duration,(unsigned)jitter});
 }
-bool vf3AudioBefore(unsigned pc, unsigned short op, const Sh4Context *c) {
-    if (!out || done) return false;
-    ++count;
-    if (count!=points[cursor]) return false;
+namespace {
+void checkpoint(unsigned pc, unsigned short op, const Sh4Context *c) {
     const unsigned long long cycles=sh4_sched_now64();
     const unsigned header[4]={pc,op,(unsigned)c->cycle_counter,(unsigned)c->sh4_sched_next};
     write(&count,8); write(&cycles,8); write(header,sizeof(header));
@@ -103,6 +114,23 @@ bool vf3AudioBefore(unsigned pc, unsigned short op, const Sh4Context *c) {
     block(7,events.data(),(unsigned)(events.size()*sizeof(events[0])));
     if (std::fflush(out)) std::abort();
     std::fprintf(stderr,"[vf3audio] checkpoint %llu pc=%08x cycle=%llu\n",count,pc,cycles);
+}
+}
+bool vf3AudioBefore(unsigned pc, unsigned short op, const Sh4Context *c) {
+    if (!out || done) return false;
+    ++count;
+    if (callMode || count!=points[cursor]) return false;
+    checkpoint(pc,op,c);
     if (++cursor==points.size()) { done=true; close(); return true; }
     return false;
+}
+void vf3AudioBegin(unsigned pc, unsigned short op, const Sh4Context *c) {
+    if (!out || !callMode || inCall || done) std::abort();
+    inCall=true;
+    checkpoint(pc,op,c);
+}
+void vf3AudioEnd(unsigned pc, const Sh4Context *c) {
+    if (!out || !callMode || !inCall || done) std::abort();
+    checkpoint(pc,0,c); // return-boundary opcode is not executed or part of the call
+    done=true; inCall=false; close();
 }
