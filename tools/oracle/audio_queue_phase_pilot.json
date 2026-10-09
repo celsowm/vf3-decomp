@@ -1,0 +1,135 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "phase_2",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 2
+    },
+    {
+      "name": "phase_3",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 3
+    },
+    {
+      "name": "phase_4",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 4
+    },
+    {
+      "name": "phase_5",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 5
+    },
+    {
+      "name": "phase_6",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 6
+    },
+    {
+      "name": "phase_7",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 7
+    },
+    {
+      "name": "phase_8",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 8
+    },
+    {
+      "name": "phase_9",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 9
+    },
+    {
+      "name": "phase_10",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 10
+    },
+    {
+      "name": "phase_11",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 11
+    },
+    {
+      "name": "phase_12",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 12
+    },
+    {
+      "name": "phase_13",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 13
+    },
+    {
+      "name": "phase_14",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 14
+    },
+    {
+      "name": "phase_15",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 15
+    },
+    {
+      "name": "phase_16",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 16
+    },
+    {
+      "name": "phase_17",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "trigger_ordinal": 17
+    }
+  ]
+}

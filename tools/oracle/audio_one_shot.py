@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import struct
 import subprocess
-from audio_determinism import ROOT, sha, describe, checkpoints, emulator_lock, compare
+from audio_determinism import ROOT, sha, describe, checkpoints, emulator_lock, compare, compress_checkpoint
 from capsules import records
 
 
@@ -16,9 +16,13 @@ def run(a):
     out.mkdir(parents=True, exist_ok=True)
     manifest = dict(advisory=True, coverage_credit=False, passed=False, runs=[],
         mode='rollback_guard_control' if a.rollback else 'nonrollback_one_shot',
+        execution='readable_c_queue' if a.c_replay else 'original_sh4',
+        device_control=a.control, corrupt_command=a.corrupt_command,
         provenance={str(p): sha(p) for p in [a.emulator, a.recipe,
             ROOT/'tools/oracle/vf3oracle.cpp', ROOT/'tools/oracle/vf3audio.cpp',
-            ROOT/'tools/oracle/install.py', Path(__file__)]})
+            ROOT/'tools/oracle/install.py', ROOT/'tools/oracle/vf3audiobridge.cpp',
+            ROOT/'src/fight/command_encoders.c', ROOT/'extract/gamedata/1ST_READ.BIN',
+            Path(__file__)]})
     target_manifest = out/'manifest.json'
     def save():
         target_manifest.write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8')
@@ -57,6 +61,22 @@ def run(a):
                     env.update(VF3_ROLLBACK_AICA_RAM='1', VF3_AUDIO_POINTS='1,1048576')
                 else:
                     env['VF3_ONESHOT'] = '1'
+                    env['VF3_ONESHOT_TRIGGER_N'] = str(case.get('trigger_ordinal', 1))
+                    if case.get('event_window'):
+                        env['VF3_ONESHOT_WAIT_AICA'] = '1'
+                control = case.get('control', a.control)
+                if control:
+                    if a.rollback:
+                        raise ValueError('device input controls require one-shot mode')
+                    env['VF3_AUDIO_CONTROL'] = control
+                if a.corrupt_command:
+                    if not a.c_replay:
+                        raise ValueError('command corruption is a live C negative control')
+                    env['VF3_AUDIO_CORRUPT_COMMAND'] = '1'
+                if a.c_replay:
+                    if entry != 0x8c040f1e or a.rollback:
+                        raise ValueError('live C replay currently supports the queue entry only')
+                    env['VF3_C_AUDIO_REPLAY'] = '1'
                 with log.open('wb') as f:
                     try:
                         proc = subprocess.run([str(a.emulator.resolve()), str(ROOT/'rom/vf3.gdi')],
@@ -66,12 +86,16 @@ def run(a):
                     except subprocess.TimeoutExpired:
                         code = 'timeout'
                 row = dict(state=str(state), case=case['name'], repetition=repeat+1,
+                    device_control=control,
                     returncode=code, log=str(log), log_sha256=sha(log),
                     patch_sha256=sha(patch), passed=False)
                 try:
                     samples = list(records(capsule))
                     summary_path = Path(str(capsule)+'.summary.json')
                     summary = json.loads(summary_path.read_text())
+                    if a.compress:
+                        audio, raw_hash = compress_checkpoint(audio)
+                        row['audio_raw_sha256'] = raw_hash
                     row.update(capsule=str(capsule), capsule_sha256=sha(capsule),
                         summary=summary, audio=describe(audio))
                     if len(samples) == 1:
@@ -129,6 +153,10 @@ def main():
     ap.add_argument('--frames', type=int, default=30)
     ap.add_argument('--timeout', type=int, default=30)
     ap.add_argument('--rollback', action='store_true', help='control using existing RAM-only guard')
+    ap.add_argument('--c-replay', action='store_true', help='execute verified queue C against live devices')
+    ap.add_argument('--control', choices=['timer', 'arm_disabled', 'queue_busy'], help='controlled genuine device input')
+    ap.add_argument('--corrupt-command', action='store_true', help='negative control: corrupt C queue writes')
+    ap.add_argument('--compress', action='store_true', help='hash-verified gzip storage for new audio evidence')
     a = ap.parse_args()
     with emulator_lock(a.emulator):
         return run(a)

@@ -5,6 +5,7 @@
 #include "hw/sh4/sh4_cache.h"
 #include "hw/sh4/sh4_sched.h"
 #include "hw/aica/aica_if.h"
+#include "hw/arm7/arm7.h"
 #include "serialize.h"
 #include <array>
 #include <algorithm>
@@ -127,10 +128,34 @@ bool vf3AudioBefore(unsigned pc, unsigned short op, const Sh4Context *c) {
 void vf3AudioBegin(unsigned pc, unsigned short op, const Sh4Context *c) {
     if (!out || !callMode || inCall || done) std::abort();
     inCall=true;
+    const char *control=std::getenv("VF3_AUDIO_CONTROL");
+    if (control) {
+        if (!std::strcmp(control,"timer"))
+            aica::writeAicaReg<unsigned>(0x2890,aica::readAicaReg<unsigned>(0x2890)^0x100u);
+        else if (!std::strcmp(control,"arm_disabled")) {
+            aica::arm::enable(false);
+        } else if (!std::strcmp(control,"queue_busy")) {
+            // Genuine device input: occupy the current slot through the live bus.
+            const unsigned slot=ReadMem32(0x0c19e218);
+            if (slot<0xa0800400u || slot>=0xa0800500u || (slot&3)) std::abort();
+            WriteMem32(slot,1);
+        } else std::abort();
+    }
     checkpoint(pc,op,c);
 }
 void vf3AudioEnd(unsigned pc, const Sh4Context *c) {
     if (!out || !callMode || !inCall || done) std::abort();
     checkpoint(pc,0,c); // return-boundary opcode is not executed or part of the call
     done=true; inCall=false; close();
+}
+bool vf3AudioQueueWindow(const Sh4Context *c) {
+    // Read-only selection of a natural trigger; never move an event or CPU clock.
+    if (c->cycle_counter<=0 || c->cycle_counter>128) return false;
+    const auto sched=serialized([](Serializer &s){sh4_sched_serialize(s);});
+    // Pinned serializer: version/RAM-size (8), base clock (8), AICA tag/start/end.
+    if (sched.size()!=100) std::abort();
+    unsigned end;
+    std::memcpy(&end,sched.data()+24,4);
+    const unsigned remaining=end-(unsigned)sh4_sched_now64();
+    return remaining>0 && remaining<SH4_TIMESLICE;
 }

@@ -9,3 +9,4 @@ void vf3AudioSample(int right, int left);
 void vf3AudioEvent(int id, int tag, int duration, int jitter);
 void vf3AudioBegin(unsigned pc, unsigned short op, const Sh4Context *ctx);
 void vf3AudioEnd(unsigned pc, const Sh4Context *ctx);
+bool vf3AudioQueueWindow(const Sh4Context *ctx);

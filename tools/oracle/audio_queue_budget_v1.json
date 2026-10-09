@@ -1,0 +1,9 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {"name": "budget_eight", "entry": "0x8c040f1e", "registers": {"r4": 161}, "event_window": true, "budget": 8, "rejected": true},
+    {"name": "budget_twenty", "entry": "0x8c040f1e", "registers": {"r4": 161}, "event_window": true, "budget": 20, "rejected": true}
+  ]
+}

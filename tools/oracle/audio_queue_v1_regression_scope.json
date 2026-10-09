@@ -1,0 +1,245 @@
+{
+  "passed": true,
+  "current_bindings": 1361,
+  "inventory": {
+    "path": "tools\\golden_bindings.json",
+    "sha256": "7f36533cbec985bb688af5904fbebb27918967208952510a61814ab101ccd18a"
+  },
+  "executable": {
+    "path": "build\\vf3matrixfamily_audio_queue_v1.exe",
+    "sha256": "ee84cc4db10ee3ee373dae0ee5568d52214f19648d124924e5cd9db5a2358b56"
+  },
+  "implementation": {
+    "path": "src\\fight\\command_encoders.c",
+    "sha256": "80783ee1ec8951263905e644227fb0f980e003e23b03e78940c749409b0b7f3f"
+  },
+  "regression": {
+    "path": "extract\\analysis\\audio_queue_v1_regression.log",
+    "sha256": "2eeee345621acb1a35924889558834d6b388998c9831d7dcd4338b83027a311a"
+  },
+  "status": {
+    "expected_bindings": 1361,
+    "reported_bindings": 1361,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_test_count": 39,
+  "native_results": [
+    [
+      "vf3dl",
+      "PASS"
+    ],
+    [
+      "vf3walker",
+      "PASS"
+    ],
+    [
+      "vf3mtmount",
+      "PASS"
+    ],
+    [
+      "vf3loop",
+      "PASS"
+    ],
+    [
+      "vf3taskvm",
+      "PASS"
+    ],
+    [
+      "vf3vm",
+      "PASS"
+    ],
+    [
+      "vf3frame",
+      "PASS"
+    ],
+    [
+      "vf3libutil",
+      "PASS"
+    ],
+    [
+      "vf3orient2",
+      "PASS"
+    ],
+    [
+      "vf3poly",
+      "PASS"
+    ],
+    [
+      "vf3vecpush",
+      "PASS"
+    ],
+    [
+      "vf3tailcall",
+      "PASS"
+    ],
+    [
+      "vf3walker2",
+      "PASS"
+    ],
+    [
+      "vf3fvecadd",
+      "PASS"
+    ],
+    [
+      "vf3scaler3",
+      "PASS"
+    ],
+    [
+      "vf3frameseq",
+      "PASS"
+    ],
+    [
+      "vf3cbefc",
+      "PASS"
+    ],
+    [
+      "vf3f040f1e",
+      "PASS"
+    ],
+    [
+      "vf3f0747d8",
+      "PASS"
+    ],
+    [
+      "vf3f9f6fc",
+      "PASS"
+    ],
+    [
+      "vf3f9f6dc",
+      "PASS"
+    ],
+    [
+      "vf3cc148",
+      "PASS"
+    ],
+    [
+      "vf3c5dbe",
+      "PASS"
+    ],
+    [
+      "vf3b10aa",
+      "PASS"
+    ],
+    [
+      "vf3c6ec4",
+      "PASS"
+    ],
+    [
+      "vf3maplookup",
+      "PASS"
+    ],
+    [
+      "vf3meshnode",
+      "PASS"
+    ],
+    [
+      "vf3d0fa",
+      "PASS"
+    ],
+    [
+      "vf3c788",
+      "PASS"
+    ],
+    [
+      "vf3f096258",
+      "PASS"
+    ],
+    [
+      "vf3matrix",
+      "PASS"
+    ],
+    [
+      "vf3bootmix",
+      "PASS"
+    ],
+    [
+      "vf3fvecnorm070x",
+      "PASS"
+    ],
+    [
+      "vf3fvecnorm070a84",
+      "PASS"
+    ],
+    [
+      "vf3fvecnorm070120",
+      "PASS"
+    ],
+    [
+      "vf3fvecnorm07030c",
+      "PASS"
+    ],
+    [
+      "vf3fvecnorm070cf0",
+      "PASS"
+    ],
+    [
+      "vf3fpu",
+      "PASS"
+    ],
+    [
+      "vf3statehelpers",
+      "PASS"
+    ]
+  ],
+  "tool_test_count": 71,
+  "tool_tests": {
+    "path": "extract\\analysis\\audio_queue_v1_tool_tests.log",
+    "sha256": "6512293cb9fb5aab28976b98f025150af00f7b70e448f829078ef9bc89d280c2"
+  },
+  "chain_audit": {
+    "path": "extract\\analysis\\audio_queue_v1_chain_audit.json",
+    "sha256": "ee2f8d5b571c788609974e873c1ac6b929d72530ed59fff139fad264c3905de8"
+  },
+  "audio_evidence": [
+    {
+      "path": "tools\\oracle\\audio_checkpoint_v1_manifest.json",
+      "sha256": "582b6a1d9a12ebd268deaa18604aae54018194a0d205af8dd51b86b2f3107387"
+    },
+    {
+      "path": "tools\\oracle\\audio_one_shot_v3_manifest.json",
+      "sha256": "e21e04483e00f427356e55a177ee1787191a1b814cce7a40bc0db5b3be052221"
+    },
+    {
+      "path": "tools\\oracle\\audio_live_queue_v1_manifest.json",
+      "sha256": "a304ecea85e1bb91af0a32636c700dd900314be4d69408eed8e78912ea4a8b44"
+    },
+    {
+      "path": "tools\\oracle\\audio_queue_budget_v1_manifest.json",
+      "sha256": "e3aa44f0557d67285b1e81bc6611edcdfa81605c5dcd89d2224ac650c37fca41"
+    },
+    {
+      "path": "tools\\oracle\\audio_channel_contract_v1_manifest.json",
+      "sha256": "6193abfd5f605f0267dd02bf55738d9be6a9544b83286dbd3c910628ef41f900"
+    },
+    {
+      "path": "tools\\oracle\\audio_pcm_v1_manifest.json",
+      "sha256": "da1f55402abaf74f5d1517eff6b3826e55d476bdd4ce9178866297b4dda44f3c"
+    }
+  ],
+  "research_emulators": [
+    {
+      "path": "tools\\emu\\flycast-build\\flycast_audio_live_queue_v1.exe",
+      "sha256": "f7ddecb2dfa481584a4222bd1baa9f22e453fc6606e7cf01ca27d73a04bc9346"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\flycast_audio_live_queue_v2.exe",
+      "sha256": "e190dcda4b9e12147c954b723ce0cdf07efd71138a0fc6e007afaad4fcbe4455"
+    }
+  ],
+  "readable_bytes": 257644,
+  "total_body_bytes": 434656,
+  "percentage": 59.27538099094456,
+  "new_credit": 0,
+  "remaining": "Independent channel/caller C bridges, bank/voice transitions and portable playback; ARM7/DSP remain research dependencies"
+}

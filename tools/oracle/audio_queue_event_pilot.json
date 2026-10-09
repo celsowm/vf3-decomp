@@ -1,0 +1,17 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "event_window",
+      "entry": "0x8c040f1e",
+      "registers": {
+        "r4": 161
+      },
+      "event_window": true,
+      "expected_result": 0,
+      "event_crossing": true
+    }
+  ]
+}

@@ -8,6 +8,10 @@ earn no coverage. The accepted baseline remains 257,644 / 434,656 bytes
 tests passing. No percentage increase is promised for the infrastructure work.
 
 Results and corrections are recorded in [the execution ledger](audio_execution.md).
+Aligned observation and original-call pilots pass. A live C enqueue bridge now
+passes positive and genuine negative/input controls. Channel allocation has
+additional original-call checks; its C bridge, transition attribution and
+portable playback are still pending. These results earn no additional coverage.
 
 ## Evidence and scope
 
@@ -127,12 +131,14 @@ events remain observable whenever they affect the invocation.
    pointer wrap and natural pointer positions. Then close the real submission
    chain through `0x8c0c5d86`: scene/config gating, ID range 0..476, immutable
    map `0x0c1025f0`, dedup table `0x0c2cfa00` and generation `0x0c1fd758`.
-2. Recover the complete uncredited `0x8c040fa4` body. Known initial branches
-   reject R6 != 0, R4 + 2*R5 > 8, or an enabled channel in the eight-record
-   table at `0x0c19e250`. The positive path writes `0xa08000a0/a4` and reads
-   `0xa080008c`. Disassemble the remaining polling/command path and establish
-   the actual completion protocol before choosing event inputs. Preserve its
-   waits, errors and state publication; never invent an early-success return.
+2. Recover the complete uncredited `0x8c040fa4` body. The complete disassembly
+   and original pilots establish channel allocation, not completion polling.
+   It stores arguments as signed 16-bit values, rejects nonzero mode, a stored
+   weighted total above eight or an enabled channel, then publishes aligned
+   buffers with 24-byte host and 96-byte AICA descriptor strides. It posts
+   `0xa1` through enqueue and returns zero. Implement the independent C/device
+   path, including its division helper, delay slots, rejection priority and
+   exact state publication. Establish ARM consumption/completion separately.
 3. Revisit the `0x8c0ca05c` callers `0x8c098042`, `0x8c099070` and
    `0x8c0c9f62`, using real actors and the immutable style/ID table at
    `0x0c11331c`. Then revisit sound-dependent scene/input callers of

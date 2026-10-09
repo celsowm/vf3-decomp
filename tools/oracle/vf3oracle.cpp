@@ -103,6 +103,7 @@ unsigned long long textControlRestores;
 unsigned long long aicaPageRestores, aicaTimesliceAborts;
 bool rollbackAicaRam;
 bool oneShotMode, oneShotStarted, oneShotDone;
+unsigned oneShotTriggerCount, oneShotTriggerOrdinal=1;
 std::map<unsigned,unsigned long long> probeByTrigger;
 /* The redirect takes effect on the NEXT fetch, so the arm suppression has to
  * survive one instruction boundary; otherwise the generic watch re-arms the same
@@ -425,6 +426,12 @@ void init(const Sh4Context *ctx) {
     initialized=true;
     rollbackAicaRam=getenv("VF3_ROLLBACK_AICA_RAM")!=nullptr;
     oneShotMode=getenv("VF3_ONESHOT")!=nullptr;
+    if (const char *n=getenv("VF3_ONESHOT_TRIGGER_N")) {
+        char *end;
+        auto value=std::strtoul(n,&end,10);
+        if (!oneShotMode || *end || !value || value>4096) std::abort();
+        oneShotTriggerOrdinal=(unsigned)value;
+    }
     if (oneShotMode && (rollbackAicaRam || getenv("VF3_ROLLBACK_TEXT_CONTROL") ||
         !getenv("VF3_AUDIO_CHECKPOINTS") || !getenv("VF3_CAPSULE") ||
         !getenv("VF3_ENTRY_PATCH") || getenv("VF3_AUDIO_THREADED"))) {
@@ -551,6 +558,7 @@ void init(const Sh4Context *ctx) {
 }
 void vf3OraclePrepare() { if(!initialized) init(&Sh4cntx); }
 bool vf3OracleOneShotDone() { return oneShotDone; }
+bool vf3OracleOneShotActive() { return oneShotStarted && !oneShotDone; }
 void vf3OracleInvalidate(unsigned reason) { for(auto &c:active) c.flags|=reason; }
 bool vf3OracleTakeSkip() { if (!pendingSkip) return false; pendingSkip=false; return true; }
 bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op) {
@@ -625,6 +633,8 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
     auto synthetic=syntheticPatches.find(canon);
     if (synthetic!=syntheticPatches.end() && synthetic->second.target) {
         if (oneShotMode && oneShotStarted) return;
+        if (oneShotMode && ++oneShotTriggerCount<oneShotTriggerOrdinal) return;
+        if (oneShotMode && getenv("VF3_ONESHOT_WAIT_AICA") && !vf3AudioQueueWindow(ctx)) return;
         ++probeByTrigger[canon|0x40000000u];
         if (!active.empty()) { ++probeBusy; vf3OracleInvalidate(4); }
         else {

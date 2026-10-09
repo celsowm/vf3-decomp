@@ -12,6 +12,7 @@ import shutil
 import struct
 import subprocess
 from contextlib import contextmanager
+import gzip
 
 ROOT = Path(__file__).resolve().parents[2]
 KINDS = {1: 'architecture', 2: 'physical_ram', 3: 'aica', 4: 'cache',
@@ -51,7 +52,8 @@ def emulator_lock(emulator):
 
 
 def checkpoints(path):
-    with Path(path).open('rb') as f:
+    opener = gzip.open if str(path).endswith('.gz') else open
+    with opener(path, 'rb') as f:
         def take(n):
             data = f.read(n)
             if len(data) != n:
@@ -79,6 +81,23 @@ def checkpoints(path):
                     raise ValueError('invalid PCM/event block size')
                 blocks[kind] = data
             yield dict(identity=[ordinal, cycle, pc, op, budget, next_event], blocks=blocks)
+
+
+def compress_checkpoint(path):
+    """Archive new, complete evidence and verify reconstruction before unlink."""
+    path = Path(path)
+    archive = Path(str(path)+'.gz')
+    if archive.exists():
+        raise FileExistsError(archive)
+    raw_hash = sha(path)
+    with path.open('rb') as source, archive.open('wb') as dest:
+        with gzip.GzipFile(filename='', mode='wb', fileobj=dest, mtime=0) as zipped:
+            shutil.copyfileobj(source, zipped)
+    with gzip.open(archive, 'rb') as restored:
+        if hashlib.file_digest(restored, 'sha256').hexdigest() != raw_hash:
+            raise ValueError('audio archive reconstruction hash mismatch')
+    path.unlink()
+    return archive, raw_hash
 
 
 def describe(path):

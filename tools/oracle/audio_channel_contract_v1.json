@@ -1,0 +1,15 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {"name": "mixed", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": 0}, "event_window": true, "expected_result": 0, "event_crossing": true},
+    {"name": "mono_eight", "entry": "0x8c040fa4", "registers": {"r4": 8, "r5": 0, "r6": 0}, "event_window": true, "expected_result": 0, "event_crossing": true},
+    {"name": "dual_four", "entry": "0x8c040fa4", "registers": {"r4": 0, "r5": 4, "r6": 0}, "event_window": true, "expected_result": 0, "event_crossing": true},
+    {"name": "zero", "entry": "0x8c040fa4", "registers": {"r4": 0, "r5": 0, "r6": 0}, "event_window": true, "expected_result": 0, "event_crossing": true},
+    {"name": "bad_mode", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": -1}, "event_window": true, "expected_result": -2},
+    {"name": "too_many", "entry": "0x8c040fa4", "registers": {"r4": 9, "r5": 0, "r6": 0}, "event_window": true, "expected_result": -1},
+    {"name": "active", "entry": "0x8c040fa4", "registers": {"r4": 2, "r5": 3, "r6": 0}, "memory": {"0x0c19e250": "0x1"}, "event_window": true, "expected_result": -3},
+    {"name": "truncated_arguments", "entry": "0x8c040fa4", "registers": {"r4": 65538, "r5": 65539, "r6": 65536}, "event_window": true, "expected_result": 0, "event_crossing": true}
+  ]
+}

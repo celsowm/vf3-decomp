@@ -2,7 +2,7 @@ import struct
 import tempfile
 import unittest
 from pathlib import Path
-from audio_determinism import compare, checkpoints, emulator_lock
+from audio_determinism import compare, checkpoints, emulator_lock, compress_checkpoint, sha
 
 
 class CheckpointTests(unittest.TestCase):
@@ -62,6 +62,14 @@ class CheckpointTests(unittest.TestCase):
             with self.assertRaises(OSError):
                 with emulator_lock(self.root/'flycast.exe'):
                     self.fail('second batch acquired the same staging lock')
+
+    def test_archive_preserves_complete_evidence(self):
+        raw = self.write('a')
+        reference = self.write('b')
+        archived, digest = compress_checkpoint(raw)
+        self.assertFalse(raw.exists())
+        self.assertEqual(digest, sha(reference))
+        self.assertTrue(compare(archived, reference)['equal'])
 
 
 if __name__ == '__main__':

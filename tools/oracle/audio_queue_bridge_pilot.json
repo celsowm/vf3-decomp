@@ -1,0 +1,10 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {"name": "invalid", "entry": "0x8c040f1e", "registers": {"r4": 0}, "expected_result": -2},
+    {"name": "natural_slot", "entry": "0x8c040f1e", "registers": {"r4": 161}, "expected_result": 0},
+    {"name": "wrap_slot", "entry": "0x8c040f1e", "registers": {"r4": 161}, "memory": {"0x0c19e218": "0xa08004fc"}, "expected_result": 0}
+  ]
+}

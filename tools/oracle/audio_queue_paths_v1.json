@@ -1,0 +1,10 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {"name": "invalid", "entry": "0x8c040f1e", "registers": {"r4": 0}, "event_window": true, "expected_result": -2},
+    {"name": "busy", "entry": "0x8c040f1e", "registers": {"r4": 161}, "control": "queue_busy", "event_window": true, "expected_result": -1},
+    {"name": "wrap", "entry": "0x8c040f1e", "registers": {"r4": 161}, "memory": {"0x0c19e218": "0xa08004fc"}, "event_window": true, "expected_result": 0, "event_crossing": true}
+  ]
+}

@@ -36,7 +36,8 @@ def normalize_observer():
         p.write_text(text, encoding='utf-8')
 
 def main():
-    for name in ("vf3oracle.cpp", "vf3oracle.h", "vf3audio.cpp", "vf3audio.h"):
+    for name in ("vf3oracle.cpp", "vf3oracle.h", "vf3audio.cpp", "vf3audio.h",
+                 "vf3audiobridge.cpp", "vf3audiobridge.h"):
         source, dest = Path(__file__).parent / name, CORE / name
         if not dest.exists() or source.read_bytes() != dest.read_bytes():
             shutil.copyfile(source, dest)
@@ -63,6 +64,35 @@ def main():
            "target_sources(${PROJECT_NAME} PRIVATE\n        ../../vf3oracle.cpp")
     insert(Path('hw/sh4/CMakeLists.txt'), '../../vf3oracle.cpp',
            '../../vf3oracle.cpp\n        ../../vf3audio.cpp')
+    insert(Path('hw/sh4/CMakeLists.txt'), '../../vf3audio.cpp',
+           '../../vf3audio.cpp\n        ../../vf3audiobridge.cpp')
+    p = CORE/'hw/sh4/CMakeLists.txt'
+    marker = '# VF3 live-device C queue backend'
+    source = (ROOT/'src/fight/command_encoders.c').as_posix()
+    block = (f'{marker}\ntarget_sources(${{PROJECT_NAME}} PRIVATE "{source}")\n'
+             f'set_source_files_properties("{source}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_include_directories(${{PROJECT_NAME}} PRIVATE "{(ROOT/"src").as_posix()}")\n')
+    text = p.read_text(encoding='utf-8')
+    if marker in text:
+        prefix, previous = text.split(marker, 1)
+        if any(line and not line.startswith(('target_sources(', 'set_source_files_properties(',
+                                              'target_include_directories('))
+               for line in previous.splitlines()):
+            raise SystemExit('Unexpected text after research backend CMake block')
+        fixed = prefix+block
+    else:
+        fixed = text+'\n'+block
+    if fixed != text:
+        p.write_text(fixed, encoding='utf-8')
+    insert(Path('hw/sh4/sh4_interpreter.h'), '\tvoid ExecuteDelayslot();',
+           '\t/* Research backend charges metadata, never executes guest opcodes. */\n'
+           '\tvoid OracleChargeCycles(u16 op) { sh4cycles.executeCycles(op); }\n'
+           '\tvoid ExecuteDelayslot();')
+    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '#include "vf3audio.h"',
+           '#include "vf3audio.h"\n#include "vf3audiobridge.h"')
+    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '\t\t\t\t\tExecuteOpcode(op);',
+           '\t\t\t\t\tif (vf3AudioReplayQueue(op,ctx)) continue;\n'
+           '\t\t\t\t\tExecuteOpcode(op);')
     insert(Path('windows/winmain.cpp'), '#include "vf3oracle.h"',
            '#include "vf3oracle.h"\n#include "vf3audio.h"')
     insert(Path('windows/winmain.cpp'), '\t\tfprintf(stderr, "[vf3] emu.start...\\n");',

@@ -2,6 +2,13 @@
  * pointer and per-channel enabled bytes remain observable caller state. */
 #include "fight/matrix_family.h"
 #define R(n) s->v[(n)]
+#ifdef VF3_AUDIO_BRIDGE
+/* Research clock boundaries; the ordinary portable build has no dependency. */
+extern void vf3_audio_queue_step(vf3_matrix_state*,uint32_t);
+#define QUEUE_STEP(pc) vf3_audio_queue_step(s,0x8c000000u+(pc))
+#else
+#define QUEUE_STEP(pc) ((void)0)
+#endif
 static uint32_t read_word(const vf3_ram_map *ram,uint32_t address)
 { return (uint32_t)(int32_t)(int16_t)vf3_matrix_read(ram,address,2); }
 static void condition(vf3_matrix_state *s,int value)
@@ -13,27 +20,59 @@ static uint32_t pop(vf3_matrix_state *s,const vf3_ram_map *ram)
 
 static int enqueue(vf3_matrix_state *s,const vf3_ram_map *ram)
 {
-    R(15)-=4; vf3_matrix_write(ram,R(15),R(4),4);
-    R(0)=vf3_matrix_read(ram,R(15),4); condition(s,(R(0)&128u)==0);
-    if(R(17)&1u) R(0)=0xfffffffeu;
+    QUEUE_STEP(0x040f1e); R(15)-=4;
+    QUEUE_STEP(0x040f20); vf3_matrix_write(ram,R(15),R(4),4);
+    QUEUE_STEP(0x040f22); R(0)=vf3_matrix_read(ram,R(15),4);
+    QUEUE_STEP(0x040f24); condition(s,(R(0)&128u)==0);
+    QUEUE_STEP(0x040f26);
+    if(R(17)&1u) {
+        QUEUE_STEP(0x040f28); R(0)=0xfffffffeu;
+        QUEUE_STEP(0x040f2a); R(15)+=4;
+        QUEUE_STEP(0x040f2c); QUEUE_STEP(0x040f2e);
+        s->pc=R(16); return ram->oob==0;
+    }
     else {
-        R(3)=0x0c19e218; R(2)=vf3_matrix_read(ram,R(3),4);
-        R(1)=vf3_matrix_read(ram,R(2),4); condition(s,R(1)==0);
-        if(!(R(17)&1u)) R(0)=0xffffffffu;
+        QUEUE_STEP(0x040f30); R(3)=0x0c19e218;
+        QUEUE_STEP(0x040f32); R(2)=vf3_matrix_read(ram,R(3),4);
+        QUEUE_STEP(0x040f34); R(1)=vf3_matrix_read(ram,R(2),4);
+        QUEUE_STEP(0x040f36); condition(s,R(1)==0);
+        QUEUE_STEP(0x040f38);
+        if(!(R(17)&1u)) {
+            QUEUE_STEP(0x040f3a); R(0)=0xffffffffu;
+            QUEUE_STEP(0x040f3c); R(15)+=4;
+            QUEUE_STEP(0x040f3e); QUEUE_STEP(0x040f40);
+            s->pc=R(16); return ram->oob==0;
+        }
         else {
-            R(3)=0x0c19e218; R(2)=vf3_matrix_read(ram,R(3),4);
-            R(2)+=4; vf3_matrix_write(ram,R(3),R(2),4); R(2)-=4;
-            R(3)=vf3_matrix_read(ram,R(15),4); vf3_matrix_write(ram,R(2),R(3),4);
-            R(2)=0xa0800500; R(3)=0x0c19e218;
-            R(1)=vf3_matrix_read(ram,R(3),4); condition(s,R(1)==R(2));
+            QUEUE_STEP(0x040f42); R(3)=0x0c19e218;
+            QUEUE_STEP(0x040f44); R(2)=vf3_matrix_read(ram,R(3),4);
+            QUEUE_STEP(0x040f46); R(2)+=4;
+            QUEUE_STEP(0x040f48); vf3_matrix_write(ram,R(3),R(2),4);
+            QUEUE_STEP(0x040f4a); R(2)-=4;
+            QUEUE_STEP(0x040f4c); R(3)=vf3_matrix_read(ram,R(15),4);
+            QUEUE_STEP(0x040f4e); vf3_matrix_write(ram,R(2),R(3),4);
+            QUEUE_STEP(0x040f50); R(2)=0xa0800500;
+            QUEUE_STEP(0x040f52); R(3)=0x0c19e218;
+            QUEUE_STEP(0x040f54); R(1)=vf3_matrix_read(ram,R(3),4);
+            QUEUE_STEP(0x040f56); condition(s,R(1)==R(2));
+            QUEUE_STEP(0x040f58);
             if(R(17)&1u) {
-                R(3)=0xa0800400; R(0)=0x0c19e218; vf3_matrix_write(ram,R(0),R(3),4);
+                QUEUE_STEP(0x040f5a); R(3)=0xa0800400;
+                QUEUE_STEP(0x040f5c); R(0)=0x0c19e218;
+                QUEUE_STEP(0x040f5e); vf3_matrix_write(ram,R(0),R(3),4);
             }
-            R(0)=0;
+            QUEUE_STEP(0x040f60); R(0)=0;
         }
     }
-    R(15)+=4; s->pc=R(16); return ram->oob==0;
+    QUEUE_STEP(0x040f62); R(15)+=4;
+    QUEUE_STEP(0x040f64); QUEUE_STEP(0x040f66);
+    s->pc=R(16); return ram->oob==0;
 }
+
+#ifdef VF3_AUDIO_BRIDGE
+int vf3_audio_queue_c(vf3_matrix_state *s,const vf3_ram_map *ram)
+{ return enqueue(s,ram); }
+#endif
 
 static int send(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t continuation)
 { R(4)=R(14); R(16)=continuation; return enqueue(s,ram); }
@@ -172,6 +211,7 @@ static int paired_encoder(uint32_t entry,vf3_matrix_state *s,const vf3_ram_map *
     s->pc=R(16); return ram->oob==0;
 }
 
+#ifndef VF3_AUDIO_BRIDGE
 int vf3_command_encoders(uint32_t entry,vf3_matrix_state *s,const vf3_ram_map *ram)
 {
     entry&=0x1fffffffu;
@@ -187,3 +227,4 @@ int vf3_command_encoders(uint32_t entry,vf3_matrix_state *s,const vf3_ram_map *r
     default: s->failed_pc=entry; return 0;
     }
 }
+#endif

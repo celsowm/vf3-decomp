@@ -25,3 +25,4 @@ bool vf3OracleTakeSubstitute(unsigned *pc, unsigned short *op);
 bool vf3OracleBeforeTimeslice(void);
 /* Separate process-owned invocation; never resumes the game or rolls back. */
 bool vf3OracleOneShotDone(void);
+bool vf3OracleOneShotActive(void);

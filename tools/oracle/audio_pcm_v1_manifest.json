@@ -1,0 +1,78 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "renders": [
+    {
+      "advisory": true,
+      "coverage_credit": false,
+      "scope": "research-emulator PCM rendering; no command/transition attribution",
+      "source": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+        "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07"
+      },
+      "wav": {
+        "path": "extract\\analysis\\vf3_26_audio_sync.wav",
+        "sha256": "2208048d79198bea3f3c79b95c10ba10af7477774f8232f6ef9ae03d0f85e823"
+      },
+      "start_identity": [
+        1,
+        1692600896,
+        201602256,
+        20262,
+        448,
+        1689
+      ],
+      "end_identity": [
+        67108864,
+        2060720256,
+        201623490,
+        62349,
+        192,
+        1884
+      ],
+      "frames": 81173,
+      "sample_rate": 44100,
+      "seconds": 1.840657596371882,
+      "raw_right_left_sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395",
+      "wav_left_right_sha256": "d6c48c27383cf04bcc7248ffeda0dff3384a0c3878d2056064c0d9f4d87e4d27",
+      "peak": 23364,
+      "sample_reconstruction_verified": true
+    },
+    {
+      "advisory": true,
+      "coverage_credit": false,
+      "scope": "research-emulator PCM rendering; no command/transition attribution",
+      "source": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+        "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab"
+      },
+      "wav": {
+        "path": "extract\\analysis\\vf3_28_audio_sync.wav",
+        "sha256": "0d2ff458c04369875f8c2a83a1dbba8ff28614a512415e075076982bdb6bc413"
+      },
+      "start_identity": [
+        1,
+        5001134656,
+        201601772,
+        25603,
+        448,
+        4389
+      ],
+      "end_identity": [
+        67108864,
+        5426593088,
+        201584186,
+        35835,
+        40,
+        1517
+      ],
+      "frames": 93816,
+      "sample_rate": 44100,
+      "seconds": 2.1273469387755104,
+      "raw_right_left_sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440",
+      "wav_left_right_sha256": "168d6a2de6d877ae2dac0e274f1f5bc51975b5298141a51bdeae868fb7211b43",
+      "peak": 22481,
+      "sample_reconstruction_verified": true
+    }
+  ]
+}
