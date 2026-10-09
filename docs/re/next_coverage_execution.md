@@ -184,3 +184,5 @@ with a single invocation and process exit instead of pretending to restore all
 device state. It still needs deterministic repetition, full ordered interaction
 capture, negative controls and a C model before longer audio calls can qualify.
 No scheduler-crossing restriction is relaxed and `0x8c040fa4` remains uncredited.
+
+The next execution order is recorded in [coverage_after_5914_plan.md](coverage_after_5914_plan.md), starting from this accepted checkpoint.
