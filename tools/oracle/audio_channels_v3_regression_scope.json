@@ -1,0 +1,228 @@
+{
+  "passed": true,
+  "current_bindings": 1362,
+  "inventory": {
+    "path": "tools/golden_bindings.json",
+    "sha256": "ca5fed2ae74ce53ec686ec32d3d28a5c9554d382d52785cdf21ac4f6de1c5ea5"
+  },
+  "executable": {
+    "path": "build/vf3matrixfamily_audio_channels_dev_v2.exe",
+    "sha256": "ba5c95b870069223e5b57c3daa92e8cec0d913c8b0a1eae846a54a2406662de3"
+  },
+  "baseline_inventory": {
+    "path": "extract/analysis/audio_channels_v2_baseline_bindings.json",
+    "sha256": "7f36533cbec985bb688af5904fbebb27918967208952510a61814ab101ccd18a"
+  },
+  "regression": {
+    "coverage": "1361 unchanged bindings plus one independently replayed binding",
+    "baseline": {
+      "path": "extract/analysis/audio_channels_v2_regression.log",
+      "sha256": "2eeee345621acb1a35924889558834d6b388998c9831d7dcd4338b83027a311a"
+    },
+    "baseline_status": {
+      "expected_bindings": 1361,
+      "reported_bindings": 1361,
+      "failures": [],
+      "errors": false,
+      "complete": true,
+      "passed": true,
+      "terminal": {
+        "portcheck": "PASS"
+      },
+      "last_lines": [
+        "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+        "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+        "portcheck: PASS"
+      ]
+    },
+    "addition": {
+      "path": "extract/analysis/audio_channels_dev_v3_native_report.json",
+      "sha256": "7f72fd78a9d60fe54a36871b9827bcec066e8e863b203775834d3997212c3d1a"
+    },
+    "native_test_count": 39,
+    "native_results": [
+      [
+        "vf3dl",
+        "PASS"
+      ],
+      [
+        "vf3walker",
+        "PASS"
+      ],
+      [
+        "vf3mtmount",
+        "PASS"
+      ],
+      [
+        "vf3loop",
+        "PASS"
+      ],
+      [
+        "vf3taskvm",
+        "PASS"
+      ],
+      [
+        "vf3vm",
+        "PASS"
+      ],
+      [
+        "vf3frame",
+        "PASS"
+      ],
+      [
+        "vf3libutil",
+        "PASS"
+      ],
+      [
+        "vf3orient2",
+        "PASS"
+      ],
+      [
+        "vf3poly",
+        "PASS"
+      ],
+      [
+        "vf3vecpush",
+        "PASS"
+      ],
+      [
+        "vf3tailcall",
+        "PASS"
+      ],
+      [
+        "vf3walker2",
+        "PASS"
+      ],
+      [
+        "vf3fvecadd",
+        "PASS"
+      ],
+      [
+        "vf3scaler3",
+        "PASS"
+      ],
+      [
+        "vf3frameseq",
+        "PASS"
+      ],
+      [
+        "vf3cbefc",
+        "PASS"
+      ],
+      [
+        "vf3f040f1e",
+        "PASS"
+      ],
+      [
+        "vf3f0747d8",
+        "PASS"
+      ],
+      [
+        "vf3f9f6fc",
+        "PASS"
+      ],
+      [
+        "vf3f9f6dc",
+        "PASS"
+      ],
+      [
+        "vf3cc148",
+        "PASS"
+      ],
+      [
+        "vf3c5dbe",
+        "PASS"
+      ],
+      [
+        "vf3b10aa",
+        "PASS"
+      ],
+      [
+        "vf3c6ec4",
+        "PASS"
+      ],
+      [
+        "vf3maplookup",
+        "PASS"
+      ],
+      [
+        "vf3meshnode",
+        "PASS"
+      ],
+      [
+        "vf3d0fa",
+        "PASS"
+      ],
+      [
+        "vf3c788",
+        "PASS"
+      ],
+      [
+        "vf3f096258",
+        "PASS"
+      ],
+      [
+        "vf3matrix",
+        "PASS"
+      ],
+      [
+        "vf3bootmix",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070x",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070a84",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070120",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm07030c",
+        "PASS"
+      ],
+      [
+        "vf3fvecnorm070cf0",
+        "PASS"
+      ],
+      [
+        "vf3fpu",
+        "PASS"
+      ],
+      [
+        "vf3statehelpers",
+        "PASS"
+      ]
+    ]
+  },
+  "tool_test_count": 83,
+  "tool_tests": {
+    "path": "extract/analysis/audio_channels_tools_final.log",
+    "sha256": "73775113d77494e19bd916ec7c7eb68974e138114830182abca6b08d59ed9d73"
+  },
+  "chain_audit": {
+    "path": "extract/analysis/audio_channels_v3_chain_audit.json",
+    "sha256": "109fa9173a02691465dad09696a497caec9e980ba76eb70cf9c71f3e3b276398"
+  },
+  "accepted_audio": {
+    "path": "tools/oracle/audio_channels_v3_manifest.json",
+    "sha256": "a4b621a4f23addcdbfc9126814815b9a1ec48c3cce0244d6cacf263d15e398b1"
+  },
+  "milestone": {
+    "path": "tools/oracle/percentage_audio_channels_milestone.json",
+    "sha256": "e65e0441eab3407c9ec4f9b6ffaddae108503485e1dcbf9f9d9809802bd3756e"
+  },
+  "frozen_sources": {
+    "path": "extract/analysis/audio_channels_v2_frozen_sources/manifest.json",
+    "sha256": "1b15523377d374785aeb2b62f7888d876ec37d1e8c333247fb0fa291c51908e7"
+  },
+  "readable_bytes": 258430,
+  "total_body_bytes": 434656,
+  "percentage": 59.45621364941471,
+  "new_credit": 786,
+  "remaining": "Sound-dependent callers, attributed bank/reset transitions and portable playback; original ARM/DSP remain research dependencies"
+}

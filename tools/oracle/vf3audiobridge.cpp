@@ -15,6 +15,7 @@
 extern "C" {
 #include "fight/matrix_family.h"
 int vf3_audio_queue_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_channels_c(vf3_matrix_state*,const vf3_ram_map*);
 }
 namespace {
 Sh4Context *cpu;
@@ -32,8 +33,13 @@ void toGuest(const vf3_matrix_state *s) {
     cpu->fpul=s->v[53]; cpu->gbr=s->gbr;
 }
 void retire(unsigned nextPc) {
-    // RTS's delay-slot opcode retires before its branch issue charge.
-    if (previous==0x000b) { deferred=previous; return; }
+    // Taken delayed branches charge their slot before their own issue cost.
+    const unsigned type=previous&0xf000;
+    const bool delayed=previous==0x000b || type==0xa000 || type==0xb000
+        || (previous&0xf0ff)==0x400b || (previous&0xf0ff)==0x402b
+        || ((previous&0xff00)==0x8d00 && cpu->sr.T)
+        || ((previous&0xff00)==0x8f00 && !cpu->sr.T);
+    if (delayed) { if(deferred) std::abort(); deferred=previous; return; }
     Sh4Interpreter::Instance->OracleChargeCycles(previous);
     if (deferred) { Sh4Interpreter::Instance->OracleChargeCycles(deferred); deferred=0; }
     cpu->pc=nextPc;
@@ -52,7 +58,7 @@ void observe(unsigned pc, unsigned short op) {
 }
 }
 extern "C" void vf3_audio_queue_step(vf3_matrix_state *s,unsigned pc) {
-    if (++instructions>64) std::abort();
+    if (++instructions>100001) std::abort();
     toGuest(s);
     if (!first) {
         retire(pc);
@@ -63,6 +69,8 @@ extern "C" void vf3_audio_queue_step(vf3_matrix_state *s,unsigned pc) {
     // Literal loads in the C body use proven constants, but still consume bus time.
     if ((previous&0xf000)==0xd000)
         (void)ReadMem32(((pc+4)&~3u)+((previous&255)*4));
+    if ((previous&0xf000)==0x9000)
+        (void)ReadMem16(pc+4+((previous&255)*2));
 }
 extern "C" uint32_t vf3_matrix_read(const vf3_ram_map*,uint32_t addr,unsigned size) {
     if (size==4) return ReadMem32(addr);
@@ -81,7 +89,8 @@ extern "C" void vf3_matrix_write(const vf3_ram_map*,uint32_t addr,uint32_t value
 bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     if (!std::getenv("VF3_C_AUDIO_REPLAY") || !vf3OracleOneShotActive()) return false;
     if (!std::getenv("VF3_ONESHOT") || mmu_enabled()) std::abort();
-    if (ctx->pc!=0x8c040f20u) return false;
+    const bool channels=ctx->pc==0x8c040fa6u;
+    if (!channels && ctx->pc!=0x8c040f20u) return false;
     cpu=ctx; previous=op; deferred=0; first=true; instructions=0;
     vf3_matrix_state s{};
     for (unsigned i=0;i<16;++i) {
@@ -91,8 +100,8 @@ bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     s.v[16]=ctx->pr; s.v[17]=ctx->sr.getFull(); s.v[18]=ctx->fpscr.full;
     s.v[19]=ctx->mac.l; s.v[20]=ctx->mac.h; s.v[53]=ctx->fpul; s.gbr=ctx->gbr;
     vf3_ram_map ram{};
-    std::fprintf(stderr,"[vf3audiobridge] executing C queue with live devices\n");
-    if (!vf3_audio_queue_c(&s,&ram)) std::abort();
+    std::fprintf(stderr,"[vf3audiobridge] executing C %s with live devices\n",channels?"channels":"queue");
+    if (!(channels?vf3_audio_channels_c(&s,&ram):vf3_audio_queue_c(&s,&ram))) std::abort();
     toGuest(&s);
     retire(s.pc);
     const unsigned short next=IReadMem16(s.pc);

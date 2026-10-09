@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "entry": "0x8c040fa4",
+  "frozen_body_bytes": 786,
+  "scope": "SH-4 channel allocation; ARM consumption remains separate",
+  "campaigns": {
+    "dev": {
+      "batch": {
+        "path": "extract\\analysis\\audio_channels_dev_v3_cases\\batch_manifest.json",
+        "sha256": "3018a47d9eb2c276225efd963c7acb65a3c7b62fc028d53a1f4ff78fb3d2bf45"
+      },
+      "live_comparison": {
+        "path": "extract\\analysis\\audio_channels_dev_v3_cases\\live_audio_comparison.json",
+        "sha256": "7a2c97c1f02dfa4b2042f8c91dcdf3e2ab52a4a4123e63e1a8890cd2fc4bd1cb"
+      },
+      "native": {
+        "path": "extract\\analysis\\audio_channels_dev_v3_native_report.json",
+        "sha256": "7f72fd78a9d60fe54a36871b9827bcec066e8e863b203775834d3997212c3d1a"
+      },
+      "executable": {
+        "path": "build\\vf3matrixfamily_audio_channels_dev_v2.exe",
+        "sha256": "ba5c95b870069223e5b57c3daa92e8cec0d913c8b0a1eae846a54a2406662de3"
+      },
+      "runs": 128,
+      "distinct_native_cases": 128,
+      "aica_crossings": 121,
+      "states": [
+        "tools\\emu\\flycast-build\\data\\vf3_26.state",
+        "tools\\emu\\flycast-build\\data\\vf3_27.state"
+      ],
+      "entry_stack_values": [
+        204601644,
+        204601768
+      ]
+    },
+    "accept": {
+      "batch": {
+        "path": "extract\\analysis\\audio_channels_accept_v3_cases\\batch_manifest.json",
+        "sha256": "330cb952f88eb4d93bbed4e707b06c8ff2b4930030d753d8acee788e2ff28b38"
+      },
+      "live_comparison": {
+        "path": "extract\\analysis\\audio_channels_accept_v3_cases\\live_audio_comparison.json",
+        "sha256": "3f9136332d2092a4ccd692d16382af99993ef9cbcab80ab6235afe879e0fdf02"
+      },
+      "native": {
+        "path": "extract\\analysis\\audio_channels_accept_v3_native_report.json",
+        "sha256": "3682a4d0caecaf96de4721c0505017f7b7567da6012b5dfa5d9406e7cd1f9fc8"
+      },
+      "executable": {
+        "path": "build\\vf3matrixfamily_audio_channels_dev_v2.exe",
+        "sha256": "ba5c95b870069223e5b57c3daa92e8cec0d913c8b0a1eae846a54a2406662de3"
+      },
+      "runs": 128,
+      "distinct_native_cases": 128,
+      "aica_crossings": 128,
+      "states": [
+        "tools\\emu\\flycast-build\\data\\vf3_28.state",
+        "tools\\emu\\flycast-build\\data\\vf3_29.state"
+      ],
+      "entry_stack_values": [
+        205508608
+      ]
+    }
+  },
+  "pilot_v1": {
+    "path": "extract\\analysis\\audio_channels_compare_pilot_v1.json",
+    "sha256": "69247aff41dad3c11f7d382817f7a4f879fa2f9dd1b15f3282b40f1bfdcfd818",
+    "passed": false
+  },
+  "pilot_v2": {
+    "path": "extract\\analysis\\audio_channels_compare_pilot_v2.json",
+    "sha256": "c50e20e1679adeeb9fc40d9c5fe00b3e57457960da0421405332dc260ac599fc",
+    "passed": true
+  },
+  "auditor": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_channels_audit.py",
+    "sha256": "e4aef2329f02354a47476f9b93d0025fcf2c9614291afa9661c44e4b757d1b32"
+  }
+}

@@ -1,7 +1,8 @@
 # Audio execution ledger (2026-10-09)
 
 Execution of [the audio plan](audio_execution_plan.md). Audio tooling earns no
-decompilation credit; the readable-C union remains 59.28%.
+decompilation credit. Accepted channel allocation brings the readable-C union
+to **258,430 / 434,656 (59.46%)**.
 
 ## A: aligned observation pilot passes
 
@@ -174,3 +175,86 @@ failures. All **39 native checks** and **71 oracle-tool tests** pass. The comple
 existing coverage milestone chain and artifact hashes pass, ending at 257,644
 readable-C bytes. Snapshot, inventory, regression, test, chain and audio evidence
 fingerprints are sealed in `tools/oracle/audio_queue_v1_regression_scope.json`.
+
+## D: independent channel allocation accepted
+
+`src/fight/audio_channels.c` implements the complete 786-byte `0x8c040fa4`
+body and its unsigned division dependency. Both corpora execute the entire
+frozen root body: **128 distinct development cases in states 26/27** and
+**128 distinct acceptance cases in states 28/29**, with zero native skips and
+no nondeterminism. All **256 original/live-C comparisons** match exactly:
+ordered bus operations, guest instruction paths, CPU/cache/RAM, AICA/ARM/DSP,
+scheduler events and PCM. Development has 121 real AICA crossings; acceptance
+has 128. Acceptance changes counts, modes and allocation inputs and relocates
+the owned stack to `0x0c3fd000`. Native and research executables were frozen
+before acceptance.
+
+The recipes cover every legal mono/dual layout, enabled-channel rejection at
+all eight positions, mode rejection, weighted overflow, unclamped allocation,
+unaligned starts, signed negative counts, enqueue rejection and ring wrap.
+Busy enqueue still returns zero from configuration. The division dependency
+earns no separate credit. The C path generates its own writes and branches;
+original ARM/DSP execute normally in the research backend. Generic RAM patching
+and rollback guards remain intact; allocation uses typed live-bus inputs.
+
+The first 16-pair C pilot failed eight positive cases because helper PCs and
+return PR used the wrong cached/physical alias. Final registers, RAM and PCM
+matched, but instruction evidence did not. The retained failure is
+`audio_channels_compare_pilot_v1.json`. The corrected 24-pair pilot passes
+fully; its native corpus has 23 distinct inputs after exact deduplication.
+Qualifying corpora use corrected source and `flycast_audio_channels_v2.exe`.
+
+The AICA observer now records eleven volatile DSP words omitted by the ordinary
+serializer. Layouts are pinned by executable/source hashes; old opaque captures
+remain readable. New corpus metadata says `process_owned_audio` and
+`frame_complete:false`. Promotion pins the batch and its live evidence while
+preserving the old completed-frame gate. Changed sources, rollback and invented
+frame completion are rejected. Identical audio archives become hard links only
+after full SHA-256 reconstruction checks; failed evidence and paths remain.
+
+Sources are retained under `extract/analysis/audio_channels_v2_frozen_sources/`.
+Evidence is sealed in `audio_channels_v3_manifest.json`; byte credit is in
+`percentage_audio_channels_milestone.json`. Marginal union increases exactly
+786 bytes, from 257,644 to 258,430.
+
+## E: bank identity and ARM observation
+
+`audio_state.py` distinguishes requested key bits from actually enabled voices.
+`audio_bank_map.py` requires complete byte equality with shipped DTPK files.
+All thirteen enabled voices at the last retained state-26 checkpoint have sample
+bases inside the complete **BGM_VAN.BIN** image at **AICA `0x086e50`**,
+length **1,014,948 bytes**. State 28 also contains this bank. The older
+`0x086e54` measurement was the first changed byte, not the file's start.
+Shared sections alone do not identify a bank.
+
+Resident ARM firmware matches **SNDDRV.BIN**: vector bytes and the complete
+code interval `0x0510..0x9fff` match all eight aligned state-26/28 checkpoints.
+RELOAD.BIN begins with SH-4 instructions; its entry is the wrong ARM target.
+Measurements are in `audio_snddrv_identity_v1.json` and the two bank-map reports.
+
+The separate ARM observer records real protocol reads, stores and voice MMIO.
+The x64 compiler supplies the original ARM PC before memory operations and
+interpreter fallbacks. Ordering is exact; time is the enclosing SH-4 callback,
+not an exact ARM cycle. The two-million-record limit is explicit. This is
+research instrumentation, not a C driver or command-semantics implementation.
+The first long pilot timed out before checkpoint three; partial evidence is
+retained and rejected. A shorter equivalence pilot uses the same two states
+at instructions 1 and 4,194,304 and **passes in both states**. All identities
+and seven checkpoint sections match with observation enabled. The complete
+traces contain 44,380 state-26 and 85,342 state-28 records, with no truncation.
+State 26 shows nine nonzero queue words read at ARM `0x668`/`0x674` and cleared
+at `0x688`. State 28 has 277 real hardware voice-register writes. No replacement
+C ARM handler is claimed. Evidence is sealed in `audio_arm_observer_v2_manifest.json`.
+
+Bank identity and queue reads alone do not establish menu/fight/second-song
+C agreement, voice reset semantics or standalone playback. Those gates and
+sound-dependent SH-4 callers remain open.
+
+## Accepted milestone checks
+
+The 1,361 unchanged bindings pass against the immutable channel executable;
+the added binding passes its 128 distinct strict cases against that same
+executable. This covers the complete **1,362-binding** inventory. All **39
+native checks** and **83 tool checks** pass. The complete percentage milestone
+chain, raw evidence hashes and independent live proof metadata pass. The
+components and frozen sources are sealed in `audio_channels_v3_regression_scope.json`.

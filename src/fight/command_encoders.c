@@ -69,10 +69,8 @@ static int enqueue(vf3_matrix_state *s,const vf3_ram_map *ram)
     s->pc=R(16); return ram->oob==0;
 }
 
-#ifdef VF3_AUDIO_BRIDGE
 int vf3_audio_queue_c(vf3_matrix_state *s,const vf3_ram_map *ram)
 { return enqueue(s,ram); }
-#endif
 
 static int send(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t continuation)
 { R(4)=R(14); R(16)=continuation; return enqueue(s,ram); }

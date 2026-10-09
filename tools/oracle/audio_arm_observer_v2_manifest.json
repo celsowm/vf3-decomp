@@ -1,0 +1,40 @@
+{
+  "coverage_credit": false,
+  "passed": true,
+  "scope": "Read-only ARM observation equivalence and whole-bank identity; no ARM C handler, reset attribution or standalone playback",
+  "artifacts": [
+    {
+      "path": "extract/analysis/audio_arm_observer_v2/manifest.json",
+      "sha256": "98836e6daa6b4bea3b1a158ccd8a0bba2b7e5538876a0ff043c1a71c47000571"
+    },
+    {
+      "path": "extract/analysis/audio_arm_state26_v2.json",
+      "sha256": "9042329099de5c17883a6148a546f13a125a8cfa0e3d628c11ef1c7544c2b12a"
+    },
+    {
+      "path": "extract/analysis/audio_arm_state28_v2.json",
+      "sha256": "b7e62841892adf854fa9e96222d446d1552b4f01f48fe2f3d7ab40cc2418816c"
+    },
+    {
+      "path": "extract/analysis/audio_bank_map_state26_v1.json",
+      "sha256": "cefcda0f8a3acf97da8cd9334143fbab55efa664e276fe17d5135519c6762bd8"
+    },
+    {
+      "path": "extract/analysis/audio_bank_map_state28_v1.json",
+      "sha256": "51019e2266fb0fb55e98bf0b0a352b888e39bb0c8d04326440f7ee417a95f4f7"
+    },
+    {
+      "path": "extract/analysis/audio_snddrv_identity_v1.json",
+      "sha256": "826c7a554bc182e3ddcf7efbc208cbba2d1693c437618bff52b857fcdd403aa9"
+    }
+  ],
+  "observer_records": [
+    44380,
+    85342
+  ],
+  "retained_failed_pilot": {
+    "path": "extract/analysis/audio_arm_observer_v1/manifest.json",
+    "sha256": "f2e145c35b2dd3e2c5fc21e20f442965c188556a61788ebbc8982b2b338ca9f1",
+    "reason": "90-second timeout before third checkpoint; truncated trace rejected"
+  }
+}

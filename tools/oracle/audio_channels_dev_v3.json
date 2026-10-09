@@ -1,0 +1,821 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "corpus": "development",
+  "cases": [
+    {
+      "name": "layout_0_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_1_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 1,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_2_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_3_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 3,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_4_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 4,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_5_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 5,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_6_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 6,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_7_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 7,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_8_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 8,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_0_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_1_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 1,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_2_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_3_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 3,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_4_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 4,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_5_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 5,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_6_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 6,
+        "r5": 1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_0_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": 2,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_1_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 1,
+        "r5": 2,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_2_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 2,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_3_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 3,
+        "r5": 2,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_4_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 4,
+        "r5": 2,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_0_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_1_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 1,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_2_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "layout_0_4",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": 4,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {}
+    },
+    {
+      "name": "active_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e250": "0x1"
+      }
+    },
+    {
+      "name": "active_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e268": "0x1"
+      }
+    },
+    {
+      "name": "active_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e280": "0x1"
+      }
+    },
+    {
+      "name": "active_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e298": "0x1"
+      }
+    },
+    {
+      "name": "active_4",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e2b0": "0x1"
+      }
+    },
+    {
+      "name": "active_5",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e2c8": "0x1"
+      }
+    },
+    {
+      "name": "active_6",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e2e0": "0x1"
+      }
+    },
+    {
+      "name": "active_7",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": -3,
+      "event_window": true,
+      "memory": {
+        "0xc19e2f8": "0x1"
+      }
+    },
+    {
+      "name": "mode_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 1
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 2
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_7",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 7
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_-1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": -1
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_-2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": -2
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_32767",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 32767
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "mode_-32768",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": -32768
+      },
+      "expected_result": -2,
+      "event_window": true
+    },
+    {
+      "name": "overflow_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 9,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": -1,
+      "event_window": true
+    },
+    {
+      "name": "overflow_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 10,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": -1,
+      "event_window": true
+    },
+    {
+      "name": "overflow_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 11,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": -1,
+      "event_window": true
+    },
+    {
+      "name": "overflow_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 12,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": -1,
+      "event_window": true
+    },
+    {
+      "name": "small_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1024,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1088,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1152,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1216,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_4",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1280,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_5",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1344,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_6",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1408,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "small_7",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_boundary": 1472,
+        "allocation_start": 65536
+      }
+    },
+    {
+      "name": "alignment_0",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65537
+      }
+    },
+    {
+      "name": "alignment_1",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65568
+      }
+    },
+    {
+      "name": "alignment_2",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65599
+      }
+    },
+    {
+      "name": "alignment_3",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65630
+      }
+    },
+    {
+      "name": "alignment_4",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65661
+      }
+    },
+    {
+      "name": "alignment_5",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65692
+      }
+    },
+    {
+      "name": "alignment_6",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65723
+      }
+    },
+    {
+      "name": "alignment_7",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "audio_inputs": {
+        "allocation_start": 65754
+      }
+    },
+    {
+      "name": "negative_mono",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": -1,
+        "r5": 0,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true
+    },
+    {
+      "name": "negative_dual",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 0,
+        "r5": -1,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true
+    },
+    {
+      "name": "busy_queue",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "wrap_queue",
+      "entry": "0x8c040fa4",
+      "registers": {
+        "r4": 2,
+        "r5": 3,
+        "r6": 0
+      },
+      "expected_result": 0,
+      "event_window": true,
+      "memory": {
+        "0x0c19e218": "0xa08004fc"
+      }
+    }
+  ]
+}

@@ -113,6 +113,7 @@ add_library(vf3core STATIC
     src/fight/advance_state_helpers.c
     src/fight/continuation_input_controls.c
     src/fight/command_encoders.c
+    src/fight/audio_channels.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c
     src/fight/motion_flag_command.c

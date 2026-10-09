@@ -5,6 +5,7 @@
 #include "hw/sh4/sh4_cache.h"
 #include "hw/sh4/sh4_sched.h"
 #include "hw/aica/aica_if.h"
+#include "hw/aica/dsp.h"
 #include "hw/arm7/arm7.h"
 #include "serialize.h"
 #include <array>
@@ -105,7 +106,15 @@ void checkpoint(unsigned pc, unsigned short op, const Sh4Context *c) {
     for (unsigned i=0;i<8;++i) state[55+i]=c->r_bank[i];
     block(1,state.data(),sizeof(state));
     block(2,&mem_b[0],0x1000000);
-    auto aica=serialized([](Serializer &s){aica::serialize(s);});
+    auto aica=serialized([](Serializer &s){
+        aica::serialize(s);
+        // Serializer omits volatile DSP execution fields: record them explicitly.
+        const auto &d=aica::dsp::state;
+        const unsigned extra[]={unsigned(d.SHIFTED),unsigned(d.B),
+            unsigned(d.MEMVAL[0]),unsigned(d.MEMVAL[1]),unsigned(d.MEMVAL[2]),unsigned(d.MEMVAL[3]),
+            unsigned(d.FRC_REG),unsigned(d.Y_REG),d.ADRS_REG,unsigned(d.stopped),unsigned(d.dirty)};
+        s.serialize(extra,11);
+    });
     block(3,aica.data(),(unsigned)aica.size());
     auto cache=serialized([](Serializer &s){icache.Serialize(s);ocache.Serialize(s);});
     block(4,cache.data(),(unsigned)cache.size());
@@ -128,6 +137,18 @@ bool vf3AudioBefore(unsigned pc, unsigned short op, const Sh4Context *c) {
 void vf3AudioBegin(unsigned pc, unsigned short op, const Sh4Context *c) {
     if (!out || !callMode || inCall || done) std::abort();
     inCall=true;
+    if(const char *boundary=std::getenv("VF3_AUDIO_ALLOCATION_BOUNDARY")) {
+        char *end; const unsigned value=std::strtoul(boundary,&end,0);
+        if(!*boundary || *end) std::abort();
+        WriteMem32(0xa080008c,value);
+    }
+    if(const char *start=std::getenv("VF3_AUDIO_ALLOCATION_START")) {
+        char *end; const unsigned value=std::strtoul(start,&end,0);
+        if(!*start || *end) std::abort();
+        const unsigned slot=ReadMem32(0x0c19e220);
+        if(slot<0xa0800000u || slot>0xa09ffffcu || (slot&3)) std::abort();
+        WriteMem32(slot,value);
+    }
     const char *control=std::getenv("VF3_AUDIO_CONTROL");
     if (control) {
         if (!std::strcmp(control,"timer"))

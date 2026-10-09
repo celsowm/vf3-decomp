@@ -10,6 +10,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from callable_body import validate as validate_callable
 from body_cover import corpus_pcs, measure
+from audio_corpus import validate_batch
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -106,7 +107,12 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                     assert measure(e, ranges[e], proof_pcs[int(invocation,16)][0])[:2] == (evidence['size'], evidence['size']), 'incomplete proof body execution'
                 cm = json.loads((proof_dir/'capsule_manifest.json').read_text())
                 bm = json.loads((proof_dir/'batch_manifest.json').read_text())
-                assert all(r['returncode'] == 0 and r['frame_complete'] for r in bm['runs'])
+                if bm.get('mode') == 'process_owned_audio':
+                    live = evidence['live_audio_proofs'][proof_name]
+                    batch_path = proof_dir/'batch_manifest.json'
+                    assert live['path'] == batch_path.relative_to(ROOT).as_posix()
+                    assert hashlib.sha256(batch_path.read_bytes()).hexdigest() == live['sha256'], 'changed live audio batch'
+                validate_batch(bm,check_hashes)
                 assert not cm.get('nondeterministic_entries')
                 assert not any(int(r['entry'],16)|0x80000000 == int(invocation,16) for run in cm['runs'] for r in run.get('incomplete',[]))
                 rows = cm['entries'][invocation]

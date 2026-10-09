@@ -33,13 +33,14 @@ def load_runs(path, execution):
                                  (row['log'], row['log_sha256'])]:
             if sha(artifact) != digest:
                 raise ValueError(f'changed evidence: {artifact}')
-        if execution == 'readable_c_queue' and '[vf3audiobridge] executing C queue with live devices' not in Path(row['log']).read_text(errors='replace'):
+        target = 'channels' if execution == 'readable_c_channels' else 'queue'
+        if execution.startswith('readable_c_') and f'[vf3audiobridge] executing C {target} with live devices' not in Path(row['log']).read_text(errors='replace'):
             raise ValueError('C execution marker missing')
         capsule = list(records(row['capsule']))
         if len(capsule) != 1:
             raise ValueError('expected one invocation per process')
         sample = capsule[0]
-        if (sample['flags'] or sample['entry'] != 0x8c040f1e
+        if (sample['flags'] or sample['entry'] not in (0x8c040f1e,0x8c040fa4)
                 or sample['nstate'] != 63 or not sample['ops']):
             raise ValueError('capsule is rejected or outside the queue scope')
         runs[key] = (row, capsule[0])
@@ -48,7 +49,10 @@ def load_runs(path, execution):
 
 def evaluate(original, c_manifest):
     original_data, left = load_runs(original, 'original_sh4')
-    c_data, right = load_runs(c_manifest, 'readable_c_queue')
+    backend = json.loads(Path(c_manifest).read_text()).get('execution')
+    if backend not in ('readable_c_queue', 'readable_c_channels'):
+        raise ValueError('unsupported C backend')
+    c_data, right = load_runs(c_manifest, backend)
     if original_data.get('device_control') != c_data.get('device_control'):
         raise ValueError('device input controls differ')
     # Pin emulator, image, recipe and game implementation, not runner mode.

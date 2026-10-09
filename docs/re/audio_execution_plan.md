@@ -9,9 +9,11 @@ tests passing. No percentage increase is promised for the infrastructure work.
 
 Results and corrections are recorded in [the execution ledger](audio_execution.md).
 Aligned observation and original-call pilots pass. A live C enqueue bridge now
-passes positive and genuine negative/input controls. Channel allocation has
-additional original-call checks; its C bridge, transition attribution and
-portable playback are still pending. These results earn no additional coverage.
+passes positive and genuine negative/input controls. Channel allocation now
+passes 128 development and 128 disjoint acceptance cases, with independent live
+C/device comparisons and a relocated acceptance stack. Its complete body adds
+786 bytes, reaching 258,430 / 434,656 (59.46%). Sound-dependent callers,
+transition/reset attribution and portable playback remain pending.
 
 ## Evidence and scope
 

@@ -8,20 +8,29 @@ import struct
 import subprocess
 from audio_determinism import ROOT, sha, describe, checkpoints, emulator_lock, compare, compress_checkpoint
 from capsules import records
+from audio_deduplicate import retain_hard_link
 
 
 def run(a):
+    shared_audio = {}
+    for directory in a.dedup_dir:
+        for path in sorted(directory.glob('*.audio.gz')):
+            shared_audio.setdefault(sha(path),path)
+    if a.dedup_dir and not a.compress:
+        raise ValueError('deduplication requires verified compressed evidence')
     recipe = json.loads(a.recipe.read_text())
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     manifest = dict(advisory=True, coverage_credit=False, passed=False, runs=[],
         mode='rollback_guard_control' if a.rollback else 'nonrollback_one_shot',
-        execution='readable_c_queue' if a.c_replay else 'original_sh4',
+        execution=('readable_c_channels' if all(int(c['entry'],0)==0x8c040fa4 for c in recipe['cases'])
+                   else 'readable_c_queue') if a.c_replay else 'original_sh4',
         device_control=a.control, corrupt_command=a.corrupt_command,
         provenance={str(p): sha(p) for p in [a.emulator, a.recipe,
             ROOT/'tools/oracle/vf3oracle.cpp', ROOT/'tools/oracle/vf3audio.cpp',
             ROOT/'tools/oracle/install.py', ROOT/'tools/oracle/vf3audiobridge.cpp',
             ROOT/'src/fight/command_encoders.c', ROOT/'extract/gamedata/1ST_READ.BIN',
+            ROOT/'src/fight/audio_channels.c',
             Path(__file__)]})
     target_manifest = out/'manifest.json'
     def save():
@@ -65,6 +74,13 @@ def run(a):
                     if case.get('event_window'):
                         env['VF3_ONESHOT_WAIT_AICA'] = '1'
                 control = case.get('control', a.control)
+                for key, value in case.get('audio_inputs', {}).items():
+                    if a.rollback or key not in ('allocation_boundary', 'allocation_start'):
+                        raise ValueError('unsupported live audio input')
+                    value = int(value,0) if isinstance(value,str) else value
+                    if not 0 <= value <= 0xffffffff:
+                        raise ValueError('audio input must be an unsigned 32-bit value')
+                    env['VF3_AUDIO_'+key.upper()] = hex(value)
                 if control:
                     if a.rollback:
                         raise ValueError('device input controls require one-shot mode')
@@ -74,8 +90,8 @@ def run(a):
                         raise ValueError('command corruption is a live C negative control')
                     env['VF3_AUDIO_CORRUPT_COMMAND'] = '1'
                 if a.c_replay:
-                    if entry != 0x8c040f1e or a.rollback:
-                        raise ValueError('live C replay currently supports the queue entry only')
+                    if entry not in (0x8c040f1e,0x8c040fa4) or a.rollback:
+                        raise ValueError('live C replay supports queue and channel configuration')
                     env['VF3_C_AUDIO_REPLAY'] = '1'
                 with log.open('wb') as f:
                     try:
@@ -98,6 +114,9 @@ def run(a):
                         row['audio_raw_sha256'] = raw_hash
                     row.update(capsule=str(capsule), capsule_sha256=sha(capsule),
                         summary=summary, audio=describe(audio))
+                    digest=row['audio']['sha256']
+                    if digest in shared_audio and retain_hard_link(audio,shared_audio[digest],digest):
+                        row['shared_audio_source']=str(shared_audio[digest])
                     if len(samples) == 1:
                         s = samples[0]
                         row.update(flags=s['flags'], exit=hex(s['exitpc']),
@@ -157,6 +176,8 @@ def main():
     ap.add_argument('--control', choices=['timer', 'arm_disabled', 'queue_busy'], help='controlled genuine device input')
     ap.add_argument('--corrupt-command', action='store_true', help='negative control: corrupt C queue writes')
     ap.add_argument('--compress', action='store_true', help='hash-verified gzip storage for new audio evidence')
+    ap.add_argument('--dedup-dir', type=Path, action='append', default=[],
+                    help='retain identical generated output via verified hard links')
     a = ap.parse_args()
     with emulator_lock(a.emulator):
         return run(a)

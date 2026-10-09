@@ -12,12 +12,13 @@ from select_next import ROOT, union
 sys.path.insert(0, str(ROOT / 'tools'))
 from body_cover import body_spans, corpus_pcs, measure
 from callable_body import validate as validate_callable
+from audio_corpus import validate_batch
 
 
 def corpus(path):
     manifest = json.loads((path / 'capsule_manifest.json').read_text())
     batch = json.loads((path / 'batch_manifest.json').read_text())
-    assert all(r['returncode'] == 0 and r['frame_complete'] for r in batch['runs'])
+    validate_batch(batch,True)
     assert not manifest.get('nondeterministic_entries')
     sources = {str(Path(r['capsule']).resolve()): (r['state'], r['play']) for r in batch['runs']}
     return manifest, sources
@@ -130,6 +131,14 @@ def main():
             artifacts=artifacts(case), covered_bytes=sizes[e],
             proof_artifacts={name: artifacts(ROOT / report[invocation]['cases'])
                              for name, report in reports.items()})
+        live_proofs = {}
+        for name, report in reports.items():
+            batch_path = (ROOT / report[invocation]['cases']).parent / 'batch_manifest.json'
+            if json.loads(batch_path.read_text()).get('mode') == 'process_owned_audio':
+                live_proofs[name] = dict(path=batch_path.relative_to(ROOT).as_posix(),
+                    sha256=hashlib.sha256(batch_path.read_bytes()).hexdigest())
+        if live_proofs:
+            entries[entry]['live_audio_proofs'] = live_proofs
         if attribution:
             entries[entry]['callable_body'] = attribution
             bindings[key]['callable_body'] = attribution

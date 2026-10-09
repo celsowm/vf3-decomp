@@ -1,5 +1,11 @@
 # Percentage expansion campaign — 2026-10-08
 
+Latest accepted audio milestone (2026-10-09): complete channel allocation adds
+**786 unique bytes**, reaching **258,430 / 434,656 (59.46%)**. Both disjoint
+128-case corpora execute the full body and pass strict native and live-device
+comparisons. See [audio execution](audio_execution.md). Remaining work includes
+sound-dependent callers and attributed playback; ARM/DSP are research dependencies.
+
 Objective: the [coverage expansion plan](coverage_expansion_plan.md), with
 65% as the main checkpoint and a ten-percentage-point stretch target. The
 immutable starting union is 248,754 / 434,656 bytes. The stretch freeze is

@@ -46,6 +46,7 @@ int vf3_advance_client_wrappers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_state_helpers(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_continuation_input_controls(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_command_encoders(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_channels_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -245,6 +246,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(vf3_percentage_family_adapter_contains(entry))
         return vf3_percentage_family_adapter(entry,s,ram);
     switch(entry) {
+    case 0x0c040fa4: return vf3_audio_channels_c(s,ram);
     case 0x0c040f1e:
     case 0x0c040c90: case 0x0c040c92: case 0x0c040d1c: case 0x0c040d20:
     case 0x0c040e24: case 0x0c040e28:

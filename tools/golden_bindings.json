@@ -6426,6 +6426,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0abcb8"
   },
+  "percentage-audio-channels:0x8c040fa4": {
+    "golden": "extract/analysis/audio_channels_dev_v3_cases/f_8c040fa4.cases",
+    "port": "src/fight/audio_channels.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent live C/device comparison across real AICA scheduling; signed counts, allocation alignment, rejection paths and relocated acceptance stack; ARM/DSP remain research dependencies.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c040fa4"
+  },
   "percentage-aux-completion:0x8c08919e": {
     "golden": "extract/analysis/percentage_aux_completion_dev/percentage_aux_completion_dev_8c08919e/f_8c08919e.cases",
     "port": "src/fight/percentage_aux_adapters.c",

@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Audio channel allocation and ARM observation (2026-10-09)
+
+Complete readable C channel allocation adds **786 unique bytes**, reaching
+**258,430 / 434,656 (59.46%)**. Both disjoint 128-case corpora pass native and
+live-device comparisons, including relocated acceptance stack and real AICA
+events. All 1,362 bindings, 39 native checks, 83 tool checks and the full
+artifact hash chain pass. ARM observation preserves state/PCM in two states;
+complete resident-bank equality identifies BGM_VAN and its active sample slots.
+Sound-dependent callers, reset/transition attribution and standalone playback
+remain open. See [audio execution](re/audio_execution.md).
+
 ## Percentage campaign: readable packed motion command (2026-10-08)
 
 The complete 406-byte motion-transition command passes **4,860 development
