@@ -122,6 +122,11 @@ still need the process-level audio boundary.
 
 ## Observation and audio feasibility
 
+The next audio work is specified in
+[the audio execution and playback plan](audio_execution_plan.md), including
+repeatability diagnosis, one-shot capture, full device comparison, command
+recovery and eventual portable playback.
+
 Three fresh-process passive repetitions plus an unwatched control were run
 from state 27, with no synthetic entry patch, a 128-sample limit and complete
 180-frame execution. Final 16 MiB RAM dumps at frame 170 have different hashes
