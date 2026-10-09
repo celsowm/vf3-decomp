@@ -1,0 +1,2176 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "passed": true,
+  "scope": "aligned audio checkpoints; not full C replay acceptance",
+  "points": [
+    1,
+    4194304,
+    16777216,
+    67108864
+  ],
+  "threaded": false,
+  "runs": [
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "baseline",
+      "repetition": 1,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.log",
+      "log_sha256": "5bca25cc9ca8c4fd41a98d153a04ce77fd17511a6a279e237d9072308b2ab438",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "baseline",
+      "repetition": 2,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_2.log",
+      "log_sha256": "eea9164e46361ce2a4fe111a77915b7cb9d724e764c4076961275ac2db22420d",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_2.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "baseline",
+      "repetition": 3,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_3.log",
+      "log_sha256": "741cbf5336bad36964e73ed481f0ed2182bcba5cfdd822e3f8bc21d4caab5660",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_3.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "observed",
+      "repetition": 1,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_1.log",
+      "log_sha256": "54c5e41454ed0e88c4fc42e630ec997d11a72501eab12bbea96403c835474789",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_1.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_1.capsule",
+      "capsule_sha256": "ae951ea44b60324d199730065681b7c4ce2a51e3a977e5f8424e1f673e9368e5"
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "observed",
+      "repetition": 2,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_2.log",
+      "log_sha256": "04f1a9d624088a45bbad2ba13255305aa2f6f675a2bdc448fd72368876fef65d",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_2.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_2.capsule",
+      "capsule_sha256": "ae951ea44b60324d199730065681b7c4ce2a51e3a977e5f8424e1f673e9368e5"
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "mode": "observed",
+      "repetition": 3,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_3.log",
+      "log_sha256": "626c0f2b4ba67f114e9111befcb9e49d8b8fdf93aa3d14c37acc37b5d180a427",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_3.audio",
+      "sha256": "2e3db558643ad02ce16b2eafad5fb6f2f5e30cd76028871f5f27a2a033b56e07",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            1692600896,
+            201602256,
+            20262,
+            448,
+            1689
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7282e931ef963189aeb07ae4f6804255753cd525e99d0ae8f7606a5450a6ca59"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "72d7dbd5df712875f900ffd1263d987d5ecc298d8677347f17ca13fdfb8556bb"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "7c5d6466e6df8fddfa0fe79b5cc9bc40c501f2f61e1dee1903e587cef2ffaff4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "61c5d9b4196d7a4b5250243fed74ee55cb1ccdce42c8bab631305bffde01e496"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            1741328960,
+            201589056,
+            9016,
+            216,
+            2200
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "b6d0a954059e1d475bb1f188888b61c81eec54b86c5bfebc48fd8deb303a2f69"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "ffa79e9128239443c7adc0c6b3be0081c8c2fd1031dbc706ddc7bce0044eb96b"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "6f6d63a002af9fe850b37fab2e98633e464e30f42c74cee92541a73648c5ec50"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4917016e3c9e75fbe72481fdbff849cc95417e745347c4dcb259f036ebff5e99"
+            },
+            "guest_pcm": {
+              "bytes": 42980,
+              "sha256": "304dd76a0b7eb72db2433dbebc529a489e1a7ef8d6d4fcbba92f90069452d2a0"
+            },
+            "scheduler_events": {
+              "bytes": 260928,
+              "sha256": "44311b6bb20f0888eea50a5304c0e7a5f54a9bba5890bcdfc92532075eb20b4f"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            1808544640,
+            201623602,
+            63090,
+            296,
+            4290
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "426f4698cda25728257f25666c4423c64e74926bdb867aede1c40b1d159842cb"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "007aa8fe4a538a5370bce80857c90b5ecbe05a3d823674df551d709801cb1192"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "3de7283213088efb87edd07e491ec77373b9084a7800f23a4cbf4ff66d23a7a4"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "4962f2f43a4900b1b42bd1ab255acf73eef2328dccaab551a21b7cc6eeca520c"
+            },
+            "guest_pcm": {
+              "bytes": 102268,
+              "sha256": "32c1d5a64a372a0ae93e6d9e7dbe9f626f2b234ff22b5c6c8d46aaaaec1b2d6c"
+            },
+            "scheduler_events": {
+              "bytes": 619800,
+              "sha256": "23c5770adefd01e476020a1584fe08739372b4d3d997d905ade66157abda04e7"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            2060720256,
+            201623490,
+            62349,
+            192,
+            1884
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "7a8ce8c28b5867e86ef585dc918479c77aea98376196b067f155123a176b35be"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82dc015af3dcac75bbe8522b16e240e7053673487ca8a75e17b80804e1cebe05"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4a4ed3ffe0e5d9c6ac24b9b684cd80c4e8ade9148a0f7abfb9778373fba88153"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "575237f2d3133381841ec57c6794b4deaa68363c612b2f31b52fcbc8bc0e888e"
+            },
+            "guest_pcm": {
+              "bytes": 324692,
+              "sha256": "140ad4166f95d809e302a22f9eafbb2c2bdc9dced7e50d049478a38fafeeb395"
+            },
+            "scheduler_events": {
+              "bytes": 1968096,
+              "sha256": "16aa49ac2a50016d1890ccb7b15e5ee05e02398ada010600a4928748a616a455"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_3.capsule",
+      "capsule_sha256": "ae951ea44b60324d199730065681b7c4ce2a51e3a977e5f8424e1f673e9368e5"
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "baseline",
+      "repetition": 1,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.log",
+      "log_sha256": "1fd59e88dfb1f69f70153d3d3ea4ec4f678a4c271ea2894a4cd89acbf7cfce8d",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "baseline",
+      "repetition": 2,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_2.log",
+      "log_sha256": "26d0b7a87c5e20b39644a04d02da63a6ec0d186c4862afda09ecc45a3f48454c",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_2.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "baseline",
+      "repetition": 3,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_3.log",
+      "log_sha256": "ee4d47bc2f19cbbf0715667deb66f1051ca8499f46cc50823a0f982370c36ea0",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_3.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "observed",
+      "repetition": 1,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_1.log",
+      "log_sha256": "bc0e0f9ccb6e19f424f866ff4f9598865e807490871ddc1e9019f2793873442f",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_1.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_1.capsule",
+      "capsule_sha256": "78dd511586a187d615f74252ff118aa646cb8df5fe9334013ccf8ba2d5dc6a63"
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "observed",
+      "repetition": 2,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_2.log",
+      "log_sha256": "82886584acc6340feddd60e90d26ce0abf003b00cd759fac3458d6dd3e2d554a",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_2.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_2.capsule",
+      "capsule_sha256": "78dd511586a187d615f74252ff118aa646cb8df5fe9334013ccf8ba2d5dc6a63"
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "mode": "observed",
+      "repetition": 3,
+      "returncode": 0,
+      "log": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_3.log",
+      "log_sha256": "fff00c2d8f05d7e0a4f13c3a052e36837783475e3685b32e9035d936a819f2c0",
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_3.audio",
+      "sha256": "3ccf67ba17b1e44a926aa6401942d83e7d4b9fc0f7799077d4d017f16b6e8cab",
+      "checkpoints": [
+        {
+          "identity": [
+            1,
+            5001134656,
+            201601772,
+            25603,
+            448,
+            4389
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "c9c38aeda141be9900b073fca45ce6faa17bc96428271e1eb60b409f483e54ce"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "82e11e4287b542c0a20a2536846d2d63658f62b18b5f0b254cabbcd6390e1c6d"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "9a7bf15ab9090be9444d075fc9fd947e066598bf5623e082dd76e0a3b42bec3d"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "88144bbb3fdd65f1030d92c1b25da1d5f68cd412bda007c4e3aa8563216a18b1"
+            },
+            "guest_pcm": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "scheduler_events": {
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        {
+          "identity": [
+            4194304,
+            5066649280,
+            201546294,
+            9,
+            128,
+            2375
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "2e716ac4cbd411b6e2c20d106f9d87828e09e8aa53015fd1a16de86bfa11c39f"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "872356a9ea4695b751d6a64b3327251cd57419c2552c7ffebd1985ef012bfae4"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "66b83e7b965e99e4ff01423f00a9f854e5ccb3c9ba3edbb4061d30a27ab1b152"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "f2995eda161ff80e68c9fbf8d2fc3d4cc5d6af40031845470ab371e06315a6ef"
+            },
+            "guest_pcm": {
+              "bytes": 57784,
+              "sha256": "24e4d78df219ae7ce8f4e0687f093b4b2a04076d45bfe8ff1c35e6d69c995f4c"
+            },
+            "scheduler_events": {
+              "bytes": 351192,
+              "sha256": "cf2cd25db3836d0ad460cbe881794c4b13b6bc43c42281524bf5f18897b1265d"
+            }
+          }
+        },
+        {
+          "identity": [
+            16777216,
+            5167598464,
+            201681410,
+            17444,
+            392,
+            2291
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "6afed09585017e9de3c8468638c927cf46cf0e737c173307c2b912ecc674da49"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "73234ec5700b6534d33d8d6664829cb228e48149c1c40082ecdd0753721e9a78"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "4f19d3fee012b1303b81459f00b345a77e0cfda44c6527988c84f73ed1cbd74e"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "3db9232018ffb347c084036ce0a9a27a6c29ec767183fe1aed9885d612cbee9f"
+            },
+            "guest_pcm": {
+              "bytes": 146824,
+              "sha256": "428877241d10698d5b67745eea9dfb1d058181c636a2f1e2aca71b057b3e2de8"
+            },
+            "scheduler_events": {
+              "bytes": 891144,
+              "sha256": "c0b0baea8dca1d2d4f0338f54a193794c218a98fc068280e05e6e1494031a659"
+            }
+          }
+        },
+        {
+          "identity": [
+            67108864,
+            5426593088,
+            201584186,
+            35835,
+            40,
+            1517
+          ],
+          "sections": {
+            "architecture": {
+              "bytes": 252,
+              "sha256": "bb0eecc3e4472f19095bedbeadb71f80014505fb2a352f0148356d135bbbb52d"
+            },
+            "physical_ram": {
+              "bytes": 16777216,
+              "sha256": "0f792f2a621ad472f6a214539d6a09843c7f0ea90f5bb3d546970c107a634928"
+            },
+            "aica": {
+              "bytes": 2137886,
+              "sha256": "010d1a44d789c5fa070f4fc69ce92f1411458aaedbc9f2ea2cb919458b6a0c59"
+            },
+            "cache": {
+              "bytes": 30744,
+              "sha256": "879c1848fcdf8dc7df41827bdd240daf313873c775779ad28ad554e1f8d3a171"
+            },
+            "scheduler": {
+              "bytes": 100,
+              "sha256": "fc6fbd00e3cda1a68cf9c81b9b4558354d7ab8403fc8839bf75f93f0bb07bc93"
+            },
+            "guest_pcm": {
+              "bytes": 375264,
+              "sha256": "ee4fbc72415cb45c12fd5ea3317a613bb8a44b12f92aceab11c8484b19a2b440"
+            },
+            "scheduler_events": {
+              "bytes": 2273520,
+              "sha256": "1595cb0e71ed624816473050ee45b9cd27547312875f079f871005156aeed1b3"
+            }
+          }
+        }
+      ],
+      "complete": true,
+      "capsule": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_3.capsule",
+      "capsule_sha256": "78dd511586a187d615f74252ff118aa646cb8df5fe9334013ccf8ba2d5dc6a63"
+    }
+  ],
+  "comparisons": [
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_2.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_3.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_1.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_2.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_26_observed_3.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_2.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_3.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_1.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_2.audio",
+      "equal": true
+    },
+    {
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "left": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_baseline_1.audio",
+      "right": "E:\\vf3-decomp\\extract\\analysis\\audio_sync_long_v1\\vf3_28_observed_3.audio",
+      "equal": true
+    }
+  ],
+  "provenance": {
+    "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast.exe": "4411bed0608e9400d0c31b475d1bc3cb010a8e6569916c2e9160e1fc7a56dcf0",
+    "E:\\vf3-decomp\\rom\\vf3.gdi": "f36310cd0e18a7f3122ed3341530a07b79b105aec1fa4f1828f0192e53710e98",
+    "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32",
+    "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp": "7106c81aa49b7fd025e3b2dc8cfcfecc983be7dc11bccb9df305105960e233f7",
+    "E:\\vf3-decomp\\tools\\oracle\\install.py": "419af094d3a3d9218c4880e4192d8be0a37593834549c3df139414e873109760",
+    "tools\\emu\\flycast-build\\data\\vf3_26.state": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+    "tools\\emu\\flycast-build\\data\\vf3_28.state": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+  },
+  "manifest_sha256": "ba574cbea46de04d4a7a6a29fbccd473b94681ac5c87327464a913c5db3944f0",
+  "proof_kind": "bounded observer repeatability; advisory, no coverage"
+}

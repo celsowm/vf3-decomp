@@ -16,15 +16,18 @@ def insert(path, anchor, replacement):
     p.write_text(text.replace(anchor, replacement), encoding="utf-8")
 
 def main():
-    for name in ("vf3oracle.cpp", "vf3oracle.h"):
+    for name in ("vf3oracle.cpp", "vf3oracle.h", "vf3audio.cpp", "vf3audio.h"):
         shutil.copyfile(Path(__file__).parent / name, CORE / name)
     insert(Path('windows/winmain.cpp'), '#include "build.h"',
            '#include "build.h"\n#include "vf3oracle.h"')
-    insert(Path('windows/winmain.cpp'), '\t\t\t\tdc_loadstate(0);',
-           '\t\t\t\tdc_loadstate(0);\n'
-           '\t\t\t\t/* Fixture parsing must finish before the frame budget starts. */\n'
-           '\t\t\t\tvf3OraclePrepare();')
-    insert(Path('windows/winmain.cpp'),
+    runner = CORE / 'windows/winmain.cpp'
+    if 'vf3OraclePrepare();' not in runner.read_text(encoding='utf-8'):
+        insert(Path('windows/winmain.cpp'), '\t\t\t\tdc_loadstate(0);',
+               '\t\t\t\tdc_loadstate(0);\n'
+               '\t\t\t\t/* Fixture parsing must finish before the frame budget starts. */\n'
+               '\t\t\t\tvf3OraclePrepare();')
+    if '[vf3] guest stopped; closing capture' not in runner.read_text(encoding='utf-8'):
+        insert(Path('windows/winmain.cpp'),
            '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);',
            '\t\tfprintf(stderr, "[vf3] ran %lld frames\\n", f);\n'
            '\t\t/* Stop and join guest execution before closing research captures.\n'
@@ -33,11 +36,42 @@ def main():
            '\t\t\temu.stop();\n'
            '\t\t\tfprintf(stderr, "[vf3] guest stopped; closing capture\\n");\n'
            '\t\t\tstd::exit(0);\n'
-           '\t\t}')
+               '\t\t}')
     insert(Path("hw/sh4/CMakeLists.txt"), "target_sources(${PROJECT_NAME} PRIVATE",
            "target_sources(${PROJECT_NAME} PRIVATE\n        ../../vf3oracle.cpp")
+    insert(Path('hw/sh4/CMakeLists.txt'), '../../vf3oracle.cpp',
+           '../../vf3oracle.cpp\n        ../../vf3audio.cpp')
+    insert(Path('windows/winmain.cpp'), '#include "vf3oracle.h"',
+           '#include "vf3oracle.h"\n#include "vf3audio.h"')
+    insert(Path('windows/winmain.cpp'), '\t\tfprintf(stderr, "[vf3] emu.start...\\n");',
+           '\t\t/* Diagnostic mode owns one synchronous guest execution stream. */\n'
+           '\t\tif (getenv("VF3_AUDIO_CHECKPOINTS") && !getenv("VF3_AUDIO_THREADED"))\n'
+           '\t\t\tconfig::ThreadedRendering.override(false);\n'
+           '\t\tfprintf(stderr, "[vf3] emu.start...\\n");')
+    insert(Path('windows/winmain.cpp'), '\t\t\t\tvf3OraclePrepare();',
+           '\t\t\t\tvf3OraclePrepare();\n\t\t\t\tvf3AudioPrepare();')
+    insert(Path('windows/winmain.cpp'), '\t\twhile (emu.running()) {',
+           '\t\twhile (emu.running()) {\n\t\t\tif (vf3AudioDone()) break;')
+    # Diagnostics must join execution before closing files just like capsules.
+    insert(Path('windows/winmain.cpp'),
+           'if (getenv("VF3_CAPSULE") || getenv("VF3_HITS")) {',
+           'if (getenv("VF3_CAPSULE") || getenv("VF3_HITS") || getenv("VF3_AUDIO_CHECKPOINTS")) {')
     insert(Path("hw/sh4/interpr/sh4_interpreter.cpp"), '#include "vf3trace.h"',
            '#include "vf3trace.h"\n#include "vf3oracle.h"')
+    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '#include "vf3oracle.h"',
+           '#include "vf3oracle.h"\n#include "vf3audio.h"')
+    insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'), '\tvf3OracleBefore(addr, op, ctx);',
+           '\tif (vf3AudioBefore(addr,op,ctx)) throw debugger::Stop();\n'
+           '\tvf3OracleBefore(addr, op, ctx);')
+    insert(Path('hw/aica/sgc_if.cpp'), '#include "serialize.h"',
+           '#include "serialize.h"\n#include "vf3audio.h"')
+    insert(Path('hw/aica/sgc_if.cpp'), '\tWriteSample(mixr, mixl);',
+           '\tvf3AudioSample(mixr,mixl);\n\tWriteSample(mixr, mixl);')
+    insert(Path('hw/sh4/sh4_sched.cpp'), '#include "serialize.h"',
+           '#include "serialize.h"\n#include "vf3audio.h"')
+    insert(Path('hw/sh4/sh4_sched.cpp'), '\tint re_sch = sched.cb(sched.tag, remain, jitter, sched.arg);',
+           '\tvf3AudioEvent((int)(&sched-&sch_list[0]),sched.tag,remain,jitter);\n'
+           '\tint re_sch = sched.cb(sched.tag, remain, jitter, sched.arg);')
     insert(Path('hw/sh4/interpr/sh4_interpreter.cpp'),
            '\t\t\t\tctx->cycle_counter += SH4_TIMESLICE;',
            '\t\t\t\t/* Sound RAM probes must finish before any ARM7/device tick. */\n'

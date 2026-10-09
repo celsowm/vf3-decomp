@@ -7,6 +7,8 @@ earn no coverage. The accepted baseline remains 257,644 / 434,656 bytes
 (59.28%), commit `01e3b7f`, with 1,361 bindings, 39 native checks and 54 tool
 tests passing. No percentage increase is promised for the infrastructure work.
 
+Results and corrections are recorded in [the execution ledger](audio_execution.md).
+
 ## Evidence and scope
 
 - DTPK extraction and AICA ADPCM already have bit-exact C implementations in
