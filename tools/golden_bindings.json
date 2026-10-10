@@ -2345,6 +2345,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07ef90"
   },
+  "audio_input:0x8c0c9f54": {
+    "golden": "extract/analysis/audio_input_accept_v1_cases/f_8c0c9f54.cases",
+    "port": "src/fight/audio_input.c",
+    "source": "Uncredited callable pilot; 36 live/native comparisons in disjoint development and acceptance states; frozen-owner two-caller promotion remains open; docs/re/audio_callers.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c9f54"
+  },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",
     "port": "src/fight/device_adapters.c",
@@ -5728,8 +5735,8 @@
   },
   "motion_final:0x8c0c5ca2": {
     "golden": "extract/analysis/motion_final_cases/f_8c0c5ca2.cases",
-    "port": "src/fight/vf3_motion_final_adapter.c",
-    "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 1 strict cases from motion_final corpus",
+    "port": "src/fight/audio_request.c",
+    "source": "Readable general request wrapper; 1 strict historical fragment case plus 32 live/native callable comparisons across disjoint development/acceptance states; docs/re/audio_callers.md",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c5ca2"
   },
@@ -7664,7 +7671,7 @@
   "seventh_c:0x8c040b7e": {
     "golden": "extract/analysis/seventh_c_cases/f_8c040b7e.cases",
     "port": "src/fight/audio_encoder.c",
-    "source": "Readable general A0 encoder; 8 strict historical fragment cases plus 128 original callable-entry captures represented by 126 distinct native pilot cases; observed device tape, no live C acceptance; docs/re/audio_encoder.md",
+    "source": "Readable clocked A0 encoder; 8 strict historical fragment cases plus 128 live/native callable comparisons, disjoint held-out states and stack, corruption negative control; docs/re/audio_encoder.md",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c040b7e"
   },

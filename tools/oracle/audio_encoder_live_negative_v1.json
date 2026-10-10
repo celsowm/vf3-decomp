@@ -1,0 +1,18 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "dev_pack_00",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397760,
+        "r5": 416,
+        "r6": 0,
+        "r14": 1698693120
+      },
+      "event_window": true
+    }
+  ]
+}

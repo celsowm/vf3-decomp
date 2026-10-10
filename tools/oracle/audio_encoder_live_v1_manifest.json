@@ -1,0 +1,1197 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "entry": "0x8c040b7c",
+  "frozen_owner": "0x8c040b7e",
+  "body_bytes": 226,
+  "scope": "Live readable C packing and channel requests; real original ARM/DSP/device execution, no voice/reset meaning or standalone playback",
+  "campaigns": {
+    "dev": {
+      "runs": 64,
+      "distinct_native_cases": 64,
+      "aica_crossings": 64,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state"
+      ],
+      "stack_values": [
+        204601644,
+        204601768
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\batch_manifest.json",
+        "sha256": "dbea39514097f3fb6dd3508d15270bd4cac05ba5e339676b4156897a596bcdda"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\live_audio_comparison.json",
+        "sha256": "a672417cdb6b679d808532fb9542829e4dd916f8ed491ddefc790d1032e861a6"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_native_report.json",
+        "sha256": "5db88998459993a8ba2644de24277352744bf763a4bd5665ee0147adbf3fcd0e"
+      },
+      "executable": {
+        "path": "E:\\vf3-decomp\\build\\vf3matrixfamily_audio_encoder_live_v1.exe",
+        "sha256": "40f09495c93260bd6b17205fc072d4da919838b0e890529b727b25a74bff47ce"
+      },
+      "native_inputs": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\batch_manifest.json",
+          "sha256": "dbea39514097f3fb6dd3508d15270bd4cac05ba5e339676b4156897a596bcdda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\capsule_manifest.json",
+          "sha256": "df90ac4943b13e1e70a5f9b2c00a38ac01ea821d58293874db62a687d5c050d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.bank.bin",
+          "sha256": "6d4267893ab433489a59a5f79e5dc0a2cb7e564f3fd806963a4179fc7efa554d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.cases",
+          "sha256": "f394b1567642c5b8ff3707b6940663b195a3e625d527f4e9d5adb97c9c36521f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.dev.bin",
+          "sha256": "d5c7c098873ac2561a4a9b87e9874cac864e473e1e0417c22a5c0e6d47732dff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.extra.bin",
+          "sha256": "0282ca35dff4059fd2d2121d39981fc0b02b58d7e7002f84c939f92a524f9b9c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.gbr.bin",
+          "sha256": "615285df509c7e80eba237a06d31736f7a09ce58e20612efb7abb9e802536a4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.ops.json",
+          "sha256": "2d4cf485956bc23c11fea590e9d478fd4e59361d318e97ee16580ae08c8465ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.xfin.bin",
+          "sha256": "ebcf20c4e9be0ee8d96e058805bdd1e21f46860c415574a1cdef3c97467f8cdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c.xfout.bin",
+          "sha256": "ebcf20c4e9be0ee8d96e058805bdd1e21f46860c415574a1cdef3c97467f8cdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_0.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_0.out.bin",
+          "sha256": "0cd6d2592439533c5d969756a1ca32113217443ad3d08d6b8a6bd34796d55301"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_1.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_1.out.bin",
+          "sha256": "e2bc9eb25b0ea27f18767478357981a2afb13e996392e0a53fb8754920417572"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_10.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_10.out.bin",
+          "sha256": "75a9191800ed2c5b9692783bccb0c64b5603e6fb6e521c2c98ac31f405bedae1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_11.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_11.out.bin",
+          "sha256": "de698eba63d6793866bb67ba5e4040cf8ea5e82232133502fdec56bc0bc09035"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_12.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_12.out.bin",
+          "sha256": "e09d09a13397e2697ea7850667b5c7e78e350e3907f396a1d1d3426d24da06dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_13.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_13.out.bin",
+          "sha256": "59633762c07b25b803e341942602268c9f71ccbb33e5d32d520c07d9a58aab37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_14.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_14.out.bin",
+          "sha256": "46afcafb9b1e70b8b9c8b827876d4ed33ea88c85f3c4d04b823ff7a9a36d58f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_15.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_15.out.bin",
+          "sha256": "26eaa5b02ffbdc1b14357ab59f959413403a582b9029fb5ae6dd4cb140eee6f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_16.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_16.out.bin",
+          "sha256": "9df29878e5a30aa63c0a64ecfa061af49ffcfa7a9247c9d1eb26e2a38baa97a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_17.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_17.out.bin",
+          "sha256": "17acde34e3c7495cdd91be5f917c72298787cf253b65afdb10d76d6388ac93b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_18.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_18.out.bin",
+          "sha256": "ac6cec6fab6d475ef50108baae1dfceec7189541f27fdec447cf4a3a0d078169"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_19.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_19.out.bin",
+          "sha256": "36acac351a4984e14b35c914cc2564aef7aad7fd311a03edbb918783a8782946"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_2.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_2.out.bin",
+          "sha256": "0054986da8a164a7830a2884479a458d852d2754d9a434d6308a93971a5a3f8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_20.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_20.out.bin",
+          "sha256": "e9c39f5aff4ff19736490f9889e8b73746c7ada1610c2070e2c46dfdafdaaa9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_21.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_21.out.bin",
+          "sha256": "bc97480273b62a39be89d177ad512dd2f58f5735f382010c99366c5cbf799a98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_22.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_22.out.bin",
+          "sha256": "8a49445b44cd6ba4e23a0144aeba50e902e39ca5b0da89d2995c26a2f45e5b48"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_23.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_23.out.bin",
+          "sha256": "4639d71afc7b110400d1f89faaa9a7c1477470101acf2c782e73efc59677cbcf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_24.in.bin",
+          "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_24.out.bin",
+          "sha256": "65b6964c386cb904fd68dc31d33829b304cca986a617f7f02624e6414c4d3da5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_25.in.bin",
+          "sha256": "9eb98a09f77e8a719e82b898db2eb94a596ab8345a46d3213de46bb9a1c15e7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_25.out.bin",
+          "sha256": "7f523d2f7c0e9325b5de8b9d871bde93ee08a3aab7b49010b9beeba47a6c259a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_26.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_26.out.bin",
+          "sha256": "a09272c554bac4598d1f88a344365cce692e7902f8d9c7bc2bb7c82d69726d3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_27.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_27.out.bin",
+          "sha256": "bf26226274a9693a2b2f3461cd80c87f9b1f4a9cca9a945519d363e6a38920ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_28.in.bin",
+          "sha256": "25f78c3f49811b2e012bb5ef73f5888674da2d86b9fb67e2c55478a57722b1ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_28.out.bin",
+          "sha256": "f0f49bc808168c214fadaea361fcbda47d597f6c3f96f01ba9b755564af1bc27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_29.in.bin",
+          "sha256": "ebde39c6ab8c8548e08a82dd498d91c0f2cb05331a8e7df53b35682c4f0c5d52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_29.out.bin",
+          "sha256": "c326b84af694304cbe59097d18e4428464bfebdf33797342ff1d65698835f9da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_3.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_3.out.bin",
+          "sha256": "c92a79ac7c8c907ec6e1c6f47cac440f880ba7257812494907ce03c7de2ee759"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_30.in.bin",
+          "sha256": "02cf40314dfdc5aa5e1e2a51977f00cdd8b2864a7e831b5e79221b01bac2a25a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_30.out.bin",
+          "sha256": "4118a97b7104e4d175b917dda6af029a1daa8b790dac02ffa11ee110e4432f98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_31.in.bin",
+          "sha256": "cc3a389a8754e0e45c5c709086e5aea3091f15145b2a916e4cb382aa09442a09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_31.out.bin",
+          "sha256": "a3a0b0a76a8db91abb4bc570bae3b208655d3e58025a05ae33aefae19c3a99b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_32.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_32.out.bin",
+          "sha256": "d02a9de61f2d845efaf1f4da984532673168ed0c372f04a7701673ab48c2bdf3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_33.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_33.out.bin",
+          "sha256": "93dcc36c7402da78627f3a751afcba39c7e4ef751923c7072274bd6f5c16b159"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_34.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_34.out.bin",
+          "sha256": "faa4f788b20bbe9c90d19cda773d42ff1ec206d19281f149a5d12625b70f5f62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_35.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_35.out.bin",
+          "sha256": "da54714b1d7a70eadfe62f5737964c2b6e5914154913fca5add92e26b8f7ab84"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_36.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_36.out.bin",
+          "sha256": "b2f630f18f1219dbb49a730549b1ddde07d5512d192add8cff4e83f66592a1a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_37.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_37.out.bin",
+          "sha256": "c0c430c3af312e4de82a249ef63bd6becc3f5596e0c2c049f1983cc1398f66a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_38.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_38.out.bin",
+          "sha256": "315bdfecd908630e96ee93bc0332557bb25a9f46b3c696e4b7fee8987923c9ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_39.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_39.out.bin",
+          "sha256": "562de3b71eb46d84597cca83b08c05afb2aeaf8cc97a265638f7bdf1aa6551a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_4.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_4.out.bin",
+          "sha256": "55024ec61586bf817174d335f6bc2c7a37d203784a90d52c47bcf6ee9d0ac39c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_40.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_40.out.bin",
+          "sha256": "ac008877e398f8a2bcb8adc82f4ef9f21f748f6eb62d04f3b078465f1f83d64e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_41.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_41.out.bin",
+          "sha256": "b87a0f9506945d0f7d3a2cbe605d5eb481dee2fa7cf76aac39e5debb626a5215"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_42.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_42.out.bin",
+          "sha256": "ba2535652a29c0ab5aa6442a21671eb949505ec7dc751deee6dec72ce957f0df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_43.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_43.out.bin",
+          "sha256": "be962c761bbbbbdfe4e8d6b2335e3f179841802e2776e9202940d3e485ed88f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_44.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_44.out.bin",
+          "sha256": "6bc465f6195edacf6818d37346356cc6afa2a7bdafce4c4683d25a32406d164b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_45.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_45.out.bin",
+          "sha256": "2119d173435edbb369ce87edde5c4402688ff96e6d3ce948507199a83cec39c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_46.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_46.out.bin",
+          "sha256": "456f1a88fc83cbe5360a66d9692f8b5dcf213067256d7252b6465bd4d024e029"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_47.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_47.out.bin",
+          "sha256": "1ecd461a314fe5d8fd31c17751fdd8038078ddcaf2634d6cb10426c37f501004"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_48.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_48.out.bin",
+          "sha256": "dd0b955d90a378bf560efc956cf28045d1c1ca8b840e2fe985c8214e815a444a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_49.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_49.out.bin",
+          "sha256": "1eb2f8dd59d9a90bccf19cf2232a71072d3b07296877bf9858acf8e20e77aa71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_5.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_5.out.bin",
+          "sha256": "2ab709edb16d81ba5b63f90a8bbaecf6dbe80d97d9294778b29af3ff4ac0a90c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_50.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_50.out.bin",
+          "sha256": "1c03cbde45553899dc8bce578f883952c29d66532a4cb6bc9ff31ea1428ca2d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_51.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_51.out.bin",
+          "sha256": "730c35aa9048e4149c4ea86bed9912bd470200f9365577aacf6b3a7fb8012502"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_52.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_52.out.bin",
+          "sha256": "3d9ecb79c8be23dc649236ed7cd344031c8876d92cabaaec40e087ffce7dad85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_53.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_53.out.bin",
+          "sha256": "1937264c31ce512ef9933b13bd691423845a9f0e5f634bca1460f6c8aeca5e41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_54.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_54.out.bin",
+          "sha256": "51d1eebccca7899b285f39923d785a90ba59d0f5f313353755074dfc8853f2f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_55.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_55.out.bin",
+          "sha256": "62be99642791c320daad53de95885d0553fa5ddb1cbe0e1d127a2a9d6fd5fafa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_56.in.bin",
+          "sha256": "47315ff746c93afee4238d5f7a8a0d73a87b10d2747d77ade97d1f4756b97e11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_56.out.bin",
+          "sha256": "8d2f5f8426a017f2828ee267f10ca26a51ca2576e4ab9084e5dde3c6845885f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_57.in.bin",
+          "sha256": "47315ff746c93afee4238d5f7a8a0d73a87b10d2747d77ade97d1f4756b97e11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_57.out.bin",
+          "sha256": "12098e9ca35ca3e6d4740e7f899b90a243a90b6174f204162aed158ed57918e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_58.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_58.out.bin",
+          "sha256": "17f6709a261a0484e75fa9a6feebd6b34374c0198961e2613356f46c7e2c63fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_59.in.bin",
+          "sha256": "29b4c5e43d8b966214241706f8b63a774dcafa864f2f253210285ce89991958d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_59.out.bin",
+          "sha256": "ec4854a81d4f35555f42f38a366aa615d8fce3b0680aaf99075a52a2d0cb9fde"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_6.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_6.out.bin",
+          "sha256": "d2e9adb6b61b784027ce33d8a6c444ac18b4f839693167d1a9094a14f98155ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_60.in.bin",
+          "sha256": "3122597f4c0a0ba089d0cb5a88423d7059559a72d0f24e2859a07df3182984c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_60.out.bin",
+          "sha256": "9326083da758469307b1e90a872541d663e952be3a36e3d4e45cba2ed1aa0d49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_61.in.bin",
+          "sha256": "47a64e1f6ea581cb79137e6432bdc08784d40832b2595e82dda279ef5d6f8c7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_61.out.bin",
+          "sha256": "4e2e8cf238dcf5689c96bf26f4f8918bf0f931f6a241125ed68ab91081204bc4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_62.in.bin",
+          "sha256": "5c1d8365116fd36fff6ee682e5f9b7027720ec91a5c48d70b5478b73a76afb4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_62.out.bin",
+          "sha256": "8df3e02360b9bac773cb2aadcb2b73b4dfabcfc1c935c8190639970e50a604cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_63.in.bin",
+          "sha256": "b58e15f069efa3786de5ae3eabe593dbc85cea33e87ed61939ba856763c3069e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_63.out.bin",
+          "sha256": "f216f684b8da625ee48919797f8938bc706209eec259d8522e30c27f9cc6073f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_7.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_7.out.bin",
+          "sha256": "9b239ea346a689052e9c59908434afba9c1cc400b627ccd3a6780d6b64b743cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_8.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_8.out.bin",
+          "sha256": "981c552d108bf14e39e929b1a247a4c1ccfc99fecb2929b86ed99cff2c9c8863"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_9.in.bin",
+          "sha256": "dffb8f4bc93a92d34b258162feee0051972c4fdb103fbeba88c41fd490cb1781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\f_8c040b7c_9.out.bin",
+          "sha256": "5c05d25da57bb995b718b076b439be3857497005b9f23efb5fc55c480bf0b7dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_dev_v1_cases\\live_audio_comparison.json",
+          "sha256": "a672417cdb6b679d808532fb9542829e4dd916f8ed491ddefc790d1032e861a6"
+        }
+      ]
+    },
+    "accept": {
+      "runs": 64,
+      "distinct_native_cases": 64,
+      "aica_crossings": 64,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state"
+      ],
+      "stack_values": [
+        205508608
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\batch_manifest.json",
+        "sha256": "ebc0ba61acddb2fd6e16ec3c465799d545917b7322473a601fb76bfc4959dc78"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\live_audio_comparison.json",
+        "sha256": "b7e93a38bcff7a7f809eef78f2826c9a6f9a35a2b4c38c00a65869ac7c3483d6"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_native_report.json",
+        "sha256": "9525f22b764d4b74f35ad7f2dc1d0606f0bc4bb8e114c44e6ca026b94b4fd879"
+      },
+      "executable": {
+        "path": "E:\\vf3-decomp\\build\\vf3matrixfamily_audio_encoder_live_v1.exe",
+        "sha256": "40f09495c93260bd6b17205fc072d4da919838b0e890529b727b25a74bff47ce"
+      },
+      "native_inputs": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\batch_manifest.json",
+          "sha256": "ebc0ba61acddb2fd6e16ec3c465799d545917b7322473a601fb76bfc4959dc78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\capsule_manifest.json",
+          "sha256": "4c2398b92805f27bdb067719c2bbdd5f7eb461f0fd7f7f73faa8684b9fbef4a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.bank.bin",
+          "sha256": "2663134522781b1e4c1a9f7d050f46664f3919f9742403207e12de120f3f336a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.cases",
+          "sha256": "fd021514745a4bd900664984efb563b068e9c14ce265bbca864c09264ca4abfa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.dev.bin",
+          "sha256": "46d61e9bf639c025c8d98d0cf1b2b6021811d84ef10484842e2880d2ba0d135e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.extra.bin",
+          "sha256": "7db8f4205832a9b0a62e1245d4f14ca3d89781c57e456ebfa14c7fa3e388935e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.gbr.bin",
+          "sha256": "615285df509c7e80eba237a06d31736f7a09ce58e20612efb7abb9e802536a4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.ops.json",
+          "sha256": "e19d7ebebc93d2ec4e947a4bd1fa8754bb64a279d0e20909f19a73a9f0333db5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.xfin.bin",
+          "sha256": "e59c662b8a130dd982ddab4537fda4e3c3c97cda3a8e01887eb3ccd97fa18b15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c.xfout.bin",
+          "sha256": "e59c662b8a130dd982ddab4537fda4e3c3c97cda3a8e01887eb3ccd97fa18b15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_0.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_0.out.bin",
+          "sha256": "1ba1111d53db50272149a5272266d22b0592ee398b40b63f29dd3de25728c237"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_1.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_1.out.bin",
+          "sha256": "9f5bfc875ba8b36e6822a33c2a95e38c77647ff36813d49577bf1ca709caa713"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_10.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_10.out.bin",
+          "sha256": "69e428731b2a765a669718aaf6007631ff21abe53e44aadfc1d8c94dbba89331"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_11.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_11.out.bin",
+          "sha256": "8333edd3f5a6030b8ad8cd5bce453254b9da2496d4f9d73ff1a3becc4e01c65b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_12.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_12.out.bin",
+          "sha256": "995306f7a9d8c8884cc34767027899821a58fe2ae119c22fff7733770736c3ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_13.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_13.out.bin",
+          "sha256": "28afc871e0f7bbc3eca57213dfb0636750e6a827b8de8ee4b4a8e647fbffb3f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_14.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_14.out.bin",
+          "sha256": "77a9b9d6eec575d234d867cb5cce857d637b5f3d2d0b6f78b26709b10cbcf398"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_15.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_15.out.bin",
+          "sha256": "097a3719fb983da89e91d7f9d431e5f1adf386edc08ed37c92a33a33144e9dff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_16.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_16.out.bin",
+          "sha256": "521038c337f9779308bff6649f216bdc6bd2abe7fd4cdb302eca2132fe9364f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_17.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_17.out.bin",
+          "sha256": "9a2de53e1d777c4c1a10f2414d3d06bebe9f4dae9a51d61c277d5fe76685ad12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_18.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_18.out.bin",
+          "sha256": "6f21876672f9dd55cf534be4ecd50a07f644dc1c4eb3da76887d82d196574f0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_19.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_19.out.bin",
+          "sha256": "3b24ba3a7e261a0e92b373622975386e355eef80912dd323f32e32d752810444"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_2.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_2.out.bin",
+          "sha256": "bdc71273c3d3d52665417cc59a28485c9ecb6930e31b1a07e0816812ea4750ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_20.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_20.out.bin",
+          "sha256": "1a2f6d77ae17817442ec713ca6659cc058393ef1fc3ee8164d30d106afbffa7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_21.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_21.out.bin",
+          "sha256": "19fc2b42b9c92c23f46e37583d586ce0bf5fd5d988512bdf6b72664c4c278b94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_22.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_22.out.bin",
+          "sha256": "bfec0c6949ee9bb44f05f24d9396a44b55cb1bf555135ac07e56eb8264ccd052"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_23.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_23.out.bin",
+          "sha256": "7a4aa8383b258112ae3d91e494a107a4921cd6e906b8f7c24a1298eef90ecda4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_24.in.bin",
+          "sha256": "3da763c0670cfb2929941fd8ed09894b51e70d570bd2cc7249efd19754241341"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_24.out.bin",
+          "sha256": "4f6510bfd044c593c9cf6b7d11db16a19dccf12f03fd3da80bd21c72d4c792fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_25.in.bin",
+          "sha256": "3da763c0670cfb2929941fd8ed09894b51e70d570bd2cc7249efd19754241341"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_25.out.bin",
+          "sha256": "a869fc70fb1e926b8c34febcb4a03a7917cad9d150ea1adb511957d2374e4efb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_26.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_26.out.bin",
+          "sha256": "5732e9a0fcb0893ac8e03f13bc4d15b098efa5db22d02ed6a55432e31d4d28bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_27.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_27.out.bin",
+          "sha256": "25a2f2b0e1a391c5de0548572b7a5dc796905f16f19923f40fc700586d5511ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_28.in.bin",
+          "sha256": "a9ca7f5f2efafdad474cf0d70078506c329a54add0fe1ece1d2a7bfc7eff2303"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_28.out.bin",
+          "sha256": "aef69d659b5b54079fe2c7c2055ce696e9a97ba5915799a327fa699e9675a954"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_29.in.bin",
+          "sha256": "80d165c310dbff048925e841613b3608de18e49393800cd71947074aaa8471c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_29.out.bin",
+          "sha256": "92a1c6d43e908d970e0d3da30bec21928ed6b386e6bec2b691d9664dd866636b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_3.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_3.out.bin",
+          "sha256": "a881b1d62fa64fa656635e54ca663e9b293c443f1be69bba9fec8573c16ffb2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_30.in.bin",
+          "sha256": "6e146da5dbe265c38abf5e3c566e088fbbe3f6570f13a2f652c75a044e082d24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_30.out.bin",
+          "sha256": "19fcf941589010c2731d221177da4efa7c9aaab096d2522bce27230c41e73f15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_31.in.bin",
+          "sha256": "47c40ab93267f08746bc7b935f205d38d1c5c8016a8e9dcac352731b409c044b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_31.out.bin",
+          "sha256": "7c43df11818112477bb3ec5cfef00bb84d23f6d49c4f694551652393d3ec5b79"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_32.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_32.out.bin",
+          "sha256": "c912c81583dea549bbe7950503fa4360b9594205def708d9d7d5db0f8541786d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_33.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_33.out.bin",
+          "sha256": "32b14b450070d59d9f14acfe7675793735afe952222c516a7ab5b7cf57124972"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_34.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_34.out.bin",
+          "sha256": "1e8ff6dd37c7df2faf9fcc422d8645c4d2053b5f3050e9a4191e1d7a4af7f144"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_35.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_35.out.bin",
+          "sha256": "5369067eb0db3f7a9cdd0047592e50e21f204f215f4b7cb72fee5735d88ee669"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_36.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_36.out.bin",
+          "sha256": "9ab0fca5b3a2b33a27e0ad44b84946edf033e36648dfbd7619acb26b5ea38243"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_37.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_37.out.bin",
+          "sha256": "26e654c3642cbf175a3299088463c36827f21053c137eb5b98fbcdf0658ca199"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_38.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_38.out.bin",
+          "sha256": "a3b00f186fdbef933b9e85cee62838ff5a81a9fdc9ff89db1912a52c9198fe6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_39.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_39.out.bin",
+          "sha256": "29d0fa5f84cf1027781ad59cb3b6134f9f132352d89b0dc21e199865ee852752"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_4.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_4.out.bin",
+          "sha256": "92a1300198b1669cf8289e24cdd8f8feaa28dce78ad7c8b5e4a176218a8f76df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_40.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_40.out.bin",
+          "sha256": "07c02f7cdde85f6ed392ea7941414f944c6449010ab9bc0d659b52a3906d8896"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_41.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_41.out.bin",
+          "sha256": "f8f85e2d64c92ce9464da8066bdacaec1cd0032a8501ad6140586451cbc5468d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_42.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_42.out.bin",
+          "sha256": "2fa6df072ae599ccfc935a9e538bb353d488c5a1b137ae015955f4b79242b859"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_43.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_43.out.bin",
+          "sha256": "4b83c7b601b11c9891091e828a687b75c8e8a8827f4cd7274ded6b76d7997b90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_44.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_44.out.bin",
+          "sha256": "80d94112a7b5d80548933453854eeab71351f7fc17cbf33ee450be7c9d7cd5cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_45.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_45.out.bin",
+          "sha256": "e12a2c4004e6c9662dddd7f975945fe2a1ca91b93f7d87fb80bc57ca2a01d573"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_46.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_46.out.bin",
+          "sha256": "d0f1a16931dd14a8abcafe464fdf1aa906555431cb1d0b911ca1aebc080d92b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_47.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_47.out.bin",
+          "sha256": "6a3935da1cf404fa625a3c422aa91f1d8c9ec28456a2e0d15d91c67791122a0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_48.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_48.out.bin",
+          "sha256": "6cfe79b5d52e4eae52bad92534c9e9bf48f935d37f770cc298532ec2827dd7d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_49.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_49.out.bin",
+          "sha256": "6a68d59f612d27a46a84ea98769fbff81d66e0e00b642fa26f87c7f98c2d24d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_5.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_5.out.bin",
+          "sha256": "5589697677b4b2353601f1bf2c403432e7d940fe65949789977a0eab90c61124"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_50.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_50.out.bin",
+          "sha256": "bd4618ac2ff465a529dfb1b54e268754de4e0e26a492a481bc1128bc4c42d59d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_51.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_51.out.bin",
+          "sha256": "dc831de3042c355e3ffc29fbd17b841d33e6b90f40bd0d0b2b0d72fed32d2188"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_52.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_52.out.bin",
+          "sha256": "5f7b7f9bafdf2e269b49afacc03bd228e891c31990af328a1fe573715f1c5f70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_53.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_53.out.bin",
+          "sha256": "6423539adef52a8105ed704f27fc798f5840e00977c976a68ce7c903fd1a9bdb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_54.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_54.out.bin",
+          "sha256": "8860918abb9eda7e971e225414640e8ecb5a94185253f273f6154889b33c15fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_55.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_55.out.bin",
+          "sha256": "2ae7d08c21cb5b8e8a64fa9d9ea76048a11bc4fb3bc39202cdd7316ee743a2a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_56.in.bin",
+          "sha256": "a478dff0663c3c9d8d236711c3bafa3da660c0eaf344691f9e928bce74cf17ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_56.out.bin",
+          "sha256": "b7beff2d8136704c5970dffc2f006f92f6475e3e0e5e52158828460cfbf5cb99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_57.in.bin",
+          "sha256": "a478dff0663c3c9d8d236711c3bafa3da660c0eaf344691f9e928bce74cf17ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_57.out.bin",
+          "sha256": "af5dc773b2089b0a6d0ca90cee44a50edb4d458c8805fdfdea6eac39faa13b53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_58.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_58.out.bin",
+          "sha256": "65b4e3b4315f260eaa8f5a8e7208d47f6b34dca2695796d2c6b7543b10f747f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_59.in.bin",
+          "sha256": "574cbafebe40907cf2d8ae1f3cd759bc96e93d069fb944caf40c89eafe3d2582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_59.out.bin",
+          "sha256": "b82a11b94e7e8db24135ab79c99ba933330865f7e215fa1a382fedbe1ce0982c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_6.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_6.out.bin",
+          "sha256": "80ae181d76d43f3207a859065c9db90f9c31b45b50d1f061b6b31000e30be0cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_60.in.bin",
+          "sha256": "7e700632bd163ad3d1dc74288230ca16d918d27f268858ed5b49d262214fc3f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_60.out.bin",
+          "sha256": "0afc2d8145f43b51b950055daf8fe29c9c3973f30453991b04faf2e1413c8d65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_61.in.bin",
+          "sha256": "561805dc3e1eecedbf714011968f8391813c6cee3325ce7ecb069181bdc1cf4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_61.out.bin",
+          "sha256": "d1a956adb30c6e8067b7a25714c20942d629b5006ce02db8897a69058cb85f94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_62.in.bin",
+          "sha256": "e008829636bb58cb12a119d9999e3597b7e448d4b31eb61a3d1d12498ea2c140"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_62.out.bin",
+          "sha256": "27d3103939df89dedfd7c21c6648418d1648471af17f54417ea5d489e6167df9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_63.in.bin",
+          "sha256": "065ac5b388afef8a9de359d3c92a05fdb7962a37a9f10699f089496f308fe097"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_63.out.bin",
+          "sha256": "55fa6382efedcd518cf3586aeb2c3b55238239cf99066141f4b8fd314a9f8902"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_7.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_7.out.bin",
+          "sha256": "1e42753bfa0baa6b8147122621d14e5e48367e7000af01db6d63ff46ce5758f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_8.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_8.out.bin",
+          "sha256": "3cc01d36dfd1396018e1e70a473c1a3569b6479f6f73ae4d3021734921345e02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_9.in.bin",
+          "sha256": "30d64b1cef7d3e566d124456f27d8e2203d29ddc99065b3feeafe6e6c99873ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\f_8c040b7c_9.out.bin",
+          "sha256": "d8e2481f29cddc7446eb09c8ef27b6e4dc35c87af9caa4c257c6f32c7a5e64fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_accept_v1_cases\\live_audio_comparison.json",
+          "sha256": "b7e93a38bcff7a7f809eef78f2826c9a6f9a35a2b4c38c00a65869ac7c3483d6"
+        }
+      ]
+    }
+  },
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\encoder_live_v1_sources\\manifest.json",
+    "sha256": "9d383c28bbd14b2c31a15059d581d3e252fe639a73ae4e0f30099c9a0eccece7"
+  },
+  "negative_control": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_v1_negative_comparison.json",
+    "sha256": "c7b5953666c5fb10e4126f91ab9a97edf39a354903a0a019001e3a24c4561ac1"
+  },
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_encoder_live_v1_tool_tests.log",
+    "sha256": "d3856150aa2bd25ddf32bf05676f1116e145fe72323bbf253df05a60be60d30a"
+  },
+  "remaining": "Reuse in verified scene callers; attributed song/reset transitions; standalone ARM/DSP playback"
+}

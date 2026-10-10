@@ -101,6 +101,9 @@ static int submission(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t alias)
 int vf3_audio_submission_c(vf3_matrix_state *s,const vf3_ram_map *ram)
 { return submission(s,ram,0x8c000000); }
 
+int vf3_audio_submission_at_c(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t alias)
+{ return submission(s,ram,alias); }
+
 static int style(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t alias)
 {
     STEP(0x0ca05c); R(0)=97;

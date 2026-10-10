@@ -321,6 +321,16 @@ endpoint addresses remain zero until attribution is proved.
 
 ## Accepted milestone checks
 
+The general encoder has since passed 128 strict live/native development and
+held-out comparisons, plus a corruption negative control. The readable request
+wrapper and selection-input caller pass another 68 live/native comparisons.
+Actor cleanup now reuses the shared clocked encoder. See
+[audio_encoder.md](audio_encoder.md) and [audio_callers.md](audio_callers.md).
+This supersedes the earlier general-encoder live-scheduling gap. The input
+callable pilot receives no coverage credit pending frozen-owner promotion;
+coverage remains 59.47%. Further callers, song/reset attribution and standalone
+ARM/DSP playback remain open.
+
 The section below records the preceding channel milestone. The actor-cleanup
 scope above supersedes its final inventory counts.
 

@@ -1,0 +1,401 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "dev_pack_00",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397760,
+        "r5": 416,
+        "r6": 0,
+        "r14": 1698693120
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_01",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397779,
+        "r5": 416,
+        "r6": 128,
+        "r14": 1698693121
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_02",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397798,
+        "r5": 1184,
+        "r6": 0,
+        "r14": 1698693122
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_03",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397817,
+        "r5": 1184,
+        "r6": 128,
+        "r14": 1698693123
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_pack_04",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397836,
+        "r5": 1440,
+        "r6": 0,
+        "r14": 1698693124
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_05",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397855,
+        "r5": 1440,
+        "r6": 128,
+        "r14": 1698693125
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_06",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397874,
+        "r5": 1696,
+        "r6": 0,
+        "r14": 1698693126
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_07",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397893,
+        "r5": 1696,
+        "r6": 128,
+        "r14": 1698693127
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_08",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397912,
+        "r5": 1952,
+        "r6": 0,
+        "r14": 1698693128
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_09",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397931,
+        "r5": 1952,
+        "r6": 128,
+        "r14": 1698693129
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_pack_10",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397950,
+        "r5": 2464,
+        "r6": 0,
+        "r14": 1698693130
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_11",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397969,
+        "r5": 2464,
+        "r6": 128,
+        "r14": 1698693131
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_12",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305397988,
+        "r5": 2720,
+        "r6": 0,
+        "r14": 1698693132
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_13",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398007,
+        "r5": 2720,
+        "r6": 128,
+        "r14": 1698693133
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_14",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398026,
+        "r5": 4256,
+        "r6": 0,
+        "r14": 1698693134
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_15",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398045,
+        "r5": 4256,
+        "r6": 128,
+        "r14": 1698693135
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_pack_16",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398064,
+        "r5": 4512,
+        "r6": 0,
+        "r14": 1698693136
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_17",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398083,
+        "r5": 4512,
+        "r6": 128,
+        "r14": 1698693137
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_18",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398102,
+        "r5": 2208,
+        "r6": 0,
+        "r14": 1698693138
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_19",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398121,
+        "r5": 2208,
+        "r6": 128,
+        "r14": 1698693139
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_20",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398140,
+        "r5": 1114272,
+        "r6": 0,
+        "r14": 1698693140
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_21",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398159,
+        "r5": 1114272,
+        "r6": 128,
+        "r14": 1698693141
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_pack_22",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398178,
+        "r5": 305398176,
+        "r6": 0,
+        "r14": 1698693142
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_23",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398197,
+        "r5": 305398176,
+        "r6": 128,
+        "r14": 1698693143
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_24",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398216,
+        "r5": 0,
+        "r6": 0,
+        "r14": 1698693144
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_25",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398235,
+        "r5": 0,
+        "r6": 128,
+        "r14": 1698693145
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_26",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398254,
+        "r5": 4294967295,
+        "r6": 0,
+        "r14": 1698693146
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_pack_27",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305398273,
+        "r5": 4294967295,
+        "r6": 128,
+        "r14": 1698693147
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_broadcast_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305419896,
+        "r5": 2031776,
+        "r6": 305419896,
+        "r14": 1737031936
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_broadcast_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305419896,
+        "r5": 2031776,
+        "r6": 305419896,
+        "r14": 1737031937
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 0,
+        "0xc19e334": 0,
+        "0xc19e340": 0,
+        "0xc19e34c": 0,
+        "0xc19e358": 0,
+        "0xc19e364": 0
+      },
+      "event_window": true
+    },
+    {
+      "name": "dev_broadcast_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305419896,
+        "r5": 2031776,
+        "r6": 305419896,
+        "r14": 1737031938
+      },
+      "memory": {
+        "0xc19e31c": 0,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 0,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 0,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "dev_broadcast_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 305419896,
+        "r5": 2031776,
+        "r6": 305419896,
+        "r14": 1737031939
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 0
+      },
+      "event_window": true
+    }
+  ]
+}

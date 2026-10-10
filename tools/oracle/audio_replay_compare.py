@@ -37,11 +37,12 @@ def load_runs(path, execution):
         if len(capsule) != 1:
             raise ValueError('expected one invocation per process')
         sample = capsule[0]
-        if (sample['flags'] or sample['entry'] not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040)
+        if (sample['flags'] or sample['entry'] not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040,0x8c040b7c,0x8c0c5c94,0x8c0c9f54)
                 or sample['nstate'] != 63 or not sample['ops']):
             raise ValueError('capsule is rejected or outside the queue scope')
         target = {0x8c040f1e:'queue',0x8c040fa4:'channels',
-                  0x8c0c5d86:'submission',0x8c0ca05c:'style',0x8c098040:'actors'}[sample['entry']]
+                  0x8c0c5d86:'submission',0x8c0ca05c:'style',0x8c098040:'actors',0x8c040b7c:'encoder',
+                  0x8c0c5c94:'request',0x8c0c9f54:'input'}[sample['entry']]
         if execution.startswith('readable_c_') and f'[vf3audiobridge] executing C {target} with live devices' not in Path(row['log']).read_text(errors='replace'):
             raise ValueError('C execution marker missing')
         runs[key] = (row, capsule[0])
@@ -51,7 +52,7 @@ def load_runs(path, execution):
 def evaluate(original, c_manifest):
     original_data, left = load_runs(original, 'original_sh4')
     backend = json.loads(Path(c_manifest).read_text()).get('execution')
-    if backend not in ('readable_c_queue', 'readable_c_channels','readable_c_submission_family'):
+    if backend not in ('readable_c_queue', 'readable_c_channels','readable_c_submission_family','readable_c_encoder','readable_c_callers'):
         raise ValueError('unsupported C backend')
     c_data, right = load_runs(c_manifest, backend)
     if original_data.get('device_control') != c_data.get('device_control'):

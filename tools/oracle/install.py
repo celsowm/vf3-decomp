@@ -72,6 +72,9 @@ def main():
     channels = (ROOT/'src/fight/audio_channels.c').as_posix()
     submission = (ROOT/'src/fight/audio_submission.c').as_posix()
     actors = (ROOT/'src/fight/audio_actor_clear.c').as_posix()
+    encoder = (ROOT/'src/fight/audio_encoder.c').as_posix()
+    request = (ROOT/'src/fight/audio_request.c').as_posix()
+    selection = (ROOT/'src/fight/audio_input.c').as_posix()
     block = (f'{marker}\ntarget_sources(${{PROJECT_NAME}} PRIVATE "{source}")\n'
              f'set_source_files_properties("{source}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_sources(${{PROJECT_NAME}} PRIVATE "{channels}")\n'
@@ -80,6 +83,12 @@ def main():
              f'set_source_files_properties("{submission}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_sources(${{PROJECT_NAME}} PRIVATE "{actors}")\n'
              f'set_source_files_properties("{actors}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_sources(${{PROJECT_NAME}} PRIVATE "{encoder}")\n'
+             f'set_source_files_properties("{encoder}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_sources(${{PROJECT_NAME}} PRIVATE "{request}")\n'
+             f'set_source_files_properties("{request}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
+             f'target_sources(${{PROJECT_NAME}} PRIVATE "{selection}")\n'
+             f'set_source_files_properties("{selection}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_include_directories(${{PROJECT_NAME}} PRIVATE "{(ROOT/"src").as_posix()}")\n')
     text = p.read_text(encoding='utf-8')
     if marker in text:

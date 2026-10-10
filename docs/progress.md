@@ -1,5 +1,21 @@
 # VF3tb decomp — progress log
 
+## Live encoder and audio callers (2026-10-09)
+
+The general encoder now passes **128/128 live and native comparisons** with
+independent held-out states and stack, complete body execution and a queue-word
+corruption negative control. Readable request and selection-input callers pass
+another **68/68 live and native comparisons**. Actor cleanup reuses the shared
+encoder, with **8/8 fresh live comparisons** and **256/256 native cases** passing.
+All **39 freshly linked native suites** and **86 tool checks** pass.
+The accepted 1,363-binding baseline is reused with focused checks of the changed
+audio bindings, and an uncredited input pilot brings the inventory to 1,364.
+The complete milestone hash chain passes. Coverage stays
+**258,502 / 434,656 (59.47%)**: the request owner was already credited and the
+input owner still needs formal caller promotion. Further fight/scene callers,
+attributed song/reset transitions and standalone ARM/DSP playback remain open.
+See [encoder](re/audio_encoder.md) and [caller evidence](re/audio_callers.md).
+
 ## Readable general audio encoder (2026-10-09)
 
 The general A0 command encoder now uses readable C, covering parameter packing

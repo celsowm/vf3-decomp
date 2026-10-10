@@ -26,7 +26,9 @@ def run(a):
     out.mkdir(parents=True, exist_ok=True)
     manifest = dict(advisory=True, coverage_credit=False, passed=False, runs=[],
         mode='rollback_guard_control' if a.rollback else 'nonrollback_one_shot',
-        execution=('readable_c_submission_family' if any(int(c['entry'],0) in (0x8c0c5d86,0x8c0ca05c,0x8c098040) for c in recipe['cases'])
+        execution=('readable_c_callers' if all(int(c['entry'],0) in (0x8c0c5c94,0x8c0c9f54) for c in recipe['cases'])
+                   else 'readable_c_encoder' if all(int(c['entry'],0)==0x8c040b7c for c in recipe['cases'])
+                   else 'readable_c_submission_family' if any(int(c['entry'],0) in (0x8c0c5d86,0x8c0ca05c,0x8c098040) for c in recipe['cases'])
                    else 'readable_c_channels' if all(int(c['entry'],0)==0x8c040fa4 for c in recipe['cases'])
                    else 'readable_c_queue') if a.c_replay else 'original_sh4',
         device_control=a.control, corrupt_command=a.corrupt_command,
@@ -37,6 +39,8 @@ def run(a):
             ROOT/'src/fight/audio_channels.c',
             ROOT/'src/fight/audio_submission.c',
             ROOT/'src/fight/audio_actor_clear.c',
+            ROOT/'src/fight/audio_encoder.c',
+            ROOT/'src/fight/audio_request.c',ROOT/'src/fight/audio_input.c',
             Path(__file__)]})
     target_manifest = out/'manifest.json'
     def save():
@@ -96,7 +100,7 @@ def run(a):
                         raise ValueError('command corruption is a live C negative control')
                     env['VF3_AUDIO_CORRUPT_COMMAND'] = '1'
                 if a.c_replay:
-                    if entry not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040) or a.rollback:
+                    if entry not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040,0x8c040b7c,0x8c0c5c94,0x8c0c9f54) or a.rollback:
                         raise ValueError('unsupported live C audio entry')
                     env['VF3_C_AUDIO_REPLAY'] = '1'
                 with log.open('wb') as f:

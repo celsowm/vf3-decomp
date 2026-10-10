@@ -1,0 +1,855 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\audio_callers_live_v1_sources\\manifest.json",
+    "sha256": "ca1c6883c755925fed738be29c08f2960d3770a10d4f6e50f98d52d650175e4c"
+  },
+  "families": {
+    "request": {
+      "dev": {
+        "cases": 16,
+        "body_bytes": 162,
+        "states": [
+          "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state"
+        ],
+        "stack_values": [
+          204601768
+        ],
+        "comparison": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\live_audio_comparison.json",
+          "sha256": "2b73dac8597847a34da985e3e1721014db29a7a3662e031edfb5b1e4b5d378fd"
+        },
+        "batch": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\batch_manifest.json",
+          "sha256": "ebe46662a9429131509d8e16769db8e82ff0bcb7bfc03d29c789fe319f77fd8d"
+        },
+        "native": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_native_report.json",
+          "sha256": "cbcc59ce1b8bd495b370e5a17ffc4dad095b6dfeb11dcab8e795cc1d68de808b"
+        },
+        "executable": {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_callers_live_v1.exe",
+          "sha256": "014af4a6071312ddd85bb1479f4253ed849d4c7b84f360b1a70330aacd128df0"
+        },
+        "native_inputs": [
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\batch_manifest.json",
+            "sha256": "ebe46662a9429131509d8e16769db8e82ff0bcb7bfc03d29c789fe319f77fd8d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\capsule_manifest.json",
+            "sha256": "e84e6ca9f7723e449882349b20e2ed0c2f3397e9800c4d60411f00868d2df626"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.bank.bin",
+            "sha256": "eb81210d80bf7e82127c1f7742177484db2104dcbdd2a4068b605f9727c87698"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.cases",
+            "sha256": "86b13f00145b4d50d329f864823936d088730d72fbf686c596504d3bb291889b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.dev.bin",
+            "sha256": "cf4c5b5e1d0eb96e9e362a8b1b5a7e85f044dae7f9cd5f03a8a13cbe5f7be613"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.extra.bin",
+            "sha256": "ebe35ab6a12e8792e34c5398f481e2a7582a2e4682291c6c638427c14bb86e5b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.gbr.bin",
+            "sha256": "3b09703ac92a9b625199f87ec0d1a496219d8cf427eecf312af61d6308bf5036"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.ops.json",
+            "sha256": "77cc3b844ceb4d0846212f43ac64fe69a5be2e954b32421a1318d089a5b6e42c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.xfin.bin",
+            "sha256": "21b36203c125075a09404f8ff98b2f8f80576ddcc976a4c21cab2012e89b4af8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94.xfout.bin",
+            "sha256": "21b36203c125075a09404f8ff98b2f8f80576ddcc976a4c21cab2012e89b4af8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_0.in.bin",
+            "sha256": "7336ca114654bdb941602fc9c298ef4e1af3fa466bcd1c2fb63d024385b86b5d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_0.out.bin",
+            "sha256": "0b9e2880e64d07cf109ee773ad3c08aa179c408e3f907695bdb91d5021029960"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_1.in.bin",
+            "sha256": "2c5b0cd09109a9b738c9f60d7e98ff57f7d38c6908bfc37a9db6a132f39e5fe7"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_1.out.bin",
+            "sha256": "23adc1e608a5da7c3be82a872567cbb4495f7a6f2e94dad9217af172693ce1d5"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_10.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_10.out.bin",
+            "sha256": "220e778b9e3f08c178e5bf8523f9b5c77415af4f7de1a30583070a0e5aef216d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_11.in.bin",
+            "sha256": "b58955523ee6df2669f6d7222839bca993c5cdb92dbf9e5d839ff6f0d71ad320"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_11.out.bin",
+            "sha256": "4efa931341303b5e4d6706843584b0ac449081e9a3f17b6f9b630d24773a3e92"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_12.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_12.out.bin",
+            "sha256": "07b763422fd62fbd52f26848a87c68720a54fb082ca95bb25715b1ebc584821a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_13.in.bin",
+            "sha256": "7336ca114654bdb941602fc9c298ef4e1af3fa466bcd1c2fb63d024385b86b5d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_13.out.bin",
+            "sha256": "a8c9a10d37265792dd0f7608e336d1f89702e41760239812a89ef6bb6f577a36"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_14.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_14.out.bin",
+            "sha256": "cf497b8f6243a0ec2d7ce7538487f76f8b950ec2cb874a7af367a67d900c7891"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_15.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_15.out.bin",
+            "sha256": "53434649447473305daf8438b9500b8f128003492a55e841dfcef516c765dded"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_2.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_2.out.bin",
+            "sha256": "e6eec65b4742302b9c3a40e7f4a563cef81136233d02aee67280e60a784dba17"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_3.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_3.out.bin",
+            "sha256": "0e62755c267c2c24d8be720ab234dbd031f75b2f41df91987cb9a549eb12ba6d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_4.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_4.out.bin",
+            "sha256": "775e1316c5de5bc001392d5d8714cb53dcaec52b66c4e027964f1afef356a928"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_5.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_5.out.bin",
+            "sha256": "0c8d9b0398cd15cfda78560e973370260beef68f368b3e398880fe7a8dd8e5c6"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_6.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_6.out.bin",
+            "sha256": "0a115fdb3c38f31a9e29d41ac9fe43c603b9e3bb256ece9ac6a48e5b1c1f010b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_7.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_7.out.bin",
+            "sha256": "c7c5fa410e6ee8600b17539f501c2a105e65732b4b6f5f7112e97e331172b608"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_8.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_8.out.bin",
+            "sha256": "a8fd47896e71ea59ed6d32568b1779a59a2adca636ec12fafc55c9909b825573"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_9.in.bin",
+            "sha256": "db09c2163f74f5a9addfe825f3ed101dd65a9971270611bade9f97f5560691a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\f_8c0c5c94_9.out.bin",
+            "sha256": "f58771a6e9094cb4d3f55b2c21efedb94b94cb628d120b9c3722ad63a7a75806"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_dev_v1_cases\\live_audio_comparison.json",
+            "sha256": "2b73dac8597847a34da985e3e1721014db29a7a3662e031edfb5b1e4b5d378fd"
+          }
+        ]
+      },
+      "accept": {
+        "cases": 16,
+        "body_bytes": 162,
+        "states": [
+          "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state"
+        ],
+        "stack_values": [
+          205508608
+        ],
+        "comparison": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\live_audio_comparison.json",
+          "sha256": "23730aa61345462cdce6de7129b06be2323b4fa428c126509e555bd90e29be52"
+        },
+        "batch": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\batch_manifest.json",
+          "sha256": "1cbc8d8f242ed8156d6cbb86dc8be418b734692e02adb2e0036b50b960350e9a"
+        },
+        "native": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_native_report.json",
+          "sha256": "0b3a9891f89343e0e204c1b349027d10df1ebff0e4231aebfaca2fd3ef021a02"
+        },
+        "executable": {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_callers_live_v1.exe",
+          "sha256": "014af4a6071312ddd85bb1479f4253ed849d4c7b84f360b1a70330aacd128df0"
+        },
+        "native_inputs": [
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\batch_manifest.json",
+            "sha256": "1cbc8d8f242ed8156d6cbb86dc8be418b734692e02adb2e0036b50b960350e9a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\capsule_manifest.json",
+            "sha256": "3712119bb77c7f511955c5f6a896e8724fe68ca8d358fe26f9f346db3d7d36d9"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.bank.bin",
+            "sha256": "035a9169a18dc0287b1c477a16ff68b8d92978da91621b8ab1fa93f1832241d7"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.cases",
+            "sha256": "584689d0f6162b7f6cdac2f15dffa5e9a13d21070c769df0541f6c06581d33f2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.dev.bin",
+            "sha256": "2ef15b5896f9a647930b8f2a2ec2ff9c3f1b5b9376b587a96fb9f1aa995b6aab"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.extra.bin",
+            "sha256": "97eaba99f71d98a9fa69e54fde14ec2003ffbd85fb638e81d82582e93b987293"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.gbr.bin",
+            "sha256": "3b09703ac92a9b625199f87ec0d1a496219d8cf427eecf312af61d6308bf5036"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.ops.json",
+            "sha256": "77cc3b844ceb4d0846212f43ac64fe69a5be2e954b32421a1318d089a5b6e42c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.xfin.bin",
+            "sha256": "d640672541cc47a2301bda02dd9b4f089f837bd1678ad9de51bf0c79f425d779"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94.xfout.bin",
+            "sha256": "d640672541cc47a2301bda02dd9b4f089f837bd1678ad9de51bf0c79f425d779"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_0.in.bin",
+            "sha256": "1a43cd357d4ec5ee82570bbd2961903ecdb09c5c4d2b16c5989e3db232d376f8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_0.out.bin",
+            "sha256": "d3765ac897be3503d8cb0891abb27f77f09a161c758d800669423f521d458bef"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_1.in.bin",
+            "sha256": "cdff1d9b6d4f5abf48d0a8e6ab90e94530c3b17920eb6d74e9051e8d63bf9da0"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_1.out.bin",
+            "sha256": "172615c507d015c5f36407f0b5b08ef0be8df9e515edd40cce7916cd130e9e7d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_10.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_10.out.bin",
+            "sha256": "9a3a3e1870de6c7e9effd65ed221029700d13d76027c4bb3f4712529129c2fa7"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_11.in.bin",
+            "sha256": "d249d5031e8fdd53f7370349848d261145eb48a1f53b67dbfc3745a33bce6c86"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_11.out.bin",
+            "sha256": "798811619be35978164342a6b2cbfb7e89ea8c128f34ffd428bb2c6a9aa99bef"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_12.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_12.out.bin",
+            "sha256": "bb3404361d620ff099aff9218312c6e85afc871f2b702f0f74282bfd74bfdd21"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_13.in.bin",
+            "sha256": "1a43cd357d4ec5ee82570bbd2961903ecdb09c5c4d2b16c5989e3db232d376f8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_13.out.bin",
+            "sha256": "8bd698a0d793f05b47784852ac836c9210b6033438e72314c90be95b50fe139f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_14.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_14.out.bin",
+            "sha256": "6ace13d0bb6957d01b677096120b321ca636e613ec54f1a7f24563ee3ca544b9"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_15.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_15.out.bin",
+            "sha256": "a56bd833a2cd945aa73fb6eeebbd53a07d526939f6652294ab13356f85440df1"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_2.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_2.out.bin",
+            "sha256": "571b9604990a8b604a3d7e2e4bc87330f9d2c81dd8b5784b1c3b55ce62fd93a8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_3.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_3.out.bin",
+            "sha256": "6962b3efb5b9dcf5cf01a17846200607432ea70198f74cae8fd9eacc0652f913"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_4.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_4.out.bin",
+            "sha256": "8d75501d4d89d2b7556e1949fcdaf04b15fdd263811b86f82ac71fbd4a2273fd"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_5.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_5.out.bin",
+            "sha256": "7ce2e112c085669fd62c4ceb5181eafed41af93849a8cbe958272c554c4a9049"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_6.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_6.out.bin",
+            "sha256": "430016bd1bd6dda04c7a7888b1a4998c58879867fab96268252db755880f1594"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_7.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_7.out.bin",
+            "sha256": "76655f5e42c03364c43b484196ceb7b538b4c8df3a10fcad3d990cdd9557edc1"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_8.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_8.out.bin",
+            "sha256": "e9755d77727f71710e982cbf8ca4044e1edc209d0f2b5877c159fe4786f4cff2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_9.in.bin",
+            "sha256": "4fd613529a012f93276e100983ace55d662c40cad25f164800d08505dc72a83c"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\f_8c0c5c94_9.out.bin",
+            "sha256": "b2fcd70ed4f865537211ed293cb85e1ce49982e19ab95fd5a1286e4e3e529ad2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_request_accept_v1_cases\\live_audio_comparison.json",
+            "sha256": "23730aa61345462cdce6de7129b06be2323b4fa428c126509e555bd90e29be52"
+          }
+        ]
+      }
+    },
+    "input": {
+      "dev": {
+        "cases": 18,
+        "body_bytes": 188,
+        "states": [
+          "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state"
+        ],
+        "stack_values": [
+          204601768
+        ],
+        "comparison": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\live_audio_comparison.json",
+          "sha256": "3456c54dc0e44e6bf006325b5fcdf6736ca204757ada9a49881d4c8d73a18528"
+        },
+        "batch": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\batch_manifest.json",
+          "sha256": "634003566c073b1a29e3844213f391462e2635d12967c95c88f629519f098d86"
+        },
+        "native": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_native_report.json",
+          "sha256": "8dd0806ab9cc8fef92701b8535be3a336a39810e5dca9e106956b9c23b2faf6f"
+        },
+        "executable": {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_callers_live_v1.exe",
+          "sha256": "014af4a6071312ddd85bb1479f4253ed849d4c7b84f360b1a70330aacd128df0"
+        },
+        "native_inputs": [
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\batch_manifest.json",
+            "sha256": "634003566c073b1a29e3844213f391462e2635d12967c95c88f629519f098d86"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\capsule_manifest.json",
+            "sha256": "2dec5f93366dfc35face3ac37cf3bd236132e1cd5a516161e568a6dd884f0894"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.bank.bin",
+            "sha256": "2397898976250bd1fb8ea8fe209618539c365fbe9fa14030cf3e42dbb35ac692"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.cases",
+            "sha256": "7c3433866726d6d759c11c03821d079c3575de852fdc3f0f2056005c4e5a8b67"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.dev.bin",
+            "sha256": "e5bc7c4420ca8dda3bfb92cb2c7ac789fc15bf07403cb19d17c14816c3022f54"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.extra.bin",
+            "sha256": "325106f13238396d3165bbabe9eaeee76f039dfa8a3c88509232e76892738141"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.gbr.bin",
+            "sha256": "56c26845d4ca08a24fa83e83a910326dcbe5d7a7cdf05c6e66bfa0587dae3922"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.ops.json",
+            "sha256": "c0af2d8ab8bc929d831f4b232355becd3b91f6448d57e5efd344821f48b0561d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.xfin.bin",
+            "sha256": "8d101d39ef3013c9b45cf917a2bef1dc63bc5dee679c3df81fb944f20a9ba50f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54.xfout.bin",
+            "sha256": "8d101d39ef3013c9b45cf917a2bef1dc63bc5dee679c3df81fb944f20a9ba50f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_0.in.bin",
+            "sha256": "e99d546781784cee7f646d5f63480e1b2f73ab4546cbbedcc5dd0f7dedb17bf6"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_0.out.bin",
+            "sha256": "2b999dac39ed8db307099851a98f13f31c13e637703c59ca812e863c41f1c203"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_1.in.bin",
+            "sha256": "3db2d99b728bfe46b82767d5af034af8d4aac48fbc8536a5504ac5eab4260c24"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_1.out.bin",
+            "sha256": "15920ad8dd8cd61e602cce4ff03e99914b15e7806d631fc64aaa816681dda5b5"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_10.in.bin",
+            "sha256": "29c0fed483c7bb1dbf89e1aab6d61084d36c8c0fa344c6df900a4a97ac277a74"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_10.out.bin",
+            "sha256": "5bb94e657b40b1ff248f863bf053eaedfade63d308dd9c64c45f7deee8c21fe5"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_11.in.bin",
+            "sha256": "81d35aa15553e270fc5df4f990065e81a06deff4977bb7c9e0056470a7dc6a50"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_11.out.bin",
+            "sha256": "cda42f0048233276bf4ba8331eb8d13c6f251c391f4d2c6995a20923c7186a35"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_12.in.bin",
+            "sha256": "9b41f8f4af3508fc714bccc38de45c5ce4969b35daf51a59383735012a4b6abd"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_12.out.bin",
+            "sha256": "258b6a80faee258343317e891f1c21a7c94ac829226f47e4f0247b83dbfd8331"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_13.in.bin",
+            "sha256": "8ae85dd20ecf63f9ee36e3e2997b843b068cbe4944e41cbf80fbdf3a25679d3b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_13.out.bin",
+            "sha256": "2fb81c8e199e82a72c324974db0518540c9ba185b80f0dc7760645ca67a7c88a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_14.in.bin",
+            "sha256": "8299eb972090f7bd3de31b666d596257eeab60d36bccb24e652d26849e1906df"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_14.out.bin",
+            "sha256": "c3cc58effbd4cd037b3f9dd0137783c596a97868767ec8917f31218f41b99067"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_15.in.bin",
+            "sha256": "59a8458c535d173281ffdad67282cf67a928f15f1953f4dc6f866aa5d4f50439"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_15.out.bin",
+            "sha256": "2d06d10fa3efd4994f6da8f3a1077bbe352d6ff32ed0c976c04f318d6754156e"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_16.in.bin",
+            "sha256": "201f844e5a96783a35459c8d8741b955ad4a5f259e7ad3b22f5c0327cb504dda"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_16.out.bin",
+            "sha256": "795344737681968e5583b88d429ac68e32e4f28cd3354e8af097efee95e25bc1"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_17.in.bin",
+            "sha256": "92fd58e97b781d395d4ba21c217d13489af006a6ceb97e0619e54009ac68808e"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_17.out.bin",
+            "sha256": "646b306ed464d97a8a8f0eb03184dffc80eb6aa704134f45460c4286108bc2d3"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_2.in.bin",
+            "sha256": "a8d26f323c27d8ecb11fc6f27d5876a3650962fcc00ca327af0ae81c77db2df7"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_2.out.bin",
+            "sha256": "05e9971c27c6ab81a4f19a324c7054b39f28ed5f34b97323f4c18abb4db4b2a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_3.in.bin",
+            "sha256": "d3ff094b2a86ccff742442ecbec74c766c8493d3e0ec241773920e2f436d805b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_3.out.bin",
+            "sha256": "cacf4d45137af483a050997309e9e2dcf12d8ee4d3b2d55c335131b2154f7f40"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_4.in.bin",
+            "sha256": "091af746794dbd19426605ad8f22fad4e57170eaf9742c04d46bcb40194ff3f7"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_4.out.bin",
+            "sha256": "e517322a054191b7f8ca8700b2dd7646f4033f81458b0ee7e4da2eccc18388e9"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_5.in.bin",
+            "sha256": "6738b7a228d3eadc67b18b741da5355f93d7c0ba4027a2f933de91e5f46df971"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_5.out.bin",
+            "sha256": "d26e729edade09d88fd279316c450264360fed3de4bfe3ee2000097a81286c6f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_6.in.bin",
+            "sha256": "7c4fe9966797e4b05fb83201a8d29e16fa080cc1a22677e9983ab00d99ac9855"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_6.out.bin",
+            "sha256": "f56ae9ed824d81c06dffd212f0aafd2024be418d50ad947b129b6c1006715e5d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_7.in.bin",
+            "sha256": "97b37309b3475f3c5580d30eeadcc2f9c93c5a1207162a29be10ae97d3311cca"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_7.out.bin",
+            "sha256": "fdb63d664c87988b466c4cedaf09a96eccfd4d6fe8b07a7cd469ae8e8d1e68c2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_8.in.bin",
+            "sha256": "07cd84010b6ad20d8955db90c49cb6516bc2f6cb72d0c55176e980faa3e45713"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_8.out.bin",
+            "sha256": "91518f4ef86f9d056dd7b3f485a7cdaf670cb71068bab12327d66c154c69dbaa"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_9.in.bin",
+            "sha256": "cf3b86d7b6baad14848b31d5a882742973be8ad4d87091b1b287d1dfc716a3a5"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\f_8c0c9f54_9.out.bin",
+            "sha256": "ca32eeb835e364a409d651689220b8ae1d18ac81165d1e99ee9c81fc49a2abaa"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_dev_v1_cases\\live_audio_comparison.json",
+            "sha256": "3456c54dc0e44e6bf006325b5fcdf6736ca204757ada9a49881d4c8d73a18528"
+          }
+        ]
+      },
+      "accept": {
+        "cases": 18,
+        "body_bytes": 188,
+        "states": [
+          "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state"
+        ],
+        "stack_values": [
+          205508608
+        ],
+        "comparison": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\live_audio_comparison.json",
+          "sha256": "a5cdcb336032accb08aec7dbce5f82268e1233718b6bfdd230a4dcbde611a0e9"
+        },
+        "batch": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\batch_manifest.json",
+          "sha256": "db9bfeb477aa4268eb4e7e3d984744801430ffb01d8c079c87d0f3763783222f"
+        },
+        "native": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_native_report.json",
+          "sha256": "e7917de79efa7c097ee17870530db9caa7b25d4559385e91691cd0401c6a069f"
+        },
+        "executable": {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_callers_live_v1.exe",
+          "sha256": "014af4a6071312ddd85bb1479f4253ed849d4c7b84f360b1a70330aacd128df0"
+        },
+        "native_inputs": [
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\batch_manifest.json",
+            "sha256": "db9bfeb477aa4268eb4e7e3d984744801430ffb01d8c079c87d0f3763783222f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\capsule_manifest.json",
+            "sha256": "82e99e4b5e503024bc81e7fda3727d55142f801fbbda8807501e6765ee55043d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.bank.bin",
+            "sha256": "730b3f0521f645db01b8171d07c106b46cd1a6f1a5e7a1d058301a455c6dfa67"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.cases",
+            "sha256": "7e31ffdd4d470cb23c09e3ee9335ca7e08d765db08283989081ab93fc2b14523"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.dev.bin",
+            "sha256": "7940eaf4d01d3a287e60cd53b22a11ed7155136bf615887295542c7814bb4f11"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.extra.bin",
+            "sha256": "1ed52b2b8952f274b5802a441f69a2f26b3b5e1a38d475f8ef9de0d449b7026b"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.gbr.bin",
+            "sha256": "56c26845d4ca08a24fa83e83a910326dcbe5d7a7cdf05c6e66bfa0587dae3922"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.ops.json",
+            "sha256": "c0af2d8ab8bc929d831f4b232355becd3b91f6448d57e5efd344821f48b0561d"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.xfin.bin",
+            "sha256": "c7b046037231b0123e4d7a2883a6a20870d9d1570ac404c321562003117d17a8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54.xfout.bin",
+            "sha256": "c7b046037231b0123e4d7a2883a6a20870d9d1570ac404c321562003117d17a8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_0.in.bin",
+            "sha256": "f168eaaa84d826148d3470a8a0ec8bab0ca84785190db4f7a9c4fbb1498e4408"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_0.out.bin",
+            "sha256": "02ac9dcb14c9814c401a401ac28aaf0bfc11c32f493cd9c7f3eaf94c9bf89b21"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_1.in.bin",
+            "sha256": "96612588a43e8fb1a45fb20e65ca0e08284ed27758d5076669e6cf71638adae4"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_1.out.bin",
+            "sha256": "7c05bf39559d9f3e98a159d418cd5956da947640240974de19194a4c1ee09c1f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_10.in.bin",
+            "sha256": "f03666f6da697f31225d458be6a8a0627fd4857f77299447ebe7b414f33d5553"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_10.out.bin",
+            "sha256": "37cf4ed1ae92c803e998aca30be69571c3bbcd9a9baab1fad89f0dbcf4b393da"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_11.in.bin",
+            "sha256": "61ac26d44c70798bc80671d5b22930c8aaf47ee935fd3bc4411f6e824dacb1a2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_11.out.bin",
+            "sha256": "bc7fedc445c9515d86b2bf1bb482b60501da456f41b3c9dbf60fc767d7677010"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_12.in.bin",
+            "sha256": "5323ce6f264257e00140939010d7708c51b1f758e28fc3785de17e028f6969d8"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_12.out.bin",
+            "sha256": "0e561cd2dac005af31cb4fe3000597d8ac59f7fab2f1ff696734d02b421afa15"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_13.in.bin",
+            "sha256": "5e2a771d26aef306ebb7053534a5611778b3ac8df434688370eb9a16feec24dc"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_13.out.bin",
+            "sha256": "d75b597b131ecd81f7eaeb3de75a5e45ba95a6bc046dbcea5ac1384a5ba8f6fe"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_14.in.bin",
+            "sha256": "35cc56a1a8fe86499fe889a319144fb4dd8e8aac03dcca980f385ad25f45ad32"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_14.out.bin",
+            "sha256": "dda352362f792533d00b95b47fd096b125e2950593aa6cc94664f43ab6135c28"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_15.in.bin",
+            "sha256": "4a60487b2ae923a8087ec74b8b26e0725fb5a9ddee1328260bb6a12f601ed7d9"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_15.out.bin",
+            "sha256": "d0ac50e9f4eb70e3b71c2bf1048908754ab65827a4de9a5aadf71b8471dff052"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_16.in.bin",
+            "sha256": "18e7895cae12fc32596aca8c4ac4694f7d860e8d374e5590f2ae9696aa97750a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_16.out.bin",
+            "sha256": "87875063404f2b2f5d1cc26c9eea338a3df8d4aad782634ed7860568970d47ad"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_17.in.bin",
+            "sha256": "aa285c400bffce2e7b38d8a7c83cca52d52a85796a3139d5217a89e532f25e89"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_17.out.bin",
+            "sha256": "51ac55802c96476efec7ce5fa3fbe933da3a965330ead57a1186f5f60663da6e"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_2.in.bin",
+            "sha256": "b07ad6bdd1c5b458abe0707069738c693de45ab2cda91acbe239e2ee7cc966fc"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_2.out.bin",
+            "sha256": "901a89f8953eeae952175a0b52c4c4e9fe968bedd502fc5d9130873015d9bedd"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_3.in.bin",
+            "sha256": "39c841687786c247ea24d19c47194e31eec8f25bcc9c82b434c8ac4522bc21e1"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_3.out.bin",
+            "sha256": "35c2e16fa8ea7246260a77daf397563d20925655794b589fa4a82196f04e05f2"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_4.in.bin",
+            "sha256": "536516c8ddf47da9c898e07bdc09457b1d23f6336faa5fc754e97e2d148e055a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_4.out.bin",
+            "sha256": "4fb54e466f593322f558245c11d7da1a12210a215547b581a50b53daf840008e"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_5.in.bin",
+            "sha256": "ad79d708307214a15b8967ecd2a95f019929a5b5ca7e531316ccffe52b417f01"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_5.out.bin",
+            "sha256": "5a71b3906a9b2dfada6c5931897b6f5b432b17b04ce40127e017e9b942843f29"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_6.in.bin",
+            "sha256": "6acf9ae47ea2315b136f9ae1f0a12c8fcc0a5f4bef92f6bbbc792c22fe0f102f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_6.out.bin",
+            "sha256": "ef66cf88dca616828529055efa5a9d5d02bedc948a44257cc95eb87929f86591"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_7.in.bin",
+            "sha256": "9fb51a23abd8831facfabda71e179ba987490086dc739e1fc2869e71e96bc973"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_7.out.bin",
+            "sha256": "612d972f0cb3bfaf501d6204459c48237eeb7e82be75c18f5de5fd7189997a04"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_8.in.bin",
+            "sha256": "df20b8de4b10764df06f8e7e07f351fd39d3aacaa0ea22e761b7d3e0fd433811"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_8.out.bin",
+            "sha256": "a8c6b713f9228c357ba5ad445f0daba1c66830b59d31019b4157be384d0ce48f"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_9.in.bin",
+            "sha256": "328781e7d00c108825dc8b08f0e7b4c1b3080df5e8ded8105ad44e95731dd434"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\f_8c0c9f54_9.out.bin",
+            "sha256": "40ce08c4fc795e5e331370c68b87a7da779433e88e7e2caaade1534b609d457a"
+          },
+          {
+            "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_accept_v1_cases\\live_audio_comparison.json",
+            "sha256": "a5cdcb336032accb08aec7dbce5f82268e1233718b6bfdd230a4dcbde611a0e9"
+          }
+        ]
+      }
+    }
+  },
+  "input_caller": {
+    "load": "0x8c0c9208",
+    "call": "0x8c0c920a",
+    "literal": "0x8c0c926c",
+    "target": "0x0c0c9f54"
+  },
+  "scope": "Request wrapper and sound-selection input behavior, real original ARM/DSP devices; no song/reset attribution",
+  "remaining": "Input frozen-owner promotion; further fight/scene callers and callback tails; attributed song/reset transitions; standalone ARM/DSP playback"
+}

@@ -1,0 +1,433 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "accept_pack_00",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934528,
+        "r5": 416,
+        "r6": 63,
+        "r14": 2038431744,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_01",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934535,
+        "r5": 416,
+        "r6": 4294967295,
+        "r14": 2038431745,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_02",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934542,
+        "r5": 1184,
+        "r6": 63,
+        "r14": 2038431746,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_03",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934549,
+        "r5": 1184,
+        "r6": 4294967295,
+        "r14": 2038431747,
+        "r15": 205508608
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_pack_04",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934556,
+        "r5": 1440,
+        "r6": 63,
+        "r14": 2038431748,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_05",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934563,
+        "r5": 1440,
+        "r6": 4294967295,
+        "r14": 2038431749,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_06",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934570,
+        "r5": 1696,
+        "r6": 63,
+        "r14": 2038431750,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_07",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934577,
+        "r5": 1696,
+        "r6": 4294967295,
+        "r14": 2038431751,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_08",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934584,
+        "r5": 1952,
+        "r6": 63,
+        "r14": 2038431752,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_09",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934591,
+        "r5": 1952,
+        "r6": 4294967295,
+        "r14": 2038431753,
+        "r15": 205508608
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_pack_10",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934598,
+        "r5": 2464,
+        "r6": 63,
+        "r14": 2038431754,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_11",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934605,
+        "r5": 2464,
+        "r6": 4294967295,
+        "r14": 2038431755,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_12",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934612,
+        "r5": 2720,
+        "r6": 63,
+        "r14": 2038431756,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_13",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934619,
+        "r5": 2720,
+        "r6": 4294967295,
+        "r14": 2038431757,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_14",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934626,
+        "r5": 4256,
+        "r6": 63,
+        "r14": 2038431758,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_15",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934633,
+        "r5": 4256,
+        "r6": 4294967295,
+        "r14": 2038431759,
+        "r15": 205508608
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_pack_16",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934640,
+        "r5": 4512,
+        "r6": 63,
+        "r14": 2038431760,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_17",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934647,
+        "r5": 4512,
+        "r6": 4294967295,
+        "r14": 2038431761,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_18",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934654,
+        "r5": 2208,
+        "r6": 63,
+        "r14": 2038431762,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_19",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934661,
+        "r5": 2208,
+        "r6": 4294967295,
+        "r14": 2038431763,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_20",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934668,
+        "r5": 1114272,
+        "r6": 63,
+        "r14": 2038431764,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_21",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934675,
+        "r5": 1114272,
+        "r6": 4294967295,
+        "r14": 2038431765,
+        "r15": 205508608
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_pack_22",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934682,
+        "r5": 305398176,
+        "r6": 63,
+        "r14": 2038431766,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_23",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934689,
+        "r5": 305398176,
+        "r6": 4294967295,
+        "r14": 2038431767,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_24",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934696,
+        "r5": 0,
+        "r6": 63,
+        "r14": 2038431768,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_25",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934703,
+        "r5": 0,
+        "r6": 4294967295,
+        "r14": 2038431769,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_26",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934710,
+        "r5": 4294967295,
+        "r6": 63,
+        "r14": 2038431770,
+        "r15": 205508608
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_pack_27",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 4294934717,
+        "r5": 4294967295,
+        "r6": 4294967295,
+        "r14": 2038431771,
+        "r15": 205508608
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_broadcast_0",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 3735914341,
+        "r5": 2031776,
+        "r6": 2557891634,
+        "r14": 2022707712,
+        "r15": 205508608
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_broadcast_1",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 3735914341,
+        "r5": 2031776,
+        "r6": 2557891634,
+        "r14": 2022707713,
+        "r15": 205508608
+      },
+      "memory": {
+        "0xc19e31c": 2169962497,
+        "0xc19e328": 2169962498,
+        "0xc19e334": 2169962499,
+        "0xc19e340": 2169962500,
+        "0xc19e34c": 2169962501,
+        "0xc19e358": 2169962502,
+        "0xc19e364": 2169962503
+      },
+      "event_window": true
+    },
+    {
+      "name": "accept_broadcast_2",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 3735914341,
+        "r5": 2031776,
+        "r6": 2557891634,
+        "r14": 2022707714,
+        "r15": 205508608
+      },
+      "memory": {
+        "0xc19e31c": 4294967295,
+        "0xc19e328": 2169962498,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 2169962500,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 2169962502,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true,
+      "control": "queue_busy"
+    },
+    {
+      "name": "accept_broadcast_3",
+      "entry": "0x8c040b7c",
+      "registers": {
+        "r4": 3735914341,
+        "r5": 2031776,
+        "r6": 2557891634,
+        "r14": 2022707715,
+        "r15": 205508608
+      },
+      "memory": {
+        "0xc19e31c": 2169962497,
+        "0xc19e328": 4294967295,
+        "0xc19e334": 4294967295,
+        "0xc19e340": 4294967295,
+        "0xc19e34c": 4294967295,
+        "0xc19e358": 4294967295,
+        "0xc19e364": 4294967295
+      },
+      "event_window": true
+    }
+  ]
+}

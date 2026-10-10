@@ -1,4 +1,4 @@
-/* Live-device comparison backend. Game semantics execute from command_encoders.c.
+/* Live-device comparison backend. Game semantics execute from readable audio C.
  * Opcode metadata charges the independent C path's fetch/issue cycles only;
  * no original opcode is executed by this backend. */
 #include "vf3audiobridge.h"
@@ -19,6 +19,9 @@ int vf3_audio_channels_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_submission_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_style_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_actor_clear_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_audio_encoder_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
+int vf3_audio_request_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
+int vf3_audio_input_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 }
 namespace {
 Sh4Context *cpu;
@@ -96,7 +99,10 @@ bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     const bool submission=ctx->pc==0x8c0c5d88u;
     const bool style=ctx->pc==0x8c0ca05eu;
     const bool actors=ctx->pc==0x8c098042u;
-    if (!channels && !submission && !style && !actors && ctx->pc!=0x8c040f20u) return false;
+    const bool encoder=ctx->pc==0x8c040b7eu;
+    const bool request=ctx->pc==0x8c0c5c96u;
+    const bool input=ctx->pc==0x8c0c9f56u;
+    if (!channels && !submission && !style && !actors && !encoder && !request && !input && ctx->pc!=0x8c040f20u) return false;
     cpu=ctx; previous=op; deferred=0; first=true; instructions=0;
     vf3_matrix_state s{};
     for (unsigned i=0;i<16;++i) {
@@ -107,10 +113,13 @@ bool vf3AudioReplayQueue(unsigned short op,Sh4Context *ctx) {
     s.v[19]=ctx->mac.l; s.v[20]=ctx->mac.h; s.v[53]=ctx->fpul; s.gbr=ctx->gbr;
     vf3_ram_map ram{};
     std::fprintf(stderr,"[vf3audiobridge] executing C %s with live devices\n",
-        channels?"channels":submission?"submission":style?"style":actors?"actors":"queue");
+        channels?"channels":submission?"submission":style?"style":actors?"actors":encoder?"encoder":request?"request":input?"input":"queue");
     const int result=channels?vf3_audio_channels_c(&s,&ram):
         submission?vf3_audio_submission_c(&s,&ram):style?vf3_audio_style_c(&s,&ram):
         actors?vf3_audio_actor_clear_c(&s,&ram):
+        encoder?vf3_audio_encoder_c(&s,&ram,0x8c000000u,1):
+        request?vf3_audio_request_c(&s,&ram,0x8c000000u,1):
+        input?vf3_audio_input_c(&s,&ram,0x8c000000u):
         vf3_audio_queue_c(&s,&ram);
     if (!result) std::abort();
     toGuest(&s);

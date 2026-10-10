@@ -22,7 +22,7 @@ def validate_batch(batch, hashes=False):
     assert comparison['passed'] and comparison['positive_aica_crossings']>0
     original=json.loads(Path(proof['original']['path']).read_text())
     c=json.loads(Path(proof['c']['path']).read_text())
-    assert original['passed'] and c['passed'] and c['execution'] in ('readable_c_channels','readable_c_submission_family')
+    assert original['passed'] and c['passed'] and c['execution'] in ('readable_c_channels','readable_c_submission_family','readable_c_encoder','readable_c_callers')
     assert len(comparison['comparisons'])==len(original['runs'])==len(c['runs'])==len(batch['runs'])
     assert all(r['passed'] for r in original['runs']+c['runs'])
     for row, source in zip(batch['runs'], original['runs']):

@@ -1,8 +1,8 @@
 /* Fight actor cleanup, callable 0x8c098040 (frozen owner 0x8c098042).
  * Its fixed startup request posts six channel words, submits the two actor
  * styles, then clears the active bit on six referenced task objects.
- * The startup helper is specialized to this caller's constant arguments;
- * this does not claim a general implementation of 0x0c0c5c94/0x0c040b7c. */
+ * The startup wrapper is specialized to this caller's constant arguments
+ * and reuses the independently verified general command encoder. */
 #include "fight/matrix_family.h"
 #define R(n) s->v[(n)]
 #ifdef VF3_AUDIO_BRIDGE
@@ -20,44 +20,9 @@ static void push(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t value)
 static uint32_t pop(vf3_matrix_state *s,const vf3_ram_map *ram)
 { uint32_t value=vf3_matrix_read(ram,R(15),4); R(15)+=4; return value; }
 
+extern int vf3_audio_encoder_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 static int startup_encode(vf3_matrix_state *s,const vf3_ram_map *ram)
-{
-    const uint32_t alias=0x0c000000;
-    STEP(0x040b7c); push(s,ram,R(14));
-    STEP(0x040b7e); push(s,ram,R(16));
-    STEP(0x040b80); R(15)-=16;
-    STEP(0x040b82); R(3)=R(15);
-    STEP(0x040b84); R(3)+=14;
-    STEP(0x040b86); vf3_matrix_write(ram,R(3),R(4),2);
-    STEP(0x040b88); vf3_matrix_write(ram,R(15)+8,R(5),4);
-    STEP(0x040b8a); vf3_matrix_write(ram,R(15)+4,R(6),4);
-    STEP(0x040b8c); R(0)=(uint32_t)(int32_t)(int16_t)vf3_matrix_read(ram,R(15)+14,2);
-    STEP(0x040b8e); R(0)&=65535;
-    STEP(0x040b90); R(14)=15;
-    STEP(0x040b92); R(14)&=R(0);
-    STEP(0x040b94); R(14)<<=16;
-    STEP(0x040b96); R(14)<<=8;
-    STEP(0x040b98); R(3)=vf3_matrix_read(ram,R(15)+8,4);
-    STEP(0x040b9a); R(14)+=R(3);
-    STEP(0x040b9c); R(2)=0xff00;
-    STEP(0x040b9e); condition(s,(R(2)&R(3))==0);
-    STEP(0x040ba0);
-    // The enclosing caller always supplies 0x001100a0, whose masked byte is zero.
-    STEP(0x040c10); R(2)=0x001f00a0;
-    STEP(0x040c12); R(3)=vf3_matrix_read(ram,R(15)+8,4);
-    STEP(0x040c14); condition(s,R(3)==R(2));
-    STEP(0x040c16);
-    STEP(0x040c68); R(4)=R(14);
-    STEP(0x040c6a); R(16)=alias+0x040c6e;
-    STEP(0x040c6c);
-    if (!vf3_audio_queue_at_c(s,ram,alias)) return 0;
-    STEP(0x040c6e); R(15)+=16;
-    STEP(0x040c70); R(16)=pop(s,ram);
-    STEP(0x040c72); R(14)=pop(s,ram);
-    STEP(0x040c74);
-    STEP(0x040c76);
-    s->pc=R(16); return ram->oob==0;
-}
+{ return vf3_audio_encoder_c(s,ram,0x0c000000u,1); }
 
 static int startup(vf3_matrix_state *s,const vf3_ram_map *ram)
 {
