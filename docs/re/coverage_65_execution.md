@@ -193,3 +193,33 @@ percentage hash chain and remaining repository gates. The source/executable
 seal is `tools/oracle/motion_frame_v1_manifest.json`. The SDK-inclusive
 accounting headline is a different measure; the verified C address union
 remains **259,110 bytes (59.61%)**.
+
+## Resource task driver continuation (2026-10-10)
+
+After fast-forwarding the merged signature-name PR, added readable C for
+the actual resource driver `0x8c04bd62` and original tail-call wrapper
+`0x8c053d7c`. Two natural resumes, 16 pilots, 128 development cases and
+128 freshly captured acceptance cases match the final frozen native C.
+The real wrapper also exposed FPSCR bank switching missing from the prior
+adapter: its bank-one cases fail the old native image and pass the new C.
+
+This work resolves the driver entry and ordinary-return model, but does not
+yet qualify the object-family caller. The frozen driver owner is 138/142
+bytes observed: `0x8c04bdee` / `0x8c04bdf0` remain missing. No percentage
+milestone is emitted and the verified union stays 259,110 bytes. See
+`docs/re/task_driver.md` and the advisory `task_driver_v1_manifest.json`.
+
+The final driver also passes constructed object first-yield development and
+fresh holdout (2/2 each), preserving the original object BSR, file lookup
+and both SDK context helpers. Native host continuation scopes unwind calls
+made obsolete by the original guest-stack restore. This is preparation for
+whole-caller qualification, with zero additional bytes claimed. The next
+recorder version must honor an explicit driver-return boundary instead of
+ending early at a resumed job RTS; then collect complete second ticks and
+observe the actual object negative-return branch. Failed or interrupted
+pilots stay excluded from the advisory proof.
+
+Final frozen-driver validation passes **1,368/1,368 bindings**, **39 native
+suites**, and **104 tool tests**. The existing completed percentage hash-chain
+audit is reused because the accepted union is unchanged. The gap to 65% is
+23,417 bytes; these continuation and capture fixes add zero credited bytes.

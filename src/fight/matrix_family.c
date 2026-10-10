@@ -55,6 +55,10 @@ int vf3_audio_request_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_audio_input_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_audio_fight_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_motion_frame_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
+int vf3_task_driver_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
+int vf3_task_driver_poll_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_task_driver_yield_c(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_task_driver_restore_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -219,6 +223,14 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c0a8d58u || entry==0x0c0a8d5cu)
         return vf3_motion_descriptor_command(entry,s,ram);
     if(entry==0x0c0a94d0u) return vf3_motion_frame_c(s,ram,audio_alias);
+    /* Resource workers execute through the uncached 0x0c alias. Capture
+     * inventory keys use 0x8c even for these original 0x0c invocations. */
+    if(entry==0x0c04bd62u) return vf3_task_driver_c(s,ram,0x0c000000u);
+    if(entry==0x0c053d7cu) return vf3_task_driver_poll_c(s,ram);
+    if(s->task_driver && entry==0x0c054454u)
+        return vf3_task_driver_restore_c(s,ram);
+    if(s->task_driver && (entry==0x0c053d8cu || entry==0x0c04bd5eu || entry==0x0c04bd20u))
+        return vf3_task_driver_yield_c(entry,s,ram);
     if(entry==0x0c0af37cu || entry==0x0c0af38cu)
         return vf3_script_position_command(entry,s,ram);
     if(entry==0x0c0af448u || entry==0x0c0af44eu || entry==0x0c0af608u || entry==0x0c0af610u)

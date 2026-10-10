@@ -63,7 +63,10 @@ def run(a):
                 if 'transfer' in case:
                     with watch.open('a') as f:
                         f.write(f'exitpc {entry:08x} {int(case["transfer"],0):08x}\n')
+                # The emulator's entry directive defaults to the cached alias.
+                # Its target directive preserves the requested execution alias.
                 lines = [f'entry {trigger:08x} {entry:08x}',
+                         f'target {trigger:08x} {entry:08x}',
                          f'reg {trigger:08x} pr {trigger+2:08x}']
                 for reg, value in case.get('registers', {}).items():
                     value = int(value, 0) if isinstance(value, str) else value

@@ -1,0 +1,3380 @@
+{
+  "passed": true,
+  "advisory": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "readable_bytes": 259110,
+  "total_body_bytes": 434656,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_dev_v7_complete_v2_sources\\manifest.json",
+    "sha256": "3cfe20fbc875133668a10e3f43e598fd1ee614fb0a4cc81266ee0d935e255781"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_task_driver_dev_v7.exe",
+    "sha256": "35f6333fff5b222e515e45f7734b08233bf834a45b1e50fda435443cc347c223"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "audit_tool": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\task_driver_audit.py",
+    "sha256": "5d40010f00f412bfe61b54f0469a01842eb137f593b9ab71e66981846b0ab2d5"
+  },
+  "historical_one_shot_tool": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_audio_one_shot_before_alias_fix.py",
+    "sha256": "f6ae77949cd2b299598d1055a229cc828cdf261b384c43ec9ec4c7daa609f155"
+  },
+  "excluded_diagnostics": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\task_driver_rejected_object_pilots_v1_manifest.json",
+    "sha256": "1859dfcda328fb5a32809834c0082b52ac981ca95c10378554b1984fda7bfca8"
+  },
+  "campaigns": [
+    {
+      "cases": 2,
+      "regression_control_only": false,
+      "raw_specimens": 2,
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_v1_raw\\capsule_coverage_65_task_driver_v1_s21.bin",
+          "sha256": "ce86a7019384f9dd16f8034601078eafb2f3d0ddd3e243cdb87b7a1490aff7e2"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\batch_manifest.json",
+          "sha256": "608aa2234a2d4ff482c3668e9f623a2f8176ec0fef1a420855d744998bb57cad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\capsule_manifest.json",
+          "sha256": "8a07bf2a631403818b5a9f44ea85851ed22c7b54790c426c27aed5e05e2c8e37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.bank.bin",
+          "sha256": "052ca35a2a9f99fb6abde56e6f85737c3af1a6bbbcdd0b2f1c37d6e98d052305"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.cases",
+          "sha256": "ab0f7b9f7c6bbda9bfc08885a6a615e0a54e609e8f43b7991398a5338d55fa15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.dev.bin",
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.extra.bin",
+          "sha256": "2c13af34acca4d894e62c7bfebd8cc2f4b95a7f09ea2499b7c6c1697837be0ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.gbr.bin",
+          "sha256": "eb9489a50cd2c85ee045dd73e91dbd04dcd9ffdabd207fc27a539c809117805d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.ops.json",
+          "sha256": "e2469785b09436e5485295c83fb6df496af092d838ec299aa322215f4f7321e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.xfin.bin",
+          "sha256": "59160118b6ec92c768dbf108f969dc12d786fa19935201e3a3755ee1a000ff74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62.xfout.bin",
+          "sha256": "59160118b6ec92c768dbf108f969dc12d786fa19935201e3a3755ee1a000ff74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62_0.in.bin",
+          "sha256": "3cf1b617aa88ada4238a3e17e5752c6302883b3fafd38b027b82df67858a1c13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62_0.out.bin",
+          "sha256": "a68425a9e9740a81b5f8cfe3ecca3e6360093547745f33d090c394e2317f5c6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62_1.in.bin",
+          "sha256": "4bce448dc0ef510fe3d94174cdc19bc3b51dfdb576044688a2a8d0665d81c1b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_v1\\f_8c04bd62_1.out.bin",
+          "sha256": "0e21a334c129b92467671d922ba21b6003c3f314ba663d4a2cd2ef7faf5a0d4d"
+        }
+      ],
+      "native_report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_coverage_65_task_driver_v1_report.json",
+        "sha256": "9b4acd39b8921138a4a305765b9c2769cb9061138e824b448ae8ae7f09090261"
+      }
+    },
+    {
+      "cases": 16,
+      "regression_control_only": false,
+      "raw_specimens": 64,
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_pilot_v1_raw\\capsule_coverage_65_task_driver_pilot_v1_s21.bin",
+          "sha256": "8685b84384cd102001a66229b1c8de4ad46851e39b91ce230cd7ed5dc757f2fb"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\batch_manifest.json",
+          "sha256": "b2a9c020a31f914818e57bca1d9b6d0576186b532fcec7d0948f97e2472dd2a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\capsule_manifest.json",
+          "sha256": "548b084e15197d0ee85d399d37aaf9f9da9cfdc6f804d616d3b4896c639d50db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\entry.patch",
+          "sha256": "4f41ad3ebbaec362f45019273b9cefd5047af694e6b154d92743db38bd37ec8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.bank.bin",
+          "sha256": "eb81210d80bf7e82127c1f7742177484db2104dcbdd2a4068b605f9727c87698"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.cases",
+          "sha256": "1775147250f421b269c4be14ee12da094e6a8a3b2477cbc4c8cfdfad70fcf389"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.dev.bin",
+          "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.extra.bin",
+          "sha256": "90397976645eb75eed94fb65585473b810789799f6d468932874893180740338"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.gbr.bin",
+          "sha256": "3b09703ac92a9b625199f87ec0d1a496219d8cf427eecf312af61d6308bf5036"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.ops.json",
+          "sha256": "4a69fa8d514998ee4d449288602a13e6932d526ad4ae8b1dfc8b9c0edc26b15c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.xfin.bin",
+          "sha256": "3c9e5432a9aae44f5fc741fda768cc1d954c7a8e53e2251717c02cbd92d43027"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62.xfout.bin",
+          "sha256": "3c9e5432a9aae44f5fc741fda768cc1d954c7a8e53e2251717c02cbd92d43027"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_0.in.bin",
+          "sha256": "8032daa99a913a52bf7d976916f294a1f9f158032597cb06b92b7f0ac4e98498"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_0.out.bin",
+          "sha256": "8c0b731a3aec36b5649e2dcac9784069da75ea95ed5a99af4d57c42389ac2a42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_1.in.bin",
+          "sha256": "29d14dee73d28451dd6158cdf8a701bf598a8179b7d94ce378a1d391b08481ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_1.out.bin",
+          "sha256": "b8534db67089bae5f0e82d6de70e64c39872db2d16a0fa85ff4b4ba694922c28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_10.in.bin",
+          "sha256": "318a5c9714dfe0399c2feb579be595ef26bb90d8538a16ad342fd8165babdc4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_10.out.bin",
+          "sha256": "5ccff3687e521b2b322771fb96f462915ea96931591aa276674aef3c513378bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_11.in.bin",
+          "sha256": "09995cee0177607f7de78b037f00b0867c955ccd903be666998b1e6c925220cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_11.out.bin",
+          "sha256": "be96b018c5c2ff90c51b8bf7b08baed588806ec86a5681894fc7835423b58392"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_12.in.bin",
+          "sha256": "6dbd3b4094cb7ef455cfe7a29a34a2a2d148966ce74bc172acb751c465bacc53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_12.out.bin",
+          "sha256": "f2c628a6bb8dfa52afa28a0588de7d4e8c7177560ad09893c3d857e1a6f707c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_13.in.bin",
+          "sha256": "a1ed565fdafd5e149388f4f60e9171b60652349cc4797dd03807afedcb85cbc9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_13.out.bin",
+          "sha256": "6e679185f50d41be71bddacff0e7d71bbec185860e6757570490ddd3a36d69fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_14.in.bin",
+          "sha256": "44174e818257377c34fe2676e15f878dc5fca668f2c9e6ced008918680a9fec4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_14.out.bin",
+          "sha256": "30efb3c99ab6bd768998244f62fc6bf6b1c119cbce36b2e31e56d73251931bfa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_15.in.bin",
+          "sha256": "2bcf85e1ef4dc33defdeb6bb883da6e2786503cae205e7e97f4acd03b81bf565"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_15.out.bin",
+          "sha256": "88b666aad4f517ab84c2dc1d3cf67fd3cb45268537110e5b0f6e7e16bae53b2a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_2.in.bin",
+          "sha256": "1467039ffb6f4a7540472f5587a622922ff9c9d23d2917adb0392047c0591a69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_2.out.bin",
+          "sha256": "05f42b52482c6b36739c82a8660668fd832a6927176bc5758a37c2cf913bd3d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_3.in.bin",
+          "sha256": "d08849c9ff402245d19000e5d12b979a94b4d7d7bd45d156c5106cd4e679d748"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_3.out.bin",
+          "sha256": "d08ca0bb3f6b71096491733f211fb40433424c2fa98015448d07f250ff962bf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_4.in.bin",
+          "sha256": "1832bbf94e44265ffeffde8a89d0f57c838513d79b2a39a717574cc768440d75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_4.out.bin",
+          "sha256": "28c0270d805676418b3026aa6153effeab53d39fe8bd806a5f13fc9eb84c317d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_5.in.bin",
+          "sha256": "afde6d3b070bfe1f85618f7275ebf01306a5d00e07cf08fd61d757b58dc74482"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_5.out.bin",
+          "sha256": "f13c8ebcf1f65fec232f7b74a31003bfdfbc99fe6fccbea01a8a28f9e81f8488"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_6.in.bin",
+          "sha256": "10048eae30eb82d0a83c10c6214388115f95a3a1b902cbde05cbadbc571fb744"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_6.out.bin",
+          "sha256": "387624d7b52faafe42e4de0c7491356a21ef6b2f79dee7f944db72ced0b3e1dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_7.in.bin",
+          "sha256": "91c46e0ec08504f41ce1a0077a3cd4d3151bc142fd388173a7483c215f4e32b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_7.out.bin",
+          "sha256": "7b75442081c832cefc0a9870ed30f4fcc929a336f807743392a587f8a3a52a6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_8.in.bin",
+          "sha256": "b55162020aa9297f1fd103bf70eaa009cec248d69ea15d6f9aac12cba015c8f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_8.out.bin",
+          "sha256": "bedd58d91c8cd68c1431a9e072d4c0d067b009082c5346ea4b19330cc5d38cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_9.in.bin",
+          "sha256": "5b197a208810845fafa66ffa48b8b4251068f86082e7661fcd2a6d7867438dda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_pilot_v1\\f_8c04bd62_9.out.bin",
+          "sha256": "22a5fffcffcaefb02654235d35c681f6c7ffa760e26e3ceef75d31b1f8524c6f"
+        }
+      ],
+      "native_report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_coverage_65_task_driver_pilot_v1_report.json",
+        "sha256": "1b419de592e972a4aaf760a2b6a4c030aa7832e3a12f20b70e5db6833cd009d0"
+      }
+    },
+    {
+      "cases": 128,
+      "regression_control_only": false,
+      "raw_specimens": 128,
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_dev_v1_raw\\capsule_coverage_65_task_driver_dev_v1_s21.bin",
+          "sha256": "f1bdcb253620c52acde067aaf02e63bafd222f395df6f88bf90506a5c43d7bce"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_dev_v1_raw\\capsule_coverage_65_task_driver_dev_v1_s26.bin",
+          "sha256": "31e5b6bcbbe10e515516a360b0261741bd49a81f564d3d3fd23a9aac8a5ed1ac"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\batch_manifest.json",
+          "sha256": "d4eefd9954244a90f5c4711e8a1af3eed126a614e4d369335d57745407dce0b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\capsule_manifest.json",
+          "sha256": "82181a5494e0ac592239da548da0eda6aadfbf952c5b6b4868e5759045b58fed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\entry.patch",
+          "sha256": "59ceb19ee399867d390933060c3af7fef5580d1e89ea16aa1973a455bcfb2119"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.cases",
+          "sha256": "188e83199cae391fbd48efebf66f5394a13efd405d4915f0f294f848ec4a52d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.extra.bin",
+          "sha256": "e25f4be6334607e8ae7d7adb7dbba6b3d01eae7b486c831cefe7a898d31dca40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.ops.json",
+          "sha256": "4a69fa8d514998ee4d449288602a13e6932d526ad4ae8b1dfc8b9c0edc26b15c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_0.in.bin",
+          "sha256": "8032daa99a913a52bf7d976916f294a1f9f158032597cb06b92b7f0ac4e98498"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_0.out.bin",
+          "sha256": "8c0b731a3aec36b5649e2dcac9784069da75ea95ed5a99af4d57c42389ac2a42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_1.in.bin",
+          "sha256": "29d14dee73d28451dd6158cdf8a701bf598a8179b7d94ce378a1d391b08481ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_1.out.bin",
+          "sha256": "b8534db67089bae5f0e82d6de70e64c39872db2d16a0fa85ff4b4ba694922c28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_10.in.bin",
+          "sha256": "318a5c9714dfe0399c2feb579be595ef26bb90d8538a16ad342fd8165babdc4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_10.out.bin",
+          "sha256": "5ccff3687e521b2b322771fb96f462915ea96931591aa276674aef3c513378bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_100.in.bin",
+          "sha256": "b7ef213e8e6f282f937a244cfdee01e19ffec47fde35f57c8b3202d5a8a1e1b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_100.out.bin",
+          "sha256": "b752dae29cfc8a261b0c60319a7a95d461a017d56b27e858ae65c501669d91e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_101.in.bin",
+          "sha256": "ce31d0465cd1ece611bee1db14f6930944a1c4f9460edb7eff4f1e5cc5fd3dbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_101.out.bin",
+          "sha256": "e1e4d54e497e5d4f463722d8f628074599d4309052426641dc89c85aeec99256"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_102.in.bin",
+          "sha256": "a79914c976c5810ceb4b0035a57a983ded735873c356087898c85035494e1ff1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_102.out.bin",
+          "sha256": "68ba097759b9ab0ce1660ed2ac28347bf0f21f3d431e748f406dba86ae9d347b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_103.in.bin",
+          "sha256": "de6d83dc082cc5eea8966f6d4f97573b46cfbdb4a7f09de2b15f63ccfe49d9cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_103.out.bin",
+          "sha256": "96294b7a6f5bf83c0fda24291bc76d89029392f241088d4f9babc69f56a82900"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_104.in.bin",
+          "sha256": "938babfaebc3a0edd1930b016a71c7cda1087db1882ebfc6de6d17da635c7d4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_104.out.bin",
+          "sha256": "f6e813f4a15ab0e2dac77d90731d4c75c69fde3c80a7497f71f453c22a95903f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_105.in.bin",
+          "sha256": "685a5c76e3e657204eeae59c816f1a4342ce833aea1be242d234e955bcb15fb0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_105.out.bin",
+          "sha256": "3486d716f10859faa70d42d7a625c25844b67b957394106ec623c49bc3972367"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_106.in.bin",
+          "sha256": "a3ca87c8f0c732e4218edf09c061ace6d9d2308812c8d5cb967879094bfe9f33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_106.out.bin",
+          "sha256": "b24d1f36004132d40821f13fa5b25d175e22d3085fd806bf4da734a52d92f539"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_107.in.bin",
+          "sha256": "ba6dd221257b393b772f80850141747cd721e0d4c4c6d9406683498ec372bc61"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_107.out.bin",
+          "sha256": "024eafbb9aec5da07a8df11e7de2c614b8d00692303bae81dd81d0e112c7192c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_108.in.bin",
+          "sha256": "3706cf96a87a68474784811299c8c4a80c41887a2c311aa13fd53ff08802485a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_108.out.bin",
+          "sha256": "1423a03fc4688c956f736179974597a49eb9bc72bf750682fecad0c5753ba1a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_109.in.bin",
+          "sha256": "a4fb1240de0a5d45eca6ec660f9e8abe41c23e5949d245fea55a116342de9eff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_109.out.bin",
+          "sha256": "9b2ae4fc58d250c9df69010cc6b8148a6d31e4f70acad8fcf7d63d10fc327834"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_11.in.bin",
+          "sha256": "09995cee0177607f7de78b037f00b0867c955ccd903be666998b1e6c925220cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_11.out.bin",
+          "sha256": "be96b018c5c2ff90c51b8bf7b08baed588806ec86a5681894fc7835423b58392"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_110.in.bin",
+          "sha256": "319c49f00e08182c7efb7c3cd1f993e4d792033224777df998dda9b756e91a30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_110.out.bin",
+          "sha256": "983452567f295bb5ebaac40bd680ec8f73e9708c2397a391b0a5525678e5f5b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_111.in.bin",
+          "sha256": "37e454c17a4a9dd3fd35ac7793f575eda2c8ff4fa4b75d05247615dfa723ff33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_111.out.bin",
+          "sha256": "4d40df17814c2ceef4be7b66f1d4a5200522929a4abe68a23dc419d0f4fba289"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_112.in.bin",
+          "sha256": "1b838189a2efbc091af1afa5aee1dad32b718f839423ef4f56980b9639c95f94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_112.out.bin",
+          "sha256": "96740bff802508246d8002b36900ca7f447793475211571f3d3937aba1b9ba0b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_113.in.bin",
+          "sha256": "47575464554bca928c426594ab7fd87b717ced85e47e2ba01b35315e19967041"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_113.out.bin",
+          "sha256": "4d53d285781c2f46c5002b6f278916b81bc8ad18943eb024b131e6b2d4d8d7ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_114.in.bin",
+          "sha256": "b911a4446c58ebe800bc731b0176cde72276d8386535ebfa199b2aca991770ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_114.out.bin",
+          "sha256": "262156e194850c216481dee4e3cb77fb65d099feb1924796c07c74eb85ea4c0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_115.in.bin",
+          "sha256": "09d7f7f428365f94fcddc18f295f37654182045b4b0d14ed5d344bbe679629df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_115.out.bin",
+          "sha256": "245dabd13c167c7a82bc1fdd9aad38dd123b99b3ae45339c8aa670e40de781c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_116.in.bin",
+          "sha256": "be9584a723937fc8ca13d663b741df846ec7747881b37a8e89d097db8544e703"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_116.out.bin",
+          "sha256": "42ab001121adea293d255e62ff4c0de0024a1c339bfb8e549ca8015cc3d42d7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_117.in.bin",
+          "sha256": "624d0d00a9ca74934dc87a7ce55ca4b887f519877f7ddb329ded4fc45a70b002"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_117.out.bin",
+          "sha256": "1185273b0aa5dde65619c3456ac9f24bb809996e6e7429f79f919c9352df81ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_118.in.bin",
+          "sha256": "3e421ebdfa0dbecc26ad6e398143b17a05039244e30a4d78b0e27b8518ccf8a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_118.out.bin",
+          "sha256": "dcfa786e0c2c3a7cd99292628680602b369e8ccffb26e6e53ee0575cc84450d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_119.in.bin",
+          "sha256": "96cd28a1dc62ebd7f5e0aefa3ed83453976746190d731d57b731fcccd591810e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_119.out.bin",
+          "sha256": "09167823d8eac56adaaf4d601e778a67515bbbe695af81dc476eea568bcbb271"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_12.in.bin",
+          "sha256": "6dbd3b4094cb7ef455cfe7a29a34a2a2d148966ce74bc172acb751c465bacc53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_12.out.bin",
+          "sha256": "f2c628a6bb8dfa52afa28a0588de7d4e8c7177560ad09893c3d857e1a6f707c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_120.in.bin",
+          "sha256": "938389a64d1ee9ac84e8981bb06831cdd32ef4710cee729039c299c241102491"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_120.out.bin",
+          "sha256": "bcbfab2331bb5ccb70d821036b9eabbdd18ba0c68d4043b849365d523603e1ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_121.in.bin",
+          "sha256": "03aaee6ccbd1ff7dab5b27e5d2f6c2da428ba45d5d71190211b9af9864269568"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_121.out.bin",
+          "sha256": "d11169de8c0b85a29c5127379184e3964ea41c9effcd171d438230c703160c21"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_122.in.bin",
+          "sha256": "38a1c715f0280a3e94584d0ec181fc241d4a44d72887a507a53952956d054068"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_122.out.bin",
+          "sha256": "a4ac1e9155a91d63abea73f9362faf6af75764a93e6e83a44474d26bc28d79bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_123.in.bin",
+          "sha256": "53046afe8862b70caa4caa91241b46cd335d7e21970f8de85bc5f33c780830b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_123.out.bin",
+          "sha256": "7fc8923dfa82160ebca3b2aaf2c3a36ffe7f2a5770ab184d2da63affbe4baf65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_124.in.bin",
+          "sha256": "6fb53381a7a21466f7d79785ec18f9ff912d84449ea575f07ea2c3639634b93e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_124.out.bin",
+          "sha256": "5bd24169684435212c5effcbf143c8066faab221320ab0ed738fd0f0cf140f6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_125.in.bin",
+          "sha256": "0713bc5bca0eea4cb53415a22cf42b12d5951bd9d558704b8d8239dd0a588005"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_125.out.bin",
+          "sha256": "2ae3ceb24eb21ac2b06a8f9e4c06a2f43b2f3ff19edbe6ad9ecb4f5318cce3d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_126.in.bin",
+          "sha256": "50fa6a217d1d9e3ad737cd446dbcf6ba598bd399de6bfa1b00023709d10a0e89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_126.out.bin",
+          "sha256": "dc9bafa831e63e12988b0523771ecd3dc2d154afd0107bdcb0c9de25a4c87e1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_127.in.bin",
+          "sha256": "ad287aacd0d396a71a06a4c27c1936b421ee797151a449d1c3be9e8107f65b62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_127.out.bin",
+          "sha256": "4460fb3f6ef6262f141a8c5ed48e59ca3443b9e9e304da11b68e3610f8e03b1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_13.in.bin",
+          "sha256": "a1ed565fdafd5e149388f4f60e9171b60652349cc4797dd03807afedcb85cbc9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_13.out.bin",
+          "sha256": "6e679185f50d41be71bddacff0e7d71bbec185860e6757570490ddd3a36d69fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_14.in.bin",
+          "sha256": "44174e818257377c34fe2676e15f878dc5fca668f2c9e6ced008918680a9fec4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_14.out.bin",
+          "sha256": "30efb3c99ab6bd768998244f62fc6bf6b1c119cbce36b2e31e56d73251931bfa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_15.in.bin",
+          "sha256": "2bcf85e1ef4dc33defdeb6bb883da6e2786503cae205e7e97f4acd03b81bf565"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_15.out.bin",
+          "sha256": "88b666aad4f517ab84c2dc1d3cf67fd3cb45268537110e5b0f6e7e16bae53b2a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_16.in.bin",
+          "sha256": "ab519884024a721364ee39dc8b68e4be836db67052fffd3743a50370a18404cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_16.out.bin",
+          "sha256": "c7cc26988c820ff784cccefdb6587d2ae03e5d3fd4329527e41296743380d912"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_17.in.bin",
+          "sha256": "9e82df1a7348082e167a41279a60b54c020a7c948cfc44352185e9c91648c7b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_17.out.bin",
+          "sha256": "d4bf68eb42011e96219875464c14a08f245c76220625882d5403cad2f4a0934a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_18.in.bin",
+          "sha256": "c824a864b0ade108985b790dce72582212306d300dc54a9f448b7f4a56d390a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_18.out.bin",
+          "sha256": "10737a5281db51d1beaf0eb217fd2fd8b33381a1073331b5fe7077e99e3627df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_19.in.bin",
+          "sha256": "4e604af81638ad8811c271c9a65d47e81002a365a0d056499537cc45e263c6b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_19.out.bin",
+          "sha256": "dcccdcf3f87bcc3d22ec7549846773913ce1aed7e1015a75c057d323932245de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_2.in.bin",
+          "sha256": "1467039ffb6f4a7540472f5587a622922ff9c9d23d2917adb0392047c0591a69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_2.out.bin",
+          "sha256": "05f42b52482c6b36739c82a8660668fd832a6927176bc5758a37c2cf913bd3d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_20.in.bin",
+          "sha256": "0079438209202915be7d292e9f980ee97e93d1e8cbc43ee23db68e0f2beeeff7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_20.out.bin",
+          "sha256": "c387c2d9df2885892da3d2e435aecdf3fe9db1b51c2d0a8f7935dfda569816c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_21.in.bin",
+          "sha256": "bd971d66cb43ee5ff35314d7a445cfad0193346d94f69513be5276f3d81a4a19"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_21.out.bin",
+          "sha256": "9fec123f95e4ca3491ddcdf71d57d38c58df093af95fd2c7bae609548d3631fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_22.in.bin",
+          "sha256": "58ad770f632a7b49a09ad7b4aba501f298e7b27eae2de9f9c8ab25831b258dcb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_22.out.bin",
+          "sha256": "32a4f3b30c392470ecba4bb8a09eacbc32c69627892c1df4f313958ff6339b40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_23.in.bin",
+          "sha256": "2f979498420c9e7d17a1a4d3d1b4ee575ab343e158db649ef9ff5575bb5f7c49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_23.out.bin",
+          "sha256": "36feef1aadc7e3f45129fef369e403bf7684fd02b467f76e5ef70a745ddf44cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_24.in.bin",
+          "sha256": "9677f0685087699a5c61ab26602dc03061579e4a4b67642c7229ab5c1a4f7e1e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_24.out.bin",
+          "sha256": "2e6ea7a9cd2270908ccfaad5cfed38210961518c09203fe7be50d0e4c8898879"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_25.in.bin",
+          "sha256": "d83688574e2cdb4bb3375413755883ad8d00a472f7f7b26594fd78bad3f404be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_25.out.bin",
+          "sha256": "a971bddcd5e44614aac1e5b4fbcf36cf26e525b747838dafd3147972cbc90603"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_26.in.bin",
+          "sha256": "7eb2ea7a2d0b622b35bbe42113a8d7b57904a1ad903f4effb5cdaae779b6dc16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_26.out.bin",
+          "sha256": "b085b48fb348fcd8cf0087e4da84d8a5d171298bf906a0240474d81b39fc0e9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_27.in.bin",
+          "sha256": "5dcbd0992559e1d1e194514b6807e30f16500c226ee05d12a4b08b6faf01809f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_27.out.bin",
+          "sha256": "4aba34fbdbb1b17f6c05c13c1cf0e1b447b9a2eb9552b72a2bd1647112e9602d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_28.in.bin",
+          "sha256": "707a7eb2b1cc86c42bb4a14f7fae605a223caef45ee4d302e2d1820e101d03c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_28.out.bin",
+          "sha256": "1f02fbb906eac0136c658350c77b11e0e6e837ef0217b4406bf5c290ed500d3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_29.in.bin",
+          "sha256": "bd8e02f887f1f299f56de75e44046ef80852025fff85d1de07748069e2e7329e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_29.out.bin",
+          "sha256": "c307efaf252e08e725e99842386a1a84a1498844d1e71cfb9596fc085289132b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_3.in.bin",
+          "sha256": "d08849c9ff402245d19000e5d12b979a94b4d7d7bd45d156c5106cd4e679d748"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_3.out.bin",
+          "sha256": "d08ca0bb3f6b71096491733f211fb40433424c2fa98015448d07f250ff962bf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_30.in.bin",
+          "sha256": "2eaf781d701e861ca4ea6ce7720f601cecf94310d23c1a35880b9df7c98e2bef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_30.out.bin",
+          "sha256": "0ca8463229faf9507fac03712c8f024c1b7362436474e44fc7b7f4a5bd6b43a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_31.in.bin",
+          "sha256": "c54f97fec8f6791fd2afb48a2fd63c331e07b5560bda415c24f18eca1e17a00d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_31.out.bin",
+          "sha256": "5ff1eb67b944f5b9f5056f129e57f8d1558dbdcaabc5538ce05b0583f3d3429c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_32.in.bin",
+          "sha256": "7b0fbb3ca970c1c99e5941c72e2a34675ac7825f26a070116f9b47d8ff965774"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_32.out.bin",
+          "sha256": "e9ef48aa28c7a5de01d16d8a06d381cf0716c03783bec1cc56a2f9ccec2e3de8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_33.in.bin",
+          "sha256": "356002a92e6554635d874ef68f17a654a57096a4f30b8cf060561a22a79680ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_33.out.bin",
+          "sha256": "53871a5721bf87371063999f2a76bd86a23808d93302d9eeb2f177a026f063fa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_34.in.bin",
+          "sha256": "d5d70f8d42290a369badbdcc10dafe1a8e52d33e20acf4a911ec972ec7531e4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_34.out.bin",
+          "sha256": "7d81c8fb3fc8035dbea1e6ebfd7d0b4d30825885e5e4aa49406d36ae05200cbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_35.in.bin",
+          "sha256": "e1636148aff0d5b2570e6dbd71af4c9e4a93fa73e76247c46758d7e4a1c71b26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_35.out.bin",
+          "sha256": "3add222f78b2a1171f5e4ac21088fb6e4a7bb8cd90e6395018759a9c670dd75c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_36.in.bin",
+          "sha256": "ba874481fa38153547019c518a84d8a481416261865acf6abe760b24dc14dc5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_36.out.bin",
+          "sha256": "7a718c27667812bac884857d6f60ce66df53843b6ff8840b4d7ef279da7716d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_37.in.bin",
+          "sha256": "53e9e9ffaf9b9ec7ffb66e98688cd76a494b7287056785de51be72ff6c390afe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_37.out.bin",
+          "sha256": "3d7f02fe9b9328cbbf952f6505d0f99789781604efbbccd63dbfbfe2daed1b6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_38.in.bin",
+          "sha256": "d65e5c0653b5ef4d4e8940497822111d890ed0f6c5bbac2dccb710423bb295ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_38.out.bin",
+          "sha256": "f55f8bedeeb1268a479478600a2a417167f9d2e7676adb4cf57d1a785b1677f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_39.in.bin",
+          "sha256": "958d3d586539bcdc00992773beeef4c74520098409e61dc8ddc78ba4aeeb7798"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_39.out.bin",
+          "sha256": "e4d6ac7bfea0c9f580272c2f98a5b12d2d9f89deb65b422d118ca9c455902ebf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_4.in.bin",
+          "sha256": "1832bbf94e44265ffeffde8a89d0f57c838513d79b2a39a717574cc768440d75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_4.out.bin",
+          "sha256": "28c0270d805676418b3026aa6153effeab53d39fe8bd806a5f13fc9eb84c317d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_40.in.bin",
+          "sha256": "5804cf48efe3dd4c712117b8adce1f2b7a33b8db431489f3eebae33c24fef37b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_40.out.bin",
+          "sha256": "e7f70e38f0aebdc1d6858f6a72f94788d50ea82e513bdbeca5c5a34c966b87b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_41.in.bin",
+          "sha256": "4c53d4d500827f260d9b099ef00e41b8d7b4b9786b418e20d59a09732126f368"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_41.out.bin",
+          "sha256": "71bfacc2c0c659bf4da8d3402328c9dfda9340c7da056570226c3c147cefd8f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_42.in.bin",
+          "sha256": "09423e4f7093e4fa7479e699cc52f47b8eb1095a86be6402a99b3ac18c12f468"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_42.out.bin",
+          "sha256": "ef2d592704b21d4a0d90eb782cc7bd672c01547f2fdb66b88eda2ac4bc59acbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_43.in.bin",
+          "sha256": "a9f43436746311440fbde46b1160bcfe3dac8db3b53fd9e8cf349f860218b104"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_43.out.bin",
+          "sha256": "ed429a0d17dbb50acc63bf17ceefed2663abf60bef1a129b5eeabd4b596ad61c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_44.in.bin",
+          "sha256": "21ecbde454822ca3576e5137082b666b29e61d984492148d090d059426501702"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_44.out.bin",
+          "sha256": "51b3fd0e0235967b1879431c78b85b488e83ad60c89e08d54a5029c0ac6c17a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_45.in.bin",
+          "sha256": "2c3aea35474ce8c800a2baf67308761691483ea95f2adb0cfdb5813dbef2a4a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_45.out.bin",
+          "sha256": "92fd6d321a9a7bcb189697e0cd18287b7a85ea00314d4b77ce6c003c1f94b645"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_46.in.bin",
+          "sha256": "abc07754b305c200a2fe55b6715323034edce19148d1e7714e0eb124471efcaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_46.out.bin",
+          "sha256": "e54fd7a60895caddbb7ba0efbfd2b27cd195cf21cf105c1e4d95df99cf3de164"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_47.in.bin",
+          "sha256": "c0ad561f06b200d9db8390f3dbccd42441bdfb62604811147cfee11cd65c5091"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_47.out.bin",
+          "sha256": "e53b82b17c3c05f5e11a14e4851ced5e2e2175b18f94de62a9826bf9fbc6c656"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_48.in.bin",
+          "sha256": "2c62ebe573efc2b0dc5c47d96b91661fdafa16905e72bf5b8081707174192e8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_48.out.bin",
+          "sha256": "022cec638292cba3d47d72b466ea73176a69dd60e97dfe8502436055cd70099f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_49.in.bin",
+          "sha256": "ad3e39b88bd0ef46e99066a70847f7771f4cbc7a501bfc9e72f8beb733eed205"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_49.out.bin",
+          "sha256": "8ffc4647507b21f7bc700dc3f13946aa9313faaeaf3b857c89e3629b9e23eada"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_5.in.bin",
+          "sha256": "afde6d3b070bfe1f85618f7275ebf01306a5d00e07cf08fd61d757b58dc74482"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_5.out.bin",
+          "sha256": "f13c8ebcf1f65fec232f7b74a31003bfdfbc99fe6fccbea01a8a28f9e81f8488"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_50.in.bin",
+          "sha256": "94ecc3ecd338f6bc55890ecf150b3a415fcf5e76e6c0f5a07523aba4d9a9f110"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_50.out.bin",
+          "sha256": "8af10ae0274c0a8cbc6ebe0a0abd52a25a6e3b13fdb3aa790409eb1e1831f666"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_51.in.bin",
+          "sha256": "db30da1113942ef2d7c6e3833546732c003f6a7a55be9d6b13ffa61baa004b78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_51.out.bin",
+          "sha256": "f2f4f50e113f71a72027ef930f403de3dc1eb8f1ef7d5d6da191ffbd4a63049e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_52.in.bin",
+          "sha256": "7b286da2d6e5ca66c3679eb0cf448cebb571264d703bd9611a71ce2cc360a9fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_52.out.bin",
+          "sha256": "2a51bba9f00df670eacb45551b7e7fe3f47a804267b71308a48642f737b44938"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_53.in.bin",
+          "sha256": "dd908037eeab0f84a59a3289d19d6d76aa834b031928f795f2bc07eeb2914afc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_53.out.bin",
+          "sha256": "e31a19b44dbeb59e3b430f38ff0015091162996fe5e406a701be4b78baec2e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_54.in.bin",
+          "sha256": "42736f65038074aebe76b68091e5348d5a97f99eb8bf93934b07de91988b475d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_54.out.bin",
+          "sha256": "f1b9b9235223ae9f43d1706e4b7c11bd7a2bccb47dc4ef25f2cc4e7626c6cac2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_55.in.bin",
+          "sha256": "f53e65cc93038e7e8f461b3e9c59377f28a633ab8087d36978f0686a7552dfaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_55.out.bin",
+          "sha256": "60d220a9a75bfcdc4ee1d225411ce9bcbb601155990ce183ba6afca796f8d026"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_56.in.bin",
+          "sha256": "71a1faeb79b5c42970f7286b0a4c1d0ad971b7e4cb76cab2bf0d43aff9862219"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_56.out.bin",
+          "sha256": "2bfecd8476b73f1ae21462ca69615ce7d4968411c1456866efefdd21e45225e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_57.in.bin",
+          "sha256": "22673426466bde54d84c25cd3970a3da93df12e0505aed5a6bb877bbaaf1d2ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_57.out.bin",
+          "sha256": "fb98ce4d3937c83d0ee28297936be95e9101c5d2b4789eb294a899f10b27c7c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_58.in.bin",
+          "sha256": "481aadbbfcb95b74362f355e567a457c42a25c7d806e2d6a167c6104fdddfa30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_58.out.bin",
+          "sha256": "ea7cd2b200679dd070f27fc179c4e93e42d144a308e44ad3ebc523c183f29375"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_59.in.bin",
+          "sha256": "06f539acf70dccc448a3b50c5b245ffb4e5fb0830ae1528a46f14be060b13812"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_59.out.bin",
+          "sha256": "f9861c0ef71cb7e98354c3801c72f01a7a954fd59f71cb01e1d08bf051897b28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_6.in.bin",
+          "sha256": "10048eae30eb82d0a83c10c6214388115f95a3a1b902cbde05cbadbc571fb744"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_6.out.bin",
+          "sha256": "387624d7b52faafe42e4de0c7491356a21ef6b2f79dee7f944db72ced0b3e1dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_60.in.bin",
+          "sha256": "8032daa99a913a52bf7d976916f294a1f9f158032597cb06b92b7f0ac4e98498"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_60.out.bin",
+          "sha256": "ea2acdfc6eb8a498f6185812eeb757d1cc7465dc6842b0e51357ac1e4f62ec01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_61.in.bin",
+          "sha256": "29d14dee73d28451dd6158cdf8a701bf598a8179b7d94ce378a1d391b08481ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_61.out.bin",
+          "sha256": "2641080153098e748dd644d451a2aa44c3ab7b14d7da02f7c8680ccb11e1b0e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_62.in.bin",
+          "sha256": "1467039ffb6f4a7540472f5587a622922ff9c9d23d2917adb0392047c0591a69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_62.out.bin",
+          "sha256": "66885ab9ee77a856ab27cc73397a33efd2ac62f8ec79a5ddeef42028facc5ad5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_63.in.bin",
+          "sha256": "d08849c9ff402245d19000e5d12b979a94b4d7d7bd45d156c5106cd4e679d748"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_63.out.bin",
+          "sha256": "81b2c90f5c4449fa979ee53ad6543e8998cc22607383dbfb8b753382c4fc8e49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_64.in.bin",
+          "sha256": "6fb53381a7a21466f7d79785ec18f9ff912d84449ea575f07ea2c3639634b93e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_64.out.bin",
+          "sha256": "98862591dfb5e75954df2c43af770941cfbb6e2c167339071cf90df7afc40417"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_65.in.bin",
+          "sha256": "0713bc5bca0eea4cb53415a22cf42b12d5951bd9d558704b8d8239dd0a588005"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_65.out.bin",
+          "sha256": "34e6154d267109c71eb760437ed05e3e32deafe41be8ac72662dcb2907c259d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_66.in.bin",
+          "sha256": "50fa6a217d1d9e3ad737cd446dbcf6ba598bd399de6bfa1b00023709d10a0e89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_66.out.bin",
+          "sha256": "0ee5dc1f7dff9f63b90ee4d53ded97867801f79ce59ce5566c2fec9cb7f4f297"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_67.in.bin",
+          "sha256": "ad287aacd0d396a71a06a4c27c1936b421ee797151a449d1c3be9e8107f65b62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_67.out.bin",
+          "sha256": "0d4c1b55e6c236be8aab764f0ba6a1dceb25001ac21aa40257026dd74aae1d79"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_68.in.bin",
+          "sha256": "519ec5f8953d0182ae6bb51cb0139f7b9a87b06f3031d0b528a7ed663513b843"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_68.out.bin",
+          "sha256": "c8e957cba164470e3ffb45391efaa525cb06503192b52bf11a566dc3d1e448f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_69.in.bin",
+          "sha256": "34aaaebd318aef9f006ea8731ac2dbe394e084cfcdca9dbb0cbd895a940961a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_69.out.bin",
+          "sha256": "515c1b248f297dd0585df8e666988fe7df2a8ee825b45698834260ce6abc12be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_7.in.bin",
+          "sha256": "91c46e0ec08504f41ce1a0077a3cd4d3151bc142fd388173a7483c215f4e32b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_7.out.bin",
+          "sha256": "7b75442081c832cefc0a9870ed30f4fcc929a336f807743392a587f8a3a52a6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_70.in.bin",
+          "sha256": "1bb4c94b169f4ef89d2402b3b2f9810254274808a39dba16f59e19ef9d8f3e35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_70.out.bin",
+          "sha256": "7d18695462b1dc3be37ae5605a0679e9d70645f9716284da1462a2afcafbf406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_71.in.bin",
+          "sha256": "3c7d422b8a1e1d6afa62fea6e9b64db3daca0cccf0911b68fa0cc4678b35e92b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_71.out.bin",
+          "sha256": "a531822965e8d88d9c74ef8adc24dbc005720cba2864b44ca6071ea62451b3c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_72.in.bin",
+          "sha256": "fec641343c62674e37d499d314d90e05d333d5cfae997a174c8a417d4cb0cb42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_72.out.bin",
+          "sha256": "ed4f16e3b2c357f1e6a160ad616eba1d5850f1ea0acf94e6dab01e27e04bb5a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_73.in.bin",
+          "sha256": "ab895101ae0c88a364225f2c2b7b451e6f6ddfb60596a4b81b474b3a3381ffdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_73.out.bin",
+          "sha256": "0e32cc9c5cfe1dcd4078a172c3a54caf5e7163a0bee4c519ef64b6cc6da87111"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_74.in.bin",
+          "sha256": "df0b31a1c2b8d246d594631bc0e51cc40e968d0e2b148aadeb494c560829e9bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_74.out.bin",
+          "sha256": "2f5b6f12bc8e21928c66889bab17f0449b0f904878510b45ba1033c74441d528"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_75.in.bin",
+          "sha256": "6a0b3b65f01f42378db3a99af686d0148928bd7f5fab2f7490f0cc9b37421ede"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_75.out.bin",
+          "sha256": "f41a2afc9d2bc76f276d33bd49ef9af50991d682a8644ea999fc70ad9a8cb2b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_76.in.bin",
+          "sha256": "279028d18a87a2207609417a95c80d85dc6e167c1ff0c03f6a13ad9cab313bec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_76.out.bin",
+          "sha256": "ce514145739c8abd8b3b01fad66a7f092ddfe4b719f1157114cba10356e3dc3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_77.in.bin",
+          "sha256": "db47b791c61887f290bbc63b6505d083ec142b86ab22134bcf837cb15a776dea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_77.out.bin",
+          "sha256": "1264573460581add0e1982231d18968098d9e814ab8222e4416dcd581a37edfd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_78.in.bin",
+          "sha256": "fecd5bff3387a1faaee685f6e53a50b1ac715ba499b0a8cdd92d0b2b07687b86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_78.out.bin",
+          "sha256": "affeb4a78ece6dbcb23a5abd6976dada9ef3e28f29b4204276052296eecdabfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_79.in.bin",
+          "sha256": "18b1a9e9d2ccad82619effdda56455db944343b80565eae18eb9abf5f5ab4f69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_79.out.bin",
+          "sha256": "c738a31a7ec5cbc2755da0c9c33e32dcaf51d214fc55877a64d0265a9a93fcfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_8.in.bin",
+          "sha256": "b55162020aa9297f1fd103bf70eaa009cec248d69ea15d6f9aac12cba015c8f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_8.out.bin",
+          "sha256": "bedd58d91c8cd68c1431a9e072d4c0d067b009082c5346ea4b19330cc5d38cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_80.in.bin",
+          "sha256": "c1c5b706b573047f1ccba63c89fd5d9e113852c11702a2ac19bfc6227dcb702a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_80.out.bin",
+          "sha256": "ee4f13e79614466366f34101bee6cdfc5a386c3e74ffb5d3619e7e14d044e5c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_81.in.bin",
+          "sha256": "297630abd89b7aa016da86543c57588ca69465218b941375334f57ba65fd316d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_81.out.bin",
+          "sha256": "7b67178671d00f18cbf3f134ba1152850f7dda5ad550094338f19a618a4900a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_82.in.bin",
+          "sha256": "353996706f83033b567a865416bff1bb0c72e6810d6d176a700761f2223607c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_82.out.bin",
+          "sha256": "cd5374efb9f2cb34aaa446650fd291518caa9716e07e066891a6ce382aae1684"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_83.in.bin",
+          "sha256": "bc8b0677a631de3ef8deb3ff5bf670afec96edcfb6bc26953ddf1d0063a06947"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_83.out.bin",
+          "sha256": "29e4be14bfb90857e76e8d90461699405534952c03105401a60fa68dc0b3671a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_84.in.bin",
+          "sha256": "8ce9f080232bb11952d173b72717e79bcc42eee33f51f94d284f54c3d779421a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_84.out.bin",
+          "sha256": "5429e459fc5960fa24adbf22ce0fc15ceccb0a37f2629dfc8a911a690a5721c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_85.in.bin",
+          "sha256": "7f61d7ad597870e158af48ea68128838f4583aef90e595effd70b8110303118b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_85.out.bin",
+          "sha256": "38ff3b3edff60bc050bf840a81cafa8dd3e47ffa5f754ab15494d3a4ae546292"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_86.in.bin",
+          "sha256": "45a683a191e1bffe90a6a8cfe171c246d0b5c54deaacc9fa74871e4c0e66a79b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_86.out.bin",
+          "sha256": "473976482060e3a52ff1baaeca84e05f374c198b296ece922f981b4cedab8137"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_87.in.bin",
+          "sha256": "880733712770310f6db5f4959aaaa4861c4eb151860bbbf4630e71b0cfaa067c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_87.out.bin",
+          "sha256": "a2c30bc3abf012491082bae066bb0be180b6e4af098a19ef8b3811a710a42bcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_88.in.bin",
+          "sha256": "a94fffd25bb967609b125df3bf9233e27a579f30a3e59e9e702f645641c66148"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_88.out.bin",
+          "sha256": "d4818095767c655184b8049cd373b219ff5a715c71c1c5f7c65d1bce0795dbbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_89.in.bin",
+          "sha256": "dface05810e9c09a86f073ae9d306399fa25f9c18213043fa4fa79e15b097533"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_89.out.bin",
+          "sha256": "ef42425abe4f750113e009444f71f45ce227ae16ee1cc53c96751561339ba825"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_9.in.bin",
+          "sha256": "5b197a208810845fafa66ffa48b8b4251068f86082e7661fcd2a6d7867438dda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_9.out.bin",
+          "sha256": "22a5fffcffcaefb02654235d35c681f6c7ffa760e26e3ceef75d31b1f8524c6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_90.in.bin",
+          "sha256": "029d3bec673cc53a0e11e299c79d51355fdf6c19b9a92bc1276701e24f93d0bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_90.out.bin",
+          "sha256": "62aa1af0e10a86100987116ab1b40b7409244f9781b056defe909400f8ea8fb0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_91.in.bin",
+          "sha256": "04d35cf4ec8d90118fcf5b1870df5de6285121b53f891f5c09a985b1a8e13939"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_91.out.bin",
+          "sha256": "63954d7c7a79f2e0ee270941066ab79bb5b2bd70d57d48564da26eed8acc0ba0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_92.in.bin",
+          "sha256": "40b3544cdbaea7c617192eae4754e73ae5b81b255446fec1234a0e59d37518f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_92.out.bin",
+          "sha256": "ef20cfe9ba61dcd849569971364228123c05dc3e08030eb7ffad793687e97738"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_93.in.bin",
+          "sha256": "b5fe80f194f079e63cee98ebf40522103f150999f81a2c4992d2b3a51a20d826"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_93.out.bin",
+          "sha256": "513703d171019f30beb9d51199ebd83df3b759bff69635dcb2c1b4e971517f87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_94.in.bin",
+          "sha256": "1a31661e81e252dbefe5da99ba91b0f9034a5522bd5bc37328c517855739cdab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_94.out.bin",
+          "sha256": "40b64a523d4131886558dc73964097a0b9e53c408632e0fd390cf5d3a311c22c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_95.in.bin",
+          "sha256": "2e67f91f3bbf85b4019761304f85de5324832c319feadb0f2e252acd96ad405c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_95.out.bin",
+          "sha256": "04833798d5bdac669d460e29e873611c1f6315c27b551a7e7a072b1435490f6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_96.in.bin",
+          "sha256": "067801bfc8d9a162828a5999fe428d2a3a2125cc336e0be799ff180426ccd897"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_96.out.bin",
+          "sha256": "e392ba08b45a5c92d9bbcb701803accc49edd7ed4df1fd75ef255b4904503fbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_97.in.bin",
+          "sha256": "cc4a91cc70605b66f6278624892cce36469ed364ddc9c1a4f07f4df4b80b3a4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_97.out.bin",
+          "sha256": "6a056570d3118834ec91968a383e8cba75944c3abdb0cdaaa288b85b6bf8187b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_98.in.bin",
+          "sha256": "497a2f17c8815bd7bf7a2bd47771761724512d6909734a29c704fc7015ee0528"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_98.out.bin",
+          "sha256": "aa09fb9aa8d5cd7cba35e3a888106ddd5dc587938947eb70c2606efe9d9250ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_99.in.bin",
+          "sha256": "fa3cbcc069d865b59ebcc651c252623b5bbcb730695c935063849f81c092842e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_dev_v1\\f_8c04bd62_99.out.bin",
+          "sha256": "d55193b741804507da344eaab97350e1c4affc6fe7c1ce01d7daa45ab79caad7"
+        }
+      ],
+      "native_report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_coverage_65_task_driver_dev_v1_report.json",
+        "sha256": "f1acf022212aec65e2fdbf42adc0074198481c2cc8524369f40f235f74abd7b0"
+      }
+    },
+    {
+      "cases": 128,
+      "regression_control_only": false,
+      "raw_specimens": 128,
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_accept_v5_raw\\capsule_coverage_65_task_driver_accept_v5_s28.bin",
+          "sha256": "911fe0f25d8d05675cab40ad5744c758bb90194fbdcf702b9424135dcb8b4818"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_task_driver_accept_v5_raw\\capsule_coverage_65_task_driver_accept_v5_s29.bin",
+          "sha256": "d57175ae87818b45b7a9c363306700011e59e9dfccfc14c5a373ca8bb0ba012a"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\batch_manifest.json",
+          "sha256": "76304a3ce6bda78f0feac8f5e6343d2c220b93db0cef130fd583afb13ab2ee5a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\capsule_manifest.json",
+          "sha256": "37616d6cd04aeae0887bcf1ad61afa7f2fa2b6c9c8e18aa52b427489a45a29e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.bank.bin",
+          "sha256": "ddb9bd753bfbb2be2e76c1d203aff724ed232cef341788771723de745699de99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.cases",
+          "sha256": "57be8dc225dc0ca3d825c698c0643f3fd9b94f7b52691a4ba1a22c3cb813018b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.extra.bin",
+          "sha256": "d315af229bf671be453fea334747c32a9d9266b9b833a333c0db7133094ad5c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.ops.json",
+          "sha256": "4a69fa8d514998ee4d449288602a13e6932d526ad4ae8b1dfc8b9c0edc26b15c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.xfin.bin",
+          "sha256": "df79c744bfbf9925aba9dabd92d696769df07868a7b9c4ea2ea17c908a377704"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62.xfout.bin",
+          "sha256": "df79c744bfbf9925aba9dabd92d696769df07868a7b9c4ea2ea17c908a377704"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_0.in.bin",
+          "sha256": "bb36a99a2d0b7e0ea932054f117e4f576e4dacdc24b368f0a606037b4fd72a2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_0.out.bin",
+          "sha256": "8fd57e8e74d279af2ab71c953bb897d657ce7b6ae33269dfad02ea575c74e35f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_1.in.bin",
+          "sha256": "9fe112bad0dc342e35a6d7dd4f4ba3e4a5a7b136e46f50060d540de9806c7833"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_1.out.bin",
+          "sha256": "de28b414b03233d9e7f6c5ef9dc5695f6a374775860918b3e56f759b2b2fa00a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_10.in.bin",
+          "sha256": "06e01221ca1fdf70f7d048d9aab44c04b735719a23b8e2ec3dadfc6c107db4d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_10.out.bin",
+          "sha256": "f9f18e25cbf3244026a5024c4c81bf6b0787410ec15b9ab4092082d50bc16208"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_100.in.bin",
+          "sha256": "5a8d489e1df0c4bd15cd5d48049b8ee19770f4c86e4cd72179b5c60e5fa93802"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_100.out.bin",
+          "sha256": "fb5cf18d5405081a2b67047e2e3f74ccfd2f84a986466b6ebaa9e6c3aa4750f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_101.in.bin",
+          "sha256": "bcb87b98caddedf5cdf698e8a367cd96f978b5674cbcbee7789403dfa99c2508"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_101.out.bin",
+          "sha256": "a7e99f59aed4d4879e2b419563571db85f309be0f9fde31cdf34b5b874adcb4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_102.in.bin",
+          "sha256": "b75a32f117712e9aa113a43f1c11a9f02facdea0a06f88618f7e05c7a35abe8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_102.out.bin",
+          "sha256": "717427036e8e073db02fe389ca72ccda78b0a7857cc4885bf409a6bf792bb82f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_103.in.bin",
+          "sha256": "c1f0d0683b55ddafb44f9abb3cf999dd995970dbe94429aff1195b245f900a4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_103.out.bin",
+          "sha256": "ab5b8c4c5cfe7cdcd5787bdd798757f2515c485725625baf9a6dddd2d84905c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_104.in.bin",
+          "sha256": "630c2ea976cf3fc58751920afd86a50ec49b067108a0d88eae64cfe021088264"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_104.out.bin",
+          "sha256": "235de1fe7bc8cd41a41ad60d280919e18514ed2f795606971f0b58a28b7a372f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_105.in.bin",
+          "sha256": "ea88ba8cfe1387c57431ddaa1fc9510a8578fdffdb0e6f7e836d982ba152e8b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_105.out.bin",
+          "sha256": "e633b16a93bde4d6188aa9152c7ec5ebffaef6413861833d053897041963825d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_106.in.bin",
+          "sha256": "e3c88379cb818c3a0939c831354cd19706115fe74c8a4004e8040cc65b5b05de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_106.out.bin",
+          "sha256": "65252a1917fcccd9a3470277c1ce355c56bb823c1d288628ff3ab2fbab4d47a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_107.in.bin",
+          "sha256": "3e865a00f1b409fb9f8aff46d742980bfaee11f07f3182364da2b1f5a116e716"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_107.out.bin",
+          "sha256": "c2436477e35ebdb7a33e4070ec9de11ea716e24c7db8b93dffbc9faf1ff1835b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_108.in.bin",
+          "sha256": "7a4af4b74f7480c39a55b2d2e670bb658e708d189d0a409885ad4c0c0c133dcd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_108.out.bin",
+          "sha256": "a2bdae3e8778dbee9d3a76456548bde8ee3bc8497258e6271acef5fe8975870f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_109.in.bin",
+          "sha256": "26c6418e218f4e6c20140219bc87081ed1593b2ea4b679f28e06c49ba5c798f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_109.out.bin",
+          "sha256": "39bfd7eb212f3a3b18a385d490fdb68c377ae9afe8f5f58d6455d8d76455be62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_11.in.bin",
+          "sha256": "202882ba14a44d4c91d85a0b6e45bd4ea917454735d2022663eb80260c7586a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_11.out.bin",
+          "sha256": "52cdfd5257c24167e57724a8a50aa5da980ce2555756fe185e2c8d1025a21747"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_110.in.bin",
+          "sha256": "0a7f2b2810a57ab15731cdf7d5b5f81d4156022365afcaa3c32cc24cee80ce91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_110.out.bin",
+          "sha256": "99ecb5ffc868c3d773af6b3b88fff66c001e518c1a19e77723e0539e0a4aab52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_111.in.bin",
+          "sha256": "ff68bf00f99474f4ec7fa0b5df6affcab32e938c0b6d4cf83be4b0d15f38fd73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_111.out.bin",
+          "sha256": "d1e06bd5bcccfff1afddfef2b75d286a210812def42e6ee01c90d99e756a8587"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_112.in.bin",
+          "sha256": "34603add220b6d874a8cd677f8c56ec32a8482443aeb2f76e51384dd2cef18d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_112.out.bin",
+          "sha256": "43006351798bdf6871833f9cbb58839e350030d0143877dcde93cbf5e04397c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_113.in.bin",
+          "sha256": "21657f679f7e8dd77f0b83960e079d56051f764877902bcd180f5eb00aa2d91e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_113.out.bin",
+          "sha256": "08980d2a492f7511b10ab7937075fa01d13e02d734f2b1ad051aba9165c2a941"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_114.in.bin",
+          "sha256": "34dd54dd3f48d2ca191e07d466d86cef5adbeba0eb32bf857796708a7508aa0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_114.out.bin",
+          "sha256": "aab128b665022a2a4b547bc9c61a6537ef4378f18e0f6246a29bd473b8c19443"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_115.in.bin",
+          "sha256": "c0111b2ca5101dfddcc5759179338be300e82f9cafdc8335c0155497d8b05007"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_115.out.bin",
+          "sha256": "a8514b05ae0dc3d2c567fede8bd3914b0eb8aec7c9814633b7d332b09f0525f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_116.in.bin",
+          "sha256": "7085f91c4b628dc0848ed9cdb4336baa0c765a5a22320dcbb4bf82748d115043"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_116.out.bin",
+          "sha256": "34b4d0311b2179f2feaa2262bfc00eaa2ef9f65dd287dd741912be95e36c85e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_117.in.bin",
+          "sha256": "b4dab948af8798876ae725489fe2aa6dd11260bed58d908666b61c5d87195926"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_117.out.bin",
+          "sha256": "ddf167085393e6a1502d7c2ef8853a59213585c308492bcef5bc23ed2ff93ea3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_118.in.bin",
+          "sha256": "9184ed928916961c6169ee2be21482e2f138220dd067c10f84177abfbc59b764"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_118.out.bin",
+          "sha256": "8d9a15798a8871cb994d14ac4259bfc1337e6e5b65a3f9a04dbae0eb01c2f5f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_119.in.bin",
+          "sha256": "7a4b636769cc3ee92ac0212600e84fea4f41f6791f18fa8137d6f363603b4634"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_119.out.bin",
+          "sha256": "47264e40f087edbca6fe644f3cee9aa1b5880c60c8217c06627ea09ccc63c60d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_12.in.bin",
+          "sha256": "d1f7df65d1c7df6a4e1727d3a46b2f631717b16f48538fae308fa8b0cb3594bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_12.out.bin",
+          "sha256": "ded66ada2db6a1915e3eef36d0226189d0522d9237891df0956a5192e4e3a1dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_120.in.bin",
+          "sha256": "ebcb75ca3deb8859bffa2899991d59408cc632c260d14485800c1d9bffa588ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_120.out.bin",
+          "sha256": "0c548efe1c2ab533a6456f715bb5140c017292df048f07ce24c654e9a8fcab46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_121.in.bin",
+          "sha256": "73961b5351c377f02dd79bc178cda5a065f4c249543fb319a359cd663676c1ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_121.out.bin",
+          "sha256": "01552a93bc07944d95245446e8d73dd1eb7416cf2d66a5d0a06c6c2c880eb4a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_122.in.bin",
+          "sha256": "588a721da67ec6b9eeaba0434fb65f1c97637ddab0a3bb46a65fdebd19232288"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_122.out.bin",
+          "sha256": "716b4780b4b83ac654100b8942f9014a12f089f4e52aaaa16c268a17932d2f1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_123.in.bin",
+          "sha256": "004fd71f7f75ab0bef286394f9c82b419aeab7ee687257c4ca8b75fa33e17f38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_123.out.bin",
+          "sha256": "bed019d730c7137111df2473f68be48e7767dd98f2a82c533a83e117a662565e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_124.in.bin",
+          "sha256": "52288848c9e09e0e5715c4facfb8d99590645592fd44f50aa826f773b67c8a66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_124.out.bin",
+          "sha256": "a3f27cb24c125570bb7b68f8b86df7dea06c22b4cbd4bb899841a9d437b0cd5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_125.in.bin",
+          "sha256": "4db75c7da87cbaeedf1dde88808e51f543da7d87511310c1696bcb6e5c5e9402"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_125.out.bin",
+          "sha256": "101348d5dbbc401b75949e4709d5f91fb1739ffd2f587eb9e1a336ceb17d794b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_126.in.bin",
+          "sha256": "f0d2e0badd09288164fdc9e325e75dc35a112d9d5037bc4cbca9c2eec2731ae4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_126.out.bin",
+          "sha256": "34c5a46305d2ed5df175dc40dbe57a2badf37a1295000038073fddf94466aac6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_127.in.bin",
+          "sha256": "f6547d1777e0f02f96a661e2ab3768dcc0db7a3eea94bebf5eab8a0fb255f3cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_127.out.bin",
+          "sha256": "4793bf3150cb1e68feaa93d880743d14299f0c756f6eb5f276db1ec8139b5582"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_13.in.bin",
+          "sha256": "4876adfcdeb44b1fe71db3f8947293f02bfe526bca66456070550d02187975ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_13.out.bin",
+          "sha256": "5a504cd79631e37863939054e7ebeec02b98ba426efd8a428a6befcd3aef142d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_14.in.bin",
+          "sha256": "9038eebe0484e9757293f702f98a979d68d7f1f5624fdcfeca46e6deb22ca7ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_14.out.bin",
+          "sha256": "89ac7738a1f6ed21962a774dc6bfdafdb6d490080186e4835b1feebfb34e4d70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_15.in.bin",
+          "sha256": "0ade164ae0a55c2f3497a3e37d42dfb97d7fd4b5294d783e214818abe48285e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_15.out.bin",
+          "sha256": "f465d8a8ea673a945c5c4e9af338c13138a67b405721d8ba99c2b0f4721d1bc9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_16.in.bin",
+          "sha256": "f17d506281c6ab7f44fc56035f9b0357ea7876f7f2ce7a9d261a3eafb58c733e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_16.out.bin",
+          "sha256": "258e999bf2658a5b1ab71b430412be66413df76d78e0c568a1d6c24845622229"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_17.in.bin",
+          "sha256": "4edafb0c799dfdbf2cba383831c600b463c673b5dddcdb6a79760e8570f7de88"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_17.out.bin",
+          "sha256": "823146fd515e886ea6ab3b4ba2f35b58c41ab8e549f452b6ba13c5a0eab5f3da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_18.in.bin",
+          "sha256": "bd7daf8a2e722f5821864d0eb676aa9f8569046f07399bf77cd31b723a643f44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_18.out.bin",
+          "sha256": "46ba9954c7553674ccec2e55af0c807b9f561152b7258196024898233c5526fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_19.in.bin",
+          "sha256": "ed305620a40e32c50f283d839654c2c8c2bac283b7e747873ab4e5890a3affdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_19.out.bin",
+          "sha256": "b5520e91a4566d4458486c7dff5221c88a0aaf410f19a2a07163d3d19fd1ae8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_2.in.bin",
+          "sha256": "f91d2c21b6b3ca66f4828ca9c0aa1a111dcba75c47390cfa448764d3d9efcc04"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_2.out.bin",
+          "sha256": "a969542c118a94f2b6072bec9871fd6fda26972ef0d89a39cda7d44a019f0ba9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_20.in.bin",
+          "sha256": "a18910e2bcc9f723b3e7a6f3bb19ccbf9a19f349e473de9d1ab0e5bddf437323"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_20.out.bin",
+          "sha256": "efee68639cf42c5aa18f170d461be43176b091364a0ce1e5b81ec3e0a5ee322c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_21.in.bin",
+          "sha256": "47181f78541909cb864c64cdc9d21b82edecbabbfce2aa0ef0e828d5f9c32b38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_21.out.bin",
+          "sha256": "468c60726aa43d501fdcbcd50478aab4bf5c38c495dd6ba5afa97ee77941fd2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_22.in.bin",
+          "sha256": "528a6bc55979cf53cba6c5c0eaa27a45802c44d58710468865f59afd2bae8e97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_22.out.bin",
+          "sha256": "7ae17171a472320d447e1794c4b6b590dde076f5d2cae62f1a5574bd9f08a007"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_23.in.bin",
+          "sha256": "d54055e95d7b2285993a03515b6381c3f79b7ba8941d15a56a7cfdf416e53c52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_23.out.bin",
+          "sha256": "eb815f71b33dfc5072520f3bd9db9b20e4a8fadcc7c3cd677ea188eb96d96299"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_24.in.bin",
+          "sha256": "83235895ee12c9a687a5100743366d3f3f35c24903e449a0e1c4d9940a53ee3f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_24.out.bin",
+          "sha256": "4811501ba910d2392a336c876b2d18dcfaa6c24d0a39f838935f7459d2ab3898"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_25.in.bin",
+          "sha256": "30cd8bf08d8df3d9fb9a170621caca163e678bd3de7cdf23dddbcbfb97f223ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_25.out.bin",
+          "sha256": "3bb1271da35a3899887e3dccc620e6e9bed1a1cbdc702d8750949cf2428e5d5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_26.in.bin",
+          "sha256": "3d0cc1542e64226f98016aac4bb14bc54db758e07493685672506930b8de59cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_26.out.bin",
+          "sha256": "33a738b02610d59da112c14f3fda82430ba35b10ebfa12f9a5d86cd7af43d5bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_27.in.bin",
+          "sha256": "5a6f53a13204501a32f8fed7006a0cdb89ba307beb5043eab172ac3e386d4f95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_27.out.bin",
+          "sha256": "7dd78a3ecd17eecf6cc8df03fa01ec5f8153b429c8a735d54542caf64e44e495"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_28.in.bin",
+          "sha256": "34d1a5d5ea56b27dda6fb75e038f1e1b5a71c642d8cd76975e7e42fe13171efa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_28.out.bin",
+          "sha256": "bfdc642251f438c08abcbbca2a2f2a70c2752a96d1fd2a9efba8697b889df21d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_29.in.bin",
+          "sha256": "6a0796f277090c92771fec15dc025f2bcbf7f8574c427febad4aeb411b8028b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_29.out.bin",
+          "sha256": "7b6fab0562d9d86c035e4e1b6e3b8288df52995085183795a8cafa81840feab6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_3.in.bin",
+          "sha256": "5ff987a392c9720de7509d0a0b05ca531e3c5544a9ab3ab6e845ebe4d313bbac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_3.out.bin",
+          "sha256": "73f27061ff03a5f2fb3abcf50d7381eee513326e005e24ce43da3bea266a02d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_30.in.bin",
+          "sha256": "989840739dbc04b2d72abacc1f4f363d4f037367a1019f7d36a07bf777c01685"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_30.out.bin",
+          "sha256": "9bdade7bcf399d25f5eb8306e113117b373bd6471768126216fac8e610862b1e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_31.in.bin",
+          "sha256": "ead17d5630ffe222c32d344707db5c95834d029c062b4abed5a5b127a5b15475"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_31.out.bin",
+          "sha256": "7ad5df5b107b032b0c4835d829dd978fff2873d6290fdb2d0264b1ad6a8dab7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_32.in.bin",
+          "sha256": "74cb72f4c4fe33b4887264b2627b5c9da7aa3d2d86fefa39a266f991bdb376da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_32.out.bin",
+          "sha256": "ded6cceedb991c871826bc574e75f747c55dda32bdb702bb76f388917a182567"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_33.in.bin",
+          "sha256": "d1f6731d29b14d901bb5e465556705e63c4018eed3410f358ce3d96ecca0a17d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_33.out.bin",
+          "sha256": "5818e951c0311ff846776c152ec1844f01bbfa0fd2ba7ae356b1a94fe007a318"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_34.in.bin",
+          "sha256": "9328ef5d49076aca8ba2f7dc3d4387fe190c38ed6b570ae1f60a510dbcbc322b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_34.out.bin",
+          "sha256": "3801aa09468ad5cb889ee997deb4f7240c5cc4a32d1a57b33be9bf4b8c5be213"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_35.in.bin",
+          "sha256": "25959e99d74161c25f0c94a016057dea8eab8b91248d3f511bc2849da5fbc583"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_35.out.bin",
+          "sha256": "80a55dc06743213ac6aa372c9553fdd4462f8f578b695069e0f125439bef2974"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_36.in.bin",
+          "sha256": "d30eb5e52ce5f363792b98fcc94828bc5ea00cb732d68544e9d87aab88f0db4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_36.out.bin",
+          "sha256": "71f987cf914241f4fa4e02b761bd354bd783c13721d64936074ce29d89efdfd8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_37.in.bin",
+          "sha256": "7d3075652e0fd1c9b604188ee660f9a41c4ea59c3b0db3167090e8c8606846b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_37.out.bin",
+          "sha256": "4639fdb9ea52d2faa9973c1ed719c7b0e75f74977bf57b05b6be76c2331fac69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_38.in.bin",
+          "sha256": "6ad42b71b535330d79c673f67d78cd56a7249a95440d465ae512c09ffb708774"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_38.out.bin",
+          "sha256": "a1457f0f27b719d98c5732690f04fd0bbe109c3aa0f0922741854d45bdddcade"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_39.in.bin",
+          "sha256": "db028c9bb53d84956ed1eb14e1b05ecc077e5b1e663a98c536ead0d5160c1a7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_39.out.bin",
+          "sha256": "ac8ce617975e6f4f0ba34cfd846c074d90083bc6148d55255af5cd7a5da91bbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_4.in.bin",
+          "sha256": "07bec69fd6448f49d2dfea2a01181071cddcadd4648cb10ea84a72126a227931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_4.out.bin",
+          "sha256": "8aa405eb023f3ea430c52d6a0fa47b1710a78cb94662761d0482e08829e702cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_40.in.bin",
+          "sha256": "274cc540e27b81fef9b979707939eed435bed8687019c74136b100b69f650645"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_40.out.bin",
+          "sha256": "38eba0e6922f1cefb879be4f3d87a258ccf3485492b0597d8bb022ec02990a44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_41.in.bin",
+          "sha256": "d01c2be18671cbc11119d93be3b31ba2954e8a4f8149cc4c1101fd56deaaa33e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_41.out.bin",
+          "sha256": "1c1608988badbcd8a2fa2e19bf71669005d0f4193d48678b3e2c33d1ec66a8b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_42.in.bin",
+          "sha256": "65a615581552738ad7033f6e9e4b8bbc1cea1b2a5d1bf70914273fb8a4deefeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_42.out.bin",
+          "sha256": "b4b496521b49948e3899de94a197508dfa3e05b45d9b0715cb2a0800fe24b0a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_43.in.bin",
+          "sha256": "e732a517a745682754f2e8f088746f1a695dd05a6807dbc15a17756909af9303"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_43.out.bin",
+          "sha256": "18ffcfd544579bca8ce565cb4aed48f23d41427b1c092d37886132f21ee51ed4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_44.in.bin",
+          "sha256": "b6c55e7c1c16dc93e32ceb38519bd45af6f4cf68881f2a225eacdbf6205ef03d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_44.out.bin",
+          "sha256": "f060efa5859f0cf7fc584bb601f0accd743ecbd4c487b22fc2437ffed68d125b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_45.in.bin",
+          "sha256": "81c2df378cd1f65ccb52b072ffc0a3021f80129d1b0aea61e8bd577d52706295"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_45.out.bin",
+          "sha256": "cd74d15fc2dee8be127c8a6447c3c9a296788aed564b2da24883f62cb5ea62d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_46.in.bin",
+          "sha256": "c9cdb3a6f8368194288ef5a86231ed1fcbaf3885d2c88b264d35661ee29a8b38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_46.out.bin",
+          "sha256": "33b5aca3893e9898bafaa91e84191b61ff0c1675f10b344485ad7a00fdf84370"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_47.in.bin",
+          "sha256": "d1c6fcd3bc765bd61903bda9a2223fb1c9b015bc87f305612154bf5a186029b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_47.out.bin",
+          "sha256": "a14ed0ef86649efae67790f3a8fbf70cf37b03c01eb6c4076e61da53771f26a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_48.in.bin",
+          "sha256": "d150bf41fad28a26b92da9b4cecf408a154d573228f402cdbfea6d6aa62a78e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_48.out.bin",
+          "sha256": "e5b40cd5b47841a467910ef258e7e885b876b969224c9384d9a571583130cc12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_49.in.bin",
+          "sha256": "3984ff13c777f72742fbbfd83da61ee0fff1b460e689bda8e5645b5a004e41f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_49.out.bin",
+          "sha256": "b30073b9fe006d4936f0bf7435d19cc147f5376f34fc90c324b49df384b88a6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_5.in.bin",
+          "sha256": "c75ffcf70d7a4953dbaa74765aea0674d5397cba40f4d3588623af0ece38475d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_5.out.bin",
+          "sha256": "8c8446dda97109fe3527ab71eccb623c65cf1af627bffba6584940d7c7717a28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_50.in.bin",
+          "sha256": "586ee2f2d1da84bddee5ea81eff154f8c41fceb8817553e12d2a86773faea07b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_50.out.bin",
+          "sha256": "f8325d9261635a17a33379956c384d811ac1a0e011bdf13add941bc951f60d0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_51.in.bin",
+          "sha256": "ced74c3b5adaf19129bdd7ea3199c2177265eb93953c8faf738fe63625cd03d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_51.out.bin",
+          "sha256": "538c7a64daecc7cefa66d141a5646aca489c14d64a948ac6b37c721e5c91c1c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_52.in.bin",
+          "sha256": "81c6c175f6a2cd4359476d6b86cdb12e35a703fd2e65797d286452fd46759918"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_52.out.bin",
+          "sha256": "f5fee289be54f5cf21f70fa845d58e07bc96e1d59e8ea3e3b11a28716523a988"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_53.in.bin",
+          "sha256": "fbbdb4f18796561b005d6624d8119c89cd4afe8fc9a62c0b0f2005689d316d19"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_53.out.bin",
+          "sha256": "623b8ebb8f9ccacfe6e61b4f5add817f09e0b8b62b29343b00704e0f0088c1cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_54.in.bin",
+          "sha256": "a99df8c611d207de0f9a99ccc9fc7ab4bf40ca780652f0b407962dd947145ead"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_54.out.bin",
+          "sha256": "065c9654f68357c1a3ea64523ddb14641f4bd332831654111ecfaec0380facc3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_55.in.bin",
+          "sha256": "a6b55bea52c3ad8a5cdfcb71b2d6bc4394d10d463a37037dfe8ec0531e24197c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_55.out.bin",
+          "sha256": "9e592d44c38a00c03dd5c85dda72cd1d8c34d88404903ddbfabac98282a9fb95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_56.in.bin",
+          "sha256": "13a7c26ed4b5baca8b212e59994a3b9d42434c2a46a3b1b2baf650132c976756"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_56.out.bin",
+          "sha256": "78f78077a535614b768a81bd21c02adece439f2da19d805891e4e3cabdf33cc4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_57.in.bin",
+          "sha256": "49320a074837b5457c8bc68b7963c9330896577dc44575c8bf0691175d0e9553"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_57.out.bin",
+          "sha256": "f03a8b6b34b60985d7fba379a7dcc27b4842e2aac924f01b63d6e31ab7d3b9f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_58.in.bin",
+          "sha256": "51cda5f4898bd81d16067cde474fff1b2dcbeb1a0a5d9a5bd4e905ba3f204d44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_58.out.bin",
+          "sha256": "199ce93d3a1e6f293f72f3a351d2d726e00f18baa627b656e6fc1ec92f97e79a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_59.in.bin",
+          "sha256": "0f0b08b21235a75e6d96e9b8b25dbbeef9a6fc60d98bcc14925098ce8db49309"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_59.out.bin",
+          "sha256": "61fc565dfc0c34d4678570520c17418ca67c8265f6476f462e17638ec7e02edc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_6.in.bin",
+          "sha256": "e72f56d3a776017b455dada28c86d0691ed98835645ee600b977cf0800056815"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_6.out.bin",
+          "sha256": "ef00c1d4db5f6502a78eb92fc98fb1e0e398b93d0265ee71ada8cd3ea565a9b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_60.in.bin",
+          "sha256": "bb36a99a2d0b7e0ea932054f117e4f576e4dacdc24b368f0a606037b4fd72a2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_60.out.bin",
+          "sha256": "8ab020224d3fe0fbe1ce8c3e7c1e261d1c974b67e8950d3ae343091791c54910"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_61.in.bin",
+          "sha256": "9fe112bad0dc342e35a6d7dd4f4ba3e4a5a7b136e46f50060d540de9806c7833"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_61.out.bin",
+          "sha256": "84415bc6b98cdf707f627e5eca1390f4f08d8c436674037840c90bf33365bab6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_62.in.bin",
+          "sha256": "f91d2c21b6b3ca66f4828ca9c0aa1a111dcba75c47390cfa448764d3d9efcc04"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_62.out.bin",
+          "sha256": "608dc5306af923afa7a9e2db0cd1d22eff788918e0b794ee8e2b5f6130094ac0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_63.in.bin",
+          "sha256": "5ff987a392c9720de7509d0a0b05ca531e3c5544a9ab3ab6e845ebe4d313bbac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_63.out.bin",
+          "sha256": "6c232be71ef4423278994e7bc9d4907be2ac15c5cb575d12910bf8353518e0c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_64.in.bin",
+          "sha256": "6b525e32da3bb9f1049ec3ba5fcebfff23a7d51c0dc30869928d522fad0a40cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_64.out.bin",
+          "sha256": "1c27431626f96e838b3018372353c58f98dfbfbf44699ccb4af8ab42898b3cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_65.in.bin",
+          "sha256": "27719b610723ecd22c0393434c15ba9730593317b6080a33a26e4e59de990672"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_65.out.bin",
+          "sha256": "205bed73e6683d1058af145668781c5f55dac3dd2cf69547edbdea75a9a3c47e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_66.in.bin",
+          "sha256": "36d7d9c5e02d0e2b65a92882995a3bdd6a095773d83e07b4dd6e92e20af26084"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_66.out.bin",
+          "sha256": "c8572a15d4ef484028d05cc0793c4f43a7968c1bec0c6fd1834c36a4f1042fef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_67.in.bin",
+          "sha256": "b6109c632de2e1a9f1eb56279e179f6d2ba34a713d38930c136f9b9d3a943b99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_67.out.bin",
+          "sha256": "571aa7d559d106b9e401c45616b07b8728325e4622ed3453b9deba829707dfe7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_68.in.bin",
+          "sha256": "4b52d7b1afae615a6c40300e7d3b442e114e94eeab5abe90202d95263cdeffc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_68.out.bin",
+          "sha256": "bc48522d35f973a25f0349413ec3853e8e3ef861a9f3edd28f2f91deb3a6fc6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_69.in.bin",
+          "sha256": "e1223a153bfbe9b6624eaad87c9c99118109e2e32bfd0ccbc9ff27e81c795675"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_69.out.bin",
+          "sha256": "035e28c316f24b2ca0b54171f1f764e06eeff2d053bad2f0090e4b211f4173c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_7.in.bin",
+          "sha256": "66ea92529242244b74274988c2d3c63652152ad494778c686bdab2f6b4750dae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_7.out.bin",
+          "sha256": "285f95a95eafd0e58edffccbd4d6ee7b557349c8a61978c2c16f7a0497ecfff8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_70.in.bin",
+          "sha256": "ef4c3dfb4b5b3f8f5d9a7bdb12b646abb91eb8c72de8e2c3eda970fc19340836"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_70.out.bin",
+          "sha256": "0d020ef8296b983de7aa8badc07047a0f6e8ba38f0a78b0b64a49481dbb18203"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_71.in.bin",
+          "sha256": "0d3591a5b87c067e8e1bb8bee5c7f64c3f6ac7c0758dcc50ed2efa0dd12443d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_71.out.bin",
+          "sha256": "2f5b518cd7c2f32120b68e737bd9a905148aae48c5496f1c85a473d1e5d857a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_72.in.bin",
+          "sha256": "9e4e9e8d34784cd34c51cf6129c64c3bc6c15360448a1e4c9b846133fa7a4e18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_72.out.bin",
+          "sha256": "12a463d5dfd06c061e18dd6a484a30215756617a3211a6609734b16f16ad4468"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_73.in.bin",
+          "sha256": "f75b38910f575418fbc6cb6a8320cae4c0a95393fee028cd9679d0dc4e01eed4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_73.out.bin",
+          "sha256": "90d5b7e7770456840786de2807ea522bbe25e8977343d3f5b9cbc41288e62e02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_74.in.bin",
+          "sha256": "8b0054fd632728580afd31d75ed3e34903deb10a2527a7404e1b3351dbb1880e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_74.out.bin",
+          "sha256": "0cd5427e435e27622618cd2f05d504a0dfc0eafeb41dca0d03afca361aa110f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_75.in.bin",
+          "sha256": "f59414698c47f73f4552aa29ca7743139359f87170b42ee2498fae3d971fd541"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_75.out.bin",
+          "sha256": "ea4af3d2804dcb805f5d22c25e9564223fee4ee701c37f845ff6e1b8ed3992d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_76.in.bin",
+          "sha256": "1cccbf0fb5668aed12d57aefb4c5f53a148f616eb0264582330f24e158f8f807"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_76.out.bin",
+          "sha256": "a969b64b825237143903ac6b6b386404f83668336481fffe1326bc09df2c0115"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_77.in.bin",
+          "sha256": "bd36f44789815920514840c98a79d30833689ed6ab5c77699d629b5d2d460820"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_77.out.bin",
+          "sha256": "74c7b14afaa9906e52ae946b6e4a7a2b510d8e0bdfb3ca34375588c59a081115"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_78.in.bin",
+          "sha256": "0de16bfdf1bb60e6d3ccfe0dce402ec5a1879f61ccc0f5d63d9cbc50c1c1a454"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_78.out.bin",
+          "sha256": "a81d885f684770d3028e7fd0e5fd438d37c4a24e581455d5ae1fcea25908efee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_79.in.bin",
+          "sha256": "10e246aaa5b0a4279c72bfc9ee586ddf9323a8d565ac4a2ea3c96907f6c3f633"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_79.out.bin",
+          "sha256": "9f70845dd2b58cc460ec4ce2150d41a9c681eb8e744ea55dc45233c50b085add"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_8.in.bin",
+          "sha256": "93f341e6f7c4a8ef88e31f78acc77a30e63f5e65774d41095823c4e51a620d08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_8.out.bin",
+          "sha256": "7581a6e1dcc440b0594fa88a3fbd2d6055085f1e2873ecbfa2106510bfaa069e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_80.in.bin",
+          "sha256": "462013a5f690bcfbec81b10017e89d3048fdadf2161b3e574e38605ba6f8ef6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_80.out.bin",
+          "sha256": "881e7029ec3c7324e75eb68334c01fd24441d2aeb1de5fed3f089b1387ba3e1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_81.in.bin",
+          "sha256": "622002da510a3fab511d83e6eadfb9dc493d7716468c0b353b67083ea2182f09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_81.out.bin",
+          "sha256": "d1b24530f9d30ed644a1b1ca360c7aad0a31379c0517847f6a38caab420c0d52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_82.in.bin",
+          "sha256": "4a1f9cec9621a653399bfb01c3c0e698cbbb288e06f3379cefe62f80183c0f0b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_82.out.bin",
+          "sha256": "39ccc81c3c0abce630079c1a426126ebbbdb6f480f0e6d7644582064bf5da73f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_83.in.bin",
+          "sha256": "7671e12d2ff3f1ba7d51cb3e225bf24cf496751011805221034bdb8dec7c9f8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_83.out.bin",
+          "sha256": "cc75b50cfd9bae4e4ecbda1388512b8a794890af839965c02f2b715907b98177"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_84.in.bin",
+          "sha256": "5d87a6ce0407040a7013d79d3339c44b18a753849f9cad13941a52cfd3ebcc59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_84.out.bin",
+          "sha256": "a65897d0a87cd0461e430c914791e80ceeb507e8cdf881c7893c78c4854448c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_85.in.bin",
+          "sha256": "2e2e40209853c43706be51ce1b73870c907367b9a8784e5003b0e9cb9e19522f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_85.out.bin",
+          "sha256": "716dc950bc019e4f9a7df3a7c74893d6144fd2b047db69ad0a47e93262c3d804"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_86.in.bin",
+          "sha256": "2c20c1778c4862e89f9d5f24ce3e87f6062e038d1e4ff7324d91f61651497648"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_86.out.bin",
+          "sha256": "d529906f445accf8650ec24db952502b5dac8e4c21cb6e4bde0f265be04c6b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_87.in.bin",
+          "sha256": "a40809307a14986084e97bca65fffbf81254cc038df4892a56a2688094dc560b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_87.out.bin",
+          "sha256": "6bafa3f70df8c952b7283869585249f21bb164f70bd7abfd490881f1a7f13a5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_88.in.bin",
+          "sha256": "4ffb2cd0bdbcbbe27c7a2fa1ef39b8f1cf39dfc98dde193cd5b64088b3a582c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_88.out.bin",
+          "sha256": "d6af10c31fb0de2cfa202979dbec0d42a46b7dc1e05009cfe3c2738fe587a876"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_89.in.bin",
+          "sha256": "474c6637f9d88f47eccd6baaa4afd3aafb7116fe536156cb6f0363756e982845"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_89.out.bin",
+          "sha256": "3ea9c74dd4b3abbd98fb61727abc47ffe27b23c16006ee9ffbd5e13cf37a7b49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_9.in.bin",
+          "sha256": "0e2f93d57eaa71f2ea4fca6cd4edb0dd9e7e9d9c76542227273766711d64cd53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_9.out.bin",
+          "sha256": "ece7f11d11ea62511255501648d2df365f954d4412934a8f693521d1ae528126"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_90.in.bin",
+          "sha256": "b5affdef9007d97e4612dc4b7a5ecb0e772471514684822db6e3b3b7ed3d82ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_90.out.bin",
+          "sha256": "e61f0dc16c57d16a074f6f104cdea89f5914f20e81b4c7bc2c773cafcc6106bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_91.in.bin",
+          "sha256": "05786be9226a72faac91d7550ef9722476b57533e1f37f05c1f3d4af1b1fdd78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_91.out.bin",
+          "sha256": "9ce1fdc42d54b58c2050ade88f45fa82cbde45d50a00d4c4e390cb66e3572280"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_92.in.bin",
+          "sha256": "53f262289538ceb04fe3d06ad197740cd74804f0c6551ca482a9b96a67745e9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_92.out.bin",
+          "sha256": "fd4bd86da7423e9efa2cc20e293680f4ea3d5e1072c8e22dab4bbdad3f1c9668"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_93.in.bin",
+          "sha256": "6738db92bfd7215d41fbf2b7e5b3a81b02ebb20e69239578bdee5a4378ae8887"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_93.out.bin",
+          "sha256": "0f3e1e505b865d4d1123bcaf0336b5a81d85e7744872452f125efcd0dca79ce0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_94.in.bin",
+          "sha256": "db8a0ac003cd17d0d633b3bf80facedd89fdff910f234a5153e93a325d20709d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_94.out.bin",
+          "sha256": "f5620fb78c17781cc627782d651db220279641824c563d5f50071566714461a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_95.in.bin",
+          "sha256": "c54083137d4fb69e2767070ed1e0d802f1047592766f205e15cde7003808f93c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_95.out.bin",
+          "sha256": "952aed4ced09a26517439571f36e2273e1202391913abde426e62aba2062494f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_96.in.bin",
+          "sha256": "81cd6e603ab4eaf55d52ed64eb86cf12f32769ffca8f6a22704a3e70c4d127ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_96.out.bin",
+          "sha256": "8843fa8e3bbaaa7ad5c61d0d6693fbc86919cc73e0cac4e1efb75d3b91933061"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_97.in.bin",
+          "sha256": "f7cb0f3f82dd8537440c944b1816a8420e73fd2c5b15c487ced6ec4c2d63317a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_97.out.bin",
+          "sha256": "a19d153359da22ddc7340c40a211c8ec28f23502da1534c70f4583a264ecf8ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_98.in.bin",
+          "sha256": "0516cd2307748deae8f0788275028ddc0860d51a82c0930de5a495906a79224c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_98.out.bin",
+          "sha256": "37275a4feb6f11ccc64ffc7487a3b54ab76472799ae51d6b2fd22e4ffa96a912"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_99.in.bin",
+          "sha256": "9e44df8b320b60f0d0c7580fb6904f4febe086756024b18530bbaa214a85b6d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_task_driver_accept_v5\\f_8c04bd62_99.out.bin",
+          "sha256": "3c2f33b7380e5fed0203e660f9664604558d85fcd5a3fefd8c246280fa45bac2"
+        }
+      ],
+      "native_report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_coverage_65_task_driver_accept_v5_report.json",
+        "sha256": "888dd5d9c2d54eaf65cfd535b5003e9b60fd1b65781f7ef90a471d1233766ab0"
+      }
+    },
+    {
+      "cases": 1,
+      "regression_control_only": true,
+      "raw_specimens": 1,
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_active_lookup_v1_raw\\capsule_coverage_65_active_lookup_v1_s21.bin",
+          "sha256": "7ce6e051f94b2eac9b66bfeb1a833cb8678762c1e393dab3e2b5cf76afa723cf"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_active_lookup_v1_raw\\capsule_coverage_65_active_lookup_v1_fight.bin",
+          "sha256": "21d3ede9adaeb19d9fe422eb7f526364755f0bd1e1d7bc90cbd264993ef29907"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\batch_manifest.json",
+          "sha256": "75bd9cb13989c1153d3233c2661dbb098c9e8a0d880a9d6d3ea91106770435a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\capsule_manifest.json",
+          "sha256": "2822f5517418ab0ec4e5d03f035e7aab75351d30360f0f1e5bb616ff33778bea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.bank.bin",
+          "sha256": "1d15d10fbf4f6047936dd78683d9d60f0f35a674739db59f4e4db2df79b07335"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.cases",
+          "sha256": "93cbbf576a0c83bb152775747e7da174def25c78caedc7d0302a549e413324d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.dev.bin",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.extra.bin",
+          "sha256": "896bbe5d455eb6b1024826bc666889ff7f9965342f6c0e0aed7207b3c57884d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.gbr.bin",
+          "sha256": "310bd7dca2226923513553dbeeffae7d5350b48799c586d3442d33b91384573e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.ops.json",
+          "sha256": "6e354744ea622d25203f79837f3e340b8da0728e817010c34a877b228a30f04e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.xfin.bin",
+          "sha256": "5998e9d1dd9bf48af6af87a1ef8c7783b818ac8329637ada08cc5fb329042376"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790.xfout.bin",
+          "sha256": "5998e9d1dd9bf48af6af87a1ef8c7783b818ac8329637ada08cc5fb329042376"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790_0.in.bin",
+          "sha256": "94c0e7597e492af3b1755d7d4739a461e2988ccf62e71f29eef5b979bc83f5b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\f_8c053790_0.out.bin",
+          "sha256": "c4623511b9729b86c6c9b7876aa8fb25111cba779725cff9947da2afb8263070"
+        }
+      ],
+      "native_report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_coverage_65_active_lookup_v1_report.json",
+        "sha256": "b6c8435f975a8d4716c0db33c59c000a334073b05bac88ad3e39b92c852e2c47"
+      }
+    }
+  ],
+  "wrappers": [
+    {
+      "original": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\manifest.json",
+        "sha256": "3673b16ebca76459b65a9168356a88d55a34c5fcf5de2d14be0306b6c6d315de"
+      },
+      "fpu_banks": [
+        0,
+        2097152
+      ],
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_21_wrapper_0_1.capsule",
+          "sha256": "5b850c156e3816ad36ef41dcf6818694a81e669497f3340b5bc44c99e0df88b5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_21_wrapper_2_1.capsule",
+          "sha256": "698a8b9d3b5990c91d06c0320bb64b42e823e0453f3d39c652bc5dcafd785e1e"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_21_wrapper_3_1.capsule",
+          "sha256": "ebf8a797e7ada699af94a8d8fa764861076534df8e0db2bb8d7c4f98d46c2059"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_21_wrapper_6_1.capsule",
+          "sha256": "ffb19df2601d9d18066f934d642dabb9073f4be227e9d476668251dfeb5e26c8"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_26_wrapper_0_1.capsule",
+          "sha256": "96f5f3409af95ea628dd1b68213c270c4fbb1d868c471a5ddd8e2a98c4d61a56"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_26_wrapper_2_1.capsule",
+          "sha256": "a9c13c0565576dcdee66c6e7694eab8fe3bb0421889c71e9a689cdcc344696be"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_26_wrapper_3_1.capsule",
+          "sha256": "afb44eb50e64b08e58f36c91b59a3609c770bcc624f6a88534f768dcd04db016"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v1\\vf3_26_wrapper_6_1.capsule",
+          "sha256": "c76921eddc1338e866f2bc6fce1b3261ea28993d70829eee328b7dfcb5846c07"
+        }
+      ],
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_task_driver_original_wrapper_v1_cases_report.json",
+        "sha256": "faaf7c3dd14b54fe41e24fbef9073eb12212fa844df4128dd2a383357ec7a9ac"
+      },
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\capsule_manifest.json",
+          "sha256": "d9783018410a308f30fe841f26b7085605f6cf5ae2a3a57278a54958e9f65877"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.bank.bin",
+          "sha256": "06d928c20d83e6a0844eecec9ea66a4a400dd8e7b8515f97941ed04290ff963d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.cases",
+          "sha256": "c2626091d24a3bac0dbfdcfcc87287341f003bdc85d029cc818d96b7de2ffd18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.dev.bin",
+          "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.extra.bin",
+          "sha256": "be2374622ff16d4df23e3f3bc4a0da1a6c9a3601c8a81a5d5e585ef029f63e9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.gbr.bin",
+          "sha256": "27387af9e12891c79ea0d4cd5563dc9bc3d8bcaa38ccc3818d90032c7aae9a22"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.ops.json",
+          "sha256": "b2d7671dd7cd76f028122273a650f95d19370d767f2098a31ee3dd0fe7687931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.xfin.bin",
+          "sha256": "9b9ac5fb7687147bc981140868127124a73d73c38c9098101a9c5eb54380af4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c.xfout.bin",
+          "sha256": "9b9ac5fb7687147bc981140868127124a73d73c38c9098101a9c5eb54380af4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_0.in.bin",
+          "sha256": "1d51cfb6b651914c14bf0df521b14c122eabd396a5f580eeb2640070cb495f2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_0.out.bin",
+          "sha256": "163eee8f864efb5bd239d3e7976b9bafea03b7e3cb3dd538bba8b93962840bf9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_1.in.bin",
+          "sha256": "e194e1a8c8c5d0c65ffdb2885bd1813aa8eca41a248d9ba25c5cce2505579685"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_1.out.bin",
+          "sha256": "b7cd36498f0220eaf752b01c824b244932e529cd1e190a77afd1aa5581fe3799"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_2.in.bin",
+          "sha256": "3efa63384b9ce4cbe14b9b6908e9647f4d63b3d9aedaa594f8304df9d1857ce6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_2.out.bin",
+          "sha256": "90cc92d492b61117eeb86aca5df49ef886beed1f12710e90141386612500e306"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_3.in.bin",
+          "sha256": "efe8d1a8b1d785e40f9b8dc8a9ca5ddd1289c448300ca61ab82a4b731d18d02a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_3.out.bin",
+          "sha256": "3915b8bff6f9fd59d82f2d97071aa34e551027603f8e41cb3dcc810789dbd0f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_4.in.bin",
+          "sha256": "7082d3470e4307b2a6fe0bf0ecc18aa3cc121a848d5bbacd80e5d1a85dd40497"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_4.out.bin",
+          "sha256": "1b58bbff3437f69686c330302d033961b713911377217a6e85a4622dfc26f6ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_5.in.bin",
+          "sha256": "6f2c6ac5e764601741fc758369313fd498e699d61189533a21e33760782b0538"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_5.out.bin",
+          "sha256": "da75f9e9984325a1bec17d192df46bb4d38148bd4791f3aca16cc631ba47de0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_6.in.bin",
+          "sha256": "7b9bcbccfc971ebcf018f86e61345ba1a6da4e28f7628ae2a75c10a571a31b3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_6.out.bin",
+          "sha256": "6549c206999e40eb11aba284c2e3e0d2166bbf2707155e2aca4a497624df24ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_7.in.bin",
+          "sha256": "f1eeb7d268c296e1276eacda1868580ad4df64d9ed3804c8f590ee8498af157c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v1_cases\\f_8c053d7c_7.out.bin",
+          "sha256": "5c9ea3a8f79e3e617b7e7cb3a6f8f1c9b5f563b53c687e0cf29f98d462721eba"
+        }
+      ]
+    },
+    {
+      "original": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\manifest.json",
+        "sha256": "2a00db7cc63678928c47977116403d8bf04594ad57a88bfa224b22902dc9e812"
+      },
+      "fpu_banks": [
+        0,
+        2097152
+      ],
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_28_wrapper_0_1.capsule",
+          "sha256": "bf6d07875a3a0ba0489d673a5000eecae0d12169538d9e7f591695e33982ee8c"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_28_wrapper_2_1.capsule",
+          "sha256": "2ecfdb54c4a66c5fea3514bb852ddb9adf3aa9e533a3b51d1fc62b940cfc0d48"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_28_wrapper_3_1.capsule",
+          "sha256": "33a7ebcc033341fcd75d1d27bb118555855034304e5e9b00ad97b2d3a0895bf8"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_28_wrapper_6_1.capsule",
+          "sha256": "f59254972a77cc284853a785e596f8fc3c1f1060a7bbdd8878190ff8a8805740"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_29_wrapper_0_1.capsule",
+          "sha256": "b59923aa960a6633f6685d9e09e277d8fc9cedcd0090c0319fe7dcef97ec3e98"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_29_wrapper_2_1.capsule",
+          "sha256": "081e00cbbb9124b5eb519c0b23ddb428efadabff644f2ccea647fddad3e3c028"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_29_wrapper_3_1.capsule",
+          "sha256": "81b60faf4d414a5fa87c7b82daa4e8bfa8ebaba56edfa1aad886d60bd5af7ca8"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_original_wrapper_v5\\vf3_29_wrapper_6_1.capsule",
+          "sha256": "a748b2ca3926f7cc5059b91908b6edc80c24ed751b66af035d7f08e7c181e75d"
+        }
+      ],
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_native_v7_report.json",
+        "sha256": "e3c40377b4fae265254a8fcbd6c3f96d00e212bfa787b3a66592b1f01e8e87a5"
+      },
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\capsule_manifest.json",
+          "sha256": "86d8a2645da531eb743e8ca416bfa1607648c863df8addf3f3ac88c3e8aa73d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.bank.bin",
+          "sha256": "815f95b33c70c5283286149f82a4b319507d5083c729a611c1b9a435b0070564"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.cases",
+          "sha256": "f1383ca8f1e27c4a597267d22fdb44c86e9ca7ffab98ebea6d0425d0c4f370f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.dev.bin",
+          "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.extra.bin",
+          "sha256": "b15b29eb20e812c9f886b3d8588c6ff8b695df03140387e60f6e14a707372492"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.gbr.bin",
+          "sha256": "27387af9e12891c79ea0d4cd5563dc9bc3d8bcaa38ccc3818d90032c7aae9a22"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.ops.json",
+          "sha256": "b2d7671dd7cd76f028122273a650f95d19370d767f2098a31ee3dd0fe7687931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.xfin.bin",
+          "sha256": "92064b24fd2792ee4f7f5703826541c374d31f5e17c98b027b5ee13c9d913c26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c.xfout.bin",
+          "sha256": "92064b24fd2792ee4f7f5703826541c374d31f5e17c98b027b5ee13c9d913c26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_0.in.bin",
+          "sha256": "24622d3d36c8b6dcafa13738a44284b277a5630297e5f09dddf5248372cd2e15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_0.out.bin",
+          "sha256": "d8fb15dee64c68ce52d6f97041e371e8818921304a2f8e98afe071aa0bc49e93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_1.in.bin",
+          "sha256": "a48e4e683edf1f52b8d6ed7def8d7e3fc6c4386a2deffb0194d54e52a32e08fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_1.out.bin",
+          "sha256": "a91c8048600cc2dd4892e671fb8a0db6952e01dbf12c5da22225937aa621eaac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_2.in.bin",
+          "sha256": "b497358d5144fe3c068871148afcddd4f0f6a1d08db7b2b3bab159c39ac02296"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_2.out.bin",
+          "sha256": "a1839b9f267cda9af3aa0fe4c4bbd465efc4b3d1ed711a34f50be5c76d52fa41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_3.in.bin",
+          "sha256": "b7b097c5cb27861d0584cab8bd0aa7f9a4b40136433ea6013e5e3a2adf6f27dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_3.out.bin",
+          "sha256": "7b051aed9aa917b24a9fac473dac6953523e5fc612958c4111b64df6da1aad08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_4.in.bin",
+          "sha256": "24622d3d36c8b6dcafa13738a44284b277a5630297e5f09dddf5248372cd2e15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_4.out.bin",
+          "sha256": "431a019950a247b5cd5a1c0bafddf546a00b6aaf767e12db4b67b3323b4ea66f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_5.in.bin",
+          "sha256": "a48e4e683edf1f52b8d6ed7def8d7e3fc6c4386a2deffb0194d54e52a32e08fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_5.out.bin",
+          "sha256": "92fd39e4d4747ea6499678444525e27928b4aae0c000c05031e6ef7087f387d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_6.in.bin",
+          "sha256": "b497358d5144fe3c068871148afcddd4f0f6a1d08db7b2b3bab159c39ac02296"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_6.out.bin",
+          "sha256": "d91505f16bbf0aee504c6b17c898cc9e7fddb089cde35e29ec5d6550fd5af6e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_7.in.bin",
+          "sha256": "b7b097c5cb27861d0584cab8bd0aa7f9a4b40136433ea6013e5e3a2adf6f27dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_original_wrapper_v5_cases\\f_8c053d7c_7.out.bin",
+          "sha256": "a1f05e25ee393cead58f68521b1084525a3a077b9ce0913ec014943a93fa9c46"
+        }
+      ]
+    }
+  ],
+  "object_yields": [
+    {
+      "original": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v3\\manifest.json",
+        "sha256": "d9ec85349fe65f64bacad33a81082a1f3c680be5135d81035dec452c0ba7087d"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_native_v7_report.json",
+        "sha256": "9b81387005c45de0da7f1db02b8ff66517f3b4d911cc1393dac156043b6b3f6d"
+      },
+      "scope": "Constructed job at actual object BSR; first cooperative yield only.",
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v3\\vf3_21_separate_context_original_object_yield_1.capsule",
+          "sha256": "c1209a4da8db4400f4c1f0695877d75a4d2892cf0875e7da9a327cf243b82f63"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v3\\vf3_26_separate_context_original_object_yield_1.capsule",
+          "sha256": "a7035232db420d77b6277e5468954d3b055bf27f1286fd4e6b73325529c39c85"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\capsule_manifest.json",
+          "sha256": "9a9fc1124d9736e302c4d2d26876a2cde4be189470199648c04adc849425b2be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.bank.bin",
+          "sha256": "052ca35a2a9f99fb6abde56e6f85737c3af1a6bbbcdd0b2f1c37d6e98d052305"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.cases",
+          "sha256": "b177c100d469c5abb45b9bb1316fa373cbdb49911e860bbc8133592680658a7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.dev.bin",
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.extra.bin",
+          "sha256": "331d9c59d4683e81c7b3d78217f800270c202dacc9229c55ef08b238f7026ebd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.gbr.bin",
+          "sha256": "eb9489a50cd2c85ee045dd73e91dbd04dcd9ffdabd207fc27a539c809117805d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.ops.json",
+          "sha256": "6291864f736d06618008fa986a7f05a0299d007c803dbb8f7b498eb461933c25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.xfin.bin",
+          "sha256": "ba8c4138c4cfab144704017e57fb0d69bb65439a7532127280bb17001f2e68b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62.xfout.bin",
+          "sha256": "ba8c4138c4cfab144704017e57fb0d69bb65439a7532127280bb17001f2e68b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62_0.in.bin",
+          "sha256": "75c03e6951b149b4a7c72a9678bf289ed9a3a6d4c8ed4f87b5cd74c14ddb6cdf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62_0.out.bin",
+          "sha256": "d1f8d979f2d8cc211d9bc963883d8e319ca0be444ad8d3c56b1ebfa239405793"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62_1.in.bin",
+          "sha256": "bcad918521c711619a7251e5c905bf9ec526bf8b4911b300a89cd2124d835b66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v3_cases\\f_8c04bd62_1.out.bin",
+          "sha256": "dc9a5373ab53fa68ff16ec0f5e90e6928ebd609c813cf997a4399a7b6d6900ac"
+        }
+      ]
+    },
+    {
+      "original": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v6\\manifest.json",
+        "sha256": "b2d7bd8a321842ceb92f678d8e20a07d38ef8fb241c3a3856a34d02e372cf16d"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_native_v7_report.json",
+        "sha256": "5245b6311b0dc7d760d029f86073caf510793ae0756b0ff7b02492dbd1ffd721"
+      },
+      "scope": "Constructed job at actual object BSR; first cooperative yield only.",
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v6\\vf3_28_separate_context_original_object_yield_1.capsule",
+          "sha256": "64f10f7d8e8f3a17067834a027c245496ade0bed7f17e21991de643afcc7ee75"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v6\\vf3_29_separate_context_original_object_yield_1.capsule",
+          "sha256": "ec5c327ea207bfc9626590c426ac9bb6a3b8ee509c8d351c9264e7944fb03746"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\capsule_manifest.json",
+          "sha256": "79df4f79128d041e9a860984d5d2cb42a2848f114fd6b7c52fea1861b71e15c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.bank.bin",
+          "sha256": "06a58d72c6d888f3f3a2cb7a22cc1aabbf0583866b603fcdae1c25997e83e21c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.cases",
+          "sha256": "fb5ea05057463aafd29cb61e0b98155d48292f201cf0aa84f897dd9ff5377d81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.dev.bin",
+          "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.extra.bin",
+          "sha256": "9584fadcf647b5e387b0a1482214c298abf9d02a1bf12f45e82dc24549541f1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.gbr.bin",
+          "sha256": "eb9489a50cd2c85ee045dd73e91dbd04dcd9ffdabd207fc27a539c809117805d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.ops.json",
+          "sha256": "6291864f736d06618008fa986a7f05a0299d007c803dbb8f7b498eb461933c25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.xfin.bin",
+          "sha256": "4b9a9ed6f52101a872e954c7a5f9df1336a72d9441ffe6998e42ba43f325d57f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62.xfout.bin",
+          "sha256": "4b9a9ed6f52101a872e954c7a5f9df1336a72d9441ffe6998e42ba43f325d57f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62_0.in.bin",
+          "sha256": "a99b384247daafb2f5f1c1b9a112bee417a690d20b0ddc85f402a6b00a838133"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62_0.out.bin",
+          "sha256": "1335a370b2fe8d627156fff5c391f82c83e76b42538a91792b6f6ae27e77e32d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62_1.in.bin",
+          "sha256": "efacf273dc0643ca0992f93de93981b22953f759b82f20e03c6a90fbc257b6aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_object_yield_v6_cases\\f_8c04bd62_1.out.bin",
+          "sha256": "ac244a24ea8c1c3600f7c4b6c6eafcac4a81c814e41180799766027c3564410a"
+        }
+      ]
+    }
+  ],
+  "observed_owner_bytes": 138,
+  "frozen_owner_bytes": 142,
+  "missing_owner_pcs": [
+    "0x8c04bdee",
+    "0x8c04bdf0"
+  ],
+  "limitation": "Driver resume-call return branch remains unobserved; no whole-body promotion. Object probes establish a constructed first-yield contract, not natural startup, subsequent completion, or independent whole-caller qualification. Resource workers use the uncached alias.",
+  "full_regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_portcheck.log",
+    "sha256": "fbb5a2a3a543289b4a1772d13d145abcdfd8b5d04c5e17edc5eee4fec0da9081"
+  },
+  "regression_status": {
+    "expected_bindings": 1368,
+    "reported_bindings": 1368,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_v7_bindings.json",
+    "sha256": "eaff442a8b5e3d06341739d06d6c8db6ba699cc313e10db876d0aba2a2cd7c89"
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3dl.exe",
+      "sha256": "9d0df981841f74c18bd2bf339ee07801d25cb64763f05b9662e5f65dfbebf082"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3walker.exe",
+      "sha256": "d08259fa1dbbcd12ade011662cd52d4c2c3abc9bc6405d5f31b46ce0ce4506bb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3mtmount.exe",
+      "sha256": "d49a0a0da2049574fef94dad07713603f251d29f324c265361ee53498e1c3e41"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3loop.exe",
+      "sha256": "dd549b08e393d77e65886c89c49d41c70037661702bf173fa194907277dceefe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3taskvm.exe",
+      "sha256": "4e69b27a191ab6f18c766dd60d7c483ee85e2db1f7a73d20d1a1ba9218d29e16"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3vm.exe",
+      "sha256": "6956c7fffa64d2df66d4d715f58fdb76a4328c09f80681b6aeb788b6c4143731"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3frame.exe",
+      "sha256": "8d90963e9bcf9f4704451392ae16b91f4fe93ccfa821c3459a982f439ca9e8c4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3libutil.exe",
+      "sha256": "21c6d6e08e5af6cdca0064c363cfb8f00f12c84c4316eff9d745810e9ab779b0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3orient2.exe",
+      "sha256": "aeb3717135782266348992edfea953cc6a6cbd9e3397893505d2746d47d0aea0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3poly.exe",
+      "sha256": "e3fa95ad16f3173e885b0ecbef71e275f62878038d2cf933dc78272bd59d813a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3vecpush.exe",
+      "sha256": "bcdc405a893398e52bccd70460ff6e68114861dc67f92798b34cd816fec2188a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3tailcall.exe",
+      "sha256": "be65e90cfc2e403cb6f0e43463548b313786429abad24884301458accf812535"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3walker2.exe",
+      "sha256": "9b82c2ae0c65b16e6dd549151998fe5ef291e90c2f1b9771b23260d4285fd657"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecadd.exe",
+      "sha256": "d22c2c0e0615a86da1c295d511a204b5286e1021c358c1e7ecf60e356ae3a52a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3scaler3.exe",
+      "sha256": "4335f4477c04cafb99dd1e782f50cad038cd2b42d0913ee30908f1a54debc986"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3frameseq.exe",
+      "sha256": "4b922f9920a8b03e17268a678610ba4b230ecba775e451b6e67106ed01eea1f9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3cbefc.exe",
+      "sha256": "bab3ca6ab2ebd87f4664cffd16dc5c6773194c5c15d148c096eb45f586e71d8d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f040f1e.exe",
+      "sha256": "e699cadbca70f01995747b7bd97b610ced20497e6479d8ea06c63c0103997cb0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f0747d8.exe",
+      "sha256": "1ab9cf49a629c835d8527cfc4a0bb96c9417e2c2f93c465a4cbb3614f5322fa7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f6fc.exe",
+      "sha256": "558c9eaa13adc501bbaa917325b6673b787acee247e7ef80c7594febae3f2470"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f6dc.exe",
+      "sha256": "1deb29dd5056ca7a23dfc31edfb79b44a961d96a0d9e2d55e838fb250f218d8c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3cc148.exe",
+      "sha256": "54fb13098515c8f95d4e9638516e425a38abfa1c3767d817f9ef3e99b49aaaaf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c5dbe.exe",
+      "sha256": "dbb5b526c52716e778dff310693ecde2f9ea27a21885cce4a545e23df9f53699"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3b10aa.exe",
+      "sha256": "da0ecad5c7d98c3eabcb830a0e3def183933cca6584b09575b232f1dcc97468d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c6ec4.exe",
+      "sha256": "e72223884dd17527d31e40f9a6d13f3b579902f3c45fd8b6bc857dc424014d9c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3maplookup.exe",
+      "sha256": "c4e120340bd91a77f03cdd1c09128218237c723a88e132476029803c792feb78"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3meshnode.exe",
+      "sha256": "c109e4c68f77d0f4d60290cda27a78b3d2373dd4b596bfe2a0b5f4e5f74b880e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3d0fa.exe",
+      "sha256": "ae559479c7e261b729a8908b39dcec084398366ef6afdfcafaecc337a62a46b8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c788.exe",
+      "sha256": "85453dcfffebc0a9c66aaeccaa8c4a81dbd11b29dde3a4a2f7a046f9a12ebadf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f096258.exe",
+      "sha256": "3253d5c0174176654cfd5084fd7896d75629dd0628502b16dd9b80199f5abb17"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3matrix.exe",
+      "sha256": "1f4699cffceddbb4bc747d28575148826b88194b055a80383e0cdabcf72e4f20"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3bootmix.exe",
+      "sha256": "5d309682019f2c27da28a6059eb53a36fe0f55fa487ec862c61276964e7a99c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070x.exe",
+      "sha256": "49050f07118e4923e2c431e2faeef7c9f9790e6460ef5a401251ca2bc59604f0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070a84.exe",
+      "sha256": "b05e02fba8f521ea172b1e45388a36bd4934222a83e8cf9d76f744897c512715"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070120.exe",
+      "sha256": "80bce659301c48c43dd792243c2dc7f12ff55a05fa1b8d25f4ce0aa223fb12d3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm07030c.exe",
+      "sha256": "ed3b732199498acbfbdbd32fc8ad89b2878a5f2b4f4cf8e1d8e3ed9b6b764eb5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070cf0.exe",
+      "sha256": "dca356ae6592ca6daeddc7b29e4adbe5a904379bd807e8936310e5b7a25264ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fpu.exe",
+      "sha256": "646525f6072cb7552be2671ff1cc6329d60cc422c5ccaa5a701c2d693658741e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3statehelpers.exe",
+      "sha256": "910f0626d187ba2b19197acdc15f3b5ba86331d02131a25a7d5ca69554b159a9"
+    }
+  ],
+  "bound_executables": {
+    "build/vf3af734.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3af734.exe",
+      "sha256": "71c55c1de9d7328c6017295af91a3c69da6892aa014826709e7afbf2a98181c0"
+    },
+    "build/vf3afb76.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3afb76.exe",
+      "sha256": "1b22675d035edaa8ff3d0e7e0c23163c86775fd35db8bb4c257d5e200300fcea"
+    },
+    "build/vf3b10aa.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3b10aa.exe",
+      "sha256": "da0ecad5c7d98c3eabcb830a0e3def183933cca6584b09575b232f1dcc97468d"
+    },
+    "build/vf3bootmix.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3bootmix.exe",
+      "sha256": "5d309682019f2c27da28a6059eb53a36fe0f55fa487ec862c61276964e7a99c2"
+    },
+    "build/vf3c5dbe.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c5dbe.exe",
+      "sha256": "dbb5b526c52716e778dff310693ecde2f9ea27a21885cce4a545e23df9f53699"
+    },
+    "build/vf3c6ec4.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c6ec4.exe",
+      "sha256": "e72223884dd17527d31e40f9a6d13f3b579902f3c45fd8b6bc857dc424014d9c"
+    },
+    "build/vf3c788.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3c788.exe",
+      "sha256": "85453dcfffebc0a9c66aaeccaa8c4a81dbd11b29dde3a4a2f7a046f9a12ebadf"
+    },
+    "build/vf3cbefc.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3cbefc.exe",
+      "sha256": "bab3ca6ab2ebd87f4664cffd16dc5c6773194c5c15d148c096eb45f586e71d8d"
+    },
+    "build/vf3cc148.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3cc148.exe",
+      "sha256": "54fb13098515c8f95d4e9638516e425a38abfa1c3767d817f9ef3e99b49aaaaf"
+    },
+    "build/vf3cntup.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3cntup.exe",
+      "sha256": "f4c2475965a00c02b09f93730011a618d76943e5a122e30eec7c1d728c6acab0"
+    },
+    "build/vf3d452.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3d452.exe",
+      "sha256": "a25287c2ba890e63a9aff435211b0a5b3724c8d6215a11cc032c42fa5a4c8ea4"
+    },
+    "build/vf3f040f1e.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f040f1e.exe",
+      "sha256": "e699cadbca70f01995747b7bd97b610ced20497e6479d8ea06c63c0103997cb0"
+    },
+    "build/vf3f0747d8.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f0747d8.exe",
+      "sha256": "1ab9cf49a629c835d8527cfc4a0bb96c9417e2c2f93c465a4cbb3614f5322fa7"
+    },
+    "build/vf3f076c00.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f076c00.exe",
+      "sha256": "c0d1b8ab9e398e8d67feb432ab7c3c18cd410430805baace7fa16849a0a02424"
+    },
+    "build/vf3f096258.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f096258.exe",
+      "sha256": "3253d5c0174176654cfd5084fd7896d75629dd0628502b16dd9b80199f5abb17"
+    },
+    "build/vf3f9f354.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f354.exe",
+      "sha256": "7a782079e0994a332f59aae742354cf0d32fc1580498f095dc2796a66212b903"
+    },
+    "build/vf3f9f6dc.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f6dc.exe",
+      "sha256": "1deb29dd5056ca7a23dfc31edfb79b44a961d96a0d9e2d55e838fb250f218d8c"
+    },
+    "build/vf3f9f6fc.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f6fc.exe",
+      "sha256": "558c9eaa13adc501bbaa917325b6673b787acee247e7ef80c7594febae3f2470"
+    },
+    "build/vf3f9f9a8.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3f9f9a8.exe",
+      "sha256": "26b18a674e03278f9c89e339011f16badc237455add9e8257f736a12add03726"
+    },
+    "build/vf3fcmpsel.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fcmpsel.exe",
+      "sha256": "7c01c6a61946cba849999eb9251a3331786d7656267b8c3252c0646a9503ac73"
+    },
+    "build/vf3fd9ec.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fd9ec.exe",
+      "sha256": "bd7f2ad1f57baa1dc9dbebe65fa2f8dfaa98193c55a4f817d1d79d43f6dd64e3"
+    },
+    "build/vf3fdivker.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fdivker.exe",
+      "sha256": "a31b5dfd67d65abeef9706974b1f35c6f86bbffedd42d6529734c587d091415d"
+    },
+    "build/vf3fminmax.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fminmax.exe",
+      "sha256": "b80cf442ab856e33bebc6b5922741b1060715527f4d66ba8adbc9d0e1bfc30a2"
+    },
+    "build/vf3fpucb.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fpucb.exe",
+      "sha256": "4a2c7f5fe3a38a04a9b83810766df9243ff3d841fad1ad952c8c7fefef84c0d7"
+    },
+    "build/vf3frameseq.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3frameseq.exe",
+      "sha256": "4b922f9920a8b03e17268a678610ba4b230ecba775e451b6e67106ed01eea1f9"
+    },
+    "build/vf3fvecadd.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecadd.exe",
+      "sha256": "d22c2c0e0615a86da1c295d511a204b5286e1021c358c1e7ecf60e356ae3a52a"
+    },
+    "build/vf3fvecmix0706c4.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecmix0706c4.exe",
+      "sha256": "3dac122b3f541c301e8da3e88b67e23cfa087e6f3c65a58d28608f4e8f6e92cc"
+    },
+    "build/vf3fvecmix070832.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecmix070832.exe",
+      "sha256": "567df9c04b16167224f95eb6f0a31f21733c41a4231840130d78557a318d5b99"
+    },
+    "build/vf3fvecmix070852.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecmix070852.exe",
+      "sha256": "7d7b9f132e689220fc25225cde837e96fbe52c1230721156fda01f466b7deb72"
+    },
+    "build/vf3fvecnorm070120.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070120.exe",
+      "sha256": "80bce659301c48c43dd792243c2dc7f12ff55a05fa1b8d25f4ce0aa223fb12d3"
+    },
+    "build/vf3fvecnorm07030c.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm07030c.exe",
+      "sha256": "ed3b732199498acbfbdbd32fc8ad89b2878a5f2b4f4cf8e1d8e3ed9b6b764eb5"
+    },
+    "build/vf3fvecnorm070a84.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070a84.exe",
+      "sha256": "b05e02fba8f521ea172b1e45388a36bd4934222a83e8cf9d76f744897c512715"
+    },
+    "build/vf3fvecnorm070cf0.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070cf0.exe",
+      "sha256": "dca356ae6592ca6daeddc7b29e4adbe5a904379bd807e8936310e5b7a25264ba"
+    },
+    "build/vf3fvecnorm070x.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvecnorm070x.exe",
+      "sha256": "49050f07118e4923e2c431e2faeef7c9f9790e6460ef5a401251ca2bc59604f0"
+    },
+    "build/vf3fvectail.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3fvectail.exe",
+      "sha256": "2a4b4fbe28d2dcf07fb2e4c816393cbe063c7efadabf2be4e474e41f9a1bf4c5"
+    },
+    "build/vf3g77e4e.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3g77e4e.exe",
+      "sha256": "4451171ad93b6b5fc0b3cad38ad3150d5d800c6b22f491b3c352ef5b998be5af"
+    },
+    "build/vf3g78044.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3g78044.exe",
+      "sha256": "d764e74befda79f5583c834ac27984bec9e63432d878a480767b5a39804c8974"
+    },
+    "build/vf3g782ea.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3g782ea.exe",
+      "sha256": "3e7289bdf6236f064dea4db3314973ae95e89157c7292353c9f98879927f53c7"
+    },
+    "build/vf3maplookup.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3maplookup.exe",
+      "sha256": "c4e120340bd91a77f03cdd1c09128218237c723a88e132476029803c792feb78"
+    },
+    "build/vf3matrixfamily.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_task_driver_dev_v7.exe",
+      "sha256": "35f6333fff5b222e515e45f7734b08233bf834a45b1e50fda435443cc347c223"
+    },
+    "build/vf3orient2.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3orient2.exe",
+      "sha256": "aeb3717135782266348992edfea953cc6a6cbd9e3397893505d2746d47d0aea0"
+    },
+    "build/vf3poly.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3poly.exe",
+      "sha256": "e3fa95ad16f3173e885b0ecbef71e275f62878038d2cf933dc78272bd59d813a"
+    },
+    "build/vf3scalemap.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3scalemap.exe",
+      "sha256": "580e7163b4ede1f115e81ef17524ab6ad7d45458e5da8a63cca0ee24da26e8d5"
+    },
+    "build/vf3scaler3.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3scaler3.exe",
+      "sha256": "4335f4477c04cafb99dd1e782f50cad038cd2b42d0913ee30908f1a54debc986"
+    },
+    "build/vf3tailcall.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3tailcall.exe",
+      "sha256": "be65e90cfc2e403cb6f0e43463548b313786429abad24884301458accf812535"
+    },
+    "build/vf3vecpush.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3vecpush.exe",
+      "sha256": "bcdc405a893398e52bccd70460ff6e68114861dc67f92798b34cd816fec2188a"
+    },
+    "build/vf3walker2.exe": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_task_driver_v7\\vf3walker2.exe",
+      "sha256": "9b82c2ae0c65b16e6dd549151998fe5ef291e90c2f1b9771b23260d4285fd657"
+    }
+  },
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v7_tool_tests.log",
+    "sha256": "d02e5d2c8f67d34f5f71b731187833ccf5c39c6479ad8b46f1336a384ef3afc4"
+  },
+  "percentage_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v5_chain_audit.json",
+    "sha256": "86903d52a6ac05a941fbfba63123da1a1649387475a424fda142f57bc1b817e4"
+  }
+}

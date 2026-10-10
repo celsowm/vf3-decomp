@@ -1,5 +1,20 @@
 # VF3tb decomp — progress log
 
+## Resource task driver and FPU bank fix (2026-10-10)
+
+Pulled merged PR #1 (`52bd8ef`) before continuing. Added the readable resource
+task driver and its genuine file-subsystem wrapper, preserving real saved
+continuation transfers. Independent original campaigns pass 128 development
+and 128 acceptance cases; natural resumes and normal-return pilots also
+match. Original wrapper tests exposed and fixed FPSCR register-bank switching
+in these full C entries. The object first-yield development and holdout each
+match 2/2 original cases; a host continuation scope correctly unwinds SDK
+stack restores. The one-shot tool now preserves execution aliases. Four unobserved frozen bytes prevent promotion, so
+verified C coverage remains **59.61%**, with no new bytes claimed. Final
+verification passes **1,368/1,368 bindings**, **39 native suites** and **104
+tool checks** against the frozen version. See
+[task driver evidence](re/task_driver.md).
+
 ## Motion frame caller qualified (2026-10-10)
 
 Readable full motion descriptor/frame caller adds **188 verified bytes**,

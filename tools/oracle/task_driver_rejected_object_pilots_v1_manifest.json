@@ -1,0 +1,124 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "accepted_cases": 0,
+  "pilots": [
+    {
+      "name": "coverage_65_object_live_file_pilot_v1_raw",
+      "valid_specimens": 0,
+      "flags": {
+        "6": 27,
+        "1": 2
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_object_live_file_pilot_v1_raw\\capsule_coverage_65_object_live_file_pilot_v1_s21.bin",
+          "sha256": "4d4744b7c1a60aba9f3a8821fe8c9c0d94868414fc66f9ce349ff11aa7c4522b"
+        }
+      ],
+      "last_pcs": {
+        "0xc04bd2c": 27,
+        "0xc042e7a": 1,
+        "0xc04a9e0": 1
+      }
+    },
+    {
+      "name": "task_driver_object_yield_v1",
+      "valid_specimens": 0,
+      "flags": {
+        "4": 1,
+        "5": 1
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v1\\vf3_21_original_object_bsr_yield_1.capsule",
+          "sha256": "9b190b7ea95c9c6cd7b5392aa455cd1bd44eddec2e5e0f696fe9b2b8aaf3ec68"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v1\\vf3_26_original_object_bsr_yield_1.capsule",
+          "sha256": "77074b8339bcc4b9aff689da127f6f92ffa72f3cf452c599c8022c6051c3c3d1"
+        }
+      ],
+      "last_pcs": {
+        "0x8c00909e": 1,
+        "0xac0041d2": 1
+      },
+      "observed_driver_resume_and_return": true
+    },
+    {
+      "name": "task_driver_object_yield_v2",
+      "accepted_for_final_proof": false,
+      "flags": {
+        "0": 2
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v2\\vf3_21_original_object_bsr_yield_1.capsule",
+          "sha256": "49494b73e2c1652eff282ffc1b16b535c9ca252d5f5e49a3571ba6ff943a088a"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v2\\vf3_26_original_object_bsr_yield_1.capsule",
+          "sha256": "0fbd8d37471d720763a9d90f9ea7b69624197df42f6eb7656edf555741e17916"
+        }
+      ],
+      "exits": {
+        "0x8c0432e4": 2
+      },
+      "reason": "Original first-yield captures complete, but context overlaps descriptor and cached target differs from native uncached worker. Excluded from final proof."
+    },
+    {
+      "name": "task_driver_object_resume_v1",
+      "accepted_for_final_proof": false,
+      "flags": {
+        "0": 4
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_resume_v1\\vf3_27_21_second_tick_from_original_ram_1.capsule",
+          "sha256": "7f793e7f717805fd7018de84bdbacf97db49f39a048da1fda0c7f51fc3a76424"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_resume_v1\\vf3_27_26_second_tick_from_original_ram_1.capsule",
+          "sha256": "285a295bd227ddc63162e99c025df759e41fb3e2ea8b221f2607278f77cab1d6"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_resume_v1\\vf3_28_21_second_tick_from_original_ram_1.capsule",
+          "sha256": "7dc827dfd79178921e702deedb7c1da60cd77835ea0e20aea745eb41bec83b18"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_resume_v1\\vf3_28_26_second_tick_from_original_ram_1.capsule",
+          "sha256": "8947ba74526d6947318eb87821385e71e899b57942cb7359b88b1608d3329a7b"
+        }
+      ],
+      "exits": {
+        "0xc0537de": 4
+      },
+      "reason": "Four flag-zero captures stop early at resumed-job RTS 0x0c0537de, before requested driver RTS; expected exit fails. Not a complete driver or whole-caller proof."
+    },
+    {
+      "name": "task_driver_object_yield_v4",
+      "accepted_for_final_proof": false,
+      "flags": {
+        "1": 1,
+        "0": 1
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v4\\vf3_27_separate_context_original_object_yield_1.capsule",
+          "sha256": "f919209b1163c52b7b352f8f93883f9e722bbdf479edace05347eca5a08a9d52"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_driver_object_yield_v4\\vf3_28_separate_context_original_object_yield_1.capsule",
+          "sha256": "64f10f7d8e8f3a17067834a027c245496ade0bed7f17e21991de643afcc7ee75"
+        }
+      ],
+      "exits": {
+        "0xc04afde": 1,
+        "0x8c0432e4": 1
+      },
+      "reason": "One save-27 interrupt specimen and one complete save-28 specimen. Entire mixed campaign excluded; new version-5 holdout retains both valid independent saves."
+    }
+  ],
+  "limitation": "Excluded diagnostic campaigns. The first object-yield campaign actually reaches the driver resume and normal return; its recorder continues beyond that return into firmware and exhausts the budget. Later explicit-boundary captures fix this first-tick observation; none qualifies a whole object caller."
+}

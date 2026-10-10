@@ -1,7 +1,11 @@
 #ifndef VF3_MATRIX_FAMILY_H
 #define VF3_MATRIX_FAMILY_H
 #include "fight/poly_classify.h"
-typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr, bank[8]; unsigned budget, gbr_known, bank_known; } vf3_matrix_state;
+struct vf3_task_driver_scope;
+typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr, bank[8]; unsigned budget, gbr_known, bank_known;
+    /* Native continuation owner, never part of the captured guest state. */
+    struct vf3_task_driver_scope *task_driver;
+} vf3_matrix_state;
 /* Complete helper semantics, with guest state isolated in this adapter.
  * State layout is the existing 37 words, XF[16], then FPUL. */
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state *state,const vf3_ram_map *ram);
