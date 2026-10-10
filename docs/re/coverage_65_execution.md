@@ -53,3 +53,54 @@ entries, +9,980 bytes from the older 248,754-byte campaign freeze, final
 
 Next: qualify the input caller through its real constant-target JSR, then
 pilot shared callback/motion families to close the remaining 60% gap.
+
+## Input caller attribution: +188 bytes
+
+Frozen owner `0x8c0c9f62` qualifies through full callable `0x8c0c9f54`.
+Coverage is **258,922 / 434,656 (59.57%)**: +420 bytes from this plan's start,
+23,605 remain to 65%, and 1,872 remain to 60%. Inventory is 1,367 bindings.
+
+Fresh development and held-out acceptance each contain **64 distinct complete
+cases in two states**, with relocated actors/stack and changed inputs. Each
+executes all 188 frozen bytes and passes **64/64 strict native/live comparisons**,
+zero skips, zero invalid/quarantined specimens and 64 positive AICA crossings.
+All original ID/style/mapping tables remain unchanged. An actual C queue-word
+corruption gives the expected 0/1 comparison, with a real AICA crossing.
+
+Eight original caller specimens prove literal load `0x8c0c9208`, JSR
+`0x8c0c920a`, its NOP delay, unchanged pool `0x0c0c926c`, full input prefix,
+PR restoration and actual return through the original continuation branch.
+This is one genuine call site; no second caller is invented. These are
+process-owned caller fixtures, not natural menu-playback observations. The
+new attribution contract is limited to this entry/prefix/return shape and
+fails closed for unknown shapes.
+
+The first caller pilot expected the stop at `0x8c0c920e`. The existing
+`exitpc` directive captures that transfer instruction and its delay, so the
+actual stop is the original branch target `0x8c0c921e`. All eight initial
+specimens are retained and excluded; a fresh recipe/capture with the correct
+boundary passes. The validator checks both the real JSR return at
+`0x8c0c920e` and the original branch/delay to `0x8c0c921e`.
+
+The milestone auditor now resolves absolute report paths and relative binding
+paths before matching them. Its prior spelling comparison rejected the new
+proof despite matching artifacts. Three focused path tests preserve rejection
+of a different corpus; all **98 tool tests** pass. The failed chain report is
+retained as `audio_input_qualified_v2_chain_audit.json`; the corrected full
+hash-chain report is `audio_input_qualified_v3_chain_audit.json`.
+
+Proof seals: `tools/oracle/audio_input_qualified_v2_manifest.json`,
+`tools/oracle/audio_input_callable_v2.json` and
+`tools/oracle/percentage_audio_input_qualified_milestone.json`.
+Readable C, source archive and native/live executables are unchanged from
+the prior frozen fight build. The audit verifies every archived compiled
+source against that version. Earlier sealed baseline/native-suite results
+are explicitly reused, with fresh default acceptance replay; no fresh full
+inventory run is claimed.
+
+Next motion pilot: `0x8c0a94d0`, frozen owner `0x8c0a94d4`. Vary descriptor
+frame selector +36 across 0/1/2/3 rather than fixing it at one. The first
+32-variant/two-state original pilot produces 54 distinct complete specimens,
+with two OOB and one scheduler-rejected specimen retained. Native replay
+correctly fails at the unsupported full entry. Implement the readable caller
+before claiming any bytes; this pilot earns zero credit.

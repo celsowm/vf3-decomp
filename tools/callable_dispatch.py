@@ -57,6 +57,7 @@ def captured_bytes(sample, address, size, after=False):
 def verify_dispatch_sample(sample, image):
     """Prove the actual loaded target and balanced original save sequence."""
     assert not sample['flags'], 'invalid dispatch invocation'
+    assert sample['nstate'] == 63, 'incomplete original architectural state'
     assert canonical(sample['entry']) == DISPATCH, 'wrong original caller entry'
     before = struct.unpack(f'<{sample["nstate"]}I', sample['before'])
     after = struct.unpack(f'<{sample["nstate"]}I', sample['after'])
@@ -138,6 +139,10 @@ def require_original_scenarios(references, image, verifier):
                 checked_reference(dict(path=path,sha256=digest))
         for run in manifest['runs']:
             assert run['passed'] and run['returncode'] == 0, 'incomplete original dispatch run'
+            summary = run['summary']
+            assert summary.get('one_shot') and summary.get('one_shot_done'), 'missing original one-shot completion'
+            assert summary['started'] == summary['completed'] == 1 and not summary['incomplete'], 'truncated original caller'
+            assert summary['restores'] == summary['unaccounted'] == 0, 'restored or unaccounted original caller'
             capsule = checked_reference(dict(path=run['capsule'],sha256=run['capsule_sha256']))
             samples = list(records(capsule))
             assert len(samples) == 1, 'ambiguous dispatch invocation'

@@ -52,6 +52,8 @@ def main() -> int:
     ap.add_argument("--name", required=True, help="batch name (file prefix)")
     ap.add_argument("--watch", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument('--emulator', type=Path, default=EMU,
+                    help='explicit immutable oracle executable; default is the local build')
     ap.add_argument("--entry-patch", default="",
                     help="VF3_ENTRY_PATCH synthetic trigger/target fixture")
     ap.add_argument("--run", action="append", required=True,
@@ -109,6 +111,7 @@ def main() -> int:
                    else Path(a.entry_patch)) if a.entry_patch else None
     if entry_patch and not entry_patch.is_file():
         raise SystemExit(f"entry patch missing: {entry_patch}")
+    emulator = a.emulator if a.emulator.is_absolute() else REPO / a.emulator
     trace_dir = REPO / a.trace_dir
     trace_dir.mkdir(parents=True, exist_ok=True)
 
@@ -206,8 +209,9 @@ def main() -> int:
             runs[-1]['probe_ops'] = int(env.get('VF3_PROBE_OPS', '20000'))
             runs[-1]['rollback_text_control'] = a.rollback_text_control
             runs[-1]['rollback_aica_ram'] = a.rollback_aica_ram
-            if (a.rollback_text_control or a.rollback_aica_ram) and not a.dry_run:
-                with EMU.open('rb') as executable:
+            if not a.dry_run:
+                runs[-1]['emulator'] = str(emulator)
+                with emulator.open('rb') as executable:
                     runs[-1]['emulator_sha256'] = hashlib.file_digest(executable, 'sha256').hexdigest()
                 runs[-1]['oracle_source_sha256'] = hashlib.sha256(
                     (REPO / 'tools/oracle/vf3oracle.cpp').read_bytes()).hexdigest()
@@ -217,7 +221,7 @@ def main() -> int:
             runs[-1]["probe_debug"] = str(probe_debug)
         if a.hits:
             runs[-1]["hits"] = str(hits)
-        cmd = [str(EMU), str(ROM)]
+        cmd = [str(emulator), str(ROM)]
         print(f"[{name}] frames={frames} state={state or '-'} play={play or '-'}")
         print(f"         trace -> {trace}")
         if a.dry_run:

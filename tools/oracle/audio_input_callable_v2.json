@@ -1,0 +1,17 @@
+{
+  "0x8c0c9f62": {
+    "entry": "0x8c0c9f54",
+    "kind": "vf3-input-literal-jsr-v1",
+    "call_sites": [
+      "0x8c0c920a"
+    ],
+    "literal_pool": "0xc0c926c",
+    "callee_save_prefix": [],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\input_literal_original_pilot_v3\\manifest.json",
+        "sha256": "ebc8ec3c02bf8937b94a1ca10cf36efd10798a6d11fb73ff541469aea1c33d76"
+      }
+    ]
+  }
+}

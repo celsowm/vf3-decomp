@@ -15,6 +15,14 @@ from audio_corpus import validate_batch
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def choose_bound_proof(proofs, golden, root=ROOT):
+    bound = (root / golden).resolve()
+    chosen = next((proof for proof in proofs.values()
+                   if (root / proof['cases']).resolve() == bound), None)
+    assert chosen is not None, 'no strict proof for bound corpus'
+    return chosen
+
+
 def check_proof_archive(case, archive, check_hashes, root=ROOT):
     files = sorted(p for p in case.parent.glob(case.stem+'*') if p.is_file())
     assert len(files) == archive['count'], 'proof artifact count changed'
@@ -57,7 +65,7 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                 assert digest == proof['executable_sha256'], f'Changed proof executable: {name}'
             match = re.fullmatch(r'matrix_family: (\d+)/(\d+) cases match \(0 skipped\) - PASS', proof['stdout'])
             assert proof['pass'] and match and int(match[1]) == int(match[2]) > 0
-        chosen = next(p for p in evidence['proofs'].values() if p['cases'].replace('\\','/') == binding['golden'])
+        chosen = choose_bound_proof(evidence['proofs'], binding['golden'])
         count = int(re.search(r'(\d+)/', chosen['stdout'])[1])
         cases += count
         case = ROOT/binding['golden']

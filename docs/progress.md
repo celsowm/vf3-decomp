@@ -1,5 +1,15 @@
 # VF3tb decomp — progress log
 
+## Input caller promotion toward 65% (2026-10-10)
+
+The literal-loaded original JSR now has a verified entry/prefix/return
+contract. Fresh disjoint 64-case development and acceptance sets pass every
+native/live comparison and execute all 188 frozen bytes; real queue corruption
+is rejected. Coverage is **258,922 / 434,656 (59.57%)**, +420 bytes from the
+65% plan's start, with 1,367 bindings and 98 passing tool checks. The next
+motion-frame pilot exposes an unsupported full entry and remains uncredited.
+See [execution toward 65%](re/coverage_65_execution.md).
+
 ## Fight caller promotion toward 65% (2026-10-10)
 
 The original scene-table dispatch edge and ordered two-register prefix now

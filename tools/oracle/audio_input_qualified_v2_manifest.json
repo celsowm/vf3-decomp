@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "entry": "0x8c0c9f54",
+  "frozen_owner": "0x8c0c9f62",
+  "body_bytes": 188,
+  "new_bytes": 188,
+  "coverage_credit": true,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\audio_fight_live_v1_sources\\manifest.json",
+    "sha256": "4fb7eaa57097db376ab3ece30f4be4ab3a6423f8b4b9fabc81aa6de3a2aff090"
+  },
+  "attribution": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_input_callable_v2.json",
+    "sha256": "99ae73e1a35253ad06b637a715f905143b5e2be27a9c150c17889298098f8df6"
+  },
+  "campaigns": {
+    "dev": {
+      "cases": 64,
+      "body_bytes": 188,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state"
+      ],
+      "actors": [
+        205537280
+      ],
+      "stacks": [
+        204601644,
+        204601768
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_dev_v2_cases\\batch_manifest.json",
+        "sha256": "9bb206a6db6c9c7cb0c80bba00726f7f694a7ca21e1cdfac2edc8ba8233540f6"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_dev_v2_cases\\live_audio_comparison.json",
+        "sha256": "384d59c863a4455bb6330e783787f39f419c267d8bbc48019ba4c5194b7dfb1e"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_dev_v2_native_report.json",
+        "sha256": "390728f1baea17f74eda508c428e4c70f053f78874034bc96bc2eef512dec905"
+      },
+      "executable": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_fight_live_v1.exe",
+        "sha256": "dbd3bec7c1a145f07d637f3457a58ee70e200a20b38f5748d24e6f37eeb337d9"
+      }
+    },
+    "accept": {
+      "cases": 64,
+      "body_bytes": 188,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state"
+      ],
+      "actors": [
+        206045184
+      ],
+      "stacks": [
+        205508608
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_accept_v2_cases\\batch_manifest.json",
+        "sha256": "73fe172f93a330b5774ff54a1bf7f65a196a29ba1d00c951a63bbc9e4cf175f9"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_accept_v2_cases\\live_audio_comparison.json",
+        "sha256": "0679abcd702c5120fa33272ab866b484c262e824caf25b3dab9f55f13a78d8df"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_accept_v2_native_report.json",
+        "sha256": "908247624da26b856ab3bd4364ee008bfae7a1e56833c51fdeced644dab58dab"
+      },
+      "executable": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_fight_live_v1.exe",
+        "sha256": "dbd3bec7c1a145f07d637f3457a58ee70e200a20b38f5748d24e6f37eeb337d9"
+      }
+    }
+  },
+  "negative_control": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_v2_negative_comparison.json",
+    "sha256": "a09929f95a892313a1b6eb661e83c484c0ef520f11c16131f9908a6b5f40d781"
+  },
+  "tool_checks": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_input_qualified_v2_tool_tests.log",
+    "sha256": "1293f8f3cf32c7bc169daa44a0a5cf17c313607b00563dc6cdbc0ad1a90a9e03"
+  },
+  "baseline_regression_reuse": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_fight_live_v1_regression_scope.json",
+    "sha256": "40b5414d1e6589a75a89eab3c3cd6bc1f18a7a31f35c6d8fa9eb4bc0dea7017b"
+  },
+  "coverage_bytes": 258922
+}

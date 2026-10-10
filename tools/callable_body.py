@@ -13,6 +13,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     if kind == 'vf3-fight-scene-table-v1':
         from callable_dispatch import validate_fight_scene
         return validate_fight_scene(owner, attribution, spans, corpus, image)
+    if kind == 'vf3-input-literal-jsr-v1':
+        from callable_literal import validate_input_literal
+        return validate_input_literal(owner, attribution, spans, corpus, image)
     assert kind == 'bsr', 'unknown callable attribution contract'
     parent = int(attribution['entry'], 16)
     start = min(s for s, _ in spans)
