@@ -1,0 +1,16 @@
+# Passive original playback; no entry or memory patches.
+pc 0x8c04fe9e
+pc 0x8c04f588
+pc 0x8c04f620
+pc 0x8c04f74e
+pc 0x8c04fc86
+pc 0x8c04fffc
+pc 0x8c09d5ae
+pc 0x8c0a9036
+pc 0x8c0a94d0
+pc 0x8c09af6c
+pc 0x8c09b298
+pc 0x8c09b6d6
+pc 0x8c09b978
+pc 0x8c09ce8c
+pc 0x8c09cfac

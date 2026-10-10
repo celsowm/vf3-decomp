@@ -1,0 +1,864 @@
+{
+  "passed": true,
+  "coverage_credit": true,
+  "new_bytes": 188,
+  "readable_bytes": 259110,
+  "total_body_bytes": 434656,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\motion_frame_dev_v1_sources\\manifest.json",
+    "sha256": "c051da8fd9e8642016524bfa203945493d225dea0e7045523c060f900cdca72d"
+  },
+  "native_executable": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_motion_frame_dev_v1.exe",
+    "sha256": "effd34c4005c2532089b5ae83c4a6ec3338fd5a3d38bc711156a61c033e1bd07"
+  },
+  "callable": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\motion_frame_callable_v1.json",
+    "sha256": "d7e32bd3726dcad35603e6d62e23841e0bbb683de3e5f78fbb6cb40b44d727c5"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_motion.py",
+    "sha256": "3c8e2e0881e7c602c6f57ca7d01cc4c51901239fbd3440faf069b7cd9be2726b"
+  },
+  "campaigns": [
+    {
+      "capsules": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_dev_v3\\capsule_manifest.json",
+        "sha256": "4d2de3d9162a077d7b441f5b8584dcadbc5382794ef6a9fc3e24d581898fa155"
+      },
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_dev_v3\\batch_manifest.json",
+        "sha256": "e7df9d314e0d077c275c4230172d6bc6ddb6f9e796e9d0bfe5e9fe3d9c54c688"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_dev_v3_native_report.json",
+        "sha256": "e354d0617f6d8a8dd2aae9087170a6abf808b16a34b5a0934ec212872f0eda00"
+      },
+      "valid_cases": 109,
+      "rejected_raw_specimens": 9
+    },
+    {
+      "capsules": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_accept_v2\\capsule_manifest.json",
+        "sha256": "df05c79bd6134d41772bdced48ee3f522b842400b73d62d2e22d43e3412e518b"
+      },
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_accept_v2\\batch_manifest.json",
+        "sha256": "128ab6df4ddb70fecee509095db6aeaed85df30290d0172ba7294a0f2945c8ea"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_motion_frame_accept_v2_native_report.json",
+        "sha256": "292b891fa3e2420a34234f2b38af35009f046ac6e54adc12ba91fe1909de3cff"
+      },
+      "valid_cases": 118,
+      "rejected_raw_specimens": 10
+    }
+  ],
+  "native_checks": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\motion_frame_v1_native_checks.json",
+    "sha256": "970faf556373e762ebd5b61e9b2635ece00a20c303037b6738dc227fb7af6c59"
+  },
+  "tool_checks": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\motion_frame_v2_tool_tests.log",
+    "sha256": "161ae8424ab17bbd084d43065bfd4637743694ba9c5ecec82f6a31826e4fb8f4"
+  },
+  "default_native_executables": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\debug_matrix_stage.exe",
+      "sha256": "087d52ad30f00df69f11b58f2e1950482f754c664a2485f63db9f8b71b1bab7e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\target_matrix_debug.exe",
+      "sha256": "d858aab8b9bae72b04c29a817d791ed6ba03252ff7400801ceac8cd33e4e9373"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3.exe",
+      "sha256": "a5e2157945be703c0cc93d8b66afd0c9182fbe39ee8048491cd61f8520b2c6e8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3af734.exe",
+      "sha256": "e9ca6f08d2126204116de4f4b261183fd3e4d131cb9f4ed6895a31e5f220dd60"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3afb76.exe",
+      "sha256": "a9626178838a707201721854d054f15395fcbf6c790627d49a3185e17cb48009"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3b10aa.exe",
+      "sha256": "5f1d66f420df3750825e21807d183ac5daba4eb2ff1fe29565ab04a7f6cce2cf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3bootmix.exe",
+      "sha256": "29c33f874cdec9e6c32d83a67187fe83c402a86f3d5e7b1ead24767b2605198d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3c5dbe.exe",
+      "sha256": "3af9f69680855b4a7dccf02cd742fce174672c4d8bf050db0a481acd037ec554"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3c678e.exe",
+      "sha256": "d92544340cf85a7ae305b8c7a2a8493d1abc65675298a7e2a3da87abdc1be6bc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3c6ec4.exe",
+      "sha256": "81197befaf2de09434c611ff0a58ead9ac9f91b3f76244c2dcb2ed9a2b863f28"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3c788.exe",
+      "sha256": "c5b96f0f0a524d5e092b40ae12cccc2ff905160fc10ebea2a869889a28510359"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3c96258.exe",
+      "sha256": "202334d79af436db075ca7f706d9178595986f4fb3299ceb06bc393efa2c6da1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3cbefc.exe",
+      "sha256": "db89021513d6c9e141671e0e736891305be86c98362c92053488ba067ba30858"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3cc148.exe",
+      "sha256": "f3a11953cd8823fb62199759a0bb12cadbd1f5ce29f9c54e21690db948fa1985"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3cntup.exe",
+      "sha256": "529782e1009ddab1f307089e5f70273c0762ebc699353b6d3b0b7d230e5ad85b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3d0fa.exe",
+      "sha256": "89dda4b16398f75d9f8499c35558a619f23a9409a7ffc0662b9890b9eb79c1ec"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3d452.exe",
+      "sha256": "a99e4f54b5ce9478df7b86678c27bfd7c126202f3066dde972792bf0e44adb40"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3dl.exe",
+      "sha256": "f85d78abe87d4e91dba4067c46707666a769d6a77229b53542168045688b9dab"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3driverqueue.exe",
+      "sha256": "18e37100da6c66ad585d4e8f101f60f73cd1ef451601a079c4b8cc7567aaae17"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3driverqueue_v1.exe",
+      "sha256": "d2bc2f69dee546388ed09b6b535719b320cd57694837993ed2cdec340ca3825d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f040f1e.exe",
+      "sha256": "0f194600a7b6bde65b78d0ae4a3d1c084228929af297f84f3f4ca4a3fccfd0ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f0747d8.exe",
+      "sha256": "9c86113b13739d4576d60fd75b95b30e2274ac3a3174e11fd15fd9edc453321e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f076c00.exe",
+      "sha256": "10b3ea84ccde951f228f51fe1f8897f47c3993aced144599d846561e3d48e058"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f092f12.exe",
+      "sha256": "ade2a4552b800527c547e08688f398f1e6f3faeb53978285c1cb8b1e3d61a80a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f096258.exe",
+      "sha256": "928b788b1d0e3999ddca42ae7e418a43b6e8dcafbd9a978cfbec70ba45735ebd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f9f354.exe",
+      "sha256": "b7cb50a3bbe3cc1452fbe5a5ff4b0d2aec7327336bdc114dca211eb07b9d920a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f9f6dc.exe",
+      "sha256": "02435f172e6b4dc8921dc7ea16cecede5f98c74f51cbd1a882020a71d5efa566"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f9f6fc.exe",
+      "sha256": "723bc1ac1e733eb2567c969bffcf704a54f9b275ec8a51dccc4697d71329ac66"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3f9f9a8.exe",
+      "sha256": "6435142a7b2c992a51dea40980ad3785be42be6b93f1a06ce4cc7c88925f35c7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fcmpsel.exe",
+      "sha256": "97c42a39b44d1bb97b574ab469f269e0a19beca9030703b0a7111edc2e7d6e0f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fd9ec.exe",
+      "sha256": "5df43cc3cda73be3b69600ef7051107b446614635b59672ea53e1cecfa3288d7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fdivker.exe",
+      "sha256": "97b2fcb9aca9caf0d16d6b2eac861b94a7d923286e42a9bccb2fd3cdb80e27e3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fminmax.exe",
+      "sha256": "6f9bddcf3ba3b95bfac705588a8d540b49047f8f6cec1ee6fd16c091d25f91b1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fpu.exe",
+      "sha256": "872c50b9900b2c88dcd899105315f5b62199104d3b7e5dae8ab3d317de5d1f5f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fpu_before_braf.exe",
+      "sha256": "5beaa9552d92bf24d62a22201601398b4420af8292b95b454174269808dbfdff"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fpu_before_braf_release.exe",
+      "sha256": "3133b5cd9ef065d8523a2698b4c80e27b4add05b7324ffb52c555dc5be812606"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fpucb.exe",
+      "sha256": "4f5ced3bcf1c5cb5aa028e4d81b355b8b80d0901f72be48173b3ec71f00983d7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3frame.exe",
+      "sha256": "00ce8b01dc22da0478aed0f270a29bc158a156de6a83693984c148988f3c489c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3frameseq.exe",
+      "sha256": "30e7f65d4e9b8af39c5221220c278ca6ccbcb213ffffb4b9757dd01dedfbec57"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecadd.exe",
+      "sha256": "06d39039fe0f9eadcb6246bd082e5a662fe0bf2f61e34439359e1f67de0445c3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecmix0706c4.exe",
+      "sha256": "f08bc5dbd925885937ab20469b0ed63bb9ffd60ffe50cb9549d7f79291306033"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecmix070832.exe",
+      "sha256": "f0ce996c295e669f651debb0412b006513a95a957c5a7fc437ba250042bd8526"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecmix070852.exe",
+      "sha256": "39b1a7c99352d9b64958169314441045fa1d0e573e828fe2804d69d2afebe37d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecmix2.exe",
+      "sha256": "9419ca35f9ea0a7c027da5575a06ee4b4b219176b71da87255bea2949ccd6dff"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm070120.exe",
+      "sha256": "8a6d652a7e5b01a1e309cc90452cb0f5ba132043c26f40904d4503bd4ce54931"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "196402b75155d9afe5b48a7fb68c13a02338eb1f0239925b2e73151006befea6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "9cbb2b0fb399cebc3d59928a2e8d8860aacb9673674eb828768362685d07ce60"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "ec3e36ac6ea1bf0454f4438681f891273748ffcb29d964e5c179db1bf0fe4fd1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm070x.exe",
+      "sha256": "b58b89dd7b2aa99f5047aeca519d27432391c641b9457c843b37dcae96e46b99"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvecnorm070x_direct.exe",
+      "sha256": "fc67600f51db8f8822a5ec208bd263662486d15a6306b18bac98f146be15c034"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3fvectail.exe",
+      "sha256": "02f68bc21bf7a97ccbc6fb2b7ed3a6ebc377f634bd3fb39af3e86aad571f18c4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3g06f6f8.exe",
+      "sha256": "7fb43007b75acd27f356c59dbd4eabb89f8d5bdc5607eb44c9b7bdd3953f58cb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3g77e4e.exe",
+      "sha256": "0ebd8a9ed04612ccf9124e0ede4027a33ed618187dec46a619b2d28f4b8db433"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3g78044.exe",
+      "sha256": "4fedf82615d143911826448fe4d5ae6802ef063256d9842250d5daa952692436"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3g782ea.exe",
+      "sha256": "a2b797ba2f33093c7c5eda3035c29767386551796abef05f648d9616195dcacc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3leaf092f12.exe",
+      "sha256": "10e09be465e5c76a967d53afc594cddd3ddfcc3e12f42fc40f0d930dec3678de"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3libutil.exe",
+      "sha256": "861206af00e4676b75e3c84ed0e6fa5bef41b1c91bf5eda9eb02c728964950e8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3loop.exe",
+      "sha256": "b357b641aa195ff11c6e82dd8ce60dc1dac793bb5fa0f71a395073f0421ac7c1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3maplookup.exe",
+      "sha256": "7d1fce6d8029360ee3f95e58af36769e0027d9272dc9f0fb898eb2c17535ef7d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrix.exe",
+      "sha256": "316d0d15505ca472fdb8aa610db8a8be31a28d50c3073edd8a0ec454486f496e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily.exe",
+      "sha256": "29ba59da712c011b2efccf8af624a2c669aaa5a67e8a4c7ef7ecddec7f380ee1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_5914_motion_v1_dev.exe",
+      "sha256": "8a9a1920ccd88aa80fecd091c83af9f696d0a918cffec2e52bb2e0271bedca5b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_5914_position_v1_dev.exe",
+      "sha256": "a7cc9b0cca07006190da33c7c833f1e2a5471ddb3db2aa8237faf1a0c01a0a3a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_5914_script_v1_dev.exe",
+      "sha256": "2c7d1e1336be0ced61e5ff90c101e34c55c74cc6ebde883a10939463b0b54b2f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_05b20e.exe",
+      "sha256": "86295faadff7a807abefd106cf8cc09a019a7b7066fdd3ae6f209e0cda9735df"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_branch_dev.exe",
+      "sha256": "64b055f38f18ca23f93bc527d97913a5eb8b91e31c51d61265ddf2f09e4dd91b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_clients_dev.exe",
+      "sha256": "d2b0c25c1eb9392219127543ecfef16177f87f5d8b9700ae69440549b950cffd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_clients_final.exe",
+      "sha256": "4bf6140749aff694c8f58abf26455a19caed25365f93b03548738745cbeb8469"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_completion.exe",
+      "sha256": "8f4b36d6e18779c90f683361344c5da4e339f2e014e893088f1f65ae2e409d28"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_config_dev.exe",
+      "sha256": "49aa5ff13762d9fe5b61c39ddc147f69ff4b180d644682800d0f1318730dade4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_expanded.exe",
+      "sha256": "de250ed9a31aa0a3467218c1ae3f872b68597aba712d466cc0d451381c53ad1a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_final.exe",
+      "sha256": "acb5bc91ad3b1f7d9195a7b8abcb813f3588936d5e143a905f20b40b9ad5979b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_grid.exe",
+      "sha256": "cb705bf60dd2e9ee3f736a42d78e29d90b9f626d861ae8fb2746f1304da666a7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_initial.exe",
+      "sha256": "2fed06ae15df7ee23f792aab2179ce6748ee79cdc06237f157dbd8206f0f6667"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_initializers.exe",
+      "sha256": "82156e978480955b4ccd56d800fd34f25e0898912f572ef648670846b5e99d0c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_leaf_041b94.exe",
+      "sha256": "1d65442a94acc19ac1a95cc948997b2af4193e37ae84f55d8418eb3b917981ca"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_leaf_next.exe",
+      "sha256": "7917b90d14250adc8d98ac59bbbe51cc4057956d1439c98e3a751d609ac61649"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_leaf_ranked_more_proof.exe",
+      "sha256": "05e386c7c0928b50f589ecafeb74e5fd9b981fc903db34523991231401a2b431"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_leaf_ranked_more_proof_v2.exe",
+      "sha256": "05e386c7c0928b50f589ecafeb74e5fd9b981fc903db34523991231401a2b431"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_leaf_recovered.exe",
+      "sha256": "629aa57ea3cb8cc07dc0fc42abcf48f68e3e1ff77c9ebe1d17692d038ede5d06"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_medium_dev.exe",
+      "sha256": "5c0c36a9afd8ba12e35dccd85531998084332f9a5cc0a3327728f8590be0cb4a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_natural.exe",
+      "sha256": "1ab09fdb9c6b682ebb6d0766ba6b61119c5a8e2b65c2fb40880d26ee820549e1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_natural_proof.exe",
+      "sha256": "ec261e8d6857edeea1c2f5bdd1b25cea1724b0da42cf2cfc0554e104ea3db1ed"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_ram_diagnostic.exe",
+      "sha256": "d0dcab6ebca5db14d0576fcecb7eaccc5e88b5615c220b4e832e676a7ebdb5ff"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_ranked.exe",
+      "sha256": "1bcf3e9174546ed0fe4081c0537165ac51ef15cc6a53983c4acb053edca76317"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_ranked_next.exe",
+      "sha256": "40ba38e61a0b4181b76ab022986c4bf537273998d93e22e622cad76dd29d93f7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_records_dev.exe",
+      "sha256": "5965b6a0a797277a0445ad7ad2746fe30247c90d53a85af8b3ad01b31c820870"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_render.exe",
+      "sha256": "fab90575e5b6faa3943005644b1704496d4ea2fc7d1c2ccb320aac5ad61c15b7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_render_final.exe",
+      "sha256": "c15db64110c795e7717a5f7abd9143770538651626756e83e1aafabfea024d6c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_render_ready.exe",
+      "sha256": "255caa98c30276fb64b3b7bda06da96d53f4c006551de31d0f720821a85934cc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_resource_descriptor.exe",
+      "sha256": "cd6d42161b5951777cdc4455fb226fb839752fee3e7679bbb0b40a3b51c0a6c0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_resume.exe",
+      "sha256": "907c90c73b13b0b0b601f0141057659be03d43ddf499d94f8e3005b2a8c0e416"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_scene_commands.exe",
+      "sha256": "e4e390b5e4b8c423e50889dc7867b484c4865166af1228e99e803cc176542112"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_small.exe",
+      "sha256": "9a866f1044081fb19295b5093bff810eab0581788350aab9d8661107510dcbf2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_small_final.exe",
+      "sha256": "96803329226e7da075fcd66111005e3f81b1ee00a5320cf36985eb5e5979065b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_small_tail_dev.exe",
+      "sha256": "c9c4620aef7811e40954a119e944d9ab7d59c3d74ee71d63514e7f4ad5bbd19c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_small_tail_final_dev.exe",
+      "sha256": "8d8723dd40c5af1f1c8e10990b49f9cb84129a4b783509ccfaa9a90722884b53"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_small_tail_fixed_dev.exe",
+      "sha256": "9669f4a05134fa93c4c74bbbceb51bc8613886b9166f6185d92d81d36b015810"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_state_readable.exe",
+      "sha256": "7f5267cee07721c2ed000e56c32ea8181941385463a15f6d8cb6fc8f44d64bc6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_static.exe",
+      "sha256": "d955a7e2dca826010e81f4e7baf7ef7328ba75d6d6a7f82cf82f7a7ddb2c2284"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_static_final.exe",
+      "sha256": "fc971aec174e1fa00d14e20d8d4d699b6c44c0830e0e3380f3412a89926f9658"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_static_ready.exe",
+      "sha256": "91cb3de32c16380717ba1c4d061befaa09c3a110387823eef9ae88f5816b4787"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_vector_dev.exe",
+      "sha256": "c9bb931477fa3f3edb9fb65734ffe09370bc9d2406c9a4c77c6f06d957e868f5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_advance_workers.exe",
+      "sha256": "cdc19b95ce5e8740bd807e0e074bf36b3009eb6e87008f4e6ac066d9fd818732"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_actor_clear_v1.exe",
+      "sha256": "cee5dd6ad5ba7bbe72025b5f896e2641824ba54fbef2031c04b7df314f009543"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_channels_dev_v1.exe",
+      "sha256": "e580738c5d020bdace3215b3974ab7cf105dcae3586446c7a7d7c40224f2d862"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_channels_dev_v2.exe",
+      "sha256": "ba5c95b870069223e5b57c3daa92e8cec0d913c8b0a1eae846a54a2406662de3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_encoder_live_v1.exe",
+      "sha256": "40f09495c93260bd6b17205fc072d4da919838b0e890529b727b25a74bff47ce"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_encoder_v1.exe",
+      "sha256": "79441bafba7bba6457712f1ba17888fb19b5e6f404600dee74e3126411cf6b8a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_encoder_v2.exe",
+      "sha256": "c714013be8896833b0ca3d7fc7739b60c6222b10127ff9c0f06777fd72776244"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_queue_v1.exe",
+      "sha256": "ee84cc4db10ee3ee373dae0ee5568d52214f19648d124924e5cd9db5a2358b56"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_request_v1.exe",
+      "sha256": "3e5b415c6feeb8d7d74b2891c38474c031ea3005a056e910ec8abb84dcfa0963"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_audio_submission_v1.exe",
+      "sha256": "c616a1f89f527d60682a686c73ca94a5cb33c25e009408fcfe8f586eb69cad68"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_boundary.exe",
+      "sha256": "f162fe04ca6780788b36b5048c0bc9de5ea2bdb64e2cd6925c08d5b443ed0080"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_continuation_allocator_dev.exe",
+      "sha256": "d07cb957185a259478cb4de3bdf88aeed5fccc214670bbd18e9238839a8a1e96"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_continuation_boundaries_dev.exe",
+      "sha256": "6a859e63f3466d3b7395f3cfda3da4ed590af024da3dc1f83ec7d4bc7069f182"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_continuation_final.exe",
+      "sha256": "9b7f496d4f05d8baf710d703670ca6c8cc693af723bd9ae72e437ae216dee935"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_expanded.exe",
+      "sha256": "2119d6e2fdca7f15d47cad7f0c5046c06483323b65b1a25f5eec1af4edc346d8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_medium_final.exe",
+      "sha256": "6afd2eb8491307e50dbc2753a4c96c46508815c855f2eef6889ac317efc84e47"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next.exe",
+      "sha256": "266ee91dc354d1f4881987ea837dddfadf3a91b2193a30d31457a8b3bc661ea7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_contracts_v1_dev.exe",
+      "sha256": "3493f0862411391387ea910f3979f4f14fd63b22dad29ecf4e678abb02b21bce"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_indexed_v1_dev.exe",
+      "sha256": "7fbdab47c78042d1dda0e0982fc467b57d5b061f88a3e7a33ecb772363264538"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_models_v1_dev.exe",
+      "sha256": "79dd7c7b77505a3a8439a7a3fb181433b91c01885930f0b1d1db8bb054df1d1f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_objects_v1_dev.exe",
+      "sha256": "83de5954b0bd75f40347bdb7bdee20e113d5f12f008eee1cc98440e05f2c1f50"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_records_v1_dev.exe",
+      "sha256": "821de5f3cedee40450fd989bb64001ad9215bd2a1fc0615c08c4485d38403c4f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_next_vertex_v1_dev.exe",
+      "sha256": "a1c2a18e05254f57c22bec571f6e77d17f9aa751d3d2a9dd3265dd94105f3d3a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_aux_v1_dev.exe",
+      "sha256": "f690ee1186dd1c4e07e79dab713a9f206db795f735928b7a2e6cee48b5ce2449"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_aux_v2_dev.exe",
+      "sha256": "5e23a9ab3aaa3c587ae8b8604f259878d8419e70a6cd82c68ac4232aca8a1946"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_callbacks_dev.exe",
+      "sha256": "a6be782c9edb5cd20d27fce0fb7d22fb1a35fc68a0a67c93ac66246585d14081"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_clients_v1_dev.exe",
+      "sha256": "7a271cedf2eab26bbfa37cca91806b4398b203d179d30b71d9836538dbece4ad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_family_v1_dev.exe",
+      "sha256": "997691c2f74082eecefc58b9c8bf0a816299572cf3662de30485bd62b7ee9f52"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_index_v1_dev.exe",
+      "sha256": "92c241b72427e65d61d852d5c191ad9d810fc8048cdd461f0ca7306c3e9a4314"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_indicator_v1_dev.exe",
+      "sha256": "765afab40f1c47b830bcd619b8931ec1bcc8b8567c3b1f6943133b3943266fe6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_dev.exe",
+      "sha256": "604537a572be8d3e4c17ed724fa0f62e42b0d47d1c512ae59c79a7db320db91c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_flow_v1_dev.exe",
+      "sha256": "66b7fdefdb9fa852f9556e13396ee7f4a5a1c2201230d8f64f06c702e3a5de5d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_group_v1_dev.exe",
+      "sha256": "fef1cc3db5ac6b8d843f2d0513f4fb4ffc067b67906e7d738d51fcd1520d9e6b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_style_v1_dev.exe",
+      "sha256": "96f32187ae1c11a1561996b611f4649b6ee072d82a9d364749b3e6da31a9ce4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_v2_dev.exe",
+      "sha256": "5135ed1fd74d3d309728a3b7ef6b5e7ff6acfbbbdd264339f4417a65625ed18c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_motion_v3_dev.exe",
+      "sha256": "bc3889b07e5df50172c69b6ff6599871357e2db660373b2c10f9f7e1bc8b8d47"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_resources_dev.exe",
+      "sha256": "1eefa3b3791ef15ba3bece3427af797a9cd84a4497745078b1d3da54570b7001"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_rng_v1_dev.exe",
+      "sha256": "2aa9dea3d1ad4b93e4cfba68f6f5be078fde3dbe90e43e9b99734e9d96ee5854"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_selection_v1_dev.exe",
+      "sha256": "a8dfa7b3d7aaabd07be5b325dd7a68b0c726daa15f7c69374f7400a9e1f6fedf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_small_v1_dev.exe",
+      "sha256": "028933e001d83aaa4a84da63b511fdd367724df6981a95387d1b4d631a82a7d3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_sound_dev.exe",
+      "sha256": "b184e59af49655c2b17853350afd919779ff40d727588ce871ef78ee052cded9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_percentage_sound_final_dev.exe",
+      "sha256": "f52db3b59a8c5e88933d7f8f081c710caa20f9a9df8c69b35bbf84c47a51562e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_recovery_fourth.exe",
+      "sha256": "97755785166e6b8a6ec3801897d59c12e44eb9c8d46ed95ed2fa09677a87b802"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_recovery_second.exe",
+      "sha256": "8b6115e9e824d24ffb93e8523cb2b8678bf536d2d8fb0c7b900b0431aaab934a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_regression.exe",
+      "sha256": "f64ae7f1d1a977e8d749e0f04f0cb737e7c4366ed1c43f18b8a6366169b17831"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_second.exe",
+      "sha256": "6890f7efd80fb3cf815d6d965f6a6fdfb1948d17a222fde726e0e56be1d4ddc8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_store_regression.exe",
+      "sha256": "ed8052589af1b19c7e203378d52d47707a708ee81e94098cbc6bf8b82362c94f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_20261006_checkpoint.exe",
+      "sha256": "e3878590f0b278ee302093398a1c21c467fe05ee4e6773f9882871c9ffd89daf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_20261006_final.exe",
+      "sha256": "e419fea4593a62cd6fc70f37df6a6c13e6a8499605cb10a3d2097c567917cb3d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_action_selector_dev.exe",
+      "sha256": "5a9d9c12826eadc6576709c51025738c043a16fd307917416608f7a8e4f4c10e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_braf_dev.exe",
+      "sha256": "6efe218bb667f88203560924cc5e102c965d58bbe9e956776048dd647dafb8b1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_braf_final.exe",
+      "sha256": "f22f61e5c7be17c430fb843a2aa6c812e5e9123da513ca4334d1e6dbd3d69c63"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_broad_dev.exe",
+      "sha256": "dc140348d73d19c20a98f2973c4e49568b5378c0c5031cfe05ad1393f4d8cd39"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_closure_dev.exe",
+      "sha256": "10d3beb0eb0f118822410ffafc9c3ec074888baf7867bcc882695a0b64b6cc10"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_command_dev.exe",
+      "sha256": "01c651d0e1b737ec48507f1be088e5ad4edd26dff1b66fc1933acb466a88f71a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_command_dev_v2.exe",
+      "sha256": "5c8b2d3adeb9221065f5ad8b1a01407546337ba9e4d48e52bed0a3edda0c10fb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_configuration_dev.exe",
+      "sha256": "2e60e7275f6792ceb4137cd31dc8f73cc3b20a2014faa0d0c119d29e208469ca"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_dependency_dev.exe",
+      "sha256": "81dea78b078ef1672c2548d7d27c64eb9504765656343b9c97113e37f7ae611b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_extended_dev.exe",
+      "sha256": "703ee68a644be4d4dd36fa19d05dd1da1389e2a1c803c1db5991b90064f2522d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_extra_dev.exe",
+      "sha256": "8c3c961057d9659d0969229c53a1b009acbe2fc5d8e55bfc8559d387f297b2eb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_family_dev.exe",
+      "sha256": "9270ee35e24ee753486f505e27df3ab04dfe5246809346b5fb903e182edc5ea1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_integrated.exe",
+      "sha256": "e84ed5fa1e2d8b6e2e5fb6133d8631b0f76039cc1cc3f29565d61972ef89f516"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_nan_dev.exe",
+      "sha256": "a0eef085c127f82d62f672e4bbcb774b5c09d32302f975c129ef518124763097"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_pair_dev.exe",
+      "sha256": "112003509ee0e989194b936412c86349f4a340c45d628b53a1dde5891e516558"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_record_dev.exe",
+      "sha256": "709e2a05e7d58b567a562f848cecdafdefe2bdc334da7f91f4b055c8340b1f98"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_remaining_dev.exe",
+      "sha256": "a0ae2aae99937e94b735d21eb246b754086a1473b2d234d7d29c80c21afb011e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_retained_scene_dev.exe",
+      "sha256": "7e6f33099e30d1b500193212f4ff290bd884c03c853b6077f6f1c6bcb98fb8e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_scene_dev.exe",
+      "sha256": "e17a7cc7b4df0d71ea184edd9160730abf83ae01d4b8c58cf1144e46994d66d8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_storage_dev.exe",
+      "sha256": "80dec7cf1838e404f976caa51b6843426c823f1bd306ec5d80cde76431ea3530"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_target_task_flag_dev.exe",
+      "sha256": "dd29d488af0c4f73d835fa46431cdf7d29cf9b2ad35bc20bc42a65e3df190bc1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3matrixfamily_tenpp_final.exe",
+      "sha256": "2fed06ae15df7ee23f792aab2179ce6748ee79cdc06237f157dbd8206f0f6667"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3meshnode.exe",
+      "sha256": "2d03cee68211907b8c4f2849afd1a322b37d1004eb6338cc624a69c6c1cd50c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3mtmount.exe",
+      "sha256": "1024a8768f09ec751127af0588cd6df16b6c6fdeff69702fa3d102bead885793"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3orient2.exe",
+      "sha256": "4fe7e3f40b3c8fd79d9d7f22e4f87c71975897746ff249986ca7090cd6bc7959"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3poly.exe",
+      "sha256": "1a81acc4dc1facfc5d5f986ef3ba599baeb819c187e6a9607ff49e8ab865d89a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3scalemap.exe",
+      "sha256": "7f9861d70ed8df992eb56f530af17e7abfae76f38168b7911d0455e5e281d95d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3scaler3.exe",
+      "sha256": "af47573b845a13644cb61cc8e2f7b8bbf9ad2474c8f5adaf259a7816ec379dbb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3statehelpers.exe",
+      "sha256": "01d611821c97f002ef87c5a14e0dc97a2b09d71f16863d3ae40818b80d3ff4f1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3tailcall.exe",
+      "sha256": "21cda16f0fdea35a81830bcbe0dd5b9788b4737202474b8a828e66a12bf1e8b0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3tailpath.exe",
+      "sha256": "18772d95708ac8efeef16375bf401264aa7994940876cb523589c8cba633fc4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3taskvm.exe",
+      "sha256": "ef1e8ed872a4e3074e775c0ad80d4deb4529254bf3888bb9b163cacaaac14c27"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3test.exe",
+      "sha256": "00d325f706ffbe50df216c1a4f32e67698b549e3fb329dd38be74798062c1268"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3tool.exe",
+      "sha256": "ec7dcdcd2a42a317872cde1210b88e80c899d7a8ff7928838cceab57057309ff"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3vecpush.exe",
+      "sha256": "dc0793fbe2aa84de495f2a4faad406dd1fb41ff6924c8988b0bdf275720a6149"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3vm.exe",
+      "sha256": "a3f17598e65a62d51e4c39f3151f5819daef4b7b0062e9351ff80f86d30f378f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3walker.exe",
+      "sha256": "36c0257292a5b3d918ffbbbfff3dace9a250e05ea534e671421e6b8481e6eb15"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_motion_frame_v1\\vf3walker2.exe",
+      "sha256": "ab18ace4faf7ac17e4c1a833d5abef2537c5049724dd785375f6a4ee36385a7c"
+    }
+  ],
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_motion_frame_milestone.json",
+    "sha256": "8a7d1c8aa82d0e492390510e481b34bb6cf3ec15aa249dc4c52b3e28997f877f"
+  },
+  "milestone_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\motion_frame_v2_milestone_audit.log",
+    "sha256": "c9822d5c618d4d2d56323d006d1a81a95932b44f409a3bf64998e9ffadd21f19"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\motion_frame_v1_chain_audit.json",
+    "sha256": "86903d52a6ac05a941fbfba63123da1a1649387475a424fda142f57bc1b817e4"
+  },
+  "inventory": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\motion_frame_v1_bindings.json",
+    "sha256": "eaff442a8b5e3d06341739d06d6c8db6ba699cc313e10db876d0aba2a2cd7c89"
+  },
+  "full_regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\motion_frame_v1_verify_all.log",
+    "sha256": "2f80114b453f9409a512df40eeef17f5767df260ca560d7eab27eec983694e28"
+  },
+  "regression_status": {
+    "expected_bindings": 1368,
+    "reported_bindings": 1368,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS",
+      "verify_all": "PASS"
+    },
+    "last_lines": [
+      "$ C:\\Python\\python.exe tools/port_plan.py",
+      "$ C:\\Python\\python.exe tools/batch_plan.py",
+      "verify_all: PASS"
+    ]
+  }
+}

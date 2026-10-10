@@ -1,5 +1,15 @@
 # VF3tb decomp — progress log
 
+## Motion frame caller qualified (2026-10-10)
+
+Readable full motion descriptor/frame caller adds **188 verified bytes**,
+bringing coverage to **259,110 / 434,656 (59.61%)**, +608 from the 65% plan's
+start. Development/acceptance pass 109/109 and 118/118 distinct valid native
+cases with full frozen-body execution; eight original-only captures verify
+both BSR edges and balanced saves/return. Fresh full regression passes all
+1,368 bindings, 39 native suites, 104 tool checks and repository gates. Rejected
+raw exception probes remain recorded and excluded. See [motion proof](re/motion_frame.md).
+
 ## Input caller promotion toward 65% (2026-10-10)
 
 The literal-loaded original JSR now has a verified entry/prefix/return

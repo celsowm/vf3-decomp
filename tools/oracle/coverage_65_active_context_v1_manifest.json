@@ -1,0 +1,56 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "valid_original_lookup_cases": 1,
+  "native_match_cases": 1,
+  "limitation": "One naturally reached lookup in one scenario, not a whole-caller development/acceptance proof. Copied context does not reproduce the saved continuation.",
+  "original_capsule": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_active_lookup_v1_raw\\capsule_coverage_65_active_lookup_v1_s21.bin",
+    "sha256": "7ce6e051f94b2eac9b66bfeb1a833cb8678762c1e393dab3e2b5cf76afa723cf"
+  },
+  "batch": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\batch_manifest.json",
+    "sha256": "75bd9cb13989c1153d3233c2661dbb098c9e8a0d880a9d6d3ea91106770435a0"
+  },
+  "capsule_manifest": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1\\capsule_manifest.json",
+    "sha256": "2822f5517418ab0ec4e5d03f035e7aab75351d30360f0f1e5bb616ff33778bea"
+  },
+  "native_report": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_active_lookup_v1_native_report.json",
+    "sha256": "edcaace41ea95f17bf7ff2ebef485b9a240c73dcedcfc65b5cf545ef0e56965b"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_motion_frame_dev_v1.exe",
+    "sha256": "effd34c4005c2532089b5ae83c4a6ec3338fd5a3d38bc711156a61c033e1bd07"
+  },
+  "emulator": {
+    "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast_audio_fight_live_v1.exe",
+    "sha256": "3e9a4bf81265ea3eb26ade637cd4343ad137a6dc28e7ed0b1e80502a26b23b6c"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "observations": [
+    {
+      "entry": "0xc053790",
+      "flags": 0,
+      "r4_r6": [
+        "0x0",
+        "0xf2",
+        "0xc19a2a0"
+      ],
+      "return": "0x1",
+      "ops": 12006,
+      "0xc1b2088": "0xc1a5a68",
+      "0xc1a0d24": "0xc19fc30",
+      "current_record": "0xc1a5ba8"
+    }
+  ],
+  "positive_control_batch": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_stream_context_hits_v1\\batch_manifest.json",
+    "sha256": "4a48f9c9a180f459a38122f0127869a65fb8f22112cac78eefb2e27e7f57f983"
+  }
+}

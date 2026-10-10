@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-motion-frame-bsr-v1':
+        from callable_motion import validate_motion_frame
+        return validate_motion_frame(owner, attribution, spans, corpus, image)
     if kind == 'vf3-fight-scene-table-v1':
         from callable_dispatch import validate_fight_scene
         return validate_fight_scene(owner, attribution, spans, corpus, image)

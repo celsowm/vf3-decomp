@@ -1,0 +1,6 @@
+# Passive active-context driver and a known game input-query positive control.
+pc 0x8c0432e2
+pc 0x8c04ba50
+pc 0x8c04bd62
+pc 0x8c04f588
+pc 0x8c053790

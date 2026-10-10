@@ -1,0 +1,2 @@
+# Original lookup entry inside the active task context; no patches.
+pc 0x8c053790

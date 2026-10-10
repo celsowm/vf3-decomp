@@ -122,6 +122,7 @@ add_library(vf3core STATIC
     src/fight/audio_fight.c
     src/fight/audio_fight_scene.c
     src/fight/audio_fight_render.c
+    src/fight/motion_frame.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c
     src/fight/motion_flag_command.c

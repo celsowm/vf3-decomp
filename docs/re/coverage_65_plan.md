@@ -83,14 +83,14 @@ spending the campaign entirely on attribution tooling.
 | `0x8c09d5ae` family | 536 | One-based actor +60, table `0x0c29b9f8`, twelve-byte records, VM at actor +0x1d00 |
 | `0x8c0991a2` family | 488 | Actual scene caller state and indirect destinations; check audio dependency reuse |
 | `0x8c0ca8da` family | 404 | Original caller inputs and four unresolved dynamic sites |
-| `0x8c09af6c` family | 1,302 | Packed motion-record decoder and its actual indirect destinations |
+| `0x8c09af6c` family | 1,302 | Controller/state merge and dependent callers; inspect their actual indirect destinations |
 
 These gains are research leads, not additive promises. Join each closure to
 the retained triage ledger before running it. For each pilot, inspect original
 disassembly, name every missing edge and collect one valid terminating input
 from the original game. Implement readable shared C and the actual callback
 targets; then expand callers only after the smallest pilot passes. The first
-four are the initial route toward 60%; the packed decoder is the next larger
+four are the initial route toward 60%; the controller/state family is a later larger
 expansion lead.
 
 Keep unbounded seed fragments out of promotion. Attribute their callable

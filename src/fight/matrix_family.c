@@ -54,6 +54,7 @@ int vf3_audio_encoder_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_audio_request_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_audio_input_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_audio_fight_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
+int vf3_motion_frame_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -217,6 +218,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c07abf8u) return vf3_resource_index_reset(s,ram);
     if(entry==0x0c0a8d58u || entry==0x0c0a8d5cu)
         return vf3_motion_descriptor_command(entry,s,ram);
+    if(entry==0x0c0a94d0u) return vf3_motion_frame_c(s,ram,audio_alias);
     if(entry==0x0c0af37cu || entry==0x0c0af38cu)
         return vf3_script_position_command(entry,s,ram);
     if(entry==0x0c0af448u || entry==0x0c0af44eu || entry==0x0c0af608u || entry==0x0c0af610u)

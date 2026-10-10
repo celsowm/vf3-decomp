@@ -101,6 +101,95 @@ inventory run is claimed.
 Next motion pilot: `0x8c0a94d0`, frozen owner `0x8c0a94d4`. Vary descriptor
 frame selector +36 across 0/1/2/3 rather than fixing it at one. The first
 32-variant/two-state original pilot produces 54 distinct complete specimens,
-with two OOB and one scheduler-rejected specimen retained. Native replay
+with two flag-1 and one flag-4 rejected specimens retained. Native replay
 correctly fails at the unsupported full entry. Implement the readable caller
 before claiming any bytes; this pilot earns zero credit.
+
+## Motion frame caller qualified
+
+Readable full entry `0x8c0a94d0` now qualifies frozen owner `0x8c0a94d4`,
+**+188 bytes**, total **259,110 / 434,656 (59.61%)** and 1,368 bindings.
+Development/acceptance pass 109/109 and 118/118 native cases, independently
+cover the full body, preserve saves/SP, and complete every started probe.
+Eight original-only specimens verify both original BSR sites and ordered
+prefix/return. Six new mutation tests bring tool checks to 104.
+
+Raw campaigns retain nine/ten rejected exception/interrupt specimens; these
+are excluded, not described as passing or silently discarded. The descriptor
+is relocated for acceptance; the actor remains at its actual loaded address.
+See [motion evidence and limitations](motion_frame.md). The remaining gap is
+**1,684 bytes to 60%** and **23,417 bytes to 65%**.
+
+## Context probes and reachability limitations
+
+Three bounded passive capture batches retain their raw evidence:
+`coverage_65_context_v1` (saves 21/27/28, 600 frames each),
+`coverage_65_context_v2` (fight save/menu save, 600 frames each), and
+`coverage_65_context_actions_v3` (fight/save27 with the retained button script).
+The first produces 64 distinct valid original object-callback cases at
+`0x8c04fe9e`, all matching the frozen current C executable, zero skips. The
+other batches record none of the selected full callers; no credit is granted.
+The second watch omits frequent helpers to avoid consuming caller capacity.
+
+A separate 306-entry hit survey records only `0x8c03523c` (one hit) and
+`0x8c062ec4` (five) in the retained fight/action scenario. Boot/button playback
+completes 4,740 frames and records no selected entries. This boot survey lacks
+a known-game positive-control PC, so it does **not** establish game progression
+or globally unreachable code. Both results remain advisory, not promotion
+evidence. [Counts](coverage_65_reachability.csv) and the hash-pinned
+`coverage_65_reachability_v1_manifest.json` retain those limits.
+
+Original disassembly also corrects a plan label: `0x8c09af6c` reads/merges
+controller/state bits through `0x8c0a1282`; calling it the packed motion-record
+decoder was unsupported. Its 1,302-byte static family lead remains advisory.
+`0x8c0a9036` includes two actual sound-submission calls, so qualifying its whole
+body requires their full audio contract. Object callers still need the real
+`0x8c053790` lookup/error path; the callback alone does not unlock them.
+
+The bounded closed-file experiment `coverage_65_object_error_dev_v1` invokes
+actual `0x8c053ce4` and its actual error tail `0x8c053d8c`/`0x8c04bd20`,
+without changing instructions or callback targets. All eight probes are
+rejected (seven flag-6, one flag-1); there are **zero valid replay cases**.
+Seven stop at `0x8c04bd2c`, reading context +0x18c0 with the captured context
+global `0x0c1b2088` equal to zero. The kernel context `0x0c1a0d24` is present
+(`0x0c19fc30`), but it is insufficient for this error path. This localizes the
+missing stream/error context rather than supplying a fake return value.
+The empty discovery report earns no coverage. Next evidence must include
+the naturally initialized `0x0c1b2088` context and its dependent records.
+
+### Active task context recovered
+
+The follow-up survey adds known game input-query `0x8c0432e2` as a positive
+control. Save21 observes 1,782 query hits and two hits each at actual task
+driver `0x8c04bd62` and lookup `0x8c053790`. The bounded fight scenario observes
+none of those entries. Passive `coverage_65_active_lookup_v1` then captures
+one valid original lookup, **1/1 native matches**, with no patches or skips:
+R4=0, R5=0xf2, R6=`0x0c19a2a0`, return=1, 12,006 original instructions.
+Its active context is `0x0c1a5a68`, current task record `0x0c1a5ba8`.
+
+Disassembly proves the context is execution-scoped: `0x8c04bd62` publishes
+R13 through `0x0c1b2088`, publishes each current record at context +0x18c0,
+then restores the prior global at `0x8c04be12`. The record stride is 0xbc,
+record table starts at context +0x140, record status is +12, and its saved
+continuation starts at +24. Actual `0x8c0544c8` saves SP, PR, registers and
+FPU state; its counterpart restores an execution continuation. This is not
+a simple semaphore read or an ordinary nested helper return.
+
+The second bounded eight-case probe copies the observed context/header and
+current record (`coverage_65_object_error_active_dev_v2`). It still rejects
+all eight (seven flag-6, one flag-1): the error path exits through task-driver
+restoration and reaches PC zero rather than returning to the synthetic leaf
+caller. Copied record data alone does not supply the live caller continuation.
+Both failed batches remain excluded; no additional bytes are counted.
+
+Next object qualification must enter through the actual task driver and
+preserve its saved stack/FPU continuation, then observe the genuine callback
+and lookup paths. The recovered active lookup is a context lead, not the
+64-case independent whole-caller proof required for promotion.
+
+The motion checkpoint now has a fresh complete **1,368/1,368-binding**
+regression and **39/39 native suites**, plus all **104 tool checks**, the full
+percentage hash chain and remaining repository gates. The source/executable
+seal is `tools/oracle/motion_frame_v1_manifest.json`. The SDK-inclusive
+accounting headline is a different measure; the verified C address union
+remains **259,110 bytes (59.61%)**.

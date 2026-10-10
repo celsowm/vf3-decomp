@@ -5799,6 +5799,30 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c5ca2"
   },
+  "motion_frame_qualified:0x8c0a94d4": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a9208",
+        "0x8c0a921a"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a94d0",
+      "kind": "vf3-motion-frame-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\motion_frame_original_callers_v1\\manifest.json",
+          "sha256": "7c853ec03a6a66fce472817a34b1471882362cbbadab32ea6388d209c8aeb982"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_motion_frame_dev_v3/f_8c0a94d0.cases",
+    "port": "src/fight/motion_frame.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original two BSR edges, descriptor delay, ordered R14/PR saves; frozen native C; observed motion records; disjoint saves and relocated descriptor; docs/re/motion_frame.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a94d0"
+  },
   "motion_unowned_extra:0x8c04e412": {
     "golden": "extract/analysis/motion_final_cases/f_8c04e412.cases",
     "port": "src/fight/vf3_motion_unowned_extra_adapter.c",

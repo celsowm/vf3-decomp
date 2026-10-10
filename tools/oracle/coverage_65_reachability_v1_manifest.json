@@ -1,0 +1,53 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "watched_entries": 306,
+  "fight_positive_entries": 2,
+  "boot_positive_entries": 0,
+  "limitation": "No independent known-game positive-control PC in boot survey; zero hits do not establish unreachable code or game progression. No queue family qualified by reachability alone.",
+  "watch": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_reachability_watch_v1.txt",
+    "sha256": "e749d7b6f9fc7cf35987afae951089626135af945c1d5d1c848d5df0dfd27f71"
+  },
+  "emulator": {
+    "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast_audio_fight_live_v1.exe",
+    "sha256": "3e9a4bf81265ea3eb26ade637cd4343ad137a6dc28e7ed0b1e80502a26b23b6c"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "scenarios": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\vf3_fight_keep.state",
+      "sha256": "a6e1ab6709158df2e050d8760ec4655e65a688bd42b3fc55e061d5c69f9482a6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\vf3_play_actions2.txt",
+      "sha256": "a4ce654b0549160f34eb8e9b7871ef29ba88b791fb00f930de797156c96579c6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\vf3_play_boot_mix.txt",
+      "sha256": "e558d6b632ffc3d7615dc53614ab7c30aaf828b137d34e76c45b14f290e7f07e"
+    }
+  ],
+  "batch": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_reachability_v1\\batch_manifest.json",
+    "sha256": "7dcd12360a6047135ac4c9c0af8461bc542edfe37f635acf5a32b4a7a8a93c03"
+  },
+  "hits": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_reachability_v1_raw\\hits_coverage_65_reachability_v1_fight.csv",
+      "sha256": "c9187d8a94703f81018573c48881d05b3b8c856435d348bdc8434d64c727c717"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_reachability_v1_raw\\hits_coverage_65_reachability_v1_boot.csv",
+      "sha256": "7ce980ba4ff06977ad9acdd76b499676aeb5fe0c4ac5e5a54c852d2a03b2fdb7"
+    }
+  ],
+  "summary": {
+    "path": "E:\\vf3-decomp\\docs\\re\\coverage_65_reachability.csv",
+    "sha256": "70604d38e9e278c3b1f6a977be896f6cf30dbf1fc480582960dbd2c1a34ff377"
+  }
+}
