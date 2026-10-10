@@ -2345,6 +2345,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07ef90"
   },
+  "audio_fight:0x8c099060": {
+    "golden": "extract/analysis/audio_fight_accept_v1_cases/f_8c099060.cases",
+    "port": "src/fight/audio_fight.c",
+    "source": "Uncredited complete callable pilot; 128 strict live/native comparisons including real callback 10, PVR writes and callback registration; frozen-owner table-dispatch and multi-save prefix promotion pending; docs/re/audio_fight_caller.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c099060"
+  },
   "audio_input:0x8c0c9f54": {
     "golden": "extract/analysis/audio_input_accept_v1_cases/f_8c0c9f54.cases",
     "port": "src/fight/audio_input.c",

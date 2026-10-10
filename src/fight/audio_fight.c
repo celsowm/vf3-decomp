@@ -1,0 +1,146 @@
+/* Fight input/style transition: callable 0x8c099060, frozen owner 0x8c099070.
+ * State publication and the real scene callback remain part of the invocation. */
+#include "fight/audio_fight_internal.h"
+
+int vf3_audio_fight_c(vf3_matrix_state*s,const vf3_ram_map*ram,uint32_t alias)
+{
+    STEP(0x099060);push(s,ram,R(14));
+    STEP(0x099062);push(s,ram,R(13));
+    STEP(0x099064);R(13)=0x0c29b864;
+    STEP(0x099066);R(0)=0x138;
+    STEP(0x099068);R(4)=0x0c29bcc4;
+    STEP(0x09906a);R(5)=RD(R(13)+R(0),4);
+    STEP(0x09906c);R(0)=41;
+    STEP(0x09906e);R(0)=signed_byte(RD(R(4)+R(0),1));
+    STEP(0x099070);push(s,ram,R(16));
+    STEP(0x099072);R(0)&=255;
+    STEP(0x099074);R(14)=0x0c29bb84;
+    STEP(0x099076);condition(s,R(0)==3);
+    STEP(0x099078);
+    if(R(17)&1){
+        STEP(0x09907a);R(2)=0xfffffff8;
+        STEP(0x09907c);R(3)=R(5);
+        STEP(0x09907e);R(3)=(uint32_t)((int32_t)R(3)>>8);
+        STEP(0x099080);R(3)|=R(5);
+        STEP(0x099082);R(5)=R(3)&65535;
+        STEP(0x099084);STEP(0x099086);
+    }else{
+        STEP(0x099088);condition(s,R(0)==1);
+        STEP(0x09908a);
+        if(!(R(17)&1)){
+            STEP(0x09908c);R(3)=0xfffffff8;
+            STEP(0x09908e);R(2)=R(5);
+            STEP(0x099090);R(2)=(uint32_t)((int32_t)R(2)>>8);
+            STEP(0x099092);R(5)=R(2)&65535;
+        }
+    }
+    STEP(0x099094);R(6)=0x800;
+    STEP(0x099096);condition(s,(R(5)&R(6))==0);
+    STEP(0x099098);
+    if(!(R(17)&1)){
+        STEP(0x09909a);R(0)=0x3e2;
+        STEP(0x09909c);R(2)=signed_word(RD(R(4)+R(0),2));
+        STEP(0x09909e);R(2)++;
+        STEP(0x0990a0);WR(R(4)+R(0),R(2),2);
+    }
+    STEP(0x0990a2);R(3)=RD(R(13)+12,4);
+    STEP(0x0990a4);condition(s,(int32_t)R(3)>0);
+    STEP(0x0990a6);
+    if(R(17)&1)goto tail;
+    STEP(0x0990a8);R(0)=0x3e2;
+    STEP(0x0990aa);R(3)=16;
+    STEP(0x0990ac);R(2)=signed_word(RD(R(4)+R(0),2));
+    STEP(0x0990ae);condition(s,(int32_t)R(2)>(int32_t)R(3));
+    STEP(0x0990b0);
+    if(R(17)&1){
+        STEP(0x0990b2);R(2)=RD(R(4)+8,4);
+        STEP(0x0990b4);R(2)|=R(6);
+        STEP(0x0990b6);WR(R(4)+8,R(2),4);
+    }
+    STEP(0x0990b8);R(0)=0x1c8;
+    STEP(0x0990ba);R(5)=RD(R(4)+R(0),4);
+    STEP(0x0990bc);R(0)=0x430;
+    STEP(0x0990be);float_load(s,ram,3,R(5)+R(0));
+    STEP(0x0990c0);R(0)-=76;
+    STEP(0x0990c2);float_store(s,ram,3,R(4)+R(0));
+    STEP(0x0990c4);R(0)+=84;
+    STEP(0x0990c6);float_load(s,ram,3,R(5)+R(0));
+    STEP(0x0990c8);R(0)-=80;
+    STEP(0x0990ca);float_store(s,ram,3,R(4)+R(0));
+    STEP(0x0990cc);R(0)=41;
+    STEP(0x0990ce);R(0)=signed_byte(RD(R(4)+R(0),1));
+    STEP(0x0990d0);R(0)&=255;
+    STEP(0x0990d2);condition(s,R(0)==1);
+    STEP(0x0990d4);
+    if(R(17)&1){
+        STEP(0x0990d6);R(6)=0x415;
+        STEP(0x0990d8);STEP(0x0990da);R(5)=RD(R(14)+16,4);
+    }else{
+        STEP(0x0990dc);R(6)=0x41a;
+        STEP(0x0990de);R(5)=RD(R(14)+20,4);
+    }
+    STEP(0x0990e0);R(0)=96;
+    STEP(0x0990e2);R(5)=signed_byte(RD(R(5)+R(0),1));
+    STEP(0x0990e4);R(6)+=R(4);
+    STEP(0x0990e6);R(0)=RD(R(4)+8,4);
+    STEP(0x0990e8);condition(s,(R(0)&4)==0);
+    STEP(0x0990ea);int actor_style=(R(17)&1)!=0;
+    STEP(0x0990ec);R(5)&=255;
+    if(!actor_style){STEP(0x0990ee);R(5)=signed_byte(RD(R(6),1));STEP(0x0990f0);R(5)&=255;}
+    STEP(0x0990f2);R(3)=13;
+    STEP(0x0990f4);R(0)=0x3c8;
+    STEP(0x0990f6);condition(s,(int32_t)R(5)>=(int32_t)R(3));
+    STEP(0x0990f8);int normalize=(R(17)&1)!=0;
+    STEP(0x0990fa);WR(R(4)+R(0),R(5),1);
+    if(normalize){STEP(0x0990fc);R(5)-=R(3);}
+    STEP(0x0990fe);R(0)=0x3c9;
+    STEP(0x099100);WR(R(4)+R(0),R(5),1);
+    STEP(0x099102);R(0)=0x201c;
+    STEP(0x099104);R(5)=RD(R(14)+16,4);
+    STEP(0x099106);R(6)=RD(R(14)+20,4);
+    STEP(0x099108);R(3)=signed_byte(RD(R(5)+R(0),1));
+    STEP(0x09910a);R(0)=0x3ca;
+    STEP(0x09910c);WR(R(4)+R(0),R(3),1);
+    STEP(0x09910e);R(0)=0x201c;
+    STEP(0x099110);R(2)=signed_byte(RD(R(6)+R(0),1));
+    STEP(0x099112);R(0)=0x3cb;
+    STEP(0x099114);WR(R(4)+R(0),R(2),1);
+    STEP(0x099116);R(0)=70;
+    STEP(0x099118);R(3)=signed_word(RD(R(5)+R(0),2));
+    STEP(0x09911a);R(0)=0x3d4;
+    STEP(0x09911c);WR(R(4)+R(0),R(3),2);
+    STEP(0x09911e);R(0)=70;
+    STEP(0x099120);R(2)=signed_word(RD(R(6)+R(0),2));
+    STEP(0x099122);R(3)=0;
+    STEP(0x099124);R(0)=0x3d6;
+    STEP(0x099126);WR(R(4)+R(0),R(2),2);
+    STEP(0x099128);R(0)+=12;
+    STEP(0x09912a);WR(R(4)+R(0),R(3),2);
+    STEP(0x09912c);R(0)=80;
+    STEP(0x09912e);R(3)=0x0c0968f8;
+    STEP(0x099130);R(16)=alias+0x099134;
+    STEP(0x099132);R(4)=RD(R(14)+R(0),4);
+    if(!vf3_audio_fight_render_c(s,ram,0))return 0;
+    STEP(0x099134);R(2)=0x0c0c5c94;
+    STEP(0x099136);R(4)=0x300a0;
+    STEP(0x099138);R(16)=alias+0x09913c;
+    STEP(0x09913a);R(5)=0;
+    if(!vf3_audio_request_c(s,ram,0x0c000000,1))return 0;
+    STEP(0x09913c);R(3)=0x0c0ca05c;
+    STEP(0x09913e);R(16)=alias+0x099142;
+    STEP(0x099140);R(4)=RD(R(14)+16,4);
+    if(!vf3_audio_style_at_c(s,ram,0x0c000000))return 0;
+    STEP(0x099142);R(2)=0x0c0ca05c;
+    STEP(0x099144);R(16)=alias+0x099148;
+    STEP(0x099146);R(4)=RD(R(14)+20,4);
+    if(!vf3_audio_style_at_c(s,ram,0x0c000000))return 0;
+    STEP(0x099148);R(0)=signed_byte(RD(R(13)+11,1));
+    STEP(0x09914a);R(0)++;
+    STEP(0x09914c);WR(R(13)+11,R(0),1);
+tail:
+    STEP(0x09914e);R(16)=pop(s,ram);
+    STEP(0x099150);R(3)=0x0c097ff4;
+    STEP(0x099152);R(13)=pop(s,ram);
+    STEP(0x099154);STEP(0x099156);R(14)=pop(s,ram);
+    return vf3_audio_fight_tail_c(s,ram);
+}

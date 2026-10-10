@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Fight audio caller and callback (2026-10-09)
+
+Readable `0x8c099060` now includes its real scene callback and rendering/
+registration dependencies. **128/128 live comparisons and native cases** pass,
+with independent held-out states, relocated actors and stack, complete execution
+of the 232-byte frozen body, and a corruption negative control. Eight pilot
+live comparisons also pass; 80 qualification cases execute the real callback
+and PVR write. Existing audio dependency corpora, **39 native suites**, **86
+tool checks** and the full milestone hash chain pass. The accepted 1,364-binding
+baseline is reused; the added uncredited callable brings the inventory to 1,365.
+Coverage remains **258,502 / 434,656 (59.47%)**: the unchanged promotion gate
+does not accept this table-dispatched entry and two-register prefix. See
+[fight audio evidence and remaining scope](re/audio_fight_caller.md).
+
 ## Live encoder and audio callers (2026-10-09)
 
 The general encoder now passes **128/128 live and native comparisons** with

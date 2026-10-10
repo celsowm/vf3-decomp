@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "readable_bytes": 258502,
+  "total_body_bytes": 434656,
+  "current_bindings": 1365,
+  "baseline_bindings": 1364,
+  "inventory": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "f074efa9cccab9e0232721b1dc338ea8703fa75e475c531a64466460e1b9f722"
+  },
+  "baseline_inventory": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\audio_fight_live_v1_baseline_bindings.json",
+    "sha256": "f4acaadbdf08d708f6714254258ca8f9a6643582271ba25b7bbf7a13879e847f"
+  },
+  "accepted_baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_callers_live_v1_regression_scope.json",
+    "sha256": "1657dff4e005eed60c93d4176ff7f14314ef29694a93c108b9d31bca3ad66cc0"
+  },
+  "uncredited_binding": "audio_fight:0x8c099060",
+  "proof": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\audio_fight_live_v1_manifest.json",
+    "sha256": "8fd47c72f6b8a0fe6a54863d6b1e1b0c52d16ba9fb21b8bf09abfcc73c8b9ceb"
+  },
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\audio_fight_live_v1_sources\\manifest.json",
+    "sha256": "4fb7eaa57097db376ab3ece30f4be4ab3a6423f8b4b9fabc81aa6de3a2aff090"
+  },
+  "fresh_native_checks": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_live_v2_native_checks.json",
+    "sha256": "35be85b2395474861300233e963a6c9c6426cafe4e963648df6eba291da1ba10"
+  },
+  "tool_checks": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_live_v1_tool_tests.log",
+    "sha256": "5b5a4d9d6e1cf97dd5ef77622966b74d2179069db4765db8bca505e3dec5108e"
+  },
+  "dependencies": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dependency_encoder_native_report.json",
+      "sha256": "cb8ab1328df8d46a4fade7beeb9fde74c3801136b7d9ad5a7b8c5c66d319dc42"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dependency_request_native_report.json",
+      "sha256": "d8acccb62113c2255018833349ba12754b9f6ddf01b8111b9c929e15aa62b715"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dependency_input_native_report.json",
+      "sha256": "476d3942d60e05b78340fb50f74c06ab32ad5d07d7f5e7494a4db276187000f7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dependency_actor_native_report.json",
+      "sha256": "7bc3812878d096680a1c6cb399b29ff98e30360744766d0470950e396ba137b0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dependency_submission_native_report.json",
+      "sha256": "a04ef8e073e35796789ae2edefba9fc81c0bf993495cd949072a574271d1c97b"
+    }
+  ],
+  "default_native": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_default_accept_native_report.json",
+    "sha256": "3215e03234d7c15328fd13a7ea9d17ab88397d785f7d9c114815f098f72e42ae"
+  },
+  "live_pilot": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_live_pilot_v1_comparison.json",
+    "sha256": "9b7febc9b08b8853e752b3aa45bbd6e787fafae33c3e74fcffadec0928b9b343"
+  },
+  "chain_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_live_v1_chain_audit.json",
+    "sha256": "be877b1a419479e658e859ebc9bf8d94612f936d2bcbfaa3c906c223cf69c233"
+  },
+  "regression_scope": "Accepted 1364-binding baseline reused; added fight caller and existing audio dependencies verified against current frozen executable. No repeated full-inventory acceptance claimed.",
+  "remaining": "Formal table-dispatch and multi-save-prefix attribution; other callbacks; song/reset attribution; standalone ARM/DSP playback"
+}

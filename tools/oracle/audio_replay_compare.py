@@ -37,12 +37,12 @@ def load_runs(path, execution):
         if len(capsule) != 1:
             raise ValueError('expected one invocation per process')
         sample = capsule[0]
-        if (sample['flags'] or sample['entry'] not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040,0x8c040b7c,0x8c0c5c94,0x8c0c9f54)
+        if (sample['flags'] or sample['entry'] not in (0x8c040f1e,0x8c040fa4,0x8c0c5d86,0x8c0ca05c,0x8c098040,0x8c040b7c,0x8c0c5c94,0x8c0c9f54,0x8c099060)
                 or sample['nstate'] != 63 or not sample['ops']):
             raise ValueError('capsule is rejected or outside the queue scope')
         target = {0x8c040f1e:'queue',0x8c040fa4:'channels',
                   0x8c0c5d86:'submission',0x8c0ca05c:'style',0x8c098040:'actors',0x8c040b7c:'encoder',
-                  0x8c0c5c94:'request',0x8c0c9f54:'input'}[sample['entry']]
+                  0x8c0c5c94:'request',0x8c0c9f54:'input',0x8c099060:'fight'}[sample['entry']]
         if execution.startswith('readable_c_') and f'[vf3audiobridge] executing C {target} with live devices' not in Path(row['log']).read_text(errors='replace'):
             raise ValueError('C execution marker missing')
         runs[key] = (row, capsule[0])

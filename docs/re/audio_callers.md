@@ -45,6 +45,8 @@ two-caller frozen-owner promotion gate. The gate has not been weakened and a
 second caller has not been invented. Readable coverage remains
 **258,502 / 434,656 (59.47%)**.
 
-Further fight/scene callers, including the callback tail reached from
-`0x8c099060`, need separate recovery. Attributed song and reset transitions,
-later ARM dispatch, DSP semantics and standalone playback remain open.
+The callback tail reached from `0x8c099060` has since passed complete readable
+C/live verification; see [audio_fight_caller.md](audio_fight_caller.md).
+Its table-dispatch and multi-save-prefix promotion remains pending. Further
+fight/scene callers, attributed song and reset transitions, later ARM dispatch,
+DSP semantics and standalone playback remain open.

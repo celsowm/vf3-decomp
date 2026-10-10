@@ -1,0 +1,1210 @@
+{
+  "passed": true,
+  "coverage_credit": false,
+  "new_bytes": 0,
+  "entry": "0x8c099060",
+  "frozen_owner": "0x8c099070",
+  "body_bytes": 232,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\audio_fight_live_v1_sources\\manifest.json",
+    "sha256": "4fb7eaa57097db376ab3ece30f4be4ab3a6423f8b4b9fabc81aa6de3a2aff090"
+  },
+  "campaigns": {
+    "dev": {
+      "cases": 64,
+      "body_bytes": 232,
+      "callback_cases": 40,
+      "pvr_write_cases": 40,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state"
+      ],
+      "stack_values": [
+        204601644,
+        204601768
+      ],
+      "actor_addresses": [
+        205537280
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\batch_manifest.json",
+        "sha256": "bff50e0f22adee2a7bcb90a965d841a6cea30c4ee41a3eb340fff2e4b82cd754"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\live_audio_comparison.json",
+        "sha256": "092e5af2d5916e53d5b4ec74b8c3510f9729d25648b9490af035eaba332d7b20"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_native_report.json",
+        "sha256": "62f62d81870519b5f86db1a7100f6fe3c672df1f5630e52dd0113ea81db94073"
+      },
+      "executable": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_fight_live_v1.exe",
+        "sha256": "dbd3bec7c1a145f07d637f3457a58ee70e200a20b38f5748d24e6f37eeb337d9"
+      },
+      "inputs": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\batch_manifest.json",
+          "sha256": "bff50e0f22adee2a7bcb90a965d841a6cea30c4ee41a3eb340fff2e4b82cd754"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\capsule_manifest.json",
+          "sha256": "ff03b0a088893ccca057d47cc7a957212ebf0129f03816423ef040793e8c43d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.bank.bin",
+          "sha256": "6d4267893ab433489a59a5f79e5dc0a2cb7e564f3fd806963a4179fc7efa554d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.cases",
+          "sha256": "e3dbf6b6fc32f870a5e8935a6fd555e431788ffafce9a6ac9a66cece7e597bdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.dev.bin",
+          "sha256": "4341588be2aec82460eb5660d37bd6128f717a69f3463fe1164003e4ae61eaed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.extra.bin",
+          "sha256": "3ed08da6c3690577e151e446b2a75cd19d656816871eaed3eee9af71bae3132a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.gbr.bin",
+          "sha256": "615285df509c7e80eba237a06d31736f7a09ce58e20612efb7abb9e802536a4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.ops.json",
+          "sha256": "4187da1c5cdc1471fefd23a98ea020331d720909adbc8c29b66df6e00478190e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.xfin.bin",
+          "sha256": "ebcf20c4e9be0ee8d96e058805bdd1e21f46860c415574a1cdef3c97467f8cdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060.xfout.bin",
+          "sha256": "ebcf20c4e9be0ee8d96e058805bdd1e21f46860c415574a1cdef3c97467f8cdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_0.in.bin",
+          "sha256": "77c7e8df435c13e883a67fea4968e1bc76ddf187c6dca40a8704a8c6b00a6030"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_0.out.bin",
+          "sha256": "ad9f7020646959478125f9fa6d7685bf7e2b2498e98680f05cc232f330280fb0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_1.in.bin",
+          "sha256": "8d7a8405c3a92ebaf2def6b03a61b1d18c7872421b3efcb795e43c9f26c47fda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_1.out.bin",
+          "sha256": "94360f3759f52e99ee19faa528e827bdd3dc3597eb026e12a9d7241dbc5872a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_10.in.bin",
+          "sha256": "2d364b588a8e510a26995628cd17b333c9d8c3d6b65604292790730ecd84752f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_10.out.bin",
+          "sha256": "7435a034d2e4b45a90785033e65bb4515d731092acb44ec17152950174f33c13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_11.in.bin",
+          "sha256": "ece13a839edb7dbe5b9feed2a300954f321200411296c82c957e7e48e30157d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_11.out.bin",
+          "sha256": "c03c462d044175154bbd8fad8595d415f8af971cbbb1b03f112c10f766c69ef3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_12.in.bin",
+          "sha256": "96eeaeb389457450fa51a35bb679f4cec69241143d1cddd46887a88aef8f9bd2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_12.out.bin",
+          "sha256": "b12d0903285683d42324b11f5ce5003d29dd08d588d1be63da9a77d6078dc6f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_13.in.bin",
+          "sha256": "18546ee71a4db717b655c1bddc89a329a4bb9d2a2bb157de86c189e04ef1453e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_13.out.bin",
+          "sha256": "fee65fca65e82c438b59496a466155c1d840fa717a4e11fbd30438cf8787d83c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_14.in.bin",
+          "sha256": "8504e455787f99e99dd0fc467bd43a0249111f86dfcabc518fb9ae95dde134ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_14.out.bin",
+          "sha256": "a5aa00b702bcf8ff8b8e5a385f842aaf7ad1ec613583dc9b483d5aaff4af54da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_15.in.bin",
+          "sha256": "c3528b05e1312f0641bd3d1a8f0f2ee92d36de28a090889ac623a02f95291250"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_15.out.bin",
+          "sha256": "9d07a19d2566396482e3624a9542de116d87186a1e6fb98fd1f6fbbafd5846d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_16.in.bin",
+          "sha256": "080e7740b9cefb2aff871f33155e3558b8f428a859694d38daf5e144463848f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_16.out.bin",
+          "sha256": "00de4c1f8c32febae060348b7004b892b209ad415de4c9258d5ef9a7a266a0ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_17.in.bin",
+          "sha256": "effd4ce6fe115192aaed45dda4eb3c0ed63657dc340132772789cdfc84995204"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_17.out.bin",
+          "sha256": "4e56121ce6678c3bf053cc63f251559fb9a1ad6549c1c24d1388eb6463fb25f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_18.in.bin",
+          "sha256": "c21065564a3a435e5a197bc16323eb9af2d39dd425a1fbde87414334b1ce5e57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_18.out.bin",
+          "sha256": "851ecdc90b326760cd2d79f18346cfbfd117be2b5001a433c5a18b7def27c6a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_19.in.bin",
+          "sha256": "31651c0ed3e7895b7ccd867b7b93d603694eb7740433735f3352d39ad98d965f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_19.out.bin",
+          "sha256": "6ec68554b54b7f82d203c06ea967b90aef3b6b96519f81013a6be375e1c743a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_2.in.bin",
+          "sha256": "e03b9eaf641c549b8865511e76b477f70c68a28e271c915e25de0e69209e3bf9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_2.out.bin",
+          "sha256": "6628d2654205cbbbbe45251589e2d8607832385ef3c0f1410af948ef8784223e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_20.in.bin",
+          "sha256": "151f7d47bb5c587c8cbd33c5d3c0e535556c5ebd301a2946bdaec397a4ad2571"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_20.out.bin",
+          "sha256": "be8d353aeb3f476073c29fbbf26a66e3ed5af704e79641d13b22e2139bfea4f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_21.in.bin",
+          "sha256": "9cbe064ae70007a67a756c2dee28bbb738d9c220e66860b96048b60e55bbba47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_21.out.bin",
+          "sha256": "908262e86274596c942e8a7eda93ca3ed4339d19bf4902486bcc14438a74efcd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_22.in.bin",
+          "sha256": "c863f5a36ac9ddb2f8ba2f54e3cf9aeb1fe42d5f8a122a743b19a0e502c7ee68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_22.out.bin",
+          "sha256": "e6dd8e0e475d7ad0010be18f59792cfe84d49620637a69815d412bce2b788cdf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_23.in.bin",
+          "sha256": "0595addb28dfd583b372fd7844e284f5a493a317e222a2a012a5c69884f7dedf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_23.out.bin",
+          "sha256": "37e6708d5d81bfa18e35b1e0f9dd24c677f6dc60212ff773eb647612803442a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_24.in.bin",
+          "sha256": "bacacebaef17573965a07ed82f38bbf73f1ead41eee3897dfba06af88116bb9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_24.out.bin",
+          "sha256": "8cc559ec818bde509ade1a0853d53944d1ccd5d6afc816453565918b7193e1ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_25.in.bin",
+          "sha256": "77989ceb4c59ca33644eb0407b7d79a34a982e82ef64cb039e25bcf85778f05c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_25.out.bin",
+          "sha256": "611583b11bbaabeab5e50a5990085aec88d16c023a72aa1f17385933bab2414d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_26.in.bin",
+          "sha256": "352175428a29fa01e1b3ffb2f43082e0e080bc2fbc040159c190c86c5ea23303"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_26.out.bin",
+          "sha256": "f261dbe93be9b7815dfb2ea831e93d30dae0d37d62ad9211480dbb67825e46f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_27.in.bin",
+          "sha256": "9a8e95fced8cd900746829a48144b72ea6c2a9e1ec8a6ae0346ec5bb5f21190e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_27.out.bin",
+          "sha256": "f5e6da33bbbd896b1962c51d235eca8322e6dac5dec4d83b867d905dcac06eda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_28.in.bin",
+          "sha256": "d09fb9a918a96a349b8cb7a1fb28ebc8d332dfa8473effed06d91cb972ae9826"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_28.out.bin",
+          "sha256": "8496d1d7f709d8d651b270e9b9e7853a5a64eb138bda72c3f5a788a07b267e40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_29.in.bin",
+          "sha256": "96352956fc82b30c97d003fd63d7f2ca8afc4efc58e44b2082665d9e125f54e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_29.out.bin",
+          "sha256": "ae75416247ef35e174b274dc9dabe8b453e907273f5c9c1849284b4c2c539a89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_3.in.bin",
+          "sha256": "c77221b3fcc5d6503d4f775c285913e44f96fcf6c56cb07c33667e9cbfeda221"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_3.out.bin",
+          "sha256": "35a1d49a74311767491a8e6f02802f3d9c9f5b36e88c0d9e5581745d6871bc2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_30.in.bin",
+          "sha256": "0105f63b2daa3929c17e728ea52c4188d3768e7c8edda0c568b7ec173a3a60a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_30.out.bin",
+          "sha256": "ee11027ac48bad41949a66199335d4462297710f9791596e5f4f0c370cba1154"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_31.in.bin",
+          "sha256": "a84ea3a3fd1a441203430371d521ab51f279ee602ebf597022f0c556add6dbbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_31.out.bin",
+          "sha256": "f9382c67fc58ddd5904fd30a3006d20d8b66ffcc80dcc40f1e6c1aa0e782cc95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_32.in.bin",
+          "sha256": "0a6a41f09cd1912858ddd544b2b873761ac97c8d93b4737bf13d21f0ef813618"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_32.out.bin",
+          "sha256": "88527a69bd6a072bac872dbe0659a720dcb4816bb74d7c4bfd110090c3568781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_33.in.bin",
+          "sha256": "ff8f513a76fb837e7e158eb167ba6427d6ffc460fd4255d079e7fae0a9290bea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_33.out.bin",
+          "sha256": "53ca461b0650fc49dc9c22e982510337668c2e8869d0054bd2fc0ddaccf60374"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_34.in.bin",
+          "sha256": "1748e1e518f96d291ddf8f14dbd3951acb5fee2568d1f56816a5ca6f7ea38c26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_34.out.bin",
+          "sha256": "491b698d8018948783c1a6527d0881a08b5ff6668309ffce4e543fbb14988061"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_35.in.bin",
+          "sha256": "ef22892d38ab7b5df50803f5ff6e77f8bb5c162bf56983dc78811bd40819fcd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_35.out.bin",
+          "sha256": "f184bc88b8fd54597aed239de462b53ef901ab927dc972596d1ff44a6d8e3acb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_36.in.bin",
+          "sha256": "ea6e9af572e70a59713b2ad0935d1ce4add5d000ddddd5e74e5a6c2f0161d9cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_36.out.bin",
+          "sha256": "f41f64f46e515d36eec67fd5ba65dfd2be805c63537ba4a17ca5f5a8b1196230"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_37.in.bin",
+          "sha256": "8d972af587b712aef2bcb525eeeb53abb3b8e1696719a4ee585c5bf92dceb8bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_37.out.bin",
+          "sha256": "e71e805ad0c821731fbcc14a24ddb109a8a17eda8b90220dfb6b2c850a270c64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_38.in.bin",
+          "sha256": "d7af4f9a0a6c36cb6f74295e84d5945fa6c1d8e2f7f01b22bdb2ab463c8feb27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_38.out.bin",
+          "sha256": "9dbbd572853cb1e0512c3ea7521053966df9b63dfd9180c8f13c66de7fda3a15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_39.in.bin",
+          "sha256": "b89a7f0c752f19e22a29122184b4e8f1e45d9f12dfbe3cacbb90151e50ba34db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_39.out.bin",
+          "sha256": "db30359ca5f6626c2b9f73edb0fe095c5ad86df3b710501fc5016e70c395e8de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_4.in.bin",
+          "sha256": "dbba2f91ea1449caa0cc53443da346061d241d20816828b09b50b5b6c4a38f25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_4.out.bin",
+          "sha256": "49e4357bb3f94ae5c24290b76606db586b7ccf22deed701d69a0c6cc54197f60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_40.in.bin",
+          "sha256": "92dc0b2f892ba7b0c928f859233e5829ab85aac4636b2fd96b13761c4535a46d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_40.out.bin",
+          "sha256": "2de925406ef435ac4afd08d72cc24f0c4ab6a79eb668875700f5079e0f570cb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_41.in.bin",
+          "sha256": "2390daf58122f4a702b9355242eb4743b0bd4ebf84013d73fa024fda04f2a098"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_41.out.bin",
+          "sha256": "8c3bd458d7b48055f01c735b0f01687ef972fe2abd2434d813acf967a970ddb4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_42.in.bin",
+          "sha256": "6988720491a8aa307b9f53d4c0d2f5f32a2ce617653c692c93b4bb23b44d54d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_42.out.bin",
+          "sha256": "d4ce642b3ba60c8d4875ad64581bef8dbb6154b98144179f28e8d946be08cf33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_43.in.bin",
+          "sha256": "9fbda6c889ec1ff73bf1ed3b1d1ebd41c646e29693719fc0b3fa301ef85fc6bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_43.out.bin",
+          "sha256": "bca50fcdb83bd1320316762385c853f0d16e986ccfadc52b6e3db33e0c3c0ece"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_44.in.bin",
+          "sha256": "2be6c65ec588dd7fd87260f6c5f6eb7afc14074c5a1604e950aea54e28d68c55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_44.out.bin",
+          "sha256": "5d831848d3a115bfe625e1323e8c499de6bc550a8cba47fd842ca65cd75f4e30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_45.in.bin",
+          "sha256": "3597bc12e17ba93b97b0a91a8bebf2fb8d39302f838da0b663dc09bef54a8df7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_45.out.bin",
+          "sha256": "96e6978f1045ce0d86f8b6fa91f7e6205ad04763f52f302fb942f979a46f23f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_46.in.bin",
+          "sha256": "19dfe35277c30316af395462ea967a9b1c8825e63ab24170eee661b9f65bd865"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_46.out.bin",
+          "sha256": "0f9af08c3f7258c3ddf6655668cd98fd9ae216b100ec8b7c2fd69e98e44edf3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_47.in.bin",
+          "sha256": "f2f1a227d5a7bce74ac48375b0e40449ea21df1bbb46e67345677930d8f5129d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_47.out.bin",
+          "sha256": "0651227bddbc5f15b9f68e6d084389150380c4fcac85964f8a80c2d569c3f62d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_48.in.bin",
+          "sha256": "ade9f2356c4710b91c08460a1b69f3e0fb615cf1ab7fc0b376d7dbe881b5debe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_48.out.bin",
+          "sha256": "1748dc20bc305726befc3ebb622425092292f83191960d468f504fee2f7d1bfb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_49.in.bin",
+          "sha256": "2036f01bcd035cbf9924cc480fb427ccc2a57e3d1978a6bb72f0b384120a0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_49.out.bin",
+          "sha256": "ff0f06959042e9c7e87a9784deb6941f633bedee2d6b603b9a08393e985fadda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_5.in.bin",
+          "sha256": "589e164bdf2f801ddb01e1e91253be718ea9e1f99e3979804fdcbc74883cf58b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_5.out.bin",
+          "sha256": "9db937e5443ff27f1998fc12aa9e22e4147790f1445dc54bb9d5fbb6d93655c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_50.in.bin",
+          "sha256": "f6c77c503c4001cd6ad652998209a816b78f1cd62a8f01401f1bbfebdf5a0383"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_50.out.bin",
+          "sha256": "40d7bcf43f50243dc7c4f0a87a3cb4c2c125dd22de5e1127d71f5062b2dd0f08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_51.in.bin",
+          "sha256": "d7ecf575ec14901057049284f57b6a5d7eb72d1777e1cb2abf7c3aa3d7a6548e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_51.out.bin",
+          "sha256": "ef628b39941fee7a99901e6e9fbe40d6e6940089c19f7aec4d9c24d85b22a4e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_52.in.bin",
+          "sha256": "288f40cdc2fe07a91cebbdfca32f4d79fcb83787db9718d1160c7aa59dfbb1c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_52.out.bin",
+          "sha256": "79f83d2004ecdf45e7a4a667f679fa83f75ac143313d9e06b48d71ff03e579f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_53.in.bin",
+          "sha256": "14ced6b3a50659d755ba1bb2f8f37fe9913be6dea890443a8842df8d0a5d38cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_53.out.bin",
+          "sha256": "d83b48ffa4f6f5771edf9340e1ac6a5e1089b99a39a2959e9dfea172de2e6acc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_54.in.bin",
+          "sha256": "9889581857b01753592a31537e74783b55d297427eceb5f249593b9e6e197a0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_54.out.bin",
+          "sha256": "1b47c7587a3f6f6c5cd587bc39d1e39b91c5579f14132b08fe1b5e5c1b7870ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_55.in.bin",
+          "sha256": "e4ce203e616ee90dbbbc6d2c9413fcde4c3994e8c61533b62e55258c34b74110"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_55.out.bin",
+          "sha256": "bcf5a395ad349c7de884db3dc6a6abbff7f912238cde13648587bd14a253ec86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_56.in.bin",
+          "sha256": "6ece5cdc05aa7121a8c42870445d3e85bb6eae5bbf6f3b861d99e8c3193b38e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_56.out.bin",
+          "sha256": "c68cbb96be0dcd7b8279be9e33918258c6920f0f2b6c0d81210706162f53f629"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_57.in.bin",
+          "sha256": "75a22e09cd5fb28cc293fc7a89e3924176ad735cd9f05e57a6b49c1e135cec72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_57.out.bin",
+          "sha256": "d7b8c37306df2e2780db6c5c8fdad220c111892940bf92b4925b386b60682537"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_58.in.bin",
+          "sha256": "68b19dfd999af39e45eda10965e7ed6c75efd5fc47b7203bc5179c344eefae46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_58.out.bin",
+          "sha256": "04bbe1712598b77feb70c92fe7c547671d8121dc833f06b49932b9cda671c69e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_59.in.bin",
+          "sha256": "f4883a7130d87d9d5f351900375fd77c14f3f94eb685f42095713ff3fde90eaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_59.out.bin",
+          "sha256": "a34a893573fae98a9eb66786e11ac28d87f2232f36e8d52b94f165aac3905b60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_6.in.bin",
+          "sha256": "6fe2dce46a56e19e05e5eae4509b1de5f3475b2890590b224e0dc721e16eeb6e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_6.out.bin",
+          "sha256": "44dcae1388ec9984d85f18c0230b7dbdffba60ab1405a46563a693c4a459e471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_60.in.bin",
+          "sha256": "02ebfa0be036caf5099f46d0b336a8e9f14dc1490d98630001da378955002135"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_60.out.bin",
+          "sha256": "7425b1a5c4a37d53cae68d8e9787878d35c6d596f2ccb7cbddce05191ff1c248"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_61.in.bin",
+          "sha256": "c4cfb19b79e1dd3164ed8c9e151bda1319bbd71d2e7a63813cf6879064fe3268"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_61.out.bin",
+          "sha256": "951a5b3bce9452726dbe2c546fe136c32f7fc50870ec59ce48c46461630a6632"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_62.in.bin",
+          "sha256": "a3651829133df48cef1dd7108f8501017beac093ebd589d3d18863b50d1bb068"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_62.out.bin",
+          "sha256": "d8df46ddd06ff3ae16adf54515b882b1d5a5eac58430b7e0c1b416c09b4e88cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_63.in.bin",
+          "sha256": "a8eccddc031855d3d0bcf7b93e0e02688aa210b583faa58bc2dcf1146ab42e8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_63.out.bin",
+          "sha256": "879263023a166b0054e811458c8201f125e08e7626e2a8b3f0602e9808b9923b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_7.in.bin",
+          "sha256": "0c1a14fe9d12954636adbde20990546699ed47e878fa450f27dc1028a529d789"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_7.out.bin",
+          "sha256": "840c9617aeeb97e00175e57d5eef3b16c321e2a4a4f866915fda649c777398c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_8.in.bin",
+          "sha256": "ce7dd850a2d2767939773224e13feb39fb283c9cd27aabee0cc29bfcd621f5c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_8.out.bin",
+          "sha256": "ad2ddc2b1ca79fc02c87d3f788a8a11ed2bf2b20aba856778b1817a2aa6d9cf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_9.in.bin",
+          "sha256": "bcea126bf682ecb85359da8edf2cc4e244bf396dbf2a1ffbb2fc9f1ab2d88533"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\f_8c099060_9.out.bin",
+          "sha256": "b0f7d078cbdf8d753724b60d253402c94333bc48b37b76d83a72594e498bd930"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_dev_v1_cases\\live_audio_comparison.json",
+          "sha256": "092e5af2d5916e53d5b4ec74b8c3510f9729d25648b9490af035eaba332d7b20"
+        }
+      ]
+    },
+    "accept": {
+      "cases": 64,
+      "body_bytes": 232,
+      "callback_cases": 40,
+      "pvr_write_cases": 40,
+      "states": [
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+        "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state"
+      ],
+      "stack_values": [
+        205508608
+      ],
+      "actor_addresses": [
+        206045184
+      ],
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\batch_manifest.json",
+        "sha256": "1996dc799e5ccec8581afb637b13d187596d3618079a14b446e86b271be91c0e"
+      },
+      "comparison": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\live_audio_comparison.json",
+        "sha256": "b2d0412f5271d47236c931ea5b581f30f2524a24c219fd04bbfff54faecf5cb0"
+      },
+      "native": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_native_report.json",
+        "sha256": "8f6d3e6bd4011f8d19490c7e4d92abf73a2c1b3be0fcb3f57b1137c2074dab7a"
+      },
+      "executable": {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_audio_fight_live_v1.exe",
+        "sha256": "dbd3bec7c1a145f07d637f3457a58ee70e200a20b38f5748d24e6f37eeb337d9"
+      },
+      "inputs": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\batch_manifest.json",
+          "sha256": "1996dc799e5ccec8581afb637b13d187596d3618079a14b446e86b271be91c0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\capsule_manifest.json",
+          "sha256": "31b5dbaaadf882d09bfe6529deaec7e1fe4e3ca86d22d3c70d63324b34225339"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.bank.bin",
+          "sha256": "2663134522781b1e4c1a9f7d050f46664f3919f9742403207e12de120f3f336a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.cases",
+          "sha256": "b932bedb1303ab81e4829d5e2456c4a584daae019759a60e9ff69e249918d7d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.dev.bin",
+          "sha256": "89b15f1c58a08ebfba92bc7a5c9a53b5cfa5d07cbd6104007960b968562c9969"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.extra.bin",
+          "sha256": "aa433f1f8024e74e1f1aa45fa2e2032359cfa1e34c1390e625a606dba2419907"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.gbr.bin",
+          "sha256": "615285df509c7e80eba237a06d31736f7a09ce58e20612efb7abb9e802536a4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.ops.json",
+          "sha256": "4f17a228a413d9e3ae1d2b2c57895aee21b47359721e58c46089ce3676d66126"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.xfin.bin",
+          "sha256": "e59c662b8a130dd982ddab4537fda4e3c3c97cda3a8e01887eb3ccd97fa18b15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060.xfout.bin",
+          "sha256": "e59c662b8a130dd982ddab4537fda4e3c3c97cda3a8e01887eb3ccd97fa18b15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_0.in.bin",
+          "sha256": "ed14158cda5d60fb9595ceebd2902b25b23c4061fb053bd6fb459c152ed20c96"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_0.out.bin",
+          "sha256": "1dc4d0c7bf0182a044065d34be2c346e3e8a4f825edf1e85339dde1411689d60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_1.in.bin",
+          "sha256": "7cbde24fd2383fd327d31baa3f6a83fc466855ea8fd4006a0633c8c6820e8755"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_1.out.bin",
+          "sha256": "3164e100f158419ee9304d65ac346cc312eb6480b8043f79e0a96ffae7a769d4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_10.in.bin",
+          "sha256": "5cdd48b9a83ffd205c1b4fa0493ba683cc6b73697f1a62dd014cf80da4bce317"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_10.out.bin",
+          "sha256": "766ae5fcf26f5c3a0305a6b4f5a35fac8ca66c52b16d4b0cf0a80355588c919a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_11.in.bin",
+          "sha256": "dd1306c5f52e3df460095354e701785f17df4dc7850bb8c4f3c686fb9883baa5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_11.out.bin",
+          "sha256": "4d3b4af1e9a28a8d1446adfaf1b1d9b2e85cda1b2890b5c2ae4ca099698fcbce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_12.in.bin",
+          "sha256": "16a254977534a3b7746833ec8cdf368cd45b8ebc2d5eead9e8931cb46c4b0aec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_12.out.bin",
+          "sha256": "eecd031ffcf728bc659cc3183b71ca56b67e45b226822c048f96eb20ec40f7de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_13.in.bin",
+          "sha256": "9b04f24b7b47dd03f8d4d4de2967ccde1e8c60b5f2a3b08894dcdda96d9d8866"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_13.out.bin",
+          "sha256": "b158f1667702a8a80e1ecb9c7522f6e1070eadb3c9f10a2ce9474385e81b6d70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_14.in.bin",
+          "sha256": "1d1716ad6104440d925bcaad14eb2608a2f23af73d13e5858d5f17fc90c8b7a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_14.out.bin",
+          "sha256": "7bebee0513f4db2d748f14338b481ee69c01a13ae2dd31f504f0eaa20e51cc4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_15.in.bin",
+          "sha256": "1d69cdb8c096fe32a51f49fb7779dd1c316a534ac097ef4d7561b7112628660e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_15.out.bin",
+          "sha256": "e7a3fa73fb8c9387433aff86c7150bb336beafa2a5bbcd06874023e71be0f7d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_16.in.bin",
+          "sha256": "7862c9293193ea734394f92ca652cc72cd653c9c58afdb30d76d6df73943093c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_16.out.bin",
+          "sha256": "32559db5f6d3c2ef8073f1689a904afa34df014b2c008253013b73c3310a8579"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_17.in.bin",
+          "sha256": "f97c4070ae3fc4b8883720ad033f988279f96d87afce45376d057750348dc96a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_17.out.bin",
+          "sha256": "f9ed34a33ae832a6b7e82bbcadbfbaf61b3aaab1a4501f7c64d96ef3d5cb235f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_18.in.bin",
+          "sha256": "cf7e414207915de6c9f4a3b9bbb6b438f9bb22d9d370d9a4cbf482e031a061b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_18.out.bin",
+          "sha256": "03fc161d631d1fb9275cef97a16e7f1d77c6e44a8dc1f58e3b1ac143e140ab93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_19.in.bin",
+          "sha256": "4be9a26ec12396628a8b0d93a0c6de6638d467ea979598e15126e19b999db060"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_19.out.bin",
+          "sha256": "d503d2214a5926a0d054a6ae7702f38212f73d080af98c50da0c943d9823a5eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_2.in.bin",
+          "sha256": "480001fbace3ed6611fb458f29fe0b29c7bc3baaafe941a4acd5d142513ed520"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_2.out.bin",
+          "sha256": "ec76230a92a88598e6da12e0e0509f5eb959c5ee9ba88d8f9e21aca3848e1736"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_20.in.bin",
+          "sha256": "a5da4790cdc7bc0a05a6f3756f69c52d31082bbd0252c8928870fc9c32ac401b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_20.out.bin",
+          "sha256": "dda2cfd5489bb61e544f2b46bc425c84b544c3d9a8a4cdf01fe47f4076c5c66c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_21.in.bin",
+          "sha256": "96f5b29ffeb937c239afb3b57962b3386c59b72fec90832a2685af12418e6a48"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_21.out.bin",
+          "sha256": "b7cf828c016f586b8c50bf8544b47aff21e72af8168a7e212fd42404fc628ffa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_22.in.bin",
+          "sha256": "ec12240daa843da3020b7649198a1df357ba1fa6b7c33ab5fa4d3364ba7a0683"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_22.out.bin",
+          "sha256": "dc1eec746b63c8b3953dd8074551817a3d629db6f1a2d563c08d5f12482b566d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_23.in.bin",
+          "sha256": "a292582deb29a3f7d61329b2a10b42a09d9d83287caa2f101acd6f2dba4df332"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_23.out.bin",
+          "sha256": "fae89432bf425cacae67195ff92f0287248af90ebf92c942878ce562dacdd1a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_24.in.bin",
+          "sha256": "8f23588200d36098f26f240e1b2eb4f9b07c58afe739ff0cba5c3a727b61aede"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_24.out.bin",
+          "sha256": "a42f099a4e67c3ae8d018199c9198642d5d4cf6f21b093cc2792e6a85f614fcd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_25.in.bin",
+          "sha256": "7d34ffd938da1f27a08b8ae843b79e66959380c24e7ba0eadc74f6aa49805e81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_25.out.bin",
+          "sha256": "9cee4a668eeb8439cf9fd93dbc8e27a61b51680b1ed1fa31b5fceacd019bab4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_26.in.bin",
+          "sha256": "e6d1daa795143094dae3310a02d3b1442fc10096ccdaab755c058f3199a16443"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_26.out.bin",
+          "sha256": "60d48af6c9f6ae5e4652825360e2139dccfe38cc6f7a430db78cf1125272f3c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_27.in.bin",
+          "sha256": "6f4aa9ea6251f03720dde6625982165d9bf9835d5313dc8c35607a6bc868e8a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_27.out.bin",
+          "sha256": "bd3077e705cbbfe26c03067d286cb03fa3aba4d6cd10cf8498da3eeabad23eaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_28.in.bin",
+          "sha256": "415095d080d5e050ce31347c483dbfb828c53640744365fb17f50ee851cf5964"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_28.out.bin",
+          "sha256": "1eed277dc92d041b40439e14f6f148b88bbe3a8d4ff99386a12f432bc915b0af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_29.in.bin",
+          "sha256": "1c7b25b5f996765a51a3d12d25bea54214c3f8b93310ceffed5a3fa19cb75f87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_29.out.bin",
+          "sha256": "2f0e7ba14d30f7536412fa27fb4ede3840a27cd9a2c5fe06b2e67456e6c643ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_3.in.bin",
+          "sha256": "401dbf403c72bd524de2a0770cd654ab8797612ce0541dc90a1d9950c01ba0bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_3.out.bin",
+          "sha256": "29504b697ef731a8e405806c895ff3b74c5103635d30d98495b93dfd9e2beecf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_30.in.bin",
+          "sha256": "81ec1685ff9110059da1c29e2b2db4fe8547c4c670a5e8114ecf01d186258cb4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_30.out.bin",
+          "sha256": "58fcfed0fba7604759e5e3d4b63971f20df0eb1d56cbf36a7e0cb648b3f4a3c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_31.in.bin",
+          "sha256": "0bd0fc31c8c0601f6c1badbabd998a64ca28396584239794943a261ac65e991c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_31.out.bin",
+          "sha256": "272c751f7ec773498d7c739dc1789a1b2f082ceedbbbe0ec3ea8d3e99b3cbe83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_32.in.bin",
+          "sha256": "b1b67339ce6c12cfef4f9d552eb103061a9f8b96f1a8a3147f1b57d1da8c075c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_32.out.bin",
+          "sha256": "03440dc5795e7f0dfbeeacfe19e869779ca9a67f5ef7b634c999a818bfece88f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_33.in.bin",
+          "sha256": "cbda030982c3a9e6f1b5b32960888a541f8bdddc6751fb14b3ba55da4ffa5cf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_33.out.bin",
+          "sha256": "9b86894462eb9b476388b2319efc01f652c5014d9b45c9101129767b1075a4c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_34.in.bin",
+          "sha256": "8106ac758750d9b27d9bcee8991ea3b114893c058159ef71fb63da3f6b447484"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_34.out.bin",
+          "sha256": "e5a28eaa86dddeb08545e191d38269db4a95b224eff2634b588759d7461aac9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_35.in.bin",
+          "sha256": "3768f513b304d2d74743be6c89241eb308c537a5b0bb59a967cc6dfb5381af15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_35.out.bin",
+          "sha256": "1aa02ac12c8bd8c9c4452ad3c28f9beedd97059c3ea96c80178e5404ec5b13fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_36.in.bin",
+          "sha256": "79e314f601d16c1882ac21d24b0b6ae97917eb971fe8527d6519880df6bc5da8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_36.out.bin",
+          "sha256": "73663774e09cc18aedd8a08f534608492605e8289dde84fda7d0d103bbc78e02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_37.in.bin",
+          "sha256": "06e68c63ae7ec73da09e03241eb7a2e9776eb71751c61694dc1dac52cccb295e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_37.out.bin",
+          "sha256": "6f2f92e6c36b377931b1bbb6368d0038775e0a742e05acc7dfa3e854e0da9d70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_38.in.bin",
+          "sha256": "c1597cabc6f6b46a84a935397166cc53a2b00b03e8e9d7bd4c312afce6f856df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_38.out.bin",
+          "sha256": "1c28dbba3d22195a12f79a54368e46db86b9eb59a27c3b1ddcd1876b6da6f30f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_39.in.bin",
+          "sha256": "38c73c33455be52ca17f717d074f4dd72be21e543d6f6b52ad4d98795eb14552"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_39.out.bin",
+          "sha256": "b2bfeae768a426b9af47588bc39ee2b3bffe6c9f5a9b5d152f40dcdc61a09fdb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_4.in.bin",
+          "sha256": "ddc2209e12afaa8e232c0b34caae1084e00b4c378b4f2861369a32a2190fcf1e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_4.out.bin",
+          "sha256": "e9eade391fd90a2d922f8f6f7eb0d81f34c72f9ae1760864cdcefcbc794cb1ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_40.in.bin",
+          "sha256": "b79ee84580cd53cd07b16b8581fc30f5555ac29666556b5de35a081c57dccfa0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_40.out.bin",
+          "sha256": "b97985bc320d35a40e0a03ac36f169eaf0f206c4cd58bfe667fc93b5ce55e595"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_41.in.bin",
+          "sha256": "e3b54aa03731071864c4858e5f0959af0da5e1d7002e33f778e09ad289eeb203"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_41.out.bin",
+          "sha256": "89e62d69530cc0b51254bbae9bff0d3a8d5cd5193d18a8b7cc3662e494402fd0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_42.in.bin",
+          "sha256": "4cc8da79e22c56aee25645cb7fee481776c7499836fbb5438fa04b161ad94c55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_42.out.bin",
+          "sha256": "0d6ab40b7c93e950003704458967ba827026fc863c3cede00b5fc2298a25e71f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_43.in.bin",
+          "sha256": "c9cadd428d6125a6649ddcef1bcc6892b908fd5a0f268feaaf73e83528d3cdf6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_43.out.bin",
+          "sha256": "37d7af81522b8d9905b63145a3037460d847040e12fe593e1e772b234c674bf0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_44.in.bin",
+          "sha256": "5a7e10bec6cd01e15b87a37ff00201a3759ff4dde85fc09530654537b31e15de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_44.out.bin",
+          "sha256": "56184db478a2dc8908db32a51466f4574a1abd4e7ea522e08436d261f888711b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_45.in.bin",
+          "sha256": "a5f7fd33d2799738b56db2759b17d0c3199af7cfafc5720dcaaff94593ecaef6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_45.out.bin",
+          "sha256": "5d45b0a04b15d746656c91036f32005affac2c6751fb405042d62de4afd64466"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_46.in.bin",
+          "sha256": "2bf41c05ef7110701bd8f57fa0d70f0314182ecd3b741546ecdc8855835629b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_46.out.bin",
+          "sha256": "737f85dcfb1f3cddba7a847da7decb8d28d6b4d958b5a22c54d3475e83a17a0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_47.in.bin",
+          "sha256": "91387f34964d5beaed8fa65caabb66e0e2b2e49efc4036d7d63f298e3df92a63"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_47.out.bin",
+          "sha256": "e239ba39851ded5d468c169979f63d5a019a8871eb1f355f247367489af729a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_48.in.bin",
+          "sha256": "3329317d770fab39ff386668bfdb395bfe1def08758a8ac9dabfdc1b077cccad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_48.out.bin",
+          "sha256": "36f3db055d61acb32b0216ff180b3579557c1a491898edb1437f468713f7b2f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_49.in.bin",
+          "sha256": "1b013b8d1104b4f81112cd3332d8af87fbd4ef95750b063ef64f8eb69b4a6467"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_49.out.bin",
+          "sha256": "cbd95967f378cdde033d102f226485f4416ac550e21013a8476824c1fa9e7c68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_5.in.bin",
+          "sha256": "8366be561d4a726a70a12766be5c02fe5e419052da34d8035ec8cf332052b661"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_5.out.bin",
+          "sha256": "26e60a577cbbbc5ec927368e285452def1949f5f8fede78522ae7e2c7dd7e870"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_50.in.bin",
+          "sha256": "216582fbe11b949377bbbe5a3dc3e086c18806b2e544bace0a9d9f8eab7e7e5e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_50.out.bin",
+          "sha256": "2f465af10ad21d2e41ca8faf4cbba91f6c15cd8d286ee5318bce8f9a9a135798"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_51.in.bin",
+          "sha256": "b54bffe4b36f4bc07c9606bb9cad7e654e255e0ec3dcdf11c929d17281b4f265"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_51.out.bin",
+          "sha256": "3bcce4916a2dae31a1995f09d742e88a1ae0a5c5485cb51d063e83de80b0c4e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_52.in.bin",
+          "sha256": "7af4193c8a3ff21ad6695723afd57cdfff5be7a4afeada929933e5511fe65bf9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_52.out.bin",
+          "sha256": "4384c45e65ae2c9e78611befa6292a4f413810a42c3b7baeed8699e77487b421"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_53.in.bin",
+          "sha256": "847ed2117d73d467b38346b220dde26097c51c3b8bd378c63f23d37582f73ff6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_53.out.bin",
+          "sha256": "d89f67ade6a9cf9c26e6689a1943d14ecb9011c73f6c48665df2e2de9c0de891"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_54.in.bin",
+          "sha256": "eb813423eea0943b882a1c956d94a88073ef2d38d5d01a05d10d15e97918450f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_54.out.bin",
+          "sha256": "ae04db0c79943a38395f349e61b6fe304ed442534263ca95b66dd7cc6c486de7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_55.in.bin",
+          "sha256": "059d70022db7dd8a9e6bda266fe35ea912408d41a90492500cce9323c577d2f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_55.out.bin",
+          "sha256": "da95502e862241f6cc77b0b10d2c0b0eb1e66fd68e4633105266e2719e8b090d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_56.in.bin",
+          "sha256": "593ef065ea01b167b3be0af12eda32136341bd3b474788734d8a7fe15357590d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_56.out.bin",
+          "sha256": "6c2bbc8e0295badcef507637dd3c67b972345f96fa6a8430e3b731ff56314c68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_57.in.bin",
+          "sha256": "c8d17c12d9349e03ae9c191e8b47af6c424dbdcb30d7a43f2af2857e5abe3118"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_57.out.bin",
+          "sha256": "cd948023328d0e52458e1c38cc468a617e8fb78f768f46f25c3c6ecc85972295"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_58.in.bin",
+          "sha256": "2a371d3d8205b053404be4e2cd73c16de023198b9a035e35dbd0e0470e8dcb98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_58.out.bin",
+          "sha256": "c009a6521813739bab6cc3b3c2a535726561af92e2ab0e49b1eae580a8f4108e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_59.in.bin",
+          "sha256": "8b123f6bf423882bd306fcc9d537243fb557b49dc2257e5145d63605d6e349dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_59.out.bin",
+          "sha256": "6ea9f7f8626a95a887d1e42225d62c2a5b48d8ff5b785203f84ed4c2b7503c89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_6.in.bin",
+          "sha256": "7b6cbb436b3ca6eccc45a2dbb55f0689ab5208be711322ca5e645a31c9655a42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_6.out.bin",
+          "sha256": "04c69584f7167c7e13d89a37bf0851aab81d16e12c81c69b61443535896d2c15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_60.in.bin",
+          "sha256": "e48f837cae2a91029b284d61b21d9cf53f85c3b308ed88f709a183a90c54cd8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_60.out.bin",
+          "sha256": "aaf946a26b11c967eeeda50e1034eceac0d9b6eca2197e45ee70ef92f0bdfa88"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_61.in.bin",
+          "sha256": "ad66a8cab2434d942494c7a8c3c9587c00a07c3fdbc1819dcd46b69a8e70327f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_61.out.bin",
+          "sha256": "9edcc7df43fc4426526fe9c4a126f099f340fa4bc4b2cf273a62ce2657b20ca5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_62.in.bin",
+          "sha256": "d966b09855ae3f0b9dda83b3fd42e679ee7a1f9525760c102a7a1839d14608e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_62.out.bin",
+          "sha256": "b75904d73606601842d135f17e66687b49a51541ad70109c9f82d30a0c5411af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_63.in.bin",
+          "sha256": "db1af4d82029ca1123124a6b89049a2ca4517e70dad150f2a02ad0cf973a692f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_63.out.bin",
+          "sha256": "76892ea6b4763f48df2eeaaed564a4284f0c465ef2e05947902b4ef9db839649"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_7.in.bin",
+          "sha256": "24835e36d711023926f00e57c538cf5437945ec0156cb4dfddadcabcb543b112"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_7.out.bin",
+          "sha256": "049ff2f1c2aefe63f73f1129ce5cfe23a05c8318c854570ca5504ae95719fee8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_8.in.bin",
+          "sha256": "f06dc3eb09942619a47907f3bb750c1066083fd7e2289d28df180066af102049"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_8.out.bin",
+          "sha256": "d555aea003b1c1b06ea219e080a9b27dd132d8567c8c16758a3a767d4f4403ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_9.in.bin",
+          "sha256": "c687b8af5edc57646b05fc32c2a8c9a958916c95873edf4e88471c2c4d0d43c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\f_8c099060_9.out.bin",
+          "sha256": "f0a15bbe6c9a5976501ebb85b459c0d633918baefbb3017600ac4d5a930249ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_accept_v1_cases\\live_audio_comparison.json",
+          "sha256": "b2d0412f5271d47236c931ea5b581f30f2524a24c219fd04bbfff54faecf5cb0"
+        }
+      ]
+    }
+  },
+  "attribution": {
+    "table_slot": "0x0c10bb84",
+    "index": 55,
+    "callback_slot": "0x0c10bad0",
+    "callback_index": 10,
+    "callback": "0x0c09a284",
+    "direct_bsr_callers": [],
+    "promotion_pending": "Existing validator requires two original BSR callers and supports only a single saved-register prefix; this callable has a table entry and a 16-byte prefix saving r14/r13. Rules unchanged."
+  },
+  "negative_control": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\audio_fight_live_v1_negative_comparison.json",
+    "sha256": "cb7aba5561dade1fb7dcce43c8acbc8789be44c18ea75dab5bd0b9a567a9c9be"
+  },
+  "scope": "Full callable, real callback 10, observed rendering helpers, original ARM/DSP and devices; overlay helper limited to this callback zero arguments",
+  "remaining": "Formal table-dispatch and multi-save-prefix promotion support; other callbacks; song/reset attribution; standalone ARM/DSP playback"
+}

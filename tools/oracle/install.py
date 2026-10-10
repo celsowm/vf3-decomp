@@ -90,6 +90,10 @@ def main():
              f'target_sources(${{PROJECT_NAME}} PRIVATE "{selection}")\n'
              f'set_source_files_properties("{selection}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n'
              f'target_include_directories(${{PROJECT_NAME}} PRIVATE "{(ROOT/"src").as_posix()}")\n')
+    for name in ('audio_fight.c','audio_fight_scene.c','audio_fight_render.c'):
+        fight = (ROOT/'src/fight'/name).as_posix()
+        block += (f'target_sources(${{PROJECT_NAME}} PRIVATE "{fight}")\n'
+                  f'set_source_files_properties("{fight}" TARGET_DIRECTORY ${{PROJECT_NAME}} PROPERTIES COMPILE_DEFINITIONS VF3_AUDIO_BRIDGE=1)\n')
     text = p.read_text(encoding='utf-8')
     if marker in text:
         prefix, previous = text.split(marker, 1)

@@ -53,6 +53,7 @@ int vf3_audio_actor_clear_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_audio_encoder_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_audio_request_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t,int);
 int vf3_audio_input_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
+int vf3_audio_fight_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -262,6 +263,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     case 0x0c0c5c94: case 0x0c0c5ca2:
         return vf3_audio_request_c(s,ram,audio_alias,entry==0x0c0c5c94);
     case 0x0c0c9f54: return vf3_audio_input_c(s,ram,audio_alias);
+    case 0x0c099060: return vf3_audio_fight_c(s,ram,audio_alias);
     case 0x0c040f1e:
     case 0x0c040c90: case 0x0c040c92: case 0x0c040d1c: case 0x0c040d20:
     case 0x0c040e24: case 0x0c040e28:
