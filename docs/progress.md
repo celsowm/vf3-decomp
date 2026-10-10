@@ -1,5 +1,15 @@
 # VF3tb decomp — progress log
 
+## Fight caller promotion toward 65% (2026-10-10)
+
+The original scene-table dispatch edge and ordered two-register prefix now
+have a narrow verified attribution contract. Sixteen fresh original caller
+captures pass, and the existing independent 128-case native/live behavior
+proof qualifies the full 232-byte owner. Coverage is **258,734 / 434,656
+(59.53%)**, with 1,366 bindings and 91 passing tool checks. Compiled C and
+frozen behavior proofs are unchanged. See [execution toward 65%](re/coverage_65_execution.md)
+and [the staged plan](re/coverage_65_plan.md).
+
 ## Fight audio caller and callback (2026-10-09)
 
 Readable `0x8c099060` now includes its real scene callback and rendering/

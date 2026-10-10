@@ -9,6 +9,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
+    kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-fight-scene-table-v1':
+        from callable_dispatch import validate_fight_scene
+        return validate_fight_scene(owner, attribution, spans, corpus, image)
+    assert kind == 'bsr', 'unknown callable attribution contract'
     parent = int(attribution['entry'], 16)
     start = min(s for s, _ in spans)
     assert parent % 2 == 0 and 0 < start - parent <= 64, 'invalid callable prefix'

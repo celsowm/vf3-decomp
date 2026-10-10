@@ -2352,6 +2352,36 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c099060"
   },
+  "audio_fight_qualified:0x8c099070": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13"
+      ],
+      "entry": "0x8c099060",
+      "index": 55,
+      "kind": "vf3-fight-scene-table-v1",
+      "original_dispatch_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\fight_dispatch_original_pilot_v1\\manifest.json",
+          "sha256": "4ac148a5cea97e99a1033b48eeb62e732ebcd2cebe8fa2cc8d38b7d08e4d3e2d"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\fight_dispatch_original_accept_pilot_v1\\manifest.json",
+          "sha256": "9925449463445e669404e62dbaed38b1e7072477ac7506e92739a6aaaae142d6"
+        }
+      ],
+      "table": "0xc10baa8"
+    },
+    "golden": "extract/analysis/audio_fight_dev_v1_cases/f_8c099060.cases",
+    "port": "src/fight/audio_fight.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original scene-table dispatcher edge and ordered two-register prefix; full readable caller and real callback; 128 strict native/live cases; docs/re/coverage_65_execution.md",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c099060"
+  },
   "audio_input:0x8c0c9f54": {
     "golden": "extract/analysis/audio_input_accept_v1_cases/f_8c0c9f54.cases",
     "port": "src/fight/audio_input.c",
