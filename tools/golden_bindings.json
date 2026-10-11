@@ -7594,6 +7594,33 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a87fc"
   },
+  "replay_record_qualified:0x8c0a9040": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a8e64",
+        "0x8c0a8e6e"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11"
+      ],
+      "entry": "0x8c0a9036",
+      "kind": "vf3-replay-record-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_record_original_bsr_v2\\manifest.json",
+          "sha256": "2b24e43e0944b82ad61a2fca19796b4d9d4a39fd21217c144b0232c2ba2d8275"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_replay_record_dev_v3/f_8c0a9036.cases",
+    "port": "src/fight/replay_record.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full replay record restoration, interpolation, queued events and motion transitions; frozen C passes independent state and RAM fixtures; both untouched original BSR edges are proven",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a9036"
+  },
   "round_score_qualified:0x8c0a7bec": {
     "callable_body": {
       "call_sites": [

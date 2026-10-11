@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Replay record restoration qualified (2026-10-11)
+
+The full replay-record reader adds **348 verified C bytes**. Development
+matches 108/108 valid cases; independent holdout matches 116/116. Both
+execute the whole frozen owner, with zero skips and no incomplete
+invocations. Eight original windows prove both BSR callers, delay
+arguments, scene literal, save stack and return. The unchanged 388-file
+source freeze precedes holdout. The 50-binding affected/conservative
+gate, 39 native suites and 249 tool tests pass. Interrupted and non-RAM
+pilots remain pinned without qualification.
+
+Verified C is **266,992 / 434,656 (61.43%)**; **15,535 bytes remain to
+65%**. See [replay record restoration](re/replay_record.md).
+
 ## Paired history recording qualified (2026-10-11)
 
 The paired history callback adds **96 verified C bytes**. Development and

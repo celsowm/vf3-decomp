@@ -146,6 +146,7 @@ add_library(vf3core STATIC
     src/fight/render_lanes.c
     src/fight/replay_history.c
     src/fight/history_scan.c
+    src/fight/replay_record.c
     src/fight/history_record.c
     src/fight/scene_insert.c
     src/fight/task_driver.c

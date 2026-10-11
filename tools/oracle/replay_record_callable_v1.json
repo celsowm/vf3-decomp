@@ -1,0 +1,22 @@
+{
+  "0x8c0a9040": {
+    "kind": "vf3-replay-record-bsr-v1",
+    "entry": "0x8c0a9036",
+    "call_sites": [
+      "0x8c0a8e64",
+      "0x8c0a8e6e"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_record_original_bsr_v2\\manifest.json",
+        "sha256": "2b24e43e0944b82ad61a2fca19796b4d9d4a39fd21217c144b0232c2ba2d8275"
+      }
+    ]
+  }
+}

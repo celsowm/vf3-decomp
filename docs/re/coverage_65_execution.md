@@ -662,3 +662,17 @@ exception/budget-limited pilot remains pinned without qualification.
 Verified C is **266,644 / 434,656 (61.35%)**; **15,883 bytes remain to 65%**.
 See [history recording](history_record.md). The full inventory gate remains
 required at 62.5%.
+
+
+## Replay record restoration (2026-10-11)
+
+Full callable `0x8c0a9036`, owner `0x8c0a9040`, adds 348 bytes.
+Frozen C matches development 108/108 and independent holdout 116/116,
+with whole-owner execution, no replay skips and no incomplete runs.
+Original BSR sites `0x8c0a8e64`/`0x8c0a8e6e` pass eight original-only
+windows. Two affected bindings plus 48 conservative legacy bindings,
+39 native suites and 249 tool tests pass. Both development pilots and
+the interrupted first caller campaign remain pinned and excluded.
+Source freeze: 388 compiled files. Seal: `replay_record_v1_manifest.json`.
+Verified union 266,644 -> **266,992 / 434,656 (61.43%)**; remaining
+**15,535 bytes** to 65%. Next full inventory gate remains 62.5%.
