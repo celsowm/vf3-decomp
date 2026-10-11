@@ -76,6 +76,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     if kind == 'vf3-history-scan-bsr-v1':
         from callable_history_scan import validate_history_scan
         return validate_history_scan(owner, attribution, spans, corpus, image)
+    if kind == 'vf3-history-record-installed-tail-v1':
+        from callable_history_record import validate_history_record
+        return validate_history_record(owner, attribution, spans, corpus, image)
     assert kind == 'bsr', 'unknown callable attribution contract'
     parent = int(attribution['entry'], 16)
     start = min(s for s, _ in spans)

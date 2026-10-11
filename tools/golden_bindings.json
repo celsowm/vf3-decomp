@@ -4934,6 +4934,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c0f60"
   },
+  "history_record_qualified:0x8c0a83ce": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a83b6"
+      ],
+      "callback_pool": "0xc0a843c",
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10"
+      ],
+      "entry": "0x8c0a83c2",
+      "kind": "vf3-history-record-installed-tail-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_record_original_tail_v1\\manifest.json",
+          "sha256": "973b6316913ef41afaf49995dce09505edbe74d0e7a1efd1fb4c44236b81fe2b"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_history_record_dev_v1/f_8c0a83c2.cases",
+    "port": "src/fight/history_record.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete paired actor-state history callback, original installation/tail frame and independent strict holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a83c2"
+  },
   "history_scan_qualified:0x8c0a86ba": {
     "callable_body": {
       "call_sites": [

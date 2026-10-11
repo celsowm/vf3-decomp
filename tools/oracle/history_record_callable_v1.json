@@ -1,0 +1,23 @@
+{
+  "0x8c0a83ce": {
+    "kind": "vf3-history-record-installed-tail-v1",
+    "entry": "0x8c0a83c2",
+    "call_sites": [
+      "0x8c0a83b6"
+    ],
+    "callback_pool": "0xc0a843c",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_record_original_tail_v1\\manifest.json",
+        "sha256": "973b6316913ef41afaf49995dce09505edbe74d0e7a1efd1fb4c44236b81fe2b"
+      }
+    ]
+  }
+}

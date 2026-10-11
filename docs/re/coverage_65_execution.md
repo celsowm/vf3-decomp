@@ -647,3 +647,18 @@ Three affected bindings, 39 native suites and 235 tool tests pass.
 Verified C is **266,548 / 434,656 (61.32%)**; **15,979 bytes remain to 65%**.
 See [history scan](history_scan.md). The full inventory gate remains
 required at 62.5%.
+
+## Paired history recording: +96 bytes (2026-10-11)
+
+Callable `0x8c0a83c2`, frozen owner `0x8c0a83ce`, adds 96 marginal bytes.
+Development and independent holdout each match 128/128 strict cases with
+complete owner execution, zero skips and no rejected specimens. Eight
+original windows prove callback installation, the initializer tail, saved
+return stack and restoration. The unchanged executable and 387-file
+source freeze precede holdout. The affected binding, 39 native suites and
+242 tool tests pass. The 544-byte playback candidate's incomplete and
+exception/budget-limited pilot remains pinned without qualification.
+
+Verified C is **266,644 / 434,656 (61.35%)**; **15,883 bytes remain to 65%**.
+See [history recording](history_record.md). The full inventory gate remains
+required at 62.5%.

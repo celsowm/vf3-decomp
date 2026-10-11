@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Paired history recording qualified (2026-10-11)
+
+The paired history callback adds **96 verified C bytes**. Development and
+independent holdout each match 128/128 strict cases with complete owner
+execution, zero skips and no rejected specimens. Eight original windows
+prove callback installation, the initializer tail, saved return stack,
+nested saves and return. The unchanged 387-file source freeze precedes
+holdout. The affected binding, 39 native suites and 242 tool tests pass.
+The larger playback pilot's exceptions, limits and incomplete invocations
+remain pinned without qualification.
+
+Verified C is **266,644 / 434,656 (61.35%)**; **15,883 bytes remain to
+65%**. See [history recording](re/history_record.md).
+
 ## History-ring scan qualified (2026-10-11)
 
 The history-ring scan adds **176 verified C bytes**. Development and
