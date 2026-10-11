@@ -1,0 +1,84 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Original fight descriptor flag predicate, offset-12 callback load and JSR delay argument; callback value equals the untouched original installer pool",
+  "cases": [
+    {
+      "name": "callback_dispatch_0",
+      "entry": "0x0c09617c",
+      "registers": {
+        "r14": 206569472,
+        "r15": 207094016,
+        "fpscr": 2359297
+      },
+      "memory": {
+        "0xc500000": 1,
+        "0xc50000c": 202018328,
+        "0xc29ba30": 0,
+        "0xc29bcc0": 0
+      },
+      "expected_exit": "0x0c096188",
+      "budget": 100000,
+      "transfer": "0x0c0a8f0c",
+      "explicit_return_only": true
+    },
+    {
+      "name": "callback_dispatch_1",
+      "entry": "0x0c09617c",
+      "registers": {
+        "r14": 206569472,
+        "r15": 207094016,
+        "fpscr": 2359297
+      },
+      "memory": {
+        "0xc500000": 1,
+        "0xc50000c": 202018328,
+        "0xc29ba30": 0,
+        "0xc29bcc0": 524289
+      },
+      "expected_exit": "0x0c096188",
+      "budget": 100000,
+      "transfer": "0x0c0a8f0c",
+      "explicit_return_only": true
+    },
+    {
+      "name": "callback_dispatch_2",
+      "entry": "0x0c09617c",
+      "registers": {
+        "r14": 206569472,
+        "r15": 207094016,
+        "fpscr": 2359297
+      },
+      "memory": {
+        "0xc500000": 1,
+        "0xc50000c": 202018328,
+        "0xc29ba30": 1,
+        "0xc29bcc0": 1
+      },
+      "expected_exit": "0x0c096188",
+      "budget": 100000,
+      "transfer": "0x0c0a8f0c",
+      "explicit_return_only": true
+    },
+    {
+      "name": "callback_dispatch_3",
+      "entry": "0x0c09617c",
+      "registers": {
+        "r14": 206569472,
+        "r15": 207094016,
+        "fpscr": 2359297
+      },
+      "memory": {
+        "0xc500000": 1,
+        "0xc50000c": 202018328,
+        "0xc29ba30": 1,
+        "0xc29bcc0": 524288
+      },
+      "expected_exit": "0x0c096188",
+      "budget": 100000,
+      "transfer": "0x0c0a8f0c",
+      "explicit_return_only": true
+    }
+  ]
+}

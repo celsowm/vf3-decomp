@@ -676,3 +676,18 @@ the interrupted first caller campaign remain pinned and excluded.
 Source freeze: 388 compiled files. Seal: `replay_record_v1_manifest.json`.
 Verified union 266,644 -> **266,992 / 434,656 (61.43%)**; remaining
 **15,535 bytes** to 65%. Next full inventory gate remains 62.5%.
+
+
+## Paired replay callback (2026-10-11)
+
+Full callable `0x8c0a8e18`, owner `0x8c0a8e22`, adds 238 bytes.
+Frozen C matches development 109/109 and holdout 116/116; both execute
+all owner instructions, with no skips or incomplete invocations. Each
+campaign excludes nine interrupted and three budget-limited specimens.
+Eight original windows prove the `0x8c09617c` descriptor predicate,
+`0x8c096182` callback load and `0x8c096184` JSR/argument/return. The
+original callback installer bytes and pool are checked statically.
+Two affected bindings, 39 native suites and 257 tool tests pass.
+Source freeze: 389 compiled files. Seal: `replay_callback_v1_manifest.json`.
+Verified union 266,992 -> **267,230 / 434,656 (61.48%)**; remaining
+**15,297 bytes** to 65%. Full 62.5% and 65% inventory gates remain required.

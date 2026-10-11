@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Paired replay callback qualified (2026-10-11)
+
+The paired playback callback adds **238 verified C bytes**. Development
+matches 109/109 valid cases; independent holdout matches 116/116. Both
+execute the whole frozen owner with no skips or incomplete invocations.
+Eight original windows prove descriptor predicate, callback load, delay
+argument, save stack and return; the installer target is checked against
+original image bytes. The unchanged 389-file source freeze precedes
+holdout. Two affected bindings, 39 native suites and 257 tool tests pass.
+Each campaign excludes nine interruptions and three budget-limited cases.
+
+Verified C is **267,230 / 434,656 (61.48%)**; **15,297 bytes remain to
+65%**. See [paired replay callback](re/replay_callback.md).
+
 ## Replay record restoration qualified (2026-10-11)
 
 The full replay-record reader adds **348 verified C bytes**. Development

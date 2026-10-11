@@ -7566,6 +7566,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c05d424"
   },
+  "replay_callback_qualified:0x8c0a8e22": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c096184"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10"
+      ],
+      "dispatch_start": "0x8c09617c",
+      "entry": "0x8c0a8e18",
+      "kind": "vf3-replay-callback-descriptor-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_callback_original_dispatch_v1\\manifest.json",
+          "sha256": "6181f9193f5ae6ae8ad96e0fd8eee574102a1451e3573e726a8616a05895fe65"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_replay_callback_dev_v1/f_8c0a8e18.cases",
+    "port": "src/fight/replay_callback.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete paired replay callback: pause, interpolation, wrap, end marker and ordered actor updates; both independent frozen-C campaigns execute the full owner; original descriptor dispatcher and immutable installer target proven",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a8e18"
+  },
   "replay_history_qualified:0x8c0a8808": {
     "callable_body": {
       "call_sites": [
