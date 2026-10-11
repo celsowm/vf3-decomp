@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Five-entry contact history qualified (2026-10-11)
+
+The complete contact-history updater adds **648 verified C bytes**.
+Development passes 126/126 valid cases and fresh holdout 127/127, with full
+owner execution and zero skips. Three interruptions remain excluded.
+Eight original BSR windows prove setup, saves and return. The accepted
+executable's 380-source freeze precedes holdout. The affected binding,
+39 native suites and 186 tool tests pass. Superseded development captures
+and failed helper candidates remain pinned without credit.
+
+Verified C is **264,086 / 434,656 (60.76%)**; **18,441 bytes remain to
+65%**. See [contact history](re/contact_history.md).
+
 ## Scene contact initializer qualified (2026-10-11)
 
 The eighteen-slot contact initializer adds **636 verified C bytes**.

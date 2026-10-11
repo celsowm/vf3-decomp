@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-contact-history-bsr-v1':
+        from callable_contact_history import validate_contact_history
+        return validate_contact_history(owner, attribution, spans, corpus, image)
     if kind == 'vf3-contact-init-bsr-v1':
         from callable_contact_init import validate_contact_init
         return validate_contact_init(owner, attribution, spans, corpus, image)

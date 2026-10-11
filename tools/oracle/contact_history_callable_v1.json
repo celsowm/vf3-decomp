@@ -1,0 +1,22 @@
+{
+  "0x8c0c0c04": {
+    "entry": "0x8c0c0bf4",
+    "kind": "vf3-contact-history-bsr-v1",
+    "call_sites": [
+      "0x8c0c045c"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_history_original_caller_v1\\manifest.json",
+        "sha256": "afc9dfb63661b8a764a69dfc9691f924780e92f49b909a483c1e27f266db9efd"
+      }
+    ]
+  }
+}

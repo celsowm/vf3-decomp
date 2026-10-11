@@ -139,6 +139,7 @@ add_library(vf3core STATIC
     src/fight/aggregate_frame.c
     src/fight/contact_frame.c
     src/fight/contact_init.c
+    src/fight/contact_history.c
     src/fight/scene_insert.c
     src/fight/task_driver.c
     src/fight/task_callback_selectors.c

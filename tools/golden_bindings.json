@@ -2539,6 +2539,33 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a0aec"
   },
+  "contact_history_qualified:0x8c0c0c04": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0c045c"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10"
+      ],
+      "entry": "0x8c0c0bf4",
+      "kind": "vf3-contact-history-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_history_original_caller_v1\\manifest.json",
+          "sha256": "afc9dfb63661b8a764a69dfc9691f924780e92f49b909a483c1e27f266db9efd"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_contact_history_dev_v4/f_8c0c0bf4.cases",
+    "port": "src/fight/contact_history.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete five-entry contact-history updater; 126 development and 127 holdout matches, full 648-byte owner, original BSR argument delay and saves. Search and fallback helper sources receive no additional coverage credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c0bf4"
+  },
   "contact_init_qualified:0x8c0a07fa": {
     "callable_body": {
       "call_sites": [

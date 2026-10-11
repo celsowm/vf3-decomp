@@ -527,3 +527,18 @@ campaign is separately pinned and excluded from attribution.
 Verified C is **263,438 / 434,656 (60.61%)**; **19,089 bytes remain to 65%**.
 See [contact initialization](contact_init.md). The next full inventory gate
 is required at 62.5%.
+
+## Contact-history updater: +648 bytes (2026-10-11)
+
+Callable `0x8c0c0bf4`, frozen owner `0x8c0c0c04`, adds 648 marginal bytes.
+Development passes 126/126 valid cases and independent holdout 127/127;
+both exercise the full owner without skips. Three interruptions remain
+excluded. Eight original BSR windows prove caller argument setup, saves and
+return. The accepted executable and 380-source freeze precede holdout.
+The affected binding, 39 native suites and 186 tool tests pass. The search
+and fallback dependencies receive no additional credit; superseded pilots
+and failed native candidates remain pinned in the final evidence seal.
+
+Verified C is **264,086 / 434,656 (60.76%)**; **18,441 bytes remain to 65%**.
+See [contact history](contact_history.md). The next full inventory gate is
+required at 62.5%.
