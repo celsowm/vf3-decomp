@@ -1,0 +1,270 @@
+{
+  "baseline_bytes": 267230,
+  "target_bytes": 282527,
+  "candidates": [
+    {
+      "group": "replay_motion",
+      "owner": "0x8c0a8370",
+      "frozen_bytes": 94,
+      "current_marginal_bytes": 94
+    },
+    {
+      "group": "replay_motion",
+      "owner": "0x8c0a89c2",
+      "frozen_bytes": 206,
+      "current_marginal_bytes": 206
+    },
+    {
+      "group": "replay_motion",
+      "owner": "0x8c0a8f98",
+      "frozen_bytes": 158,
+      "current_marginal_bytes": 158
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c09575c",
+      "frozen_bytes": 1780,
+      "current_marginal_bytes": 1780
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c09970a",
+      "frozen_bytes": 1172,
+      "current_marginal_bytes": 1172
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c097abc",
+      "frozen_bytes": 1132,
+      "current_marginal_bytes": 1132
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c098c70",
+      "frozen_bytes": 882,
+      "current_marginal_bytes": 882
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c099d74",
+      "frozen_bytes": 648,
+      "current_marginal_bytes": 648
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c0972d2",
+      "frozen_bytes": 624,
+      "current_marginal_bytes": 624
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c09635a",
+      "frozen_bytes": 616,
+      "current_marginal_bytes": 616
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c096b0a",
+      "frozen_bytes": 512,
+      "current_marginal_bytes": 512
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c0991a2",
+      "frozen_bytes": 488,
+      "current_marginal_bytes": 488
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c0993e8",
+      "frozen_bytes": 250,
+      "current_marginal_bytes": 250
+    },
+    {
+      "group": "scene_flow",
+      "owner": "0x8c098b40",
+      "frozen_bytes": 210,
+      "current_marginal_bytes": 210
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c08231c",
+      "frozen_bytes": 1892,
+      "current_marginal_bytes": 1892
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c0831f8",
+      "frozen_bytes": 1964,
+      "current_marginal_bytes": 1964
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c087e1c",
+      "frozen_bytes": 750,
+      "current_marginal_bytes": 750
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c08f642",
+      "frozen_bytes": 598,
+      "current_marginal_bytes": 598
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c08acd8",
+      "frozen_bytes": 512,
+      "current_marginal_bytes": 512
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c09cada",
+      "frozen_bytes": 764,
+      "current_marginal_bytes": 764
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c09b37e",
+      "frozen_bytes": 726,
+      "current_marginal_bytes": 726
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c09bc2e",
+      "frozen_bytes": 664,
+      "current_marginal_bytes": 664
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c09ac22",
+      "frozen_bytes": 534,
+      "current_marginal_bytes": 534
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c0a575c",
+      "frozen_bytes": 558,
+      "current_marginal_bytes": 558
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c0a13e8",
+      "frozen_bytes": 238,
+      "current_marginal_bytes": 238
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c0a1658",
+      "frozen_bytes": 1176,
+      "current_marginal_bytes": 1176
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c089864",
+      "frozen_bytes": 504,
+      "current_marginal_bytes": 504
+    },
+    {
+      "group": "actor_fight",
+      "owner": "0x8c09b6e4",
+      "frozen_bytes": 490,
+      "current_marginal_bytes": 490
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07e294",
+      "frozen_bytes": 1256,
+      "current_marginal_bytes": 1256
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07d95a",
+      "frozen_bytes": 822,
+      "current_marginal_bytes": 822
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07dd04",
+      "frozen_bytes": 714,
+      "current_marginal_bytes": 714
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07f894",
+      "frozen_bytes": 704,
+      "current_marginal_bytes": 704
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07cbda",
+      "frozen_bytes": 670,
+      "current_marginal_bytes": 670
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07cf50",
+      "frozen_bytes": 622,
+      "current_marginal_bytes": 622
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07ec4a",
+      "frozen_bytes": 244,
+      "current_marginal_bytes": 244
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07e96c",
+      "frozen_bytes": 268,
+      "current_marginal_bytes": 268
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07f436",
+      "frozen_bytes": 626,
+      "current_marginal_bytes": 626
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07f722",
+      "frozen_bytes": 312,
+      "current_marginal_bytes": 312
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c07b6f4",
+      "frozen_bytes": 40,
+      "current_marginal_bytes": 40
+    },
+    {
+      "group": "ui_reserve",
+      "owner": "0x8c080e74",
+      "frozen_bytes": 480,
+      "current_marginal_bytes": 480
+    }
+  ],
+  "advisory": true,
+  "coverage_credit": false,
+  "baseline_commit": "5e9dd1c",
+  "baseline_percentage": 61.48080320989472,
+  "total_body_bytes": 434656,
+  "remaining_bytes": 15297,
+  "provenance": [
+    {
+      "path": "extract/analysis/funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "extract/analysis/function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "extract/gamedata/1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "tools/golden_bindings.json",
+      "sha256": "9a60e0a532ba37a75c6d31d2220fb2dcfec0217fee955dd0244482898fccef67"
+    }
+  ]
+}
