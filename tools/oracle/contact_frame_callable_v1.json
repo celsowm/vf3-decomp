@@ -1,0 +1,26 @@
+{
+  "0x8c0a0b00": {
+    "entry": "0x8c0a0aec",
+    "kind": "vf3-contact-frame-bsr-v1",
+    "call_sites": [
+      "0x8c0a115e"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "r8",
+      "fr15",
+      "fr14"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\manifest.json",
+        "sha256": "18c3cb78fc54325c42f0511ae44d6ee305f342cb51a09a0e051f3d189f8043e8"
+      }
+    ]
+  }
+}

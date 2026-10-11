@@ -1,5 +1,20 @@
 # VF3tb decomp — progress log
 
+## Scene contact frame qualified (2026-10-11)
+
+The complete eighteen-slot scene contact frame adds **458 verified bytes**.
+Development passes 125/125 valid cases and independent holdout passes
+126/126; both cover every frozen owner instruction with no skips. Five
+interruptions remain excluded. Eight actual BSR windows verify the prefix
+and return. The corrected executable's 377-source freeze precedes holdout;
+the failed FPUL-index candidate remains an excluded diagnostic. Four
+related bindings, 39 native suites and 165 tools pass. The final audit and
+percentage chain are sealed.
+
+Verified C is **262,428 / 434,656 (60.38%)**; **20,099 bytes remain to
+65%**. See [scene contact frame](re/contact_frame.md).
+
+
 
 ## Aggregation frame qualified (2026-10-11)
 

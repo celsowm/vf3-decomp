@@ -1,0 +1,2634 @@
+{
+  "failed_development": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_candidate_v1\\manifest.json",
+      "sha256": "ee88a0f6be1184a73e6044c1010bcc498c74d0c0fd9cc5dee1a1cdd44f2289f8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_contact_frame_dev_v1.exe",
+      "sha256": "7536634e5dcf77830c8c37b461f04d67340ba2ce02bbdf2459a3e7f1439c0333"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2_native_report.json",
+      "sha256": "c42f92c318d6b0e425c76d6ebd28591b192deeb5c5bf154ead691db6e709de8f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_candidate_v1\\contact_frame.c",
+      "sha256": "7c7c41a67894e7f0155f1d8c0e6ec7b207540d79103a8c59aba6e5ca636be602"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_candidate_v1\\matrix_family.c",
+      "sha256": "8d6d6efec0343e2148ee0bbc62ef12ff4090828db4965918d54bb92ce5dfdcfe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_candidate_v1\\CMakeLists.txt",
+      "sha256": "33b2171e707fdcf31fb758982dcc9e773153d5cabbfd349f765cdd530ffaf288"
+    }
+  ],
+  "passed": true,
+  "new_bytes": 458,
+  "readable_bytes": 262428,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 20099,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_dev_v2_complete_sources\\manifest.json",
+    "sha256": "ab5bf120feba270f0849bfe930c14b8478bbbe79c8c302d89d3d5b0fd5934ef7"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_contact_frame_dev_v2.exe",
+    "sha256": "045496a43fa334cd5c703c3b27084d3d897bb82065ea9f3633286fa4989fe119"
+  },
+  "observer_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 125,
+      "excluded": 3,
+      "complete_body_bytes": 458,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\batch_manifest.json",
+          "sha256": "08fabe124b166c8af5a6dae1aceed9829bae1fe143fd51fa5122f9dc74cee8c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\capsule_manifest.json",
+          "sha256": "29b7c7582b8ccf88fe0881990a821858fcd179812470b1f95b119d723ccf2cb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.bank.bin",
+          "sha256": "bceb626377c6897d2ce4dfb385ced2d8870d8b86d164a427fcc7790c7424da27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.cases",
+          "sha256": "f8d59d7d872ed03807e115bc6b6bdd1a9fb51887b1bd63df17ac94bd4d97148c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.dev.bin",
+          "sha256": "e6304a473c65ecd0ccffbd2f5925a8f51c44b11f59b66cfcc055e4bb911b8fa0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.extra.bin",
+          "sha256": "8d523133281cd4b1228dc7ed34dcf0669cc6a96663f0ce133bcca5359185f444"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.gbr.bin",
+          "sha256": "ab912205219885944fb39f9a230716547187481e5afe71c76b84c868eb1176fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.ops.json",
+          "sha256": "4b16a98819837222d9a561b2da5a051cc245c247f42557315e3ddcf1e2097abf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.xfin.bin",
+          "sha256": "46e54e816d59934c80fc7cc579935b48744698956b887f568e0b66802a37c21d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec.xfout.bin",
+          "sha256": "35b882e45d5f58ed305d41e9954374b0415854293de8c5094de8b78f0cd7804e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_0.in.bin",
+          "sha256": "3054c4a3328abb578884419f157d681b91d83506aed8d5d2321e7d55088d8e8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_0.out.bin",
+          "sha256": "7573e60f75b06e17ba4d49541cc2be8fb1cf03d14c2f0cfd5fd107b3e2c5ae1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_1.in.bin",
+          "sha256": "920826320f26d1e7e11ecfb8c768b7ffac31440f23636c871affb621baeb49de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_1.out.bin",
+          "sha256": "3677ab7b3963378d95f105329cbabac75a447519226201aa1e3114e4ce2f4fdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_10.in.bin",
+          "sha256": "ba7c6340afdf4c170dac6982e6d30a5171ae49ed9f14fa6d3686852110ba5664"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_10.out.bin",
+          "sha256": "b71b259cd8818ae8dda95e31c70b5aa44afcb13942ec4d482b605f87833eb7d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_100.in.bin",
+          "sha256": "410478500d3a4dd77acb112f8b8855be491bfde1d3c2ba1f5c1f456f66e9e473"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_100.out.bin",
+          "sha256": "7c9fa68dc2d5cd30112cd5ed43c5ad5b5482277e7977ea30ccb078dfb940a0f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_101.in.bin",
+          "sha256": "7ab7955705ecb465f24df86dac42091f2aafd88c3a358ba6fc49bd6a8e9279d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_101.out.bin",
+          "sha256": "575c8965e2c0246311e2f1b3e7c9782348d301d41b4ef57cd6cb5f9339a576e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_102.in.bin",
+          "sha256": "01ed023caaac0dc84fa97d60d695f9b8fa42643e5f6091f688447372cc0f55e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_102.out.bin",
+          "sha256": "ca968a7c07df068d0121d8d6cdb2a12b0e76c67a1f52e861685a7f8913860e23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_103.in.bin",
+          "sha256": "b5864ab33e3a6440d06bc1ed83fb9df90b937565c6b5c346342bf980c1edfd76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_103.out.bin",
+          "sha256": "d57da039805fc6c093f7cad330390a07ef8c7797ba23d239233f8fe5d0152d68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_104.in.bin",
+          "sha256": "28fe1434b797a62afc52dabbb8729ff225838e7e17b4a94f54733c2427f20e8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_104.out.bin",
+          "sha256": "c5a35a5cb6214dd25ecdef1af63b7d0c41f61ecde7c53d0940cf49e22c560683"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_105.in.bin",
+          "sha256": "903e4a4939cf46028402e9d2f7496bacf5cb1b685db3f53492340e18d0eb4d04"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_105.out.bin",
+          "sha256": "0781f580406f115196eaab2f6da24a2bc13cfb0607258861830846581d259513"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_106.in.bin",
+          "sha256": "7b400fc0b2f06bdf477662da700c25ecb46e4a1e6002bc39648637bd8bae99d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_106.out.bin",
+          "sha256": "1c344581e185d26ba3196bc59002be49d1c4fa0e47339c1f7a8ca18171d8754b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_107.in.bin",
+          "sha256": "11a55ba06c8d8cca697fadb09606e5e4f436f7539244e95c0649c5ab8ca6ed55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_107.out.bin",
+          "sha256": "dc4f8a5191f59fb7bd18b32638a022f7505b6a5bc105da1f19df99c0049fb4a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_108.in.bin",
+          "sha256": "a29866929ea56debb7cfbad6888f4e8e1db9b13c108de624f814f2fb9f7bfe2f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_108.out.bin",
+          "sha256": "1b5d0be76855260f0d1718daef98bae356b039e53815f28329013e072b644e0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_109.in.bin",
+          "sha256": "af5741640dddafcec2d8b5faeabc360ee28f4f1f2dc3843fc6a924a2c4adcc1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_109.out.bin",
+          "sha256": "b76b3f25426281cc9f3a585390747532730db8df334b6229aa1849f7cb94232e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_11.in.bin",
+          "sha256": "133b06d745e93e690bbca180933d3b0803017be2f63c260833d336546f00651f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_11.out.bin",
+          "sha256": "7b22e8b20a53fd2358129c24552d3e4bcf4b769e0fca0a3933d2fe7b53760f2d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_110.in.bin",
+          "sha256": "413c414e4e9eedbee293b9fcceb84cc6dcf748b81e35531e27effb368cd53036"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_110.out.bin",
+          "sha256": "36c8cca78b64c1a058f4bf865b90835b142cdd009c67d602cd01208a175c0568"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_111.in.bin",
+          "sha256": "2b21ec36de81587f058f06f9b5607337d2f766f21ab27fb22a77750f1b9f3970"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_111.out.bin",
+          "sha256": "209ea71b739c0cc7715d939673d28d29cb2a481b0dc5849d2dd6ea337405d71a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_112.in.bin",
+          "sha256": "9fd884308921f2b6f8a2a81f938e3280f3829b934fbdfca1439ba7521c94c597"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_112.out.bin",
+          "sha256": "f11780c70244ab227a0e8c61e291845376f452c530bce91a80ec72506c6539fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_113.in.bin",
+          "sha256": "5a9caca4790b059bc4cf7c1f300aff53ce221f2553b00419f6848702edcb0fb1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_113.out.bin",
+          "sha256": "085424a94f9b034d1efa32aff2b46c602c1498e2fd128ca9c5ccf0c388f04e85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_114.in.bin",
+          "sha256": "84c37bd5015cad35637862342d0cfa95b5b1e29450aec336949fd02cf9c116bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_114.out.bin",
+          "sha256": "574de74c17d79e0f60203bd674952ee9a365f8a69f6ff9ffb6702423ad650c55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_115.in.bin",
+          "sha256": "91da40fd2d34401a2d5234de58aa7ec97f8036210f0235236fd56c0fd8cd2092"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_115.out.bin",
+          "sha256": "6dc531276bdca3abf3563ed9dd9e16fc189b5a906348fd0eb0e1c3a2892f9da9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_116.in.bin",
+          "sha256": "20fe869ae45b13c22271bc97e4279a4e90d3c24b787c7898612ca7df62c3a015"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_116.out.bin",
+          "sha256": "0fff07eead6c49e0ff73805e0babeb2e774c2b9673b9aa9b85f4cfef30f81aaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_117.in.bin",
+          "sha256": "99f9b096f7ed0253500e8e258fb798342055000683135d539a32dfaaaf0cac7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_117.out.bin",
+          "sha256": "4b3d1e7e1463443f3eca9c3d9fb58bad469812accfc938f4172315e0916ee80e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_118.in.bin",
+          "sha256": "97d6bc44e3c718002abb5cfa05d29b608b41a5ed124992514b7ef3bcbec78779"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_118.out.bin",
+          "sha256": "213a2b0d3705156718466af4b290ccb1289de94850b1bf034854d54e397f55d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_119.in.bin",
+          "sha256": "9fe49d709522700af2204305ba90b907cd89661e104ca65431d38baaad286a6e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_119.out.bin",
+          "sha256": "eac01e715e82b98cde0ed6a1d1755b3745e50db3d762fc259b4280b3ae926f8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_12.in.bin",
+          "sha256": "501d0468323fd402bb53f6ffdee95d52d57278063c29d29d99d9afbe68d947ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_12.out.bin",
+          "sha256": "6bcf2cbd331f6b03f547609c9d190836e81e08b95bf3eb9eacf3bc6676384067"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_120.in.bin",
+          "sha256": "4d6c69cefe314b0a132c080324b2bb853e7c703120d97f9607afc87c5a3131e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_120.out.bin",
+          "sha256": "9d8104b1743295222319bb155486643b39266ff5789b18db2559c6185b4a7a8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_121.in.bin",
+          "sha256": "cf276254a96be0c5aa8e7b00fef821daf8ad7e4f32e6f724ac248eee7faa0c68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_121.out.bin",
+          "sha256": "67bda0a3648f6604a7fbdad8872e7f8282be8a65e5764aa6aa5284631c4ac172"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_122.in.bin",
+          "sha256": "ed5a4a4f691c6635887b52ed829574fea3d57ff38af8b44151135c1e84595b43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_122.out.bin",
+          "sha256": "edfb9e5d7dd622b1a05396ce64b4329a2edee075c8ce191232b9a138d6a567cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_123.in.bin",
+          "sha256": "c99f8ca523cfd5ad20470459aec02bf95903fb17ca9138d51c8158eed2128fcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_123.out.bin",
+          "sha256": "06046b44df9e64237bc65298cd918ef2a9be933a19ef6b2d1900db5388013be8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_124.in.bin",
+          "sha256": "cc474d58170c36049dcaf38813a0fe79b4873344b104f2212b0fa21dca379dee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_124.out.bin",
+          "sha256": "c63821e675673eeb849e78c6433d56f8ebb15ab94f6bda703b6fb7c19a60f287"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_13.in.bin",
+          "sha256": "2e33e07deb3157eca78c617d95c9466d2a7ed75c9fd881bfe10691b4505fbb4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_13.out.bin",
+          "sha256": "eeaaa8b77ddd6a2c0430585a35f45c1312169dccb10cbc4de90a644d39f614a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_14.in.bin",
+          "sha256": "81c5a43e2ce9b58ee103838a41213aa95be7709a759fd8d218f513e759df4b11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_14.out.bin",
+          "sha256": "8693589824e99861b2c357042d9bf1ffddb28986f59b75c0de777a0e964dd978"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_15.in.bin",
+          "sha256": "57be71460b8d3517f575f950693dac00aa60273ec45fa7300e6a6d065cebec96"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_15.out.bin",
+          "sha256": "deeb3c3d62c639a20cb2d9f3d40e95f1029f95c58f0968a1f991accad3670a31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_16.in.bin",
+          "sha256": "3054c4a3328abb578884419f157d681b91d83506aed8d5d2321e7d55088d8e8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_16.out.bin",
+          "sha256": "155ae47f2528a28b0ab89188232c1b0e995c0f67f15437eac50d4ce29ead4851"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_17.in.bin",
+          "sha256": "210fab8c2d22c9809d645d8dc12eb1a322e17e5faceac5e20e4da7476dc5c5f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_17.out.bin",
+          "sha256": "1627dd339ac75877023d67e76f5013f5fd021e5967674295516bc87b1258c4a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_18.in.bin",
+          "sha256": "bf0e642e3aa02eb28fcb9ca598cf9b79e3d181f0538a0fbc03d8ac87c615ebbf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_18.out.bin",
+          "sha256": "4d0b5cc9f308dff9a51693efe078d7f7cf782a93306c4afca815c3cae6317e3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_19.in.bin",
+          "sha256": "5020657511671ce89f4933b5ec39bf2b3fb400792b839836fc293b55534c572d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_19.out.bin",
+          "sha256": "e09dee6c705847f87b7d5f24672f7723cfdc592d59390df25c472a0f4471684d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_2.in.bin",
+          "sha256": "4fe1ba8ffe05e11a8c991e5b95835327df58ed920db2184403834a8c577ec9e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_2.out.bin",
+          "sha256": "722e93b3b545f4c2b94d68d15c95977b3f751830c091d5a204da7a5e69e5e614"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_20.in.bin",
+          "sha256": "0ae009b316674ec0ce07f93a2084eb58ad1c1da47c6131982dc96c764d6994ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_20.out.bin",
+          "sha256": "56ef90643afc192e08493c38099e10cf2ddf889f5f72cda0981a3a4339efa940"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_21.in.bin",
+          "sha256": "00bb258a19e62f74444ed29f8bd0cfecdb50187b5057e859d8c57045a5c17897"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_21.out.bin",
+          "sha256": "7d358e1d6af04247aa5bdd7d94aa083bf28656bfd9b5f43cfdf02be4a2732f70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_22.in.bin",
+          "sha256": "ba09e1fb667d0e93d646ae98a9de6b94de80d9151db3a5c006bcf5b1aa1743fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_22.out.bin",
+          "sha256": "f38bdbd1e03fc0b04bd35e99e095c8ffb8e771d9d87f7052e0c63ac414c4fe33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_23.in.bin",
+          "sha256": "7d9b2bcb586358a9a59d43dd942a3e6302d6de8ab322267c0cb39c0dd0834861"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_23.out.bin",
+          "sha256": "eb98a89ce22104bf1b365fd7668a8f1e9c1be9e36a2c92b16adc30faf4382144"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_24.in.bin",
+          "sha256": "e96170b37a5aebef859b387f9c0094eb00894112451fb1e6eb7cd15a757bd361"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_24.out.bin",
+          "sha256": "a0519a30faf8464b373f6c3e4a660c6925ae7b7321f9c50c7f39578c9652f68f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_25.in.bin",
+          "sha256": "2d46c93d5e8c742dc81499c4e428bda4da2f45b05383fbf80037dfec9e7eeb10"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_25.out.bin",
+          "sha256": "4afbb750df6c05ce7e9b641385aad291bcb66804472295136d2c7ba79d470b86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_26.in.bin",
+          "sha256": "d28635e288d50b4691c45c46b8e51f155d13389c30900b201c641ed14b6936b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_26.out.bin",
+          "sha256": "1066043ba8f42d40d32c63c01edfa89f1c4ad417b8a391fc23861debcc28bdb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_27.in.bin",
+          "sha256": "39a0565c35b07ebe181866e858cf0b6b43aaf2fda5ceb23b553f31ee20a2853e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_27.out.bin",
+          "sha256": "03120a48f00ac024ad8c3a8865b928c95d20f612576a553124455fabdb4e8f22"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_28.in.bin",
+          "sha256": "dd69a09bc1a8762b09bb506de6bb6ac743ff20ae339bf8193ffc4cb54baf2be4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_28.out.bin",
+          "sha256": "709bb732c14c5b2b2b759931cba33e8472ea3c81210605241f38eb0dd328a023"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_29.in.bin",
+          "sha256": "678767451d457f804c5f17672bff695a0106b0b0748165b2254b39a082d488e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_29.out.bin",
+          "sha256": "004579950ce46aa32b53354b5f7566ba40da1413f2a0a3ef8f06288b307e1fbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_3.in.bin",
+          "sha256": "fa4925256c6890122564d05cd3672e70d9831f8d7b51e7b530104988d37ad95f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_3.out.bin",
+          "sha256": "6cd82890e20602dd6aea9bbdbfaf0c90ac8644232c8a190872ba170f9b1b35dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_30.in.bin",
+          "sha256": "902b2e5f531808843c7a2da779a7a6eb38d85d0dd3067ca736ca57bceaba2ff8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_30.out.bin",
+          "sha256": "88b878d9f4d11c710e8308a27c915101e69a15a475460da813563ad6ac9574c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_31.in.bin",
+          "sha256": "394b8031b5eaa95ed2efb93dd4ff29ea9d55ed43996e807eada81ee93d39f83c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_31.out.bin",
+          "sha256": "a02a679540110bc8d694a0139efef67bc3b05b2503dba01590bd1cc30a0cb803"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_32.in.bin",
+          "sha256": "3054c4a3328abb578884419f157d681b91d83506aed8d5d2321e7d55088d8e8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_32.out.bin",
+          "sha256": "1cb199bfe582360464ec12dd6f4cbee5e267a9a6f96948ba9bf35f59cea3e84e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_33.in.bin",
+          "sha256": "e6ddd14134e174848f02b6960dbd05c5ef0ba98e60b7272b889ec134457d50ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_33.out.bin",
+          "sha256": "40c1abb0605cbd1c8d6289d1fc6ec1cf5514203f69ef705326f35d1a911babb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_34.in.bin",
+          "sha256": "87884b83e9639ba45687fbcab7d1f2329e0c1ed13e998da63f8c0da8930b083e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_34.out.bin",
+          "sha256": "666f85a402e35c858132b56d2385d5f9605dc99425aac7498761d6dee0d2eac5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_35.in.bin",
+          "sha256": "1ae92b7b79c6d4507fe39434e0f7dd3d39e1bbe776a6a27cb3f0af35fef0b250"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_35.out.bin",
+          "sha256": "7b93edaee4f9a9f4920732ca243ff05f2cf5fab1d8b44528dc1e083dd9515474"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_36.in.bin",
+          "sha256": "0853870329b5c6636ed17fcd6a0b8f567861515e6bdd12000317002abb64064c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_36.out.bin",
+          "sha256": "aae2e8cba957ace1d514da154fabbcd6f22c37a945bd9087a854c8d496769551"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_37.in.bin",
+          "sha256": "4c5a5ad150974b707e0a9956989c1f710e530afb907800e0a778e9399b5140d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_37.out.bin",
+          "sha256": "f180d893e60c96287c4669e38325d3a5131225d5af8984e18b7139c14bedaf58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_38.in.bin",
+          "sha256": "fdd7f927f3a17d14340d59e9286b41bf384f27df31031c1f1e99ffd39059f183"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_38.out.bin",
+          "sha256": "4ecff704923058c4ebae0d6aabb75037b793269cfc92761257f257d54043d5cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_39.in.bin",
+          "sha256": "ecaaf04cd873b8e2c1badf2a04d83078a7ae2a08a0f2a1e9302dea51a87f38f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_39.out.bin",
+          "sha256": "387b60d32c9e65105b755bed176df05a106ff205609991341f0f2543426a2e2d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_4.in.bin",
+          "sha256": "c20bf816898529d84f505e0f25170fed898fe03d6844a0ee68722e5bff305cd5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_4.out.bin",
+          "sha256": "5ce91b2d20571c8f6728e86c2791cbc90dabc1b389b0c34f12421d5fafe3b252"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_40.in.bin",
+          "sha256": "b6e8478d77ba7c3483dc3049e95b55325391927899468c13bf832ec3bb93c0e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_40.out.bin",
+          "sha256": "902390eaeddbb7d49a913701f803faaaa535e51faace0894e38a9acb80e5e629"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_41.in.bin",
+          "sha256": "ed7dc087bcbc87f934d446543143b330fd0bced261aaecf641fa9761450a389f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_41.out.bin",
+          "sha256": "5a723df05d63f384a89ca833a916ba39ba924eebfddb8efdf5030b5662a08961"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_42.in.bin",
+          "sha256": "f0beb23c67fe5a9bb871d0c93c58f8ec942521dc42785414be577acb22ddada5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_42.out.bin",
+          "sha256": "6a2b3faa353ed584a4d47ba960958190639e5197f90d05c697b59b797a98f463"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_43.in.bin",
+          "sha256": "de030c63a7058ec3e5b6ae692995bf84e052cc69e594a3097e9b19d5314590a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_43.out.bin",
+          "sha256": "98e2397b6dafbdfab526fafd831260ec9530c3f5858b5b3b969dd3ad18f499a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_44.in.bin",
+          "sha256": "099ce51f6f4318d34d4707e57778e5f3529b99dea46ca611334248d3adf62819"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_44.out.bin",
+          "sha256": "2b636edfd56af1d338d62e385bf18997711e2b662911ff377deaf80cec58d6eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_45.in.bin",
+          "sha256": "a3feb8deb694561382cbac8c9526bb0f0db4db4a8e7df4e4a8360fad04b85767"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_45.out.bin",
+          "sha256": "7656b3d890f42cc45af81227463461410d1ff21ab3377ccc71c930a5f9dba4d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_46.in.bin",
+          "sha256": "73dbe170ac60ebe47574500422233bc521bf1b78737b51c011306e69e6e9454f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_46.out.bin",
+          "sha256": "862f7386d89329ac58ab4017e362617316b413c9b09294338b29065fd13e58dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_47.in.bin",
+          "sha256": "3054c4a3328abb578884419f157d681b91d83506aed8d5d2321e7d55088d8e8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_47.out.bin",
+          "sha256": "57da3470b3305b24a2225e8ba278f99058796c4ac0083941b2b5323c205dd9d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_48.in.bin",
+          "sha256": "c5efb82807be8f66cdcc67569d910391b189269281b0a4f9219fa9cf60af66bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_48.out.bin",
+          "sha256": "e6bef90f4f75bc122cefd3f5cae30f28f8caf920956ef54dc6eac12ed21bc02f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_49.in.bin",
+          "sha256": "927cd4f48948dd2d5cd9863178f1c39b9b4ad274ca6ba9c995a4fc29a1e53039"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_49.out.bin",
+          "sha256": "90bc89563a430393d1063133d05da35521343d8b7ff8366227bb3a400a2b2d76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_5.in.bin",
+          "sha256": "1be4782b27a9f68cd6c8af72b8880c5bde1eced45970bf97164ec1b50c4dabfd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_5.out.bin",
+          "sha256": "bc4c2147dddebf7b3484265693f1503188180411df0bbbfd6799a4c70784ee90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_50.in.bin",
+          "sha256": "06996fd53678d66323bb90b1db68fc6f349a00382401624a4d6a945c7770d3a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_50.out.bin",
+          "sha256": "034fb6fd38fea21763b9161fa3c09384696c3bb479367211525ab807da65d8d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_51.in.bin",
+          "sha256": "1d15b39c987916f2765f664a7fd95e62a4ec8c59634c30bccd84c05da3c3552d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_51.out.bin",
+          "sha256": "674b1fac0bf574d89ef8e98c09740fb9eb1335544a0f740cf1b4f262889e7ad2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_52.in.bin",
+          "sha256": "19ef961f43a91c0178ac5a35abc1699576a106d110a5f11b18e6a1f660690209"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_52.out.bin",
+          "sha256": "97c0252262e386db2eff2ad77665095a9d101753df5cfa04fc1f88c726c9e1ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_53.in.bin",
+          "sha256": "13ce43f8ca515032c2d5e8db6df04574b28e326469d9c10031d214e96e9c0d58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_53.out.bin",
+          "sha256": "453515d859d3856221a160872bf2e0f0e5334a0c082ee60ba8a2254b08c83a6c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_54.in.bin",
+          "sha256": "a8c05a09ceb573ca99379c4dbf58d05c474951a9949f1427ed357d400055e971"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_54.out.bin",
+          "sha256": "449283ed618bc008df9157d87d163493c991374b4672919f891f9c3f04c0e7c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_55.in.bin",
+          "sha256": "e272693a91298935b201a301b391a53d16d8d86ce6408f85b8897a54e97a7aaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_55.out.bin",
+          "sha256": "c8b845ebc2c72693020f49667c5b5b8ef319804440086d71b307ecdd1b87701b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_56.in.bin",
+          "sha256": "ad328be14ce569ee93b903d1e909d13848988c3b459c4c15bd74bad23f3cc2df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_56.out.bin",
+          "sha256": "20f365c3c3545ed1b9c9cc9add55f1e2e5723787e3352fac80e7e8c549dc8cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_57.in.bin",
+          "sha256": "c827143bf5c2605906fb1b99926da817334ba82903d9fe9d2d712c740413b3c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_57.out.bin",
+          "sha256": "0be745628d8de1b90982716af0218a7cbf23e309c2baea7e169fad66a7034ea6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_58.in.bin",
+          "sha256": "658874c126cd8b998cee72bd14516236e91d4546ad8866dff01772964624c569"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_58.out.bin",
+          "sha256": "968044bfeeb05fb94dc9a65dd5a565b30d943495465cefc138c17a342c866330"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_59.in.bin",
+          "sha256": "0a0c96f65a852ca29ad4c807445677732c30be711287f45339d8acd8fa273c92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_59.out.bin",
+          "sha256": "784bc9a9c8697e404d0fd33c33ff6edd5fb557313878ee94bdfd955d4abe434b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_6.in.bin",
+          "sha256": "ac633121d2cb99326a28f038fff84df91cb97c205f08f7247c70e6db840bca6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_6.out.bin",
+          "sha256": "d32b26e63a1222a7c8b10bda41447f0083188074e84d10f2ccef9cd30658483b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_60.in.bin",
+          "sha256": "2c3a5bf90403dee857e52383a33ae490e5f6303a0d95e78c28ad0e6f86c8fd16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_60.out.bin",
+          "sha256": "2d93ac73e4109971947bb7d09093cfabd9980f9979becd35e113ea275dfc5d57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_61.in.bin",
+          "sha256": "f06416414097f7b3368103a8fa12b5e1ed0eb0b74fab94fa0894460bedbc1062"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_61.out.bin",
+          "sha256": "5a1d556ef7c0247d05f600bb67ceb76e0f6c40874be907b54abd11ab9f671734"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_62.in.bin",
+          "sha256": "2d8971368893f6207b3a4c77afcc619b0a2d1671b87599a1847af6777dbeacc2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_62.out.bin",
+          "sha256": "91f939ba8a6e36748f6759de08d81dc3d54f78dcc0b45e153d36590b8a65d2ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_63.in.bin",
+          "sha256": "bec936f09d460e0748857128dc61a1c25b143e35478b83a2f85b0055b8222490"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_63.out.bin",
+          "sha256": "ea234cea80e6a1fafa62ad95b75232e70e719401f45709d3097ade8999b2f534"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_64.in.bin",
+          "sha256": "08760af6b570de5694b0b6e5a8ed1d1841a379cda0e2e198da9fc88433e56bfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_64.out.bin",
+          "sha256": "ddf856ea9f56cc0f9b6c3366157d6f41b7e30d0d2565c852c35fce930794049f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_65.in.bin",
+          "sha256": "8c81830744991b63d422a340a1afeff67a998661ed2c4ac2e5c1a3ae1d1f4448"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_65.out.bin",
+          "sha256": "b5c5c7d79f449702eecae6a066535fab29742f9c04e410fa1b027648b09cdbe9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_66.in.bin",
+          "sha256": "3e7bdc3474fea8316c7028cea385cb1f76195132241edd94e55f390cde947338"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_66.out.bin",
+          "sha256": "24e920f8cf840c3623602f3da96e811789603ed7c41604bec0953f7b07cb194a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_67.in.bin",
+          "sha256": "a0b264dfbd7b84afe96d255db9c95dfe414586f1764f792943dbf2e7651e02b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_67.out.bin",
+          "sha256": "e53870e0c449fb0d7605a8a7b4dccc09af22bcfc90330773100465d3184f9442"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_68.in.bin",
+          "sha256": "6e62f2a94bf638915f1edce321ebc645f92e616a69d50c2d68e9326311abdd88"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_68.out.bin",
+          "sha256": "9a3ccdeba953a095dc51723d1178b16566164cabda6a049acebaad308a606983"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_69.in.bin",
+          "sha256": "578a813fca95f77187df5b2ab686770ed96ca107088d6cf0b37e6eb27a0bf555"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_69.out.bin",
+          "sha256": "185b8cbccc6502e68290283e68486e524f4c0faa048974c473581ed6913580a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_7.in.bin",
+          "sha256": "e4e5e99bc3fd93c37dbdb0b6613dc2192cdab220cf7822a2f343295d2b6e785c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_7.out.bin",
+          "sha256": "2b7a696fd6e6065f047b79efe568f37e1ff0c8a09ee828bbe48bff4899adfdbf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_70.in.bin",
+          "sha256": "34a83ad295d8a302c8ba0780b41ea1fee820d14617ba17cf1b3b3ecbc3eb2a43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_70.out.bin",
+          "sha256": "235528d5b28dd4bce746901cdeb109bb7497f7295bdec9bc3fb959d5bad34140"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_71.in.bin",
+          "sha256": "47771bdc6a16c260fbd71b5829ce75d131cc2fbb7cb564acc96a4fbeefda5a51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_71.out.bin",
+          "sha256": "c0a4db4c62b521aea61754246640fbfc387a38be0b22f4d6cf7d6e18568d9250"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_72.in.bin",
+          "sha256": "57132981c01615cd648e6b6a820f5fbf7ba31fb7015cdd90580c9730cf407679"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_72.out.bin",
+          "sha256": "a4f141ff9f1ed0733bb6e2350a8268ed2462a0378d889dc1d60f2b3ddccb6616"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_73.in.bin",
+          "sha256": "4d793f90a0d99116b1e31b188d5f3ca397f91628f4782e92ac2c43403b562833"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_73.out.bin",
+          "sha256": "83fc174e80cf46160a50e4e99965bb912f06636961ceaf175587c1d9b7f35996"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_74.in.bin",
+          "sha256": "669b4d65f837b8726ada23a7331cf1a7fb774caf5b66b8e2de2f9843698db033"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_74.out.bin",
+          "sha256": "3dc04fe603b178e3610ba0e400575928bfb6e9fe16a65ea37924defcf5ae30ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_75.in.bin",
+          "sha256": "8765524e7ca36cd912d8bf0500ca7cf31e928ea30bb5e5c71e5b9ad56218e59a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_75.out.bin",
+          "sha256": "33343d703ff2b8beea18da5152d455cdad68d29a824be6739bb3b1e1392be457"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_76.in.bin",
+          "sha256": "be23d40abb58521ee87ee0a1c30642fe5fae2c448e60c97dd7b63c92bdce4c44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_76.out.bin",
+          "sha256": "bdc00336f692136ed811471075aa6a29c6a787485e3570c028dd9cf1fbb95d06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_77.in.bin",
+          "sha256": "3b3a17c19d845bf602ca0794d4a01db577533a5a8be56b34d50a9bc10c64a95b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_77.out.bin",
+          "sha256": "f82cfce279d12e08b1efe4ddff075b41aace8f78e376a425e461e134df2f9cf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_78.in.bin",
+          "sha256": "286ea32db37d663b0a8a193f64bb49c9873811dd26528a710096f668cb969c67"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_78.out.bin",
+          "sha256": "b62f5b99b6e66481553350f1693875a40d3b1a34dd6dda121aece6fe8b58730b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_79.in.bin",
+          "sha256": "bec936f09d460e0748857128dc61a1c25b143e35478b83a2f85b0055b8222490"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_79.out.bin",
+          "sha256": "a4dea2d2e25c8630b550420da6927e3657d233aaaa8d3c640ca8b043c2f229e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_8.in.bin",
+          "sha256": "94779e0ad9cb31641bb9007743b6e5c3924d94d9cae4f79d54e6067c424cbeeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_8.out.bin",
+          "sha256": "ff33fe354a509d03e266bed72eb1bf2f166f9a5b2a3e4b00e828657adce45a80"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_80.in.bin",
+          "sha256": "cb26fcade10303c1c89ebf51d199a103ab2ec650bc9c5acefe9fbd4830cb4990"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_80.out.bin",
+          "sha256": "7a90baa4e8fc7752098d87f9ad5337ac4968f9a27ade4cdcba7d214021afe714"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_81.in.bin",
+          "sha256": "1a162ab016e74f702cc7200b919992375969e5db887a5a6119cc5261882aa64b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_81.out.bin",
+          "sha256": "1de54b9f8799edde621298f6b4a4dae498fa538b6efda91983817918c3356442"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_82.in.bin",
+          "sha256": "e38bed31bfc9f0ffa8927727c95144c5bacf5be4c1d593687baf24ba5ceedbff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_82.out.bin",
+          "sha256": "60e4338e011b6414aa142295830962a1a657a9d35a1a7cc2df7f94ef09586da8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_83.in.bin",
+          "sha256": "a3943fc40a4058319d5d97cc53635f198eb0830cb4a3ff7851ef14290099d329"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_83.out.bin",
+          "sha256": "a82534f70e68018826c6d89eb86107f8d9931d7a2d2fa30d6ee0574de7aedad2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_84.in.bin",
+          "sha256": "217058ce82a47bc1c5e3235fc900a8d4d23fe7e6cd2cfb80a89ddc116f865857"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_84.out.bin",
+          "sha256": "d459df1aae511286fecee6f640729162f8801441c12567525313c07ef1752a0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_85.in.bin",
+          "sha256": "2381197a602622fc145201e65e7330c7283fa72a0ae16e32e05e2ba7ddc81e16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_85.out.bin",
+          "sha256": "589891f2bc2949f7d27494447235957cd0df0775d6482300837ce30c53eb45cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_86.in.bin",
+          "sha256": "1f4d565e6acd5d2cbe4f9f5e8f787c9f6f2b292d6377b784ce449ac74e80024d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_86.out.bin",
+          "sha256": "de389922ce295e3879419a4e54d31a052f2b72e02a51280dbe0065455b613084"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_87.in.bin",
+          "sha256": "2b2165541831aaff82a04f9d7ad768b0db80f82a50759cecc8b76fcb6ccac96a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_87.out.bin",
+          "sha256": "9822ff9b6d9f0671de9bacdf75b533dfb3abd2d1af63a2afae397e372e8fff05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_88.in.bin",
+          "sha256": "150c1450dc1925e8b3d08ac01263de480eb5c442d55e62121a4e5e2693a95cc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_88.out.bin",
+          "sha256": "c6fc25a83aa174197b4b09d849874940d63e3f76fd858d674ad6226d492581f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_89.in.bin",
+          "sha256": "5c19f4cbeb4e2995529a8353c274f15db2c2c6a9fc7f88298c8a0415ff63c0af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_89.out.bin",
+          "sha256": "051d572ca5b6cedfdd58534edda63810b84293a824950a6ff71d6f813856e5a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_9.in.bin",
+          "sha256": "45de0c714c0944a07ab5731e1b86f8af2ebc9ecb92344e89739350be62a29652"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_9.out.bin",
+          "sha256": "a1847284ab66ddadbf8fe1a532ace1760dc3990e3c5a55261f77f8ba5996b904"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_90.in.bin",
+          "sha256": "e7ec2c96e0365be43b75b9a2be0536c00fbe0ff1ca268f0fc7b2ddb0e0e499a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_90.out.bin",
+          "sha256": "7df0554cd1abcb9091cd46b2483761bd9efe4cb3cbe80e93f2f17cb8ea1c66dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_91.in.bin",
+          "sha256": "5c7db6cc6d80b3a2cae4216079f2d8814931d0a8020604c1df276738bea8ae83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_91.out.bin",
+          "sha256": "354dcb680b2be9c985a149f8af5f3dd26c2eebda1d9c93da8fdf478bdb40543c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_92.in.bin",
+          "sha256": "e704c123823943c301e9bb37c923f1192bcc3935b8eb58de8cd1874947dcd3a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_92.out.bin",
+          "sha256": "5b28cbac27654a617e6d3bfc07263b0195fd86958d7f63b4b5865dd473be7fbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_93.in.bin",
+          "sha256": "9dfcae9f34921d1fb3e2498df9aeb9cebde2a6cd6e380ee5a164b69664e9dab8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_93.out.bin",
+          "sha256": "edef55533f46fa1c3f6873577a64dbdc3921896f461a3028ae7187cc99e855de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_94.in.bin",
+          "sha256": "f35e9835041809bd0829f413cc2a89217f70e25122c99c01fa26058a1a2a97c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_94.out.bin",
+          "sha256": "9c5bf4a5b01acc46b038aec3cb17bc763412715982c09df46bf36f4b0cc53a60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_95.in.bin",
+          "sha256": "bec936f09d460e0748857128dc61a1c25b143e35478b83a2f85b0055b8222490"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_95.out.bin",
+          "sha256": "077520c2ccf259cf25b4e740c20949b3a0750b95e5c59b4f838085cae47186ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_96.in.bin",
+          "sha256": "44421995e36175890490abc20d0406ba13a1fcfc9452a6b1026f34ee1c11b675"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_96.out.bin",
+          "sha256": "df7958487b26ad001a46d3abf87c688927520315c9b4a474a19f0a24d6318e93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_97.in.bin",
+          "sha256": "df8cf29dce094328963b4510f83d20721af228d3a4dbc82861d4e9860714c1fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_97.out.bin",
+          "sha256": "9a6a2c7f2b9171c9fe8d7fa3967c7bd694cd6ccf81d70c73d6f498dc00b864fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_98.in.bin",
+          "sha256": "e9087e51c19b4b3512ec5f5d49b94c247ac6dbb34e7061bcfc1a5dc5caa22a1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_98.out.bin",
+          "sha256": "0b70e3f2aa041a0414e9d1e8646a1bd2fc2ec342ca869450b4371d1a15886cd0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_99.in.bin",
+          "sha256": "7fc3de6929cc9b47748cb916b624ae66a24cd8402cd297caa5b3cb984888ecd2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2\\f_8c0a0aec_99.out.bin",
+          "sha256": "6fe59864ec813b96e5651d23019dd4abd8c4f83b715ddbcd82f2262ebceb883a"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\capsule_coverage_65_contact_frame_dev_v2_s21.bin",
+          "sha256": "ff8c594d1d344af557f78191c7c7b4d92139867287f07ca213669785e4dbbfaa"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\capsule_coverage_65_contact_frame_dev_v2_s26.bin",
+          "sha256": "ca666675a657e008947b4dd196a848a64225dda99b4077b02ab654a6ae4c1e56"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2_native_report_fixed.json",
+        "sha256": "e7016cfbc4d849e5ff2fb80b23b28a260a66cd5fb516d81ccc5a7c581dc72611"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_21.state",
+          "sha256": "adb329aba852c8f9183ee9337b37a2338738e2682f5ab1a69c726cec3026ddd5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\golden_coverage_65_contact_frame_dev_v2_s21.log",
+          "sha256": "f6471bc74e6924ea5c1885252a053b642511e3516c9d4e3edf6d403d2648d114"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2.patch",
+          "sha256": "aa04ba4adb2576a6a45f56ccb6733e2421abfff1d4c01ea6156e091e1f3d93b0"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\probe_coverage_65_contact_frame_dev_v2_s21.json",
+          "sha256": "f6a78c1d8aa6d54d55bae405a33e94eb1e6566406964080d5f0d956700556d47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+          "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\golden_coverage_65_contact_frame_dev_v2_s26.log",
+          "sha256": "8e239ce673ca3cbdf140aba77f8f5c6fca7693c5fcd8046cada0783f950a5e98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_dev_v2.patch",
+          "sha256": "aa04ba4adb2576a6a45f56ccb6733e2421abfff1d4c01ea6156e091e1f3d93b0"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_dev_v2_raw\\probe_coverage_65_contact_frame_dev_v2_s26.json",
+          "sha256": "2dfc98dbbc39a4540238b3998ab7377bf465390c80068174d73628e250f49d91"
+        }
+      ]
+    },
+    {
+      "valid": 126,
+      "excluded": 2,
+      "complete_body_bytes": 458,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\batch_manifest.json",
+          "sha256": "15b7ab08572c98989ec90e62ff9001f79fe494dc80d09a15ec2b3b51cb5e0877"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\capsule_manifest.json",
+          "sha256": "8aa1e029243c7917ea763b1371026c914be456d88c968f6177bbb617e9952fc2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.bank.bin",
+          "sha256": "73e9a0de232af65ce2e6dd5a8c54238fd4adc7430c1e2ac73e496b59901a7ee0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.cases",
+          "sha256": "3311caa09e19c9acf5a66847a85e29cdcf6940ca9238310aec84aae4642c4c79"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.dev.bin",
+          "sha256": "696bda342649ec9268da57b6a279df6f24b0e857d5e6d0605fd25af95adc3cee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.extra.bin",
+          "sha256": "5519c279168bf07a48f27b0bcd7c7da776749d29bfa2ca995eae23485fa2f6f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.gbr.bin",
+          "sha256": "91b4e3d5f301c857908d00713184b553841a534b588b91a8f11a29237e10c5b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.ops.json",
+          "sha256": "5f3b7ae3f57f2311fba040400077e925bf470afb704ea073191e6e1676211f0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.xfin.bin",
+          "sha256": "e6c08481f9842d7900e2f3b1599b5c0cef8af2aaebb3bc0f9dab85d3d5cfaefa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec.xfout.bin",
+          "sha256": "d022463b1d4e09af67bda7b6504a76290a10eeb1c1a625b7eac76351d979bcdf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_0.in.bin",
+          "sha256": "8f74b4f2fa4d7590d2e48b1f820c01dc24c24faeea2db223e5d64ec26b55e2fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_0.out.bin",
+          "sha256": "fe93ae2b9608f902e1b44b08d120dd6a5d7d955fd7d980a0d7fea721c4bfca5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_1.in.bin",
+          "sha256": "6fbd1258e4c953a44ed69550bb5ef0bfd16414478f3d445e3be315d524c14d99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_1.out.bin",
+          "sha256": "4497c4813cbcbb6990844e9005aa7782956f4d73ed241530807e58fb0310f199"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_10.in.bin",
+          "sha256": "6e0fbeb87785dd63b77f959ad805c42665718715900f39beb532e616bd3a654d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_10.out.bin",
+          "sha256": "2f494fda4794f84356cbbc96bd1efb5b323691c7f7580a7b610969efb539ca97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_100.in.bin",
+          "sha256": "030e4798453cd010ba84d2005e41b9ecf9c263a88145163fc6a57b1508be2998"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_100.out.bin",
+          "sha256": "88fe931b6a68f71ee8be470732a5384ac46588db2019bdce9a88fac7892387e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_101.in.bin",
+          "sha256": "6657d8091d6d4a29d42617233c1979513ccd189d5b9379a6f70c641bded19261"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_101.out.bin",
+          "sha256": "10333be68f492d2c3ff188d61591ed347d1f190229194eff7b7f4302da21cc9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_102.in.bin",
+          "sha256": "fd8e77eccaaa3c01a6f8df25286483a3a6f2657eb07c9af76883821ebee77425"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_102.out.bin",
+          "sha256": "37bbfe8c68311574764307d9732a263988d3713887663771bb92a9d11dfaa305"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_103.in.bin",
+          "sha256": "154350603070d4825b09761501fda3eb7cf7e60c6c8176967b11d6525382e808"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_103.out.bin",
+          "sha256": "382d52da9cb346a5c52f0aa902f9f55262be4f697168b0c1d3f56a0f983f5703"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_104.in.bin",
+          "sha256": "902749e9b00e262fca8f9a614572e7e940f5e3d49bd6ed859df2713e1907440f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_104.out.bin",
+          "sha256": "9b773b38cde69ab81c01ef66bc59d8f4537821d1232eb402661923763034b897"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_105.in.bin",
+          "sha256": "c2b86e281c8897344971ddf712ef3c98d8bdb42b380e79670a3f136cc6b6ac26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_105.out.bin",
+          "sha256": "4d0070efd280fbe2743da8848ce2322264c59de72054829324677c804ee39103"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_106.in.bin",
+          "sha256": "2eebfd4b75c66f1bf67678c17fa06365eda2d8a9533ab1339955c69ce09b7014"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_106.out.bin",
+          "sha256": "3703737dfb2d6522e3ab9db9cd2125d19345ae5461bbfeeb354b07cabec8c6b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_107.in.bin",
+          "sha256": "6a3e90ed8c79faec5ead6d6a920f018d63e8b9d38cff50e4dd1df861692a20a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_107.out.bin",
+          "sha256": "82858336d43c8e4612f3d9d6c70e43b8e2e8158f67b21f622e62cc8bdfc55af7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_108.in.bin",
+          "sha256": "d3efe15054215e73d8f62e54f77b90d981ca1d949d778b32061ef359ff9887c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_108.out.bin",
+          "sha256": "2455256a073692604174a7d91432662ac555a143ded5ece53881239424c7bca9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_109.in.bin",
+          "sha256": "2e38bc280af73728fcc77e8e740a0a46971ed7b26ecf8d0b787b5436696aa11d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_109.out.bin",
+          "sha256": "6dcc69cf438fb0a636ad8613b07a71a565eb6b703b7d48698c590b737db03d61"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_11.in.bin",
+          "sha256": "11053987a40f25b1b2bffad45c5807a20aa3c745da8c7306b6ee854905560be3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_11.out.bin",
+          "sha256": "bfa7ca862031636dadc1c0ef32cd04a151754d75979581ff53dd2ea9dcd01387"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_110.in.bin",
+          "sha256": "c1cc97b74ce025a9e29d0862e1bb1938d90da05de5b9c090aaa81c989fe2540c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_110.out.bin",
+          "sha256": "edb16022be12ee575e03d047b0e75c44fb40b0fcd4ad336dad70fc7c325ff008"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_111.in.bin",
+          "sha256": "35a620a6fc45999e7e05b64ffeaaafe8e5f44e659e712cf37eaf8bf585629ce6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_111.out.bin",
+          "sha256": "e19f807f5a232ad252e215e98c778a38bf2838fbf0a984b47d715b76ed2c207c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_112.in.bin",
+          "sha256": "2e12752d9a5a8c84dc22bca6cab63a532d7d5171546c5882e3bfa9f1e20e9d05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_112.out.bin",
+          "sha256": "8fd32774a9dfade5f99129d0769c3cec10e6e0d1aafa7320c2ce91c97ad545aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_113.in.bin",
+          "sha256": "ed6bf54625c8a06d28e9844800f675a10bb720bdd42354c007fb35f410682622"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_113.out.bin",
+          "sha256": "6ab9a6af09078f84b287adc67e52d1c86f99c077ba9e9b936fd5a032fbc6dd43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_114.in.bin",
+          "sha256": "bc7311b2b94fa8f157e5ec425ac8b063b318e21508ac3e7a696481b9c8f3ba5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_114.out.bin",
+          "sha256": "462b7920b4e6de6c269f8c6770354e3292d371774889c1dbaab2efa3524045f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_115.in.bin",
+          "sha256": "e2e4d8b059688c3384e9bbe846d39143218609ce22e7ddeeb1415cfd2061dc12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_115.out.bin",
+          "sha256": "cee39c1c41f6ead50cad865efb768a5e2032bbdb6eba1d4096ecb0303a2ce573"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_116.in.bin",
+          "sha256": "6485611aa6d1fb5adfab869d2b1b42938e44bd649d3f87a1c23f715cbf3b559f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_116.out.bin",
+          "sha256": "b9e3178dc0fec2d69770ff8fe891506da3a41f7ec0d4ad87b673c9b02ec5dc7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_117.in.bin",
+          "sha256": "20f42fb2d866bb16506b7bc8a2311e6bc43c6f115be9307c6d418297a5d61aeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_117.out.bin",
+          "sha256": "d26c0c73d31c13b08e262e87e78c9a1a0b89193fe4dd3b9139b4518f1fd38309"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_118.in.bin",
+          "sha256": "d810678404528e398ea19dbe093441c0d5f749d5b7a9521f39baca3a33b95965"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_118.out.bin",
+          "sha256": "7551ed60b42903f0e158267510ea5c29285e73052fd730e828789872274cd262"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_119.in.bin",
+          "sha256": "c1d378c883b714e34d23b2166612605f479b0f9184cc8a194914e8b1fa0cfe1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_119.out.bin",
+          "sha256": "a151a39b6214f1b4e2e2a94eebc52277bcd8945bd3bbfcbe32bd9d087deb0209"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_12.in.bin",
+          "sha256": "5252870ac9771ce19e0f5a0257596c2141a7ccde50fdcd6d06600d3a3a13e645"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_12.out.bin",
+          "sha256": "4ceee677c0cfe6a7759512cc1073d1d5438c6aa7602c7c5d0857ab763314aef1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_120.in.bin",
+          "sha256": "da033e988f9946ee7b2d5b2585721213b3f48eff6e78bc4071ef7b2ba39e9724"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_120.out.bin",
+          "sha256": "ccc7a8a7554d5aff4f20386d980d4450e7625dc6b0a316ff915ae59c312913d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_121.in.bin",
+          "sha256": "3052bbf25a8608e00cc740dd8d94c828717343afbd0b920b6a45ed2ee69ab319"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_121.out.bin",
+          "sha256": "938b2a9edb8ee7f6647c7ed427ba0e16be5361ea654e8600c7668683ff3af5a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_122.in.bin",
+          "sha256": "61f7471f1b5733c42541340d4c6f41393e680f27ad9c886e736c69fde9a32182"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_122.out.bin",
+          "sha256": "971577a276f770f7b44f86e6e0d51a186fd0ac674ea8d030f36a545e3d50ffe5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_123.in.bin",
+          "sha256": "3f39227dc11c7420fb39692bddc688a2b0924f6682fed9bf402456cbb89424cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_123.out.bin",
+          "sha256": "a389dc834970a5df5a7e698de9106d57799607bbcffd4b3a7b7006d6aa0a70d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_124.in.bin",
+          "sha256": "787b4b3e62067aabbd5ff4c1cd09ab8ed305630848acf8a5a356cdbc96eed86e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_124.out.bin",
+          "sha256": "32c88b17b29f44543cbc7e1b30546e52d6c46ab3d58867b59b39d4f698fbb950"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_125.in.bin",
+          "sha256": "d059968cb9c7157a9b85e4eb7f4d19fa1601efb219fb65d89761acd0bc5db363"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_125.out.bin",
+          "sha256": "b0147c3fa5ea2e76276ec764405f6cb80e75efed19bb45547a279c86a5ac49d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_13.in.bin",
+          "sha256": "dab2416c46160117003f71a1d062348bcab00065e60c543105a54f56caca01dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_13.out.bin",
+          "sha256": "092cc11a75092d7301e90108cfc389c391dc03973a1847477d6eb64c640a0b5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_14.in.bin",
+          "sha256": "6312dabbe581d7e481606d6e486b76f1df13b5bff49966712ee5022587acd92e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_14.out.bin",
+          "sha256": "68cf1ac11e3fad676f22c2d4cde9a65470bf4a9860330a9963efac10f64caeb2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_15.in.bin",
+          "sha256": "8f74b4f2fa4d7590d2e48b1f820c01dc24c24faeea2db223e5d64ec26b55e2fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_15.out.bin",
+          "sha256": "8c71fd3099542c9a21d19f4bc28022f043ddc57da18f056d35aa59950ce11e66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_16.in.bin",
+          "sha256": "0f9b1bfeb119b5ca6c9b963c376f813d5ba9d3c5337e258d46ae156ad6acf6fa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_16.out.bin",
+          "sha256": "eefad876deb1626661011fb6086a68be706dbaaf6bf41901244e2766140dab57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_17.in.bin",
+          "sha256": "a5fac9a2489b8f01ed43852a0cec280fb489e40bb5664ae6992a53c4a581d610"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_17.out.bin",
+          "sha256": "17a3fab1a221b77b310894fe2bfe3263a14574a4d34e1694a2acaf72ea22a261"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_18.in.bin",
+          "sha256": "4486cdafe2b504e3f126a2b272713a5f11981006433f6958f435901cdeeceb30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_18.out.bin",
+          "sha256": "26bd9dee1cba9d8788912302cc250428d151c11bb9c7792c216dfedb6a34d31c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_19.in.bin",
+          "sha256": "5a08985aa61a9c39fb0a32ee831e67c6983bb3497da4af65935e205279843080"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_19.out.bin",
+          "sha256": "083d7b63734c5ed3fde0616def8a8fc72ce4a88b2fe10071cce28f11dd1cd736"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_2.in.bin",
+          "sha256": "ab8fade2c5f7d6b30ff6120e835157334ce9da82631bdf380d2840adea9a02bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_2.out.bin",
+          "sha256": "7e63747270ad8b5d29ebf4a261c2d3ecffa6071cb2d5a0a218679ef3c821bdb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_20.in.bin",
+          "sha256": "dee36daaae778e3a4b372305cbbabd26bdfa428c0c2d268d896e5f6e254287df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_20.out.bin",
+          "sha256": "41169068e67e3f12b77aca718e5f418d7bc30dd7d2c0ce8b9d302ac77818b849"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_21.in.bin",
+          "sha256": "111a838efa0c797296a40252a59c941cb8b5b3bbd55ac86f2f82d911079a325b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_21.out.bin",
+          "sha256": "f48b8ec0575276d4505dfdc5f3ed876539a826add56dc9e5cec6352ef7b409d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_22.in.bin",
+          "sha256": "50f57825d200c45ae5a6362d1197e900eaeb41e36ff8663e3389253e8605a4a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_22.out.bin",
+          "sha256": "8619bc60c43e49a549d74c125103e3a7bd9b527544cfb081ec654e59371025af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_23.in.bin",
+          "sha256": "2023f32d6c07d46d9dcdc8fcd9aebec0381710da47e3d527ba2a890503937d2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_23.out.bin",
+          "sha256": "443cfc9bc9822cab29f19888b7268efc7fdef0df1032f9dd976b92fcd9387721"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_24.in.bin",
+          "sha256": "90ac7b5af80154fc43d3056e1cf0ec0e7758f38ad3889e6ad285837f56006fbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_24.out.bin",
+          "sha256": "323af7288ebb38c5d75a0aadedde35d199d035d2318603ff0d1c09a8985b9823"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_25.in.bin",
+          "sha256": "d299a08afd5768de3e0172de344ab094a45137e25a0e88c478de16ad4589331a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_25.out.bin",
+          "sha256": "b8733316306dbec7903384b6f594cad3ab3aa4dbdd5c55565922f700008b9c83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_26.in.bin",
+          "sha256": "bcd219efadb32b69026efc0c4559c52b3aa6320903929d4cacc1ebf58167d80d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_26.out.bin",
+          "sha256": "f2bddba769fed5e632e03a1366fe95da8d02812e911e0a93f04667f311ffb708"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_27.in.bin",
+          "sha256": "a34311cd2a90d2693f7dfd15f8a2f1b184bcade2bc34b75ce490d9e7bca9cf6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_27.out.bin",
+          "sha256": "3806dbe6ac267aab5570f5614661e5cc5130d6c7a505c1f866fa1fe4bd03ffea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_28.in.bin",
+          "sha256": "0ba688ee2a8ccf1a098eef1c7880e75a0a63a168e66cf1dffd4851e340ca138a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_28.out.bin",
+          "sha256": "3b58787125c1fd620b0d8312a0aef2e2d42defee5457be1d182ea0d97b2ae339"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_29.in.bin",
+          "sha256": "39853e1e558cda5322064d0d125d02dda24bd69e3e5bbcb67676ccf2700af39b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_29.out.bin",
+          "sha256": "21a5053ca3a1fe781458c4245e9d6a6d8e2021b95ba4751a0f08c432cf4d5bd6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_3.in.bin",
+          "sha256": "373896d43e216f37c1ba817946bbe5de6d455e6818b45db6edeefb982c64b380"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_3.out.bin",
+          "sha256": "6103feb5cac186a1d2d3710c9d5b5f6418d83fc87f98754c7e092cf46787a91a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_30.in.bin",
+          "sha256": "7cbf98c329c715ec743aee8e0a97af05675b560025a3a0ba3a421b07471c69ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_30.out.bin",
+          "sha256": "65b5377a65bb59cc8389e7989c31301c77f986b71afc0b8c06ac59e043c648b4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_31.in.bin",
+          "sha256": "cb54b5894eb9d0a3b494eda33346bb359994f9596c1842f4f3e0b3183082c269"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_31.out.bin",
+          "sha256": "a2424353400cb12831353361ee93359f2d2034655ce397971dd5b244726e9b03"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_32.in.bin",
+          "sha256": "03fed4d9fe9fff829c7f4e3991da9337cfca3121603dff87c328657dd5687ae3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_32.out.bin",
+          "sha256": "096866705f44b111e85a0b594bbe8f1153d33a7f3d348c7191a6d8af9ca7a29c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_33.in.bin",
+          "sha256": "979ecd34927d7847954c3dbe22d82f987915dbf416da786523b04c74b78fe777"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_33.out.bin",
+          "sha256": "4610512cc16e0bd999f481ddd1f7fb7cf90cf106e2d0cf72ff69e5a8f8f34437"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_34.in.bin",
+          "sha256": "6cdbce58d4957524aaf8bd0b0b10c5a448e9daaea5662c9993ccfbf30bc9e2d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_34.out.bin",
+          "sha256": "5d3ce9ea19de711964a74352134f6f55437dbdd1b58e1a5c7b66f86bcdabaa1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_35.in.bin",
+          "sha256": "4077a8313f61b356a84f27b103bfb53ae72bb6d887bfa3f222253cd854bdc977"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_35.out.bin",
+          "sha256": "48903c131403266d3b08ab7c49adc711ec9b8e54124e07f97d289e86a010d9c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_36.in.bin",
+          "sha256": "7079fae14a4763084725d2e184c6cbe0616d0d2c311da565b7cd1c2530ca06b4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_36.out.bin",
+          "sha256": "0d7e6f67e5943780d723be8ab55a58c677742abeed7c069e4276c95e6e81fcf4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_37.in.bin",
+          "sha256": "3eb0c846edbcbf9fd593d5a37943dd60f62ccd32ad655b321e9eae5db6320e12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_37.out.bin",
+          "sha256": "b3778c7b2aaa2fb05f3a52a782060abfaae2c32df7d31a87d28137295a70b82d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_38.in.bin",
+          "sha256": "203c51645a7796d79eb7a1305d5e131820f89a3d6652441f95c5ee1373f7686d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_38.out.bin",
+          "sha256": "df415fc43feffc9e91d293123442f58f7a03d71fa092ced4a5064095bbdd8fb7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_39.in.bin",
+          "sha256": "c67ee92e0ceff21574f6f006b955a5c3dcbb7f31461215b0bfec5ba1e9bc38e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_39.out.bin",
+          "sha256": "137c57b6b68fe62309c0751363660902a9fd4795e5594a7f011acb2f916ee839"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_4.in.bin",
+          "sha256": "02f084e746d27a040898ad8a967e3b7cfb27afea1e894b24030f07f5af93efab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_4.out.bin",
+          "sha256": "af4dbe10ef85aa972ad5ef4d17345625e6980806fd6143add308f81417780f68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_40.in.bin",
+          "sha256": "a9dd344617a9ff1c64477c15ad6ea85acad287fe433101510ac4163c52881816"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_40.out.bin",
+          "sha256": "9b5425140ed7a52bb70bad2708007d7b6a0b43d41dd01411830d2d50d4639c11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_41.in.bin",
+          "sha256": "55cb85b5c67f75b9576b7babdb4a565f23d91e5ee3216ea7158c1ca37d808c68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_41.out.bin",
+          "sha256": "e9dd3cbe72e63da3abf5ec36ac85b300917f3868163d4ccd71979206cd4703de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_42.in.bin",
+          "sha256": "ecb275f9116a69bb8a5184dc8b859809ec22d17536d8c630311b9e0d44c1bcf5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_42.out.bin",
+          "sha256": "a65d5aa14218d827b4bad89e0c96cc352ddc79a71b69b728da2b6817f915fde5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_43.in.bin",
+          "sha256": "3061a53794b378c5309fc20f9f82b2bca9cd951955d407409648f9ed076356c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_43.out.bin",
+          "sha256": "b2b6b9fdefe1c6021671b14622f8ec3a8d3f0f8b9a9bc3815eac7f08c2e4c7d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_44.in.bin",
+          "sha256": "7a82c3f2c5d9d6cf8575615570f0b7fd853ee8ac2fd36545f731144582b293ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_44.out.bin",
+          "sha256": "3f6404a6604a5d7c8e3950050073f9fd9080ce0e57d3ca32adaf3dbf23563221"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_45.in.bin",
+          "sha256": "2d80c8a686b00437aa61867c19df1f7bd97092d724774241ad1b202c360e0618"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_45.out.bin",
+          "sha256": "4e8717eca7e81b87c8fdedc723c0db27a9fa3455d1f77a8b6a6f1e77c513a9a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_46.in.bin",
+          "sha256": "4f4a52d27c81fb4747bb98bd7d9aa83498358de6e6bbdb139713d9e70d587a0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_46.out.bin",
+          "sha256": "5309d2ac02f58480cda755c42dfd7c6d54d6d11db4bc47d3ce09585bef3a070e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_47.in.bin",
+          "sha256": "cb54b5894eb9d0a3b494eda33346bb359994f9596c1842f4f3e0b3183082c269"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_47.out.bin",
+          "sha256": "5c8c5bc2efd04b0cca0c771b6d5d7f0e2980d8b3f7b8b85002246005b41668da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_48.in.bin",
+          "sha256": "c89656a23ebc28d50bdf6dc7ad96fee5897d49448d2920cc306e25fb0a092e43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_48.out.bin",
+          "sha256": "ce4986e539b262cc50bc5f6937252ad68475ce1a5d09d2272753ef67cce11d33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_49.in.bin",
+          "sha256": "4626cb3bc0c61e1e687ea972dac2abcc014e87b7be4821528ef8b7e5dd35b88a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_49.out.bin",
+          "sha256": "c556e71255f3befcc9d526cc12bc7cefd2ddfcb87212fdf65b1b9dbf18ff032c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_5.in.bin",
+          "sha256": "4ed2af87cdb32e17df102f378ef82744bdb4cfd501f40696b57d31aa7662ff50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_5.out.bin",
+          "sha256": "b036343eaa7103f7d626526ebd4bad269c8dd15b5858b77cbfde5155667178b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_50.in.bin",
+          "sha256": "83ac9bd461f7e771f0fb90a318dde724096a0bce54eb25da76853fa38cf19cd7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_50.out.bin",
+          "sha256": "3b8ab9271d7cb0ee2db87d4a59943816136b28df3222742c2c60d07c856d4674"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_51.in.bin",
+          "sha256": "2979afa318a2bc57fbd7c144f7b612df5877821f066a00fde9fbb3dddd0c63af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_51.out.bin",
+          "sha256": "c8c50eb4c89ffddea30110000473c23c5408a140ea49c6eac1abbcfa3409194d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_52.in.bin",
+          "sha256": "4b68e5dd34d017c3e7857197dbee63a4e887e55f1d36e139f7d2156fb942256c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_52.out.bin",
+          "sha256": "8701a99f8f84c961001434e3b29e83de46dedbb2352a2858cb0bdaadb1b781fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_53.in.bin",
+          "sha256": "637dbe9755e9901f21ebae0726736cdc0cdc152fe6dcac5b90d204efeee67772"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_53.out.bin",
+          "sha256": "484ff7ec7a621b27bfa64ca019ecf537e84ff0fc5dc1d3148f730d5aa64d75d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_54.in.bin",
+          "sha256": "1fdcfb66da7a7a352f17790861d07eb0c06435ca490a16156f96a3cd7adb4754"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_54.out.bin",
+          "sha256": "bd2212cb720f345e4127ae8dfcf2bb09e92077eea4c2c799856c7436cbdcfeb2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_55.in.bin",
+          "sha256": "6bb3c72523941fc43e155f9f9fdd4dc9e1297ead1222d94c3ff66154326e86ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_55.out.bin",
+          "sha256": "7fa9dbfc985ee04c6d7709ff679c26195709624485175acb1a7cbf3d765f8d01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_56.in.bin",
+          "sha256": "e8dab7eb0b568d85f56cdaefb6e387edaa4b4348e92ff1c083a06193f9d0088b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_56.out.bin",
+          "sha256": "84d6071ff98b2496f3acd6819174d0566b11155a2d0154c95587c207c33eff7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_57.in.bin",
+          "sha256": "1271ed9c39bdb422757decbacfceb7a063090f62db5fed8322166f57144dde6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_57.out.bin",
+          "sha256": "58f7ab2aee7d6f616664f598911ba8eaee16dad5d6a1d6be7a612e5c59f0e7d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_58.in.bin",
+          "sha256": "f623ae3a58c865b981c275fee3ac864dcbe6b1fcbaa2ffb4d5605a5e82ad6e41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_58.out.bin",
+          "sha256": "e0a8fbb3f90ebecc5740f3e38fdffc661b7a4571291c4a401aa37b98c6d0ce07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_59.in.bin",
+          "sha256": "afa3c0a21360a15d9ac802975fa51a562943afcd28fac999c7743e351101cae8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_59.out.bin",
+          "sha256": "e99b224db7e6020080bc370c7c813020b324c1f295114a97149e92da5066145c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_6.in.bin",
+          "sha256": "fd84637b474536734d4e013e50579dba1b1987f60c287cfdc5f406806555f5f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_6.out.bin",
+          "sha256": "025e316c5e833a04680ad37c19fa199fa3f4ec4b71d3a11a6c75c1679323da79"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_60.in.bin",
+          "sha256": "16c5a3cf8ddf04db0aad928b758b305154ed50c585ca87486cce52f8bfb5bd87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_60.out.bin",
+          "sha256": "ac3d3b608a3d05d3ce2869a2cd8fa3587ed562bceaa8f1fb9137ca121b78b9f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_61.in.bin",
+          "sha256": "8555a0763fc089385078d991a43ec3c040a78a10cf08280434e195cf9b47fece"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_61.out.bin",
+          "sha256": "b47d232bce0f7107be3830726072a62fc54a3fb66d5d30f85926cb2c45688655"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_62.in.bin",
+          "sha256": "2f79b823bb88e30daf5e3d722a258a5a2710408bac4692d0c220a5f3044c19d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_62.out.bin",
+          "sha256": "2372c2abf4db9474c1deaf10fe3c53a187b9fc268fbf12e58637384f5e22d37c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_63.in.bin",
+          "sha256": "11398c7ff150e5752713ef0690e24c6adc27419e62e91badc17c899c39940b4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_63.out.bin",
+          "sha256": "58888810bcd9365bb2d290324f0655eff4e38dca4a904402db3c6a5cd8355cbf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_64.in.bin",
+          "sha256": "37de11cbb9b6cece89b0fd8022ee79ee3d21e20f6bab98e67ddb291fc8807379"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_64.out.bin",
+          "sha256": "e6c4c3f6397d1da01584b183e46842a3b8c80e960134db60b8b7413f05681d2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_65.in.bin",
+          "sha256": "1b9520c80139e3102187a592257f26257e213b00d39c620548de969fd190823d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_65.out.bin",
+          "sha256": "d9e8485f2d0540f0d479af9525264eb314050eea0a98b5d94dc7247d4badd6d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_66.in.bin",
+          "sha256": "2aa56bca5311e63db9376f399bbf67543e0b733e1a20b53e1d15f672f8a31bc3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_66.out.bin",
+          "sha256": "a68485d41722f50808dea2536ad6af3502709e0f20bc03fc17629d5b8f242f28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_67.in.bin",
+          "sha256": "e762df3624294285fbc818d0e133efde398dbe9a5a368a38b6be280f4164cec6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_67.out.bin",
+          "sha256": "424aab5d8e2a3ff208213309d41aa6428873cc71e9fc62b90f4d754a2105489f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_68.in.bin",
+          "sha256": "6e2e2a327ca2d87b2b8179ffc1faafe7d3ce229bf09d34aa966b7f8f6d18bb7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_68.out.bin",
+          "sha256": "173c70e1cc27dce700020751f02c02ff7551f38505b5da70d7e6de139407bf57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_69.in.bin",
+          "sha256": "128612ddb69a60e03c36efa1ba476af7de1bba4a087076189f9060034adb1822"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_69.out.bin",
+          "sha256": "8d534c223cb66bb3ee56d1e5c2c38c42ac20cbead7e71ce36a0b32bbed7e1218"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_7.in.bin",
+          "sha256": "af5cd791ccb03c6259a7ab360a78893274962f3298b74db21019ff0fd93c3607"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_7.out.bin",
+          "sha256": "c4acd5ccbdb99a634e17a537f8525c5ea0cae29488815930b32a49cbdb3b421e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_70.in.bin",
+          "sha256": "5c1c516017a0c94a68f63d09d90f45750ebd903159736659981fa04c5c286381"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_70.out.bin",
+          "sha256": "03dc0ec1df8426feed467480e6d82be79b408a5b90fb00c4e902fc5fa1f3862b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_71.in.bin",
+          "sha256": "e2c68536789a125d533309f3d1a5e10195c38544af27e3a1c714f02ec50fba7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_71.out.bin",
+          "sha256": "cfb0909da1858f44cb533b1d2db98d14bd38b4e30e2e1769358c3a25a132fafb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_72.in.bin",
+          "sha256": "a74184ac0379f56e186a2c6db1e6c938ad6cb44b33deb25ee37e4aa71a94284c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_72.out.bin",
+          "sha256": "ab037a3d688d10a6d3da8797f4525fdfd574d3121d92f2c2ecfe920e3e9c7092"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_73.in.bin",
+          "sha256": "e0150e68c25a9ab78142eb6ad4ca2b1867c3580b105d02f48dc27fbe3c74b5ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_73.out.bin",
+          "sha256": "050413f2a73ff9714e2c274d6da87963d1aa94c76927e925955377997b3dfb88"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_74.in.bin",
+          "sha256": "213b2a62274afcb23a51023546e702962063ad045f38b584252385d049d69cf4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_74.out.bin",
+          "sha256": "36c8d27a6bcd082524c2b511458f9cc7b8ffd24517a2f0c76cd85c5fd42813b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_75.in.bin",
+          "sha256": "d6cae38bdc2cdca1d5ff68ef7c77090750f17d458ad859ddf05e599cac490f29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_75.out.bin",
+          "sha256": "65d1f04abcb1935adaca38d46a3f98e5d566b728f08a1bf4e17691dfd5cb5e0b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_76.in.bin",
+          "sha256": "6e65fe9e0270ba9d261abf756fe2dd71c96b557fd5d421708846f13928e2f271"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_76.out.bin",
+          "sha256": "05efef152d09d42c9109f063c03530041ff7d467340ce378ebe1996354b0d05b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_77.in.bin",
+          "sha256": "5d66072fbc72db3f21d3366b13dffd00812b2186d37824a44a23621f641cffc1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_77.out.bin",
+          "sha256": "bfc676a7feba590681ee4ebfa81c2ce96d4d7077a14747d8645afbeb9e7c07ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_78.in.bin",
+          "sha256": "375718177f66340e197b5899126b00f4581ba7237bc21d19d263cb8b3ded319f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_78.out.bin",
+          "sha256": "db2a3c0102f495ccafc998348689e16680c669ede44df2496b252cbf5d8321a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_79.in.bin",
+          "sha256": "c1cc97b74ce025a9e29d0862e1bb1938d90da05de5b9c090aaa81c989fe2540c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_79.out.bin",
+          "sha256": "e1bb2ecbf829a92e14212e1ba1ce579ef3bfccb57af162ce0ef97d24befdffdb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_8.in.bin",
+          "sha256": "a8a68eda669bb22043efb2bca95a402e212b07d8ee7f80c6676590a4633cffe6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_8.out.bin",
+          "sha256": "dfc1565f9e9d2ca692eb2afae9795055b0a2ca52650f2ff0c60a111d097d9137"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_80.in.bin",
+          "sha256": "42f7de8897a1cb7747737a877dce9cbaf887823d04e21502b879ad3f0c69c6a1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_80.out.bin",
+          "sha256": "07030790a910a3254926af10253ccdb6db2231d427ffa419bdb26444723d57aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_81.in.bin",
+          "sha256": "987982d3728989553ae052c5ec24270901fac2cc9859fc4a8d59020d12e319c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_81.out.bin",
+          "sha256": "8d0586057c2843e122eddf24b6735d7d5a35e946643d354f1283bfdeca58e5a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_82.in.bin",
+          "sha256": "51272441bccc36c52fda4d0b31cecc77ce7838bdaf7c6bd18628525b86784edf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_82.out.bin",
+          "sha256": "c96f9b68a3a3649e8c15059af8b621db7e1f3b3a450f0cfc6f31ddd82dcdd756"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_83.in.bin",
+          "sha256": "edde244961c3669b9ad5147c6152dff185321acfcfb5ce7c3d3d6563477a9626"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_83.out.bin",
+          "sha256": "a9a84230d000b28bf689ec19df29bef2049c66a5c3f07ca0cded0e5063ec143f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_84.in.bin",
+          "sha256": "174b7fde3ead016848717d1a9dad15b7217601771f38cf3710ea1e5dd409763e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_84.out.bin",
+          "sha256": "647b0510c20aaef7df5dc47dc390490f0f625dba0e19068b38182da8fa9f91ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_85.in.bin",
+          "sha256": "72b51d999cf0612bc2cb6ed63436b78f9482a745ed5c6402ba12d0156ba69fee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_85.out.bin",
+          "sha256": "670bfc4d1b914e89256328bc545a2d4a93afd015589715aaf2037235700ba19f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_86.in.bin",
+          "sha256": "622d9f8046d341248073f9684580a2c997e356285239c3e55a4a425578a30ccf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_86.out.bin",
+          "sha256": "716703448a78303839d16dc314a3c1161c66ab1a85bf912c4618fb75e5036061"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_87.in.bin",
+          "sha256": "ec21f54f52388e1843b34ddc7dcd65ab205b6a5fd568e01f288e32068832b2d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_87.out.bin",
+          "sha256": "d501c72121f51900a771d8bf52ac4f54b830696980029347e33b43c27039583a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_88.in.bin",
+          "sha256": "e1cb56eda8aa751b4b7c7eb3700584f84d8a121a16991b1840cf24f7bd617313"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_88.out.bin",
+          "sha256": "ec14d40da14fa46ee65693515a9d81d60cd5e4ef95776bef2fda809f111b6e43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_89.in.bin",
+          "sha256": "bb142778d3d42737890e0d9ab295ac024838913d69fe35f8675bbd4ee3d6fc77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_89.out.bin",
+          "sha256": "0c3c854fcbf10611016fd5f85f62d307884cc76385094bfe4f916764ffafb77d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_9.in.bin",
+          "sha256": "1546321e2973aaf8e024f7f149a5b40a6232b37cf3f426b2c6fede377a16e862"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_9.out.bin",
+          "sha256": "7d53b95bf288bdfbf20d319465e250a471fe056e00038b91f66cdbad3c74594e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_90.in.bin",
+          "sha256": "bbc0486ebd31df824485de4cbf38a8001979b7ca1568c8642a9b7e7615fbef81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_90.out.bin",
+          "sha256": "bd28a2d80c433fab0c15ca60942f486946b7082172c1e8d81f2c4c660cee4d72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_91.in.bin",
+          "sha256": "e642e67f2aded3d205623bc10966ff31eb097fa765767e31ecca68b90aae3d5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_91.out.bin",
+          "sha256": "c58baee500cfbbb27fd08f9db7b2ebc390b1a86a003af8ec810876ef6e1fbfc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_92.in.bin",
+          "sha256": "9e34e7848aa43d6b4a3e3075dbf5cc8e7fa689d970c8030e48c68d65870848f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_92.out.bin",
+          "sha256": "f410d00c166ec195c5c111364372ff60cc53b47e0c16a5547e37ffca6881f2e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_93.in.bin",
+          "sha256": "61689e36e145e89990020ba421146420571be633546de6f93dde3e5dc75ebfaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_93.out.bin",
+          "sha256": "81912c1b1cb77ba21b1621f9c7e4f11a3d4ab25b00373a7ab26ba58d88b81d8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_94.in.bin",
+          "sha256": "c1cc97b74ce025a9e29d0862e1bb1938d90da05de5b9c090aaa81c989fe2540c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_94.out.bin",
+          "sha256": "c5e71a0aaa7d5bf614fcff8093cbd72bd1b3a222b3c9c402a43bd9af75d3e143"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_95.in.bin",
+          "sha256": "fa3a4e08e83371eb59250bdd9e3812c3843dcd3517d0c1106d7a4fca4b956cfa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_95.out.bin",
+          "sha256": "56e7e7b2c757260c7ec9df89d33ab2c90a9d4a50725e2a84f9fb11f64b80d0d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_96.in.bin",
+          "sha256": "12fdb87beef299fcb71fe08def821a7c7a50811740414cb514e977ce07ee808c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_96.out.bin",
+          "sha256": "0596f69401e40b25fe77a039b9308ef5a3993d5bb7ec072970a0ee6e64563a2f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_97.in.bin",
+          "sha256": "749217ce5b23e1721a38269de76d7fddc194f1b01a8afe779bfa35c9ee02575b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_97.out.bin",
+          "sha256": "79361579d4cb4af4bb3c8ede5db545e0f2210ea6017868d94845e27bd2b288d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_98.in.bin",
+          "sha256": "4cfb7eaf11306b608ea890432c43763ce63dd45994af3414c770af1e98cb1647"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_98.out.bin",
+          "sha256": "6040b2ba580e272c76d5c2cd8b366214cacf0c28651768c46ac42fdfb1447434"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_99.in.bin",
+          "sha256": "4baa28cc827ec853250870c489f8e919019a9b6addf2c20273b38b8d2fa4e2f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2\\f_8c0a0aec_99.out.bin",
+          "sha256": "d36417d5479be95f573a05437fe4105ea5f76bee005ec654cb3a21a54ab91013"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\capsule_coverage_65_contact_frame_accept_v2_s28.bin",
+          "sha256": "510c1d2d311ce95b564ca424c2dcdcbbf426705a3878bc4398cd68609090e29b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\capsule_coverage_65_contact_frame_accept_v2_s29.bin",
+          "sha256": "c30119b814a202bb94db166f478840fca8804acbf6247e22411f510c1e2b1f69"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2_native_report.json",
+        "sha256": "03ae1e34ded58ed281b61a0254e2b31147ea0e4c2fd0d90175e9607d1f0f0865"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+          "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\golden_coverage_65_contact_frame_accept_v2_s28.log",
+          "sha256": "450bbfa2626091b6492511cf1e1a76228bfc0b9154ab2d0d78260235f27fea80"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2.patch",
+          "sha256": "387e9f6b0a0f59c29ce2bb5dc80cbda17d8a2573b29d61c107ff079357264474"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\probe_coverage_65_contact_frame_accept_v2_s28.json",
+          "sha256": "d8f80e1fc798b6e472afae3366c8ffced00ffd45ccfcb97d7093233659fead93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+          "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\golden_coverage_65_contact_frame_accept_v2_s29.log",
+          "sha256": "c16ab9879f47980a9663010372c7e2342a7be09027e6b80dda983cde75b68a30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_contact_frame_accept_v2.patch",
+          "sha256": "387e9f6b0a0f59c29ce2bb5dc80cbda17d8a2573b29d61c107ff079357264474"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_contact_frame_accept_v2_raw\\probe_coverage_65_contact_frame_accept_v2_s29.json",
+          "sha256": "1c572f2b3967e3167d1e0858717e268382053445b456008e82944d93dce198a3"
+        }
+      ]
+    }
+  ],
+  "original_caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\manifest.json",
+      "sha256": "18c3cb78fc54325c42f0511ae44d6ee305f342cb51a09a0e051f3d189f8043e8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\contact_frame_original_caller_v1.json",
+      "sha256": "35a7bf7860a509f54a1246ad3b251617642122a7851632ec15b7022d7c152dc2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_0_1.capsule",
+      "sha256": "d033f9d5c872913973161c1511ad332aa061fd0cd52c9cb1686c28f1241e3e34"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_0_1.log",
+      "sha256": "9aa1c41a475df0527a7c22dd0c6f1d79235ec1939e216cca66becaf8d497f7cf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_3_1.capsule",
+      "sha256": "ee32c21bf5366442d6fbfe412364c27d1ab8b8acb4cb4e26378ac281ab3a34d4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_3_1.log",
+      "sha256": "b32e769cfc984c3c8f11681f14285f2b6e8eab4e03b32fcc6a7373823c5c4037"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_7_1.capsule",
+      "sha256": "629b2b46fb5e2d03308a63707a0422b3fd85906f512a4708e102b73784b0b0e3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_7_1.log",
+      "sha256": "d1afb4b93c924a58b1c529bfb2e61669a78b39199bbece38d16ea89043e9df69"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_11_1.capsule",
+      "sha256": "ab598c284bf4c0a0a9739dbdbddff5b341a2d6375cb81f088150d1abe08eb8e4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_28_bsr_a115e_11_1.log",
+      "sha256": "9f1ed4de22c5e997100cc6fc024f7aecbf6d903b804605503544e268fc0aa388"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_0_1.capsule",
+      "sha256": "61399d7f95ffa47b8e1903b60d735db1ae12584b48830fe75ad597121f98c7e7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_0_1.log",
+      "sha256": "51eb5266e2c84070fdcffdc42abd64bc467fe0a1324c0c23fd3ad70074fefe6a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_3_1.capsule",
+      "sha256": "552f2b508250d2a3aa4c9c2a4f176bcd1bf5f30d331720169d4a2776d7e9f787"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_3_1.log",
+      "sha256": "d7425baeee75a6941c91af187f2bd6f82dcdb10b0b61b0dda2cdf3739ae08938"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_7_1.capsule",
+      "sha256": "da0bbfabbcab43c40e47c2363d9042b02db02e2d8b31f597ee9981dfd1d192a8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_7_1.log",
+      "sha256": "748974c3d08efc32772533fe52fb4e78d31caa17782018bb138b552d66a27bba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_11_1.capsule",
+      "sha256": "a28cb36db46d18376a66fa557dfdedd161d5b295f3b01e3a09b90b9b27bcebb9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_original_caller_v1\\vf3_29_bsr_a115e_11_1.log",
+      "sha256": "4272ac65da2f092ea8f7e25e6030e992152e10d88f267ceaf636d7299282bcc6"
+    }
+  ],
+  "callable_map": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\contact_frame_callable_v1.json",
+    "sha256": "8a35789884f87f5f21e45c53c9cd4a8fcf8cff6d3383e5fb092fad7f15d610fc"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_contact_frame.py",
+    "sha256": "494727dc098e1757840340520b88dde9c6ccf70b9001d040bcb0c9d2abd96893"
+  },
+  "attribution_dispatch": {
+    "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+    "sha256": "89742abeba92f6af92645c99dbf484c12119c5161839929226fa43f9e6600ea2"
+  },
+  "bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "959cabaa35029e467d7cbcf275d2a90e2a307e914a8785e752b5874b0db4e194"
+  },
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_frame_v1_affected_bindings.json",
+    "sha256": "1de157929756a50290e528e0c7bdce1094acd24c986393f69422a8aecc57489e"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\contact_frame_v1_affected_selection.json",
+    "sha256": "123aabbca0a89c22dd5d0ad714f4e2a52931502e2da771b9040da9e44e0a6631"
+  },
+  "regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\contact_frame_v1_affected_portcheck.log",
+    "sha256": "39cf0dbaaa4bef0a9067a84e5c3fa3a1f6d7517d04a5ecd683a0aea91f2f363a"
+  },
+  "regression_status": {
+    "expected_bindings": 4,
+    "reported_bindings": 4,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  motion_final:0x8c0a0f3a PASS   matrix_family: 4/4 cases match (0 skipped) - PASS",
+      "  next:0x8c06cfd0 PASS   matrix_family: 113/113 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3dl.exe",
+      "sha256": "909aaaec3d88c3a4ad0cfcd64ad190a4e293b0261dc5ff53eb1e53723bb6a1a1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3walker.exe",
+      "sha256": "79494f664b55c542098f222fd909263fa40a3f86f8876b4cf0a4bef0c92b1acd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3mtmount.exe",
+      "sha256": "b56c5a05c7a6a7253640bdf55786913b5219f060bab7c9e5f935c3a608d390c5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3loop.exe",
+      "sha256": "27982814a1ebe89d1f96e15fc5491fcffcc327c6584f352cdf9e33b3457ee322"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3taskvm.exe",
+      "sha256": "0f979eaf83ef6246ea2b117185e5be753a07271d2d5e05e2a12766627c57c211"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3vm.exe",
+      "sha256": "6f5ac494b0ccf5c506033f8fe6147de3fbafcd8ab9bd2e40cbd347a808a7b3f8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3frame.exe",
+      "sha256": "03a065a297c97c39aebf1180e33de8fb6be8cec74e07b28e30bc1a39d92869d1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3libutil.exe",
+      "sha256": "bfdfd1109fe65cf1e4a2fc0962c71050df0e37ea10837414bbe1b47587b36446"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3orient2.exe",
+      "sha256": "8b2808e78f075b03a5b4dd06832a88cb16df0aad17034a4680e01efad6e61b69"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3poly.exe",
+      "sha256": "861fe09b5cf51eaa6787e5d942229e07b907f2ad41103235b966c596d692b531"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3vecpush.exe",
+      "sha256": "96206cc06b606b1b0299e1bf185ecadff2741d235bc89aa5c06af7236563d095"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3tailcall.exe",
+      "sha256": "498f6719d06dea4fed53c92810ae4b9daf79a93a54e0081f5cc2045d0fb4a870"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3walker2.exe",
+      "sha256": "3628f684dfbf5b12d5c1fc47e1bb07ddb46641029b3da7908555c4edba12def9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecadd.exe",
+      "sha256": "3ac3184a58127670577f4a386939cc728b395b6fe6157d9e1a08427b74185e85"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3scaler3.exe",
+      "sha256": "80c960c94bfbd5a5b45b0781588a3774bba8c261409be78b59c6b6227ca983fd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3frameseq.exe",
+      "sha256": "00062184b50b98eded2671e053161f58c2014381e8be1213a10076e104d002d0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3cbefc.exe",
+      "sha256": "c367b6253605872e246a36f87b504df05286d4c95f5ee6225ab8c47016917b0d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3f040f1e.exe",
+      "sha256": "8a0178b1993af1402f2148bc00aa382398dae80c820076a0b7cde1fb7f40e463"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3f0747d8.exe",
+      "sha256": "18e77b7feaace2d8c18707592b2e5c75c890deffe593a1560d7c65565df498d6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3f9f6fc.exe",
+      "sha256": "a652946ccfb63ab3d892f2c9ac0f56d540a4d7e92dc20a65f5441657fedde8c6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3f9f6dc.exe",
+      "sha256": "e204c93bb7a5cd21c5ea250f4cc326ed134f1fd4112d27dfb9c8ebf5825ca939"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3cc148.exe",
+      "sha256": "b90c118f53199ddf33da07941cf9ab9625e437d838ee4038521f5adb3f6799f5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3c5dbe.exe",
+      "sha256": "6b6c2f6525ed485eaad12122aa63a0756b4bd241592eed95d88a567ef860bfe7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3b10aa.exe",
+      "sha256": "53759054b577414cb1b2d7cb76621ef1c0f9cbedadca3e08101611392720b17f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3c6ec4.exe",
+      "sha256": "cb13f7dcce2a2435c8c4c04236ce61c62cac9584a914fd3265cb6ad5b1b66b1e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3maplookup.exe",
+      "sha256": "9e33d3ea24080a1d396d4116df3f90d81a6f947c05965a51b64f77a6cd87228e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3meshnode.exe",
+      "sha256": "8f13402dd83cb943444a6118e830b57a201623b078a658fc5c8bf66322fe0353"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3d0fa.exe",
+      "sha256": "cdd095b21f5c209b79c83ea2afc16d42ab954725c62d3395e404921a3dcf57de"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3c788.exe",
+      "sha256": "d33467bc6684dc41a5f6dcd3b963e3dcedc7350cefbe50c29aca81b0b268ef53"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3f096258.exe",
+      "sha256": "9ad7e8d7e471a90b072a5e10840bbcb1516ea8eb5babdd480d2ce8ade97b20e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3matrix.exe",
+      "sha256": "bbae1aa9b36d1f0e91610d32c1a05a0c5d28722bbfbcaf853b99f4faafaccc2d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3bootmix.exe",
+      "sha256": "df2d27863ac7ff48a3d03c00c46749b1840fc0751826242e57ce2c2c9a94ba35"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecnorm070x.exe",
+      "sha256": "b45aef3ab2f91cb3bf5cd53a933232229f948a6333d3dd49b69b92658df0a079"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "09f8275ab1676220e44e25bc776a58e950b4784c9ca6ae04fc3a05a23a5bff46"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecnorm070120.exe",
+      "sha256": "c69c7ac0b5944c55d57d04caf5bf5add1853f7087b9a228362a5ef8bc1f1d537"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "6282dad4b7a3ada443eb81fda07f266f7e71429d9b42d57d9744188ed03db722"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "64e1c8ac42bc4341d24bed95b4c47264f3b893e92b26c1999e5667b30115fc20"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3fpu.exe",
+      "sha256": "cd77b015ef59343b235ee5678eab17bba3e00ef5e870273525f3dc292c115785"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_contact_frame_v1\\vf3statehelpers.exe",
+      "sha256": "a897d523310b782aba549c2659e0f2ff8bbb34321a1812ce0f0c41857b5060e6"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\contact_frame_v1_tool_tests.log",
+    "sha256": "7b628db84d7612b527e955e7aab3b64adbe7e8923a3f49e9ad9873807dca59d6"
+  },
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\contact_frame_coverage_baseline_v1.json",
+    "sha256": "aec7b2f6f88d2057934f97c4b507c417e7a48eebf5b1a5e937cd598edc0cfef4"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_contact_frame_v1_milestone.json",
+    "sha256": "edc831a705cebac7b96a4ea660213ef7458a243a76cb8c6c818e1f60ec64b734"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\contact_frame_v1_chain_extension.json",
+    "sha256": "efbc125016bbdf2a4854acfd03effd0c1fda4354bd3065da4fd7dc1a3a05f224"
+  },
+  "previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\aggregate_frame_v1_chain_extension.json",
+    "sha256": "9675cb9f87d6829ea58fb5fa4eaf1b13aa1f87a597ae87e78c53d118da3d2a8e"
+  },
+  "previous_percentage_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\aggregate_frame_v1_manifest.json",
+    "sha256": "eafd1349264d493a8dd58f8a2fdca9e60e4a98de027006d0039e0c456a24bbae"
+  },
+  "gate_scope": "All observed/static affected bindings and 39 native suites; previous full 60% checkpoint is pinned through aggregate_frame."
+}

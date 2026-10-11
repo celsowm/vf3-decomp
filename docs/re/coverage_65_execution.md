@@ -478,3 +478,20 @@ Coverage is **261,970 / 434,656 (60.27%)**; **20,557 bytes remain to 65%**.
 See [the frame qualification](aggregate_frame.md). Fresh testing of the
 adjacent already-credited 308-byte routine adds zero bytes. Unqualified
 larger pilots receive no dead-code or caller-attribution exemption.
+
+
+## Scene contact frame: +458 bytes (2026-10-11)
+
+Callable `0x8c0a0aec`, owner `0x8c0a0b00`, adds 458 marginal bytes.
+Development passes 125/125 valid cases and fresh holdout passes 126/126;
+both exercise the complete frozen body with no skips. Three development
+and two holdout interruptions remain excluded. Eight genuine BSR windows
+verify the save prefix and return. The corrected executable and 377-source
+freeze precede holdout. The failed FPUL-index candidate is retained without
+credit. Four affected bindings, 39 native suites and 165 tools pass.
+`contact_frame_v1_manifest.json` pins this proof and the preceding full
+percentage chain through the aggregation frame and 60% checkpoint.
+
+Verified C is **262,428 / 434,656 (60.38%)**; **20,099 bytes remain to 65%**.
+See [the contact-frame qualification](contact_frame.md). The next required
+full frozen inventory gate is at 62.5%.
