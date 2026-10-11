@@ -1,0 +1,2421 @@
+{
+  "passed": true,
+  "coverage_credit": true,
+  "new_bytes": 32,
+  "readable_bytes": 259220,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 23307,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_port_dev_v1_complete_sources\\manifest.json",
+    "sha256": "a02ac136724e40663475cbc3bcf7afbe99fa128ec58d232089bec6a513295407"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_controller_port_dev_v1.exe",
+    "sha256": "9128ed5c6735f2e90d28fe47d09dcc518668f304f01eb20ed51604a31a9e99f1"
+  },
+  "original_emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "frozen_observer": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\batch_manifest.json",
+        "sha256": "f4a9c24cbf8a319de12510c7fd5bed871efcca0e15aadb654fa9be7c68b911aa"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1_native_report.json",
+        "sha256": "c5b1250540b32f31d8142aa1a509cf0232118f51fdc5abf25ef820de40c755a4"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_port_dev_v1_raw\\capsule_coverage_65_controller_port_dev_v1_s21.bin",
+          "sha256": "b1c14fced0d0428a3ad7e147875ab08beb5914f7cc68e80fca2f9419927cb2f4"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_port_dev_v1_raw\\capsule_coverage_65_controller_port_dev_v1_s26.bin",
+          "sha256": "291522b15508bbbc06e68e287f32dcc7207e68418a8e29918116584cab4fc587"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\batch_manifest.json",
+          "sha256": "f4a9c24cbf8a319de12510c7fd5bed871efcca0e15aadb654fa9be7c68b911aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\capsule_manifest.json",
+          "sha256": "c67e78730032d8cde573f53b66fa58f964271e06e99b46dd7954da47aed083aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.cases",
+          "sha256": "87b40b3a526e258f1b329e30bb783d87bc64f0938e62039175c3876346d65c49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.extra.bin",
+          "sha256": "61315657646982c0804320d064783d46581046214bcabb566d52bfc81e2e78d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.ops.json",
+          "sha256": "c4d1b2de5ddf42c0daf8f5c2480a23a6ada61901a5a8ddcc573d1a4bfe606e47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_0.in.bin",
+          "sha256": "c0998de094c27e94f2f6536e9dff6a883062bd35752ed0bb4228b4b1299a2ee7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_0.out.bin",
+          "sha256": "a1edf43ab6a47bc6c606f46a9d621ea2c38d5e6394277b9dc02ee1eef557a916"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_1.in.bin",
+          "sha256": "c7d1ad60e1663e882bd5313b57b63fcca4d17675ca58ec86637048d9bd452d95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_1.out.bin",
+          "sha256": "d6372829870df0e49b17fbf2c0495f487edf269a478e8968d53cd029773d82d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_10.in.bin",
+          "sha256": "db04895a0d6be75ce00608e04e8b9e418a665551e8f078db239d6a98eb6e9fe4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_10.out.bin",
+          "sha256": "eb9424886c1b6aab9d7d74c130e7b699b4b16c7d903c31c1dae7f44ae93844e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_100.in.bin",
+          "sha256": "8ecbf0a902224dd9796198155e4b91216cb7f2ff44c9091fbffd82cc50ff6e1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_100.out.bin",
+          "sha256": "c7b31dd795264cc82ddd94d406ba28564f0d803a2716c86d6d215ff88bd52e5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_101.in.bin",
+          "sha256": "9b51ef2b909ac87027d3d3d5a6f9526b540dddb2a8fd6624a8f4e00f645fabdf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_101.out.bin",
+          "sha256": "2b137c74c3f690a386c47f88395c0f49077a1b2402aa4893beed6ed4db21e554"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_102.in.bin",
+          "sha256": "e8ec41912412c157477cf06c3824d507ee68e69416e9fbb23b1d850694346abc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_102.out.bin",
+          "sha256": "75428762e13f42a597a58bb48a4dcec558d324e0954491ac36297fe776a12b27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_103.in.bin",
+          "sha256": "a9311ea4145fe9d2ac68b9264db7696cd11c088dbbf291c0a8cefe5de7a70381"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_103.out.bin",
+          "sha256": "992d81d05293ef0cc433dc369784f3a59d15831783e8bdd44c698c5909309e36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_104.in.bin",
+          "sha256": "ed5f9b168e4a454f7136327814af51b3b5be775599667d3ba15cfb197da88ab0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_104.out.bin",
+          "sha256": "76172c7e42489c4af62973a8776bc979206ff20bf21186cd68507961a4e60d8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_105.in.bin",
+          "sha256": "fa3914cce056cc6a2ab41d9c897f35cecfed17fd1fd42df82cd5b8159eae1e09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_105.out.bin",
+          "sha256": "fdfa7f07b52dd5cfd18c0a9580e80cb7fcf9bfbab7797cf9a8d4e9b707dd035c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_106.in.bin",
+          "sha256": "6cd2998c9eb34d2dbe5ac5f424da24b7ac439f9be3576d551b8cdd7cbd9fe3bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_106.out.bin",
+          "sha256": "cbcab63ce99d7bc04f9e844b8386d87040d12ce845f0931fb11b62e730a2d479"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_107.in.bin",
+          "sha256": "a304efeca6b2e90f12c95ce1cf5fcb7ce05784cee25a0e6e2aacf7000dbd2bc0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_107.out.bin",
+          "sha256": "55efdd9c80f5fa195c148e1d8a3c4aa2eff29489631940720e2ddacbbcf6acf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_108.in.bin",
+          "sha256": "97b408b8bb57b358d52877b17bc7cbe376ef276fa7ad2760bde4ff30e44f6f7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_108.out.bin",
+          "sha256": "f5ff5273808b4bb4ee4842c1a19fb0139035862e514528dc45f37d6e338f6eb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_109.in.bin",
+          "sha256": "1cd14b3d4a2ca0ec527af24c00ee017927af03f39c721c6b355d34b24d5014a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_109.out.bin",
+          "sha256": "7a34c29fd7f734c214799c1bb0631e591a5efe2f3eb42b611765c571e890ec9c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_11.in.bin",
+          "sha256": "fe89ef02f6203ebd6a267c13833e5a3163239c84c9cc89966915f23c5967f393"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_11.out.bin",
+          "sha256": "04dbe562991fb0339f2fcf245d7d85699a1ebb2e38b567e840814f0ef625eb5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_110.in.bin",
+          "sha256": "46b625b33cdf26be9ff59cad0e29a37b6482501318ff40bb4f6fdc1939a1bd3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_110.out.bin",
+          "sha256": "a2bf3f1d35a95220fd84c39667264d7a3d61e24fa3b7561a64638972b4132ef9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_111.in.bin",
+          "sha256": "3a1cc4f1d735120a3b7e67000eab24454222a6a38211fe9fac30f01adc59c810"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_111.out.bin",
+          "sha256": "49c74cfd219411ed54a3f67b891416808fe90f0cd9796a4fa3b7a395264b7e15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_112.in.bin",
+          "sha256": "61fa4e9fa8e4886e76c49c4b09e576f55b994c85e5a504cefc28756f655782b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_112.out.bin",
+          "sha256": "8d1ad6006e9021920ee2fe71e439cf9cb242c5bada4398c536069714662a868f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_113.in.bin",
+          "sha256": "d3f9a440e59fe97ea28be77e23b1475d471a45abba8d130eba0e27e4c4c6801b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_113.out.bin",
+          "sha256": "0111bad6eb52706491c4b77bf5beb5ebfa65b8971f3e8c4aab65af158912e303"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_114.in.bin",
+          "sha256": "44513e0267740ce350e3844b4e94218a1bf68c7a7a912097ce72a7949c67f529"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_114.out.bin",
+          "sha256": "b471b5adbc8e7e77d96867e026d7f976edfa03e105a86787a6761ec87451cc9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_115.in.bin",
+          "sha256": "c39eb66f388885ebc52dce6b4d4f7a9d5336cf85c2c00a94dcb2c173397a529a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_115.out.bin",
+          "sha256": "f8427b9bdd9555ec685d56e1d7c3470d3245c4f478dd6237056b3e933834ab0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_116.in.bin",
+          "sha256": "a96fced183ce0b0a528145dd16858fb0412f1d1bc4949f4518cd74dfd107c55b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_116.out.bin",
+          "sha256": "f569f9197f4d8462610b4b57958c2af07c729c55bdc439c37a2df7b41a90ffce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_117.in.bin",
+          "sha256": "a1ae04981ae17928a7ca8bd6479126b124d9c721909c8a119a6634a23caed70c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_117.out.bin",
+          "sha256": "f506b2a00ccc08216a1331ce0ccabb2171afdea8c1d50b82d18f34f6158a4903"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_118.in.bin",
+          "sha256": "109bbab256b2dbafdae6ea41f7b5f26856af1cbd074b949c2ffe88eb3cf5c45a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_118.out.bin",
+          "sha256": "0a06bdf36f798048c9cb77c24d6f52eb01e853951c4c596b8a2be952abe553ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_119.in.bin",
+          "sha256": "e7a6238c246a965a5ba0cab972c8e9871b9f1ede9758c50bfd5a28d59e501e17"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_119.out.bin",
+          "sha256": "d7d77d31d52442603e5a89038e1a6e9330b7e2be663ca33d5acf86bdfd165f06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_12.in.bin",
+          "sha256": "c58cd6ff55add258aabed18480dd754da7fdf94d36c26e465d043e2bb9954013"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_12.out.bin",
+          "sha256": "5ee5bab45ab2299f5f61457c10c4fd50e1a3d37f5215a29f32e014f8d471bb2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_120.in.bin",
+          "sha256": "f1627084cf7b96024a933a153386de0dd5d7b09f1dd9ac3c415fd91cd43a7f9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_120.out.bin",
+          "sha256": "fbcda7c40ba0fe427a98079bbc80e2bb861c81cd7508cd5cd0c00936cd472d5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_121.in.bin",
+          "sha256": "c88a924705a4bac833db08583b0dd906c35e255a075a8a39373a837cb01f1e0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_121.out.bin",
+          "sha256": "214494738122056a5eea0f88eb5dbf200b3f9a697607016dff84dd442f02a1ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_122.in.bin",
+          "sha256": "0e115913fb95af64cb1e4eb7c83ccd278431ea23a048f18e7b6fb99bbd721f9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_122.out.bin",
+          "sha256": "ebe5c5a2f72c478f4bc016d22890a689ee2f98080fe5ceab8421d9e490ce324f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_123.in.bin",
+          "sha256": "9dcc778836e5748a8ad3b13b1dce05e9550362c0c2e395b4194a0ca7a453bb15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_123.out.bin",
+          "sha256": "33bb14dd879af735cd9c0fef7f2a8b542773c877767e23f7d05812026aff8167"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_124.in.bin",
+          "sha256": "55c2923335dae3b102321f6469d90a6893a96aee4da67f198c41046b85ed2bd1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_124.out.bin",
+          "sha256": "decaa11a0389ab0e93ab9a23d5e67366b9ad1d7d52a2b31b5f3f042700fdf6e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_125.in.bin",
+          "sha256": "5bf8cec6584b281254d58c2a16f0a5e2c7c13c5da30646f5863ec2a6e4221bd7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_125.out.bin",
+          "sha256": "8601886ee159981589467995b500457925887e44bb660434405a1be7f8f94a64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_126.in.bin",
+          "sha256": "e3a95b45b96b85ae61d47246f598636d76e5183f7edb4e91d9ab2e203e752762"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_126.out.bin",
+          "sha256": "6a368c882cebe4d63d18be9700a2b78418e7c47d243e96cca807112dbc84d504"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_127.in.bin",
+          "sha256": "dd0e333bb2a1142a798f0cef61dcd824f7876e31e5a53882970d12c4ee081fb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_127.out.bin",
+          "sha256": "e9803fcc9a4b1909c56ef0747f31335b500bc62200cfac73b1e3c773d700b855"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_13.in.bin",
+          "sha256": "4ce5e562600908e83be12ef1ebf0a27ce903c10f5bd45f411bd2606b77fd5a44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_13.out.bin",
+          "sha256": "72809b88d51ef1e95c9af2c5ffd0b97bf139e7539dbd9ce5694a0c249a7b0734"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_14.in.bin",
+          "sha256": "e5a697151bdee7c7753c512846d46668312f92694c2648ab7435b81d4018bc49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_14.out.bin",
+          "sha256": "c5466f6c13a4065cae72b50bfab0ec8703c303abb4144c8eb9be260075753537"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_15.in.bin",
+          "sha256": "a1abe241ba9dcbc23790db05dae5cc5986507ba3797ad8c7569813630417b819"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_15.out.bin",
+          "sha256": "311920536ad52f75e56b3922a18d13096b33f3a997a6172e500a4a4156876d2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_16.in.bin",
+          "sha256": "b7c41ac0d9e144f80fe6a1634ae55045f250d21d0e75f22ff175b4ff8f54cf29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_16.out.bin",
+          "sha256": "85f51968a0b171746b67e297b1929507e5c031d0936865b66969b6fe5ded62ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_17.in.bin",
+          "sha256": "a3ecd9bed872404b24b272cc20542cfa70c370ef5c76934b424e99a98f00796c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_17.out.bin",
+          "sha256": "d8af4861338c7cc9ee90f8fb4472590dc5efbdeba7cef7f8a82feb09bd8c4121"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_18.in.bin",
+          "sha256": "96501fd8e8a4d26d26c19de3498f8acdfc5d62b31450a485538b2e8d59c9b837"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_18.out.bin",
+          "sha256": "2a46307b5262c5e7613908d22fd9e9cbb4368cd7264d052e13eae66c7d7bf98a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_19.in.bin",
+          "sha256": "118805f5a4b45c6fa2590c7b6614e9ab856289987785bbced4e7fc6ee8fd2fb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_19.out.bin",
+          "sha256": "ec56a4ef5708dbbd11c02a1e93eeefd069cef368d7aeeb4f51a071391ac02051"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_2.in.bin",
+          "sha256": "e79db7748d64132e587d693a79b7d667b87fe48b29db4964eebd5936eab6ca5a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_2.out.bin",
+          "sha256": "efef3931502dd6fcaa3f39a3b7258c292dd4994d960cf03b8d550530afcc30f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_20.in.bin",
+          "sha256": "8b16cea8d5f0c67c2bc10e8de9920a2f732fe8ab57bb476e5fa3783e278799a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_20.out.bin",
+          "sha256": "4713cced0bfc9a091bcb32cf6460e676a45cdc9a6f8f1f4bb634518cfa1a531a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_21.in.bin",
+          "sha256": "ddc81e4f5dd1a1f142edd940cbc155d05eef34134f940321e5e4129f95f862ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_21.out.bin",
+          "sha256": "8d6708d84d315bee910937377035d34fbdedcc55d1cf44bc4bafbe41c8a0d0e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_22.in.bin",
+          "sha256": "bdc78e66a12ec6d7d7f55802676bcd8a9603b9d22601ccf53dc6d52e0242429f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_22.out.bin",
+          "sha256": "83e273b487ef091362a7a6d10b4b24db178a432cacde8bc1c570fb45e1f710ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_23.in.bin",
+          "sha256": "825f80f5214a3ce8e053ab2cd67762b0e3dd99d7167615d3e904da8b0d486792"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_23.out.bin",
+          "sha256": "1356f6a7ffdbdbfd427e93ba823db3b9698f4537117937d035a45825fad20a44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_24.in.bin",
+          "sha256": "f99728c231b83653eb71a34a3e3f5378e4934051b8c8850136b5ef678a379cc1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_24.out.bin",
+          "sha256": "d01e20e4e8721f7c0ce087ebef696f84f74e72ec14c61fdcd5d40cd46b6aa968"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_25.in.bin",
+          "sha256": "574c2fb1832de61e0406c0f00a7ce79088f45b7894f0bd9bc3d35dd389c9ec74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_25.out.bin",
+          "sha256": "9eead1debc44019068ef4a976680b4d0c57c7d84c8320e0dfd41b70c1fa77985"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_26.in.bin",
+          "sha256": "7dab085d281a219a0bad840fc507867e7abb5e84ceba446930e06c958a32268a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_26.out.bin",
+          "sha256": "fcc0eee7a68f10662557f30339bcbc326f8f7f97eb173cf1c5697685f6d06b06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_27.in.bin",
+          "sha256": "f0fda3ccefdf5b037cace979ae62b79fc284a8afffe68f1c5bd43920c7af8633"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_27.out.bin",
+          "sha256": "281c2846c33117235102ef6b37d0ec7cbae41b00e4916b105b98ddbc10332f1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_28.in.bin",
+          "sha256": "c087ce8da1e6234a92a12f22ec25353f98d59c53225a1d41c5ba4f359d48ba56"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_28.out.bin",
+          "sha256": "d06addf8b1288a8e95437b9384804ac1c7e9091244e601c7da154bbb761914b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_29.in.bin",
+          "sha256": "e1ada6206dc9373e211b80b688c98a1e3aeeb211324477661b7cbf2ac674748b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_29.out.bin",
+          "sha256": "dbda8676164a89011a7690ad18a1b70d57599e542288608088e45ac2951311c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_3.in.bin",
+          "sha256": "4771d9c26d0c24b6697f10c2de8cc6ae8a8b95c088a5039eb75c8fadac3aeef1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_3.out.bin",
+          "sha256": "c25db211c2ea8b2095ef2aeb8790019ae392bd2f6452e28bbebc2ebefc97f73e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_30.in.bin",
+          "sha256": "41b2612d8a2039408a33c1b29f3b6e95d9e837d948654ef434312bc7e5c85ffb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_30.out.bin",
+          "sha256": "d800e1f8a7e1bafc1e62f0c35f1286c81d4bab7a73a8ddb10b0a74527ed552e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_31.in.bin",
+          "sha256": "6dbbc0fbcdc510ac681ccb24773db7335a59d566e5ed9480ee721c400d4a6ea8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_31.out.bin",
+          "sha256": "686516c2e86bfc942c171dca0a8d5c9252d8483320cf18972acf674a43d717d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_32.in.bin",
+          "sha256": "02476ce6820f8565c39123a719c00031929776073d703d6de324ca5aabfa94e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_32.out.bin",
+          "sha256": "44604e1935acc824836dceefd16f94cd0aae67b556ce44c3288ccb433b71161d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_33.in.bin",
+          "sha256": "03674c5992a2db5241d99046ebf10ad629391e681b3c7932bc79510a31f585bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_33.out.bin",
+          "sha256": "94986cc455bc966e50721610d26d55a1d7dcb97428f268f85f934710d242b345"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_34.in.bin",
+          "sha256": "f8a71842657e95aa3102766ce1e4046fbe559683cf65f84c8c9d3414e37d31f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_34.out.bin",
+          "sha256": "9cff101928e1d9c24f9c7449512a67e172dbca97a463cc275a61eb2e4d5c1514"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_35.in.bin",
+          "sha256": "e48e8d685d342e7ea4fd2389a064c29fe81f63ab6f12d307561f01b3951079d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_35.out.bin",
+          "sha256": "90562caedb2b55ec1bd1805ff73c66a5a21b816b08c9ae1e0f7b7c745304fe82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_36.in.bin",
+          "sha256": "35b214e8683a70c019ac6ab0b731f1134b7d9aadd629e6ea2faf8b79914c4bf3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_36.out.bin",
+          "sha256": "1177291745813b6e470bb0d106861be6b470fdf71e8c5fe06002c5ab8fd859c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_37.in.bin",
+          "sha256": "4b778d230774dbf8024232d8bc71e44bb5d70df50aa6c72455de4002a86dd3b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_37.out.bin",
+          "sha256": "9fb33abe575e63d6a9dcd08649e68d61731e9f30e49b04978eb43f2a37511155"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_38.in.bin",
+          "sha256": "204b3fdecdf3bb3cbaa8059d4105dafeb7ed2f11fb14dc2a9e2b2b7b6009281d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_38.out.bin",
+          "sha256": "641b7770cdcd9d217d867a6671243440bcf899512ff7209be466bc944b3a756b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_39.in.bin",
+          "sha256": "b73982b2b5c0b2cdb5607cf5397b2cbade5ac8051f0ecc51a58b5dd4253347d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_39.out.bin",
+          "sha256": "08a2ca5339dbc9f0bce08a91eed926e128ba471ca604ea28d840a6470667aded"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_4.in.bin",
+          "sha256": "657e142dfb97c9025b39599575b0dc592f6455e1b8b1e6855da57ae5393769b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_4.out.bin",
+          "sha256": "14f609d888a25463f367631f40edc4feabe1d149f7b9394a2f9c1231838f79d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_40.in.bin",
+          "sha256": "208f0188761b6c06ac52188f7b3568f36205459382f297e56413e07b31978385"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_40.out.bin",
+          "sha256": "f77d03a83c80ffdc5d9a8da19a9616dac74fbaa5b2e1a1822e692774e876df35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_41.in.bin",
+          "sha256": "c7107a4fa8e4267818680f42d0b004ef71342d66aec890e59a9db59cefea9961"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_41.out.bin",
+          "sha256": "af6db83697c139a66e9db85d9db8a28035978b4158def3e0ed27b0c12d433615"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_42.in.bin",
+          "sha256": "f5dbbaebb831a7e99268f1fd21cab8221cb9b177d29e7e6a764de24260998cf7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_42.out.bin",
+          "sha256": "493f69d876c20e3373544d7f2878fd23fe06d348182e50b9f8ce735e2977cefb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_43.in.bin",
+          "sha256": "9e993683a6384bd6b4393fd37bbac20a0d584b84f7a4d3131cc08db7de6b985a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_43.out.bin",
+          "sha256": "5bd89f69b99525fbbeb57559328913ef628c71aca1324dd263962e26a4e3f5e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_44.in.bin",
+          "sha256": "c5e388613c09fb9b2237d69d1057360dd74a1689e87f4a355b6dd61799e251a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_44.out.bin",
+          "sha256": "db6c93a269344570235abdb677b48af56ce7fd6fa19f78c9ec289e18281753ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_45.in.bin",
+          "sha256": "2482aaf5df75997c4f8cc051f7c2850364790ee290100b1d9abc5ad82c4895c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_45.out.bin",
+          "sha256": "8ab8bc9e24c332b5366bdf2c736d20992c932b06c5422935b32efb543b826edc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_46.in.bin",
+          "sha256": "178fc8f69419cdd2ff7e52c12a36716ffef71cabecc621b4be680d1fda492f1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_46.out.bin",
+          "sha256": "1e7eeb51ba8baa2073ae37548b2584318e1605d7df2feae0a27e465b47ba3248"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_47.in.bin",
+          "sha256": "3f25a82097462fdff74f67437336fc9210c3339ff1647692457b083c72b79701"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_47.out.bin",
+          "sha256": "282ee03aeaf6eaf3f7141e0c5c0d6dd4fe92fdbb67a651d2d5c0a20747d6651c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_48.in.bin",
+          "sha256": "d1d594144c257ebce55a63e3875650ed41dba5278cd7bdf9d4931b246105ece5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_48.out.bin",
+          "sha256": "5cec919f31c02301ed22cc6471d703ebf66f386cc5f6881898a7fd1901700ce6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_49.in.bin",
+          "sha256": "45538dc5bfc6f6af1d650e8da24eb427ae5723139dd28e6c5901e67941e0b7c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_49.out.bin",
+          "sha256": "b7b1c321527373cc2bee9eb386816dc4942673afdd36e1e2b881bc810e3d17b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_5.in.bin",
+          "sha256": "06da7e77336c419e3f8e20b38398f26e594ce4dfaa95ec7a4e2677e26c4113e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_5.out.bin",
+          "sha256": "16de8ae54d9566b87c73d70048a33eefc985d25701588e412c82d94256b85519"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_50.in.bin",
+          "sha256": "2f3fdafa3ab573b6fbc1a05ca34dfa3fe6f03a6115f2dc078ab4582a64f918ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_50.out.bin",
+          "sha256": "e6257504dba3237d576e39e54c83cdbff68f0902f46e54292e89505df569dbaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_51.in.bin",
+          "sha256": "d8c65462598479098b4d6f5a3e4acc5754c385a4d00ca68e0149cf33b998cd18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_51.out.bin",
+          "sha256": "76270972d43b1513d7a42e7eb71d1f65ae9a768f3637bd778db1365903c23fd7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_52.in.bin",
+          "sha256": "12d0b1e02cad1b9b34e716943db59d011e1d9ce4650fe1761921d3c722c4db00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_52.out.bin",
+          "sha256": "3a73960467a2f9d4d0557e9db6ac371d0b9c788b4b42d0a57e37e425f11e5312"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_53.in.bin",
+          "sha256": "ad47b440c881b3e3beb5598cef1e6c9520e5f97947a75bee0f8542ab6db57e85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_53.out.bin",
+          "sha256": "587fb2da2627ca4e2f0e7640d6339a2b2f61781c0fdd5107dbc9b2edda9bfd2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_54.in.bin",
+          "sha256": "567f322005d102e0c7f9146f333da8df8ad715a67f1132a81c9e41a9f5a48297"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_54.out.bin",
+          "sha256": "a26fb7647529b517989536c87debbc052b282489a9518a82b00ec8845d555469"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_55.in.bin",
+          "sha256": "f01207a68108681dca226cb2d6d189c95601c7b7d566ff37ff4048338e95e6e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_55.out.bin",
+          "sha256": "845ad4c6ec12d813372fa5dd29edabae6a888cef5b296b4eef26be78c559362d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_56.in.bin",
+          "sha256": "f40b021c594ddaa402cf32753571355ef4d546d005bb4be814778d646cdc823c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_56.out.bin",
+          "sha256": "5b90e0aa51c7f09e6f1862a033b1156dfd5e7f6a5ae02fac63b681dc2a49f2a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_57.in.bin",
+          "sha256": "d2a7458ee7e25e4540c923730d3c2b95236d5a4b8d857052b339ba2eacb98f99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_57.out.bin",
+          "sha256": "c249066f7d7e717a9920eb4ebaa7e8491115382721d8c3d39eb6b3dd5f130b6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_58.in.bin",
+          "sha256": "7084606669636bb4969643016be29f3a4bba904e0c96ee8a8fc613df6b988f2f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_58.out.bin",
+          "sha256": "e693ce7c90c17782306bce6243eb6a0791e22835d56f8929ae84b2ecd5366f6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_59.in.bin",
+          "sha256": "c8a06f0a8a82bfe6667c99072214f67e6cf3b90a9613c4a1c2cb802fe1e3a2e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_59.out.bin",
+          "sha256": "3f2b0e0bda4ee101463197e053911ad26026078ca5ba7b97446db6f685ed04cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_6.in.bin",
+          "sha256": "02a280447e68df4947753723f16ed71b88ac21e9c864864daa1cf9826ff33d31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_6.out.bin",
+          "sha256": "1007d3e5c50ed2e8d9688059235b61cb5deb77a6b2881c18cee097d6261cc061"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_60.in.bin",
+          "sha256": "c0e2c3545064f1416eaf9dc416749bde6b27cdff1e269ae72fcc44fb9fbb3a58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_60.out.bin",
+          "sha256": "c668a9067580e85a622486617553d8044eefbbcd49a3db5a0ff547c6df20cb01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_61.in.bin",
+          "sha256": "d4e3ffbdbe3f74b00b5e29d1d2d8effc411040e31ad06ccd88455637337c5a64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_61.out.bin",
+          "sha256": "889add968753da27f467567ebd04effd2e9a37974d28c918af78cd6b3a968a2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_62.in.bin",
+          "sha256": "0290060ea2b3cc84db56bbe5f12b9b400722a5836faf1013bbed444d36f40a31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_62.out.bin",
+          "sha256": "ded84a387ea1a7988d2bc91289184f19b513cdee79be27d02c4c7a01feeddf23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_63.in.bin",
+          "sha256": "04c9ae41b8e5c2ae63117af7922dfd08d573f68cacec983ddd010d01c768a801"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_63.out.bin",
+          "sha256": "82fcbd1db805e90332a9e024526d26825ef1d06276197d7fc8141a40681f5b94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_64.in.bin",
+          "sha256": "d4158f2ef1220c232fe5f7848b50cba75eb724573ea803522dacf9b263d77efb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_64.out.bin",
+          "sha256": "77a03e798f670e0a989e3608a595833c1155954d74663d2c213be49bc8ca03e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_65.in.bin",
+          "sha256": "d7e213101162d800b06f1e2e12ffee512a9a1be5cc624ebe8a100e6f2e977380"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_65.out.bin",
+          "sha256": "a2e3cd122142f075eac1dffef3a3ce66bc964ca329aaa60c0b4d770e6546db84"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_66.in.bin",
+          "sha256": "89f3b38574a3bfec776fd8d339c60f5fbc8659bcccd426e2c6b4b370393b3355"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_66.out.bin",
+          "sha256": "4f0b14807bc44646aa36e7050f412a6f77f2b3b1bd877104ead8888b08382af8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_67.in.bin",
+          "sha256": "20d99b5224fb5c3f9dea6b7ee263774c5108b0880ad82d8dc1e4d52b1abc56e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_67.out.bin",
+          "sha256": "f7a159c1d062d782d09899d2f95a23b0e96f6e23d4db198b96b3a7b3b39dc603"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_68.in.bin",
+          "sha256": "76b2df0cfaa81f076ab17f44905376a3cc9e10141843763de369dcb1d7fee6b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_68.out.bin",
+          "sha256": "9b71d82b569b75fda9bcf23a249bbdd0aa03b11a51de8470a3c5d769d4877c39"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_69.in.bin",
+          "sha256": "2115e54fd9630e7ac9d6eb73e6a443702020986e5688649683cec5664b156299"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_69.out.bin",
+          "sha256": "4b4277abc892155f0c89d599421901edd8a7823425569a3af022056331d9be8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_7.in.bin",
+          "sha256": "4b97843d417597fd3cbf99ed5a1dc421d8d22aab4f1d5e926819196caa514749"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_7.out.bin",
+          "sha256": "bf9b7dd58b77c35a6e845a4ba3cc587c4e7ace1aab02c180f0bc347ade3089e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_70.in.bin",
+          "sha256": "31f4fd91148176a7d3fe6f1bae3e1b7c9c1fd5868ab88e9b92fddc7769752bf0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_70.out.bin",
+          "sha256": "80ac0858f66a85fb008c3cdfb9a2b5d407abe57298b4001ccb783d4aff8e1a41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_71.in.bin",
+          "sha256": "d7f3d7711a6c40ac8b1622076ab8cde1c564f4117a37e10457556b655c427340"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_71.out.bin",
+          "sha256": "da9a7c799e8639c3392f03b909d3412098e218408a1f9b505f172a26b599d93b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_72.in.bin",
+          "sha256": "adffd93c4c72d4bdf7800ddf676e8a738bbeb64e584f3287782c66497d9af091"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_72.out.bin",
+          "sha256": "cd5afbbd2bee0fdfc67b2e33998c1790e9a5cc1edd1b787d45d0f2d22a10be43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_73.in.bin",
+          "sha256": "37a632359eff429f9f1f9e3cd0fcd47ecf81f4cfb0ffab1c2adb5e2c4b3bac14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_73.out.bin",
+          "sha256": "3dff34881a50fdf4003bbe6a100a521be635fe82cf227eee4b5d63b9c437b230"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_74.in.bin",
+          "sha256": "d3fba404d98c27f2c22bfb1926dca772d71630a9aa694d4065e44875b7e13f0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_74.out.bin",
+          "sha256": "4fcc2c2337be084bcb62617cd16bfd850a940cb514ce4bf4b07dc792eb61810d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_75.in.bin",
+          "sha256": "da8fe390d4c32fd2dc9a3ece1ef8e1f7bae0ed03e637eb2344af8c281c61e95d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_75.out.bin",
+          "sha256": "e4f7c53acc67469a65554b10e55814251a60a827e87489557ef109ea287c3be1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_76.in.bin",
+          "sha256": "ed0bcc28543591d101683c317b838a87e0691763a7a1a02efd58ebef0ab7f20d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_76.out.bin",
+          "sha256": "779eff95039b4c8f685543760a4060bcc36b6c0f2efc131dcf5551adfe0ad2d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_77.in.bin",
+          "sha256": "23332c1e733004ce0334997463a24052519672f1dae25268566aec3a6eb9905c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_77.out.bin",
+          "sha256": "237fa4fec7b995e0b1c8f816a93b14fbb3fab4c5ffa70981bcf71ca96c65c28c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_78.in.bin",
+          "sha256": "3348f74daaa9b9cd446667b76c3b6295f6538b9e1729128340f6d84e15464267"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_78.out.bin",
+          "sha256": "e01efd1c4a054750fab7af864a8d692b11b8f6444b71984ca995c30b33744735"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_79.in.bin",
+          "sha256": "864a1492d3a28bb55908b1fa92ea7702329f32c6b077c6223e66d2d75513d186"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_79.out.bin",
+          "sha256": "154a6dba516efe615763a1a1385a1cb4e50c4338ebece327824c21fc682c5678"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_8.in.bin",
+          "sha256": "8bc531e6bb67b00176e908a5ac20637b09cbf856144b71c86550ad356a3f02ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_8.out.bin",
+          "sha256": "3de4ac27cdb85fb747e9a2e27ddfa9847fc897425dfb9914a8b75b3e9b9a386f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_80.in.bin",
+          "sha256": "3bfcc43a2bea56173e48ff9a71414108cf03472e6ce9ef679ea927977c6b9fe2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_80.out.bin",
+          "sha256": "8cc9f1d4da88a757194eb8dd41a7ef8fdac5f59189e64d6bf9b3c228a5e6abe4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_81.in.bin",
+          "sha256": "b386b0df355faa720036348292bb9e4f02fafa45a93d12d90d6d10880e264cca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_81.out.bin",
+          "sha256": "8c65561b3f3906a4307ad77567e0c3edd5eae60f397c1419dee3d4ed673d56d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_82.in.bin",
+          "sha256": "f2dd0c96427417c3e6378dcf1fb9a0f58820bbaae517b1605629677beb849a41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_82.out.bin",
+          "sha256": "dc85fd2a64a2f9a54019be5f78dcd230c1bcf0469d9761814c59594f4ca5b9e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_83.in.bin",
+          "sha256": "bc1948794119e4af1bec772e084b6fb39e52e274be9cd3bc2371c82b1431fcd8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_83.out.bin",
+          "sha256": "6bdd01ab6de06b0eede6209bcfb38eb8519449772bc0055403844aeee6f795a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_84.in.bin",
+          "sha256": "5893648924feae0f6bee5bb1a887fc6d323df787b5a70d6e9d7598e627f32d10"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_84.out.bin",
+          "sha256": "cb285899b95454e1cbb0224de32bf2f360a4d66277bb0df350c22987173b3c1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_85.in.bin",
+          "sha256": "445cb5ef215fac62139628e815bc1e379c26e6edd9328a2f323dd53e3a5beedc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_85.out.bin",
+          "sha256": "a7b1878340c9070ba157e18cf33b36e0c3bb8b04a0a2a58c3dc9861ea2796b4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_86.in.bin",
+          "sha256": "575abd0fa3cebe68379a7ec083f45d8e5dae9b4b3ca219336a2339d4fba4a3c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_86.out.bin",
+          "sha256": "a27836ba013b1433385baa797603687707ae68424798bdacb3de1ca005b6443d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_87.in.bin",
+          "sha256": "487f6994275d8eaf509808eac00ac67d18e57c3f092a2cf4ed9972d771179874"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_87.out.bin",
+          "sha256": "960ccaf126b0af5fa604e2c2836fcfed7a721f75a12ce6cf247efb054d541062"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_88.in.bin",
+          "sha256": "d14e33d59e083c05605396f0ca52aecb077d6efa7a13573680e0755aa6b9a642"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_88.out.bin",
+          "sha256": "6e8cbe3726f0ad02da501dd0b64efb8f498f94d2fd4717115db4801d08a0ac1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_89.in.bin",
+          "sha256": "34fe8cfc71d7da3251776a24989bbfbc1e1f221e74ce378b1144c37012b7c389"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_89.out.bin",
+          "sha256": "fdfcb58b575761eb2a099321888f0c5b57a99182bc0a9d6138d724eb3d01038c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_9.in.bin",
+          "sha256": "f7480a89f419019b1a902454e5c2f0d0a8e01d07aa3484439f4b78525b1a034f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_9.out.bin",
+          "sha256": "ed2fa09673f166044083840ab6345831128eaf07fb1ad81979b0c5fd5a06f5e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_90.in.bin",
+          "sha256": "f8d1ae2564356432ad83b5000d9acbd05086a8b0ba88b43559e89986fe227862"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_90.out.bin",
+          "sha256": "8299e6d2cc055cb1fc87bd4bd5fb9e1c53cf49ac4469ea3786970d69b171e346"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_91.in.bin",
+          "sha256": "f39aada64db55fe86282f64f7708f7afb04c018adcba2cc57bb0410f48d7f034"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_91.out.bin",
+          "sha256": "ac4f10c25ffd8ab0b053bf25ef54a8bb6ce51c9dbe21688e4cfcc4418b8f8486"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_92.in.bin",
+          "sha256": "2433ff13bdb6379fa04dbe270e79ca7770daf6dc175eef632319df78ffc03b71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_92.out.bin",
+          "sha256": "5b222a26533b267c2efd9bebe6330f6fb354cf8f42c055b56755f1f11d7950af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_93.in.bin",
+          "sha256": "68e8361a59caca4cef07e07820dfe81ae4cdd94b503b462eeedcce1fa6d0c431"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_93.out.bin",
+          "sha256": "3e9f077c5f7023d17db0a78212309d06e9ea8aafb071a0d98afd1c79d57bf328"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_94.in.bin",
+          "sha256": "e26277748027a7d636caf9f5f7115ef3414350628739e38ff5a32c99630ab861"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_94.out.bin",
+          "sha256": "344772518b7625372893fc7ea6110af4bbeade59cf35eaceec826af65b161180"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_95.in.bin",
+          "sha256": "285645437ace65947970e9587b9af8074fdc92eb0ab8e6055bc22b8cf90de2cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_95.out.bin",
+          "sha256": "9cf6e9f47d734c5b4126fa8894f5fce1782109ed009b60f95e45dd0b518a4543"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_96.in.bin",
+          "sha256": "9df2a5e4493a74a19920ddbdd977f99ced0b63a8963a5043174b50da2526f048"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_96.out.bin",
+          "sha256": "8ff67450c73f196787b6b644abb5fa9c3c5eff21516377b5f4861c7582a20062"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_97.in.bin",
+          "sha256": "e570a363e5b62976897dc127abe5e42b5a9280d3ee2facd5ceb83b518b011c25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_97.out.bin",
+          "sha256": "07c3bca73e1eafc2b3b7f144920fbf464a087a1cac7d6c37984f08f2d2f60a3f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_98.in.bin",
+          "sha256": "3aac529a1a1772f9ba9d7634191498ad679ab54b4dba5d00db91c23135876ed5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_98.out.bin",
+          "sha256": "a88adf7b472dbe78ad9579a3cf0b4ab2a38f17b3fb2325fcdc593e85386a467c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_99.in.bin",
+          "sha256": "4e8b7454232d1aa637e02a03e334e0fcd63c13ec1eacc25755c59b0f7ca93eeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_dev_v1\\f_8c09b006_99.out.bin",
+          "sha256": "fc0f53f2342c938d4f882c89714ae2a41646ab6ff9c91aabf2d3b0a5ac79d49a"
+        }
+      ]
+    },
+    {
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\batch_manifest.json",
+        "sha256": "b9c920049f1171663225b010e42a83445ea4f8a0fa9905b991b7ff2a54172c4a"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1_native_report.json",
+        "sha256": "df927ce220d95fad4bdeeb6d13cb2f6e80fab72623a9d195486cf75deb1fd014"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_port_accept_v1_raw\\capsule_coverage_65_controller_port_accept_v1_s28.bin",
+          "sha256": "60b3b584110e7fa3f1ce83b2e942c03e317686d6b24748945cbeac0ef1968de1"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_port_accept_v1_raw\\capsule_coverage_65_controller_port_accept_v1_s29.bin",
+          "sha256": "1a5241e960387e517e1a37b2074540844c4c58ab2b05521fa7a0f5e5eab74ebf"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\batch_manifest.json",
+          "sha256": "b9c920049f1171663225b010e42a83445ea4f8a0fa9905b991b7ff2a54172c4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\capsule_manifest.json",
+          "sha256": "082f692bb49f8120c280ed4e5bd7641629afa033736b34a9a542a237b089d314"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.bank.bin",
+          "sha256": "ddb9bd753bfbb2be2e76c1d203aff724ed232cef341788771723de745699de99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.cases",
+          "sha256": "85f405fff75532fb5c0a96b70437aa052de9f3c12976cb3a60803bb29b4d2d53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.extra.bin",
+          "sha256": "deacc57b095d24c802283daccbeb0e6a6ccbe00c6867a6f96ff5ffa8e46a9551"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.ops.json",
+          "sha256": "c4d1b2de5ddf42c0daf8f5c2480a23a6ada61901a5a8ddcc573d1a4bfe606e47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.xfin.bin",
+          "sha256": "200bc0e7b39ab745dc38fc5035ac1dfbd4abbc19ff982942ac5a95d909a4bfd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006.xfout.bin",
+          "sha256": "200bc0e7b39ab745dc38fc5035ac1dfbd4abbc19ff982942ac5a95d909a4bfd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_0.in.bin",
+          "sha256": "e09305c00f008bf0d94a0a84b9f67d291499e079796c491463ef9b6b1d9e8379"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_0.out.bin",
+          "sha256": "f3c8b6550fe16b4e531bd9370524f2ed85c0ac8253748b979e9cd83f3b14536a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_1.in.bin",
+          "sha256": "a038836c30d79c002f6210964cd5a8674f7299547311238072b8c07f205d13d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_1.out.bin",
+          "sha256": "27b21c21a33a68bd7aa04f646503d04579a568ee144ec31d9c5b2efb7d3ab05b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_10.in.bin",
+          "sha256": "a7e376847be5c43254664a71fd11ae0502495a3e828be0b5c2c898628596f6ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_10.out.bin",
+          "sha256": "6bf53da854a3770e29dad79eb61f409e6ef01c1ba99e3fd4ae3e662fe80d386b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_100.in.bin",
+          "sha256": "32c6414d66f3c66e06732c032c4be6e051fbfc5d1dc95126e30c5bfa3fadbe08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_100.out.bin",
+          "sha256": "0e837c6fed0ce68c1548a3bf624d2f1994c917db3807af02e45f50f182b8e309"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_101.in.bin",
+          "sha256": "f67bfa664347e5e7cfda5d34ca3a88f79e2e4f64035ade7b34bbabe6e257e728"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_101.out.bin",
+          "sha256": "0145a7adb10768be09ceebf92018a2cfa7fb197a78feb77bcb292072416f72c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_102.in.bin",
+          "sha256": "8d67e0a9178bd24fa11088b2beab536c7a4d9ca6dee79c33e56dcc20256fb934"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_102.out.bin",
+          "sha256": "e51934313aa5cdb8c1b12283b0435822574543e8ece9daa589e1fea954aa62da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_103.in.bin",
+          "sha256": "fa2e5f97e513b8d11ba163812bd73f738e73d3b7f1414d6f493180cfef505947"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_103.out.bin",
+          "sha256": "136ac815307ff808f10c1c6232e67de0b90dd2e0a31929cd6df540dbacbcff2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_104.in.bin",
+          "sha256": "efca89564ac666da7d147764a64ef7497e3dbfbd71b7a6403691fb14d7548425"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_104.out.bin",
+          "sha256": "0b6f15da057e9da076cd9a6ab3275b0159fb8f1b722b17fcbe78af871e358352"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_105.in.bin",
+          "sha256": "dca05e1c2e23b7943d3b300b9905cf10fec5ceed0e5a8fa7a36d975b6328bdf5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_105.out.bin",
+          "sha256": "05bd6d85f817947a2b722c90e72309316c3265eaa5c2c0e1049d38a71ab8091a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_106.in.bin",
+          "sha256": "2ffd2d6fa8649f1751c18534630ab8e76b23a84c379db0588d8be9c72e7312b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_106.out.bin",
+          "sha256": "1c568c998825a521104441792d33e007fb5ec9bf6f2361c9f15b55b9b7782483"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_107.in.bin",
+          "sha256": "63720f900148317567122f1ffe4a2ca347f71b62a1b77450a5030e698d3e33d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_107.out.bin",
+          "sha256": "0786421e41a02593338e4fee5e10836a3a038ee170d002f25d140a036f7d9de1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_108.in.bin",
+          "sha256": "6aaeba34143ea5a1aadd6b92c9c73338ca1284121b224c5ac3c8681350a6bc8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_108.out.bin",
+          "sha256": "b5d8dd99a7a9f9edb8729b46acf5de8ef79b39a550645e4ee7f740c4298f74f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_109.in.bin",
+          "sha256": "b78aef29850e15ca051754855ec4c531bb49e037c771e2f789f67d3619606d15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_109.out.bin",
+          "sha256": "e468865271274c62306b98baaca4d662dfd758662e837c46a89e96d63ec055ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_11.in.bin",
+          "sha256": "be688758f8178c504a28b1166e89acd66a24c8fb706663195f54b28a33cda44a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_11.out.bin",
+          "sha256": "3c33119e42bc9ef041dd5fec8483fbf0a1e98bbce3115f76b5dd35e4205df351"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_110.in.bin",
+          "sha256": "74cbfd3e476c5a9b480c2f56d962a9e0cd399fb43918b343fba5ee9dc95f5b61"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_110.out.bin",
+          "sha256": "ec8f2cb5ba1a7cabc79c9bcf73c83837a03d0fe83a77a8ff46609609f8feacb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_111.in.bin",
+          "sha256": "abe377faf4b7260f5f6bdea9dc90079cea05c8f0554c5cc2281cba9f8cdf9878"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_111.out.bin",
+          "sha256": "0781419ccfa6ae8740e172912537690a110be3040d117399b5e7b49d5200ada2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_112.in.bin",
+          "sha256": "1d1fb0fe5950ad65fb9d90c0a23748b21d51545913bb283a6de2f1373080e254"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_112.out.bin",
+          "sha256": "27d38598ff84cc2fd5cd49f9d33759c1e70637f2fde6f2fe965c36dda1531c57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_113.in.bin",
+          "sha256": "6c3b0aa625b6a3c16f586ace327a75c35446a833a5de236e68ed7fc7b291f4d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_113.out.bin",
+          "sha256": "7f83e0ce5cd13879a6d5c13ea5ac4002b1896e9161afe5f0cdc80b265e26aded"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_114.in.bin",
+          "sha256": "b10f62c5f4f117263649d0b9938bcee543ac2ce2831f510566f8dea1d669ccc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_114.out.bin",
+          "sha256": "a7062cf3c5e6f4eb88c6fd2651b5cbda906a009eeed134fa617939a2022ebb54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_115.in.bin",
+          "sha256": "114e9a348354a8ef6a9afac09e98ff3ef4fc2dc30cc85eadd684c2757b31b530"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_115.out.bin",
+          "sha256": "4e56876bd6d9eaf6340f8944822d78a15e31e2fd187a2d6485294cfe7001a9f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_116.in.bin",
+          "sha256": "044a64ca4a3626f9bdf502579e0c7b8f291d855352d042c407ae750e9376b2a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_116.out.bin",
+          "sha256": "4e20aeb817d9e78f3ef8e0695c14735d94fd623edaa137b85696292209ed9993"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_117.in.bin",
+          "sha256": "ec908ff2b21fe09a5b9f6ef50fc33f91a7790326a39293b30cf58511f7ec879f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_117.out.bin",
+          "sha256": "da3779f92c2f67afe5abaab16cdfac303ce47623a8211a95dade57dc5d0b0ea7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_118.in.bin",
+          "sha256": "bb5d80a85e06702a6523844860d1bd500929d6c8a93e05a749aae793b411077d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_118.out.bin",
+          "sha256": "96230a14fd87c045d858c5d80ac9db2dbdb8bcc13c74ab47c65d723f831aba76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_119.in.bin",
+          "sha256": "2a4f45aad91d52c96e2abd8ab319ac7231fd8c2e62a665fc4e5a92c21aca0008"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_119.out.bin",
+          "sha256": "01c8399b52a5a2df2efb99bee15bb3b4a3010ffbe50c8817143689803b897d51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_12.in.bin",
+          "sha256": "88a456021b28f95f1c5b41b1fbbdc027452b8edf24eb85adb5c222f19515fa2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_12.out.bin",
+          "sha256": "d5e4f9fb73847ef0225ff04ee9f03f05bdc631deccd74db4c798a3d761b8936e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_120.in.bin",
+          "sha256": "57c5c38793b56489017a6331b022a8b7e953eb503d68f608160a85bb024a3844"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_120.out.bin",
+          "sha256": "5d69b5e203d7d3eea715b4127805f5412e8ca96902e5e883b312c60ed3fabbd1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_121.in.bin",
+          "sha256": "faa22be64a460091430eff7df83615d2f9902fc3061cf9e073c206b492ede0db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_121.out.bin",
+          "sha256": "e68a43df18f7f0291e1a5f650df3c22afd7acbc08d56b2f3d7275efc3139da7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_122.in.bin",
+          "sha256": "2cf8cb0cdfc36e5d20c057c1bfa64f80387a7ce349185aea80efa7a570daaa8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_122.out.bin",
+          "sha256": "40ba6431dc902489a0373269257a880983d26b647d2c7e37b112667ee8cef8cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_123.in.bin",
+          "sha256": "14041da69e2e908b425d414e1085209ed31985ecb7bfbaae233dceed0fd82dc7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_123.out.bin",
+          "sha256": "eede576ba60e5cecf7e4809ba071d5b0ddfdb2e2f2c95605645e369b1f62665f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_124.in.bin",
+          "sha256": "0deb1f810d6f2bca600532c5f366e1d4e0393415934f1d6e563f62a8ecb218ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_124.out.bin",
+          "sha256": "e48c6edafeb92753833eb10cf4ec40f7783389fbe4b51527edae42453e6f1995"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_125.in.bin",
+          "sha256": "b88ccced5a81f676ba0be2cd6e1b0ca8ae7f3a7d72ca027bf1ed3ff585e9f131"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_125.out.bin",
+          "sha256": "7ba04c5f1425c26a749e1078e539650a269ac3243b740c1d12e7ffb3a50f556c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_126.in.bin",
+          "sha256": "b9dc7a6e3e7204a40b2125abc04d4089fabb1e4954f11ceae9ceda0dc7b1411f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_126.out.bin",
+          "sha256": "f9684a480dbacac05662e6f44aa97ebafb30c3d41e04244e7eecc4a775ef047d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_127.in.bin",
+          "sha256": "cf2a63bb2a4e4e1fed676ccbfdf97eff0eb9970128caec56f7abf59b6c460906"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_127.out.bin",
+          "sha256": "bca373b705b63a3dd4532f79cf03ba766935eff92646f7da71cd5905bfb1714a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_13.in.bin",
+          "sha256": "3b3f93992fe19848f759fa75bd03dcfaee2effb9ef4dcfa5775b6f0065f4189c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_13.out.bin",
+          "sha256": "21ac1b9031110a0fdf48ae80c99818eec0b0a68abe98ad0db17a29b1660505c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_14.in.bin",
+          "sha256": "158cdcac4ddf2a9c9c1122b1bad09dd6fb22b3d3e259a43c5d2da48cbb528f9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_14.out.bin",
+          "sha256": "35fcb39e57253d017759b6237fdd1f4b1922b97739d58e0f254ebaf60dcad741"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_15.in.bin",
+          "sha256": "d724fcc351a6e0a19829a4fc3b9356ae841ce9b192ca9bc57e7b69a9bc79750a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_15.out.bin",
+          "sha256": "dbace3370c9723f9e03d7f62e4508787f10010e2b6ba33de59d53e6009516f2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_16.in.bin",
+          "sha256": "11f9d8af59b9879b58fb7c7ed98d13e0bd9563aa7ff5cbfaefba83ad10270766"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_16.out.bin",
+          "sha256": "959b1e4aef9888fd6446af4826b43faff699a96f4ac60f70c401d19a846581d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_17.in.bin",
+          "sha256": "993c30c0e4c2069419a2e7f12e2ca65bc4e238b4a79836fa6beb68ada6b94062"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_17.out.bin",
+          "sha256": "c956251598abee9d6b84c230711ea0aa5c1f0484345713abc2a57a2196f82d9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_18.in.bin",
+          "sha256": "3151734ddcb9b1eab3d02e4643177e587f6ad15c8528c62c41f5f06c64d22611"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_18.out.bin",
+          "sha256": "6958d422a949407a5cc66344d08b36715e74a66116c71e3957674782c759b7c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_19.in.bin",
+          "sha256": "24fd7c0cb6f7f713a7dec5d09b7f4f44bc6b31a2a0d66677cdf8d57ad6737298"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_19.out.bin",
+          "sha256": "d09cd2ea431e28c0ac474b4609727c01e98e8d3c127446df7ef3af5ee6454265"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_2.in.bin",
+          "sha256": "ca23c2e9827e21d7f60b8420788920bdfcb90c427d73bdba37c9f0467791690c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_2.out.bin",
+          "sha256": "acd5e255421ba0c4cf783549c2c6095c3c2fcf42627425252c82256175948980"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_20.in.bin",
+          "sha256": "5ba367fc72eaeaae771a718454202dbc442d5928d6dc2303c2c013b85d39291e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_20.out.bin",
+          "sha256": "611c9a600161c4e00892c73db368bf5a4256b7976940939a260c62dc4a7deb64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_21.in.bin",
+          "sha256": "c7aa6a3f2e59e85d871e23b162c73b430b71e936b4dba9f43dd49f0855453731"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_21.out.bin",
+          "sha256": "0afd5af650f1dd57b5e801cea54d19eb01dd7ffdea46c180463421ec9c5289f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_22.in.bin",
+          "sha256": "dd3a440690f2f518178c1b517919c00c7178571b8dc10dfe95d1f0b46cfa05a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_22.out.bin",
+          "sha256": "448305167863672a96e4604922da694285a3d38df4357fb99797e60e113c9d58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_23.in.bin",
+          "sha256": "81463fe27cff7d8b785e2e2cae1561383446e39bb783e0974036c687c554539f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_23.out.bin",
+          "sha256": "f66f82ba55933d4432cecd155b57b77463e487c32bdd6ddd1e36ed00f19ad524"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_24.in.bin",
+          "sha256": "e2b1e7879562dc963951fa9ec26332be02048ce3e8b740c57cc768d146b40b34"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_24.out.bin",
+          "sha256": "4777ca05287e2e1b0f84dfd27e2ddc42055ffb6572e2956965ea9b28da3388ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_25.in.bin",
+          "sha256": "8f4084169199f8f7a87dee66096793648823391fb929e28ed3e8fc0212ffe21f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_25.out.bin",
+          "sha256": "92e180f3391ed9078b4076707d628ab3931a6f03656806fc96d441562b5e181d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_26.in.bin",
+          "sha256": "2f21c8220a5a0be57b77894805127cc2058db309f155c86f7144ab5576e3c529"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_26.out.bin",
+          "sha256": "b8d3c1909299c569673e5710407d2afb963e3e0083a211b7a2092912d5812d5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_27.in.bin",
+          "sha256": "9376ca3cef31c790d0c6813f12ef21ff723643432ca5cad9341c7ce15b2371d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_27.out.bin",
+          "sha256": "e7bfec4372cb70755b188b142a3b55f75f62597d3699a2620fb4c5809b9d870b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_28.in.bin",
+          "sha256": "3418df6a5d9d40eca676fa5efa2fbe2c61ab444321e13896f394fbb0789db5e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_28.out.bin",
+          "sha256": "35f353925dc7c5239c487fedd56673b0d073e233445f4109080c730a924f57e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_29.in.bin",
+          "sha256": "dafa74a79937bc1b28ba6331bd5256e719dfe3ef41e71f21335b62a33624d51c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_29.out.bin",
+          "sha256": "690b136f81cf4b3f327d69bd0fcfb6526821bc5f1f2e809050c4a83cacad6575"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_3.in.bin",
+          "sha256": "820cfe81785aee5b5537cb71b45ccbd3cdfb46680ad137f6ee1a4ff64267ae5e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_3.out.bin",
+          "sha256": "0f4609dfb905bf5027a33a221e78cec47a558e40fa69d225b7f207fbe552361d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_30.in.bin",
+          "sha256": "01ef35fa7309496efe25b4c63ec177186968e2783aae672c4752b5d86c3d6369"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_30.out.bin",
+          "sha256": "ebbe1c97cb44761b92e6d50ebfce9d80682babd6d874f793ce9b4a6b8aca5005"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_31.in.bin",
+          "sha256": "a01f662c8a1327b6d9533bf43c2e941e97f18f324865dff2b8399b33a7824052"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_31.out.bin",
+          "sha256": "938a587cd15362899825c60c4f64ce637219206a39297847fcaf9c75d15c32c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_32.in.bin",
+          "sha256": "09899b29a044eae501b31648866dca250c11da888d5f14e201dcad41ee401f83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_32.out.bin",
+          "sha256": "85c7a4a535fea581f91113d2bf60cb2209dfb254909251166dac705a158d573c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_33.in.bin",
+          "sha256": "2b3dfdd9a0d0c5a80cd37ac837fa65f4c7215169ec88dfe96ae60f7c06f6dc97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_33.out.bin",
+          "sha256": "6a03ee6a7c6b2eb578ccfcae3211124c14931473dc6c5ff1960dd690c5cc913b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_34.in.bin",
+          "sha256": "272d45cc354eaa183276c07bc61307a3ddcd26057d9ca1cb36829fa657d6f3e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_34.out.bin",
+          "sha256": "81920269123d7b10126ca6d9f2be7ce6eb86b22276b7093cb1e2311d1f60c460"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_35.in.bin",
+          "sha256": "4eba4c21a428ea03ce7c7fdda832d5ade398c83017d5caf942d49659b23b4ffd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_35.out.bin",
+          "sha256": "7064de35571987d0c3086c99cdffb49c40a2ff69357f3ee209339af6d11538c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_36.in.bin",
+          "sha256": "39d77875f3677b001a6459beaf06bf0ffa05d734613b929277792be7281d40f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_36.out.bin",
+          "sha256": "3094be53c32cb60099616815254d52e946c9cf6ea8b9f074edc4771f552b3d2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_37.in.bin",
+          "sha256": "f99342b1d07a2fd53d315aaf5aae0752ef558f27c92f3a2479c9be233313db00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_37.out.bin",
+          "sha256": "bd9e0174b6075eb49fdbfc5281ae9107d8c75ee519d0f34cc1cdedddab0299ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_38.in.bin",
+          "sha256": "42beb58f72bf669cf22d889c854602a622640e20b4948832db1f29611ab59cd9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_38.out.bin",
+          "sha256": "6d2bcc9231f2844c8feed08e72ab0b714de7cebb6d8241adfbc1cef2d70fdfb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_39.in.bin",
+          "sha256": "7bdfe14c2048fde7f839a48b0e480e1fae9e12b39546c0f016ee1ff1e24e2e8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_39.out.bin",
+          "sha256": "20617ca85d6d113c48ba61690774ec15d8fc746e7abd6e7e848fa724e92138d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_4.in.bin",
+          "sha256": "b26d62015d3341fcc4663e9b92488784f0863a8cbb076744c99ded7c11dcf627"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_4.out.bin",
+          "sha256": "1fcc4f14759a9595472190c288dd961e210c4bf0ea2cfe929fa7433042258013"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_40.in.bin",
+          "sha256": "794ffabf4f3ef31675ca5837b9b7ee7e5873aaf21ed4d18e5004ba9080031ecd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_40.out.bin",
+          "sha256": "54f3b20787de238924d42b9f9997edd3b6007870c6adaffe0de512cb70a257d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_41.in.bin",
+          "sha256": "a96eee45a02a181d716f279680f685e21cc4d38d9c783c2a2868512e6a7bb3ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_41.out.bin",
+          "sha256": "efe78b7f5d00a62487c609b98695e6ba01c1cce58fd9ab4739dbcb93dfbea2bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_42.in.bin",
+          "sha256": "18bba2ea84645871453af28e72a32c054e077879fa9874e21cbd72c1988bc7fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_42.out.bin",
+          "sha256": "1a641bf9271e041ea1a92f01bc7bee65058e65b9a50de0c5e1f96d3e10949f35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_43.in.bin",
+          "sha256": "7a36b978b8c247d74945f5fcd2d40cba4f042d4ee3859433382194bcbbc03258"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_43.out.bin",
+          "sha256": "315b2d5fb3980e0b8894dc081356b7c0da74d703bb184e4e286d4da8a12d2b12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_44.in.bin",
+          "sha256": "c6380da673050ab41022c201fcf8574eeb1a5e3e733a5131395d0d595f407c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_44.out.bin",
+          "sha256": "f191e33ce7ad576ecc6b6d4bd8963f88762b7ca4d0fbf83febb51831250da12f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_45.in.bin",
+          "sha256": "f47ca22ab2014d7faa6577933557bb256f1958fe05cc82d94bacb803af6d909e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_45.out.bin",
+          "sha256": "15e0c1e484893983ad994ee653fea0e17b3d466a23b35c08f0d0b8056acc8b13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_46.in.bin",
+          "sha256": "7e369b8c1fac667f639e107e0d4fa38e21a0bbca082ebb43378363280edcc9ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_46.out.bin",
+          "sha256": "08f4ad320d525a9545ba342781dfee38b03f85e134754cd802b73388a1bc0655"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_47.in.bin",
+          "sha256": "79d1e38a7c40a19a6699198fadaecbd1cf7c3f912944e88787b4caa91eeb6d08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_47.out.bin",
+          "sha256": "fe50aaa5934dabeaad0186fb7e9a7f41dbb77e2e6e706ff91ae557943810d4de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_48.in.bin",
+          "sha256": "d58bcdd943b5bda6d01b6a477d2c82204640173085401a235efe9ff6592a1aa3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_48.out.bin",
+          "sha256": "9ee1e94aa062f9adb8252824681226b249bbd498a1f4fbf54e7f7299db83bbf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_49.in.bin",
+          "sha256": "8f599d2c4f63de74206d7451fb6118992e2ef5bc37abf1e29dcb1735ce2e07ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_49.out.bin",
+          "sha256": "ebdc377af731ac218ad292fd70abb17bb174da955cb670f7f9e2f2b4758ac845"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_5.in.bin",
+          "sha256": "09242d72254978301c8cf6e3293ca3a2bf23b45ec0c533f3235b44ba92b72da7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_5.out.bin",
+          "sha256": "8cdb5a38ddd41a9c0214eaaed21cff166bb305e751b1a3ed1d60c867ca6a8112"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_50.in.bin",
+          "sha256": "7031babc380741000555439e18b81f3cc57d4fff61e4ad1c98fafccbdd2c1035"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_50.out.bin",
+          "sha256": "e9d42c60f86b26aa6061a69961b8aebb7e39fede67736425997c64b24ddf01df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_51.in.bin",
+          "sha256": "9dbd311805e3684850477a565a7dcd209a462d4858a27e9aabb1b656ed191b4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_51.out.bin",
+          "sha256": "6a5f3b491d96ed99a896c3a9152552017fba5cb9479f4239567a403be3d6ab24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_52.in.bin",
+          "sha256": "874d21e73e26f52f5948999e650a2348ccb0fe751d0baf892974e297b71e3f0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_52.out.bin",
+          "sha256": "1b87ee03d2cf20f892c434cd7a2c98a23b89ae8147107475658afa169c57ca41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_53.in.bin",
+          "sha256": "e9d15572baf9232300c9b8ec0cc0bfbcd15737dc627f630814bd7e58ddc29281"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_53.out.bin",
+          "sha256": "612a9bb059b02834187aba44ee6ce652a7b34d618b5e9731d3b145a57902f962"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_54.in.bin",
+          "sha256": "5c100a359a6ee12a451ad1f41c6381eac2cf5495c24e22251004c0ef5b7a64a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_54.out.bin",
+          "sha256": "c9024302f06ee4b68c648f3bedf7df5233821fd6c55f27014a323a43dd9a687f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_55.in.bin",
+          "sha256": "eafe7b5c2331ede5b55b239518408ae8db5817eede08e9a15e0e811673d12272"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_55.out.bin",
+          "sha256": "cd052205f489fbde3591f3464e02bfad165e43c03dfce3569eee6d43803b2cdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_56.in.bin",
+          "sha256": "2c9d322286b91af92fa5eb3b62205241bfeeaa2bd2881b8e19fe6ad122825e69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_56.out.bin",
+          "sha256": "3c8d895f792422036a34fb568d3b23b7122bc2084deb447bcff037e6a5ff5f4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_57.in.bin",
+          "sha256": "abb18297a9489500b1593830ec3d67bc7d3b21a5476cf7bab30d5726ce88ff6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_57.out.bin",
+          "sha256": "2a97945d28866110cbdcc03558562e2c0fe3a0b66fb318fea9df1ed42331c1f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_58.in.bin",
+          "sha256": "c76475c9471b2e373c7b6892293535acd74477f092b24ddbd7bae20a561908d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_58.out.bin",
+          "sha256": "55cbdfa1effebb7fe67caa66b2f68d14bf2afa6e369493655020fbe8bcb37dcb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_59.in.bin",
+          "sha256": "efa7ecbd549c7e1e6f9b2bc00eab6dcbe166426d33f016d46462e92237fe8d27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_59.out.bin",
+          "sha256": "bceae8e2787f0fd62f6176af8ce2c39f0589dde4a7902f967072210f1390a5a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_6.in.bin",
+          "sha256": "1cd3f2d930820613b9b5e0138ea2023e128d6038dac6a7576ca3dba0d3b9acf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_6.out.bin",
+          "sha256": "ee41bdff6b5dc6f09ce8b790e653fab1d5c672cdd65cdd6cdb10e1b1671515bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_60.in.bin",
+          "sha256": "7a3b0ea91653a8154f689864913262db1c57c42b24928e552837cd9aeb9fd215"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_60.out.bin",
+          "sha256": "384072addcbf072e0b6be40ff271cfe670eec25f74a1626dafec242b1ada64b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_61.in.bin",
+          "sha256": "4d6132519ba927e952cc700b246b295dacf7420c9e76120111d3346453c4d0aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_61.out.bin",
+          "sha256": "795514c7c43be33694a5d200bf6033736b2a7e8fb80e61f9fef06039bab1fe0c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_62.in.bin",
+          "sha256": "943f30fec9eaebd50e9ca8552918dd86530441ea183e1c316bfe4bd5d8310efd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_62.out.bin",
+          "sha256": "14f2c84b353dca0d2d8ac2aceb79429e042a1f9ac61030939e2aeabb100a3d82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_63.in.bin",
+          "sha256": "0077ea07d596b2535976243a8d08517467d39a07e73357deae1edd30057c746f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_63.out.bin",
+          "sha256": "ec8bff8cf9489dd8f1063a60f9a9797e3bea39470f528d7ccea1c57617f0af42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_64.in.bin",
+          "sha256": "8f00eb299551b64b7886d78990f4c79c3d92af26d6cd88d232db21c7c73cf24d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_64.out.bin",
+          "sha256": "dd8d2f3a2a183d0aa52aa8210f306b587bcb85b66e4037ea557c37554b0db2fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_65.in.bin",
+          "sha256": "57cc98ea91032ac434b1ff3bd92aef1f850e7e5c934e76c99a6daccd4d6879c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_65.out.bin",
+          "sha256": "0597fe19c920598fdf7c232a136b8b7d1450ffd29037f7dd744a0caa8f59dfed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_66.in.bin",
+          "sha256": "8726eeea6c0045de534d0859b223dad91c843cb0db568511f989298f6b80125b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_66.out.bin",
+          "sha256": "8dd789cfd6930bbd9165bebd047670b8bdf72e94931d81ae0422fa46f673afc9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_67.in.bin",
+          "sha256": "9ce92f12cb8b2881d8685102c2cc79833d6b4588fb567c2c2ae10eeae4a3defe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_67.out.bin",
+          "sha256": "8d8743e0951cb893f2d13bb501080b0f3a187da1eb6f38de2db37ce275962891"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_68.in.bin",
+          "sha256": "239cd11cda0a09995a4bfe6de9cf97a33f8bfa541ccbb961c2de51ee71381ea8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_68.out.bin",
+          "sha256": "3f25e5ac85cd809c7bf14913690bd77a612713368f356ca5cc42950924ba03a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_69.in.bin",
+          "sha256": "6b798aaa968cea26bb1283000e4308201ba80df86f05f8bf22999cf5e64e55cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_69.out.bin",
+          "sha256": "f31dbf1ed1346b8c028ddf78bef3040996e99c50859b044013fc4873976473b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_7.in.bin",
+          "sha256": "05139115426c7ab6977fd9fdd7df9b6d39178b550ec4a662d07d739fe784410e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_7.out.bin",
+          "sha256": "5791cc1b02046abe5d371ced3680028ffa503b2c564136657315c67fdea8772e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_70.in.bin",
+          "sha256": "8ec55ff94d429d9e060b69ec73431d70db0484d1e8a9a2c43220a5fb9d95fe00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_70.out.bin",
+          "sha256": "e8c452362d3f47cb3b976b1a96fb5c31f3e8a5a0b93defa4da73d1d8255505fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_71.in.bin",
+          "sha256": "55201135f026ee313124627cc5886bd5de2f5549a22a95289e2e97f51b00d0fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_71.out.bin",
+          "sha256": "f75ba2e365407490298151d0a68210971f949c8e824d72c3fb299c58c3a257ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_72.in.bin",
+          "sha256": "bea831051f4b7eaf34ff743d74474bca29ee537d39451932ac21c9d057d1e322"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_72.out.bin",
+          "sha256": "9888597154b7e0ef08abc230bd3201ba2830cb75bac909d5883f13c085e58c76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_73.in.bin",
+          "sha256": "453e776773fafc805478c8ca5147bb7416b0f23613f8f1af9382ce65f24766fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_73.out.bin",
+          "sha256": "96ffc9a6c33fa7df49368266b89419d30f976710ff212a3ff433d3f3e933dba5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_74.in.bin",
+          "sha256": "dc34661eeeaa3e31c44e591124ea9d7e8193c3f079b9cfaeb006ca14dd1f5c62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_74.out.bin",
+          "sha256": "26ecb78672201d47d4958ab2511deee411f4c887920f97ee160d69060f6aea15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_75.in.bin",
+          "sha256": "a5fd2f2dcfaa686354c144fbdd63a882b7c97b5d2b8ee8e8f10bdb88bd7ba7ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_75.out.bin",
+          "sha256": "c36ba0a5bdbae2c61778224c2b07e1749a7e1af0fbdf3ec52f2e724013714706"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_76.in.bin",
+          "sha256": "63f6b9e00cff9afa910e113851a651240474ab8b0e08e9c22fc262eaed92f5cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_76.out.bin",
+          "sha256": "e27e07d35f7edb4e3f9c2b6f1dd58a00afe1301859f003345c4eda04dd3883fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_77.in.bin",
+          "sha256": "2b424647f7cf654ec3ddd98c1156dd0320f52c3d20fa04a64ef7a936680cab80"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_77.out.bin",
+          "sha256": "5be1813ba714daa7bacf81dc4bc98d9c67952ac2d79b71f857c49161a0ec8eec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_78.in.bin",
+          "sha256": "ba78b537705c0144890cec55f3ff2ad066f7689e14a489f5e33eee8ba8f73343"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_78.out.bin",
+          "sha256": "195531ac53f5023045f045b97e956cf4c35bff590d877ffb3e9b2f1268fd7608"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_79.in.bin",
+          "sha256": "e73b63f4a97a4b9d48d54263ab7572043778c925eb734633860bf14a968ab327"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_79.out.bin",
+          "sha256": "4d6ab498638ff51f9a8cdea0f2f18660751544cd266b5c1cc60433e0f5f89be5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_8.in.bin",
+          "sha256": "65c544161e0952050135e033e28552afccd70d8afce7a1f23a869de1dea11120"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_8.out.bin",
+          "sha256": "cb60414cc4fe2282fa93772447a7f936f84feace87286c384e42f9c79de06417"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_80.in.bin",
+          "sha256": "18e8d1daa223a6eef9bc589a02f947b5b38fbe88d37121fb5c6effea91a14e34"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_80.out.bin",
+          "sha256": "fbe1b5b97dd602e18d74f2b2b02fa909b343d8be89f18a67c10fc0a630e9c0d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_81.in.bin",
+          "sha256": "08ae03f5a83d110cbbfddb69aca2f30e87b0bb0b411f8fb497111d02c3215063"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_81.out.bin",
+          "sha256": "ad1395100bacba42d7f0aff52b96edf5291e3b167e2fce048ae8da5ab5e09c05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_82.in.bin",
+          "sha256": "7d4055a819ec34716bfd3b2627387a6308ac7e53ed216144402532fb6ec9fde2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_82.out.bin",
+          "sha256": "002f72e2ca0bc8d56772bc5e01beb65cd70f60d5ede8e54f1bce534aad189a86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_83.in.bin",
+          "sha256": "dc89c2efb7b27a5364ce216cb338251b7d63b509b08d85d834b7a4ad4205442f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_83.out.bin",
+          "sha256": "002463325cdd89ff49c68323a9d5dfc3b1631e0c9ce0ed1d2e2fb35930072494"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_84.in.bin",
+          "sha256": "e092f25a902fd9a3cbd13ba38f2ee8f1d36fa2403122072f39094bd895dc812e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_84.out.bin",
+          "sha256": "fc02e9948b41fc78b114c7e54a5f03a800935d4d22669803af79ce4b02e69bcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_85.in.bin",
+          "sha256": "ddbf5eb6f720ace204357fccf98d09a58e73ca618ce5603cb4405166093a8633"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_85.out.bin",
+          "sha256": "911162ecd26002bcf996d8aae31ff6ab4394bbdd644b084a67b960863abea967"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_86.in.bin",
+          "sha256": "8c5c34d08768113b2850dbdcc2e6bf90e109a0c2e9063096b981df604049ab56"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_86.out.bin",
+          "sha256": "f667d4de90395b2dfadcac6f0ba3a8d4327cac2cb53874074310525b80cb8fbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_87.in.bin",
+          "sha256": "1fcb4466dd1b5e6f5c25434f7c93b45171d9ec317ad139535256f196ed4a2691"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_87.out.bin",
+          "sha256": "78c0ee49699074aeb76d2834f4293359ff47c09a24c0704e036124297a85cc02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_88.in.bin",
+          "sha256": "5e3c6d68b68378d5dd2be67271af06ef76cdbfb914faf2eb41d2214871513e39"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_88.out.bin",
+          "sha256": "236f43d961476eeec0caed406222229053fc8e50cb4319e75b0e03a6c2ca42c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_89.in.bin",
+          "sha256": "7c5fd811be98f5ef76c1f1fc9192b01cd49332e42408706c665aec84dd165ac7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_89.out.bin",
+          "sha256": "4ac1340f03bebbd5706fa938c2bc6664e4d6d508f7b6afff0c51fc99d6169183"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_9.in.bin",
+          "sha256": "f6c53f7a5496515d387d6b751663ca43b04a0b3b9869988367bd63aea0eca636"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_9.out.bin",
+          "sha256": "0af38bf910a6aa94fe95d1fe455afeb2e0292b82dde65c2aaebda262c9ced232"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_90.in.bin",
+          "sha256": "9694a253ccf5f04a9066ca6284a5ed2e729841cd7b366347454f5b373a71460c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_90.out.bin",
+          "sha256": "55065772e14ae522eefb3a9d7b197e69763bee6a0d44433de148b25ed53b10f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_91.in.bin",
+          "sha256": "7c97b93f8de763254026fae698fe41890e056f2534efa991af723cfb45e86e07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_91.out.bin",
+          "sha256": "a6ccde81921345e7cbcfb591d7dbc3d3ae29a922bcbbbbb1deddeba8f5b832ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_92.in.bin",
+          "sha256": "80203a367d0b05ee91b9d3714669dddefced5540a5dd69c05354fcc90c8151c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_92.out.bin",
+          "sha256": "c930357d7dd097b2b9d207e11649edb847fbcb1746170db7222286e43da9e695"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_93.in.bin",
+          "sha256": "a344892e4655d0477a00b9f318e090b0467dbc04a53e44306fe6474f6c52f821"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_93.out.bin",
+          "sha256": "f88852958a616436f568fd5a82c9d024d1f0b0b1dde44c8f1dd491df469b24bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_94.in.bin",
+          "sha256": "b72378c74f1ad2c8d826b2e966c5b6ac202f677c39df8c038dd5a2c74e05f302"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_94.out.bin",
+          "sha256": "9bc743ce0540e15097ba8aa47acc6bad2a4b59b5c072b13eea41af0ddc28bca9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_95.in.bin",
+          "sha256": "b775bee688e73496448812cb3fdb858076e31e5bc9c741a79b5b7ce58ddf67a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_95.out.bin",
+          "sha256": "6d879870d1814543de1ae6e2aa67fd3d562005d66833c72d8fc33f848ced49ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_96.in.bin",
+          "sha256": "632c467915c6c59bcc8fdf41e33df294febc17e942a1a3cdfcedd37d93178419"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_96.out.bin",
+          "sha256": "8b9722ef8229ec0b2274f709570f209eaba41f6b62618a445a0b779da6f03a98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_97.in.bin",
+          "sha256": "42a5b34357c92455b1d08aa5d6644924322e066f8f0416a08bf138ae1802bf8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_97.out.bin",
+          "sha256": "beeee17c31d51a635b2b0ed37882dbf18871d74e97caa945d5d62f9bea59ea15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_98.in.bin",
+          "sha256": "5a011674ece6b3fa3bc1606426405ca680efbecda1af052258bb0aa1e4d5386a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_98.out.bin",
+          "sha256": "28be6262e00a083ce9dc59b32da15e1b0e9a80fc8ef69512753c16905e5248e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_99.in.bin",
+          "sha256": "d0c7d3db21f683c8f09ad9fa0d932c9f0f8a6105d0adf0f79122714d4ad3cd9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_port_accept_v1\\f_8c09b006_99.out.bin",
+          "sha256": "3bc79881b8196f327c7436c38af6f9b93d9382a19bf70da1070f09db911e3876"
+        }
+      ]
+    }
+  ],
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_controller_port_v1_milestone.json",
+    "sha256": "15dd418e77a2c7a26ea903788c2b1b2f6b2dc0bcaab408b16504e9e42fbffe6b"
+  },
+  "milestone_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_port_v1_milestone_audit.log",
+    "sha256": "20b6c678adecc42544e95e0522b28d5a06c2788bdecea79ef91b5a9efda82aed"
+  },
+  "chain_extension": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_port_v1_chain_extension.json",
+    "sha256": "07c1f7e161d8c2b3e2fd658fe7957a7dd5539cfc5a6aafcec3f80767372a980b"
+  },
+  "reused_previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v1_chain_extension.json",
+    "sha256": "7be8b21533cd6d0ec140efbdbf784da51bc8d6cca6fcf60308e8e6e7eaf9c85e"
+  },
+  "previous_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_merge_v1_manifest.json",
+    "sha256": "ecdbd5f7ffd8d7d62c1c48c16fd6b65f86e037385d9cb5c05d43e3c93b230a07"
+  },
+  "regression_scope": "17 observed reverse-dependency/static module bindings and 39 native suites. Previous full repository gate remains historical.",
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_port_v1_affected_bindings.json",
+    "sha256": "943002c24298f4db1912278e2368d3309ba341dbfc94d90fa1e34efd679d727a"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_port_v1_affected_selection.json",
+    "sha256": "88064e1cdda4bbc417cba568387c68b042f476be351b5992da2b3461d1d8f199"
+  },
+  "affected_regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_port_v1_affected_portcheck.log",
+    "sha256": "c1bac2a9e74e856167526f054cae1401f73d893f55b7cc81b17e4f2e8232c316"
+  },
+  "regression_status": {
+    "expected_bindings": 17,
+    "reported_bindings": 17,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  controller_port_qualified:0x8c09b006 PASS   matrix_family: 128/128 cases match (0 skipped) - PASS",
+      "  percentage-family:0x8c09c044 PASS   matrix_family: 1016/1016 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3dl.exe",
+      "sha256": "5bb6bc5b2f4134754e14728cf8c12b56dc5b0a2e778e8c6402862be9a72774ad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3walker.exe",
+      "sha256": "3ecc53f5ffd2435d5250d0a8f3dd673f5352beb25ee88693416309f940f1ffe5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3mtmount.exe",
+      "sha256": "94fa9daafa78650a30bef3f2c1a1085471c80b86d3d251628b755253096856cd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3loop.exe",
+      "sha256": "83e4d73f697e39bc719e06bd7249e52294a0d96602594760ec66470e7616b58c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3taskvm.exe",
+      "sha256": "c62b7fc4348ab8d74cc99e98f67bdb5ed7ebbf6eecd08785b4a99e8d531347c1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3vm.exe",
+      "sha256": "2fab5ef0c32fef6a61d8e655126fa4e162df40476002ebbc59b6d6c521785015"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3frame.exe",
+      "sha256": "8aa7bb76aee6cabfaa0f229951599e0e790f689a6ab30cae47f9ee4877c72f62"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3libutil.exe",
+      "sha256": "1fca00a8c2b17737439ac147f44329809a578f4c46141f897bb9046381d9bab2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3orient2.exe",
+      "sha256": "000839d63608429c0728932a632253116e1e40e84b5daad6b7cee2ee50f6c913"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3poly.exe",
+      "sha256": "162a2f189ec9c8a499a65378fafc17967d41cb3af9a73c8a4f6db099a48663e1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3vecpush.exe",
+      "sha256": "374a496b5c3b9406b4e7d85b7276823ffb24cc7ae84be0e33ae41a111c6f683c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3tailcall.exe",
+      "sha256": "c49fbf8ab563ea964e45fb983e13c7dbe182846a16fdcd2a648a7a1c95c6a24e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3walker2.exe",
+      "sha256": "3ea8c9e2be9b755b331bbc21e1d02983a1fb3848b6f1958d8abf8decc40da6e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecadd.exe",
+      "sha256": "63851d67752927433dd1d291c964f48a27ae95f6cdae45350ace97590c4161b2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3scaler3.exe",
+      "sha256": "a265c0f84e1d7d607ed44f51b2748b5cadacfea70dc2386849e2171dc549d8ee"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3frameseq.exe",
+      "sha256": "114981644a0d162561e03373d9e6c6357e89c4485304ba39acf0ee09049bfe05"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3cbefc.exe",
+      "sha256": "f3f2fcb3f2bbda0c75b07843bc24eedee5fd40bb1b38efe2f0c854f52fe77c48"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3f040f1e.exe",
+      "sha256": "ffb678a2d58ccbe8857d3413ae9a942164a8524be545dfcb67ac7bbbf98debb3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3f0747d8.exe",
+      "sha256": "933b9a853a210b4b207637dbe653cc6ec1ab1974bd45dfbd3f3a5fdf24b3740d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3f9f6fc.exe",
+      "sha256": "1fe2649db26d0bcd198c18dfb0e4fc5cb29ba55bd870a33fc3dcf66835a16f26"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3f9f6dc.exe",
+      "sha256": "465ee81537dae1852b5b4df20c806ce3d8b7fb5b504ecb9295859fddcb2bdb13"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3cc148.exe",
+      "sha256": "0a2d4d617640df39959658b1e0e47d094a1f6c529d02abed005b27282dce2f1e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3c5dbe.exe",
+      "sha256": "0fa382657bdb972f56a1efe4d4abf77db3ad9c363c03f9029e541417fa8fef0f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3b10aa.exe",
+      "sha256": "94567f868f22b30b01cab068a3c0c31c2328c5ff134b0c5f35a3b587dd88f23e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3c6ec4.exe",
+      "sha256": "ff0ae69a25129f7c432866c0ce3e56b78baffac3fbfa4ce448b941e837fd5785"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3maplookup.exe",
+      "sha256": "ac4518d661ef5532822708e3f9ae6e611bf9d076a98c11c7c474a6323c643227"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3meshnode.exe",
+      "sha256": "b5381180759287e7f4c70716b6df1f62725a4742bf48551aa5c06ef976d4087b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3d0fa.exe",
+      "sha256": "f7e1ae050d4410d27ce87de0f4b3f119c3a3b3eaf17f18a0875b836a53b96e17"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3c788.exe",
+      "sha256": "8393f78ba224118e539d8ec59fa474320ea5ebab5975fc1c375a24ef172fd5d8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3f096258.exe",
+      "sha256": "87fd05b9a17685e69a069eac6da4ec6c7552947225a4f2618fd849117907caa7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3matrix.exe",
+      "sha256": "f775cfdf4d154e6dcf8dd97a86b041545408addd00bbd0a0eb9d9a5ed3a4146e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3bootmix.exe",
+      "sha256": "2e7415fb168020f7883ab008affe6557afe75c2fd878c8a244b6001ede0b3037"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecnorm070x.exe",
+      "sha256": "4d65a119e874c05f5b3fd97d5c65ed8171e3e82b222e2b2907e7c2e26d905ec1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "32998c05835c305e42535f01e57682616b72af836303ed72659636733f3b5e07"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecnorm070120.exe",
+      "sha256": "e159f1858c16ae8aaa302739d1726179c7315bf34f02138a022e9f6bbe9c910c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "d455727cda9a472dc0af6636ae3f945e70eee5e0fd34d287a1858ed5de761223"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "428c692742b293a7c059ae8a046230835846a5015137de0c04ea8c678edaf738"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3fpu.exe",
+      "sha256": "5f2577bac16459db3d1e9e890bfd9073def6a577b6f3dec5ba8641233e6f560b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_port_v1\\vf3statehelpers.exe",
+      "sha256": "7bd71a08193c0169434d9d78a70f4f490d3529b242ad2b4b9ad075b2e61b4812"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_port_v1_tool_tests.log",
+    "sha256": "fa0c20386e079b28f8eb18d3e9014edebfb8cd7ef4894b9dc096f1bbbda34cdc"
+  },
+  "current_bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "a3fa23e13aab89340fa3b76509763f7ebe0c4b328d7dd0da01714d49e3a801d3"
+  },
+  "audit_tool": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_port_audit.py",
+    "sha256": "fa7be04ed2f4ae3d414c4a7c4d628b500547f97fa5aff31cd796856f97912aee"
+  }
+}

@@ -1,5 +1,14 @@
 # VF3tb decomp — progress log
 
+## Selected-port getter qualified (2026-10-10)
+
+Readable controller getter adds **32 verified bytes**, bringing C coverage
+to **259,220 / 434,656 (59.64%)**, with 1,370 bindings. Both ports and both
+status return branches pass 128 development and 128 independent acceptance
+cases. All 17 affected bindings, 39 native suites and 110 tool checks pass.
+The remaining gap to 65% is **23,307 bytes**.
+See [controller getter evidence](re/controller_port.md).
+
 ## Controller packet merge qualified (2026-10-10)
 
 Readable full controller merge adds **78 verified bytes**, bringing C coverage

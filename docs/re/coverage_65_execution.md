@@ -303,3 +303,11 @@ and 110 tool checks pass. The new hashed extension reuses the prior complete
 percentage chain explicitly. An inherited obsolete target in the first
 metadata draft was withdrawn before sealing; the final 65% target is 282,527
 bytes, with 23,339 remaining. See [controller proof](controller_merge.md).
+# Selected-port getter extension (2026-10-10)
+
+`0x8c09b006` adds 32 verified bytes after 128 development/128 independent
+acceptance cases and 17 affected/39 native/110 tool checks. Current readable
+C is **259,220 / 434,656 (59.64%)**, leaving **23,307 bytes** to 65%.
+The hashed extension and complete preceding chain are linked by
+`controller_port_v1_manifest.json`. See [evidence](controller_port.md).
+

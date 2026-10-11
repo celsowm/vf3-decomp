@@ -2437,6 +2437,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09af6c"
   },
+  "controller_port_qualified:0x8c09b006": {
+    "golden": "extract/analysis/coverage_65_controller_port_dev_v1/f_8c09b006.cases",
+    "port": "src/fight/controller_port.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Original selected-port button getter; complete status sentinel and normal return branches; disjoint 128-case development and acceptance corpora.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09b006"
+  },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",
     "port": "src/fight/device_adapters.c",
