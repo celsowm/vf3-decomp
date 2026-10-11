@@ -125,6 +125,7 @@ add_library(vf3core STATIC
     src/fight/motion_frame.c
     src/fight/controller_merge.c
     src/fight/controller_port.c
+    src/fight/controller_secondary.c
     src/fight/task_driver.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c

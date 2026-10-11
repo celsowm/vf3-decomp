@@ -1,5 +1,15 @@
 # VF3tb decomp — progress log
 
+## Secondary controller merge qualified (2026-10-10)
+
+Readable packet-word +16 merge adds **64 verified bytes**, bringing C
+coverage to **259,284 / 434,656 (59.65%)**, with 1,371 bindings. All selector
+branches pass 128 development and 128 independent acceptance cases.
+Sixteen original BSR observations qualify the save prefix and return at
+four call sites. All 18 affected bindings, 39 native suites and 116 tool
+checks pass. The gap to 65% is **23,243 bytes**.
+See [secondary controller evidence](re/controller_secondary.md).
+
 ## Selected-port getter qualified (2026-10-10)
 
 Readable controller getter adds **32 verified bytes**, bringing C coverage

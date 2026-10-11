@@ -311,3 +311,12 @@ C is **259,220 / 434,656 (59.64%)**, leaving **23,307 bytes** to 65%.
 The hashed extension and complete preceding chain are linked by
 `controller_port_v1_manifest.json`. See [evidence](controller_port.md).
 
+# Secondary controller merge extension (2026-10-10)
+
+`0x8c09afc6`, qualified through callable `0x8c09afc0`, adds 64 verified
+bytes after 128 development/128 independent acceptance cases and 16
+original BSR call windows. All 18 affected bindings, 39 native suites and
+116 tool checks pass. Readable C is **259,284 / 434,656 (59.65%)**,
+leaving **23,243 bytes** to 65% and **1,510** to 60%. The new seal is
+`controller_secondary_v1_manifest.json`; see [evidence](controller_secondary.md).
+

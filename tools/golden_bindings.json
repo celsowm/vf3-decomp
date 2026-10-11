@@ -2444,6 +2444,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09b006"
   },
+  "controller_secondary_qualified:0x8c09afc6": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c09b4ea",
+        "0x8c09b528",
+        "0x8c09b614",
+        "0x8c09b624"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12"
+      ],
+      "entry": "0x8c09afc0",
+      "kind": "vf3-controller-secondary-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_secondary_original_callers_v1\\manifest.json",
+          "sha256": "e0dfa112af2c03f303132a36121373ffa8e5f71c6d5c86378b3fd8ae17ec795a"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_controller_secondary_dev_v1/f_8c09afc0.cases",
+    "port": "src/fight/controller_secondary.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable packet-word +16 merge; all selector branches and original four BSR call-site save/return contracts; disjoint development and fresh relocated acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09afc0"
+  },
   "device:0x8c056ee0": {
     "golden": "extract/analysis/fifth_leaf_holdout_v6_cases/f_8c056ee0.cases",
     "port": "src/fight/device_adapters.c",

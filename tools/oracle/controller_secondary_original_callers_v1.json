@@ -1,0 +1,200 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Fresh original BSR/save-prefix/return contracts for packet word +16 after native freeze. These call windows do not establish complete parent execution.",
+  "cases": [
+    {
+      "name": "bsr_0c09b4ea_0",
+      "entry": "0xc09b4ea",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf844": 1174589066,
+        "0xc2cf858": 2395080266
+      },
+      "expected_exit": "0xc09b4ee",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b4ea_1",
+      "entry": "0xc09b4ea",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf844": 1174654089,
+        "0xc2cf858": 2395017823
+      },
+      "expected_exit": "0xc09b4ee",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b528_0",
+      "entry": "0xc09b528",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf844": 1174589066,
+        "0xc2cf858": 2395080266
+      },
+      "expected_exit": "0xc09b52c",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b528_1",
+      "entry": "0xc09b528",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf844": 1174654089,
+        "0xc2cf858": 2395017823
+      },
+      "expected_exit": "0xc09b52c",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b614_0",
+      "entry": "0xc09b614",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf844": 1174589066,
+        "0xc2cf858": 2395080266
+      },
+      "expected_exit": "0xc09b618",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b614_1",
+      "entry": "0xc09b614",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf844": 1174654089,
+        "0xc2cf858": 2395017823
+      },
+      "expected_exit": "0xc09b618",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b624_0",
+      "entry": "0xc09b624",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf844": 1174589066,
+        "0xc2cf858": 2395080266
+      },
+      "expected_exit": "0xc09b628",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b624_1",
+      "entry": "0xc09b624",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf844": 1174654089,
+        "0xc2cf858": 2395017823
+      },
+      "expected_exit": "0xc09b628",
+      "budget": 10000,
+      "transfer": "0x0c09b002",
+      "explicit_return_only": true
+    }
+  ]
+}

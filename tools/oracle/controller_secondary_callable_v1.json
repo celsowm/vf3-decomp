@@ -1,0 +1,23 @@
+{
+  "0x8c09afc6": {
+    "entry": "0x8c09afc0",
+    "kind": "vf3-controller-secondary-bsr-v1",
+    "call_sites": [
+      "0x8c09b4ea",
+      "0x8c09b528",
+      "0x8c09b614",
+      "0x8c09b624"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_secondary_original_callers_v1\\manifest.json",
+        "sha256": "e0dfa112af2c03f303132a36121373ffa8e5f71c6d5c86378b3fd8ae17ec795a"
+      }
+    ]
+  }
+}
