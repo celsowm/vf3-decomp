@@ -1,0 +1,25 @@
+{
+  "0x8c0c9610": {
+    "kind": "vf3-settings-menu-scene-table-v1",
+    "entry": "0x8c0c95f4",
+    "call_sites": [
+      "0x8c0968f4"
+    ],
+    "table": "0xc10baa8",
+    "index": 98,
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\settings_menu_original_dispatch_v1\\manifest.json",
+        "sha256": "6a0433a0f424f9d799571992ed209ddec2ccbdaf929bf063df795392f905bd77"
+      }
+    ]
+  }
+}

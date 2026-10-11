@@ -7571,6 +7571,36 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09fefe"
   },
+  "settings_menu_qualified:0x8c0c9610": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9"
+      ],
+      "entry": "0x8c0c95f4",
+      "index": 98,
+      "kind": "vf3-settings-menu-scene-table-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\settings_menu_original_dispatch_v1\\manifest.json",
+          "sha256": "6a0433a0f424f9d799571992ed209ddec2ccbdaf929bf063df795392f905bd77"
+        }
+      ],
+      "table": "0xc10baa8"
+    },
+    "golden": "extract/analysis/coverage_65_settings_menu_dev_v3/f_8c0c95f4.cases",
+    "port": "src/fight/settings_menu.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full settings phases, option limits, signed selectors, navigation, apply callback and original cursor tail; independent native holdout and untouched scene-98 dispatch.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c95f4"
+  },
   "seventh:0x8c06f6f8": {
     "golden": "extract/analysis/seventh_ready_b_cases/f_8c06f6f8.cases",
     "port": "src/fight/seventh_adapters.c",

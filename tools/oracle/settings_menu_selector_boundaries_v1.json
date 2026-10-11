@@ -1,0 +1,20 @@
+{
+  "coverage_credit": false,
+  "image_sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32",
+  "selector_signed_byte": -128,
+  "lookups": [
+    {
+      "table": "0xc112dbc",
+      "original_slot": "0xc112bbc",
+      "original_target": "0xc1125d5",
+      "original_byte": 83
+    },
+    {
+      "table": "0xc112dd4",
+      "original_slot": "0xc112bd4",
+      "original_target": "0xc1125f7",
+      "original_byte": 83
+    }
+  ],
+  "scope": "Original signed-byte minimum exercises selector defaults through untouched adjacent ROM pointers; invalid -1 option-adjustment pilot specimens remain excluded. Forward -2 to -1 reads the original neighboring limit pointer at 0x0c112dd0."
+}

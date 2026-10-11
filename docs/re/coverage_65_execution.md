@@ -588,3 +588,18 @@ non-RAM pilots remain pinned without whole-body qualification.
 Verified C is **265,140 / 434,656 (61.00%)**; **17,387 bytes remain to 65%**.
 See [round transition](round_transition.md). The next full inventory gate
 remains required at 62.5%.
+
+## Settings menu: +640 bytes (2026-10-11)
+
+Callable `0x8c0c95f4`, frozen owner `0x8c0c9610`, adds 640 marginal bytes.
+Development and independent holdout each pass 128/128 strict cases with
+full owner execution, zero skips and no rejected specimens. Eight original
+scene-98 dispatcher windows prove the untouched table, saves, cursor tail
+and return. The executable and 383-file source freeze precede holdout.
+Eight affected bindings, 39 native suites and 214 tool tests pass. Signed
+selector boundaries read original ROM pointers; both partial-body pilots
+and the second pilot's two non-RAM specimens remain excluded and pinned.
+
+Verified C is **265,780 / 434,656 (61.15%)**; **16,747 bytes remain to 65%**.
+See [settings menu](settings_menu.md). The next full inventory gate remains
+required at 62.5%.

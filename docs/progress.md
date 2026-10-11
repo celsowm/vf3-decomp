@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Settings menu qualified (2026-10-11)
+
+The settings-menu routine adds **640 verified C bytes**. Development and
+independent holdout each match 128/128 cases with full owner execution,
+zero skips and no rejected specimens. Eight original dispatcher windows
+prove scene index 98, the untouched table, saves, cursor tail and return.
+The 383-file source freeze and executable precede holdout. Eight affected
+bindings, 39 native suites and 214 tool tests pass. Signed selector
+boundaries use original ROM pointers; partial-body and non-RAM pilots
+remain pinned without qualification.
+
+Verified C is **265,780 / 434,656 (61.15%)**; **16,747 bytes remain to
+65%**. See [settings menu](re/settings_menu.md).
+
 ## Scene-nine round transition qualified (2026-10-11)
 
 The round-transition routine adds **338 verified C bytes**. Development
