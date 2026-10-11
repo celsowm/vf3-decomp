@@ -7510,6 +7510,37 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a7be2"
   },
+  "round_transition_qualified:0x8c09a0c0": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9",
+        "r8"
+      ],
+      "entry": "0x8c09a0a8",
+      "index": 9,
+      "kind": "vf3-round-transition-scene-table-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\round_transition_original_dispatch_v1\\manifest.json",
+          "sha256": "22b1d0dad879794ca740311982b879ec9bf0930ba2a49162e7f6dbad4bd40706"
+        }
+      ],
+      "table": "0xc10baa8"
+    },
+    "golden": "extract/analysis/coverage_65_round_transition_dev_v4/f_8c09a0a8.cases",
+    "port": "src/fight/round_transition.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Full scene-nine player results, timeout and input shortening; original unchanged scene table dispatch and independent native holdout. Audio queue fixtures grant no hardware credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09a0a8"
+  },
   "scene_insert_qualified:0x8c09ff12": {
     "callable_body": {
       "call_sites": [

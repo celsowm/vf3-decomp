@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-round-transition-scene-table-v1':
+        from callable_round_transition import validate_round_transition
+        return validate_round_transition(owner, attribution, spans, corpus, image)
     if kind == 'vf3-round-score-literal-jsr-v1':
         from callable_round_score import validate_round_score
         return validate_round_score(owner, attribution, spans, corpus, image)

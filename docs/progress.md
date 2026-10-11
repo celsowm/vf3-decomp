@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Scene-nine round transition qualified (2026-10-11)
+
+The round-transition routine adds **338 verified C bytes**. Development
+matches 128/128 cases and independent holdout 127/127, with full owner
+execution and zero skips. One interruption remains excluded. Eight
+original dispatcher windows prove the untouched scene table, saves and
+return. The 382-file source freeze and executable precede holdout. Eight
+affected bindings, 39 native suites and 207 tool tests pass. Owned RAM
+audio queue fixtures grant no hardware credit; superseded pilots remain
+pinned without whole-body qualification.
+
+Verified C is **265,140 / 434,656 (61.00%)**; **17,387 bytes remain to
+65%**. See [round transition](re/round_transition.md).
+
 ## Round contact scoring qualified (2026-10-11)
 
 The round-score routine adds **512 verified C bytes**. Development and

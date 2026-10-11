@@ -573,3 +573,18 @@ holdout. The final seal preserves the preceding percentage/60% gate chain.
 Verified C is **264,802 / 434,656 (60.92%)**; **17,725 bytes remain to 65%**.
 See [round scoring](round_score.md). The next full inventory gate remains
 required at 62.5%.
+
+## Scene-nine round transition: +338 bytes (2026-10-11)
+
+Callable `0x8c09a0a8`, frozen owner `0x8c09a0c0`, adds 338 marginal bytes.
+Development passes 128/128 valid cases and final holdout 127/127, with full
+owner execution and zero skips. One interruption remains excluded. Eight
+original dispatcher windows prove the untouched scene table, saves and
+return. The executable and 382-file source freeze precede holdout. Eight
+affected bindings, 39 native suites and 207 tool tests pass. Owned RAM audio
+queue inputs grant no hardware coverage. Superseded partial-body and
+non-RAM pilots remain pinned without whole-body qualification.
+
+Verified C is **265,140 / 434,656 (61.00%)**; **17,387 bytes remain to 65%**.
+See [round transition](round_transition.md). The next full inventory gate
+remains required at 62.5%.
