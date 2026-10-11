@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-vector-sum-bsr-v1':
+        from callable_vector_sum import validate_vector_sum_hit
+        return validate_vector_sum_hit(owner, attribution, spans, corpus, image)
     if kind == 'vf3-polygon-hit-bsr-v1':
         from callable_polygon_hit import validate_polygon_hit
         return validate_polygon_hit(owner, attribution, spans, corpus, image)

@@ -132,6 +132,7 @@ add_library(vf3core STATIC
     src/fight/clipped_vertices.c
     src/fight/project_point.c
     src/fight/polygon_hit.c
+    src/fight/vector_sum.c
     src/fight/task_driver.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c

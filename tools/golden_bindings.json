@@ -9736,6 +9736,35 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c7810"
   },
+  "vector_sum_qualified:0x8c0a700a": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a6df2"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "fr15",
+        "fr14",
+        "fr13",
+        "fr12"
+      ],
+      "entry": "0x8c0a6ff8",
+      "kind": "vf3-vector-sum-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vector_sum_original_caller_v1\\manifest.json",
+          "sha256": "9f18d12e73c4d06f76ec4a6040e85ea20f1aaad5916cd4b1acc7b017bd22a7c8"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_vector_sum_dev_v1/f_8c0a6ff8.cases",
+    "port": "src/fight/vector_sum.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable counted vector and cross-product aggregation; independent full original execution, fixed single-BSR caller, ordered integer/FR saves and installed-basis/retained-translation contract.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a6ff8"
+  },
   "vf3_fifth_leaf_unowned_adapter:0x8c070874": {
     "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c070874.cases",
     "port": "src/fight/vf3_fifth_leaf_unowned_adapter.c",

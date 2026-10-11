@@ -1,0 +1,24 @@
+{
+  "0x8c0a700a": {
+    "entry": "0x8c0a6ff8",
+    "kind": "vf3-vector-sum-bsr-v1",
+    "call_sites": [
+      "0x8c0a6df2"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "fr15",
+      "fr14",
+      "fr13",
+      "fr12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vector_sum_original_caller_v1\\manifest.json",
+        "sha256": "9f18d12e73c4d06f76ec4a6040e85ea20f1aaad5916cd4b1acc7b017bd22a7c8"
+      }
+    ]
+  }
+}

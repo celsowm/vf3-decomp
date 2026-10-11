@@ -1,5 +1,21 @@
 # VF3tb decomp — progress log
 
+
+## Vector aggregation and full 60% checkpoint (2026-10-11)
+
+Readable vector aggregation adds **386 verified bytes**. Development
+passes 128/128 and independent acceptance passes 127/127 valid cases,
+with one interruption retained and excluded. Eight real caller windows
+qualify the saved prefix and stack arguments. The full **1,378-binding**
+inventory, **39 native suites**, and **151 tool tests** pass. The final
+372-source compilation audit is sealed.
+
+Verified C is **260,996 / 434,656 (60.05%)**. The full 60% checkpoint is
+complete; **21,531 bytes remain to 65%**. See
+[vector aggregation](re/vector_sum.md). Two uncredited correction candidates
+cover another 424 eligible bytes, and their 32-byte wrapper passes its
+separate development pilot; integration and fresh acceptance follow.
+
 ## Polygon intersection qualified (2026-10-11)
 
 Readable polygon intersection adds **308 verified bytes** with 128/128

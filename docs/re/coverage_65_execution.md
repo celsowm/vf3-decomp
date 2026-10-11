@@ -411,3 +411,21 @@ Coverage is **260,610 / 434,656 (59.96%)**; **184 bytes** remain to 60%,
 **21,917** to 65%. See [polygon intersection](polygon_hit.md),
 `percentage_polygon_hit_v1_milestone.json`, and `polygon_hit_v1_manifest.json`.
 The full current inventory gate is due at 60%; the 65% objective stays active.
+
+
+## Vector aggregation and full 60% gate: +386 bytes (2026-10-11)
+
+Callable `0x8c0a6ff8`, frozen owner `0x8c0a700a`, adds 386 bytes after
+128/128 development and 127/127 valid independent acceptance cases. One
+interruption remains excluded. Eight actual caller windows qualify the
+prefix, stack-loaded configuration and return. The complete **1,378-binding**
+inventory, **39 native suites** and **151 tools** pass. The 372-source
+freeze and complete percentage chain are sealed in
+`vector_sum_v1_manifest.json`; see [vector aggregation](vector_sum.md).
+
+The full 60% checkpoint is complete at **260,996 / 434,656 (60.05%)**.
+The remaining gap to 65% is **21,531 bytes**. Arena/radial correction
+candidates have 424 eligible bytes and qualified original callers. Their
+32-byte wrapper also passes development. These following candidates have
+no new coverage credit until integration, freeze, independent acceptance
+and regression/audit gates pass.

@@ -1,0 +1,24 @@
+{
+  "0x8c0cb532": {
+    "entry": "0x8c0cb51e",
+    "kind": "vf3-ring-bound-bsr-v1",
+    "call_sites": [
+      "0x8c0cb028"
+    ],
+    "callee_save_prefix": [
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "fr15",
+      "fr13"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ring_bound_original_caller_v1\\manifest.json",
+        "sha256": "212306af0987504b6f586508c80eb09c7ec8170a6882b1802594eef32e5d8872"
+      }
+    ]
+  }
+}
