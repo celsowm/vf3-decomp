@@ -1,6 +1,22 @@
 # VF3tb decomp — progress log
 
 
+## Aggregation frame qualified (2026-10-11)
+
+The complete frame adds **518 verified bytes** using the existing vector-sum
+helper. Expanded development passes 128/128 and fresh acceptance passes
+127/127 valid cases, retaining one interruption. Zero/tiny/ordinary vector
+norms and signed angle wraparound are covered. Eight actual literal-JSR
+windows qualify the saved prefix and argument setup. The 376-source freeze
+precedes acceptance; the affected binding, 39 native suites and 158 tools
+pass. The final audit and percentage chain are sealed.
+
+Verified C is **261,970 / 434,656 (60.27%)**; **20,557 bytes remain to
+65%**. See [aggregation frame](re/aggregate_frame.md). The adjacent
+308-byte routine is already credited; its fresh 128-case pilot earns no
+extra bytes. The earlier larger 640-byte pilot remains unqualified.
+
+
 ## Two-actor radial wrapper qualified (2026-10-11)
 
 The exact 32-byte scene-mask wrapper now has readable C. Development and

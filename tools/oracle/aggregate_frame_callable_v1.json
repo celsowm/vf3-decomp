@@ -1,0 +1,21 @@
+{
+  "0x8c0a6dc0": {
+    "entry": "0x8c0a6dba",
+    "kind": "vf3-aggregate-frame-literal-jsr-v1",
+    "call_sites": [
+      "0x8c0a0cfc"
+    ],
+    "literal_pool": "0xc0a0d88",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "fr15"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\aggregate_frame_original_caller_v1\\manifest.json",
+        "sha256": "6a1d789463ea0304ac5e9e4fc0225b91000fa431d2027ce175b5b15454890ca9"
+      }
+    ]
+  }
+}

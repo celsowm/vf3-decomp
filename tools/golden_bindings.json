@@ -2345,6 +2345,32 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07ef90"
   },
+  "aggregate_frame_qualified:0x8c0a6dc0": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a0cfc"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "fr15"
+      ],
+      "entry": "0x8c0a6dba",
+      "kind": "vf3-aggregate-frame-literal-jsr-v1",
+      "literal_pool": "0xc0a0d88",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\aggregate_frame_original_caller_v1\\manifest.json",
+          "sha256": "6a1d789463ea0304ac5e9e4fc0225b91000fa431d2027ce175b5b15454890ca9"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_aggregate_frame_dev_v2/f_8c0a6dba.cases",
+    "port": "src/fight/aggregate_frame.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete aggregation frame including zero/tiny/ordinary norm and signed angle wraparound; final 376-source freeze before fresh relocated independent acceptance; exact original literal JSR and saved prefix.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a6dba"
+  },
   "angle_wrap_qualified:0x8c09f6fc": {
     "golden": "extract/analysis/coverage_65_angle_wrap_dev_v1/f_8c09f6fc.cases",
     "port": "src/fight/angle_wrap.c",

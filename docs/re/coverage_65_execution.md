@@ -461,3 +461,20 @@ candidate remains an excluded diagnostic.
 Coverage is **261,452 / 434,656 (60.15%)**; **21,075 bytes remain to 65%**.
 See [the wrapper qualification](radial_wrapper.md). The captured standalone
 uncached entry is qualified; production callback invocation remains unproven.
+
+
+## Aggregation frame: +518 bytes (2026-10-11)
+
+Callable `0x8c0a6dba`, owner `0x8c0a6dc0`, adds 518 bytes. Expanded
+original development passes 128/128 cases and fresh independent acceptance
+passes 127/127 valid cases, with one retained interruption excluded. Both
+cover the full owner, norm branches and signed angle wraparound. Eight real
+literal-JSR windows prove caller arguments, prefix saves and return. The
+376-source freeze precedes acceptance. The affected binding, all 39 native
+suites and 158 tools pass. `aggregate_frame_v1_manifest.json` pins the full
+percentage chain through the preceding wrapper and 60% checkpoint.
+
+Coverage is **261,970 / 434,656 (60.27%)**; **20,557 bytes remain to 65%**.
+See [the frame qualification](aggregate_frame.md). Fresh testing of the
+adjacent already-credited 308-byte routine adds zero bytes. Unqualified
+larger pilots receive no dead-code or caller-attribution exemption.

@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-aggregate-frame-literal-jsr-v1':
+        from callable_aggregate_frame import validate_aggregate_frame
+        return validate_aggregate_frame(owner, attribution, spans, corpus, image)
     if kind == 'vf3-ring-bound-bsr-v1':
         from callable_ring_bound import validate_ring_bound
         return validate_ring_bound(owner, attribution, spans, corpus, image)
