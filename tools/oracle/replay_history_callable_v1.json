@@ -1,0 +1,23 @@
+{
+  "0x8c0a8808": {
+    "kind": "vf3-replay-history-literal-jsr-v1",
+    "entry": "0x8c0a87fc",
+    "call_sites": [
+      "0x8c09920a"
+    ],
+    "literal_pool": "0xc099270",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_history_original_jsr_v2\\manifest.json",
+        "sha256": "9b1584301e3a5aff147e11fba1c7fb653fca5c8a6e5343b8897aa41ac040e43a"
+      }
+    ]
+  }
+}

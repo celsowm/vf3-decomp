@@ -618,3 +618,18 @@ no hardware credit.
 Verified C is **266,150 / 434,656 (61.23%)**; **16,377 bytes remain to 65%**.
 See [render lanes](render_lanes.md). The full inventory gate remains
 required at 62.5%.
+
+## Replay-history packing: +222 bytes (2026-10-11)
+
+Callable `0x8c0a87fc`, frozen owner `0x8c0a8808`, adds 222 marginal bytes.
+Final development matches 118/118 strict cases and independent holdout
+120/120, with complete owner execution and zero skips. All inputs complete;
+interruptions remain excluded. Eight final original literal-JSR windows
+prove the target pool, stack arguments, saves including MACL and return.
+The unchanged executable and 385-file source freeze precede holdout. The
+affected binding, 39 native suites and 228 tool tests pass. Incomplete
+capture and interrupted caller pilots remain excluded and pinned.
+
+Verified C is **266,372 / 434,656 (61.28%)**; **16,155 bytes remain to 65%**.
+See [replay history](replay_history.md). The full inventory gate remains
+required at 62.5%.

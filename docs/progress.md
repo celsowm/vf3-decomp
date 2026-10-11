@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Replay-history packing qualified (2026-10-11)
+
+Replay-history packing adds **222 verified C bytes**. Development matches
+118/118 valid strict cases and independent holdout 120/120, with complete
+owner execution and zero skips. Interrupted specimens remain excluded.
+Eight final original literal-JSR windows prove stack arguments, saves,
+pools and return. The unchanged 385-file source freeze precedes holdout.
+The affected binding, 39 native suites and 228 tool tests pass. Incomplete
+capture and interrupted caller pilots remain pinned and unqualified.
+
+Verified C is **266,372 / 434,656 (61.28%)**; **16,155 bytes remain to
+65%**. See [replay history](re/replay_history.md).
+
 ## Five-lane render commands qualified (2026-10-11)
 
 The five-lane command routine adds **370 verified C bytes**. Development

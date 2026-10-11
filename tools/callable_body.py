@@ -70,6 +70,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     if kind == 'vf3-render-lanes-bsr-v1':
         from callable_render_lanes import validate_render_lanes
         return validate_render_lanes(owner, attribution, spans, corpus, image)
+    if kind == 'vf3-replay-history-literal-jsr-v1':
+        from callable_replay_history import validate_replay_history
+        return validate_replay_history(owner, attribution, spans, corpus, image)
     assert kind == 'bsr', 'unknown callable attribution contract'
     parent = int(attribution['entry'], 16)
     start = min(s for s, _ in spans)
