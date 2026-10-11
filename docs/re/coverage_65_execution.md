@@ -371,3 +371,16 @@ Coverage is **259,922 / 434,656 (59.80%)**; **872 bytes** remain to 60% and
 **22,605** to 65%. `percentage_packed_direction_v1_milestone.json` and
 `packed_direction_v1_manifest.json` pin the marginal union and full proof.
 See [packed direction](packed_direction.md). The 65% objective remains active.
+
+## Clipped vertex output: +254 bytes (2026-10-11)
+
+Exact owner `0x8c058a5c` adds 254 marginal bytes, reusing the qualified
+packed direction helper. Full independent original campaigns pass 128/128
+each, without skips or exclusions. The 369-file native source freeze
+precedes acceptance. The affected binding, both historical encoder corpora,
+39 native suites and 124 tools pass. See [clipped vertices](clipped_vertices.md).
+
+Verified C is **260,176 / 434,656 (59.86%)**. The gaps are **618 bytes to
+60%** and **22,351 to 65%**. The audited percentage extension and immutable
+seal are `percentage_clipped_vertices_v1_milestone.json` and
+`clipped_vertices_v1_manifest.json`. The 65% objective remains active.

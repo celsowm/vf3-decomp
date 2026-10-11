@@ -2418,6 +2418,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0c9f54"
   },
+  "clipped_vertices_qualified:0x8c058a5c": {
+    "golden": "extract/analysis/coverage_65_clipped_vertices_dev_v1/f_8c058a5c.cases",
+    "port": "src/fight/clipped_vertices.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable reciprocal-depth edge interpolation and two output records; complete independent original executions and strict full-state replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c058a5c"
+  },
   "controller_merge_qualified:0x8c09af72": {
     "callable_body": {
       "call_sites": [

@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Clipped vertex output qualified (2026-10-11)
+
+The 254-byte render caller now uses readable reciprocal-depth interpolation
+and vertex output, reusing the packed-direction encoder. Both independent
+original campaigns pass 128/128 and cover the complete body. The affected
+binding, both prior encoder corpora, 39 native suites and 124 tools pass.
+
+Verified C is **260,176 / 434,656 (59.86%)**, with 1,375 bindings:
+**618 bytes to 60%**, **22,351 to 65%**. See
+[the sealed clipped vertex proof](re/clipped_vertices.md).
+
 ## Packed direction qualified (2026-10-11)
 
 The exact 234-byte packed direction leaf now uses readable C, with both
