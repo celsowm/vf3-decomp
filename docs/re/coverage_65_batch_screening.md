@@ -84,7 +84,31 @@ wrappers' resident-kit predicates. Mutable current-kit globals receive
 IDs read from the untouched request tables. Original helper calls execute
 normally; neither their returns nor immutable tables are patched. It also
 crosses mutable settings bytes, scene-history phases and the independent
-timed-effect counters. Its captures are pending.
+timed-effect counters. Both captures are complete.
+
+Its first state has completed all 1,920 invocations, with no incomplete
+records. It observes all 488 scene-history bytes and all 512 timed-effect
+bytes. The resident menus remain partial (684/726 and 598/764). Two sound
+test specimens reach `0xa0800074` and remain excluded device paths.
+The second state also completes its 1,920 invocations and independently
+executes both complete owners. Conversion yields 765 distinct valid scene
+cases and 768 distinct timed-effect cases across both states. The other
+roots have 747-768 distinct valid cases. The sound test retains 16 exception,
+four non-RAM and one interrupted specimens; five settings-menu and three
+scene interruptions remain excluded. No incomplete records exist.
+
+The reset-settings owner `0x8c09bc2e` has a second proven obstacle:
+the reset helper `0x8c08e5c4` calls the original byte setter at
+`0x8c08e620`/`0x8c08e622`, writing zero to configuration offset 14.
+The menu then reads that byte at `0x8c09be80`/`0x8c09be82`.
+The nonzero branch `0x8c09be92` through `0x8c09be9a` cannot be reached
+by supplying a different initial configuration value. Park this owner
+without patching the helper or waiving whole-body coverage.
+
+The prepared resident-menu v2 pilot excludes that owner and crosses
+equal alternate characters, player swapping and both secondary controller
+buttons for `0x8c09b36c`. Its original stage/character tables contain byte
+rows; bounded neighboring selectors are explicit RAM input cases.
 
 The prepared `coverage_65_batch_expand_dev_v2` adds seven previously
 unscreened true callable prefixes, offering 7,916 advisory owner bytes.
@@ -92,6 +116,25 @@ They cover pause/scene handling and scene/UI initialization. Their nested
 SDK, rendering and callback dependencies remain conditional on execution.
 The 1,780-byte initialization owner at `0x8c09575c` is not included: its
 disassembly explicitly writes PVR registers `0xa05f7890`/`0xa05f7894`.
+
+The prepared clipping pilot tests eight SDK variants using a typed RAM
+output cursor in R12. Their original helpers issue PREF against that cursor;
+this experiment claims RAM behavior only. Their true prefixes start with
+two extra R10/R9 saves, matched by extra pops just before RTS. The packed
+strip pointer is saved R8 at frame offset 100, not saved R1. Original caller
+pools include `0x8c057288`, `0x8c0566cc`, `0x8c05762c`, `0x8c056a50`,
+`0x8c057a10`, `0x8c056e8c`, `0x8c058148` and `0x8c057e08`.
+For example, `0x8c05725e` loads the first target, `0x8c057260` calls it,
+and the delay slot copies R0 into the clip selector R4. These static facts
+are not a substitute for executed caller proof.
+
+`coverage_65_batch_candidate_budget_v1.json` measures this conditional
+implementation pool against the current accepted half-open byte ranges:
+2,810 bytes with whole-body original observations and 3,266 uncredited
+clipping bytes, totaling **6,076 marginal bytes**. Clipping owner
+`0x8c051f8e` is already credited and contributes zero new bytes; it is a
+control in the new pilot. The snapshot explicitly marks the pool unproven
+until the pending captures and caller/dependency gates succeed.
 The initial 6,000-byte implementation batch has not yet passed the screening
 requirements. Continue screening and then implement the batch; do not turn
 these observed instruction bytes into a percentage claim.

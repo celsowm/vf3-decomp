@@ -1,0 +1,346 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "incomplete_invocations": 0,
+  "campaign_suitable_for_promotion": false,
+  "runs": [
+    {
+      "scenario": "s26",
+      "started": 1920,
+      "completed": 1920,
+      "armed": 1920,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c09cacc",
+          "address": "0xa0800074",
+          "count": 2
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 1920,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    },
+    {
+      "scenario": "s27",
+      "started": 1920,
+      "completed": 1920,
+      "armed": 1920,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c09cacc",
+          "address": "0xa0800074",
+          "count": 2
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 1920,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    }
+  ],
+  "candidates": [
+    {
+      "entry": "0x8c09b36c",
+      "owner": "0x8c09b37e",
+      "owner_bytes": 726,
+      "valid_invocations": 768,
+      "captured_body_bytes": 684,
+      "missing_pcs": [
+        "0x8c09b5e2",
+        "0x8c09b5e4",
+        "0x8c09b5e6",
+        "0x8c09b5e8",
+        "0x8c09b5ea",
+        "0x8c09b62e",
+        "0x8c09b630",
+        "0x8c09b632",
+        "0x8c09b634",
+        "0x8c09b640",
+        "0x8c09b642",
+        "0x8c09b644",
+        "0x8c09b646",
+        "0x8c09b652",
+        "0x8c09b654",
+        "0x8c09b656",
+        "0x8c09b658",
+        "0x8c09b65a",
+        "0x8c09b65c",
+        "0x8c09b65e",
+        "0x8c09b660"
+      ],
+      "rejected_flags": {},
+      "rejected_last_pcs": {},
+      "immutable_pointer_locations": [
+        "0x8c10bb1c"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c09cacc",
+      "owner": "0x8c09cada",
+      "owner_bytes": 764,
+      "valid_invocations": 747,
+      "captured_body_bytes": 598,
+      "missing_pcs": [
+        "0x8c09cce0",
+        "0x8c09cce2",
+        "0x8c09cce4",
+        "0x8c09cce6",
+        "0x8c09cce8",
+        "0x8c09ccea",
+        "0x8c09ccec",
+        "0x8c09ccee",
+        "0x8c09ccf0",
+        "0x8c09ccf2",
+        "0x8c09ccf4",
+        "0x8c09ccf6",
+        "0x8c09ccf8",
+        "0x8c09ccfa",
+        "0x8c09ccfc",
+        "0x8c09ccfe",
+        "0x8c09cd00",
+        "0x8c09cd02",
+        "0x8c09cd04",
+        "0x8c09cd06",
+        "0x8c09cd08",
+        "0x8c09cd0a",
+        "0x8c09cd0c",
+        "0x8c09cd0e",
+        "0x8c09cd10",
+        "0x8c09cd12",
+        "0x8c09cd38",
+        "0x8c09cd3a",
+        "0x8c09cd3c",
+        "0x8c09cd3e",
+        "0x8c09cd40",
+        "0x8c09cd42",
+        "0x8c09cd44",
+        "0x8c09cd46",
+        "0x8c09cd48",
+        "0x8c09cd4a",
+        "0x8c09cd4c",
+        "0x8c09cd4e",
+        "0x8c09cd50",
+        "0x8c09cd52",
+        "0x8c09cd54",
+        "0x8c09cd56",
+        "0x8c09cd58",
+        "0x8c09cd5a",
+        "0x8c09cd5c",
+        "0x8c09cd5e",
+        "0x8c09cd60",
+        "0x8c09cd62",
+        "0x8c09cd64",
+        "0x8c09cd66",
+        "0x8c09cd68",
+        "0x8c09cd6a",
+        "0x8c09cd6c",
+        "0x8c09cd6e",
+        "0x8c09cd70",
+        "0x8c09cd72",
+        "0x8c09cd74",
+        "0x8c09cd76",
+        "0x8c09cd78",
+        "0x8c09cd7a",
+        "0x8c09cd7c",
+        "0x8c09cd7e",
+        "0x8c09cd80",
+        "0x8c09cd82",
+        "0x8c09cd84",
+        "0x8c09cd86",
+        "0x8c09cd88",
+        "0x8c09cd8a",
+        "0x8c09cd8c",
+        "0x8c09cd8e",
+        "0x8c09cd90",
+        "0x8c09cd92",
+        "0x8c09cd94",
+        "0x8c09cd96",
+        "0x8c09cd98",
+        "0x8c09cd9a",
+        "0x8c09cd9c",
+        "0x8c09cd9e",
+        "0x8c09cda0",
+        "0x8c09cda2",
+        "0x8c09cda4",
+        "0x8c09cda6",
+        "0x8c09cda8"
+      ],
+      "rejected_flags": {
+        "5": 16,
+        "6": 4,
+        "1": 1
+      },
+      "rejected_last_pcs": {
+        "0x8c001006": 4,
+        "0xc0349a8": 2,
+        "0xc0403f0": 4,
+        "0xc0434ca": 1,
+        "0xc035254": 2,
+        "0xc040b8a": 1,
+        "0xc03499c": 1,
+        "0xc035cc6": 1,
+        "0xc035574": 1,
+        "0xc03489c": 1,
+        "0xc0432ec": 1,
+        "0xc03486a": 1,
+        "0xc03524c": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb44"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c09bc1c",
+      "owner": "0x8c09bc2e",
+      "owner_bytes": 664,
+      "valid_invocations": 763,
+      "captured_body_bytes": 654,
+      "missing_pcs": [
+        "0x8c09be92",
+        "0x8c09be94",
+        "0x8c09be96",
+        "0x8c09be98",
+        "0x8c09be9a"
+      ],
+      "rejected_flags": {
+        "1": 5
+      },
+      "rejected_last_pcs": {
+        "0xc040b7c": 1,
+        "0xc040f66": 1,
+        "0xc040c10": 1,
+        "0xc040b7e": 1,
+        "0xc040f38": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb34"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c099194",
+      "owner": "0x8c0991a2",
+      "owner_bytes": 488,
+      "valid_invocations": 765,
+      "captured_body_bytes": 488,
+      "missing_pcs": [],
+      "rejected_flags": {
+        "1": 3
+      },
+      "rejected_last_pcs": {
+        "0xc0a8942": 2,
+        "0xc099194": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb88"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c08acc0",
+      "owner": "0x8c08acd8",
+      "owner_bytes": 512,
+      "valid_invocations": 768,
+      "captured_body_bytes": 512,
+      "missing_pcs": [],
+      "rejected_flags": {},
+      "rejected_last_pcs": {},
+      "immutable_pointer_locations": [
+        "0x8c0f7214"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    }
+  ],
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_resident_dev_v1\\batch_manifest.json",
+      "sha256": "42596601e05935a504e5f145d709bb63ffde4fa43772021b1041d40ea6b75d30"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\capsule_coverage_65_batch_resident_dev_v1_s26.bin",
+      "sha256": "c1b02e8e34a5d257639e399447f61c92a1d2d292d7d608fa97f1a0d5ede2225c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\capsule_coverage_65_batch_resident_dev_v1_s26.bin.summary.json",
+      "sha256": "d3ebc2c49e71b83c895d398cb1018c7f2be2f0e452692e546014826e75c35083"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\golden_coverage_65_batch_resident_dev_v1_s26.log",
+      "sha256": "910110bc5f9ecae25d9dba8825855d927be388b0594f97baf882beae3fa4bb70"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_resident_dev_v1.patch",
+      "sha256": "644d20bb5ab807e1c96ffbc7f3bd56636af2812d3c595e2d169987739f6df1e4"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\capsule_coverage_65_batch_resident_dev_v1_s27.bin",
+      "sha256": "319c6e547b68270db2a9d70ad8409bd9a803efbde70d1b98a886bddc48e328eb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\capsule_coverage_65_batch_resident_dev_v1_s27.bin.summary.json",
+      "sha256": "d3ebc2c49e71b83c895d398cb1018c7f2be2f0e452692e546014826e75c35083"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_resident_dev_v1_raw\\golden_coverage_65_batch_resident_dev_v1_s27.log",
+      "sha256": "7e58c7a1da8556ec2eb157f612091039128d33d2bf6b740f6c4afe690c1c63b2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_resident_dev_v1_memory.json",
+      "sha256": "696ee4f6981f640454716aa6e4cbd158bbc55de7e54cd74196ee31f2efb03b75"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_resident_dev_v1_registers.json",
+      "sha256": "7b741b5cbd7c9a0512cfd86d88d2fe1ea77fb4819c8689cf39627f26414110ee"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_resident_dev_v1_watch.txt",
+      "sha256": "4f9cd0a1b072dbd9b6ec12f676ac9c5a1324ccee73c0bf3978bb5b10a1d53809"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_resident_dev_v1_owners.json",
+      "sha256": "b9f6e8d7bbbdc1f7bb31de35408c36d51c3d23b750ec451576e11534a91321d4"
+    }
+  ]
+}

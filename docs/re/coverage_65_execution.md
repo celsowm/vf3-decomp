@@ -713,3 +713,14 @@ the original RAM behavior, and is parked pending contrary evidence.
 A resident sound-kit hypothesis is running, and seven new scene/UI roots
 with 7,916 advisory bytes have prepared original-image inputs. No C credit
 has changed; implementation, holdout and checkpoint gates remain pending.
+
+The resident-kit pilot finishes 1,920/1,920 invocations in each state,
+with zero incomplete records. Scene-history owner `0x8c0991a2` (488 bytes)
+and timed-effect owner `0x8c08acd8` (512 bytes) execute fully in each state.
+Sound-test SDK exceptions/device accesses remain excluded. The reset-menu
+helper overwrites option 14 before its test, proving why the missing
+nonzero branch cannot be reached by changing initial settings; that owner
+is parked. A measured conditional RAM/clipping pool offers 6,076 marginal
+bytes, including 3,266 still awaiting clipping execution. Seven new scene/UI
+roots, clipping variants and a targeted resident-menu follow-up are queued
+sequentially. Verified coverage remains 61.48%; no C credit is granted.

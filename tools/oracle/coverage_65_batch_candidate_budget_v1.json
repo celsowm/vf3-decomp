@@ -1,0 +1,166 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "viable_batch_proved": false,
+  "baseline_verified_bytes": 267230,
+  "marginal_bytes": 6076,
+  "group_totals": {
+    "observed_whole_original": 2810,
+    "pending_clip_screen": 3266
+  },
+  "candidates": [
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c0a8370",
+      "owner": "0x8c0a8370",
+      "body_bytes": 94,
+      "current_marginal_bytes": 94,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c0a8f8c",
+      "owner": "0x8c0a8f98",
+      "body_bytes": 158,
+      "current_marginal_bytes": 158,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c087e04",
+      "owner": "0x8c087e1c",
+      "body_bytes": 750,
+      "current_marginal_bytes": 750,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c08f632",
+      "owner": "0x8c08f642",
+      "body_bytes": 598,
+      "current_marginal_bytes": 598,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c098b3c",
+      "owner": "0x8c098b40",
+      "body_bytes": 210,
+      "current_marginal_bytes": 210,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c099194",
+      "owner": "0x8c0991a2",
+      "body_bytes": 488,
+      "current_marginal_bytes": 488,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "observed_whole_original",
+      "entry": "0x8c08acc0",
+      "owner": "0x8c08acd8",
+      "body_bytes": 512,
+      "current_marginal_bytes": 512,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c05152c",
+      "owner": "0x8c05156a",
+      "body_bytes": 462,
+      "current_marginal_bytes": 462,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c051918",
+      "owner": "0x8c051956",
+      "body_bytes": 478,
+      "current_marginal_bytes": 478,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c051c2c",
+      "owner": "0x8c051c6a",
+      "body_bytes": 462,
+      "current_marginal_bytes": 462,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c051f50",
+      "owner": "0x8c051f8e",
+      "body_bytes": 478,
+      "current_marginal_bytes": 0,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c05228c",
+      "owner": "0x8c0522ca",
+      "body_bytes": 462,
+      "current_marginal_bytes": 462,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c0525c0",
+      "owner": "0x8c0525fe",
+      "body_bytes": 478,
+      "current_marginal_bytes": 478,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c05291c",
+      "owner": "0x8c05295a",
+      "body_bytes": 462,
+      "current_marginal_bytes": 462,
+      "coverage_credit": false,
+      "caller_proved": false
+    },
+    {
+      "group": "pending_clip_screen",
+      "entry": "0x8c052c34",
+      "owner": "0x8c052c72",
+      "body_bytes": 462,
+      "current_marginal_bytes": 462,
+      "coverage_credit": false,
+      "caller_proved": false
+    }
+  ],
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json",
+      "sha256": "a50c6ce676df1e1b1447d36ebcc7eb39bd6f510609b5efc9a6d745889f2fe17a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_candidate_budget.py",
+      "sha256": "9af6958d5033a6ec2c9ce27c746aa1a07522462529b41e0810c99802de404d56"
+    }
+  ]
+}
