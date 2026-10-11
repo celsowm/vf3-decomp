@@ -1,0 +1,76 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Original controller/state merge root. Vary only actual global selector bits and controller packet bit fields; preserve original literal-loaded input packet lookup. No helper or instruction substitution. Readable C and whole-caller qualification still pending.",
+  "cases": [
+    {
+      "name": "selector_0",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf83c": 324508639,
+        "0xc2cf850": 610839776
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "selector_1",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc29bccc": 268435456,
+        "0xc2cf83c": 324442588,
+        "0xc2cf850": 611039477
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "selector_2",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc29bccc": 536870912,
+        "0xc2cf83c": 324378585,
+        "0xc2cf850": 611222730
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "selector_3",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf83c": 324312534,
+        "0xc2cf850": 610373855
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    }
+  ]
+}

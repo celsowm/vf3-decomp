@@ -1,5 +1,20 @@
 # VF3tb decomp — progress log
 
+## Complete resource job retirement (2026-10-10)
+
+The opt-in explicit return recorder now preserves complete second ticks.
+Readable C follows restored job returns through real retirement and cleanup,
+including unsigned counter wrap. Development and fresh relocated acceptance
+match the original registers and RAM; interrupted holdouts stay excluded.
+Driver development/acceptance each pass 128 cases, and the genuine wrapper
+passes eight fresh cases. Coverage remains **59.61%** because whole object
+caller qualification and four driver bytes remain missing. A controller-merge pilot and 64-case development set pass and cover its
+78-byte frozen owner. An isolated readable C candidate also matches all 64;
+eight original BSR observations and six attribution mutation checks prepare
+its normal integration and independent acceptance. Final verification passes
+**1,368/1,368 bindings**, **39 native suites** and **110 tool checks**.
+See [completion evidence](re/task_driver.md).
+
 ## Resource task driver and FPU bank fix (2026-10-10)
 
 Pulled merged PR #1 (`52bd8ef`) before continuing. Added the readable resource

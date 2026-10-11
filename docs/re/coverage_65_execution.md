@@ -223,3 +223,70 @@ Final frozen-driver validation passes **1,368/1,368 bindings**, **39 native
 suites**, and **104 tool tests**. The existing completed percentage hash-chain
 audit is reused because the accepted union is unchanged. The gap to 65% is
 23,417 bytes; these continuation and capture fixes add zero credited bytes.
+
+
+## Complete job boundary and next percentage candidate (2026-10-10)
+
+The new explicit-return recorder captures complete second ticks rather than
+stopping at a resumed helper's RTS. Readable C follows job return continuations
+through real retirement and cleanup. Two original second ticks, two unsigned
+counter-wrap development cases, four fresh relocated resumed-job acceptance
+cases and two relocated wrap acceptance cases match frozen version 9 exactly.
+Two interrupted wrap holdouts remain excluded. The default observer control
+matches the previous partial capsule exactly; budget rejection still works.
+See [complete job evidence](task_driver.md).
+
+This closes the completion contract but adds zero verified bytes: object
+startup and the whole caller prefix remain unqualified, and the driver's
+ordinary restore-return path remains unobserved. Do not repeat another object
+sweep without a new startup/caller hypothesis. The next bounded percentage
+candidate is the actual controller merge at `0x0c09af6c`, frozen owner
+`0x8c09af72` (78 bytes), within the previously ranked 1,302-byte family.
+
+Eight original-only pilots across saves 21/26 vary the real selector bits at
+`0x0c29bccc` and two actual packet bit fields. They preserve the literal-loaded
+`0x0c0a1282` lookup and exercise all three merge choices (first packet, second
+packet, OR). All eight match the existing native adapter with zero skips and
+cover the 78-byte frozen owner. This is a concrete next candidate, not a
+promotion: implement readable full C, freeze it, capture at least 64 distinct
+development and acceptance inputs with changed/relocated writable stack,
+qualify the actual caller entry/prefix/return, and audit marginal union before
+credit. Pilot proof is pinned in `task_completion_v1_manifest.json`.
+
+
+The follow-up original controller development set passes **64/64** against
+the current adapter, with all 78 frozen bytes exercised and no rejected raw
+specimens. Thirty-two variants on each of saves 21/26 change selector/packet
+bits, the writable stack and preserved-register sentinels. This set is
+preparation, not readable-C acceptance; its recipe and original/native hashes
+are also pinned in the completion seal. The nearby `0x0c09b924` caller tails
+into `0x0c09b978`, so it must not be treated as a simple ordinary-return wrapper.
+
+
+An isolated readable controller implementation in the evidence cache also
+matches those 64 original cases. It is deliberately a diagnostic build while
+the frozen version-9 repository gate runs. Integrating it into the normal
+CMake build, freezing all dependencies, qualifying the two genuine BSR sites
+(`0x0c09b92a` and `0x0c09b988`) and recording fresh independent acceptance
+remain necessary before awarding the 78 bytes. The completion seal pins this
+candidate separately and grants it no credit.
+
+
+Eight fresh original BSR observations validate both sites, their NOP delay
+slots, the ordered R14/R13/R12/PR saves and the complete callee return. These
+observations start at each actual BSR and stop at the callee's RTS/delay slot;
+they do not claim full execution of either parent. The dedicated controller
+attribution validator rejects changed targets/delays, missing or reordered
+saves/restores, register/SP/return corruption and modified literal pools.
+Six mutation tests bring the tool suite to **110 passing checks**. Normal
+repository integration and independent acceptance are still pending for this
+candidate; current credited coverage remains unchanged.
+
+
+A standard rollback-probe development batch now records **128 distinct
+complete controller cases** across saves 21/26. Both original runs complete
+180 frames, with no rejected specimens or incomplete calls. The isolated C
+matches 128/128 cases and the caller validator accepts the full frozen body
+and three-register prefix. This corpus can use the existing promotion gates
+without calling a one-shot stop a completed game frame. It remains uncredited
+until normal C integration, source freeze and fresh independent acceptance.

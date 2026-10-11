@@ -78,12 +78,12 @@ int vf3_task_driver_c(vf3_matrix_state *s,const vf3_ram_map *ram,uint32_t alias)
                 if(!(R(17)&1u)){
                     R(4)=R(14);R(5)=1;R(4)+=24;
                     if(!call(s,ram,R(10),alias+0x4bdee))goto failed;
-                    /* The restored job owns its registers and stack now.
-                     * Preserve that transfer instead of running an epilogue
-                     * against the newly restored job stack. */
-                    if(s->pc!=alias+0x4bdee){
-                        result=vf3_matrix_family(s->pc,s,ram);
-                        s->task_driver=scope.previous;return result;
+                    /* A restored job can return through several caller
+                     * continuations before yielding or retiring. Follow those
+                     * transfers on its guest stack. The SDK restore hook
+                     * unwinds back to our saved driver continuation. */
+                    while(s->pc!=alias+0x4bdee){
+                        if(!vf3_matrix_family(s->pc,s,ram))goto failed;
                     }
                 }
             }else{
@@ -152,4 +152,13 @@ int vf3_task_driver_yield_c(uint32_t entry,vf3_matrix_state *s,const vf3_ram_map
     }
     R(16)=pop(s,ram);R(14)=pop(s,ram);s->pc=R(16);
     return ram->oob==0;
+}
+
+/* The actual job return target marks its record for cleanup, then yields
+ * immediately through the same SDK continuation protocol. */
+int vf3_task_driver_retire_c(vf3_matrix_state *s,const vf3_ram_map *ram)
+{
+    R(2)=0x0c1b2088;R(0)=0x18c0;R(3)=READ(R(2));
+    R(1)=READ(R(3)+R(0));R(3)=3;WRITE(R(1)+12,R(3));R(4)=0;
+    return vf3_task_driver_yield_c(0x0c04bd20u,s,ram);
 }

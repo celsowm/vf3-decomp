@@ -59,6 +59,7 @@ int vf3_task_driver_c(vf3_matrix_state*,const vf3_ram_map*,uint32_t);
 int vf3_task_driver_poll_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_driver_yield_c(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_driver_restore_c(vf3_matrix_state*,const vf3_ram_map*);
+int vf3_task_driver_retire_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_task_callback_select(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_resource_ranges(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_motion_flag_command(vf3_matrix_state*,const vf3_ram_map*);
@@ -229,6 +230,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c053d7cu) return vf3_task_driver_poll_c(s,ram);
     if(s->task_driver && entry==0x0c054454u)
         return vf3_task_driver_restore_c(s,ram);
+    if(s->task_driver && entry==0x0c04bc52u)
+        return vf3_task_driver_retire_c(s,ram);
     if(s->task_driver && (entry==0x0c053d8cu || entry==0x0c04bd5eu || entry==0x0c04bd20u))
         return vf3_task_driver_yield_c(entry,s,ram);
     if(entry==0x0c0af37cu || entry==0x0c0af38cu)

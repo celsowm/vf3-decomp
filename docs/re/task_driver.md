@@ -115,3 +115,67 @@ capture logs/patches and native replay reports. The already completed
 `task_driver_v5_chain_audit.json` is reused for the unchanged percentage
 ledger; this milestone adds zero entries or bytes to that chain. The gap to
 65% remains **23,417 verified bytes** (and 1,684 bytes to 60%).
+
+
+## Complete restored jobs (2026-10-10)
+
+The new recorder's opt-in `VF3_EXPLICIT_RETURN_ONLY` makes the declared
+transfer boundary authoritative, including its delay slot. It requires
+one-shot mode and a transfer for every watched entry. An older frozen recorder returns normally in the negative capability control,
+but the new capture tool correctly rejects its missing summary capability.
+Budget and interrupt rejection still apply; default depth-based capture remains unchanged. The
+one-shot recipe requests the capability and verifies the recorder's summary,
+so an older executable cannot silently satisfy the request.
+
+A fresh default-mode control reproduces save 28's previous 159-instruction
+partial second tick exactly: architecture, touched RAM, opcodes and exit PC.
+That sample ends at the job helper return, not the complete driver return.
+The explicit-boundary development captures instead run 488 instructions,
+reach the real negative object return, retire through `0x0c04bc52`, clean the
+record and finish after the driver's RTS/delay slot. Native version 7 stops
+early; version 8 reaches unsupported retirement. Version 9 follows ordinary
+job returns through their original caller continuations and implements the
+actual retirement status write and zero-delay yield.
+
+Original second-tick development passes 2/2 native cases. Its inherited
+active count is eight, so it is a constructed continuation control rather
+than a coherent one-record scheduler fixture. The counter-wrap development
+uses active count one and `UINT32_MAX` tick/deadline; unsigned deadline
+arithmetic resumes and completes the job in the same driver invocation,
+passing 2/2 cases. Fresh acceptance after the complete 362-file native source
+freeze relocates context, descriptor and saved job stack: resumed jobs pass
+4/4 cases across saves 28/29, and wrap jobs pass 2/2 on save 29. Each coherent
+completion leaves record status and active count zero and increments the
+unsigned tick exactly once. All comparisons include captured architecture
+and RAM, with zero skips and original-opcode checks.
+
+The first mixed holdout campaign retains two interrupted save-28 wrap cases
+(flags 1) and is explicitly excluded as a passing campaign. Its conversion
+performed before recording finished is also excluded. Acceptance was then
+recorded into separate immutable campaigns: four resumed cases and two
+save-29 wrap cases. A 128-instruction negative control confirms explicit
+boundaries still reject budget exhaustion with flag 4. No interrupt masks,
+helper results or guest instructions are replaced.
+
+Version 9 also passes the unchanged 128-case driver development set, a fresh
+128-case acceptance set, eight freshly recorded genuine wrapper cases and
+both earlier two-case first-yield sets. Earlier default-depth natural resume
+samples validate partial observer boundaries; they cannot validate the new
+complete root implementation and are not reused for that claim.
+
+`task_completion_audit.py` seals the new native dependencies, observer and
+linked audio bridge dependencies, original captures, rejection controls and
+replay reports separately from the historical version-7 seal. The existing
+percentage chain is reused explicitly. Although the negative leaf tail is
+now observed, the job was seeded at its actual BSR rather than qualified
+through natural startup and the whole parent prefix. It earns no whole-body
+credit. The driver still lacks its ordinary SDK-restore return branch
+`0x8c04bdee`/`0x8c04bdf0`. Verified coverage stays **59.61%**, with **23,417
+bytes** remaining to 65%.
+
+
+The sealed version-9 checkpoint passes **1,368/1,368 bindings**, all **39
+native suites** and all **110 current tool tests**. The source, executable,
+original-capture and rejection-control seal is
+`tools/oracle/task_completion_v1_manifest.json`. Its controller preparation
+is explicitly uncredited and separate from the completed job contracts.

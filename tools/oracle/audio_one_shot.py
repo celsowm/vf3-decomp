@@ -81,6 +81,10 @@ def run(a):
                     VF3_ENTRY_PATCH=str(patch), VF3_PROBE_ONLY='1',
                     VF3_PROBE_OPS=str(case.get('budget', 20000)),
                     VF3_TRACE_FRAMES=str(a.frames), VF3_AUDIO_CHECKPOINTS=str(audio))
+                if case.get('explicit_return_only'):
+                    if a.rollback or not case.get('transfer'):
+                        raise ValueError('explicit return requires a one-shot transfer boundary')
+                    env['VF3_EXPLICIT_RETURN_ONLY'] = '1'
                 if a.rollback:
                     env.update(VF3_ROLLBACK_AICA_RAM='1', VF3_AUDIO_POINTS='1,1048576')
                 else:
@@ -142,6 +146,8 @@ def run(a):
                         row['aica_events'] = sum(event[2] == 1 for event in struct.iter_unpack('<6I', events))
                         expected = case.get('expected_result')
                         result_ok = expected is None or row['result'] == expected&0xffffffff
+                        mode_ok = bool(summary.get('explicit_return_only')) == bool(case.get('explicit_return_only'))
+                        result_ok &= mode_ok
                         if 'expected_exit' in case:
                             result_ok &= (s['exitpc']&0x1fffffff) == (int(case['expected_exit'],0)&0x1fffffff)
                         if a.rollback:
@@ -154,7 +160,7 @@ def run(a):
                                 and (not case.get('event_crossing') or row['aica_events'] > 0))
                             if case.get('rejected'):
                                 row['passed'] = (code == 0 and len(audio_rows) == 2
-                                    and s['flags'] == 4 and summary.get('one_shot_done')
+                                    and mode_ok and s['flags'] == 4 and summary.get('one_shot_done')
                                     and summary['started'] == summary['completed'] == 1
                                     and not summary['incomplete'] and not summary['unaccounted']
                                     and summary.get('restores', 0) == 0)

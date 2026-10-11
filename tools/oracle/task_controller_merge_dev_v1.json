@@ -1,0 +1,776 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Original controller merge development candidates, 32 varied inputs across two original states; real fixed packet addresses, selector flags and stack/preserved-register sentinels. No readable-C promotion until implementation, independent acceptance and caller qualification.",
+  "cases": [
+    {
+      "name": "merge_00",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 1,
+        "r9": 2,
+        "r10": 3,
+        "r11": 4,
+        "r12": 5,
+        "r13": 6,
+        "r14": 7
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf83c": 324508639,
+        "0xc2cf850": 610839776
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_01",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 2,
+        "r9": 5,
+        "r10": 8,
+        "r11": 11,
+        "r12": 16,
+        "r13": 19,
+        "r14": 24
+      },
+      "memory": {
+        "0xc29bccc": 268435585,
+        "0xc2cf83c": 307599578,
+        "0xc2cf850": 609873337
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_02",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 3,
+        "r9": 8,
+        "r10": 13,
+        "r11": 18,
+        "r12": 27,
+        "r13": 32,
+        "r14": 41
+      },
+      "memory": {
+        "0xc29bccc": 536871170,
+        "0xc2cf83c": 290692565,
+        "0xc2cf850": 604646994
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_03",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 4,
+        "r9": 11,
+        "r10": 18,
+        "r11": 25,
+        "r12": 38,
+        "r13": 45,
+        "r14": 58
+      },
+      "memory": {
+        "0xc29bccc": 805306755,
+        "0xc2cf83c": 273781456,
+        "0xc2cf850": 620456171
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_04",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 5,
+        "r9": 14,
+        "r10": 23,
+        "r11": 32,
+        "r12": 49,
+        "r13": 58,
+        "r14": 75
+      },
+      "memory": {
+        "0xc29bccc": 516,
+        "0xc2cf83c": 392140747,
+        "0xc2cf850": 615360900
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_05",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 6,
+        "r9": 17,
+        "r10": 28,
+        "r11": 39,
+        "r12": 60,
+        "r13": 71,
+        "r14": 92
+      },
+      "memory": {
+        "0xc29bccc": 268436101,
+        "0xc2cf83c": 375231686,
+        "0xc2cf850": 614394461
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_06",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 7,
+        "r9": 20,
+        "r10": 33,
+        "r11": 46,
+        "r12": 71,
+        "r13": 84,
+        "r14": 109
+      },
+      "memory": {
+        "0xc29bccc": 536871686,
+        "0xc2cf83c": 358320577,
+        "0xc2cf850": 625943798
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_07",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 8,
+        "r9": 23,
+        "r10": 38,
+        "r11": 53,
+        "r12": 82,
+        "r13": 97,
+        "r14": 126
+      },
+      "memory": {
+        "0xc29bccc": 805307271,
+        "0xc2cf83c": 341413628,
+        "0xc2cf850": 623928719
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_08",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 9,
+        "r9": 26,
+        "r10": 43,
+        "r11": 60,
+        "r12": 93,
+        "r13": 110,
+        "r14": 143
+      },
+      "memory": {
+        "0xc29bccc": 1032,
+        "0xc2cf83c": 457671671,
+        "0xc2cf850": 635610664
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_09",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 10,
+        "r9": 29,
+        "r10": 48,
+        "r11": 67,
+        "r12": 104,
+        "r13": 123,
+        "r14": 160
+      },
+      "memory": {
+        "0xc29bccc": 268436617,
+        "0xc2cf83c": 440762610,
+        "0xc2cf850": 634642625
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_10",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 11,
+        "r9": 32,
+        "r10": 53,
+        "r11": 74,
+        "r12": 115,
+        "r13": 136,
+        "r14": 177
+      },
+      "memory": {
+        "0xc29bccc": 536872202,
+        "0xc2cf83c": 423855597,
+        "0xc2cf850": 629416346
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_11",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 12,
+        "r9": 35,
+        "r10": 58,
+        "r11": 81,
+        "r12": 126,
+        "r13": 149,
+        "r14": 194
+      },
+      "memory": {
+        "0xc29bccc": 805307787,
+        "0xc2cf83c": 406960872,
+        "0xc2cf850": 645227059
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_12",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 13,
+        "r9": 38,
+        "r10": 63,
+        "r11": 88,
+        "r12": 137,
+        "r13": 162,
+        "r14": 211
+      },
+      "memory": {
+        "0xc29bccc": 1548,
+        "0xc2cf83c": 525320163,
+        "0xc2cf850": 640138444
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_13",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 14,
+        "r9": 41,
+        "r10": 68,
+        "r11": 95,
+        "r12": 148,
+        "r13": 175,
+        "r14": 228
+      },
+      "memory": {
+        "0xc29bccc": 268437133,
+        "0xc2cf83c": 508411038,
+        "0xc2cf850": 652803429
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_14",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 15,
+        "r9": 44,
+        "r10": 73,
+        "r11": 102,
+        "r12": 159,
+        "r13": 188,
+        "r14": 245
+      },
+      "memory": {
+        "0xc29bccc": 536872718,
+        "0xc2cf83c": 491499929,
+        "0xc2cf850": 651771454
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_15",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 16,
+        "r9": 47,
+        "r10": 78,
+        "r11": 109,
+        "r12": 170,
+        "r13": 201,
+        "r14": 262
+      },
+      "memory": {
+        "0xc29bccc": 805308303,
+        "0xc2cf83c": 474592916,
+        "0xc2cf850": 646609111
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_16",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 17,
+        "r9": 50,
+        "r10": 83,
+        "r11": 116,
+        "r12": 181,
+        "r13": 214,
+        "r14": 279
+      },
+      "memory": {
+        "0xc29bccc": 2064,
+        "0xc2cf83c": 58174351,
+        "0xc2cf850": 662485360
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_17",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 18,
+        "r9": 53,
+        "r10": 88,
+        "r11": 123,
+        "r12": 192,
+        "r13": 227,
+        "r14": 296
+      },
+      "memory": {
+        "0xc29bccc": 268437649,
+        "0xc2cf83c": 41265290,
+        "0xc2cf850": 657324553
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_18",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 19,
+        "r9": 56,
+        "r10": 93,
+        "r11": 130,
+        "r12": 203,
+        "r13": 240,
+        "r14": 313
+      },
+      "memory": {
+        "0xc29bccc": 536873234,
+        "0xc2cf83c": 24358277,
+        "0xc2cf850": 656290978
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_19",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 20,
+        "r9": 59,
+        "r10": 98,
+        "r11": 137,
+        "r12": 214,
+        "r13": 253,
+        "r14": 330
+      },
+      "memory": {
+        "0xc29bccc": 805308819,
+        "0xc2cf83c": 7447168,
+        "0xc2cf850": 667907451
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_20",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 21,
+        "r9": 62,
+        "r10": 103,
+        "r11": 144,
+        "r12": 225,
+        "r13": 266,
+        "r14": 347
+      },
+      "memory": {
+        "0xc29bccc": 2580,
+        "0xc2cf83c": 125806523,
+        "0xc2cf850": 665957908
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_21",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 22,
+        "r9": 65,
+        "r10": 108,
+        "r11": 151,
+        "r12": 236,
+        "r13": 279,
+        "r14": 364
+      },
+      "memory": {
+        "0xc29bccc": 268438165,
+        "0xc2cf83c": 108897462,
+        "0xc2cf850": 543355053
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_22",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 23,
+        "r9": 68,
+        "r10": 113,
+        "r11": 158,
+        "r12": 247,
+        "r13": 292,
+        "r14": 381
+      },
+      "memory": {
+        "0xc29bccc": 536873750,
+        "0xc2cf83c": 92002737,
+        "0xc2cf850": 542323014
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_23",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 24,
+        "r9": 71,
+        "r10": 118,
+        "r11": 165,
+        "r12": 258,
+        "r13": 305,
+        "r14": 398
+      },
+      "memory": {
+        "0xc29bccc": 805309335,
+        "0xc2cf83c": 75095724,
+        "0xc2cf850": 537162271
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_24",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 25,
+        "r9": 74,
+        "r10": 123,
+        "r11": 172,
+        "r12": 269,
+        "r13": 318,
+        "r14": 415
+      },
+      "memory": {
+        "0xc29bccc": 3096,
+        "0xc2cf83c": 191353767,
+        "0xc2cf850": 553028792
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_25",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 26,
+        "r9": 77,
+        "r10": 128,
+        "r11": 179,
+        "r12": 280,
+        "r13": 331,
+        "r14": 432
+      },
+      "memory": {
+        "0xc29bccc": 268438681,
+        "0xc2cf83c": 174444706,
+        "0xc2cf850": 547867985
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_26",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 27,
+        "r9": 80,
+        "r10": 133,
+        "r11": 186,
+        "r12": 291,
+        "r13": 344,
+        "r14": 449
+      },
+      "memory": {
+        "0xc29bccc": 536874266,
+        "0xc2cf83c": 157537629,
+        "0xc2cf850": 560467946
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_27",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 28,
+        "r9": 83,
+        "r10": 138,
+        "r11": 193,
+        "r12": 302,
+        "r13": 357,
+        "r14": 466
+      },
+      "memory": {
+        "0xc29bccc": 805309851,
+        "0xc2cf83c": 140626520,
+        "0xc2cf850": 559499395
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_28",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205783040,
+        "fpscr": 262145,
+        "r8": 29,
+        "r9": 86,
+        "r10": 143,
+        "r11": 200,
+        "r12": 313,
+        "r13": 370,
+        "r14": 483
+      },
+      "memory": {
+        "0xc29bccc": 3612,
+        "0xc2cf83c": 258985811,
+        "0xc2cf850": 554404188
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_29",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205787136,
+        "fpscr": 262145,
+        "r8": 30,
+        "r9": 89,
+        "r10": 148,
+        "r11": 207,
+        "r12": 324,
+        "r13": 383,
+        "r14": 500
+      },
+      "memory": {
+        "0xc29bccc": 268439197,
+        "0xc2cf83c": 242076750,
+        "0xc2cf850": 570215413
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_30",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205791232,
+        "fpscr": 262145,
+        "r8": 31,
+        "r9": 92,
+        "r10": 153,
+        "r11": 214,
+        "r12": 335,
+        "r13": 396,
+        "r14": 517
+      },
+      "memory": {
+        "0xc29bccc": 536874782,
+        "0xc2cf83c": 225165641,
+        "0xc2cf850": 564987022
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "merge_31",
+      "entry": "0x0c09af6c",
+      "registers": {
+        "r15": 205795328,
+        "fpscr": 262145,
+        "r8": 32,
+        "r9": 95,
+        "r10": 158,
+        "r11": 221,
+        "r12": 346,
+        "r13": 409,
+        "r14": 534
+      },
+      "memory": {
+        "0xc29bccc": 805310367,
+        "0xc2cf83c": 208258628,
+        "0xc2cf850": 564020519
+      },
+      "expected_exit": "0x0c0432e4",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    }
+  ]
+}

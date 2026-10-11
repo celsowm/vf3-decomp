@@ -103,6 +103,7 @@ unsigned long long textControlRestores;
 unsigned long long aicaPageRestores, aicaTimesliceAborts;
 bool rollbackAicaRam;
 bool oneShotMode, oneShotStarted, oneShotDone;
+bool explicitReturnOnly;
 unsigned oneShotTriggerCount, oneShotTriggerOrdinal=1;
 std::map<unsigned,unsigned long long> probeByTrigger;
 /* The redirect takes effect on the NEXT fetch, so the arm suppression has to
@@ -249,9 +250,9 @@ void close_output() {
         first=false;
     }
     std::fprintf(f,"],\"text_control_restores\":%llu,\"aica_page_restores\":%llu,"
-                   "\"aica_timeslice_aborts\":%llu,\"restores\":%llu,\"one_shot\":%s,\"one_shot_done\":%s}\n",
+                   "\"aica_timeslice_aborts\":%llu,\"restores\":%llu,\"one_shot\":%s,\"one_shot_done\":%s,\"explicit_return_only\":%s}\n",
                    textControlRestores,aicaPageRestores,aicaTimesliceAborts,
-                   restores,oneShotMode?"true":"false",oneShotDone?"true":"false");
+                   restores,oneShotMode?"true":"false",oneShotDone?"true":"false",explicitReturnOnly?"true":"false");
     if (std::fclose(f)!=0) std::abort();
     if (debugPath[0]) {
         FILE *d=std::fopen(debugPath.c_str(),"wb");
@@ -426,6 +427,8 @@ void init(const Sh4Context *ctx) {
     initialized=true;
     rollbackAicaRam=getenv("VF3_ROLLBACK_AICA_RAM")!=nullptr;
     oneShotMode=getenv("VF3_ONESHOT")!=nullptr;
+    explicitReturnOnly=getenv("VF3_EXPLICIT_RETURN_ONLY")!=nullptr;
+    if (explicitReturnOnly && !oneShotMode) std::abort();
     if (const char *n=getenv("VF3_ONESHOT_TRIGGER_N")) {
         char *end;
         auto value=std::strtoul(n,&end,10);
@@ -553,6 +556,11 @@ void init(const Sh4Context *ctx) {
     while(std::fgets(line,sizeof(line),f)) if(std::sscanf(line,"exitpc %x %x",&a,&b)==2)
         for(auto &s:specs) if(s.pc==(a|0x80000000u)) s.transfer=b|0x80000000u;
     std::fclose(f);
+    if (explicitReturnOnly && (specs.empty() || std::any_of(specs.begin(),specs.end(),
+            [](const Spec &s){return !s.transfer;}))) {
+        std::fprintf(stderr,"[vf3oracle] explicit return requires a transfer boundary for every watched entry\n");
+        std::abort();
+    }
     std::sort(specs.begin(),specs.end(),[](const Spec &a,const Spec &b){return a.pc<b.pc;});
 }
 }
@@ -781,7 +789,9 @@ void vf3OracleBefore(unsigned pc, unsigned short op,const Sh4Context *ctx) {
             c.flags|=4; c.countdown=1;
         }
         if(c.transfer==canon) c.countdown=2;
-        if(op==0x000B && (c.depth==depth || (ctx->pr==c.in[16] && ctx->r[15]>=c.in[15]))) c.countdown=2;
+        /* SDK stack restores invalidate call-depth tracking. An opt-in
+         * explicit boundary owns termination, including its delay slot. */
+        if(!explicitReturnOnly && op==0x000B && (c.depth==depth || (ctx->pr==c.in[16] && ctx->r[15]>=c.in[15]))) c.countdown=2;
         /* Interrupt paths are invalid specimens. Retire them after RTE so a
          * watched handler without RTS cannot occupy every capture slot. */
         if(op==0x002B) { c.flags|=1; c.countdown=2; }
