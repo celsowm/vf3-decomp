@@ -214,6 +214,8 @@ static uint32_t pop(vf3_matrix_state*s,const vf3_ram_map*ram) { uint32_t a=rd(ra
 int vf3_controller_merge_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_controller_port_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_controller_secondary_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_geometry_angles_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_geometry_intersections_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
@@ -230,6 +232,9 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c09af6cu) return vf3_controller_merge_c(s,ram,audio_alias);
     if(entry==0x0c09b006u) return vf3_controller_port_c(s,ram,audio_alias);
     if(entry==0x0c09afc0u) return vf3_controller_secondary_c(s,ram,audio_alias);
+    if(entry==0x0c0ca8c0u) return vf3_geometry_angles_c(s,ram,audio_alias);
+    if(entry==0x0c0ca838u || entry==0x0c0ca894u)
+        return vf3_geometry_intersections_c(entry,s,ram,audio_alias);
     /* Resource workers execute through the uncached 0x0c alias. Capture
      * inventory keys use 0x8c even for these original 0x0c invocations. */
     if(entry==0x0c04bd62u) return vf3_task_driver_c(s,ram,0x0c000000u);

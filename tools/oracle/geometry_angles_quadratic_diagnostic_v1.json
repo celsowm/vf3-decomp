@@ -1,0 +1,72 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Intermediate branch diagnostics only; not complete function returns.",
+  "cases": [
+    {
+      "name": "before_quadratic_1",
+      "entry": "0x0c0ca8c0",
+      "registers": {
+        "r0": 1,
+        "r1": 6,
+        "r2": 3,
+        "r3": 0,
+        "r4": 205586432,
+        "r5": 2,
+        "r6": 7,
+        "r7": 4,
+        "r8": 105,
+        "r9": 118,
+        "r10": 131,
+        "r11": 144,
+        "r12": 157,
+        "r13": 170,
+        "r14": 183,
+        "r15": 204601804,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc411394": 16384,
+        "0xc410430": 0,
+        "0xc410438": 925353388
+      },
+      "budget": 100000,
+      "transfer": "0x0c0ca990",
+      "explicit_return_only": true,
+      "expected_exit": "0x0c0ca838"
+    },
+    {
+      "name": "before_quadratic_2",
+      "entry": "0x0c0ca8c0",
+      "registers": {
+        "r0": 2,
+        "r1": 7,
+        "r2": 4,
+        "r3": 1,
+        "r4": 205586432,
+        "r5": 3,
+        "r6": 0,
+        "r7": 5,
+        "r8": 106,
+        "r9": 119,
+        "r10": 132,
+        "r11": 145,
+        "r12": 158,
+        "r13": 171,
+        "r14": 184,
+        "r15": 204601804,
+        "fpscr": 262145
+      },
+      "memory": {
+        "0xc411394": 32768,
+        "0xc410430": 0,
+        "0xc410438": 1056964608
+      },
+      "budget": 100000,
+      "transfer": "0x0c0ca990",
+      "explicit_return_only": true,
+      "expected_exit": "0x0c0ca838"
+    }
+  ]
+}

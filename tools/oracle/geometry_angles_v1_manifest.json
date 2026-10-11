@@ -1,0 +1,2568 @@
+{
+  "passed": true,
+  "coverage_credit": true,
+  "new_bytes": 404,
+  "readable_bytes": 259688,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 22839,
+  "uncredited_helper_bytes": 136,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_dev_v3_complete_sources\\manifest.json",
+    "sha256": "97a9b6112ea0945207aeae365c7cf56208e93cb70200ac2623013ddc73d821ce"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_geometry_angles_dev_v3.exe",
+    "sha256": "e43f92e4f5f5a54191a29770416909d3e3e35d302f02876f6d2f4f4b9f5c6f5a"
+  },
+  "frozen_observer": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 128,
+      "excluded_flags": {},
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\batch_manifest.json",
+        "sha256": "c0637c0e4c1b938294badf8e8ccc45feae3982830a14099a3bbec2bbedf114be"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1_native_v3_report.json",
+        "sha256": "689e67829877881c8f892b19abc155846af146b80bd0994e9ff2395e803d3ac9"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_angles_pilot_v1_raw\\capsule_coverage_65_geometry_angles_pilot_v1_s21.bin",
+          "sha256": "d0962dff08992bb449169a4dde02e85f0f2f650cdfda30e3a8be3c230d74d80a"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_angles_pilot_v1_raw\\capsule_coverage_65_geometry_angles_pilot_v1_s26.bin",
+          "sha256": "1723ee1b9cd40549f72833eb69937e368588f48cdb20f9edc0235592102c01e4"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\batch_manifest.json",
+          "sha256": "c0637c0e4c1b938294badf8e8ccc45feae3982830a14099a3bbec2bbedf114be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\capsule_manifest.json",
+          "sha256": "0007c29ed7ed9a19788d5231f2132b9bea5488ce4cd0bc6e991b94e2c05f80ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.cases",
+          "sha256": "5b099e40c7c02f74e37e97391782823653827365b9515f84323293b0cf0a9ca0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.extra.bin",
+          "sha256": "851e5c18d668790c13599b0ab7ccef734ffd0c9ca85b09f6f7b93c9ecf5f6fc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.ops.json",
+          "sha256": "93caa95eb01e40c756c0a759645e68462290b459eb5390adfeb655f3e7e20581"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_0.in.bin",
+          "sha256": "3cd6f229880323dd1a727a0175bb19b440aca52d282362e8c4ad0dd6a00dcef8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_0.out.bin",
+          "sha256": "4428db8665aad2e8a819a2dcb0d6c8fa213d1358bfde630278e163eb3ffd7dbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_1.in.bin",
+          "sha256": "bbcd579f21369c4985e355f17c8a4e4c88447d5582c95ae4d387eaca2afea75b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_1.out.bin",
+          "sha256": "0acc08fdc0a78d4dd0eb679cf8cd31720807ef19f79608411675c8b94a985e3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_10.in.bin",
+          "sha256": "6ad6059de5b75bd3aa48d565a234fac3e4952afea6ca5bdababce55350f1104d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_10.out.bin",
+          "sha256": "8672c5d4beaa139f94031e800cfcc2d7549bee3f990bfec7b504ee2531a1c6b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_100.in.bin",
+          "sha256": "d6ecadc8459d82e62a2ba4a1f13460e725f678231222eb06af68659d8258447c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_100.out.bin",
+          "sha256": "e7a270559e33b39c5064f78c15d481d257c0011f23a4e5df5c61b91b23a44302"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_101.in.bin",
+          "sha256": "f2abfc09502d1df5f4131798e173279c0f25cb5bde66a00a060c6b7448a668dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_101.out.bin",
+          "sha256": "e1f745664418652f08a494ec6c65bed979d6778d9e0067664189e6d60c8fc780"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_102.in.bin",
+          "sha256": "220f942a5eff04fa374920e6feef3988b453e28daa12b0b898dce9e967fc3a4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_102.out.bin",
+          "sha256": "3da4da0b66818cff66a773ac02cbc4f7e362f780cb7ed3b1e8f59e574d97b68a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_103.in.bin",
+          "sha256": "e469a6e034b36ec7a16c29866f3dcf0b0db84b1a6da3548060fa275eccf95b5e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_103.out.bin",
+          "sha256": "86e91ddee3c64f48fb57e83e7dc0f21d1caf083a79a87cff5b9a8a45769cca8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_104.in.bin",
+          "sha256": "8ecef45081f1080a4b3c0e631ea4de960877a1974bde26695f1e7cb0680f7e7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_104.out.bin",
+          "sha256": "1a5b0310e073ba5d9beb746177b44cc86d715d6d8619cef96c246e386919cef5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_105.in.bin",
+          "sha256": "b75f694d8801e21237b3f06c0e5aa5cdd8505dc1a24b52fe1cda98301e0a345e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_105.out.bin",
+          "sha256": "e164c7f66a5037b14503b834d678d1dc7a877ca730fad4d998b58715420c9938"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_106.in.bin",
+          "sha256": "0b0ca4b6afecbbfef8b0f61f0af24a002e0a13ce10cd7b0d793509f35ad08a9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_106.out.bin",
+          "sha256": "fe0210db733d975885d48096ff109a79a6bf630ae34eb85790d6a7c2c412fe4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_107.in.bin",
+          "sha256": "836971a92b9b1f4d1869f4b188ce738e5ba98cb792e419f6cecfee9eebed9520"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_107.out.bin",
+          "sha256": "d4028d664aae53f3ed8ac5481ad09323b09028112e121ff817a59727069ee495"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_108.in.bin",
+          "sha256": "393b3948187c0fabb3ae09ef61350a5a02d59e97ce3efe0a21b1dbf49b24fa35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_108.out.bin",
+          "sha256": "7a18fca5835d7a56f1ab53ff245fff77053a0ca3f23e17b8ff99d2ba128c1671"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_109.in.bin",
+          "sha256": "2b9108feb12ecee9f1d07003cd470376cfc2003daa792aa471acec9e87850260"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_109.out.bin",
+          "sha256": "4380070c0673191b21e4d064c1dcfcef171688624ea1630c63d2d3e6e803b25e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_11.in.bin",
+          "sha256": "205646e90c860df5fde572f8bf53629f11be5eba1a7274fab10c8cd214df5d8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_11.out.bin",
+          "sha256": "54a1f6bf26b76040876af13fe2552e7e66fbe9ea183e666047ba15bd08ded1e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_110.in.bin",
+          "sha256": "58b51e6ccb331ec2c58844eec6e0f2580d6ae099c3bebb2ccffc1e92f47225eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_110.out.bin",
+          "sha256": "e31756a7df5657cc1608c6237362a5efb84ba3941275969ef6ca68300aaacc7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_111.in.bin",
+          "sha256": "916e743ce632ba357e6caef4452d8e5a2779f83494d43997b08885be012fd54b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_111.out.bin",
+          "sha256": "08d26d9fd76356c9d526b577c84f5f7e7f8d26ff9c95a00520e58f0722d719f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_112.in.bin",
+          "sha256": "4e5983507b361700dc5c3f644319b987e23e75763a3d788807daf046be6dc666"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_112.out.bin",
+          "sha256": "d76771e05f2e4e420e6112fa62f7be82f53747937363bd4981e554ea55cce0d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_113.in.bin",
+          "sha256": "53464cc9f078fc420569fd3ecc84b73ba6f50c678e130f0fbbb4db66b6701a45"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_113.out.bin",
+          "sha256": "aead8f3371e2c75bd388d81d6cfc3105bd006758c1b2afa425927cb5009602eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_114.in.bin",
+          "sha256": "340632d1d158c2e8dcf59d5b8922a076a47701fe087bc752e14e52ef75325e4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_114.out.bin",
+          "sha256": "1abf0ad5476965e5402812face78dbc4cd0f7271b13259370e100337ef66c6fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_115.in.bin",
+          "sha256": "f633d2dfc853cc6b6a61072fe32abc5a8550c998a2b0cf5f254ec2bf20ed5491"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_115.out.bin",
+          "sha256": "6ded68b28263792f2e94ed37cf0bf0a6a6f68e684a683e144ad84521bdb3c343"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_116.in.bin",
+          "sha256": "653438cbea624b82812af25d5533dd15687b2144673a84feb5b872bc1d3f5d50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_116.out.bin",
+          "sha256": "bf9c8cefdf1076e94310587693d935df24f04d72ca23b570d041fcad0675fba6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_117.in.bin",
+          "sha256": "255bf537ab6e8f8634d16de71cff7fe0b539956771823547756264e0afcdee36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_117.out.bin",
+          "sha256": "abcad9346d8e87f7cda085efa8918c963b417cdcf779dd952d33d9102e1cadee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_118.in.bin",
+          "sha256": "280e013c50a85c78734985bbad3c72fd203e440c328ab1792a020ff7a31f8112"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_118.out.bin",
+          "sha256": "538a87836db4b4b538ec64e5a8794c1b58f3f4372f0dbbb2cea6f2b34e4a73e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_119.in.bin",
+          "sha256": "3156e8d6663f20aeb9c25f23f5a68fd78a54ce5c0e36a2f91d3924ed92606cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_119.out.bin",
+          "sha256": "ab535cfc8bb808d7c035f4a90fe3b0d160d2f68ba516b7bf3f0d9964ce50dc95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_12.in.bin",
+          "sha256": "501206c34f858b43ff6f0b71c4804030c90fb5f2cfbe99e64c05a984af010268"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_12.out.bin",
+          "sha256": "5248b5c5c3e7b58696b01e4968e15b4e4448539ff8d813bb713ec31c4c4b3fc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_120.in.bin",
+          "sha256": "bdce25d5fbdcb58ef3b39832a96c978e07b7af560220b74891b0ae1456f3462f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_120.out.bin",
+          "sha256": "7c3680a142acc36cd62ac65ad15d7f519cd899fa4f9c7244a8cef8c1589925cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_121.in.bin",
+          "sha256": "3b11118e58b7c1d2205437e14ee28e6e77d6adde90754da649250448ceb0af0c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_121.out.bin",
+          "sha256": "8480fd6168e1e0bf76bc789107d59666ccb82171575b10b74e65b3da98929c12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_122.in.bin",
+          "sha256": "f06b6836cd902409e66a418c844524d12407429ae9c843b99d345dc6228be4a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_122.out.bin",
+          "sha256": "3e195c32888057c2079ef176cf0289f7b3fe6eacb95740d57ec7d03f5c35d165"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_123.in.bin",
+          "sha256": "a4fa970f64e445a0f6b6c9974558c24f35bb629d9aaa5e6b3f91e2d851a47bf7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_123.out.bin",
+          "sha256": "9ac65173a4f2a0b2caa7b2217586786522879765d33cb714ff383c6afb993903"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_124.in.bin",
+          "sha256": "70a172062c2e20906f46444e2d4065c421056d5da23cf1865fd057807dd6f78c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_124.out.bin",
+          "sha256": "4bf5cc725c9088e136a141add255aecb97b945a19f78ab03f587df2b0fce0529"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_125.in.bin",
+          "sha256": "9a3b57a8daa4aebdeeb0986fb27f75f5c95a0f95320ce76fa40a7d20a58891e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_125.out.bin",
+          "sha256": "f3219d9947d6ca0809345427a562b0da01c3c2d075037b816592d78464156bf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_126.in.bin",
+          "sha256": "9f2c17e762fdbfac16ec9f23aa20a1cc4b04904e649db111b8c76917a7389a4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_126.out.bin",
+          "sha256": "0e74f20b0541583ce610cee3135f84b1ccfc8fb6fedd6fc79b095e9224c5994f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_127.in.bin",
+          "sha256": "2de6d719ecb033ffc42b17af9fca9ec8ac9b75d435b0fe2a04ca0b939f471ea9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_127.out.bin",
+          "sha256": "04d91235a31629584833ad4060978a7f3653934f2b8bc5ad1e7b28b811184c50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_13.in.bin",
+          "sha256": "c11153e325f13adf5f59493b3016412020dc7db9726be18e83e4d29a79b651ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_13.out.bin",
+          "sha256": "1f429c2b87430831840ac6f5ca7e7ad61f9688f242df428c5e537a1d9c13f1d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_14.in.bin",
+          "sha256": "b97f89916d81051c6fb33bc47a0127fc0e7913216ac2f9e762add7ae5a7239ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_14.out.bin",
+          "sha256": "20e12fc3b738801cf93e41da315beaf0da913788a75ecb00ca5f434e2c16eb93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_15.in.bin",
+          "sha256": "04f45402efe0c4bc3f77dceedecde9ce0f17663e1fecc401ca969a79b23e2ece"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_15.out.bin",
+          "sha256": "6a48aa7b800065a2cf9ce5a5ec9984fe76526cbdc7aae284604446f06ec919ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_16.in.bin",
+          "sha256": "4e906671e84f5d015a0b09125ced61551264260fafbc93de374a51c1bc65d9a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_16.out.bin",
+          "sha256": "30d083319c0a646374fa41b8b3c50d00de7fcfc14b7e06ec94eea9b158475545"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_17.in.bin",
+          "sha256": "d0c52bb86201de2d2a78c0c0212ad5810763901864268fc19a69631b7b426da3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_17.out.bin",
+          "sha256": "8b70f3262ed38a03db9cf78b2e37249490a828d890635978b50ce9a6ab0d4d5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_18.in.bin",
+          "sha256": "67cc3321fbb51777cb2e46ef74576c4aa1693faa4ca014891216c5fddc7d4ecd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_18.out.bin",
+          "sha256": "c41c363ad42572242496d471b3e796e03cc5058c18058c00f2a98a4f5e03497b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_19.in.bin",
+          "sha256": "28bf9666e670280e19317d0f20e4cab19cdb529f8013bdc44bd5fe859224cc9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_19.out.bin",
+          "sha256": "ac6d2f1bf0995f51b612bc1e0002def91c1803a82df1f621188ad5663c764ada"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_2.in.bin",
+          "sha256": "8c2b48fbf1454368b2ed25099ee31455a9aecc20d08a73501be402e97070fb6c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_2.out.bin",
+          "sha256": "13b691429868eaf9d51cff3f91058491f5c1db9f689ab6bfe9e7393a8031cd51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_20.in.bin",
+          "sha256": "3ac42a1369ef70e2bf24a62d599137f6ef0ce377594f7aaa65448301dc8062fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_20.out.bin",
+          "sha256": "ac97a3564142dcf05f74400de9e9821344b5c9e543c45d0f3c3c1a586853e678"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_21.in.bin",
+          "sha256": "6ba7fc4b03bf7e986f741d9ac54d12cde0121a9389628a51e1558c6f3dcf7d51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_21.out.bin",
+          "sha256": "2e399f35d28f058929ec49b60abaf35e764c8a8a70d8ee08a65f45884f27e515"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_22.in.bin",
+          "sha256": "5a8e99dcd4dd8217487299f4103242a92f0739e902619a48699d9dadfb919900"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_22.out.bin",
+          "sha256": "7e299d58fcfd7b9a18b86b27ae85aebafcc0ece45152c7f6abbaeeafde017c89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_23.in.bin",
+          "sha256": "06bfa9ee59ed7789bd52b4db19e00a0f7df244ae899d614a291adec71ea2df4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_23.out.bin",
+          "sha256": "bd785191436dcc0b66e93142b6a8d7da88f64d9420dbb4bd09efbb8a120e43e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_24.in.bin",
+          "sha256": "5c1f969374f4844a1307cb387ee4625b646ef04767532f94a896e4ef7964e404"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_24.out.bin",
+          "sha256": "c3494909665d8f7300dc4ddf425e6b25ab8b3aa3d1e693aaa59023d700259fcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_25.in.bin",
+          "sha256": "332ffa899fb1a13225c45e1848cb515ccc9b58653ba2ed9c9435bcfaaacf11d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_25.out.bin",
+          "sha256": "b0232f423de076a661d844791ecc9a914afadf96b51f33d2583c5b15fd0a5bc7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_26.in.bin",
+          "sha256": "bec2b2a630df005648e4ea930e56230fadca07637df1a61b16adbff235de43f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_26.out.bin",
+          "sha256": "2364df2ce388577ba9ed8c544ed5af65c58f354d4125bc3fea42c1fae1463c5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_27.in.bin",
+          "sha256": "0df8c83c91c5bdd0f11e3b46cc26da846448b6ecbe535e20cd3b995e0a1ff479"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_27.out.bin",
+          "sha256": "5a8f3ab212d40b87aab35ce3f3ef9e43dc7c186112983b39c3748ebb120e5f53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_28.in.bin",
+          "sha256": "547acade995c313021de907905f3e5984f0845f605f3cafdca00a8036124980e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_28.out.bin",
+          "sha256": "d8f403d0b3ab56bf870dbc31d4a4ca674a003d69f678869a5a9659a06d009ecb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_29.in.bin",
+          "sha256": "25b57349b7a399e35f0e9751c03ae3add8d67354595c928e098dc2f081a16df7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_29.out.bin",
+          "sha256": "acaaecbfe1add4faa3243396405becee429e8f2593d3a8d5bbdac1488df628be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_3.in.bin",
+          "sha256": "2cce8a199e7bd433e1c4fa08140c170e5657d6fa9c01d9250248fc783d3600c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_3.out.bin",
+          "sha256": "6329e2d9c8f95b65071c90db3097d7aff459bee0cb23a5de7e0afbef08dc1136"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_30.in.bin",
+          "sha256": "f366f26b3200dc265d270a2e141b94516f259bbbb7dfbc84edb02c99745f1975"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_30.out.bin",
+          "sha256": "a838f6d08dfd78882f28e8907d7ffc5536f8ba3f7a9923907395e3df3d0aa670"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_31.in.bin",
+          "sha256": "a38434e22353ab89de908d5b939ad53cfb9ed3b5953c5cd809d398adc9321ca4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_31.out.bin",
+          "sha256": "7bebda320977f8d190e7f6e13c4631fe8d2f2ac68de16b4abc61de66f068188e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_32.in.bin",
+          "sha256": "48db020872ed0c9d0b03e951ca3982684299bc6325a0ad75a8811befa9d15e50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_32.out.bin",
+          "sha256": "daee7f640939b5ecadb5956923dd5f13187f5f71804d77ebc2c43d82259a1022"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_33.in.bin",
+          "sha256": "5b58798ebdbdd40390bfd139cf7839809fbba62b0249db58c696acc0ea91783b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_33.out.bin",
+          "sha256": "3e54622ecdd575f5ede93fc74ba350d94fc4a444aabfc8cc8dc6d266d3adb6a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_34.in.bin",
+          "sha256": "815227aaf7478306d119f3966364c5797c7e29a1b78015abe254b9466bcac956"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_34.out.bin",
+          "sha256": "e89a2f0a2aab71b38553f7a8a65a42ca1430218f81337838ccffe1de95d4a5c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_35.in.bin",
+          "sha256": "11d6bf612e15b495a09a346c4d17cf44f9a6cb70e2b2efff52d2bf4344249ba8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_35.out.bin",
+          "sha256": "2f2512ca328bae769e0796b1d9023754f2c0a05867502bf54226a7b2f1c34aa2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_36.in.bin",
+          "sha256": "f3bc4f7f5a020fefea625e9a59680a53746a35086112d0fd0aae85f5147ec1e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_36.out.bin",
+          "sha256": "56d291e3c0f0668d70be619fb4035d17d714be92ea1af77452bc6f42b92f4a2f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_37.in.bin",
+          "sha256": "aea5902f22d36e61e038a68c27a654b8de31cedc99427bcb83cd5176fb8a052e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_37.out.bin",
+          "sha256": "c0061fc1cd5f1baa110b8cc3c3dd0ab98014beb153074b9c031b2abf23c7c590"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_38.in.bin",
+          "sha256": "3c71219fdddff03c16881a0dcc287f4b5b9d665bc9f3bddffd28a12baca6450a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_38.out.bin",
+          "sha256": "bff77a9fbec519dc7b84f92da0669b2fca040e3845de96e64927d766100d19ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_39.in.bin",
+          "sha256": "45b42aa62855944c421de9c4f9a062a2423b1a1957ebab0663b7700b92aa8304"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_39.out.bin",
+          "sha256": "c0eea79094e0a1f21d443164b2e280912ea1ef2b658ea79cdadd6e6ba2183db5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_4.in.bin",
+          "sha256": "acfef8577239e0e4a47a88ca7238d0b94b6de764a6b8b0650b51d61bc9871b42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_4.out.bin",
+          "sha256": "111ef58f00080a6a9161be7722b964d4f626094ce07ffd9416311676867ec1b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_40.in.bin",
+          "sha256": "59a88cfdb3e313f9b6ce3261777acf96c0d87402cfce363e384475803c192b22"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_40.out.bin",
+          "sha256": "b79f7bc51110c3b1da34238fb2cba7051e135655582406d7b22fbb1ac9a303a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_41.in.bin",
+          "sha256": "d0f0e38215e779348b3d95479829b381584256d30e04e86bd88c2f826086ac46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_41.out.bin",
+          "sha256": "8099c75a4284b81ea091ebdc16b43c82407066a62a9c1f2b32afe1fd46c37f17"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_42.in.bin",
+          "sha256": "d31dfde5d4b1c764cc9e4fd7b0b3604c540d8e2d409fe344e33cc9afde8dbb8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_42.out.bin",
+          "sha256": "65fc089f3d2c04e629a7e78112dab8e4eea3a9519188c2febabb4f678d5cbb1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_43.in.bin",
+          "sha256": "e0146eeab01f11e68572cf8ac3358784f38a7eaf82f18626d49d04cb4bcada6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_43.out.bin",
+          "sha256": "75334319c3f8b825676a498024f3d3083a4aef3521ea53782e113d16ddd0bbf8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_44.in.bin",
+          "sha256": "da5ee4a624e13ccbb0e3922a023b0066e60b8b3e3f7df8b17bcf078c0227a762"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_44.out.bin",
+          "sha256": "4b08fb7cab0f4f43d587b2e1b324a02c5f10eeb69040f6a3166540673c8903e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_45.in.bin",
+          "sha256": "d3d31dd2ff75233acc909dcee796ad168ce74f5cb3dc69ab104504f8b94feaba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_45.out.bin",
+          "sha256": "36c6f2b926268b5d4fea1a7c069843993f17db0b5dca5bfa6fc875e29f28c53e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_46.in.bin",
+          "sha256": "db4708d469c859ce3ef6d7a75392a19baac3708cca83ede06a51c06821069ef8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_46.out.bin",
+          "sha256": "7d05b08cb7ea90bad1c63a6b12707d8bfcb760fdbe2a5e144d211379d9a3a829"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_47.in.bin",
+          "sha256": "9eb8ad6f7759d3f8eb1ab1527a6e3eb7eada3ece970a675e242748bcc4022820"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_47.out.bin",
+          "sha256": "1ef646158eb17046e8a04782ccf472aec174d68341d78f198d840170d39b5d07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_48.in.bin",
+          "sha256": "8726df79cc1281b87e3cd1566a5868b077b4d6c37d48ad3bd28875aa201047bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_48.out.bin",
+          "sha256": "089ab718b43e18f5cbc4249ec47c125875142a09faa57c32e0909f33b24bdba4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_49.in.bin",
+          "sha256": "ce4fcddc48feb4ac7e151f56220523b8f8d53bb0c345d17ea5141ee5751a88e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_49.out.bin",
+          "sha256": "f732de7fd4f2933a6452892f131794b74a299e992718b57444e1e690a0b54aba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_5.in.bin",
+          "sha256": "be4bc207012cf759b178d36646252bdf4b238f10e17840ae0879401954d82f87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_5.out.bin",
+          "sha256": "3de09b8ade0ebdef294a605c977948484c54a7b6b5f1ab26df3e30d17ea52c99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_50.in.bin",
+          "sha256": "66505efc33af6e953c04cdab8598aae6c472380143d083954e55d8b89b70a61a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_50.out.bin",
+          "sha256": "8d27e9d8461bc51bc4bb730fa75d10716987c903d25b8e6ab56b7e56573e47c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_51.in.bin",
+          "sha256": "bffde525b9cc373f22c92c116513f7de63aac5ebddf428176029fc80561c1ba4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_51.out.bin",
+          "sha256": "d29396983ee791cecd158eaf8553dc87de955e20d3e33e251755709b28e8335f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_52.in.bin",
+          "sha256": "7e43f57ef41b5ac95256ede6b0f6cbc3900a9c63a198b7ba729dc59b0a25851a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_52.out.bin",
+          "sha256": "d9ce6d230af9c23c76472430f79fe79435b34559d70a413525ce56877f6e8ac8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_53.in.bin",
+          "sha256": "eef22da3c35bd64b21a7445a9314f71210d0dc4a0a86ef0ab60bd79809ae83c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_53.out.bin",
+          "sha256": "78731e755bdd6a9a19e652a6b28d777ca18e78d01fb08f6e20d3ab041e5aa250"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_54.in.bin",
+          "sha256": "28540622128c6776b9a598f34a7849757a459e05b61615d439aaf21a04bd9def"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_54.out.bin",
+          "sha256": "2bec89c353fa8c796525a9eb856faafb5dafb4cb9db84758e47e319fd6f15437"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_55.in.bin",
+          "sha256": "2eb578506a5115c55a9ebe1677716e6ff33b4d9ddf2cf65b2c961a431c51583f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_55.out.bin",
+          "sha256": "8d6bc4a49c2ca9d1288836fbbb267177273c2f11d86a8fe6df00b58257748535"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_56.in.bin",
+          "sha256": "7d1ae37b3f2fe54563fa100b1270580d8365155561f93368fe3c8853e4ddc147"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_56.out.bin",
+          "sha256": "c2b2ed14e475735c2b38151773660809cfc7cff8d6bd9cc04d678e716c5e073b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_57.in.bin",
+          "sha256": "7d2c28d6f926b11072319448d6c18d1f7822794e9d31178e33c57fe07bb5b8fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_57.out.bin",
+          "sha256": "e2914c6019c88074c11469c3852e4413a426321c65c98738450ee947b0caf8b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_58.in.bin",
+          "sha256": "eea56451a66249322de892bf33ca040b0249d2365afe33c89d267043b73b17e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_58.out.bin",
+          "sha256": "0cd214b2cef4b5f2e807f5551efc2388d9af9040c8fa04bfb322feb169c008b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_59.in.bin",
+          "sha256": "35436d119613c441814e68d1288363fb0477287cee9760d9b75a2a730ab25ac1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_59.out.bin",
+          "sha256": "5800a9b64f1b3793414f2df631dfe3fe4bd4467756c604dcd822bcd8d04a8660"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_6.in.bin",
+          "sha256": "c44ca1c7afc4678befc47b3e7e770b79c940e51743676e61d2f43ba8b9ec42a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_6.out.bin",
+          "sha256": "63caceafa2930175fd7806f558c73835dd7b5d9a0856e99ff971235486f9e832"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_60.in.bin",
+          "sha256": "3598ea5e430be607b68b438fe9c2ed1df611cfbc6b071638b27f8c667d18320b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_60.out.bin",
+          "sha256": "69498382da6dfcfbeb3bbed91332854299c926f158b30628c28a0af348f2e905"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_61.in.bin",
+          "sha256": "9b7b86e2684b6f3ebcbd7f86f0770d869755d8d33cb412c1abbb6f1267a78e22"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_61.out.bin",
+          "sha256": "ab70b71c3eabbed4b29880154074d7bd2694c5d2d125907eb9d8596fd8ea32c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_62.in.bin",
+          "sha256": "1994decaeca30448f24e72bcca829dcd4b37f22f17c7b2052fabf12800d79145"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_62.out.bin",
+          "sha256": "69c265caf5418a1f3f6884823ee51cec3a556c85eea74d7201d799a2c2c6def2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_63.in.bin",
+          "sha256": "99518250c92a93e1f14c4ae173ecc5fb29fcb13e28ecfef044b79e7afa3dcd23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_63.out.bin",
+          "sha256": "7eb41855271ac4331adecb6adf67eebe1b04581a28d857db5856cb12cd8543ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_64.in.bin",
+          "sha256": "571478bacccf32ef1df5460c7bf61a886aa16405c28e5ee9a9900e0135e45029"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_64.out.bin",
+          "sha256": "1145d8aaa4bdde23293d903d3250adb95dc470059d6920bb6fb08368802c1c9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_65.in.bin",
+          "sha256": "26ff4e978c4c06dfd3dd7509c417e6a40f109f1d837fe7051092dcfcdb32b6a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_65.out.bin",
+          "sha256": "c446aafef2b87e08bbcc113e6b4a65f75d2ef837fd735d5a9fd397d266eac0f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_66.in.bin",
+          "sha256": "e03dc8c3ae9f9d81a751e3a2310010b6a67261d91e2fea43ab3cfc038235c016"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_66.out.bin",
+          "sha256": "aa7a59997d0f986a932c163931e60f9a0498f979436e5f823be222d2d64091f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_67.in.bin",
+          "sha256": "e8d990d3e33b0a5b83425d825b5599c4ac3354e01e2ebd87a2827050b1e9257f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_67.out.bin",
+          "sha256": "3a666f32291a6222b4beb9b6ef800c71068d5ec10e0abccff98cbe6d861be1a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_68.in.bin",
+          "sha256": "5eea88db856be9c09a0a713813e3e8b71b10994fb0c20f5ae964880a2d36d72c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_68.out.bin",
+          "sha256": "469ad368f0f04f9bf52d5ae4ec74e26674d9d022946ac2b36e43444eaaa44618"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_69.in.bin",
+          "sha256": "3f7d5635e3cf5452e9bcbc918433cc9e54038aec0f5b6cc35ebc36fe5fed46fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_69.out.bin",
+          "sha256": "308e68f3faba40e7e5bc8b2864a4b644c62627b7d1af284f829376854d28803b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_7.in.bin",
+          "sha256": "ea0451453388430f54d254b72c653509d2efe59e3408cc9dcaaa707ba4723fa4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_7.out.bin",
+          "sha256": "43860808a43642699ffb2e9ba0d4892b3a7b455bd5d4113ad11d5d99ce9df26f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_70.in.bin",
+          "sha256": "7b180cb41fc83fe6fa412d4ca85e75776ec977857944461a8bf8f719b4b05bf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_70.out.bin",
+          "sha256": "d525e744433f29b669c912f36d8d3d527d409b37f9eaa605990e2a42dad76737"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_71.in.bin",
+          "sha256": "5e83142d630de183dd0557afe5bb24ce130a0613658a68a21bf330038f7acc09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_71.out.bin",
+          "sha256": "051d975d060180210995ccc7be3f3df5d6355516f619aeff63549742f7165512"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_72.in.bin",
+          "sha256": "516137146c361629e5bd6ab2857a3da580ec50cb28b7070c76a66a95d9ae9ccd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_72.out.bin",
+          "sha256": "866efacf2ed2c5e872ec71cb36f0de7e2a0aaf71a81500283234b84c1f524bd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_73.in.bin",
+          "sha256": "9cc2b74352a711f64f1248fe1f49c1d943f1007cca1851c9f6c1551e4420332e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_73.out.bin",
+          "sha256": "eda2847bac1821fd02eae61ba0c34c8d40020f3d9a290ae962da562cb8412df2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_74.in.bin",
+          "sha256": "242ce6905ee6e16e4c3943f46df68516e72d8baee725975907879f62bb70f5ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_74.out.bin",
+          "sha256": "cb0310baeffb2b44418b116302b35937ad60ae579bab4c4dc789c7f0e742fbd8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_75.in.bin",
+          "sha256": "cbd5c93b8f3c6d80afcb9db4d11f976d94b4c9fea9614f2b4c48c8e81eb167b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_75.out.bin",
+          "sha256": "19305e5b59c6fa930ed1d883560592c0be9366d59848550d33dbddea872d5e17"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_76.in.bin",
+          "sha256": "50c1772e1fdd8e33b219c331a93bdf2f1d2b7b488dd2105b0854a07c2db49848"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_76.out.bin",
+          "sha256": "12877fd748f8ab28a2070c2aacd97828b29dcfd27f313ec5ab300c33ef5b0261"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_77.in.bin",
+          "sha256": "f1904254c407a28d3e3df5dc7e9d7de436d41f83fec20be72c25a42e6b9368b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_77.out.bin",
+          "sha256": "1f12c7aa46da9fdcee32e5307032bc7ff327c4b91e72d8b2618f99b2dc53b346"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_78.in.bin",
+          "sha256": "74f95f1749775cce366c70bef0b804e0d56d5ce82e43aabc61a5b216141f41b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_78.out.bin",
+          "sha256": "545af8030324683f4c05a76fe1f19e6bf723a953ba2e606140d46a8290c1807b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_79.in.bin",
+          "sha256": "e1957771a5221b2a636b4bdca39271f882cec911dae39c0b7371468d8dd9ee30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_79.out.bin",
+          "sha256": "3571b1340c7aa7e98381f23c90b3803136839ba0fb956236612d4eac228cf6ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_8.in.bin",
+          "sha256": "680428e80630add2f91f40ee38989fe9aeea29f7b4fc9855b4c114d55d043284"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_8.out.bin",
+          "sha256": "78e1647cae199896d5ff3c38034afd48c15c96ff3bfbb512115c7c7e7b805f0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_80.in.bin",
+          "sha256": "3cead5bf4af92509625d09b388079e85c9fe26da51b79343d5ce5a7ff2ef888a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_80.out.bin",
+          "sha256": "e2db67ee7679010b43e8c398f499d42f49b0fdbd8710f64cfac287a7f862f8b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_81.in.bin",
+          "sha256": "5554008975809fc4178540800542fb19a6a0c088cf7255dbc42803901bdefbe3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_81.out.bin",
+          "sha256": "81d88170446e699efb27b437de59f56270660696e5e9096219c7554f9f2f881b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_82.in.bin",
+          "sha256": "a8f90229618a94d9492399e949c6e046a5fa77ed2a270dd31c1c31df94726bb4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_82.out.bin",
+          "sha256": "bc526a551594981398bd0005bd1bae01991bc67fabe75fd7ea8fa2368ddbcff8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_83.in.bin",
+          "sha256": "9ea00d4ed2281bc3981c9e246544a36fd008a71a5823abcc673d2e3c3ca0924f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_83.out.bin",
+          "sha256": "8a32df9122cc59cd3e17f27a02a336d1256f926bb9871ab3834f7c063a81f19e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_84.in.bin",
+          "sha256": "8d1972d9f87f3cf317227a6859ebeba3b632871110d1354644095eff13b3f944"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_84.out.bin",
+          "sha256": "9ae794719f95d06be755a8a60f62be0f1cb7e9a04196c3c26842694a89221a70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_85.in.bin",
+          "sha256": "fb3fb272551eb49f0409201e21be8c34323c49ea0e193329babb493c401ab37e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_85.out.bin",
+          "sha256": "202215741b1b640f0ef2421da3c86fee6aaa445bbaa1221a468ba7f7447902de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_86.in.bin",
+          "sha256": "6022593f86438e9a742b1559d194a5b79c95f650cad24765dd2dd66b2500acd7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_86.out.bin",
+          "sha256": "4337cdbdc77c864d1394937244baa3883a647d628cf26d2666bf54edcacb8fde"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_87.in.bin",
+          "sha256": "1f14636eaea83fa1ecad252ede94a9b7941f6e723329d23050a3490db6a040b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_87.out.bin",
+          "sha256": "dabb2ca1e9790f79c220d057690a97873a4024a618b7e8072669cfe8d4cd9598"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_88.in.bin",
+          "sha256": "bfa06f5f1676ab76a87559bc8490412b6de2650ad9844871e032c5689be1d93a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_88.out.bin",
+          "sha256": "d6ff2de459c7c3b7384afb68663551a9755a05d8909c423c807e4c05bc07e7d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_89.in.bin",
+          "sha256": "4fead2306ac0eaf18780e4b26662b759c5281e1e2a13504b86625fb643f354b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_89.out.bin",
+          "sha256": "2bceb6e2628a3bf41d8363152ff78c709eeae78b5855c1516acc964065b68e0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_9.in.bin",
+          "sha256": "a8164b52229f60496de828403f37d06a4ac2c866088623a2926345e641feabf5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_9.out.bin",
+          "sha256": "2a645527b67a3b838473c9e5694f4d82b14e1525aa94c858f6be42b0accb91eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_90.in.bin",
+          "sha256": "4ce223f8e7bd36b750733ad5a3d1d71feb57cc152bd632aff280acecada063c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_90.out.bin",
+          "sha256": "c6a1251a10853ff62096ba5fea91b324d020181da9103a9cc5b3aa28f06de0e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_91.in.bin",
+          "sha256": "1f15b0f36aa55a842972c8485f2af14c674239af1f88dd66133cd5cb992067a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_91.out.bin",
+          "sha256": "1222163cffcf85447dc25b69ea2ab58f36e95dd87ad0f9b85a15cdad19831ed2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_92.in.bin",
+          "sha256": "077c3bcfeb702d87e43c462287e7c04001533487225a1248a5025a2a494f10b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_92.out.bin",
+          "sha256": "ab282a0b70f95b0a75f2891a4e86e59e1d586e9cc1bd9a1185f547c1915c982c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_93.in.bin",
+          "sha256": "8b902ce35e2c158e145d32a1eedf92380541b0e54a93c8517e403c491f1add65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_93.out.bin",
+          "sha256": "46dd2c903212661133d472e3b90849e50b2e25ebd93ae29ad4179af0fdd3e5a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_94.in.bin",
+          "sha256": "01496ba81cf891508adeadccb522acfd9f43325e6b65d5932269137c61a462bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_94.out.bin",
+          "sha256": "6843b99f3a8de7ec88c8cbdeb99799b3999e97e8302246eca260effe71e2d22b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_95.in.bin",
+          "sha256": "aa2d04df8494a1e56f408b0487b0c1e5c219be19bd161092369e4b2aa74f02e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_95.out.bin",
+          "sha256": "cb1618a797429d824bee599fbcaaf48fd0cd1ff5e453797e92ce5de3cb6c9292"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_96.in.bin",
+          "sha256": "33ec0c37a6f4034d1eee75b748aace99c4cbd6c579967be11e6c7af75e529e95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_96.out.bin",
+          "sha256": "1552f8a386e4da196ac2f208d252b9119e3f9c919d7e57f3eb74f37cf62a40e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_97.in.bin",
+          "sha256": "35287690c65cff844e81c641f810db171752a8eff28a62d4a62e8be06ab3673b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_97.out.bin",
+          "sha256": "994bd35b083bf43878faaaebf2d050a188cdfe820598f3750942927c13256a04"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_98.in.bin",
+          "sha256": "8fed51bd211535e008a00f1b0c1ca43b5e41ee9fdbdb559f2da9509c3e4ee7d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_98.out.bin",
+          "sha256": "90e55275e9f8875e37a8dc94b298b134913623c6c3da5cf86002b929d22db41c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_99.in.bin",
+          "sha256": "54848aaa133a807f62ccf6959df6d1304bbf7bb9b1ab17242c2d33250ad0be2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1\\f_8c0ca8c0_99.out.bin",
+          "sha256": "9951ddbb129bce5a097ddc96b03c8014c6bf997a58a633b282f8d009d83a83dd"
+        }
+      ]
+    },
+    {
+      "valid": 127,
+      "excluded_flags": {
+        "1": 1
+      },
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\batch_manifest.json",
+        "sha256": "7c4833daec3a0c6ca3af6686e36d9dc77f3b735de05c4f0aa2af431a09015699"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2_native_v3_report.json",
+        "sha256": "19726f5478bab86bd7164769110ab1b2f8d3cb65c2c1665be48fdf588bb4cee9"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_angles_accept_v2_raw\\capsule_coverage_65_geometry_angles_accept_v2_s28.bin",
+          "sha256": "b28203ab8b7f8ea8bc5501aeacda72d2ee91c17b28ea99210ff2145cc9c27f53"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_angles_accept_v2_raw\\capsule_coverage_65_geometry_angles_accept_v2_s29.bin",
+          "sha256": "1b2eeeedb824a6f65a37d0c1ef59e12952f52b6c72087e7e3000afa3bd01bed6"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\batch_manifest.json",
+          "sha256": "7c4833daec3a0c6ca3af6686e36d9dc77f3b735de05c4f0aa2af431a09015699"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\capsule_manifest.json",
+          "sha256": "09c13d8d0a81489a5f055accb8723940cfd88ca694870e50c9e06e7f212e65df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.bank.bin",
+          "sha256": "d741094c03e4fc37bb851c0f32e18a39ab047a9396a532bc50a42b379e7db976"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.cases",
+          "sha256": "bba256e4a470b4263701711d7c1faba18d767458441f6549451a60e307e75445"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.dev.bin",
+          "sha256": "64d6c19683061d281bcee4c3cb3fa451f3724613dcc114467cebfd53ee182e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.extra.bin",
+          "sha256": "c3a215b9d8e5ad60023099b5bc078abbf7c45daf2e6a2ced210152875ba05377"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.gbr.bin",
+          "sha256": "b7dc9651495c70e6b3eb02c5e9540cdd3ff6e0c39a4b728b07e67412bba77dad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.ops.json",
+          "sha256": "93caa95eb01e40c756c0a759645e68462290b459eb5390adfeb655f3e7e20581"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.xfin.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0.xfout.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_0.in.bin",
+          "sha256": "cbc5beb655369cea7f34c6d7429e46b8aa0f73a22fedda9f827fc1ee887ca75e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_0.out.bin",
+          "sha256": "924b01ebbb0f02a8756821975a40080bdc39aaced4a3904df7aad0eed172894c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_1.in.bin",
+          "sha256": "55ba24fee0f2789fd49e00803acaad35c1927f6abac48431268bedc640879d1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_1.out.bin",
+          "sha256": "136472b6705168835f2df8284bd871381aa611fdf40c268f5aa2068f01e6134c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_10.in.bin",
+          "sha256": "47ecb43333abebe61bd73eba0ad476a5e8887dc98673ec14956e363feb7d1e26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_10.out.bin",
+          "sha256": "f485062e4fa06f7934e93fe673dbde1570c54557a90b5c7b1b4974c89afa694f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_100.in.bin",
+          "sha256": "320b64fa8df3b1b059ca4ce938aa4bc61eb07035d5d4058181b40824eb8f28ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_100.out.bin",
+          "sha256": "bfc9b6525fae6811fc623e40e220c0e0145643da080752bd931a14cc1a38b9d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_101.in.bin",
+          "sha256": "c5f5bb269c5d8676a18c0823f355a6930276c82fc50488ff82162de0422fd0d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_101.out.bin",
+          "sha256": "0543a4eaff4b266342e5ebc1b3a32b32d61034f9ab0e549ac26eea36b750fccd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_102.in.bin",
+          "sha256": "8739bc26d75acb34183bdc7e747a68538e271c5028e1ac8cca2257dc8ef9c3b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_102.out.bin",
+          "sha256": "048665123da9b26a660ce7f0bb94357fccdce4f67c8c3514ccd92d091e13d651"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_103.in.bin",
+          "sha256": "d3b53cc1c6b42aeb843310e9bbfd41ddcd296ad82d95db8fa9063d9e60aa2678"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_103.out.bin",
+          "sha256": "faa8c39b2e03a115a9d00e5124bb6a2af9cb445aa69f4527fa46bb4e72455d03"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_104.in.bin",
+          "sha256": "658a56a7d7f926d1869a3cda9c11c1740b3485fe0da9427ca0e3c59b4680199c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_104.out.bin",
+          "sha256": "6c7dd983b1892ac6d345215dc576593e0e01e50c5eaa66938cff4d0c90b57dd1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_105.in.bin",
+          "sha256": "cbbbaa2e527c588f45e1f7b36b2917918affa565c9b33a7f2eb822708f59ffeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_105.out.bin",
+          "sha256": "9ef25673a5d80d4affb170400a35d23f6276da2dd4d8a4216909fcb7f5fb9526"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_106.in.bin",
+          "sha256": "2ef5dd98de45cf21dc8b85350b65c4d23fc8bf9ecd2781a9f43c2b7886c7cf4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_106.out.bin",
+          "sha256": "5ec06c1d40434319c629844e937496b9609d7afae4cf1647f1a3708d94cb7db2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_107.in.bin",
+          "sha256": "2058a9b9084f768ca71d4c0d6a1ec2409f4e9ee14416b773e756372bdc673ca2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_107.out.bin",
+          "sha256": "7f6559dacba1506a0e773188bdffba15484ab59f5ccf299021b0549db27bf797"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_108.in.bin",
+          "sha256": "05b3084cc9659f37c73a9eb6f13bbce24b674d0ef849ac9b40ca8e82616d06f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_108.out.bin",
+          "sha256": "172c3b8a2b5afc3bacfec6fa5caab80889933e281dbfd5ee07bbad99dc089758"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_109.in.bin",
+          "sha256": "46274828a9b92ec35aaacf5ac55bd433e059e5189408f45ce10d3b491ed4eacd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_109.out.bin",
+          "sha256": "117c8d614b92437debedf19fc5d723618ef4214d4742e835fb696c3694701a25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_11.in.bin",
+          "sha256": "d639deb3a9a8d361226d75f08c541393906d4640d0fd2910b8f97a7b3e3fbbb6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_11.out.bin",
+          "sha256": "a6b584d010a6da36f90e34e976d70a238e2d7c4ae00f937ef8a875acab2f60ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_110.in.bin",
+          "sha256": "96637dbf7044bb146f4279d40c9622b0e056281b9c04fd137f88cfca96a26840"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_110.out.bin",
+          "sha256": "feedf99f8e36ec10d17e89ed1a9a225216f47d2d6e2bd1bcf39d673ae8a4219d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_111.in.bin",
+          "sha256": "220fcaf423c817abaf736d1f0d510fb2545b30b31b97348461f6ced461a467e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_111.out.bin",
+          "sha256": "21728cbc15cfd2f69a23a0118f6aab8cf54c8819b40d5c3ac74a3b8c1a0162f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_112.in.bin",
+          "sha256": "ae1f51eb2f22e11ac61725b301dceebd4dac293865c3b3349effe269d6b9654b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_112.out.bin",
+          "sha256": "68e74863303233270c4b5e76978cf8ec7194ce7ded4e52d4cd44bebfa40115c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_113.in.bin",
+          "sha256": "53bfcb981411057aa768bc1f75f109aedac88c0a5f8a8a5869218a2b971751d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_113.out.bin",
+          "sha256": "5484163ddb6ec08154152622a857c4c314c66e5d695d9a3e3ddbc4fc468d8c40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_114.in.bin",
+          "sha256": "1779d46d7dab60f0fd6ccc62b3349f2b2f42ccabbf2c378dd265cd344338e0cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_114.out.bin",
+          "sha256": "378f4db0b0d6b0cf0732378021b6631fb69cee37a46b0cb94ff80b5dcc2500e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_115.in.bin",
+          "sha256": "e88164e243d5d9a3c557e0554b741bcb30ffdf36c86ef6a5a66e1b8c534bfd8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_115.out.bin",
+          "sha256": "8ab2e3ff2adc1a79b5fa37f6c3ba7c8582ee80bb2eb3185f54171c282a2c0f39"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_116.in.bin",
+          "sha256": "dce322241d49599113177277f97fd6b5a95618911bea022a0c8e8940cfeccd4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_116.out.bin",
+          "sha256": "f63d655cf631851377a36372a63c186718bca141ae38ead48bce3f987fcaf8f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_117.in.bin",
+          "sha256": "9fda882054bc59360dd4a8a19f0228dd8c62e148dea78d0362d8de5a5890faf6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_117.out.bin",
+          "sha256": "6dd4ea38aac6c8eea58a4ac743fc8a5fd87c1da405c353a4d8a2f1e05142becf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_118.in.bin",
+          "sha256": "cde315714b5dbfc0db66e2e926d4f7987657197d917f40dce27f40f9bacda176"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_118.out.bin",
+          "sha256": "faf4eef4d6a017e6364ffe2d93bc6c630520962325316ee616a1a345b480d176"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_119.in.bin",
+          "sha256": "81260d0979c2803e13110d768fe1e45cb4111d15978d215c42aae13fbbb0f61c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_119.out.bin",
+          "sha256": "9e2a39dc7708099f2f5549e748d73457330d05d91b98f7433ed3aa7ed8544ff5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_12.in.bin",
+          "sha256": "1dc1d36274a03cbcab0e07dce821750860ba67a991ef57851150602792ac1521"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_12.out.bin",
+          "sha256": "74ab33ea71438aeb837d7e308267fe3e753f5bead838f675faaa33476836b739"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_120.in.bin",
+          "sha256": "68a0f2e8c94d2b98c79e9d72a1cd1e8fe025bd9fe5a69a08e22672d33abc6c93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_120.out.bin",
+          "sha256": "23de17d83ac907d72fd09dffae010c6f96fc416368bed557877cb34d9afc59ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_121.in.bin",
+          "sha256": "15163628ab73ecab920cfce5ad2d4a608f1b9c59b30b2ea17f0b884e84c29709"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_121.out.bin",
+          "sha256": "8c07cd2c5071d0b426a03e3a06999f61c4c6b720390aecbd761195e5cdd63fb6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_122.in.bin",
+          "sha256": "174460c0068273c83c2a4a76984cbb0621b191daf0def4d203026fbc66eb8f9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_122.out.bin",
+          "sha256": "7f60a90583115ab7d785bdbd17fdb44ce58675d973320d8f70678cc732476bec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_123.in.bin",
+          "sha256": "2589dcc17602500328eef0b0a49dfe9a64ecd6667a7b2c3530670cafa4444662"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_123.out.bin",
+          "sha256": "7983b1ec4d13d2ea2e9d91ff7c8435bc471db91d9e1e713c7d42aa40c36a009d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_124.in.bin",
+          "sha256": "1737556d34df8f3c6beaaf79e82d29f4677269017c45b48881ce43bff2e86462"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_124.out.bin",
+          "sha256": "9112ed826dbb69741b6a62c48cc9ad4ec2d73204d2e223a7994b2c7eb36493d4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_125.in.bin",
+          "sha256": "e34c186f2b7263b3d0710e776c1d94c81c27d87767e6e83b595e43bd100613f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_125.out.bin",
+          "sha256": "eb65e698d3f47df3ef67848bcc95241c6aebda1db404bd232fea15484a5da209"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_126.in.bin",
+          "sha256": "824251978020b664624d85e6b4a132a67aee5306c867ed74197e069088389812"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_126.out.bin",
+          "sha256": "7054674886ff705c1e350af945bb6c734de8f27ed5a7c4173f223fe9e4b8986f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_13.in.bin",
+          "sha256": "4d9b5cb8883e1a329bc280621bd1f9791ab3f6e5314ff16f19c3fd94ebf6b718"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_13.out.bin",
+          "sha256": "d57a5b3b638f371a05930ffcf60c178e07999b40f4dc29fa813213c5ba46c535"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_14.in.bin",
+          "sha256": "17a73524e6c1a9da47765e07c904c065102373d9095efb7ab9032cfcc60f3c5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_14.out.bin",
+          "sha256": "2c6d08a2ed2f27fc3f5b2342a4f8d772079273d83acfdbd6990cfec1215bf10c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_15.in.bin",
+          "sha256": "3165f25344a683964ea9a606a2aaa88bc568c0af26c61710120076cd3eab6b6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_15.out.bin",
+          "sha256": "7c5b1f970add84d2e315d5e541978a437e512e969286930b73340ffa0c608741"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_16.in.bin",
+          "sha256": "24b5697daaa2dcd3f6fabe369ee910915408badeea5210b01a5e7e8d4440469f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_16.out.bin",
+          "sha256": "ad67151664237b4835188f58ea2749bfc4b5a7d2cace44fdf847098a046e5252"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_17.in.bin",
+          "sha256": "5e8ca12726be3da84d0922244ad473f7ba3cf06a698e4c0fa469e3ad3e6dc922"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_17.out.bin",
+          "sha256": "d53588dcf8cbddce48b2fe89624086515d45ca1d56ff5ab4fccd2480bc907013"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_18.in.bin",
+          "sha256": "19c3f8eb5e06cc5c564d1e7fe148ccc1ea439484671b293e01a7520e03db12d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_18.out.bin",
+          "sha256": "0df52f09c5fc33df6a556fde48af65668351c58470dd03deef95cd5a5eab6b08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_19.in.bin",
+          "sha256": "1cb605422ab1568619e29ab14c3483ff914bff288156705233ba94b70d9a75a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_19.out.bin",
+          "sha256": "a9c0902d9b273331fbcda490bcf9ebe9501dd9803384272b591daa10fe1be6d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_2.in.bin",
+          "sha256": "d7200f090ceadf5d499ea72468f92c3addb04bd68a4a70068b51d3408c26c13d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_2.out.bin",
+          "sha256": "72df52abec6681b7717271a6f2a4fead11d247d9e5ef963305f7a268a98fed38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_20.in.bin",
+          "sha256": "c90c7ad7b8a590be99f85ad8796ed505f6598f8dddfc7af47d0fa257c566a2ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_20.out.bin",
+          "sha256": "432d9a190832495bb7e33d6aa9ee9ff52097973249b2c02c3cccc8a3a7aa2e73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_21.in.bin",
+          "sha256": "2c069121dd7488e797b5519ee0ea5677ff305a33ab7537c080c1fe957a3bdbf6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_21.out.bin",
+          "sha256": "988931fb062faa670ea1a26590189d5e9f51173a3d65c4e15f8d2e5b2a1a8968"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_22.in.bin",
+          "sha256": "158f866ffbd057cf7ce6039b5391974de1a01c6fd8ea91940fb3d0803fcf801a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_22.out.bin",
+          "sha256": "3f9910662358cfadbb370e54e4ccfc40e3982ee325544de864609c0f4d3b9291"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_23.in.bin",
+          "sha256": "90fb44cae92f2599f0cb964f39bf5fc01485baf6dff40fbf4ffd69305aadbbff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_23.out.bin",
+          "sha256": "60d96174bcad087d4eedda944076f81f250447257b8cf817528e2e252e0fb698"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_24.in.bin",
+          "sha256": "3907d24196c7cd119b415edac3396ba6ed0d4404783ce27545c7a980bda34e8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_24.out.bin",
+          "sha256": "a0be49c474d8d830667b53541f8ac72a4f81d6cf2bd152c595a9cb2bed2d98f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_25.in.bin",
+          "sha256": "9db510b116dad34eba8102edbee64375e1e4b8209185ba375d26e793384d803f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_25.out.bin",
+          "sha256": "108dd5a257937b2c9042f17a5755d5ee69ab9ed0bf6c61988c4271b1559b3b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_26.in.bin",
+          "sha256": "d3eb45e9ef52993209b966a57d941961e9497bb057d2866be91eb86ff2ee98a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_26.out.bin",
+          "sha256": "0b3cba60357f94c273478ea75fc792507d23f81ec406ad7753258b2f4bfcac8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_27.in.bin",
+          "sha256": "eada6ded6a8beeb4f0ade2548f5d55f9779987f168d1d16da980f23c2e37bc6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_27.out.bin",
+          "sha256": "9d777a4bd1d2cfcbb558a1b633d88ad9e398978050c46c419cd5894cca3bc135"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_28.in.bin",
+          "sha256": "d167fdcad45c0cf789dd9c40df4594a79baed789716add4d74e9231e5bdf6349"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_28.out.bin",
+          "sha256": "056922ed507ab60e5e8e9c7c4b508711b010da79a98224cebd5bf10b2dd13cb6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_29.in.bin",
+          "sha256": "794a8198b6840f228837e3e0d59b21ca000ef884f3ea6c3eec79242e0a894c45"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_29.out.bin",
+          "sha256": "8a277496aa23a0a0bde37e14beac9630b3c57a9b2e92e828f0b1e4ad0708b734"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_3.in.bin",
+          "sha256": "7517e6b8f1ca16357a9d7aec1dc8917c6158549c2549fc2802f55a0534cd4b48"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_3.out.bin",
+          "sha256": "48f4ed94935203f6af24c79afa8c4e00f9c194c9a42f841b23ce3879b0e7c917"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_30.in.bin",
+          "sha256": "ccb3a3da0567bb529ec2b35c48f618f4e1adb03064585eb7046a2b9b9ef5dc5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_30.out.bin",
+          "sha256": "88e85867298e60f1347e33c853e659bc8e057b72a7221de7fefe1efb05bf427a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_31.in.bin",
+          "sha256": "6b8e9954518606b0aca42af35b372dd5bbabf227a4e42564a1c40186d868cbce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_31.out.bin",
+          "sha256": "c1c92d19ba753a5e50479306b3634332747b58bd56df3bf61e354f3c277f1ddf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_32.in.bin",
+          "sha256": "9b6362550cb1f780a7b7e4f4371867f376df91b80dcdbcafe676c7c897f03ba1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_32.out.bin",
+          "sha256": "a424111ab299cbec5120cc37eaeae44ee5b0db5a38d8b83fa467bde9f505929b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_33.in.bin",
+          "sha256": "c591e98f9eace7bde2f72ce190bbe0708f0cd2aef9fd38e2c76f060d1a9de45d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_33.out.bin",
+          "sha256": "61888c8b628bf8258617302d6b5b7ef8bb5ecdd0a4a1605865ce25ff19f2cce0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_34.in.bin",
+          "sha256": "a1911439a01174819f55667e0fee0e50c505fcf28f377dd8520a15c53302fd4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_34.out.bin",
+          "sha256": "c6c274d2fa67b0c8d6808f5e9768544cf26d8b4790a3aa61a70e98b4fdac0ebc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_35.in.bin",
+          "sha256": "be8873b32735e03039bd59d9dff73b24dbd5c9bf7c7f740cf52b419788c41403"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_35.out.bin",
+          "sha256": "0178ca6018e4878d89b5d270a1f97f1200bcd75465c0f121ab9e12cd3ea22d36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_36.in.bin",
+          "sha256": "cdaa1cbf25d8040d1a9c132f5ae7cbcc401462f8a88db8a27a8d50e42d7177f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_36.out.bin",
+          "sha256": "122e0e8f99aaa17a52e8cff2acfb302d299c5829e2394b1096be60929191d919"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_37.in.bin",
+          "sha256": "e26879870925fd44b53b5ce7ae4b8a79fb2994cfa24b41830db929b7a5d2a718"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_37.out.bin",
+          "sha256": "a6df106693b9b64a442627997dc4837d514249d02612c627f214dda9d4c0d40b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_38.in.bin",
+          "sha256": "8ea76521fced0d148d7bf41533a22c3118bbc23cb5da2c2e6e4225318fadefd9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_38.out.bin",
+          "sha256": "b7c3cba9ce88d8897acb4e4d5414f87010849235eab077c4c446340986bd21c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_39.in.bin",
+          "sha256": "6e00b6218f4e6606125630c8cee1833f14614f43d207003480c54e28f459c4d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_39.out.bin",
+          "sha256": "4c986a339ef9cbdc65c35ca12c0411c09059444c77a7e70a2f02b4d2638327a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_4.in.bin",
+          "sha256": "a29a4c20a0ad3676ea9fc30f5fc99b49f2bc19b5255db654e3ad51b32e2677e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_4.out.bin",
+          "sha256": "cf7ee6df9f8faed70f4d41ca6baf588fd841a152a79e49831f7dffa8136610ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_40.in.bin",
+          "sha256": "790ba9a836fd8c2d8ae41f33cb7a9aa1c4b921a314c85c5cb6bf6c5520c40577"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_40.out.bin",
+          "sha256": "cba08593e956ebab1d63e00a56ae7ca275d418710a19ea61b7c36b6b7bfc53cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_41.in.bin",
+          "sha256": "7ef9f572e2e3bfdf0bc05f72653643d902405a83b1baaa20fb4d0c06e996d18c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_41.out.bin",
+          "sha256": "54872b31c8d00b126867290076b2a709b1a0a0525642292844a4a5053651b5bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_42.in.bin",
+          "sha256": "30d083d681cd03ba0470b33efb35c30c6946999b5d71b00a881c6bc9a11715dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_42.out.bin",
+          "sha256": "c4db263b810c136cdfe8767f38938a7ade0b8cd67bce5751e8ec1dbe4db02fcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_43.in.bin",
+          "sha256": "29412c8048bdf507b73affbdda29550e4b0632430ff2a0af242032bca98b699c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_43.out.bin",
+          "sha256": "d028d2f7a746c902b7e4166d0ab0dcfa6a094a95ffa8b4e241c95baf473a1533"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_44.in.bin",
+          "sha256": "64bf6227b006003a82a92e83ea1525fa8139260762af3b40544f0bae2e9fe966"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_44.out.bin",
+          "sha256": "fdbc8539b486764d7d1a8e422050fd861f38b1e173316a020505e78ee0003905"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_45.in.bin",
+          "sha256": "8b226a3352b2207121f5f1dbd89b16568972165c7988815380100b55ec27d618"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_45.out.bin",
+          "sha256": "24879c289ffa7029ab0c2ecc5ec4a3b1035395dda8c6b514673079bb7d587f41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_46.in.bin",
+          "sha256": "4c755c4d1331d814d733527cadb238642218adb38f8df2e1ef2eb5300dc02c24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_46.out.bin",
+          "sha256": "fd97bbb60ba641e1dcb6b681261a850107181dcd4c5022d1cb8510acf87e3ab7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_47.in.bin",
+          "sha256": "c66903da99f6ee5be1e014a3e732e6a3424c8eb501b68e4464eb92d8b3ec6025"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_47.out.bin",
+          "sha256": "da54a8ddd710f0b59654d4eb5c1625f5f6e577cae089f8f92c9d7a05660bd65f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_48.in.bin",
+          "sha256": "791a70a2132878802748962882d6325c83b3a31be0f1fc14fb537f39c68bf397"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_48.out.bin",
+          "sha256": "0e24bc5d66bf1215c67937167b99ec10298140c952a8ba0a588d1eae4b449d44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_49.in.bin",
+          "sha256": "927c066d371d03d956787463d642214a81727424936e86e4e3bedb09aa562972"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_49.out.bin",
+          "sha256": "df56f1c848013b3e22f060940bd7f53a8574893442e2177d842e9861c701f647"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_5.in.bin",
+          "sha256": "60b1df398af92c0d5d3ca9a28b4ea21b3dea11af95f9f4befcf6e63320528597"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_5.out.bin",
+          "sha256": "d54d8e7faf8f6a1d1a4548f7f676252ec011003539349fae6f7e106f25540d17"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_50.in.bin",
+          "sha256": "6cab1f1247fcd218c59f5bc0b445b7af892888f7de5ab7a912a1ac90f5ccf3c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_50.out.bin",
+          "sha256": "d5d5a9b06bae41f37c3bfb72e66f119645d385b6a053bf47eb8588c40ecde315"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_51.in.bin",
+          "sha256": "43adb8f523557589b9ca24b408c6c6c096572032316f2d411f1a16d5580a0b1e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_51.out.bin",
+          "sha256": "75ac4c634f458aa24af1cf9e46f064ce24f1e33906ca1d3a4c61d8543a499c6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_52.in.bin",
+          "sha256": "a71fb52b7a7066c4c1861aab0bef5b6d95fc23e27e7a485dffafe35e13d54764"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_52.out.bin",
+          "sha256": "6963cfc6d4007ddceabef21447530f01bf0b704553b3cb2625d3117aba7f51cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_53.in.bin",
+          "sha256": "3227b03aa6aebff79eb4423b0c66a2d043be7f4bb00cf1078a008ccc2ac3f471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_53.out.bin",
+          "sha256": "cb6e7a4d27b488d9ba0f7f99311a8792fc06e9a815d76460cd0a7ce049eda52f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_54.in.bin",
+          "sha256": "69c7228901299edbef03d2365f8608e718fb56e7f592ffea01cad2538852363d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_54.out.bin",
+          "sha256": "c3a11b6ebf4942e5a0fbd5a16ef04634c369d0f16b12fc4098db8692188f96c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_55.in.bin",
+          "sha256": "9044e44931d2f635a31ca6a735fac5cc8f2692f02385e8873c4877be6c6fd2cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_55.out.bin",
+          "sha256": "0b4e357db46ff6cdc04250395383160b1a75d21b86d39ffa778f7fae4651d85a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_56.in.bin",
+          "sha256": "9dae86cd4d74ee11112de31fbf1e8a846ffbc000494407b6ff3eebc7c99b3247"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_56.out.bin",
+          "sha256": "14bed6319ca0c00c382fa1ff5e7f22ecaaecb4542cfcf3d372005f08696ebbac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_57.in.bin",
+          "sha256": "666de1b387f9c96bee6c1b39112069e05f1396f6ea20b7c8f2cfdf1c0d8c5e76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_57.out.bin",
+          "sha256": "86dd9ac987d72340ff4c576945a2a33073095fcde5de79118bfe8c01917f2ae4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_58.in.bin",
+          "sha256": "d8bb646b5e02f5bb1ee383cdf75732653532c3d0b7e18d8708e840e8241c7344"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_58.out.bin",
+          "sha256": "f66ffd0eb68022bcc4b98f882511f07f8bb65ce42f695c7ff072c34d8f8a1169"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_59.in.bin",
+          "sha256": "deb4a40b5e422f0a7b3b227e3de15e30a90f52de3769d7273a17a1dac97ff951"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_59.out.bin",
+          "sha256": "ab9091b42414815dce695be2d7d2a34e22441cde75f5311a9d850e53c59a75dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_6.in.bin",
+          "sha256": "85b4b96b6c12e1e84bf058f0f5a15333591f39b80d544eedfaddd5d5324c6c54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_6.out.bin",
+          "sha256": "6aa03668ca2bf2ce42dddc5e5520fa806babcda154e0e65e40f68c3a4f41aded"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_60.in.bin",
+          "sha256": "43d810ef9e68d4669edddbe937b64b2b51a9879a9161e1ba328a927615b02511"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_60.out.bin",
+          "sha256": "c919c3a21b3436a6f6f966184e662cdd72651e275918d80c3d7fa48edb02eb8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_61.in.bin",
+          "sha256": "4851ab1a496c6cfa5ad8b39ec44b95183051e7607f79d0b457fff5753a4375a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_61.out.bin",
+          "sha256": "1e7581b8368e3eb9d4143a20ce7065b590c331347f20accc653584fb68772df8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_62.in.bin",
+          "sha256": "7edbae2fedb1cfb02c4d51584c48a8514cc093efa21c502e1e38a1eca2a5e4d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_62.out.bin",
+          "sha256": "c43c77b3112ec7771281dc02b4cf261de4c3154367dbccfc9abb77eaca07488e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_63.in.bin",
+          "sha256": "54eb572f567d3a76c739bd72ca32667ac5db260b95fe80af15d2be6215c88fe9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_63.out.bin",
+          "sha256": "7600dc786abafd58635736b7bb001ed950e0c120fcba1196b55b84e31a0505b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_64.in.bin",
+          "sha256": "9f1bd7812208070f8bc64491dc31f00988d017646ea9d503b14468e4d2f7597f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_64.out.bin",
+          "sha256": "bbd1889de3f77606e0902dedca54b00a9fee00399d8d7a52cfb22d48b3496299"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_65.in.bin",
+          "sha256": "b21c5860c1b9d0df3e7c0d676a6ef249e56b02a7eab5e2460c968aa394c5d3ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_65.out.bin",
+          "sha256": "d4fc083decb5660efaf1b7aa69850dc6f9291e278f8e5a7676693d3a0cfb4890"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_66.in.bin",
+          "sha256": "8c45d95e85451dcffe037c5ce3ac73aa1f2b7a9a0fe668dbd1ef1c70948c1377"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_66.out.bin",
+          "sha256": "7f2f128ee751c2e8a908f9ecff939be0aa947a504b201d3c7bef1cc1801c3fdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_67.in.bin",
+          "sha256": "ccad024b706ecf1cfa148ce8e9c26b1575c18bf30f37f78cb8ba892c10a46d9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_67.out.bin",
+          "sha256": "023a3daa3f0580b1ad813eb0d43e437f3fd0e702747a2c9564166f1ef73e50d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_68.in.bin",
+          "sha256": "ae89edfc4f719284e43b33d53e06824f048af8d594efcdd8b5c63a4b940f440f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_68.out.bin",
+          "sha256": "f5b5e2277b59a200d304cd8ca856208073cef5d01fce4c608515ad91bf01e74d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_69.in.bin",
+          "sha256": "f742599335968507b895cd6dd567bea929c551fa10d0dea6623ca064bc9c37a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_69.out.bin",
+          "sha256": "6603a76279af44e29571c3dd75065d22c9f852641ce2bacd39de2b966e72e50c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_7.in.bin",
+          "sha256": "3e09be0d079d185ab2cbd43859ebc7ada7a00aeb29e04bb05a0cdc3773e42565"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_7.out.bin",
+          "sha256": "9f52db86c517a65c74dde29f33fe557e8e27bb34894ad067b0d9621705d3811e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_70.in.bin",
+          "sha256": "23bc8236d4ca9bc9b5f6db84e6cbfa01d6ddc78b20cceb2f065b9902e93e0da0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_70.out.bin",
+          "sha256": "65673dce513645f299d1816f82ac978508c79aed1a7cbc25a5635c669ec3cbac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_71.in.bin",
+          "sha256": "e8e5600eb3d8565e2b71eae9a3e530aebe4a39811ff96abbecf9f9188dde575c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_71.out.bin",
+          "sha256": "c3cb250f0222455dfbacd3289f1f36c29c9ad3af5776e3d6bea0b25e8bebf69d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_72.in.bin",
+          "sha256": "c0b3df941b1541d6da5b0f1da8fdbe6ac4398f2c9b3f78b54b32b1e7f990fa35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_72.out.bin",
+          "sha256": "c85709dd4aee463e0f22fa040bd3cd3f9c9e57f277e88e012f88c54ab000a5a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_73.in.bin",
+          "sha256": "21b79799c5a7ae9de20ee1f27b2e455ec78e634b468086981ff503edeaf3201d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_73.out.bin",
+          "sha256": "52175611ba4c84f65fc91f0878020f088db7d324aa3a31e5b6ee1661020b4067"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_74.in.bin",
+          "sha256": "d2c9052015f885b80a6dac37e15c6eb935e0e4e93fd5c11e981cd2b370b01fc7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_74.out.bin",
+          "sha256": "9b1eb32f0467b4cd0811b524cd3c3cf149f7d71fa5bd969725e74de96b4aba84"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_75.in.bin",
+          "sha256": "c9ba4c1ca8ec031484cb22611c93d6ccba89dca31094aea321fd6f306f13de5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_75.out.bin",
+          "sha256": "bb88efaeae4815943c1e83bf7300cff6f620c27e2f52ebc885f4ee5b06592ca2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_76.in.bin",
+          "sha256": "e904d3fa32141a5935af8e5c0c92e922396dce6816b13896fab45a1b17d92044"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_76.out.bin",
+          "sha256": "1be58dc2fb6efe42bbc506f8b76e555c8cbac0bd7f502d46381283afe4793acd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_77.in.bin",
+          "sha256": "bc5a55a1f16e66453e85252a7ae555341ea786f9961b2c99cab59c44747befc4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_77.out.bin",
+          "sha256": "193008cb94cfab2ab54ff01b3e37ef8a63d3d972680f1df4a56becae8e0a780c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_78.in.bin",
+          "sha256": "c306a032cf7a7ff3788def56540bfc97ba7d8e76a757bc17e5377154efe0c057"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_78.out.bin",
+          "sha256": "69abb34ac6e3ead1da3f1c3d89fd2bcbef536e614a504c9e05600b1d539f00d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_79.in.bin",
+          "sha256": "9382cff62181729bae79007c215acd24ac4148ca83c3c2c7fa647fae3959ad6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_79.out.bin",
+          "sha256": "887cc2c221f589461fdc7a80f9b03a3f9d6b7d892a3d26c56183c03b88046954"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_8.in.bin",
+          "sha256": "7ec41e97769c4d8776192e2fe58f623098af80f8205433e2016be8520a568ec4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_8.out.bin",
+          "sha256": "89f0b67cd9c4a5a8f49e200aaf31d51a93eae8ead96c2cfc75f9394a998f299d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_80.in.bin",
+          "sha256": "cdf639fe896e9fbb8ef4301d0dc609c129e7506f6cb20f0ec08fbafe8badf6a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_80.out.bin",
+          "sha256": "cd7603339c21494fd038f965a033dd96bd352b3521a1e3dd5bb02824e482d6cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_81.in.bin",
+          "sha256": "bc84da66991b7e320148ee4f6ed5b88df87f3e171a1e90beb2e1fb16efdc8987"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_81.out.bin",
+          "sha256": "d1dcb01a7d6ada012180ca99a288fe7d9ae1b5e19bf1b43c32a0294d12adbaf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_82.in.bin",
+          "sha256": "566bfbbda8ee224381045b5dec46e047336177a1d180b22e02137e25008d2e7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_82.out.bin",
+          "sha256": "b6943b9bb194fc857e7ea3b1dc7c0a65a0c3d0692041f23ece7a543f5f89e3ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_83.in.bin",
+          "sha256": "15939f6c39a180f0f88d05f6f95f5eaf9bf41ba0d04331b9dea509d063b6a4e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_83.out.bin",
+          "sha256": "979824725b40038f7827987c6aa6950cf486f75bd635b959989adddcbd6d1a6e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_84.in.bin",
+          "sha256": "65ac43b72fddc50a6d5ccd89ad76902b9955e455616afb3038beeeb4c39aaa1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_84.out.bin",
+          "sha256": "01d0005a8dd077614c58eb96da614f8656e3695ed374c5fa6ffb10d5e6eb4534"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_85.in.bin",
+          "sha256": "184302224bc5c7c334846936d16a2cf9c1e8c96a0c9fe42a955b68bf8d85de4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_85.out.bin",
+          "sha256": "dcaa9268c77d6c0bb9d989660e2ac75e4e73c1a082696cd628d01ad02380ec7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_86.in.bin",
+          "sha256": "69ff05c6becc2caec06c703ccae249f674cbfb2cc81e97ce8d3f59618d1fd26a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_86.out.bin",
+          "sha256": "43757f2c9230d9b7c17354a8a93ccf4a96cbfe2e46e82f8c9ab91be156e79691"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_87.in.bin",
+          "sha256": "9911c18dfdb36dfc53bca85b390a0c07e5c3870f57c3fb37caef08c07a259c66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_87.out.bin",
+          "sha256": "6484aa1fba58095d353d20219f82260f7ad0e3641f5f0dbe56184db966b5226a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_88.in.bin",
+          "sha256": "d18a4352e332b3fc25e3435f82ae1c986516c83a0811a2c9ce9ef797b539e968"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_88.out.bin",
+          "sha256": "1c94cc1d6eb6b225f8965f952bc4260eee19c3f1c87073151266964777a68996"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_89.in.bin",
+          "sha256": "6b2454617878c9ae9bc7094153deaca9785f2cd52e9cf9f902e34ad8f42309f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_89.out.bin",
+          "sha256": "5156f696ee18d2f4119907a1d4dc21dee293a51197ce010eed739b6c2d0ac2f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_9.in.bin",
+          "sha256": "68e2fad7b25d4f9d8605987b5d517fc2e842495c9689e1b367fc5d079b98cfe1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_9.out.bin",
+          "sha256": "a5d8f0700f7c996bc3b22187b831282c02abe7ecec1bc4300a1ac5b984430cbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_90.in.bin",
+          "sha256": "ab2b69ea0ea327539feafe712441a5d2269b5b3890030cee45b97c670dc03c00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_90.out.bin",
+          "sha256": "dbbac25d03c5c6e4ffff17a1a4fd4bc8818467c70405eb607806bd96508076e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_91.in.bin",
+          "sha256": "351d26c61dbc01df827a30dab394d0591bc2bee728c44e44a1da77f87839b9cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_91.out.bin",
+          "sha256": "146419d79dd58351f7dc1cb15f9fb35d704cbbd680a1ab09da6aa571db0b3182"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_92.in.bin",
+          "sha256": "b85318ad8579ae6f05641add6a2f3b967bb9e6eec6fcf4718ac52072eeec61bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_92.out.bin",
+          "sha256": "a21c1a36538aee4026e715ba4b1657b79e9b47a355b96beb4cf3a1af2547cdb9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_93.in.bin",
+          "sha256": "8995805e76c53fae1a75aa52f74f404fa420e1ea12e8aa1555d7e3249c689f90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_93.out.bin",
+          "sha256": "3856b81fca702a011e8280eac822372cd11dfa97a6aa47cd911aeddfd88702cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_94.in.bin",
+          "sha256": "8002890b995474082515169e899952897061fad8ff310e9aa2ab32f643144e0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_94.out.bin",
+          "sha256": "18a27b2ddb631e2671dd6df443e24a9d659737e7743397d341e28748ce3fe445"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_95.in.bin",
+          "sha256": "9709365173aae7c6737bb475690aababa0d3dc0665b1374feb1a3e4809f8351c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_95.out.bin",
+          "sha256": "d9836efbabf48d01bf068792633e435145e9ef54c3d8e37ef18b3217881c780b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_96.in.bin",
+          "sha256": "08d5010bc678c9a564daa2e909d73488653a3076df68d3f0a1b0af9b86513f83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_96.out.bin",
+          "sha256": "aeffac97203fb61b00417586e156fda8632c63e4565515cad4c548087f0ff36b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_97.in.bin",
+          "sha256": "8c496b5a291e9833af0705e70f06572b35ac2476d3191ce0201d81697e126191"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_97.out.bin",
+          "sha256": "4cec25d3680554806dba8605ef884279cc6e11ba1ff78ee0aeba691fb8dc5296"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_98.in.bin",
+          "sha256": "6e862f91762fa3ced6890f171e19b49ecddd8b26018eb40ff28e366db2f6e6b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_98.out.bin",
+          "sha256": "751c7c77c75eac3ca4598a8c26a7275046ed73535c1ebbc467a51c63890b8001"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_99.in.bin",
+          "sha256": "c82901c9eaef2a553475d90c729ed0bb58652d07fe7e2e9c81d16575e13ef21f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v2\\f_8c0ca8c0_99.out.bin",
+          "sha256": "81c5b28dcad9ac76b0898990f113c5ea4b566b48bab869f2e905b9d642086661"
+        }
+      ]
+    }
+  ],
+  "attribution": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\geometry_angles_callable_v1.json",
+    "sha256": "f126785f0196315c92ffaa0b97a5c660e139d01504df1efc203ae52fbbf951a8"
+  },
+  "original_caller": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\manifest.json",
+    "sha256": "2eae5a2c9684cd10c2a24b0b7f601a27f317ab221dbc7c8fb330bf8bb0c7ac2e"
+  },
+  "caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_0_1.capsule",
+      "sha256": "0aa0a665945622dddc7b071a17a3d8248d5246ac3e31cb075ad2fec671cabada"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_0_1.log",
+      "sha256": "e72e4d3d97c57ffd79bba7999aec6f1cbe08be6f357d95a1fd7094bfc40dc0fa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_0_1.patch",
+      "sha256": "24ee8475d5775a1d528f261aba1a53c53e10ef651f938f4bca6132fd6f93523f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_1_1.capsule",
+      "sha256": "061c79b69ebf962d1dcd0711c55e8ef5281116880c83848a70ee754ef50fd3e5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_1_1.log",
+      "sha256": "28bf8880e63ab6cadfad4b7580d664e5584a349a0380ed7f7779c5364e13a0a7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_1_1.patch",
+      "sha256": "cf2c31e62aa339e9ee77887f79216436dc5dff86542b19756455a37b68fc66e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_2_1.capsule",
+      "sha256": "6df3454e7a8b4baef54bba459aaca5f35fd28cd59a64238337101c887ba5ae1f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_2_1.log",
+      "sha256": "8c3df47f12cdac373052fd42d23b68619bb08b238b9986865081779167f01327"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_2_1.patch",
+      "sha256": "42f0a6ff0528f881fe93af2207e47dd47e0b3a9acd90d7684a0f2212116d9464"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_3_1.capsule",
+      "sha256": "2259ebcb5038b4560ece23d18156f78556967daeb5bc129e0144d2b1c2452b9a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_3_1.log",
+      "sha256": "a177ddf4d73c721579ea61f1e056af6c0f02f20f668a3f2ddf2bbb0d83d88af1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_28_literal_geometry_3_1.patch",
+      "sha256": "25a9d9f60208bd71d7a5903f433c18661e96506e7f50ab7f1b5d43ad4afd357c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_0_1.capsule",
+      "sha256": "a60707d7b4dcc7cef1b5dacf31ea2b0bcaa07d433905f23bce109c2f019d9f07"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_0_1.log",
+      "sha256": "1e6dddd45e1b703e07f2c46781f2b6daab4b9eacaacbe2f557db5d46ae6fe4d7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_0_1.patch",
+      "sha256": "24ee8475d5775a1d528f261aba1a53c53e10ef651f938f4bca6132fd6f93523f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_1_1.capsule",
+      "sha256": "3ab0349a2cfb119634dc40ccc0767cdd39592b8bda9d32146e07e72e480d36c3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_1_1.log",
+      "sha256": "260e83f9c27646058d97cd54dbbfd3f0d9b26fd38f38ef24b140e469faa1dbdd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_1_1.patch",
+      "sha256": "cf2c31e62aa339e9ee77887f79216436dc5dff86542b19756455a37b68fc66e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_2_1.capsule",
+      "sha256": "9f8d8a5140bc8fd20dfa35b9db74630100baa9d22cf2c1bcdd56f466220f647c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_2_1.log",
+      "sha256": "b3e476db10fc51f5bd74e2832463a9319298e225208c2899d7489c3ae4500605"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_2_1.patch",
+      "sha256": "42f0a6ff0528f881fe93af2207e47dd47e0b3a9acd90d7684a0f2212116d9464"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_3_1.capsule",
+      "sha256": "e4a831a9ddfbcfc0a763f1235c0cfe85bf6f8f08e66117545a3dbbdf84694f87"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_3_1.log",
+      "sha256": "cb12a68804e2d1a1ca87ab870313c8f0916223cdeacdb4146b7ec07cd2e3382f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\vf3_29_literal_geometry_3_1.patch",
+      "sha256": "25a9d9f60208bd71d7a5903f433c18661e96506e7f50ab7f1b5d43ad4afd357c"
+    }
+  ],
+  "validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_geometry.py",
+    "sha256": "a014e7900f664bd1290b415edea12238a1313942bee927d11b6d720ec7907d94"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_geometry_angles_v1_milestone.json",
+    "sha256": "80a2a026253c8f58186a95e91859db3680903d0b221e842fcd45e729d0fd8487"
+  },
+  "milestone_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_angles_v1_milestone_audit.log",
+    "sha256": "0317b7535bd5ce9a1724ccb0abc36f02868dc1496700f4adb07b40523970ecf3"
+  },
+  "chain_extension": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_angles_v1_chain_extension.json",
+    "sha256": "3eaee24e09562a137e8001a34561aed3f29125068a9e7a688f2da89940b43c64"
+  },
+  "reused_previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_secondary_v1_chain_extension.json",
+    "sha256": "83f6fe5f51afe419d7e6140b25ab861bb6f254056480ff1d451f83d62c3fecc5"
+  },
+  "previous_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_secondary_v1_manifest.json",
+    "sha256": "35be069a327abc8fc1904f36c5df29f09c6ccdc62295ccaf1a001fe71960ea41"
+  },
+  "regression_scope": "5 affected bindings: new geometry, original caller owner and three controller bindings; 39 native suites. Prior full repository gate remains historical.",
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_v1_affected_bindings.json",
+    "sha256": "64995f7215a2390eb0ce782b8627ec60a23f53a8e1305926a5659b21b276e5d0"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_angles_v1_affected_selection.json",
+    "sha256": "e6c352a850a913dc36caad23ea8fac9c63bda42aa8205ffb51f2b0754a3de00a"
+  },
+  "affected_regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_angles_v1_affected_portcheck.log",
+    "sha256": "921e87a07d379cdd5ad546241c405e125e168ea8c5c359780735998129daa75d"
+  },
+  "regression_status": {
+    "expected_bindings": 5,
+    "reported_bindings": 5,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  geometry_angles_qualified:0x8c0ca8da PASS   matrix_family: 128/128 cases match (0 skipped) - PASS",
+      "  matrix:0x8c0b011e PASS   matrix_family: 192/192 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3dl.exe",
+      "sha256": "5b1dfd24b8c72639c8df9d2b0f4cae18bc1fdd441536d73217f6d455eb55b506"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3walker.exe",
+      "sha256": "8bbdbbfce89352ba3a55380120597fc5275314a7e003561266e42142651dc698"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3mtmount.exe",
+      "sha256": "6477ebf3d87a9d11a1a3386fc1d49464ee6cb40f4c1f9bf3450649e1448c54aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3loop.exe",
+      "sha256": "7e0b9a4cfc62de081f8b46b67854ad223c789d8db14339b8a1a6757028246baa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3taskvm.exe",
+      "sha256": "1ddaa73754f3b270ad4d0806c3549c656905492aa59fb95a6a8e067cede2b5ec"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3vm.exe",
+      "sha256": "f7cf2ff3847b1fb325e27000327e4759423f131bc651ae387c75243439c3e884"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3frame.exe",
+      "sha256": "efe89fde6bcdacc9153fa95a4db29b1f05ce88e14aff7c58869276045f9c8883"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3libutil.exe",
+      "sha256": "71c08dafeda06e63c171222c3bfe339bb7e1be7f043d05d81638c6bd9d3ee416"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3orient2.exe",
+      "sha256": "1c77442fd0d5dcdd7a167bc4c5e3af98a3ef27cf6f1c7b4a0a1012c5ed9e0e6a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3poly.exe",
+      "sha256": "bab50aa137f1d851ccd36d2f70fd1a156cb3cb1d705063f793b3efb59a33c391"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3vecpush.exe",
+      "sha256": "943a1872047a13df0b93c4046a2ac4b19cdc99840cb2e44852f69bf452809fe2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3tailcall.exe",
+      "sha256": "aedd66a590776413c86f322508a6fcefc039fb86e99332803069a36b36c79a7f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3walker2.exe",
+      "sha256": "0493d8793c8e3deea11b7933befd22eb7e6aa354449262c7140a1e0535a4127e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecadd.exe",
+      "sha256": "1010d7d6361f0dfa40ec8b6a4dbec9e4afeda73ee6aa0127f8441248c2bc758c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3scaler3.exe",
+      "sha256": "460a5ce1447ad0a9d25c8b45a933c53dcf8925716eef9d33b2f33e12bb6959a8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3frameseq.exe",
+      "sha256": "f2fc6e77efe5267daa8b11560c1cbf692c250d7aaf9be91207337adc210816d8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3cbefc.exe",
+      "sha256": "b4e060d9d46fc0e24c1b44404e91d6c2fb56311929c4e319256c575f7820dff7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3f040f1e.exe",
+      "sha256": "277ffce2b2027ea9aa4f6e75e6839c6884185c0cd90e3d462c5421260247458c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3f0747d8.exe",
+      "sha256": "f694bd4fc6eabc5cb6cda259e5a7465eca4cc9f49b0eb69c6da7d7927e863dd2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3f9f6fc.exe",
+      "sha256": "8be64b048bc07cbaf880468c4f3a051176b8ed42fecbdb63f3a364fb22c1a387"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3f9f6dc.exe",
+      "sha256": "5fc808d435d3b5cfd7cb36f2967f3535261c1ee3e2b433b0758173a7be4bee70"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3cc148.exe",
+      "sha256": "80d084f355b7ccbfef6b5cbcd44d9e57020730b30c4538cf0613db7e4d92259f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3c5dbe.exe",
+      "sha256": "e40e05af8ded2b89bea450588660b6dd87074298eb53c0280e8679b9eb0eb6f0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3b10aa.exe",
+      "sha256": "30c64cbab173700c865513b77cf45d1d6903a7671cc71bffa15e9af5b6b75152"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3c6ec4.exe",
+      "sha256": "fc2dfde31848ee3177503bda62b552c323bdde8572baf03a89d509558809480e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3maplookup.exe",
+      "sha256": "adaf7349c1774196826d65a03df8b8ac4fbfdb194161a5979d88937b36338c58"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3meshnode.exe",
+      "sha256": "75e732db3c098f2116deea7de101e016303395dfe568dd959884fca0ffd5c29c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3d0fa.exe",
+      "sha256": "c98267e7385edab2d186c574b4f0b2615d3ee1a70d254ebab1c2fe9e2c24c50a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3c788.exe",
+      "sha256": "13e61f40d1d2fea9897a1775dbb4f950d9d246bed45238db2f04c6c02b6267de"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3f096258.exe",
+      "sha256": "fdde9353f1b876d4089fdd38463b75adc151c577abd62f3e610f16de3b9c099b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3matrix.exe",
+      "sha256": "f501550705898f1c45cd0a0dbf8683acd0c82e4b38f8c598a40d1ba9ceb22e11"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3bootmix.exe",
+      "sha256": "170be35baeb8f8a555f6d575a825ed96325355e2476a61426e7249228766a37a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecnorm070x.exe",
+      "sha256": "70bb554d1ea343581bdf9467ba3bae4e3c5fed01e975fd87a9031df50fbc72b9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "b379a8077c6a868b55377d83a3b2d02e7ccaf8ff62cc3abeeee547ef2389e3e4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecnorm070120.exe",
+      "sha256": "74282c8a2e385b431b2f72384b5aa5012d9cde0e67e9679436e6c392a4b07926"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "40d13e07af71014a54bbf8406be082a20901f31241c6f98a63693bab34e6ca66"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "2ede3946f3a7e3747622a0ee39b085efac23db451662e0d5d8cbaa5c19b35e73"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3fpu.exe",
+      "sha256": "50f1fe9a4dfc61056b938c7bbe5d59ece46e75acef69cd4b160335707d53462e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_geometry_angles_v1\\vf3statehelpers.exe",
+      "sha256": "8d509bfbf58b4b441ea5448800ad25f9f40f4b5b1b9183b2a1911dd60a7f21b4"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_angles_v1_tool_tests.log",
+    "sha256": "884412d9079efe45a3475b2f4297ca67c147273bb060bf4b7517a5d9946578df"
+  },
+  "current_bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "c5a2f5173aefe072f319e262a69fd936357777ad67452fc2edb455eb60b95465"
+  },
+  "diagnostics": {
+    "coverage_credit": false,
+    "failed_native": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_geometry_angles_candidate_v1.exe",
+      "sha256": "2de0645173c7b26bed1d0847bdf3c5e80e94bff9e4e445b1e608cb7b92f800ac"
+    },
+    "failed_report": {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_pilot_v1_candidate_report.json",
+      "sha256": "eb5bc604b31de9ae72bc17864d7a64a2e361936aac4814743a6e027c2c69360c"
+    },
+    "failed_changed_sources": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_candidate_v1_diagnostic\\geometry_angles.c",
+        "sha256": "831b837d0e5aa074268957c14d46a09d7d5eabbfaa9424405e57750242bf3e4e"
+      },
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_candidate_v1_diagnostic\\matrix_family.c",
+        "sha256": "0d3e21f3c347c294ba378f03a34cd5100e22df27f01f1ecd87cd1d05bd426868"
+      },
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_candidate_v1_diagnostic\\CMakeLists.txt",
+        "sha256": "6824de8026a3a462a47ba975b31176e1c30e165c1a7f51562d9ab6a32b5fb317"
+      }
+    ],
+    "unchanged_source_baseline": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_secondary_dev_v1_complete_sources\\manifest.json",
+      "sha256": "3fae7f06de826deb0b3634bd106b7e039a7471c01d91c5b074413dd37c3d1e97"
+    },
+    "intermediate_original": {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_quadratic_diagnostic_v1\\manifest.json",
+      "sha256": "066545d8d6756c349a8f49bdf7e47d1138d6854d7d5ee1ab155e60898f235423"
+    },
+    "earlier_holdout": {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_geometry_angles_accept_v1\\capsule_manifest.json",
+      "sha256": "c50524f0aa1e47b13393b1274fc162ab5d3188a4d145ad179fba78461d97e81b"
+    },
+    "note": "Initial C omitted the sign inversion of the second center component. Intermediate partial-call captures are diagnostic only. The final source, including its corrected clamp comment, was rebuilt and frozen as v3 before fresh acceptance v2; acceptance v1 is retained outside the credited proof."
+  },
+  "audit_tool": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\geometry_angles_audit.py",
+    "sha256": "a1f1b55c8d36b66942fdef04d563e9b8fb57763a620ca42840cba66ce9289bda"
+  }
+}

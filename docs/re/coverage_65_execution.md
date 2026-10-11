@@ -320,3 +320,22 @@ original BSR call windows. All 18 affected bindings, 39 native suites and
 leaving **23,243 bytes** to 65% and **1,510** to 60%. The new seal is
 `controller_secondary_v1_manifest.json`; see [evidence](controller_secondary.md).
 
+# Geometry extension (2026-10-11)
+
+`0x8c0ca8da`, qualified through full callable `0x8c0ca8c0`, adds **404
+verified bytes**. The two readable intersection helpers and full save prefix
+are completely exercised but earn no extra frozen-inventory bytes.
+Development/acceptance pass 128/128 and 127/127 valid cases; one acceptance
+interrupt is retained and excluded. Eight original literal-JSR windows,
+five affected bindings, 39 native suites and 122 tool checks pass. Current
+readable C is **259,688 / 434,656 (59.75%)**, leaving **1,106 bytes to
+60%** and **22,839 to 65%**. The initial sign-inversion failure and partial
+diagnostics are retained outside the final source/native v3 proof. The seal
+is `geometry_angles_v1_manifest.json`; see [evidence](geometry_angles.md).
+
+Static triage found sound-submission crossings in the larger motion caller
+`0x8c0a9036` and controller updater `0x8c09b040`. Complete-body qualification
+of those branches still needs the established live audio proof, so neither
+was promoted through RAM replay. The geometry family closes a pure math
+contract through its original literal JSR and requires no device substitution.
+

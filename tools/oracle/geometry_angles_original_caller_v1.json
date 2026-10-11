@@ -1,0 +1,124 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Fresh original literal load/JSR/callee integer and FR save/return windows after complete native freeze. Not full parent execution.",
+  "cases": [
+    {
+      "name": "literal_geometry_0",
+      "entry": "0x0c0b04ea",
+      "registers": {
+        "r8": 333,
+        "r9": 370,
+        "r10": 407,
+        "r11": 444,
+        "r12": 481,
+        "r13": 518,
+        "r14": 206766080,
+        "r4": 305419896,
+        "r15": 206897152,
+        "fpscr": 2359297,
+        "fr12": 1069547520,
+        "fr13": 1070596096,
+        "fr14": 1071644672,
+        "fr15": 1072693248
+      },
+      "memory": {
+        "0x0c531394": 0,
+        "0x0c530430": 0,
+        "0x0c530438": 0
+      },
+      "expected_exit": "0x0c0b04f0",
+      "budget": 100000,
+      "transfer": "0x0c0caa98",
+      "explicit_return_only": true
+    },
+    {
+      "name": "literal_geometry_1",
+      "entry": "0x0c0b04ea",
+      "registers": {
+        "r8": 334,
+        "r9": 371,
+        "r10": 408,
+        "r11": 445,
+        "r12": 482,
+        "r13": 519,
+        "r14": 206766080,
+        "r4": 305419896,
+        "r15": 206897152,
+        "fpscr": 2359297,
+        "fr12": 1075838976,
+        "fr13": 1076363264,
+        "fr14": 1076887552,
+        "fr15": 1077411840
+      },
+      "memory": {
+        "0x0c531394": 16384,
+        "0x0c530430": 1067450368,
+        "0x0c530438": 1061158912
+      },
+      "expected_exit": "0x0c0b04f0",
+      "budget": 100000,
+      "transfer": "0x0c0caa98",
+      "explicit_return_only": true
+    },
+    {
+      "name": "literal_geometry_2",
+      "entry": "0x0c0b04ea",
+      "registers": {
+        "r8": 335,
+        "r9": 372,
+        "r10": 409,
+        "r11": 446,
+        "r12": 483,
+        "r13": 520,
+        "r14": 206766080,
+        "r4": 305419896,
+        "r15": 206897152,
+        "fpscr": 2359297,
+        "fr12": 1080033280,
+        "fr13": 1080557568,
+        "fr14": 1081081856,
+        "fr15": 1081606144
+      },
+      "memory": {
+        "0x0c531394": 32768,
+        "0x0c530430": 3229614080,
+        "0x0c530438": 1094713344
+      },
+      "expected_exit": "0x0c0b04f0",
+      "budget": 100000,
+      "transfer": "0x0c0caa98",
+      "explicit_return_only": true
+    },
+    {
+      "name": "literal_geometry_3",
+      "entry": "0x0c0b04ea",
+      "registers": {
+        "r8": 336,
+        "r9": 373,
+        "r10": 410,
+        "r11": 447,
+        "r12": 484,
+        "r13": 521,
+        "r14": 206766080,
+        "r4": 305419896,
+        "r15": 206897152,
+        "fpscr": 2359297,
+        "fr12": 1083179008,
+        "fr13": 1083441152,
+        "fr14": 1083703296,
+        "fr15": 1083965440
+      },
+      "memory": {
+        "0x0c531394": 65534,
+        "0x0c530430": 1094713344,
+        "0x0c530438": 3229614080
+      },
+      "expected_exit": "0x0c0b04f0",
+      "budget": 100000,
+      "transfer": "0x0c0caa98",
+      "explicit_return_only": true
+    }
+  ]
+}

@@ -4684,6 +4684,39 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0ca240"
   },
+  "geometry_angles_qualified:0x8c0ca8da": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0b04ec"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9",
+        "fr15",
+        "fr14",
+        "fr13",
+        "fr12"
+      ],
+      "entry": "0x8c0ca8c0",
+      "kind": "vf3-geometry-literal-jsr-v1",
+      "literal_pool": "0xc0b0568",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\manifest.json",
+          "sha256": "2eae5a2c9684cd10c2a24b0b7f601a27f317ab221dbc7c8fb330bf8bb0c7ac2e"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_geometry_angles_pilot_v1/f_8c0ca8c0.cases",
+    "port": "src/fight/geometry_angles.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable two-axis line/circle geometry, distances and reflected angles. Complete body, literal-loaded JSR, integer and FR saves; independent relocated acceptance excluding one interrupted specimen.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0ca8c0"
+  },
   "matrix:0x8c03b450": {
     "golden": "extract/analysis/matrix_final_cases/f_8c03b450.cases",
     "port": "src/fight/matrix_family.c",

@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Two-axis geometry qualified (2026-10-11)
+
+Readable geometry caller and two intersection helpers add **404 verified
+inventory bytes**, bringing C coverage to **259,688 / 434,656 (59.75%)**
+with 1,372 bindings. Development passes 128/128; fresh relocated acceptance
+passes 127/127 valid cases, retaining and excluding one interruption.
+Eight original literal-JSR windows qualify integer/FR saves and return.
+All five affected bindings, 39 native suites and 122 tool checks pass.
+The gaps are **1,106 bytes to 60%** and **22,839 bytes to 65%**.
+See [geometry evidence and diagnostics](re/geometry_angles.md).
+
 ## Secondary controller merge qualified (2026-10-10)
 
 Readable packet-word +16 merge adds **64 verified bytes**, bringing C

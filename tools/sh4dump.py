@@ -14,7 +14,7 @@ import re
 import struct
 import sys
 
-from capstone import CS_ARCH_SH, CS_MODE_SH4, CS_MODE_LITTLE_ENDIAN, Cs
+from capstone import CS_ARCH_SH, CS_MODE_SH4, CS_MODE_SHFPU, CS_MODE_LITTLE_ENDIAN, Cs
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(REPO, "extract", "exe", "1ST_READ.unsc.bin")
@@ -39,7 +39,7 @@ def descend(data, entry, max_blocks=60):
         if a not in seen_labels:
             seen_labels[a] = len(seen_labels)
         return f"L{seen_labels[a]:03d}"
-    md = Cs(CS_ARCH_SH, CS_MODE_SH4 | CS_MODE_LITTLE_ENDIAN)
+    md = Cs(CS_ARCH_SH, CS_MODE_SH4 | CS_MODE_SHFPU | CS_MODE_LITTLE_ENDIAN)
     literal_regs = {}
     while queue and len(seen_labels) < max_blocks:
         start = queue.popleft()
@@ -147,7 +147,7 @@ def main():
 
     md = Cs(CS_ARCH := 0x0, 0)  # placeholder; replaced below
     from capstone import CS_ARCH_SH
-    md = Cs(CS_ARCH_SH, CS_MODE_SH4 | CS_MODE_LITTLE_ENDIAN)
+    md = Cs(CS_ARCH_SH, CS_MODE_SH4 | CS_MODE_SHFPU | CS_MODE_LITTLE_ENDIAN)
     md.detail = False
 
     code = data[addr - BASE:]

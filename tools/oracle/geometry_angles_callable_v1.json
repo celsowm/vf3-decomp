@@ -1,0 +1,28 @@
+{
+  "0x8c0ca8da": {
+    "entry": "0x8c0ca8c0",
+    "kind": "vf3-geometry-literal-jsr-v1",
+    "call_sites": [
+      "0x8c0b04ec"
+    ],
+    "literal_pool": "0xc0b0568",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "fr15",
+      "fr14",
+      "fr13",
+      "fr12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\geometry_angles_original_caller_v1\\manifest.json",
+        "sha256": "2eae5a2c9684cd10c2a24b0b7f601a27f317ab221dbc7c8fb330bf8bb0c7ac2e"
+      }
+    ]
+  }
+}
