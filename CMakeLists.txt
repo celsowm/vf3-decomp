@@ -135,6 +135,7 @@ add_library(vf3core STATIC
     src/fight/vector_sum.c
     src/fight/ring_bound.c
     src/fight/radial_bound.c
+    src/fight/radial_wrapper.c
     src/fight/task_driver.c
     src/fight/task_callback_selectors.c
     src/fight/resource_ranges.c

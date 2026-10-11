@@ -1,6 +1,18 @@
 # VF3tb decomp — progress log
 
 
+## Two-actor radial wrapper qualified (2026-10-11)
+
+The exact 32-byte scene-mask wrapper now has readable C. Development and
+independent acceptance each pass 128/128 cases, covering both two-actor
+calls and bypass. The 375-source freeze precedes acceptance. The affected
+binding, 39 native suites and 151 tools pass. The qualification proves the
+captured uncached standalone invocation; no production callback is claimed.
+
+Verified C is **261,452 / 434,656 (60.15%)**; **21,075 bytes remain to
+65%**. See [two-actor wrapper](re/radial_wrapper.md).
+
+
 ## Arena and radial correction qualified (2026-10-11)
 
 Two complete correction owners add **424 verified bytes**. The final

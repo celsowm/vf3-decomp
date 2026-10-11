@@ -446,3 +446,18 @@ Coverage is **261,420 / 434,656 (60.14%)**; **21,107 bytes remain to 65%**.
 See [arena correction](ring_bound.md) and [radial correction](radial_bound.md).
 The 32-byte [two-actor wrapper](radial_wrapper.md) is a following development
 candidate with no credit yet. The 65% objective remains active.
+
+
+## Two-actor radial wrapper: +32 bytes (2026-10-11)
+
+Exact owner `0x8c0cb65a` adds 32 bytes after 128/128 development and
+128/128 fresh independent acceptance cases. Both campaigns exercise its
+enabled two-actor calls and scene-mask bypass, with no skips or exclusions.
+The 375-source freeze precedes acceptance. The affected binding, 39 native
+suites and 151 tools pass. `radial_wrapper_v1_manifest.json` pins the
+preceding arena proof and full 60% checkpoint. The earlier wrong-alias
+candidate remains an excluded diagnostic.
+
+Coverage is **261,452 / 434,656 (60.15%)**; **21,075 bytes remain to 65%**.
+See [the wrapper qualification](radial_wrapper.md). The captured standalone
+uncached entry is qualified; production callback invocation remains unproven.
