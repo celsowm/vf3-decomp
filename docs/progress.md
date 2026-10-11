@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Packed direction qualified (2026-10-11)
+
+The exact 234-byte packed direction leaf now uses readable C, with both
+independent original campaigns passing 128/128 and covering the complete
+body. Paired floating-register entry mode is qualified; two earlier
+incorrect-mode campaigns remain excluded diagnostics. The affected binding,
+39 native suites and 124 tool tests pass.
+
+Verified C is **259,922 / 434,656 (59.80%)**, with 1,374 bindings:
+**872 bytes to 60%**, **22,605 to 65%**. See
+[the sealed packed direction proof](re/packed_direction.md).
+
 ## Structured wrapping and inventory eligibility (2026-10-11)
 
 The strict matrix route for hidden helper `0x8c09f6fc` now uses structured

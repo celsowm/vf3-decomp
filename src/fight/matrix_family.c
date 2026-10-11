@@ -216,6 +216,7 @@ int vf3_controller_port_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_controller_secondary_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_geometry_angles_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_angle_wrap_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_packed_direction_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_geometry_intersections_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
@@ -235,6 +236,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c09afc0u) return vf3_controller_secondary_c(s,ram,audio_alias);
     if(entry==0x0c0ca8c0u) return vf3_geometry_angles_c(s,ram,audio_alias);
     if(entry==0x0c09f6fcu) return vf3_angle_wrap_c(s,ram,audio_alias);
+    if(entry==0x0c05865cu) return vf3_packed_direction_c(s,ram,audio_alias);
     if(entry==0x0c0ca838u || entry==0x0c0ca894u)
         return vf3_geometry_intersections_c(entry,s,ram,audio_alias);
     /* Resource workers execute through the uncached 0x0c alias. Capture

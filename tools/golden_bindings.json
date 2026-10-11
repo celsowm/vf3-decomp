@@ -6582,6 +6582,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0601d0"
   },
+  "packed_direction_qualified:0x8c05865c": {
+    "golden": "extract/analysis/coverage_65_packed_direction_dev_v3/f_8c05865c.cases",
+    "port": "src/fight/packed_direction.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable packed basis transform and direction encoding; independent SZ=1 original execution with complete frozen body and strict full-state comparison.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05865c"
+  },
   "percentage-5914-motion-descriptor:0x8c0a8d5c": {
     "golden": "extract/analysis/percentage_5914_motion_proof_dev/f_8c0a8d5c.cases",
     "port": "src/fight/motion_descriptor_command.c",

@@ -358,3 +358,16 @@ alone can otherwise make a hidden helper look like new frozen credit.
 Coverage remains **259,688 / 434,656 (59.75%)**; gaps are **1,106 bytes
 to 60%** and **22,839 bytes to 65%**. See [wrapping evidence](angle_wrap.md)
 and `angle_wrap_v1_manifest.json` for the sealed implementation checkpoint.
+
+## Packed direction: +234 bytes (2026-10-11)
+
+Eligible exact owner `0x8c05865c` adds 234 marginal C bytes after complete
+independent development/acceptance execution and strict 128/128 comparisons
+in each. SZ=1 paired-register entry is qualified; two SZ=0 campaigns are
+retained as excluded diagnostics. The frozen native uses 368 compilation
+sources. The affected binding, 39 native suites and 124 tools pass.
+
+Coverage is **259,922 / 434,656 (59.80%)**; **872 bytes** remain to 60% and
+**22,605** to 65%. `percentage_packed_direction_v1_milestone.json` and
+`packed_direction_v1_manifest.json` pin the marginal union and full proof.
+See [packed direction](packed_direction.md). The 65% objective remains active.
