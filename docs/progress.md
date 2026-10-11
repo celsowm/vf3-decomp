@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## Polygon intersection qualified (2026-10-11)
+
+Readable polygon intersection adds **308 verified bytes** with 128/128
+development and 127/127 valid acceptance cases, retaining one interruption.
+Sixteen original BSR windows qualify the saved integer/FR prefix and actual
+stack-loaded caller arguments. All 11 affected bindings, 39 native suites,
+and 130 tool tests pass.
+
+Verified C is **260,610 / 434,656 (59.96%)**, with 1,377 bindings:
+**184 bytes to 60%**, **21,917 to 65%**. See
+[the sealed polygon proof](re/polygon_hit.md).
+
 ## Homogeneous point projection qualified (2026-10-11)
 
 The exact 126-byte projection leaf now uses readable C and the existing

@@ -397,3 +397,17 @@ Verified C is **260,302 / 434,656 (59.89%)**; gaps are **492 bytes to 60%**
 and **22,225 to 65%**. See [projection](project_point.md),
 `percentage_project_point_v1_milestone.json`, and
 `project_point_v1_manifest.json`. The 65% objective remains active.
+
+## Polygon intersection: +308 bytes (2026-10-11)
+
+Callable `0x8c06e056`, owner `0x8c06e066`, adds 308 marginal bytes. Full
+development passes 128/128; independent acceptance passes 127/127 valid
+cases and retains one excluded interruption. Sixteen actual BSR windows
+qualify stack-loaded actor arguments, ordered integer/FR saves and actual
+returns. The 371-file freeze precedes acceptance. All 11 affected bindings,
+39 native suites and 130 tools pass.
+
+Coverage is **260,610 / 434,656 (59.96%)**; **184 bytes** remain to 60%,
+**21,917** to 65%. See [polygon intersection](polygon_hit.md),
+`percentage_polygon_hit_v1_milestone.json`, and `polygon_hit_v1_manifest.json`.
+The full current inventory gate is due at 60%; the 65% objective stays active.

@@ -1,0 +1,24 @@
+{
+  "0x8c06e066": {
+    "entry": "0x8c06e056",
+    "kind": "vf3-polygon-hit-bsr-v1",
+    "call_sites": [
+      "0x8c06dfb6",
+      "0x8c06e048"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "fr15",
+      "fr14",
+      "fr13",
+      "fr12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\manifest.json",
+        "sha256": "0b7e6871a29e50befa518ac49460c2878286fb1009f9621ce71481cc428f8012"
+      }
+    ]
+  }
+}

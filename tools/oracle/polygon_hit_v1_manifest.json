@@ -1,0 +1,2704 @@
+{
+  "passed": true,
+  "new_bytes": 308,
+  "readable_bytes": 260610,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 21917,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_dev_v1_complete_sources\\manifest.json",
+    "sha256": "4b953909a5b625170ce0e7591969af6dd8e102db705dc63746394c0c68f7eaae"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_polygon_hit_dev_v1.exe",
+    "sha256": "899870511d5faf7ee8fa3cc06a82b3636b1120693d86c5a935a5c503b912b000"
+  },
+  "observer_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 128,
+      "excluded": 0,
+      "complete_body_bytes": 308,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\batch_manifest.json",
+          "sha256": "97fffd1770b6ec330066a12119dd3c0a238d438bed2be26d961a6b9c5355fa86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\capsule_manifest.json",
+          "sha256": "789972068302f6a2717d7ab7aa76d0646bd76ef9184152fb688955d87d47da8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.cases",
+          "sha256": "c674a91e922acc063f2a333184e6edb50bcf0a8b777f15e58fc5d6b2f5a2631c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.extra.bin",
+          "sha256": "719730ee5148afd13167833cadf9a1af4fe92339ef595f15e5f87bce5cd380e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.ops.json",
+          "sha256": "83f6e34456c7a1025428feb04eca04f4f637a0028cc7013833b4c3d83a12aa24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_0.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_0.out.bin",
+          "sha256": "a8b0661af1c0de8ad3da0485c230029557426cf9d64e8f0413f4e53f1a9ae8bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_1.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_1.out.bin",
+          "sha256": "e71a41b1cb97724fdf51613d1f16efdb3324fca2b96826f48ed62176a22bcd48"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_10.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_10.out.bin",
+          "sha256": "c767cdd972797c0233945da27ceefedfa026b8333c33329230aa91c5f8288c75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_100.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_100.out.bin",
+          "sha256": "e42c262103fc8984c509e7fdea291fce235d9821b199c706e3cf6368557cc3de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_101.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_101.out.bin",
+          "sha256": "9b347f46c99ab789e92b16f680dea25731d27abeb256f863553e62e57a30f795"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_102.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_102.out.bin",
+          "sha256": "1304eee533b56bbfbaab19e7a9ab5679f715d6aebb5f38885478f401ec684834"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_103.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_103.out.bin",
+          "sha256": "6bcfad31115d868498b59e72d382725678414848451f7340f9f8cf60950ddacc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_104.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_104.out.bin",
+          "sha256": "1fbf6b12e0aebea3e42b33d3412ef85ec0155e02eff3d1ee0961c64a37fbe4f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_105.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_105.out.bin",
+          "sha256": "bcf005c99655db7e81a4df024e390b8c0446ccef9d8958ec429e6f903fe13789"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_106.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_106.out.bin",
+          "sha256": "5869c9b62c6280e3538eab598c0e5191d1862e224572c72ebfcc8cc0362832bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_107.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_107.out.bin",
+          "sha256": "39c2877f06bc7807058d590e47804711a0295695bd0086bd2d65d7863bddda21"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_108.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_108.out.bin",
+          "sha256": "da70f4c6d6035c4d9e11f17d1f81fb3ec254c598be2120cabbc64289357a9274"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_109.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_109.out.bin",
+          "sha256": "005728e0385cdaa12b661bc7c52ca2ebcc0e9a44cdc598eb58c719b2a4511f57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_11.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_11.out.bin",
+          "sha256": "3a3954c6bcfc3741dd2c89ad281eda7e4b9fce4894d142a516bdd9ec8ed4eb62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_110.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_110.out.bin",
+          "sha256": "b996cd0cec4dac39a5ced8410f878a2bbc5c74e470394fd1babbef715e101676"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_111.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_111.out.bin",
+          "sha256": "8dacf6047426557ab38ad78ebc1ec71d5f382b76121d349725f67840e0a187d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_112.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_112.out.bin",
+          "sha256": "bb8aa97b37573544c74be4ee61b9468839e0cedb751f96ba14e16528df38b2a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_113.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_113.out.bin",
+          "sha256": "d73a632768f63691f87d3f9e1977be0ae42aa58f9f13551529b225bc3fd5eef4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_114.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_114.out.bin",
+          "sha256": "6a9790591dbb085f6a4e3ee9695c1ed8da0caa7954c24bda18572889a2471185"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_115.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_115.out.bin",
+          "sha256": "185d9e467957ffe91b2e45b2bfc618e0b27a5963f7da2d7da0e3039ceeb56a36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_116.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_116.out.bin",
+          "sha256": "61f37c747cff8f37b77e8fddd0ad6122bb34d303b90484814f501066bbd4cf59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_117.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_117.out.bin",
+          "sha256": "cd0c991576a47d14ddff98f20d2dce9c561548bfbfd1a859310424dd6074d92c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_118.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_118.out.bin",
+          "sha256": "9ee25670762b8d8a93115b06c06cf0033c964946094dffe5b26d4362a26a30e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_119.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_119.out.bin",
+          "sha256": "2654d7c3b8677262593ff0d71a783225aadd55d7d9c6ff57adde878de98a0a13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_12.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_12.out.bin",
+          "sha256": "14dcd7904ce238a04cfe9923e546a4c1a53a7f170c26a334a0fcb3760c3466d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_120.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_120.out.bin",
+          "sha256": "212edae35d906d34a4d1b67b3b95490b926c9f8fae64b69ee7cb731e7c43143f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_121.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_121.out.bin",
+          "sha256": "3e6264c5163adc3d904572cf844f87d05d1bbf490bf46baa4b62b43cee6b18b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_122.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_122.out.bin",
+          "sha256": "79687544744ebfd47fbb8590e4bb425cd9d72a1c07fc5bfcc2aaac1fb2c8e5df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_123.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_123.out.bin",
+          "sha256": "49ef7f25b1acbd0e6771575368a41ee99e5efe3188887fe8cf1c993a56e220f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_124.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_124.out.bin",
+          "sha256": "4b3275490a04f2edd6e6e9a0063e920ef98ed72196447ca8c5f048a0dcde22bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_125.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_125.out.bin",
+          "sha256": "43f919608ca04501918aa13f62078e28ff8663d5a86851f8e5182925dbf43a91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_126.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_126.out.bin",
+          "sha256": "c481c835ef130b909c6ebc87e24d93ab81a3a92782e3515605cf3ab4373f2643"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_127.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_127.out.bin",
+          "sha256": "55f601f641b408747c808979fb1e40392f597175298b948c39625bf1c99584e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_13.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_13.out.bin",
+          "sha256": "999c66b5acd0a687818b40e1183291f0e4a517a1be48ef8f5416f2c694fbf4bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_14.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_14.out.bin",
+          "sha256": "effca288e0847da3143452142cf7c8abc318ec0a5e5092ec975acf5d572f9fdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_15.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_15.out.bin",
+          "sha256": "10d49a31dfc53f75721b8170b007cc545c3c9452d695054aa88e7e41ef30e503"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_16.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_16.out.bin",
+          "sha256": "0895a7de4df7c10a043e47463208fa7815cac428b278a98dbcd61e2fba45d735"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_17.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_17.out.bin",
+          "sha256": "3b20970dfc319204ae4fccda37e2287f1ad402270e8c5bce109280aaae309714"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_18.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_18.out.bin",
+          "sha256": "82d5a62679d0098da8ea791c49665474b4df15c20ff9d96534c85919d02a5048"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_19.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_19.out.bin",
+          "sha256": "a01118ab54dc27ff8de9ee9533bdaa67abb5fb37f234921fcc74839e3b79e961"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_2.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_2.out.bin",
+          "sha256": "c992df7a115711e9f45775bcc874a00c597f23226eeea3b34ddbd2202283e764"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_20.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_20.out.bin",
+          "sha256": "f3157ef2fd6a74918022d363a05cff435b8094996f7368f5bc32274a1c966c27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_21.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_21.out.bin",
+          "sha256": "1123bb4086d4d0697675772f0d8e2a34a9815d0039e6cb53d83c5fca7b30e027"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_22.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_22.out.bin",
+          "sha256": "2c1de577748b22c261a69951554034816c329f5cc9f9a344fbdc5026f980fe98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_23.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_23.out.bin",
+          "sha256": "461a2d5c3c44876e45d50b915e254400f6f7b4737e39f62c1a68da995e4b6752"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_24.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_24.out.bin",
+          "sha256": "fa581b47edea81d5a0d9ad97b36f44da24b01b0eb85c2c4903a74e17cb026aea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_25.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_25.out.bin",
+          "sha256": "40d12ab6dd9677b1aaf0e7484e865e52cdf94ed59d7ec4bec56f0238c7eae528"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_26.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_26.out.bin",
+          "sha256": "9149fdceab111d5280f662e20e992732fb354583f14297f13514088a228570c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_27.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_27.out.bin",
+          "sha256": "548fb0fd8a09f9503aa9c27743bbe431f79bd86c6d643a552eeaf96529b959e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_28.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_28.out.bin",
+          "sha256": "c5dea9a59768dac65e2df73faacfb5bd2a7fd542f027177915c1e80efc9e5f65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_29.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_29.out.bin",
+          "sha256": "c24cdd10f2237bc460b4be5965a3e410db4e12ef5151ea804c1ea4736b8258cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_3.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_3.out.bin",
+          "sha256": "31c7086252db877bb2b12212089bba7ff9abfb0a264948f59673e68044f84f8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_30.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_30.out.bin",
+          "sha256": "1dc65c945ad64b76dced6dbe0a7206219dfa0195cd6e54f68ec96c96640726ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_31.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_31.out.bin",
+          "sha256": "b410d60f5d13cbe97e7e1f41b7d0f3e96ee3ee80ad52d8db799999aa5e25c733"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_32.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_32.out.bin",
+          "sha256": "89b02494c62e8254df62af3ff0d15d894ac5236590baac9d5a406d5224bee4b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_33.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_33.out.bin",
+          "sha256": "fe5cc0728c370007b321b42addf19834fa3ffde9492f0c22b48580295e777db2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_34.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_34.out.bin",
+          "sha256": "b9cdb40d1b3612ffddc988489773db3973067ae5b9d83b5cce486845b5d1bf65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_35.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_35.out.bin",
+          "sha256": "a6ef7ce48d127c691dd6dd063428faf7c5679b6efc7d6bd0844fb66a131ba183"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_36.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_36.out.bin",
+          "sha256": "8dc4a254a842514820404891faa64a1514dc148bf46805560aade966feb26840"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_37.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_37.out.bin",
+          "sha256": "5c1ec12c665036e43cd6c162bd418a4535ac699e8d004aa601a2a874693ac917"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_38.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_38.out.bin",
+          "sha256": "6426151f39b953fc3b20a14a88fdfbab91e87e5330aba68188e121499c8d0595"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_39.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_39.out.bin",
+          "sha256": "525d1e8e92e6f52d9dc94447e8ebfb5b420bec2ef0f472ff02cefc4cea8d3b08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_4.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_4.out.bin",
+          "sha256": "ac8e3e668913b8eff2ab6fad1dd6a315e25f7b56bc3bc716cb9fb1f009e3c8e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_40.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_40.out.bin",
+          "sha256": "c03bae54381efe9709bcfd8f79718e6bd04753d43c0d1362bc1d035373674096"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_41.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_41.out.bin",
+          "sha256": "1b0b851efe88d706d62028c12d1da17ddd1d863e3fb5efb3d3147ed8907e35af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_42.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_42.out.bin",
+          "sha256": "8e15b6dddb77df7d02fe0fc4212798a714c65f9985c0bf23699c117d928e3e41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_43.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_43.out.bin",
+          "sha256": "97b2c1def7922970a4f7c6d9554e5e0c152d60620ce6fdfce08472f4acf6911d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_44.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_44.out.bin",
+          "sha256": "3ccdc5ebb48b6e3b0d32c4b54747340b31849bc6d0a47dca63955f165f5c3386"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_45.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_45.out.bin",
+          "sha256": "9f06cc25ed0ecac8200ea4be67dfac618fabdbf3d9e38b89b2b54cebc9511b3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_46.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_46.out.bin",
+          "sha256": "1d7ae67f1d8f27a798fa651689235be297a0da02f12905884e7526f539e56e7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_47.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_47.out.bin",
+          "sha256": "048736148fbf09560d6d553ad9dfd7fbfd470b3a6e483e89c1f1b1d0793cd150"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_48.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_48.out.bin",
+          "sha256": "72940b6b9929578cc15fe564f45e3b7d6233cdcf7247b07c838073fe4f52369a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_49.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_49.out.bin",
+          "sha256": "d30f69a9aea122a0442fa38ffb70103ef04fc9d3682ce7f0884c5c9610ba3164"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_5.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_5.out.bin",
+          "sha256": "c4fd0e174ffe5d72f0efb9183592ac9331a3d726d99fb9c91122837b05d8e967"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_50.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_50.out.bin",
+          "sha256": "1e0d8ba60080559245f0dc15b1cac26e0fa6b845f9b315522b33f9c168d66878"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_51.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_51.out.bin",
+          "sha256": "949fe5124d5a5fa57f7a071c90c62fb81428de5318f0b9bcd8b9ee2f64062d21"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_52.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_52.out.bin",
+          "sha256": "78e210e0b2c6a6db4c196cafcb73442ba895b9509b2f3e4927f1dbf41413da85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_53.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_53.out.bin",
+          "sha256": "cb1696c4f6e2e46989e598c88041afb31b7743fa13db4251aee7b927e970c37e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_54.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_54.out.bin",
+          "sha256": "d725074ed2efe1fa7c98167bcb89de285cef267b59943eaee8d2b305418dc109"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_55.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_55.out.bin",
+          "sha256": "8286343102f4e9ee7175343b25bdd730e4c4eeb27623436884344c48f8ea52ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_56.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_56.out.bin",
+          "sha256": "52ccdef3d4e42c885da4b0f17a8eff090004d41921549f5638583ded03e8266f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_57.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_57.out.bin",
+          "sha256": "a77784643b78939fa23942a99a3ecf81d24645ff074ba97d2fed14056b3c9c51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_58.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_58.out.bin",
+          "sha256": "71026d43c58e2e6d53e3e4c55dc8b1d7b43f94755c0eec9925c91d04fffc27bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_59.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_59.out.bin",
+          "sha256": "c0621ebde689dcc54a722a1d0d0ff888d27b91f40aaec6c7a21a8549f566dbaa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_6.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_6.out.bin",
+          "sha256": "5de9b10cbf978470d7c9d8a185e14a9169f6dbe7b6e85bd4063d9aae56908db3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_60.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_60.out.bin",
+          "sha256": "f3ef26317eb62a2e7c007d3f38c1a4d365f455e8e4faea96d61fd66b0dc09697"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_61.in.bin",
+          "sha256": "efe848ff7705e15350d72834901da2a58559dc869a6150986c33cd174a6ec070"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_61.out.bin",
+          "sha256": "8c2bb14ca64620f2bb755db780fe13f8ae451c4c62a4004dbeaa0bb405949538"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_62.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_62.out.bin",
+          "sha256": "281a59e84fb0d4d58b546b86ae6a8a163a39e80edfad3f8643594faf32a84019"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_63.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_63.out.bin",
+          "sha256": "b90abb08d330fa406aeb636b73da076eab9b62f12577ed3b8b60ba6b50a6744d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_64.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_64.out.bin",
+          "sha256": "e173d595dba0d3ae882d0385843f5d6eb1805cae3e4173583630996b211d4d50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_65.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_65.out.bin",
+          "sha256": "e2d201f802c9d88a159443bc2df2b20551e6309ad0338f08f253001658cc6f00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_66.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_66.out.bin",
+          "sha256": "61f0975a18ecd120a105c8d83ebbfd66b513fa9fe810365b73cde078b890f02b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_67.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_67.out.bin",
+          "sha256": "c0bfd5497ca84ca4ddf2b3097fc2845fe39b36e24350c36b2bd41f4df476e57e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_68.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_68.out.bin",
+          "sha256": "1c142c4a1e9e791270a714282bbb9ac6242e2eeb18f1f62fd814195db5993d75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_69.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_69.out.bin",
+          "sha256": "6138e8300c329b965ff95f6a66c0b1fb90eaf44d52504f92c0426d13b4deee75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_7.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_7.out.bin",
+          "sha256": "df9e6d9a38a5652957fc05b16834639c0b822bec8b1a66e8d82f01dac4deffd9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_70.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_70.out.bin",
+          "sha256": "0ea012c67391e435e2f4fe643f560a5051cec1622dba871948990f2918d85aa5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_71.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_71.out.bin",
+          "sha256": "d0c7106ebd72429a031f449157c5ae6cfa4dcd5ca38b38babdec15b2830d1ced"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_72.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_72.out.bin",
+          "sha256": "5adcafcbb88a6c4fcba635a51c855ad419670f82876c7761acf1b66ece117a40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_73.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_73.out.bin",
+          "sha256": "e4f350116f4c0f5bd0dd67dbb2e72740579a698468c9d51f4e569f31e4c1b52c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_74.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_74.out.bin",
+          "sha256": "2c47d2bc9ffe3a693179031e671c7fcd6492775d4fb715804fb09450c0d8d094"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_75.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_75.out.bin",
+          "sha256": "a68447ecd7a4d2e2475ba958128803cf40b5457e46325474c845c8aef663e06f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_76.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_76.out.bin",
+          "sha256": "ba014fb6012aab53f50e0a69aff8e05e146014d855c1453c75adc5f093a06aaa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_77.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_77.out.bin",
+          "sha256": "1f8c89e0723cfe08ccc30fe8734a6da9f5bc525d2bc2f8cbc4f3c1c41d57ead7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_78.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_78.out.bin",
+          "sha256": "6cb05b570b931741f876b83371747f0693f0a5200251a0e34be41e94fbebc5ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_79.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_79.out.bin",
+          "sha256": "50124526b70a274e3c1ab14f215c9e304c538ef07be60ebbd189d0dc9aa2bdf7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_8.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_8.out.bin",
+          "sha256": "fd3139829b5835f4468fe58ff411c35391b630b8ae9cce55de93c300084d3729"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_80.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_80.out.bin",
+          "sha256": "34e231a961923d8db57127e6fd3538866c6510942024bce7c84cb5e6aef4b310"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_81.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_81.out.bin",
+          "sha256": "c9921752448deee536b2e242c2161356177c670fd1930e0dfc3787262719c6ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_82.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_82.out.bin",
+          "sha256": "f0ae7390cf5e008545d27a3a84812ef4c1513c7bf05709a612522466381559b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_83.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_83.out.bin",
+          "sha256": "32e791405d6fd4a6db4347e3e4d61c293cd0b7b54d314dd9783110cef017611d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_84.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_84.out.bin",
+          "sha256": "310b1327634e78bbe0759b9680fa762a6046e9c3255bf5ddb33fd093f892abc2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_85.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_85.out.bin",
+          "sha256": "d53a7965e41a1d4bb079884d5ad2ac652f488fcdd7151b14b148512a9721e997"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_86.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_86.out.bin",
+          "sha256": "b0660a10f544d325a8e48590c866c871c055d7bc6f6b4316422ea2a0d9a06a19"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_87.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_87.out.bin",
+          "sha256": "2b03240814ee16f1cf984f74a73267dbd4eb1f86902392c013c0246cc6ae03b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_88.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_88.out.bin",
+          "sha256": "bff11b699aa5c5a71a924178e4acaadb2bdaf032416406358889cb38c1e6f39a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_89.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_89.out.bin",
+          "sha256": "a5f004ede94390332c04e3fef98207efdda5e5d18241bb4ab1b667457f915a46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_9.in.bin",
+          "sha256": "70c7e08be64b454c20da89b642bebcca8c58890ef031a09c5a212bf3c99d62c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_9.out.bin",
+          "sha256": "1f0d9c6ddded455d6fc60a27aaeb7b3527f6a0820eaf3a586fb4a020d72e09b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_90.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_90.out.bin",
+          "sha256": "dcc118c89944dba82a334e3c5946cc1601fb9b4efaf90242e06c7ec958077d8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_91.in.bin",
+          "sha256": "8974788325d650bd9be4ea30c212b8ff6c2b462bfc01f645210089d0db093f02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_91.out.bin",
+          "sha256": "822dcb5d25d2f372dced4dfbe95595a8966b9369b874ee351ef498f375a9bf64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_92.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_92.out.bin",
+          "sha256": "ff19dc8ad6923e232142776cfcfb9f231df25349eb4cd5d8b414d4f603e1a3b4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_93.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_93.out.bin",
+          "sha256": "dc406d099479982f086b24775a09e812e1f816bde60ced1ae2c70cb478f2e1a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_94.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_94.out.bin",
+          "sha256": "6399bb5c40efb751f1458f98e72cd0de02d64a46ca1d5f2f192000fceb3231e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_95.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_95.out.bin",
+          "sha256": "1e893866eff3da353da08d59e5f92e8f70840f1f91d5a82493d1dfd134a301ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_96.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_96.out.bin",
+          "sha256": "649f9c9d580b7c6ee01113091e1b9c358053700abffddaaf7cf7c14945a9b39d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_97.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_97.out.bin",
+          "sha256": "46f14c1d1b6a99702dafe76357b90a9e1134d49ef3368af9cc54a22d72865bfd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_98.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_98.out.bin",
+          "sha256": "07bf1b25a8c03b62c3c4db76a0248251b5e9ba628e6fb57cc252c24cda6b1095"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_99.in.bin",
+          "sha256": "83e7d45f54ddf3cd03592807bdbd44aa4e0622cdcb9e1dab786019feb42374a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1\\f_8c06e056_99.out.bin",
+          "sha256": "04c2ff0192ff5348470dd135a2569050902f8a4d01ed51b69679ec18520ac235"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\capsule_coverage_65_polygon_hit_dev_v1_s21.bin",
+          "sha256": "7312e9dfe7d403bacd61a082c4b251edb2c451e8e84f7c96bed112970bf0d1a4"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\capsule_coverage_65_polygon_hit_dev_v1_s26.bin",
+          "sha256": "28cb45a03999546ea6d1c7be51b30ea8e0d90d1f4ab25a9554a6c55e829f9fc6"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1_native_report.json",
+        "sha256": "7664da4f5de6f92d14ae0b5e4ec6959944f47068b257aa80907d456e890477c1"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_21.state",
+          "sha256": "adb329aba852c8f9183ee9337b37a2338738e2682f5ab1a69c726cec3026ddd5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\golden_coverage_65_polygon_hit_dev_v1_s21.log",
+          "sha256": "88e86df696f387d86cee92b7622e301ad755075024eac3f483fbea4c78edc13b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1.patch",
+          "sha256": "c6014b66568e7226eee0f83507db86ab70370bace43379b6b5920d5801155cec"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\probe_coverage_65_polygon_hit_dev_v1_s21.json",
+          "sha256": "e0058b986bb5cc9354497ce1713da1bc8021bd7a1927a8a3ccd8aa1d95bd5c7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+          "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\golden_coverage_65_polygon_hit_dev_v1_s26.log",
+          "sha256": "527cf7710d6832e585f314af78d2752bb5c9b71f3a4c278185ef526e91c21bed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_dev_v1.patch",
+          "sha256": "c6014b66568e7226eee0f83507db86ab70370bace43379b6b5920d5801155cec"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_dev_v1_raw\\probe_coverage_65_polygon_hit_dev_v1_s26.json",
+          "sha256": "a8480c12438e7052b72b601268c33867b7afec2ef28f1030f8baf4fd099711a7"
+        }
+      ]
+    },
+    {
+      "valid": 127,
+      "excluded": 1,
+      "complete_body_bytes": 308,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\batch_manifest.json",
+          "sha256": "18359ee5e042dec75ac5d129025bbb395d3115fe223298b9c7f6ad195a740061"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\capsule_manifest.json",
+          "sha256": "9f15f9861adacc3a66100a68c749e96e399f44661753ea179ac78a42ec2ee3d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.bank.bin",
+          "sha256": "d741094c03e4fc37bb851c0f32e18a39ab047a9396a532bc50a42b379e7db976"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.cases",
+          "sha256": "9c156004e9145502a2289055504c855744f31d0c006ce6de2ca38bc74786a34b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.dev.bin",
+          "sha256": "64d6c19683061d281bcee4c3cb3fa451f3724613dcc114467cebfd53ee182e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.extra.bin",
+          "sha256": "310b0826c93352b33bfb68de0d8b5c80457327e87661632ce21f90dca4709fee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.gbr.bin",
+          "sha256": "b7dc9651495c70e6b3eb02c5e9540cdd3ff6e0c39a4b728b07e67412bba77dad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.ops.json",
+          "sha256": "83f6e34456c7a1025428feb04eca04f4f637a0028cc7013833b4c3d83a12aa24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.xfin.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056.xfout.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_0.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_0.out.bin",
+          "sha256": "5284fc78d1cb4852102820af6f2b329fb5eebb10c82a991efaf75a72eecccfa4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_1.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_1.out.bin",
+          "sha256": "92b70ffb7f16e41a31340fdc7d01dd6174ed8e38759934780ccd31d76410eec0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_10.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_10.out.bin",
+          "sha256": "a106ae4eb56b175dbc4f7817b86ea91873d87830f7a2121c368b09b563801cd2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_100.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_100.out.bin",
+          "sha256": "a06473eea620824a10f10569b8c8e734fabfbcd93c3952711d80cce15fbeea98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_101.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_101.out.bin",
+          "sha256": "7ac27dc4e796faaba29d98df4570eb3dd10509690db6bf062865a7bc5c0a8fac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_102.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_102.out.bin",
+          "sha256": "eed47023c046bff18f9c2a1380f1b37af1a042c987e8d977958bf6fa96d24a3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_103.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_103.out.bin",
+          "sha256": "0f7e5222234ac6d82e352fadef883f35baec26dc5ed77015ae420fb5a0a26e2a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_104.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_104.out.bin",
+          "sha256": "314708806b61016472b68f540a2ba07c783d80242b71fc05195452a02441bdc5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_105.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_105.out.bin",
+          "sha256": "098047636e74d0f355b6eefdc1a6890dc6be46dd157b0a6e0bd68d6e74a137c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_106.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_106.out.bin",
+          "sha256": "18148ac34476c0adc222023b352af11ecb9f54ca82821ef56386abc57cc9c566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_107.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_107.out.bin",
+          "sha256": "3d2af8cebcde665e98dcc3ab274aa7384e0482492f9d23b7b5d437a552ae2084"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_108.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_108.out.bin",
+          "sha256": "9b7e6d0b9b79b6f359ab202b150c72fe5a9a71880289606e9f50efc40fe0d758"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_109.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_109.out.bin",
+          "sha256": "7791349e6c5993211284693e557f5b06d7858fa02fc52c0420ceaecf7a9d8970"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_11.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_11.out.bin",
+          "sha256": "db360aa66976315869a3625e007e150385e68bf05f848ed70b1cb60e4d8ece46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_110.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_110.out.bin",
+          "sha256": "04d964b610995b51758acc1ca08f15ab6a8cf7fa6e22e2baaa8800b29e4eac18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_111.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_111.out.bin",
+          "sha256": "543c1537241c32f5ba8f83460acde6233e7f79b568afff55ed33be7557ef98f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_112.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_112.out.bin",
+          "sha256": "c99bc0ffb3f976369a1ef081b9f39e59fd95b0baefa663af4bf74dd1a9eef67c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_113.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_113.out.bin",
+          "sha256": "f170c20c16acd39b1d123f31af2c826bb6f322b04abf761b8f12c152b436dd69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_114.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_114.out.bin",
+          "sha256": "182820d2e1431e44979637c511451622937871e43357a2be6f87c262706f0269"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_115.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_115.out.bin",
+          "sha256": "7aba3dc083a9e5469dd2c0de54b01cc76457ae210106514ca6171d1e2bda5244"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_116.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_116.out.bin",
+          "sha256": "43c3f2378cc2b3ef8042b900793f127ce33f53350aeb3497fa826fae68824dea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_117.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_117.out.bin",
+          "sha256": "dc7de0cf1f9b701ddc61fb6c7ae32639e94b119f84718e9315785f435018e9a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_118.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_118.out.bin",
+          "sha256": "ceaea306b57a35deab2f95c71f227543b26c4866b9220441f781465fe3627ee9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_119.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_119.out.bin",
+          "sha256": "de4cf1e171bd3c82be54eb2d78cd649da3d00473faa3dfdfde62b599e6cbc3a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_12.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_12.out.bin",
+          "sha256": "d3d19020065e066b652edbcba4b23a7656838f2502f1b1732be039e57cbbfdaa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_120.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_120.out.bin",
+          "sha256": "0dfdbfbe7d7660173dd89c1e6208e5f85188ccd911586ab382198428a5689c0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_121.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_121.out.bin",
+          "sha256": "cb7d8b9dda4cda482a058877e14317b31c0745834557755f76802b13ddf07a56"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_122.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_122.out.bin",
+          "sha256": "48cc0c151d65f95890447eeb532e2e811a349f286a7aa8fe962be25797739ea6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_123.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_123.out.bin",
+          "sha256": "4252d41f6b500cd5ff67db2054b7d111a89f2f707659596d8b1b7a065f5078fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_124.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_124.out.bin",
+          "sha256": "220fea24f56c5fc97e26a442d4b46479f383b6fe98fa4e5db34cd72a77bf8668"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_125.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_125.out.bin",
+          "sha256": "9e1a51b30569eda7d39e10d21ac46febb2e49e66f6325c4704123c4fab0718c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_126.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_126.out.bin",
+          "sha256": "c0f2767cf90956fd0c5b6b1d4c8f4fab6d9a95372b50ba0caf0b474d9a56e3c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_13.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_13.out.bin",
+          "sha256": "6eff88377df6b1f4ff3700ceee1bc4af9ce72aa94ce4fe4bbaf17d9458020360"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_14.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_14.out.bin",
+          "sha256": "8003ec79b0aa395f618c583d9da6506bf8f75a1a4e8499033235a7da73631021"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_15.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_15.out.bin",
+          "sha256": "987599ffb318463938ae1436b40c8586b647f1e318a323bb249db475e8c62faf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_16.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_16.out.bin",
+          "sha256": "41a8deddb59628d7c7df4304577724e121d88ebf67475426b2dd7df52edaebed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_17.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_17.out.bin",
+          "sha256": "2f25b88cff35f251e3cab18b240dd7420c2a7792c7ed7d2091b6a7060830a14e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_18.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_18.out.bin",
+          "sha256": "61b44286ddf1a03cc761e86e5416db9e2a315e5bd393617e34efbd7cbac42e92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_19.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_19.out.bin",
+          "sha256": "4acb5f8b92ccd3ad54ca4082844239c882b2fe487fedd39f0f5537e29a1ded6c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_2.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_2.out.bin",
+          "sha256": "e921e106aa0b3e63c2cb192f9f1df5cd139eef82283b9199c5f18c7166d843c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_20.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_20.out.bin",
+          "sha256": "ec23ff6961ba5f0eed1d3c1d67b8555567d85164a67b30ab105aa93b7486203c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_21.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_21.out.bin",
+          "sha256": "9e68074aafde0a7df2b95c4acc98698346a3c12cf71f82c358f6475b09c9456e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_22.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_22.out.bin",
+          "sha256": "bba23fd2dbbc8ff7907d132b387d5e6a0ba0e9f6f579d24ad93a85cd6552e52a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_23.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_23.out.bin",
+          "sha256": "98ea45ca4b8fa7cd6789bc24da61e21e5812feb839f3318c6df0c1cdf4e61857"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_24.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_24.out.bin",
+          "sha256": "bd21d01f560f3b94705b40b6f2b13fec2db96e47ab564494fca4ea344ebd215a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_25.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_25.out.bin",
+          "sha256": "d3b5915489b32b78296a95d848940660eb125600335b6fe2f9409d859dfe701e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_26.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_26.out.bin",
+          "sha256": "aa7c88911d1a0b78868d92055e984948bc6a4a16dd5e415a98433c93beb2b494"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_27.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_27.out.bin",
+          "sha256": "181b6f40751a8288b39a02047f1e9d4f817c567492998ac27ac010764d406c77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_28.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_28.out.bin",
+          "sha256": "5eb4624e5a3b9b9c05ffbd3104cff1c34b5ba3f95ebc7bccef566cf318f232c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_29.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_29.out.bin",
+          "sha256": "b433fb227cf3748c6a05abcad1bbb839fd5b6ddf9a7b2f16379d2f0154706655"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_3.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_3.out.bin",
+          "sha256": "e2a8be48ff9fcbdd974e91a0e7a78eaa23a898e633ae8ebf06aa44bf625e33bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_30.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_30.out.bin",
+          "sha256": "f355f7e50b26e062d1297c1fa73dcf347067c253b50e6ac95516626cfa795255"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_31.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_31.out.bin",
+          "sha256": "3380fed8a6772000b7bcbb38c906b9a3fd9b980532790f7113ba2d6c5bb1c9e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_32.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_32.out.bin",
+          "sha256": "37a15ac95cee001e6b3bb626e2671138ba39d9350b96d76914f139d9aeff1054"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_33.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_33.out.bin",
+          "sha256": "35b58d6dd7702bfb9b359de923121d6cdf3bf45492baae1f637f94b00cdec1bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_34.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_34.out.bin",
+          "sha256": "06f1d1bb7a4e0561215e365f02c75caad9c7ec20945bc2657e7f0538f1bf6e9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_35.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_35.out.bin",
+          "sha256": "82dc18caf756f3107d54a15c14f533234dfc56a320a739dd04d87e738328e997"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_36.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_36.out.bin",
+          "sha256": "6ecf4b1280f76b58d66dd8bbc32b258a330f0373efb972e0e073a880a5c5e32a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_37.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_37.out.bin",
+          "sha256": "67cadc948d7b43448da99d02d6d6215407af5244bb589d53a2a09b0745adbd6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_38.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_38.out.bin",
+          "sha256": "2867f262ae8598e47f5ca29ee854800f006b1e06293b232a71cab0c5d29a63c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_39.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_39.out.bin",
+          "sha256": "ea257d0b3a13b032299cc646b43045bee2fef340c3bee8df851bf98febc09aa0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_4.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_4.out.bin",
+          "sha256": "683bfa278f2bdbd0a6801a6802617c432f1e0317eece0910f19c228aecbc319b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_40.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_40.out.bin",
+          "sha256": "408a834c3322691cccbb4eccf5b7517effedb99e6645079a391abf04957df6ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_41.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_41.out.bin",
+          "sha256": "5f42a011eb2dbdd848f4968d4d8c9e939c8becf94c8c197ea3973ac9d04d32bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_42.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_42.out.bin",
+          "sha256": "33f34bf2fe3888cbce38362777b76acd37b5098884197fb7c246f87fd3eeb74a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_43.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_43.out.bin",
+          "sha256": "e83814769575737ba8440f6de4baadd248431a58955420f1fd87db5ddeb5396d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_44.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_44.out.bin",
+          "sha256": "358f1e6068a97264f38acc07010ec58c43943917aa5fd64553cd60350badea3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_45.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_45.out.bin",
+          "sha256": "4f45fd87d6ab72d728fef474d9847445f09a02d869d18ab2fb0c676299e4138f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_46.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_46.out.bin",
+          "sha256": "92c580527bd0fd2b1ac6ce7a334b9afe3f2173158e7970cb52c499ecd01e54fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_47.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_47.out.bin",
+          "sha256": "8d256162ea07eddb826189fb685eab9e5e0051c1e9b2bab6520c5c8365080d72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_48.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_48.out.bin",
+          "sha256": "131331a3ae0eb64de71d313adb07ea939a479c836d4ba475a2099a5bda39c3a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_49.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_49.out.bin",
+          "sha256": "3aea708d0d19a879c31101d9f5c70704b6f48cb70c17c1d82afade81bea31db5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_5.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_5.out.bin",
+          "sha256": "3f3dc26ee41ca044eb795feeb533418b497fed6942c132edbfc7e90c75cb9e82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_50.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_50.out.bin",
+          "sha256": "cbec50e7cac61caaca3e3d9b130099c2cc624669538ad8d7ad5add264a1bd985"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_51.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_51.out.bin",
+          "sha256": "67da98c11973448609f34d670e157992f85d4d432cc9416b00c687eedc3eb694"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_52.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_52.out.bin",
+          "sha256": "66da814a7c8af57e4a8aa2e2f8d87ae6d530a6c1b0a00d419e05fad104bdaf53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_53.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_53.out.bin",
+          "sha256": "8c8679a86ab3030cf7da80e590fca970f314cb129a165e93b290ee2bfd3f5d2d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_54.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_54.out.bin",
+          "sha256": "2997b3e300bbec146eae1477e9f2a77a32ecef4f20d5788497d74ef3d24027e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_55.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_55.out.bin",
+          "sha256": "91b415c226479706197adad6ecd33ecac5194ec34b48ce376ea33fb11dc017d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_56.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_56.out.bin",
+          "sha256": "502ef1a15a8b86baac6c0001dda950969b329f54c012d7dfcb5bf2416340977b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_57.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_57.out.bin",
+          "sha256": "fab55025544539a4adaab301112789afd676c10652ad938b357dc903d52b926c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_58.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_58.out.bin",
+          "sha256": "9ae0cff60fd649956dffa638b80df24ba48c91b54d359e36d535bfcc5fe8d1c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_59.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_59.out.bin",
+          "sha256": "2ad9914a64bdd89f1775ae288d2856f823d489259e5976d28111e8703d59a6bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_6.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_6.out.bin",
+          "sha256": "b51d8cfc0d0f5562962e0bc6cb6269d1fbc6d7b1d30dd47de8dec84cb34fb4e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_60.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_60.out.bin",
+          "sha256": "4b56acc4301f63a70e37b1a16a644a52776725d898b88f704323a209a70b1908"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_61.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_61.out.bin",
+          "sha256": "bd77d5d5effc44ffb2df61f11a017c6220013fc57db5c4e43fd69cbca864a1a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_62.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_62.out.bin",
+          "sha256": "e98d8bc1ce996ec8620fa2db7a7546b8d75bf9ec8547fbb48a2f988e1743cd53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_63.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_63.out.bin",
+          "sha256": "1981f24e91b57ee6050a07ce8349758a7739a0e6a8e490deb5537dafa853f1f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_64.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_64.out.bin",
+          "sha256": "6a3c9fff93d2cdeebf86a643b6b2912762d89c148008672ea044f2217d02ab64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_65.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_65.out.bin",
+          "sha256": "97d32d7ddf8997ef3c669ba2d18ac8766f8056b2180371182856589148340f97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_66.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_66.out.bin",
+          "sha256": "5eb8fba0706d0748d21ec05fceaf78a0c88ece00b44c7dc450d0b6a3e3a5dd18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_67.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_67.out.bin",
+          "sha256": "6a5ec2e9246789616d09111ab688e631c9440ae6169125548a930c2c3ca2e12b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_68.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_68.out.bin",
+          "sha256": "4e987cfc6ee691e4042755913f4e3da0427e0d3e2de88245acebff61d6bfcb55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_69.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_69.out.bin",
+          "sha256": "08a843f65c39b7ef044d1e70f55f6f409a6b0a3f27ecbeab9dfab215822c2f0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_7.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_7.out.bin",
+          "sha256": "cc27382b0ee73daffb59085afd98dc413ef44fd3a6b18a527c310f9cbdca1af8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_70.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_70.out.bin",
+          "sha256": "33ee00244c0eea442f4ec15f0ff7eb2878027ac2dc61cc1ba67ee850f59d37e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_71.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_71.out.bin",
+          "sha256": "ef58912c106ad7a1ded5fa5163dd8ff77f15856852860f049a21cff55a778b57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_72.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_72.out.bin",
+          "sha256": "6475e0650518448fdf99fa07233a2fe5dddb1aabef72afaf3278af21b1537d01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_73.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_73.out.bin",
+          "sha256": "a9ee18e7bcb54d8e9b90b6af6f1ac83a07837275d21bf84df3f04164bdf5d16d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_74.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_74.out.bin",
+          "sha256": "bad769a4f8461f292f8ff984a78f5c44d2a935f315e6c6fb818c4af71b407d62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_75.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_75.out.bin",
+          "sha256": "b0d7421e1f323b3cae29db53463aa6e3011f2b1abbb81d0a81b6ccc29d718d00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_76.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_76.out.bin",
+          "sha256": "fa68d33cb371b131c2c55ee181a6f15e2d66acf786070564b9549b4af4b057c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_77.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_77.out.bin",
+          "sha256": "d654cd0a3f0f989e6dd888ced6638b912cfce24a10504f017c68158fd14aca96"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_78.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_78.out.bin",
+          "sha256": "c550768b1b88d40660b8235dcd2be4b170f24a78ca266f9d4209fbeb949bf71c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_79.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_79.out.bin",
+          "sha256": "7f2c1fbb1f431a69352c7fff7c49e32cac3db216bb5cd194078749bbaa65d7e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_8.in.bin",
+          "sha256": "bf7f4d63ed18d09491d2abc307f6bc46c4332cf1deaafb9690df428d22dd0b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_8.out.bin",
+          "sha256": "3324e01001a26a5e7b25f17990a42cfb8f790ffffd645d64a44e2b3b9c5e6b00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_80.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_80.out.bin",
+          "sha256": "358d1b7031ce24b33f5ee14c2ce451284276baa1425d21515c4d3eeb7dd0b0cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_81.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_81.out.bin",
+          "sha256": "53869873eb79d78e20a1e416d703cb393ab07b19ba83253ea44e1a4d5b1c8c9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_82.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_82.out.bin",
+          "sha256": "0f37aa9d5db0fe78a979c5b1b4dff268510432a9d91dd5cb9e0f79e459f7e93e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_83.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_83.out.bin",
+          "sha256": "184f03972adc92b4a2d426cc302cdeb3b9ae7f54d98c2b989834441ee977a180"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_84.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_84.out.bin",
+          "sha256": "d160965159df108a679741ba2b014e14784d0ee20ef8e637eecc458e06cdc606"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_85.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_85.out.bin",
+          "sha256": "179a4189b94fec91cc4786cc5001daf6c7d91579b1673e0f2ce3b180d7bcb8ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_86.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_86.out.bin",
+          "sha256": "a94dfb39907d00340fa15f3da2718ae07ef0190898076c9e0cb6331538798d39"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_87.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_87.out.bin",
+          "sha256": "51cda7275990c70b2a463d2e7b28d51a064ef3c3349834445d187325f1440da2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_88.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_88.out.bin",
+          "sha256": "9e438edbf505bd5a2cb82de83c7dc63c521800fc635e0c39970e610b182cbe69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_89.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_89.out.bin",
+          "sha256": "bb29d07d7d15f62859ee324e0b241a8c1dfe7b9588d2182862090b1b58038845"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_9.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_9.out.bin",
+          "sha256": "04b0f291b66d7662bc1133bf069894187ef7c5d9187205d60d1bb421b5153a0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_90.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_90.out.bin",
+          "sha256": "110c10af62d84f0e122f0f9343c57c6735820697fe679d244a04e6008d015dd4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_91.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_91.out.bin",
+          "sha256": "9fa7ba3116dac330aa894f3e0e2ac283bdf98de026c030727b5ef6e7a62259ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_92.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_92.out.bin",
+          "sha256": "b6af299c0afb6c03c15c646c1d6bf2072f5555b144978cfecf7c4e364b1727ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_93.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_93.out.bin",
+          "sha256": "ef890d88c9d135056d719db66dadccb910adebb4446e0b39689d97da69980abf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_94.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_94.out.bin",
+          "sha256": "8e6ea2fc4075dc876c7de700ac3c4f07957e277e4437cdb12f53c035bb634e8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_95.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_95.out.bin",
+          "sha256": "7981d3951a2d55394c27b466b93a0b008ed8e2bb39187fc4c468b92c8833e115"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_96.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_96.out.bin",
+          "sha256": "ee299274d9b9d229a6f580417850e5e7d1e2b99da3bb7486093a431a9b58ce5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_97.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_97.out.bin",
+          "sha256": "e873a69a91bd9cd3ef8e06b25f9c4187b73bf6c5f2aacb9c9c4ad599d1f057f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_98.in.bin",
+          "sha256": "b9014516aa009fcee340ecfb1822cd89772af7605e21a11774807a2551ec0357"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_98.out.bin",
+          "sha256": "3185dd571508182449adb03de3031d65c819f97798607e00fff403880f14717e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_99.in.bin",
+          "sha256": "fbe9905816c9e173976f7cc458af0b3faee8d2107024cd9a04550694d6cb7c98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1\\f_8c06e056_99.out.bin",
+          "sha256": "2dac258bacde9f8be934efa5aa27ff5d2967d6c32bb0b53f81447b931482d573"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\capsule_coverage_65_polygon_hit_accept_v1_s28.bin",
+          "sha256": "90df62ece6394a2a8cad45daa639fb4188221226142330f715d2130c0501faaa"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\capsule_coverage_65_polygon_hit_accept_v1_s29.bin",
+          "sha256": "3840fcfe23d0c8c37a280450ea42ed0b8a9c5a5fb656b9137f621f7b925fa270"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1_native_report.json",
+        "sha256": "fe0caef8f53ccab162eb2495325182fd171fd5677a15105be4b67dcd12f3a999"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+          "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\golden_coverage_65_polygon_hit_accept_v1_s28.log",
+          "sha256": "ee3e00aa87158399e8a202b573c2b758d9290128e362469ad1fbd38738f63c42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1.patch",
+          "sha256": "4e509445ec441830632e25500454e9db87bfd49892c9f76bf6f23f9415302f3e"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\probe_coverage_65_polygon_hit_accept_v1_s28.json",
+          "sha256": "60266ac147ffed72fa535bb08af3c3e46e90fc376fc0e056b0febd7943b36aef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+          "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\golden_coverage_65_polygon_hit_accept_v1_s29.log",
+          "sha256": "f5ba16450848f9af3d2ad9b8ff9d2c0209fca104fcc0e49e8cf9c19ae0fc90c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_polygon_hit_accept_v1.patch",
+          "sha256": "4e509445ec441830632e25500454e9db87bfd49892c9f76bf6f23f9415302f3e"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_polygon_hit_accept_v1_raw\\probe_coverage_65_polygon_hit_accept_v1_s29.json",
+          "sha256": "8f5cf93afa60297cf12ffb2d57c14443e5b5cdfd7c950f74d840e9b290f1e29b"
+        }
+      ]
+    }
+  ],
+  "original_caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\manifest.json",
+      "sha256": "0b7e6871a29e50befa518ac49460c2878286fb1009f9621ce71481cc428f8012"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\polygon_hit_original_caller_v1.json",
+      "sha256": "9133565eaf114ec208e46e88db802bfe8779de1db65386c27033ee25159098ee"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_0_1.capsule",
+      "sha256": "8b7b510b12f04ab8baeb7dff70a55e2ab2a965d8d97377590f3392f58ac7cc84"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_0_1.log",
+      "sha256": "4ee00d3734e836c8c8e8afab401926c0384f7e9e53d2ba7f273b3fb61b5f086f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_1_1.capsule",
+      "sha256": "a0d7cdbf44c0d120277a9b78a7688881de2f77a3050cba89de4247b47d9c34a8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_1_1.log",
+      "sha256": "ef9392eeeb4958ce99beccac96504a89da494ba1437189b350ca4d969d40b16f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_2_1.capsule",
+      "sha256": "7fb6be317c4cb3f033f37af08de4d9f5b21ca930393e9b2316933a8d2e9a7d6f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_2_1.log",
+      "sha256": "68bb38d07cf9099a7be24e114ba809ff053301c8f03c414169a11420d759aa04"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_3_1.capsule",
+      "sha256": "b0dfcd215e967a7561833b388b91294853b5488a996cfc5d1fa79d2a3b0e99a1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06dfb6_3_1.log",
+      "sha256": "06445d4f186a874501fc962ec9a1cb6e8153887263253df1ae796d822ef5ac79"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_0_1.capsule",
+      "sha256": "63aaf417f15bef3c663ba5b11a380ef3411e4c3fdba9f05e9f72b746989b757f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_0_1.log",
+      "sha256": "9abb426bb52d271a141497639e34d394026854cb1dc171b3e607d78c7f65de84"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_1_1.capsule",
+      "sha256": "e9d5d3fd386eff6c095da85f29d014f80d7b9d4de59cbf4661253c8059e5b743"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_1_1.log",
+      "sha256": "6a9a244ac9770e08dbbbcbea44079632fe30eb886558c55bb20f496fa65caeff"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_2_1.capsule",
+      "sha256": "37d05342d3c78c5e5b04554b79fb7eea89fc131578da70ac537fceb44e51ff24"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_2_1.log",
+      "sha256": "8fd85a417f4292fd9f3cf3b8d1ce6707ff0f13ef5b74e4f9203ae6958bb46310"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_3_1.capsule",
+      "sha256": "97fbd0ffe6d3dfcb0487c1c3ad9dadc13ee059c43dbc56abb4ee3d6bc8c651bd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_28_bsr_0c06e048_3_1.log",
+      "sha256": "f844e2e8700325364d8dfd08d9f02ad00b9053f857eee7cd4eb5e0d771663129"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_0_1.capsule",
+      "sha256": "263e597278e3ca4152df849226df8a8720019d75a8d91ecc4c63499bde0a5289"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_0_1.log",
+      "sha256": "29e8659c296381aef49582d5c0c95523a816f617571949e2030e07c0d6e5a71c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_1_1.capsule",
+      "sha256": "f6041104957d03623449847c1c314c6dee194a0ac821cd32012aef2b8c6748bd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_1_1.log",
+      "sha256": "6ca6ae49e30600164dca3dd674ab055bafaf4b694fc28752eb1811a362095cb0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_2_1.capsule",
+      "sha256": "5db230bcd8e4a8730f20cd96f4d8c13c7aedfcf86fda92099bb7e0d4c11ee308"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_2_1.log",
+      "sha256": "3d6f8e1c4136a4807403b84b7123736e2f96c74c7bbb83f3b0ef8b78c097de6e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_3_1.capsule",
+      "sha256": "5f346ca33687e02fea89557cb1ad292d0c528ccf013ea33cf3275f5f3e6dbe4d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06dfb6_3_1.log",
+      "sha256": "bc4d8a3b827dd11316f1bbce09592a3acd1e32f81fee71f596e509547cc3ff2b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_0_1.capsule",
+      "sha256": "e20d36dbd9eb334d892f8544eaca07b6bc1168d6ae18365d7a5fcf27df34638f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_0_1.log",
+      "sha256": "32a0f16cc031347c2b52d8aefb847e4088423f11a29bb5770646c3d8cf679c78"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_1_1.capsule",
+      "sha256": "bd35f9af7e5ea2fa6aa4d7cdf8bb81cded9be3b8308973024af1bd08fe1e030e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_1_1.log",
+      "sha256": "186cae78b4b1c840459befe8283bd5629560df63fd4992027113f35ea5555993"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_2_1.capsule",
+      "sha256": "0782d3417ad9314c53443ee1bbd95891b441aad0ec1c6cc496e63d9b2ad9557b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_2_1.log",
+      "sha256": "305fb6073f904e4094fdb2755c16157b605cd46006e5beffea6fb85271d77a65"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_3_1.capsule",
+      "sha256": "1e3cebb5d0efa91a60824847e13637039208d220b0bda9fa8fe68df4c2ec6fd1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_original_caller_v1\\vf3_29_bsr_0c06e048_3_1.log",
+      "sha256": "3493a57c8e1a28b39781573c0b8264abc7b0b69a2509d7389b5b20a3c2291422"
+    }
+  ],
+  "callable_map": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\polygon_hit_callable_v1.json",
+    "sha256": "c2190182bbbd0a368380db7e936327fa3445f0c3779bbab67c9949b3309e018c"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_polygon_hit.py",
+    "sha256": "41138c13a6f1b37e08f872e1f7124f066bb4b12acecee99d649a20bc177e5a96"
+  },
+  "attribution_dispatch": {
+    "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+    "sha256": "acfa9fd2d40f4d21387549bcc1d21e0f56467d6d7fc122a9d229e8c158f19558"
+  },
+  "bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "5faed9605b278f8a8289ef2426713eced75428e3b01f17315477041e2c7fee4f"
+  },
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\polygon_hit_v1_affected_bindings.json",
+    "sha256": "678850cb672458ad064a186d159470b95d6d5ec75b0805c11eaf01aa062f2d44"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\polygon_hit_v1_affected_selection.json",
+    "sha256": "8e83363b3cfca30c1dc313bb98b1d29a506fc5cee38ec8ce54a78f46a37284d9"
+  },
+  "regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\polygon_hit_v1_affected_portcheck.log",
+    "sha256": "840578bddc9315374808ab5e04f51b1763fce5bb562308347a060fb809339dcf"
+  },
+  "regression_status": {
+    "expected_bindings": 11,
+    "reported_bindings": 11,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  tenpp-boundary:0x8c08f8de PASS   matrix_family: 2382/2382 cases match (0 skipped) - PASS",
+      "  tenpp-medium-final:0x8c090ab0 PASS   matrix_family: 117/117 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3dl.exe",
+      "sha256": "59dc4811006c0651db53cd8c9161e8fda0bdb1ac5f87a0ab9ef73d7544427846"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3walker.exe",
+      "sha256": "ca3f2c89a6ec4865dd1bf6704353166399681d95b07969fbb65a3d7b9996b91e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3mtmount.exe",
+      "sha256": "95c2e72163edb714a1ec1e1264aa530319a4235d447161792d398137fe163e0c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3loop.exe",
+      "sha256": "df8d02369edb5d990e894adcdea7e1c2e4c8a16da23e4402a3c2b884c1fa6b5e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3taskvm.exe",
+      "sha256": "c8951a59675dd010d54d86ffbdbfe4726af7865b7f19aee87dbabfcd78e78e1f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3vm.exe",
+      "sha256": "fff808174b7fe8a9b3b94232594b550940f66de8be2cb18c61f8f63c24386b63"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3frame.exe",
+      "sha256": "d6cf7a58c21a360af3fcaed264d8540d895546a34898642c7b70dd2c44e3c74f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3libutil.exe",
+      "sha256": "a65f5352a5ac7a0ef8347d9b4914ebddc1001d103b2e5b7e992b54dbdfbafaaa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3orient2.exe",
+      "sha256": "8d777583f2b2b766b75f7c3dac021317842f6956d674ed6f10a795f1a92cb919"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3poly.exe",
+      "sha256": "14d9fbce12d8cf92888fe108c9d4436f7e33755c3c95a57c0f737e49d9646b4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3vecpush.exe",
+      "sha256": "2dd40fd87b9da9fd690965c1a0c1f9f07187a337ec2c17b2b1b43a200aca8e60"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3tailcall.exe",
+      "sha256": "807e8b490a85352818b42e20032c58ed9da93611f5f595e96adba95b6e45b662"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3walker2.exe",
+      "sha256": "85d4c063e8e7a704d26ac97373ab6d1901d22c70746ce46fb7e9fda43153a8ee"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecadd.exe",
+      "sha256": "c5dea2bfe62afd1a9e5df59edb5b20b58f86bf08e4d0432ce987ef59d9b2ce6f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3scaler3.exe",
+      "sha256": "0af7033db11d42ce4c95ece695ecf879d30b368f34b7ef0fec45e669ba453053"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3frameseq.exe",
+      "sha256": "02d4c42e2aa64bf72abbdb63cb596df6ab43a27b4740f7102bf7a8bc3fe89644"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3cbefc.exe",
+      "sha256": "d8f353ff1d8598fa13f3c964380bc2c14c8dbfd0ce2c8a578bf904f88b52d3d4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3f040f1e.exe",
+      "sha256": "ec3c4f6ef514fbaf68a0f86a731af8e40344eb1bb8d7caebb059f6b148b81cfb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3f0747d8.exe",
+      "sha256": "7066c6d4bdee90bf34501d949a0d3c13bebd22cc479135007b8936081fa928aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3f9f6fc.exe",
+      "sha256": "a7ac2c53949acba72e1d998171e8b1716e06f9422461b2f413bf09ef7b422acb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3f9f6dc.exe",
+      "sha256": "faa86d53adf9bd624b3f88ccc29ed3a52cc485eaf3a8ce14e89a1ace24b6d353"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3cc148.exe",
+      "sha256": "79b216712e67f144e267e1c61ff7c132546b37ff8829e628a30b5e7e2e8ce3ee"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3c5dbe.exe",
+      "sha256": "12b711ed3f1d188856a27b521c001926158d5f1e5fbd131d0406c2cc04827e78"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3b10aa.exe",
+      "sha256": "06cabfc16502c2576aca870708e591695c366c8959f80c6357d9bce229e6ebb5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3c6ec4.exe",
+      "sha256": "17f3b12d0d8ff55078b5e0a540bee6a007a801ce088e1da93c9482f6061f2a80"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3maplookup.exe",
+      "sha256": "e1955a2e9bfbba7ea061f45d7619333ad8a416e90acb4c415f6851b60e316686"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3meshnode.exe",
+      "sha256": "e4d5c98a45a58689fbbf4a0688ce8d7493585dcca699a2f7ce503a26cf2ffed4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3d0fa.exe",
+      "sha256": "2f6f3243601481dc6d5516ffd93cc4f8e185f85ce773e1c4fbf103412daedbde"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3c788.exe",
+      "sha256": "6199c12f7b8b0c92181e4cf1636a8b796b34ba17923cb4554cc8f9726157ea30"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3f096258.exe",
+      "sha256": "21c6b6a18aed775cd0124535cd79f0b95702bfb9b2880ef3e49f54650f719ac8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3matrix.exe",
+      "sha256": "cc225a63ca9147401610cd78d327040ef809a2ff94c2864ae7d6c60d474b10f0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3bootmix.exe",
+      "sha256": "286b31243d25c573b7fae359a6edb19777a4e0a9faf2f0fff74553c9367b2210"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecnorm070x.exe",
+      "sha256": "1d108c84e2d88465e8bf4696b74f8e0e20834f7a4f972b12074f092d6ef9c207"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "5ffad0234e18f5143685a48781cd015c25739332f9ac53e9e1691ff6256f63cd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecnorm070120.exe",
+      "sha256": "ca2852a043cc7494daf09e6b09258b6c076af45a3af94db3c3a507d5b33a0a04"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "d90cc774f31976b5406cbfaa62490945169f5f2a1497f46fcc046dbb2f837997"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "ca223c973e666265fafae1822ef930666a036c53167026b2110b1632f21bf49a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3fpu.exe",
+      "sha256": "8829cb265bb477af5f511842e2ad070264de18ba4e9f81b039590b1a8456dd58"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_polygon_hit_v1\\vf3statehelpers.exe",
+      "sha256": "eef39552804f407783678c5dc8fbe3a763132dec58b6455bf29b8113e99e9759"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\polygon_hit_v1_tool_tests.log",
+    "sha256": "8f2de72dd06e252ea40ea2dd4412e6ce69b89870fcae8499b548c08f0672b886"
+  },
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\polygon_hit_coverage_baseline_v1.json",
+    "sha256": "a686a5a6cbae57c57c448fd921fcd2110bfaac7af5d40e9e1e21e286d15c413c"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_polygon_hit_v1_milestone.json",
+    "sha256": "d0a2636fc5d6f300dc50855c19c03fe77ec0242622fd206bf0d4db7287a85ece"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\polygon_hit_v1_chain_extension.json",
+    "sha256": "3df6a962fa0bea131dabc164ba63e9329cd607a5ddaca989b5a0c525ba508883"
+  },
+  "previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\project_point_v1_chain_extension.json",
+    "sha256": "f2f0de7519ce26d3a7bacf24cca1486d5aae99a1f2dbbf4bfcaa28b4c13c5175"
+  },
+  "previous_percentage_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\project_point_v1_manifest.json",
+    "sha256": "14dbfd6ab33e3d084ca1723d130ed8c4b35828d0ba7d4b84e88053a19cb939f4"
+  },
+  "gate_scope": "Eleven affected matrix bindings plus all 39 native replay suites; the previous full inventory gate is historical. Full current inventory gate is required at 60%."
+}
