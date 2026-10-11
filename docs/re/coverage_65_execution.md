@@ -511,3 +511,19 @@ chain through the contact frame and full 60% checkpoint.
 Verified C is **262,802 / 434,656 (60.46%)**; **19,725 bytes remain to 65%**.
 See [scene insertion](scene_insert.md). The next full inventory gate is
 required at 62.5%.
+
+## Scene contact initialization: +636 bytes (2026-10-11)
+
+Callable `0x8c0a07e4`, frozen owner `0x8c0a07fa`, adds 636 marginal bytes.
+Development passes 125/125 valid cases and independent holdout 127/127;
+both cover the entire body with no skips. Four interrupted specimens remain
+excluded. Eight original BSR windows prove the argument delay slot, save
+prefix and matrix-pop tail return. The 379-source freeze precedes holdout.
+Four affected bindings, all 39 native suites and 179 tool tests pass.
+`contact_init_v1_manifest.json` pins the percentage chain through scene
+insertion and the full 60% checkpoint. A preliminary interrupted caller
+campaign is separately pinned and excluded from attribution.
+
+Verified C is **263,438 / 434,656 (60.61%)**; **19,089 bytes remain to 65%**.
+See [contact initialization](contact_init.md). The next full inventory gate
+is required at 62.5%.

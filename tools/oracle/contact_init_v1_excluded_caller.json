@@ -1,0 +1,164 @@
+{
+  "coverage_credit": false,
+  "reason": "The state-28 all-eighteen enabled original caller window was interrupted (flag 1). This entire preliminary caller campaign is excluded from attribution; eight fresh shorter windows provide the credited caller proof.",
+  "valid": 7,
+  "interrupted": 1,
+  "files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\manifest.json",
+      "sha256": "3a81f232486be91402b5f54e2ea845a4cb1dc4995dfaf90604c226688aa708e4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\contact_init_original_caller_v1.json",
+      "sha256": "6266a7468fdec0aa2bde0fa2c18c40403a70bd175fe0416f0be952f5c3d626ce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_0_1.capsule",
+      "sha256": "38d56a370739ef003a4671b2ae7fecb4d19e98ca7f7772385f34fc58fd023c68"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_0_1.log",
+      "sha256": "359f5650926f3c5a8ff2ad6cf9cd425fea0e84fd2fcf3d58f08ebcdfb3dafb3f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_7_1.capsule",
+      "sha256": "7515b0c48d99f60a1020f211da714f2b0037f1590ee04c07bf56b80a6d3a276a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_7_1.log",
+      "sha256": "70d591e2306d087166701a19afb67666c7b327443c1b2084f38575ec1e05b40a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_15_1.capsule",
+      "sha256": "efc1c4e472c14bf7626ba20902bc21b4680fde1fd38400ec6ba573a23095389e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_15_1.log",
+      "sha256": "c69386ec2ea143be4df6ca8664a513ce0aad3f4f823ec1d71008fe43431d78cd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_40_1.capsule",
+      "sha256": "acbae8d612ceb21360c31e2de7f55d36851b733679cf5e48de1604dd1aa0b008"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_28_contact_init_40_1.log",
+      "sha256": "6515cf88f5ffd9c4f2b878f715f6a01128c6e8a1b0e7507f73fca8eb9e8b747d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_0_1.capsule",
+      "sha256": "e63ef2454b241153e0ba0b87dbd9e044337a8746d59ce8f71bfdc37b5c2a5f27"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_0_1.log",
+      "sha256": "0054089b9d393a51a48054ff1b1c378085df71a75cca8edc00f3a2ca109abe4f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_7_1.capsule",
+      "sha256": "14500534e62caa7eab88007aa2f0a12afb215e34a7007d443f087307a17d4624"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_7_1.log",
+      "sha256": "12256866a95a8c9e9a0b947969538fd16c3b903acf8a485bc69cd711692ac57a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_15_1.capsule",
+      "sha256": "ec1d3eeaaefe94cd5f91a9160528ab6a1f1d10b6c1234c48ad9c98d3cbd0875a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_15_1.log",
+      "sha256": "9a474f21b4b8cbe6bf9c498579f7dfb97e5901ba53a6980667e780df965bf614"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_40_1.capsule",
+      "sha256": "bd21a416fe7afb2ea4b06c5adc47dd5727d8422966655d7d069344ce76aaa4e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v1\\vf3_29_contact_init_40_1.log",
+      "sha256": "46987a68923cf22f23e8f65889e1a6fc16376d37c76bb4057df67b8241ccf041"
+    }
+  ],
+  "qualified_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\contact_init_v1_manifest.json",
+    "sha256": "8eb584697fc28fd72e125fe634fda1687039f018fc2186f58469cad7645875ee"
+  }
+}

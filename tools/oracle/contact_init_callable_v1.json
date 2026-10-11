@@ -1,0 +1,28 @@
+{
+  "0x8c0a07fa": {
+    "entry": "0x8c0a07e4",
+    "kind": "vf3-contact-init-bsr-v1",
+    "call_sites": [
+      "0x8c0a1156"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "r8",
+      "fr15",
+      "fr14",
+      "fr13",
+      "fr12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\contact_init_original_caller_v2\\manifest.json",
+        "sha256": "ab7e7bc337eb6601b48d80cb0115f790950c20211501c0de601d86555365b706"
+      }
+    ]
+  }
+}

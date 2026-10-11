@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Scene contact initializer qualified (2026-10-11)
+
+The eighteen-slot contact initializer adds **636 verified C bytes**.
+Development passes 125/125 valid cases and independent holdout 127/127;
+both cover every owner instruction with zero skips. Four interruptions
+remain excluded. Eight original BSR caller windows verify the saved prefix,
+argument delay slot and matrix-pop tail return. The executable's 379-source
+freeze precedes holdout. Four affected bindings, 39 native suites and 179
+tool tests pass; the percentage chain and final audit are sealed.
+
+Verified C is **263,438 / 434,656 (60.61%)**; **19,089 bytes remain to
+65%**. See [contact initialization](re/contact_init.md).
+
 ## Eighteen-entry scene insertion qualified (2026-10-11)
 
 The complete scene-table insertion adds **374 verified bytes**. Development

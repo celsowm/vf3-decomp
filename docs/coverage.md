@@ -4,8 +4,8 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 1331 (+22 off-baseline leaves) | 55.5% | 263680 | 60.7% |
-| SDK-attributed (masked byte match) | 74 | 3.1% | 16422 | 3.8% |
+| ported (src/) | 1332 (+22 off-baseline leaves) | 55.5% | 264316 | 60.8% |
+| SDK-attributed (masked byte match) | 73 | 3.0% | 15786 | 3.6% |
 | SDK-attributed (reloc-aware, L2 verified) | 0 | 0.0% | 0 | 0.0% |
 | SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 12 | 0.5% | 1178 | 0.3% |
 | SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 56 | 2.3% | 4776 | 1.1% |
@@ -16,10 +16,10 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 | **rigorous accounted (ported+SDK)** | 1498 | 62.5% | 288030 | 66.3% |
 | **total incl. trace** | 1508 | 62.9% | 289734 | 66.7% |
 
-Verified C address union: **262802 bytes** (60.5% of the frozen body denominator). Legacy port sums contain 878 overlapping bytes.
+Verified C address union: **263438 bytes** (60.6% of the frozen body denominator). Legacy port sums contain 878 overlapping bytes.
 
 SDK attribution by library (fn count):
-- ninja: 58
+- ninja: 57
 - sh4nlfzz: 11
 - shinobi: 3
 - kamui2_flat: 1
