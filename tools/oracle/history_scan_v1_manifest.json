@@ -1,0 +1,2616 @@
+{
+  "passed": true,
+  "new_bytes": 176,
+  "readable_bytes": 266548,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 15979,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_dev_v1_complete_sources\\manifest.json",
+    "sha256": "b9e53c44890fb5a2a283aba4d67388c7db4267547e1521b3c6064bb47b236565"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_dev_v1.exe",
+    "sha256": "c1fa9206a066e35aeb0dfb8f8c8a45caf92d6f3faa72568ea965715b35830e6a"
+  },
+  "observer_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 126,
+      "excluded": 2,
+      "complete_body_bytes": 176,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\batch_manifest.json",
+          "sha256": "de59d42c6758bfc77ec4e6605ea48801c512c6e9525c9628eebce10847aeed6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\capsule_manifest.json",
+          "sha256": "7da9d294a08b3719862f646eb626a2eb7c2fe507ec847d0bfb0948343e099fe8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.bank.bin",
+          "sha256": "33b7130b30c7c00543d234c88bd156f981851c0cdd5b0633ca9b7f9a56aabb7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.cases",
+          "sha256": "ec9f55db87dc83e7ff90a7c7a72555ba47dace6a676dfe1e999861902343030a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.dev.bin",
+          "sha256": "696bda342649ec9268da57b6a279df6f24b0e857d5e6d0605fd25af95adc3cee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.extra.bin",
+          "sha256": "9a1d9cc976c55b15394f9246b72b1236eecb411e8f0f815b128dd00f6eaf22ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.gbr.bin",
+          "sha256": "91b4e3d5f301c857908d00713184b553841a534b588b91a8f11a29237e10c5b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.ops.json",
+          "sha256": "cb522d965519a9f6aca5831da50f2a209de7d69f4ac76061fa75decd5085f326"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.xfin.bin",
+          "sha256": "082e0e067a0ad9f812401f35bb374e563b2699d10a0b2e5cdcd440448f37cf3a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac.xfout.bin",
+          "sha256": "082e0e067a0ad9f812401f35bb374e563b2699d10a0b2e5cdcd440448f37cf3a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_0.in.bin",
+          "sha256": "e546be3ac6c67abdff8bb2fcd2293348f336a0b8ed8ca513a46eab43fce58566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_0.out.bin",
+          "sha256": "c44f91d2445d0ee203403666393d287173cd7679f97ad76619ff52b5251b4283"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_1.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_1.out.bin",
+          "sha256": "031523f1a07751d24b95b49cd15c4e1bcb4705da308476ca6c9fd0d235aa646a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_10.in.bin",
+          "sha256": "93cec6fe886719b8da184f8344030942c84624d05e4f8fd677a4e89ca6334f77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_10.out.bin",
+          "sha256": "c8f1c2f764913167a88108990969102fa5d7467dbc51fac89e8b4451eee643d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_100.in.bin",
+          "sha256": "0f10acff5fb561df17fbf0e6bdfa67ea5e92fc1ef41eaa3ce1b8c4563b7ee81d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_100.out.bin",
+          "sha256": "0c9c1ded29cab15c7eb39380d6bd66ab223e6b919f21761f65fce1eb6484ecfc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_101.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_101.out.bin",
+          "sha256": "64448bdef276318946a94c2993a6a46c0e9684417eae1fbe7ea57976641a6f46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_102.in.bin",
+          "sha256": "40c726de5b7762da9e16caaa2fb4cbbfd3d2882a7746395f93563ebaefb9c4c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_102.out.bin",
+          "sha256": "50bf049a2d923ad4fae51e76f2e9db0b0fc214b8132c8e3dacc49a32e5150f93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_103.in.bin",
+          "sha256": "f6e30d69933bbf7cf24e7b7357553b65e6813d013c570c4e0a76685f9ac289a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_103.out.bin",
+          "sha256": "ff947bb4df71792cb618575449db222cbc116d0c4f4550ae200397b04322c648"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_104.in.bin",
+          "sha256": "266933623dffac155f0e6ae166a7dc5033eb490bbfcd3b7fd425f4a18000ff08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_104.out.bin",
+          "sha256": "eb4ceb0bf75581d840a11e156ce6c033f19620e3f0503a1c5cdd21b28fab95b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_105.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_105.out.bin",
+          "sha256": "cd22850e9da559a6b14ffadd6194214186e8b2b0d5d9672a1b1d3c7121c137e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_106.in.bin",
+          "sha256": "36afd0633b3d019ebd69b5a8279675772138dd99074568a4d5656a0f7af21b8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_106.out.bin",
+          "sha256": "0a3238329239b2871e92ab8e862d7aed23ca5b05925bf1e2f024da12b62b1093"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_107.in.bin",
+          "sha256": "ab7bfcf0dcdafdb34e29f5fe50fdc9db0e3df816ea53806de75610f42d73c4fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_107.out.bin",
+          "sha256": "8b59cda3e8f38bad3fc66b4637e4686f88d3adbcb80f0d663e01d1f265fafcf9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_108.in.bin",
+          "sha256": "0f10acff5fb561df17fbf0e6bdfa67ea5e92fc1ef41eaa3ce1b8c4563b7ee81d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_108.out.bin",
+          "sha256": "12b7e1109afbdff6d7b39ca16af7f380ae0727865eec95026c81bae0a69ba8e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_109.in.bin",
+          "sha256": "5c6285df1f64b2a99e28ff6f57076f495d46ff1266a90d552d72e1969329f52a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_109.out.bin",
+          "sha256": "9a9db68987480f103254d0fb5053a0f371af545ed4a58ead7da1cebeb0575e9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_11.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_11.out.bin",
+          "sha256": "b84f7e41ddfb6cb05b14537ea4be88d62a9114c2c7561610903716d24aa1a6da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_110.in.bin",
+          "sha256": "40c726de5b7762da9e16caaa2fb4cbbfd3d2882a7746395f93563ebaefb9c4c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_110.out.bin",
+          "sha256": "668e86ad40d0456e3f17772938aca8b95b7634dee6d6bc9e7634a9d4f8de74ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_111.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_111.out.bin",
+          "sha256": "9492fe3bf210d933716c38ad6ddd5fb576e627f9dc142db2d64cefa415987468"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_112.in.bin",
+          "sha256": "266933623dffac155f0e6ae166a7dc5033eb490bbfcd3b7fd425f4a18000ff08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_112.out.bin",
+          "sha256": "25838526b043e0df892fc0a9221125d288cc517647385517c4236359c835263c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_113.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_113.out.bin",
+          "sha256": "9aab288d939f4678d81db8e22ca3ca48b32df900878d762dbdbe943182522936"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_114.in.bin",
+          "sha256": "36afd0633b3d019ebd69b5a8279675772138dd99074568a4d5656a0f7af21b8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_114.out.bin",
+          "sha256": "87aad09ac7fe048fca7313addbaec70436560e0625a3b24f73034dc6a79b0f09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_115.in.bin",
+          "sha256": "ab7bfcf0dcdafdb34e29f5fe50fdc9db0e3df816ea53806de75610f42d73c4fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_115.out.bin",
+          "sha256": "1d25478be263995ec96f308c8eb16399ac2297abda2602dec3e8343fa377325a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_116.in.bin",
+          "sha256": "0f10acff5fb561df17fbf0e6bdfa67ea5e92fc1ef41eaa3ce1b8c4563b7ee81d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_116.out.bin",
+          "sha256": "f37f4627ee95e243cfa0b9e115e5788d4ab4d1716f0dd4b9347c63c894894431"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_117.in.bin",
+          "sha256": "f6e30d69933bbf7cf24e7b7357553b65e6813d013c570c4e0a76685f9ac289a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_117.out.bin",
+          "sha256": "31c36490d635a0301b5817e2d04e86a75083aab10462ab300b444e38f5038e55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_118.in.bin",
+          "sha256": "40c726de5b7762da9e16caaa2fb4cbbfd3d2882a7746395f93563ebaefb9c4c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_118.out.bin",
+          "sha256": "c5458ec6e73f3d6d33cd8ba3c386b634658b581b73bff91cbef7d3cd055dca76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_119.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_119.out.bin",
+          "sha256": "9c363c63ed5f18e9f697827c9f650e58fc5aeadcd452e35ab80d0436070a7cba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_12.in.bin",
+          "sha256": "764b92def7e79ca681c3a3e2d47185c0cb06b1d0b0e1efa62b88a157777703f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_12.out.bin",
+          "sha256": "b3cec509c5c2dcb03ef7acbf85b5254eef18b05619aafd3e5609641db58f0a73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_120.in.bin",
+          "sha256": "266933623dffac155f0e6ae166a7dc5033eb490bbfcd3b7fd425f4a18000ff08"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_120.out.bin",
+          "sha256": "87354e937979dfcc0265ddb5de371e11e0eec232bb76dfdda157e071e541c619"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_121.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_121.out.bin",
+          "sha256": "fc6bce1925a242022c41cef57f47e0d0ee672530ff14658571c2f1d590d38eb8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_122.in.bin",
+          "sha256": "36afd0633b3d019ebd69b5a8279675772138dd99074568a4d5656a0f7af21b8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_122.out.bin",
+          "sha256": "1b929457c433deb293c6cc94baa35ba223aaae575a9cee917dade9b340a302c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_123.in.bin",
+          "sha256": "ab7bfcf0dcdafdb34e29f5fe50fdc9db0e3df816ea53806de75610f42d73c4fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_123.out.bin",
+          "sha256": "bb3193a0a033d1ed24617fb03dc434ec2d5fae87bb0e15a0374a595331de43a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_124.in.bin",
+          "sha256": "1a222d212529ad69b5a6b8dea2691b45e229dd9cf34c9a4ab81f119d28bec377"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_124.out.bin",
+          "sha256": "5daca1f9909f44db11f1b078e9b1c439d5c6e40a0a1d5a8f6b4c1b742186f0b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_125.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_125.out.bin",
+          "sha256": "1dd630dce6a17b788c6d629d84875ded06e4fbb49c98cd500ae629dd2ea8615d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_13.in.bin",
+          "sha256": "bf5630918c03872ca8ae361df6040a5c72d8f58a7896b27d7246e9699799d2f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_13.out.bin",
+          "sha256": "8f073644e7dd9c1d3af7910cc5261cddf48cc4ceaf5256040d362bb96c448051"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_14.in.bin",
+          "sha256": "bcb61980c437427746fbe9babb6d979c84f0691a49fd811c7fb8fa88dbd9aa1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_14.out.bin",
+          "sha256": "a770c08d12c5e0df8ae4d95183a243381b26168bbb4fc5d8cbdd3d0f337ff704"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_15.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_15.out.bin",
+          "sha256": "5581bdfaa38d750bbd39028ff45c008ef46374d418847fd630476f6b5dc34931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_16.in.bin",
+          "sha256": "e546be3ac6c67abdff8bb2fcd2293348f336a0b8ed8ca513a46eab43fce58566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_16.out.bin",
+          "sha256": "26dcb538c17dadbde6bfd7f90cf6c93641f208369c6eb9647c540a3f5e7260e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_17.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_17.out.bin",
+          "sha256": "e108025c951133e8cbbd98a1fe71a93182560cae063ec1bffabdb63328680982"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_18.in.bin",
+          "sha256": "93cec6fe886719b8da184f8344030942c84624d05e4f8fd677a4e89ca6334f77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_18.out.bin",
+          "sha256": "d31aebdd24ce960e3e69440147c5bf1ff07a7010462bc304850c23dcac8310eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_19.in.bin",
+          "sha256": "1b14f3b0f34664fd28de4ff8bdb84beb788789f699a3a1535e06d48f34349870"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_19.out.bin",
+          "sha256": "4fd83df115bb14ac579192df60fd573334afbaac238eb971cfcf1ea0b0a22375"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_2.in.bin",
+          "sha256": "93cec6fe886719b8da184f8344030942c84624d05e4f8fd677a4e89ca6334f77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_2.out.bin",
+          "sha256": "d2f4edde71a5685e15c61df72729049caeaca97753c280acc4e27f5aed679e8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_20.in.bin",
+          "sha256": "81b2184a64472941ee25e078ef9ee3ace76365a3e74d38cef3ca92d1ca9d9e8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_20.out.bin",
+          "sha256": "e649d1970e3501e21a8cd6d949323445eefef3478b03695a82951c3c40092081"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_21.in.bin",
+          "sha256": "9bb4c23de1f565f15ac6e0f51d8356193ca56e8c6b3530706ca95693a362ab9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_21.out.bin",
+          "sha256": "8cba39669591443deafc46ea09d074262b54bfe1e48822b7edc1ba7c540640a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_22.in.bin",
+          "sha256": "bcb61980c437427746fbe9babb6d979c84f0691a49fd811c7fb8fa88dbd9aa1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_22.out.bin",
+          "sha256": "219285f939cdcfd51deaa21f315625d26a67703526278b3b8651a37cde141d36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_23.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_23.out.bin",
+          "sha256": "7b34c4cf2cff66a6a9750b8b858de03415775d88b94fcb0cc5357da863323b30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_24.in.bin",
+          "sha256": "e546be3ac6c67abdff8bb2fcd2293348f336a0b8ed8ca513a46eab43fce58566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_24.out.bin",
+          "sha256": "c103f2ffd0827e9c957b6161f2289cd06f18f7a958bbc93ad2ad6727bba6f43f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_25.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_25.out.bin",
+          "sha256": "1aa63e2a8dd7026393b77d2f1b44126504526c9cf0eedadbc84a1fa3a7efb107"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_26.in.bin",
+          "sha256": "93cec6fe886719b8da184f8344030942c84624d05e4f8fd677a4e89ca6334f77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_26.out.bin",
+          "sha256": "bf2c98a2f7fb9b8a25aa8fd0054bf246020e3ba95c91a08f3c465f473f31904b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_27.in.bin",
+          "sha256": "097a9fece2fc20aee8ec16b207a2b9394b3bb7390a8363106ddefa7ff27f55d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_27.out.bin",
+          "sha256": "27fdd5a84f3c5933866840c8968035417de3c23ebc22f3794851296324b9793c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_28.in.bin",
+          "sha256": "e2852171dcddfd34a96341889b6a5942244eabd4dfda2f17e86d4bd70a40e224"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_28.out.bin",
+          "sha256": "a5f4189eb21f7eef7701f5177c27d994160199271eb262b333f50837b5169f74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_29.in.bin",
+          "sha256": "9bb4c23de1f565f15ac6e0f51d8356193ca56e8c6b3530706ca95693a362ab9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_29.out.bin",
+          "sha256": "0e0e347f82197cabf87c695c127d5d02afb3e827a5ed621e4435975219b79477"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_3.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_3.out.bin",
+          "sha256": "c8d0316526e6a2fb0341b73dd2e68cee4dd212d95a901570c9d926ee9e807f81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_30.in.bin",
+          "sha256": "bcb61980c437427746fbe9babb6d979c84f0691a49fd811c7fb8fa88dbd9aa1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_30.out.bin",
+          "sha256": "72ad523a62fb2f0348f5afcdcd5bb1dd21f0d38b9ba6e6f6e58316a5254a920f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_31.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_31.out.bin",
+          "sha256": "e99cd6bb4edecc961bdc9bc33d85ae196b3ce1729bb13ea80becf6a8a377f5d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_32.in.bin",
+          "sha256": "e546be3ac6c67abdff8bb2fcd2293348f336a0b8ed8ca513a46eab43fce58566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_32.out.bin",
+          "sha256": "e9b56c255c72594ecac99ae851f897e5cf52692dc210b1080dd1c4a2ba0181f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_33.in.bin",
+          "sha256": "1b14f3b0f34664fd28de4ff8bdb84beb788789f699a3a1535e06d48f34349870"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_33.out.bin",
+          "sha256": "045ded1fd02a59e7dd22d426d87174a7e154a0844bcee3cdd7d99ff4ad6ca741"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_34.in.bin",
+          "sha256": "ab3f9fc5ec0cc94a7662df53fad2ed38ef4dc52cbe4dfc79028a7314417cee1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_34.out.bin",
+          "sha256": "408a3cb12d6454bf8395a5b8b545c84c077997fd3cf34abdaf772c892188f668"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_35.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_35.out.bin",
+          "sha256": "379ac6d65337f8ec307a03867c5b193b5fda1f6c045c52168d3c79ddff9924c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_36.in.bin",
+          "sha256": "e2852171dcddfd34a96341889b6a5942244eabd4dfda2f17e86d4bd70a40e224"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_36.out.bin",
+          "sha256": "fa8074f89953e37b75384b9d496a7527b0b72ffb24042ba482dae53b1e772c67"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_37.in.bin",
+          "sha256": "620d3d21e8e6528474b9834bf986fb856ef5b9353d92979e2cca5a783f2e91d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_37.out.bin",
+          "sha256": "ab8349403733c6735be49c0603ab55fcb324affaee1a60b1c63f344dcb6b3012"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_38.in.bin",
+          "sha256": "bcb61980c437427746fbe9babb6d979c84f0691a49fd811c7fb8fa88dbd9aa1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_38.out.bin",
+          "sha256": "c4a1d126867cfcb644ea4000fbba772e1a062eefc67315a8844cc7bf5bc89fc4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_39.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_39.out.bin",
+          "sha256": "8d14892dcf12972b0fbb1ceb97da7a160484799e648beb249041c2e8a79750e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_4.in.bin",
+          "sha256": "764b92def7e79ca681c3a3e2d47185c0cb06b1d0b0e1efa62b88a157777703f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_4.out.bin",
+          "sha256": "4704c45455015591b3ae914f623380c3bb3ec90b62cfdece30bbd32887e5f66d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_40.in.bin",
+          "sha256": "aff02030eb607b9333dac18c205c6064d566535a8b27600089137a2aedbb8b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_40.out.bin",
+          "sha256": "7a1e6f78cb5abfdf056202935fdeb5b09c0e7d419ac325a91aa432ed2d120723"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_41.in.bin",
+          "sha256": "7c606f4f6d05bab2d71e25f0a4647299022f8415418ae4a87da0e90d3101a4bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_41.out.bin",
+          "sha256": "7b49fed15736043f550320bb2821f12c41db56f4df34af2d4abd346c145b880a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_42.in.bin",
+          "sha256": "29a9bd9a156f0f95b47ef532ebefde15098acd0f754c1dba7c53ae3a467654e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_42.out.bin",
+          "sha256": "0024fb14357371ebe3048c7bc8380156dabc0a8a9da335c176f3215537cd71fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_43.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_43.out.bin",
+          "sha256": "a535f8c8db0e6a4a0fb03f46f57870985219ac10109bfa33b44e6ddbc32f84ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_44.in.bin",
+          "sha256": "ac068df62b690516fb3974b534047145b5e54e12517c877ca5430ce54acadbff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_44.out.bin",
+          "sha256": "8c75c56ae9ec45d484603c48ef1ef906ae2754bea3dcb852a171c80d3f28b1cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_45.in.bin",
+          "sha256": "fd78c0a6bd836b206c993b6dba5c638a255d05cb893e55b73f07a6799872181a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_45.out.bin",
+          "sha256": "8c3a741fde06e6911f59573e714f677323923d335e0e7c7a74a199ccf14b8f12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_46.in.bin",
+          "sha256": "d53323154810465b991789d6657b6e324195e67255fd97057f703dc53ecc800e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_46.out.bin",
+          "sha256": "11115b8764851375911d9f7d27b07ceceb840bc7056dde159dc62fee2f3fe75e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_47.in.bin",
+          "sha256": "a0eb6a11076f49ff01af064e2d099c31b2c4ff40fca109acec83251ae4941591"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_47.out.bin",
+          "sha256": "3a726ec8b736fa2db98d5cda19b71fa8e6046e342ce13e10307d2eb3b7b7b44c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_48.in.bin",
+          "sha256": "aff02030eb607b9333dac18c205c6064d566535a8b27600089137a2aedbb8b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_48.out.bin",
+          "sha256": "dc990b3e13269df7e1de8a691a35db32be863a507ad6dcb8ed3442d8328ae57d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_49.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_49.out.bin",
+          "sha256": "12278cf86237c40d9747ead345020a7cbbf5b3ae50b8338fc18805fa89594796"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_5.in.bin",
+          "sha256": "620d3d21e8e6528474b9834bf986fb856ef5b9353d92979e2cca5a783f2e91d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_5.out.bin",
+          "sha256": "7408ce338a7e1067d22b62c6ac84379d67113e5cc9d7661c8c7f9151ec738350"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_50.in.bin",
+          "sha256": "29a9bd9a156f0f95b47ef532ebefde15098acd0f754c1dba7c53ae3a467654e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_50.out.bin",
+          "sha256": "f88697b1b29260ec903d3227cdc80189fda6960a4320e27ee9e18f36b0028fcb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_51.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_51.out.bin",
+          "sha256": "a04ef1288b50c38552b18469b166ba67bc1abd1f930aeec47abd3c6964f014c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_52.in.bin",
+          "sha256": "ac068df62b690516fb3974b534047145b5e54e12517c877ca5430ce54acadbff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_52.out.bin",
+          "sha256": "74c1c1e24f9587976e26e1521f51db7a645fddb51e95d614d77f4f04eeb7084d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_53.in.bin",
+          "sha256": "fd78c0a6bd836b206c993b6dba5c638a255d05cb893e55b73f07a6799872181a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_53.out.bin",
+          "sha256": "9dac0c4405dc531fd97703665e9a9f73885126da22d35386c0103903d890a999"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_54.in.bin",
+          "sha256": "d53323154810465b991789d6657b6e324195e67255fd97057f703dc53ecc800e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_54.out.bin",
+          "sha256": "7c3a546a99d20707c8327a4675cf1b2a9ecb206b56e5912453f3ead8b45c7bc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_55.in.bin",
+          "sha256": "7c606f4f6d05bab2d71e25f0a4647299022f8415418ae4a87da0e90d3101a4bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_55.out.bin",
+          "sha256": "3bfc6a6e3141b71649a8a8c2dd397569a9fa1182aeb8901d0f4d33623cb5d20d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_56.in.bin",
+          "sha256": "aff02030eb607b9333dac18c205c6064d566535a8b27600089137a2aedbb8b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_56.out.bin",
+          "sha256": "f3ada7bcc4a4ae8d5157b8d84f5739d8fbce0a03b8148eb03188d62861ab8101"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_57.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_57.out.bin",
+          "sha256": "c09e7e589aa471adba29cf06ebe45b0704ab46fffda05959914c59d5e8cd7730"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_58.in.bin",
+          "sha256": "29a9bd9a156f0f95b47ef532ebefde15098acd0f754c1dba7c53ae3a467654e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_58.out.bin",
+          "sha256": "2602a9caf2e823fe924dc3ce8bada813ee54a7e67778814df98adfd64db46c38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_59.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_59.out.bin",
+          "sha256": "472ed1b940586586671e2c8997d3d683281d6250ec23b88bcaeb9ff00396675d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_6.in.bin",
+          "sha256": "b7065ac6ee60f8a20f418e0f5ba4590f6140bfeacfc3c2bb88db89e179c09fd4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_6.out.bin",
+          "sha256": "9100b6cb9e8cdb6919cf271dc497107cc0e7bfc2114e3ac48080a54a60aabdda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_60.in.bin",
+          "sha256": "ac068df62b690516fb3974b534047145b5e54e12517c877ca5430ce54acadbff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_60.out.bin",
+          "sha256": "2d1618ad22ea688000ed491bde756605de92ac8d13d9955b74df74431ee90d0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_61.in.bin",
+          "sha256": "fd78c0a6bd836b206c993b6dba5c638a255d05cb893e55b73f07a6799872181a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_61.out.bin",
+          "sha256": "c8210c40c14514ecdf1a5f4175e84ea6ad9ba01bc72937c723f02941b40d3d70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_62.in.bin",
+          "sha256": "fe84345ec9d194e4d83e5811d48a259aa3892fcfe50df56489f781f33f4f298a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_62.out.bin",
+          "sha256": "19060120982262024f3d1c7d1823c5299ed81b2b3e914f5e2b794323e747babe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_63.in.bin",
+          "sha256": "7591f31cf8aa8ffd5be301e3fa9e92f3963581dcc5fbf26fc0034d501e3f1778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_63.out.bin",
+          "sha256": "ae85d14b9541e330d76b1d326be49f03c5b02fbe2153f17d0e2d9db9008750cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_64.in.bin",
+          "sha256": "1afef0fa1b99338f2c35f3e8e54ec162c857ca1d7007048957ef23b1803ac374"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_64.out.bin",
+          "sha256": "73dcde682cefe757e3e09100cd073eb1c9e55d0528f50fc2c95f4602cde0b855"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_65.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_65.out.bin",
+          "sha256": "a69ba35006d5a3c10a85d340664661dce8f80d5023a3857f15f71ed7ada898ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_66.in.bin",
+          "sha256": "fe08fb1b5e994d3ed0c3e0b01eed31143702a5dd35973ea2d5fbb16bc801b4a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_66.out.bin",
+          "sha256": "869965a7b7a354fee6fcc16e267b8d51a4271ea25eb63f09bb9c79009779673b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_67.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_67.out.bin",
+          "sha256": "10d4158b7800d973bd8e71168a96e1929389772ff27d01e6388d6a04ed2fc5dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_68.in.bin",
+          "sha256": "19783f7a1e77d433092406a60be9ec7302e0b85265f9392fb7b9bff8905a7f71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_68.out.bin",
+          "sha256": "22a470996e9c7e0d4d277999afa59e3614caeb64301d42a623208d2514cbc6bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_69.in.bin",
+          "sha256": "f88d03b35052d3e1f0da9dcf121e64e63260c9381228847f301c4a769f370ffa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_69.out.bin",
+          "sha256": "61dc607e4f0c0f7fd741df3f75e6dcf982382799be34bc65d2e817530d372f1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_7.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_7.out.bin",
+          "sha256": "6452ffd27953dca1a7e85518f9fdbf4534fe7798b18fb3eddbd393048b41093d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_70.in.bin",
+          "sha256": "532a5f585c5467e05650218d0c58673e64655063a27c11c2bf1fffac4b71f334"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_70.out.bin",
+          "sha256": "02f655a41b1ca7a6b0f430a14c60d354ecd389c67d97e61d171e9b30a670571c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_71.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_71.out.bin",
+          "sha256": "b160bf23c5575448bce306dc3627c2a1063367a50a29ae9f40b13a9339fbbd4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_72.in.bin",
+          "sha256": "1afef0fa1b99338f2c35f3e8e54ec162c857ca1d7007048957ef23b1803ac374"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_72.out.bin",
+          "sha256": "bc9f9e2c2b3a7979c732e17770239fa8202d91cd45d898f593bb3cf0507ec5b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_73.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_73.out.bin",
+          "sha256": "53c56c7384563e010b16ded87618d93398676e8a080e62242b700765dd6aed91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_74.in.bin",
+          "sha256": "fe08fb1b5e994d3ed0c3e0b01eed31143702a5dd35973ea2d5fbb16bc801b4a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_74.out.bin",
+          "sha256": "60fb82843e4bdbe7196ca5635a63cf545217a0bccf76f3ff00e890768a368159"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_75.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_75.out.bin",
+          "sha256": "5d958f8305a86d1946e7d391203ff584490a2960d559f3a5c1058092f1ce6bbb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_76.in.bin",
+          "sha256": "19783f7a1e77d433092406a60be9ec7302e0b85265f9392fb7b9bff8905a7f71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_76.out.bin",
+          "sha256": "34e6d4d4b3578efd51322a0c41359fefcdc34fa038cb2ab78994bf4a0bf041df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_77.in.bin",
+          "sha256": "e2b69a3ca104d7851d972c5cfd0354b806b2fdeaaf2ab7fcc6c313110d033d8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_77.out.bin",
+          "sha256": "54c4e2e1064796ce1c61d34fdabb5a2a2b023ce68fdfdfdf1a3a1219bec9ebf3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_78.in.bin",
+          "sha256": "78ddc6dee34884a013d532633f8c9ff9abf023dc78cae67c9f93bc6992b60a01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_78.out.bin",
+          "sha256": "47515e123f1bd244f59d3d92086799ac264f67eeb78ac854be9082f25ae457e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_79.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_79.out.bin",
+          "sha256": "3954d263ec3f3bfc507ab38d0d81ebbb2c3a71e1b977123c120be1a9643b330a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_8.in.bin",
+          "sha256": "e546be3ac6c67abdff8bb2fcd2293348f336a0b8ed8ca513a46eab43fce58566"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_8.out.bin",
+          "sha256": "be15cd94ad4b2f068830124b833d5c53fc8b1b21726e76e952b7b1ed7c470bfe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_80.in.bin",
+          "sha256": "1afef0fa1b99338f2c35f3e8e54ec162c857ca1d7007048957ef23b1803ac374"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_80.out.bin",
+          "sha256": "699f54753f45a26c6f9dc86fecd8bfc44bcdd1733f601bf6c0741fc7a4ecbe93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_81.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_81.out.bin",
+          "sha256": "a77f805af4ea3ca838523c52e40dbb896d4f1c193ed1123c35f8e405ee600e53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_82.in.bin",
+          "sha256": "fe08fb1b5e994d3ed0c3e0b01eed31143702a5dd35973ea2d5fbb16bc801b4a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_82.out.bin",
+          "sha256": "21d6bb40e3bb36601ad2e5459a7f0b74e8863e6764246778c440bfa1ec92bf72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_83.in.bin",
+          "sha256": "71cbd307c1ce3afac6c9c74ee93a4cf942679e491320e0cb7fb9524ae6624525"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_83.out.bin",
+          "sha256": "872e504d61ffe2a28b6cd88fb21c05ba509089837631df3e8de07d3477e309e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_84.in.bin",
+          "sha256": "dc41942be94cbb21fc989d69319e1cd0bb5a2ead5f03281bb2b548c7d4874b72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_84.out.bin",
+          "sha256": "8a76de4d0a3c612c2478ba5c93741d7ef6d3077c2d6412526ad07df56c008580"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_85.in.bin",
+          "sha256": "9903acdc294743eed2b349df3fd79f90dc2177b117b5dc7452ca6728f84a4563"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_85.out.bin",
+          "sha256": "973ce0f2a522fef5fd9c4e16f2fda79439d34c2c96000c0bdbb3b6ba4321af0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_86.in.bin",
+          "sha256": "78ddc6dee34884a013d532633f8c9ff9abf023dc78cae67c9f93bc6992b60a01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_86.out.bin",
+          "sha256": "3d13ebdd16f41c0aec0da1874d4862721fe31ea4c0934eea9ceb3018443c8926"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_87.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_87.out.bin",
+          "sha256": "d562d847d8e0d3809f8903103bac7e4d6385cd4f486946873f1f527455a59a11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_88.in.bin",
+          "sha256": "1afef0fa1b99338f2c35f3e8e54ec162c857ca1d7007048957ef23b1803ac374"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_88.out.bin",
+          "sha256": "8b1bd3dee3e5b8647f967b0d0a8f48672223eeeb34512142749147afcc2a28aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_89.in.bin",
+          "sha256": "0c77a941c7933bf0a49a856317e2939527385d740bd8045ea23c2ba898e7f406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_89.out.bin",
+          "sha256": "b158479aa3338a81c1cc3c29a81c2df0282bafe584f1b8efdc0bc36c46180e5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_9.in.bin",
+          "sha256": "ecd0d6e64b9aa8d6574cd482bf9c861e8f172b7fd8f0cdce94e06f0b56149c3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_9.out.bin",
+          "sha256": "cd07f225945b0327c9353cb945ff17ecc20fc54859e0e86be4fe4bbcac312f69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_90.in.bin",
+          "sha256": "fe08fb1b5e994d3ed0c3e0b01eed31143702a5dd35973ea2d5fbb16bc801b4a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_90.out.bin",
+          "sha256": "27d707b3dacd577c8233cf954821d3cfd30a89d58a7b4508a4375c4ac99c4682"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_91.in.bin",
+          "sha256": "0b2472efc5fe8c435b293bf156b7485cca123039fe6c77dd94e6f0621bd83b14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_91.out.bin",
+          "sha256": "c0fc0b845d25632048e9452492fa21b35634b04cbdce5d2e480073f00e70d314"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_92.in.bin",
+          "sha256": "bdfdb134f565fb049955dd5f82ce13ac7970a5c5168c3829682c2473ccffc090"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_92.out.bin",
+          "sha256": "e646af94199dc5f2aed48c4e3c945bcab19dfa339608b1ad3687b6795a833fe3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_93.in.bin",
+          "sha256": "0f2af5e7435162e221843f49bdd2a245321460a7e76e2fb54dbd635487527778"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_93.out.bin",
+          "sha256": "01f0f13ea2a0379de658cb25ae09a68644f844667b3cd45b665e0a3788f1b464"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_94.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_94.out.bin",
+          "sha256": "0e131907897813ba310ead8c93bbc861efdc0589557862e6dd247ee8a609efca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_95.in.bin",
+          "sha256": "40c726de5b7762da9e16caaa2fb4cbbfd3d2882a7746395f93563ebaefb9c4c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_95.out.bin",
+          "sha256": "bef4d9471ff5730563a16336f785347cbbedef55e726a5554c863a984dc37af3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_96.in.bin",
+          "sha256": "5c6285df1f64b2a99e28ff6f57076f495d46ff1266a90d552d72e1969329f52a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_96.out.bin",
+          "sha256": "f3bdd8475e53b335b8e05c83b8d412293748b2bdf1f4ef01c9f57b37b79f8bed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_97.in.bin",
+          "sha256": "f72216e7a5c1291aa6e58e037e5a496f24d4629624304e142b722cab0ea8cf8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_97.out.bin",
+          "sha256": "56c1f1a515ef97697341172e28fa502e4ef93fab95c1d0c6f1d1e70332899d1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_98.in.bin",
+          "sha256": "a852a9a3cde096c837be1a8f2ede2c5eb7290615bc15af65c3a813693996aabd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_98.out.bin",
+          "sha256": "799723bffc6b61be39d2c44e83cf82d427221114d3c0b5c3f3fc2087ba111535"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_99.in.bin",
+          "sha256": "ab7bfcf0dcdafdb34e29f5fe50fdc9db0e3df816ea53806de75610f42d73c4fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1\\f_8c0a86ac_99.out.bin",
+          "sha256": "a8c7e3e180b48c311cb7bdf3f250cb117088984ddfc06d1a9c6cf7a8a8408025"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\capsule_coverage_65_history_scan_dev_v1_s21.bin",
+          "sha256": "95be06d81f2d7968cfefd02180892b7b4be5e745f00a0e145fe2db58a6e66cdd"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\capsule_coverage_65_history_scan_dev_v1_s26.bin",
+          "sha256": "1d98ec0ea9f7e7b2a0d121fbf5d8e9be5d0c525a501fc724a0b0d7606d436679"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1_native_report.json",
+        "sha256": "b255721aa8239ad34d7c5c77d98854a43ad1fa47e9f172772d6908145b27ce53"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_21.state",
+          "sha256": "adb329aba852c8f9183ee9337b37a2338738e2682f5ab1a69c726cec3026ddd5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\golden_coverage_65_history_scan_dev_v1_s21.log",
+          "sha256": "eae0b8dc55f78f6c17cf172d4f76072dcc97d1662008263d0f591365679a946e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1.patch",
+          "sha256": "117ead428580d0d4308858a6ca3deb4a4e9f8667ff2b0f529c659d835ea41f5c"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\probe_coverage_65_history_scan_dev_v1_s21.json",
+          "sha256": "e3bde6d76b6637754024caf07fecc5be9c089554e3b63a5d922bb23c1928b033"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+          "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\golden_coverage_65_history_scan_dev_v1_s26.log",
+          "sha256": "d42e92bc9ace5ac88145daa8504eec57be650f3c01eb3f4936542b5dc76a0099"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_dev_v1.patch",
+          "sha256": "117ead428580d0d4308858a6ca3deb4a4e9f8667ff2b0f529c659d835ea41f5c"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_dev_v1_raw\\probe_coverage_65_history_scan_dev_v1_s26.json",
+          "sha256": "a37dac35ea7c8a8b231d7b111ba8cf9f17956bbc410da8e05b415ebab5f0d540"
+        }
+      ]
+    },
+    {
+      "valid": 126,
+      "excluded": 2,
+      "complete_body_bytes": 176,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\batch_manifest.json",
+          "sha256": "449bd7d6d191d535e67dc4a132137b9e776e36779a1dca19b6d2365297bef8bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\capsule_manifest.json",
+          "sha256": "d3c7d3725c3f1652f2c09d3144ad26b60a1e7777c892f98f255fdade9b3325d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.bank.bin",
+          "sha256": "73e9a0de232af65ce2e6dd5a8c54238fd4adc7430c1e2ac73e496b59901a7ee0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.cases",
+          "sha256": "22c980c7b2bfbe7a8b0637c2a9dd71dc5f3f49ebf049ac9cb239d3fa423ec2be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.dev.bin",
+          "sha256": "696bda342649ec9268da57b6a279df6f24b0e857d5e6d0605fd25af95adc3cee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.extra.bin",
+          "sha256": "fb2d60d1ea014bd4cae452c7d043299068b39ab55663eab327f9f07841303a6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.gbr.bin",
+          "sha256": "91b4e3d5f301c857908d00713184b553841a534b588b91a8f11a29237e10c5b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.ops.json",
+          "sha256": "cb522d965519a9f6aca5831da50f2a209de7d69f4ac76061fa75decd5085f326"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.xfin.bin",
+          "sha256": "e6c08481f9842d7900e2f3b1599b5c0cef8af2aaebb3bc0f9dab85d3d5cfaefa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac.xfout.bin",
+          "sha256": "e6c08481f9842d7900e2f3b1599b5c0cef8af2aaebb3bc0f9dab85d3d5cfaefa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_0.in.bin",
+          "sha256": "da75d3509f164a02341897a2628db79d309f5957997f457e7c6d0e6c4aa488c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_0.out.bin",
+          "sha256": "a26d63911983cd90e7d8491ae19588106e540201a1f157ae53e8d307acfc9edc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_1.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_1.out.bin",
+          "sha256": "30ca43e8a4fac6b00444ca8df7bd8741116efd288459b5a0c0b7bcd4aaefd9bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_10.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_10.out.bin",
+          "sha256": "1fe32f847748a485e3bde6ee73d4b879cd2a7e9d810f525dc971b61df4cc2745"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_100.in.bin",
+          "sha256": "cbadc2d1a648af9095e159fe7cce13917c7364ef99d24060e9c6eeb5d268036f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_100.out.bin",
+          "sha256": "4f23bb786985b26e4568d8143bec392533036ebf44761909a3f294b092ad52dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_101.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_101.out.bin",
+          "sha256": "b68f2ea5c310410c65dec219e357481e50267c4c87b3fb462b1c196554693596"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_102.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_102.out.bin",
+          "sha256": "55968f512c0eb319e3327379163e9779d80b0e996882a51ef95edc554992de74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_103.in.bin",
+          "sha256": "29da68545755b70589160430494e624029eafeeb5a31ba5a9b05ac3e518f2e2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_103.out.bin",
+          "sha256": "00611c4212f831d748bfe3c71ce6616ba96bee5d6956e452dfe912f99cc1558a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_104.in.bin",
+          "sha256": "3c98669da49d266fdda395315babe7f2d3b934d281e1b14347299951a773acc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_104.out.bin",
+          "sha256": "98383a914e0046ed460b5e59ac8bcfbbde60d2ad86e312f465be6b89ae066501"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_105.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_105.out.bin",
+          "sha256": "81f5fa83d9fd87589152a5aed97345f899590add861056155b1f4e687cde8b4b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_106.in.bin",
+          "sha256": "08932a0031a6bdba65e7cf0fca4e7f3e0d6d97af2d6417b5ad98cedb866b5b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_106.out.bin",
+          "sha256": "826dba4387fa92849ea2e6d20580ee1aa50e69775828431f63581a62ed734b40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_107.in.bin",
+          "sha256": "d1237221aca237c1082c1d1b2bbdbbc0102e1a6fcf62371dad9813134a935d4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_107.out.bin",
+          "sha256": "3b6d6c0494294a5acfaaa6f1d2d04ef19d2d8cbbea11b26241c92cfc46084656"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_108.in.bin",
+          "sha256": "cbadc2d1a648af9095e159fe7cce13917c7364ef99d24060e9c6eeb5d268036f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_108.out.bin",
+          "sha256": "f896856ed6d6a2f64025fd54fc4fbcaebbe4531375c38b2c7cd153c13a01d2b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_109.in.bin",
+          "sha256": "55a2d768caf46169ab805a2973d5e9f4a86185426c3026c914cd01d53f5a4a93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_109.out.bin",
+          "sha256": "dc99a880a3aab53c3ef893c7b51098fd8c9d7d6c5593e235b04cd05de0666c63"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_11.in.bin",
+          "sha256": "1838e48500693e300cb6226e797b165a126be09a2c3fd288fbde319c52f30764"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_11.out.bin",
+          "sha256": "73ef39c02ddb4fd90380eb03d083fa849fcf52e0b083a59c80b564af70ca3cba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_110.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_110.out.bin",
+          "sha256": "0a490b822af9d455f200f7e2f06e4f0633c0cde1e4795413b49780691903c579"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_111.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_111.out.bin",
+          "sha256": "203827eef616207c9d9e426cfce0fc9494891e21e50c051d49b600fc0e61dcec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_112.in.bin",
+          "sha256": "3c98669da49d266fdda395315babe7f2d3b934d281e1b14347299951a773acc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_112.out.bin",
+          "sha256": "396b502966e89d79c95c2c698e045ef26a5e94cb046dad41b666a3005f5d978a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_113.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_113.out.bin",
+          "sha256": "580408f7423375bd8d12c0ef066279df5d2055cf23541a929b4156a3e85b27bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_114.in.bin",
+          "sha256": "08932a0031a6bdba65e7cf0fca4e7f3e0d6d97af2d6417b5ad98cedb866b5b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_114.out.bin",
+          "sha256": "25807f1b1a5bef680227b1cad3efc5deeac3cf83145cfa98ee2753a9681463ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_115.in.bin",
+          "sha256": "d1237221aca237c1082c1d1b2bbdbbc0102e1a6fcf62371dad9813134a935d4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_115.out.bin",
+          "sha256": "f84295a7d854158c412c47162a572b33aebacf3051d3793a6ca06a94df1a2141"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_116.in.bin",
+          "sha256": "cbadc2d1a648af9095e159fe7cce13917c7364ef99d24060e9c6eeb5d268036f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_116.out.bin",
+          "sha256": "533c12da5281c6574a81c8ca1a4683c465a9e44cf62f9158429c449e2b333ab5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_117.in.bin",
+          "sha256": "29da68545755b70589160430494e624029eafeeb5a31ba5a9b05ac3e518f2e2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_117.out.bin",
+          "sha256": "d363a0e2b95a42bdb9efad0bae7116694eae77fbdd6026953fb3a035b9142c3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_118.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_118.out.bin",
+          "sha256": "f3a3a80dc0bf1243be3aed2067116256d033f5e61d2de32f57de069e0f5dda05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_119.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_119.out.bin",
+          "sha256": "e3e416f3d8b63934c2be1efcccdc70c4591e06b5f76948929e26abdfa093b324"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_12.in.bin",
+          "sha256": "fac6adb3ffd462db33ebad36c62fab4b9b290bbd0144fd55a54a5c5ce537ed55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_12.out.bin",
+          "sha256": "37d377c621c3879543b8e4be3b97358ce5ae586e8a41886e8296e02afc5d520c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_120.in.bin",
+          "sha256": "3c98669da49d266fdda395315babe7f2d3b934d281e1b14347299951a773acc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_120.out.bin",
+          "sha256": "1312768232e42e8cf450ca520839b740e2f984b28266a63dffc8c038038f546b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_121.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_121.out.bin",
+          "sha256": "1f72c81092c37199d8e65671bc85fa20b2564228f6bf831bdd211550aff19c16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_122.in.bin",
+          "sha256": "08932a0031a6bdba65e7cf0fca4e7f3e0d6d97af2d6417b5ad98cedb866b5b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_122.out.bin",
+          "sha256": "0f1529aeef6d174005652346e7650da437ce727bed87967a5c07f3fd5548bdad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_123.in.bin",
+          "sha256": "d1237221aca237c1082c1d1b2bbdbbc0102e1a6fcf62371dad9813134a935d4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_123.out.bin",
+          "sha256": "e4dc9201cc2c2b655488c3dffa3ac3c207ebd999aea6e60594d6b2b0136d9096"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_124.in.bin",
+          "sha256": "3749e9d2d5c327b2da3703a03f07eead12a4c44403ec1ebeb0874f132ec62ba8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_124.out.bin",
+          "sha256": "e2c39d62a464a0027e9659db96fb8f7b4a40c4d303208245d47d76beb1f599f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_125.in.bin",
+          "sha256": "7b36f2d7bd17bf539f127b82bb58fc9b3b75524c4fe9e0932691049363b14560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_125.out.bin",
+          "sha256": "da44b11ffc6eaf59b094a9676936d84693f324739c058fef7c68377a70f5983f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_13.in.bin",
+          "sha256": "0a6ad52ad9f05a6f4a74b96e8898723f8f1b703251456b96c44dcca6831a1c1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_13.out.bin",
+          "sha256": "7379e9e9d84dae4d03e9ef423b048ea9d740a6845acfd03a10e3cc732ad60b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_14.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_14.out.bin",
+          "sha256": "7a9c88a5ea1918f4b7b7e77d9792cbef8e982dab8a1f6399701bfdd46a599873"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_15.in.bin",
+          "sha256": "da75d3509f164a02341897a2628db79d309f5957997f457e7c6d0e6c4aa488c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_15.out.bin",
+          "sha256": "b845f96da39d9526cd55df33716fb8f22af9fcc9c4f4b1384d7e39d61d0008d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_16.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_16.out.bin",
+          "sha256": "fd80fa204da94de7e50165a987770810e82daf6a93132a15cf33f290bf4b11a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_17.in.bin",
+          "sha256": "b6d428b4af5613ad9bee48713566f1f14c7de599c9c8149f3bd47761bf8283d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_17.out.bin",
+          "sha256": "5ea3ed54293ae352bcfe92cd6215d54b433e89bedb9c327e0673eca3b4a09a62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_18.in.bin",
+          "sha256": "4532b17c17607081c1549f666e5b4183d62455bffffeed728810a7e20fe2203e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_18.out.bin",
+          "sha256": "0df78dbafc7e179175aec1d4037460cc828f93ebb6118f0f988a9fabe22a40a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_19.in.bin",
+          "sha256": "1e621c02b1b4a2ac439abe4296ea5c2b6b6d3c35d75bc70d8fcf24e51a476d00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_19.out.bin",
+          "sha256": "5114324c993223c996c7054aac0d7991bd7f6da11a88618480cc9d8899d79f57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_2.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_2.out.bin",
+          "sha256": "1fdbf17d779c0646d096f203249a532cb742db6feea819225117c1795797ca95"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_20.in.bin",
+          "sha256": "e11e0c26c3bf9212963b83f6781ffa4c7bad636750f12613464385af127189a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_20.out.bin",
+          "sha256": "9d64c7037b132e4a63779926efde8c517fc03f7bab0819bd830ddf51afd1cf97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_21.in.bin",
+          "sha256": "5a267fcdbd1eb2c522f3bbfcc4792e10ccd0b6ae4851f8fbf6e7816bdc7c41f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_21.out.bin",
+          "sha256": "259695dff1e54696d5382666053e7f2a427d3a056efb9d09afa32018cbabe32b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_22.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_22.out.bin",
+          "sha256": "928b31b1c6b2270477ad731947be8bd2debcda5eac2753108c9340a662bd4e4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_23.in.bin",
+          "sha256": "4b2c2896b52a8e74d43467b417ef0d1a23417d74afc427ff94eb60b19dc1a1ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_23.out.bin",
+          "sha256": "303cf713903630bb63b1a172f31bbc2ce3198a215d2c67f02a6eebdad7b0c55f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_24.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_24.out.bin",
+          "sha256": "cb0103ff8c3a4bd462efef10092aa9cadb3b7af8001dfbe834b0a6d1b0c0a0c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_25.in.bin",
+          "sha256": "edfee4c765814ae661c10a5210c654e00ab9e990d2c793ff3753c86344fe1715"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_25.out.bin",
+          "sha256": "4e581bc8eb4fc9cfa18a0df0fc996aae311df62c274f914182806c1387fd6877"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_26.in.bin",
+          "sha256": "b4dbd9f667b9ae9f2333490b65603dcccb58f4dd93730b1b84c5ab917a750721"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_26.out.bin",
+          "sha256": "e9cdce3f04b3b37028d12e29c8ceb376afb27a693641438e13253f74a3769700"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_27.in.bin",
+          "sha256": "103e22977e633e61d0238dc901aa1986bda0250de323c0c90755300953119c71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_27.out.bin",
+          "sha256": "74ae49e8a093a7d93dde6bdc7eff4fcb048a652b0f11e2d5e5bbd14650155bcd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_28.in.bin",
+          "sha256": "e11e0c26c3bf9212963b83f6781ffa4c7bad636750f12613464385af127189a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_28.out.bin",
+          "sha256": "839c6d4da6d4685c8c2b58d693f09debe7721c9572e0a033707bbd275c1e80b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_29.in.bin",
+          "sha256": "5a267fcdbd1eb2c522f3bbfcc4792e10ccd0b6ae4851f8fbf6e7816bdc7c41f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_29.out.bin",
+          "sha256": "68c6a694cdcc0c314aa7b247a28db767676fd3ca9182255597f976afab4d81fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_3.in.bin",
+          "sha256": "1838e48500693e300cb6226e797b165a126be09a2c3fd288fbde319c52f30764"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_3.out.bin",
+          "sha256": "6cb932a770973c02b05f8230566a3ee01e1d3d7762474938d8563ca8e1d2ac83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_30.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_30.out.bin",
+          "sha256": "f15a40c6f99ad5701d2331558eb6661cff351b2c713b060bdcea0dc7399b48dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_31.in.bin",
+          "sha256": "4b2c2896b52a8e74d43467b417ef0d1a23417d74afc427ff94eb60b19dc1a1ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_31.out.bin",
+          "sha256": "365e90573166ae772ca0a8c154eb5c0c0be38bc081e1c885bd1f9573437836d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_32.in.bin",
+          "sha256": "804716ac7db69c0e79321356eea87087a95ccf73cc11d3a6a58208311f5b4e73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_32.out.bin",
+          "sha256": "d28b1c69be153f425bd1eccac680f49a5cad3730a2430ba9ad42ab5f41608781"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_33.in.bin",
+          "sha256": "9f5902879ff12788ed509306f515ab5a78ef6ba891df969b7f1949edcb9cb453"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_33.out.bin",
+          "sha256": "60192b402fdb112acde213ae024ee9ba2cb1b1d6e2a73bb79270cdbcff4c7658"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_34.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_34.out.bin",
+          "sha256": "586d3b3c64cd6781f5e915b189227347b332cf39250b818c7c5bba9aec8502cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_35.in.bin",
+          "sha256": "103e22977e633e61d0238dc901aa1986bda0250de323c0c90755300953119c71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_35.out.bin",
+          "sha256": "aed2949e79537e7e3b02cbc1b71c3d974bf5b6ac36d3689deee89fb87296356d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_36.in.bin",
+          "sha256": "00be06e3b153f2634fa0d7e21633e259b1cbd3a2791fc74357d26f3ccd0a348a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_36.out.bin",
+          "sha256": "e5f43e70b3577ebdf2341128285b9e773292e4fa7d0f24763d4fbccade967ce5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_37.in.bin",
+          "sha256": "5a267fcdbd1eb2c522f3bbfcc4792e10ccd0b6ae4851f8fbf6e7816bdc7c41f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_37.out.bin",
+          "sha256": "24f6f3e8ce262f39ab73406ed8da22efdce8cf5b6f13e8e5e962f34468e7dbde"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_38.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_38.out.bin",
+          "sha256": "9d656d0f30c90f6cfcdadfa461eda63a756bacab38697d6a761dcabfec3ee689"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_39.in.bin",
+          "sha256": "4b2c2896b52a8e74d43467b417ef0d1a23417d74afc427ff94eb60b19dc1a1ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_39.out.bin",
+          "sha256": "19dac0d13715cb15ccdddba95e09a513105cdf3ed026cb025bed7e5c8fe330e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_4.in.bin",
+          "sha256": "2404d5c1a96001f4973b5c72168c4b0469db1e0ad363a2bf6bdbce3883e357c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_4.out.bin",
+          "sha256": "29e60c7b761b4f9b9cd99d7aa50687904e199c7435441511e42cdbc1eddc8b64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_40.in.bin",
+          "sha256": "b4dbd9f667b9ae9f2333490b65603dcccb58f4dd93730b1b84c5ab917a750721"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_40.out.bin",
+          "sha256": "cf2fde33837cbf62487e24a537ab2b8f8e810decfb9740d2128db13bce188498"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_41.in.bin",
+          "sha256": "edfee4c765814ae661c10a5210c654e00ab9e990d2c793ff3753c86344fe1715"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_41.out.bin",
+          "sha256": "7c91e3579aeaa0f643f98be76840f1a5d848388c7860b7ec43f473ffa85daec4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_42.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_42.out.bin",
+          "sha256": "b738537a62008ad9f227822d58c86ad3bf5772f0298fa4e8a34fa461104fd16c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_43.in.bin",
+          "sha256": "15db62b4e8be504390ab5b18ee2a7c104e3c4b7f931880e2708c352700e5df40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_43.out.bin",
+          "sha256": "c91f2fc5c06cbf6b402a66b0e832eff593a2ffc795c162672a0895f6eb66963e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_44.in.bin",
+          "sha256": "00be06e3b153f2634fa0d7e21633e259b1cbd3a2791fc74357d26f3ccd0a348a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_44.out.bin",
+          "sha256": "970122d2bf628117ea3e5379a1014dc1af3abe1954e4df8faa6367c24d1d4365"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_45.in.bin",
+          "sha256": "5a267fcdbd1eb2c522f3bbfcc4792e10ccd0b6ae4851f8fbf6e7816bdc7c41f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_45.out.bin",
+          "sha256": "383d55004c88f7478e7befb34af7b993833cff61b3c3d67c3ac3108e53fbde53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_46.in.bin",
+          "sha256": "804716ac7db69c0e79321356eea87087a95ccf73cc11d3a6a58208311f5b4e73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_46.out.bin",
+          "sha256": "d6e511e34c565b4a36f7e1111fe4a26e6d93d22d562debc63ac73d8ca954e931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_47.in.bin",
+          "sha256": "4b2c2896b52a8e74d43467b417ef0d1a23417d74afc427ff94eb60b19dc1a1ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_47.out.bin",
+          "sha256": "bfee3e70e8bc1e1759576eb528209fe7fad092b6c8c1e3a73ebd4facb46c5046"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_48.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_48.out.bin",
+          "sha256": "bb8aa4ef08f19ce79b58df4b03caa32cb0cbde994da7ce618b470222bc3ef009"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_49.in.bin",
+          "sha256": "edfee4c765814ae661c10a5210c654e00ab9e990d2c793ff3753c86344fe1715"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_49.out.bin",
+          "sha256": "17554a75f342715d3f89dc43b38b92e781ec11a25bebc2dd826841085de6663d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_5.in.bin",
+          "sha256": "1e295763ff2c6c3ae142735300cb435ca67e993de21f90a2d82d075879fe6dff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_5.out.bin",
+          "sha256": "49bb39d1b2990abbb6a647e9dd420fd7afd2c379cb5f7d4517401aa23a92080c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_50.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_50.out.bin",
+          "sha256": "18e9577286429644793e293955d67cdacca79c66d4ac17523126f8861a188dc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_51.in.bin",
+          "sha256": "15db62b4e8be504390ab5b18ee2a7c104e3c4b7f931880e2708c352700e5df40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_51.out.bin",
+          "sha256": "c1f337312bb9bc86dfa8607107327e692ab393c959895389adc72fdab66dc05f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_52.in.bin",
+          "sha256": "00be06e3b153f2634fa0d7e21633e259b1cbd3a2791fc74357d26f3ccd0a348a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_52.out.bin",
+          "sha256": "53198b1899073a4cecef2ecd4ef847e7854b12fe1e979427259e80f227d2e645"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_53.in.bin",
+          "sha256": "5a267fcdbd1eb2c522f3bbfcc4792e10ccd0b6ae4851f8fbf6e7816bdc7c41f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_53.out.bin",
+          "sha256": "87b75b3fc0be89484c91c84b4cbac046a252339419783d845076a2e152942dd1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_54.in.bin",
+          "sha256": "b4dbd9f667b9ae9f2333490b65603dcccb58f4dd93730b1b84c5ab917a750721"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_54.out.bin",
+          "sha256": "1f44cb7cb77b048e659385a33471e812b85b226079162bdd4bc947ce78c5ecaa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_55.in.bin",
+          "sha256": "4b2c2896b52a8e74d43467b417ef0d1a23417d74afc427ff94eb60b19dc1a1ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_55.out.bin",
+          "sha256": "da25f628009d02bee8af0ee4d53441d66f3898addebeb92b0135a537ce428df3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_56.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_56.out.bin",
+          "sha256": "189ed91e439f77132f06252f67ffe2bc6198bda6fcbecbb8f12eb8eabc651e7e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_57.in.bin",
+          "sha256": "edfee4c765814ae661c10a5210c654e00ab9e990d2c793ff3753c86344fe1715"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_57.out.bin",
+          "sha256": "4e44e503b4790182414b611200d8f0b481a476acf9ff69a629ea7ee7c83f5e45"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_58.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_58.out.bin",
+          "sha256": "1774ce678c7152fd86722240aef29f19447e1af4aebe94535a535bed565a6edf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_59.in.bin",
+          "sha256": "15db62b4e8be504390ab5b18ee2a7c104e3c4b7f931880e2708c352700e5df40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_59.out.bin",
+          "sha256": "3a32a15cad1e66c281fbd6cce40c52d2771ca10c415bb3ee532073fbc08ba6cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_6.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_6.out.bin",
+          "sha256": "752f77467c036521bf204c8eb0f9bad85016b1bf7dd4b566d0ca66a8ea8531dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_60.in.bin",
+          "sha256": "00be06e3b153f2634fa0d7e21633e259b1cbd3a2791fc74357d26f3ccd0a348a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_60.out.bin",
+          "sha256": "6aec7f82d660802670bd024ccbeb10c062b9518eabc5d837411d153da55b26c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_61.in.bin",
+          "sha256": "509c1ad9b058a8b43a26f0bd54fac72764643c74cfa6a5e05ee2721a8e647e2a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_61.out.bin",
+          "sha256": "28ec1f391b1612b757dac810da25155b7ce452ca753d11b2ec71acbfd8a50b28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_62.in.bin",
+          "sha256": "0c3ca86e3829a3d17c1c081e8a601fc93f77c7e31ddc2c979f98e293ac34c471"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_62.out.bin",
+          "sha256": "7ff451890a038200d3faae6ce4a94f93a28e16923d4843bde4ad6963f747e93e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_63.in.bin",
+          "sha256": "c1acd21b8d45de564ddfff0c6ba1dece962d676de73901fb6eec9d35b9cbd76a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_63.out.bin",
+          "sha256": "cb39bdd74df8608000e15b4ef15bc4cbcea4de59d78dd797931e6825f0c4b0b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_64.in.bin",
+          "sha256": "367be35794b501113dff494d47c27bf8f1a29aa33ed8d82edd9afeb4011812b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_64.out.bin",
+          "sha256": "8525cde51aaaad6cc91e94feb1106ec6d5292d3b2d84c0fd0881b202be7b1f46"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_65.in.bin",
+          "sha256": "e49a0e35c2061e19e1d06705d6ea140526fe364a3735c8b93c06b25874c473c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_65.out.bin",
+          "sha256": "83ad56fbeec3afaf6974d10c2a06f0b8be9a9cfed9160eb97d32167e94b97381"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_66.in.bin",
+          "sha256": "367be35794b501113dff494d47c27bf8f1a29aa33ed8d82edd9afeb4011812b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_66.out.bin",
+          "sha256": "ce54d9226508b6c7e799afae56fd3c8040a6d2de0076b712b39977a0fef3fb71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_67.in.bin",
+          "sha256": "1e3abbd9fe1943b1a5a865c384bb08a9032be4875d1ff63b611bcaa91b5ed1f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_67.out.bin",
+          "sha256": "cad9cc8f612ea9d3c35405022fd7ed905f4ad4e55a2271b24f8a5ca39e2e5528"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_68.in.bin",
+          "sha256": "dfd0412a82aa5aa63f90c6d62dc73498c65c6a54b0c3448a9612123f43dd3bc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_68.out.bin",
+          "sha256": "4b660dbf895d1f1fd59cf8f4897997682035ed30b459b5012f22347e87c69ffe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_69.in.bin",
+          "sha256": "6782544d9e77cfd20a122da5663dae8a0ef1ab3c7d66fee2c97a6219d6322a3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_69.out.bin",
+          "sha256": "509951ba98c71ec774a6c6de669494a022e28e9b1d7f863c948ec56a787e4642"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_7.in.bin",
+          "sha256": "da75d3509f164a02341897a2628db79d309f5957997f457e7c6d0e6c4aa488c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_7.out.bin",
+          "sha256": "a7ecaaf443148fc2bd754779a9bc849436f39895f4114556b800f6a6d2c06d3a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_70.in.bin",
+          "sha256": "367be35794b501113dff494d47c27bf8f1a29aa33ed8d82edd9afeb4011812b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_70.out.bin",
+          "sha256": "861e4d933f6cd65f48406e7d1fd322b19b631014ebd75bb844823bc0a147c0b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_71.in.bin",
+          "sha256": "c1acd21b8d45de564ddfff0c6ba1dece962d676de73901fb6eec9d35b9cbd76a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_71.out.bin",
+          "sha256": "9763672fae7538b43aa5eb0fb6b85e878c9a2f89606f0b680c6d8c93b141d540"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_72.in.bin",
+          "sha256": "367be35794b501113dff494d47c27bf8f1a29aa33ed8d82edd9afeb4011812b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_72.out.bin",
+          "sha256": "913dd4abb764adf769bb1071ed2a0c789ebefba8017e2e74fe132f56a343289c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_73.in.bin",
+          "sha256": "e49a0e35c2061e19e1d06705d6ea140526fe364a3735c8b93c06b25874c473c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_73.out.bin",
+          "sha256": "86fe733e7891f1e37daea9f9ffb1ee0e40338336aa83df84acb3a2b021f698bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_74.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_74.out.bin",
+          "sha256": "595cda85d526345271bd0d50d0e33cac67ba68613bef8b33eee5a6ef6f137280"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_75.in.bin",
+          "sha256": "08932a0031a6bdba65e7cf0fca4e7f3e0d6d97af2d6417b5ad98cedb866b5b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_75.out.bin",
+          "sha256": "972391414abccf1fc0c3d03744ee214330bd4c0473368ca86aa6edfd9a7785ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_76.in.bin",
+          "sha256": "fdc648ffe8580d14221c0ad892eed9b392581eb2cc0f3699b97e161e8e38ad49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_76.out.bin",
+          "sha256": "13b3b462487f96d60abd3ffb1b60201fc349b6f74214f726fa5d20af8876fc01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_77.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_77.out.bin",
+          "sha256": "b0f79f9e7aaa0f16b70c2cb716b9a461b2dd080665d18fb7ecca275ba5d336a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_78.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_78.out.bin",
+          "sha256": "91af3f915971b3c7356aa937a14d558a90f2c0468d288c15979a91b9216e5a93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_79.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_79.out.bin",
+          "sha256": "cb15a4750fda32c22824133d918b74c9a9d87800599df0af6fd7d02823c73cb1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_8.in.bin",
+          "sha256": "7c3ba7a82bfc4efdad346a88944f44c1aae83d763fea91ee3b0c037cf5e6421c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_8.out.bin",
+          "sha256": "e9b061f4cef2114af0b2b721873f02c49f5873ef79648a58e358625b6f342106"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_80.in.bin",
+          "sha256": "3c98669da49d266fdda395315babe7f2d3b934d281e1b14347299951a773acc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_80.out.bin",
+          "sha256": "5c66604bb6390c3ee343abf0d3034ae1e62fccc91764010725b7a764dd94eafd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_81.in.bin",
+          "sha256": "55a2d768caf46169ab805a2973d5e9f4a86185426c3026c914cd01d53f5a4a93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_81.out.bin",
+          "sha256": "96ab19358e91f0dd6359a8c4240c67c563a737a7b828694d88a1f8e093df0318"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_82.in.bin",
+          "sha256": "bc8f5e6b7053e436849dec6ce1232f57b46eb0b5f5e068563d10485159d9eea0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_82.out.bin",
+          "sha256": "e6897879a06d016199e00817cd10508277bb7d8cfb78f0779c9fdf8d53999c58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_83.in.bin",
+          "sha256": "2c2892b51cc5c7a7f4dceef8e8880a1f4a91838576a7b40fea42639f9aa1ba60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_83.out.bin",
+          "sha256": "a1409e1a71d394b144567a5bc1e29164f93e6b9f42f6efdab67342aa7784badd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_84.in.bin",
+          "sha256": "cbadc2d1a648af9095e159fe7cce13917c7364ef99d24060e9c6eeb5d268036f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_84.out.bin",
+          "sha256": "6f7cc88cf0271b99d6040df54ba98345b0f492a5955217694c595ff27142bc07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_85.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_85.out.bin",
+          "sha256": "90aff5e0165026cf369300ca48453810d76b5aba4952dd3d6fdc06d52b6f9354"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_86.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_86.out.bin",
+          "sha256": "485a2eb687fd58e2bae82a9b83d2db0b8d334e488154cc4786d9667a20e2834a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_87.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_87.out.bin",
+          "sha256": "0cd375ab04c272d278fa08cd9e52847a6d3253583ca9e0997c5213793e836f35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_88.in.bin",
+          "sha256": "3c98669da49d266fdda395315babe7f2d3b934d281e1b14347299951a773acc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_88.out.bin",
+          "sha256": "5584ac7b37b00a55bc27500bd9eb8bfda5a044c47f80a0462183d50419a8b451"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_89.in.bin",
+          "sha256": "29da68545755b70589160430494e624029eafeeb5a31ba5a9b05ac3e518f2e2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_89.out.bin",
+          "sha256": "4f7445184d88fa7316be65c78e3cea4dc4ff09dabce78b42457f7feb28a58b56"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_9.in.bin",
+          "sha256": "b6d428b4af5613ad9bee48713566f1f14c7de599c9c8149f3bd47761bf8283d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_9.out.bin",
+          "sha256": "77327d6b53d1a85295ab9b6b95223dead9256285bcbdabbaf7649db26bc4c9e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_90.in.bin",
+          "sha256": "48151c5855322cdce17b2077c9b88c4707712d12791f260c6f464b5b25c48a06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_90.out.bin",
+          "sha256": "d6c56dfb1d8afc6c764ec41e2c9b25a5b3e8a11b21b79293ae9cfeaa3e452ad8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_91.in.bin",
+          "sha256": "2c2892b51cc5c7a7f4dceef8e8880a1f4a91838576a7b40fea42639f9aa1ba60"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_91.out.bin",
+          "sha256": "72b078dbb6868fb568a50a09c6cde0d30557ab3f71cfe0dd3f4d39bbe134f167"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_92.in.bin",
+          "sha256": "cbadc2d1a648af9095e159fe7cce13917c7364ef99d24060e9c6eeb5d268036f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_92.out.bin",
+          "sha256": "2e1829e55ac906f0d0d6bf610d124048a6e41a2725bf76b4fb2aaee38d2f7a55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_93.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_93.out.bin",
+          "sha256": "98b73ea381b8b11674d5d381945af57d45e857d5127ee1075893375f8ebcb03a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_94.in.bin",
+          "sha256": "ab4f4b9dbd5d0f97aae94fd1a4d5c66ba262f26c300fc6223a18c60f9747faed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_94.out.bin",
+          "sha256": "8a6b528de13e90f7c4a929cb9740a434a7bad08f9dcc56814f1c3f71cf3e5fe0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_95.in.bin",
+          "sha256": "55a2d768caf46169ab805a2973d5e9f4a86185426c3026c914cd01d53f5a4a93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_95.out.bin",
+          "sha256": "e615c4e25e44ff84535b2a5dac1131ff618c3822871e2722b76b1dd4185befa0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_96.in.bin",
+          "sha256": "5a9b5e6a49312410404e74c36ac37c87621e80900150b03eae022f42b42ba5e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_96.out.bin",
+          "sha256": "b9aa1b37ef31fd44bfa73cfab099122be177a283436464b937a5ba23cfe1af9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_97.in.bin",
+          "sha256": "a37da4a4af3ef7714e3a57dfe9cc6f8f94e521303a562dc96fe24df0b523b2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_97.out.bin",
+          "sha256": "a121f5bcf13706f86a95106bc05b0344085cfaf768f3b7b87859d0b3b9a784f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_98.in.bin",
+          "sha256": "48151c5855322cdce17b2077c9b88c4707712d12791f260c6f464b5b25c48a06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_98.out.bin",
+          "sha256": "d79084ed481a97a5e12079ed6d1a0d7bfc35f2157517c7593ea3478a289b8e44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_99.in.bin",
+          "sha256": "d1237221aca237c1082c1d1b2bbdbbc0102e1a6fcf62371dad9813134a935d4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1\\f_8c0a86ac_99.out.bin",
+          "sha256": "4c7aeed0f3c40bf53bfa83431eb5377b29fcf44d3609c4e6053fb52f96d7e3dd"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\capsule_coverage_65_history_scan_accept_v1_s28.bin",
+          "sha256": "070a6f056fc039a30894f66aa2efcaeb8e13c58030421e4ea108e46e2ae3b72e"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\capsule_coverage_65_history_scan_accept_v1_s29.bin",
+          "sha256": "9fb308d8a1ea2706c3ca8ef55af62eebb3b509e31d8c38ef514157e166d3a334"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1_native_report.json",
+        "sha256": "f53c0ebd466b2dbee77fbf143e3ed2f5f9a025f9f6f11ab267d483af8467785d"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+          "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\golden_coverage_65_history_scan_accept_v1_s28.log",
+          "sha256": "7f8055022f3f6fa4d7fac661e137abd2a8b14d577c9c647981446e0930af6a58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1.patch",
+          "sha256": "94065140434f49de82a2cac5c7174cbef0a3800eb5dece570580f6545f602ede"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\probe_coverage_65_history_scan_accept_v1_s28.json",
+          "sha256": "0df1abf93b6aece96b8c7d382aa89a18190e17b4cae12a1cc376bd21033c4c74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+          "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\golden_coverage_65_history_scan_accept_v1_s29.log",
+          "sha256": "03ea7793f9effb763f07bc2227c29f4696b01be34d1870ffd9a5ea2a40638a26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_history_scan_accept_v1.patch",
+          "sha256": "94065140434f49de82a2cac5c7174cbef0a3800eb5dece570580f6545f602ede"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_history_scan_accept_v1_raw\\probe_coverage_65_history_scan_accept_v1_s29.json",
+          "sha256": "7da397aa38c6278e06ee6bb293eb5b7360730b0d5468f2e101aeb8809833487c"
+        }
+      ]
+    }
+  ],
+  "original_caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\manifest.json",
+      "sha256": "5a30ed388fa0a330f529d148216dd005324406926d5c480936012239f95b4d68"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\history_scan_original_bsr_v1.json",
+      "sha256": "8e9b1c0975ebc0e156e812643af59e4be675c7f3a7dc253b107256e8c93f4711"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_0_1.capsule",
+      "sha256": "6f76fadc9d901fc8e68bb9bdc57d5426f7a5015e7612393d460dac26cd0fda84"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_0_1.log",
+      "sha256": "19e6eda54809d8b9ca0fe31c8215fe31f9936fddea039e27bd8cacb3d788b3b8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_4_1.capsule",
+      "sha256": "076901f3a4bdf781b321113b9eee5690dcd38e135e7f8f9360798ba96d87bb9e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_4_1.log",
+      "sha256": "1bb9eee198b43e2462f6dbf725cf6df4597b907a251fa37b2ccde7e995d5b056"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_8_1.capsule",
+      "sha256": "7d77f6916d56afc7aa3b7587bbd9b28737f71d78d85bed5b52713d1dd2276700"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_8_1.log",
+      "sha256": "2510663b27c7d4ad4dd312ea5b0cb8216450148959b5d724a4df881648ea6483"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_12_1.capsule",
+      "sha256": "4b2365112690b0727c18542ef958843a0261e95fa3145716e018256d372ed78e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_28_history_scan_12_1.log",
+      "sha256": "dcd0bbf208768ba241ad39b0e17a5a0bae6324bc397674cb9b90fc1aa59c60a1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_0_1.capsule",
+      "sha256": "cb9acd8102ad023f895818dbdcf66616b58b359e4553ac90f41ffe5e0f7c378e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_0_1.log",
+      "sha256": "b0b2d7cbddc411145472d0912c2a1fad2c5c8a8c84fed374c238009f6e7dbb9e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_4_1.capsule",
+      "sha256": "dfab043f30fffd34ffb227b42a75716d65826df4f1ba533388e52e014592bd40"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_4_1.log",
+      "sha256": "e3473edf011e317d58a7eebcb400ff41c0468c74eb1d377f045d430fb6ecb520"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_8_1.capsule",
+      "sha256": "3f82a9bf075231084d5730c60bc7cdb5b374d2e3ebcc56c578d3273032ba823e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_8_1.log",
+      "sha256": "280a7ebb31dac5b1f81805f00141ba4ac2279980ef0168227fa571446d258706"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_12_1.capsule",
+      "sha256": "5bc226b2e92494157b516ae10a8bf7e0f015f2ff86d978c8ba5f3cff590a29ac"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_original_bsr_v1\\vf3_29_history_scan_12_1.log",
+      "sha256": "508590d8a03b4809ec680d98bf069307d15a63226aa83431222b2e1544a02d9e"
+    }
+  ],
+  "callable_map": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\history_scan_callable_v1.json",
+    "sha256": "c7746ddb780cdb1312b3adaf9978855392c5d3962518e6522af705b1fe789e8f"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_history_scan.py",
+    "sha256": "f54b39b514e3f1a8fb845936d75b5d496d8fbe92304d58780fc150bc9226e18f"
+  },
+  "attribution_dispatch": {
+    "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+    "sha256": "2aeeec5478145ab81b1a656fcc849b71a5aa29d809425c9e75f5f8411eed3279"
+  },
+  "bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "084e6bf88833dc8b6ef0a3835a530f693a1e6ee5843db545105ce22a9477e234"
+  },
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_affected_bindings.json",
+    "sha256": "60f9ff675158eec8f1308e3f002d58116a0a7e98d8e06b7454924ed22e0d476d"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\history_scan_v1_affected_selection.json",
+    "sha256": "837f6c89345c969d2a2afd46b7717183100ab5116fd0438ce04d57bea45929a0"
+  },
+  "regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\history_scan_v1_affected_portcheck.log",
+    "sha256": "d4da9f4a5db969aa0ee4c890aa5e689cdc4ae767ceba02d7aa5c72042e0fcfac"
+  },
+  "regression_status": {
+    "expected_bindings": 3,
+    "reported_bindings": 3,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  replay_history_qualified:0x8c0a8808 PASS   matrix_family: 118/118 cases match (0 skipped) - PASS",
+      "  target_configuration:0x8c0a8582 PASS   matrix_family: 511/511 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3dl.exe",
+      "sha256": "e86caa1b313cc5017b758f9419640095a191394a8bc1db09d32e9cb50cb61f99"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3walker.exe",
+      "sha256": "33c1534db292ece251704b6065a5c21d76cd20c0dd1526fb1cdd211f9fff509e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3mtmount.exe",
+      "sha256": "4afe99184e8135cf4455e874ef352ecaea50353b802e18f4bb370f8d449df4cd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3loop.exe",
+      "sha256": "fc3e813cbbaca0d8db5e85e5374ce5a4838120c74880bfe66a23393b5cb7a489"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3taskvm.exe",
+      "sha256": "3fd7a7fe8e7f30866e5f98e4214d56c1c22b2545d134754e88781885a3f86aa6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3vm.exe",
+      "sha256": "5e61aca35f05df1463652d00d96b3b495eabb0f9b2e1cbe9964bab21bfc90225"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3frame.exe",
+      "sha256": "f7c5a964140792869aba0da9692dc1e34018fff83765a12fac7aaf66ef7d9a41"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3libutil.exe",
+      "sha256": "7d8666699d0d6dbde0285d94a19f4f3224a519bca146f200506d4438e42e65e3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3orient2.exe",
+      "sha256": "221b9e275fd59414a76d4ab0f68a581cd0a3af030461215233391ad1679d2cfb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3poly.exe",
+      "sha256": "128c91e1d5eea9936f3cdd61db2f5a17f81e6d238a2a2de21733a976663d3d93"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3vecpush.exe",
+      "sha256": "2c04805dba5932e307aab9d88a4eb83bcab9f775952257616f216385f163db90"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3tailcall.exe",
+      "sha256": "b2f5493d1861257ac21964cef3424278c6f824920c4e6fe219d82ca817e3e40b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3walker2.exe",
+      "sha256": "852078fc902d2075f8362342fb8b196601fea74ca3c2c69a4d3fd30883fa9c24"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecadd.exe",
+      "sha256": "4256b052072a06c3d4b511097b1561a83ff083207bee674d14e678f85e1844be"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3scaler3.exe",
+      "sha256": "611e7188b0d920d00d4d6ff91b49359ec322cd39054e0c9ab42db520b8e82c74"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3frameseq.exe",
+      "sha256": "9eba449224c0d435f573f729a14d75b218054f8450e21980cb7021ca4bd5f544"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3cbefc.exe",
+      "sha256": "898159d295cecc0dc356d6c9a0ecb2246ed2a39c3f0f98dcf2ee59ba900c7b1b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3f040f1e.exe",
+      "sha256": "79412be3f4e23bccfbff90332cf34c02dc3da6f69903939c04fad4187131c0f7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3f0747d8.exe",
+      "sha256": "6e191c9eeb6dc0b790950fb3bf6d0b06a02dac0a549ef47ee72cc7643c547b5c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3f9f6fc.exe",
+      "sha256": "4cff46578c81827238fb087ebc6f1f6ed61d8acbb46776133dd3e438ab3ad944"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3f9f6dc.exe",
+      "sha256": "50f913de06e4718ae59bc069248ca28937cdfb4904163b7b3c4b1e9fa877d488"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3cc148.exe",
+      "sha256": "2ba6661bf37464cf5ceec7d5c8701286d7fd92319322babf3ccdced747a86d7f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3c5dbe.exe",
+      "sha256": "b489038b65d42531478c24b8345969631bd5860a8acd9b54037cd0472b620084"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3b10aa.exe",
+      "sha256": "fc0f31393c7d391c6ed67ee51406c34a4c2757e8e8d4b0a8fcec05db4719abc5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3c6ec4.exe",
+      "sha256": "377468b2596f5fafc6e1dd2acb2ee5b9515ab850adbef2b0c463e16851051290"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3maplookup.exe",
+      "sha256": "0e81fbe8b44eee736607198606c08a6bb7c83206dd1bc7c50e52736d975d4dd5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3meshnode.exe",
+      "sha256": "319f5af016db84891d2e2a3a39dc506656c95e7c3cd1fb17cc57914b59717578"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3d0fa.exe",
+      "sha256": "93b2952cf8e84961c76b50a45bbebc83b01c82086bd679ec8bee3bf506b5710a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3c788.exe",
+      "sha256": "3205989f50c5996db7829f2918dac62cddc9af7522917f7d5239f8a55bc833df"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3f096258.exe",
+      "sha256": "f65cc2d43534e43c0d3ecb99fd0fb6e6ce4854a27688e06b90e94f9d364f90e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3matrix.exe",
+      "sha256": "1f53eb311d23b30bfa429af0727bea4e288bf5c574a673ce23a66270c10051ea"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3bootmix.exe",
+      "sha256": "b89f9e3f56d3abeeeaa9cd78f0648c4b670b66daea90b1aa5b1b836250373798"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecnorm070x.exe",
+      "sha256": "6a3fb80fffbcd9617ea7da8fd0efe77be8c9acaed0949a8019b746bc6a8373c8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecnorm070a84.exe",
+      "sha256": "9770cd5f6f1e3d4590351731fca3828d43e75592157e02c39419991b2d20f4a6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecnorm070120.exe",
+      "sha256": "a38451fb3796141a00b22e7f4b3c241885d3e7008d15fca473962b53e7fbbba8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecnorm07030c.exe",
+      "sha256": "e323da8dd404c4182aaf6446ea707ecffb8205aeb2b75079b06a72a4a246fe57"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fvecnorm070cf0.exe",
+      "sha256": "5fed16f5308e943999e742d22e7456664ff2ac44e2dbf84c37c4875ea939dd6b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3fpu.exe",
+      "sha256": "3af2c70af0aebf59c2e67d5d1831f37a795554054195be09bd78bbde43c29102"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_scan_v1_native_tests\\vf3statehelpers.exe",
+      "sha256": "ce659ec58b6cbbe7509c9b11aae75a124d7288e9dd4656e88ccd9648ad990b92"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\history_scan_v1_tool_tests.log",
+    "sha256": "e261dc97f3578eddd26c6aa7d8fc62c65f4ceb1b772d3096a98f92dcdae74365"
+  },
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\history_scan_coverage_baseline_v1.json",
+    "sha256": "bb0eddb0983641013fa5edb421b5d51fbf8f973850142430db508f8742d9fd91"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_history_scan_v1_milestone.json",
+    "sha256": "095b167061756c780b67b05c341973908faf67bfb38dd92b6c53502516a3975b"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\history_scan_v1_chain_extension.json",
+    "sha256": "bf78dbca999faa51f43a3548e4aab6f7ba9f33f76f380c7d1a59b05fd3a7c671"
+  },
+  "previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\replay_history_v1_chain_extension.json",
+    "sha256": "6fc61c8da4bd61f6a3896bb2a5cb9febe99d9ab3fed7893941d9a17c952e08b0"
+  },
+  "previous_percentage_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\replay_history_v1_manifest.json",
+    "sha256": "86a4b5a430af7b02f21415e953920fbff40caa68360612aa9ecc0a51c71dfbfc"
+  },
+  "gate_scope": "All observed/static affected bindings and 39 native suites; previous full 60% checkpoint is pinned through replay_history."
+}

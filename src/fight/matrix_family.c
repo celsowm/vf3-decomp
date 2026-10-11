@@ -229,6 +229,7 @@ int vf3_round_transition_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_settings_menu_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_render_lanes_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_replay_history_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_history_scan_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_contact_history_helpers_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
 int vf3_aggregate_frame_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_radial_wrapper_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
@@ -267,6 +268,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c0c95f4u) return vf3_settings_menu_c(s,ram);
     if(entry==0x0c05d424u) return vf3_render_lanes_c(s,ram);
     if(entry==0x0c0a87fcu) return vf3_replay_history_c(s,ram);
+    if(entry==0x0c0a86acu) return vf3_history_scan_c(s,ram);
     if(entry==0x0c0c0ebau||entry==0x0c0c0f60u) return vf3_contact_history_helpers_c(entry,s,ram);
     if(entry==0x0c0a6dbau) return vf3_aggregate_frame_c(s,ram);
     if(entry==0x0c0cb65au) return vf3_radial_wrapper_c(s,ram,audio_alias);

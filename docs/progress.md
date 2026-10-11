@@ -1,5 +1,17 @@
 # VF3tb decomp — progress log
 
+## History-ring scan qualified (2026-10-11)
+
+The history-ring scan adds **176 verified C bytes**. Development and
+independent holdout each match 126/126 valid strict cases with complete
+owner execution and zero skips. Each retains two interrupted specimens.
+Eight original windows prove both BSR callers, zero-count arguments,
+saves, pools and returns. The unchanged 386-file source freeze precedes
+holdout. Three affected bindings, 39 native suites and 235 tool tests pass.
+
+Verified C is **266,548 / 434,656 (61.32%)**; **15,979 bytes remain to
+65%**. See [history scan](re/history_scan.md).
+
 ## Replay-history packing qualified (2026-10-11)
 
 Replay-history packing adds **222 verified C bytes**. Development matches

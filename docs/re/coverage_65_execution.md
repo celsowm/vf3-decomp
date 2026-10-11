@@ -633,3 +633,17 @@ capture and interrupted caller pilots remain excluded and pinned.
 Verified C is **266,372 / 434,656 (61.28%)**; **16,155 bytes remain to 65%**.
 See [replay history](replay_history.md). The full inventory gate remains
 required at 62.5%.
+
+## History-ring scan: +176 bytes (2026-10-11)
+
+Callable `0x8c0a86ac`, frozen owner `0x8c0a86ba`, adds 176 marginal bytes.
+Development and independent holdout each match 126/126 strict valid cases,
+with complete owner execution and zero skips. All inputs complete; two
+interruptions per campaign remain excluded. Eight original windows prove
+both BSR sites, zero-count arguments, the ring pool, saves and return.
+The unchanged executable and 386-file source freeze precede holdout.
+Three affected bindings, 39 native suites and 235 tool tests pass.
+
+Verified C is **266,548 / 434,656 (61.32%)**; **15,979 bytes remain to 65%**.
+See [history scan](history_scan.md). The full inventory gate remains
+required at 62.5%.
