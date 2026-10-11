@@ -1,0 +1,2523 @@
+{
+  "passed": true,
+  "coverage_credit": true,
+  "new_bytes": 78,
+  "readable_bytes": 259188,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 23339,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_dev_v1_complete_sources\\manifest.json",
+    "sha256": "2aeecbe6b3e3f0910f786e8ecdd1fc918c992ad7cbc38804096baca011052d4c"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_controller_merge_dev_v1.exe",
+    "sha256": "5bf70a5ce18bbe2b767196caea3ebae533383c732dba2f2171f88291f5dccb45"
+  },
+  "campaigns": [
+    {
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\batch_manifest.json",
+        "sha256": "aeec42c32c599670687767e3875f253e7fc00c5e7a27b75d7a952c384cc72b64"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1_native_report.json",
+        "sha256": "f7134672b46d26ed31fc64f53087cdadb6412468dee9a18988a13bdaa305d5b9"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_merge_dev_v1_raw\\capsule_coverage_65_controller_merge_dev_v1_s21.bin",
+          "sha256": "ebf72acf9987fbf81a848d546c2bba6c7be58aca7628a5d7f931adda6cde4797"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_merge_dev_v1_raw\\capsule_coverage_65_controller_merge_dev_v1_s26.bin",
+          "sha256": "404416b110e8329c43e87fee9971f97ae3d99eeac53e9f26fcac4ec6765dc2e6"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\batch_manifest.json",
+          "sha256": "aeec42c32c599670687767e3875f253e7fc00c5e7a27b75d7a952c384cc72b64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\capsule_manifest.json",
+          "sha256": "60c0cffe3d87e7468538618713fd129a169e6a75728fb30276624ce589343dd7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.cases",
+          "sha256": "8f2c082553d1bd416d9fe058c3da60596fced33caab03678def81de353331f32"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.extra.bin",
+          "sha256": "b6e3cc2bcb1bdc1a320160f461bf310ae16a66475f352cf4cb066a94cefc085b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.ops.json",
+          "sha256": "29d5e785cd986016543a38e0e9e942b51454e42470e76c5e16f5eb87adc7b6ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_0.in.bin",
+          "sha256": "3dfface153111b706d3c1f6e5cd8a86bb0bcb85ffcbd30bdbd1f70da39a5b756"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_0.out.bin",
+          "sha256": "0bce4764fa3ef62ad3ad5bd11d87e341999da0cf507a3ec51049ab7413332be3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_1.in.bin",
+          "sha256": "12ff7815022d8143d26c865cb4cc2e954fcfd552b3e824e1273512bd34003010"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_1.out.bin",
+          "sha256": "8345d52ab705af388424463a529c6675bb907fcd1af415b97338ae9a439cc4b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_10.in.bin",
+          "sha256": "bad75019e232ef158c3fbb510f99ca7e4d318dd3dbb4f35780d8990e1db54587"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_10.out.bin",
+          "sha256": "84a5e04a0b33c0c3123ec0ceaf936503fd41c223fed573f52ea268595b839dae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_100.in.bin",
+          "sha256": "f371b1b57ed23d403ff77ae79ca05c9dea0303f593a6285e8ee0941adc045a16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_100.out.bin",
+          "sha256": "c40f4b697cacdd7c392c90051f7736c8a16f087fd6b354fb63b2df90dc55571b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_101.in.bin",
+          "sha256": "8c9f37f597c3f2dcd948e570b3d65c20716a0309f67631ac5fb52e11b4692286"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_101.out.bin",
+          "sha256": "9636158697b9f376b4a3e0badf7d709638b622bad18d668c08c03282439146b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_102.in.bin",
+          "sha256": "e210808d178885147476c85827c96e77f528dd1da90f934ead4433ceee8070f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_102.out.bin",
+          "sha256": "330e06247c287138cff8b09d10af399986ae53835c124a7593ca5ada8f8eb6f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_103.in.bin",
+          "sha256": "0795f0ccd41636705d906da6a507585dee1bd9e08058bfd10502a14e99fa11b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_103.out.bin",
+          "sha256": "795e740a748b4e3aca74f999973656d6311a39701ffaab5c58cb3fa16a01c256"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_104.in.bin",
+          "sha256": "b2cb8ca4fc994994fce312b12e76bb1192b00b5ff4d869c459b8df06d37e11fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_104.out.bin",
+          "sha256": "41200754608c33f90e89727835c921cc5a72605cffaae8f6cdfa7c5f209ca137"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_105.in.bin",
+          "sha256": "f361704cce77efd2afe0028b205ce2fe76b9c26ce06287d78ed0901c2bb2ab29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_105.out.bin",
+          "sha256": "c048bf9b96404b48b31071f54631cc5e549417f58417e28d7d8eb605006922fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_106.in.bin",
+          "sha256": "31ebefdf9acc92f5be682b7e08da67ebd0b5aca1cc8fc6a7a45f1b6e443ad5e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_106.out.bin",
+          "sha256": "b7790351b10b31153618cff58431db5c93543bb8f4580395ea0ac84621f08313"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_107.in.bin",
+          "sha256": "c5dc8d38df1ff3226746d51f2108652c6ff22a6f07dd08316610158b385075ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_107.out.bin",
+          "sha256": "3337ce9c6727d5b81990f084985a484b50e8d641d746d48730527b72f712ebac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_108.in.bin",
+          "sha256": "450c2280359fb86a96c60c55e6a091a391988a3d3c0425660ea1c43e855e3d09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_108.out.bin",
+          "sha256": "eaf8b7822001017fe87a432b20670292d8d3a037f9349cc6927120921a95e406"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_109.in.bin",
+          "sha256": "b65c2a12c8afffb422db01419742833a07211f28b0af356a4165ad2c6efac637"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_109.out.bin",
+          "sha256": "ba8b40dc6cc796cf7960da4a5433dbcf1a0cd8cec2b1fdccb597d546e7ff0d1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_11.in.bin",
+          "sha256": "7bd20496d1489c6042922a84ecc2ce45f838e748669c88a55a068639665ee8d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_11.out.bin",
+          "sha256": "5ebb768ba72bb1b8d2b579e3e84c835108e4615175b44beb5cce338acd0153f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_110.in.bin",
+          "sha256": "791ef07cb5a724354dd2e63fa4bcced678f369223587217a8dfcc553d91e44e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_110.out.bin",
+          "sha256": "7fba283236205690d3932fde26c9c3e85158a671b9b84600eb8c3c1d25ee3d97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_111.in.bin",
+          "sha256": "ea6a8930ff492b9bd355c041180d8c45426d53ee08126c24edb7fdd8b0a5a376"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_111.out.bin",
+          "sha256": "10f017269d6d00dca525ebe19514ccf6ec1fb9a5d0e6684329cf983df24e900c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_112.in.bin",
+          "sha256": "c0748778294a36225c73cf9cb63c2bd54ecedf569ffc30001d97f6b4fa1f333d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_112.out.bin",
+          "sha256": "aa8cf934d6dffef1afd6136b891e3290cd9b624698e08a4ec62fab0164d1782a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_113.in.bin",
+          "sha256": "c026ccce5a471f9eaa8b0710e9ba32fce3b1b3b8814a8290a2e35738d42a3b9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_113.out.bin",
+          "sha256": "87be54e129e0dead2a3648c45fbb686453462873d3815e540bdb9d7bf959fbe4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_114.in.bin",
+          "sha256": "c5bd0268d4d1f74481f3d31538096bf3148190e33692db42367b6a9a607fa8aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_114.out.bin",
+          "sha256": "363caf4a1706bfdd248ec94938ffda8a95e025350632f13a65f0f073d2c1a5a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_115.in.bin",
+          "sha256": "00c7209b5655964aea917d46f047424f7b391ea525e4ea05d05ecd623b4ff5a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_115.out.bin",
+          "sha256": "45c472063cb643b84318e1986937f174a9ebe4d2aed7b16d2c28e4c521932eda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_116.in.bin",
+          "sha256": "bf792cc7ac7cfdab77ff20a4119ee34693de2723d83b12a7862a31935ff15a93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_116.out.bin",
+          "sha256": "5c7314844ec55b0aae72a615571427f31263a8580aaf5cefc60b22b956538551"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_117.in.bin",
+          "sha256": "bbede38b2804d018cb3b9a5b144b4329335fd1c135ebce6c862cf97447b78632"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_117.out.bin",
+          "sha256": "6529eac32b53f0db2780d3d1318271343a3d2f5cafe63164aea58dff4e55b108"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_118.in.bin",
+          "sha256": "b870a910185cdd14851191ca04176a42b380b2e54fb185015c495a6ed7036951"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_118.out.bin",
+          "sha256": "7202a2bda0a2ca2cfb8eb511ea1452b6736f14008e744cbaecd5465279d9579c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_119.in.bin",
+          "sha256": "649525fb6b96e42ffe4c3e4a1bd874f11a14c8493f7a9ece31ca92c7fbe5dc3f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_119.out.bin",
+          "sha256": "1e492212c39f9da26fc261779d43a5347bb91580a3d44b4611f0f9a5c9e7b850"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_12.in.bin",
+          "sha256": "fc1250682ae2f1214ab425f47e89fb1dd6ca9e3bec1b64d96217aa474a2e77a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_12.out.bin",
+          "sha256": "402ba18669dcf1838a75a3bb7ebfcc2615b2a8e9c3fc0b1b9074b6468b543d75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_120.in.bin",
+          "sha256": "b0782e04cdde31f4703850e476b9b8f5ffb9330fc1a07ee247f8972622b0e3de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_120.out.bin",
+          "sha256": "99abf5f0fa613df1b08e14bd107001cc4135bb6aba096bdf65cb23ddad1fab4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_121.in.bin",
+          "sha256": "62be8bd4e1eac9248776f5665c3756fb5bfd19f8c39b296a9e1203b09d3a33ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_121.out.bin",
+          "sha256": "c1df3d001ef25380263d63adc718a17ca432cf02f43548d591c6589653603c86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_122.in.bin",
+          "sha256": "7aa8e230fa916e1f95f32aeb2b6ee5b9a0a5f4ae7566501d8dcd3687c7a43241"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_122.out.bin",
+          "sha256": "823ebcec580fea9b075d2d68f8c09eca1e264b092a32e75d91d78c62ce2c30d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_123.in.bin",
+          "sha256": "b824224ae5a489fd14e350b583e911c5cb06609220f1196bf3fb8b6c7dd945a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_123.out.bin",
+          "sha256": "6d327b2863e6ca9c508af94544cba0a8bc2932f3a18a515e5ab8359e10ed59da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_124.in.bin",
+          "sha256": "3f23195a74fb6eea57e367bf39b36dfce6210e827f959519dece0be8606f4dd8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_124.out.bin",
+          "sha256": "7925f3c9058b00f93fe572ea904ab32d0d3fd561d9403a5093be07c20d3a2642"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_125.in.bin",
+          "sha256": "4b37021d2ff3fff08d383910861972d28ddcb2de598091293f812727da907f80"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_125.out.bin",
+          "sha256": "8a8593574d5d693190dd546f2e9f4004d53a50ccb694370abc0b6d4652354668"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_126.in.bin",
+          "sha256": "d9f2a2a815489f2d2ce109aabdc9b1e3567ad00526d2ac8495a383f50d9ea05f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_126.out.bin",
+          "sha256": "30140f30a371df3527b3141908783d999461afa664b3f9b685e18b755f72e5a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_127.in.bin",
+          "sha256": "f91b9b35de81daea23d023825c1210cacb8a37a42bb35c2f3649e436cf4221fa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_127.out.bin",
+          "sha256": "97c9a3d50a2dfc079fef553711b998e596845329165d79a5d8675a981829624a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_13.in.bin",
+          "sha256": "d1ffd7b3338013278c18895b79222c094533b6ed4a14de4718be104a51488f8b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_13.out.bin",
+          "sha256": "105f80e5d87f375bdd8212f2924a1080cbb766e6c6ea1d24023d1b4edeff1536"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_14.in.bin",
+          "sha256": "51f3e876e67b63c27fbd0f057367edb5f5e959a3549d159a526931a0b85b9e26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_14.out.bin",
+          "sha256": "0f2e651d893a9fef51f856137fef1880b8c59ee82fcf132439decf6fad03fdd4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_15.in.bin",
+          "sha256": "9aa80dc6c73c424e01def088a9e78f5c1dae774a453fce7edb625b5859c5f7aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_15.out.bin",
+          "sha256": "0dc368b2f355df5bd91aaf83e041e47c5c526e04b889e8db3faa94da1aa2e61e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_16.in.bin",
+          "sha256": "fed55075d5cdffbd8926385128edd542408c2f6ff845987e13aff3bded9cd62f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_16.out.bin",
+          "sha256": "db58f38c8fc7874885a22e015ea4d33ebb9686e7b0f22cba2c54a329ac2d57cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_17.in.bin",
+          "sha256": "1fc0dae76130eafb366b3c85248161d3b119d170d872c518383ecca6603ec3cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_17.out.bin",
+          "sha256": "e2f041cad4768227066ec02d12f31fbed2ac21824d58e8e0938846224e059bdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_18.in.bin",
+          "sha256": "69891f32c7db826b2b368cf4ccc7192149baa24382e7e334e18cf6a0db50f821"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_18.out.bin",
+          "sha256": "11fafd9f460fa35ae9518e79aa3fa30ae1859073779b077dcdc4c3f9f31a52d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_19.in.bin",
+          "sha256": "e1f6d0a9078bf9591ccbaf6519376293f9a4591a3e88441da0cf627303d68852"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_19.out.bin",
+          "sha256": "d38dbb5e9e6d290f406d2dcef7b01bc593afc597fdc6ab1a6d97f2850f181825"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_2.in.bin",
+          "sha256": "7cf5541f3f6a1e38ce3d84fbfae9cc5d52aa01e489e840d03290506268ec781f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_2.out.bin",
+          "sha256": "dde41f1b929a13b0a0a0447ee36439bb3b926424634de0f4306c452fc1bc46a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_20.in.bin",
+          "sha256": "3f7ef177fd397ee75129c30b59b22e3ff5bead7403f0bb1bac4c6e83d70baad8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_20.out.bin",
+          "sha256": "6524711c7f0486654511777bff2d73dd3dcc70ea3ec84b2a96f3b31f6671d545"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_21.in.bin",
+          "sha256": "ac89fa286f3f1bf5522715721e40ca42377723c9aca416256ccea95de46eabfb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_21.out.bin",
+          "sha256": "a778c3596bee8d5692dcd18ad418277c06851f93c9fb6cf342278a9702c95d68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_22.in.bin",
+          "sha256": "0bd9191a19a78dd28acd73fb60c2194b88fd702a64a7158946bad772feb76092"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_22.out.bin",
+          "sha256": "50f1bff44ac8917b643167d366057ccc3319391cf40b9f217dc03721715ec7f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_23.in.bin",
+          "sha256": "4b8c1580290b343925dd16c7567e590be18dc4bd98eca2200663f28d801b8750"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_23.out.bin",
+          "sha256": "7ded40899c557362e7e2e74147d2fe40699c024368fc7903cbb0f9b90d5ae80e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_24.in.bin",
+          "sha256": "609c18e3ab2a9cddc7b986ce18f8703bb4c998eeaa67de6e01a4ca8f1e44159b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_24.out.bin",
+          "sha256": "99977049b1f48cbd880a1217fe67336da39e86cd07f86e19bcdd635902a2c2ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_25.in.bin",
+          "sha256": "2a48646e847a34168b78869a056e7ef1de5241d9cc66573f079aef4c66fd9e00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_25.out.bin",
+          "sha256": "c88a8222ecc5fc89f6f5c2c4e39ab7e13df7ef12390c8fd91ea1c30cc16a94f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_26.in.bin",
+          "sha256": "8b0d370c060668d869a78632fa113952e45e85cb318121c0f257ad7b3c1b9efd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_26.out.bin",
+          "sha256": "38b61fc673e94fd9a65d6acd6d176b34a82c740817c1f68f8fd12303c4fc2f7d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_27.in.bin",
+          "sha256": "41ef846d04c8450c31ce682b629150c10e0f48e67e16eb3754107622dd08c3a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_27.out.bin",
+          "sha256": "ce5fdcb29e9bb87b1193bd9162f2e7c833ccb4073fc4f50bb7f6544f36ee87e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_28.in.bin",
+          "sha256": "eec6cf13371b790022974c57340fda467527cd6eef3dd3572bd8eae11b1a87a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_28.out.bin",
+          "sha256": "b3b943316dabf4d8d5f6f65362742439cfb5393a34edb8a20238d9c8e0311338"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_29.in.bin",
+          "sha256": "bf4483f3ec2827da860fdc35eb81c611e67d3ce48bbbce136302d94f9109b90d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_29.out.bin",
+          "sha256": "bd2ae9cfff79aef8bfceb144c5ac223bfb26249c92c748601d33aabf508c2f2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_3.in.bin",
+          "sha256": "1b5363df099dc94392775aeef25b3dc48a149480cac70065bc386b68e3c7cf7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_3.out.bin",
+          "sha256": "715c1d2c4ad7283ffa0794fd56dc30252c8731bd090b2b5b4a33b7445de18e01"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_30.in.bin",
+          "sha256": "1cd87a78af96b12ad3d3b2c65901593b56fdfbd83aaade9dcdada2fe4c06931e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_30.out.bin",
+          "sha256": "85b8ed655fa8d5fca8b559087ab30c40498aaf106f3a4177bacbeb51a300ea14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_31.in.bin",
+          "sha256": "9abce0cd97cac07dda4cfa13fcf53f577b58b4329a8df02fec84ad40b9542f47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_31.out.bin",
+          "sha256": "7ad7d3fb5d09e2f68fcd4f8a67bde3b9ef63482cbb1e7362be8e68bf02d0fb2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_32.in.bin",
+          "sha256": "7df7c7750b84ddcf7842e39004bc257da9a637ecc0f42acdfecfade15f1d069a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_32.out.bin",
+          "sha256": "a2daf1d495e1df287c21ca277c1b107bc59d738e28f71837862fa7524a56c0f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_33.in.bin",
+          "sha256": "91dcc3653215e12da29e401ea4be46a2feac4bd9f8fb02a0236b0ed1549cb7cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_33.out.bin",
+          "sha256": "aaaf97ea207ec287e114b74883abf0ac00df4879e90cc736ef66cc54032dbf4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_34.in.bin",
+          "sha256": "1089f68105367a528709d9fff85f4f73f9d55495a4508c3001cf94d01aeda779"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_34.out.bin",
+          "sha256": "cda454cd613ba19601eced1e1648915a4d1aecabf2f8180614ea370cf08008b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_35.in.bin",
+          "sha256": "4c50160fcfb1aaefe085f3d4b39e9b2b0cc7aac3fe2474495adaf9f79a820601"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_35.out.bin",
+          "sha256": "c40f5de4fa066cf69d8053b2094888366413ea67091291abb7c841be6cc1675f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_36.in.bin",
+          "sha256": "15df4c152da7f16c6a60abe8c09d0a17527c5b32f39753c29eea05d294226c31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_36.out.bin",
+          "sha256": "a7f2a5aeda179134b338716f1d5fc490d007c9a1c36401f7cba51d01d7dd9954"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_37.in.bin",
+          "sha256": "70ade5c5d2a8ff47002ebde5886935737d15621a4e38b94c2fd40f7f5e669541"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_37.out.bin",
+          "sha256": "e26be53cc04ed76c367563ba7c40dfbc55128f27e8e95bdc78172573135ac2b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_38.in.bin",
+          "sha256": "e4b72c0e05b5ec90c4172b3a5329719f2a22817874af97e09dfabe0b47fff62e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_38.out.bin",
+          "sha256": "08d267175bcb7339cc58b7bf5bdfa4d4a3ffeb094f954e3057c43100c76e4e68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_39.in.bin",
+          "sha256": "2a4ec263f94d1e6b477b7df3561bd9b02d2d7e8e91464718ee9f1e459b0bf655"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_39.out.bin",
+          "sha256": "89636cb7843818f307e769ec2a3239f231846bde43fc7bcb6cfddc78f714340b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_4.in.bin",
+          "sha256": "fe7834403af3611e0b3659b2c5d2962d67129b7d673eae4be1df97ffa57eee42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_4.out.bin",
+          "sha256": "49a5ad66c69f2aa562f00d0d1843a36f2e1ff5e13f3e8097404ac517f1887baa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_40.in.bin",
+          "sha256": "2ccd1a3a0d21f5e3a8e094ab1988ab4845d6ded6168b438bd48516360c8f9625"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_40.out.bin",
+          "sha256": "6b2f86e3c5e426d5ca89d856a793b2947e6fd76c0fa2344ff362599ee259897e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_41.in.bin",
+          "sha256": "4eb9e4d05078b191cb895198c80f97277d9bc003222a7691ed03523cd42e3cbe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_41.out.bin",
+          "sha256": "34833057c22831107161208ae312a97a8339b5fd33d5a0fa97b3a6d14f39c4b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_42.in.bin",
+          "sha256": "489129e6639b9ffe6ccff3547e9557fa59ca66412782782663f6d0ad6dee7b6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_42.out.bin",
+          "sha256": "954fb89697b2d6066ec83e81952400e74e86054a6aca51ee8a146f977cfb5d75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_43.in.bin",
+          "sha256": "dbf0c9ad231bec57c19049ed75fc68d377b834cedfcdecd1abed10ae583a8656"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_43.out.bin",
+          "sha256": "6f13031a9d4e844972d44b43fdbb4116783b313969cbd40a00e23d22af43c9a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_44.in.bin",
+          "sha256": "498e91e1d6682844f678caa1eceaf0ebfe66ed475cacbc80f1457501e69e67cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_44.out.bin",
+          "sha256": "b1508c3faa1c87ec290f164387dcebb9e21e845e03e6f37e846c609572e04b59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_45.in.bin",
+          "sha256": "d5c256db96be4124cd15f2e17a507ad05662340c6a8a7769d119cc3474bdb1d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_45.out.bin",
+          "sha256": "f622b5682a0fd37bf5e3ab07e7db917028a5c179a7f365187b859ed5274ffcb5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_46.in.bin",
+          "sha256": "e3b27b400c828e2906bcd59ca76cae58e886e5d41b4432a647aa78f3ec70486e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_46.out.bin",
+          "sha256": "a51af0a8aacfc12c398127aa3c19027f82fb644a436d041eca89f90a63cf8987"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_47.in.bin",
+          "sha256": "d41f31630a19b507b816585b638ea67d875a3ba1b86b6d5076014c5bf964fa9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_47.out.bin",
+          "sha256": "444609faa649af4099d42dcd5b1df2948370e4adc34f3b0b43de388007ead90b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_48.in.bin",
+          "sha256": "801a90bed11b4aa3e1c17cab39e49358ac96c1387d1480f236a1112ee07f0316"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_48.out.bin",
+          "sha256": "af4e1e438d526a66ef86259328897c9825cebdbedc3f9654d480378c08f7a942"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_49.in.bin",
+          "sha256": "e3b6162d73fabdb087dc94469e4339cd45ae3c691bae695386a455cf37f292fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_49.out.bin",
+          "sha256": "400f6d3afcdbfb5c42b48ef249f33c0623fe05d3a92fcf4939da1c9515526a6b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_5.in.bin",
+          "sha256": "be80b63b2eea050b3e2e22c1bd0c9f3e9a518edc4a02c7f578fd0486e7e2b3e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_5.out.bin",
+          "sha256": "7b33b1b3aa49f46d12d4504345c607eb86a6e5a0b93c121d67cdd576c5f98e1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_50.in.bin",
+          "sha256": "181d638d87431b517399304d0de7b7b2bd70c17795e15dda2c46fc6b4ddcbb2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_50.out.bin",
+          "sha256": "ff6833388f1b948716faab3d5927e127f5a05215904d8d4b941da4d17e3e40ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_51.in.bin",
+          "sha256": "a789a36b62b9197407532cac1d54a0499a3308fa5c957df84ea40be25e361ee8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_51.out.bin",
+          "sha256": "acaddf94ba8c4f4a6b193abeb025e8b25b35bab6bde4a76129aef3cc49cfbcf1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_52.in.bin",
+          "sha256": "bb3cd569901b07392f1d94411a702cc5d3ef68b16ca7838627055425812674af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_52.out.bin",
+          "sha256": "de954bbf9446df49b33fdee2e75098ed743aea1991cd6d9fff00003b532e2be5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_53.in.bin",
+          "sha256": "b0d9053a83df2330c5aa1b151fe7a6ce91df195dfc9279f2cc5e4b6c62b1ce0c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_53.out.bin",
+          "sha256": "c8ed7df766598e3eed144606479a1a16444a16faa0c350ad553045f27d186561"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_54.in.bin",
+          "sha256": "996c7ef3584570b8fd8811010d347902234d554c0ca0064ccba2db3a699badf4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_54.out.bin",
+          "sha256": "280fd772d5c9a22a59ca32e32b8b35b9b81f23c4af70f81821ff7c8d2b68fc93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_55.in.bin",
+          "sha256": "366fff72789b673940a3411d09508070252b12b253f82ddd25f10864ed33c89a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_55.out.bin",
+          "sha256": "9e0d4e2d4330d6b8088c0add51958c86058cef8241c65171836af987f23d472e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_56.in.bin",
+          "sha256": "59445350bba2969f0f95b6fc481fd82227b46e2b394de34f522c79e345140e61"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_56.out.bin",
+          "sha256": "378a32d1b51b23b9d0e26a2b0da0aa7db8329f9640c473d95f906902def51a64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_57.in.bin",
+          "sha256": "a9d90f6f486c50d810ab2b4f5d0c7b079b8c7fdc654bfab82eb6b4be6b443675"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_57.out.bin",
+          "sha256": "456e7288d18c4d7f82f2567db4dae11bbd1cb8b1004a373536458842b107e891"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_58.in.bin",
+          "sha256": "ff1c0c8ff48632078d556895ebc16c3124e13753c7dfc667241a5b5fd8bb92dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_58.out.bin",
+          "sha256": "30f59a6f8ab327492c2820fae8a45f2d238894f3e1e8bedb41727e647986f85b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_59.in.bin",
+          "sha256": "78ed81672c676fb34b8e6256bd9caa4919d34bc52a24642479780c4661d0938e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_59.out.bin",
+          "sha256": "f19bad51f4e39dcd0b880e6032099474fb51e6c4300ad0fb9bfc241fadcbd222"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_6.in.bin",
+          "sha256": "354cdf551d966dd83508da108f7974bcb30e4daf49387ad42b11e07a72fef9bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_6.out.bin",
+          "sha256": "4e18c7ff3077826573e2a126a820abb841dd3d38f8c69ed7a743683cf41a1e0c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_60.in.bin",
+          "sha256": "cf26a5c248ca9de6c8d1fafa8fb8e9c791694259f4e136f3a4a661f6417a1b7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_60.out.bin",
+          "sha256": "ebee0b4f84eb34f8627292f2bc1332debcb0f139cc7f580dcf7cbd92b916ee5e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_61.in.bin",
+          "sha256": "e6cc510fa725d4426c4cf3cc1d8f47717cd59e5dd7e7cf9e6ff51fe622917e34"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_61.out.bin",
+          "sha256": "46b311f9c0199950d14dacd7b7ca1b360a10c8f6f072738964788ff41afb613f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_62.in.bin",
+          "sha256": "dee293857635bf48b79e4be47943644f6f295ea5e96217eda432813b28905a58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_62.out.bin",
+          "sha256": "09e06bc0ddbd6faa2802623f511c69d6c359294607d87fc5818c5f57e3754947"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_63.in.bin",
+          "sha256": "5f0044488f38ffd827887ccf9b8b6975586253ef8390743231e4add9987e3b97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_63.out.bin",
+          "sha256": "69987172e5e6cc6c16d6f2ce2d49fc14abc27db4635bb7839fdd9f7aee5886ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_64.in.bin",
+          "sha256": "d84996d97853a491345926640a20929aa02337ff62c5e25eaeaf09b262a58db2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_64.out.bin",
+          "sha256": "9b68f136a29ee49a191058545c04678c78b5af81da71d36cecc28b3bda83420f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_65.in.bin",
+          "sha256": "96fd2cb6d2fc0d2c1056783d6f075f3c26c7d5e3dbd059b59ae6e78458d2231f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_65.out.bin",
+          "sha256": "371fce67852c2cc90f0da70f05d46eb4118b74207e93163a6515a45bcdf6baf7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_66.in.bin",
+          "sha256": "3a75c231a863a2b384f5af5bda2ea62213ef0be98b6c89426418dd1e572d81f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_66.out.bin",
+          "sha256": "29e272c614df0afc655f0e225477b7a2a5e98d6d22d69161a49808c32d53628f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_67.in.bin",
+          "sha256": "5d38b296243eaf48ed0b328c9c1339f3154cdfc76690bb2922685fbd401b1977"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_67.out.bin",
+          "sha256": "5f02900383b240cdf10a5dda238f2d21f329508357260593bcf0409d0df476b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_68.in.bin",
+          "sha256": "484dc5afe9fd3eb0e71d98a31ca17d08392e17062962cdc7d4ca0b93324cad49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_68.out.bin",
+          "sha256": "3d1f54754b400e4e8e56541543896862df38ae1da871830697eac1d0c3b28d23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_69.in.bin",
+          "sha256": "1cadd7aeac70e2a2e6be3bc6c0c7ead42af8fa611b572458659d773618c2f14f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_69.out.bin",
+          "sha256": "6149dcab2cd2e1a9bebee74e1db3913990adbd26abaf4554976f3d97819cc592"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_7.in.bin",
+          "sha256": "c8bd0609c710705940484923551058ca901448f2c3470a8f3ce97ca88ef5036a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_7.out.bin",
+          "sha256": "1630131df7b058abc972549850a9afc35a8817c27e4b18a6b22847b880fe2c87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_70.in.bin",
+          "sha256": "29a335030aa475e9c9f69315b926620d44a78fe8a17ba8284c57da21126d1494"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_70.out.bin",
+          "sha256": "ac9200b2626f2f68c82231a85edb7baf7a02290825573acaac6599a33c88f2ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_71.in.bin",
+          "sha256": "986a0e94d9851ba0e17c67f551d66928e5c64c7ae756d83cbea48f03057959c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_71.out.bin",
+          "sha256": "751c656060edca823777dfd6630f39c4067852bca5dbac3d94eebc589c6e7075"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_72.in.bin",
+          "sha256": "54625e40834d9d42eb4aeddfcf8659991ea089c806ffe8b4f890fb2e93cdb465"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_72.out.bin",
+          "sha256": "16b252b3c6fed741675ace20ca9bda85e59b8d3af7ff90975f525e6d18689d64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_73.in.bin",
+          "sha256": "6adebbbc1f0a7ac0b40a2880f7007b0ce146f7cc956fcf180868d8bc3970a960"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_73.out.bin",
+          "sha256": "d5337c24678406d1567f7b6f94e1fafa6ecb0b0777864d5299285bfc5a4fbdef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_74.in.bin",
+          "sha256": "0df4db35681c572078ca57d4e9b15eeae8141a34f6981d525f72d3aa85bd90ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_74.out.bin",
+          "sha256": "fde03a86362fda9a64c80c9d63d3682beb14bc77b37974b1583d40862f2f5fa1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_75.in.bin",
+          "sha256": "ed6bad6ef2ce59ca3de6d82b548d78ee59a57be78a9254545b36d63096e3c5f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_75.out.bin",
+          "sha256": "6e4aa00ae69de376c2eec37cbf4471f295277b0b228c31d70c3fb229884b6a35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_76.in.bin",
+          "sha256": "8103a9d8464f2a6aa0e85c838df7b3e6acb172b297a9c6aaef73ce750b570ddc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_76.out.bin",
+          "sha256": "38b68fa201b183799ed965d9cff8c686f1daf055c14fde4bf782614d7cee3e2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_77.in.bin",
+          "sha256": "28b5485348292db0e535eb50fe3abe950b9e5f1e430735b256c570633fcc4842"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_77.out.bin",
+          "sha256": "97d0933be92f70e528a988d9c2a2ca6de5bd310516a0b37b4deabb4592d22401"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_78.in.bin",
+          "sha256": "d5df8dd9dd707a05efc4840f4d3c64481de0505604e9dcf94f9f62b9c7716a3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_78.out.bin",
+          "sha256": "93f765c1f5527bcdcd87d56e7053914545efd6244de44dc269e0c685cd038e24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_79.in.bin",
+          "sha256": "88ff036487ef747475cfbb3103ddec6052b8083c1c1d2b6f12045f2db892bcca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_79.out.bin",
+          "sha256": "e222a98d2d7cdfaefab62b5d751203900ef352a8564b2a38442e71ba3d1f910f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_8.in.bin",
+          "sha256": "2631065134a61458a93d295a66c9a2703faec1f6ed4226d97216fca7ab3e751e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_8.out.bin",
+          "sha256": "0fa595e4fa1a716fc0067ff68159c17dd0720a4eec244c6ac86b0cf64aabb95a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_80.in.bin",
+          "sha256": "a9348e6ac330c3425abf4efe670fa94ab6d9a728eac7d3aaf74da850c0594652"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_80.out.bin",
+          "sha256": "9d832d7d864b9a388537988fa8db2c8ffa65430ef92d8eae253743f79bc9903d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_81.in.bin",
+          "sha256": "360a98bf3aebfab9d79df712b172bf55dba26fe448813d63480b18d10d660a75"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_81.out.bin",
+          "sha256": "e43aa9dad180461e7f807b7f018d85e15c71ee5015896060058ebd70a8f55c42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_82.in.bin",
+          "sha256": "e5fb347486d01e340dbb42cb9ef8de2ef7a2d43d39a50d5e89c11807c1338652"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_82.out.bin",
+          "sha256": "9601db9196af79833469bd5f66ce98dedfbf3f2b03ad81981657637b1136143a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_83.in.bin",
+          "sha256": "7f01442ea79d0c32c55e9a91d2878eb027d4ee77de774d7ee6e317edce17d238"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_83.out.bin",
+          "sha256": "0c69695210713342a3f7b74e567ebf58ad53f1b47841257dbe11aa7fc745bc5e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_84.in.bin",
+          "sha256": "65cf733ca2ef79c0d5e5ad0e2777b6f9f6e125f8bf4d993536a9c3e35575f9f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_84.out.bin",
+          "sha256": "f72558d476d0f6c511c7a235bf5226ff5a851eebb315533f22a31fd864a65833"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_85.in.bin",
+          "sha256": "c336155c475d0245fbd1143b6414c17af836aed24c37b2a88681066009bc976e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_85.out.bin",
+          "sha256": "a3f90024fd8336810b4dce8c0362aadf6a5678ea8443bb3ff3b1e7be95268989"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_86.in.bin",
+          "sha256": "d2bc9d0cb111190e1382de52c2e203cdbd62636c499db6f3df9b47505e259bdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_86.out.bin",
+          "sha256": "95580eae5cbb79daeb626725074214f3601e7205f671cf14e10a64df245e4b43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_87.in.bin",
+          "sha256": "053df78bf87ccfc62bdafb395d055d9f28022a31193309444b31b03847a54407"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_87.out.bin",
+          "sha256": "19a14a8349f2c6af85cd52004ab538a2c892a86b16307e3edfd30182246dda34"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_88.in.bin",
+          "sha256": "675fd4d73f54a877187959aabcc5f82d128427c776e91ce50f26b9945f07ba1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_88.out.bin",
+          "sha256": "ca6649e3974e63ef163f79a8d2eb201e6b483a66530269381f4d2e771d45ba73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_89.in.bin",
+          "sha256": "77f721c180790ce2c0b75eb018066a83308318ef03c5a1d28d8d213b10b509e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_89.out.bin",
+          "sha256": "7ad8731b602cc037509102ba5b01bc924cb49ec33eec1ce56fcf49d82ca8fb35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_9.in.bin",
+          "sha256": "0650f3e3785685daace370753ffb471c0c3d474cd71e701c0cb71ab6f1591ceb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_9.out.bin",
+          "sha256": "c954ec2a7f230361fd9e78393ee685b92e206621c26e6e0f64f0d1d677cedfff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_90.in.bin",
+          "sha256": "d1d1aa5eb33b18a040953523fb4a7ac2f8aa52f1cf7c94d34a032884d9562f7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_90.out.bin",
+          "sha256": "46fecaa7eb62e6ea8f465ab07ba4941857f8bf7fc64c1ac4b0c38e8ab061dd91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_91.in.bin",
+          "sha256": "b9ef929ab9b8448d6dd4ecfd1a5f87f3809a8fa711becb1fbb63cdf60f043a74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_91.out.bin",
+          "sha256": "f97d6c5e1754da3de90e15a8fea68656e9c0a88e5c3897f9f6afa9e26fe70cb0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_92.in.bin",
+          "sha256": "2ab2ceddfcbbe22b74e4191e1fbc25da060e19d2952359d0addf946aeff7c73b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_92.out.bin",
+          "sha256": "769ad50ed5911c45fd9617964a0937a1ed587a2f4638a6a89a9c59a1acff1a2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_93.in.bin",
+          "sha256": "5cd176a5709dd44b9b5bfb90419724ceb127214171eff3d9368f1b7b06e43db3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_93.out.bin",
+          "sha256": "84c88f7117d431d5fd09c85191a471b7cad0c7f7ce7419357174da3a9b33d411"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_94.in.bin",
+          "sha256": "7fd99bb897f9d6d6ff0188f7df1833deb212039c4c534741c7460f19f2a4f613"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_94.out.bin",
+          "sha256": "422e76b1287e1450101a733837c54a6f9595bc17c33f81a8cb9e1acdebc5e21b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_95.in.bin",
+          "sha256": "9aee277072fcbb91788c912569b71b335d1d2983c7688672cef5740f3e73a95b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_95.out.bin",
+          "sha256": "6c296807666b37a6fa5ac04dbc4fa90b83113f927ca2ddc9efbfa1e28d5b8dd9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_96.in.bin",
+          "sha256": "abd226c39ff74724accae31071e229de329f35335e5c8ff95c7118297256be04"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_96.out.bin",
+          "sha256": "250bc5a6db67ee9554a23a6e198329fb7e664de118c79a3faa3880672f10fe11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_97.in.bin",
+          "sha256": "d3b7a79d163c72e186e50754a65bfb8aa98affb6eb50ebba15e4001eb92d9e9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_97.out.bin",
+          "sha256": "a5693c0eb9e6c9802055982ee13c4777642d449618a679a5903807c519ff25cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_98.in.bin",
+          "sha256": "1f5eb06679e1b2d3a2440916e69620babb662f4435e751ceade9961b4364e4ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_98.out.bin",
+          "sha256": "37d7d4e718a329408666517eb5321e0bf3745d2d050a423fee33fdf76a22ec70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_99.in.bin",
+          "sha256": "b21ba753ab06e1ba30fba15de7016ad3fbfde9604469d48e3af8c76b0764fa17"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_dev_v1\\f_8c09af6c_99.out.bin",
+          "sha256": "121b97c53070cbd06938206a5a9a929c9cf8ecaead36b06858b64169f33ca7a4"
+        }
+      ]
+    },
+    {
+      "batch": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\batch_manifest.json",
+        "sha256": "a016bf839748d908a68b3096e42fd1b291e4165888cc35acddff36ff3208fbbc"
+      },
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1_native_report.json",
+        "sha256": "a69e0741d8d9b2d82ebf41df751d5846c9ed370622315077fc1f28d772b8b0b0"
+      },
+      "capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_merge_accept_v1_raw\\capsule_coverage_65_controller_merge_accept_v1_s28.bin",
+          "sha256": "bd3f9a59d25f6c6d097064461a92d96cb5d55308c4295d9239c987c02ea7d8ef"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_controller_merge_accept_v1_raw\\capsule_coverage_65_controller_merge_accept_v1_s29.bin",
+          "sha256": "84a376f633af81b098f71831a01d299e1ece1ee3f62f0495ba993ab512f9c592"
+        }
+      ],
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\batch_manifest.json",
+          "sha256": "a016bf839748d908a68b3096e42fd1b291e4165888cc35acddff36ff3208fbbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\capsule_manifest.json",
+          "sha256": "682aebd269e1fa018a3c22f3b2bbcd27a93de2a920cfbfab461a691be86d7dc2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.bank.bin",
+          "sha256": "ddb9bd753bfbb2be2e76c1d203aff724ed232cef341788771723de745699de99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.cases",
+          "sha256": "9baf4045502404bf15f5693d18c75a5071ff82cb808d2f117175396128b53ba4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.extra.bin",
+          "sha256": "e0972147bbd6208a977463b82d6e1382ecd5dcbc70cc0594a15a5edd37e1c3e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.ops.json",
+          "sha256": "29d5e785cd986016543a38e0e9e942b51454e42470e76c5e16f5eb87adc7b6ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.xfin.bin",
+          "sha256": "200bc0e7b39ab745dc38fc5035ac1dfbd4abbc19ff982942ac5a95d909a4bfd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c.xfout.bin",
+          "sha256": "200bc0e7b39ab745dc38fc5035ac1dfbd4abbc19ff982942ac5a95d909a4bfd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_0.in.bin",
+          "sha256": "193a82d059de50cc5f804652725692d238a2d4b7d10958e213e9390408c30a37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_0.out.bin",
+          "sha256": "caf3782f2f924d876945c845c79a041a535a241651966bea021e81bcb5be876b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_1.in.bin",
+          "sha256": "49951f7fed3635c28806019c7b0a01f61ad80f4f6bd9af9c76a33dc7f7b7e365"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_1.out.bin",
+          "sha256": "9f430ce4a8f6124b1a284485307f3d84d9a0d21aae1df0dc3bd37db44f7a8170"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_10.in.bin",
+          "sha256": "f8912e0db73ab6e784f634c6d90f397743518583d8e5d382dfa4f64b91676630"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_10.out.bin",
+          "sha256": "8a92529762fd11168ee417c5debc0560e1ad45b0bbd04829fb9911b3144183c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_100.in.bin",
+          "sha256": "c7ab454ceae90331c6a1dba987ba0cb1fafb37e168f7aba1bea665cfe892f028"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_100.out.bin",
+          "sha256": "983b683b170dff659cb4fd12fa0cc66a3fc00617510671abe7a27114b153c3b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_101.in.bin",
+          "sha256": "3233d7608bcfcfd6dbb1cfc48a6fbc2d985ee1217b144a977681d66c649d4789"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_101.out.bin",
+          "sha256": "ca39cd44c71927d69e2e459cc52ad25ea64ebf966b336500ea3d60f1e830f209"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_102.in.bin",
+          "sha256": "72086db77c9a3be6528ababc94274d9e10e7a913660b3bfa2cb2dadd52a2c429"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_102.out.bin",
+          "sha256": "29c0379e8379d65ad800be397a4caae94aa77428b559cc491f077e19627b4a37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_103.in.bin",
+          "sha256": "3d7cdd621cb04c1ad8d11dc85ab92dd78f909abbab0ab663604d6022722a121f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_103.out.bin",
+          "sha256": "5a476fd673e5fcfed57f2528530ae21b52902298b4b159f5767d8c6ddf488765"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_104.in.bin",
+          "sha256": "6a3e1cabc7e4cca023df24880efe0eacaea902e6e384606859cae7da7cfb751f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_104.out.bin",
+          "sha256": "719abd28ccee72aa06224c10d131db1b699665caae722cd88908dd22620a4783"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_105.in.bin",
+          "sha256": "24b1c62e239a4066aa952c614c8e55321f7677f8728187d105223a9133f4efdb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_105.out.bin",
+          "sha256": "0145dea423be61e4afd021312682d58164d8609e4894d2bb8a807c5d6a3fc8d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_106.in.bin",
+          "sha256": "5291b82f51df19a5bc7de8187477f3b0802dcdaf255bcefea37df487bebc27ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_106.out.bin",
+          "sha256": "74c1d573cbd352c6a2afd17f5fb2a0b6b788caa1c2b096504fc85fa9da2e34c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_107.in.bin",
+          "sha256": "f9231726fbdf45974ea7f3dcd0ecf778526f793dc5d4ac33a696ef235a049f88"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_107.out.bin",
+          "sha256": "605420a520bd548d9eae667916f39fa945a96b235252a7cd76553c7d52d1b1be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_108.in.bin",
+          "sha256": "ad5695e755f98fe58af282d982b3116d7c5222a4d7c8a3aaa464d9b17dc2fc7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_108.out.bin",
+          "sha256": "60b68ee2c8b8b4e84c910a417a20acfdc67ceece1d1b81e9957718d453b72f3a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_109.in.bin",
+          "sha256": "ce53621487363a892f4e69b0c35d9b612d645443d3708256bf005e1f4ede44c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_109.out.bin",
+          "sha256": "109f9631642dc1b29ab54eca61ed68254d5c48d76007a3e1700c7a989dde624a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_11.in.bin",
+          "sha256": "be4ac0402abbb3a8669c3ff2092f65c7148440cb9556ce0274e30d8bb427a1ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_11.out.bin",
+          "sha256": "bfe5c4fa891e4c99856de29544021787d3e606c06101ff1926692a1de6739d1e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_110.in.bin",
+          "sha256": "92c719d45bb8903cca285e5465843aa966ec82d62dcb21434c32da3abc1f23ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_110.out.bin",
+          "sha256": "0b0312d82dbd8ea9940d0098bf441ecc74e8764ad21552a655b763fbbdc4bdda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_111.in.bin",
+          "sha256": "8ef3586882c5e671efd03436406b59f0386ad01cf790a3ecaab507e3806c9ae8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_111.out.bin",
+          "sha256": "71dd80daaf871e5d0ce28075f96a60178decf282334729ef8b3aa040e1408605"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_112.in.bin",
+          "sha256": "875574da127835d0a9de27dca59808b44a37a80b594f28b32335d540df541efa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_112.out.bin",
+          "sha256": "49866fecaec1d92a81a7157eb5262ead03eca914ca2a3bfc4c735655d9879b6e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_113.in.bin",
+          "sha256": "57a89cce05c59dfd9e7ab42c875ea15ca466d960acd35d8de0cea4dc78060254"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_113.out.bin",
+          "sha256": "0aca67188fbf0eaccd469e567cc9265f14e2685bc951375839fc8b787622ebea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_114.in.bin",
+          "sha256": "0fb3e61edff5931f3387b0d0b0a993687511dc9852eb632b01632f623ec8b469"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_114.out.bin",
+          "sha256": "c010f6fce29dbf4b08cba9c6b935a67feeb3cadb264ea7bc3160c612a93348d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_115.in.bin",
+          "sha256": "bb23508c1090249946f38d6fbcca3a34f1a9d3e44e1f70d28174173727cbbffa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_115.out.bin",
+          "sha256": "19ceb0780589a929438c5970470cf5bd66848b320cbac076ae0ec7776314dc6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_116.in.bin",
+          "sha256": "7e1d98e4613b24a4b247acfc6a3a03d4d7caf59d2cd44bccb527dd45b6448f67"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_116.out.bin",
+          "sha256": "e44694e6dbd160e5b59cad759b2fec71ed5a250114be0237a2b3b05e7f7ca501"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_117.in.bin",
+          "sha256": "83cb62bd303ba5fa2c74dbd7280f38e5a0d74c71c834fa052c15daa2e9724923"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_117.out.bin",
+          "sha256": "8c3dba4e84ec66ecbbd859b8a29b397e144fb3f5eee3c61b7f49d6fa890369c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_118.in.bin",
+          "sha256": "fe90a230aaeeac44becc5164352c58a259c98ca999ffa8d1d8acdce3e2a43c05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_118.out.bin",
+          "sha256": "16893e552d85210d40b6804874e596fc9f267e7657ef31a0048b2c68a7e0d2e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_119.in.bin",
+          "sha256": "823d3e06522e97b2a015a602a0dd3e7232187964c9e46a39929bc1e47b3067bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_119.out.bin",
+          "sha256": "59bb62cd0700f997c158231ea254d1b63cf290bd9a35c3ac6938723484892d6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_12.in.bin",
+          "sha256": "8c8d6126ea839e3bf503cc15a0752155c2b6800ae86dffb0f5a5ba4b58d00463"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_12.out.bin",
+          "sha256": "480c72fd4cd21751cd3021163a9c9f34d554f1799e45ae1816f34619ded57f76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_120.in.bin",
+          "sha256": "a98c87248d86e809efad5f9284100443c0d845b70686189dfe375f9b63b341d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_120.out.bin",
+          "sha256": "aa288dcc299482524412bc5fb7d33d46dc3bef246fea010bc27c55c486b244de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_121.in.bin",
+          "sha256": "9cc641ad76b35927e1623f93f4c65375dc16ab0c153036de15c4268207cabfff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_121.out.bin",
+          "sha256": "3b1ba9a3bb983d4475c1b24ed27880b89d8c383aadc7d2353c83acd446f0576f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_122.in.bin",
+          "sha256": "a85a7d1818650c705d88f8247bc49d01cb12d383ef2d9b3a065118df2c83af3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_122.out.bin",
+          "sha256": "29f194c7f70462627c6f18d12e91586e2f854722fd9bf23767b4743f2009ef9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_123.in.bin",
+          "sha256": "d04430d488ce5a71ab1b04ccd11c7ab83d4e84bd31b85f3f93fb40fc840a2560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_123.out.bin",
+          "sha256": "eb940e5e235390e58bc78059a8b2b50c1026f96015b82874f3fcf0e97e24ecbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_124.in.bin",
+          "sha256": "7a91fd3b0a93a27b777fb41eeae3a889863904d70c1061843148c374351520b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_124.out.bin",
+          "sha256": "34ed802e2c529f11d66e7751df663fa2a551b28cc788c0b8519c765d9892a6f3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_125.in.bin",
+          "sha256": "493a3a8bd17eead711edaba69202ece1b16c676ccb51540d408f352a79b6d2c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_125.out.bin",
+          "sha256": "dadfb84382eec0066940a7ba09a4287e69e208f018a9a35423af67b40c3082ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_126.in.bin",
+          "sha256": "a6344987663943aa4fd54988207bd7a43a12bfb5e641d82259daa13f94cac0bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_126.out.bin",
+          "sha256": "033631f5d142182e46b88aa726d89a9ac5a0f1d887c532598ad16e8cae977819"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_127.in.bin",
+          "sha256": "ad794ec3374800e15b6c3928cc4fabe941774b938424fe8dc308e69be297e041"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_127.out.bin",
+          "sha256": "07d7c89bb69ee590706bfad8c58e2213ba65732a02074936c996064b4d6f5cd2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_13.in.bin",
+          "sha256": "3020a8c57b121bf9d0c178bd3a1fed19bba67dce2a22fb2153093eee7306a22d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_13.out.bin",
+          "sha256": "f7bdbf2b46e6a77bb7e9f5794ab1afdd9c9ccb34f8836e4a9528ed1a618b433a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_14.in.bin",
+          "sha256": "5ec419ed2094c1c4bf0f15e1ca5f2a0999d715a1802555cd218c0bc9a5f41e84"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_14.out.bin",
+          "sha256": "8f2456c1e80354a4e336a76d0df415dd400591c3b66f836b1bc4b6e7089a4b59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_15.in.bin",
+          "sha256": "bbee36e84771c747ec421cf57b30849a00ad7b8d959e262a716140624962a9c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_15.out.bin",
+          "sha256": "aee298d5b19bdadea9e8a5560d07aca0127356eac03919b98b192548c47ad5a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_16.in.bin",
+          "sha256": "bc64d30735df5f88ca97af63cfb22783e754d8ef167ff4658bac5ef1293f4f3c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_16.out.bin",
+          "sha256": "9fe4c64024a5304265ba7291f259db5d0567ad6f03a51dcc3d50b5a51a08e896"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_17.in.bin",
+          "sha256": "ca880e72f6b28fdf3d79e160df59e68bc7f6f7de36610f10574cb5f3a5adfa78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_17.out.bin",
+          "sha256": "7f5ed765a40a5b6aa92c0ec3c984aadef182d93cf287930c4027df1eeb4f4d4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_18.in.bin",
+          "sha256": "1bea3d9f9ec9f03bfb65f781b70706a25105de11ea775cf005758831ac569071"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_18.out.bin",
+          "sha256": "796e1df32027042ff4e7f0716c9aafabe66d33a192fd691641f87f5ffbe5d647"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_19.in.bin",
+          "sha256": "c92fb65e9e5f1024c9d7a3f0757d517b63b31e52c25377430b6d6b60063734dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_19.out.bin",
+          "sha256": "c9cae1ee957a7411fdb83c9c43c2ae52d679743b7aeb0c03876eef222377f5fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_2.in.bin",
+          "sha256": "61fa1c8e830052f153c9834abd00ddbd21a3caf892eb241215e8c0accd6eea0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_2.out.bin",
+          "sha256": "fde13caff33532373a3c7376c421367a771ed2f0f04319e9d0da26c3b2073f77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_20.in.bin",
+          "sha256": "37dc161d35cffda030f0faee0fac98fde42dbece13a55537aab3a803adce4b13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_20.out.bin",
+          "sha256": "6c05f180abb270370af39381f0ca82cb5b79a4754380649275bbecbe22bf901a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_21.in.bin",
+          "sha256": "55ad17e92284946b3b00d64a6a7ee4a23bef2c72f02313ee3d51e7dc835f97bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_21.out.bin",
+          "sha256": "ff167d818968481e68349a4ec387f1ee8573da8d6c5df5a017fb6e6c32b81875"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_22.in.bin",
+          "sha256": "f03dbb84ec38f5d3f16787576e1dafdd5e08b9196d15329975ed94443aa38f14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_22.out.bin",
+          "sha256": "99ead0012a36a2117b1d8af71f847f1433f0981b6060b1bef115e181b7b595e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_23.in.bin",
+          "sha256": "b7e0242f37b8747e411123341c341cdc78f1bacdcff6d89a27c72045c277b86b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_23.out.bin",
+          "sha256": "d060df5cf9f40c55468e269c76e607b6d77f8b58cdc1db6f731968cb6a948aa2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_24.in.bin",
+          "sha256": "52f2e355365de87a582c378442eecec17e3a24616e771079c6a6de23f4e6bf4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_24.out.bin",
+          "sha256": "359b14322991a7259ca0959632a6014a5f820056ae56541ed4861f684bd86fa2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_25.in.bin",
+          "sha256": "898635ec002839a856e114dd2ec6f3a2eff79cbeb34991f74baec1a396de93fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_25.out.bin",
+          "sha256": "02dc7866a4c9a6ee1df50815db1975d17794dd78e73f7e57348dc1a348b1b9b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_26.in.bin",
+          "sha256": "0f22605be4208df12caa7098767f3212154e78ce4de38fb05260309932d660d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_26.out.bin",
+          "sha256": "f5719b55f5d4ede84f3053d9549b5f906e69bf07a77d9b2a47c1d2db0fa8a4c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_27.in.bin",
+          "sha256": "b211dff254a5cd7d6327025e8a9ca899619396af8b8b54e479e9e944ab5e9a6c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_27.out.bin",
+          "sha256": "1b56464369a3525b8613e80f86c65129786d77d74e162890711c88c1536719c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_28.in.bin",
+          "sha256": "9d584f6da1f4670817f28e71cdf9a89720af25edaf3c527dbc5304b57aad7d59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_28.out.bin",
+          "sha256": "050f51967badd6b5edbcc806bf994f305918ccf8fa353560dec89640631ffecd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_29.in.bin",
+          "sha256": "c62319b1e65e67dd4a0b8be9fedbd9cbcdfa7636166c3850b4649be2e97106b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_29.out.bin",
+          "sha256": "cbff39f1d23cdd130982e3304b894696bd1be2f6b33177341d82d31b32641a29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_3.in.bin",
+          "sha256": "87c10511cc37ed7092ea209028e20f5425b1766c4f74c433802173d2afec4cb4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_3.out.bin",
+          "sha256": "251cea9d4b93247bf9bc06760d8d80d6bc13e0989c7ecf98b547280e898679e2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_30.in.bin",
+          "sha256": "63233922aa7c3f081c780f929a4c6137b29ff031cc7d63395d2fe4f9cfbaccdb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_30.out.bin",
+          "sha256": "b9f7dcb3dd6acafd12aad286b516922cbee1799d5f88d02e4c6e18e2d60113f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_31.in.bin",
+          "sha256": "e5e184d32e2d95b5d7b83d183581a1220a46e12872b3636bf4abc2469af7c015"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_31.out.bin",
+          "sha256": "cd83eb4a470c5550eddcdef0f40d8145791cc6ac30873dd5c43e86042d977638"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_32.in.bin",
+          "sha256": "3e3e31801423db2d7a9b534e0025776701245c7bd36a0c0e0a61417ad26f9792"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_32.out.bin",
+          "sha256": "f58100809c542d470232aaa8047abde596d7f8f36ab97d0a53e05daf094679c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_33.in.bin",
+          "sha256": "9ca2475a9bd36625d7814b4f5170445a4e4bb2d5e8e096814ab88a1e70fead72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_33.out.bin",
+          "sha256": "af108abe387ec9be33e01cdf68fbb6558230a2ff3fa6175eced8f43e5f6f412a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_34.in.bin",
+          "sha256": "06ce4ed1f216a6439ea4a56bb3e96ecfbcb31d267c7d19081068b080280d41e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_34.out.bin",
+          "sha256": "a038d4563bb31aa59c4e386aa45980ebd2ea9619f73075b16a8c4626fa400a14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_35.in.bin",
+          "sha256": "8a0480176a84ba4b16bfd2e1a9bdd52849d721287d7252cd787e71466633fcdc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_35.out.bin",
+          "sha256": "e75ce44aeb6e49d0fd12926f09adc8ac00382d6aa1f7868ddc57c2ba22132fe9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_36.in.bin",
+          "sha256": "821db8c5e225e239e82b9d4727702ded8abbce585f07c9c19a691273ccc64e12"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_36.out.bin",
+          "sha256": "aa55374c3c8b2db97309257784bd5ea460000a2d61777ed4fba716ed47bd3884"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_37.in.bin",
+          "sha256": "a2829703978595d596019f9f19c110b91924d58dcb7798f126188f8851b1b79f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_37.out.bin",
+          "sha256": "ccb7882fbdd662f18b0a1d3d582ed3668657595b42269d71b8b19b0983513ac5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_38.in.bin",
+          "sha256": "3c9cea852be421fe404775cadf94cff8163acb2e2e720bf84eda02bfa60b6cf6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_38.out.bin",
+          "sha256": "9aa041e482a9d9822aa1821f0a7c3f6d8e4d16d2409ae6bc8c41d5050ff5c5ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_39.in.bin",
+          "sha256": "5e28e5c9eb7a0933c17675dfa261bec8191a7b966fcf9cdfb143fe70a3a7917c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_39.out.bin",
+          "sha256": "ff538fce21445a63939c6ca6129f3df3561797fc4dc01615d8db24938e737a07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_4.in.bin",
+          "sha256": "92f2f00afceacbd01b62b5510336a51990da608371fbf93afe3a088184b99683"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_4.out.bin",
+          "sha256": "74d50596bc0fe03522548fe34898f159c9bdfd9d48dac61ef58fd906e5eeb56e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_40.in.bin",
+          "sha256": "da95aa55c472e6534576b7f311b5acf1aa82e09504c39b64d146f67289c4043b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_40.out.bin",
+          "sha256": "9f6bc3b216be7222f87e085c910806be4ccbc48768bd8e04c890a36ce0e8f419"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_41.in.bin",
+          "sha256": "7675bc37a1ef237acfa507eee0233df478cc485e75ae15c311956244dd943272"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_41.out.bin",
+          "sha256": "b1cf150853e48389c0382419f04630613f0560cadecc738ba29bcfea68229b74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_42.in.bin",
+          "sha256": "f9748c99afd20b3381db8e567a9c3d50f90c29430ab9538a5f8767b60deee128"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_42.out.bin",
+          "sha256": "70f6e351d637283b45a1b4301c6567e42b1cb376ce0121cd3125287ec883d0cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_43.in.bin",
+          "sha256": "0bd7a13d63473c92e78784ff1aeedea1ade5f7c04054adbf3a1a8db2c7b18804"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_43.out.bin",
+          "sha256": "8a8b877aed6917a9b743c7b2db1903088e7f1e548ba8c99122a5d7b77281f132"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_44.in.bin",
+          "sha256": "c52d84efaaa1257f712d9ad101f86c1ce443be2de909e338b5d86b12104894be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_44.out.bin",
+          "sha256": "a5ce140600039403c579db494dc1405c33469b8ef84a0d75c2f32bf57a78ef89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_45.in.bin",
+          "sha256": "4a0e87d06d2b07eefd637964d98505842b4eedb322710a85fa79fedd722eda35"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_45.out.bin",
+          "sha256": "22635ef7a60bedd85bc3c0edb4e65a8c438183bb130175994510a6414a68771b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_46.in.bin",
+          "sha256": "80eb381088f4ff0de596646a6e39a75b800fd5eaec9b27780c6694beaf09546b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_46.out.bin",
+          "sha256": "5cf0eb9c3155d126f8698d8d4a295c52b8af96fc9e788d254947bd443efbf3e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_47.in.bin",
+          "sha256": "763721bac50c52c1922ebadb9e3ade2653686e5ca40ec72e8bf582b2fb533e44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_47.out.bin",
+          "sha256": "091e700e10470e395fd6d314b046aa8000c0fbb0275ed5c0c57e12b45623d8d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_48.in.bin",
+          "sha256": "7268e23dd31b43a94d9e88903102ec433d22af5a1e73981a5778a5e2d75d54ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_48.out.bin",
+          "sha256": "7dc6c977c88654e5db4c067164d782e786b43a10d836694df691b120cdf9c112"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_49.in.bin",
+          "sha256": "7f2f0c249be133fbe2ba30937306fcbf367aa10df0b5bc5a2429ea4d8f806a05"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_49.out.bin",
+          "sha256": "cc07d807089afc9ad279403775ee09fd7bb1b36b254de0a5f83c816c039f181f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_5.in.bin",
+          "sha256": "36f88e3462a320a7ea0b5118fe08a2837d4fa2c5959e1435868734984f4c979d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_5.out.bin",
+          "sha256": "c9cee14618d43d8870234858cff6bf51ce3131d6233c1c57625dd80093028e06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_50.in.bin",
+          "sha256": "28e686cc9f00b90c51d0c14861778a1f3b73d365772c1b0771e015a425994826"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_50.out.bin",
+          "sha256": "2795a3fde74b24ab75a6545ab90b1f2d8b45be9318c3e9887a191c024dda500b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_51.in.bin",
+          "sha256": "fbbfeec3df63a2078162ff1b6b15a2c999d140bf46863e86583f5cff25591b98"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_51.out.bin",
+          "sha256": "6118c6d4e68c6c648b1d36c7d58f27f9df57e16564959154018ab4c65054821d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_52.in.bin",
+          "sha256": "b34925564c127673c41016a460efc784c7a7dac6c2f8f4a1e0977db6a3e18139"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_52.out.bin",
+          "sha256": "0963e1ab80b641d10c031f3a0146a4d7f03ee1f4137773ff4a003be317a9a5cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_53.in.bin",
+          "sha256": "e10d6070c076d75ec3583fc14ef96d8f994ab6d2555d787f23b6a55315770041"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_53.out.bin",
+          "sha256": "8c5f5356a9915c6fbf8ad460d53bbfb7c89690b5a50b650c6ba860fb272bab9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_54.in.bin",
+          "sha256": "b1bde4e18ca8ca40a28f3ed523a54db8d657bd01967af7d924b315a5a9475a58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_54.out.bin",
+          "sha256": "ee7345d3d1ebec6a0b6a57683c80008325968125d3f3afe50fa8d259248a57bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_55.in.bin",
+          "sha256": "3aa9cc67b4ac429e2321405e5b072573bde4332172d1557cd6a8d79274b0a290"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_55.out.bin",
+          "sha256": "658eab4b96f25070fce6758f9733ccf42f5210d3e6d255c5046e9e070e0826f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_56.in.bin",
+          "sha256": "33261382014e9c4235ec8df7847aac3ad658b98743323ecd89a9b6318b9850a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_56.out.bin",
+          "sha256": "e1632063bb20e3b50b8569d5b0d3041e406466ea80c5200419ba934bba8f297c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_57.in.bin",
+          "sha256": "c7390627f518f9013ea4e584eb6b710133f2cb8786ff5d94c640a570d7429612"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_57.out.bin",
+          "sha256": "90c75dfc3fb587afbd00f82c51df9a8a1cf8675d9dcb68043c1c76270924b307"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_58.in.bin",
+          "sha256": "3c6168cbbd3d7a9012a757d17c0b79b7db9a770a368da1b9d6727408e3e89a70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_58.out.bin",
+          "sha256": "1c2fb52baa10334a31c3c9ec6660374714bc0a99d2d59363102300c83507798a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_59.in.bin",
+          "sha256": "e5b9c7655e3fba94d6900ae83cf3cc3c6245c84b5042d01e85e0fe609c51e03d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_59.out.bin",
+          "sha256": "20073b23f07a06534b6164bdb7d6ee29aa614aa55549977a35c95ddb0f5bef52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_6.in.bin",
+          "sha256": "c119a0ff54e16e94fd142936ed6a2eba22d2bb992435ad527fb0b069d66344be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_6.out.bin",
+          "sha256": "1cc147c3a4390986af3243210813def363d3db042d47b9d9c7a3308d1699bd47"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_60.in.bin",
+          "sha256": "7ef05c30a91b541d7a5411f1c1e11db8340567e187768eec5e452a0b325e7484"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_60.out.bin",
+          "sha256": "adceecf04219cc38da6e2827ef2a4c20e3863bbd078889ddc7215e8f42e51896"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_61.in.bin",
+          "sha256": "4a29057aebc89a629c8ea0862553ba0953b07f006b1a8e4e412ee9f6c299f385"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_61.out.bin",
+          "sha256": "9f9f3706486b357edd424dcc49b2fe9cb3a1ada3076289daf67dfac1798d8ef2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_62.in.bin",
+          "sha256": "5ca727ab233d9bf7b08eb58308b3ce6d21c15e426ceeaa38ebe5af9bc69dbce2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_62.out.bin",
+          "sha256": "99e5bf5652ef904464b8b697f8d6a35b98c101a8ee52090202d0f62ea1e055ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_63.in.bin",
+          "sha256": "ebdd5adf8abe1f564e9c1ef93bb819deecd8119c8e8f8d1eb37ce6a6da719652"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_63.out.bin",
+          "sha256": "805650a203509b5bf53d4dd5a087128f855456fd4d4d0e2ca21c9f44c46d5360"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_64.in.bin",
+          "sha256": "ef77c8f876b997429578b33565e4863e7a568b14e51bc19f53ab904da64fb3f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_64.out.bin",
+          "sha256": "30ff89a586d2aea6fab00eb07cc25fadc5c2813e013cf9ce494af029c91838e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_65.in.bin",
+          "sha256": "b0acf4098a0cb9d0a4af321f52c6e4fb1a400f28192f581bb5b557729ba589e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_65.out.bin",
+          "sha256": "fb58fa74158446611bec8a3a39338b96b7ae11b64ded8e9c9031cb407435b7ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_66.in.bin",
+          "sha256": "c66b2e63cd569fb5666d0c3e2e257f1830372ea503d879c29cf1e2018061b9cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_66.out.bin",
+          "sha256": "4e9060da6bb7a402b400168d2be91497fb558f4794c58655acfc1b8a0d5619c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_67.in.bin",
+          "sha256": "736aee138ca083632d7eb8119e489c9b6da63e7be8064c8987ac114529b5fcaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_67.out.bin",
+          "sha256": "0bcece637e5904be036cc2cd5af56d691a92120a0f5d88a253a2a96d8ab2bca6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_68.in.bin",
+          "sha256": "6a81c57542863f89ebf9c907189a0cef001ccf5e68b069e184311e84b05a1678"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_68.out.bin",
+          "sha256": "c7a1cdcfcba27e712e591b056e3a902d36ff5afecaebae8b34d6025e78209d51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_69.in.bin",
+          "sha256": "0252be4f9d08b11e5ef6668ad6b3806b16be3033e5275b218856965f346bd6c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_69.out.bin",
+          "sha256": "666fb48f6ebe13f74e3d03843e6ffcda87265ef9b277579bcd6f4292748be4fa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_7.in.bin",
+          "sha256": "87c24348c98a2ca61c89acddf9467ca9d2d34f25f3bd03894feef9de7644e88d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_7.out.bin",
+          "sha256": "45ee0703d9bb6f6bc5b6ebdcb7dca61edae9d14a2abf4f66a7a029c8c09331bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_70.in.bin",
+          "sha256": "5736e561078a85d4d7148b95c5f8620e42cee161bf195b1fa20e889f46b0c36b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_70.out.bin",
+          "sha256": "cafbdb9ba27bbce9e236430dda136aa499c5ee55185bf50f6e8d27de27056db3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_71.in.bin",
+          "sha256": "dd910566a98f53912467e85050a1ce0163717bb3338e02c4c21b458784ca972d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_71.out.bin",
+          "sha256": "962b35041602149c1a2b6036be1a8a2582d71236efe513fbca4d870b1e532a9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_72.in.bin",
+          "sha256": "00a2e89a6f1ac00e935ff98cd0ada248713101f8a0f4bbf16281c4f825d2869a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_72.out.bin",
+          "sha256": "5fd7d4a0845b458752abbd550bbfc93cf46ec64a8ccecbdf4759c59a174249c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_73.in.bin",
+          "sha256": "b11c94ff72e2dd758b06724e320e3f837ca87f46cc15e65503cd83292b8ecf7c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_73.out.bin",
+          "sha256": "133ed648199ef334a830ac15263d16c0c0c2a98031884b1b88fa64e5eb296b2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_74.in.bin",
+          "sha256": "ab610d73e18351900c5da276674a810ee5b35cb9da1a6a5b8c526b99f1f54a11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_74.out.bin",
+          "sha256": "6eb1b54dd5f8c8ea44b510728da7956eab25668a3e3b662429988d3eb0b57aed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_75.in.bin",
+          "sha256": "c0eb5f0acb4618d5cfebccb86425d62e6b6fde439ccc066f478cb993bc8482dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_75.out.bin",
+          "sha256": "4510423e3eba6e874420573f6d5f6e0f8b2c15d177add26d4e54396c25226d30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_76.in.bin",
+          "sha256": "5c45da852737d469cbe05df619d88d069df9ed518806745c1cd2086a181d580d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_76.out.bin",
+          "sha256": "d906f37e1741e2ce6c57d09c4ff0c6d58a81abe362e33daba2029ec73151e43b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_77.in.bin",
+          "sha256": "c4547078fb790cfc1edf17e588f35d23803c92c207799c7ee5114e44a87ee7e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_77.out.bin",
+          "sha256": "4ca4a0a5b6471735f8634c3746e2125c1715e01ea7f8614f5c2e1dd6b7fd5ab9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_78.in.bin",
+          "sha256": "5fb7337282391318b0f8e9780c198f969612bb198b92e4c0202bbfb28ed1f54b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_78.out.bin",
+          "sha256": "955d5b8926b184bc2b31b19d02981ea630121a59d9006c9f5266e4bad7fd1f69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_79.in.bin",
+          "sha256": "ebc1bc5bb905ef7131ca8536fb2381c6a9632df6dca6e7043bd5a4cd8610ca50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_79.out.bin",
+          "sha256": "7a24e5e0f8e68cb49a826c39b4494ca74c38a5bd9378b70f1686aebba3c27d0b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_8.in.bin",
+          "sha256": "ed18b0f4d5a29b87b5bdd9331a222a74635fc83f22dfde0653ac43385d58832e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_8.out.bin",
+          "sha256": "de200e0aeae15ae5d51f8463aaf16a901a0c4370d7b444387fe49e86a01e95b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_80.in.bin",
+          "sha256": "65edb22a242d63134497ebf5a7670bcd726376188da422cce4c15480c6388c89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_80.out.bin",
+          "sha256": "4b8b213f0bc0ef78390ae7d1a13d94b64c9077eef5a1869f7a805ca494c7164f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_81.in.bin",
+          "sha256": "2e9bdd2b5db513661ce5769bf7419bc0ca292fd1249d989d1fce3a972b547f07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_81.out.bin",
+          "sha256": "3022b524d529d172c40b94e45f731383f4bb7bf31aee9e85b2192f1e7a1f343a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_82.in.bin",
+          "sha256": "99a23139cc2b2027f0ec40089a714b3e10b8eb47cfdb63ffe23939e7c5cb4489"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_82.out.bin",
+          "sha256": "ba8c3085d1ac38b41c60bfa3353b69cb42d6227d99a6a55d3c25a1ff09e5df7c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_83.in.bin",
+          "sha256": "0ca54da7111305f115ed71f666c8e822acf6f1e94b76649ebe5d8e8ae9e0993a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_83.out.bin",
+          "sha256": "bef734306d2c0d2d4c18e92e7dfdb4d66a58c889283844d14fe28dbfb24c02e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_84.in.bin",
+          "sha256": "c4c565c296cd7f82bfe383ae23e1ace49910fb13679dec91771909949d0c5b25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_84.out.bin",
+          "sha256": "6621b892ebc521be2210812c429ad26f933428726ff6dda254ed437d5245f029"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_85.in.bin",
+          "sha256": "6446fdb557ac0d8c898ef80e30e169834d865f595c6d02eb26e7153b93fec2c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_85.out.bin",
+          "sha256": "1465de628d8f70b18c0be5f8409f50976018d7cf587a25e7d2048b9bd56f6e40"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_86.in.bin",
+          "sha256": "d5beb12504d66bcba0a0216edc121b3cd914a2dfd839db10c31bd3d70f0b68d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_86.out.bin",
+          "sha256": "b3bcc7291775a0f7ce562b3be78cd6a6c0bba25ef494607624b34f41df21e19e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_87.in.bin",
+          "sha256": "27c35a1265d455040df95c40a7041c143f0892a5d7cdad6896dc87dcd5ae2002"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_87.out.bin",
+          "sha256": "768e4a71d1600df1f2e95abbd74ffabe315b3465d15e5f780087b30025c252f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_88.in.bin",
+          "sha256": "06008dd69d10943391f1497232d7e4d2a6f0aee93e06dcc44f3a837863d9c676"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_88.out.bin",
+          "sha256": "c6362d80b1d760db6b5b1a1f38e2e303ee95b83ee071b97160449e2d33d67d90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_89.in.bin",
+          "sha256": "edcf5960a47b00ec717ff63eee121488e5283e3cdc2357cc83096dbbc40d4fcb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_89.out.bin",
+          "sha256": "ca77ef77a4031435817b04f4a8d954f9ecccb190cae19fa38201c830d7482b8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_9.in.bin",
+          "sha256": "a6d56542c0fff688246e7887e01aeba1f4e0a4779907d65ffeb852734e168469"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_9.out.bin",
+          "sha256": "2cbd26d4e2d44b3d0d65605404151d54163a8d4d0712d53e177118a27406be18"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_90.in.bin",
+          "sha256": "0af7bfb8e915d63073463b991d1b4749b2400fc9b497eac3de92afb84c47c45e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_90.out.bin",
+          "sha256": "365e88fd2845fe0160cfd793195a2c9d338326f92eb5f0794d257717f9d16cd6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_91.in.bin",
+          "sha256": "9602d429b1b0373f6ec4ebd69de56b0559651f2d52d0a71aca2dd190a22e0505"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_91.out.bin",
+          "sha256": "1f9e0e06f835bd7af6b8d2ebfd7ca3a72c9c0691874adf3c390e89504afc18cb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_92.in.bin",
+          "sha256": "38cc25ba4767b73475cf14d74388f2ad93395fc612f97c20f5e27910d9eb8422"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_92.out.bin",
+          "sha256": "fa28b38e0d3081f533f5d3814e8651a7036760d3fdb16d5528b093ff4009734b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_93.in.bin",
+          "sha256": "2e8150c3fb407964c8a8935a1f649d44e4a55fbafdf65188c5bbd423a18b2bdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_93.out.bin",
+          "sha256": "1bf73ef752c3eb998e7b194cfd39e14d4ffbbf07f2c72f32b5cd1d0ba7e76c54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_94.in.bin",
+          "sha256": "b978859c25bb883ab387303c51d7a981fed0b402af84b9f5d2bc5bee22af89da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_94.out.bin",
+          "sha256": "e0ed12fc2c76a53fd2988b18ef38ff05a89d89077d0d128c55ac090063687016"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_95.in.bin",
+          "sha256": "5087c8dd00994fc5bc96405fc057bc33d00ba8fee14db24076822cadc40deb37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_95.out.bin",
+          "sha256": "2371907eee110e210acc7fd2ce5c6c8660831aa8f1e1660958eb2005e77fbf92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_96.in.bin",
+          "sha256": "1743a161508606ec58a9dde3dd75e87221cb49c32d36df6b0443960477a1fc2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_96.out.bin",
+          "sha256": "3744da89efdf12927db8877012229091bc37d250c3f99f166ea4e348fdcd3e13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_97.in.bin",
+          "sha256": "ae602d48ff6868e02021470f0bccde196f5135c9c7cc3786460ce9d8a0e7dd56"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_97.out.bin",
+          "sha256": "9103cf4d2c06a629376cf4bde799ea1ee416c6b27bcbc1dc3566b24df7b37bac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_98.in.bin",
+          "sha256": "03d3b85572cbca0f58e5c1d3430cb4bae7a34519dc8f795a9ce2c65d87db9e74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_98.out.bin",
+          "sha256": "8ccb3ef2f8609958b9f1099144db69dd6109f7de9cc2089b7a9f0627fd2e833a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_99.in.bin",
+          "sha256": "a75b90aa2db174bc0aa7b3d07c26669a8a754466711fde894071ebd785f61714"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_controller_merge_accept_v1\\f_8c09af6c_99.out.bin",
+          "sha256": "02d05a511a0755eba44f30709de61482c03b352b4e6cbf5dbd2f1c68fb0b8f1d"
+        }
+      ]
+    }
+  ],
+  "attribution": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_merge_callable_v1.json",
+    "sha256": "156313d381016b43e0cc21238c1e5e14ba0dd322c4eb100bb3b41355b008065f"
+  },
+  "original_callers": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\manifest.json",
+    "sha256": "df4185383e153f22ed32e1af3596ad418c4f3af9f9a4c769fdea09337744aaa5"
+  },
+  "caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_0_1.capsule",
+      "sha256": "b9962e7a5fe442f537187a61dac60309e8633f046390321f25081eb8a615c47f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_0_1.log",
+      "sha256": "3036b502434963dedd600879db3244f23c5403c22ef9ebc9386f6a8d28481771"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_0_1.patch",
+      "sha256": "45233929a8b7202b98d92e876765e7594b70b5a1cbf7c3cc5d5cb67a6ac80a95"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_1_1.capsule",
+      "sha256": "5e189b065dba66d6948ef790381d13984c51484612e65ca55ab5514248bd405a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_1_1.log",
+      "sha256": "6cf23127f867874d3b5799184c9d34df9f87ee19c94e0d0f67c76ee39fa0d47a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b92a_1_1.patch",
+      "sha256": "146196d4cdf605806333acc456665509b86edd3f6bfb2476eb8f431f2e77956f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_0_1.capsule",
+      "sha256": "75604c9189bcfc7ea36d934a5b588ba13fbb1250bf11ca105daee8d205bf2f07"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_0_1.log",
+      "sha256": "170001524238cb383c866a3987d1aefccd3b74a0e6457116c9d2b8e4031ea034"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_0_1.patch",
+      "sha256": "313e29dcf163a06d3339ff5347d70780521c50213e3595fa5a3272ed0f03447b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_1_1.capsule",
+      "sha256": "d4e50c2f491b0ba7c7ab961a46d1c3f6a09200be6de392a29c1c2bbbd337a95e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_1_1.log",
+      "sha256": "f9f407e90ee710cb76ecac8bd84d89c64885a253fce6eb1cf9a47e6026e67b9d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_28_bsr_0c09b988_1_1.patch",
+      "sha256": "bb52079e592e21a6df97d0627c6ae0c152f77d6f1283a7364d7051901079bdc9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_0_1.capsule",
+      "sha256": "192e4065b4fb12b5ed39e92c6d9316ea6107477e8e67d60f33f6f19a6c1b09e3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_0_1.log",
+      "sha256": "9d2001fab33e8149f812201d1597958bf43bb71d8cbd44a659085087984cd80e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_0_1.patch",
+      "sha256": "45233929a8b7202b98d92e876765e7594b70b5a1cbf7c3cc5d5cb67a6ac80a95"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_1_1.capsule",
+      "sha256": "d5bd1788ddb730f74023b4c8317d1c69ec83117372d407b7ea072c2a1d30b9d4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_1_1.log",
+      "sha256": "d134af14791b908a2e43cd9c0c0878a687efe3c5b7b8583d0807b405c8fcfd31"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b92a_1_1.patch",
+      "sha256": "146196d4cdf605806333acc456665509b86edd3f6bfb2476eb8f431f2e77956f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_0_1.capsule",
+      "sha256": "a59b33afb0ee2cbd375a4e3b68663fef16b02cc4506fe887d20411dd4d49d8ce"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_0_1.log",
+      "sha256": "4be1389d76cc30b03caea1b826d587d2c7f424fc37b4a7f467f5f5311afd7deb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_0_1.patch",
+      "sha256": "313e29dcf163a06d3339ff5347d70780521c50213e3595fa5a3272ed0f03447b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_1_1.capsule",
+      "sha256": "e3f5b4412cc6dfb3454570ca984cab72c8050d0551767b80715c15c97280afaf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_1_1.log",
+      "sha256": "c29cac718e4beb4186c214aaeaa06883caa6932da365d5713cda2e606abfa7c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\vf3_29_bsr_0c09b988_1_1.patch",
+      "sha256": "bb52079e592e21a6df97d0627c6ae0c152f77d6f1283a7364d7051901079bdc9"
+    }
+  ],
+  "validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_controller.py",
+    "sha256": "cf2be5bec58b3079a144b378156017639073d6a5155bbbc2d39525009e2a4e7c"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_controller_merge_v2_milestone.json",
+    "sha256": "e7363a1e5c54c9721e15e88593f894113a059088a2a4c7c6bcfc752c88f42606"
+  },
+  "milestone_audit": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v2_milestone_audit.log",
+    "sha256": "4f373d24140bf165d09cbdf2bfcfc0dfe787cd59220283b5307f092ae2ec4deb"
+  },
+  "chain_extension": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v1_chain_extension.json",
+    "sha256": "7be8b21533cd6d0ec140efbdbf784da51bc8d6cca6fcf60308e8e6e7eaf9c85e"
+  },
+  "reused_previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\task_driver_v5_chain_audit.json",
+    "sha256": "86903d52a6ac05a941fbfba63123da1a1649387475a424fda142f57bc1b817e4"
+  },
+  "historical_full_repository_gate": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\task_completion_v1_manifest.json",
+    "sha256": "b6ea556ff50ae53b0b9989b73e47cdb537b4031a73c75882201af6d437868539"
+  },
+  "regression_scope": "Current controller change: observed reverse dependencies and static target/small-tail module bindings (19), plus 39 native suites. The earlier 1368-binding full gate validates the preceding task-completion checkpoint.",
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_v1_affected_bindings.json",
+    "sha256": "0c8be961692d08e8283ba13490a61a2b30d5fe60893322d334adf083896ab0ac"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v1_affected_selection.json",
+    "sha256": "08ad1bb6cc854705937fca8fa853db40ca09cb6715f5c45e5cf5289366be1b9b"
+  },
+  "affected_regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v1_affected_portcheck.log",
+    "sha256": "ab0548545f911a92c34272715138487800a8ebda47a2d2f8e9f9924c44e88a4b"
+  },
+  "regression_status": {
+    "expected_bindings": 19,
+    "reported_bindings": 19,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  target_remaining:0x8c09ce4c PASS   matrix_family: 444/444 cases match (0 skipped) - PASS",
+      "  target_remaining:0x8c09cf60 PASS   matrix_family: 444/444 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3dl.exe",
+      "sha256": "19ee5d05dd8c4b3804256314a27f92ec5ec38d3c989b450fd52b8a36d8aad10f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3walker.exe",
+      "sha256": "622f992afbde7f2832f99e9b8282a789178424b3d8d77cdfefc41fd37bf50822"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3mtmount.exe",
+      "sha256": "60001aa5964707c97222b64ed9f52a58378ca03852a0673a7b2351e5586bdb13"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3loop.exe",
+      "sha256": "407c5e8a9577051659f730c519be59e97f82751349a566a32894ac469c98b4fa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3taskvm.exe",
+      "sha256": "f299cffc0148d2e3ca7f2fc78761a6303301f699a65ff1775b2cf0acb99c35d3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3vm.exe",
+      "sha256": "854568b901518a5dec4978637788a46bf9f6f0fe48a43ddd0a3fe89739962ce0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3frame.exe",
+      "sha256": "0858f95da0ae2f01ab333c89c790bebac96515ebd717cdde8b944d29fe6cffe0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3libutil.exe",
+      "sha256": "c1fd9e4f48696d29a842f5e7e8f585ca323c464da641a6886dd8ba015f4965b2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3orient2.exe",
+      "sha256": "7a500237828b0175808aaef730e705be5fabd663cce680c797790e3ad284ef7b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3poly.exe",
+      "sha256": "24cb3beef2cb039a3c7018a11cbc7a91171ed4ff9c2a9ed53fabceb60f42d89d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3vecpush.exe",
+      "sha256": "51221eef34c5f28a9798e1e9da902bdaf22e78b0b0a2007543d63b5991fff41b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3tailcall.exe",
+      "sha256": "0224d321d213888773fb7772b179cb14f2aa3f0ceb4957554c843226cbf3d27a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3walker2.exe",
+      "sha256": "ae97c5de33fbe679d34dfbcc250bd6e0bb70a822fa24a03933ace8747e3aa4c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecadd.exe",
+      "sha256": "38e538a0f13f0e957dde5f4d7022a0205b1b5c68f3a5ed1aa08c8132cfd39293"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3scaler3.exe",
+      "sha256": "415cc1e904c13cd0634476ed586d85624d688cce89d44c23b365f28cadc84563"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3frameseq.exe",
+      "sha256": "7ea1601c593a547760375d5be1cad8b6ad8bf1cc2edd48938aa5edb4204ecb6f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3cbefc.exe",
+      "sha256": "5f0b1aa01432fc4f58e381b3f39007b25c5b0293ca0d9fb526da3af606f26351"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3f040f1e.exe",
+      "sha256": "075b1841768405a5b013e7792a51312a364dbd6105c1cc79d44b92d84a13a7a2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3f0747d8.exe",
+      "sha256": "9695f0efbec2d91d1c33c693a517a8b15a927d4f0dc5e15d50a75a3a7f2885e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3f9f6fc.exe",
+      "sha256": "fa03de786c13c364bc4e926330e71de4d6ef732821c59afc53670cc3c21bf4c0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3f9f6dc.exe",
+      "sha256": "895d3838db03a38d192a3bc2d9c1882b2839ba9929a8492399842f40093148aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3cc148.exe",
+      "sha256": "d7a300b8fc5fd68c4812b0e1168b306e558fd79af25604bc4f6c1dca19c1d5eb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3c5dbe.exe",
+      "sha256": "ab294156646e43408f40a2df16483d565c6fe2d7136efb6297888391fc1d90e1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3b10aa.exe",
+      "sha256": "05cf18ab419913df861b24d4a6ddf9182242c893bcecc4ca6191eb6865a265fe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3c6ec4.exe",
+      "sha256": "655461726c28551929361be5b321bf74296715073dbec7c742ae6d2115e10094"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3maplookup.exe",
+      "sha256": "e68cbaa1aef7c99d97aa449303b1bf72629d09ab485a1ef7918ac1df1672b43b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3meshnode.exe",
+      "sha256": "70942169b722facd12158caa3a8192fb9839c23296d708c07c91394af7c021ad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3d0fa.exe",
+      "sha256": "f315326ff6eb3880961f5f76bee3c154aa243d7d02c5a7c4333e8243c1098253"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3c788.exe",
+      "sha256": "00dac44ee2255ebdc784be6ae11e21798b4d0dea423ebbbe77fffb418e9e075f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3f096258.exe",
+      "sha256": "435cfada62b42ab35be8c44aadbb2d003a2319ba20e5268552082658a83ed1dc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3matrix.exe",
+      "sha256": "4658ecd42feccbcaa4832b16ce21c5daa6adc5805dde78ff17e85ce8eac69a32"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3bootmix.exe",
+      "sha256": "4c205a7ecb2dd00738f13b9fa8d593d2501998c6d7f4b2115b8bbc0b77c68f02"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecnorm070x.exe",
+      "sha256": "4a40d574748ac9190b2d161777f901ef14d39643869aa39a690ea9cc0b0eea0c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "846e3f670b352162f432509dae16272bd906d71eebf172206fb93a3ae63dc11a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecnorm070120.exe",
+      "sha256": "323642c9be15990f519c2a09ea443ac87e24badd5af0e4076704f34f23822c38"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "32b519435ac10819142a037372ab20f4857a2f09b600c4a0163fc18091da4f4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "7c1b63acf59529751680e521804e41281498a890c1b1ffa6721ff8ee9c6fcb50"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3fpu.exe",
+      "sha256": "2cfff96b2ab5720751d96a965e39744d94d8b3bf3b7a0b1641d6eb17ddb83c36"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_controller_merge_v1\\vf3statehelpers.exe",
+      "sha256": "cfca0be3abdc2e21f007f71806834dbc013d0758a9aa5f35698164b93dcc31f7"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\controller_merge_v1_tool_tests.log",
+    "sha256": "e27fd9d2a739a9d2a01e4ee0af75da3e8c555ea29d4d1bdc24ae78eccfc5e304"
+  },
+  "current_bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "9096b0b392be3a5258055511cf7efcae42b99d7b612f90053145483b2e7a0bfa"
+  },
+  "rejected_target_draft": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_merge_superseded_target_v1_manifest.json",
+    "sha256": "e77ce93c89fcbacf4e3c9064ee920724af08061c8903f4feec5a10846f3780d4"
+  },
+  "audit_tool": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\controller_merge_audit.py",
+    "sha256": "cd12b303edc5a03e7232d49bf6bdbf3bd7966637ed082e1470439ac5c82ed2c3"
+  }
+}

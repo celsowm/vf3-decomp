@@ -1,0 +1,104 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "trigger": "0x8c0432e2",
+  "fixture_scope": "Fresh held-out original BSR/callee-prefix/return contracts after complete native source freeze. Relocated writable stack and changed packet bits; not complete parent execution.",
+  "cases": [
+    {
+      "name": "bsr_0c09b92a_0",
+      "entry": "0xc09b92a",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf83c": 1174589066,
+        "0xc2cf850": 2395080266
+      },
+      "expected_exit": "0xc09b92e",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b92a_1",
+      "entry": "0xc09b92a",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf83c": 1174654089,
+        "0xc2cf850": 2395017823
+      },
+      "expected_exit": "0xc09b92e",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b988_0",
+      "entry": "0xc09b988",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 0,
+        "0xc2cf83c": 1174589066,
+        "0xc2cf850": 2395080266
+      },
+      "expected_exit": "0xc09b98c",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    },
+    {
+      "name": "bsr_0c09b988_1",
+      "entry": "0xc09b988",
+      "registers": {
+        "r15": 206831616,
+        "fpscr": 2359297,
+        "r8": 17,
+        "r9": 23,
+        "r10": 29,
+        "r11": 31,
+        "r12": 37,
+        "r13": 41,
+        "r14": 43
+      },
+      "memory": {
+        "0xc29bccc": 805306368,
+        "0xc2cf83c": 1174654089,
+        "0xc2cf850": 2395017823
+      },
+      "expected_exit": "0xc09b98c",
+      "budget": 10000,
+      "transfer": "0x0c09afbc",
+      "explicit_return_only": true
+    }
+  ]
+}

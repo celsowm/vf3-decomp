@@ -1,0 +1,19 @@
+{
+  "coverage_credit": false,
+  "excluded_from_chain": true,
+  "reason": "Withdrawn metadata draft inherited the older 205956-byte campaign goal. No C or evidence changes; restored the sole ledger row/binding before rerunning promotion against the 282527-byte (65%) target.",
+  "files": [
+    {
+      "path": "tools\\oracle\\controller_merge_superseded_target_v1.json",
+      "sha256": "b97892025d398d65fea0cc22e49ad6ea279e536fdb79df972c084776d047ae2d"
+    },
+    {
+      "path": "tools\\oracle\\controller_merge_coverage_baseline_v1.json",
+      "sha256": "021976a88a53c7cc6b570de379a443959f60d4d609ef083f502250cf35dece94"
+    },
+    {
+      "path": "extract\\analysis\\controller_merge_v1_milestone_audit.log",
+      "sha256": "0ec6f2944ab21bc06314a245fde92291df1295801cd968005dde0f24b5d71545"
+    }
+  ]
+}

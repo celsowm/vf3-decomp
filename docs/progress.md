@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Controller packet merge qualified (2026-10-10)
+
+Readable full controller merge adds **78 verified bytes**, bringing C coverage
+to **259,188 / 434,656 (59.63%)**, with 1,369 bindings. Development and fresh
+acceptance each pass 128/128 cases and cover the full frozen owner. Eight
+original BSR observations qualify the three-register save prefix and return.
+Acceptance uses disjoint saves, changed packet/selector inputs, relocated
+stack and the other FPU bank. The 19 affected bindings, all 39 native suites
+and all 110 tool checks pass. The remaining gap to 65% is **23,339 bytes**.
+See [controller evidence](re/controller_merge.md).
+
 ## Complete resource job retirement (2026-10-10)
 
 The opt-in explicit return recorder now preserves complete second ticks.

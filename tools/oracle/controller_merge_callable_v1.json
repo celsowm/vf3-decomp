@@ -1,0 +1,21 @@
+{
+  "0x8c09af72": {
+    "entry": "0x8c09af6c",
+    "kind": "vf3-controller-merge-bsr-v1",
+    "call_sites": [
+      "0x8c09b92a",
+      "0x8c09b988"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\controller_merge_original_callers_v1\\manifest.json",
+        "sha256": "df4185383e153f22ed32e1af3596ad418c4f3af9f9a4c769fdea09337744aaa5"
+      }
+    ]
+  }
+}

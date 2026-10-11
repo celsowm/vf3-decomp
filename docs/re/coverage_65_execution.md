@@ -290,3 +290,16 @@ matches 128/128 cases and the caller validator accepts the full frozen body
 and three-register prefix. This corpus can use the existing promotion gates
 without calling a one-shot stop a completed game frame. It remains uncredited
 until normal C integration, source freeze and fresh independent acceptance.
+
+
+## Controller merge promoted (2026-10-10)
+
+Normal C integration and source freeze are complete. Fresh independent
+128-case acceptance and eight original BSR observations pass against the
+frozen native executable; both development and acceptance cover all 78
+frozen bytes. The accepted promotion adds **78 bytes**, total **259,188
+(59.63%)**, with 1,369 bindings. All 19 affected bindings, 39 native suites
+and 110 tool checks pass. The new hashed extension reuses the prior complete
+percentage chain explicitly. An inherited obsolete target in the first
+metadata draft was withdrawn before sealing; the final 65% target is 282,527
+bytes, with 23,339 remaining. See [controller proof](controller_merge.md).
