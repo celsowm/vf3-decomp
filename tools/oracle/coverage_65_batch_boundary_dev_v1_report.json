@@ -1,0 +1,250 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "incomplete_invocations": 0,
+  "campaign_suitable_for_promotion": false,
+  "runs": [
+    {
+      "scenario": "s26",
+      "started": 768,
+      "completed": 768,
+      "armed": 768,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c08f632",
+          "address": "0xbd3f487e",
+          "count": 12
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 768,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    },
+    {
+      "scenario": "s27",
+      "started": 768,
+      "completed": 768,
+      "armed": 768,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c08f632",
+          "address": "0xbd3f487e",
+          "count": 12
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 768,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    }
+  ],
+  "candidates": [
+    {
+      "entry": "0x8c09bc1c",
+      "owner": "0x8c09bc2e",
+      "owner_bytes": 664,
+      "valid_invocations": 383,
+      "captured_body_bytes": 654,
+      "missing_pcs": [
+        "0x8c09be92",
+        "0x8c09be94",
+        "0x8c09be96",
+        "0x8c09be98",
+        "0x8c09be9a"
+      ],
+      "rejected_flags": {
+        "1": 1
+      },
+      "rejected_last_pcs": {
+        "0xc09bc1c": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb34"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c08f632",
+      "owner": "0x8c08f642",
+      "owner_bytes": 598,
+      "valid_invocations": 359,
+      "captured_body_bytes": 598,
+      "missing_pcs": [],
+      "rejected_flags": {
+        "6": 24,
+        "1": 1
+      },
+      "rejected_last_pcs": {
+        "0xc08f682": 24,
+        "0xc08f842": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c090bc8",
+        "0x8c090f80",
+        "0x8c0911dc",
+        "0x8c09130c"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c099194",
+      "owner": "0x8c0991a2",
+      "owner_bytes": 488,
+      "valid_invocations": 384,
+      "captured_body_bytes": 420,
+      "missing_pcs": [
+        "0x8c099200",
+        "0x8c099202",
+        "0x8c099204",
+        "0x8c099206",
+        "0x8c099208",
+        "0x8c09920a",
+        "0x8c09920c",
+        "0x8c099228",
+        "0x8c09922a",
+        "0x8c09922c",
+        "0x8c09922e",
+        "0x8c099230",
+        "0x8c099232",
+        "0x8c099234",
+        "0x8c099236",
+        "0x8c099238",
+        "0x8c09923a",
+        "0x8c09923c",
+        "0x8c09923e",
+        "0x8c099240",
+        "0x8c099242",
+        "0x8c099244",
+        "0x8c09937a",
+        "0x8c09937c",
+        "0x8c09937e",
+        "0x8c099380",
+        "0x8c099382",
+        "0x8c099384",
+        "0x8c099386",
+        "0x8c099388",
+        "0x8c09938a",
+        "0x8c09938c",
+        "0x8c09938e",
+        "0x8c099390"
+      ],
+      "rejected_flags": {},
+      "rejected_last_pcs": {},
+      "immutable_pointer_locations": [
+        "0x8c10bb88"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    },
+    {
+      "entry": "0x8c08acc0",
+      "owner": "0x8c08acd8",
+      "owner_bytes": 512,
+      "valid_invocations": 384,
+      "captured_body_bytes": 498,
+      "missing_pcs": [
+        "0x8c08acfc",
+        "0x8c08acfe",
+        "0x8c08af04",
+        "0x8c08af06",
+        "0x8c08af0e",
+        "0x8c08af10",
+        "0x8c08af12"
+      ],
+      "rejected_flags": {},
+      "rejected_last_pcs": {},
+      "immutable_pointer_locations": [
+        "0x8c0f7214"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    }
+  ],
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_boundary_dev_v1\\batch_manifest.json",
+      "sha256": "9249b0fa94d277ddfa174ce5e07a7ef23bd8fd5899f1ca7879ce66fd2ecf1fc7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s26.bin",
+      "sha256": "2ec5aee2bc4667865b75467edb9715e156a4fafe554653821494514d58c2f7aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s26.bin.summary.json",
+      "sha256": "99d79814b0a15236654adc41628bdcedde70a10df7eb8f06ce210e99dd2188ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\golden_coverage_65_batch_boundary_dev_v1_s26.log",
+      "sha256": "42399b3f9e9f7d65e3fd1fef21d717a5d386aa433d0b022b7bcf025bc59aae26"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_boundary_dev_v1.patch",
+      "sha256": "84d886484f9d3fb0a633e693ae0c736c6a0449bb7ce0ca00fc5b75077ab3966f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s27.bin",
+      "sha256": "479cd78389b4b5c9f4d6d84e38174e91eb806342b4ca3c2c89a59b5e75703a95"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s27.bin.summary.json",
+      "sha256": "99d79814b0a15236654adc41628bdcedde70a10df7eb8f06ce210e99dd2188ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\golden_coverage_65_batch_boundary_dev_v1_s27.log",
+      "sha256": "ba0ae131e0afdb6f25630b25b73fae5d89a2f60355d9e1f2d5095a4699db3389"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_boundary_dev_v1_memory.json",
+      "sha256": "ee37ac8fc105fb92334cd5b8e2255e9229af6443127c58b03cc492dc61d77259"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_boundary_dev_v1_registers.json",
+      "sha256": "0548413a070468a3ee68b15f9b412006ce75447b630f608f178b4ce665e3b790"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_watch.txt",
+      "sha256": "ee59366448fd706ebdbb9452a746d956a42fd5c7cf234e72da16452c6ed2c045"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_owners.json",
+      "sha256": "993dbda78ea10783c6c75b1ef1e8402a70b5786d645b179e4627d93f963d5248"
+    }
+  ]
+}

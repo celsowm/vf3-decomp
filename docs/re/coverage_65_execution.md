@@ -691,3 +691,16 @@ Two affected bindings, 39 native suites and 257 tool tests pass.
 Source freeze: 389 compiled files. Seal: `replay_callback_v1_manifest.json`.
 Verified union 266,992 -> **267,230 / 434,656 (61.48%)**; remaining
 **15,297 bytes** to 65%. Full 62.5% and 65% inventory gates remain required.
+
+## One-session batch screening (2026-10-11)
+
+Executed four original-image pilots across states 26/27, screening 19
+distinct callable roots and 13,248 candidate bytes. The first two campaigns
+contain one incomplete invocation each and remain excluded. The expansion
+and boundary campaigns complete without incomplete invocations. Retained
+reports identify all missing body instructions and rejected terminal PCs;
+the boundary pilot observes the entire 598-byte list-interpolation owner.
+No new C binding or percentage credit is granted. The 6,000-byte initial
+implementation batch still needs screening; a larger selector/timer pilot
+is prepared. Details: [batch screening](coverage_65_batch_screening.md).
+Verified union remains **267,230 / 434,656 (61.48%)**; gap **15,297 bytes**.
