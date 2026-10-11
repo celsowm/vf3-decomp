@@ -704,3 +704,12 @@ No new C binding or percentage credit is granted. The 6,000-byte initial
 implementation batch still needs screening; a larger selector/timer pilot
 is prepared. Details: [batch screening](coverage_65_batch_screening.md).
 Verified union remains **267,230 / 434,656 (61.48%)**; gap **15,297 bytes**.
+
+The selector/timer pilot subsequently completes both states with no
+incomplete invocations. Its round-count callback observes all 210 owner
+bytes; the other three owners remain partial. The 2,084-byte controller
+menu has a repeated-flag branch that appears unreachable without changing
+the original RAM behavior, and is parked pending contrary evidence.
+A resident sound-kit hypothesis is running, and seven new scene/UI roots
+with 7,916 advisory bytes have prepared original-image inputs. No C credit
+has changed; implementation, holdout and checkpoint gates remain pending.

@@ -1,0 +1,404 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "baseline_verified_bytes": 267230,
+  "target_verified_bytes": 282527,
+  "remaining_verified_bytes": 15297,
+  "reports": [
+    "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v1_report.json",
+    "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v2_report.json",
+    "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v1_report.json",
+    "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_report.json",
+    "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_dev_v1_report.json"
+  ],
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_screen_dev_v1\\batch_manifest.json",
+      "sha256": "2f6d319993afad324e4620c2ecba2e47f83766ce26fbd63a2d25406e47ad8d42"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\capsule_coverage_65_batch_screen_dev_v1_s26.bin",
+      "sha256": "58b85d57b86522f28a16f9379ed69860cd5336202c14da97fd56e406badb155b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\capsule_coverage_65_batch_screen_dev_v1_s26.bin.summary.json",
+      "sha256": "ea1d5e12b610de403a942f420db6fd88465219c305c8f51733b32093cd8f4b5b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\golden_coverage_65_batch_screen_dev_v1_s26.log",
+      "sha256": "d1f34cd4a351f68503555d8f063c81b9bd3e0af0ee4f29e544327b4dea9b77e9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_screen_dev_v1.patch",
+      "sha256": "4d776ab7f22638391a602622ef4503793615ae6782b7f2f81927c1412fa2c7e4"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\capsule_coverage_65_batch_screen_dev_v1_s27.bin",
+      "sha256": "4e3140c92eb6c6ee492bdc55c73c5617392a00b3ba177490d212e4a5b56f979e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\capsule_coverage_65_batch_screen_dev_v1_s27.bin.summary.json",
+      "sha256": "782e147359b5ecc4aec38fbba43d9328ae3fb3bba781296048171675605f3ce5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v1_raw\\golden_coverage_65_batch_screen_dev_v1_s27.log",
+      "sha256": "c5ca92ef3ab709ba062f845b373f30c6a879abbac541a1c6556e14311b237aba"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v1_report.json",
+      "sha256": "f666a2205669d0726a3b2ad48c6db82e23b20e8bed23758ebb6f8fe08a78ec6a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_screen_dev_v2\\batch_manifest.json",
+      "sha256": "00ae8e3cd1dcd766af06a47c9b83b25c289abff304a99aad5612ccf8fe337cad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\capsule_coverage_65_batch_screen_dev_v2_s26.bin",
+      "sha256": "12ff816fd7e346e456150cdf060b9bd2ccd5aa5df990173bf170061318ee6c36"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\capsule_coverage_65_batch_screen_dev_v2_s26.bin.summary.json",
+      "sha256": "5cf74f5ace447af857efee2bbea4922e546b6c735407a811d97def2b788b34f6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\golden_coverage_65_batch_screen_dev_v2_s26.log",
+      "sha256": "92cb6605038384a4390757c58ab3956acc75052cdf5353b898eff30bb50a101a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_screen_dev_v2.patch",
+      "sha256": "402f1a0a5693b399f77e9c60ddf8e6353d01574695fbf57c7ac95abb6e673c32"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\capsule_coverage_65_batch_screen_dev_v2_s27.bin",
+      "sha256": "109746f88081f6ca829bfe3e69b87cf940e5a433b00beb4ca973c74885535b76"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\capsule_coverage_65_batch_screen_dev_v2_s27.bin.summary.json",
+      "sha256": "27325fbb0e17ea3eb4217e8f42a6e6fff6e00f8f537f59a1e10a1063cf3e5ede"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_screen_dev_v2_raw\\golden_coverage_65_batch_screen_dev_v2_s27.log",
+      "sha256": "fafeae1c919d7a59d7bcc55866a76aa20e836a7ab9a0ab77716a12f0e9d21e21"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v2_report.json",
+      "sha256": "c6e03fe2e59791b71485b78b87677828507f6a3456a5a097929ab54ec4722f1e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_expand_dev_v1\\batch_manifest.json",
+      "sha256": "627673462616a82d2f7a3d96e19b4e7db25a8218ccf4506e4dfd047378fd0f26"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\capsule_coverage_65_batch_expand_dev_v1_s26.bin",
+      "sha256": "d39b915df7aa5320a9366e4c820f2249cf20b201321ebc73c1763359cf2f9ec1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\capsule_coverage_65_batch_expand_dev_v1_s26.bin.summary.json",
+      "sha256": "880cd7c17295719a749fda2103a24fd837931f63aad8bf9d52a2a3f8087561e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\golden_coverage_65_batch_expand_dev_v1_s26.log",
+      "sha256": "4137baed60633144a070f6433b2fed63944b468bc16233b4934bd8f658250679"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_expand_dev_v1.patch",
+      "sha256": "bdd761982a23441c6b56afa8010b5239da7417c5ccc3816de2749e666161003c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\capsule_coverage_65_batch_expand_dev_v1_s27.bin",
+      "sha256": "9f401128795c96065025fcb3b403524540d8aa7fccacea8e243041aada42c788"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\capsule_coverage_65_batch_expand_dev_v1_s27.bin.summary.json",
+      "sha256": "7c1aec4c9d3694975abd364833ca821356283d320cad50c7b3e148e7e595b07d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_expand_dev_v1_raw\\golden_coverage_65_batch_expand_dev_v1_s27.log",
+      "sha256": "3ba9a4c21c9aae7d5d58b57627dde963a86a119beab227af85ae679e484b35df"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_expand_dev_v1_memory.json",
+      "sha256": "12644f8cd111bef9dded0adc07bce4c6bfcd8c85d373e3b8ceeb7beaaaf633f6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_expand_dev_v1_registers.json",
+      "sha256": "3ca0c9b0deea79845c49cfa94791282f1ff2433e4089413cb370098d76921142"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v1_watch.txt",
+      "sha256": "2f32c86d6d1522e4fd5983fb6751a90debf72d0a729e84ebe2dad7f9203aeb52"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v1_owners.json",
+      "sha256": "270c279689eded1e04bc4579b337c0557258db4512a366c361e789bd906459c6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v1_report.json",
+      "sha256": "cd0c56b55da7df998bc06c39dcfd94dda327468fa60df9e29047daa4bfcf8722"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_boundary_dev_v1\\batch_manifest.json",
+      "sha256": "9249b0fa94d277ddfa174ce5e07a7ef23bd8fd5899f1ca7879ce66fd2ecf1fc7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s26.bin",
+      "sha256": "2ec5aee2bc4667865b75467edb9715e156a4fafe554653821494514d58c2f7aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s26.bin.summary.json",
+      "sha256": "99d79814b0a15236654adc41628bdcedde70a10df7eb8f06ce210e99dd2188ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\golden_coverage_65_batch_boundary_dev_v1_s26.log",
+      "sha256": "42399b3f9e9f7d65e3fd1fef21d717a5d386aa433d0b022b7bcf025bc59aae26"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_batch_boundary_dev_v1.patch",
+      "sha256": "84d886484f9d3fb0a633e693ae0c736c6a0449bb7ce0ca00fc5b75077ab3966f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s27.bin",
+      "sha256": "479cd78389b4b5c9f4d6d84e38174e91eb806342b4ca3c2c89a59b5e75703a95"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\capsule_coverage_65_batch_boundary_dev_v1_s27.bin.summary.json",
+      "sha256": "99d79814b0a15236654adc41628bdcedde70a10df7eb8f06ce210e99dd2188ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_batch_boundary_dev_v1_raw\\golden_coverage_65_batch_boundary_dev_v1_s27.log",
+      "sha256": "ba0ae131e0afdb6f25630b25b73fae5d89a2f60355d9e1f2d5095a4699db3389"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_boundary_dev_v1_memory.json",
+      "sha256": "ee37ac8fc105fb92334cd5b8e2255e9229af6443127c58b03cc492dc61d77259"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_boundary_dev_v1_registers.json",
+      "sha256": "0548413a070468a3ee68b15f9b412006ce75447b630f608f178b4ce665e3b790"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_watch.txt",
+      "sha256": "ee59366448fd706ebdbb9452a746d956a42fd5c7cf234e72da16452c6ed2c045"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_owners.json",
+      "sha256": "993dbda78ea10783c6c75b1ef1e8402a70b5786d645b179e4627d93f963d5248"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_dev_v1_report.json",
+      "sha256": "6baa72188e85c592eb13a0334363cd2c665b6350b4343559304c425c827414f3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_boundary_dev_v1\\batch_manifest.json",
+      "sha256": "dcc216e6ec5cd3f7a725fa632af67c50c15e382231cd2140b66526d7370ff0ec"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s26.bin",
+      "sha256": "95418fb1e023fba8bd11833ee8dd766307e1cf08abb5f8cbc6da766480f46680"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s26.bin.summary.json",
+      "sha256": "81b131ffe43e5ca8556a747be489dfc3851e151dc2400d45b62393c53c53ecd2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\golden_coverage_65_selection_boundary_dev_v1_s26.log",
+      "sha256": "2c8f62b86ed5f65aa4b5c0ab653d2810ab97b74583d4f0ed9efa38f35b1b9a12"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_boundary_dev_v1.patch",
+      "sha256": "40aa7542837d77b83d1ad703a44be9ae3532913a4010f211b7befc71a4e68026"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s27.bin",
+      "sha256": "a0ebc5800eb69ad0e202f8317460a413983b9aa5064c7c4089786cb4c00a7144"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s27.bin.summary.json",
+      "sha256": "81b131ffe43e5ca8556a747be489dfc3851e151dc2400d45b62393c53c53ecd2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\golden_coverage_65_selection_boundary_dev_v1_s27.log",
+      "sha256": "149d79d7751bac798ef13540f28493a4b4a86635a0db9304182457aec231a72f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_boundary_dev_v1_memory.json",
+      "sha256": "a08058fffaf04dbc8c8e0117eec2fd83fe786a1da6aac6e8c3aa43073682deb6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_boundary_dev_v1_registers.json",
+      "sha256": "6d340ad66dd6b323119e9a93c8e4e263fd5e3fb3e1cd7c45cc204d191e9271c9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_dev_v1_watch.txt",
+      "sha256": "84f5925b369369138bb8857062df09e7a2c69b153f18bf9fd7fe7067a1bfa1d6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_dev_v1_owners.json",
+      "sha256": "998b9e40cabe37c93cf6c9820c4e507e9aa5f80282647eb60a2323df951934ae"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_dev_v1_report.json",
+      "sha256": "5b87c051fcfcb9b573d9ff01801033e3be6c1d102b190412d8ed8078f2925f47"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_boundary_inputs.py",
+      "sha256": "7f594057bda9999deac933078423a76aaa63fa6a689539389b5c56242bd068ae"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_inputs.py",
+      "sha256": "33014f6878b4b3fc4482b2fd82cd702a4eaa27b616301e95e6f2dc6c02ceac05"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_inputs_v2.py",
+      "sha256": "9fbd36fcfdfef04ed88f56e9dd0784846f4b67489d005bc2784dc86b27dad95c"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_resident_inputs.py",
+      "sha256": "b359472752b73586b4ddb3e0ec176ef3fd5b9c1276f0a5e92464c626a3feea3d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_inputs.py",
+      "sha256": "c132a72486cde2d867a8a74d2a3f9d9aac4f82101b27c3b85b59602211471340"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_inputs_v2.py",
+      "sha256": "a2010dc8af3195e9ff3d1e1df7667b43f495b0eea6539d937318495fbbb69545"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_report.py",
+      "sha256": "e1cd5a80cb304c80403c640d093457e7025b15bb4a62e1216bd96521cb6e2371"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v2_watch.txt",
+      "sha256": "3e5acabde4a1b734d8ca8def7e044a40f554497a54fee16fc000697bdd255f86"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_resident_dev_v1_watch.txt",
+      "sha256": "4f9cd0a1b072dbd9b6ec12f676ac9c5a1324ccee73c0bf3978bb5b10a1d53809"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v1_watch.txt",
+      "sha256": "ff2b5c74e4e6539b54620284f175659c95168f2d9734a1ceacaca50f57e95e1f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_screen_dev_v2_watch.txt",
+      "sha256": "ff2b5c74e4e6539b54620284f175659c95168f2d9734a1ceacaca50f57e95e1f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_expand_dev_v2_owners.json",
+      "sha256": "9640bc6dc5287ccda5f942b36d989273a1cadc97c8c0373618be9aa95f56f035"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_batch_resident_dev_v1_owners.json",
+      "sha256": "b9f6e8d7bbbdc1f7bb31de35408c36d51c3d23b750ec451576e11534a91321d4"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_inputs.py",
+      "sha256": "1e88499145842a9689468cee777a3993444e25eba09a2928e276f2e9b378be57"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_expand_dev_v2_memory.json",
+      "sha256": "f90e2152f84f1285b9fdce1f93d18484bd5cd88ee26d76bdf99d37723331b9aa"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_expand_dev_v2_registers.json",
+      "sha256": "375d51bc0dd4ecef1c6d82505b873d5b9bbcefc99bc3efc164074de9626744f7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_resident_dev_v1_memory.json",
+      "sha256": "696ee4f6981f640454716aa6e4cbd158bbc55de7e54cd74196ee31f2efb03b75"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_resident_dev_v1_registers.json",
+      "sha256": "7b741b5cbd7c9a0512cfd86d88d2fe1ea77fb4819c8689cf39627f26414110ee"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_screen_dev_v1_memory.json",
+      "sha256": "f021469b206c4bfbb8e8ac59a7ba902ce2af23db9a8bf9ade00cfd78076e0b5d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_screen_dev_v1_registers.json",
+      "sha256": "dbb773da1fa90277915b67cff1238cba13da65b216d86ecbba46b7decffde3bd"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_screen_dev_v2_memory.json",
+      "sha256": "bf1d0f7663d9ec72261387628263483f8cb7da937598b14089743f5d4b846c81"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_batch_screen_dev_v2_registers.json",
+      "sha256": "dbb773da1fa90277915b67cff1238cba13da65b216d86ecbba46b7decffde3bd"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_one_session_queue_v1.json",
+      "sha256": "51f89cdad0acf9aafd9ea1d7fd5a6cb44380f4e7b9ca9c88ccfe57c917188a1e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\replay_callback_v1_manifest.json",
+      "sha256": "ecd7d5bba14ccb4b8c3253d661b5a5b6a1a5196bd61cfb8fae4cba498764b059"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_screening_checkpoint.py",
+      "sha256": "d39ac8c0269f79c0d5e75d88d0457d4198789d7195d45351f5d1a19fb491d910"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\tenpp_probe_plan.py",
+      "sha256": "be0ea3757ab911ec3691dffe643c1730d72c06f050bb24cda18d73653942373a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\pointer_seeds.py",
+      "sha256": "9271afbe236f1c26d40477db798ce15850b1f8bf106d8a0581e59178f10872f5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\comparison_inputs.py",
+      "sha256": "b316659c5d95af48f7dcfa92118b45d7ffe7424db0825c394bf0482b2854cebd"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\inspect_capsule.py",
+      "sha256": "9947cfd45f8637a073d73616a085b7883079db525c6161b865e7c7ae7fd81bbe"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\capsules.py",
+      "sha256": "cf8a030fbcd69c3c5e231fc5c3f8fa10921466bfbc971164e236e63cb3d28d6a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\golden_batch.py",
+      "sha256": "d60f1f7d2dcfebb1fb6f39c539832771adbc9d4669c9e49d296fb0f7a5016432"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\body_cover.py",
+      "sha256": "37fc9a0c3b18591807fb97aa9a1fa92a5e8383e862c7b96980b8fddb0c519e2a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\batch_plan.py",
+      "sha256": "eb0d48a49ac535d1b51a0a702807066d05a81db2ba28b7b5ae34ac99d2afb6d0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+      "sha256": "071e3936abec71aeae3cfe0af8f233b94b7234d4332926a7742c4e7dc12b7024"
+    }
+  ]
+}

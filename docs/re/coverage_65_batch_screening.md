@@ -62,9 +62,36 @@ every selector; varying those fields with correlated strides misses paths.
 The timed effect has separate words at offsets 16 and 18, and a mode-mask
 case hidden by a correlated pause fixture.
 
-The prepared `coverage_65_selection_boundary_dev_v1` pilot crosses the
+The completed `coverage_65_selection_boundary_dev_v1` pilot crosses the
 controller status, button, cursor, phase, timer and particle-age inputs for
-four roots. It is pending until its original captures and report finish.
+four roots. Both states finish 1,024/1,024 invocations with no incomplete
+specimens. Valid body observations are 1,682/2,084, 1,242/1,574, 472/504
+and 210/210 bytes. Conversion finds 496-512 distinct valid specimens per
+root; 31 interrupted specimens remain excluded. The round-count callback
+is now a full-body development candidate, with caller/C/holdout still pending.
+
+The large controller-menu owner has a likely unreachable branch at
+`0x8c09c2cc`/`0x8c09c2ce`. R12 is initialized to 1. The flag tested at
+`0x8c09c280` must have bit 0 clear to enter the later path. Before testing
+it again at `0x8c09c2c8`, the intervening code can only OR bit 3 into the
+same flag, with no intervening call. The second nonzero case therefore
+cannot be reached in this original RAM model. Preserve the failed coverage
+observation and park this owner unless new evidence changes that premise;
+its 2,084 bytes are not reliable implementation-budget yield.
+
+The new `coverage_65_batch_resident_dev_v1` tests the original sound
+wrappers' resident-kit predicates. Mutable current-kit globals receive
+IDs read from the untouched request tables. Original helper calls execute
+normally; neither their returns nor immutable tables are patched. It also
+crosses mutable settings bytes, scene-history phases and the independent
+timed-effect counters. Its captures are pending.
+
+The prepared `coverage_65_batch_expand_dev_v2` adds seven previously
+unscreened true callable prefixes, offering 7,916 advisory owner bytes.
+They cover pause/scene handling and scene/UI initialization. Their nested
+SDK, rendering and callback dependencies remain conditional on execution.
+The 1,780-byte initialization owner at `0x8c09575c` is not included: its
+disassembly explicitly writes PVR registers `0xa05f7890`/`0xa05f7894`.
 The initial 6,000-byte implementation batch has not yet passed the screening
 requirements. Continue screening and then implement the batch; do not turn
 these observed instruction bytes into a percentage claim.
@@ -77,7 +104,7 @@ The reports hash-pin the capsules, accounting summaries, original observer,
 state files, input patches, logs, image and frozen body inventory. New reports
 also pin their explicit input files, watch lists and owner maps.
 
-`tools/oracle/coverage_65_screening_checkpoint.py` seals all four retained
+`tools/oracle/coverage_65_screening_checkpoint.py` seals the retained
 reports together with the typed inputs, generators and prior accepted replay
 callback seal. Its audit grants zero credit and refuses to overwrite evidence.
 The next pilot's prepared inputs are pinned as inputs, not as completed
