@@ -429,3 +429,20 @@ candidates have 424 eligible bytes and qualified original callers. Their
 32-byte wrapper also passes development. These following candidates have
 no new coverage credit until integration, freeze, independent acceptance
 and regression/audit gates pass.
+
+
+## Arena and radial correction: +424 bytes (2026-10-11)
+
+Callables `0x8c0cb51e` and `0x8c0cb67a`, frozen owners `0x8c0cb532`
+and `0x8c0cb69e`, add 258 and 166 bytes. The final integrated native
+passes 252/252 development and 254/254 fresh acceptance cases, with six
+retained interruptions excluded across both campaigns. Twenty-four actual
+caller windows qualify the original prefixes and returns. The 374-source
+freeze precedes acceptance. All three affected bindings, 39 native suites
+and 151 tools pass. `arena_bounds_v1_manifest.json` seals the new proof and
+pins the preceding complete full 60% checkpoint.
+
+Coverage is **261,420 / 434,656 (60.14%)**; **21,107 bytes remain to 65%**.
+See [arena correction](ring_bound.md) and [radial correction](radial_bound.md).
+The 32-byte [two-actor wrapper](radial_wrapper.md) is a following development
+candidate with no credit yet. The 65% objective remains active.

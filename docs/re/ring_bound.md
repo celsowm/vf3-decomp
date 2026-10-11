@@ -1,4 +1,23 @@
-# Six-joint arena correction: development candidate
+# Six-joint arena correction: qualified C owner
+
+Readable `src/fight/ring_bound.c` is integrated and qualified. The final
+combined native executable passes **252/252 valid development cases** and
+**254/254 valid fresh acceptance cases**, retaining four development and
+two acceptance interruptions as excluded specimens. Acceptance uses changed
+finite values, relocated actors/point tables, alternate floating banks and
+original states 28/29. All 374 compilation dependencies were frozen before
+acceptance. Both complete owners add **424 bytes**; this owner contributes
+**258**. All three observed/static affected bindings, including the
+existing motion caller, 39 native suites and 151 tools pass.
+
+Seal: `tools/oracle/arena_bounds_v1_manifest.json`; full gate evidence:
+`extract/analysis/arena_bounds_v1_affected_portcheck.log`. This milestone
+pins the preceding complete 1,378-binding 60% inventory checkpoint.
+Coverage is **261,420 / 434,656 (60.14%)**, with **21,107 bytes remaining
+to 65%**. The following sections describe the preserved preliminary pilots;
+the final proof uses the combined `coverage_65_arena_bounds_*_v1` corpora
+and `vf3matrixfamily_arena_bounds_dev_v1.exe`.
+
 
 Original callable `0x8c0cb51e` has frozen owner `0x8c0cb532`, with 258
 eligible bytes in two body spans. Its preceding 20-byte save/setup prefix
@@ -16,15 +35,15 @@ violation. It publishes two correction components at `0x13a8` and
 Development varies finite points and radii across 64 configurations in
 original states 21/26. All **127 valid specimens** cover the complete
 258-byte owner and pass the isolated readable C candidate with zero native
-skips. One interrupted specimen remains retained and excluded. There is no
-acceptance result or coverage credit yet.
+skips. One interrupted specimen remains retained and excluded. The preliminary pilot alone received no
+coverage credit; the combined qualification above establishes fresh acceptance.
 
 The C candidate and a replacement matrix dispatch were compiled outside
 the repository against the frozen vector-aggregation base library. Cache
 `audio-evidence/ring_bound_candidate_v1/manifest.json` pins these sources,
 the executable, base library, native report and base source manifest.
-Repository compilation sources remain unchanged during the full 60% gate.
-This candidate must be integrated and frozen again before fresh acceptance.
+Repository compilation sources remained unchanged during the full 60% gate.
+The candidate was then integrated and frozen again before fresh acceptance.
 
 The real BSR at `0x8c0cb028` has `mov r14,r4` in its delay slot and returns
 to `0x8c0cb02c`. Four finite configurations in each of states 28/29 produce

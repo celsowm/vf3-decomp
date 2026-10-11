@@ -1,6 +1,22 @@
 # VF3tb decomp — progress log
 
 
+## Arena and radial correction qualified (2026-10-11)
+
+Two complete correction owners add **424 verified bytes**. The final
+integrated C build passes 252/252 development and 254/254 independent
+acceptance cases. Four development and two acceptance interruptions remain
+excluded. Twenty-four original caller windows qualify both saved prefixes.
+The three affected bindings, 39 native suites and 151 tools pass, with the
+374-source freeze and preceding full 60% inventory checkpoint sealed.
+
+Verified C is **261,420 / 434,656 (60.14%)**: **21,107 bytes remain to
+65%**. See [arena correction](re/ring_bound.md) and
+[radial correction](re/radial_bound.md). Their following 32-byte wrapper
+passes 128/128 development cases but remains uncredited until independent
+acceptance and its own final gates pass.
+
+
 ## Vector aggregation and full 60% checkpoint (2026-10-11)
 
 Readable vector aggregation adds **386 verified bytes**. Development

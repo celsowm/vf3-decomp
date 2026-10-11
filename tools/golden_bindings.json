@@ -2352,6 +2352,63 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c09f6fc"
   },
+  "arena_bounds_qualified:0x8c0cb532": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0cb028"
+      ],
+      "callee_save_prefix": [
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9",
+        "fr15",
+        "fr13"
+      ],
+      "entry": "0x8c0cb51e",
+      "kind": "vf3-ring-bound-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ring_bound_original_caller_v1\\manifest.json",
+          "sha256": "212306af0987504b6f586508c80eb09c7ec8170a6882b1802594eef32e5d8872"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_arena_bounds_dev_v1/f_8c0cb51e.cases",
+    "port": "src/fight/ring_bound.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete arena and radial correction owners; independent relocated original acceptance; exact BSR save/restore contracts; final 374-source freeze.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0cb51e"
+  },
+  "arena_bounds_qualified:0x8c0cb69e": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0cb66a",
+        "0x8c0cb66e"
+      ],
+      "callee_save_prefix": [
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9"
+      ],
+      "entry": "0x8c0cb67a",
+      "kind": "vf3-radial-bound-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\radial_bound_original_caller_v1\\manifest.json",
+          "sha256": "2470f6b0fad2ceb5fa6fbd3aa634d75b327fa88a93f716a6f7addc1f390bc011"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_arena_bounds_dev_v1/f_8c0cb67a.cases",
+    "port": "src/fight/radial_bound.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete arena and radial correction owners; independent relocated original acceptance; exact BSR save/restore contracts; final 374-source freeze.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0cb67a"
+  },
   "audio_fight:0x8c099060": {
     "golden": "extract/analysis/audio_fight_accept_v1_cases/f_8c099060.cases",
     "port": "src/fight/audio_fight.c",

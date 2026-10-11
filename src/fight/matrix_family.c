@@ -220,6 +220,8 @@ int vf3_packed_direction_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_clipped_vertices_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_project_point_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_polygon_hit_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_ring_bound_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_radial_bound_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_vector_sum_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_geometry_intersections_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
@@ -244,6 +246,8 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c058a5cu) return vf3_clipped_vertices_c(s,ram,audio_alias);
     if(entry==0x0c03d9b0u) return vf3_project_point_c(s,ram,audio_alias);
     if(entry==0x0c06e056u) return vf3_polygon_hit_c(s,ram,audio_alias);
+    if(entry==0x0c0cb51eu) return vf3_ring_bound_c(s,ram,audio_alias);
+    if(entry==0x0c0cb67au) return vf3_radial_bound_c(s,ram,audio_alias);
     if(entry==0x0c0a6ff8u) return vf3_vector_sum_c(s,ram,audio_alias);
     if(entry==0x0c0ca838u || entry==0x0c0ca894u)
         return vf3_geometry_intersections_c(entry,s,ram,audio_alias);
