@@ -37,7 +37,7 @@ were added; v2 repeats development and supplies all final proofs. Both
 files remain in the external evidence cache. The original emulator and its
 102 linked sources remain unchanged.
 
-The static BRA at `0x8c05849a` reaches this entry; its frozen parent
+The static BSR at `0x8c05849a` reaches this entry; its frozen parent
 `0x8c058348` has no current matrix binding. All matrix opcode ledgers were
 available, and only the new binding executes this entry. That binding,
 **39 native suites**, and **124 tool tests** pass. The previously qualified

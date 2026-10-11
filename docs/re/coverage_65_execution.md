@@ -384,3 +384,16 @@ Verified C is **260,176 / 434,656 (59.86%)**. The gaps are **618 bytes to
 60%** and **22,351 to 65%**. The audited percentage extension and immutable
 seal are `percentage_clipped_vertices_v1_milestone.json` and
 `clipped_vertices_v1_manifest.json`. The 65% objective remains active.
+
+## Homogeneous point projection: +126 bytes (2026-10-11)
+
+Exact owner `0x8c03d9b0` adds 126 marginal bytes with readable perspective
+divide and viewport conversion. Independent original campaigns pass 128/128
+each and execute the complete owner plus its real matrix helpers. The
+370-file native freeze precedes acceptance. The affected binding, 39 native
+suites and 124 tools pass. No production caller is claimed.
+
+Verified C is **260,302 / 434,656 (59.89%)**; gaps are **492 bytes to 60%**
+and **22,225 to 65%**. See [projection](project_point.md),
+`percentage_project_point_v1_milestone.json`, and
+`project_point_v1_manifest.json`. The 65% objective remains active.

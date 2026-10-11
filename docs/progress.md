@@ -1,5 +1,16 @@
 # VF3tb decomp — progress log
 
+## Homogeneous point projection qualified (2026-10-11)
+
+The exact 126-byte projection leaf now uses readable C and the existing
+matrix helpers. Both independent original campaigns pass 128/128 and cover
+the complete body. The affected binding, 39 native suites and 124 tools pass.
+The proof establishes standalone behavior; a production caller is unproven.
+
+Verified C is **260,302 / 434,656 (59.89%)**, with 1,376 bindings:
+**492 bytes to 60%**, **22,225 to 65%**. See
+[the sealed projection proof](re/project_point.md).
+
 ## Clipped vertex output qualified (2026-10-11)
 
 The 254-byte render caller now uses readable reciprocal-depth interpolation

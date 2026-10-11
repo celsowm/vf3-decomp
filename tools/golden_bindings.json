@@ -7236,6 +7236,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c08ccfc"
   },
+  "project_point_qualified:0x8c03d9b0": {
+    "golden": "extract/analysis/coverage_65_project_point_dev_v1/f_8c03d9b0.cases",
+    "port": "src/fight/project_point.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Readable homogeneous point projection and viewport conversion; exact callable owner, independent full original execution and strict architectural replay.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c03d9b0"
+  },
   "seventh:0x8c06f6f8": {
     "golden": "extract/analysis/seventh_ready_b_cases/f_8c06f6f8.cases",
     "port": "src/fight/seventh_adapters.c",
