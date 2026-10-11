@@ -31,12 +31,18 @@ def select(directories, output, minimum):
     ranges = {}
     for row in csv.DictReader((ROOT / 'extract/analysis/function_body_ranges.csv').open()):
         ranges.setdefault(int(row['entry'], 16), []).append((int(row['start'], 16), int(row['end'], 16)))
+    inventory = {int(row['entry'], 16) for row in csv.DictReader(
+        (ROOT / 'extract/analysis/funcs_1ST_READ.unsc.bin.csv').open())}
+    off_inventory = []
     chosen, one_scenario, short = [], [], []
     for entry, records in records_by_entry.items():
         pc = int(entry, 16)
         scenarios = {source_scenario.get(str(Path(src['source']).resolve()))
                      for record in records for src in record['sources']}
         if pc in incomplete or pc in nondeterministic or pc not in ranges:
+            continue
+        if pc not in inventory:
+            off_inventory.append(pc)
             continue
         gain = union(baseline + ranges[pc]) - old
         if len(records) >= minimum and len(scenarios) == 1 and gain:
@@ -57,6 +63,7 @@ def select(directories, output, minimum):
         print(f'0x{pc:08x} {size:5} B {cases:4} cases {scenarios} scenarios')
     print('one scenario:', sorted(one_scenario, reverse=True)[:20])
     print('under minimum:', sorted(short, reverse=True)[:20])
+    print('outside frozen inventory:', [hex(pc) for pc in sorted(off_inventory)])
 
 
 if __name__ == '__main__':

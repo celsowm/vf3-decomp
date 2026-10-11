@@ -1,0 +1,17 @@
+{
+  "coverage_credit": false,
+  "attempted_owner": "0x8c09f6fc",
+  "reason": "no frozen body: owner has address ranges but is absent from locked function inventory",
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\angle_wrap_coverage_baseline_v1.json",
+    "sha256": "c66247bfa5e9c8f6afab9f1804562678367f3574b76f7db04132202a048db499"
+  },
+  "development_report": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_angle_wrap_dev_v1_native_report.json",
+    "sha256": "d2b0a0f4032268840d5131da49b59ed05df888ec72337330073b49bc89254cfa"
+  },
+  "acceptance_report": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_angle_wrap_accept_v1_native_report.json",
+    "sha256": "b242bd864a257f4e12b7077ba72a8afd694666de8282e195466a864a79a4f3a4"
+  }
+}

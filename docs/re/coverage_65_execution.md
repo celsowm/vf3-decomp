@@ -339,3 +339,22 @@ of those branches still needs the established live audio proof, so neither
 was promoted through RAM replay. The geometry family closes a pure math
 contract through its original literal JSR and requires no device substitution.
 
+
+## Structured wrapping: no inventory credit (2026-10-11)
+
+The complete hidden helper `0x8c09f6fc` now has structured C in the strict
+matrix route. Both independent original corpora pass 128/128 and cover all
+254 address-range bytes. Its final native executable and 367 compilation
+sources were frozen before acceptance. All 28 affected bindings, 39 native
+suites and 124 tool checks pass.
+
+The promotion gate correctly rejected it because the locked function
+inventory omits that entry. The rejection is sealed and no percentage
+milestone or ledger credit was added. Candidate selection now requires
+membership in both inventory and body-range tables, with two guard tests.
+Future static FPU ranking must use this intersection too; address ranges
+alone can otherwise make a hidden helper look like new frozen credit.
+
+Coverage remains **259,688 / 434,656 (59.75%)**; gaps are **1,106 bytes
+to 60%** and **22,839 bytes to 65%**. See [wrapping evidence](angle_wrap.md)
+and `angle_wrap_v1_manifest.json` for the sealed implementation checkpoint.

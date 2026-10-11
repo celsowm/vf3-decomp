@@ -2345,6 +2345,13 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07ef90"
   },
+  "angle_wrap_qualified:0x8c09f6fc": {
+    "golden": "extract/analysis/coverage_65_angle_wrap_dev_v1/f_8c09f6fc.cases",
+    "port": "src/fight/angle_wrap.c",
+    "source": "Structured C: 128 development and 128 independent acceptance cases; complete 254-byte hidden helper, outside locked function inventory, no percentage credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c09f6fc"
+  },
   "audio_fight:0x8c099060": {
     "golden": "extract/analysis/audio_fight_accept_v1_cases/f_8c099060.cases",
     "port": "src/fight/audio_fight.c",

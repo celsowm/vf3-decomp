@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Structured wrapping and inventory eligibility (2026-10-11)
+
+The strict matrix route for hidden helper `0x8c09f6fc` now uses structured
+C loops. Development and independent relocated acceptance both pass
+128/128 cases and execute the complete 254-byte body. All 28 affected
+bindings, 39 native suites and 124 tool checks pass. The selector now
+excludes helpers absent from the locked function inventory.
+
+This helper earns **zero percentage credit**: coverage remains
+**259,688 / 434,656 (59.75%)**, with 1,373 bindings. The gaps remain
+**1,106 bytes to 60%** and **22,839 to 65%**.
+See [wrapping evidence and the retained promotion rejection](re/angle_wrap.md).
+
 ## Two-axis geometry qualified (2026-10-11)
 
 Readable geometry caller and two intersection helpers add **404 verified
