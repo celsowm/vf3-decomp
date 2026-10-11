@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Eighteen-entry scene insertion qualified (2026-10-11)
+
+The complete scene-table insertion adds **374 verified bytes**. Development
+and independent holdout each pass 127/127 valid cases, cover every owner
+instruction and skip none; two retained interruptions remain excluded.
+Eight real literal-JSR windows prove the saved prefix and return. The
+378-source freeze precedes holdout. The affected binding, 39 native suites
+and 172 tool tests pass; the final audit and percentage chain are sealed.
+
+Verified C is **262,802 / 434,656 (60.46%)**; **19,725 bytes remain to
+65%**. See [scene insertion](re/scene_insert.md).
+
+
 ## Scene contact frame qualified (2026-10-11)
 
 The complete eighteen-slot scene contact frame adds **458 verified bytes**.

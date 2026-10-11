@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-scene-insert-literal-jsr-v1':
+        from callable_scene_insert import validate_scene_insert
+        return validate_scene_insert(owner, attribution, spans, corpus, image)
     if kind == 'vf3-contact-frame-bsr-v1':
         from callable_contact_frame import validate_contact_frame
         return validate_contact_frame(owner, attribution, spans, corpus, image)

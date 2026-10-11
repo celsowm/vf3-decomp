@@ -1,0 +1,2632 @@
+{
+  "passed": true,
+  "new_bytes": 374,
+  "readable_bytes": 262802,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 19725,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_dev_v1_complete_sources\\manifest.json",
+    "sha256": "c2554bd1b797573e09e9d294436cc5607cc8b53552bfa9f22c3dcb1154b589be"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\vf3matrixfamily_scene_insert_dev_v1.exe",
+    "sha256": "f09ba6fb2a09ffc5e9e4e296193276379f669e60b8dd9ba642c2a84ce53afe60"
+  },
+  "observer_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 127,
+      "excluded": 1,
+      "complete_body_bytes": 374,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\batch_manifest.json",
+          "sha256": "cac49c0a1df64aba564d1cba1ef5fc31651867bb9728cde489da55eeefe6d3a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\capsule_manifest.json",
+          "sha256": "aab9f5417868fc27a3067ca7f2039ffebb9b3ae403098109db3ec7d912baaeda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.bank.bin",
+          "sha256": "715462d9f5afb7e716eb4b6faff718cbbf8c0a8face0e4e6106ce8d31424462f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.cases",
+          "sha256": "5fa9f7515dab0a5fb0b758d792f1267214826f225e47b651de68eba257e2893a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.dev.bin",
+          "sha256": "64d6c19683061d281bcee4c3cb3fa451f3724613dcc114467cebfd53ee182e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.extra.bin",
+          "sha256": "696edf5125c2fb55c6a6b7c256e7b819a8fe47ed41962a28f6344a0da2346c29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.gbr.bin",
+          "sha256": "b7dc9651495c70e6b3eb02c5e9540cdd3ff6e0c39a4b728b07e67412bba77dad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.ops.json",
+          "sha256": "9ef2bc844a86db6e4bfa4084aa09576ad19ef7a9358771ca1b976733795dc1a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.xfin.bin",
+          "sha256": "81b346ee3b04bdea93a0215a8d92277c497ad8749a03c536a72e2264ea8e6521"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe.xfout.bin",
+          "sha256": "81b346ee3b04bdea93a0215a8d92277c497ad8749a03c536a72e2264ea8e6521"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_0.in.bin",
+          "sha256": "5250773e4c40065008adf05317ad2d0be2f10a4cdbe51b98f2a44fd9c5d8d723"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_0.out.bin",
+          "sha256": "23f310f6e1dc4ed61e14d4db940dfa0fae23b205c07398205946c66f595c3e72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_1.in.bin",
+          "sha256": "1c52b014c839e8339813c7fc4ea07df443c95bc7380af741ec587849b6eaf568"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_1.out.bin",
+          "sha256": "e4bfc23040f2480c5e1aeee241a2d6c029a93c87664b57e2970759164c5f0656"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_10.in.bin",
+          "sha256": "1536070c9da3da6c8c39accdede60da051cd640928f2f2fe04d5fc29f16c0ac0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_10.out.bin",
+          "sha256": "c8e81be5f74ab7ceda4b5992c820a7b7ee4464f7d44fcbb7b7e3fe491235b3be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_100.in.bin",
+          "sha256": "61936769840b33878709165c0dbb5fce70fdb72ce619934affbc4bff356c8f0b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_100.out.bin",
+          "sha256": "bbae79b96176b3972c58b32e8a68a5a831fef6428524f44f8065cad9282d7c94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_101.in.bin",
+          "sha256": "aed91aa80df590e8f243140bedd345469c0171bb9daebe5a722b5ed9ab5cc2a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_101.out.bin",
+          "sha256": "93d37ee2fbc3e7cd0f77c4851676d7734a5afe9c47c29f1951f38d6025a2543d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_102.in.bin",
+          "sha256": "74dc162caf344bb71f9ed76170e5adfb703b1c6244502827d76ccda54728f8f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_102.out.bin",
+          "sha256": "47c63d47f7272eb29e64575e797f618b456c2aae1676e51de7a6202283abf8cc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_103.in.bin",
+          "sha256": "bda10dc308ed7a7b4d26882285b55424e66680482d6e69a58d12f7568f83fc2e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_103.out.bin",
+          "sha256": "cfbcb0a38ee28fca1d7be8b2d5c90e9041402d56ad74542d7da713e54543e2c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_104.in.bin",
+          "sha256": "31889bdaa373a3d59f293e810f5ae28b346ade5c722a99326846c06f17c38754"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_104.out.bin",
+          "sha256": "6fd117bc57feab302877f1199237800e46c86c6da9b0e82aafd83a2556293bdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_105.in.bin",
+          "sha256": "29beb96074b280345c9b339a0370e1f8b07b08438fc8d4072bd52e28a50d38e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_105.out.bin",
+          "sha256": "5d916cec9c6a9cfbb3fbf554188849e1f846a85ace4728224d6871ddda4ba14a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_106.in.bin",
+          "sha256": "b9735434cfec726b9738dcce6778e96e1749d4ce815fb04dd42b1d37cb51ae71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_106.out.bin",
+          "sha256": "b8f03efe5e44a8bc3ef0860965974bf29ce22e62eeb588b5c7d80bb4ff9b3a06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_107.in.bin",
+          "sha256": "82eb11dd9dcc81540dfa1dce5da0df0f702fe60c7263ae5d7d5930ffb5860b6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_107.out.bin",
+          "sha256": "6ad21adf8785082608e031ebc80cd1b62a9b21182fda43e0b5248e7ac8d28f15"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_108.in.bin",
+          "sha256": "3b31497d28f35ae6496222df45d91c243d3c8cc00449e5983932ebc0202bf3f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_108.out.bin",
+          "sha256": "50fa03d2c0bacc0c84749c0f964700232a7ed1189b4b21b2fcff838107f5e602"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_109.in.bin",
+          "sha256": "e403bba8ee26bbf0bd6220b5b1707522a2168c25018bae6c72eecac5b2bd453c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_109.out.bin",
+          "sha256": "44cd21baf110f49c9298a02990848bd953c117e459b7555b7975f41cc05ea2b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_11.in.bin",
+          "sha256": "c1d7aaf0e86293e00d08a69f5d93b90a430e9c0c1e84baee22ec217fae126b65"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_11.out.bin",
+          "sha256": "7ef920ea2c70ba8b2054c9e23aad46aa82fb8f0a7e1fbc3c8496ab29a9ef38c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_110.in.bin",
+          "sha256": "8d0e3dde11be2f465bd5950a1a3d80fa62accdda50a5689fb9a70ea5e4c7d653"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_110.out.bin",
+          "sha256": "7a3e2d121e1e1e0ab66e8840410942364a5cc5c9d028dafc78f154a1f06ace3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_111.in.bin",
+          "sha256": "36a1505efa91af4e942cd50adc614a039ec7505633d7c20eed8f57206fc2bf85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_111.out.bin",
+          "sha256": "830463d4e92d5beaa49b4ff7f9955c37ad0c7b74d9774dd5c85492f0e55fe4b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_112.in.bin",
+          "sha256": "f560090a1049050329f835573679e366f915cc4a8201ddea689e5791e8eab71a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_112.out.bin",
+          "sha256": "13b01c938cac38765c4f6e168becd78fe5879e05ca9c04c1146cdeb18558eb5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_113.in.bin",
+          "sha256": "f604f7ee77866418032392c0d80ed8d924f726bcd4e054ec457611ae366013a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_113.out.bin",
+          "sha256": "b450d1c1db9b7a696839e340428b4fdd33aab42c3af1a5f5ad8525c24c17bb69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_114.in.bin",
+          "sha256": "ba029b7a19f921dc90d9039dd7fc853d827378acb1dd6b64d6d9a121b12a511b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_114.out.bin",
+          "sha256": "1d5a337464e679c055c4dc5db1962cb017f4db7d94a5a0e8af6203b4f8d0bd66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_115.in.bin",
+          "sha256": "dd0a4d81dfe0171a50755573714ad59e1b21938b9890319b94237e8c966e480a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_115.out.bin",
+          "sha256": "2c8cd653a5c33b30dbc753f24a63972947e37ab6df05641d6342281da2920ec8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_116.in.bin",
+          "sha256": "2ca5f1e1435f1cc2c1ad451e1415e85029d8afdd96b406155285c51dd832dacf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_116.out.bin",
+          "sha256": "652a4d1201a0a0e1e7cb19f9113136889a632b50fb7ba1dcb3db7d6521813160"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_117.in.bin",
+          "sha256": "a321c1ffbb2008aad9ecd9828d6d4515e65b90f283c2bccc1b3c2f99e1dd372a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_117.out.bin",
+          "sha256": "30463f104e49c373e0229e7699e27460d845c5abdc33ca1769f8ac6a8dd754f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_118.in.bin",
+          "sha256": "3ccb7905f140d6bede10f774c69d940864e041b45edc47297c6227da1e43575e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_118.out.bin",
+          "sha256": "d0048e0867d6572351a71a7fc1083498155a7bca68e22f53c2807d1b516cb273"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_119.in.bin",
+          "sha256": "47748700f31ad68ce35d3b69074b1c00369249a5e02edbd6468e015956ac8acc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_119.out.bin",
+          "sha256": "662a3b696ad0887507f160c058a21ae13dc03be90e518d2d806ccadcd0045d8d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_12.in.bin",
+          "sha256": "51c022c7c7e19d9bd3e8281f3fcdf9346830e60de4f1e178e5fb176304febbfa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_12.out.bin",
+          "sha256": "8d35f014ce61142b7016382c7b82df999673b434410745125a9d43fb2d035849"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_120.in.bin",
+          "sha256": "f5cae8c94407876238c09264f6538aa3e107f2e44cd094818ee80d397b23196e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_120.out.bin",
+          "sha256": "c55827ecb5aed36849a961942d3ed5c48241539faad2083228e2b4d78504bd72"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_121.in.bin",
+          "sha256": "8c0352d74dfe0718aedee7afdcd4445d6a1c8d2b8f68c17cd84ef91ef693ba90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_121.out.bin",
+          "sha256": "87ee959d7a5705de4db9bbfb83b809bd8a2c93c8991ac96ce04e6a473ffbc823"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_122.in.bin",
+          "sha256": "3ee51c501956b80d1ab8db1b95b0c9090511added97db0b691f10acad5a81458"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_122.out.bin",
+          "sha256": "a2c39f67b873590f01b5266653bf0415a1d9843e99c1acd5144dbac73b9403e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_123.in.bin",
+          "sha256": "5e4f01427fd6108626d72806709bc9802eeedea924fc09c83bdc8c27a512fdf7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_123.out.bin",
+          "sha256": "bd9d278a9298a1a1ce45b01e752374d91adcc086881c3b59d669e19f717a0e29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_124.in.bin",
+          "sha256": "02888784c175feca3d2f8fefe3079d121713c56b7f4df5d89118b6a29a56e56e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_124.out.bin",
+          "sha256": "22d582c2475439fd2409fe7e54051f209983aa25782c60c10e9feec1bd49d29e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_125.in.bin",
+          "sha256": "d48e8f2bcfc5c1c82ab49d329b7b50c410b818f4862237cf58c36973cf93c969"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_125.out.bin",
+          "sha256": "43f311a8b2c92a3b26478652b507fb840ed834e19131d3decdbbc03a9cfc5257"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_126.in.bin",
+          "sha256": "362b0f942d354db2a51c716e6c6090e98872c063f64f2c4fdfa87c020ece69b5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_126.out.bin",
+          "sha256": "bd88b39cf7a707d9d6e78b10261265f207be937647acede01fbe27f5cd823fac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_13.in.bin",
+          "sha256": "5793f490d71bab7e7dd7256037e4fb00f7b58f42b431b14d531c68ceb779fff3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_13.out.bin",
+          "sha256": "516377504a37a05bd7c6b543a296ff6a264783259867f80fc96a4745e4cf1c87"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_14.in.bin",
+          "sha256": "7a95ff3c58cb7dfa61ead1f7dd062d656980b617a94a91ae51723d426dfa9e58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_14.out.bin",
+          "sha256": "88923ec0feaf825ee7c24c545714daebd2cc9e3c76dafc78acd4a0dfcfc5c809"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_15.in.bin",
+          "sha256": "8bf5f0b030eb8b5a1edc2cd3de56d32ce12b468721e765c40e5b3ba33819750c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_15.out.bin",
+          "sha256": "cde5ffc46f037ae1804914dd44ceec6538bc381e1b6272c7fd39e4d34b0c36a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_16.in.bin",
+          "sha256": "c87a0b884a9895580968eba5d3f4dc113d6fd131fe6d40b44cfefea718d13ff2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_16.out.bin",
+          "sha256": "4d5e20195ca035a6a9ca5d103b0c7babc2b0f8ca6c055696634cb510a947d3b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_17.in.bin",
+          "sha256": "faed8ceb663c52d078d72875b5fabe8609f8a68191978dce31371b1ba96f4af3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_17.out.bin",
+          "sha256": "adc281c3bca15f01086951370c946d5e95989fe52eaf7a368ee6f4eebe05593e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_18.in.bin",
+          "sha256": "211ac72a9a47547d23e78a6a98c97c0f84a24f20247786e68b62c5d3eacebf73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_18.out.bin",
+          "sha256": "9ca371102642f4e8ebb23a061fc2fe6efb97a115fcbe9f72cb5bbb39ff6a875a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_19.in.bin",
+          "sha256": "b6362d8d7a67fb62d4d9621a6ae3ca42f53675fc4590796053609295b13af2aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_19.out.bin",
+          "sha256": "fea4ac3318eb555c48bc2585a499a17dfef3e3c0ad82930c86b80a07faec1d37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_2.in.bin",
+          "sha256": "5e18803984b8f8b157791806be1ec87df0739f6a9e76809a66694743417cfb92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_2.out.bin",
+          "sha256": "dd0fa569e31d0fa929477eddc9bdf0c24d4269e0d840069af69d58c5f9d82c36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_20.in.bin",
+          "sha256": "fcde3abb078a99a7179b2a6a7bd247fdb5168182ef0b2356adfec4db1c6aacc3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_20.out.bin",
+          "sha256": "87528c3f930be59e71b9291f3932dd585c06009fd4eff751ad07a26064ee2b8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_21.in.bin",
+          "sha256": "77840718f3c8747aa32d8756a52729256a9a6290b6e5d63fa7b1ab89a3852ab1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_21.out.bin",
+          "sha256": "36a2f815a6a628ea7db1d67f93e2a5f62a3501b17b1183ea8d92feced1f302fa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_22.in.bin",
+          "sha256": "6de843602898e035b6bd6c440d572120fb5bb3b627470c1a0d79feb40bc51217"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_22.out.bin",
+          "sha256": "268c3ce3dd6072d96b4bcbb16fa22b004159e26ab10fe2882bdc12cd311484fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_23.in.bin",
+          "sha256": "628b28dbe94bf867e2bd31ec4c40a17dd37150f8c7bbbe1c6d50ece91e601aa3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_23.out.bin",
+          "sha256": "15397a8669f2c4eab41360b59f1745f4e02ad1318148490d394c9a467ab2f2d2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_24.in.bin",
+          "sha256": "6db21a76c31c47104a40f2aad47933719f889313056104d35f6d268f8da0b50f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_24.out.bin",
+          "sha256": "702bad4841cfa0ed2d89dc5a98182ec3e542cb5963cc0b477a85b8dd1afc3b9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_25.in.bin",
+          "sha256": "4b959677c6100abda24a3528a28473a2515a5200e33feb7612996be0c2169337"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_25.out.bin",
+          "sha256": "612019b4ba3eaeafce4cac1d4aa025c010d9ee93f1153011fd793d984212d1bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_26.in.bin",
+          "sha256": "67fd3442b41da570cec47419d9e22e2cff682cf2e16232fbede4d0db3f84a75b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_26.out.bin",
+          "sha256": "3f5a23fdb31e3ed42510501f2d4aa14d4b0b23d3de8e4e8017872209e6a4fb91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_27.in.bin",
+          "sha256": "c887876f3664cfcc5e6846ad6b57aba9052ec9777ae31f55c088d378e0fc5e82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_27.out.bin",
+          "sha256": "b8a05ddd5dfe74c42aa38996acddccbb66bb0131e4b8512e8d6157bdd3a7e99c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_28.in.bin",
+          "sha256": "c0df3330ff3863056cef68e7e538134b0b963bd0eb4c8e0d11ddbd81af48ae74"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_28.out.bin",
+          "sha256": "9e5375770d1908ad8520f31e19b1c68bac08e2e309dd393bd38c73ffbf6cee53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_29.in.bin",
+          "sha256": "cb484208b7e27629f4b7e1d7f7347e9f4bc8759a8e16a33c4f47d60439ba0c54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_29.out.bin",
+          "sha256": "b1e00d7511deb808c113f5e8b17b0e39499d34d7838f4e0c6f0fd035f2a6b666"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_3.in.bin",
+          "sha256": "79d716d981c9c1cabc2f65967421ac6ba1e5aa807f1493dfc22c92d612439066"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_3.out.bin",
+          "sha256": "271b4b44099efb58c79c9071e6e520cb248003abe6b360e2ec909329ec97573b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_30.in.bin",
+          "sha256": "35c0a37123c817471ed08ec528bc943b1d24a25a68d83e66739526b97f2fa7f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_30.out.bin",
+          "sha256": "22c7abaa5aa951aeea91e2f6db8ac5a9ff88bf012608a9fc940d66ce4cc7ebc0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_31.in.bin",
+          "sha256": "ce3c6edd0bc85a089ea10e5206aa3aad94a86ea0829d7575fd1b4e0416ad7480"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_31.out.bin",
+          "sha256": "d31c28d4e8828da302e58361ad643b18275313622850dfa5c953e2014b6d9884"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_32.in.bin",
+          "sha256": "2119e5e367f65bd6b8848e0c4ef7a2599a21156c9fdc8cb58d0a870074fb2f90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_32.out.bin",
+          "sha256": "4b9374ae77ff713b711398ed1f7dd69f73fb7558fa240cc0a964c612eba3aca3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_33.in.bin",
+          "sha256": "74fe8d455258b3ffa693237c3fcdbdf4d4b1e57434ba61d30774d2920aeb08a3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_33.out.bin",
+          "sha256": "790714119cbfc331db9961d8d66e529bcd8e86b53d7c95b342b5348bf7fef3b3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_34.in.bin",
+          "sha256": "9fd626e1b91589137e527bd2e09bfca1b57cd87d066456ec80cbf233ba57967b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_34.out.bin",
+          "sha256": "e7ee5bc2deb27d1695bcc56acc7d69a1ce514123aa0b6533b45821fc9f295aca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_35.in.bin",
+          "sha256": "010d0b4dc2276aa8c1ebd2cd05add70be3b44369ffdd4d2f6c3135b8caa45dc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_35.out.bin",
+          "sha256": "158863162e1416ff5cec5134ae994aed8056755e05f4a80046ac0afead60a1a1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_36.in.bin",
+          "sha256": "da9b3c7c11749251b65642fca61631c5d49b9bb78ec23f0979ea3b9d7c59ce13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_36.out.bin",
+          "sha256": "33a0880c4ecf1ed2c92afcb3d6669bf09449bfa574667e12e4b2ec5a0917ef83"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_37.in.bin",
+          "sha256": "60ef3cf79b43e4097f06f6bad6bd29f1e10b3631795736c8005d4e44678a7f9d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_37.out.bin",
+          "sha256": "86c431a73ab36478d187463b437b0faa068265159207684f88845f2d98324506"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_38.in.bin",
+          "sha256": "0948e6383a3929abca08db215f0fad1aa5e4a31010323b1672d4d708b07d2b66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_38.out.bin",
+          "sha256": "771b96b9cabacc6bb72f38b382b75712249ed99bfb173c1e7f96edeed3f87cd8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_39.in.bin",
+          "sha256": "92f4a072e044ca14e2d2af9c82f5c6345c07969d3af45fd03a03a6028fdf51c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_39.out.bin",
+          "sha256": "01ed5b3108024ba764a4368686972f63398dc45b888e371bedcf5eca176afdb1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_4.in.bin",
+          "sha256": "39bdee40a7ad182ee51371761f172ef5aeebc0a34e356a58a95680311655c68b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_4.out.bin",
+          "sha256": "03dd4b0b83b4d1ff5f966064fee9a72503b493df4312e206578200e5a6ba0368"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_40.in.bin",
+          "sha256": "e163a972c402a680ca0fc89dfcf736100235cad31024638dd0b96854e68b2178"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_40.out.bin",
+          "sha256": "532a648b51872f81de9104fa6bed694d98b76e6cb5f91f2bc3e290d90f53d640"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_41.in.bin",
+          "sha256": "308f0c76fc41622b21f40f92b7d80bf97224adfbfa6306cfaffc88ef5fbd906b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_41.out.bin",
+          "sha256": "ad30132e6ac3ae5bc19a21385b19849bcc08cfe40a3700b55b320edf2369920b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_42.in.bin",
+          "sha256": "01b8a5dcabdc1cc137a442355dc588992dd4e0234075c82be70f1aebba531db0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_42.out.bin",
+          "sha256": "e076b678e733bca6a77943b6d73fa9af137821aa3d22b92cfde92783d4f26df3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_43.in.bin",
+          "sha256": "eecf1515803034a4c06e891712d0f241cccc06a986c4f395f5d408c0ab25d1f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_43.out.bin",
+          "sha256": "edbbff70d6b5191144e5ca6b548590e8e47eb93581a43d96cf2f0e70bd60abe4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_44.in.bin",
+          "sha256": "4beaff9fd30ffbc7cd06c599f965de2f87a3def414c0f33994bd527fbe9987ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_44.out.bin",
+          "sha256": "57e94d833e886fe9048dfdc9cb91431d1b4db595b46060ce97fb4c8966db755f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_45.in.bin",
+          "sha256": "07faa27ad55f1a928491b80bb3db702ab02b355ce9c706af233fd29f69660625"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_45.out.bin",
+          "sha256": "e4bce2a25fc819adbd4c399344b4bafafc73581500d6570ae9c6750e1811b3d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_46.in.bin",
+          "sha256": "8fc4ea14614e7e9050bdde2f919e314d6bdc39506381e0c0376826185fd4297a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_46.out.bin",
+          "sha256": "3f4961053b5dd2c16359859efda1f26d63c59194b0779f3afe9659287f8965bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_47.in.bin",
+          "sha256": "da56a240efc56ca6b5b4372c540e58bd438823c01610caf702552ff7874d72f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_47.out.bin",
+          "sha256": "f8648b687c72e863c457f17939c45dc63628419c54c4d2cf5f7d7bf60e6501ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_48.in.bin",
+          "sha256": "461798f3dc9a3838377bc0b8849e67e909f8ec02e9764e8b65638191b350b674"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_48.out.bin",
+          "sha256": "4eb3f3ed8e8e9b405682e8ec9a3b39a0425d189b8e3217052736e297e56c7814"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_49.in.bin",
+          "sha256": "32a0c206e846cd945e9f8b1e3ae7a6e5f6e298560f9e965cb1f3aa5ed80a5373"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_49.out.bin",
+          "sha256": "b4c942515c536c118f333715cafc683d1cb0f3d4ed4726f27d9b5359e3e36dd1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_5.in.bin",
+          "sha256": "0a8326becfe96dd267b6b2e5bce25a0d7db299e77e999f9aa362cc07c8d4bc25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_5.out.bin",
+          "sha256": "73dc66556aa503d6f6fe2f73bb702121be42017998f506a91c501e81c6d8ad9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_50.in.bin",
+          "sha256": "d6c3997b85437c46d72e489d0c7d25ac7ef507c6310549669b43eb6a8ebacade"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_50.out.bin",
+          "sha256": "6abf5233bf31aa80025c14543236ef7a3714cb5d7d1b42fe7dd257b7b4836955"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_51.in.bin",
+          "sha256": "a135fae63699b02b55941502955b0d2059406a2a7b8c2e86564ad9b0d0eb45eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_51.out.bin",
+          "sha256": "8afa0cb00d55361da19b65f17f94c43f6b1e6babf123f7eeebbb0947dae1bb86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_52.in.bin",
+          "sha256": "2720cbb49b604700d77fe884f28c64f0cae5519c8cdbaad3608bccbcdd4b71f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_52.out.bin",
+          "sha256": "8b89a5c74b26d39846c1b3c1e39aa256d5118f46f463e0b7185ada124f89d1d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_53.in.bin",
+          "sha256": "f0a6dea0d3434a8c4821b2a2d473d870e60abed27b8301fe2300eaa5e413912e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_53.out.bin",
+          "sha256": "b9a87052c10c80f67803b78715890861ae23151326570ff7d63ea5ce78f11a94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_54.in.bin",
+          "sha256": "a2bf48ef3f116f7fbf4acdb9d32442166fe37026de84446a19ef07dd4e743b16"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_54.out.bin",
+          "sha256": "f075665d727602d239a76503122114964bead2ae6a7090367564a721d365c5e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_55.in.bin",
+          "sha256": "453e15e43b6ed7991d390567fd0e90149ab28786a4888472f6eeac266d162a2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_55.out.bin",
+          "sha256": "cfa730f66b127ee0f1de4c2b2d087bb4f9560e9ecc4d44d857cc88d2df1d6b9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_56.in.bin",
+          "sha256": "439dd63e9a05eea2b5e70fd23af61bc70229af30ea32eda3b42f506cc60f734d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_56.out.bin",
+          "sha256": "f8b97a5c314df2237d3a90bc24ad2571090b223b14ed2910d82f240847a8d338"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_57.in.bin",
+          "sha256": "1d040281236f264d124c038efb346ecc288c296e114698dffb4f0650002e0278"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_57.out.bin",
+          "sha256": "08ec11795c5325b74fa2e4536c1e7db63752363d917b0d4ef0cb2f397d331800"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_58.in.bin",
+          "sha256": "bb7fb740b2dbb69321bbc423f8f2073127ed7ba4867c48c2f2db1f51b6041029"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_58.out.bin",
+          "sha256": "bdf740642d79c2ac819f09ed9fb77253f6d488f49fe58f6e2f66601180ed7b96"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_59.in.bin",
+          "sha256": "fd8ccaaf6a4bfb8214c1fefa2ee98a50259999d67d5fbb296e2c2d68a0fb0b71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_59.out.bin",
+          "sha256": "3298f1bd3bc33a84a2d3ccb142c20f069582d09766aedfbe9f2880b8849b51eb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_6.in.bin",
+          "sha256": "a63c9268fa3d6765594417ed822cba7c0b907b145016dbe506073744ac1df2ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_6.out.bin",
+          "sha256": "6212004b189b566ec5dc8f0b5198ca7dea2c98800fd8f45289f9b90da4302ab2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_60.in.bin",
+          "sha256": "5e3b6b1589f94fc75016bcfff91626ee64f6eb405158ccdac6faa0f3b0783ba7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_60.out.bin",
+          "sha256": "c4d2ea99c339cf9b471e685fff0b4324d4bc839da984366855ced681a96ded8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_61.in.bin",
+          "sha256": "0d8e35c6dbd394bf3cb4052f37c8d8c305c32062e273579d1686ba108ac1f9e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_61.out.bin",
+          "sha256": "2fe88c9e6767ba2c653e4fb3e9f59e81ec3b3066a42dc5f5a7ee0c94b2372cc8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_62.in.bin",
+          "sha256": "9db8f52c676a38b45055a18585d7fc5eabd80fb2a5aabadbf80b4476a1abf968"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_62.out.bin",
+          "sha256": "d0ff7b4349d20321e2b2712950882690b26c6388a434c2d099fb244975531ca8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_63.in.bin",
+          "sha256": "7e61feabc4c95056c59e0ba618183abc1e40b3b80714f8948a3991945d7df69a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_63.out.bin",
+          "sha256": "0401014b44e6d2014d737905435ba8ab9a1f3ab6dba26e75c23d99dd26e17200"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_64.in.bin",
+          "sha256": "bd0cfaeba4b8686657c6fc55ff68da9053a02a496cd26e03dda159d253e68356"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_64.out.bin",
+          "sha256": "8c4448ba76880c258d5479734db67842bb0cee8772152c80c4c2c0159492664f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_65.in.bin",
+          "sha256": "7bedcd20b45a1d21fe6576a2975ffffc9a182d7f91c595f4979c4f2c61a92d9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_65.out.bin",
+          "sha256": "d1539a23e2609731ee26b9906e977180a4cf58586bdbb68b64c572f353fd4b77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_66.in.bin",
+          "sha256": "38eb5829d9014147ab8346fd88227ae7478e8a1689b01f7ac281a3fb06008a0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_66.out.bin",
+          "sha256": "9e98e11522d44995932f9e3ace905468f9ba11fbd10bf4855704e4f0301c8cd5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_67.in.bin",
+          "sha256": "e0d41c6d28e820e5c64b406b72a6b36d91f321aa83dda2e59791bf604206bc28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_67.out.bin",
+          "sha256": "abb72d47fdfaadcb3c6a134da9d61d47a2636174457a7983003c547e71330c9c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_68.in.bin",
+          "sha256": "d5c4aed1b487f48f8298d34b9728da898ed122f49d097ea627d3f2602e2c8ad3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_68.out.bin",
+          "sha256": "1ef982ce257f72e28c07293cf4da6109f05be21a1675cf621e6697b93f2d4d71"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_69.in.bin",
+          "sha256": "b7c6d433adf789159d1468e8755b881c162291100fe23190a764cb488fda308c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_69.out.bin",
+          "sha256": "a9bfe80d2230a5b43ca837d2651d4b18cdc123ed414431b7c5e37fc40f6a438e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_7.in.bin",
+          "sha256": "ccc8f59ba506f5053bc32fc77ea06ca9078c709cc3c59c3aaed5a41cca0c4995"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_7.out.bin",
+          "sha256": "32526c784e76456ffb5a6aa9eadfb310b24a007516b03f01902ff726604f77b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_70.in.bin",
+          "sha256": "85491f37f1b8a2acf39a411b976c0ae2fc04fcc9ba75a7e953f0e5abad7961dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_70.out.bin",
+          "sha256": "0fcf9225418d1e99a95772010a8c34832106fd225d2169a6e386de78ca7f213b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_71.in.bin",
+          "sha256": "00f6e1535a778cb5fab4652f3a2cfcca70f7bf5b941931da13e8024b7fe58d3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_71.out.bin",
+          "sha256": "fd78d6a2e67b84f68d75e76a5dfcc7bdf3833105d2b89b9f41c2081bd2362cb6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_72.in.bin",
+          "sha256": "bc7d7f6b44043a7e59175d755ba7abe4614787bfb41b0526eb9cd89b0b178084"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_72.out.bin",
+          "sha256": "277f2a07878f0c3cce52f92e1feccd6c7a936436e07b926a7f7686baf13d4bf0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_73.in.bin",
+          "sha256": "afbd5663a499bcd59313c1bdaa1131801c259267937f310feab262409a5db13a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_73.out.bin",
+          "sha256": "0c561f0fb822a446d75bbde4a1416eafca6fcae03ed22f22affcb7af2cf20fbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_74.in.bin",
+          "sha256": "1eef6fc108c8589dacc7d192e99e9242820c9d9fd199e4dc6141598f03f88c5a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_74.out.bin",
+          "sha256": "4b309e1b9c69a7fac002f5565daf136fb95ef47211c9934d0db7c3dc524f2f96"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_75.in.bin",
+          "sha256": "125cd31f824a8d47f5c6ed2696948773b0c3c4eafbea8531d57a7b1de2d4adeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_75.out.bin",
+          "sha256": "8f754a117858c8a0a0105e8378af9862797e918a7d0c227f8a8ef5d36473c436"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_76.in.bin",
+          "sha256": "8bdeeecf9fb41e7f03a8f342f9c1ad319a8cacdd4a4453f3fa1fe20302fe2576"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_76.out.bin",
+          "sha256": "0d319209b0c56ce604cb3ff8667a76491d4f049e0cf72c33de34f084f0eadf4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_77.in.bin",
+          "sha256": "65d30086e40955be1d0b24b706cf2ac8e971bd3bcbc317219a7482cf17221451"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_77.out.bin",
+          "sha256": "adff2eaf4e3b95d8756519be98b0c03f8458f061be5502d394a633d721d43d02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_78.in.bin",
+          "sha256": "aacbba4cf326563fef3f8d0df4e398600526ac9d94833e43828aa21a2a4295c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_78.out.bin",
+          "sha256": "b981238db29aa57b936b182d444d3a760d4b56ea50b47d83ed79555961224990"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_79.in.bin",
+          "sha256": "d4a81fd35b576bb628277565312a2e0aa508f94dcaed33c3327ae3f2a44c8ca5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_79.out.bin",
+          "sha256": "2bea44b4ffe9a76e1366757141af8e320ba423ac124246045dfb3e2ba7e206dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_8.in.bin",
+          "sha256": "8cf8f2c94b6e82d9f1e323b262500c05a716a57443cc59fca0182496e9e7f9a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_8.out.bin",
+          "sha256": "31a65032a707282123993b137008ba94b4230fab5539ae7ee2aee4f1564e385c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_80.in.bin",
+          "sha256": "2d1449bb9d4b41cd22aef7124da0d023476aa1393ce384bdf9d8fbd31cdc06a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_80.out.bin",
+          "sha256": "8ba001451db47666c25d0b49bab1dd11b23f930af207a3817a6f2d4f6d98d2b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_81.in.bin",
+          "sha256": "53f62b970ac215ff89201dffa255cbaf685db76b5c07eb90dd2ca620dba23559"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_81.out.bin",
+          "sha256": "8a1178e4e160ec2b605d82b844034e3194b32cbd41b074b2edc5701cacc284c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_82.in.bin",
+          "sha256": "4f71f3861ccac89f9ed1b99fe61f27187803763aa8b5d99e80ae02adae15d100"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_82.out.bin",
+          "sha256": "70e2b9ee2167915c353b75a0f882074f02d9bd5743227ec4919796becb6b2c50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_83.in.bin",
+          "sha256": "e040f1951c24291dc7e55fb785fbaaa66983bcb85ff01466545b6f27308b659e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_83.out.bin",
+          "sha256": "a5ab7d7d3475c94ef28079bbb8d4868dd0328c7c617f09b830a5b8aedbc76478"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_84.in.bin",
+          "sha256": "82815c1014c1b20129e011be3c0d5551b4ddcb7d446f27ebe3c7c9351b88ac90"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_84.out.bin",
+          "sha256": "e4ba95fc59052710b11f03d8b7ddc9728f37a82f8ec941d6866a7b17ab42a5c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_85.in.bin",
+          "sha256": "d1d94ce62646e01b02cac4f0797f8d21e73981308a274bd49c8dcbf1647018e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_85.out.bin",
+          "sha256": "41fb01672c00276896138ac133689697791dfecafa5d6d652a82279222440f42"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_86.in.bin",
+          "sha256": "dbc8714dbf9789004bd6db9c3c85c998312746af2190d89da74524346887b4d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_86.out.bin",
+          "sha256": "8c82610bce131d630d73a8bb556d68322a014e242309e9fdb665df9521fd70b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_87.in.bin",
+          "sha256": "c213290096059d15cb33c76c47054e9b0e4e738f40e521a410e0e3e024b723db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_87.out.bin",
+          "sha256": "41829a225a65bf5dce90d574f6587dd73eb5a24cf22af7dadc303edec3cf99ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_88.in.bin",
+          "sha256": "bb173447378b8bc77720822e9e4fd19ddc01848a8c6d24d54926a8202814be8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_88.out.bin",
+          "sha256": "466fcd67278dac74f6c0b291463ba919b2559608e8c0db831f4d24c655c1af5b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_89.in.bin",
+          "sha256": "28fbb7b5b085f09ef19108c2ed327840cba85ae42971ca3099dbaf558153e3f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_89.out.bin",
+          "sha256": "a4f7e5f48fa22d676a583e30ed3d75503fd0f138259c469ca42a9ff0a7bea037"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_9.in.bin",
+          "sha256": "6d3049efbda3a6d9737536d59380bf4fc7e0106734380a1661054dd0821eaffc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_9.out.bin",
+          "sha256": "2b014fb1aea03db62d2bad1c40a61e3d0fd047adffcc79d83833b5f2f75ec5f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_90.in.bin",
+          "sha256": "00ddaebaa1111ca1183844088013c071cbabb5439b6dbd728c185c1c45c5f6f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_90.out.bin",
+          "sha256": "4db8dd5da7099a042ce56ed0af1fcc6ca006cf22baf9016afcaa34f67afd584a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_91.in.bin",
+          "sha256": "43e2bf33517d3cd2be9e30cea021f4cc912608e3d19af6c779ceb48368af3a41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_91.out.bin",
+          "sha256": "53b656680787fce9f59a9b820d0265bb099e02d1bd6f2c458c77a1e9c784d899"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_92.in.bin",
+          "sha256": "4876917fd072c9af8566a0be4764ceb9ff0021181833a101e92d8d7d8b012232"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_92.out.bin",
+          "sha256": "3bb3f3a9113157ce0b07b149578f334f6efb5dd12e6551227036d16240ca8398"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_93.in.bin",
+          "sha256": "9b225a2722784a4d95c84187e137d670f30f4776d5cd67f0575ba8628057d8f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_93.out.bin",
+          "sha256": "4a05cdfc2ab7615e55c0b30a6aa8bab21d32945a3edc0d5d9c53e6ea780a6590"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_94.in.bin",
+          "sha256": "403facf1e51a95e2f3a5be08c418e4984d09df7a7e72e00afe444d96598ca1a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_94.out.bin",
+          "sha256": "e3c608a57066874e2656bbc04cef8bcc25ff8ee591e1fb2375727b3a95bddedb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_95.in.bin",
+          "sha256": "580b41a30d9198dcaeaaa6113b12a2c9d38b64de1e457cbdc5feb1f7a6f57928"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_95.out.bin",
+          "sha256": "2d4369b2921cb965d764da48f0dc57f512f66000414022111bf69459c5596686"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_96.in.bin",
+          "sha256": "3bd284095608e87e678f592b24053154eb31faf600f53507b679aa5a197c3229"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_96.out.bin",
+          "sha256": "ac79efec6ece73626212131129feb27d25f2d371e86b1f4b67ea3d3db8a9d397"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_97.in.bin",
+          "sha256": "59a366f2239ea56931a3d86f6f87e137d98f27d237c764fe8c6094c0e060d30a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_97.out.bin",
+          "sha256": "245f48a7ed5b5b2b60adc6dae6138a0783126bc88a4965d573969082cd83c195"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_98.in.bin",
+          "sha256": "bb930912263142de222c9119fca8e1a7644439303486972b924aa79e01f7d2e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_98.out.bin",
+          "sha256": "e718e6a8563d5cd9890964ae802cab90c3f31daec38c19b015f3e2ce345a79f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_99.in.bin",
+          "sha256": "71af1e9fdaea2aef0f7133007aef079b58f4034fdf52a4eab9340f3129ed856b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1\\f_8c09fefe_99.out.bin",
+          "sha256": "8658994c69abdecad51e596cc9f2ae7ff743d37b91960739adc68d0aaeb5239b"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\capsule_coverage_65_scene_insert_dev_v1_s21.bin",
+          "sha256": "84e7d8123a5599e170381aa6b7bf70ddaf60127b4d8f5567e125fb4a1bf1d56e"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\capsule_coverage_65_scene_insert_dev_v1_s26.bin",
+          "sha256": "3409dbbea47a8758630dd7804ad6ce5fab2cd5d6849d2cbd1bd8676d5c522e38"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1_native_report.json",
+        "sha256": "463f6a547826bdc68e67bf0a161a9fafb7b7be53aa17b49fd694eb2ab8bb3cb5"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_21.state",
+          "sha256": "adb329aba852c8f9183ee9337b37a2338738e2682f5ab1a69c726cec3026ddd5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\golden_coverage_65_scene_insert_dev_v1_s21.log",
+          "sha256": "40af2ad909346fc8169b9ddce8dc3f4a8e2a77fe13ac96059dabe8c977d7eed7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1.patch",
+          "sha256": "cc9657188eefe7658ccdca18e0bc06e25237a87ecd72249dd148fbde5c7ebe2d"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\probe_coverage_65_scene_insert_dev_v1_s21.json",
+          "sha256": "2ffdf2f7be2fe70f6aceb5a54a1ff441bf943bde88ad4f2c02e2bbdf7c02de8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+          "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\golden_coverage_65_scene_insert_dev_v1_s26.log",
+          "sha256": "67aeadf4dc52c7ae8dd701046aa15c18de75a4223f64f5eaab13d6dd631e29b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_dev_v1.patch",
+          "sha256": "cc9657188eefe7658ccdca18e0bc06e25237a87ecd72249dd148fbde5c7ebe2d"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_dev_v1_raw\\probe_coverage_65_scene_insert_dev_v1_s26.json",
+          "sha256": "69e6ef138b198fd5a75588769d90798af1e98a33ca7bb8d5e9cacacbbfb150f8"
+        }
+      ]
+    },
+    {
+      "valid": 127,
+      "excluded": 1,
+      "complete_body_bytes": 374,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\batch_manifest.json",
+          "sha256": "380d59087068748186724f8180fbd903686d79cf4567535d3d912f7652176345"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\capsule_manifest.json",
+          "sha256": "c444287908f43c31259403cad897f94fce3da93c6cd568480073f1dde7631f68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.bank.bin",
+          "sha256": "d741094c03e4fc37bb851c0f32e18a39ab047a9396a532bc50a42b379e7db976"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.cases",
+          "sha256": "77d1de3e0d1d85d2a02619e110dd0e58532ac41d47281b33c6743899148603c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.dev.bin",
+          "sha256": "64d6c19683061d281bcee4c3cb3fa451f3724613dcc114467cebfd53ee182e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.extra.bin",
+          "sha256": "207a6631e8047e719e94b11b1783718cf7bd2c2c33df92596876672c7e398fb3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.gbr.bin",
+          "sha256": "b7dc9651495c70e6b3eb02c5e9540cdd3ff6e0c39a4b728b07e67412bba77dad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.ops.json",
+          "sha256": "9ef2bc844a86db6e4bfa4084aa09576ad19ef7a9358771ca1b976733795dc1a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.xfin.bin",
+          "sha256": "fa757149fbeb7cfda27053145e031bfacd0a97a5435d2b6cc7bdde73926e02ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe.xfout.bin",
+          "sha256": "fa757149fbeb7cfda27053145e031bfacd0a97a5435d2b6cc7bdde73926e02ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_0.in.bin",
+          "sha256": "aa7808e20f46777f0cbf8fcaa3743b3b44de30458accb2db610f2f4fdd9b0d20"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_0.out.bin",
+          "sha256": "2898e480cfa1b9232571f81097bf6f48965e5f848e9b606e1a0dd74693f80add"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_1.in.bin",
+          "sha256": "7f6ed83cca1934ee83b4730a2d1ebfa4085febc7c4cb96bd7097d9966c32b957"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_1.out.bin",
+          "sha256": "ee0b2712dcef17a53b54b349d851d7f9bd97da565629485bcfe4c1ec50e641e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_10.in.bin",
+          "sha256": "55ba2e2e892b4e4bb56c0045baa228c6323fb19d4a6b3ff9aa03ce326adcc19c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_10.out.bin",
+          "sha256": "17037d73030824b672560e59c655fffd58a7821faec85a836c17edaf32f10d27"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_100.in.bin",
+          "sha256": "cd6435a222973ee8cbc63dfe30d315d49cb0eb65743518d06f426cb85dc8463f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_100.out.bin",
+          "sha256": "3cf681047ba6b623bd9d718ec50510011a8f86e55990d4e61541b886e11f748e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_101.in.bin",
+          "sha256": "e7f272e937840b27015294a3dd072bf1e9aaf1f29760605725a0e6b4d069c9c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_101.out.bin",
+          "sha256": "acb72adc8b735e1ff677f39dddc0d3e9d93407fdb87be711188b69f546019663"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_102.in.bin",
+          "sha256": "7e747cc0161707a659e349183a4db58c79afab7b71ee7d0868c75f974d219182"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_102.out.bin",
+          "sha256": "3a7a83e9a17e2bc233e532edfd0ae56d8accf3831241c9f366cc276c11d3331d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_103.in.bin",
+          "sha256": "727399a5673456295c12a6e7e9121b9c895f0168bbf3369229beb11c0f78b90a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_103.out.bin",
+          "sha256": "2d47d89bab7a3c2b3800ab5b24d1d454c11f2901de8fba01fb8fb87dc32bb3d3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_104.in.bin",
+          "sha256": "228e7372defa46259a03cd0dc437af64b8c2a87662ef4c57f689ca84354d8ef1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_104.out.bin",
+          "sha256": "e360be9e87536970cd7a435c999a1a1259039dc80bb519e9e035dfff33d6e77d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_105.in.bin",
+          "sha256": "9f3cac8eb069edfc8188cbad30f5381b458d11a86f0d39a5edf890f5a847843d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_105.out.bin",
+          "sha256": "1057828fd6e57937f4406cf53ebcfc15282daba3205416eb17341f1d4e5f5766"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_106.in.bin",
+          "sha256": "5a4dd1f78a5926e031ca2a9a033f3629157982d14844870e6a5c4921a721c80b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_106.out.bin",
+          "sha256": "b1eb5e465fe49f809e2f9c051901765a0d02a8464f07ab3473467cafa039511e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_107.in.bin",
+          "sha256": "25fbd1222c4031a8f6d447850034fadb8664227178562d5915e1c79aa6620fda"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_107.out.bin",
+          "sha256": "eaeed28499da6211f5f6cfed805dc0e61152f15660a61dc4cb187ceaf0025c91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_108.in.bin",
+          "sha256": "9c9b805ed1a9e3fa3b6d9f910ca980f0f1580dffd0718feff56cf6b9acf29fcc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_108.out.bin",
+          "sha256": "7e083aef54364b7f7bbdc06279b34e178782ace9b6b03eb41b62c11518f76f25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_109.in.bin",
+          "sha256": "19ebb091e3ddfbbffcf4f66836d01fdcd1d6858d5ba95e440e918108648e5c85"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_109.out.bin",
+          "sha256": "7153e900f73d5016acad771d2305ca70382b7033b68e0c45f3a826b8acc21e77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_11.in.bin",
+          "sha256": "dc48f620d4338c3d1be0acf289a89863aad4e76a8858b17d784a5af38bc47565"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_11.out.bin",
+          "sha256": "beae3c2fc27f5ccfe6a89d9856bccf0f34aea049ab58d15392a8c6146dd4cc3d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_110.in.bin",
+          "sha256": "3d227636fea8247423cada8bcdaa1efe02b028b882e6854039bfc17874b7dc86"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_110.out.bin",
+          "sha256": "9babbdd9a7f9a56aebd7d7c9b1079b62dca857a3e7fb944cdf23505b0d2a0f1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_111.in.bin",
+          "sha256": "f3279103b6b6f0670bc651b49b2a85af392f3e8bc3e24c7d1c47fc7e3a7d53d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_111.out.bin",
+          "sha256": "d11cb40eb749fdc50c099bf903eb72f2665db343220a02bcb5a648d1f9220410"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_112.in.bin",
+          "sha256": "60f7c9a36240e5cc6226c6c53db28bee5b815d164f47dc8dd6f37d9cd217908a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_112.out.bin",
+          "sha256": "bfa49680b3c7338fb1d53cba814d2b78f4b1472dcc985dce6763920a7d99992b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_113.in.bin",
+          "sha256": "5629f28332e9fafb728f87ce5696c0d18c13ae133591fc7c79c136a1f7ef0756"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_113.out.bin",
+          "sha256": "f6292ada8fc2e7e6fd2513549fa8395aecc097549573b01238f6f0f5319c8156"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_114.in.bin",
+          "sha256": "fb133c545de549804316bb7dbe044762eba97f327027aee9515c1dd237e8a138"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_114.out.bin",
+          "sha256": "f44a81cd77ea5f1d00185bf03bc6027d1781c6d34a629621361850faab28463f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_115.in.bin",
+          "sha256": "9a27ba2fd6a316d517f9d8641d7baa33d25daa77d1ef203290f47a46811cb287"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_115.out.bin",
+          "sha256": "aea26f39663bf3b50efca7dbfd3f6a36517694907da25a318e7ece5fd0fabe7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_116.in.bin",
+          "sha256": "086925b00d7dc704266fbf436a18a3adb50c52f5687ecb62684a9037e632ac62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_116.out.bin",
+          "sha256": "1f8c878c35e7598130028d700ec0602968031dd043d6d3dade340742a24cb3db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_117.in.bin",
+          "sha256": "1a61e1b28315b417cf4e9b03cc7ced8b277cccf2ef488b594ac73771c13eeb24"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_117.out.bin",
+          "sha256": "8fad3e030fc72f1f5e04d444c62d608df3faa8a17306649d7d34255e8ed12128"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_118.in.bin",
+          "sha256": "9af03caf8ca1570f5c8b94ae7e7d2d3dc1e0526cea3dd986b31435d558fccaea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_118.out.bin",
+          "sha256": "d8120f4eec1c2a09cbd3759fe7fcc540a5ab1c5ac8c6851a8a8e491396a5c087"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_119.in.bin",
+          "sha256": "968a549d601d52fa5d380f79a605ea2771a377068bdee733bf4b185f779f9e4d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_119.out.bin",
+          "sha256": "38d27f2d4f4db5a8f6451512c2a48f6c3273a9d17c3622a5bfcdd9adf0d3c72a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_12.in.bin",
+          "sha256": "454beaba141190c648c29132857e63ea3ec92d09a880851802ae693c719ed6e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_12.out.bin",
+          "sha256": "ba0a5190765fbf54664c8e8ffd5495d2a66b18774031a0831fc0f19c6af822ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_120.in.bin",
+          "sha256": "62d9aef191a9fb2d1efaf2acd7a34b278d412381d754f259c728d7e02ef4d11f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_120.out.bin",
+          "sha256": "0ec20ed82dd6b6fb25f96b4e69ed26981598dfee8c4d8cb4c8a33b59a540f7c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_121.in.bin",
+          "sha256": "fc2ac520d03021d4241a865ee1f78101d7d899a2b9df1e11b382cd25be1c851d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_121.out.bin",
+          "sha256": "387f8608086934187bb734cf58023d7afb71c086f72986a7a7fd31ef278cfed4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_122.in.bin",
+          "sha256": "25a54a38fb219b1ceceb16f79f9e91363c21a0f44c075143eedcd82fb6356505"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_122.out.bin",
+          "sha256": "6bfdff4e1fc2ecae660a7bdcbab4aeb127ffcf23e73ad70824cd2d45e6ea1752"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_123.in.bin",
+          "sha256": "2e38a9a794714ef861b31027deeeaf43bddefaaf786f1c829f8577be04aec25d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_123.out.bin",
+          "sha256": "78162756df32377d6248ea3d1b96ee8ef65a42f6fb6178b690e58c805e8e6692"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_124.in.bin",
+          "sha256": "e8fd9b0b8244e920c750b32fb24e6e65d46e624f6dd5beb33a9b736e1d106295"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_124.out.bin",
+          "sha256": "e3053c8ca8581a00bc2f45885a6f7e3c3e2e5f5a26c9a418802bbaa7bdaf92c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_125.in.bin",
+          "sha256": "17660dceb81c3577c96d5f22a096e64f336469f9e8e850588f1653c67ace1034"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_125.out.bin",
+          "sha256": "3bcdc555582dc38887dea385536fa065c0ef020ee75e3660d76470f58dc40f52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_126.in.bin",
+          "sha256": "7cc778fb4cd85d1c0567fba9075f47ecb2c228a46374e006e0c4c56aa3486f97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_126.out.bin",
+          "sha256": "462d6e6d7ab914ce6112b01a882b1e63f36d66c0889d70fd3978236a2d555850"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_13.in.bin",
+          "sha256": "72d96c2ae1da3f4a767510622de4dba96ded0e6f69be9b06d612269ec423a8fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_13.out.bin",
+          "sha256": "e31de2c9209c0319ebadb511d17a050fd1560cd4e6804c144c975471704175dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_14.in.bin",
+          "sha256": "bea10a2f33528c3b7936a1371c9d98b2fece2d7e4b9ded9f5314f28847eac52d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_14.out.bin",
+          "sha256": "b070b6120c64ee6bdc1cea117e426acbf9677fd6e17e770665fc3554f512f517"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_15.in.bin",
+          "sha256": "8089de8eed204473ef615c5a295eee5771d9d57236c839dc14f28d488bb683f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_15.out.bin",
+          "sha256": "a849a5afa5744d02a768a46720e31fb85589a0aff5ff874eefff4b20064e9656"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_16.in.bin",
+          "sha256": "577588ab97228d2bca6ccb66eac3380c8c268c51b9013cea73756056213f130d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_16.out.bin",
+          "sha256": "c9c2b89df50d40007615d6981e78217ad64f703711b42b07209dc57bb1351629"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_17.in.bin",
+          "sha256": "d56bd83566ed8bb40416e117db1fec8866117eb11933353a9cf3e28db5126fa0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_17.out.bin",
+          "sha256": "5252a589d48d8dca0b17564ddde31680d845f9bb1bb4491a876ecda4d7bfdd38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_18.in.bin",
+          "sha256": "1fbaadf74eba513da01ea2e983120253d53adb635610f2f48cbb6b7de813b6d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_18.out.bin",
+          "sha256": "1390ccbde88b2b93f9b44a08a14602a3069b27651c110c8e4b1bdfedfdb26f5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_19.in.bin",
+          "sha256": "0f42a42582be580e37a2fcaf5aabefc4c70e888ba6803ed03f6ef835d8dfa3ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_19.out.bin",
+          "sha256": "4416fd1ef0115410873f2e8aedee362b050e911ffd8b941343ea71a4df3719f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_2.in.bin",
+          "sha256": "e83393d751e5a5ef83d81be6bc37b7401d8e0b157a72b18e66dd7d717329468c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_2.out.bin",
+          "sha256": "13f8d096562173e2a9c7b4c5be04c034c28c6f10d094ccd95be2657b039f9495"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_20.in.bin",
+          "sha256": "c042736134e5f10d6cc1207ddbfacf88e3ac45367dd1b02fcee6ef035de6653c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_20.out.bin",
+          "sha256": "2ad0ff8cb0d6638f8b181137111e8109ce061155efaeb5a462e5eafcc0d696db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_21.in.bin",
+          "sha256": "88da2df6039b37e5670c0f5c5921adfb7cac440c292f9dfe71ce1ae2192549e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_21.out.bin",
+          "sha256": "39e5107cf3f6675f1b2168ad6c1d67ccd91cdef1abe394a4cc00eb328f5e2fba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_22.in.bin",
+          "sha256": "56c2b8a6af8030e50f0b79529459dc2473a7390ce0944880f7581635b040a325"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_22.out.bin",
+          "sha256": "aae673330aea995951e17d179ee9d40771f6717b76f434605601d3e499219836"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_23.in.bin",
+          "sha256": "119a7b16f1b73b400e495c86413fe944aa8a6300612e5424f91cd18d418b5e9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_23.out.bin",
+          "sha256": "d1ab7dd57b5313d6d8c541f0be0fb52453487de3e5eeddc0530260e9bc2e4174"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_24.in.bin",
+          "sha256": "b7f7519e5c30839c3d2085e0478359d20fa67c7bf23fb7c3833b9391a759b045"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_24.out.bin",
+          "sha256": "794abc89ab949fc57073d8a540763264271b71db02696a3a83c0fbc45d141f7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_25.in.bin",
+          "sha256": "b51807f36dafe4bae5855d388af52474a1f0106b271439fc819cfc1b37326160"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_25.out.bin",
+          "sha256": "fe7a61f063f0d2649d2e22766d81b62909011ff46566930b453d3351997a7bf8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_26.in.bin",
+          "sha256": "404f87b98b9cacdda3dd0621bbec86966c801732203490c7249d52b6bb1cff64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_26.out.bin",
+          "sha256": "0b2edb300e5b6b2e4b01594c41b966c3fd678110e114766ba6f771095cfe4883"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_27.in.bin",
+          "sha256": "8f4b052da5fe4d335b846f1b85e7d7944509bcc97b29e998dac2db8ad930e005"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_27.out.bin",
+          "sha256": "a97dc9af4f10fe22bc95c454077571bd512a7412afeb2be96cd9de0c8dc2dc2f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_28.in.bin",
+          "sha256": "d4326a1ab1d2c0075d0d0c95daab4747accd67eb6e6ea36765305e8c1929caea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_28.out.bin",
+          "sha256": "b13d436b2a6a8ec487543441e032b730648c28f07870443f7eb482f00d6bc3c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_29.in.bin",
+          "sha256": "4bbf7c06721d184ca17a8c4dd8a5788a266bfe1abaf6dfada64607a8952f631c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_29.out.bin",
+          "sha256": "1829e711616811c05412f990153a69b5065ce6d8338ea68bc123284b6ebc2193"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_3.in.bin",
+          "sha256": "de5d77407033c2083c9712ea168e3e047e71feea84c0aaa8c4b8a7aea7b6b1b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_3.out.bin",
+          "sha256": "7c42b1818259f15db17d5267f64de779d5498d038b1d76da3a94968822f5e783"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_30.in.bin",
+          "sha256": "b89f8ed6b9bb2bdad1899ed0aa85c3241264309007f98c9bfdda8de22a7301ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_30.out.bin",
+          "sha256": "f0c86c94e2d63ef28a6f0cc50bf4fe15d13e69563ba1fa58c1705fbb6e665500"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_31.in.bin",
+          "sha256": "c5409689a01d6e21e3bde18f705617b869b2aee32d53dbece976016086105a4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_31.out.bin",
+          "sha256": "ea14ed9b5d5cce01b2a998a6f55027050a5addb2b9a24e1cd88c0dcff0d79dd2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_32.in.bin",
+          "sha256": "d1c0fdb33fb30bb0bfc074d35d31fe55788e40b874afac61803d07d03fd7bcaf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_32.out.bin",
+          "sha256": "5cf62015bbe9543e70235fbde45351bfd9c3b262925a2ba56ef90d4784b66612"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_33.in.bin",
+          "sha256": "a6aa42bb1e435f6f3cb00c6c8c902b71ef4bb59976130ab967629d90ec27355c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_33.out.bin",
+          "sha256": "6afe9253bc434cb5cbd833c0373edcd3e82f80a0e80c6257c82cef13701702de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_34.in.bin",
+          "sha256": "7b1d31d6dfd5e1ade64b3e0af2c0cb292d905bdae90c170fb4dcecfb476e8154"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_34.out.bin",
+          "sha256": "7d7cc08f6bdeccd805b892065dc87f9763495ac9ff42116d51b094e05f110550"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_35.in.bin",
+          "sha256": "9591ae68af3556ca8688b46f973f1dae6a7e54be43e65b73e9a16670b3570115"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_35.out.bin",
+          "sha256": "4e87b5b9c3bcc32c9a1a7010407ce8cf4e0f3430a1b3c9f4cb3c044ec2d3a461"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_36.in.bin",
+          "sha256": "d8fc922463d8949d3f63c0489d540a0bfa0e3eb0144ec56654bc16feb5e03769"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_36.out.bin",
+          "sha256": "75539c63c6886c294a1641eb9a42bdba59415fddf7542cbcbd502e78f407fe33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_37.in.bin",
+          "sha256": "bee8ca01c9812214bc25770d756a5b7169353768d43f1400ef217012f59fbffe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_37.out.bin",
+          "sha256": "568d00a2611ae85de43a5c9b9d8df33f2135655c7d416fda84f4b6962b188f9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_38.in.bin",
+          "sha256": "937b9b7a9cfa0e86b0caa6e57830a45e46bd1bdd052f0896b444bdc515f7246b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_38.out.bin",
+          "sha256": "e8f83aebba69202f9809e00964746a0b7c5326d29510ec2712b38818c040af77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_39.in.bin",
+          "sha256": "426cf0b90a6d33f0028dfcba3511c4f3b9e58c5d001562ae3fc4689dad913a20"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_39.out.bin",
+          "sha256": "037d807c88d4f3c86fb55f7dd7d539d50a991ba24e1edb4cfbb1901e329ead49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_4.in.bin",
+          "sha256": "9f9a816a49a499470be6a3f3a11dd8c4af198d3b75a9a0780a9aae860af9eda3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_4.out.bin",
+          "sha256": "b59501109346a63cd08f40a96403adcb5dcfdaca8893e60c0155c39077143551"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_40.in.bin",
+          "sha256": "e1ed5f6bde63c8f8f75560ddb9d18808e4e1df58c8d17913a2bf32ac202c3487"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_40.out.bin",
+          "sha256": "d9a8446d8cc556c0f93686fb647f5b29d92dceef059891e5e56e98c155d62878"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_41.in.bin",
+          "sha256": "414933d7e4734f80b86db337f75065b015a35c4b4f8b49a3f61dd29174850a77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_41.out.bin",
+          "sha256": "47abf4f06512e25565b491314cbd52c4701b7b6f9d6a6d1c8423b408fbf63348"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_42.in.bin",
+          "sha256": "6c2c5bebf95ceef159b71283dcf85d3290411d5b1dbb1ddaf0b1debd955a92f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_42.out.bin",
+          "sha256": "976997c91a65a1c0abbeace61b53e310e9843ca28b6ae92007af96f343caf26e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_43.in.bin",
+          "sha256": "9c5536dcc80dd19cf32607f6a3a9d14ff47bc389b593bf38899d749c26c636c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_43.out.bin",
+          "sha256": "188135345686b5a01e96384e6568b8d0bc4d43ffaaed1b62bff2165efd92996c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_44.in.bin",
+          "sha256": "0f17b3807a7b2feedf16973b1e66e17f450fd23044bbf08a721ac228784495e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_44.out.bin",
+          "sha256": "24cc9fa0edef4e220fd116e4cae1ccdcf363af415299cf934028c14c1f9efc49"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_45.in.bin",
+          "sha256": "c9d6ade4e060ab54e89134745d424e45abb698a2ff2c857d18aaf8f149ffdb34"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_45.out.bin",
+          "sha256": "6f805910cf4ff492bab63435ffabc501dc669fb0b062ef654e6259cb5482ac53"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_46.in.bin",
+          "sha256": "9a84cd74d592a5eb11942b126db66d00cf897f745c94b7292b41936cd14b6709"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_46.out.bin",
+          "sha256": "97ec19bd0ce3f47b7a19a0ae93f7d4566cd27d9e4703a59ed732f334c631c437"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_47.in.bin",
+          "sha256": "6ec74ca2c2dbf58da3d7dfb60fcb1c34cdb53977938b48a3df93fc7c79920ba2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_47.out.bin",
+          "sha256": "167f61cd438d255fe9e28e3d7e5210168d54c7fb4fbd414d15131d382bfb123e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_48.in.bin",
+          "sha256": "34abd42bc047ad08410aec96ef872d1c76676ae761db86519765f540e5444f78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_48.out.bin",
+          "sha256": "ac08c2f9f035b90ea7a6b59bfbf282e2298cfb1443f740bca1d1b4d2304aa0b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_49.in.bin",
+          "sha256": "1ac9c491efaccf51fae4dbde7a660f1c7a39ddab5e98fd5f62962ece7507eef0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_49.out.bin",
+          "sha256": "bbbb20dfca52ef899ae1c2b8ea8b8bff05ce1e8e05f01c595090726433a62f81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_5.in.bin",
+          "sha256": "3bb84b01166a7341dc8ee4f9e4f8050e3489d5ef1e472e0193cfe6bd9532825f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_5.out.bin",
+          "sha256": "7fbc55c97793fb5e339707140da1bfcbeda652707ebe491a5d2144de560b2957"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_50.in.bin",
+          "sha256": "b756ad1c25b643aaf989a8c140772e3314d80f93d8eae24603bf3afae111785f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_50.out.bin",
+          "sha256": "e6fbeaa5f50d18833f9676719b0f040444b08d5933e824dc686d2024fccba0c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_51.in.bin",
+          "sha256": "c8ce219b33fc7aa0cadba25ebd53a8a54bbb32e223d24188484db5ddc410ea0a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_51.out.bin",
+          "sha256": "f3dd64603cbb82c43637e4cc5abe384604ed92738aa2e30829422993592c1753"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_52.in.bin",
+          "sha256": "e139aabca4b2d0e929fac5423d97b913c2dec1d911ad50bec0a802ba38a5ae7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_52.out.bin",
+          "sha256": "973e06a872b48eb12dfb401dd9ba43cae860937a25b9002f3e683756843c1168"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_53.in.bin",
+          "sha256": "101d6195e38666f8308da7cbf6b6e6b4eefe1895140c2bc23a12eee0f20261dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_53.out.bin",
+          "sha256": "a2b45fc9c840fb93bff0166c95951d6b535f6ece7715969b001bdb4dd9573d7a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_54.in.bin",
+          "sha256": "f198b5aea8d4c751f26d0658f6bb46aa671effb299e007ccd4f1bf1927754982"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_54.out.bin",
+          "sha256": "3f3ae51e893b9345e575d0107220b37f58639761c6280b1ef7a5c59534632e5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_55.in.bin",
+          "sha256": "6cc9fe7901d232ac155251dce8756d822e3ecbeecb3c57c189569ff900b8f227"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_55.out.bin",
+          "sha256": "df6f255fd5cd0afa1e9a587ecb52308f8bf49eaa5f71380fc924885ab383bd79"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_56.in.bin",
+          "sha256": "936219da11e99ddedfdbfd43c7330193ecaaff1259abf4a5d9d2746ee068dbb8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_56.out.bin",
+          "sha256": "9e40dda5b990d14568e185a74898745891edbda29c83577fc1f2563f451219ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_57.in.bin",
+          "sha256": "476b62a35f9acf11e9c2039b72f8946ba4139603d83d5e730287ab1bca127216"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_57.out.bin",
+          "sha256": "73fd6dd8be0cfb8470b856bf0c65e68c087a2eb1c88f3a9004ad94ab7ffefc11"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_58.in.bin",
+          "sha256": "7d9cdfedeea4ff8b885dc61c84ec6016ed08a7289b8b59067963f0ba7b21c56d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_58.out.bin",
+          "sha256": "c5957bff08d68602c72f5259867dbd0a2c0e0b332826d0e0d1c2774529d493b0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_59.in.bin",
+          "sha256": "a7bc4422681d80bda6e0f29819cfba5f27bed3a2793101b21eebf8a6ef678dbf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_59.out.bin",
+          "sha256": "ba04482d51d873ae0225ecca9f702aecf1dd7db7dfd8e13f49a9c8132aac6899"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_6.in.bin",
+          "sha256": "fb9d3db9d34fac32348bb4b3e0b60b6f982c453c1312f202bff90daeb3c188ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_6.out.bin",
+          "sha256": "62ea4167c79d72a8a97af48f66c8559c257574957b8a9c2544e330945fc8b4be"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_60.in.bin",
+          "sha256": "7fc19fcd97671ed653e03e33a70cd526b654c3bbfb1f3cdc77975955ae36c48d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_60.out.bin",
+          "sha256": "f85ef46c7ae75035851fa1d174a3198242a79e029137317ebe79cea7bb2096af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_61.in.bin",
+          "sha256": "a527caa6735a243b25845b24ade4ace845d5f7940b6277aff2d5ddc47833cc43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_61.out.bin",
+          "sha256": "db357a97582c370b4eac27e779b64931794216bbb1d8743d4a905499ee768513"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_62.in.bin",
+          "sha256": "13ed51f0558ebba087e7cc2ead1efa35c495ba8d17aafff949e64a028bc1b7c9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_62.out.bin",
+          "sha256": "2291a242fb50699f13e80b411f573f431a823b4c77825dee2583438736c724a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_63.in.bin",
+          "sha256": "cb49cd20ad12c8c1cdd504e1dadbdad00f9cbf1377cbb895b915d3d3c6845824"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_63.out.bin",
+          "sha256": "9513d64e027718b81f75e00133d2a15a1c023ec43296caecc7babacf7069f1cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_64.in.bin",
+          "sha256": "32ccfc20a49612d021d024efe973dde283988bf915cc955eb1c0811364fcc084"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_64.out.bin",
+          "sha256": "557b8ed9550e4b8c657a0d0d3145a278b9a100b64fc89a9b9b195f2f012e754f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_65.in.bin",
+          "sha256": "6ca5a546cbe6ebf331069da0495c1fac8836c9e66c00e1f8991b43d33b4b1cb7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_65.out.bin",
+          "sha256": "1678872aa74b4d6e637658e9b68ad721e0f25e8f0e6a356a8b78b202d1f873b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_66.in.bin",
+          "sha256": "988bbd81742e25084efc2565c58ded666e9392955899d77452fcbfe44e3b559a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_66.out.bin",
+          "sha256": "877e1d17a28223279bdca315532d313e0665b5eb2655ec23b9127014748f8928"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_67.in.bin",
+          "sha256": "222e7b37d28508bab7f57c2bc67af542d990ec8fab77f7b33b393de730f96b7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_67.out.bin",
+          "sha256": "df7a644d65df48211c2c70f3114e068a21b83a12d4908223d4f0cfe0d482125e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_68.in.bin",
+          "sha256": "913bb72436c86e9b882741865cd9b5f0bc126d68fdf6ae4f6583b958535e134e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_68.out.bin",
+          "sha256": "bd94a4493e5d4d118b8a03caf9134c5547d66b7ee07995b6f3296e12960c9cd9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_69.in.bin",
+          "sha256": "698013ddc19613adb3b7181c39c89a7e6127c5b6093ada0adba00ea5e55c5b68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_69.out.bin",
+          "sha256": "d4c2c4d240f72bcb57cd3a36b6aab23297db3507318fa6cd59142719a51a3b0e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_7.in.bin",
+          "sha256": "a6e5da6691f3af35717cffb005c78935aca6d89e8f251113442fa36827d8547b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_7.out.bin",
+          "sha256": "73e238119408d9112a3a89b2bf6e5d2cba4a45a0a7cf5b6290eed3453c112be8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_70.in.bin",
+          "sha256": "a881e6ec226c747eb04f7355ed10a9a870fc512093b92aea6cb4dac13a4bbf4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_70.out.bin",
+          "sha256": "53fc2e95852c1a0345c41c60f60084e65be4de2967b30e6510215e80f8a275cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_71.in.bin",
+          "sha256": "1d2c3c31d62bf66a9b5d73c6cc014829b07b9f0484853d796f12f51517d1aa8f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_71.out.bin",
+          "sha256": "b082d4e86baa1a7656863d165910240ecc1447c48ae9172124f608278f2c34b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_72.in.bin",
+          "sha256": "68134fb7e8708065370df432d281cbc1204a045ea348760d3535f5ca08678248"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_72.out.bin",
+          "sha256": "a7c7194575b116b0ba3fcb197ffa72d52d93da9474bbcc5c318e57f7b4bed36e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_73.in.bin",
+          "sha256": "9a8ca7b5e51f43db45aa6d1f2b951db22c4b6a38d1357b1196e984e773a8e9ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_73.out.bin",
+          "sha256": "8798cb3ad33d2e31cda64c14ac357e863a7ff9db5914f96808783239c552c33f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_74.in.bin",
+          "sha256": "cd5e8e189c649c2fc4f3f582dba976750eab171a6898001a8c9511377f968d81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_74.out.bin",
+          "sha256": "c61e04beaf6eaa0853281c0656ef704606b66e29085862cbe56492aea18c47c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_75.in.bin",
+          "sha256": "8e72e38d8dff05334e9f3e9b4ce48dbf83d096eee2a0cf2a08d6790dc7a8c9da"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_75.out.bin",
+          "sha256": "733f9a5ddac6e0fce937625ca32169c6e7b74fa7ef617721a5e5930df4e106ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_76.in.bin",
+          "sha256": "0dab39ce8568b65d994bda224973afc73bb0d0dbefb390393695734d12f20a6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_76.out.bin",
+          "sha256": "02a06db14e33fbd01e87553a51778d4eba2960fbf73bd96833140fdde821e3c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_77.in.bin",
+          "sha256": "791822862fc3aca852f8528d2ffe6c14df7bad1fab780507f768167b66971409"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_77.out.bin",
+          "sha256": "86866bbf9efb310cd3158f07d380ef1a8ffffdb37f6a5420810b2681e74cdb28"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_78.in.bin",
+          "sha256": "84311f93a90f76aef7236857a7767a54c4aedb124b8bb78e29132dd37bef4b0d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_78.out.bin",
+          "sha256": "8cc4238cc02ac6d5e6ca1dbc43e28f31f54159d203d134690f8a6eb5c85d82af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_79.in.bin",
+          "sha256": "e954cfac2e899f342379fd6ff6faefcfa5a90500d6ba366ce02880a89f7a2a5d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_79.out.bin",
+          "sha256": "68b92f6499583393475d862e0868a92ed95b5963533fb6b160f82dc1f5503536"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_8.in.bin",
+          "sha256": "4a2d62e144793775bb7d511cabf9ac2ec24ac8fecc57d3319a92fbd1ce02a9ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_8.out.bin",
+          "sha256": "079e9fd78f3c38b92d6bcdb924ccea270456a476ad6c9cde6859b4182c06bb6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_80.in.bin",
+          "sha256": "60a9f65da4414caad8251da0d057a6c534286377e2e9d39348b725c3144f533d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_80.out.bin",
+          "sha256": "94f3c4f7c5ce596cfd5be85bc540504dc415a2b9e449a55a26714be8daab2ae4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_81.in.bin",
+          "sha256": "e858f661a6daa70340a3e9831db753d2faa7be691bd940840c178291bf3c8073"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_81.out.bin",
+          "sha256": "7e4651873b50b73a020a422174f1638dc43abef2f9c40f3bc0d3bd80fd934f97"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_82.in.bin",
+          "sha256": "310b60c96548fb2844381b6af691f8825359019afc6167a01a4a21b508c3ba4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_82.out.bin",
+          "sha256": "167e5f45bea4d8fa479de77e3eaa109cec1dc8c8f872e085369fb74d7e293f99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_83.in.bin",
+          "sha256": "096f01287bc1410249570e0cf9c638a4401d4a1efcefd9b1391a8e017f9bca06"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_83.out.bin",
+          "sha256": "8daf8aeed3e505f655c11b5882b5028da929fbdee0cd78b5c86a050e3b87fade"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_84.in.bin",
+          "sha256": "9a6674b27427ee37bea319484d25e8a86cec453e3634691b6e729c3a4f6ccbce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_84.out.bin",
+          "sha256": "ea56cf683bacb316b828a81f332d696072ce0981afe6d5d8c6be1ccf3e533323"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_85.in.bin",
+          "sha256": "143c9fa99f1b63d4c810ba68c3fa78fc6b5211f747ca9424f4de44304884f66f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_85.out.bin",
+          "sha256": "60fbd5c3b0feb8fc675a76ada1c69eee4282123fe86241eb54c846aa0c93e3f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_86.in.bin",
+          "sha256": "e4004ebe212dfdd8bdd27f76211dfa2f8f8589897f683866f3860263ece561f2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_86.out.bin",
+          "sha256": "d96bb5804f088ce8209b8d62547f65cca0663cd7f75309c72cd300e6b79cdf93"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_87.in.bin",
+          "sha256": "2179058e632f48cd624bbab1e54e47bfe8fe6fe961c5f497aad3988f457386c4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_87.out.bin",
+          "sha256": "86c91634c67bd2feaa74e1a0387ef635e04b5e835a21aa740f3e41a34195a793"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_88.in.bin",
+          "sha256": "56ca68d656f090c82ade0cd7ed210334a33bd621c00eb765d2ca1b118594b57f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_88.out.bin",
+          "sha256": "e25cae2fde22bbd0fdee13bb419b146b156ab13f35d0a568223739044bec83e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_89.in.bin",
+          "sha256": "fa2ec06ca9b573d1a10474dc9ed7acd4859b17332e226d7001aa4e259b1dc854"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_89.out.bin",
+          "sha256": "02602166d6e84bb22cd898404cb09bfca37c807b1de0b65f47394fd0a2006670"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_9.in.bin",
+          "sha256": "985f6739f140219a77977c077e5f39c2f4d983b5c795ffccae53516b05809ba7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_9.out.bin",
+          "sha256": "d4ad7d87ddf451a636a96420bf0d5e11b075d113bb9a3852acb57d3f4dc3824d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_90.in.bin",
+          "sha256": "e3026df7261d072d7c0a4bebaadc40a1b63b7f86b22f5d01f19b60e6024c8804"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_90.out.bin",
+          "sha256": "32ef94ec625e89d33ec7618bd1a703dfc30fc6aca8c1677ac1b8c1d1915df7df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_91.in.bin",
+          "sha256": "9492bae7f01694e6f45703c93ea4f9dd487e48382f2237b6f5e94c4562bb5760"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_91.out.bin",
+          "sha256": "ef4fc6808cf7cb315f36c470797eb1d64ed556975352a5778da33140f208470c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_92.in.bin",
+          "sha256": "5baf776efafd2e8f7034b2f92389995785f32e967911f0e08f9c1c31d2ca15dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_92.out.bin",
+          "sha256": "0b5b0b541dad5143b7223924e8e1df788d41f57cc02ff13d4999dd2708ff9204"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_93.in.bin",
+          "sha256": "08df0fb58c31158b22ff25e282e138a65373dbc8d70d45efd483e42d044368ae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_93.out.bin",
+          "sha256": "b245c504fc217845cdb9228c74f245cd1e6882d83039bb7add24953f3b91378f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_94.in.bin",
+          "sha256": "d5976953ea213af92d69a85fb65c793fb49f22752b795e0dcd56b93d78c5ce29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_94.out.bin",
+          "sha256": "5377ddff29e7b7b69dc603faa3599653eb3c60ba5371cd0ad53778757d994f9c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_95.in.bin",
+          "sha256": "980c39ca641cb08d23d882b61f463d4282f8b988230bd55a5a4afdd0652a55e3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_95.out.bin",
+          "sha256": "1a1b2c48f4bb1f4ef38f36246edbefcf89be54a364c3db2a42e7958d9d254808"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_96.in.bin",
+          "sha256": "373b926aec98d18e65bf406e07e09bea17b5efcc861f66fa6991672d0a57ef4a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_96.out.bin",
+          "sha256": "825ccdd5f6e8cd73dffe1462e630a0df07b8c2808cf47bdb0134ce3ce97007f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_97.in.bin",
+          "sha256": "4ed980aa5b6a182ec33f21db6d046c470341d881985f9ee676ae53526a8df8ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_97.out.bin",
+          "sha256": "d8f66b32f63de51f5b9428498a5dd536186506d70873f1ebcbb627285e21fb03"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_98.in.bin",
+          "sha256": "801491d4cebb964fdc620bddacd6625ef596d328952f019f722d04e93e1a40e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_98.out.bin",
+          "sha256": "1177ea3809f99a62ffa5508a964f977bd0adb072ca2551e3bcdc3adefebce3c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_99.in.bin",
+          "sha256": "19679bd9f3398ea61d167aefb01692d465ba10a09484618a2c0890c368b668ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1\\f_8c09fefe_99.out.bin",
+          "sha256": "00395f53dec4044d5db7d00ba47a830d6a3487795fb1bcf0ef6f589d3c8894aa"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\capsule_coverage_65_scene_insert_accept_v1_s28.bin",
+          "sha256": "46b0a891cfdc15b374b358dd973e3c91acda7279ec768a91e17332bbf0952086"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\capsule_coverage_65_scene_insert_accept_v1_s29.bin",
+          "sha256": "ae156a86a96693a3eed042f12ee42953b01fbf419a2eaf3558de413c20889960"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1_native_report.json",
+        "sha256": "1132d08e60df496e3fda67ef1d25638a1ebe1b85f2025d5b71a833de3f443cd9"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+          "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\golden_coverage_65_scene_insert_accept_v1_s28.log",
+          "sha256": "a2396fff0591e5a8b8352662f85b9e71f0f7c9ac7d1244a6ec8b1f098c19493a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1.patch",
+          "sha256": "018a70be86ce0219b6c773351859f24c0f8e43724b9a18cb20c38a2b1b96b685"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\probe_coverage_65_scene_insert_accept_v1_s28.json",
+          "sha256": "728c6dd878f1206bfef618b9e0bb2567f7ce22fc0fd560a1a08849b53b4535b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+          "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\golden_coverage_65_scene_insert_accept_v1_s29.log",
+          "sha256": "81a24b5acf28753162008cabcc75b2d1da443439ebf4b6689a93a1b5b5d268af"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_insert_accept_v1.patch",
+          "sha256": "018a70be86ce0219b6c773351859f24c0f8e43724b9a18cb20c38a2b1b96b685"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_insert_accept_v1_raw\\probe_coverage_65_scene_insert_accept_v1_s29.json",
+          "sha256": "d2272868db60a7c5ec78eb6707790cafd216a8a6d658e3f8e2e91b08ae74853d"
+        }
+      ]
+    }
+  ],
+  "original_caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\manifest.json",
+      "sha256": "1a57e2e558d370fee3c701ef8949bd10386a97c9b14c531cb68a3cf2bb96a0e0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\scene_insert_original_caller_v1.json",
+      "sha256": "9e542c7b8008847c399e3945bd40bce6a1839093c9310a70f05dc88d2a63bef8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_0_1.capsule",
+      "sha256": "447c0cbde77bc52e48044efb68ed65b0dc7fd097b8247c9009cfde3c23bf51be"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_0_1.log",
+      "sha256": "01657149127971550df9f56e4b0c94d7b43a5413364f4e6a0cf21c0fb9ce2aca"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_17_1.capsule",
+      "sha256": "9a6223d2e19df6a4dcf8ea74733aa6714c4c8bbf4485be3b86d7a092e229d6ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_17_1.log",
+      "sha256": "cdbf8616a0e7801edab3b1def680d0a1be00ca2c2ca83f93172235de005ef28a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_19_1.capsule",
+      "sha256": "f9aff2f09b32975eddfa465244cf0c8c0dd1901fc14dba921a0d50a290c5183d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_19_1.log",
+      "sha256": "c3e99a62af19b8aabe2e2efd97f67db41dfc2b19924a0edd579ddf2c197ba79b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_40_1.capsule",
+      "sha256": "ff5adbcb8bf03f16c48ea14c84138b86a1ff9c6bcc8e87abaa3162f1cf8ab795"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_28_jsr_9a6b4_40_1.log",
+      "sha256": "f2c20c2cd54c349ff576c827f1c671e5f8ea9a2738585b9d0f616fe17596ef02"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_0_1.capsule",
+      "sha256": "cef423d36c454661f0af7bc70be01dc3a7ab364f9fe6d91faede0682909628a3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_0_1.log",
+      "sha256": "6b25a1d899a8147d3c2f1fcacb5d156f8a6e5f301fb6eb89f343ed8341d89020"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_17_1.capsule",
+      "sha256": "c6c54b7940cafbdcdd0aa3e15cf87852a45b06d5e0434fbaf63ae1489c31ab52"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_17_1.log",
+      "sha256": "debb6a63520ac6774c2763fc0d41eb77cb9466ee84bde2af9c5b077dde553bc6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_19_1.capsule",
+      "sha256": "f60605d60078b5e1628b9315d48957ac6eebe60b9325fb6111d80225f4963c6d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_19_1.log",
+      "sha256": "34a3d9449febc122004525548f0122cd0f6f34fca437dd2d3937c948fdce4718"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_40_1.capsule",
+      "sha256": "e675f2974c721991257bc7536a6aa3fe913cc466b1b6c846b034dedd6a6e8a88"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\vf3_29_jsr_9a6b4_40_1.log",
+      "sha256": "89b64674cb71e0dcac67e1a384a4406eed538890c373cc96c80bd869b4e51451"
+    }
+  ],
+  "callable_map": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\scene_insert_callable_v1.json",
+    "sha256": "04c2ef20023284fb2827e76ff1ee3011bfd92dffb1f0c7484bad857245437d8e"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_scene_insert.py",
+    "sha256": "275a887287b3bd4d6ed2b69b8155eefef0cb4b519d3e37f66d80c3b5aa54fc61"
+  },
+  "attribution_dispatch": {
+    "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+    "sha256": "ca228caff7240f36608a47efda9755c5301a0c1c8d915c6383efe64faf4d78e3"
+  },
+  "bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "0a1c571f9178cacbfc77fa4ef312fa8c65e6cbbb53cd8776b10fb5d9c4143faa"
+  },
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_v1_affected_bindings.json",
+    "sha256": "9f26624d3dfd80e17f76d3435db71f9d780ea0ca04fb0ce890869cd863c73d75"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\scene_insert_v1_affected_selection.json",
+    "sha256": "e9820ef64f8a5501157a3acc72e39215ac0b361624e1bc927cca38a358013ad6"
+  },
+  "regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\scene_insert_v1_affected_portcheck.log",
+    "sha256": "aae761940b233c275b8a2bc315d03b9d1b38a637dcf94999019b1a4a433058d4"
+  },
+  "regression_status": {
+    "expected_bindings": 1,
+    "reported_bindings": 1,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "golden-bound ports:",
+      "  scene_insert_qualified:0x8c09ff12 PASS   matrix_family: 127/127 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3dl.exe",
+      "sha256": "7d82096e68fbbf41f7ab74af41b3103995d92991336f2465c4aa2c718f291b57"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3walker.exe",
+      "sha256": "ffe4b91fd2b1e3ce70928234fd7a24777914b119e9715a05ae28be84e3e143b8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3mtmount.exe",
+      "sha256": "bc57afc3bc4797a3419537d992d4b0199a01c618b6fbf80ebb43961624c06acd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3loop.exe",
+      "sha256": "f1575e0da2065fec006a9531e3dc1d94dc8c055d3bdff25e317ffa84b3119eb1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3taskvm.exe",
+      "sha256": "aee8a4872658ddea9bcac1d99733193f75fdf9e0178b2666266f3c4374ea014e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3vm.exe",
+      "sha256": "77bf67ec87fd6ee80a6fc80854007580bf7df7c1c613657a7f9253ab62d35474"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3frame.exe",
+      "sha256": "770b6649fadaaa1ae63b3ad98c14034a1360d307f0af2b89e6c299ad5e120a94"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3libutil.exe",
+      "sha256": "60b0a7d2ed6184630bf025a6d33ed9a0f1e0be5d68dc7fbc6aa45292496b2f7c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3orient2.exe",
+      "sha256": "b6f85d5d1752535a1d2fa1d34b63fa50af1691de8ecaa5a81af3584bfa3d4143"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3poly.exe",
+      "sha256": "fc603cd75e33790ae7bb4b2a898dd625bc9b8fa6ff3b0cc244957f0256cd946d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3vecpush.exe",
+      "sha256": "21e27829cc9593df124f85b37d35f2b1a118bcd78b0396c2dcc4e4f6818a0df3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3tailcall.exe",
+      "sha256": "3c81675b0ec5c69b86e7a7bfb87bdce336fcc39ffffcd4a12ce1b9b5ae6d94b7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3walker2.exe",
+      "sha256": "c7d2132da1d9fababc9f403b5b47af2fb4fbc046d32d1d5dd9884c06e16fc82a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecadd.exe",
+      "sha256": "2b7ae81b622cbebebecc73bac570eaff404d917ab41e921fe66183a058b40793"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3scaler3.exe",
+      "sha256": "1893737c812b8081ce0db2d9feb1d248b1f88c3bb566b297e2fecc6e7abd0539"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3frameseq.exe",
+      "sha256": "b7c634d30006544c5d29fcf906f45f8480a15d52ce62d7550d657d73a2d171a2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3cbefc.exe",
+      "sha256": "e7beb75fd592076c43d138b3677101c39634f0aebfc77657f4302b10d30277bb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3f040f1e.exe",
+      "sha256": "e5bb5fbdbcb69afaf46104d5e2b8f16552b05d5c95c968a0c96ead8611236d03"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3f0747d8.exe",
+      "sha256": "a6471969cd4e2a3230f480144868d41f4e9f8f4e333b878d3a570053370dd0f9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3f9f6fc.exe",
+      "sha256": "c951c57828e3f6687c38e4fba2b28a29e3e932a784a28883f1cdaf2d3e815416"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3f9f6dc.exe",
+      "sha256": "c4c31ac2df651707f30bb964719008b75fd9ac73cd5afd0554aa25b8c697789c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3cc148.exe",
+      "sha256": "57671cc03bfc7a93e59248c4a288b810342f6254abeeca111d68737aaeab22ee"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3c5dbe.exe",
+      "sha256": "9320dbcd57649e19e192bb99291a77aed3c512884e3d31c255c969096259a986"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3b10aa.exe",
+      "sha256": "2e0967223462f9b21278a30e940797a4130ac1a98600d9e2fdd18a08f8bdf3f2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3c6ec4.exe",
+      "sha256": "a4fc0a7f8e75a6e11c702356be1eb98f24bfe4e11e4a060fb4b807619e7f9b07"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3maplookup.exe",
+      "sha256": "a5d476b495f385ee6e2d87f5c2cb0deb85a4e2ec527622e3f23e80f0b18b3ffc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3meshnode.exe",
+      "sha256": "1fa4f65be017cde8d2f36d119815b760860ae3febdd267220915b4c73c6e3229"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3d0fa.exe",
+      "sha256": "8e9ff7a016fb1f197617913def5e80c74dd967128847ce13c391205e6323a857"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3c788.exe",
+      "sha256": "e499157bea87a9083d68caafb9c7921963c1e5cca1ddec92886fa64bf6f597bd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3f096258.exe",
+      "sha256": "72e6b57154e4a40daf084559cfe191adc26d48eae0d621cc5468f250be6cac8a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3matrix.exe",
+      "sha256": "6cd9dde641aaa6f526638bf8044783e60e9025e4962fc9696b4703aad0a03757"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3bootmix.exe",
+      "sha256": "074f619e980ca15d8b4d4cbc0b7cc6b6fb85a88b06300a88bfee05364288cb75"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecnorm070x.exe",
+      "sha256": "3ff27d36ab8a92559aa0487e351d09511d304c346bce290e76c2e292515acf08"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "b0e4caf4758828a67810100fbb7444718f32cff0871b610e700676f4a3a38101"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecnorm070120.exe",
+      "sha256": "1a8b344f4b389692461715d28f60bec4cd9408b669579b69a0d2e059512dc0c5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "146135e31c16ef160c21895600bd61bbb8c4b7bac23f782c9a989e4cfe1a87af"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "dc41593cbbb20e35ecb703343d3dbc7f8f829dfe553df93ed818d822bf9118bf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3fpu.exe",
+      "sha256": "c88fa905cee4c22928b20bd8c36fd765b44ee6748fc0e42ab3f68ae369c0d610"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_scene_insert_v1\\vf3statehelpers.exe",
+      "sha256": "298eb4463fe0ddcb1a35bd88da174b6bb7567f490232e325139252006a283cb0"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\scene_insert_v1_tool_tests.log",
+    "sha256": "43c86737fee1b4c92388ec738f3cad97957c9a5a6c037d7e9ec8f4f5903fb7bf"
+  },
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\scene_insert_coverage_baseline_v1.json",
+    "sha256": "462ae4fd57e5297490502272ed1f1b517cb068cbc8871d847c6260a6a29081e0"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_scene_insert_v1_milestone.json",
+    "sha256": "66bb797cab7bfaf47f57ae48a51829968fbb54b5182ddc30b16881d16ff13061"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\scene_insert_v1_chain_extension.json",
+    "sha256": "32718dfaf6595b1215e20fec6d63738bf934fba11e9619222ecca37ca56d51db"
+  },
+  "previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\contact_frame_v1_chain_extension.json",
+    "sha256": "efbc125016bbdf2a4854acfd03effd0c1fda4354bd3065da4fd7dc1a3a05f224"
+  },
+  "previous_percentage_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\contact_frame_v1_manifest.json",
+    "sha256": "86a2858550c863798d958ed0250702f7fd8d29eead68cd60d413582a1d9a682d"
+  },
+  "gate_scope": "All observed/static affected bindings and 39 native suites; previous full 60% checkpoint is pinned through contact_frame."
+}

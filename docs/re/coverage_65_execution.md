@@ -495,3 +495,19 @@ percentage chain through the aggregation frame and 60% checkpoint.
 Verified C is **262,428 / 434,656 (60.38%)**; **20,099 bytes remain to 65%**.
 See [the contact-frame qualification](contact_frame.md). The next required
 full frozen inventory gate is at 62.5%.
+
+
+## Eighteen-entry scene insertion: +374 bytes (2026-10-11)
+
+Callable `0x8c09fefe`, owner `0x8c09ff12`, adds 374 marginal bytes.
+Development and independent holdout each pass 127/127 valid cases, with
+complete body execution and no native skips. One interruption in each
+campaign remains excluded. Eight original literal-JSR windows qualify
+the prefix and return. The native executable and 378-source freeze precede
+holdout. The affected binding, 39 native suites and 172 tool tests pass.
+`scene_insert_v1_manifest.json` pins the final audit and prior percentage
+chain through the contact frame and full 60% checkpoint.
+
+Verified C is **262,802 / 434,656 (60.46%)**; **19,725 bytes remain to 65%**.
+See [scene insertion](scene_insert.md). The next full inventory gate is
+required at 62.5%.

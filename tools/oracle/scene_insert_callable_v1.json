@@ -1,0 +1,25 @@
+{
+  "0x8c09ff12": {
+    "entry": "0x8c09fefe",
+    "kind": "vf3-scene-insert-literal-jsr-v1",
+    "call_sites": [
+      "0x8c09a6b4"
+    ],
+    "literal_pool": "0xc09a70c",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "r8"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_insert_original_caller_v1\\manifest.json",
+        "sha256": "1a57e2e558d370fee3c701ef8949bd10386a97c9b14c531cb68a3cf2bb96a0e0"
+      }
+    ]
+  }
+}
