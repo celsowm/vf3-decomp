@@ -557,3 +557,19 @@ The adjacent search's unreachable signed-byte comparison remains uncredited.
 Verified C is **264,290 / 434,656 (60.80%)**; **18,237 bytes remain to 65%**.
 See [history fallback](history_fallback.md). The next full inventory gate
 is required at 62.5%.
+
+## Round contact scoring: +512 bytes (2026-10-11)
+
+Callable `0x8c0a7be2`, frozen owner `0x8c0a7bec`, adds 512 marginal bytes.
+Development and final holdout each pass 128/128 strict cases with full
+owner execution, zero skips and no rejected specimens. Eight original
+literal-JSR windows prove stack argument setup, integer saves, MACL and
+return. The executable and 381-file compiled-source freeze precede holdout.
+The affected binding, 39 native suites and 200 tool tests pass. The first
+holdout misses one perfect-health bonus instruction and remains pinned
+without whole-body qualification; only typed inputs changed for the final
+holdout. The final seal preserves the preceding percentage/60% gate chain.
+
+Verified C is **264,802 / 434,656 (60.92%)**; **17,725 bytes remain to 65%**.
+See [round scoring](round_score.md). The next full inventory gate remains
+required at 62.5%.

@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Round contact scoring qualified (2026-10-11)
+
+The round-score routine adds **512 verified C bytes**. Development and
+independent holdout each match 128/128 cases with full owner execution,
+zero skips and no rejected specimens. Eight original literal-JSR windows
+prove stack argument setup, saves, MACL preservation and return. The
+381-file source freeze and executable precede holdout. The affected
+binding, 39 native suites and 200 tool tests pass. The superseded holdout
+remains pinned without whole-body qualification.
+
+Verified C is **264,802 / 434,656 (60.92%)**; **17,725 bytes remain to
+65%**. See [round scoring](re/round_score.md).
+
 ## Contact-history fallback qualified (2026-10-11)
 
 The enabled fallback selector adds **204 verified C bytes**. Development

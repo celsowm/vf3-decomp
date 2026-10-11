@@ -1,0 +1,23 @@
+{
+  "0x8c0a7bec": {
+    "kind": "vf3-round-score-literal-jsr-v1",
+    "entry": "0x8c0a7be2",
+    "call_sites": [
+      "0x8c0c04d2"
+    ],
+    "literal_pool": "0xc0c0504",
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\round_score_original_caller_v1\\manifest.json",
+        "sha256": "35abb0ec5813df1055d4b796cda68841afdac1b49b78f26add471b962e2854d5"
+      }
+    ]
+  }
+}

@@ -7482,6 +7482,34 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0cb65a"
   },
+  "round_score_qualified:0x8c0a7bec": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0c04d2"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10"
+      ],
+      "entry": "0x8c0a7be2",
+      "kind": "vf3-round-score-literal-jsr-v1",
+      "literal_pool": "0xc0c0504",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\round_score_original_caller_v1\\manifest.json",
+          "sha256": "35abb0ec5813df1055d4b796cda68841afdac1b49b78f26add471b962e2854d5"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_round_score_dev_v1/f_8c0a7be2.cases",
+    "port": "src/fight/round_score.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete round-score gates, normalized damage, contact and end-of-round bonuses; original literal caller and independent strict native holdout.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a7be2"
+  },
   "scene_insert_qualified:0x8c09ff12": {
     "callable_body": {
       "call_sites": [
