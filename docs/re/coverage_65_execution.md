@@ -542,3 +542,18 @@ and failed native candidates remain pinned in the final evidence seal.
 Verified C is **264,086 / 434,656 (60.76%)**; **18,441 bytes remain to 65%**.
 See [contact history](contact_history.md). The next full inventory gate is
 required at 62.5%.
+
+## Contact-history fallback: +204 bytes (2026-10-11)
+
+Callable `0x8c0c0f60`, frozen owner `0x8c0c0f70`, adds 204 marginal bytes.
+Development passes 122/122 valid cases and fresh holdout 121/121, with full
+owner execution and zero skips. Thirteen interruptions remain excluded.
+Eight original BSR windows prove setup, saves, MACL restoration and return.
+The unchanged executable's 380-source freeze precedes holdout. Two affected
+bindings, 39 native suites and 193 tool tests pass. The final seal pins the
+incomplete earlier campaigns and the preceding parent/60% percentage chain.
+The adjacent search's unreachable signed-byte comparison remains uncredited.
+
+Verified C is **264,290 / 434,656 (60.80%)**; **18,237 bytes remain to 65%**.
+See [history fallback](history_fallback.md). The next full inventory gate
+is required at 62.5%.

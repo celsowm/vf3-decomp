@@ -1,0 +1,50 @@
+{
+  "coverage_credit": false,
+  "owner": "0x8c0c0ec6",
+  "excluded_body_bytes": 142,
+  "image": {
+    "path": "extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "original_instructions": [
+    {
+      "pc": "0x8c0c0ee6",
+      "opcode": "6bb0"
+    },
+    {
+      "pc": "0x8c0c0efe",
+      "opcode": "922a"
+    },
+    {
+      "pc": "0x8c0c0f00",
+      "opcode": "3b20"
+    },
+    {
+      "pc": "0x8c0c0f02",
+      "opcode": "8b01"
+    },
+    {
+      "pc": "0x8c0c0f04",
+      "opcode": "a001"
+    },
+    {
+      "pc": "0x8c0c0f06",
+      "opcode": "64e3"
+    },
+    {
+      "pc": "0x8c0c66b8",
+      "opcode": "000b"
+    },
+    {
+      "pc": "0x8c0c66ba",
+      "opcode": "6040"
+    }
+  ],
+  "literal": {
+    "address": "0x8c0c0f56",
+    "value": 255
+  },
+  "inference": "MOV.B @R11,R11 sign-extends an eight-bit byte. R11 remains in [-128,127] until comparison with the positive 255 literal. Equality is impossible, so BF at 0x8c0c0f02 always skips the two following owner instructions. Whole-body execution qualification cannot credit this 142-byte owner.",
+  "signed_byte_domain_size": 256,
+  "byte_getter_contract": "The intervening getter at 0x8c0c66b8 consists of RTS with MOV.B @R4,R0 in its delay slot; it preserves R11."
+}

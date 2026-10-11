@@ -1,5 +1,19 @@
 # VF3tb decomp — progress log
 
+## Contact-history fallback qualified (2026-10-11)
+
+The enabled fallback selector adds **204 verified C bytes**. Development
+passes 122/122 valid cases and independent holdout 121/121; both execute
+the entire owner without skips. Thirteen interruptions remain excluded.
+Eight original BSR windows prove setup, saves, MACL preservation and return.
+The unchanged executable's 380-source freeze precedes holdout. Two affected
+bindings, 39 native suites and 193 tool tests pass. Incomplete earlier
+campaigns remain excluded; the adjacent search's unreachable branch is
+documented without credit.
+
+Verified C is **264,290 / 434,656 (60.80%)**; **18,237 bytes remain to
+65%**. See [history fallback](re/history_fallback.md).
+
 ## Five-entry contact history qualified (2026-10-11)
 
 The complete contact-history updater adds **648 verified C bytes**.

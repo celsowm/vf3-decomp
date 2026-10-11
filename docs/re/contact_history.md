@@ -20,6 +20,11 @@ milestone grants those dependencies **no additional coverage bytes**.
 Parent qualification exercises pattern search and the disabled fallback
 path; enabled fallback behavior still needs separate qualification.
 
+The subsequent [fallback qualification](history_fallback.md) verifies the
+enabled selector and adds its 204-byte owner. The adjacent search retains
+zero credit because its signed-byte comparison leaves two instructions
+unreachable under the whole-body execution rule.
+
 Four development campaigns refined the fixtures. The first exposed null
 input-table pointers, and the second exposed unsupported native helpers.
 The helper port then exposed a scratch-register difference on the disabled

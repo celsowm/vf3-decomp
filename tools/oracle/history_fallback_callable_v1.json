@@ -1,0 +1,24 @@
+{
+  "0x8c0c0f70": {
+    "entry": "0x8c0c0f60",
+    "kind": "vf3-history-fallback-bsr-v1",
+    "call_sites": [
+      "0x8c0c0d64"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "r8"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_fallback_original_caller_v1\\manifest.json",
+        "sha256": "3b4379b51346973499b8e9712570001ad4f70d7cb4a9ea9b7839e074dcc5ced0"
+      }
+    ]
+  }
+}

@@ -4905,6 +4905,35 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0ca8c0"
   },
+  "history_fallback_qualified:0x8c0c0f70": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0c0d64"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9",
+        "r8"
+      ],
+      "entry": "0x8c0c0f60",
+      "kind": "vf3-history-fallback-bsr-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\history_fallback_original_caller_v1\\manifest.json",
+          "sha256": "3b4379b51346973499b8e9712570001ad4f70d7cb4a9ea9b7839e074dcc5ced0"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_history_fallback_dev_v2/f_8c0c0f60.cases",
+    "port": "src/fight/contact_history.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete fallback-row selector; 122 development and 121 holdout native matches, full 204-byte owner including enabled table scan, tie rules and seed fallback; original BSR/save/MACL return proof. Search helper is explicitly uncredited.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0c0f60"
+  },
   "matrix:0x8c03b450": {
     "golden": "extract/analysis/matrix_final_cases/f_8c03b450.cases",
     "port": "src/fight/matrix_family.c",
