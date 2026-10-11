@@ -143,6 +143,7 @@ add_library(vf3core STATIC
     src/fight/round_score.c
     src/fight/round_transition.c
     src/fight/settings_menu.c
+    src/fight/render_lanes.c
     src/fight/scene_insert.c
     src/fight/task_driver.c
     src/fight/task_callback_selectors.c

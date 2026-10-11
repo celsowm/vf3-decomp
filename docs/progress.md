@@ -1,5 +1,18 @@
 # VF3tb decomp — progress log
 
+## Five-lane render commands qualified (2026-10-11)
+
+The five-lane command routine adds **370 verified C bytes**. Development
+passes 128/128 strict cases and independent holdout 127/127; both execute
+the complete body with zero skips. One interrupted holdout remains
+excluded. Eight original BSR windows prove the count argument, saves,
+literal pools and return. The 384-file source freeze precedes holdout.
+The affected binding, 39 native suites and 221 tool tests pass. Owned RAM
+command destinations grant no hardware coverage.
+
+Verified C is **266,150 / 434,656 (61.23%)**; **16,377 bytes remain to
+65%**. See [render lanes](re/render_lanes.md).
+
 ## Settings menu qualified (2026-10-11)
 
 The settings-menu routine adds **640 verified C bytes**. Development and

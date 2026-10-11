@@ -603,3 +603,18 @@ and the second pilot's two non-RAM specimens remain excluded and pinned.
 Verified C is **265,780 / 434,656 (61.15%)**; **16,747 bytes remain to 65%**.
 See [settings menu](settings_menu.md). The next full inventory gate remains
 required at 62.5%.
+
+## Five-lane render commands: +370 bytes (2026-10-11)
+
+Callable `0x8c05d424`, frozen owner `0x8c05d436`, adds 370 marginal bytes.
+Development passes 128/128 strict cases and independent holdout 127/127;
+both execute the complete body with zero skips. One interrupted specimen
+remains excluded and pinned. Eight original BSR windows prove the R11
+count argument, saved stack slots, original pools and return. The unchanged
+executable and 384-file source freeze precede holdout. The affected binding,
+39 native suites and 221 tool tests pass. Owned RAM destinations receive
+no hardware credit.
+
+Verified C is **266,150 / 434,656 (61.23%)**; **16,377 bytes remain to 65%**.
+See [render lanes](render_lanes.md). The full inventory gate remains
+required at 62.5%.

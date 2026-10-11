@@ -1,0 +1,2640 @@
+{
+  "passed": true,
+  "new_bytes": 370,
+  "readable_bytes": 266150,
+  "total_body_bytes": 434656,
+  "remaining_to_65": 16377,
+  "frozen_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_dev_v1_complete_sources\\manifest.json",
+    "sha256": "da22b9774c436f3692582bf40635c77c57c647509f7319e35362fd46a93b4b5e"
+  },
+  "native": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_dev_v1.exe",
+    "sha256": "4253bf95420d12a5e0a56e074e1841ac5ebc71b115b630a1ddc638ed608b52bb"
+  },
+  "observer_sources": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\task_return_boundary_v1_linked_sources\\manifest.json",
+    "sha256": "261c24c339a8d78b6d6a8ce55e83d4ea50f951c7533b0b1d46ae7aef27813f73"
+  },
+  "emulator": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+    "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+  },
+  "image": {
+    "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+    "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+  },
+  "campaigns": [
+    {
+      "valid": 128,
+      "excluded": 0,
+      "complete_body_bytes": 370,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\batch_manifest.json",
+          "sha256": "0debd3cdbda697134d6576548999fe2c4eec06a2250f6b463450fe2de7c55b91"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\capsule_manifest.json",
+          "sha256": "7eacafb20e5d5cdba36f72faf18f4b20bd995d556d53e6ce4b819cc7389104d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.bank.bin",
+          "sha256": "3d3c8a09c50538db4269634982a4b7dcf5396c58e1cd2ef41c0a1e9dce1e2dba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.cases",
+          "sha256": "1242f8e5fac01ae7a14249aa883a86c23181e57a28f61f7a2a0ff0bbaf4c9e8a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.dev.bin",
+          "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.extra.bin",
+          "sha256": "cb20b8168dc2ef15f07ec2b541a12732af41aa9a9368e1b8848f6b2cf408fc78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.gbr.bin",
+          "sha256": "9df3d860d7153f26f6153538a4d208aef3e274a2248f228a53a7b40be6c2a34d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.ops.json",
+          "sha256": "c033dc005c3ea46f4b16a193b9de399c817d4451c9d87b3a212a8ddc8ebdda3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.xfin.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424.xfout.bin",
+          "sha256": "a48b2422be4d28be700c9d56bacbba81ef18d3552f198d1ebc78f10829ec409e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_0.in.bin",
+          "sha256": "eab346d81f06be6d03bc714354907a05d9b74c30e62cfe18865d8d697264c5bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_0.out.bin",
+          "sha256": "c931cf11ca15ec27898e4c28f9320a910e7047192291fd0b1b7d2dda753294a2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_1.in.bin",
+          "sha256": "d14319736acc97eac3638e6e3311b7ee173a9ae187a1bf25734b2e86bc514361"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_1.out.bin",
+          "sha256": "2e6e27a02aa6ff3e9d1f092f360debb3f9f6da97042e60a17c924facc79e8dc0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_10.in.bin",
+          "sha256": "21646723863691705cd4edaa212d2cad9b698d9b1f97d22dd562e712d00b6bec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_10.out.bin",
+          "sha256": "208afc4014e8a624635ac3894a5eea59d7f9aca33f7c2e4608518c1677780558"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_100.in.bin",
+          "sha256": "70f760288b88069ba8b120cc542196b8e0d37f50ccbc0c4291fb74b934076ed1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_100.out.bin",
+          "sha256": "657f8901a0d6844403445ca54ff971994105a6f715562e0b886c36c5888beae1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_101.in.bin",
+          "sha256": "02c09a5697043bcbc2aca7b38b4f74fb1d34ff441b3515f2c5d82fef8155230f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_101.out.bin",
+          "sha256": "5840e6194c5e6b025379fccc5a2e94c98705e0d29f0bbbd649848e80a34988ec"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_102.in.bin",
+          "sha256": "ac4c1c1676e0f1e17bb0f24610d61cef5c56fb522f799d696fef1e2810f123dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_102.out.bin",
+          "sha256": "bca242d7b6a3334c794087606e15c0acff9817a36b6aed405211b07f0a90205c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_103.in.bin",
+          "sha256": "09ddd0711bb6d49abc7a8fbd3f3e285911cfe01708481f73f20c10b143c9bc7f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_103.out.bin",
+          "sha256": "3cf518202f28facb00c5bc80b587ce2135c621a6563d43c0ff849e3a4b4803f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_104.in.bin",
+          "sha256": "13d11defd5c4e111f62026887e6cc78fc0da0031f8486574577af74b55230f6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_104.out.bin",
+          "sha256": "c3d8b9f593a343cfc13dfc9eac7cc31bb2c1513d1fc9c80513dfb8bcb0ae1512"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_105.in.bin",
+          "sha256": "8e6224748a1141f586835b76af9a0400a1352fcbd7e96d5df481ab450f1f19cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_105.out.bin",
+          "sha256": "b54a02c9304251267a38208d2d86a8110f5a04e229b58a60ad4b5abd2c268e52"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_106.in.bin",
+          "sha256": "92f3e8b57238b3fcd3c803c22af0d0fb285d559a880faaf45899bacb1a5142c8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_106.out.bin",
+          "sha256": "27bca463405e75fd39ffa1fa71380f03955cf5e49456bfd7011290115573ee30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_107.in.bin",
+          "sha256": "479e45c9bdba956cf9e437f83832cc1ed434f907d090dc5d9fbfa1fe54cc9776"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_107.out.bin",
+          "sha256": "a676bfdcf9b079778364aa20f688c9d0b6c04a6cc8b45910ff996fd7493ed1bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_108.in.bin",
+          "sha256": "467463fab61e625839dbde6c3e9fcff124077a56b07d343493513069ff68a116"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_108.out.bin",
+          "sha256": "729fb024acafe9a55a914f25d6a8005eb9669ccc6cda2bb9498514836f49265d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_109.in.bin",
+          "sha256": "b4cc6dac955ecc4084169d68c0efe8c3132716d7fb888703b8773c62595bc47a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_109.out.bin",
+          "sha256": "3cfa314523c3d1dd7a0b5984f85c1f15e8e7089934a940d5b81c42064b7f5590"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_11.in.bin",
+          "sha256": "274bd9c23eca8f8bfaa971b7dc8029bbb8ea920c7bb217e6714923226c0e19db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_11.out.bin",
+          "sha256": "104fd3351917fa1487db4200d0658814d90ef049c2e0589b41b37cd7093e8945"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_110.in.bin",
+          "sha256": "4f01926a723b94faa06c5c80dcd16a05d46ef440af9693212a6acfe4a500e16e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_110.out.bin",
+          "sha256": "4ed62508ac2953d0c7dc889e0a987db71f424969e7393f99df50898eb556f94e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_111.in.bin",
+          "sha256": "cbea685cc1104fec5f04b9f89ceaa246380a780596d0159943d103843bafc999"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_111.out.bin",
+          "sha256": "0a722677855a6fb65b5f5d9239b5593f879750de4d52e037396dd0d08b85b38c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_112.in.bin",
+          "sha256": "0545d52fe051610858d0c9e86db7aa81fff76c9e712d0e7637a0930476c3e4d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_112.out.bin",
+          "sha256": "689bf352daceb07fbf1fb1e9d26850c4f6ca691e37b14e64bed0a3220fa0bee3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_113.in.bin",
+          "sha256": "f7a8216018847fa471a29a8ecc2a79129a7ede97198f604db8dac24db81a77b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_113.out.bin",
+          "sha256": "3f1b4d2d931e960c14d0489bf175a61aea495c25ed273d95d9f696e3412095d5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_114.in.bin",
+          "sha256": "4f23ea40185a96d469bd290b58d9138ec764e355c8268d92e13923715b163175"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_114.out.bin",
+          "sha256": "cb5cc983fe5f7588509b8653e4d99f053614cb27c10d8efc214c6d640268b6f6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_115.in.bin",
+          "sha256": "f44516e09b71c2eb71d5608ce6e195c5a786c91ffe692c634057db96d9203de2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_115.out.bin",
+          "sha256": "75393480609221f8fc7f9d7444cf027aaed97a3d072616b2352136f1b4a2d8e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_116.in.bin",
+          "sha256": "f027ac98a227bcef97bd6cc94f547292b8e561ff04ca49caddf55f7a370b3e57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_116.out.bin",
+          "sha256": "89a09ac3d5383f3d4a9cd5e6061b740bcfbae998a924a6026b6b8abd6aa9f917"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_117.in.bin",
+          "sha256": "b6f693adc025aadb012e89bbffaa6410b65918eb76d4a1bba9acb61b46441609"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_117.out.bin",
+          "sha256": "bbb7f39752dd0c6723ba21dd06495af162009801d1149ef98e24e15dddd96a50"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_118.in.bin",
+          "sha256": "3813bf5e4fe7fa2f5473b9f4a00ff2b3e44875f319075920c0d0c569a1675c8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_118.out.bin",
+          "sha256": "ae300e0accc2be3cf39334c0891ba7d686f8fd9af5334cc0afb193189fc40ca8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_119.in.bin",
+          "sha256": "02405fa08f4c153e597f419d66f53a54643d257d7bcc65bf03da63aa0dc40448"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_119.out.bin",
+          "sha256": "28034f5bba4711634d5d4ed2dc227458a1c23de94ffea5a20023976e2de801c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_12.in.bin",
+          "sha256": "d1f97705da73b4f899e41c6ca831df2c047d0e49c5acefd78f4805fdbfefaa1f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_12.out.bin",
+          "sha256": "c321640c841c87471d32eebdcb926a2e728b64fdafecd58f1c2c237d794fe6ef"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_120.in.bin",
+          "sha256": "753667cbead2189d765dcc7ef6c94e0f266fdda05de47b7e7c8938b9641d8990"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_120.out.bin",
+          "sha256": "0a26ef24c4a40d8338e873a5d1a78f4955aa2448ae28c42ee5790118d1956060"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_121.in.bin",
+          "sha256": "6b66451facc812e65603af6d8bf5a859ec56c4aecb42184abad96f62bb7b95d6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_121.out.bin",
+          "sha256": "e818101d41c6d9bb2aaeee58b741109a69da5b4e6dd3efca7fdac9698d146678"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_122.in.bin",
+          "sha256": "8b062dcd3b70bbbf6a4fe5a40a92014234b30ffe41a1b4db576ea839560a9101"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_122.out.bin",
+          "sha256": "7a068931d214aec60d2e815ec1fe5d2b4497d7825449f60f7fbe0291f6bffe2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_123.in.bin",
+          "sha256": "3d1cdb7297e123a8e549c6d89ca016ccf156a8f706c5353ce4aacdeb45920a6f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_123.out.bin",
+          "sha256": "cbc7fde5202a0f7c47213c8c8db1c2026bf3b601c0d9af0b0696a100a23bc856"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_124.in.bin",
+          "sha256": "4fc0ad860e6ff8d7a7ed0cb069fd096fe2c69bdf85c66156a0a1896b8a510f6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_124.out.bin",
+          "sha256": "33bd9d3827fafca51438fc2c31486d2732e98fce77c115b0a0cc0b3a1fa1d024"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_125.in.bin",
+          "sha256": "2094d7c8d67faaae5a97793ed8f8a7c084ce1411bcbff84a801dcf61f0db053a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_125.out.bin",
+          "sha256": "d31f770af85f3549008956be702eb3aaa135df8ee889bbf551fe46f6d30f4450"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_126.in.bin",
+          "sha256": "56dda8800859c0dda5cc2856071822cb3078100ef1821bd2004aec73e18fcda3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_126.out.bin",
+          "sha256": "ca188e642a81302c372627b809ae757b44b6f8793fc72921b4a0661ec28765db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_127.in.bin",
+          "sha256": "56415c81781b0c1af1391f49e63f277c6ae1ebe7be9c13c833bb6f7ff29600d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_127.out.bin",
+          "sha256": "8075eafbe3f2e4c7202a1a8ff02cc8ef788c07371d98325e6858fdffafb93630"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_13.in.bin",
+          "sha256": "acce0c56c6fe4659140290fc9c634934139612f270468047ab03bcb6cbacbf92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_13.out.bin",
+          "sha256": "15c88d7224a93d3cac0b9ff7b457ea8cb1117784ca7689bab71b7ad9fa10e059"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_14.in.bin",
+          "sha256": "09b93a44b9379d48e28371ddad549581a8aa3582553e05cf7b992e751f512a1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_14.out.bin",
+          "sha256": "148359a86008444d3cfc72d01de37013e7db8258b343ab4777dcd056e37d6727"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_15.in.bin",
+          "sha256": "84d507658985e1f0098deaefe711f2b8cf320a25e0f479f01eb3c3fa0c975bf4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_15.out.bin",
+          "sha256": "442717ec72f38723dec0e82db90d66025d310712b1199e7581b6ef9b5ca55d81"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_16.in.bin",
+          "sha256": "ac994c6a9319ab77e1f925ae908827530655bd313ae498afb0612425b51628e6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_16.out.bin",
+          "sha256": "8282c60f2c92f59379082604a7553207d823a8d1f6e34db5c71006f1cd7bf2bd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_17.in.bin",
+          "sha256": "b12e073b9837fa5e4aa81b7283a448316590e2c22e2a2796a7348ab555a26ff4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_17.out.bin",
+          "sha256": "de788eccce90d64a003301ec0d3823597f4d85887cc04105eb2eadd38b0c79e4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_18.in.bin",
+          "sha256": "3d1401b9a64da04f077149107de4b71517107fbddc2a1e625d874a02726ba8e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_18.out.bin",
+          "sha256": "482f4346abd2a1c7468685189f1bc3b935c50e469e83af79e601c294e258589c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_19.in.bin",
+          "sha256": "f15983953e8214ec6c12199e1f96097750a6302e3040afdac89e4c7bb37d5840"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_19.out.bin",
+          "sha256": "44712aeedd484820112758edf59b60099122308a99897a3830350a6883818e5f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_2.in.bin",
+          "sha256": "03f11c68c7cdf1a9d211ee0422be0f3854ef9de9f1a4deeb18c26325106700d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_2.out.bin",
+          "sha256": "77889d71af9aa19595bea507b49e8a7ffab530c9478134255df150ebb553b477"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_20.in.bin",
+          "sha256": "a912f546f067c4034f14402bfc57ee51625898fd9cd66cdc36e9e68b293612db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_20.out.bin",
+          "sha256": "b5137061b9231aba4d6869a45dfbd6a57cd010a8adce5d8b4e1f0c90adad912a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_21.in.bin",
+          "sha256": "5fd767bac2aa2eacecec025985c7cf1895b7d1ea996da9db2d29d25647abdc44"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_21.out.bin",
+          "sha256": "b6fa035e562cc5f5c1277c6c26b80908c6d529ca4026acb6bd8c4c7075b4c0a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_22.in.bin",
+          "sha256": "cad2d603587ae442680c414c3d27a2f0207d950e4edc5d1b5258c4f3e04732fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_22.out.bin",
+          "sha256": "966ee66eb04c1020445590c43ddb330839bd2a6f7225764ee8cf8c8fead260ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_23.in.bin",
+          "sha256": "d5c2845ae7196ba257e002d58880481a077b244566ded70716cb30fe6a77c840"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_23.out.bin",
+          "sha256": "95b6c578ab9bb0d7fa82014469951767f5ad6806636d523b1ea30978f1e3e0e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_24.in.bin",
+          "sha256": "bef9e44e5185821f9ba93c6d6dfc982dad80fda9aad63e79da2c84613959f78e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_24.out.bin",
+          "sha256": "b8cf329ed6cee4b0b93184d3bbcca0f75309bbed3284bcfba1bcc2e0b9917682"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_25.in.bin",
+          "sha256": "fd7d4e8326118038a457eefedd5e24ce983e9d3c0a3a07dae5ea6351b23a13b7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_25.out.bin",
+          "sha256": "96726dad7d1c7c330c9ed5190785236d1f46d4acd441d9b9c7602d52fcf7b6db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_26.in.bin",
+          "sha256": "cf23e5ea5b8e444d971a21937e5909645a5414fa4e6d17f2b4f3e0a0c94d5432"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_26.out.bin",
+          "sha256": "d23b30392d7dc12f412bae0f1faf73418b7b12185f81263b998d167751e9a208"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_27.in.bin",
+          "sha256": "273ac7557b0b838a0e527f5e41f831fd749199726c418185eedbe0a5cba2e079"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_27.out.bin",
+          "sha256": "953b4f2c6c96ac0b0d36439dad2470160063baad712e5ef2e6830514ea574e26"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_28.in.bin",
+          "sha256": "48ff0efef0647ee3acce250269403d2c677233535fb0243103139ba135d50c33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_28.out.bin",
+          "sha256": "20125eaa2307626a7e06594991eba54c77bc7d04c05443efb7f8752cbfb26096"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_29.in.bin",
+          "sha256": "29d8002e31778dca22f824e5f3f58f43806db3e5659677c791ccf0e7b1036b43"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_29.out.bin",
+          "sha256": "827e880f4d0c5f5d1bdac464ee5e9e967c7cba6e5f892b546883eee7a8372390"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_3.in.bin",
+          "sha256": "8bcb24bec8b7bbb4c7c5bfc78f39a408a4ef24c0d36df9a540c1839aefbc68ed"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_3.out.bin",
+          "sha256": "56088e8229f80094cd214922cf5e3e20ee1529d436f3251df35ef879eced385b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_30.in.bin",
+          "sha256": "d83ff8204813617e2418cd9f133e9f7624f07b46b3b8080139867c7732cba79f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_30.out.bin",
+          "sha256": "77dd81bec9b23fc54a317b0804f4c63a0840a2b1dabe04cdf18e2d237b7ccf9f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_31.in.bin",
+          "sha256": "ef97f150f4a40f751db59c6954d4489034c03cecf445055d4eb577e04e281e41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_31.out.bin",
+          "sha256": "6ad6dc40a766df77344b730fc2ae4b69cb42c532c346a3c361c6bfa09b79565a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_32.in.bin",
+          "sha256": "c0340488c2ed8ed611b87bd4c01fb9fb190d8139c8bd52176221cbcfdf015713"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_32.out.bin",
+          "sha256": "4808e462a364a168d7c21670a8b2ad2c3acedcfb48d96815bd6071a0e34a76e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_33.in.bin",
+          "sha256": "8a5899bcb82a19222976c57df95651e779f4d954311d2076e7a2b3a1ba570ea6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_33.out.bin",
+          "sha256": "8e44d9076d99c2258cfc43add44738d4ba1816c5e1aa98b146bda4866ac9dc2b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_34.in.bin",
+          "sha256": "a86fbc01b3d760229a438c0f2a2e4593ab80ac8792f7c0f93b9b0e2522adfb1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_34.out.bin",
+          "sha256": "0582efdc3c4457cc7b8d4aea90cc5e36e0c2c5174a63b58ffd17af5b59f48619"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_35.in.bin",
+          "sha256": "001a277c78aabc51a50d0d337e830a2b55f5f705d06d35cd8e5b8357841e5e67"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_35.out.bin",
+          "sha256": "e3c7795534a20d17d1f55964f8fddf5a8f54c9c5923143c0d2dd6ff45418969f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_36.in.bin",
+          "sha256": "36b5da4e1963d83b0018a12408923fe9c712343f933c7bdc72a48d74e5c7241e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_36.out.bin",
+          "sha256": "6e2152bf39b303f08d448f030270bc3e313ed020a8da5f86ae6ef204be31ec33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_37.in.bin",
+          "sha256": "2e9dabdf86a58014c7f0fe3d008ef7b9cf4db27f7b4f43c706d432fc29f57ea8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_37.out.bin",
+          "sha256": "9e487095c0c53965d368ed944344d50cf16acba71ec8dd433319d743ceaffa09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_38.in.bin",
+          "sha256": "5ada4ca8fb0171a3a768e52b5f4bbde7b4661d901a1ea837519339aa0d2c9c99"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_38.out.bin",
+          "sha256": "e8a97d75f2822109e1f2040dc4f6707003aa08c03ecc011d83fe26ba735684a4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_39.in.bin",
+          "sha256": "928ce13e71257d7341006b81a93574fab6b453bd1c643a228a87332134deedd6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_39.out.bin",
+          "sha256": "f202773fc57e3b27b78a001914af175a8f5a8d61dd35db8d5c61a599cd84ffcf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_4.in.bin",
+          "sha256": "3bd8f2ce99e03214634768b4e2062115de9542af9d79a9927c01e4b9d3d59116"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_4.out.bin",
+          "sha256": "ca9a081be67776825a1ac554f372233887a924adad459ed5e43595d4584d4742"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_40.in.bin",
+          "sha256": "71bf9510cef91c61f4dccb045342bebfeeebe99fbc28a7351d11804ffe5d3d33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_40.out.bin",
+          "sha256": "096064048011b2ab51bde255262afeb2728159c0c625ef54d297df24ca4e9292"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_41.in.bin",
+          "sha256": "1f4eb8980f7a147699dcfca7ce51888a56fabbb46c4dda88330c0d2debc56b23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_41.out.bin",
+          "sha256": "7460a4597ed31120389d9012bffe65829a8209679353b69d0b2ecd82ce0b0b45"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_42.in.bin",
+          "sha256": "65fcd465ea3ce57eeac72cdd531c32457e97b640614c1085e81e15b2a35c176d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_42.out.bin",
+          "sha256": "fa5edac79d2a4b7ad7f2e3cc24ee7261f5107eccfcebadda438f1d29cb183894"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_43.in.bin",
+          "sha256": "35176fd340defbf6cf7eedc96980b377bb748707a3fbfafbc4ec4646b8f29a1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_43.out.bin",
+          "sha256": "9784876cf8ced476f3079ac8d6953a36946a94e15ef003ddec64f301e9ad932d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_44.in.bin",
+          "sha256": "6e1bd3fb4d6fec51e0b6d0549648ed3159d5fac929e60d968afd92a4103191fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_44.out.bin",
+          "sha256": "d739c9c15022aaacdee00b904ce65f6480b8d862eedbec60972374f83b81758e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_45.in.bin",
+          "sha256": "2380ccad5786c9783adce64bcd5ec79e2b0982dbbbf1174203e30e9d46146416"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_45.out.bin",
+          "sha256": "ac5e92c6cf2be09f9c62c1da0351f151831f7ef4fe901f8a5a735b42d74a2a77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_46.in.bin",
+          "sha256": "b35cca3f54a9e90c1bd68dce79998f931cf58a621e51aaa4f52b0e478d273746"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_46.out.bin",
+          "sha256": "d512ab211996a9aaab0b9edbc4d146aaa489f55dfa3d968020b32655b9051f3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_47.in.bin",
+          "sha256": "d7f647c83da9613feb20c5795516c0fc6b0fe29ec3f67e161c566b3e3d72a622"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_47.out.bin",
+          "sha256": "3bc18b46a35c0cf30615becbfac919940fad1600a6f034fa669db5b9f9eea8a7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_48.in.bin",
+          "sha256": "c57ed743bc1821b48aef5bc395f49ffaba5d3425aaa2b5494f9114df69ad6638"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_48.out.bin",
+          "sha256": "487c6252e1401e622d9b9c5771d02f97d88d4fbd14db2f0d1e457da608a28b64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_49.in.bin",
+          "sha256": "ac19e0a776e068044c62e1a7815ffc2e1c3cd172a4b2863ba21b2a1c2f55e8bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_49.out.bin",
+          "sha256": "b5f973dc8706cb9df6aaa850b91d562f1a2aff226bc9444990a0a651f8373e25"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_5.in.bin",
+          "sha256": "316c3aa8a916ad81c852ca7c533d14ee89cf7efbe75ba0e7a39785d76a7d56e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_5.out.bin",
+          "sha256": "12fa5b3188cd9d637862a3163f7fb5465088fc174a4b15ed49373661e445284c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_50.in.bin",
+          "sha256": "a57789927bcc3f05831ad6a4deddc6e9bf3e7ade5ee45304fd658ca74e0d0c59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_50.out.bin",
+          "sha256": "b7716fa814be91fec08d8f394ad94d712b4d9ffccae92f362c934891e840e41b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_51.in.bin",
+          "sha256": "6c398b979e98a0dc78c28aa01e6feb67210dff3b5ebb184c1a2a83dd0dfb486d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_51.out.bin",
+          "sha256": "bf3807e81a7245a9c318e8a2c56ee87ebad81b10289893eb442dc4be44de36a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_52.in.bin",
+          "sha256": "70909c957d3d3b58915edef5fa8ce9d1496f5fe7099209a09e803bddd997e58e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_52.out.bin",
+          "sha256": "cca765cf85919e3a601ab79440d1854d23b5e3631adc3e6bcb3a7c9f85ec1609"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_53.in.bin",
+          "sha256": "98af130d566a2229afa756aec5f30e4e1a2e073cddeb1ab4368ca49921eb962d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_53.out.bin",
+          "sha256": "0fe26927929620ccdb7a14f26ddcb1a8a7f3f806f32429ffa53d219d976a50fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_54.in.bin",
+          "sha256": "424fa227cea96e2d6dfd853d0b16b4568840e8cb21ade6d199dc3f004c95a4c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_54.out.bin",
+          "sha256": "59dfd4af63fcb2b24f2a8acbe42552ca154468c2a93c705ac85343d28ac40f54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_55.in.bin",
+          "sha256": "3217b782f2f3b2895a9596c8fbc92e827be7c3a5af595367ea650984244e313f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_55.out.bin",
+          "sha256": "15d479cfe97c0568196728301a3d5e673fdb1a3bf6ba6fc555540143ff3c6c9e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_56.in.bin",
+          "sha256": "2c75a81ee0778293697e52f466889a0cba90e03222bc392ec497634ee97e0099"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_56.out.bin",
+          "sha256": "e6913ebcf71a772708c3e43596802043d6a94806b8e640ee24628eeedea92cc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_57.in.bin",
+          "sha256": "b60b43b92d3a5b61f0ddf8946a72a2dc32780612e65906e64a6892b6667a16bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_57.out.bin",
+          "sha256": "a0d81a1ed5a61790373355bbaf44c409f657d7357767a35eb5476da7ef2ca307"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_58.in.bin",
+          "sha256": "a6243de49e3c729f283d93723664712415200be917a5f4f1d5e2032f67d671e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_58.out.bin",
+          "sha256": "aff59d0eafcebe699ffc2afae4f5a06f25f0b54f818baf02a3e3041701333a4e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_59.in.bin",
+          "sha256": "b98fee275bd5cce5c0179c9ce051960b67939095ab8040159b9183a2a84201a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_59.out.bin",
+          "sha256": "4fd608027eb3a38a30500af5d7ca1a76a693f34766fdbe542129eea801537e73"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_6.in.bin",
+          "sha256": "52b75ff8da58da7c0b8f81af7f5d5db72f9a9c10f6839ddfe710fe7978a82f7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_6.out.bin",
+          "sha256": "218be8310071bef9bae06f588d38326dc49e377f73c839b89d1452db80947bc7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_60.in.bin",
+          "sha256": "190d783a0164d57c1db44e86d2e75e02d3e3f4561984cf27e160c19ea51a1ed6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_60.out.bin",
+          "sha256": "519b5e26485df7263865cb286ffdefaebd5c6ce09b4137132b75e191c979a14f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_61.in.bin",
+          "sha256": "d5c3e3c267cec23ccdd08ae00ec5844dea4499381589af1a35d56f71ec5670fc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_61.out.bin",
+          "sha256": "3d8f7179cdfef3a9828afadc56a8e57569cbf24347537d945019acc12883717f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_62.in.bin",
+          "sha256": "3389092e674ad5acefeda49397faa53d186406ec02d10f4cc3778a50ca90317a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_62.out.bin",
+          "sha256": "33df83f5258a390e64004dd0fb134f999e21af4cffb5058a2ac91f21ddac00d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_63.in.bin",
+          "sha256": "090a79297fc7ca1929f6b0a940340d67f5ae11bd24d4a110afa381394d17d799"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_63.out.bin",
+          "sha256": "f07eaee1efc3cc1624c9b4eb7d0bb6a130b91054a6db914480871851b3af5ca3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_64.in.bin",
+          "sha256": "a6310336b54f22b560102215660b13a9ba7ecb5035b6ce05747c53a52f266b70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_64.out.bin",
+          "sha256": "96cda2271dfbea6b3e3784f164050d3d9f8536b53e6202cd3a6bffafb9891f70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_65.in.bin",
+          "sha256": "b5c44d20ac86ce6af3df1cca114c04c221ff6bee4b51b867cd2bba29b8e5331e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_65.out.bin",
+          "sha256": "4cec871dcf94e2532791ef1f27f722ed96638e894d1a4a6e673f0707d58f74c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_66.in.bin",
+          "sha256": "81995419dcdded15d70f618cbbe219a0d6dc74b11aa7b730e3d4180e252b1da0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_66.out.bin",
+          "sha256": "5c4064ffbd04a3063ad92932b81d54659e3da472765cf56938824688297593b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_67.in.bin",
+          "sha256": "52af45a1b203c98bec931e03b922df3252e13208ab3e75832a57237bcd92ae02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_67.out.bin",
+          "sha256": "bc7adc40d887a86a6417667236e897465e3f2214a02a06f5999b097f72322a68"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_68.in.bin",
+          "sha256": "994e529723b24829a275d41c14102d4c5de03f23c6a6b1b36f9d41711d952e0f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_68.out.bin",
+          "sha256": "07154a72d6e9c59ff8391c347547a2f91fcceebf0eb2aca8fa1e1e7414b249ac"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_69.in.bin",
+          "sha256": "f8bafab7e2328d02d2de106409db44742fe62a8c0c2bdeb0518516db16807856"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_69.out.bin",
+          "sha256": "801ca2b977fb115ccb90d8053c31a29e8159e08649915adc7a0a7020d1159262"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_7.in.bin",
+          "sha256": "cf45bd2115a44e93fdb06e9f85b7fcee6a808ae41151788240f1b1aff26d7b3f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_7.out.bin",
+          "sha256": "acb29fcb165f4079945eaf2d27159161b034d40ce026dbaae48b23c0c8ef3850"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_70.in.bin",
+          "sha256": "535a3057f20e3bb4a63e9318b04447f61acdfbaa3332ef66aaf3da6120c54ed1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_70.out.bin",
+          "sha256": "036f72a195e6e19b14829a3ece58ef9c8e0a294502ee01bb5dbf2bb810319502"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_71.in.bin",
+          "sha256": "47396b2f9d85790258b2a4d63f8d48a830ff65e3107fe3ebfe26112cfade94b8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_71.out.bin",
+          "sha256": "dd56d519e6038368561d1de01872ce73e24087d403572e6b274d6f99355b993f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_72.in.bin",
+          "sha256": "0538263b5b54806ddc799ce1a71eb5ed89eb0d1c009971cafac4d0b4336bed8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_72.out.bin",
+          "sha256": "d6dc65c9b791bc1deb26777bb08f989e90ed6081494f7161c023f90822f73151"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_73.in.bin",
+          "sha256": "55dba6a4c0c1bba73306aaf3009c64f935f09d7666067ea1a9bd4eca166ed711"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_73.out.bin",
+          "sha256": "3fc5cb03308a174ca585be9414a087e7a071e4f57b6a26f8f276f867f7de35a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_74.in.bin",
+          "sha256": "a06967b75965944986d3e4441d9ce563a30b18b80d83d29a9f192a4e305bb516"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_74.out.bin",
+          "sha256": "5e6008d0418e02b0af6ba85a127157c2a655edaa3f3823df0d7d1d6dbbbd9bbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_75.in.bin",
+          "sha256": "0fb1754d8e47979f299d7df7b53d644f93573238d1fe613907e901e6f81b00e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_75.out.bin",
+          "sha256": "45fb6659ad921fac4c81b6ac8805eadf46b3b23f1a46e0a30a4349944d042626"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_76.in.bin",
+          "sha256": "6b34450b2f485e23483fd14e73bfb9edcde5e392e35f9d77ea5f653d8ba13ef2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_76.out.bin",
+          "sha256": "56a17e8bd2bd2aa7f7f5c1ac6e79f2ed9c0222142482762db0ba82fa7d0941d9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_77.in.bin",
+          "sha256": "30cc9b244eeef9d0b2867053e8f882ed9a6bea3859014cb8df4b085002d9852f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_77.out.bin",
+          "sha256": "52f1322452d9527f9567110128916435a8dde8cd0cf56aed898d0b30c18dbb94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_78.in.bin",
+          "sha256": "4a28599b02576fbdaceba498cdbd0ed39dfac14914ff1bd200f3fe0af8e70a38"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_78.out.bin",
+          "sha256": "49949b51f0d914d9ba77ca4bd8dc40048020f44a09c4f09eb03418e9abc93806"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_79.in.bin",
+          "sha256": "3f136004b6a336e28e24a36b5f2cd75812a64f30813205d4358de09e0c3828ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_79.out.bin",
+          "sha256": "8abed58194411e33350adb125f6dd1c42d72b53258f16076cab0390a22d32b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_8.in.bin",
+          "sha256": "c0ecb69d493cc1374c280ed7e3d04ddb8fd7b258b0080c358392974f526213dd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_8.out.bin",
+          "sha256": "08f7c16cbd4c9734d57df7c4078dd56bb8f652c5602856de25ff5e45e7733b59"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_80.in.bin",
+          "sha256": "00910c03e1e4940f688ef6bb3ebdc294f51a775eff8b720f9be68c07ce403d62"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_80.out.bin",
+          "sha256": "c19bde4fad16f3ac6964eddf073de12272e2b2741c084a3f026ad8a5e568b341"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_81.in.bin",
+          "sha256": "15b724a1947a8392cc86f21a1f231213600fa8d137cd07c64ba96e05eb6e8d2c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_81.out.bin",
+          "sha256": "fea5808a4ce9b875a06b4e4948de4562728ecbf7bc967a44a81909d6f8f77360"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_82.in.bin",
+          "sha256": "c85120d2d83d2f1afe1dcc84e198d499e6f47966815cc8b00a903fba6f0c1a89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_82.out.bin",
+          "sha256": "b9f5be722259a364987285f5722a81a89a9c4efec981716bfc45512cbd0dd972"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_83.in.bin",
+          "sha256": "9c4e8f8660dbfbefed410e04ccf03a2ba7e2121b31afa338727cc2ca71a5db82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_83.out.bin",
+          "sha256": "fc9cfe4d7c80e39c9ae7ad4250df4790fb188bba574e14b0b1297428132ee8c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_84.in.bin",
+          "sha256": "477cefead07ed00069cad8ad6854d136a09c6620d368834fc3ba1b5477177556"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_84.out.bin",
+          "sha256": "601eda4fa86194b65a4a46985172e16a9fde6b6560912dd02e114e2eb365412a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_85.in.bin",
+          "sha256": "6e79a400d8b62bf92792b3e8923e2f3567b4e5aff3f591b246db56486e42b326"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_85.out.bin",
+          "sha256": "6a04d492cd69f073678dffda4aea67512211203256769466b97aa97be505deff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_86.in.bin",
+          "sha256": "7abc12b9d0318ea812eaaf38b6f7cd68a0cf8c2a59a1e3c7b6557adcbfa6b884"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_86.out.bin",
+          "sha256": "76ff8bacd3fa5d60cf7bf3892c913d408cdfd662f26be235ff7ff9d2ab163493"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_87.in.bin",
+          "sha256": "32dbbcfe5c474650ab9b1fa38d85e05e2bf8af4caee7da7f839dc0ce32c54480"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_87.out.bin",
+          "sha256": "4c11a7f93cd02208a8d2a7512b3dde944daa2a8a031b46c3faa3933daeb619c3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_88.in.bin",
+          "sha256": "fdf9328470d18a656016ed7b79e302cd77958eabaa374491dda4a5c7e1510aeb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_88.out.bin",
+          "sha256": "716baaf18e07d21f33e97b54a7f2d31853e956c7d5ad0d57283aaa5bcb39b96c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_89.in.bin",
+          "sha256": "b836f34f98de82729dd37560238ac3e2ad1e6d47f1fed74df21340aa6704e0fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_89.out.bin",
+          "sha256": "e56fa222f1eeba1a739f438b1ec3ce75bb943158834f86b6ef13558bd3aea5f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_9.in.bin",
+          "sha256": "13eec56022eb951b98f8ea22f41274d1b8d5658e408f801922938d3f8f3e64aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_9.out.bin",
+          "sha256": "f74a63345b75d5f82cd0cdc5fe2ee75ad6f9de3a09dd004e13097662a11f691a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_90.in.bin",
+          "sha256": "1a9a4c4ba48648c365944271ec7e5a77091ea1b61d1059a51a060758a925b491"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_90.out.bin",
+          "sha256": "48bde11dbbe4be9e1e751b79e846e0dd9026e95f99d68108c580600e8798df9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_91.in.bin",
+          "sha256": "3ca6690b5e16313c7ce9b6fe01b8dcb18958ea9c69d476365d4ad51f0d2f3632"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_91.out.bin",
+          "sha256": "aff8a095e47d0b6b22e49562baaf57469958bc3bf5eeccce263ed65b1756cdf6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_92.in.bin",
+          "sha256": "da25740fe10659a66cbef253b2da447fc519bd0a2023817fdd9977d660297b6e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_92.out.bin",
+          "sha256": "5512c2758f3bebd7d49bbc844157028e097b890c33a7106e0709d5fc64bfb1fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_93.in.bin",
+          "sha256": "913e06e0a480699f6aa53fc1128aa5c0ceffb8ce19e3359d74bce1d017cf36e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_93.out.bin",
+          "sha256": "3f95a0204d230c8e2e349f53d66b0c0b14ca92de326ec36a7169bdd4a16861bc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_94.in.bin",
+          "sha256": "1b5df3fde9c051d725df54cfa91eb8907527e097f794cab58399f9712dea2ac6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_94.out.bin",
+          "sha256": "c18e2c6fe434d4f04c0f92ba7ae685063d22748797d72a9f01f35be07a9c1a3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_95.in.bin",
+          "sha256": "c007651bea4c204d7358f928984cfe8c22b90c96a0de151244bce272e88d6ad0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_95.out.bin",
+          "sha256": "79461e60fe73bfd865b5f3e6d57b323a0f2c539eac7060d16548f3c86019979b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_96.in.bin",
+          "sha256": "d91fc96520ae6604eba2bac81f198ec622b7ec9bdc5cf880a27651da96873db2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_96.out.bin",
+          "sha256": "7ada5dee549aa0323d023338c20bca4cb474e08c5c1e1bb958a2b07106402d19"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_97.in.bin",
+          "sha256": "0ebaefe818dc0bb1d5d2f3b18fe9389e2f7e594767204cdcb5268475884bb704"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_97.out.bin",
+          "sha256": "ed300fdca324559633560083766ac759cf85a866b9d361c0359c820cc52b5227"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_98.in.bin",
+          "sha256": "a1024469b86a06fb4fafae83293d516b1ddcea4c1514488c473b4a0b931fe289"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_98.out.bin",
+          "sha256": "7ff2394040ae3cfae228c36e32e779252d6461bcd8f899967c607519c317f437"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_99.in.bin",
+          "sha256": "7af8d06b4db349627ca40c6c1e67be7d78fda2044303138af2ce30bf05a5203b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1\\f_8c05d424_99.out.bin",
+          "sha256": "4d77ab768e9eb05cce26d390b43565aeb00c21994f8a905e1865c8b7b4084a9a"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\capsule_coverage_65_render_lanes_dev_v1_s21.bin",
+          "sha256": "73f35d338726c87155d07591dfd3f0e4adf86922fba8b3c4bce02f6feae71e8a"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\capsule_coverage_65_render_lanes_dev_v1_s26.bin",
+          "sha256": "137e5fcbdb2eb567da28eb114841c291dd32351a74b556199400ade1ca25d633"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1_native_report.json",
+        "sha256": "cfee5daab242626294a4d3fcdb13cbff6243bdee6eb5b153500ea454e53ee97b"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_21.state",
+          "sha256": "adb329aba852c8f9183ee9337b37a2338738e2682f5ab1a69c726cec3026ddd5"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\golden_coverage_65_render_lanes_dev_v1_s21.log",
+          "sha256": "4475018c356d3401fcbab91d49a86aa276d6f970d86344992c085539f30fc7b6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1.patch",
+          "sha256": "be50da73abad2968c204bd6b66fa4d8d96b5e843e78b2fe56126e9cbdbeafc46"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\probe_coverage_65_render_lanes_dev_v1_s21.json",
+          "sha256": "9a3d4ba7f0a23ec44cf62328865786a219a8f656306c561bc557a7cc24d17a33"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+          "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\golden_coverage_65_render_lanes_dev_v1_s26.log",
+          "sha256": "b5629e95dc472999a9216a838dffc96af87c41227df55f569545a9188831b8e0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_dev_v1.patch",
+          "sha256": "be50da73abad2968c204bd6b66fa4d8d96b5e843e78b2fe56126e9cbdbeafc46"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_dev_v1_raw\\probe_coverage_65_render_lanes_dev_v1_s26.json",
+          "sha256": "7ab771d58191f6ebe0ec59332e729ee9e588f34bfaaf2ee09f1468820fa0bbb5"
+        }
+      ]
+    },
+    {
+      "valid": 127,
+      "excluded": 1,
+      "complete_body_bytes": 370,
+      "files": [
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\batch_manifest.json",
+          "sha256": "e06f6446660623b46ecab4f8fad5e77d8660b69c6cf272ec466d70f316e7d4f1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\capsule_manifest.json",
+          "sha256": "61ad00a966a0684b68c9994ab8087d1ecabb35c9a5ab589d6156fd93872b9f9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.bank.bin",
+          "sha256": "d741094c03e4fc37bb851c0f32e18a39ab047a9396a532bc50a42b379e7db976"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.cases",
+          "sha256": "faee8102ec6a4f2667f298e3277e2b871fa2d6dcb613c9a1be221ba8dea2f143"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.dev.bin",
+          "sha256": "64d6c19683061d281bcee4c3cb3fa451f3724613dcc114467cebfd53ee182e31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.extra.bin",
+          "sha256": "b63aa5f10cb1084f82a3422238aadcd3311a7e549986983a967839587399adae"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.gbr.bin",
+          "sha256": "b7dc9651495c70e6b3eb02c5e9540cdd3ff6e0c39a4b728b07e67412bba77dad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.ops.json",
+          "sha256": "c033dc005c3ea46f4b16a193b9de399c817d4451c9d87b3a212a8ddc8ebdda3e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.xfin.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424.xfout.bin",
+          "sha256": "8f8a9c3b8dbc84c6ef7188ebf3aa09869885d8b18d6ea95851d8c94cff66f2ad"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_0.in.bin",
+          "sha256": "e582c04a874a965d5bd6d4452027b982d97bbd24de9a36aa97340a6597dc007a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_0.out.bin",
+          "sha256": "cba17af45bac84311007f34cdb77519ead584ea307fb538dae3f20a4024ab33e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_1.in.bin",
+          "sha256": "b1109c1aa8330b62920abec491279a41677811dba073cbaa3ec654a5f48a3974"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_1.out.bin",
+          "sha256": "a292c28120f773d2f6f06d74f569dc267bb04630d03c978d5dc404bb5baebd1c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_10.in.bin",
+          "sha256": "2a9b72190ad22ec3c99ce3ea4a3319f5775d219e3523d8c7732816f7f4993fe3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_10.out.bin",
+          "sha256": "e29b74df11ca521bfb79ff0d467862a9478dc6209a53de6afef5dd5556c42cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_100.in.bin",
+          "sha256": "6a060eb3e71ccef84a4d1895bd5f07f1e6d9174b681c8729b9daf2caba676387"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_100.out.bin",
+          "sha256": "c7599c2a0dc4eab808a347744bdf4e84eb28b03b0740b61bd4cfdea335eefb6d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_101.in.bin",
+          "sha256": "67cc0a13902b6f264e6d149b71b2031411b9b15a67c60f78f8cdd5a441e9aa61"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_101.out.bin",
+          "sha256": "c02c51d52779074308d8d27c5f0d087f97194ffb99c664e365feb88ae4baf467"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_102.in.bin",
+          "sha256": "46828d803fb12ba62a81ba540b5e0cfbd2f213c531864721f578c41c61e174ee"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_102.out.bin",
+          "sha256": "b8f2f5cc6379348916841807ec662db8d6452cc4be0df73129ffb367694681fb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_103.in.bin",
+          "sha256": "18f4d18607494f2a85fe70841cb77122892f6600724dee6c032e7cbcbac2d4ba"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_103.out.bin",
+          "sha256": "6971df36fde56cb7035970bec3e994441bae033da10f4b5057979693d0c7f529"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_104.in.bin",
+          "sha256": "94c49964fa7486eed9079860837c2eade03aaf811805b725910739cf942ae716"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_104.out.bin",
+          "sha256": "c19c17e6b4b6b241da9cf3e9ffb638ad956ba693caef6f6316c06747ded07e4f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_105.in.bin",
+          "sha256": "6e1348d2b3136cc28c5083ada09abc54db18a96490bc40bd534ad957df66ef4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_105.out.bin",
+          "sha256": "17cbc867c1bd8f0984dd3b64ee1897a9547c7dd6d9e74f7d3dd9e7a91832705e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_106.in.bin",
+          "sha256": "261d2c384ab34649411bc7f3d2d806e17914792ef34ac460abf05a1746732485"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_106.out.bin",
+          "sha256": "1e5615b967420875f44d71fb397eac3ba07e5aa5dd0e9cb0f3c0f6e3538e50dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_107.in.bin",
+          "sha256": "6ee807b925a0877d18b3f33d464b5cc9ed556cebbb274adaef7d8098a06676e1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_107.out.bin",
+          "sha256": "eba5576ab4a406740ecd4547ec56a5a0c4a7f3a57e13046d6c491697b38f5a9b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_108.in.bin",
+          "sha256": "d9de71343c394a7f28d696701b5a3d392c2739e711760c192f9366769f5227ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_108.out.bin",
+          "sha256": "ee8dfebe00cbf3734ae101965b4abc256438362d2652b06d74d6baf8b2917de7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_109.in.bin",
+          "sha256": "da0ecb610f6845637cc32dde6928d50522dcbefb6383a5576874d0ed525e625d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_109.out.bin",
+          "sha256": "8626e01c938e9fa81adefcd835f2742b2a515e14dc5ae451265ab9720e088950"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_11.in.bin",
+          "sha256": "d2d93113419b9df27b67a17b89bc61770db2e251bf60eb06dd8d4ebf3dc933c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_11.out.bin",
+          "sha256": "86651adfa9375c6caaa5ea2f09e68b727bc6800b34df135df8737a69fcc3f9b2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_110.in.bin",
+          "sha256": "24bf5aed58a2b6c66a02bb6d79a4be54f64db26424e2c895b14798a925f48441"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_110.out.bin",
+          "sha256": "7120b8b5ed29ddeb6f0849591d36a82f009622709e52c243cdb4058bf7d8a972"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_111.in.bin",
+          "sha256": "b89783e430619bdc07014fff81d2b12804732c53a6595f1ed2b35eb5ee606b82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_111.out.bin",
+          "sha256": "954062a74e8d35aa0409acba92c6f39e3a8fd85c0197d19f2c7def7674bcccbd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_112.in.bin",
+          "sha256": "bf09b9f5c275759ea1b34e21a427f525707cf370730a297fc2a12c05de2e4e5c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_112.out.bin",
+          "sha256": "513b6bd21cdc093c1533a870916c1c5943a0c7347be53ad5be5b47485c410cf9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_113.in.bin",
+          "sha256": "2b41d77c19f03f3bd2c33158061562976106659e255d3895e17873912fa27498"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_113.out.bin",
+          "sha256": "020e3d09f11a4ad30d4acf734d78dc799c42a0cc1c92751c09333cef6aba76bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_114.in.bin",
+          "sha256": "fd25a2fd2beeeb202438b99530088b8920a72f86c4222997cb70dc8ee1fcd40d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_114.out.bin",
+          "sha256": "248c2f7ffd11fc94966d24da9e693165019c8d92932ba67d354bb339309696ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_115.in.bin",
+          "sha256": "cc6733c3e4b87cc18ceee6f10ebc83385437b4bfff65297466dacdb3414f8f2a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_115.out.bin",
+          "sha256": "06352464c966d13be0c41a26c4f548750efc4639907d9a44748458ddd7e85db3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_116.in.bin",
+          "sha256": "8134f427ab47dfb2784ad145e6e7bce3ee29f415df51adfcd585631ced1babd5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_116.out.bin",
+          "sha256": "0d65c6daa34800a3564b094c1b9fc881ed42706bbd84b27cd3d237e63787d161"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_117.in.bin",
+          "sha256": "13e10aa1504311e998b8251725beae2372347121d6101c1aa91e7f9d9176a9f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_117.out.bin",
+          "sha256": "8756c08b71608dab627223a88ca4fdc9f0a25e8051e8418666ab25093b37ca51"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_118.in.bin",
+          "sha256": "72d71a7b3b2338808f50cd4e7f4b46c2591a2fba4a1e773e80c90725a7b57621"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_118.out.bin",
+          "sha256": "8f10d47d8969a6e5801c837dc243769c30c840ff048349a61595e635fe6c13df"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_119.in.bin",
+          "sha256": "e50c2a4c845b7ee19b743c0bd980e6f9d2ec18a1b834f4ca69177e6ac9f40d57"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_119.out.bin",
+          "sha256": "ec9f94c6f71e25bdb932777148b51b69abfac5f3cc20a763b7fb01eb3f3941a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_12.in.bin",
+          "sha256": "f8db52e62e38970b418d480e76e7b9b01243130734f0a366e892e19ed791f39d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_12.out.bin",
+          "sha256": "a650fe2462e8c30e8cc7d3b7aeb16be4c77951a1d67523cc7142830c34ecf7f0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_120.in.bin",
+          "sha256": "005189fe479c0091c9fe24813d3387fc5bb76482708e0aa2994dc1b16ce2574c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_120.out.bin",
+          "sha256": "fa0c04d994cc4cfe2542aa9911c99024bfeded307f8e2de2f1d63fe7aea77b1d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_121.in.bin",
+          "sha256": "623dd6d4ff6002202153bdd69234ad5adf4f101afe28d4a747c25c615cd73834"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_121.out.bin",
+          "sha256": "1033d7640091c16d7ccd5b7110efd19e5ca81a16d9170e09a7bc3b2fba6f9cbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_122.in.bin",
+          "sha256": "77eb8556b0192fff1ae3ff77bd5daa55132c0d581b5b30ada10da941da213ad1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_122.out.bin",
+          "sha256": "2a7043d86446f76b117977df4c5d244fd934cd5f86eddf9cbd9d61b2a4b0afb1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_123.in.bin",
+          "sha256": "4bc5f4cf1e17c30431df718e85c3b7320e0ad80caa15ccec7e800dbbf21fdde0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_123.out.bin",
+          "sha256": "cfd5e4697522cca3cf1c697986d46dd7d23be0833d2212998ed5c9dce1afcfc6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_124.in.bin",
+          "sha256": "a2560e664dce57029ebaf778d8599207a620c1c4a9734b2dd2fb90e552b300d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_124.out.bin",
+          "sha256": "cfc4f8167902b39214474c85c627869cdb5d62ce99081054cf831a4655d449c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_125.in.bin",
+          "sha256": "33e9377e6d342ba07338bff4a4047d85aac272fb6ad863080ed63b0fb540a459"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_125.out.bin",
+          "sha256": "aee427dfe20b28f0752161cfeda89c30e248378c8f3773e98f66d983d178d8a0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_126.in.bin",
+          "sha256": "dc812ac8b5e1e9cf00c9ba00dfa9abe600a5ea269208b7c37425e766fcdb742a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_126.out.bin",
+          "sha256": "60b7e32ffa247bdc16692f413ba71e8abb95c779d04a99c5c46e6c53d956452d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_13.in.bin",
+          "sha256": "5282aec42ecc0ff5cabd0c2a25a111a708f9c0f19a378d1274affaa645970ca7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_13.out.bin",
+          "sha256": "0b105b1904cbdbc60ffd2907909914e1dfdde668c2fe69d4f4d1a698e5aea5a9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_14.in.bin",
+          "sha256": "2e8ac24ba52b816152c80cc1e86d47b55f3c311655690915e1f77a25539e52de"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_14.out.bin",
+          "sha256": "7b5e1e1192ce63799d610da8d03f29d033bacafc2f46b6306af181256eb237ab"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_15.in.bin",
+          "sha256": "3f9ea2860c49119ff1027b59ff7ea96f292acea8cb58726eab8ab4c91d428264"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_15.out.bin",
+          "sha256": "14f97004be80c22c95db0d15241fe8a7e28a42b038cdfca756f4eadee79b012c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_16.in.bin",
+          "sha256": "528b6ffd842310ad348eefac22511d4fd79fbaceb4229fe5cc0c4a153a72326f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_16.out.bin",
+          "sha256": "8d44416196f0b48829081359610c41f158c851ddc92ed1bb4df0a260ef482e92"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_17.in.bin",
+          "sha256": "0df5ae5ed4ce737ecc2866a42629981745de84392aba2821a9dcd0a8e4e4bc03"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_17.out.bin",
+          "sha256": "db3045da314aacdefe7d14f0ac2cb50f0a0284831ea35b0de6910023d8d52a3b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_18.in.bin",
+          "sha256": "63d0f3ce0175f4db3bda4ce8de5e1fbc503b8836bd1b8bd51778e3f30dea64c7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_18.out.bin",
+          "sha256": "5b88c9bbb8067a144205bcdf1ce553c676c676aab5239f26edad7fa630e3d443"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_19.in.bin",
+          "sha256": "d1207e6c00643ee921e01c7044e7b8025ffe3be5814b6538cf6fea3315cd394a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_19.out.bin",
+          "sha256": "7d8a2dda7b46fdc1f3e0c5f472eae3ad125219d8c6a8d6b66578058b6a3bb9d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_2.in.bin",
+          "sha256": "b1c8cf5ca80a3c830475562a17ddbde52d4a95e049a4e30ec1c7a2d216dfcced"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_2.out.bin",
+          "sha256": "7e0f0e6793cc5a27efa903c3e3d86a50a8e29ba5c8f4d8a9ea2a3b8caf59f6f8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_20.in.bin",
+          "sha256": "f61c964c618b39635ff1774819affc821fb2bc70af5e7559784ddabe47c4da1a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_20.out.bin",
+          "sha256": "82aadb6fdb65b0beb8b92f0803f72d48b9b09fb50a2eafca8f3d9666c0cf14ca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_21.in.bin",
+          "sha256": "4c6d1d44b89ce0fa2c28274b077928938f62e8e2cfc4aacd6b2dda66ac3c0135"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_21.out.bin",
+          "sha256": "efa551b172e27bdbcd9a412ba669a42673237cb266bea1675939995772038c6a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_22.in.bin",
+          "sha256": "5b511a0db6db2825a368e632588c3fa89dbcee40deed6794cfae639299f00b20"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_22.out.bin",
+          "sha256": "947601f2335b56b39eec7f18cd99245e2e4bac6ac45858b04f368190bffa3ffa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_23.in.bin",
+          "sha256": "90ff43db1438dd24e4ba63d1e51123be79b2c965ea3c0eae04af185899748aa2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_23.out.bin",
+          "sha256": "ebe16f7097a2a78fb54b6c388c0b7365a48629ecad99bea1e3736c23501ddaa2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_24.in.bin",
+          "sha256": "9345518f096f95e369ed94d65406631edbaa580cba72dfb294b4bf4b8bac3827"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_24.out.bin",
+          "sha256": "6d8b2c5d8fe33f32be1851cd5e972551ae7bd19ab6b3435513eeee0b1c445f54"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_25.in.bin",
+          "sha256": "e1fe275483ed1e365e4b2170f3ac84cb2c435eaeba209854f4869809b076524b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_25.out.bin",
+          "sha256": "13e590770957b5638c0a45927d3ccf16d678b72d021903aac857f2b2b2d26cd5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_26.in.bin",
+          "sha256": "d18fe0665452cd952b26c7340b4af5cce686efd980db437a1b6db3e409f6aa89"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_26.out.bin",
+          "sha256": "dcc4ebe030dd68cc126fdfa4ae38b4c4eaee71ecf52a21f01030bee9ab408899"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_27.in.bin",
+          "sha256": "0ab2350790a6be487fdda48f9aa81176a62b33396b14ad7ce1709493ff3c8978"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_27.out.bin",
+          "sha256": "1841904b04d6eec8ceaca4443313162722df98a9f7b25a1a973cea9ea380857d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_28.in.bin",
+          "sha256": "4cc01336f8af413a9dcce38d48284439ed73c12bc181ba24bf7a69e296d0b1f9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_28.out.bin",
+          "sha256": "8cc2183c4ccfe4d9fe61f8340f83cb7a538419aa5926579b5d1ef169ab571bbc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_29.in.bin",
+          "sha256": "35b181b834fd1e18ad7430c2398021373e9a3832a2f2b3c709f0d63afc379e69"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_29.out.bin",
+          "sha256": "e9eb71f1e5ffce5bf71724bb80a052f776449c9ba0c667b0a3ee150825d71335"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_3.in.bin",
+          "sha256": "1ac56bbaf2d82b52fc30ab5fcfc94d1283b9d1ec65eb4222a2cc5f74edf690cd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_3.out.bin",
+          "sha256": "ea37b5e4bc3831a6b3b377cdbd1be55f1292fba6b92efb69e74b5dcfbc3d6a00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_30.in.bin",
+          "sha256": "7d25b5bd6a7f6d93946d2c19f625841b5b1232aa4a15878c54e09c9d58a80d78"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_30.out.bin",
+          "sha256": "d6aa2ab7043de38104a8b43db69456fa72733abe1ae7b55006043a8df9d4a589"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_31.in.bin",
+          "sha256": "d00b5df8a42410da7ef850d3e9553e74d4c168e1c2b47f7e77b350610c73bfaa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_31.out.bin",
+          "sha256": "f787962c640c99c03e5155ac999c7564cded9153cfb400670b481e6b75336cb4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_32.in.bin",
+          "sha256": "dc43ff555db8dfc961d266f21fdbda23ab2a74b920582725e7d4802e7d87d905"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_32.out.bin",
+          "sha256": "b2a94e4e48ad5d56106f08c67a926644ec7f6e5fd5ed9d547d39439d586c6ba0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_33.in.bin",
+          "sha256": "ead5fd338d0a66da59bab5edf1dc85c974d088c540f72d37ad5a19df4ee0ae7b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_33.out.bin",
+          "sha256": "fdbaadbf1980c8ac208bf712ba4a6407e841f9063ebe9c59fbe9365ab53d597e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_34.in.bin",
+          "sha256": "b7d53af922f75397f18c65362b5f864c1260c586814e3b1424e926468087b677"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_34.out.bin",
+          "sha256": "70141ae20165bffccc330a6ed36fd2c2f6f970e8fa9c238bb226e56e9bd7cc64"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_35.in.bin",
+          "sha256": "483b0ecd5aba702a3c472ecddcf161378c4230fdd2fc08018faf0a0d1b6413b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_35.out.bin",
+          "sha256": "51fc5e12c798caf0e5b4eed0b0d7c9bf8be582f5e1cc57f4edef25ce5b829319"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_36.in.bin",
+          "sha256": "078516fca0e97c24acae9046dc6d38bf21c4ac4f8e6eb4d5424c0f5a0a352fe8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_36.out.bin",
+          "sha256": "4f7f7c7bfb9b87b51337530af09900ea10b56729962f82e5936e899d96709115"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_37.in.bin",
+          "sha256": "b3721e5720bf237d2549d9a90ce5cb3679bd6c768fe7b4b1bcfa8e6ddf0be8c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_37.out.bin",
+          "sha256": "4204015f6f71d88ca612f138f1dd080a3d1bae9bef7779042c5f933d119f146c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_38.in.bin",
+          "sha256": "42221dca1bd8dea6ab1848cd56d5d6427431f0d2e7d422aac132672ab5dfc329"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_38.out.bin",
+          "sha256": "eefb050750e2f3e624e4293a7fa5b857271a39059c69991565a0a8a64cb07b55"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_39.in.bin",
+          "sha256": "c6c3a7781761d5861d044a985582aaee5a3629fc89a11f5470a641c63ae80fa5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_39.out.bin",
+          "sha256": "c89ab3b6de5780faebae90087c4e3c8fd410119a9cd3511c57c7de75ef85d8aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_4.in.bin",
+          "sha256": "832b5422881a5dac7a8479e80a3ee0ea9a74f580ede0b72bb838e5acdc6aba58"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_4.out.bin",
+          "sha256": "87a42d6eb42273ca7dd041c756c8384fc51dbfdeecccb0bb4bf6487c31b08a0c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_40.in.bin",
+          "sha256": "1ac213e5713c132df22815bfc5b196e3ccfc1aeca6ef42bb16738257cefc6606"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_40.out.bin",
+          "sha256": "136dae3a3d607db334c42da001d2c39f733032e42c622057e2f4f0095fa85cd3"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_41.in.bin",
+          "sha256": "363f06f7a047ca18bc7370be92388454b97a3c0d3b84a8d02423974512423cdd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_41.out.bin",
+          "sha256": "fc4040ab7b95acd836ee059e4c19ea529880d5f8ba7e62f02e5bd6e5de5439c2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_42.in.bin",
+          "sha256": "cd3c7f27791e6f00ed8c9a9035a37786b77ca8d4713f5e5a40de4923abfede31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_42.out.bin",
+          "sha256": "555a8cf203083b91bd4c2aa0b0d43fd03e78b64d326b1c3ff5d3ab66779bf039"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_43.in.bin",
+          "sha256": "1a8bfed142a66471d6e68235878692635a20fea89c0224cf2e235a2692bbd2bb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_43.out.bin",
+          "sha256": "862f51bd2940d68f85e39369c9e32316af5b86b67fa19dacb3cd5c4e822ee9fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_44.in.bin",
+          "sha256": "a2d1089890e38091087f995bd6f49fa37f38d582ce8721eabbc041e7e772c89d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_44.out.bin",
+          "sha256": "70ae8748fd12f42efc5d67551483c61a515a8b3b9dbb4d60c4224a6b4dc564f4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_45.in.bin",
+          "sha256": "520c53e02a9917cd761f7222681f110da64350667c6bea2327637dd5983fef02"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_45.out.bin",
+          "sha256": "fb41823bb1a8e8e5d106b363763af963f06df9a591b4319e1268d6c5a03bb4e7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_46.in.bin",
+          "sha256": "136ad47d66713174941b3cb0a02bdd89f1bc7d79629c7fc03bc75385af4b862c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_46.out.bin",
+          "sha256": "4f631ee0d67775defe1a77528501c0932ae3c03848e6455c7ee85d3c144f3a70"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_47.in.bin",
+          "sha256": "a44a31d986615abd103a9c2bd1bb41123a97481b0cc147e1e9bdde85c6f35b8c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_47.out.bin",
+          "sha256": "7bfe29012f8e0e1f503ef0b83ec52f98c385e7612eec927183c90e7720d3f961"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_48.in.bin",
+          "sha256": "a8312d99325a6d4860f963a9dfca33db481f0b720c3657430868bf496ef992d7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_48.out.bin",
+          "sha256": "4dd28a0a9827987fa3c5f74b3ec2011541477ea7a1d2766122c07c6bebda6149"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_49.in.bin",
+          "sha256": "d1314017fb64969d092af69c810f61d62a25fd42a2cce7dced4d78e2c0f25807"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_49.out.bin",
+          "sha256": "1ad9dd7d38fbbfa3c7c34feb1cf532c935f81a913a18879192e58433f39670e9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_5.in.bin",
+          "sha256": "964cec14a5f0455ae44e6aaee89ef5341e45276277d857bb869ebe7e26065644"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_5.out.bin",
+          "sha256": "95e61f7f85ddc47a1163d2bf656651939b0d8e21f98d6dba4640c11e8787c700"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_50.in.bin",
+          "sha256": "2970bc89e96fee3b19a312ce2c28c35710f2d9a27749b4c4dcb5ebe2c5f8e066"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_50.out.bin",
+          "sha256": "c2d383bfea0e48a6db201c638e3e52226a786bb8209ac7401c197247a302b936"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_51.in.bin",
+          "sha256": "8bc582f410213beb1143528c8bec44cee32cb5c39a1466583ede38c3956d8422"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_51.out.bin",
+          "sha256": "b1550083863877ed6a6db507cf42f8135a715415cdcc7236354cbf87b226373e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_52.in.bin",
+          "sha256": "883d984a4068138d16153f42393fe7daacf4e6752ff57a7952da217dd18bfe41"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_52.out.bin",
+          "sha256": "97027db1dbce451e7098eb705bc74231174b256661ca9ee9f259ba2c15484014"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_53.in.bin",
+          "sha256": "1ccde5a124627cb96662838990a32433029caa95519ff75a95c0c43526e901d8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_53.out.bin",
+          "sha256": "1070ec691724bee8d49c8b93058eae1a7aeeed034ad3fa4c318da1ff0058dc29"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_54.in.bin",
+          "sha256": "d390e1d23c08caa144e0a1d4e152fb09bedb20195d36e78897c10673dec1339d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_54.out.bin",
+          "sha256": "08c8ffbd5aa87c38f880a7924da6db1ea7c4c656e4808ead84ffbfd2c4642b94"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_55.in.bin",
+          "sha256": "fc565ba4d903784440a341d9cfc6a2a4524a31ff9542414259b1c3856700b5c1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_55.out.bin",
+          "sha256": "5abc7c78e234efd9bba4c9ff1a45d1ca2aacba5b993c07e0694d145347ebdb9a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_56.in.bin",
+          "sha256": "6492abfbba20d3d1b095513f59968c24855aca4eecb950af0c0381d24a4a04c0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_56.out.bin",
+          "sha256": "aaa1d83cc332cfd2d422add31c41f80107384daa39a2d330ea024eb3c543e4d0"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_57.in.bin",
+          "sha256": "93dbbc77b8631c7050235e26d66acce6eb8fbd29a1e12e1580d8eaf55e1f521c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_57.out.bin",
+          "sha256": "219310ad91b7c7022f755e99f5aaca91327c14e31cc8a7e7c36c0c3d27e2f576"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_58.in.bin",
+          "sha256": "9b62240182c6afbabfd2fa598f832e58d4c4b9c514ba2fb114b46b9cff831bf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_58.out.bin",
+          "sha256": "be6f8b25ca60c52a34c65253a6cc121d2ca309c31ac132e6fc0b0199ae50110d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_59.in.bin",
+          "sha256": "0f3513020c4d0eade65b4a6aa898fea1e891ddc4cbad2f0fa4fd5113a619dcca"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_59.out.bin",
+          "sha256": "e9b5a4d2df6aaf47c9ef82c6a0d9b683e42c87b73974ac550f256d54b891c009"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_6.in.bin",
+          "sha256": "eb0645651e70b485b5951b5c41a7f0419ead1438a118b967bdb4f49beededdf2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_6.out.bin",
+          "sha256": "fac6b083a81a8fcec23d4d389a6fa47221e6ec96fb4c1b9e00f3e30bbbf1c836"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_60.in.bin",
+          "sha256": "31f9a7f69e01ff2cf70a5463600fc13d4cc9d5cd7a02113804d15e6adc3b9533"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_60.out.bin",
+          "sha256": "61f2c136d67e465a5c2430f84a4bcb6a154230b35a8a6b6728e84b7bc80525aa"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_61.in.bin",
+          "sha256": "5f9b977126a0436d9f32c984e14b43e9ef38165a99f77d9039e9085ae7005967"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_61.out.bin",
+          "sha256": "77cafaeb66d98dce30ed5a8a62464947265c77e0604183bb15bd18ba6d2d359b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_62.in.bin",
+          "sha256": "0d71e9e72fe52dbb0c49cbc03985230037938cab91e277fb9d3ee267492b04db"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_62.out.bin",
+          "sha256": "01b813ff1ad1cfdc90fbd63aaf1ea124f20be2422b672e23c36f56bbbd2f6511"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_63.in.bin",
+          "sha256": "afc8794a3ab3d61c61b9c5eafdb994020bc191bade1548d0990a72753e3f1931"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_63.out.bin",
+          "sha256": "aac1de8ec9ba6028f6c276c88fc5594e02f1b9df81c1f31805d46f1b957d7f00"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_64.in.bin",
+          "sha256": "109948677e0a05578f249d091e00f643435b172599a595e1db709ba17e64a95b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_64.out.bin",
+          "sha256": "341ce078bd70c341a16980776b31ce5d833a04ebf25852a67a8fdf0218167f66"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_65.in.bin",
+          "sha256": "0b4daf06791aa94cc328fd066a0a6a489353217306de8587be1c130d7f13fe07"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_65.out.bin",
+          "sha256": "4e203ac2d95953ee0f28ccea95d6e2930d73c23be222f5e6d2e182fb67572b8e"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_66.in.bin",
+          "sha256": "6960c01a04c45408c1491d8d735f6d4c5d0657e844ee9199f78a63ce51c6871a"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_66.out.bin",
+          "sha256": "b2413f8a58a223035171947c93d54e83ba370a70f24bafcf264facd0d6383a63"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_67.in.bin",
+          "sha256": "1bb9a6c3ee2c71053d496ebabc2c070b0e2a5e60177f78b452774229d26b2641"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_67.out.bin",
+          "sha256": "63453d787b1d8837667e9f14c9f02f46611c1875b96d37eadd0d2cea953b9acb"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_68.in.bin",
+          "sha256": "fa6747bf73f2ba9f68ac6639edecedec2e26db27c713466d492c50b8dfaa4aea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_68.out.bin",
+          "sha256": "30f752b9872771057adf15a94fdff611e8e1bdde2f5490d0b11b3d65e11740fd"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_69.in.bin",
+          "sha256": "c825871d54e316dc689640d2d24cb4f6396b72b50bb52d03f3174c69caf98d20"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_69.out.bin",
+          "sha256": "5e81ff1cdd7006b5008fa3230d1f6b708d7f6a2e7ab271cea991248aa4ff4de9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_7.in.bin",
+          "sha256": "213a14621762387b25a411c34540b3009f30420b2aab441a5e4a6f10e5dadc82"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_7.out.bin",
+          "sha256": "e0f9c148a1d5ccca5f136d620ba63d59c4901bb82669e30f1619f844f375aa1b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_70.in.bin",
+          "sha256": "47c861f193dfc9aa03ca6c7ad2105a3b11948de06b9869187a7e9931974588a5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_70.out.bin",
+          "sha256": "38d8f46d1c21542eff140424b285fe7a605ec0e9c3569c66ecf6b5405f693271"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_71.in.bin",
+          "sha256": "b5430c322a6fb6be219206de686e7794875c5259e2ed29e59bda8c70ebcc9e13"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_71.out.bin",
+          "sha256": "671acb1c1034480f550edcc2d04a2d2ffdf7404a2014f905acfbb4e1c3a26390"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_72.in.bin",
+          "sha256": "c7f7ca4eef77f291c514b8ecfc4bffd19bf2bf2e2e88afa7a89bac1e6334f5ce"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_72.out.bin",
+          "sha256": "693d2881a3ea8676d1df0ce47c2cae7dbc5f28ffa79265e93c07da6d8f036325"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_73.in.bin",
+          "sha256": "fa136b6dac20cd5331ec3e25833508e5cd119c20460ea008b9ba6e2be4359dc5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_73.out.bin",
+          "sha256": "058615698913113131ba416313f799942bd859399bc1ee424af1a8aebf827fd4"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_74.in.bin",
+          "sha256": "9aed5c351e93f488697a562dc155d27ec8d2a355b74fa8c3d5abfb5d18cf81f7"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_74.out.bin",
+          "sha256": "6117a3cf7f5bb13ed7a64e538fe7f04f4d0182f65943843509b5962e627cab09"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_75.in.bin",
+          "sha256": "81a34d26ff6977a8431c48d137f914d30c4090cde7fe569c8255d7cea470a428"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_75.out.bin",
+          "sha256": "da91b5844294aec22b266813c9022b179a6e5e90f182e7bc46affac0e0f0aa30"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_76.in.bin",
+          "sha256": "6da9a280f97ea498bb305bf4f530ba9c6d0758661934da967ccdcd84f6c9318d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_76.out.bin",
+          "sha256": "6c7ee4b44a561bd40125c3a556a9425613f02f4e846a7895c772e6f74ab852a6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_77.in.bin",
+          "sha256": "7d88048086fa6cc01516c6126facfcf9b42573c6f5c9790658721f525e206c76"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_77.out.bin",
+          "sha256": "cf2249088b012b8f90aa55d829603b86e502778dc19f1c491d3fa62d4dbfa8c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_78.in.bin",
+          "sha256": "78af5341f97a3e447df0b6457807a57a89441ac8a1cc36f713d6038eac41f9ff"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_78.out.bin",
+          "sha256": "a9906d973412c72b08818e95b3c12fb3dc8a34ff1aa4716fe60479db10f50c23"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_79.in.bin",
+          "sha256": "a170945419b4cd2413d5ef8fe43c00a1906320081c34c5ce21a362c3c121022b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_79.out.bin",
+          "sha256": "c240ebb4ca77f220573ff06de8abf6ba03e82dfa55b0f1b45c7aa4f56f0e4df6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_8.in.bin",
+          "sha256": "536162975a9670b35319351abb489248ba904a1c7ec3328b0d07ab723dec3d37"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_8.out.bin",
+          "sha256": "bdf6ef5857445bc5f0256c93c082bbcaf70e5f68f2ce7b2c0e60478fc6ba8e77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_80.in.bin",
+          "sha256": "2dad26d9da736578361f6c407f75e53e81e57b4a9457cb6310d2a70937a0b2e5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_80.out.bin",
+          "sha256": "877c0c7abaad32745470aab98a35824b880e49801103cde77a442a786cfdf6d1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_81.in.bin",
+          "sha256": "f93ffcb40fb492ad69cb9c2c43c9661c06897a70bf188880cb7e3bd3ceeed61b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_81.out.bin",
+          "sha256": "8a94eb3d91f8f62a4d3848ce11f599e3097afe17e6c24a9488639d972c7bb688"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_82.in.bin",
+          "sha256": "3db751fb700f4004a7dfa670125d7b3e04cac35f30afcf94fb92a82e8caa2a31"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_82.out.bin",
+          "sha256": "a23f24d7f9b710a5b4984b8f7de8f3065d785198847569c519a2d47556e1d8ea"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_83.in.bin",
+          "sha256": "7d5dc23f3c2db95bc85c934e4228906a667bd0a0c70a622a66454fbebabc3842"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_83.out.bin",
+          "sha256": "23a100d24c78f2895b41b15317c54270e7b97e8b6c74fd8c02b4bff21f0beda8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_84.in.bin",
+          "sha256": "d87115270c6b3b73ddb0159aeac3943ca529c6c44931b8382b9899c62b8f70c5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_84.out.bin",
+          "sha256": "9026ec9ee998e4215b5c83cf3d91cb55e9a0b55295963cd58353bd10996a5c36"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_85.in.bin",
+          "sha256": "1764d097e97aa934903f518fde00875fec144e343f316e9cd829bd7781309941"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_85.out.bin",
+          "sha256": "6059763945cebc16d380530e220aab4e7c434142876a381c6c33f070c4733c4c"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_86.in.bin",
+          "sha256": "57c5fef035bc7caa5afbe83153e03b4db10f4d4f61b595d6cec1391e4ea6efe6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_86.out.bin",
+          "sha256": "8cb03c6b3a3cc2d5f97f14d53984b3fc50d2876fa803e46e9bfd3abf51a1f340"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_87.in.bin",
+          "sha256": "4cb87e0cece8160a8a7737a835e6ab9aa7d9e216322b0151c2201093026bcfc5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_87.out.bin",
+          "sha256": "6de6e792672bab3ccba49992e097fbfae06bc2c1e7d7fc6dfacae613c9398229"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_88.in.bin",
+          "sha256": "d5a3e8e074f0dc559a212984f2f1cf08611e74b55798ff7de4fdaa6d660ca1b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_88.out.bin",
+          "sha256": "f2745b7b036d79e6055155c0f4172f64ff144325b648df75d3f31c8309a278a8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_89.in.bin",
+          "sha256": "daf6bf715537eee1e9f49779617c54a1fde187c33b47bccf52939d440e248850"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_89.out.bin",
+          "sha256": "321b91c28d32f08662a3fd6f65c78cbeeec7d39f52030edf67f36cbcdbf13b77"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_9.in.bin",
+          "sha256": "3a4332c18c9a991c13d6d51885295e29ada978ae9516b9deb4374b12b828b8b9"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_9.out.bin",
+          "sha256": "ce8f43799541cb5429e31cb1b9f8c5727498f40c094d04d4f775e7cc981ab5e8"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_90.in.bin",
+          "sha256": "aa531a7fb7bd700f8ff78c12865872eb73f6578b48feab76ff51969ef474e2fe"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_90.out.bin",
+          "sha256": "3bb740155e63da6192300b6cc95266bc53f725e9c46e73aaa874f355274fb81f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_91.in.bin",
+          "sha256": "259ce127bd63fd89267a2a286bc1f52e20105dada98d2fe10a80e163b9fb39bf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_91.out.bin",
+          "sha256": "e4dd3885aa03c6ae036e9229463d8612b0ce8570e737c7df07920160e1eb489b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_92.in.bin",
+          "sha256": "d13f94395b8141a5404d098320a0b67b5c9e72c358bb7f0e461dd80087060018"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_92.out.bin",
+          "sha256": "371552fc55159a67e4f07e1be2cfc3a52f757b733d626cc95466287dcb6b4534"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_93.in.bin",
+          "sha256": "be6a98431ca8b1d00a8b0624b5bebacafa414f9b335c80fb188956c053cc78b1"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_93.out.bin",
+          "sha256": "285a493611a2072e082fd52401ec0cd2e74fee4ee8878d289ca4d475f46cc79f"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_94.in.bin",
+          "sha256": "ea89a3e24d388e1b0580902ac3249eb6e2dee271e722e167f83be6e921a189f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_94.out.bin",
+          "sha256": "7417d9084554e32ef28b9a880b3ba25696ec9c0e4d285102df9ef1ddd3d9e9cf"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_95.in.bin",
+          "sha256": "1380b35e0cd21de9b18dc2b59508142223d1ab67094cacf95972218c2c45434d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_95.out.bin",
+          "sha256": "e782244ed86a5101535505481cd5b89d1013d7078fefde73396ef0692343e7f5"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_96.in.bin",
+          "sha256": "26fd7abd42a769ca58a3df7e45181433ee6d30fe86af501310a9feb8a41ff5c6"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_96.out.bin",
+          "sha256": "e8a2ae9d79cd6cd54282cb601c82deb478b3cc42656e9bca14b64f8ceae699dc"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_97.in.bin",
+          "sha256": "10faa0d41cc4ce896582fce82b7d13404894703a043319ac3f31808f7eaca513"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_97.out.bin",
+          "sha256": "1783370023b5dd2774609c464b1364f5be25d2c44e448ccd445e9aa032396110"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_98.in.bin",
+          "sha256": "dcfc16923ce754ed104ca2d144219a54190279709e1bf7eceee9d71a141d911d"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_98.out.bin",
+          "sha256": "270683d982837a7540b6c79affebe091cb3904f21b4c1a57002656a5c0bd3ba2"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_99.in.bin",
+          "sha256": "2b4c0ea07463c0d8fb97f2d7b428394bcbd9300cb01bf6a40e28cf418998239b"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1\\f_8c05d424_99.out.bin",
+          "sha256": "969f0654c43cf7ea72ae3061b779d2e4b80d6b5f999da467fdbc11c35de3739f"
+        }
+      ],
+      "raw_capsules": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\capsule_coverage_65_render_lanes_accept_v1_s28.bin",
+          "sha256": "76742c07c4cb7cf7c5b66827ebf2ba5104a72991c6a36239b75f25d00097a2d4"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\capsule_coverage_65_render_lanes_accept_v1_s29.bin",
+          "sha256": "6aa018b1b8bfd38e8497cfda7e215648cac335233884d2eb1cf5d6fbd5af002c"
+        }
+      ],
+      "report": {
+        "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1_native_report.json",
+        "sha256": "1c793700ff4e2e2db6cc028c860a3b7c1c67ce76a6fe1a43fc61e84eb8d3a9c1"
+      },
+      "provenance": [
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+          "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\golden_coverage_65_render_lanes_accept_v1_s28.log",
+          "sha256": "55147f64a858d7312efd17553f1f05aee25c8a0feb54195185fd6a39d92d9343"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1.patch",
+          "sha256": "ef8455995c5c151e849b407b88563597d3e5b93479988a5a6a4b545404179dcf"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\probe_coverage_65_render_lanes_accept_v1_s28.json",
+          "sha256": "849ca63f65668a9c429a2ca8c51d6ad706641c92f52b101085e9809148281045"
+        },
+        {
+          "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+          "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\golden_coverage_65_render_lanes_accept_v1_s29.log",
+          "sha256": "337002aa17024d48a16343f688aacd1ec5d48e4951df46ada0d76768eafb0e14"
+        },
+        {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_render_lanes_accept_v1.patch",
+          "sha256": "ef8455995c5c151e849b407b88563597d3e5b93479988a5a6a4b545404179dcf"
+        },
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_render_lanes_accept_v1_raw\\probe_coverage_65_render_lanes_accept_v1_s29.json",
+          "sha256": "8a0ffa3f413b025bcb3ae9e4fa941ecc5c4c8225b2ef3737d1b6fd090a5e3123"
+        }
+      ]
+    }
+  ],
+  "original_caller_files": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\manifest.json",
+      "sha256": "79f90f292b590a2999dd95d4af8a6289b8d33a1668a6ef36e01972ace4923948"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "tools\\oracle\\render_lanes_original_bsr_v1.json",
+      "sha256": "2450762bf08960dfffa939963ed874ff92e8d66646f143edfea83683a5edf4ed"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_0_1.capsule",
+      "sha256": "e98c61c29fd0604040e733226b3e3d29efb364a015e64fae8fb325ffcf78dacb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_0_1.log",
+      "sha256": "23841a22702a0bf12d008746ceb91c44422b5be1e19dd3a95d6a21cbb326602d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_15_1.capsule",
+      "sha256": "c71980d67353d283d5781dfafa2fdece62054651b0d58306bb7dad787b8ce3b8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_15_1.log",
+      "sha256": "2aac4dc6ca9880b85f43792fbdafde19e3a76b07c4d175e58deebe950fab958b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_35_1.capsule",
+      "sha256": "6b5e9c144403dccf8c120271e5add39947805b9a405f3d9c003ef8e202a35b22"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_35_1.log",
+      "sha256": "17b7abe747b1da609f89b8178fa860b67a66aeede3cb11d119e6794e2b7a9fda"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_61_1.capsule",
+      "sha256": "b9cf74fac622848d48dcb858e40e38c7ae078c57d3686be77af65dcb041e8e66"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_28_render_lanes_61_1.log",
+      "sha256": "25948956dd11e71f91145b94e8906fd137278a362183ea43bb3f384e3aeefb5b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_0_1.capsule",
+      "sha256": "9abd0530d0ede896e49d384329f1c886c4404b0f44615f73f6f9bc38f8e06648"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_0_1.log",
+      "sha256": "08c94881174640eb1a4cb903ebcfe1e9c784102c1c9a38e5089a511b2c582660"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_15_1.capsule",
+      "sha256": "c082167830e1e1a5ebd84f3d2f16857f263c7021849280f6e2259ac83e65df82"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_15_1.log",
+      "sha256": "fb459321a8fb0dc118d8dbca227be1944c28dd8b76510d82a4b4640ab22f34e7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_35_1.capsule",
+      "sha256": "d6a708fed37d57c43e72675bf879c44a34857ad5f9fc10c0d75ec2bb0b1c07b5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_35_1.log",
+      "sha256": "c2ddd1c9e613935760c0122820b5ae6016a4c74e4b37c3508baa4429674ec21d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_61_1.capsule",
+      "sha256": "f1f5a3449f3d5dd41ea75833b98a4c8dfaf1472227e31386602adf7fe5d3a44a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_original_bsr_v1\\vf3_29_render_lanes_61_1.log",
+      "sha256": "a1145c923aae9a51155a6a907a84a424e3b46d869162fcb5e3145abf75210c16"
+    }
+  ],
+  "callable_map": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\render_lanes_callable_v1.json",
+    "sha256": "97e8c4cf29ebc2858d53bb39d521a61afe6357475d6b1dbe11bbd11372fd5d15"
+  },
+  "attribution_validator": {
+    "path": "E:\\vf3-decomp\\tools\\callable_render_lanes.py",
+    "sha256": "bb4432881237fd8511181e2ecebc77a62936aad2deccdc53ce6ef6f506b472bc"
+  },
+  "attribution_dispatch": {
+    "path": "E:\\vf3-decomp\\tools\\callable_body.py",
+    "sha256": "eb57bf7e9fd47e325401b6cf6cfc9b9c110819b43e085174b73026e4267f95a2"
+  },
+  "bindings": {
+    "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+    "sha256": "3cf61e2e239c9e5c67db18ba0c4184bb88eb8fc4f480003094cd2bcf787c1375"
+  },
+  "affected_bindings": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\render_lanes_v1_affected_bindings.json",
+    "sha256": "41388c8e2514e3ab17c9c2c9105fba37ce7979289b359b468078797667621d4a"
+  },
+  "selection": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\render_lanes_v1_affected_selection.json",
+    "sha256": "726923f7389926cf09f0020a722a54e20eaf301368705274e9290393a24b48d9"
+  },
+  "regression": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\render_lanes_v1_affected_portcheck.log",
+    "sha256": "b67b05a69151f151a1f00dbc4af4dcc6390f84341d7f11ea9564c0c5af862a2a"
+  },
+  "regression_status": {
+    "expected_bindings": 1,
+    "reported_bindings": 1,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "golden-bound ports:",
+      "  render_lanes_qualified:0x8c05d436 PASS   matrix_family: 128/128 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "native_tests": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3dl.exe",
+      "sha256": "11fb60da244a9f617113e88efb73bb19bf1c52429784a5c1bf4ad42f6e267371"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3walker.exe",
+      "sha256": "d2167bea52f3b86720ca6d2d6ef32093014896c505fa03d808502b94a6c1a4e9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3mtmount.exe",
+      "sha256": "1de01cc5ee187853bfcaf307f173a3a0d773bc13b68c87b5849149031a24b733"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3loop.exe",
+      "sha256": "43aa197e60225ac890e43b23eaaec63c9e47822c4e488fe120515a41ab47532a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3taskvm.exe",
+      "sha256": "73a163a113db2cf98edff40e34f11240aaffa66305e5ee2b6f2b553dde7c93ea"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3vm.exe",
+      "sha256": "ce4022da7005ccd54f7080f6fc0bad7567db1b71448586826de11d934efcdd1f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3frame.exe",
+      "sha256": "6eabb3d162fea40db25926c2e981997dcbd6f007eb845e407c57f9280ec35845"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3libutil.exe",
+      "sha256": "9ba720879a38fcd660fdaded6391ce784de360b55f0adda2cab21b094f7c73b1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3orient2.exe",
+      "sha256": "445175b6489e05351482bb3e780c57d3988071b15eb71cab5db1e5b7a9e382ea"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3poly.exe",
+      "sha256": "d119445c0d98c969b675e93576e90324dba794ef54a5c852dcf6a2436853013d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3vecpush.exe",
+      "sha256": "57f15d5b6a03a714434a901b15e82663c727670d6b57e3850bf235d8c675fb1a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3tailcall.exe",
+      "sha256": "271881cbdcd548f8a70f1b71c83bdb659fb55170333186b6b3775ecfbb3cd20f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3walker2.exe",
+      "sha256": "822c6ab017ebbc97c052267dd916805969957620b4775d8e99ae47f9fb526bdb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecadd.exe",
+      "sha256": "733ba451731eda1c7023201f11139cb80d81b6ad4c211221023246691637cd1c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3scaler3.exe",
+      "sha256": "e7ced24516b0538b6a9295dee0ebf010fc26015289973d3f69087a35461922dd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3frameseq.exe",
+      "sha256": "c33719f42e0e4ffe00c9517dfa299c5661cc55afe2cfd884289b96d09aa4794b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3cbefc.exe",
+      "sha256": "a83372817e85420af102b9e82a9c81ae2e0bd97e83168d6b03ed641c9de9c366"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3f040f1e.exe",
+      "sha256": "a9de1fbf24175d786bb671827b554ed5b70e2610fc5ad42a5b1dc39b1f63ce51"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3f0747d8.exe",
+      "sha256": "7b1717abaaaa00d12f6347b0365709c2920518db00ec8e127729562dacfe2e52"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3f9f6fc.exe",
+      "sha256": "f59b1e0e23c0b6b09aba0c8ec5ba95490999d37f6f2eddb2151ea07547189361"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3f9f6dc.exe",
+      "sha256": "d40ef7a92f459d2aa906f42f8277202ec786dfbd322f27f8b31493860e0fb93d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3cc148.exe",
+      "sha256": "7c6aa88c550fa6a5d1a1625bdbf73bcdfd010e26c300ed923a8f4df907ad1e8b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3c5dbe.exe",
+      "sha256": "fb029524c329edc6f194dd894e199a9315e6a7f3e22df5b79a1b2b893d053457"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3b10aa.exe",
+      "sha256": "4b097be4355fba48529ad2533e2e5a8a1778eeb52fa73812757f0701934b026c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3c6ec4.exe",
+      "sha256": "cd9e5e0f71196dfe2aba549f3ecf449f0f5538cb78d1862262a5ba2d96e60b98"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3maplookup.exe",
+      "sha256": "6678fa4a17fd03b151a2b91271bde75cdea6ae77ee8cc451f3b92f3962985d83"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3meshnode.exe",
+      "sha256": "99b5309a0daf497c333507e7ba253339b0310bf9bc41509499d6197c734e6084"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3d0fa.exe",
+      "sha256": "747b890638c5116560239418e05e1338290850711f136064ee387ceea0e1c047"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3c788.exe",
+      "sha256": "02d67304d6a4ee0aebb4e0805b53aebbca94773b089ab0d5fbac2b8c25e3f666"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3f096258.exe",
+      "sha256": "233719c4168eea0573ee33a1bf2bbc0a5ecc6f0ba70bbe60c22e8381a928ba0a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3matrix.exe",
+      "sha256": "a927ab43a74a632903a112569d17da16b58b9060b5949d9d4d4445713749300b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3bootmix.exe",
+      "sha256": "10daf01b1d2cde72b88f21d2607d82ac82079b18e4d0d1feaf9bd5f8492d6ddf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecnorm070x.exe",
+      "sha256": "ec2cecf09caa269470e9c0a4c417aafa0ca5104db4f06d0663dc0d840719903a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecnorm070a84.exe",
+      "sha256": "5aae5970c931fc2be6e02ca4f3295171839806850a3c4ecb5eb09dc476481106"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecnorm070120.exe",
+      "sha256": "3ec36a85a07e448354c3e231dff14913d7319543da2dd86af87b31324a6491b2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecnorm07030c.exe",
+      "sha256": "bb62cbc0b7cda9f5cd66e34c9637376c6449ce7f0296774bab084d0702f21ee2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fvecnorm070cf0.exe",
+      "sha256": "b09705bc6ba4f08241e9c6b4ea81243549ae7f849f64880e9f5fdb6b23610a45"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3fpu.exe",
+      "sha256": "150fee661091b81a49a91e0a3595bc6ac177cc8ea2913b868c8aaf4a53a76844"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\native_render_lanes_v1\\vf3statehelpers.exe",
+      "sha256": "48ddd227dbb637b1f2ea4645002a2b392c54e34df258b8db383b56fa8c524080"
+    }
+  ],
+  "tool_tests": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\render_lanes_v1_tool_tests.log",
+    "sha256": "7cb727ad265930b65ac7f713ad9989be078f9e4131239abb578ab60aac5a0d80"
+  },
+  "baseline": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\render_lanes_coverage_baseline_v1.json",
+    "sha256": "83cb4727c72eb31c995fa49e13d285bd5348d00a27afeac193539504e1cb4f65"
+  },
+  "milestone": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_render_lanes_v1_milestone.json",
+    "sha256": "7eb19e319e9174a8359e59832bab44988101524b83aec0f40d3387e60225c7a1"
+  },
+  "chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\render_lanes_v1_chain_extension.json",
+    "sha256": "dcd3dfb089b2843cfd0dff85a53494434b0199978aaacb18e2b2a19c79c8d09e"
+  },
+  "previous_complete_chain": {
+    "path": "E:\\vf3-decomp\\extract\\analysis\\settings_menu_v1_chain_extension.json",
+    "sha256": "d067ee55b5911fd6c3f3cf73f7922bd49f92adf9533e0b96d866f588af96ebaa"
+  },
+  "previous_percentage_seal": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\settings_menu_v1_manifest.json",
+    "sha256": "73a9986ccac5525f1b29482a081f0c1c0f3fdb8f73fc40933ab3ae5ea5a078e9"
+  },
+  "gate_scope": "All observed/static affected bindings and 39 native suites; previous full 60% checkpoint is pinned through settings_menu."
+}
