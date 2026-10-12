@@ -1,0 +1,15 @@
+{
+  "sources": [
+    "src/fight/scene_input_transition.c",
+    "src/fight/scene_replay_transition.c",
+    "src/fight/replay_pair_reset.c",
+    "src/fight/replay_action_reset.c"
+  ],
+  "routes": [
+    {"entries": ["0x8c0993e0"], "function": "vf3_scene_input_transition_c"},
+    {"entries": ["0x8c099540", "0x8c099560"], "function": "vf3_scene_replay_transition_c", "entry_argument": true},
+    {"entries": ["0x8c0a91da"], "function": "vf3_replay_pair_reset_c"},
+    {"entries": ["0x8c0a92c8"], "function": "vf3_replay_action_reset_c"},
+    {"entries": ["0x8c0a9444"], "function": "vf3_replay_orientation_reset_c"}
+  ]
+}

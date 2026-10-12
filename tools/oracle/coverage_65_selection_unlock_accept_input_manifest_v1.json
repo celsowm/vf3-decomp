@@ -1,0 +1,80 @@
+{
+  "coverage_credit": false,
+  "development_freeze": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_qualified_development_freeze_v1.json",
+    "sha256": "c0b51e0addbc9ed817a73d6eef235f5952292c7a0b45771828532870414fd89c"
+  },
+  "original_states": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    }
+  ],
+  "files": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v1_watch.txt",
+      "sha256": "cc104e0d578eea9f480866d8fde4abe7d153ff32f5ade88abb297d460201e833"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v1_owners.json",
+      "sha256": "35e4405ec19fc7b1c495e212050b4213f4c60fbd34e8882431a0338eab243526"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v1_memory.json",
+      "sha256": "798e6a3ec1656a3fb41b068a98e5e4027d873243a007de76b5516dcbe370c97f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v1_registers.json",
+      "sha256": "aee7b50f987aa4ce6ff6c20d9103672b40a191f304e32b603804dc282ec2df8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_unlock_accept_v1.patch",
+      "sha256": "d174a944d770b09176eae83604fabc6d4de5aa35e0d166b3789ce9f125ee822e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v2_watch.txt",
+      "sha256": "cc104e0d578eea9f480866d8fde4abe7d153ff32f5ade88abb297d460201e833"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v2_owners.json",
+      "sha256": "35e4405ec19fc7b1c495e212050b4213f4c60fbd34e8882431a0338eab243526"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v2_memory.json",
+      "sha256": "54f9069661e4acce8a79ea386c79704b9add01275dc63e2ff978e0ae86ce1bcd"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v2_registers.json",
+      "sha256": "aee7b50f987aa4ce6ff6c20d9103672b40a191f304e32b603804dc282ec2df8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_unlock_accept_v2.patch",
+      "sha256": "96673e7f214d4ef057ec763034c254e8b0671c38dd2b2b45afa322422285e4de"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v3_watch.txt",
+      "sha256": "cc104e0d578eea9f480866d8fde4abe7d153ff32f5ade88abb297d460201e833"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_accept_v3_owners.json",
+      "sha256": "35e4405ec19fc7b1c495e212050b4213f4c60fbd34e8882431a0338eab243526"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v3_memory.json",
+      "sha256": "99b5750e55005aa0052c88a32dbec39b7a5369c32fd2572c14680d38dd04a609"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_accept_v3_registers.json",
+      "sha256": "aee7b50f987aa4ce6ff6c20d9103672b40a191f304e32b603804dc282ec2df8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_unlock_accept_v3.patch",
+      "sha256": "6ec9b20f363f3f16e0e22a9354cf92a5e4bf694c8e6191c01f084cd982ce3a66"
+    }
+  ],
+  "hypothesis": "Independent original states; disjoint descriptor buffers, permuted input groups and changed positive timers. Original code and literal pools remain unchanged."
+}

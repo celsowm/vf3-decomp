@@ -27,8 +27,13 @@ in states 26/27. The readable C candidate is integrated and remains uncredited;
 its 1,411-case strict development replay and eight original parent-tail
 windows pass. An immutable normal replay executable and 401-file archive
 are ready (398 compiler dependencies plus three retained historical files).
-Its full 1,414-binding regression is running. Finish the qualified development
-freeze and fresh independent acceptance before promoting it. The first caller recipe produced
+Its full 1,414-binding regression, 39 native suites and 335 tool tests passed,
+and its development freeze was sealed before new acceptance inputs. Independent
+acceptance then failed: 1,386/1,388 native cases match with zero skips, and two
+original invocations in the third campaign are incomplete. The two memory
+counterexamples are preserved; the candidate remains unqualified and uncredited.
+Any C correction requires a new development freeze and fresh acceptance inputs.
+The first caller recipe produced
 device events on six windows and remains diagnostic; guarded original caller
 recipe v2 verifies the unchanged transfer/save/return instructions without
 device activity.
@@ -48,13 +53,19 @@ The five new replay helpers provide **824 additional uncredited candidate
 bytes**, outside the nine-owner scene queue: `0x8c099544` (36), `0x8c099568`
 (290), `0x8c0a91e6` (94), `0x8c0a92da` (320) and `0x8c0a9452` (84).
 Their first standalone original campaign passes 970 strict native cases
-with zero skips. Four bodies are fully executed; the action helper lacks
-16 bytes for its character-six comparison path. A targeted original
-campaign is running for that path. These helpers need their own caller
-contracts, complete per-state development, integration and fresh acceptance
+but contains an incomplete invocation and insufficient per-owner cases in
+one state; it remains diagnostic. The second campaign completes all 640
+invocations in each of states 28/29. A separate character-six campaign fills
+the action helper's missing 16 bytes. The combined complete original audit
+covers all five bodies independently in both states, and its 1,514 strict
+native cases pass with zero skips. These helpers need their own caller
+contracts, normal integration, a qualified freeze and fresh acceptance
 before they can provide any coverage margin.
 
-After those two successful promotions, **5,677 bytes** would remain. The
+Reusable commands for these inspections, isolated builds, caller proof sealing
+and fixed coverage targets are documented in [evidence_tools.md](evidence_tools.md).
+
+If selection/unlock qualifies, **5,677 bytes** would remain. The
 next scene/replay selection contains **6,042 candidate bytes**:
 `0x8c09970a` (1,172), `0x8c097abc` (1,132), `0x8c098c70` (882),
 `0x8c099d74` (648), `0x8c0972d2` (624), `0x8c09635a` (616),

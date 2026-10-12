@@ -1,0 +1,112 @@
+# Reusable evidence commands
+
+Use these commands instead of temporary Python snippets when inspecting
+captures, replay failures, caller contracts and coverage campaigns.
+Run from the repository root. Set an output directory on the drive with space:
+
+```powershell
+$evidenceCache = 'C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence'
+```
+
+## Inspect existing evidence
+
+`tools/oracle/evidence_inspect.py` has four read-only subcommands. Its optional
+`--out` precedes the subcommand and refuses an existing report.
+
+```powershell
+python tools/oracle/evidence_inspect.py status extract/analysis/strip_parent_full_633_checkpoint_v1.log --suite portcheck
+
+python tools/oracle/evidence_inspect.py capture --batch "$evidenceCache/coverage_65_selection_unlock_accept_v3_export/batch_manifest.json" --owners tools/oracle/coverage_65_selection_unlock_accept_v3_owners.json --image extract/gamedata/1ST_READ.BIN
+
+python tools/oracle/evidence_inspect.py case "$evidenceCache/coverage_65_selection_unlock_combined_accept_v1_export" --entry 0x8c0c3210 --case 1117 --window 20
+```
+
+`status` checks terminal log markers and the expected binding inventory. It
+does not infer that a process is running from an unfinished log. Choose
+`--suite verify_all` when checking the complete repository gate.
+
+`capture` reads completed raw capsule files and reports invocation accounting,
+excluded flags, distinct inputs, device events and owner instruction gaps per
+original state. With `--image`, it checks original instructions and literal
+pools. It also reports identical captured inputs with different outputs.
+These diagnostics do not qualify a campaign or grant C coverage.
+
+`case` uses one-based replay case numbers and zero-based RAM window indices.
+It prints the original capsule/invocation references, stack pointer and
+before/expected bytes. To inspect that original record, use the reported
+capsule path and invocation ID:
+
+```powershell
+python tools/oracle/evidence_inspect.py sample ORIGINAL_CAPSULE_PATH --id 142 --pc 0x8c040f4e
+```
+
+This reports selected instruction hits, final instructions, floating-point
+store instructions, architectural-state size, device events and fingerprints.
+It does not reconstruct every effective write address from opcodes.
+
+## Build isolated readable candidates
+
+`tools/oracle/build_isolated.py` copies the current static library, dispatcher,
+runner and optional C candidates into a new directory, compiles there and
+records the inputs, archived headers, compiler commands and executable hashes.
+Candidate routes follow the existing FPSCR guard. The normal build is untouched.
+
+```powershell
+python tools/oracle/build_isolated.py --config tools/oracle/build_configs/scene_replay_development.json --out "$evidenceCache/scene_replay_example_v1"
+
+python tools/oracle/build_isolated.py --memory-diagnostic --out "$evidenceCache/memory_diagnostic_example_v1"
+```
+
+The JSON config contains `sources` and `routes`; each route supplies `entries`,
+a C `function` name and optional `entry_argument: true`. Entries are normalized
+to physical addresses, and duplicate aliases are rejected.
+
+`--memory-diagnostic` adds byte previews inside the existing RAM mismatch branch.
+The strict comparisons and failure returns remain active. Run the executable
+through `tools/oracle/verify_matrix.py --executable PATH`, which enables strict
+replay. Existing output directories are refused.
+
+This is a development builder, not a qualified compiled-source freeze: it pins
+the copied static library binary rather than archiving its entire source closure.
+Normal integration still requires `compiled_source_freeze.py` and the established
+development, independent acceptance and full regression gates. Historical builders
+remain intact because earlier proofs pin their exact bytes.
+
+## Seal an authored caller contract
+
+`tools/oracle/seal_callable.py` attaches hashed original caller manifests to an
+authored owner-to-contract JSON and runs the existing callable validators against
+every supplied corpus. It does not infer a caller contract from addresses.
+
+```powershell
+python tools/oracle/seal_callable.py --template tools/oracle/scene_input_transition_callable_v1.json --caller-manifest "$evidenceCache/scene_input_transition_original_dispatch_v1/manifest.json" --corpus "$evidenceCache/coverage_65_scene_input_transition_combined_dev_v1_export" --reference-key original_dispatch_manifests --out "$evidenceCache/scene_callable_example_v1.json"
+```
+
+Repeat `--caller-manifest` or `--corpus` as needed. The default reference key is
+`original_caller_manifests`; scene table contracts use `original_dispatch_manifests`.
+The command rejects an existing output and callers that change during validation.
+
+## Freeze a fixed coverage target
+
+`freeze_campaign.py` now accepts an exact byte-union target as well as its existing
+percentage-point option:
+
+```powershell
+python tools/oracle/freeze_campaign.py --target-bytes 282527 --out "$evidenceCache/next_65_campaign_example_v1.json"
+```
+
+It verifies the frozen image/inventory/body hashes and that the coverage dashboard
+agrees with the ledger. At the current checkpoint this records baseline 275,276,
+target 282,527 and remaining gain 7,251. It preserves earlier campaign files.
+
+## Verification of these tools
+
+The reusable builder reproduced the known selection acceptance result exactly:
+1,386/1,388 matches, zero skips, with failures at cases 1,117 and 1,353. The caller
+sealer validated the existing scene dispatch proof, and the exact-target freezer
+reproduced the 7,251-byte gap. The isolated scene build and replay results are
+recorded in `extract/analysis/scene_replay_reusable_dev_v1_scene_native.json`.
+Tool tests live in `tools/oracle/test_reusable_evidence_tools.py`; immutable earlier
+335-test checkpoint logs remain preserved. The current oracle discovery run passes
+all 346 tests. The reusable scene build also passes all 1,514 combined helper cases
+with zero skips (`scene_replay_reusable_dev_v1_helpers_native.json`).
