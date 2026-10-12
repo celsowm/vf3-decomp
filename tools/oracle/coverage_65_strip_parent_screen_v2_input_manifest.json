@@ -1,0 +1,80 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "baseline_verified_bytes": 267230,
+  "potential_marginal_bytes": 2128,
+  "owners": [
+    {
+      "entry": "0x8c0570e0",
+      "owner": "0x8c0570e2",
+      "body_bytes": 422,
+      "marginal_bytes": 422,
+      "whole_original_proved": false,
+      "caller_proved": false,
+      "c_credit": false
+    },
+    {
+      "entry": "0x8c057480",
+      "owner": "0x8c057482",
+      "body_bytes": 426,
+      "marginal_bytes": 426,
+      "whole_original_proved": false,
+      "caller_proved": false,
+      "c_credit": false
+    },
+    {
+      "entry": "0x8c057860",
+      "owner": "0x8c057862",
+      "body_bytes": 430,
+      "marginal_bytes": 430,
+      "whole_original_proved": false,
+      "caller_proved": false,
+      "c_credit": false
+    },
+    {
+      "entry": "0x8c057c60",
+      "owner": "0x8c057c62",
+      "body_bytes": 424,
+      "marginal_bytes": 424,
+      "whole_original_proved": false,
+      "caller_proved": false,
+      "c_credit": false
+    },
+    {
+      "entry": "0x8c057fa0",
+      "owner": "0x8c057fa2",
+      "body_bytes": 426,
+      "marginal_bytes": 426,
+      "whole_original_proved": false,
+      "caller_proved": false,
+      "c_credit": false
+    }
+  ],
+  "failed_preparation_v1": "Unsupported bank-register override rejected before a patch or original capture; input JSON retained. V2 leaves original bank registers intact.",
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_inputs.py",
+      "sha256": "0e99e1be5625f7c58372313a3e5e7b6a1db368d4e94b6759a0ea75976cbdc3e7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_screen_v2_watch.txt",
+      "sha256": "3713297b4639edc22f3e28147ae085916655a2ae06e97e61491f978baf0ef59b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_screen_v2_owners.json",
+      "sha256": "5ed8c68e07997645cca76b923d618c9e568accb2d52c4f4b7af2b63f77ef48e7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_strip_parent_screen_v2.patch",
+      "sha256": "e29bcedba79f5359df9607cfa8858726473c43d9afd4a30d8e2e117e31231206"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_strip_parent_screen_v2_memory.json",
+      "sha256": "ab0d8d939449ab6755148a2d9e21420c40e5118d625a90586aaea566e482380f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_strip_parent_screen_v2_registers.json",
+      "sha256": "a8c074a8194c400fc369faed8aa68875448c65f9c9451f9a1f2f0ec7fad49961"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 """Disjoint typed holdout inputs prepared only after the complete C freeze."""
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import struct
@@ -10,13 +11,14 @@ CACHE = Path('C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence')
 NAME = 'coverage_65_complete_batch_accept_v1'
 
 
-def changed(value):
+def changed(value, phase=1):
     if isinstance(value, dict):
         result = dict(value)
-        result['phase'] = result.get('phase', 0)+1
+        result['phase'] = result.get('phase', 0)+phase
         return result
     if isinstance(value, list):
-        return value[1:]+value[:1]
+        shift = phase%len(value)
+        return value[shift:]+value[:shift]
     return value
 
 
@@ -24,8 +26,10 @@ def bits(value):
     return struct.unpack('<I', struct.pack('<f', value))[0]
 
 
-def prepare():
-    freeze = CACHE/'ram_clipping_batch_qualified_development_freeze_v1.json'
+def prepare(version=1):
+    assert version in (1, 2), 'unsupported holdout input version'
+    name = f'coverage_65_complete_batch_accept_v{version}'
+    freeze = CACHE/f'ram_clipping_batch_qualified_development_freeze_v{version}.json'
     proof = json.loads(freeze.read_text())
     assert proof['qualified_development_only'] and proof['compiled_inputs'] == 398
     for row in proof['references']:
@@ -35,7 +39,7 @@ def prepare():
     memory, registers = [], []
     for kind, target in (('memory', memory), ('registers', registers)):
         old = json.loads((inputs/f'coverage_65_complete_batch_dev_v2_{kind}.json').read_text())
-        target.append({entry: {field: changed(value) for field, value in fields.items()}
+        target.append({entry: {field: changed(value, version) for field, value in fields.items()}
                        for entry, fields in old.items()})
     memory, registers = memory[0], registers[0]
     # Change finite attribute values and the normalization scale in the SDK
@@ -43,28 +47,31 @@ def prepare():
     for entry in memory:
         if int(entry, 16) in range(0x8c05152c, 0x8c052c35):
             for index in range(16):
-                memory[entry][hex(0x0c440000+8*index)] = bits((index+2)/32)
-                memory[entry][hex(0x0c440004+8*index)] = bits(0.75)
-            registers[entry]['fr3'] = bits(1/512)
+                memory[entry][hex(0x0c440000+8*index)] = bits((index+1+version)/(32*version))
+                memory[entry][hex(0x0c440004+8*index)] = bits(0.75*version)
+            registers[entry]['fr3'] = bits(1/(512*version))
     owners = ROOT/'tools/oracle/coverage_65_complete_batch_dev_v2_owners.json'
-    watch = ROOT/f'tools/oracle/{NAME}_watch.txt'
-    owner_out = ROOT/f'tools/oracle/{NAME}_owners.json'
-    paths = [watch, owner_out, *(inputs/f'{NAME}_{kind}.json' for kind in ('memory', 'registers'))]
-    patch = ROOT/f'extract/analysis/{NAME}.patch'
-    manifest = ROOT/f'tools/oracle/{NAME}_input_manifest.json'
+    watch = ROOT/f'tools/oracle/{name}_watch.txt'
+    owner_out = ROOT/f'tools/oracle/{name}_owners.json'
+    paths = [watch, owner_out, *(inputs/f'{name}_{kind}.json' for kind in ('memory', 'registers'))]
+    patch = ROOT/f'extract/analysis/{name}.patch'
+    manifest = ROOT/f'tools/oracle/{name}_input_manifest.json'
     assert not any(path.exists() for path in [*paths, patch, manifest]), 'refuse to overwrite holdout evidence'
     watch.write_text((ROOT/'tools/oracle/coverage_65_complete_batch_dev_v2_watch.txt').read_text())
     owner_out.write_text(owners.read_text())
     for path, value in zip(paths[2:], (memory, registers)):
         path.write_text(json.dumps(value, indent=2)+'\n')
-    generate(watch, patch, 0x8c0432e2, 384, relocation=0x100000,
+    generate(watch, patch, 0x8c0432e2, 384, relocation=0x100000*version,
              fpscr=0x240001, bounded_arguments=True, holdout_inputs=True,
              preserve_fields=True, register_overrides=registers, memory_overrides=memory)
     manifest.write_text(json.dumps(dict(coverage_credit=False, purpose='Holdout input preparation; capture and qualification remain required',
         development_freeze={'path': str(freeze), 'sha256': hashlib.file_digest(freeze.open('rb'), 'sha256').hexdigest()},
-        intended_states=['vf3_28.state', 'vf3_29.state'], relocation='0x100000',
+        intended_states=['vf3_28.state', 'vf3_29.state'], relocation=hex(0x100000*version),
         changes='Rotate typed selector/boundary sequences, shift strided dimensions, change clip attributes/normalization, relocate owned objects and change FPSCR bank and preserved-register inputs',
         files=[{'path': str(path.resolve()), 'sha256': hashlib.file_digest(path.open('rb'), 'sha256').hexdigest()} for path in [*paths, patch]]), indent=2)+'\n')
 
 
-if __name__ == '__main__': prepare()
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--version', type=int, choices=(1, 2), default=1)
+    prepare(parser.parse_args().version)

@@ -290,3 +290,57 @@ phases, changed clipping attributes/normalization, and FPSCR `0x240001`.
 Its input manifest pins the formal development freeze. Holdout execution,
 remaining scene callers, promotion audit and checkpoint binding additions
 remain pending; accepted coverage is still 267,230/434,656 bytes.
+
+## Holdout v1 failure and corrected FTRV upper lanes
+
+Completed state-28 holdout v1 has 4,997 accounted invocations and no
+incomplete/unaccounted records. Strict v16 replay passes 14/15 entries;
+geometry matches only 20/295 valid cases, with the first difference in FR6's
+NaN sign. The failed specimens and immutable v16 result are retained.
+
+Reinspection of the fixed observer's x86 FTRV implementation showed that
+the earlier even/odd operand interpretation was wrong for row 2. The lower
+pair retains the matrix operand for row 0 and vector operand for row 1;
+both upper lanes retain the vector operand for rows 2/3. Corrected v17
+matches **295/295** former failing geometry cases, and all 15 original
+development entries still pass with zero skips. Those fitted holdout cases
+are diagnostic evidence, not acceptance for v17.
+
+The corrected 398-source snapshot and original observer disassembly are
+retained. Required native suites and the full baseline binding regression
+are being repeated. Holdout v1 state 29 is finishing against its original
+observer; the campaign remains unqualified for promotion. A new complete C
+freeze and fresh changed-input holdout are required for the correction.
+
+## Corrected freeze, complete caller proofs and next screening pool
+
+The complete corrected v17 development batch passes all 15 entries. All
+39 required native suites and 304 oracle tool tests pass. The fixed original
+observer completed eight caller windows per owner across two distinct states
+for every one of the 14 uncredited owners, including the primary scene
+dispatcher for the round clock and history transition. The complete caller
+map is `tools/oracle/ram_clipping_callable_v1.json`.
+
+`ram_clipping_batch_qualified_development_freeze_v2.json` seals the corrected
+398 compiled inputs before fresh holdout v2. That holdout uses states 28/29,
+new sequence phases, relocation by `0x200000`, and changed clipping
+attributes and normalization. The old holdout remains diagnostic evidence;
+it cannot approve the C correction fitted against its failing geometry cases.
+The current 1,396-binding baseline regression is still running. Coverage
+remains **267,230/434,656 = 61.480803%** until qualification and promotion.
+
+The completed batch offers 6,076 marginal bytes. If all gates pass, it raises
+the union to 273,306 bytes (62.878690%) and leaves 9,221 bytes to reach
+282,527. This crosses the 62.5% checkpoint, so the expanded binding inventory
+must pass a full regression before further C batches are accepted.
+
+The next advisory pilot prepares the five uncredited strip parents at
+`0x8c0570e0`, `0x8c057480`, `0x8c057860`, `0x8c057c60`, and
+`0x8c057fa0`. Their union offers only **2,128** marginal bytes: related
+parents at `0x8c056520` and `0x8c056ce0` are already credited and contribute
+nothing new. The pilot varies signed strip lengths, winding, depth and shader
+selectors while preserving original code, pools, callback tables and banked
+registers. The first preparation rejected unsupported bank register overrides
+before producing a patch; its JSON inputs are retained. Prepared v2 has no
+original execution proof yet and grants zero credit. The reserve must supply
+at least the remaining 7,093 bytes even if every strip parent qualifies.

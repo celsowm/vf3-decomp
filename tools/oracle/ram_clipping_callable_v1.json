@@ -1,0 +1,198 @@
+{
+  "0x8c0a8370": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c0a8370",
+    "contract": "initializer",
+    "call_sites": [
+      "0x8c096184"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_replay_initializer_original_callers_v4\\manifest.json",
+        "sha256": "bbdb223c69ea4df384ef2abaa616a130ef61c54d007fa5e22fe41873919a6088"
+      }
+    ]
+  },
+  "0x8c0a8f98": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c0a8f8c",
+    "contract": "interpolate",
+    "call_sites": [
+      "0x8c0a9066"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_replay_interpolate_original_callers_v4\\manifest.json",
+        "sha256": "dcc4134b581359d197e8fa3604541ac366098d4ca94bf25531d5559d95338f63"
+      }
+    ]
+  },
+  "0x8c087e1c": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c087e04",
+    "contract": "component-11",
+    "call_sites": [
+      "0x8c08b4ae"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_original_callers_v4\\manifest.json",
+        "sha256": "63d20bd35b26469efb822fb3b788e074631ebac0a5267d4adbadc703f2bcb685"
+      }
+    ]
+  },
+  "0x8c08f642": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c08f632",
+    "contract": "list",
+    "call_sites": [
+      "0x8c090b78"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_list_interpolation_original_callers_v1\\manifest.json",
+        "sha256": "1d331a4ee6759642729b01f2b85c54caa1b508bc4a217160861400da4537be11"
+      }
+    ]
+  },
+  "0x8c08acd8": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c08acc0",
+    "contract": "component-2",
+    "call_sites": [
+      "0x8c08b4ae"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_timed_effect_original_component_callers_v2\\manifest.json",
+        "sha256": "21ddcbeeaa1c71ef3e6677ba97bedfe24f5cd42a505ca4bac25c6c172e51a632"
+      }
+    ]
+  },
+  "0x8c05156a": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c05152c",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c057260"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c051956": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c051918",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c0566a4"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c051c6a": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c051c2c",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c057604"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c0522ca": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c05228c",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c0579e8"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c0525fe": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c0525c0",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c056e64"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c05295a": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c05291c",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c058122"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c052c72": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c052c34",
+    "contract": "clip",
+    "call_sites": [
+      "0x8c057de2"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+        "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+      }
+    ]
+  },
+  "0x8c098b40": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c098b3c",
+    "contract": "scene-53",
+    "call_sites": [
+      "0x8c0968f4"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_round_clock_original_scene_callers_v1\\manifest.json",
+        "sha256": "ed8cab468bafef391a0f4bf02ee805e5fdee809db6421efec3601bc66602da6b"
+      }
+    ]
+  },
+  "0x8c0991a2": {
+    "kind": "vf3-ram-clipping-batch-v1",
+    "entry": "0x8c099194",
+    "contract": "scene-56",
+    "call_sites": [
+      "0x8c0968f4"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_history_original_scene_callers_v1\\manifest.json",
+        "sha256": "3711738a8a26e6c331f2df89495858018d297cb045000e5649987b10092053c2"
+      }
+    ]
+  }
+}

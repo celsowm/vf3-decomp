@@ -1,0 +1,16 @@
+{
+  "0x8c0a8370": "src/fight/replay_setup.c",
+  "0x8c0a8f98": "src/fight/replay_setup.c",
+  "0x8c087e1c": "src/fight/geometry_callback.c",
+  "0x8c08f642": "src/fight/list_interpolation.c",
+  "0x8c098b40": "src/fight/scene_replay_flow.c",
+  "0x8c0991a2": "src/fight/scene_replay_flow.c",
+  "0x8c08acd8": "src/fight/timed_boundary_effect.c",
+  "0x8c05156a": "src/fight/clip_triangle.c",
+  "0x8c051956": "src/fight/clip_triangle.c",
+  "0x8c051c6a": "src/fight/clip_triangle.c",
+  "0x8c0522ca": "src/fight/clip_triangle.c",
+  "0x8c0525fe": "src/fight/clip_triangle.c",
+  "0x8c05295a": "src/fight/clip_triangle.c",
+  "0x8c052c72": "src/fight/clip_triangle.c"
+}

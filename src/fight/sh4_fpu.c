@@ -116,9 +116,9 @@ int vf3_fpu_ftrv(const uint32_t matrix[16],const uint32_t vector[4],uint32_t fps
     for(unsigned i=0;i<4;++i) {
         uint32_t row[4]={matrix[i],matrix[i+4],matrix[i+8],matrix[i+12]};
         /* The frozen capture host packs two double products per MULPD:
-         * even rows retain the matrix NaN; odd rows retain the vector NaN.
+         * row 0 retains the matrix NaN; rows 1..3 retain the vector NaN.
          * Pin that operand choice rather than relying on C allocation. */
-        result[i]=as_bits(flush(dot(row,source,(int)(i&1u)),fpscr));
+        result[i]=as_bits(flush(dot(row,source,i!=0),fpscr));
     }
     end(&e); return 1;
 }

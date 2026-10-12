@@ -67,7 +67,8 @@ int main(int argc,char **argv) {
             }
         }
     }
-    /* The frozen interpreter's packed MULPD operands alternate by row.
+    /* The frozen interpreter uses the matrix operand for row 0's MULPD,
+     * and the vector operand for rows 1..3 (including both upper lanes).
      * Cover opposite signs and payloads in every product position, including
      * quieting signaling inputs, without relying on compiler operand order. */
     for(unsigned mode=0;mode<4;++mode) {
@@ -78,7 +79,7 @@ int main(int argc,char **argv) {
             vector[column]=nan_pairs[pair].b;
             int ok=vf3_fpu_ftrv(matrix,vector,fpscr,got);
             for(unsigned row=0;row<4;++row) {
-                uint32_t want=(row&1u)?nan_pairs[pair].commutative:nan_pairs[pair].ordered;
+                uint32_t want=row?nan_pairs[pair].commutative:nan_pairs[pair].ordered;
                 if(!ok || got[row]!=want || fegetround()!=FE_UPWARD) {
                     if(bad++<8) fprintf(stderr,"FTRV NaN pair %u column %u row %u: %08x != %08x\n",pair,column,row,got[row],want);
                 }

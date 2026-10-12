@@ -1,0 +1,85 @@
+{
+  "coverage_credit": false,
+  "baseline_verified_bytes": 267230,
+  "frozen_body_bytes": 434656,
+  "target_verified_bytes": 282527,
+  "compiled_inputs": 398,
+  "development_entries": 15,
+  "native_suites": 39,
+  "oracle_tool_tests": 304,
+  "independent_development_campaign_audit": {
+    "passed": true,
+    "original_scenarios": 2,
+    "distinct_valid_inputs": 4267,
+    "sealed_artifact_references": 9981
+  },
+  "original_caller_owners": 14,
+  "fresh_holdout": "coverage_65_complete_batch_accept_v2: capture running; no acceptance claim",
+  "full_binding_regression": "1396 inventory: running; no terminal PASS claim",
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ram_clipping_batch_nan_dev_v17_complete_sources\\manifest.json",
+      "sha256": "b965c3bd0d8f3fbd9dc4da7c3c731eaa7ce7c026776e4b1eea283b202fc00f15"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ram_clipping_batch_nan_dev_v17.exe",
+      "sha256": "5ee0430bb5d588454334b5e2e3a30cc06a6d325982e4307258c1cdacb81d74d9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ram_clipping_batch_qualified_development_freeze_v2.json",
+      "sha256": "6e5e371f274afb50345b9b77d84e19ba97c4db662760f373829b402940957950"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\geometry_ftrv_upper_lanes_nan_dev_v2.json",
+      "sha256": "7cad47886917cc3dceb57497fc6c70441b16882bdfadf55d4b7d004b2e5f30fc"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_complete_batch_dev_v2_native_v17.json",
+      "sha256": "13e5232c82c4c1d2ff1980df3bba58b3cfa94bd733e970f182fc824ccc92e023"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_complete_batch_dev_v2_body_report.json",
+      "sha256": "ddd6145cfd4cbf406159d9f74fde7f2dc6ad3c20735330147ba53593450c01c8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\ram_clipping_batch_native_suites_dev_v17.json",
+      "sha256": "42da0341ce3c9482433c64628eb4e694af1d6df17670b919774e08777c9e8f93"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\ram_clipping_batch_tool_tests_dev_v26.log",
+      "sha256": "ef51ed802471a8ebdfc1bdbd8b08dab0e67e87049cdc336441da644f62dd38c6"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\ram_clipping_callable_v1.json",
+      "sha256": "69b6a8f066eaab94a671c95ec6474cc794d449d7e300a8dbaa46fce0353365fe"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\ram_clipping_batch_audit.py",
+      "sha256": "6baa5f787a94f84f030e5029d18857f199f41cd8ec0c23b74d8a4732cc685097"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_complete_batch_accept_v2_input_manifest.json",
+      "sha256": "ec30a75105921438d6b3c9fd4189405fa34bb9a2ce13f5240b46a2b4425f4e9d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_screen_v2_input_manifest.json",
+      "sha256": "6e0b860b34843f911ca00b6c34decfb41fa16c5fa53df41f5eaed873bfd70480"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\decomp_status.csv",
+      "sha256": "bb6a9cc4d4283d571159add479de71a14e37967bcdba4cfd6b770480d4f0d6c8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\golden_bindings.json",
+      "sha256": "9a60e0a532ba37a75c6d31d2220fb2dcfec0217fee955dd0244482898fccef67"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_round_clock_original_scene_callers_v1_contract_report.json",
+      "sha256": "447cee270e5bc5ed8259f39e6fd2ca830926e1ae70f0430e7bffc5c2938e2050"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_history_original_scene_callers_v1_contract_report.json",
+      "sha256": "7f70826f44e73b949d6a8ecf42fe7cdd0f82a0fc8519044eba65b3ef8f1f3b25"
+    }
+  ]
+}
