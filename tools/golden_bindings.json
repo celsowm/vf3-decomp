@@ -10648,6 +10648,84 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07c634"
   },
+  "vf3_replay_transition_v1:0x8c099544": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c09947a"
+      ],
+      "callee_save_prefix": [],
+      "entry": "0x8c099540",
+      "kind": "vf3-scene-replay-helpers-index57-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+          "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+        }
+      ],
+      "scene_index": 57,
+      "scene_table": "0xc10baa8"
+    },
+    "golden": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_replay_transition_helpers_combined_dev_v1_export/f_8c099540.cases",
+    "port": "src/fight/scene_replay_transition.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original development and disjoint fresh acceptance, all five helpers verified; exact scene-57 caller contracts and complete source archive preserved in replay_transition_qualification_v1.json and replay_transition_historical_archive_v1.json. Existing a92da/a9452 bodies contribute no new credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c099540"
+  },
+  "vf3_replay_transition_v1:0x8c099568": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c09955c"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12"
+      ],
+      "entry": "0x8c099560",
+      "kind": "vf3-scene-replay-helpers-index57-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+          "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+        }
+      ],
+      "scene_index": 57,
+      "scene_table": "0xc10baa8"
+    },
+    "golden": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_replay_transition_helpers_combined_dev_v1_export/f_8c099560.cases",
+    "port": "src/fight/scene_replay_transition.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original development and disjoint fresh acceptance, all five helpers verified; exact scene-57 caller contracts and complete source archive preserved in replay_transition_qualification_v1.json and replay_transition_historical_archive_v1.json. Existing a92da/a9452 bodies contribute no new credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c099560"
+  },
+  "vf3_replay_transition_v1:0x8c0a91e6": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c09954e"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11"
+      ],
+      "entry": "0x8c0a91da",
+      "kind": "vf3-scene-replay-helpers-index57-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+          "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+        }
+      ],
+      "scene_index": 57,
+      "scene_table": "0xc10baa8"
+    },
+    "golden": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_replay_transition_helpers_combined_dev_v1_export/f_8c0a91da.cases",
+    "port": "src/fight/replay_pair_reset.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete original development and disjoint fresh acceptance, all five helpers verified; exact scene-57 caller contracts and complete source archive preserved in replay_transition_qualification_v1.json and replay_transition_historical_archive_v1.json. Existing a92da/a9452 bodies contribute no new credit.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a91da"
+  },
   "vf3_scene_round_decision_v1:0x8c098c70": {
     "callable_body": {
       "call_sites": [

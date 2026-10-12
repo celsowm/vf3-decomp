@@ -2,6 +2,23 @@
 
 ## Current execution checkpoint, 2026-10-12
 
+The independently accepted replay helpers add **420 marginal bytes**, bringing
+the ledger to **276,578 / 434,656 bytes (63.6315%)**. The remaining target is
+**5,949 bytes**. All 1,514 development and 1,515 held cases pass strict replay
+with zero skips. Every helper body is covered independently in both held
+states, with disjoint inputs, complete accounting and original caller proofs.
+The three new owners are `0x8c099544`, `0x8c099568` and `0x8c0a91e6`.
+The other two helper bodies already contribute to the baseline; their true
+entry prefixes remain verified dependencies and add no bytes. Qualification,
+promotion and preservation are recorded in `replay_transition_qualification_v1.json`,
+`replay_transition_v1_manifest.json` and `replay_transition_historical_archive_v1.json`.
+The expanded 1,418-binding regression is running; all 388 tool tests passed.
+`replay_transition_checkpoint.py` will seal the completed full gate. A new
+screen enters scene-reset owner `0x8c096b0a` through its complete prefix at
+`0x8c096afc`; its 512 potential bytes remain advisory until the full proof exists.
+
+The preceding round checkpoint:
+
 The complete round-decision campaign adds **882 marginal bytes**, bringing
 the ledger to **276,158 / 434,656 bytes (63.5348%)**. The remaining target is
 **6,369 bytes**. Development passes 1,003/1,003 strict cases; independent
@@ -119,9 +136,12 @@ caller windows and four attribution mutation tests. The normal 408-file source
 archive, all 1,514 development cases, the 1,415-binding/39-suite gate and 388
 tool tests qualify their development freeze. Two fresh held profiles were
 created after that freeze, with permuted typed inputs and relocated writable
-buffers. Original acceptance is running sequentially in states 45/46 through
-`replay_transition_accept_capture.py`. The **420 marginal bytes** remain
-uncredited until all held bodies, cases, callers and accounting qualify.
+buffers. Original acceptance completed sequentially in states 45/46 through
+`replay_transition_accept_capture.py`. All held bodies, cases, callers and
+accounting pass; the **420 marginal bytes** are promoted above. The generic
+promotion report lists `0x8c0a92c8` and `0x8c0a9444` as having no frozen body at
+those true-entry addresses; their 320/84-byte frozen owners were already
+accepted. Both dependencies remain included in the complete strict audits.
 
 Reusable commands for these inspections, isolated builds, caller proof sealing
 and fixed coverage targets are documented in [evidence_tools.md](evidence_tools.md).

@@ -283,3 +283,17 @@ input profiles. `replay_transition_accept_capture.py` then runs both profiles
 against the unchanged original observer in states 45/46. Every held campaign
 still needs a complete independent acceptance audit; the potential gain is
 420 bytes because the two other helper bodies already lie in accepted spans.
+
+`replay_transition_acceptance_audit.py` combines every held run, requires
+complete accounting, whole bodies and 64 distinct inputs separately in each
+state, original callers, zero-skip strict replay, disjoint states/inputs and
+SAVEF lineage. It verifies all five helpers, including the two already
+accepted dependencies, before permitting the 420-byte promotion.
+`replay_transition_checkpoint.py` requires the expanded 1,418-binding gate,
+39 native suites, 388 tool tests and preserved source/evidence hashes, then
+archives the current inventory and suite executables as a final checkpoint.
+
+`scene_retire_screen_inputs.py` screens a 512-byte scene reset through its true
+seven-register save prefix. It retains original callback execution and uses
+initialized fight states; a successful screen still needs whole-body, caller,
+strict native and independent held qualification.
