@@ -153,6 +153,13 @@ add_library(vf3core STATIC
     src/fight/clip_strip.c
     src/fight/clip_strip_writers.c
     src/fight/selection_unlock.c
+    src/fight/scene_input_transition.c
+    src/fight/scene_replay_transition.c
+    src/fight/replay_pair_reset.c
+    src/fight/replay_action_reset.c
+    src/fight/scene_round_decision.c
+    src/fight/result_statistics.c
+    src/fight/result_record_entry.c
     src/fight/scene_replay_flow.c
     src/fight/scene_replay_status.c
     src/fight/timed_boundary_effect.c

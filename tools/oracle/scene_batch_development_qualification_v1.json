@@ -1,0 +1,28 @@
+{
+  "source_archive": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/scene_batch_integrated_dev_v1_complete_sources/manifest.json",
+  "archived_inputs": 408,
+  "compiler_dependency_files": 405,
+  "full_log": "E:/vf3-decomp/extract/analysis/scene_batch_integrated_all_bindings_dev_v1.log",
+  "test_log": "E:/vf3-decomp/extract/analysis/scene_batch_tool_tests_dev_v1.log",
+  "expected_bindings": 1414,
+  "expected_tests": 366,
+  "out": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/scene_batch_qualified_development_freeze_v1.json",
+  "entries": [
+    {
+      "entry": "0x8c098c62", "owner": "0x8c098c70", "expected_runs": 4,
+      "corpus": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_scene_round_decision_combined_dev_v1_export",
+      "native_report": "E:/vf3-decomp/extract/analysis/scene_round_decision_integrated_combined_dev_v1_native.json",
+      "callable": "E:/vf3-decomp/tools/oracle/scene_round_decision_callable_v1.json"
+    },
+    {
+      "entry": "0x8c0993e0", "owner": "0x8c0993e8", "expected_runs": 4,
+      "corpus": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_scene_input_transition_combined_dev_v1_export",
+      "native_report": "E:/vf3-decomp/extract/analysis/scene_input_transition_integrated_combined_dev_v1_native.json",
+      "callable": "E:/vf3-decomp/tools/oracle/scene_input_transition_callable_v1.json"
+    }
+  ],
+  "additional_native_reports": [
+    "E:/vf3-decomp/extract/analysis/replay_transition_helpers_integrated_combined_dev_v1_native.json",
+    "E:/vf3-decomp/extract/analysis/result_statistics_integrated_dev_v1_native.json"
+  ]
+}

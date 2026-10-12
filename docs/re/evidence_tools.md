@@ -152,3 +152,17 @@ nondeterministic entries. The resulting original-development proof grants no
 C coverage and still needs strict native replay, caller proof and the full
 independent acceptance workflow. The round-decision merge produces 1,003 cases
 and independently covers its 882-byte owner in both original states.
+
+## Preserve and qualify normal builds
+
+`preserve_historical.py --proof PROOF --source-archive SOURCE_MANIFEST --out NEW_ARCHIVE --manifest NEW_JSON`
+validates frozen hashes before copying mutable workspace dependencies into a
+historical archive. Existing archives are preserved. This keeps an earlier
+checkpoint reviewable when the normal build advances.
+
+`qualify_development_batch.py --config CONFIG`
+checks the normal compiled-source archive, per-owner whole original bodies,
+strict native reports, original callers, full binding inventory, native suites
+and tool-test gate before sealing a development freeze. Independent acceptance
+inputs must be created after that freeze; this command grants no C coverage.
+The scene configuration is `scene_batch_development_qualification_v1.json`.

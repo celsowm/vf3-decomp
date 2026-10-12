@@ -114,11 +114,21 @@ recipe v3 varies the saved frame on the shorter mode-three caller path while
 whole-owner development retains its mode-one branches. Division changes the
 original Q/M/T scratch status bits; all SR bits remain compared in native replay.
 Callable attribution is `tools/oracle/scene_round_decision_callable_v1.json`.
-Normal integration, a qualified source freeze, full regression and fresh
-independent acceptance still remain. No byte of this candidate is credited yet.
+Normal integration now includes both completed scene owners and all seven
+new dependency sources. The immutable normal snapshot has 408 archived inputs
+(405 compiler dependencies plus three retained historical files). Its strict
+development replays pass 1,003 round cases, 1,016 input-transition cases,
+1,514 helper cases and 512 statistics cases, all with zero skips. All 366
+current tool tests pass. The full 1,414-binding / 39-suite regression remains
+running in `scene_batch_integrated_all_bindings_dev_v1.log`; its live handle
+is tracked rather than replaced on observation timeouts. Qualification and
+fresh independent acceptance still remain. No byte is credited yet.
+The previous selection build's 2,965 proof references and 401-file source
+archive were preserved by `selection_unlock_complete_historical_v1.json`
+before changing the normal build.
 Reports are `scene_remaining_screen_v1_report.json` and
 `scene_round_decision_dev_v1_report.json` / `scene_round_decision_dev_v2_report.json`
-under `tools/oracle/`. The current tool suite passes all **363 tests**.
+under `tools/oracle/`.
 The current union calculation is pinned by
 `tools/oracle/scene_result_record_reserve_margin_v1.json`; recompute margins
 with `candidate_margin.py` instead of summing frozen body sizes.
