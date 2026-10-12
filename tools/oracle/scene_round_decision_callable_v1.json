@@ -1,0 +1,26 @@
+{
+  "0x8c098c70": {
+    "kind": "vf3-scene-round-index54-v1",
+    "entry": "0x8c098c62",
+    "call_sites": [
+      "0x8c0968f4"
+    ],
+    "table": "0xc10baa8",
+    "index": 54,
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "r9",
+      "r8"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_decision_original_dispatch_v3\\manifest.json",
+        "sha256": "6532b3be3b43ff3897a0e5c0b987463fe8fff46a16acf2a04ffca459acdf8c19"
+      }
+    ]
+  }
+}

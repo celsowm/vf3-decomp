@@ -10,6 +10,9 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-scene-round-index54-v1':
+        from callable_scene_round_decision import validate_scene_round
+        return validate_scene_round(owner, attribution, spans, corpus, image)
     if kind == 'vf3-scene-input-index57-v1':
         from callable_scene_input import validate_scene_input
         return validate_scene_input(owner, attribution, spans, corpus, image)

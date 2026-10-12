@@ -40,3 +40,7 @@ tools/oracle/tenpp_*.patch
 
 # harnesss
 .opencode/
+# Exact original-repeat fixtures contain complete captured RAM/code pages.
+# Keep their generators and hashed references in git, and the fixtures local.
+/tools/oracle/selection_unlock_repeat_142_v1.json
+/tools/oracle/selection_unlock_repeat_199_v1.json

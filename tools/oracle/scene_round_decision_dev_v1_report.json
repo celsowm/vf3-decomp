@@ -1,0 +1,175 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "incomplete_invocations": 0,
+  "campaign_suitable_for_promotion": false,
+  "runs": [
+    {
+      "scenario": "s26",
+      "started": 256,
+      "completed": 256,
+      "armed": 256,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c098c62",
+          "address": "0x00000046",
+          "count": 4
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 256,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    },
+    {
+      "scenario": "s27",
+      "started": 256,
+      "completed": 256,
+      "armed": 256,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [
+        {
+          "entry": "0x8c098c62",
+          "address": "0x00000046",
+          "count": 4
+        }
+      ],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 256,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    }
+  ],
+  "candidates": [
+    {
+      "entry": "0x8c098c62",
+      "owner": "0x8c098c70",
+      "owner_bytes": 882,
+      "valid_invocations": 500,
+      "captured_body_bytes": 838,
+      "missing_pcs": [
+        "0x8c098d1e",
+        "0x8c098d20",
+        "0x8c098dd0",
+        "0x8c098dd2",
+        "0x8c098dd4",
+        "0x8c098dd6",
+        "0x8c098dd8",
+        "0x8c098dda",
+        "0x8c098ddc",
+        "0x8c098f8e",
+        "0x8c098f90",
+        "0x8c098fe4",
+        "0x8c098fe6",
+        "0x8c098fe8",
+        "0x8c098fea",
+        "0x8c098fec",
+        "0x8c098fee",
+        "0x8c098ff0",
+        "0x8c098ff2",
+        "0x8c098ff4",
+        "0x8c098ff6",
+        "0x8c098ff8"
+      ],
+      "rejected_flags": {
+        "1": 4,
+        "6": 8
+      },
+      "rejected_last_pcs": {
+        "0xc098f9e": 1,
+        "0xc09803e": 1,
+        "0xc098f82": 8,
+        "0xc098cba": 1,
+        "0xc098f5c": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb80"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    }
+  ],
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_export\\batch_manifest.json",
+      "sha256": "70433ee826e1384caf1947d123604069199677e2a5496e744f16bb0e3a2d8fb4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\capsule_coverage_65_scene_round_decision_dev_v1_s26.bin",
+      "sha256": "1d9613f151ff90292717bdbc852ef450b0c438ca79888bebc5606d1c79a11351"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\capsule_coverage_65_scene_round_decision_dev_v1_s26.bin.summary.json",
+      "sha256": "e9c95d79e24544fd096602d139868d5963d01720461bc3db361d40e4e37823dd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\golden_coverage_65_scene_round_decision_dev_v1_s26.log",
+      "sha256": "8f09ecbc358a8f1e8c0ff43f742dbe87764f546c4629f3503ca451c9bfb8c414"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_round_decision_dev_v1.patch",
+      "sha256": "f94041264f402316eac9d039e6ed9b68296c3c053799dbc9cb3354dca5d33d29"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\capsule_coverage_65_scene_round_decision_dev_v1_s27.bin",
+      "sha256": "dfd00cca24dcbe49f5ae3403e00da714ceeaccf7874c5e56078a5d7e975cd855"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\capsule_coverage_65_scene_round_decision_dev_v1_s27.bin.summary.json",
+      "sha256": "e9c95d79e24544fd096602d139868d5963d01720461bc3db361d40e4e37823dd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v1_raw\\golden_coverage_65_scene_round_decision_dev_v1_s27.log",
+      "sha256": "9cfb137c76bf9779f1734fb6d12ee103ecbbdacc196430247b536d928e03c514"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_round_decision_dev_v1_memory.json",
+      "sha256": "df4c6f76fc55ae6b0747186902b124deca2cb03ec4a800cdcf5353ae16cf5bc7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_round_decision_dev_v1_registers.json",
+      "sha256": "1a1e5811ad852e239f720b1b96ff4665277cec1a8e1ef175235b749ee84de19d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_round_decision_dev_v1_watch.txt",
+      "sha256": "decbb82367a17b0a11782792046757da9fd94b9e4b89fdd472248e01b688fc97"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_round_decision_dev_v1_owners.json",
+      "sha256": "ae4bf4376603e32236874193e058039fb22588f95f7f90a8d3ef8f701a44c4c8"
+    }
+  ]
+}

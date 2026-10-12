@@ -1,0 +1,4 @@
+{
+  "sources": ["src/fight/scene_round_decision.c"],
+  "routes": [{"entries": ["0x8c098c62"], "function": "vf3_scene_round_decision_c"}]
+}

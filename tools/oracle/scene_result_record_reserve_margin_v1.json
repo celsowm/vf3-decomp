@@ -1,0 +1,113 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "accepted_bytes": 275276,
+  "target_bytes": 282527,
+  "remaining_verified_bytes": 7251,
+  "candidates": [
+    {
+      "owner": "0x8c0698fc",
+      "frozen_bytes": 2364,
+      "marginal_bytes": 0
+    },
+    {
+      "owner": "0x8c09635a",
+      "frozen_bytes": 616,
+      "marginal_bytes": 616
+    },
+    {
+      "owner": "0x8c096b0a",
+      "frozen_bytes": 512,
+      "marginal_bytes": 512
+    },
+    {
+      "owner": "0x8c0972d2",
+      "frozen_bytes": 624,
+      "marginal_bytes": 624
+    },
+    {
+      "owner": "0x8c097abc",
+      "frozen_bytes": 1132,
+      "marginal_bytes": 1132
+    },
+    {
+      "owner": "0x8c098c70",
+      "frozen_bytes": 882,
+      "marginal_bytes": 882
+    },
+    {
+      "owner": "0x8c0993e8",
+      "frozen_bytes": 250,
+      "marginal_bytes": 250
+    },
+    {
+      "owner": "0x8c099544",
+      "frozen_bytes": 36,
+      "marginal_bytes": 36
+    },
+    {
+      "owner": "0x8c099568",
+      "frozen_bytes": 290,
+      "marginal_bytes": 290
+    },
+    {
+      "owner": "0x8c09970a",
+      "frozen_bytes": 1172,
+      "marginal_bytes": 1172
+    },
+    {
+      "owner": "0x8c099d74",
+      "frozen_bytes": 648,
+      "marginal_bytes": 648
+    },
+    {
+      "owner": "0x8c0a89c2",
+      "frozen_bytes": 206,
+      "marginal_bytes": 206
+    },
+    {
+      "owner": "0x8c0a91e6",
+      "frozen_bytes": 94,
+      "marginal_bytes": 94
+    },
+    {
+      "owner": "0x8c0a92da",
+      "frozen_bytes": 320,
+      "marginal_bytes": 0
+    },
+    {
+      "owner": "0x8c0a9452",
+      "frozen_bytes": 84,
+      "marginal_bytes": 0
+    }
+  ],
+  "potential_unique_bytes": 6462,
+  "potential_shortfall": 789,
+  "potential_margin": 0,
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json",
+      "sha256": "87c8db7a0717c6f49fb7648a4293a6a2c1b01e0bf355e5bed71a52001de676ff"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\decomp_status.csv",
+      "sha256": "e0220544d9b05d94e5cd6ffcc507d7fa3a9eca0ed6a166364cc46873b60a0264"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\candidate_margin.py",
+      "sha256": "198da1d111a82fd2b493a49b1e26209c878f3398592fb615c4c6e1810b737c13"
+    }
+  ]
+}

@@ -32,7 +32,13 @@ and its development freeze was sealed before new acceptance inputs. Independent
 acceptance then failed: 1,386/1,388 native cases match with zero skips, and two
 original invocations in the third campaign are incomplete. The two memory
 counterexamples are preserved; the candidate remains unqualified and uncredited.
-Any C correction requires a new development freeze and fresh acceptance inputs.
+Exact original repeats now prove ambiguity in both states: identical captured
+input RAM and all 63 architectural values yield differing final RAM, even with
+identical instruction traces. The complete 1,574-byte owner is excluded through
+this observation model (`tools/oracle/selection_unlock_observable_quarantine_v1.json`).
+The hidden state causing the discrepancy is not established; passing subsets
+cannot be credited. Any future correction still requires a new development
+freeze and fresh acceptance inputs after addressing the observation limitation.
 The first caller recipe produced
 device events on six windows and remains diagnostic; guarded original caller
 recipe v2 verifies the unchanged transfer/save/return instructions without
@@ -50,7 +56,7 @@ uncredited. Earlier mixed scene captures contain unrelated incomplete calls
 and are retained as diagnostics, rather than used for this complete proof.
 
 The five new replay helpers provide **824 additional uncredited candidate
-bytes**, outside the nine-owner scene queue: `0x8c099544` (36), `0x8c099568`
+body bytes**, outside the nine-owner scene queue: `0x8c099544` (36), `0x8c099568`
 (290), `0x8c0a91e6` (94), `0x8c0a92da` (320) and `0x8c0a9452` (84).
 Their first standalone original campaign passes 970 strict native cases
 but contains an incomplete invocation and insufficient per-owner cases in
@@ -60,19 +66,67 @@ the action helper's missing 16 bytes. The combined complete original audit
 covers all five bodies independently in both states, and its 1,514 strict
 native cases pass with zero skips. These helpers need their own caller
 contracts, normal integration, a qualified freeze and fresh acceptance
-before they can provide any coverage margin.
+before they can provide any coverage margin. A fresh address-union audit
+finds only **420 marginal bytes**: all 320 bytes of `0x8c0a92da` and all
+84 bytes of `0x8c0a9452` already lie in accepted spans. Those helpers add
+behavioral support but cannot be counted again.
 
 Reusable commands for these inspections, isolated builds, caller proof sealing
 and fixed coverage targets are documented in [evidence_tools.md](evidence_tools.md).
 
-If selection/unlock qualifies, **5,677 bytes** would remain. The
+With selection/unlock excluded, the remaining gap stays **7,251 bytes**. The
 next scene/replay selection contains **6,042 candidate bytes**:
 `0x8c09970a` (1,172), `0x8c097abc` (1,132), `0x8c098c70` (882),
 `0x8c099d74` (648), `0x8c0972d2` (624), `0x8c09635a` (616),
 `0x8c096b0a` (512), `0x8c0993e8` (250), `0x8c0a89c2` (206).
-If all qualify, the union would reach **282,892 bytes (65.08%)**. This
-365-byte margin is small: keep larger scene/actor reserve owners ready and
-replace candidates that fail qualification rather than lowering the target.
+Those 6,042 bytes plus the separate 420 helper bytes total 6,462, leaving
+another **789 bytes** even if every candidate qualifies. Larger scene/actor
+reserves are required; qualification failures increase that reserve requirement.
+A new standalone six-root scene screen uses initialized original states 28/29
+and finite actor positions to test the largest remaining scene routines and
+an actor reserve. Treat it as advisory until each owner's full proof exists.
+That screen completed all 768/73 started invocations, but covered only
+498/1,172 bytes of scene initialization, 380/1,132 of pause flow, 378/882 of
+round decision, 206/648 of scene continuation and 370/512 of the actor reserve.
+The remaining 616-byte scene root had no valid calls. The initialized states
+alone do not resolve the missing branches or device paths.
+
+The first focused round-decision campaign covered 838/882 bytes with 500
+valid calls. The second campaign closes its missing branches; the merged
+development covers **882/882 bytes independently in both states 26/27**,
+with **1,003 distinct valid calls**, zero nondeterministic inputs and no
+incomplete invocations. `src/fight/scene_round_decision.c` implements the full readable
+winner/draw/rematch decision and its scene-audio tail. Its isolated build
+now passes **1,003/1,003 strict cases with zero skips** after adding readable
+`result_statistics.c` and the true `result_record_entry.c` prefix. The
+statistics helper independently passes 512/512 strict standalone cases. Its
+body is outside the frozen inventory and grants no additional bytes. The
+record helper's 2,364-byte owner `0x8c0698fc` was already accepted; only its
+16-byte prefix before that body was missing from the callable dispatcher.
+Neither dependency can provide the required reserve margin. The first two
+isolated builds and their unsupported-helper failures remain preserved.
+The closed paths are the zero metadata byte, deciding-draw fallback,
+timer equality announcement and the nine-round completion flag. Eight complete
+original index-54 scene caller windows now prove the immutable table transfer,
+seven-register save prefix, frame restoration, audio callback tail and actual
+outer RTS. The first two caller recipes retain an IRQ-invalid mode-one window;
+recipe v3 varies the saved frame on the shorter mode-three caller path while
+whole-owner development retains its mode-one branches. Division changes the
+original Q/M/T scratch status bits; all SR bits remain compared in native replay.
+Callable attribution is `tools/oracle/scene_round_decision_callable_v1.json`.
+Normal integration, a qualified source freeze, full regression and fresh
+independent acceptance still remain. No byte of this candidate is credited yet.
+Reports are `scene_remaining_screen_v1_report.json` and
+`scene_round_decision_dev_v1_report.json` / `scene_round_decision_dev_v2_report.json`
+under `tools/oracle/`. The current tool suite passes all **363 tests**.
+The current union calculation is pinned by
+`tools/oracle/scene_result_record_reserve_margin_v1.json`; recompute margins
+with `candidate_margin.py` instead of summing frozen body sizes.
+The original 40-owner pool still offers 24,248 advisory marginal bytes when
+recomputed against the current union (`coverage_65_remaining_pool_margin_v2.json`),
+including quarantined or otherwise blocked candidates. Do not treat that pool
+total as qualification yield; choose additional actor or scene reserves whose
+original whole-body pilots and callers can actually be proven.
 
 The interpolation owner `0x8c0a8f98` remains entirely excluded because
 identical captured original inputs produced differing observable results.

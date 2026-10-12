@@ -110,3 +110,45 @@ Tool tests live in `tools/oracle/test_reusable_evidence_tools.py`; immutable ear
 335-test checkpoint logs remain preserved. The current oracle discovery run passes
 all 346 tests. The reusable scene build also passes all 1,514 combined helper cases
 with zero skips (`scene_replay_reusable_dev_v1_helpers_native.json`).
+
+## Repeat an original counterexample
+
+`capsule_repeat_recipe.py CAPSULE --id N --transfer RTS_ADDRESS --out NEW_JSON`
+prepares a diagnostic recipe for `audio_one_shot.py`. It restores all captured
+RAM words and the 55 architectural values supported by the unchanged observer,
+setting FPSCR before FR/XF. The observer cannot assign the eight inactive GPR
+bank values, so equality of all 63 captured words must be checked afterward.
+The original explicit return boundary must appear in the source instruction trace.
+
+`compare_original_samples.py LEFT RIGHT --left-id N --right-id M --out NEW_JSON`
+compares two complete RAM-only records, including all 63 architectural values,
+captured pages and outputs. It reports input differences separately from output
+differences and never grants coverage or automatically quarantines an owner.
+Original image, execution provenance and accounting still need their established
+audits. `selection_unlock_observable_audit.py` applies those checks to the two
+selection counterexamples and seals their owner-wide exclusion evidence.
+Instruction comparisons normalize cached and physical address aliases. The
+current oracle discovery run, including repeat-tool identity checks, passes
+all 351 tests (`extract/analysis/original_repeat_tools_tests_v2.log`).
+
+## Measure candidate coverage margins
+
+`candidate_margin.py --owner OWNER --owner OWNER --target-bytes 282527 --out NEW_JSON`
+subtracts the accepted address union from the selected frozen bodies and combines
+overlapping candidate ranges once. It pins the dashboard, ledger and inventory
+inputs but remains advisory: a candidate's potential bytes are not verified bytes.
+An owner can have a substantial frozen body and zero marginal gain because its
+addresses already appear in accepted spans. The current scene/helper pool offers
+6,462 marginal bytes, leaving a 789-byte shortfall against the 7,251-byte gap.
+
+## Merge original development campaigns
+
+`merge_development.py --batch BATCH --batch BATCH --owners OWNER_MAP --image ORIGINAL_BIN --out NEW_CORPUS --proof NEW_JSON`
+requires complete invocation and frame accounting, original instruction/pool
+identity, all 63 architectural values, no device events in valid records,
+complete owner bodies and 64 distinct inputs per original state by default.
+It combines valid cases through the established capsule converter and rejects
+nondeterministic entries. The resulting original-development proof grants no
+C coverage and still needs strict native replay, caller proof and the full
+independent acceptance workflow. The round-decision merge produces 1,003 cases
+and independently covers its 882-byte owner in both original states.

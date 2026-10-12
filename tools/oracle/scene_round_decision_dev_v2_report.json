@@ -1,0 +1,216 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "incomplete_invocations": 0,
+  "campaign_suitable_for_promotion": false,
+  "runs": [
+    {
+      "scenario": "s26",
+      "started": 256,
+      "completed": 256,
+      "armed": 256,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 256,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    },
+    {
+      "scenario": "s27",
+      "started": 256,
+      "completed": 256,
+      "armed": 256,
+      "unaccounted": 0,
+      "incomplete": [],
+      "non_ram": [],
+      "text_control_restores": 0,
+      "aica_page_restores": 0,
+      "aica_timeslice_aborts": 0,
+      "restores": 256,
+      "one_shot": false,
+      "one_shot_done": false,
+      "explicit_return_only": false
+    }
+  ],
+  "candidates": [
+    {
+      "entry": "0x8c098c62",
+      "owner": "0x8c098c70",
+      "owner_bytes": 882,
+      "valid_invocations": 503,
+      "captured_body_bytes": 738,
+      "missing_pcs": [
+        "0x8c098cec",
+        "0x8c098cee",
+        "0x8c098cf6",
+        "0x8c098cf8",
+        "0x8c098d6e",
+        "0x8c098d70",
+        "0x8c098d72",
+        "0x8c098d74",
+        "0x8c098d76",
+        "0x8c098d78",
+        "0x8c098da8",
+        "0x8c098daa",
+        "0x8c098dac",
+        "0x8c098dae",
+        "0x8c098db0",
+        "0x8c098db2",
+        "0x8c098db4",
+        "0x8c098db6",
+        "0x8c098dea",
+        "0x8c098dec",
+        "0x8c098dee",
+        "0x8c098df0",
+        "0x8c098df2",
+        "0x8c098e84",
+        "0x8c098e86",
+        "0x8c098e88",
+        "0x8c098e8a",
+        "0x8c098e8c",
+        "0x8c098e8e",
+        "0x8c098e9a",
+        "0x8c098e9c",
+        "0x8c098e9e",
+        "0x8c098ea0",
+        "0x8c098ea2",
+        "0x8c098ea4",
+        "0x8c098ea6",
+        "0x8c098ea8",
+        "0x8c098eaa",
+        "0x8c098eac",
+        "0x8c098eae",
+        "0x8c098eb0",
+        "0x8c098eb2",
+        "0x8c098eb4",
+        "0x8c098eb6",
+        "0x8c098eb8",
+        "0x8c098eba",
+        "0x8c098ebc",
+        "0x8c098ebe",
+        "0x8c098ec0",
+        "0x8c098ec2",
+        "0x8c098ec4",
+        "0x8c098ec6",
+        "0x8c098ec8",
+        "0x8c098eca",
+        "0x8c098ecc",
+        "0x8c098ece",
+        "0x8c098ed0",
+        "0x8c098f3c",
+        "0x8c098f3e",
+        "0x8c098f40",
+        "0x8c098f42",
+        "0x8c098f44",
+        "0x8c098f46",
+        "0x8c098f92",
+        "0x8c098f94",
+        "0x8c098f9a",
+        "0x8c098f9c",
+        "0x8c098f9e",
+        "0x8c098fa0",
+        "0x8c098fa2",
+        "0x8c098fa4",
+        "0x8c098fb2"
+      ],
+      "rejected_flags": {
+        "1": 9
+      },
+      "rejected_last_pcs": {
+        "0xc0696d2": 1,
+        "0xc06a0be": 1,
+        "0xc069b60": 1,
+        "0xc042d32": 1,
+        "0xc042cfe": 1,
+        "0xc0c5d92": 1,
+        "0xc098006": 1,
+        "0xc09d18a": 1,
+        "0xc0c66ca": 1
+      },
+      "immutable_pointer_locations": [
+        "0x8c10bb80"
+      ],
+      "caller_proved": false,
+      "coverage_credit": false
+    }
+  ],
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_export\\batch_manifest.json",
+      "sha256": "a529f6c2dbdf2e74ef2dba869f520a2ac040f59225ab6882ad55674ec23f017a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\capsule_coverage_65_scene_round_decision_dev_v2_s26.bin",
+      "sha256": "63670bae53f88b39347713f38919dce4a5acda234ffdb49d48bc19e5981705a2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\capsule_coverage_65_scene_round_decision_dev_v2_s26.bin.summary.json",
+      "sha256": "c597d666b225c4c7d0d124c7e0c71cadeaee906310f4d560bb18557a8330f30d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\golden_coverage_65_scene_round_decision_dev_v2_s26.log",
+      "sha256": "ec79557af055bc004ed5d206d18f0a0f203fc8bcc124dd4e5f6408fc85dace1a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_round_decision_dev_v2.patch",
+      "sha256": "6755e977334f6b2aa571f728776fbf61acb724713e214ea1babdfb9983e99635"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\capsule_coverage_65_scene_round_decision_dev_v2_s27.bin",
+      "sha256": "9c2408326db3bdc5f3491654bf6f569176fb193e4cc54c1cb9607dae4f9ab700"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\capsule_coverage_65_scene_round_decision_dev_v2_s27.bin.summary.json",
+      "sha256": "c597d666b225c4c7d0d124c7e0c71cadeaee906310f4d560bb18557a8330f30d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_round_decision_dev_v2_raw\\golden_coverage_65_scene_round_decision_dev_v2_s27.log",
+      "sha256": "b7d5d1021b030fa64768548b92aaf2b793323b3f3b176f6f2ea5d22244cf74e9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_round_decision_dev_v2_memory.json",
+      "sha256": "6c355699291eb4ffb4dba7920f0b1dbda8f5f4ca103c4a1aeb9ba304433c4997"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_round_decision_dev_v2_registers.json",
+      "sha256": "1a1e5811ad852e239f720b1b96ff4665277cec1a8e1ef175235b749ee84de19d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_round_decision_dev_v2_watch.txt",
+      "sha256": "decbb82367a17b0a11782792046757da9fd94b9e4b89fdd472248e01b688fc97"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_round_decision_dev_v2_owners.json",
+      "sha256": "ae4bf4376603e32236874193e058039fb22588f95f7f90a8d3ef8f701a44c4c8"
+    }
+  ]
+}
