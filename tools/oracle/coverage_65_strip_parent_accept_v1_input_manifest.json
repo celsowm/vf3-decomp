@@ -1,0 +1,34 @@
+{
+  "coverage_credit": false,
+  "development_freeze": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_qualified_development_freeze_v1.json",
+    "sha256": "55e9c30a3797388f4468699007ffd8fb9246f9f1086e3fdf08e344fd09f23303"
+  },
+  "original_states": [
+    "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\data\\vf3_45.state",
+    "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\data\\vf3_46.state"
+  ],
+  "files": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_accept_v1_watch.txt",
+      "sha256": "3713297b4639edc22f3e28147ae085916655a2ae06e97e61491f978baf0ef59b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_strip_parent_accept_v1_owners.json",
+      "sha256": "5ed8c68e07997645cca76b923d618c9e568accb2d52c4f4b7af2b63f77ef48e7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_strip_parent_accept_v1_memory.json",
+      "sha256": "c1aee1d93536ae863863e8c919ad2d52cb83a96a0b91b7869b7a1ec5838fca19"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_strip_parent_accept_v1_registers.json",
+      "sha256": "75d43f6804f6a8f71ddceb4aeeb24fab25606efc537f935ca6a3aeb878a4f5dd"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_strip_parent_accept_v1.patch",
+      "sha256": "7c07b6bd2a610ec0db8e57786a5d06cbf1c27ebbd5fdef5f2a2e51f412dc1c87"
+    }
+  ],
+  "hypothesis": "Disjoint owned buffers, strip phases, finite positions/depths and thresholds; original initialized contexts and all code/pools remain intact."
+}

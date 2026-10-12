@@ -1,5 +1,42 @@
 # One-session execution plan for 65% verified C
 
+## Current execution checkpoint, 2026-10-12
+
+Accepted and pushed at `04cb3ea`: **273,148 / 434,656 bytes (62.8423%)**.
+The complete 62.5% checkpoint passed 1,409 bindings, 39 native suites and
+325 oracle tests. The remaining target is **9,379 verified bytes**; retain
+the fixed target of **282,527**, including throughout intermediate batches.
+
+The next batch is five readable strip parents, **2,128 marginal bytes**.
+Their integrated build passes all 2,546 strict development cases, original
+caller contracts and the full 1,409-binding regression. Freeze that exact
+400-input compiled source closure, then generate disjoint held-out inputs
+and capture independent original states 45/46. Credit only after both
+scenarios independently cover every frozen owner instruction and pass
+complete register/RAM replay with no skipped accepted cases.
+
+Next is selection/unlock owner `0x8c0c321e`, **1,574 bytes**. Combined original
+development campaigns already cover its entire frozen body independently
+in states 26/27. The readable C candidate remains unlinked and uncredited;
+finish its strict development replay, caller proof, source freeze and fresh
+independent acceptance campaign before promoting it.
+
+After those two successful promotions, **5,677 bytes** would remain. The
+next scene/replay selection contains **6,042 candidate bytes**:
+`0x8c09970a` (1,172), `0x8c097abc` (1,132), `0x8c098c70` (882),
+`0x8c099d74` (648), `0x8c0972d2` (624), `0x8c09635a` (616),
+`0x8c096b0a` (512), `0x8c0993e8` (250), `0x8c0a89c2` (206).
+If all qualify, the union would reach **282,892 bytes (65.08%)**. This
+365-byte margin is small: keep larger scene/actor reserve owners ready and
+replace candidates that fail qualification rather than lowering the target.
+
+The interpolation owner `0x8c0a8f98` remains entirely excluded because
+identical captured original inputs produced differing observable results.
+Neither selected passing cases nor library attribution count toward 65% C.
+Keep new raw evidence on C: while E: has approximately 1.4 GiB free.
+Seal, commit and push each accepted milestone; at or above 65%, run the full
+final inventory and evidence-chain audit before declaring completion.
+
 Baseline: pushed commit `5e9dd1c`, **267,230 / 434,656 bytes (61.48%)**.
 The objective remains **282,527 bytes or more**, requiring **15,297 new
 verified bytes**. Execute this plan as one continuous working session,

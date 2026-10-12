@@ -1,0 +1,23 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "diagnostic_only": true,
+  "trigger": "0x8c0432e2",
+  "cases": [
+    {
+      "name": "original_context_bank3",
+      "entry": "0x0c0c396c",
+      "registers": {
+        "fpscr": 262145,
+        "r4": 0
+      },
+      "memory": {},
+      "trigger_ordinal": 16,
+      "budget": 1000,
+      "expected_exit": "0x0c0432e4",
+      "expected_result": 0,
+      "explicit_return_only": true,
+      "transfer": "0x0c0c397e"
+    }
+  ]
+}

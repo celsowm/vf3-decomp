@@ -1,6 +1,9 @@
 /* Matrix stack, affine transforms and register-bank adapters. This source
  * uses matrix/vector loops; it neither decodes opcodes nor executes the ROM. */
 #include "fight/matrix_family.h"
+int vf3_clip_strip_c(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_clip_strip_writers_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_clip_strip_writers_adapter_contains(uint32_t);
 int vf3_tenpp_survey_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_survey_adapter_contains(uint32_t);
 int vf3_tenpp_leaf_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -312,6 +315,11 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c08f4aeu) return vf3_list_move_head_c(s,ram);
     if(entry==0x0c08f582u) return vf3_cubic_channel_c(s,ram);
     if(entry==0x0c087e04u) return vf3_geometry_callback_c(s,ram);
+    if(entry==0x0c0570e0u || entry==0x0c057480u || entry==0x0c057860u ||
+       entry==0x0c057c60u || entry==0x0c057fa0u)
+        return vf3_clip_strip_c(entry,s,ram);
+    if(vf3_clip_strip_writers_adapter_contains(entry))
+        return vf3_clip_strip_writers_adapter(entry,s,ram);
     if(entry==0x0c05152cu||entry==0x0c051918u||entry==0x0c051c2cu||entry==0x0c051f50u||
        entry==0x0c05228cu||entry==0x0c0525c0u||entry==0x0c05291cu||entry==0x0c052c34u)
         return vf3_clip_triangle_c(entry,s,ram);
