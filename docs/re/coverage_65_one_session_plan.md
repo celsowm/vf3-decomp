@@ -9,9 +9,35 @@ acceptance passes 1,008/1,008 with zero skips and whole-body coverage separately
 in both states. All four round runs remain intact, with original caller proof
 and disjoint input fingerprints. Qualification and preservation are in
 `scene_round_qualification_v1.json` and `scene_round_historical_archive_v1.json`.
-The expanded 1,415-binding regression is running; 375 oracle tests passed.
-The final checkpoint also verifies original SAVEF state lineage and the retained
-compiled source closure. No failed input-transition cases contribute credit.
+The expanded regression passed all **1,415 bindings and 39 native suites**;
+the sealed checkpoint includes 381 oracle tests, original SAVEF state lineage
+and the retained compiled source closure (`scene_round_full_checkpoint_v1.json`).
+The later recording/probe/caller tool gate passes **388 tests**. No failed
+input-transition cases contribute credit.
+
+The new menu reserve screen targets `0x8c07cbda` (670) and `0x8c07cf50` (622).
+Its first original campaign completed both states but covered only 104/670
+bytes of the first owner. The second routine has no valid body: its repeated
+120-descriptor scans exceed the old observer's 100,000-opcode record limit.
+The diagnostics remain preserved. A separate `VF3CAP7` recorder raises only
+the record bound to 500,000; eight old/new original caller windows match all
+architecture, RAM, instructions and full audio checkpoints. The new typed
+actor screens completed in states 28/29 with a 300,000-opcode budget and that
+control proof pinned. These 1,292 potential bytes remain uncredited.
+The focused v4 selector campaign completes all 128 invocations in each state,
+with **73 distinct valid inputs per state and 622/622 body bytes**. The readable
+`src/fight/menu_character_selector.c` candidate and three real helper models
+are isolated from the normal build. A coordinate-register correction fixes the
+large descriptor mismatch; its complete strict development replay still fails
+**144/146** cases with zero skips. The first two isolated failures are preserved.
+Exact original rollback repeats now prove ambiguity: state-28 invocation 21 and
+repeat invocation 2 have identical captured RAM, all 63 input words and all
+**161,420 instructions**, but differing final RAM at `0x0c641800`. The isolated
+C model matches the repeated original output. All **622 owner bytes** remain
+excluded under this input model (`menu_selector_observable_quarantine_v1.json`).
+The hidden cause is not established. IRQ-invalid one-shot repeats are retained
+as diagnostics and do not support the disagreement proof. The failed complete
+development corpus is pinned by `menu_selector_failed_development_v1.json`.
 
 Accepted union at the preceding independently qualified strip milestone:
 **275,276 / 434,656 bytes (63.3319%)**. The preceding pushed checkpoint
@@ -87,6 +113,16 @@ finds only **420 marginal bytes**: all 320 bytes of `0x8c0a92da` and all
 84 bytes of `0x8c0a9452` already lie in accepted spans. Those helpers add
 behavioral support but cannot be counted again.
 
+The three remaining helper owners now have sealed scene-57 callable contracts
+in `replay_transition_callable_v1.json`, backed by eight complete original
+caller windows and four attribution mutation tests. The normal 408-file source
+archive, all 1,514 development cases, the 1,415-binding/39-suite gate and 388
+tool tests qualify their development freeze. Two fresh held profiles were
+created after that freeze, with permuted typed inputs and relocated writable
+buffers. Original acceptance is running sequentially in states 45/46 through
+`replay_transition_accept_capture.py`. The **420 marginal bytes** remain
+uncredited until all held bodies, cases, callers and accounting qualify.
+
 Reusable commands for these inspections, isolated builds, caller proof sealing
 and fixed coverage targets are documented in [evidence_tools.md](evidence_tools.md).
 
@@ -155,8 +191,8 @@ under `tools/oracle/`.
 The current union calculation is pinned by
 `tools/oracle/scene_result_record_reserve_margin_v1.json`; recompute margins
 with `candidate_margin.py` instead of summing frozen body sizes.
-The original 40-owner pool still offers 24,248 advisory marginal bytes when
-recomputed against the current union (`coverage_65_remaining_pool_margin_v2.json`),
+The original 40-owner pool now offers 23,366 advisory marginal bytes when
+recomputed against the current union (`coverage_65_remaining_pool_margin_v3.json`),
 including quarantined or otherwise blocked candidates. Do not treat that pool
 total as qualification yield; choose additional actor or scene reserves whose
 original whole-body pilots and callers can actually be proven.

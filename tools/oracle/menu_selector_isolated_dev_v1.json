@@ -1,0 +1,7 @@
+{
+  "sources": ["src/fight/menu_character_selector.c"],
+  "routes": [
+    {"entries": ["0x0c07cf3e"], "function": "vf3_menu_character_selector_c"},
+    {"entries": ["0x0c07cf10", "0x0c0c1f9c", "0x0c07b6f4"], "function": "vf3_menu_selection_helpers_c", "entry_argument": true}
+  ]
+}

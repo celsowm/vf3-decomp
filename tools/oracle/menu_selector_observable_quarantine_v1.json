@@ -1,0 +1,120 @@
+{
+  "coverage_credit": false,
+  "quarantined_entry": "0x8c07cf3e",
+  "quarantined_owner": "0x8c07cf50",
+  "excluded_owner_bytes": 622,
+  "reason": "Two complete original probes execute identical instructions from identical captured RAM and all 63 input words but produce differing final RAM. The entire owner is excluded under this input model.",
+  "limitation": "The responsible hidden state has not been established. IRQ-invalid one-shot repeats are retained separately and do not support this proof.",
+  "comparison": {
+    "diagnostic_only": true,
+    "coverage_credit": false,
+    "references": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s28.bin",
+        "sha256": "dafcc44b8cbfd56e117f7375312df66bee3cdde6cfd3d32bb2c21bb547ed4bad",
+        "invocation": 21
+      },
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_exact21_batch_v2_raw\\capsule_menu_selector_exact21_batch_v2_s28.bin",
+        "sha256": "40d93d704f5dceadbc18a0c380191b1e8fe921a5de4f96c0b97c329dc0386109",
+        "invocation": 2
+      }
+    ],
+    "captured_inputs_equal": true,
+    "captured_outputs_equal": false,
+    "observable_disagreement": true,
+    "input_register_differences": [],
+    "output_register_differences": [],
+    "memory_differences": [
+      {
+        "base": "0xc641000",
+        "before_equal": true,
+        "after_equal": false,
+        "left_after_preview": "0000000046cec2bd80f3c2bd295c0f3e",
+        "right_after_preview": "0000000046cec2bd80f3c2bd295c0f3e"
+      }
+    ],
+    "left_instructions": 161420,
+    "right_instructions": 161420,
+    "canonical_instruction_traces_equal": true,
+    "first_instruction_differences": []
+  },
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\batch_manifest.json",
+      "sha256": "2595efcdb476f179db048708207756969baad838ba14c85a30497634bf1ff03d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_exact21_batch_v2_export\\batch_manifest.json",
+      "sha256": "c24d25d9424ace8994bda33fb8fd5a750a954d17ebee27c882768c0b2001ceef"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\extended_observer_controls_v1.json",
+      "sha256": "92341e5921834b0a4af30d49739a380fa5f3f21eaa3436aefcd83544e84c4306"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\original_probe_disagreement.py",
+      "sha256": "bb19c572c00b0dadb17cc9a9b0337869063327bc41ec4b842acf7154767cbdfa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s28.bin",
+      "sha256": "dafcc44b8cbfd56e117f7375312df66bee3cdde6cfd3d32bb2c21bb547ed4bad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s28.bin.summary.json",
+      "sha256": "a7d2cc4e6df26fecec329798135edfb9494ccb93de7dd0a984242e401a7d1fa9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\golden_coverage_65_menu_selector_dev_v4_s28.log",
+      "sha256": "af6b4bbb4eddd6e6966f7b89742431a913a9ebd3f0f3e19d83d58974638deb95"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_menu_selector_dev_v4.patch",
+      "sha256": "9f2ae29e7f481128386080f6c1fdc34e93024b8954d2d017cd16bfe7cbf99e48"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s29.bin",
+      "sha256": "a42377e2186b46f0812ae79beb7f308ee9dd28e1b25c286c9f2ed4c987488a8e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s29.bin.summary.json",
+      "sha256": "a7d2cc4e6df26fecec329798135edfb9494ccb93de7dd0a984242e401a7d1fa9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\golden_coverage_65_menu_selector_dev_v4_s29.log",
+      "sha256": "ddc42212534a3abdfa553e6567f5fc6f6591f77f6cbd6469c07fd896bb42d99f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_capsule_extended_v1.exe",
+      "sha256": "f6fdc2682153d13905932dec07d8cca46837655e04fb5e733720ee9f0d04d650"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_exact21_batch_v2_raw\\capsule_menu_selector_exact21_batch_v2_s28.bin",
+      "sha256": "40d93d704f5dceadbc18a0c380191b1e8fe921a5de4f96c0b97c329dc0386109"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_exact21_batch_v2_raw\\capsule_menu_selector_exact21_batch_v2_s28.bin.summary.json",
+      "sha256": "ef421dcbfc6ce2c3ac70c4a13c3c6c654545c4baff024cb2de2cfa3a4b0cd458"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_exact21_batch_v2_raw\\golden_menu_selector_exact21_batch_v2_s28.log",
+      "sha256": "bcbf5670c68e9fd16924c8ea2bd0f38a90bf3fb3b214ba9b92542ffcf2f8d211"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\menu_selector_exact21_batch_v2.patch",
+      "sha256": "eb0d56d5665fc16441ecb4bf9bbc2e7598782bf06659c8534b49bf2e32127186"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    }
+  ]
+}

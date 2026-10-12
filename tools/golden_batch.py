@@ -33,6 +33,23 @@ EMU = REPO / "tools" / "emu" / "flycast-build" / "flycast.exe"
 ROM = REPO / "rom" / "vf3.gdi"
 
 
+def observer_record_limit(executable, controls=None):
+    if controls is None:
+        return 100000
+    proof = json.loads(Path(controls).read_text())
+    def digest(path):
+        with Path(path).open('rb') as handle:
+            return hashlib.file_digest(handle, 'sha256').hexdigest()
+    assert proof['diagnostic_controls_passed'] and proof['unchanged_original_simulation']
+    assert len(proof['controls']) == 8 and all(row['architecture_ram_and_trace_equal'] and row['audio_checkpoint_equal'] for row in proof['controls'])
+    assert Path(proof['observer']['path']).resolve() == Path(executable).resolve()
+    assert digest(executable) == proof['observer']['sha256']
+    assert proof['maximum_recorded_instructions'] == 500000
+    for row in proof['references']:
+        assert digest(row['path']) == row['sha256'], 'changed observer control dependency'
+    return 500000
+
+
 def parse_run(spec: str):
     parts = spec.split(":")
     if len(parts) < 2:
@@ -81,7 +98,9 @@ def main() -> int:
                          "(VF3_PROBE_CURSOR); use to walk a long seed plan "
                          "across successive runs")
     ap.add_argument('--probe-ops', type=int,
-                    help='synthetic-call budget, 1..100000; recorded in run provenance')
+                    help='synthetic-call budget; default maximum 100000, extended maximum requires --observer-controls')
+    ap.add_argument('--observer-controls', type=Path,
+                    help='validated original controls for a separate extended-record observer')
     ap.add_argument('--rollback-text-control', action='store_true',
                     help='headless original PVR TEXT_CONTROL checkpoint/restore pilot')
     ap.add_argument('--rollback-aica-ram', action='store_true',
@@ -98,8 +117,12 @@ def main() -> int:
         ap.error('--rollback-text-control requires --capsule and --entry-patch')
     if a.rollback_aica_ram and not (a.capsule and a.entry_patch):
         ap.error('--rollback-aica-ram requires --capsule and --entry-patch')
-    if a.probe_ops is not None and not 1 <= a.probe_ops <= 100000:
-        ap.error('--probe-ops must be 1..100000 (the oracle record limit)')
+    try:
+        record_limit = observer_record_limit(a.emulator, a.observer_controls)
+    except (AssertionError, KeyError, OSError, ValueError) as error:
+        ap.error('invalid extended observer controls: '+str(error))
+    if a.probe_ops is not None and not 1 <= a.probe_ops <= record_limit:
+        ap.error(f'--probe-ops must be 1..{record_limit} (the validated oracle record limit)')
     if a.hits and (a.capsule or a.instr or a.edges):
         ap.error('--hits cannot be combined with --capsule, --instr or --edges')
 
@@ -209,6 +232,9 @@ def main() -> int:
             runs[-1]['probe_ops'] = int(env.get('VF3_PROBE_OPS', '20000'))
             runs[-1]['rollback_text_control'] = a.rollback_text_control
             runs[-1]['rollback_aica_ram'] = a.rollback_aica_ram
+            if a.observer_controls:
+                runs[-1]['observer_controls'] = str(a.observer_controls.resolve())
+                runs[-1]['observer_controls_sha256'] = hashlib.sha256(a.observer_controls.read_bytes()).hexdigest()
             if not a.dry_run:
                 runs[-1]['emulator'] = str(emulator)
                 with emulator.open('rb') as executable:

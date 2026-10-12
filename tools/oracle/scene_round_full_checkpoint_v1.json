@@ -1,0 +1,345 @@
+{
+  "completed_utc": "2026-10-12T19:05:46.943017+00:00",
+  "verified_c_bytes": 276158,
+  "frozen_body_bytes": 434656,
+  "verified_percentage": 63.5348413457999,
+  "target_c_bytes": 282527,
+  "remaining_to_65": 6369,
+  "new_owners": 1,
+  "marginal_c_bytes": 882,
+  "archived_source_inputs": 408,
+  "binding_inventory": 1415,
+  "native_suites": 39,
+  "oracle_tool_tests": 381,
+  "full_regression": {
+    "expected_bindings": 1415,
+    "reported_bindings": 1415,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "  vf3_scene_round_decision_v1:0x8c098c70 PASS   matrix_family: 1003/1003 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "scene_input_transition_credit": 0,
+  "original_state_lineage": true,
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_historical_archive_v1.json",
+      "sha256": "929a0290a2dedaa15951211f3c76c47c23b7f683eb0f910dcd241999fd5bd07c"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_round_historical_archive_v1.json",
+      "sha256": "506ec96d485c0094c39ba8eba98eb7bc1bc2d8573130b592ac44e4b903d49b75"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_original_state_45_save_v1.txt",
+      "sha256": "1b5bf0bdce77b7c5387475bb1b24a53e9198ebef70d27e818f262fc7df30c97b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_original_state_save_v1_raw\\golden_strip_parent_original_state_save_v1_s28.log",
+      "sha256": "6de91d3edfe0be0ab6c0efb1072a442edbe093006ef892a42319fa155b5a6c41"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_original_state_save_v1_raw\\hits_strip_parent_original_state_save_v1_s28.csv",
+      "sha256": "71091f062921a8bf9d500471bb682196d96f805e404f5000e68f569f975ed406"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_original_state_46_save_v1.txt",
+      "sha256": "fff3cec79cb2771e7bfa1d3d3cc81ed1e8c0f62e59be2a8619618030161401ee"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_original_state_save_v1_raw\\golden_strip_parent_original_state_save_v1_s29.log",
+      "sha256": "d9b6bb7bb6d7d3941511b979c84b6cac6fe30f395043b9c6d8097cf03894e40e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_original_state_save_v1_raw\\hits_strip_parent_original_state_save_v1_s29.csv",
+      "sha256": "de98189a4476cd6dfcbe984b033f590305441eb8f1c47e73fbeefeafdf86778d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_batch_integrated_dev_v1_complete_sources\\manifest.json",
+      "sha256": "ad0a4078db9fc41c6779dc642916842ebbeb59596c55e84bd6b9ffc4155ccdbc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_batch_integrated_dev_v1.exe",
+      "sha256": "c4f76796597afb1e1cc03067d051bfd784142f88f52c9f8c440dc859d29d332b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_round_qualification_v1.json",
+      "sha256": "6ef4079c71ea5d6c686a59edbfc68f3eaa2cd705d4bfcf14d8292ab955513ef5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_original_state_save_v1_export\\batch_manifest.json",
+      "sha256": "6482753f02b2bd7273a76e741fe4120f67dc2e68f275cb47f0d7d4485b18691c"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_round_v1_manifest.json",
+      "sha256": "0b565806d1d29ea6aea227254f8abc4ce4681c99f7347eded58e2545402cd4f2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\scene_round_all_bindings_accept_v1.log",
+      "sha256": "63a3772c15fd0c8038f35e8f8965eee8032671cdedb2b2035098daf42c34ed5d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\extended_observer_all_tool_tests_v1.log",
+      "sha256": "4ace91bcce374d0d90e5ae12da151165f9a574293a0cdd9b3646dd5cf0da1ce4"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_input_transition_observable_quarantine_v1.json",
+      "sha256": "9a23d24ea1bc4ca10ec2209ac014b779e3f1c6ed2814b095eda7c1e108a16cb0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_input_transition_failed_acceptance_v1.json",
+      "sha256": "c18be8617f01b4c3005a4059a9f9a405db88d80b8020f8e74f535f49b6ba5133"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_round_checkpoint.py",
+      "sha256": "b28267d753e2793e94153287900a74e8dd9d7998b1e47b67f4faf7dbe5bfa234"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\tools\\golden_bindings.json",
+      "sha256": "6c9a8be9d8c6dcdd4df8c76c476238d1e87d36d5d97c5cfe65cf110818eb9702",
+      "original_path": "E:\\vf3-decomp\\tools\\golden_bindings.json"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\docs\\decomp_status.csv",
+      "sha256": "316b756599d88861cb0ef363a5d5c00954ccebdd7f905c43092e7088a75960ad",
+      "original_path": "E:\\vf3-decomp\\docs\\decomp_status.csv"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\docs\\coverage.md",
+      "sha256": "ba406bdb5d42a1c6d8fe8c68273205b8b5fe83d094a1aceb4f73864abc976a36",
+      "original_path": "E:\\vf3-decomp\\docs\\coverage.md"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\extract\\analysis\\coverage.json",
+      "sha256": "6ea84e87ad7e1377c2c538452581030bd61850b2e5e1aad19a2b8196a615a529",
+      "original_path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3dl.exe",
+      "sha256": "fbdf7b1db51ac449ab5ac0f31c17957ce9514f8020d88ae5f8629fd96c36e717",
+      "original_path": "E:\\vf3-decomp\\build\\vf3dl.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3walker.exe",
+      "sha256": "d482dd4e92169dbf33fb57b75efb2f6db074a304122453efdca4e9ff1708be72",
+      "original_path": "E:\\vf3-decomp\\build\\vf3walker.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3mtmount.exe",
+      "sha256": "b805d5937bc527d611f531c7ed762f89dc40a29ce433391044adbbbff675a966",
+      "original_path": "E:\\vf3-decomp\\build\\vf3mtmount.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3loop.exe",
+      "sha256": "97eab72a8b9a284127ea3afb72bba8c48169a4cecacb1b4d6277d16087b08b2c",
+      "original_path": "E:\\vf3-decomp\\build\\vf3loop.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3taskvm.exe",
+      "sha256": "b37e125af247588328cddc055afb35d49703d9a95790335c9e21d08848a9a22d",
+      "original_path": "E:\\vf3-decomp\\build\\vf3taskvm.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3vm.exe",
+      "sha256": "d708468bc22b6be109b6580a3dff36ed3041df806973103cc14bd8798fbe892a",
+      "original_path": "E:\\vf3-decomp\\build\\vf3vm.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3frame.exe",
+      "sha256": "002ec7f24c3dd358ff83b75d9e365154ffcfd3af5678ddfb8a8828d303560629",
+      "original_path": "E:\\vf3-decomp\\build\\vf3frame.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3libutil.exe",
+      "sha256": "8fbe1f70cfc198c305e793896d39d60553ead81805d952e8704f9e875663d2e0",
+      "original_path": "E:\\vf3-decomp\\build\\vf3libutil.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3orient2.exe",
+      "sha256": "58b70c8ce8cb658766e273759f33c26bb7f9b5fd13a178a103076c6fc515af61",
+      "original_path": "E:\\vf3-decomp\\build\\vf3orient2.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3poly.exe",
+      "sha256": "4099ab6698807f19ea49cb2dee29d33dc877bcb2f77f454137fe841f23ad435a",
+      "original_path": "E:\\vf3-decomp\\build\\vf3poly.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3vecpush.exe",
+      "sha256": "bd3382292b3a3632d7fd35eab5a234ce073588f86962d7f50796bb574e9b12af",
+      "original_path": "E:\\vf3-decomp\\build\\vf3vecpush.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3tailcall.exe",
+      "sha256": "5a472a0ce7b637b7da7f780a27cb1aaa15d4e4befe9e49fcaf1ad9971f2ff8bf",
+      "original_path": "E:\\vf3-decomp\\build\\vf3tailcall.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3walker2.exe",
+      "sha256": "1d6010852cfe9378dbe9a0ed977d7a184b5ac0c6b7485620d34939580d1c3294",
+      "original_path": "E:\\vf3-decomp\\build\\vf3walker2.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecadd.exe",
+      "sha256": "cd319fe32daeefe267109a690cb1265dd91c91e3ebdfe6fb3c5758c0eeeca537",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecadd.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3scaler3.exe",
+      "sha256": "f0504b768f89ab302be419e3b2e23290594126f93c3c94585987be96234b1d3e",
+      "original_path": "E:\\vf3-decomp\\build\\vf3scaler3.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3frameseq.exe",
+      "sha256": "d818d10497bdee40d5dce9b2ec66eaccbf5217203ef28324ae3548c06d72df08",
+      "original_path": "E:\\vf3-decomp\\build\\vf3frameseq.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3cbefc.exe",
+      "sha256": "1253c03aa96bf44b887bece929f6ec405439e2c8b1acd49521db12a688d4cc9c",
+      "original_path": "E:\\vf3-decomp\\build\\vf3cbefc.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3f040f1e.exe",
+      "sha256": "64165080b209d8f25fa518ae27a81da5975deeca208ce1c7d4569c2494fbf9f5",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f040f1e.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3f0747d8.exe",
+      "sha256": "38cc0b9127370b6e71bb124ed20e59e3dc2ca8393345d0c986c3f51a8bfe8ac7",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f0747d8.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3f9f6fc.exe",
+      "sha256": "38651da416c61b9f4ff997ad0b1e38ebeee824475821f44148973382316e7bde",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f6fc.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3f9f6dc.exe",
+      "sha256": "458400336af95b523502bc2e5f02568bcd703dbff7ae8aeb2657b5e5addb6a7d",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f6dc.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3cc148.exe",
+      "sha256": "1117f798ace5a20010dbf99f8edc3aa06ff63cc38feba79b96420b49cec6e104",
+      "original_path": "E:\\vf3-decomp\\build\\vf3cc148.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3c5dbe.exe",
+      "sha256": "553e36cf9ada42e1809a81d6c06fef3bdaac4170eab247ecc92fcfee068d2738",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c5dbe.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3b10aa.exe",
+      "sha256": "7c244293527f29c20fdeaf012b17fe1a2e5a35ef2a847f6cad16df7002ef793d",
+      "original_path": "E:\\vf3-decomp\\build\\vf3b10aa.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3c6ec4.exe",
+      "sha256": "ebae50c86a86928822899038f228d382cdc21a0bbc6a59bf7077a05979345314",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c6ec4.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3maplookup.exe",
+      "sha256": "a122ec84f5906d0965ec4c34d75d944240e889669b870305fdd38eba53a19a0e",
+      "original_path": "E:\\vf3-decomp\\build\\vf3maplookup.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3meshnode.exe",
+      "sha256": "6a4ed4ecec22188000dcbc117bb4df182cd641b75f7b378f547a5ce15663bc17",
+      "original_path": "E:\\vf3-decomp\\build\\vf3meshnode.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3d0fa.exe",
+      "sha256": "69dd2d3722d4787274361eeaf0c33e3c64e44966a82d9d6eaeeb8f9e70b3d818",
+      "original_path": "E:\\vf3-decomp\\build\\vf3d0fa.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3c788.exe",
+      "sha256": "179daba3c9973c7c0b976d42952f74231032021400c494769c591f26280592a1",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c788.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3f096258.exe",
+      "sha256": "40f226c69d244037c3819132a91f849a3a96ec72b68b32695f438431129eee9e",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f096258.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3matrix.exe",
+      "sha256": "6a6f42f4f118bb4feff932a4ce8dc2392f58447b2c9f006a23509693adbb6d5a",
+      "original_path": "E:\\vf3-decomp\\build\\vf3matrix.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3bootmix.exe",
+      "sha256": "54f4ce770fd37b451275808c893132804e9029154877a9e6f0152f0e47f28f03",
+      "original_path": "E:\\vf3-decomp\\build\\vf3bootmix.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecnorm070x.exe",
+      "sha256": "0ffa0c89525c3b5ae38c3afa02afcc9ba0c8a696ba060e8f4e2bc0b8f52d52ee",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070x.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecnorm070a84.exe",
+      "sha256": "5ec7c71c8f346724b3207ff77845d605a6cb4b4e7ad0eafe6685f53a3907b3a2",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070a84.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecnorm070120.exe",
+      "sha256": "11d4626c4ef83740b124c230bf4236fed1b126127698d9559866a2fad95ab5f4",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070120.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecnorm07030c.exe",
+      "sha256": "c1614e591639bc87ebab8d59be66874bcdeb67ff46dfba3b10b4c3e39d6caa3d",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm07030c.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fvecnorm070cf0.exe",
+      "sha256": "4b744cb6d1cea165e3906e1309fb2e2063272598cd36d7892ae97a43d8342fba",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070cf0.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3fpu.exe",
+      "sha256": "90c4213ae08fc7ba538695b5d967bada5c465f52e8a044f3fd3f51fc9e7642cc",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fpu.exe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_full_checkpoint_v1\\build\\vf3statehelpers.exe",
+      "sha256": "5747e71efa0ae483820675a825f51c31a1eb80d8f8415c9cc53f85b2e764ce16",
+      "original_path": "E:\\vf3-decomp\\build\\vf3statehelpers.exe"
+    }
+  ]
+}

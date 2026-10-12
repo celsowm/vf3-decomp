@@ -1,0 +1,1266 @@
+{
+  "coverage_credit": false,
+  "acceptance_failed": true,
+  "reason": "The complete strict report has failed specimens. All entries, runs and case artifacts are retained; no passing subset qualifies this campaign.",
+  "reports": {
+    "0x8c07cf3e": {
+      "pass": false,
+      "seconds": 2.125,
+      "stdout": "matrix_family: 144/146 cases match (0 skipped) - FAIL",
+      "stderr": "case 12: mem win12 @+0x1800: got 50 want f6\n  case 93: mem win12 @+0x1800: got f6 want 14",
+      "cases": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.cases",
+      "executable": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_isolated_dev_v3\\vf3matrixfamily.exe",
+      "executable_sha256": "2861a589a5e7e37d7073735bb41d7233fbbe999e9034484bd7300675c44e94fb"
+    }
+  },
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\menu_selector_complete_isolated_dev_v3_native.json",
+      "sha256": "b4dd735eac091d55afaf1282b9f051d208c284f7ca195be02b8fc3fe9444cdde"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\pin_failed_campaign.py",
+      "sha256": "db901f3821596035df5d5e5cf23bf0830eab531e905caf52ddd1e5fc541523d3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\batch_manifest.json",
+      "sha256": "2595efcdb476f179db048708207756969baad838ba14c85a30497634bf1ff03d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\capsule_manifest.json",
+      "sha256": "7850f55ce6c25a1b54e4d5ed4b9b06fbe1feaa28e0449b62c76af4cff4cc0a11"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.bank.bin",
+      "sha256": "ec226a00fa5beb27f836a0411310345306c1990318f059c2f4db3c7b98dc05d0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.cases",
+      "sha256": "e50c1e298514d2edff431f7055e6765650005a18577d9a61efbb6f2192826f87"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.dev.bin",
+      "sha256": "62ec1707572ac5078d31a687a5d23de0c6d2a58d3462efb7039957548a7986cc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.extra.bin",
+      "sha256": "d16945de1749afb7748f72b2c542dd7be4bfac755944e733c66ceaad817ff12c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.gbr.bin",
+      "sha256": "4454897f60ea490d60fffe7ffc22a53394031de4e96af013a58ac11f028d1584"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.ops.json",
+      "sha256": "71afa97fa039f8b79f7169310beb7f92cfc65e7d0a4e9bfb9217ea411fafb990"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.xfin.bin",
+      "sha256": "39818c3a18d8c80738c3b79c9e58260390c9cf13e05aa4b792ae218ab302f302"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e.xfout.bin",
+      "sha256": "39818c3a18d8c80738c3b79c9e58260390c9cf13e05aa4b792ae218ab302f302"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_0.in.bin",
+      "sha256": "b336da71e52deb71359a5d4b7f1f9f3785440bb82205f2ee93c364e89a511bd9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_0.out.bin",
+      "sha256": "876e90d739bbfb6d0531e2f94f12cc9dd24b745979011cbddf93f08c7dfef2bc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_1.in.bin",
+      "sha256": "ec52a33c3f7988161bebe71c44af12d76927ebb668c98d4e41c69e05fb9c3cde"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_1.out.bin",
+      "sha256": "431dc40b9960b230b2110626254b728ba93c15d0c0b426289a0902301ddd62cb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_10.in.bin",
+      "sha256": "524af4622d4b25ff949f68e2c1141be34e8ab3a85fec127d7aaa825eadd972c4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_10.out.bin",
+      "sha256": "0882e00ca89411994105eb460a01cad2c44a8e6b7dcb4632928e139c015c44f1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_100.in.bin",
+      "sha256": "620b7a76f06557a50dc7d61b0b5daeae18fc6eca4df951358db3b36349b2a790"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_100.out.bin",
+      "sha256": "cdc48f32c12d8e4818e9f566676a4915f998690ba24dc4bb1e1b6087dfb065c9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_101.in.bin",
+      "sha256": "36e9b2d11f9218b06ed6135b8fa76e73b960adabb2ee1b2c21024439f3c19a4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_101.out.bin",
+      "sha256": "70fcdf50b9483b231081390c1f51391146910f60ba91ea574b270c7323a83b12"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_102.in.bin",
+      "sha256": "dc77060f7f371458023cc5a49a3bce4b0a889be65ecdd0184e73c289c30e9333"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_102.out.bin",
+      "sha256": "2b686c0814c015d19e3eb8e303a9c6aa20ff161f01c404b6928f3461e9aafebd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_103.in.bin",
+      "sha256": "d9c958613d708c6d5c78023acd84519e2523b5d376d9f4035e733fdd6698b201"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_103.out.bin",
+      "sha256": "e8a9db0eff240eac04689cc5ef42c464573e93f0d708c98cb595e457975db482"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_104.in.bin",
+      "sha256": "d9c958613d708c6d5c78023acd84519e2523b5d376d9f4035e733fdd6698b201"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_104.out.bin",
+      "sha256": "81baf744728b387c4a7b243f6e13accd2da6d1c726cfa6c95bce57bbb22516be"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_105.in.bin",
+      "sha256": "fc28816e9e50fd9690893e5be4328cb42a01d22b3be3e86ed9ff132e8e79f725"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_105.out.bin",
+      "sha256": "91be903badb4d49e75b090a615d47a5f39f31c94d6aa8d212ecc5f7f519f71a2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_106.in.bin",
+      "sha256": "6d50fea55ca9762a618339a465ff630cb8a448a4fd2db4e3c8ebe0526b97fa6f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_106.out.bin",
+      "sha256": "fea3fe527a2a0548d6e7a3f806fd508ba0ac0338d2da96f8d7976c38f046b43b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_107.in.bin",
+      "sha256": "739fd6ceae71485dda2c1a86da5525d97239a354eb5fe05ce2521bd15c9fe7e7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_107.out.bin",
+      "sha256": "1d5123413a26ecc81cd7591ab65d13a4eb60a6e5b241e8cca7243c2e0109a598"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_108.in.bin",
+      "sha256": "edd83bbee4fb89ac1776c7e6d7d3068664a37ed6ffec0de79cd274013a241768"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_108.out.bin",
+      "sha256": "0909d79aeda7599a9bd9b3637436943433064abb084e2ff623c04e5f93e7cad8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_109.in.bin",
+      "sha256": "e6e31e6580fe1fa15f1a25b0a44008991cb8dce1f74b5af7ec321fd0ad45e7a1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_109.out.bin",
+      "sha256": "e51b80417d2b5837e2ab19b05df385e1f46e3c1ec4c2c8a77295bef47cb1984b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_11.in.bin",
+      "sha256": "153a46998d4ab29ed1a6de355327d6a5ed7390204d7f878ff1d9aa5631b7dd55"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_11.out.bin",
+      "sha256": "7ca6c40f92afe1bd7bf619baf6a27bf419aa5aaeaf0d48a9d3cb00b143d9ca74"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_110.in.bin",
+      "sha256": "e6e31e6580fe1fa15f1a25b0a44008991cb8dce1f74b5af7ec321fd0ad45e7a1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_110.out.bin",
+      "sha256": "322d4f2fc4fc881de26b269f62bc92d84c494d6ca2f4cb49b4f0fe0a20be124e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_111.in.bin",
+      "sha256": "dcdedba78a2ba5b1a06174ac8fa36cac931121be8d929bb1cc8893f21fa1e18c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_111.out.bin",
+      "sha256": "b430c07c31a770ccef06ba60bd07321417ed4791241df21e1c9c933f238f88f2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_112.in.bin",
+      "sha256": "7735436a38b92c872e973f8249f49ad0e290407997a5bc8c6147a4db720828b1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_112.out.bin",
+      "sha256": "dc13c737324fdaf4d17bae3773498c3f26e39ff396ec8e733d45ab2512311b9f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_113.in.bin",
+      "sha256": "4cd2424d64feff5ccbb63eaeced9b4e891edeb7eb2ebbbb589bd40f03d2b2f97"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_113.out.bin",
+      "sha256": "2162543fef3372af871f0f63078de26343675f36aa6de20667cf0749506dadf1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_114.in.bin",
+      "sha256": "aab4931d73819c96f014558b52e298047aa0820fe29a650af09b7a4210b8da7d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_114.out.bin",
+      "sha256": "e9967eeb4ab16c0ea0516238a678b1336a33538f4c15219c3b28c030cd53d3b7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_115.in.bin",
+      "sha256": "5a165e9c7560172d0f7fb7f04abfcf9c4cd0db2a7a8e63b5bc79b9be0c22f3a0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_115.out.bin",
+      "sha256": "c1141a33ef9f0779e1d0a2dd714a5fe9e4706d9428c332a424027fd201f34ec2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_116.in.bin",
+      "sha256": "8aa4b9edc7a6daa799aa2202965a5d0ce0f18f881ff31057a8bbc16f89b7f8b6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_116.out.bin",
+      "sha256": "57e43efbd27e1befaf61929b59d59e388e72462ac70686c4829baaa4497f9462"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_117.in.bin",
+      "sha256": "c277589a61ed8682dd5eada39361a31e5fe03d38d85944bd1d6b6642046c70e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_117.out.bin",
+      "sha256": "021f58d2ad5f2f32bbd7a88829249ce76031fbf7f42d5367a7e25a32b13d35a8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_118.in.bin",
+      "sha256": "ebb8cc70230ad7846e5b3d56dd358ced967f5e8cfba75cdf9ef23b303445b7dd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_118.out.bin",
+      "sha256": "766324daf224b51426c58ddef6ed230a5cc17db1244f954b7b0c0480e5e08a30"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_119.in.bin",
+      "sha256": "200d968bef2e9cf96a1220410c947d1363a3a5b73640307d5e4cfaee4d986dcc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_119.out.bin",
+      "sha256": "27a91bebbff674fe6302c0dcabd9bc792f57a2fa709bbb5f676ac6b7b4d7c01e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_12.in.bin",
+      "sha256": "54189eb3d5f4412b3d7e8011d2566ce0b651c3ee832b6ad57e6f6d1b0f827c7b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_12.out.bin",
+      "sha256": "6f4844863ff1f46082dd001230dd7300d332181fcf771dab3fe0678bd7bfb451"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_120.in.bin",
+      "sha256": "a7c6f24a3491b5157d9e2c1f3c3a7734b093fa7b456665d7c74c064967d8c5d1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_120.out.bin",
+      "sha256": "a74247bb5d5c7088d02cdbbbf2adc9d0dc570918f75b6fa3b8845fc8b0d3a19b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_121.in.bin",
+      "sha256": "75a9750fc94526cfc610b6c6b68adaa552382b8fddf23f77fe45cd8c8deb1923"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_121.out.bin",
+      "sha256": "0ceed7b470409c370af09def7bcf932c70b930f3d1d6033e7807ca78c535cc2e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_122.in.bin",
+      "sha256": "ad44ba403e0fee02a84660086036028febdc79da9ccb36fb51c3af1ef6d439f1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_122.out.bin",
+      "sha256": "f597d1080e981cc21276c6d2dab41fd17b7074c0f16981b275446d5e35233144"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_123.in.bin",
+      "sha256": "a6ac43d8da59503513f8e583ade3d0209091a61f071b50ccef049678c235fe1d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_123.out.bin",
+      "sha256": "a84b41c0ed972110fd006193fe051e409fed82a932b81791a5efb0bc2e40d159"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_124.in.bin",
+      "sha256": "83895485325c495b25cc5f5f12b82af969676986a47ecb9fd0e56380ea79354a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_124.out.bin",
+      "sha256": "9b09951cd7040a5889f7c5819496459e8c2df1b576247a4881e87495336b9586"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_125.in.bin",
+      "sha256": "10b0c5c18cf61ec199534210083d6dd3eff60cbaa4e5dd9dbef0c89ac0c2bb0d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_125.out.bin",
+      "sha256": "eddef6f6a7b9432ebe6bd2c217b67d0d7d32031b9fe8bbacd5b21a0ef3956643"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_126.in.bin",
+      "sha256": "10b0c5c18cf61ec199534210083d6dd3eff60cbaa4e5dd9dbef0c89ac0c2bb0d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_126.out.bin",
+      "sha256": "90e75d0f503419b8a2783b275b45442744169d4d02cce40db85cf9e5991e2069"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_127.in.bin",
+      "sha256": "11ad625acc11952c47396dd3ca316b1d6a1fe7ae882ad1892ace28ace03fe297"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_127.out.bin",
+      "sha256": "f95f70c6e4e41d2299c67921bfc0d72bd9651323078c35d3206c84deea7eeda6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_128.in.bin",
+      "sha256": "a198240c4304ac438f4bcaefa1744d1080d8f52cd609a1084ed7224d4c2fa6a8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_128.out.bin",
+      "sha256": "6168ffa41e8341b09e4e9d39495108a96b5a8ec7590ce39362e7f1758e043968"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_129.in.bin",
+      "sha256": "52c8d74db9ccbfe153f73e2ff409fd6a75710dc36da719d9a2d45bd10b2cdf01"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_129.out.bin",
+      "sha256": "36ed1079d52a86693620bf19a4d39b426ec29bfb3b02b7ac99ffb51b4c5741aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_13.in.bin",
+      "sha256": "f674787260df9fc2bc99e8a3ef01e799026e2a7ce925465c7cf81639b3069014"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_13.out.bin",
+      "sha256": "fda0509ae4d6ab3c928ff4a134d2e246224f14bb286bd3995e7e00afa9088156"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_130.in.bin",
+      "sha256": "fd268b235efba17656d751900318261a0dcfdaca1cffb1da8fef6e479f067251"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_130.out.bin",
+      "sha256": "1c0bfca1504168d823ed4d1f72f966ceed945c1eadde86e16a12a917f380d37a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_131.in.bin",
+      "sha256": "bd49b8affee26f9519459c46d05a45d3f1aac3d34d5990399fb1633968d93717"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_131.out.bin",
+      "sha256": "9ac308b4e337da34997b139f6a4324b3f5945205840235e7f6768ed0bfcca887"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_132.in.bin",
+      "sha256": "de9a5db877cbd25887ef7d661f74e633b27801cdd288335b9bf9d9151cd7c6dd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_132.out.bin",
+      "sha256": "1309d00c8433e74a44fbf574b7fa0cc5e65f72934c32a335b635e74bdd20cacc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_133.in.bin",
+      "sha256": "de41550d54e2e21b932d3f221d34e60ea6f7f450010039c8d5d98dc3d2e37891"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_133.out.bin",
+      "sha256": "e43dd9ab3ebd54bd6e8d367296138529f9d3b4f1339c8e64ff988e239246a384"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_134.in.bin",
+      "sha256": "9fe70698283f50b1a0238cf85b16e2fcd285b31bb0f1f8d01873ac37f978ff83"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_134.out.bin",
+      "sha256": "3e85b35e620be951741ab8e39075b12bf0352a77803f716cdedf49f15a8515ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_135.in.bin",
+      "sha256": "0cbf4b1a4e76d39c2b3a52eb6267f9b45ad8ba03fc47924525850adef8c54524"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_135.out.bin",
+      "sha256": "4106983018eaa7cd6939b34b463da5770dbcbef6e526056b45de104251d91e98"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_136.in.bin",
+      "sha256": "f1798c3366f0a98a2f86d6c7bb2be4ac9102f079e2b9bdc5d1f12926b3fb0f14"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_136.out.bin",
+      "sha256": "67a62d478a5e4ac2c3629d28a16e39c520ed55fac4b6c16431d0b8e9dd9edb3b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_137.in.bin",
+      "sha256": "e0f13342c35a6a407f85a698e7c3786a4ce65dae15536fdca8dc044296464f3f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_137.out.bin",
+      "sha256": "976760d582214e2740c335451c2266b637eab4ecaa6410043a80a3a91f6817e8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_138.in.bin",
+      "sha256": "a9f216c547cf98828cca692c29cd0c4617b738ad6537ca5020eae84f5b489c2e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_138.out.bin",
+      "sha256": "49fdf6d38688759ea9dfd1450fffbaec4a5826059dc113ea62fd11b422038336"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_139.in.bin",
+      "sha256": "8f7116edc5de8d29fd94f8a4b618014403b1d3476e4c37e4017c8c3263a77e1d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_139.out.bin",
+      "sha256": "4c31bbfcc16581bc25a48383bbb5db3a8e44e784ccf3c2defd3035ac8ba158f4"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_14.in.bin",
+      "sha256": "07b8c33714ac5dd43a9efcdf274230540b12ddfa1a33296fd68b1b10cc5e7565"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_14.out.bin",
+      "sha256": "5f89a5403acefecc8b2e362bfa15c6c6559c100abb33f823dfce1aae73c93f1a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_140.in.bin",
+      "sha256": "871b1870ed9d627b5116a6a84db82f76397b78aed7c4c5fc51b14139f9dbb3db"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_140.out.bin",
+      "sha256": "11518ee72777514d710e9a449835431f62549ab511f818adca9cc9a8ab8fa457"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_141.in.bin",
+      "sha256": "871b1870ed9d627b5116a6a84db82f76397b78aed7c4c5fc51b14139f9dbb3db"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_141.out.bin",
+      "sha256": "0f5b48be23b9b03ebd0eede6de62109a7230ca70ab2fea575f715dfc04bd7fd2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_142.in.bin",
+      "sha256": "f62e2f20ee5c50e75b50c0fabb3cf4d42aaef816feb7b0158476f0fe92db595e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_142.out.bin",
+      "sha256": "a1e4c7dc4a3d41c077920bacbb41fb40276f3e83b51929b7656bcdfa31ced5f2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_143.in.bin",
+      "sha256": "28d830af7fbdce1a4d1f125c103d784649f6ed8f04167c1648ed80ca94f9d8cc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_143.out.bin",
+      "sha256": "a5ba061b61a53ce1ad61805bfd95a053a5d5433bed1f3556aae64880bbb36fe9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_144.in.bin",
+      "sha256": "eb3a6c7bdc94f383f0d3b51e267435de7da472d0818db7c319de4a1e6d58487b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_144.out.bin",
+      "sha256": "95557417f3d2e98c58c88d1264d9483988dcba1d0e0ccf78cbb3b2a5ba870e3b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_145.in.bin",
+      "sha256": "fc6a6cdbd3f0ce2b63834ab5f5a57924ec28f87ba1c3d3729a8c451c0e315496"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_145.out.bin",
+      "sha256": "4f08987301a21971c473c5500f859bd8888856bdad28e022f7ad078985541a3c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_15.in.bin",
+      "sha256": "967a483cbe4f5cb6febf4409e3653b50bdaf8d74ea522b8054da4d150383f5ea"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_15.out.bin",
+      "sha256": "abcff1cf72f4c27658936a32fbceb15ea3b339a2427d5b2d5526fc121406364e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_16.in.bin",
+      "sha256": "a09b43c00a6055e4f7db98170a421e7e78eee9a574b58e1d862e3464c68bf59b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_16.out.bin",
+      "sha256": "b6d5cfd0b235f2aee7587f205c92c51e0bdcd2913cc80b628999334a7e6fdf81"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_17.in.bin",
+      "sha256": "e8a5320346fab08377d8758d3f0669e75b2ef5bd5d2b3f18a2f6336390021197"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_17.out.bin",
+      "sha256": "d0d2b619434aae40e63396c85c8c67ec2f4624db5e3550e245caea833e63fd22"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_18.in.bin",
+      "sha256": "79a471ca6f444b72efdfa297681234987341a55b305c416e2a968d687f999e40"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_18.out.bin",
+      "sha256": "6fad3646ec981b31b09916696a133ffa4b20a8beab69967c433521552ef3c39d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_19.in.bin",
+      "sha256": "42b30cab6c2434583853785d29f75c113fe6d2a40f08aa45be47f978a9690923"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_19.out.bin",
+      "sha256": "2088ed2a460d8040be84e6bd89f894961ad4a63da7855680f6e82e4e76fa9a5c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_2.in.bin",
+      "sha256": "ba4ae1418ea586a45312b494b296722fda72932f7ba9ee85e0a4b239d0f8755b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_2.out.bin",
+      "sha256": "b6dd461da0c33db091897a3752474efc7ad709cccf6d83c9650695881863a4f6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_20.in.bin",
+      "sha256": "cc5998d0fe20c2a5781eb5d07265eec206d6bfb1f2c854b93b79ce2d1d859dc0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_20.out.bin",
+      "sha256": "98a020fa3eef1377ce98068aee03a245c6ba52b3e5570baa96827df0c904398c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_21.in.bin",
+      "sha256": "e0020d229f1dc2caaf7bc584755ee676e6844fd880397255a2e098d2df0a4ed7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_21.out.bin",
+      "sha256": "303e644c4c8afe6e65d0d4b5366d2328bd00c4039be7a63f38fdc74f2fbde334"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_22.in.bin",
+      "sha256": "0cb1060582740542f56477615e94a6038ee0a8d56b01dbf3e67b1a0869244045"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_22.out.bin",
+      "sha256": "0e1f6aea24b4305b9611a3a3ec1d351d9b534b91ef5e4c602264cc6959a7771b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_23.in.bin",
+      "sha256": "0cb1060582740542f56477615e94a6038ee0a8d56b01dbf3e67b1a0869244045"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_23.out.bin",
+      "sha256": "04d5c5259225216f5c6168126fa63a4c30aa964409ffbf8059b1f11f766b52ac"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_24.in.bin",
+      "sha256": "5000ebe04982adf5eafa750a090c96151e56c515751bdf44551bfad31c0179f8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_24.out.bin",
+      "sha256": "fbaa1c3a6264f510676bbaf1c5fb7104bca1fea36038058f78c13adf0461848e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_25.in.bin",
+      "sha256": "78e7d78200c05663041aea7336bfec2c1178a462133d6f97a5391eac3ffedcab"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_25.out.bin",
+      "sha256": "b25ba6815fe989298a9fff8a5ba012d9cfaeb55ab010ab319662b80139452c53"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_26.in.bin",
+      "sha256": "9abcc50120c54ba4a510ef7b5cf202ed4806ad21f1bbbf18e20a46f37ffc602f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_26.out.bin",
+      "sha256": "e267e3f2e9a0b25be8a792d99c4ac24b34dd54663ae73ba4f4943d930937a88c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_27.in.bin",
+      "sha256": "89506cfbcfd2ad2273c426ce5c6293ff432bcad9b1730d140c4775d0f53a9686"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_27.out.bin",
+      "sha256": "f99535c310450a4bdbb7678981b6c51a742ea4cd89ce7ca168371b85e4997785"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_28.in.bin",
+      "sha256": "9a2f6216c916fa79e28a4b93353fb90d8716d00925970f0ecb9931f970a99d72"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_28.out.bin",
+      "sha256": "a87356b52fb2c682181b6317a25b6f015621b72b8d647ef29e4d8b45227d167a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_29.in.bin",
+      "sha256": "9a2f6216c916fa79e28a4b93353fb90d8716d00925970f0ecb9931f970a99d72"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_29.out.bin",
+      "sha256": "06e0cd8abcf41157e0cc88cd9c2753f7b69c4c145caf84d23be321ea1d199aa2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_3.in.bin",
+      "sha256": "4756db58f28b0f3282fc2934e32a21b6aea301d3ff00d36bc46eb60714627099"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_3.out.bin",
+      "sha256": "973fd7c68ca6a7ce8a8f8449704bae2a5de5e639339f7063ec4cd778c54b7267"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_30.in.bin",
+      "sha256": "8ff8d2af023b1b31e74a5accd6bbe49f4cf1169b4b1d8a9a02a0d9b7842354f8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_30.out.bin",
+      "sha256": "528d3cc47e30965d631293c12a6fb42963dfeac350f3a7bb0d42a5a168d527aa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_31.in.bin",
+      "sha256": "188334ad3f7a4a68a25d494b0375599ffd5c092004b960fa640adb2ebaffae35"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_31.out.bin",
+      "sha256": "7020f8c8682b29267aae98c9f232c82c60cf88b249b9ebba5cc42a198c55fd96"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_32.in.bin",
+      "sha256": "ad42ad8d6e506e293c876f98aa80de537022dcbcdf12085fc2e9af8d9efd105b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_32.out.bin",
+      "sha256": "24db892103f4a2ce02cfd73a89e6098ddf3f207f9df25393403fb3d2f6839efb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_33.in.bin",
+      "sha256": "56f66c44943db096fd8701c8a2c57f5e8877b5a382b8671cc57adf5dd3f37778"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_33.out.bin",
+      "sha256": "32764fcf48b8365bf121864727db77e785f2a103cf80cfd9b79d389f50575d90"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_34.in.bin",
+      "sha256": "4c74d2c2236e50bbd317e24780120d0a530c8106b4d66472dab8c80003759010"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_34.out.bin",
+      "sha256": "d72b8c047af59436333baa7a923d4b7cdd4550078386330ba6fa599a620560be"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_35.in.bin",
+      "sha256": "b23f709df05027bbb18ed0724665efa6769b8237a36a77f21293d8c637c4a726"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_35.out.bin",
+      "sha256": "7008410a46d2c9509d28eb74b66609b4314eb74d00ba87ab20470fed259462c8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_36.in.bin",
+      "sha256": "d81c9cae68c6e77d3213498fbf8ec137f2beea2d45d960d70ffc87804dc1f553"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_36.out.bin",
+      "sha256": "df556a7416fa130cfa2db5c65380c66a70d065df8481422db111175b23a5b2fe"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_37.in.bin",
+      "sha256": "c4cde83636ce77ec13a702ef28b0b4911261e7fce21490bb41a044d2826c1b40"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_37.out.bin",
+      "sha256": "99a230e1d118a5717b7a989249186dda97fdfe2da6819b1cdb8c67a1535ad371"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_38.in.bin",
+      "sha256": "f05f6bd0dbe9f17b33d8a6dd4ac3e0f69f79a07c8e96564547208d93c5ccd259"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_38.out.bin",
+      "sha256": "5a49074f5a8cec4a20a8aadb5feab1da799124d44dda75a6c180a805eafcb4e5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_39.in.bin",
+      "sha256": "f05f6bd0dbe9f17b33d8a6dd4ac3e0f69f79a07c8e96564547208d93c5ccd259"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_39.out.bin",
+      "sha256": "3b5e12ce2f7db6f54af2eb6d0a4be3917456a72fae7b42e984d695cfcc2b5492"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_4.in.bin",
+      "sha256": "98d6034cb850ede1f7bf7a70c5526512af50db7065b75a27c281d407727b1970"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_4.out.bin",
+      "sha256": "12984fa8c0643c47f0205b8121caa73758b7605588fb0c0aa4a3b144505c1586"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_40.in.bin",
+      "sha256": "4b33e937f191541b0f6abb4adb44e7898798797550ae5cff0bc159f397a01dc0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_40.out.bin",
+      "sha256": "d357b0b543a71ed05f33ff0e2ae861d8035403b164625a0cedc65aac0674cb93"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_41.in.bin",
+      "sha256": "8b49be1a172914344dd978854e6334fae50a3f5a7dca6e0ab9f450e32d65bea8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_41.out.bin",
+      "sha256": "e194669a804ce6a53867f31aec94ea6d08ec49fc4ec53e9741d6540e0ea4ad01"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_42.in.bin",
+      "sha256": "2959fda214420ccc617170fbccfb7e04c5d7634652ed80cdf2ff58f2b8c50211"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_42.out.bin",
+      "sha256": "3586190d508c7548d43c330fc2c5f46c13850276596935ce14d06a9f42cbb52c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_43.in.bin",
+      "sha256": "399c3d46f324b62d71082e265ca12dbd7706d0442f998d1213e8108f5daac7ec"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_43.out.bin",
+      "sha256": "533a41e54788ecb38e3789265b0360606b3247f102e4f0685b99f8827c3a3387"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_44.in.bin",
+      "sha256": "3d5171894e6961f2478496ab9052811681ae700285906347bb1b77869c853240"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_44.out.bin",
+      "sha256": "a2569df27b15edca862b2904064a9d3d8660c9fbeeb15ef80c4f6ed56d60d064"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_45.in.bin",
+      "sha256": "3d5171894e6961f2478496ab9052811681ae700285906347bb1b77869c853240"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_45.out.bin",
+      "sha256": "86526899bd4bf0ac6c96aa5d6da93f62d948c99750e3fec2831a9c83bb6a0136"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_46.in.bin",
+      "sha256": "1c29f0f5e310831e2405cf0c3ab517724842b058af74211354f8d5e9355a3a20"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_46.out.bin",
+      "sha256": "5210ae85d2289c9ceeaefd5e040b73bd98f4922d9d8ee488479f9306e3377d12"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_47.in.bin",
+      "sha256": "1c29f0f5e310831e2405cf0c3ab517724842b058af74211354f8d5e9355a3a20"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_47.out.bin",
+      "sha256": "84ff0f8645d3391c41fe73bf78ee711d8f4dbf6ae0d6c2601c1b6da8fcf7e100"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_48.in.bin",
+      "sha256": "923a04455562987b9ff89ba00e837c6984006ff3745171e5df70ace939f77cd3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_48.out.bin",
+      "sha256": "8aa36ed0f64c24878245f69437979bbd839d4a9bf50ba72b8b764cfb50401c5c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_49.in.bin",
+      "sha256": "a7e23a74cbfdb03eca0ed77c6d55eca05badff9aeb3b1480085fbf5d8b36344f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_49.out.bin",
+      "sha256": "90089422f6a5745af799f787ac64525ea1118c94808c5840fcdca8cba2544d20"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_5.in.bin",
+      "sha256": "98d6034cb850ede1f7bf7a70c5526512af50db7065b75a27c281d407727b1970"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_5.out.bin",
+      "sha256": "d3f1d7284f2a2b8aeef89afb47fe2bfe09b742c228b743cb6254bc02bc0af265"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_50.in.bin",
+      "sha256": "be572ab4fca0dda3a6b1c7fa83e5c21178e0f23fb5a480e7349180122ba133da"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_50.out.bin",
+      "sha256": "a6f620d4f6984f43770595de197bdbcc04dcfae726858fb109458e80a3b8dcf8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_51.in.bin",
+      "sha256": "51fa7a1209b45b0ea7778e7b2fad57aecd6f25b97fa331ba4003d91cd06c990e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_51.out.bin",
+      "sha256": "153d1dac91a447c97abaae041ea2f69bed42c313b369620b5cad1c77d591fccc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_52.in.bin",
+      "sha256": "56590f22a5bc3fc28618b427f9c37aee94463f58a58ac93b3dabf554e3a4d2ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_52.out.bin",
+      "sha256": "b9ca60340a9138f5641bec8d4d8c478a151820df54bbd01528f80edd445e9f4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_53.in.bin",
+      "sha256": "56590f22a5bc3fc28618b427f9c37aee94463f58a58ac93b3dabf554e3a4d2ba"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_53.out.bin",
+      "sha256": "540300cac508a63b9577065f3bdc19aa54e953c5bf42d103c329db7fb606c872"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_54.in.bin",
+      "sha256": "ade5d7bdbf8109eaf9ea34f9acb1a31a2cb72fb30925ced7e32e6944030dbd5e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_54.out.bin",
+      "sha256": "ab8aebfdf14fb4bb18a9ebe46c069ce7d1ce47c9ebb225e84892dc456641e987"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_55.in.bin",
+      "sha256": "5912f284e3cf57a854bdf13db3bfcf43974d0a3d0dcc647e255f04c6d918b3c1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_55.out.bin",
+      "sha256": "0f6c3178c6f31982170b96f7fa47524896b2f69af2257b57e3e2d2cdbd96f044"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_56.in.bin",
+      "sha256": "44eec4f5df50f3b23d926a314dbcc47f4d9d35412df571ae9aad26e30b71997d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_56.out.bin",
+      "sha256": "e479c7d825dec28ee6e3d363e3ea920cd00ffec53c02663f851f2167f74c3fb1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_57.in.bin",
+      "sha256": "4773c6b85fe4cb6fcc0c3b8c6769904a570582b0e001d38f5e3daab5a55803f7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_57.out.bin",
+      "sha256": "e3200174930386d95f0629a4b745250be6a47dcc7c8be92d3aad8b26453de702"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_58.in.bin",
+      "sha256": "ba0b1b52ba426b2b78ecc0e5385601ef63660789651aca25192cc5351493ce75"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_58.out.bin",
+      "sha256": "0b1ef9e2b5c765fa720b23896063cf2950bb458836d19f649989e01f595ee45c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_59.in.bin",
+      "sha256": "e37c84f995824e0a41da5a104c15c4401d26851c7fe64366442d1db8de6da92a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_59.out.bin",
+      "sha256": "2ea21fc44e42c2f39c7fcd7ff177ab83767f49daf70a0cb1da121da5e7d18d4e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_6.in.bin",
+      "sha256": "efc682bb3f194df9d527e3bfa75fba899276cab78dd9326e13ef4f8a21466263"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_6.out.bin",
+      "sha256": "c3e836d50c030534997800dd4e18aa62aa28d7c6b2266abfdcf5b6dda3410b75"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_60.in.bin",
+      "sha256": "e37c84f995824e0a41da5a104c15c4401d26851c7fe64366442d1db8de6da92a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_60.out.bin",
+      "sha256": "ac18c12e9ba17124bb1fba099c115ed8022edbb8d87ca8893fc2fe5dbc078489"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_61.in.bin",
+      "sha256": "5da2fb31c2be10d5b8f3bd6b41462303f4c9df9d3841fdc59566e18132a69cfa"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_61.out.bin",
+      "sha256": "3caeb358a59cfc8f023ca7613a0f3c25659c56ad8994f2181a36d3b2c55fc317"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_62.in.bin",
+      "sha256": "3371d8d062b09b50f036a0ffaa0ce79dbdb81c23b74eea7bed448702c82e216a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_62.out.bin",
+      "sha256": "bf8485961db4b76efd459f372c4a282ac972edf8cd8c96c9f6c026ef8f23377e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_63.in.bin",
+      "sha256": "06979e89d6ad6d442ce5cbad747f3aff83ffdfa992fa0bf48dcb69cdaaaeee98"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_63.out.bin",
+      "sha256": "56a846e6b229e103a49fc090ff9606b7c03f19f3b014777454e021200e8934e6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_64.in.bin",
+      "sha256": "603aa67915780f451ef58d0473334c4af7ea7279c9d1f50112d1550b031ed255"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_64.out.bin",
+      "sha256": "66f0ef7983872ce643448c9b0c0444e06cdd67cf7ec10f2bfb1db67ca1f065ad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_65.in.bin",
+      "sha256": "fc84cc3ccfdd79e2cd3c21528eea481979de45b9080c8f2743c6668a843b2f56"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_65.out.bin",
+      "sha256": "197a88e7d7e56f0dfd5d0e8dfdc76ca71ed6a2ad2b9a1a900d483f404846d1bc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_66.in.bin",
+      "sha256": "fc84cc3ccfdd79e2cd3c21528eea481979de45b9080c8f2743c6668a843b2f56"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_66.out.bin",
+      "sha256": "7fd333a4dfa2afe006e755f72e1ad4ae3c13ffb419bef13b90622487efec427b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_67.in.bin",
+      "sha256": "a3c10bddfce86d89747628f2537954094c76c4920af674f70c2e5b8073dab8c1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_67.out.bin",
+      "sha256": "d2b72174116c3527da83b3e58d28dc204654a98159ce59282e580e1a0065e5e3"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_68.in.bin",
+      "sha256": "0663f7c7088ea7e1d2d7dc234551a01289e4ab090fc2abcd1dba585c9893fd60"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_68.out.bin",
+      "sha256": "fd84383444b6f7a8db7bde63df07e336237c84c3bc4c2fcc43a7f1794729fd64"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_69.in.bin",
+      "sha256": "3b8c3e48ced7ce2e3f0ff0e514ec87881f227623358a6aa8e07f0dd56d5160c8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_69.out.bin",
+      "sha256": "a716526fcba2282a699965f23a9421c44347b1ac62e7d41a66ed231602d3453a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_7.in.bin",
+      "sha256": "601aeaf35775cabf99624b1a90fc43ec1db3ee557660315ce85d27818f46f6ac"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_7.out.bin",
+      "sha256": "8c05d2bbfaa536048673e8a611433dcf76e575ca17626b76cdfac6d8b6a75c92"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_70.in.bin",
+      "sha256": "fa4ccfac1efad53341cce84088abf6e12d6584e722fd9fbdde20ed2652f4fff2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_70.out.bin",
+      "sha256": "49fdd943e83321904040c482e8bc95ac9a1175967911537fc79a4117bb6b8d85"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_71.in.bin",
+      "sha256": "4534fc2f862b13be56fa8e7a3bb7588a8135209e517f694d06d6dc527b703412"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_71.out.bin",
+      "sha256": "475a417f4bd256a2f4e4d10a3ea408789ebdd450f4ad7a4aad481af4c8549e6c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_72.in.bin",
+      "sha256": "0fdd2bdc5b84e62265870ee96824effbf3c1f8e37542ec726907493417180d4e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_72.out.bin",
+      "sha256": "275e9f9b3ee0f073d6a33159ead0391b5bb33dd737befa80c0400505a3b34ce8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_73.in.bin",
+      "sha256": "cbc0134767267638abb9eb0bbfd703bb6f39b28ff8956811fc0414bb121adbd8"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_73.out.bin",
+      "sha256": "93f6d28a01f1e088b9638fec292f5ec8ff0df5280f145227b65f5bebf068a125"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_74.in.bin",
+      "sha256": "653be006ac2bab74c7fa9792580fc562c5d23633653ad18eaa2e4c8ea5a7a49d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_74.out.bin",
+      "sha256": "bc42bf8b86eed83731c5b3310f39609bfb738c398a1851d4a757ae56fe4c1a9a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_75.in.bin",
+      "sha256": "d63c3fbfcb3f9154f0d25a54cdc99195b824fad2d10fbc217376a56f3c9a2ec5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_75.out.bin",
+      "sha256": "cc13cef1819cf8da690ba452cd8b497b0ec5419b4593c956ace50e2ba0c1ff4c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_76.in.bin",
+      "sha256": "1301c3f67a78baf6bbd65b8451d33ac8f983571bfbe9e24830b8928894995c5a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_76.out.bin",
+      "sha256": "0d878da986391b921bdf3406838a141c25c55ae0513b93ee9b0327db6f8b2d35"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_77.in.bin",
+      "sha256": "4752c0d4e5bd55b9202e5229f6a89970c65bcbd178a5d97e8886aac9c7465455"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_77.out.bin",
+      "sha256": "95de2daaec0b8ed08844bbd2dc9b54cfb23ff965093ed52c0333ab0c4c97f7ae"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_78.in.bin",
+      "sha256": "1299472fdb2c6d3caa48ca4af06000f45d0eb6a98aca78b9a1766b57bcb4dd6c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_78.out.bin",
+      "sha256": "0ac416896e1f3d081017d27a1fdbbcdf8626f54d49b80193cd668b44d5637016"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_79.in.bin",
+      "sha256": "92c053e25e3acf5c6240b055e8ff2f17eb3e9e1169e5f0a20ca7a683c7a20f0f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_79.out.bin",
+      "sha256": "5ae7be1628ebf8129ad092b5d756e068b9cfb39b2c7d0f07fc96538d6d7d0e0a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_8.in.bin",
+      "sha256": "723364562f5f845f825a5750eef06559cf88df6870a3c4fd816b649ff8211e5c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_8.out.bin",
+      "sha256": "9608e1d57eff1ef43ffb75dfe3a002e7323a6e3707263d5b30ed6d119a240a9a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_80.in.bin",
+      "sha256": "92c053e25e3acf5c6240b055e8ff2f17eb3e9e1169e5f0a20ca7a683c7a20f0f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_80.out.bin",
+      "sha256": "5509b72d9dd38695625224fb24b668092f48cbf543cb1807321cbd922bfc27ce"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_81.in.bin",
+      "sha256": "9cba138a47c5202b5e3f17de761701dd83a165b2660d418171723325848c71f9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_81.out.bin",
+      "sha256": "d76c1180c51adb86d3b80576da98b1317254f47d266d028d7a6aff0c5fa398f1"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_82.in.bin",
+      "sha256": "97d24dcb490e7ffdc7552cf4b6d18be02814b3db0ae727e02b25614889d2485f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_82.out.bin",
+      "sha256": "8979a32c85305fb41c444fae716d2e01af65b5bd6dee1b9066c30f96dbc4e416"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_83.in.bin",
+      "sha256": "f77c735b9d632e98f7a1f2d48b1ffe7ec600d601a6159182bfee76ee5c7578a0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_83.out.bin",
+      "sha256": "432fb501d642cb14369c13acc7f4a2a67d0b7a0af4162d4aaa95ae2b55c7f72f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_84.in.bin",
+      "sha256": "e21810935baf3365dc9a07c2ff27865a777aabcb4f3f8ec199cb7a991a177faf"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_84.out.bin",
+      "sha256": "40ed78ce00e37b91880bc73cb3c560493429ad38f22da592892c217d64af0d1e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_85.in.bin",
+      "sha256": "6a76b9a21731700f28ea862c8aa3fdabfdd3d42779e8bdd47f358d843a3d3ed0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_85.out.bin",
+      "sha256": "d9f49787155eb8b1bfcd2460e563e343e38a871878dfd8cf6e54029a64aa716d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_86.in.bin",
+      "sha256": "6a76b9a21731700f28ea862c8aa3fdabfdd3d42779e8bdd47f358d843a3d3ed0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_86.out.bin",
+      "sha256": "4d330fae351c2bbd28489ef7b011d39bb72a77b0c4c2c14a90261f1e7ff0eb86"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_87.in.bin",
+      "sha256": "3d901b9354d070d6a02df2e52691e8f51ed2a8f89552a51250c1448cea8f94d6"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_87.out.bin",
+      "sha256": "2174fc0ad50dc067b7ca77182198e73d02461fd577a6541d4d907129985a1025"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_88.in.bin",
+      "sha256": "fadc09f8d7b2c4c35f01e8538bf13caaa4f1ce0e0add4c216ee23e45f425a75b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_88.out.bin",
+      "sha256": "720d83ccb8635bca0bb9083f22fc17543d12a5b833c9d16974fc0a7d341c72b7"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_89.in.bin",
+      "sha256": "64dee3d2f156ca9325e37b8e0452fff9188c88854815915e06a1fb61f0f94c7d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_89.out.bin",
+      "sha256": "86c46219a8f495216957c88ec270dbb667364be42ff486d26bad08fda5c18559"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_9.in.bin",
+      "sha256": "2f8ce11da49330af9ca1efd0150c67be0f596a33dd1fa466edc171344c6ce695"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_9.out.bin",
+      "sha256": "7d13be52ae13930809400940eb5017c7b6f12f6d081fb0bbb38535289b881f97"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_90.in.bin",
+      "sha256": "5f9d9406e11095d13766bb463c2ef7bb5c639b809188ac71a68800444d49823d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_90.out.bin",
+      "sha256": "a37be6576542b35b00243de170e01035933165f293834fe4e7734cb8167f3f49"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_91.in.bin",
+      "sha256": "3ed5bdde35fd85e07461a7b851e0e3d741c9f5299121ff915144c6a81383af5a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_91.out.bin",
+      "sha256": "1ece933cc8344e3bb54acfa1c087d4d6c98d1f924af6a692667b3bb3040bd578"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_92.in.bin",
+      "sha256": "c4187f6c25a9591ae554960b1fedc958b69192aea787862cc8ea45159f804649"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_92.out.bin",
+      "sha256": "a7725337cf1760e74b694b5124fee2c228deb0d1f0d3715953bc777fa553ef5e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_93.in.bin",
+      "sha256": "3e858ffd1475bf70fd5aa19c8af4988c8c90060b7fa0938ba6861a955f47761f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_93.out.bin",
+      "sha256": "dd84165e3ed580a688ec8909d2c23e451b2873c27abef499233208922c107d9f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_94.in.bin",
+      "sha256": "844e79a5eea740559bd49d1924fbec2c6acde9461ba8d10a3cf9fb6a9c336135"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_94.out.bin",
+      "sha256": "1dee6c143637ae0cfe0e6d1263f908b3ee5ef872d5a61d70f62d45e32192e266"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_95.in.bin",
+      "sha256": "50ad230d6684adf18f16a5fbb4255499ef29282f8d84c5483dcd499caa0c9e96"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_95.out.bin",
+      "sha256": "48837664805fd4c37764b26954ca56af22b018c0a96ffcb11900ad5f347df22a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_96.in.bin",
+      "sha256": "f3a6f9eee260031b12b9529613eafa926fba253fe25544e1dabc33279571a9d5"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_96.out.bin",
+      "sha256": "bf9ec041af4a00667928ddaeeaca52940be98f31182815f5856b6e84e10af7fd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_97.in.bin",
+      "sha256": "ea3b3005375321d1111f4b902f7c78a5ee2fcb5352ab0e9be6606737dd61683a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_97.out.bin",
+      "sha256": "e48af06c40373581addf6125fcf2dc502707111ed19225b678d18044c7987455"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_98.in.bin",
+      "sha256": "4eb06193317ca6576fe35cb86e534555a56a04aa596a52cedeec1a9f04029edc"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_98.out.bin",
+      "sha256": "a40f4bd8088e63c1c7331c5241d4ac9b28919837df80086ff72cebee300523cd"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_99.in.bin",
+      "sha256": "8bff7960d000db7ca509b81520c2010c351fd1a96c7f941d833e84d9e9669c82"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_export\\f_8c07cf3e_99.out.bin",
+      "sha256": "79e3f5056c9ba563edb3418baf591281bb137cc9762a1d512bcdbed8e9fec379"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\menu_selector_isolated_dev_v3\\vf3matrixfamily.exe",
+      "sha256": "2861a589a5e7e37d7073735bb41d7233fbbe999e9034484bd7300675c44e94fb"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s28.bin",
+      "sha256": "dafcc44b8cbfd56e117f7375312df66bee3cdde6cfd3d32bb2c21bb547ed4bad"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s28.bin.summary.json",
+      "sha256": "a7d2cc4e6df26fecec329798135edfb9494ccb93de7dd0a984242e401a7d1fa9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_menu_selector_dev_v4.patch",
+      "sha256": "9f2ae29e7f481128386080f6c1fdc34e93024b8954d2d017cd16bfe7cbf99e48"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\golden_coverage_65_menu_selector_dev_v4_s28.log",
+      "sha256": "af6b4bbb4eddd6e6966f7b89742431a913a9ebd3f0f3e19d83d58974638deb95"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s29.bin",
+      "sha256": "a42377e2186b46f0812ae79beb7f308ee9dd28e1b25c286c9f2ed4c987488a8e"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\capsule_coverage_65_menu_selector_dev_v4_s29.bin.summary.json",
+      "sha256": "a7d2cc4e6df26fecec329798135edfb9494ccb93de7dd0a984242e401a7d1fa9"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_menu_selector_dev_v4_raw\\golden_coverage_65_menu_selector_dev_v4_s29.log",
+      "sha256": "ddc42212534a3abdfa553e6567f5fc6f6591f77f6cbd6469c07fd896bb42d99f"
+    }
+  ]
+}

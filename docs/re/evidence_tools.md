@@ -213,4 +213,73 @@ is `replay_transition_original_callers_v2_proof.json`; the helpers remain uncred
 from the failed input-transition campaign, using every run and valid specimen.
 `scene_round_checkpoint.py` requires its historical hashes, original SAVEF
 state lineage, compiled source freeze, expanded 1,415-binding regression,
-39 native suites and 375 tool tests before sealing the final checkpoint.
+39 native suites and 381 tool tests before sealing the final checkpoint.
+
+## Capture longer original invocations
+
+`build_extended_observer.py` creates a separate recorder and private object
+archive in the evidence cache. It reuses and hashes the original linked
+objects, libraries and source archive; only the recorder format tag and
+instruction-vector bound change. The original observer remains available.
+The resulting `VF3CAP7` layout is the `VF3CAP6` layout with a 500,000-opcode
+bound. Older formats retain their 100,000-opcode bound, and every v7 record
+still requires all 63 architectural words, bounded RAM pages and device tape.
+
+`extended_observer_controls_audit.py` compares eight complete original caller
+windows across both recorders. All architecture, RAM, instruction traces and
+full audio checkpoints must match. The passing proof is
+`extended_observer_controls_v1.json`; it grants no gameplay coverage.
+
+`golden_batch.py --observer-controls tools/oracle/extended_observer_controls_v1.json --probe-ops 300000 ...`
+validates that proof, its dependencies and the exact observer executable
+before allowing a larger budget. Without explicit controls, the maximum
+remains 100,000. The control path and hash are retained in each run's provenance.
+
+`menu_reserve_inputs.py` prepares the original complete prefixes for owners
+`0x8c07cbda` and `0x8c07cf50`. `--typed-actors` adds paired status-bit and
+character metadata boundaries. The first screen covers only 104/670 bytes
+of the first owner and no valid body of the second: its repeated descriptor
+clears exceed the old record bound. The retained report is
+`menu_reserve_original_dev_v1_report.json`. The extended v2 screen covers
+606/622 selector bytes but contains an incomplete invocation in each state;
+it remains diagnostic.
+
+`menu_selector_inputs.py --complete-profile` places every character boundary
+and the class-six branch within the first 128 probes. With 8,000 frames and
+`--max-samples 128`, v4 completes both states with 73 distinct valid inputs and
+whole 622-byte coverage in each. Its isolated C replay fails 144/146 cases;
+the candidate remains uncredited.
+
+`capsule_repeat_batch.py RAW --id ID --transfer PC --prefix NEW_PREFIX` prepares
+exact-input rollback probes using the original executed PC alias. It emits
+the supported `entry`/`target` directives and seeds every captured input page;
+expected outputs are never seeded. Outputs include original code bytes and
+must remain in ignored analysis storage. Original input equality still needs
+all 63 words, including the unassignable inactive register bank, checked after
+execution. This supports phase diagnostics when a one-shot repeat takes an IRQ.
+
+`original_probe_disagreement.py --left BATCH --right BATCH --left-raw RAW --right-raw RAW --left-id ID --right-id ID --owner OWNER --observer-controls CONTROLS --out NEW_JSON`
+checks complete frame/invocation accounting, the exact controlled recorder,
+original opcodes and pools, input equality and identical instruction traces.
+A final RAM disagreement excludes the entire owner. The selector proof records
+161,420 identical original instructions and all 63 equal input words, with a
+different word at `0x0c641800`. It establishes an observation limit, without
+attributing a cache, timing or floating-point cause.
+
+## Qualify the replay helpers
+
+`replay_transition_callable_template_v1.json` declares the exact scene-57
+transfer paths for three owners. `callable_replay_transition.py` checks their
+original entry sequences, whole bodies, eight original caller windows and
+native save/restore invariants. `seal_callable.py` produces the validated
+`replay_transition_callable_v1.json`; it grants no byte credit.
+
+`qualify_replay_transition_development.py` requires complete accounting and
+whole-body coverage for all five helpers in each original state, all 1,514
+strict native cases, the normal compiled-source closure, original callers,
+full 1,415-binding/39-suite regression and 388 tool tests. It seals a development
+freeze before `replay_transition_holdout_inputs.py` creates changed, relocated
+input profiles. `replay_transition_accept_capture.py` then runs both profiles
+against the unchanged original observer in states 45/46. Every held campaign
+still needs a complete independent acceptance audit; the potential gain is
+420 bytes because the two other helper bodies already lie in accepted spans.

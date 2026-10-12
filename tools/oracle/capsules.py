@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert invocation-addressed VF3CAP3/4/5/6 specimens into compatible .cases.
+"""Convert invocation-addressed VF3CAP3/4/5/6/7 specimens into compatible .cases.
 
 The fingerprint includes registers, XF, FPUL, initial RAM and device reads. Repeated inputs
 with different exits are errors, never silently deduplicated. Invalid samples
@@ -22,7 +22,7 @@ def records(path):
                 raise ValueError(f"{path}: truncated record at {f.tell()}")
             return data
         magic=take(8)
-        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0",b"VF3CAP5\0",b"VF3CAP6\0"):
+        if magic not in (b"VF3CAP3\0",b"VF3CAP4\0",b"VF3CAP5\0",b"VF3CAP6\0",b"VF3CAP7\0"):
             raise ValueError(f"{path}: unsupported capsule format")
         seen = set()
         while True:
@@ -36,9 +36,10 @@ def records(path):
                 raise ValueError(f"{path}: duplicate/zero invocation ID {ident}")
             seen.add(ident)
             entry, exitpc, flags, npage, nop, nstate = struct.unpack("<6I", take(24))
-            ndev, = struct.unpack('<I',take(4)) if magic in (b"VF3CAP5\0",b"VF3CAP6\0") else (0,)
-            expected_state = {b"VF3CAP3\0":54,b"VF3CAP4\0":55,b"VF3CAP5\0":55,b"VF3CAP6\0":63}[magic]
-            if npage > 128 or nop > 100000 or ndev > 16384 or nstate != expected_state:
+            ndev, = struct.unpack('<I',take(4)) if magic in (b"VF3CAP5\0",b"VF3CAP6\0",b"VF3CAP7\0") else (0,)
+            expected_state = {b"VF3CAP3\0":54,b"VF3CAP4\0":55,b"VF3CAP5\0":55,b"VF3CAP6\0":63,b"VF3CAP7\0":63}[magic]
+            maximum_ops = 500000 if magic == b"VF3CAP7\0" else 100000
+            if npage > 128 or nop > maximum_ops or ndev > 16384 or nstate != expected_state:
                 raise ValueError(f"{path}: invalid record sizes")
             before, after = take(nstate*4), take(nstate*4)
             pages = []

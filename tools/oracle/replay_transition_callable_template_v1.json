@@ -1,0 +1,17 @@
+{
+  "0x8c099544": {
+    "kind": "vf3-scene-replay-helpers-index57-v1", "entry": "0x8c099540",
+    "call_sites": ["0x8c09947a"], "callee_save_prefix": [],
+    "scene_index": 57, "scene_table": "0xc10baa8"
+  },
+  "0x8c099568": {
+    "kind": "vf3-scene-replay-helpers-index57-v1", "entry": "0x8c099560",
+    "call_sites": ["0x8c09955c"], "callee_save_prefix": ["r14", "r13", "r12"],
+    "scene_index": 57, "scene_table": "0xc10baa8"
+  },
+  "0x8c0a91e6": {
+    "kind": "vf3-scene-replay-helpers-index57-v1", "entry": "0x8c0a91da",
+    "call_sites": ["0x8c09954e"], "callee_save_prefix": ["r14", "r13", "r12", "r11"],
+    "scene_index": 57, "scene_table": "0xc10baa8"
+  }
+}

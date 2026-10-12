@@ -1,0 +1,79 @@
+{
+  "coverage_credit": false,
+  "created_at_utc": "2026-10-12T20:14:08.501941+00:00",
+  "development_freeze": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_qualified_development_freeze_v1.json",
+    "sha256": "acf04b7d2c386c085cdb06b0a7b3b802567b901e3a2860c18a425e8656db097c"
+  },
+  "groups": [
+    {
+      "name": "coverage_65_replay_transition_accept_v1",
+      "owners": {
+        "0x8c099540": "0x8c099544",
+        "0x8c099560": "0x8c099568",
+        "0x8c0a91da": "0x8c0a91e6",
+        "0x8c0a92c8": "0x8c0a92da",
+        "0x8c0a9444": "0x8c0a9452"
+      }
+    },
+    {
+      "name": "coverage_65_replay_transition_accept_v2",
+      "owners": {
+        "0x8c0a92c8": "0x8c0a92da"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_replay_transition_accept_v1_watch.txt",
+      "sha256": "5952a8db6f390d4b10a240b0c6798a6f56157c5619188c28ed81b5b37e66ea67"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_replay_transition_accept_v1_owners.json",
+      "sha256": "aa5f09859c198d7ffec5b113f8c1cf471a9f10819850b44ea554874c1ebc276f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_replay_transition_accept_v1_memory.json",
+      "sha256": "23de1279d30611a71e104f742f9338c7db51e174a78b6b0de59bd9a59381e170"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_replay_transition_accept_v1_registers.json",
+      "sha256": "dc94171b08c94b1e687f0e5f1106a6eec525b67d4eddcb5cad3937af0bae894d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_replay_transition_accept_v1.patch",
+      "sha256": "8c143188361e905779fc3fbf25b2348505730eae01ddeb5ed4f942cae3cb12fe"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_replay_transition_accept_v2_watch.txt",
+      "sha256": "91e976575ce57ab2009d1ea625adf27553a109dd980fff0036e6597122e9bb68"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_replay_transition_accept_v2_owners.json",
+      "sha256": "68e1b37379c96d579a511428cb606ad4bbb324d43a81304011456751b608c1f8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_replay_transition_accept_v2_memory.json",
+      "sha256": "f997dec7e670fc574e0675026b936c568dc89d2fc25cce46c1643dfb3e863512"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_replay_transition_accept_v2_registers.json",
+      "sha256": "eabb8492642d3804b7b307075cfa71559172b84e000d64683f19b2fa20c92343"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_replay_transition_accept_v2.patch",
+      "sha256": "a1d107f277ec2d6a0cdf4deb4f1c9f6ef478b71b6a334c4dd0355ecafc9642b8"
+    }
+  ],
+  "original_states": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    }
+  ],
+  "hypothesis": "Changed typed counters, permuted branch profiles and relocated writable buffers, in disjoint original states; all callback results and original instructions remain computed by the original game."
+}

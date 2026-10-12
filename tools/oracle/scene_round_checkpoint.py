@@ -55,9 +55,9 @@ def main():
     assert status['passed'] and status['expected_bindings'] == 1415
     suites = dict(re.findall(r'^  (vf3\S+)\s+(PASS|FAIL|missing)\b', text.split('\nbinding ', 1)[0], re.M))
     assert set(suites) == set(TESTS) and all(value == 'PASS' for value in suites.values())
-    tests = ROOT / 'extract/analysis/scene_round_tool_tests_accept_v1.log'
+    tests = ROOT / 'extract/analysis/extended_observer_all_tool_tests_v1.log'
     test_text = tests.read_text()
-    assert re.search(r'Ran 375 tests\b', test_text) and '\nOK\n' in test_text and '\nFAILED ' not in test_text
+    assert re.search(r'Ran 381 tests\b', test_text) and '\nOK\n' in test_text and '\nFAILED ' not in test_text
     quarantine_path = ROOT / 'tools/oracle/scene_input_transition_observable_quarantine_v1.json'
     quarantine = json.loads(quarantine_path.read_text())
     assert not quarantine['coverage_credit'] and quarantine['quarantined_owner'] == '0x8c0993e8'
@@ -70,11 +70,12 @@ def main():
         assert digest(row['path']) == row['sha256'], 'failed campaign dependency changed'
     refs += [reference(path) for path in (source, native, proof_path, save_path, promotion_path,
              log, tests, quarantine_path, failed_path, Path(__file__))]
-    refs += [reference(ROOT / 'build' / f'{name}.exe') for name in TESTS]
     archive = CACHE / 'scene_round_full_checkpoint_v1'
     output = ROOT / 'tools/oracle/scene_round_full_checkpoint_v1.json'
     assert not archive.exists() and not output.exists()
-    for path in (bindings, ROOT / 'docs/decomp_status.csv', ROOT / 'docs/coverage.md', coverage_path):
+    archived_paths = [bindings, ROOT / 'docs/decomp_status.csv', ROOT / 'docs/coverage.md', coverage_path]
+    archived_paths += [ROOT / 'build' / f'{name}.exe' for name in TESTS]
+    for path in archived_paths:
         destination = archive / path.relative_to(ROOT)
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(path, destination)
@@ -83,10 +84,10 @@ def main():
     output.write_text(json.dumps(dict(completed_utc=datetime.now(timezone.utc).isoformat(),
         verified_c_bytes=276158, frozen_body_bytes=434656, verified_percentage=276158/434656*100,
         target_c_bytes=282527, remaining_to_65=6369, new_owners=1, marginal_c_bytes=882,
-        archived_source_inputs=408, binding_inventory=1415, native_suites=39, oracle_tool_tests=375,
+        archived_source_inputs=408, binding_inventory=1415, native_suites=39, oracle_tool_tests=381,
         full_regression=status, scene_input_transition_credit=0, original_state_lineage=True,
         references=refs), indent=2) + '\n')
-    print('Round checkpoint PASS: 276158 verified C bytes; 1415 bindings; 39 native suites; 375 tool tests')
+    print('Round checkpoint PASS: 276158 verified C bytes; 1415 bindings; 39 native suites; 381 tool tests')
 
 
 if __name__ == '__main__':

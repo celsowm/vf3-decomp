@@ -1,0 +1,59 @@
+{
+  "0x8c099544": {
+    "kind": "vf3-scene-replay-helpers-index57-v1",
+    "entry": "0x8c099540",
+    "call_sites": [
+      "0x8c09947a"
+    ],
+    "callee_save_prefix": [],
+    "scene_index": 57,
+    "scene_table": "0xc10baa8",
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+        "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+      }
+    ]
+  },
+  "0x8c099568": {
+    "kind": "vf3-scene-replay-helpers-index57-v1",
+    "entry": "0x8c099560",
+    "call_sites": [
+      "0x8c09955c"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12"
+    ],
+    "scene_index": 57,
+    "scene_table": "0xc10baa8",
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+        "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+      }
+    ]
+  },
+  "0x8c0a91e6": {
+    "kind": "vf3-scene-replay-helpers-index57-v1",
+    "entry": "0x8c0a91da",
+    "call_sites": [
+      "0x8c09954e"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11"
+    ],
+    "scene_index": 57,
+    "scene_table": "0xc10baa8",
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+        "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+      }
+    ]
+  }
+}
