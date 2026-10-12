@@ -67,6 +67,25 @@ int main(int argc,char **argv) {
             }
         }
     }
+    /* The frozen interpreter's packed MULPD operands alternate by row.
+     * Cover opposite signs and payloads in every product position, including
+     * quieting signaling inputs, without relying on compiler operand order. */
+    for(unsigned mode=0;mode<4;++mode) {
+        uint32_t fpscr=(mode&1u)|((mode&2u)?0x40000u:0);
+        for(unsigned pair=0;pair<4;++pair) for(unsigned column=0;column<4;++column) {
+            uint32_t matrix[16]={0},vector[4]={0},got[4];
+            for(unsigned row=0;row<4;++row) matrix[column*4+row]=nan_pairs[pair].a;
+            vector[column]=nan_pairs[pair].b;
+            int ok=vf3_fpu_ftrv(matrix,vector,fpscr,got);
+            for(unsigned row=0;row<4;++row) {
+                uint32_t want=(row&1u)?nan_pairs[pair].commutative:nan_pairs[pair].ordered;
+                if(!ok || got[row]!=want || fegetround()!=FE_UPWARD) {
+                    if(bad++<8) fprintf(stderr,"FTRV NaN pair %u column %u row %u: %08x != %08x\n",pair,column,row,got[row],want);
+                }
+                ++total;
+            }
+        }
+    }
     uint32_t sentinel=0x12345678u;
     if(vf3_fpu_fsrra(0x3F800000u,0x80000u,&sentinel) || sentinel!=0x12345678u || vf3_fpu_supported(2)) ++bad;
     fesetround(FE_TONEAREST);

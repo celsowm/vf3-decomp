@@ -147,6 +147,14 @@ add_library(vf3core STATIC
     src/fight/replay_history.c
     src/fight/history_scan.c
     src/fight/replay_callback.c
+    src/fight/replay_setup.c
+    src/fight/clip_triangle.c
+    src/fight/clip_attributes.c
+    src/fight/scene_replay_flow.c
+    src/fight/scene_replay_status.c
+    src/fight/timed_boundary_effect.c
+    src/fight/list_interpolation.c
+    src/fight/geometry_callback.c
     src/fight/replay_record.c
     src/fight/history_record.c
     src/fight/scene_insert.c

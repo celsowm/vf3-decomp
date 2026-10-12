@@ -231,6 +231,27 @@ int vf3_render_lanes_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_replay_history_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_history_scan_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_replay_callback_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_initializer_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_interpolate_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_round_clear_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_clip_triangle_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_plain_weight_vertex_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_clip_attributes_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_round_clock_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_scene_replay_flow_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_actor_history_run_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_scene_end_predicate_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_scene_secondary_dispatch_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_round_retire_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_scene_activate_predicate_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_ready_marker_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_completion_status_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_replay_wait_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_timed_boundary_effect_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_list_interpolate_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_list_move_head_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_cubic_channel_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_geometry_callback_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_replay_record_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_history_record_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_contact_history_helpers_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
@@ -273,6 +294,27 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c0a87fcu) return vf3_replay_history_c(s,ram);
     if(entry==0x0c0a86acu) return vf3_history_scan_c(s,ram);
     if(entry==0x0c0a8e18u) return vf3_replay_callback_c(s,ram);
+    if(entry==0x0c0a8370u) return vf3_replay_initializer_c(s,ram);
+    if(entry==0x0c0a8f8cu) return vf3_replay_interpolate_c(s,ram);
+    if(entry==0x0c098b3cu) return vf3_round_clock_c(s,ram);
+    if(entry==0x0c099194u) return vf3_scene_replay_flow_c(s,ram);
+    if(entry==0x0c091eb8u) return vf3_actor_history_run_c(s,ram);
+    if(entry==0x0c097ff4u) return vf3_scene_end_predicate_c(s,ram);
+    if(entry==0x0c0a8908u) return vf3_replay_round_clear_c(s,ram);
+    if(entry==0x0c096d3cu) return vf3_scene_secondary_dispatch_c(s,ram);
+    if(entry==0x0c09705eu) return vf3_round_retire_c(s,ram);
+    if(entry==0x0c096d5eu) return vf3_scene_activate_predicate_c(s,ram);
+    if(entry==0x0c0a9244u||entry==0x0c0a926au) return vf3_replay_ready_marker_c(entry,s,ram);
+    if(entry==0x0c0994fau||entry==0x0c099504u) return vf3_replay_completion_status_c(entry,s,ram);
+    if(entry==0x0c0993e0u) return vf3_replay_wait_c(s,ram);
+    if(entry==0x0c08acc0u) return vf3_timed_boundary_effect_c(s,ram);
+    if(entry==0x0c08f632u) return vf3_list_interpolate_c(s,ram);
+    if(entry==0x0c08f4aeu) return vf3_list_move_head_c(s,ram);
+    if(entry==0x0c08f582u) return vf3_cubic_channel_c(s,ram);
+    if(entry==0x0c087e04u) return vf3_geometry_callback_c(s,ram);
+    if(entry==0x0c05152cu||entry==0x0c051918u||entry==0x0c051c2cu||entry==0x0c051f50u||
+       entry==0x0c05228cu||entry==0x0c0525c0u||entry==0x0c05291cu||entry==0x0c052c34u)
+        return vf3_clip_triangle_c(entry,s,ram);
     if(entry==0x0c0a9036u) return vf3_replay_record_c(s,ram);
     if(entry==0x0c0a83c2u) return vf3_history_record_c(s,ram);
     if(entry==0x0c0c0ebau||entry==0x0c0c0f60u) return vf3_contact_history_helpers_c(entry,s,ram);
@@ -305,6 +347,13 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     if(entry==0x0c09528cu || entry==0x0c0952a4u)
         return vf3_model_render_fields(entry,s,ram);
     if(entry==0x0c056c66u) return vf3_vertex_weight_curve(s,ram);
+    if(entry==0x0c051b58u) return vf3_plain_weight_vertex_c(s,ram);
+    if(entry==0x0c0517a0u||entry==0x0c0517b8u||entry==0x0c05174cu||
+       entry==0x0c051ea0u||entry==0x0c051ecau||entry==0x0c051e4cu||
+       entry==0x0c052518u||entry==0x0c052540u||entry==0x0c0524acu||
+       entry==0x0c052b94u||entry==0x0c052bbau||entry==0x0c052b3cu||
+       entry==0x0c052eb4u||entry==0x0c052ecau||entry==0x0c052e54u)
+        return vf3_clip_attributes_c(entry,s,ram);
     if(entry==0x0c051b74u || entry==0x0c0521acu || entry==0x0c052824u)
         return vf3_weighted_vertex(entry,s,ram);
     if(vf3_record_pool_adapter_contains(entry))

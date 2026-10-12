@@ -1,0 +1,36 @@
+{
+  "coverage_credit": false,
+  "purpose": "Holdout input preparation; capture and qualification remain required",
+  "development_freeze": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\ram_clipping_batch_qualified_development_freeze_v1.json",
+    "sha256": "fb26a7292e742e9be72bb9ef5340930ddee66a4060086e4edb1aea0f32c82eb2"
+  },
+  "intended_states": [
+    "vf3_28.state",
+    "vf3_29.state"
+  ],
+  "relocation": "0x100000",
+  "changes": "Rotate typed selector/boundary sequences, shift strided dimensions, change clip attributes/normalization, relocate owned objects and change FPSCR bank and preserved-register inputs",
+  "files": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_complete_batch_accept_v1_watch.txt",
+      "sha256": "d28e08c94cb2b2c90e6b2c4bbf32b0634cc75377f11321f703b649571f4951c5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_complete_batch_accept_v1_owners.json",
+      "sha256": "14d68d8c072877ecb5712fe7eb17dd5b95fa47a3d034232e08e5feccb18c72ac"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_complete_batch_accept_v1_memory.json",
+      "sha256": "4afc4d9806d6ddfa1615a6f65c6bdf34d20322373d82616a152dbbe038956d05"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_complete_batch_accept_v1_registers.json",
+      "sha256": "ad2f766571433ad30822008f4a51c57fa42bd190c6a4893f47d37eb318e61f51"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_complete_batch_accept_v1.patch",
+      "sha256": "3b7de146ebeda4d45ef6590c54c2227f4d47bad943fd96c0fb45a63a2ffbd033"
+    }
+  ]
+}

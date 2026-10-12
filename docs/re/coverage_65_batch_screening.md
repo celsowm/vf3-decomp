@@ -139,6 +139,123 @@ The initial 6,000-byte implementation batch has not yet passed the screening
 requirements. Continue screening and then implement the batch; do not turn
 these observed instruction bytes into a percentage claim.
 
+## C batch development
+
+The scene/UI expansion v2 completes its scheduled runs but retains one
+incomplete invocation, so the entire campaign is excluded from promotion.
+Its valid observations remain partial. Other specimens expose PVR
+`0xa05f80b0`, MMU `0xff000038`, invalid RAM and SDK budget/interrupt paths.
+
+The clipping pilot completes 512/512 original invocations in each state.
+All eight bodies execute completely in each state. Conversion records
+127-128 distinct valid cases per variant, with four interruptions retained
+and excluded; there are no incomplete, non-RAM or exception records.
+One variant was already credited, leaving 3,266 marginal clipping bytes.
+
+Implementation has started as one 6,076-byte batch. The new shared
+`clip_triangle.c` models the six visible topologies, vertex-format stride,
+original helper order, banked final command and full register/float frame.
+`clip_profiles.inc` contains fixed ABI addresses extracted from the original
+image, not opcodes or expected results. `replay_setup.c` implements ring
+initialization and actor interpolation. Syntax checks pass with warnings
+treated as errors.
+
+Provisional strict development replay results:
+
+- Replay initializer: 166/166 matches, zero skips.
+- Replay interpolation: 152/152 matches, zero skips.
+- Clipping entry `0x8c051918`: 128/128 matches after implementing its plain
+  scalar packet emitter; entry `0x8c0525c0`: 127/127 matches.
+- Previously credited clipping control `0x8c051f50`: 127/127 matches.
+- The other clipping formats identify missing native copy/intersection
+  helper entries. Their failed replay report and executable are retained.
+
+These are development results. The earlier replay screening corpus also
+contains an incomplete invocation and cannot serve as an accepted campaign.
+The provisional v2 executable and all 392 compiled-source inputs are
+archived in `ram_clipping_batch_dev_v2_complete_sources/manifest.json`.
+Finish the remaining helpers and five scene/geometry/effect routines,
+then capture a complete batch development campaign and perform the official
+freeze, disjoint holdout, original caller proofs and regression gates.
+No binding or verified C credit has changed.
+
+The new `clip_attributes.c` closes the five unweighted vertex formats,
+including indexed/inline ARGB, signed texture coordinates, packed coordinate
+words and alpha adjustment. Native development v3 passes **all eight clipping
+variants, 1,020/1,020 cases with zero skips and zero OOB**. Its complete
+393-file source snapshot and executable are retained separately from v2.
+The conditional pool's clipping portion is now implemented in development;
+it still needs the final complete-batch freeze, disjoint holdout and callers.
+
+`scene_replay_flow.c` adds the round clock, history transition, actor history
+run coalescing, scene-end predicate and secondary scene dispatcher.
+`replay_setup.c` also adds the signed-round block clear with MACL preservation.
+Development v6 matches 374/504 round-clock cases and 324/765 scene-history
+cases. The remaining cases report genuine missing helpers at
+`0x0c09705e` and `0x0c0994fa`; failed reports and executables are retained.
+Those helpers and the remaining geometry/list/timed-effect routines must be
+completed before this batch can qualify. Source changes remain uncommitted
+development work; there is no new binding, holdout or percentage claim.
+
+The targeted resident-menu v2 pilot also completes both original states
+without incomplete invocations. It has 511 distinct valid cases and one
+excluded interruption, but only 652/726 owner bytes. It remains outside
+the initial implementation batch.
+
+Further scene closure adds the round retirement and activation predicates,
+replay readiness/status transitions and the original replay-wait branch.
+Development v7 now matches **504/504 round-clock cases**; development v8
+matches **765/765 scene-history cases**, both with zero skips and zero OOB.
+The provisional v8 complete source archive contains 395 compiled inputs.
+
+`timed_boundary_effect.c` retains the two actor sweeps, edge-entry flags,
+original sound/motion helper ordering and separate lifetime thresholds.
+Development v9 matches **768/768 cases**, zero skips/OOB. The second sweep
+uses the original temporary stack countdown rather than the first sweep's
+different local slot.
+
+`list_interpolation.c` retains circular-list head transfers, neighbor
+selection, degenerate interval handling, seven tangent pairs and cubic
+channel evaluation. Development v10 matches **359/359 valid cases**, zero
+skips/OOB. The original 24 non-RAM list specimens remain excluded and are
+not replaced by a sanitizing behavior change. V10's executable and all
+397 compiled inputs are retained as a provisional development snapshot.
+
+All fourteen primary entries now have passing preliminary development
+replays, covering the planned 6,076 candidate bytes. Geometry v16 matches
+**165/165 cases** and all eight clipping entries still match **1,020/1,020**,
+with zero skips. Geometry's NaN sign discrepancy exposed a shared FTRV
+operand-choice issue: the frozen observer's packed MULPD retains the matrix
+NaN in even rows and the vector NaN in odd rows. The explicit FPU model now
+retains that choice, including payloads and signaling-input quieting. Its
+opcode suite passes **213,312/213,312** cases. The diagnostic disassembly
+and original trace are retained; production geometry has no debug logging.
+
+A fresh complete development campaign combines the retained typed inputs
+for all fourteen entries plus the already-credited clipping control:
+`coverage_65_complete_batch_dev_v1`, 384 rounds in each of states 26 and 27.
+V1 exceeded its configured 900-second deadline before the requested frame
+count in state 26. State 27 was stopped after confirming that failure; all
+raw files are retained and the campaign is unqualified. Fresh v2 inputs
+retain the complete batch and 384 rounds, with a longer capture deadline.
+V2 is running with a 2,400-second deadline per state. All 39 required native suites and 272 oracle tool
+tests passed at that development point. The full baseline regression now
+passes all 1,396 bindings against the immutable v16 matrix executable and
+rebuilt required targets. Its 60 executables, 398-source snapshot, 39 native
+suites and 286-test tool result are archived as the provisional v16 full gate.
+The newer interpolation/initializer caller checks bring the current oracle
+suite to 286 passing tests.
+
+Fresh v2 state 26 completed 48,000 requested frames with 1,829 accounted
+invocations, no incomplete/unaccounted records, and every selected frozen
+owner fully executed. The original trigger produced approximately 122
+invocations per entry rather than all 384 scheduled variants; actual
+valid/distinct counts, rather than requested quotas, govern qualification.
+First-scenario native replay is running; state 27 capture continues. Prior incomplete
+screening campaigns remain ineligible for qualification. These figures are implementation progress,
+not accepted C credit. Complete fresh development, freeze the final batch,
+then perform disjoint holdout, caller proofs and full checkpoint gates.
+
 ## Reproduction and retention
 
 Generators, watch lists and explicit typed input JSON are committed under
@@ -151,5 +268,25 @@ also pin their explicit input files, watch lists and owner maps.
 reports together with the typed inputs, generators and prior accepted replay
 callback seal. Its audit grants zero credit and refuses to overwrite evidence.
 The next pilot's prepared inputs are pinned as inputs, not as completed
-captures. No compiled C changed, so no native regression or holdout source
-freeze is claimed for this screening checkpoint.
+captures. The earlier screening checkpoints changed no compiled C and
+claimed no native regression or holdout source freeze. The current C work
+is provisional development, not a promoted coverage milestone.
+
+## Complete development freeze and holdout in progress
+
+Fresh development v2 completes both 48,000-frame original scenarios with
+zero incomplete/unaccounted records and zero nondeterministic entries.
+Every selected owner is independently whole in each scenario and has at
+least 64 valid cases in each. All 15 combined entry replays pass against
+v16, with zero skips and no device accesses in valid development specimens.
+Invalid interrupt/non-RAM specimens remain retained and excluded.
+
+`ram_clipping_batch_qualified_development_freeze_v1.json` in the evidence
+cache seals this complete development result, the unchanged 398 compiled
+inputs, immutable native executable and full 1,396-binding baseline gate.
+The disjoint holdout `coverage_65_complete_batch_accept_v1` began afterward
+in states 28/29, with objects relocated by `0x100000`, changed typed sequence
+phases, changed clipping attributes/normalization, and FPSCR `0x240001`.
+Its input manifest pins the formal development freeze. Holdout execution,
+remaining scene callers, promotion audit and checkpoint binding additions
+remain pending; accepted coverage is still 267,230/434,656 bytes.

@@ -88,20 +88,25 @@ int vf3_fpu_fsrra(uint32_t value,uint32_t fpscr,uint32_t *result) {
     *result=as_bits(flush(inverse,fpscr));
     end(&e); return 1;
 }
-static float dot(const uint32_t a[4],const uint32_t b[4]) {
-    volatile double sum=(double)as_float(a[0])*(double)as_float(b[0]);
+static double product(uint32_t a,uint32_t b,int nan_operand) {
+    if(nan_operand>=0 && (a&0x7fffffffu)>0x7f800000u && (b&0x7fffffffu)>0x7f800000u)
+        return (double)as_float((nan_operand?b:a)|0x00400000u);
+    return (double)as_float(a)*(double)as_float(b);
+}
+static float dot(const uint32_t a[4],const uint32_t b[4],int nan_operand) {
+    volatile double sum=product(a[0],b[0],nan_operand);
     for(unsigned i=1;i<4;++i) {
-        volatile double product=(double)as_float(a[i])*(double)as_float(b[i]);
+        volatile double term=product(a[i],b[i],nan_operand);
         /* Preserve the accumulated NaN's sign/payload. Host compilers may
          * exchange ADD operands even with contraction disabled. */
-        if (!isnan(sum)) sum=sum+product;
+        if (!isnan(sum)) sum=sum+term;
     }
     return (float)sum;
 }
 int vf3_fpu_fipr(const uint32_t a[4],const uint32_t b[4],uint32_t fpscr,uint32_t *result) {
     HostEnv e;
     if(!vf3_fpu_supported(fpscr)) return 0;
-    begin(&e,fpscr); *result=as_bits(flush(dot(a,b),fpscr)); end(&e); return 1;
+    begin(&e,fpscr); *result=as_bits(flush(dot(a,b,-1),fpscr)); end(&e); return 1;
 }
 int vf3_fpu_ftrv(const uint32_t matrix[16],const uint32_t vector[4],uint32_t fpscr,uint32_t result[4]) {
     HostEnv e; uint32_t source[4];
@@ -110,7 +115,10 @@ int vf3_fpu_ftrv(const uint32_t matrix[16],const uint32_t vector[4],uint32_t fps
     begin(&e,fpscr);
     for(unsigned i=0;i<4;++i) {
         uint32_t row[4]={matrix[i],matrix[i+4],matrix[i+8],matrix[i+12]};
-        result[i]=as_bits(flush(dot(row,source),fpscr));
+        /* The frozen capture host packs two double products per MULPD:
+         * even rows retain the matrix NaN; odd rows retain the vector NaN.
+         * Pin that operand choice rather than relying on C allocation. */
+        result[i]=as_bits(flush(dot(row,source,(int)(i&1u)),fpscr));
     }
     end(&e); return 1;
 }
