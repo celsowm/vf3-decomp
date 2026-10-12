@@ -1,0 +1,81 @@
+{
+  "completed_utc": "2026-10-12T15:14:46.178895+00:00",
+  "verified_c_bytes": 275276,
+  "frozen_body_bytes": 434656,
+  "verified_percentage": 63.33192225576087,
+  "target_c_bytes": 282527,
+  "remaining_to_65": 7251,
+  "new_owners": 5,
+  "marginal_c_bytes": 2128,
+  "archived_source_inputs": 400,
+  "binding_inventory": 1414,
+  "native_suites": 39,
+  "oracle_tool_tests": 335,
+  "full_regression": {
+    "expected_bindings": 1414,
+    "reported_bindings": 1414,
+    "failures": [],
+    "errors": false,
+    "complete": true,
+    "passed": true,
+    "terminal": {
+      "portcheck": "PASS"
+    },
+    "last_lines": [
+      "  vf3_fifth_leaf_unowned_adapter:0x8c070874 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "  vf3_fifth_leaf_unowned_adapter:0x8c07c634 PASS   matrix_family: 64/64 cases match (0 skipped) - PASS",
+      "portcheck: PASS"
+    ]
+  },
+  "selection_unlock_credit": 0,
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_historical_archive_v1.json",
+      "sha256": "929a0290a2dedaa15951211f3c76c47c23b7f683eb0f910dcd241999fd5bd07c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_integrated_dev_v1_complete_sources\\manifest.json",
+      "sha256": "fb442e71854e417129dcfc03bde82ba1f0f2b1a4cc34f2af5430900db58a7556"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_integrated_dev_v1.exe",
+      "sha256": "5e0b6b9c9e6370484f2f86503fe0aa2d7bdac528ac14182c97899e47fcb5ca87"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_v1_manifest.json",
+      "sha256": "7d8dc71386a3df162a6210e5dfa6c4f944544c51fb3381436446cbbcc2dce712"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\strip_parent_full_633_checkpoint_v1.log",
+      "sha256": "8e8361f93cbae0cbf389998e69933898723abed9df31c5fe0bab279ea82c2050"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\selection_unlock_tool_tests_dev_v2.log",
+      "sha256": "b9221782393cc786c0c0e216f4df96cfddbb074782b81c1d38e681118316655b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\strip_parent_checkpoint.py",
+      "sha256": "d9297e13308837b43c444ee250a5288a4b3f920d70ba174ee808f94586f69ed0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_full_633_checkpoint_v1\\tools\\golden_bindings.json",
+      "sha256": "ab55e40fb957b25923232d60cc98dcb91f2c686e57c15c5119a30fd2a360cdc6",
+      "original_path": "E:\\vf3-decomp\\tools\\golden_bindings.json"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_full_633_checkpoint_v1\\docs\\decomp_status.csv",
+      "sha256": "e0220544d9b05d94e5cd6ffcc507d7fa3a9eca0ed6a166364cc46873b60a0264",
+      "original_path": "E:\\vf3-decomp\\docs\\decomp_status.csv"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_full_633_checkpoint_v1\\docs\\coverage.md",
+      "sha256": "688aae621149278e18f20ad672e8ab7f4a1d6b2818d93b57d7961c02e0d9e740",
+      "original_path": "E:\\vf3-decomp\\docs\\coverage.md"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\strip_parent_full_633_checkpoint_v1\\extract\\analysis\\coverage.json",
+      "sha256": "87c8db7a0717c6f49fb7648a4293a6a2c1b01e0bf355e5bed71a52001de676ff",
+      "original_path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json"
+    }
+  ]
+}

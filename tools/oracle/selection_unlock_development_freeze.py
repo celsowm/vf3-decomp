@@ -108,9 +108,9 @@ def main():
     native_section = text.split('\nbinding ', 1)[0]
     suite_rows = dict(re.findall(r'^  (vf3\S+)\s+(PASS|FAIL|missing)\b', native_section, re.M))
     assert set(suite_rows) == set(TESTS) and all(v == 'PASS' for v in suite_rows.values())
-    tests = ROOT/'extract/analysis/selection_unlock_tool_tests_dev_v1.log'
+    tests = ROOT/'extract/analysis/selection_unlock_tool_tests_dev_v2.log'
     test_text = tests.read_text()
-    assert re.search(r'Ran 330 tests', test_text) and '\nOK\n' in test_text
+    assert re.search(r'Ran 335 tests', test_text) and '\nOK\n' in test_text
     refs.extend(reference(p) for p in (archive, native, bindings, log, tests, Path(__file__),
         ROOT/'tools/oracle/compiled_source_freeze.py', ROOT/'tools/oracle/selection_unlock_holdout_inputs.py'))
     refs.extend(reference(ROOT/'build'/f'{name}.exe') for name in TESTS)
@@ -119,7 +119,7 @@ def main():
     out.write_text(json.dumps(dict(coverage_credit=False, qualified_development_only=True,
         frozen_at_utc=datetime.now(timezone.utc).isoformat(), archived_inputs=401,
         compiler_dependency_files=398, entries=1, distinct_valid_inputs=len(inputs),
-        native_suites_passed=39, oracle_tests_passed=330, full_regression=status,
+        native_suites_passed=39, oracle_tests_passed=335, full_regression=status,
         scenarios=proofs, references=list({r['path']:r for r in refs}.values())), indent=2)+'\n')
     print('Selection development freeze PASS; independent acceptance still required')
 

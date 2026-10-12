@@ -37,8 +37,8 @@ def main():
     native_section = text.split('\nbinding ', 1)[0]
     suites = dict(re.findall(r'^  (vf3\S+)\s+(PASS|FAIL|missing)\b', native_section, re.M))
     assert set(suites) == set(TESTS) and all(v == 'PASS' for v in suites.values())
-    tests = ROOT/'extract/analysis/selection_unlock_tool_tests_dev_v1.log'
-    assert re.search(r'Ran 330 tests', tests.read_text()) and '\nOK\n' in tests.read_text()
+    tests = ROOT/'extract/analysis/selection_unlock_tool_tests_dev_v2.log'
+    assert re.search(r'Ran 335 tests', tests.read_text()) and '\nOK\n' in tests.read_text()
     archive = CACHE/'strip_parent_full_633_checkpoint_v1'
     assert not archive.exists()
     archive.mkdir()
@@ -55,7 +55,7 @@ def main():
         verified_c_bytes=275276,frozen_body_bytes=434656,verified_percentage=275276/434656*100,
         target_c_bytes=282527,remaining_to_65=7251,new_owners=5,marginal_c_bytes=2128,
         archived_source_inputs=400,binding_inventory=1414,native_suites=39,
-        oracle_tool_tests=330,full_regression=status,selection_unlock_credit=0,
+        oracle_tool_tests=335,full_regression=status,selection_unlock_credit=0,
         references=refs),indent=2)+'\n')
     print('Full strip checkpoint PASS: 275276 verified C bytes, 1414 bindings, 39 native suites')
 

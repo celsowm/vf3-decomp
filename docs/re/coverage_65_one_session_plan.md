@@ -7,7 +7,8 @@ Accepted union after the independently qualified strip milestone:
 `04cb3ea` was 273,148 bytes. The strip build passed its full 1,409-binding
 regression, 39 native suites and 330 current oracle tests. All five new
 bindings pass their strict development and independent acceptance replays;
-the expanded 1,414-binding checkpoint is running. The remaining target is
+the expanded checkpoint passed all **1,414 bindings, 39 native suites and
+335 oracle tests** (`tools/oracle/strip_parent_full_633_checkpoint_v1.json`). The remaining target is
 **7,251 verified bytes**; retain
 the fixed target of **282,527**, including throughout intermediate batches.
 
@@ -37,10 +38,21 @@ replay reset, action and transition helpers. Two standalone original branch
 campaigns in each of states 26/27 cover all 250 owner bytes independently;
 the merged corpus passes 1,016 strict native cases with zero skips and no
 nondeterministic inputs. Eight original index-57 scene dispatch windows also
-completed without device activity. Callable attribution, normal integration,
-source freeze and independent acceptance remain required; these bytes are
+completed without device activity; the fixed scene-57 attribution verifier
+and its five mutation tests now pass. Normal integration, source freeze and
+independent acceptance remain required; these bytes are
 uncredited. Earlier mixed scene captures contain unrelated incomplete calls
 and are retained as diagnostics, rather than used for this complete proof.
+
+The five new replay helpers provide **824 additional uncredited candidate
+bytes**, outside the nine-owner scene queue: `0x8c099544` (36), `0x8c099568`
+(290), `0x8c0a91e6` (94), `0x8c0a92da` (320) and `0x8c0a9452` (84).
+Their first standalone original campaign passes 970 strict native cases
+with zero skips. Four bodies are fully executed; the action helper lacks
+16 bytes for its character-six comparison path. A targeted original
+campaign is running for that path. These helpers need their own caller
+contracts, complete per-state development, integration and fresh acceptance
+before they can provide any coverage margin.
 
 After those two successful promotions, **5,677 bytes** would remain. The
 next scene/replay selection contains **6,042 candidate bytes**:

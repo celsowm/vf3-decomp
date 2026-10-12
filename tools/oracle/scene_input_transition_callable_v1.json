@@ -1,0 +1,23 @@
+{
+  "0x8c0993e8": {
+    "kind": "vf3-scene-input-index57-v1",
+    "entry": "0x8c0993e0",
+    "call_sites": [
+      "0x8c0968f4"
+    ],
+    "table": "0xc10baa8",
+    "index": 57,
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_original_dispatch_v1\\manifest.json",
+        "sha256": "0d86efa8def6c284d8d7db2fe1f92246a8b47b77eba1414a6183f738f8b12990"
+      }
+    ]
+  }
+}
