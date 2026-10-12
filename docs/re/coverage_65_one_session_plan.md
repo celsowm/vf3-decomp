@@ -22,13 +22,25 @@ and `strip_parent_historical_archive_v1.json`.
 
 Next is selection/unlock owner `0x8c0c321e`, **1,574 bytes**. Combined original
 development campaigns already cover its entire frozen body independently
-in states 26/27. The readable C candidate remains unlinked and uncredited;
+in states 26/27. The readable C candidate is integrated and remains uncredited;
 its 1,411-case strict development replay and eight original parent-tail
-windows now pass. Finish normal integration, source freeze and fresh
-independent acceptance before promoting it. The first caller recipe produced
+windows pass. An immutable normal replay executable and 401-file archive
+are ready (398 compiler dependencies plus three retained historical files).
+Its full 1,414-binding regression is running. Finish the qualified development
+freeze and fresh independent acceptance before promoting it. The first caller recipe produced
 device events on six windows and remains diagnostic; guarded original caller
 recipe v2 verifies the unchanged transfer/save/return instructions without
 device activity.
+
+Scene input owner `0x8c0993e8` now has readable development C and the paired
+replay reset, action and transition helpers. Two standalone original branch
+campaigns in each of states 26/27 cover all 250 owner bytes independently;
+the merged corpus passes 1,016 strict native cases with zero skips and no
+nondeterministic inputs. Eight original index-57 scene dispatch windows also
+completed without device activity. Callable attribution, normal integration,
+source freeze and independent acceptance remain required; these bytes are
+uncredited. Earlier mixed scene captures contain unrelated incomplete calls
+and are retained as diagnostics, rather than used for this complete proof.
 
 After those two successful promotions, **5,677 bytes** would remain. The
 next scene/replay selection contains **6,042 candidate bytes**:
@@ -42,7 +54,7 @@ replace candidates that fail qualification rather than lowering the target.
 The interpolation owner `0x8c0a8f98` remains entirely excluded because
 identical captured original inputs produced differing observable results.
 Neither selected passing cases nor library attribution count toward 65% C.
-Keep new raw evidence on C: while E: has approximately 1.4 GiB free.
+Keep new raw evidence on C: while E: has approximately 1 GiB free.
 Seal, commit and push each accepted milestone; at or above 65%, run the full
 final inventory and evidence-chain audit before declaring completion.
 

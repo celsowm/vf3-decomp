@@ -4,6 +4,7 @@
 int vf3_clip_strip_c(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_clip_strip_writers_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_clip_strip_writers_adapter_contains(uint32_t);
+int vf3_selection_unlock_c(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_survey_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_survey_adapter_contains(uint32_t);
 int vf3_tenpp_leaf_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -269,6 +270,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    if(entry==0x0c0c3210u) return vf3_selection_unlock_c(s,ram);
     if(entry==0x0c08a61cu) return vf3_scene_indicator(s,ram);
     if(entry==0x0c0c9d04u) return vf3_random_fraction(s,ram);
     if(entry==0x0c045e4eu || entry==0x0c0801deu)

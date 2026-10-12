@@ -1,0 +1,40 @@
+{
+  "historical_only": true,
+  "coverage_credit": false,
+  "manifest": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\manifest.json",
+    "sha256": "7d574198bbc205f3146aa03c6f0180f735a942c86e49c4e6857600107cace911"
+  },
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\historical_inputs\\src\\fight\\matrix_family.c",
+      "sha256": "7e88535e32b906dc98c285d972e232560a03b200e183fa51907e5a5d74805125",
+      "original_path": "E:\\vf3-decomp\\src\\fight\\matrix_family.c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\matrix_family.c",
+      "sha256": "d4eb007e2de00899f20769488c7e206f8a5af2e25909bfd4c7770ea65ad5351f",
+      "original_path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\matrix_family.c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\historical_inputs\\src\\fight\\selection_unlock.c",
+      "sha256": "e16982e079295cf82d93a8ca967976ce72407b912d0c8070b160d46ec4cecec7",
+      "original_path": "E:\\vf3-decomp\\src\\fight\\selection_unlock.c"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\historical_inputs\\build\\libvf3core.a",
+      "sha256": "f62b3e18ef4a3816933b3a3dc1940da6b1c9da1c11cb70f5f74f75566a28f66e",
+      "original_path": "E:\\vf3-decomp\\build\\libvf3core.a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\historical_inputs\\build\\CMakeFiles\\vf3matrixfamily.dir\\tests\\matrix_family_replay.c.obj",
+      "sha256": "92c92292f57c5c5cc6664ce2972323e99d485e018473a0b1709d758c327edf87",
+      "original_path": "E:\\vf3-decomp\\build\\CMakeFiles\\vf3matrixfamily.dir\\tests\\matrix_family_replay.c.obj"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\selection_unlock_readable_dev_v1\\historical_inputs\\tools\\oracle\\selection_unlock_development_build.py",
+      "sha256": "c7a71213c7e64cc3df7a11cc777c2fc370ebc7d2263548dc206815036c27f6ca",
+      "original_path": "E:\\vf3-decomp\\tools\\oracle\\selection_unlock_development_build.py"
+    }
+  ]
+}
