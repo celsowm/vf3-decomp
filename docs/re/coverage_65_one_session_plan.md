@@ -16,6 +16,11 @@ The expanded 1,418-binding regression is running; all 388 tool tests passed.
 `replay_transition_checkpoint.py` will seal the completed full gate. A new
 screen enters scene-reset owner `0x8c096b0a` through its complete prefix at
 `0x8c096afc`; its 512 potential bytes remain advisory until the full proof exists.
+The first reset screen has no valid calls: two IRQ-invalid and two
+100,000-instruction budget-limited specimens remain preserved. The limit is
+reached inside an original, fixed 4,096-entry descriptor scan. A second screen
+uses the same typed inputs with the separately controlled recorder and a
+500,000-instruction budget; whole-body and accounting checks remain required.
 
 The preceding round checkpoint:
 

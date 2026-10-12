@@ -297,3 +297,7 @@ archives the current inventory and suite executables as a final checkpoint.
 seven-register save prefix. It retains original callback execution and uses
 initialized fight states; a successful screen still needs whole-body, caller,
 strict native and independent held qualification.
+`--extended` retains the same reset inputs for a second screen with the
+validated larger-record observer. The first screen stops inside a bounded
+4,096-entry descriptor lookup; the flag-one and budget-limit specimens remain
+diagnostic. Increasing the budget does not grant coverage or change the game.

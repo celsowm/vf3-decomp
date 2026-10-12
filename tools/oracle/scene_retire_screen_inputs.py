@@ -1,4 +1,5 @@
 """Screen the complete seven-register prefix of the 512-byte scene reset."""
+import argparse
 import copy
 import json
 from pathlib import Path
@@ -8,7 +9,10 @@ ROOT=Path(__file__).resolve().parents[2]
 
 
 def main():
-    name='coverage_65_scene_retire_dev_v1';entry='0x8c096afc'
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--extended',action='store_true',help='retain the same typed inputs for the validated larger recorder')
+    args=parser.parse_args()
+    name='coverage_65_scene_retire_dev_v2' if args.extended else 'coverage_65_scene_retire_dev_v1';entry='0x8c096afc'
     base=ROOT/'tools/oracle';inputs=base/'percentage_inputs'
     prior=json.loads((inputs/'coverage_65_replay_transition_helpers_dev_v2_memory.json').read_text())
     fields=copy.deepcopy(prior['0x8c099560'])
