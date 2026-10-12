@@ -118,11 +118,14 @@ Normal integration now includes both completed scene owners and all seven
 new dependency sources. The immutable normal snapshot has 408 archived inputs
 (405 compiler dependencies plus three retained historical files). Its strict
 development replays pass 1,003 round cases, 1,016 input-transition cases,
-1,514 helper cases and 512 statistics cases, all with zero skips. All 366
-current tool tests pass. The full 1,414-binding / 39-suite regression remains
-running in `scene_batch_integrated_all_bindings_dev_v1.log`; its live handle
-is tracked rather than replaced on observation timeouts. Qualification and
-fresh independent acceptance still remain. No byte is credited yet.
+1,514 helper cases and 512 statistics cases, all with zero skips. The qualified
+freeze pins 372 passing tool tests and the completed **1,414-binding / 39-suite**
+regression in `scene_batch_integrated_all_bindings_dev_v1.log`. The complete
+development evidence was sealed before generating four fresh acceptance
+profiles, each captured in original states 45/46 for 4,000 frames. Acceptance
+is running sequentially through `scene_batch_accept_capture.py`; no byte is
+credited until its independent whole-body, caller and strict replay audit passes.
+The two main owners offer **1,132 marginal bytes**, leaving 6,119 if accepted.
 The previous selection build's 2,965 proof references and 401-file source
 archive were preserved by `selection_unlock_complete_historical_v1.json`
 before changing the normal build.

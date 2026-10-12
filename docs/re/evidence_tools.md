@@ -166,3 +166,22 @@ strict native reports, original callers, full binding inventory, native suites
 and tool-test gate before sealing a development freeze. Independent acceptance
 inputs must be created after that freeze; this command grants no C coverage.
 The scene configuration is `scene_batch_development_qualification_v1.json`.
+
+`scene_batch_holdout_inputs.py` checks the qualified freeze and every pinned
+dependency before creating four fresh scene input profiles. It preserves
+original code and pools, changes typed counters and timers, relocates writable
+objects and refuses to replace an existing input artifact.
+
+`scene_batch_accept_capture.py` runs those profiles sequentially in original
+states 45/46 using the unchanged observer. `scene_batch_acceptance_audit.py`
+requires complete invocation accounting and frames, whole-body coverage with
+at least 64 distinct valid inputs in each state, original caller contracts,
+strict full-state native replay without skips, disjoint states and input
+fingerprints, and original SAVEF state lineage. It preserves failed evidence
+and grants no ledger credit itself.
+
+`promote_tenpp_batch.py --evidence-root CACHE` explicitly permits immutable
+corpora stored outside the workspace. Relative workspace artifact names and
+hash formats remain unchanged; undeclared external paths and sibling-prefix
+escapes are rejected. This avoids copying large evidence caches onto the
+nearly full workspace drive without changing qualification gates.

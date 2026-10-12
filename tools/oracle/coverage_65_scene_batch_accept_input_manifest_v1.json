@@ -1,0 +1,123 @@
+{
+  "coverage_credit": false,
+  "created_at_utc": "2026-10-12T18:01:46.616817+00:00",
+  "development_freeze": {
+    "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_batch_qualified_development_freeze_v1.json",
+    "sha256": "2ee91020428850acb86bad066cd1ebeea095196752f2c71e2df12fde03341a49"
+  },
+  "groups": [
+    {
+      "name": "coverage_65_scene_batch_accept_v1",
+      "entry": "0x8c098c62",
+      "owner": "0x8c098c70"
+    },
+    {
+      "name": "coverage_65_scene_batch_accept_v2",
+      "entry": "0x8c098c62",
+      "owner": "0x8c098c70"
+    },
+    {
+      "name": "coverage_65_scene_batch_accept_v3",
+      "entry": "0x8c0993e0",
+      "owner": "0x8c0993e8"
+    },
+    {
+      "name": "coverage_65_scene_batch_accept_v4",
+      "entry": "0x8c0993e0",
+      "owner": "0x8c0993e8"
+    }
+  ],
+  "files": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v1_watch.txt",
+      "sha256": "decbb82367a17b0a11782792046757da9fd94b9e4b89fdd472248e01b688fc97"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v1_owners.json",
+      "sha256": "ae4bf4376603e32236874193e058039fb22588f95f7f90a8d3ef8f701a44c4c8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v1_memory.json",
+      "sha256": "b1d2c189ae510757c464a97c749eee85a6b99c62db1869281d9b5787b06adc0e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v1_registers.json",
+      "sha256": "b31555458074dda7f3018fb4b8dcb086fd5d2c4d0e43c3bfc0b2f522e4739f7b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_batch_accept_v1.patch",
+      "sha256": "da708762252321ee58cfcf433dc82f1cde08ac0d00fdbefd655eae61e0ccd4c3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v2_watch.txt",
+      "sha256": "decbb82367a17b0a11782792046757da9fd94b9e4b89fdd472248e01b688fc97"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v2_owners.json",
+      "sha256": "ae4bf4376603e32236874193e058039fb22588f95f7f90a8d3ef8f701a44c4c8"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v2_memory.json",
+      "sha256": "34253c1769fb870b41a4882c3d70c7acc03262abc307d4067bb64a561b43f8e2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v2_registers.json",
+      "sha256": "b31555458074dda7f3018fb4b8dcb086fd5d2c4d0e43c3bfc0b2f522e4739f7b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_batch_accept_v2.patch",
+      "sha256": "cbd929dbd9018e968172d330445d06ebf81ac0d211cabc9d1eac5d5f37142a9a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v3_watch.txt",
+      "sha256": "941172c7c8a7006efd3ed31ca7bde3076f47c3fbb9b09dcdc8b1eb2598b41399"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v3_owners.json",
+      "sha256": "206e935d48cbdc7c0f2c20f0135239a61561255f8b2a8464594704d80b2cd83f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v3_memory.json",
+      "sha256": "d4cb64bcf5f285a3e0aed456e7355d6b366aa4568ca6963ac8d0b0591a7f3e7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v3_registers.json",
+      "sha256": "08ec45b2a5547b88439da477df4ff431ecb63ab73f44f26d6fe2a3f80847df6f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_batch_accept_v3.patch",
+      "sha256": "3eaba765eb0407552a1ae8a4a114e5c3f8cb8678fb0b1e2c3838fd91c30b7c6b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v4_watch.txt",
+      "sha256": "941172c7c8a7006efd3ed31ca7bde3076f47c3fbb9b09dcdc8b1eb2598b41399"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_scene_batch_accept_v4_owners.json",
+      "sha256": "206e935d48cbdc7c0f2c20f0135239a61561255f8b2a8464594704d80b2cd83f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v4_memory.json",
+      "sha256": "8be23084e79629542e5468d558c1cfd060e4b2a093aaf8f08ba13fdd64de59a5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_scene_batch_accept_v4_registers.json",
+      "sha256": "08ec45b2a5547b88439da477df4ff431ecb63ab73f44f26d6fe2a3f80847df6f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_batch_accept_v4.patch",
+      "sha256": "545ed9d2e93e107fcdfbd0fb1c243237e3a47acba5facb5b7c296e87c7ca0ff6"
+    }
+  ],
+  "original_states": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    }
+  ],
+  "hypothesis": "Disjoint initialized original states, relocated writable descriptor buffers, permuted variants and changed round thresholds/counts, paired timers and scene countdowns; code, literal pools and callback results unchanged."
+}

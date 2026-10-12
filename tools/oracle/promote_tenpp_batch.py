@@ -24,13 +24,22 @@ def corpus(path):
     return manifest, sources
 
 
-def artifacts(case):
+def evidence_name(path, evidence_roots=()):
+    path=Path(path).resolve()
+    if path.is_relative_to(ROOT):
+        return path.relative_to(ROOT).as_posix()
+    if any(path.is_relative_to(Path(root).resolve()) for root in evidence_roots):
+        return path.as_posix()
+    raise ValueError('external corpus requires an explicit --evidence-root')
+
+
+def artifacts(case, evidence_roots=()):
     archive = hashlib.sha256()
     files = sorted(p for p in case.parent.glob(case.stem + '*') if p.is_file())
     for path in files:
         with path.open('rb') as handle:
             digest = hashlib.file_digest(handle, 'sha256').hexdigest()
-        archive.update((path.relative_to(ROOT).as_posix() + '\\0' + digest + '\\n').encode())
+        archive.update((evidence_name(path,evidence_roots) + '\\0' + digest + '\\n').encode())
     return dict(count=len(files), sha256=archive.hexdigest())
 
 
@@ -51,6 +60,8 @@ def main():
                     help='optional JSON entry-to-source ownership for shared helpers')
     ap.add_argument('--label', required=True)
     ap.add_argument('--note', required=True)
+    ap.add_argument('--evidence-root',type=Path,action='append',default=[],
+                    help='explicit local evidence cache containing external corpora; all proof gates remain required')
     ap.add_argument('--callable-map', type=Path, help='explicit frozen-owner to original callable-entry attribution')
     a = ap.parse_args()
     attributions = json.loads(a.callable_map.read_text()) if a.callable_map else {}
@@ -59,6 +70,8 @@ def main():
     ports = json.loads(a.port_map.read_text()) if a.port_map else {}
     a.development = a.development.resolve()
     a.acceptance = a.acceptance.resolve()
+    for path in (a.development,a.acceptance):
+        evidence_name(path,a.evidence_root)
     assert not a.manifest.exists(), 'milestone already recorded'
     frozen = json.loads(a.baseline.read_text())
     for key in ('inventory', 'body_ranges', 'image'):
@@ -124,18 +137,18 @@ def main():
         assert (ROOT / port).is_file(), f'missing C source: {port}'
         key = a.label + ':' + entry
         bindings[key] = dict(test='build/vf3matrixfamily.exe ' + invocation,
-            golden=case.relative_to(ROOT).as_posix(), strict=True, port=port,
+            golden=evidence_name(case,a.evidence_root), strict=True, port=port,
             source='100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; ' + a.note)
         entries[entry] = dict(new_credit=True, size=sizes[e], binding=key, port=port,
             proofs={name: report[invocation] for name, report in reports.items()},
-            artifacts=artifacts(case), covered_bytes=sizes[e],
-            proof_artifacts={name: artifacts(ROOT / report[invocation]['cases'])
+            artifacts=artifacts(case,a.evidence_root), covered_bytes=sizes[e],
+            proof_artifacts={name: artifacts(ROOT / report[invocation]['cases'],a.evidence_root)
                              for name, report in reports.items()})
         live_proofs = {}
         for name, report in reports.items():
             batch_path = (ROOT / report[invocation]['cases']).parent / 'batch_manifest.json'
             if json.loads(batch_path.read_text()).get('mode') == 'process_owned_audio':
-                live_proofs[name] = dict(path=batch_path.relative_to(ROOT).as_posix(),
+                live_proofs[name] = dict(path=evidence_name(batch_path,a.evidence_root),
                     sha256=hashlib.sha256(batch_path.read_bytes()).hexdigest())
         if live_proofs:
             entries[entry]['live_audio_proofs'] = live_proofs

@@ -3,9 +3,9 @@
   "archived_inputs": 408,
   "compiler_dependency_files": 405,
   "full_log": "E:/vf3-decomp/extract/analysis/scene_batch_integrated_all_bindings_dev_v1.log",
-  "test_log": "E:/vf3-decomp/extract/analysis/scene_batch_tool_tests_dev_v1.log",
+  "test_log": "E:/vf3-decomp/extract/analysis/scene_batch_tool_tests_dev_v3.log",
   "expected_bindings": 1414,
-  "expected_tests": 366,
+  "expected_tests": 372,
   "out": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/scene_batch_qualified_development_freeze_v1.json",
   "entries": [
     {
