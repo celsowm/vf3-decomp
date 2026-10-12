@@ -20,7 +20,12 @@ The first reset screen has no valid calls: two IRQ-invalid and two
 100,000-instruction budget-limited specimens remain preserved. The limit is
 reached inside an original, fixed 4,096-entry descriptor scan. A second screen
 uses the same typed inputs with the separately controlled recorder and a
-500,000-instruction budget; whole-body and accounting checks remain required.
+500,000-instruction budget. Both emulator runs terminated successfully, but
+the screen still has no valid calls: 55 and 52 completed specimens are all
+IRQ-invalid, and each state has one incomplete invocation. The complete
+campaign is diagnostic only, with zero coverage credit; its audit is preserved
+in `tools/oracle/scene_retire_original_dev_v2_report.json`. A larger recording
+budget alone does not qualify this reset owner.
 
 The preceding round checkpoint:
 
