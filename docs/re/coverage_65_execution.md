@@ -756,3 +756,20 @@ state and no device accesses. Its retained diagnostic is
 `extract/analysis/replay_interpolate_holdout_v17_failure.json`. The batch
 remains unqualified; no ledger or bindings were changed. Any resulting C
 correction requires a new source freeze and fresh held-out evidence.
+
+Diagnostic native instruction logging locates the first path difference at
+the motion-byte test `0x0c09d702`. A forced original-path translation remains
+diagnostic only and still mismatches; it cannot replace the readable C port
+or qualify evidence. The first isolated original repeat passes native replay,
+but its FR/XF input banks differ because FPSCR was applied after their values.
+That repeat proves no equivalence. A second repeat sets FPSCR first and is
+queued to check the original 63-word state before investigating cache effects.
+
+The five strip-parent pilot completes both states. State 26 has an
+uninitialized bank3 pointer and no valid RAM-only specimens. State 29 retains
+`0x0c16b8c8`, yielding 191–192 valid cases per owner with 40 bytes still
+missing independently in each body. The v3 followup uses initialized states
+28/29 and varies winding, depth masks and a second strip. Selection/unlock
+screening also completes both states, retaining 497 distinct valid inputs;
+state 26 observes 1,544 of 1,574 owner bytes. These candidates remain
+unqualified and need readable C, caller contracts and fresh held-out proof.
