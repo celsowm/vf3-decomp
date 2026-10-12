@@ -724,3 +724,35 @@ is parked. A measured conditional RAM/clipping pool offers 6,076 marginal
 bytes, including 3,266 still awaiting clipping execution. Seven new scene/UI
 roots, clipping variants and a targeted resident-menu follow-up are queued
 sequentially. Verified coverage remains 61.48%; no C credit is granted.
+
+## Complete RAM/clipping qualification (2026-10-12)
+
+The corrected v17 C is frozen with all 398 compiled inputs. The complete
+development campaign passes all 15 entries; the full existing inventory
+passes 1,396 bindings and 39 native suites. All 14 new owners now have
+original caller contracts. The latest oracle suite passes 313 tests.
+
+Fresh held-out states 28/29 finish 48,000 frames each, with no incomplete
+invocations or nondeterministic entries. Their timed-effect inputs miss
+60 owner bytes. Sixteen additional original RAM one-shots, eight per state,
+execute the missing branch and their explicit original RTS. The supplemental
+protocol rejects device accesses and does not label these calls completed
+game frames. Whole-body coverage and at least 64 distinct valid inputs
+remain mandatory separately in each original state; development and held-out
+inputs must remain disjoint. The combined corpus and strict frozen-native
+replay are being audited before any ledger promotion.
+
+Qualification would add 6,076 marginal bytes, reaching 273,306 / 434,656
+(62.88%); the full expanded 62.5% checkpoint remains required. Another
+9,221 qualified bytes would then be needed for 65%. Five strip parents
+are undergoing original-image screening, and selection/unlock inputs
+are prepared. Their advisory sizes confer no coverage credit.
+
+The combined held-out replay subsequently passes 14/15 entries. Interpolation
+entry `0x8c0a8f8c` fails one of 648 cases, reporting FR0 `bf727505` instead
+of `3948f3ef`. The failing original specimen is state 29 invocation 2597
+(case index 461), with 19,029 original instructions, complete architectural
+state and no device accesses. Its retained diagnostic is
+`extract/analysis/replay_interpolate_holdout_v17_failure.json`. The batch
+remains unqualified; no ledger or bindings were changed. Any resulting C
+correction requires a new source freeze and fresh held-out evidence.

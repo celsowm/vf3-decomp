@@ -34,7 +34,7 @@ def native_suite_files(suites):
     assert len(suites) == len(TESTS) and {row['test'] for row in suites} == set(TESTS), 'wrong native suite inventory'
     files = []
     for row in suites:
-        executable = ROOT/'build'/f'{row["test"]}.exe'
+        executable = Path(row.get('executable', ROOT/'build'/f'{row["test"]}.exe'))
         assert row['status'] == 'PASS' and digest(executable) == row['sha256'], 'native suite executable changed or failed'
         files.append(reference(executable))
     return files
@@ -69,11 +69,12 @@ def campaign(directory, report_path, owners, native, image):
     manifest = json.loads((directory/'capsule_manifest.json').read_text())
     batch = json.loads((directory/'batch_manifest.json').read_text())
     validate_batch(batch, True)
-    assert len(batch['runs']) == 2 and not manifest['nondeterministic_entries'], 'need two complete deterministic scenarios'
+    assert (len(batch['runs']) == 2 or batch.get('mode') == 'original_ram_supplemented') and not manifest['nondeterministic_entries'], 'need two complete deterministic scenarios'
     report = json.loads(Path(report_path).read_text())
     spans = body_spans()
     states, fingerprints, proofs, files = set(), set(), [], []
     native_hash = digest(native)
+    scenarios = {}
     for run in batch['runs']:
         raw = Path(run['capsule'])
         summary_path = Path(str(raw)+'.summary.json')
@@ -81,8 +82,9 @@ def campaign(directory, report_path, owners, native, image):
         assert summary['started'] == summary['completed'] and not summary['incomplete'] and not summary['unaccounted'], 'incomplete original campaign'
         assert run['emulator_sha256'] == digest(CACHE/'flycast_task_return_boundary_v1.exe'), 'changed original observer'
         state = ROOT/run['state']
-        states.add(digest(state))
-        seen, inputs, invalid = defaultdict(set), defaultdict(set), Counter()
+        state_hash = digest(state)
+        states.add(state_hash)
+        seen, inputs, invalid = scenarios.setdefault(state_hash, (defaultdict(set), defaultdict(set), Counter()))
         counted = 0
         for sample in records(raw):
             counted += 1
@@ -101,14 +103,15 @@ def campaign(directory, report_path, owners, native, image):
                 assert 0 <= offset <= len(image)-2 and struct.unpack_from('<H', image, offset)[0] == opcode, 'nonoriginal batch instruction'
                 seen[entry].add(pc|0x80000000)
         assert counted == summary['completed'], 'capsule accounting mismatch'
-        for entry, owner in owners.items():
-            required = {pc for start, end in spans[int(owner, 16)] for pc in range(start, end, 2)}
-            assert required <= seen[entry], f'incomplete {run["name"]} body: {entry}'
-            assert len(inputs[entry]) >= 64, f'insufficient distinct {run["name"]} inputs: {entry}'
-        proofs.append({'state': run['state'], 'distinct_valid': {entry: len(inputs[entry]) for entry in owners}, 'excluded': dict(invalid), 'complete_owners': len(owners)})
         files.extend(reference(path) for path in (raw, summary_path, state, Path(run['log']), Path(run['entry_patch'])))
         assert digest(run['entry_patch']) == run['entry_patch_sha256'], 'changed capture patch'
     assert len(states) == 2, 'duplicate original scenario states'
+    for state_hash, (seen, inputs, invalid) in scenarios.items():
+        for entry, owner in owners.items():
+            required = {pc for start, end in spans[int(owner, 16)] for pc in range(start, end, 2)}
+            assert required <= seen[entry], f'incomplete independent scenario body: {entry}'
+            assert len(inputs[entry]) >= 64, f'insufficient distinct independent scenario inputs: {entry}'
+        proofs.append({'state_sha256': state_hash, 'distinct_valid': {entry: len(inputs[entry]) for entry in owners}, 'excluded': dict(invalid), 'complete_owners': len(owners)})
     for entry in owners:
         count = len(manifest['entries'][entry])
         row = report[entry]
@@ -142,6 +145,16 @@ def audit(args):
     assert args.holdout_inputs.stat().st_mtime_ns >= args.development_freeze.stat().st_mtime_ns, 'holdout inputs precede source freeze'
     for ref in holdout_inputs['files']:
         assert digest(ref['path']) == ref['sha256'], 'changed held input artifact'
+    held_batch = json.loads((args.acceptance/'batch_manifest.json').read_text())
+    supplement_refs = []
+    if held_batch.get('mode') == 'original_ram_supplemented':
+        from ram_holdout_supplement import checked, evidence_references
+        recipe_path = checked(held_batch['supplement_inputs'])
+        recipe = json.loads(recipe_path.read_text())
+        assert recipe['development_freeze'] == frozen_ref, 'supplement used another C freeze'
+        assert recipe_path.stat().st_mtime_ns >= args.development_freeze.stat().st_mtime_ns, 'supplement inputs precede C freeze'
+        supplement_refs = evidence_references(held_batch)
+        supplement_refs += [reference(Path(__file__).with_name('ram_holdout_supplement.py')), reference(Path(__file__).with_name('audio_corpus.py'))]
     attributions = json.loads(args.callable_map.read_text())
     expected = set(owners.values())-{'0x8c051f8e'}
     assert set(attributions) == expected and len(expected) == 14, 'missing batch caller attribution'
@@ -166,7 +179,7 @@ def audit(args):
     gain = len(body-accepted)
     assert gain == 6076, 'changed batch marginal address union'
     assert not args.out.exists(), 'refuse to overwrite qualification evidence'
-    files = dev_files+held_files+suite_files+original_caller_files+[reference(path) for path in (args.source_freeze, args.development_freeze, native, image_path, args.owners, args.callable_map, args.holdout_inputs, args.baseline, args.full_regression, args.native_suites, args.tool_tests, Path(__file__))]
+    files = dev_files+held_files+suite_files+original_caller_files+supplement_refs+[reference(path) for path in (args.source_freeze, args.development_freeze, native, image_path, args.owners, args.callable_map, args.holdout_inputs, args.baseline, args.full_regression, args.native_suites, args.tool_tests, Path(__file__))]
     args.out.write_text(json.dumps({'coverage_credit': False, 'ready_for_promotion': True, 'marginal_bytes': gain, 'frozen_body_bytes': 434656, 'development': dev, 'acceptance': held, 'full_regression': status, 'references': list({ref['path']: ref for ref in files}.values())}, indent=2)+'\n')
     print('Complete batch audit PASS; 6076 marginal bytes ready for ledger promotion')
 

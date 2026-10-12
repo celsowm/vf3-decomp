@@ -1,0 +1,73 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "owner": "0x8c0c321e",
+  "potential_marginal_bytes": 1574,
+  "prior_original_body_bytes": 1242,
+  "missing_original_bytes": 332,
+  "hypothesis": "Vary actual scene +0x138 unlock flags, bounded status list counts/items, peer selection bytes and mutable config +0x16; preserve all original instructions and pools.",
+  "original_configuration_word_observations": [
+    {
+      "scenario": "s26",
+      "address": "0x0c11e518",
+      "value": "0x00000000",
+      "read_call_pc": "0x0c0c36c2"
+    },
+    {
+      "scenario": "s27",
+      "address": "0x0c11e518",
+      "value": "0x00000000",
+      "read_call_pc": "0x0c0c36c2"
+    }
+  ],
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_inputs.py",
+      "sha256": "5f04ca9e004882f65cc592f36733061f61b48eb1265557e2f4c86daf9746c7c2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_screen_v1_watch.txt",
+      "sha256": "cc104e0d578eea9f480866d8fde4abe7d153ff32f5ade88abb297d460201e833"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_unlock_screen_v1_owners.json",
+      "sha256": "35e4405ec19fc7b1c495e212050b4213f4c60fbd34e8882431a0338eab243526"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_selection_unlock_screen_v1.patch",
+      "sha256": "5846556c8015cd80a7695b06f501631031e5948bea35aa8a8a663903ef712c5f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_selection_boundary_dev_v1_report.json",
+      "sha256": "5b87c051fcfcb9b573d9ff01801033e3be6c1d102b190412d8ed8078f2925f47"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\re\\target_campaign.md",
+      "sha256": "a31e092fc94e82daff260b9489145d1991bee5e2cd5462c0c3b12cd58987730d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_screen_v1_memory.json",
+      "sha256": "eda4cc6476fb62ddaf633f35423993dd2604909a8b6181a5894ec78eef753939"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\percentage_inputs\\coverage_65_selection_unlock_screen_v1_registers.json",
+      "sha256": "1cc2e6ca4feb2d81e39159f7ed2057f5d3ea7d14d1523cf699c57fafeed9613f"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s26.bin",
+      "sha256": "95418fb1e023fba8bd11833ee8dd766307e1cf08abb5f8cbc6da766480f46680"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s26.bin.summary.json",
+      "sha256": "81b131ffe43e5ca8556a747be489dfc3851e151dc2400d45b62393c53c53ecd2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s27.bin",
+      "sha256": "a0ebc5800eb69ad0e202f8317460a413983b9aa5064c7c4089786cb4c00a7144"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_boundary_dev_v1_raw\\capsule_coverage_65_selection_boundary_dev_v1_s27.bin.summary.json",
+      "sha256": "81b131ffe43e5ca8556a747be489dfc3851e151dc2400d45b62393c53c53ecd2"
+    }
+  ]
+}

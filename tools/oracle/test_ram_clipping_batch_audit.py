@@ -88,5 +88,26 @@ class BatchCampaignTests(unittest.TestCase):
         Path(self.runs[0]['entry_patch']).write_text('changed')
         with self.assertRaises(AssertionError): self.run_campaign()
 
+    def test_supplement_groups_body_only_within_its_original_state(self):
+        # Protocol validation is tested separately; exercise the per-state
+        # whole-body gate here, never a union across the two scenarios.
+        struct.pack_into('<H',self.image,258,9)
+        extras=[]
+        for scenario, run in enumerate(self.runs):
+            raw=self.root/f'supp{scenario}.bin'; raw.write_bytes(b'original supplement')
+            Path(str(raw)+'.summary.json').write_text(json.dumps(dict(started=1,completed=1,incomplete=[],unaccounted=0)))
+            self.samples[raw]=[{**copy.deepcopy(self.samples[Path(run['capsule'])][0]),'ops':[(int(self.entry,16)+2,9)]}]
+            extras.append({**run,'capsule':str(raw),'frame_complete':False,'one_shot_done':True})
+        (self.corpus/'batch_manifest.json').write_text(json.dumps(dict(mode='original_ram_supplemented',runs=self.runs+extras)))
+        spans={int(self.entry,16):[(int(self.entry,16),int(self.entry,16)+4)]}
+        with patch.object(audit,'validate_batch'), patch.object(audit,'body_spans',return_value=spans):
+            # run_campaign supplies its own one-word span; call directly to
+            # retain the two-word body requirement.
+            with patch.object(audit,'ROOT',self.root),patch.object(audit,'CACHE',self.root),patch.object(audit,'records',side_effect=lambda p:iter(self.samples[Path(p)])):
+                audit.campaign(self.corpus,self.report,self.owners,self.native,bytes(self.image))
+                self.samples[Path(extras[1]['capsule'])][0]['ops']=[(int(self.entry,16),9)]
+                with self.assertRaises(AssertionError):
+                    audit.campaign(self.corpus,self.report,self.owners,self.native,bytes(self.image))
+
 
 if __name__ == '__main__': unittest.main()

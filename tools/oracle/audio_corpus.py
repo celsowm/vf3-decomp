@@ -12,6 +12,10 @@ from capsules import convert
 
 
 def validate_batch(batch, hashes=False):
+    if batch.get('mode') == 'original_ram_supplemented':
+        from ram_holdout_supplement import validate
+        validate(batch, hashes)
+        return
     if batch.get('mode') != 'process_owned_audio':
         assert all(r['returncode']==0 and r['frame_complete'] for r in batch['runs'])
         return
