@@ -1,0 +1,67 @@
+{
+  "0x8c0570e2": {
+    "kind": "vf3-original-strip-command-v1",
+    "entry": "0x8c0570e0",
+    "call_sites": [
+      "0x8c055794"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+        "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+      }
+    ]
+  },
+  "0x8c057482": {
+    "kind": "vf3-original-strip-command-v1",
+    "entry": "0x8c057480",
+    "call_sites": [
+      "0x8c055794"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+        "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+      }
+    ]
+  },
+  "0x8c057c62": {
+    "kind": "vf3-original-strip-command-v1",
+    "entry": "0x8c057c60",
+    "call_sites": [
+      "0x8c055794"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+        "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+      }
+    ]
+  },
+  "0x8c057862": {
+    "kind": "vf3-original-strip-command-v1",
+    "entry": "0x8c057860",
+    "call_sites": [
+      "0x8c055794"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+        "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+      }
+    ]
+  },
+  "0x8c057fa2": {
+    "kind": "vf3-original-strip-command-v1",
+    "entry": "0x8c057fa0",
+    "call_sites": [
+      "0x8c055794"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+        "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+      }
+    ]
+  }
+}

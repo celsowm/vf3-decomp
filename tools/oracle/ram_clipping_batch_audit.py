@@ -64,12 +64,13 @@ def caller_files(attributions):
     return files
 
 
-def campaign(directory, report_path, owners, native, image):
+def campaign(directory, report_path, owners, native, image, quarantined=()):
     directory = Path(directory)
     manifest = json.loads((directory/'capsule_manifest.json').read_text())
     batch = json.loads((directory/'batch_manifest.json').read_text())
     validate_batch(batch, True)
-    assert (len(batch['runs']) == 2 or batch.get('mode') == 'original_ram_supplemented') and not manifest['nondeterministic_entries'], 'need two complete deterministic scenarios'
+    quarantined=set(quarantined)
+    assert (len(batch['runs']) == 2 or batch.get('mode') == 'original_ram_supplemented') and set(manifest['nondeterministic_entries'])<=quarantined, 'need two complete deterministic scenarios'
     report = json.loads(Path(report_path).read_text())
     spans = body_spans()
     states, fingerprints, proofs, files = set(), set(), [], []
@@ -95,7 +96,12 @@ def campaign(directory, report_path, owners, native, image):
             assert sample['nstate'] == 63 and not sample['device'], 'batch scope requires complete architectural/RAM specimens'
             original_pools(sample, image, sample['ops'])
             entry = hex(sample['entry']|0x80000000)
-            assert entry in owners, 'unexpected batch entry'
+            assert entry in owners or entry in quarantined, 'unexpected batch entry'
+            if entry in quarantined:
+                for pc,opcode in sample['ops']:
+                    offset=(pc&0x1fffffff)-0x0c010000
+                    assert 0<=offset<=len(image)-2 and struct.unpack_from('<H',image,offset)[0]==opcode, 'nonoriginal quarantined instruction'
+                continue
             fingerprint = hashlib.sha256(sample['before']+b''.join(struct.pack('<I', base)+before for base, before, _ in sample['pages'])).hexdigest()
             fingerprints.add(fingerprint); inputs[entry].add(fingerprint)
             for pc, opcode in sample['ops']:
@@ -134,10 +140,18 @@ def audit(args):
         assert digest(ref['path']) == ref['sha256'], 'changed development freeze dependency'
     owners = json.loads(args.owners.read_text())
     assert len(owners) == 15 and owners.get('0x8c051f50') == '0x8c051f8e', 'wrong complete batch/control inventory'
+    quarantine_refs=[];quarantined=set()
+    if getattr(args,'quarantine',None):
+        from ram_observable_nondeterminism import validate as validate_quarantine
+        quarantine=validate_quarantine(args.quarantine)
+        entry=quarantine['quarantined_entry']
+        assert entry=='0x8c0a8f8c' and owners[entry]==quarantine['quarantined_owner'], 'wrong quarantined owner'
+        quarantined={entry};owners={entry:owner for entry,owner in owners.items() if entry not in quarantined}
+        quarantine_refs=list(quarantine['references'].values())+[reference(args.quarantine),reference(Path(__file__).with_name('ram_observable_nondeterminism.py'))]
     image_path = ROOT/'extract/gamedata/1ST_READ.BIN'
     image = image_path.read_bytes()
-    dev_states, dev_inputs, dev, dev_files = campaign(args.development, args.development_report, owners, native, image)
-    held_states, held_inputs, held, held_files = campaign(args.acceptance, args.acceptance_report, owners, native, image)
+    dev_states, dev_inputs, dev, dev_files = campaign(args.development, args.development_report, owners, native, image, quarantined)
+    held_states, held_inputs, held, held_files = campaign(args.acceptance, args.acceptance_report, owners, native, image, quarantined)
     assert dev_states.isdisjoint(held_states) and dev_inputs.isdisjoint(held_inputs), 'development/acceptance reuse'
     holdout_inputs = json.loads(args.holdout_inputs.read_text())
     frozen_ref = holdout_inputs['development_freeze']
@@ -146,6 +160,9 @@ def audit(args):
     for ref in holdout_inputs['files']:
         assert digest(ref['path']) == ref['sha256'], 'changed held input artifact'
     held_batch = json.loads((args.acceptance/'batch_manifest.json').read_text())
+    if quarantined:
+        held_primary=held_batch.get('original_frame_campaign',reference(args.acceptance/'batch_manifest.json'))
+        assert held_primary==quarantine['references']['frame_manifest'], 'quarantine witness is from another held campaign'
     supplement_refs = []
     if held_batch.get('mode') == 'original_ram_supplemented':
         from ram_holdout_supplement import checked, evidence_references
@@ -157,7 +174,9 @@ def audit(args):
         supplement_refs += [reference(Path(__file__).with_name('ram_holdout_supplement.py')), reference(Path(__file__).with_name('audio_corpus.py'))]
     attributions = json.loads(args.callable_map.read_text())
     expected = set(owners.values())-{'0x8c051f8e'}
-    assert set(attributions) == expected and len(expected) == 14, 'missing batch caller attribution'
+    assert set(attributions)==expected|({'0x8c0a8f98'} if quarantined else set()), 'missing batch caller attribution'
+    attributions={owner:row for owner,row in attributions.items() if owner in expected}
+    assert len(expected)==14-len(quarantined), 'wrong selected owner inventory'
     spans = body_spans()
     for owner, attribution in attributions.items():
         for directory in (args.development, args.acceptance):
@@ -177,15 +196,16 @@ def audit(args):
     accepted = {byte for start, end in baseline['baseline_spans'] for byte in range(start, end)}
     body = {byte for owner in expected for start, end in spans[int(owner,16)] for byte in range(start, end)}
     gain = len(body-accepted)
-    assert gain == 6076, 'changed batch marginal address union'
+    assert gain == 6076-158*len(quarantined), 'changed batch marginal address union'
     assert not args.out.exists(), 'refuse to overwrite qualification evidence'
-    files = dev_files+held_files+suite_files+original_caller_files+supplement_refs+[reference(path) for path in (args.source_freeze, args.development_freeze, native, image_path, args.owners, args.callable_map, args.holdout_inputs, args.baseline, args.full_regression, args.native_suites, args.tool_tests, Path(__file__))]
-    args.out.write_text(json.dumps({'coverage_credit': False, 'ready_for_promotion': True, 'marginal_bytes': gain, 'frozen_body_bytes': 434656, 'development': dev, 'acceptance': held, 'full_regression': status, 'references': list({ref['path']: ref for ref in files}.values())}, indent=2)+'\n')
-    print('Complete batch audit PASS; 6076 marginal bytes ready for ledger promotion')
+    files = dev_files+held_files+suite_files+original_caller_files+supplement_refs+quarantine_refs+[reference(path) for path in (args.source_freeze, args.development_freeze, native, image_path, args.owners, args.callable_map, args.holdout_inputs, args.baseline, args.full_regression, args.native_suites, args.tool_tests, Path(__file__))]
+    args.out.write_text(json.dumps({'coverage_credit': False, 'ready_for_promotion': True, 'marginal_bytes': gain, 'quarantined_entries':sorted(quarantined),'frozen_body_bytes': 434656, 'development': dev, 'acceptance': held, 'full_regression': status, 'references': list({ref['path']: ref for ref in files}.values())}, indent=2)+'\n')
+    print(f'Selected batch audit PASS; {gain} marginal bytes ready for ledger promotion; {len(quarantined)} owners remain uncredited')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ('source-freeze', 'development-freeze', 'development', 'development-report', 'acceptance', 'acceptance-report', 'owners', 'callable-map', 'holdout-inputs', 'baseline', 'full-regression', 'native-suites', 'tool-tests', 'out'):
         parser.add_argument('--'+name, type=Path, required=True)
+    parser.add_argument('--quarantine',type=Path,help='verified original observable-input disagreement; excludes the entire owner from credit')
     audit(parser.parse_args())

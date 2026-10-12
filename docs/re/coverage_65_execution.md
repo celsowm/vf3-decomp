@@ -773,3 +773,47 @@ missing independently in each body. The v3 followup uses initialized states
 screening also completes both states, retaining 497 distinct valid inputs;
 state 26 observes 1,544 of 1,574 owner bytes. These candidates remain
 unqualified and need readable C, caller contracts and fresh held-out proof.
+
+## Selected RAM/clipping milestone (2026-10-12)
+
+An exact isolated original repeat reproduces all 63 input words and every
+captured input RAM page of the interpolation failure, but executes a different
+motion-byte branch and leaves its motion-table page unchanged. The original
+frame specimen changes 3,884 bytes of that page. This is an observable-input
+disagreement, not evidence for a C correction. The entire 158-byte interpolation
+owner remains uncredited; both raw specimens, the failed replay and the passing
+repeat are sealed by `replay_interpolate_observable_quarantine_v1.json`.
+
+The other thirteen owners pass strict native replay and independently execute
+their whole frozen bodies with at least 64 distinct inputs in each development
+and held-out state. Their original caller contracts, immutable 398-file C
+closure and the prior 1,396-binding/39-suite inventory also pass. The selected
+qualification audits preserve all original raw records and exclude the entire
+quarantined owner from body/input credit. Seven mutation tests cover this
+exclusion and its original-input witness; the oracle suite passes 320 tests.
+
+`ram_clipping_selected_v1_manifest.json` promotes **5,918 unique C bytes**:
+267,230 -> **273,148 / 434,656 (62.84234%)**. `decomp_stats.py` independently
+reports this same ported address union. The expanded **1,409/1,409-binding**
+full 62.5% checkpoint passes, together with all **39** native suites and
+**325** oracle tests. `ram_clipping_selected_full_625_checkpoint_v2.json`
+seals it and retains 83 mutable workspace snapshots in its immutable archive.
+The unchanged 65% target is 282,527 bytes, leaving **9,379 bytes**.
+
+The next five strip parents independently execute their complete bodies in
+states 28/29. Their shared readable implementation in `src/fight/clip_strip.c`
+matches **2,546/2,546** development cases with zero skips. Generated attribute
+writer adapters supply development closure and receive no new body credit.
+Forty original caller windows prove the immutable command table selected by
+the original constructor and the real JSR, saved frame, bank3 publication and
+RTS/delay slot. The corrected v3 recipe uses the actual RTS beyond each
+seed-fragmented owner; failed v1/v2 preparations/captures remain retained.
+These five owners offer another 2,128 bytes, pending full build integration,
+complete source freeze and fresh independent held-out proof.
+
+The selector followup's first state still misses 62 bytes, including branches
+covered by the earlier pilot. Their union leaves 24 bytes unexecuted. Static
+inspection identifies incompatible stride phases and distinguishes the actual
+per-player masks at `0xc29c174/178`, status counter at `0xc29bcf0`, and list
+capacity byte at `0xc29c0d7` from the scene-global mask. A v3 original pilot
+crosses these predicates explicitly; it remains discovery evidence only.

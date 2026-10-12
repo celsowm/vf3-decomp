@@ -43,11 +43,11 @@ class BatchCampaignTests(unittest.TestCase):
                'executable_sha256': audit.digest(self.native), 'cases': str(self.case)}
         row.update(overrides); self.report.write_text(json.dumps({self.entry: row}))
 
-    def run_campaign(self):
+    def run_campaign(self, quarantined=()):
         with patch.object(audit, 'ROOT', self.root), patch.object(audit, 'CACHE', self.root), \
              patch.object(audit, 'body_spans', return_value={int(self.entry,16): [(int(self.entry,16), int(self.entry,16)+2)]}), \
              patch.object(audit, 'records', side_effect=lambda path: iter(self.samples[Path(path)])):
-            return audit.campaign(self.corpus, self.report, self.owners, self.native, bytes(self.image))
+            return audit.campaign(self.corpus, self.report, self.owners, self.native, bytes(self.image),quarantined)
 
     def test_complete_independent_scenarios(self):
         states, inputs, proof, refs = self.run_campaign()
@@ -108,6 +108,21 @@ class BatchCampaignTests(unittest.TestCase):
                 self.samples[Path(extras[1]['capsule'])][0]['ops']=[(int(self.entry,16),9)]
                 with self.assertRaises(AssertionError):
                     audit.campaign(self.corpus,self.report,self.owners,self.native,bytes(self.image))
+
+    def test_quarantined_owner_never_contributes_inputs_or_body(self):
+        excluded='0x8c010102';struct.pack_into('<H',self.image,258,9)
+        for run in self.runs:
+            raw=Path(run['capsule']);sample=copy.deepcopy(self.samples[raw][0])
+            sample.update(entry=int(excluded,16),ops=[(int(excluded,16),9)])
+            self.samples[raw].append(sample)
+            Path(str(raw)+'.summary.json').write_text(json.dumps(dict(started=65,completed=65,incomplete=[],unaccounted=0)))
+        self.manifest['nondeterministic_entries']=[excluded]
+        path=self.corpus/'capsule_manifest.json';path.write_text(json.dumps(self.manifest))
+        states,inputs,proof,refs=self.run_campaign({excluded})
+        self.assertEqual(len(inputs),128)
+        self.assertTrue(all(row['complete_owners']==1 and set(row['distinct_valid'])=={self.entry} for row in proof))
+        self.manifest['nondeterministic_entries'].append(self.entry);path.write_text(json.dumps(self.manifest))
+        with self.assertRaises(AssertionError):self.run_campaign({excluded})
 
 
 if __name__ == '__main__': unittest.main()

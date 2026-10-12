@@ -7537,6 +7537,279 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0cb65a"
   },
+  "ram-clipping-selected-v1:0x8c05156a": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c057260"
+      ],
+      "contract": "clip",
+      "entry": "0x8c05152c",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c05152c.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05152c"
+  },
+  "ram-clipping-selected-v1:0x8c051956": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0566a4"
+      ],
+      "contract": "clip",
+      "entry": "0x8c051918",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c051918.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c051918"
+  },
+  "ram-clipping-selected-v1:0x8c051c6a": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c057604"
+      ],
+      "contract": "clip",
+      "entry": "0x8c051c2c",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c051c2c.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c051c2c"
+  },
+  "ram-clipping-selected-v1:0x8c0522ca": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0579e8"
+      ],
+      "contract": "clip",
+      "entry": "0x8c05228c",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c05228c.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05228c"
+  },
+  "ram-clipping-selected-v1:0x8c0525fe": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c056e64"
+      ],
+      "contract": "clip",
+      "entry": "0x8c0525c0",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c0525c0.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0525c0"
+  },
+  "ram-clipping-selected-v1:0x8c05295a": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c058122"
+      ],
+      "contract": "clip",
+      "entry": "0x8c05291c",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c05291c.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c05291c"
+  },
+  "ram-clipping-selected-v1:0x8c052c72": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c057de2"
+      ],
+      "contract": "clip",
+      "entry": "0x8c052c34",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_clip_triangle_original_callers_v1\\manifest.json",
+          "sha256": "d38cb8329ba3ab162647343672a829f1e6260f5a91f0984628dd4f0856987472"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c052c34.cases",
+    "port": "src/fight/clip_triangle.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c052c34"
+  },
+  "ram-clipping-selected-v1:0x8c087e1c": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c08b4ae"
+      ],
+      "contract": "component-11",
+      "entry": "0x8c087e04",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_geometry_original_callers_v4\\manifest.json",
+          "sha256": "63d20bd35b26469efb822fb3b788e074631ebac0a5267d4adbadc703f2bcb685"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c087e04.cases",
+    "port": "src/fight/geometry_callback.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c087e04"
+  },
+  "ram-clipping-selected-v1:0x8c08acd8": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c08b4ae"
+      ],
+      "contract": "component-2",
+      "entry": "0x8c08acc0",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_timed_effect_original_component_callers_v2\\manifest.json",
+          "sha256": "21ddcbeeaa1c71ef3e6677ba97bedfe24f5cd42a505ca4bac25c6c172e51a632"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c08acc0.cases",
+    "port": "src/fight/timed_boundary_effect.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08acc0"
+  },
+  "ram-clipping-selected-v1:0x8c08f642": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c090b78"
+      ],
+      "contract": "list",
+      "entry": "0x8c08f632",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_list_interpolation_original_callers_v1\\manifest.json",
+          "sha256": "1d331a4ee6759642729b01f2b85c54caa1b508bc4a217160861400da4537be11"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c08f632.cases",
+    "port": "src/fight/list_interpolation.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08f632"
+  },
+  "ram-clipping-selected-v1:0x8c098b40": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "contract": "scene-53",
+      "entry": "0x8c098b3c",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_round_clock_original_scene_callers_v1\\manifest.json",
+          "sha256": "ed8cab468bafef391a0f4bf02ee805e5fdee809db6421efec3601bc66602da6b"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c098b3c.cases",
+    "port": "src/fight/scene_replay_flow.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c098b3c"
+  },
+  "ram-clipping-selected-v1:0x8c0991a2": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "contract": "scene-56",
+      "entry": "0x8c099194",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_history_original_scene_callers_v1\\manifest.json",
+          "sha256": "3711738a8a26e6c331f2df89495858018d297cb045000e5649987b10092053c2"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c099194.cases",
+    "port": "src/fight/scene_replay_flow.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c099194"
+  },
+  "ram-clipping-selected-v1:0x8c0a8370": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c096184"
+      ],
+      "contract": "initializer",
+      "entry": "0x8c0a8370",
+      "kind": "vf3-ram-clipping-batch-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_replay_initializer_original_callers_v4\\manifest.json",
+          "sha256": "bbdb223c69ea4df384ef2abaa616a130ef61c54d007fa5e22fe41873919a6088"
+        }
+      ]
+    },
+    "golden": "extract/analysis/coverage_65_complete_batch_dev_v2/f_8c0a8370.cases",
+    "port": "src/fight/replay_setup.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete frozen body independently in each development and held-out state; 64+ distinct inputs per state; all architectural/RAM fields and zero replay skips; genuine original caller contracts. Observable-input disagreement quarantines replay interpolation with no credit. Full expanded 62.5% checkpoint remains required.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a8370"
+  },
   "render_lanes_qualified:0x8c05d436": {
     "callable_body": {
       "call_sites": [
