@@ -8916,6 +8916,106 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0be05e"
   },
+  "strip-parent-v1:0x8c0570e2": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c055794"
+      ],
+      "entry": "0x8c0570e0",
+      "kind": "vf3-original-strip-command-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+          "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+        }
+      ]
+    },
+    "golden": "extract/analysis/strip_parent_integrated_development_v1/f_8c0570e0.cases",
+    "port": "src/fight/clip_strip.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent original-state acceptance; frozen readable C; zero-skipped native replays; full 1409 binding regression and 39 native suites passed",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0570e0"
+  },
+  "strip-parent-v1:0x8c057482": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c055794"
+      ],
+      "entry": "0x8c057480",
+      "kind": "vf3-original-strip-command-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+          "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+        }
+      ]
+    },
+    "golden": "extract/analysis/strip_parent_integrated_development_v1/f_8c057480.cases",
+    "port": "src/fight/clip_strip.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent original-state acceptance; frozen readable C; zero-skipped native replays; full 1409 binding regression and 39 native suites passed",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c057480"
+  },
+  "strip-parent-v1:0x8c057862": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c055794"
+      ],
+      "entry": "0x8c057860",
+      "kind": "vf3-original-strip-command-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+          "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+        }
+      ]
+    },
+    "golden": "extract/analysis/strip_parent_integrated_development_v1/f_8c057860.cases",
+    "port": "src/fight/clip_strip.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent original-state acceptance; frozen readable C; zero-skipped native replays; full 1409 binding regression and 39 native suites passed",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c057860"
+  },
+  "strip-parent-v1:0x8c057c62": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c055794"
+      ],
+      "entry": "0x8c057c60",
+      "kind": "vf3-original-strip-command-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+          "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+        }
+      ]
+    },
+    "golden": "extract/analysis/strip_parent_integrated_development_v1/f_8c057c60.cases",
+    "port": "src/fight/clip_strip.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent original-state acceptance; frozen readable C; zero-skipped native replays; full 1409 binding regression and 39 native suites passed",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c057c60"
+  },
+  "strip-parent-v1:0x8c057fa2": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c055794"
+      ],
+      "entry": "0x8c057fa0",
+      "kind": "vf3-original-strip-command-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_strip_parent_original_callers_v3\\manifest.json",
+          "sha256": "cb4a62d55f172b43f2497a951391746b186887dc77c78dfc3c260e949aa15f75"
+        }
+      ]
+    },
+    "golden": "extract/analysis/strip_parent_integrated_development_v1/f_8c057fa0.cases",
+    "port": "src/fight/clip_strip.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Independent original-state acceptance; frozen readable C; zero-skipped native replays; full 1409 binding regression and 39 native suites passed",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c057fa0"
+  },
   "target-action-selector:0x8c0a92da": {
     "golden": "extract/analysis/target_action_selector_dev/target_action_selector_dev_8c0a92c8/f_8c0a92da.cases",
     "port": "src/fight/target_action_selector_adapters.c",

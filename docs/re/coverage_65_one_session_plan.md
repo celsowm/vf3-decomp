@@ -2,24 +2,33 @@
 
 ## Current execution checkpoint, 2026-10-12
 
-Accepted and pushed at `04cb3ea`: **273,148 / 434,656 bytes (62.8423%)**.
-The complete 62.5% checkpoint passed 1,409 bindings, 39 native suites and
-325 oracle tests. The remaining target is **9,379 verified bytes**; retain
+Accepted union after the independently qualified strip milestone:
+**275,276 / 434,656 bytes (63.3319%)**. The preceding pushed checkpoint
+`04cb3ea` was 273,148 bytes. The strip build passed its full 1,409-binding
+regression, 39 native suites and 330 current oracle tests. All five new
+bindings pass their strict development and independent acceptance replays;
+the expanded 1,414-binding checkpoint is running. The remaining target is
+**7,251 verified bytes**; retain
 the fixed target of **282,527**, including throughout intermediate batches.
 
-The next batch is five readable strip parents, **2,128 marginal bytes**.
-Their integrated build passes all 2,546 strict development cases, original
-caller contracts and the full 1,409-binding regression. Freeze that exact
-400-input compiled source closure, then generate disjoint held-out inputs
-and capture independent original states 45/46. Credit only after both
-scenarios independently cover every frozen owner instruction and pass
-complete register/RAM replay with no skipped accepted cases.
+Five readable strip parents added **2,128 marginal bytes**. Their frozen
+400-input build passes all 2,546 strict development and 2,550 acceptance
+cases with zero skips. Original states 45/46 both completed 18,000 frames
+and independently cover every owner instruction; their fingerprints are
+disjoint from development. Original caller contracts also pass. Qualification,
+promotion and historical dependency archives are recorded in
+`tools/oracle/strip_parent_qualification_v1.json`, `strip_parent_v1_manifest.json`
+and `strip_parent_historical_archive_v1.json`.
 
 Next is selection/unlock owner `0x8c0c321e`, **1,574 bytes**. Combined original
 development campaigns already cover its entire frozen body independently
 in states 26/27. The readable C candidate remains unlinked and uncredited;
-finish its strict development replay, caller proof, source freeze and fresh
-independent acceptance campaign before promoting it.
+its 1,411-case strict development replay and eight original parent-tail
+windows now pass. Finish normal integration, source freeze and fresh
+independent acceptance before promoting it. The first caller recipe produced
+device events on six windows and remains diagnostic; guarded original caller
+recipe v2 verifies the unchanged transfer/save/return instructions without
+device activity.
 
 After those two successful promotions, **5,677 bytes** would remain. The
 next scene/replay selection contains **6,042 candidate bytes**:

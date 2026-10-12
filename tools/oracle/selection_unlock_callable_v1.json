@@ -1,0 +1,15 @@
+{
+  "0x8c0c321e": {
+    "kind": "vf3-original-selection-tail-v1",
+    "entry": "0x8c0c3210",
+    "call_sites": [
+      "0x8c0c31de"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_selection_unlock_original_tail_v2\\manifest.json",
+        "sha256": "850b83c8bf563eb1f340921ee04fa0363bd926ddcf8b93aeff97f765eb4bdbe9"
+      }
+    ]
+  }
+}
