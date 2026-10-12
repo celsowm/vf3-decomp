@@ -2,7 +2,18 @@
 
 ## Current execution checkpoint, 2026-10-12
 
-Accepted union after the independently qualified strip milestone:
+The complete round-decision campaign adds **882 marginal bytes**, bringing
+the ledger to **276,158 / 434,656 bytes (63.5348%)**. The remaining target is
+**6,369 bytes**. Development passes 1,003/1,003 strict cases; independent
+acceptance passes 1,008/1,008 with zero skips and whole-body coverage separately
+in both states. All four round runs remain intact, with original caller proof
+and disjoint input fingerprints. Qualification and preservation are in
+`scene_round_qualification_v1.json` and `scene_round_historical_archive_v1.json`.
+The expanded 1,415-binding regression is running; 375 oracle tests passed.
+The final checkpoint also verifies original SAVEF state lineage and the retained
+compiled source closure. No failed input-transition cases contribute credit.
+
+Accepted union at the preceding independently qualified strip milestone:
 **275,276 / 434,656 bytes (63.3319%)**. The preceding pushed checkpoint
 `04cb3ea` was 273,148 bytes. The strip build passed its full 1,409-binding
 regression, 39 native suites and 330 current oracle tests. All five new
@@ -50,9 +61,14 @@ campaigns in each of states 26/27 cover all 250 owner bytes independently;
 the merged corpus passes 1,016 strict native cases with zero skips and no
 nondeterministic inputs. Eight original index-57 scene dispatch windows also
 completed without device activity; the fixed scene-57 attribution verifier
-and its five mutation tests now pass. Normal integration, source freeze and
-independent acceptance remain required; these bytes are
-uncredited. Earlier mixed scene captures contain unrelated incomplete calls
+and its five mutation tests now pass. Normal integration and the qualified
+source freeze passed, but independent acceptance failed **910/911** cases with
+zero skips. Case 401 maps to original state-46 invocation 210. An exact original
+repeat has identical captured RAM, all 63 input registers and all 28,901
+instructions, but different final RAM. The entire 250-byte owner remains
+excluded under this observation model, recorded in
+`scene_input_transition_observable_quarantine_v1.json`; the hidden cause is
+not established. Earlier mixed scene captures contain unrelated incomplete calls
 and are retained as diagnostics, rather than used for this complete proof.
 
 The five new replay helpers provide **824 additional uncredited candidate
@@ -122,10 +138,14 @@ development replays pass 1,003 round cases, 1,016 input-transition cases,
 freeze pins 372 passing tool tests and the completed **1,414-binding / 39-suite**
 regression in `scene_batch_integrated_all_bindings_dev_v1.log`. The complete
 development evidence was sealed before generating four fresh acceptance
-profiles, each captured in original states 45/46 for 4,000 frames. Acceptance
-is running sequentially through `scene_batch_accept_capture.py`; no byte is
-credited until its independent whole-body, caller and strict replay audit passes.
-The two main owners offer **1,132 marginal bytes**, leaving 6,119 if accepted.
+profiles, each captured in original states 45/46 for 4,000 frames. All eight
+runs completed with zero incomplete invocations. The combined scene audit
+stopped on the input-transition failure and grants no batch credit. The
+separate complete round campaign qualifies all its valid specimens through
+`scene_round_acceptance_audit.py`; no specimen is selected out of its campaign.
+Eight new original scene-57 caller windows also complete the replay helper
+transition paths, with no device access recorded by the capsule. They remain
+caller research until their exact contracts and independent acceptance pass.
 The previous selection build's 2,965 proof references and 401-file source
 archive were preserved by `selection_unlock_complete_historical_v1.json`
 before changing the normal build.

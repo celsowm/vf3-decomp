@@ -1,0 +1,179 @@
+{
+  "coverage_credit": false,
+  "quarantined_entry": "0x8c0993e0",
+  "quarantined_owner": "0x8c0993e8",
+  "excluded_owner_bytes": 250,
+  "reason": "Identical captured RAM and all 63 architectural input words execute identical original instructions but produce differing final RAM. The entire owner remains excluded under this input model.",
+  "limitation": "The hidden state responsible has not been established. This proves an observation limit and does not prove a C correction.",
+  "comparison": {
+    "diagnostic_only": true,
+    "coverage_credit": false,
+    "references": [
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_batch_accept_v3_raw\\capsule_coverage_65_scene_batch_accept_v3_s46.bin",
+        "sha256": "7e70df22bfed76e0129f4175aac6ccaca5f2b0beb32f1fdedfd5a4e79e18b562",
+        "invocation": 210
+      },
+      {
+        "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.capsule",
+        "sha256": "ac4e9a38e2e41f71726d2fedcb8514fb5f86331796a582ebe22942130c3701d0",
+        "invocation": 1
+      }
+    ],
+    "captured_inputs_equal": true,
+    "captured_outputs_equal": false,
+    "observable_disagreement": true,
+    "input_register_differences": [],
+    "output_register_differences": [],
+    "memory_differences": [
+      {
+        "base": "0xc31f000",
+        "before_equal": true,
+        "after_equal": false,
+        "left_after_preview": "00000000000000000000000000000000",
+        "right_after_preview": "00000000000000000000000000000000"
+      },
+      {
+        "base": "0xc62f000",
+        "before_equal": true,
+        "after_equal": false,
+        "left_after_preview": "000080bfa48da33d19ca093cae4721bf",
+        "right_after_preview": "00000000000000bf0000000000000000"
+      }
+    ],
+    "left_instructions": 28901,
+    "right_instructions": 28901,
+    "canonical_instruction_traces_equal": true,
+    "first_instruction_differences": []
+  },
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_batch_accept_v3_export\\batch_manifest.json",
+      "sha256": "d01bfb1ba05c3e79504855775420adfc7a6be2f566548272f5096fddca60996a"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\manifest.json",
+      "sha256": "3a1d8b613bcf67c133c92e4dc23383afca0ba6d892f68aa255d8bd716d5634a2"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\flycast_task_return_boundary_v1.exe",
+      "sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\original_input_disagreement.py",
+      "sha256": "8e165905e469ffdf9cedc74eead11a8382195b66ef382f9bed9449e8b0e35cff"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\scene_input_transition_accept_repeat210_v1.json",
+      "sha256": "459aca9ea41847a7c3f48db1dbb5573313d8f825f32711ab5777be2d0c7a7cc0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "ebc017d7eb86f92c7d532f90bb3f068656130e06a8e809d178ce3eb01a380a7e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audio.cpp",
+      "sha256": "2b3392e11141aa120176df613928d51847173279432817bb6a8a91a9ce0b1cce"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3audiobridge.cpp",
+      "sha256": "ed4aa0c37cd374595b9e796e3cf8af783ce288e635f158e7bc3f055286f0a710"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\command_encoders.c",
+      "sha256": "db97c53649936e79ff89dd966521dea5b816223e52b95c01571e10433dc54485"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_channels.c",
+      "sha256": "c7479823a60d42124fe1d734a162109f172edf8c9ff734c47485a217d3fdda62"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_submission.c",
+      "sha256": "6987d62c8ddc2c0006c19ca6a022c65ee45d911e966a1138f119337e629ec261"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_actor_clear.c",
+      "sha256": "38faff877cb53793c7596f3ecb1fe9772ad48103b967bde4f2a672a73eaea301"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_encoder.c",
+      "sha256": "815f6d0db85eda8ff0ffa512a00bed1e18463394ea0d41522f9a9caf6396676d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_request.c",
+      "sha256": "6bb0fc404764ac15c069c880749882bf7b981ae81ce2fe9a2bc1a1e67e647384"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_input.c",
+      "sha256": "3596305feb46e3e06381350c6407dc75634b5a399eddab481def315847981307"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight.c",
+      "sha256": "ef0ec82781f067f6fde0f0be18ed6594e2d92419eedb7f368e2ae02f3566a884"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_scene.c",
+      "sha256": "23bded7df9d4704a849060e22b989568f9d967a8a38209f165ae39baaa48ca96"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_render.c",
+      "sha256": "31ac2aa6aa197705ef2c6d3dcfb63a878d46518e76ab14e6c2dfac2271b53ed9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\src\\fight\\audio_fight_internal.h",
+      "sha256": "00022e1f533f31642ee625f5e12425b814912928242b3e639069e6924e7db981"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\audio_one_shot.py",
+      "sha256": "4b8a45236cf3434c8fd61da5f9409065bc3e2ce947b31aee60a9936d575e5417"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_batch_accept_v3_raw\\capsule_coverage_65_scene_batch_accept_v3_s46.bin",
+      "sha256": "7e70df22bfed76e0129f4175aac6ccaca5f2b0beb32f1fdedfd5a4e79e18b562"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_batch_accept_v3_raw\\capsule_coverage_65_scene_batch_accept_v3_s46.bin.summary.json",
+      "sha256": "c597d666b225c4c7d0d124c7e0c71cadeaee906310f4d560bb18557a8330f30d"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.capsule",
+      "sha256": "ac4e9a38e2e41f71726d2fedcb8514fb5f86331796a582ebe22942130c3701d0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.capsule.summary.json",
+      "sha256": "01d7e4d9ad43638ab6db7ec8651008597db108cd3c69961a005c376ad3aef99e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage_65_scene_batch_accept_v3.patch",
+      "sha256": "3eaba765eb0407552a1ae8a4a114e5c3f8cb8678fb0b1e2c3838fd91c30b7c6b"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_scene_batch_accept_v3_raw\\golden_coverage_65_scene_batch_accept_v3_s46.log",
+      "sha256": "022e8aef139b00ea4a48120069515e256c94bc1d3322fcba00f81605130e0696"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.log",
+      "sha256": "28beccd970422509336495ffa24590680b8674018599175e89b4d212eaa28738"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.patch",
+      "sha256": "192c0c6a5428984c886692f757542ad21287392d9ce0fe62335ebb3c4efac8a0"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_input_transition_accept_repeat210_original_v1\\vf3_46_invocation_210_exact_ram_1.audio.gz",
+      "sha256": "e5777605f4696e798e84ead37a8fd235cb92e4157391a74e89db87f30836cb83"
+    }
+  ]
+}

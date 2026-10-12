@@ -10647,5 +10647,36 @@
     "source": "Complete invocation registers/banked/XF/FPUL/GBR/return-PC/touched-RAM/device-access tape; 128 strict cases from fifth_leaf_dev_v6_cases corpus (body cover 83.3%)",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c07c634"
+  },
+  "vf3_scene_round_decision_v1:0x8c098c70": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0968f4"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "r9",
+        "r8"
+      ],
+      "entry": "0x8c098c62",
+      "index": 54,
+      "kind": "vf3-scene-round-index54-v1",
+      "original_caller_manifests": [
+        {
+          "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\scene_round_decision_original_dispatch_v3\\manifest.json",
+          "sha256": "6532b3be3b43ff3897a0e5c0b987463fe8fff46a16acf2a04ffca459acdf8c19"
+        }
+      ],
+      "table": "0xc10baa8"
+    },
+    "golden": "C:/Users/celso/AppData/Local/vf3-decomp/audio-evidence/coverage_65_scene_round_decision_combined_dev_v1_export/f_8c098c62.cases",
+    "port": "src/fight/scene_round_decision.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete independent round campaign, all cases replayed; qualification and historical source closure in scene_round_qualification_v1.json and scene_round_historical_archive_v1.json; input-transition campaign excluded in full.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c098c62"
   }
 }

@@ -185,3 +185,32 @@ corpora stored outside the workspace. Relative workspace artifact names and
 hash formats remain unchanged; undeclared external paths and sibling-prefix
 escapes are rejected. This avoids copying large evidence caches onto the
 nearly full workspace drive without changing qualification gates.
+
+`original_input_disagreement.py --frame BATCH --repeat ONE_SHOT --capsule RAW --invocation ID --owner OWNER --out NEW_JSON`
+checks both original execution manifests, the unchanged observer, every
+provenance hash, complete invocation accounting, all 63 input words, captured
+RAM, original opcodes/pools and identical instruction traces. Differing final
+RAM excludes the entire owner under the captured-input model. It establishes
+an observation limit, without attributing a hidden cause or correcting C.
+
+`pin_failed_campaign.py CORPUS --report STRICT_REPORT --out NEW_JSON` pins the
+complete replay report, native executable, every corpus file and each raw run,
+summary, log and input patch. It requires a failed report covering every corpus
+entry and preserves all cases. The input-transition failure retains 1,849
+dependencies in `scene_input_transition_failed_acceptance_v1.json`.
+
+`replay_transition_caller_inputs.py` prepares four typed expired-clock inputs
+through the immutable original scene-57 table. The resulting one-shot caller
+captures retain the input predicate, paired reset callbacks, replay transition
+and final RTS. The recipe grants no coverage credit.
+`--force-pair-reset --out NEW_RECIPE` clears the original optional-reset input
+byte for every variant. `replay_transition_caller_audit.py` verifies the eight
+resulting original windows, including dispatcher slot, complete ordered save
+prefixes, delayed transfers, callback tail and actual outer return. Its proof
+is `replay_transition_original_callers_v2_proof.json`; the helpers remain uncredited.
+
+`scene_round_acceptance_audit.py` audits the complete round campaign separately
+from the failed input-transition campaign, using every run and valid specimen.
+`scene_round_checkpoint.py` requires its historical hashes, original SAVEF
+state lineage, compiled source freeze, expanded 1,415-binding regression,
+39 native suites and 375 tool tests before sealing the final checkpoint.
