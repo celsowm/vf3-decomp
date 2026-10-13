@@ -50,6 +50,12 @@ clamp or swap tail. The evidence and reusable PC-union analyzer are in
 `coverage_65_capture_union.py`. No bytes are credited; reopening this owner
 requires the original task/counter context that reaches the tail.
 
+Candidate `0x8c07e294` (1,256 bytes) also remains advisory. Its complete
+14,400-frame hit-only run in state 26 recorded zero calls at true entry
+`0x8c07e284`, so the remaining queued states were stopped. The owner stays in
+the candidate pool pending a state where the menu actually enters it; see
+`coverage_65_ui_7e294_hits_v1.json`.
+
 The preceding round checkpoint:
 
 The complete round-decision campaign adds **882 marginal bytes**, bringing

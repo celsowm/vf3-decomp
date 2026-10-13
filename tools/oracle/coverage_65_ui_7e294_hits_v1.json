@@ -1,0 +1,17 @@
+{
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "entry": "0x8c07e284",
+  "owner": "0x8c07e294",
+  "state": "tools/emu/flycast-build/data/vf3_26.state",
+  "state_sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+  "frames_expected": 14400,
+  "frames_run": 14400,
+  "run_returncode": 0,
+  "natural_hits": 0,
+  "observer_sha256": "b84119778244e85e247a85481900a0de9f9b11e99dd0b85830136942bf2fb3c2",
+  "watch_sha256": "460e15731a3f3df7eba55ad883e491b3781e48c5aa15f1b92fed08dcee13aa89",
+  "hits_csv": "tools/oracle/coverage_65_ui_7e294_hits_v1_s26.csv",
+  "hits_csv_sha256": "36e592667faea9922bc5816cb6cc1ad7d2ea3cbb67f75d86b1c399e7978a18d0",
+  "note": "The queued states 27-29 were stopped after the complete state-26 run recorded zero hits. This excludes only state 26 as a useful context; the owner remains in the advisory candidate pool."
+}
