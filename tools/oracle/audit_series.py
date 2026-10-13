@@ -58,11 +58,13 @@ def chain(baseline_path, paths):
                 target_met=current >= baseline['target_bytes'], milestones=rows)
 
 
-def audit_one(row, hashes):
+def audit_one(row, hashes, evidence_roots=()):
     command = [sys.executable, str(ROOT / 'tools/oracle/audit_matrix_batch.py'),
                '--manifest', row['manifest']]
     if hashes:
         command.append('--hashes')
+    for root in evidence_roots:
+        command += ['--evidence-root', str(root)]
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
     return {**row, 'returncode': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr}
 
@@ -71,11 +73,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--baseline', type=Path, default=ROOT / 'tools/oracle/tenpp_coverage_baseline.json')
     parser.add_argument('--pattern', default='tools/oracle/tenpp_*milestone.json', help='repository-relative glob')
+    parser.add_argument('--manifest',type=Path,action='append',help='explicit ordered milestone set; replaces the glob')
     parser.add_argument('--hashes', action='store_true')
     parser.add_argument('--jobs', type=int, choices=range(1, 5), default=1)
     parser.add_argument('--out', type=Path, help='incremental JSON audit report')
+    parser.add_argument('--evidence-root',type=Path,action='append',default=[])
     args = parser.parse_args()
-    summary = chain(args.baseline.resolve(), sorted(ROOT.glob(args.pattern)))
+    summary = chain(args.baseline.resolve(), [p.resolve() for p in args.manifest] if args.manifest else sorted(ROOT.glob(args.pattern)))
     summary.update(hashes=args.hashes, audits=[], complete=False, passed=False)
 
     def save():
@@ -85,7 +89,7 @@ def main():
 
     save()
     with ThreadPoolExecutor(max_workers=args.jobs) as pool:
-        futures = [pool.submit(audit_one, row, args.hashes) for row in summary['milestones']]
+        futures = [pool.submit(audit_one, row, args.hashes,args.evidence_root) for row in summary['milestones']]
         for future in as_completed(futures):
             result = future.result()
             summary['audits'].append(result)

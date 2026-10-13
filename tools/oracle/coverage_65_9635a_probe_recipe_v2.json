@@ -1,0 +1,8 @@
+{
+  "trigger_pc": "0x8c09635a",
+  "target_pc": "0x8c09635a",
+  "pr_offset": 2,
+  "variants": [
+    {"memory": {"0x0c2cf83c": "0x8", "0x0c2cf844": "0x606", "0x0c2cf850": "0x8", "0x0c2cf858": "0x606"}}
+  ]
+}

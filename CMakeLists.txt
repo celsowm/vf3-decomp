@@ -52,6 +52,8 @@ add_library(vf3core STATIC
     src/fight/sh4_matrix.c
     src/fight/sh4_fpu.c
     src/fight/matrix_family.c
+    src/fight/actor_table_apply.c
+    src/fight/actor_table_family.c
     src/fight/matrix_adapters.c
     src/fight/fight_adapters.c
     src/fight/fight_adapters_0.c
@@ -268,6 +270,8 @@ target_include_directories(vf3core PUBLIC src)
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   set_source_files_properties(src/fight/sh4_fpu.c PROPERTIES
       COMPILE_OPTIONS "-frounding-math;-ffp-contract=off")
+  set_source_files_properties(src/fight/actor_table_apply.c PROPERTIES
+      COMPILE_OPTIONS "-O0;-frounding-math;-ffp-contract=off")
   # Explicit ABI control flow is large; algorithm kernels retain Release
   # optimization while adapter builds stay fast enough for batch iteration.
   set_source_files_properties(src/fight/matrix_adapters.c src/fight/fight_adapters.c

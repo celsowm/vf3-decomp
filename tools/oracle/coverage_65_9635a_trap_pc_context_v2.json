@@ -1,0 +1,1047 @@
+{
+  "schema": "vf3cap-pc-context-v1",
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "target": "0x8c001006",
+  "physical_target": "0x0c001006",
+  "radius": 6,
+  "invocations": 15,
+  "matching_invocations": 15,
+  "rows": [
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 1,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 2,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 3,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 4,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 5,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 6,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 7,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 8,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 9,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 10,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 11,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 12,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 13,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 14,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "extract\\analysis\\capsule_coverage_65_9635a_reios_context_v2_s29.bin",
+      "invocation": 15,
+      "entry": "0x0c09635a",
+      "exit": "0x0c09665a",
+      "flags": 0,
+      "instruction_count": 496,
+      "matches": [
+        {
+          "index": 436,
+          "pc": "0x8c001006",
+          "opcode": "0x085b",
+          "window": [
+            {
+              "pc": "0x0c0430dc",
+              "opcode": "0xe600"
+            },
+            {
+              "pc": "0x0c0430de",
+              "opcode": "0xd702"
+            },
+            {
+              "pc": "0x0c0430e0",
+              "opcode": "0xd002"
+            },
+            {
+              "pc": "0x0c0430e2",
+              "opcode": "0x6002"
+            },
+            {
+              "pc": "0x0c0430e4",
+              "opcode": "0x402b"
+            },
+            {
+              "pc": "0x0c0430e6",
+              "opcode": "0x0009"
+            },
+            {
+              "pc": "0x8c001006",
+              "opcode": "0x085b"
+            },
+            {
+              "pc": "0x0c0433f8",
+              "opcode": "0x8801"
+            },
+            {
+              "pc": "0x0c0433fa",
+              "opcode": "0x8f03"
+            },
+            {
+              "pc": "0x0c0433fc",
+              "opcode": "0x6403"
+            },
+            {
+              "pc": "0x0c043404",
+              "opcode": "0xe001"
+            },
+            {
+              "pc": "0x0c043406",
+              "opcode": "0x4f26"
+            },
+            {
+              "pc": "0x0c043408",
+              "opcode": "0x000b"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

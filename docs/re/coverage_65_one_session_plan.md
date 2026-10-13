@@ -1,6 +1,6 @@
 # One-session execution plan for 65% verified C
 
-## Current execution checkpoint, 2026-10-12
+## Current execution checkpoint, 2026-10-13
 
 The independently accepted replay helpers add **420 marginal bytes**, bringing
 the ledger to **276,578 / 434,656 bytes (63.6315%)**. The remaining target is
@@ -29,6 +29,48 @@ campaign is diagnostic only, with zero coverage credit; its audit is preserved
 in `tools/oracle/scene_retire_original_dev_v2_report.json`. A larger recording
 budget alone does not qualify this reset owner.
 
+The later full-frame natural screen materially changes the next-candidate
+ordering. With the pinned original Flycast observer and the 30-entry pool
+watch list, states 26, 27, 28 and 29 complete 14,400 frames each. They reach
+`0x8c09635a` 14, 19, 16 and 15 times respectively, plus one call to
+`0x8c0a575c` in state 27. All other watched entries have zero hits in these
+contexts. The reusable validator and hashed report are
+`coverage_65_hit_screen_audit.py` and
+`coverage_65_pool_hits_nine_state_v1.json`. State 21 adds seven more natural
+calls to `0x8c09635a`, state 20 adds no hits, state 22 adds 18 calls, state 23
+adds 31, and state 24 adds 45. Development states 30 and 31 reach none of the
+30 watched pool entries. States 40 and 41 reach `0x8c09635a` 25 and 26 times,
+respectively; no other watched owner appears. Their per-state audits are
+`coverage_65_pool_hits_s30_v1.json`, `coverage_65_pool_hits_s31_v1.json`,
+`coverage_65_pool_hits_s40_v1.json` and `coverage_65_pool_hits_s41_v1.json`.
+The newly screened state 25 reaches `0x8c09635a` 73 times and no other watched
+entry; its complete 14,400-frame hit audit is
+`coverage_65_pool_hits_s25_v1.json`.
+State 32 is unusable: the guest stops after three frames on a fatal SH-4
+exception, so its screen is incomplete and excluded. State 33 completes 14,400
+frames with no calls to any watched pool entry; its audit is
+`coverage_65_pool_hits_s33_v1.json`. State 34 completes a 600-frame pilot with
+no early pool hits; it has not yet had a full screen.
+This proves natural reachability, not owner coverage. The narrow measured REIOS
+`GDROM_GET_DRV_STAT` service adapter now passes all 115 complete natural cases
+from states 26–29, 40 and 41 with zero skips. A new state-25 capsule supplies
+73 more distinct complete inputs, and the current C adapter passes all 73/73
+strict replays with zero skips. The seven-state set now totals 188 cases, but
+its merged PC union remains
+**140/616 bytes** at `0x8c09635a`, so none of the owner is qualified. A focused
+gate probe reached the TA FIFO at `0x80800000` and produced only invalid
+captures; no new body PCs were added. Keep the 5,949-byte target gap unchanged.
+Details are in `docs/re/aica_stub.md`,
+`tools/oracle/coverage_65_9635a_reios_dev_115_report.json`,
+`extract/analysis/coverage_65_9635a_s25_capsule_v1/` and the two probe recipes.
+
+The one naturally reached `0x8c0a575c` call has a readable isolated C model in
+`src/fight/actor_table_apply.c`. Its complete 558-byte body passes strict
+replay for the captured natural input (1/1), but this single example does not
+establish varied inputs, caller coverage or held-state behavior, so it earns
+zero credit. Both additional screens are development-only and diagnostic.
+The 5,949-byte target gap is unchanged.
+
 The options-menu diagnostic adds a readable isolated C model matching all
 256 new strict original cases and 171 older cases. Each new state covers
 650/664 owner bytes, but the original reset helper makes a required nonzero
@@ -36,8 +78,8 @@ configuration branch unreachable under this input model. The earlier ledger
 already recorded that blocker; the entire owner remains excluded. Details are
 in `docs/re/options_menu_diagnostic.md`. A reusable candidate-block registry
 and pool refresh now remove known blockers before further implementation.
-`coverage_65_remaining_pool_margin_v4.json` records 27 eligible advisory owners
-with 19,380 potential bytes against the unchanged 5,949-byte target gap.
+`coverage_65_remaining_pool_margin_v5.json` records 26 eligible advisory owners
+with 18,654 potential bytes against the unchanged 5,949-byte target gap.
 Potential bytes remain conditional on all original, C, caller and held gates.
 
 The resident-menu owner `0x8c09b37e` remains blocked. Five complete diagnostic
@@ -396,3 +438,25 @@ worktree. Report the measured percentage, accepted byte gain, full-gate
 results and proof artifacts. Mark the 65% goal complete only after that
 audited state exists. If an external blocker prevents completion, retain
 accurate progress and evidence instead of declaring the session finished.
+
+## 6. 2026-10-13 follow-up probes
+
+The `0x8c09970a` scene-owner nested-entry investigation now has a corrected
+RAM fixture observer and a reusable body-union audit. Natural child entry was
+absent in the first 2,000 frames of state 28. Synthetic nested probes then
+proved 14 complete valid cases in the alternate-event seed (two specimens
+were rejected), but their owner-body PC union is exactly the existing screen
+baseline: **498/1,172 bytes, zero marginal bytes**. In particular, none of
+those valid cases entered `0x8c099a18..0x8c099b72`. The audit is
+`coverage_65_09970a_nested_probe_v9_union.json`; raw captures remain on D:.
+This closes the current one-hypothesis triage pass for the synthetic branch.
+Keep the owner excluded and move to another candidate unless new original
+execution evidence changes its entry state. The accepted ledger and target
+gap remain **276,578 / 434,656** and **5,949 bytes**.
+
+The nullDC DevTools and AICA DSP references are already present under
+gitignored `refs/`; the DevTools snapshot verifier passes. Their current
+formats do not directly advance coverage: the frontend lacks a live debugger
+backend, and the DSP playground consumes textual DSP registers/programs while
+our `AICA_DUMP` capture contains sound RAM only. `docs/re/ref_nulldc_devtools.md`
+records the concrete integration gap and the future register-export bridge.

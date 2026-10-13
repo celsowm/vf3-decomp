@@ -1,0 +1,6 @@
+{
+  "0x8c0a3246": {"kind":"vf3-resource-table-setters-v1","entry":"0x8c0a3242","index":11,"table":"0xc10def0","call_sites":["0x8c0a2f40"],"callee_save_prefix":["r14"]},
+  "0x8c0a3508": {"kind":"vf3-resource-table-setters-v1","entry":"0x8c0a3504","index":24,"table":"0xc10def0","call_sites":["0x8c0a2f40"],"callee_save_prefix":["r14"]},
+  "0x8c0a38b2": {"kind":"vf3-resource-table-setters-v1","entry":"0x8c0a38ae","index":13,"table":"0xc10def0","call_sites":["0x8c0a2f40"],"callee_save_prefix":["r14"]},
+  "0x8c0a3af6": {"kind":"vf3-resource-table-setters-v1","entry":"0x8c0a3af2","index":1,"table":"0xc10def0","call_sites":["0x8c0a2f40"],"callee_save_prefix":["r14"]}
+}

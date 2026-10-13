@@ -1,0 +1,1254 @@
+{
+  "schema": "flycast-gdrom-trace-audit-v1",
+  "input": "extract\\analysis\\reios_coverage_65_9635a_s28_v1.log",
+  "input_sha256": "7911364bad42f866de6b8485a98f816c5790d4d8e1b58f1988629e3022112d9c",
+  "records": 89605,
+  "function_counts": {
+    "1": 44762,
+    "2": 44827,
+    "4": 16
+  },
+  "group_counts": {
+    "0": 89605
+  },
+  "status_counts": {
+    "0": 82,
+    "1": 89523
+  },
+  "command_counts": {
+    "17": 89605
+  },
+  "requests": {
+    "0:60": {
+      "calls": 89523,
+      "functions": {
+        "1": 44761,
+        "2": 44762
+      },
+      "statuses": {
+        "1": 89523
+      },
+      "commands": {
+        "17": 89523
+      },
+      "total_values": [
+        715
+      ],
+      "remaining_min": 5,
+      "remaining_max": 605,
+      "first": {
+        "fn": 2,
+        "group": 0,
+        "pc": 2348814344,
+        "pr": 201602256,
+        "r4": 0,
+        "r5": 225280,
+        "r0": 2348814342,
+        "status": 1,
+        "cmd": 17,
+        "remaining": 605,
+        "total": 715,
+        "req": 60
+      },
+      "last": {
+        "fn": 2,
+        "group": 0,
+        "pc": 2348814344,
+        "pr": 201602256,
+        "r4": 0,
+        "r5": 1454080,
+        "r0": 2348814342,
+        "status": 1,
+        "cmd": 17,
+        "remaining": 5,
+        "total": 715,
+        "req": 60
+      }
+    },
+    "0:4294967295": {
+      "calls": 82,
+      "functions": {
+        "1": 1,
+        "2": 65,
+        "4": 16
+      },
+      "statuses": {
+        "0": 82
+      },
+      "commands": {
+        "17": 82
+      },
+      "total_values": [
+        715
+      ],
+      "remaining_min": 0,
+      "remaining_max": 0,
+      "first": {
+        "fn": 1,
+        "group": 0,
+        "pc": 2348814344,
+        "pr": 201601772,
+        "r4": 60,
+        "r5": 204601628,
+        "r0": 2,
+        "status": 0,
+        "cmd": 17,
+        "remaining": 0,
+        "total": 715,
+        "req": 4294967295,
+        "res": [
+          0,
+          0,
+          1464320,
+          0
+        ]
+      },
+      "last": {
+        "fn": 2,
+        "group": 0,
+        "pc": 2348814344,
+        "pr": 201602256,
+        "r4": 0,
+        "r5": 203024792,
+        "r0": 2348814342,
+        "status": 0,
+        "cmd": 17,
+        "remaining": 0,
+        "total": 715,
+        "req": 4294967295
+      }
+    }
+  },
+  "state_transitions": [
+    {
+      "line": 1,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 605,
+      "total": 715
+    },
+    {
+      "line": 302,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 600,
+      "total": 715
+    },
+    {
+      "line": 1061,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 595,
+      "total": 715
+    },
+    {
+      "line": 1789,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 590,
+      "total": 715
+    },
+    {
+      "line": 2549,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 585,
+      "total": 715
+    },
+    {
+      "line": 3307,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 580,
+      "total": 715
+    },
+    {
+      "line": 4035,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 575,
+      "total": 715
+    },
+    {
+      "line": 4795,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 570,
+      "total": 715
+    },
+    {
+      "line": 5553,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 565,
+      "total": 715
+    },
+    {
+      "line": 6305,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 560,
+      "total": 715
+    },
+    {
+      "line": 7041,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 555,
+      "total": 715
+    },
+    {
+      "line": 7798,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 550,
+      "total": 715
+    },
+    {
+      "line": 8558,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 545,
+      "total": 715
+    },
+    {
+      "line": 9287,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 540,
+      "total": 715
+    },
+    {
+      "line": 10046,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 535,
+      "total": 715
+    },
+    {
+      "line": 10804,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 530,
+      "total": 715
+    },
+    {
+      "line": 11532,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 525,
+      "total": 715
+    },
+    {
+      "line": 12292,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 520,
+      "total": 715
+    },
+    {
+      "line": 13050,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 515,
+      "total": 715
+    },
+    {
+      "line": 13809,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 510,
+      "total": 715
+    },
+    {
+      "line": 14538,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 505,
+      "total": 715
+    },
+    {
+      "line": 15296,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 500,
+      "total": 715
+    },
+    {
+      "line": 16055,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 495,
+      "total": 715
+    },
+    {
+      "line": 16783,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 490,
+      "total": 715
+    },
+    {
+      "line": 17543,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 485,
+      "total": 715
+    },
+    {
+      "line": 18301,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 480,
+      "total": 715
+    },
+    {
+      "line": 19029,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 475,
+      "total": 715
+    },
+    {
+      "line": 19789,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 470,
+      "total": 715
+    },
+    {
+      "line": 20547,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 465,
+      "total": 715
+    },
+    {
+      "line": 21307,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 460,
+      "total": 715
+    },
+    {
+      "line": 22035,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 455,
+      "total": 715
+    },
+    {
+      "line": 22793,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 450,
+      "total": 715
+    },
+    {
+      "line": 23552,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 445,
+      "total": 715
+    },
+    {
+      "line": 24280,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 440,
+      "total": 715
+    },
+    {
+      "line": 25041,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 435,
+      "total": 715
+    },
+    {
+      "line": 25798,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 430,
+      "total": 715
+    },
+    {
+      "line": 26526,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 425,
+      "total": 715
+    },
+    {
+      "line": 27286,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 420,
+      "total": 715
+    },
+    {
+      "line": 28044,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 415,
+      "total": 715
+    },
+    {
+      "line": 28804,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 410,
+      "total": 715
+    },
+    {
+      "line": 29531,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 405,
+      "total": 715
+    },
+    {
+      "line": 30289,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 400,
+      "total": 715
+    },
+    {
+      "line": 31049,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 395,
+      "total": 715
+    },
+    {
+      "line": 31777,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 390,
+      "total": 715
+    },
+    {
+      "line": 32537,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 385,
+      "total": 715
+    },
+    {
+      "line": 33295,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 380,
+      "total": 715
+    },
+    {
+      "line": 34023,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 375,
+      "total": 715
+    },
+    {
+      "line": 34783,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 370,
+      "total": 715
+    },
+    {
+      "line": 35541,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 365,
+      "total": 715
+    },
+    {
+      "line": 36301,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 360,
+      "total": 715
+    },
+    {
+      "line": 37029,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 355,
+      "total": 715
+    },
+    {
+      "line": 37787,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 350,
+      "total": 715
+    },
+    {
+      "line": 38547,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 345,
+      "total": 715
+    },
+    {
+      "line": 39274,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 340,
+      "total": 715
+    },
+    {
+      "line": 40034,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 335,
+      "total": 715
+    },
+    {
+      "line": 40792,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 330,
+      "total": 715
+    },
+    {
+      "line": 41520,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 325,
+      "total": 715
+    },
+    {
+      "line": 42280,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 320,
+      "total": 715
+    },
+    {
+      "line": 43038,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 315,
+      "total": 715
+    },
+    {
+      "line": 43798,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 310,
+      "total": 715
+    },
+    {
+      "line": 44526,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 305,
+      "total": 715
+    },
+    {
+      "line": 45283,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 300,
+      "total": 715
+    },
+    {
+      "line": 46044,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 295,
+      "total": 715
+    },
+    {
+      "line": 46772,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 290,
+      "total": 715
+    },
+    {
+      "line": 47531,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 285,
+      "total": 715
+    },
+    {
+      "line": 48289,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 280,
+      "total": 715
+    },
+    {
+      "line": 49017,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 275,
+      "total": 715
+    },
+    {
+      "line": 49777,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 270,
+      "total": 715
+    },
+    {
+      "line": 50535,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 265,
+      "total": 715
+    },
+    {
+      "line": 51295,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 260,
+      "total": 715
+    },
+    {
+      "line": 52023,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 255,
+      "total": 715
+    },
+    {
+      "line": 52781,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 250,
+      "total": 715
+    },
+    {
+      "line": 53541,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 245,
+      "total": 715
+    },
+    {
+      "line": 54269,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 240,
+      "total": 715
+    },
+    {
+      "line": 55028,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 235,
+      "total": 715
+    },
+    {
+      "line": 55786,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 230,
+      "total": 715
+    },
+    {
+      "line": 56515,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 225,
+      "total": 715
+    },
+    {
+      "line": 57274,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 220,
+      "total": 715
+    },
+    {
+      "line": 58032,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 215,
+      "total": 715
+    },
+    {
+      "line": 58792,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 210,
+      "total": 715
+    },
+    {
+      "line": 59520,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 205,
+      "total": 715
+    },
+    {
+      "line": 60278,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 200,
+      "total": 715
+    },
+    {
+      "line": 61037,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 195,
+      "total": 715
+    },
+    {
+      "line": 61766,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 190,
+      "total": 715
+    },
+    {
+      "line": 62526,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 185,
+      "total": 715
+    },
+    {
+      "line": 63283,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 180,
+      "total": 715
+    },
+    {
+      "line": 64011,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 175,
+      "total": 715
+    },
+    {
+      "line": 64771,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 170,
+      "total": 715
+    },
+    {
+      "line": 65529,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 165,
+      "total": 715
+    },
+    {
+      "line": 66289,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 160,
+      "total": 715
+    },
+    {
+      "line": 67017,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 155,
+      "total": 715
+    },
+    {
+      "line": 67775,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 150,
+      "total": 715
+    },
+    {
+      "line": 68535,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 145,
+      "total": 715
+    },
+    {
+      "line": 69263,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 140,
+      "total": 715
+    },
+    {
+      "line": 70023,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 135,
+      "total": 715
+    },
+    {
+      "line": 70780,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 130,
+      "total": 715
+    },
+    {
+      "line": 71508,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 125,
+      "total": 715
+    },
+    {
+      "line": 72269,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 120,
+      "total": 715
+    },
+    {
+      "line": 73026,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 115,
+      "total": 715
+    },
+    {
+      "line": 73786,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 110,
+      "total": 715
+    },
+    {
+      "line": 74514,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 105,
+      "total": 715
+    },
+    {
+      "line": 75272,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 100,
+      "total": 715
+    },
+    {
+      "line": 76032,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 95,
+      "total": 715
+    },
+    {
+      "line": 76760,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 90,
+      "total": 715
+    },
+    {
+      "line": 77519,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 85,
+      "total": 715
+    },
+    {
+      "line": 78278,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 80,
+      "total": 715
+    },
+    {
+      "line": 79005,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 75,
+      "total": 715
+    },
+    {
+      "line": 79765,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 70,
+      "total": 715
+    },
+    {
+      "line": 80523,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 65,
+      "total": 715
+    },
+    {
+      "line": 81283,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 60,
+      "total": 715
+    },
+    {
+      "line": 82011,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 55,
+      "total": 715
+    },
+    {
+      "line": 82769,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 50,
+      "total": 715
+    },
+    {
+      "line": 83529,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 45,
+      "total": 715
+    },
+    {
+      "line": 84257,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 40,
+      "total": 715
+    },
+    {
+      "line": 85017,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 35,
+      "total": 715
+    },
+    {
+      "line": 85775,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 30,
+      "total": 715
+    },
+    {
+      "line": 86503,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 25,
+      "total": 715
+    },
+    {
+      "line": 87262,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 20,
+      "total": 715
+    },
+    {
+      "line": 88021,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 15,
+      "total": 715
+    },
+    {
+      "line": 88780,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 10,
+      "total": 715
+    },
+    {
+      "line": 89508,
+      "group": 0,
+      "request_id": 60,
+      "status": 1,
+      "command": 17,
+      "remaining": 5,
+      "total": 715
+    },
+    {
+      "line": 89524,
+      "group": 0,
+      "request_id": 4294967295,
+      "status": 0,
+      "command": 17,
+      "remaining": 0,
+      "total": 715
+    }
+  ],
+  "first": {
+    "fn": 2,
+    "group": 0,
+    "pc": 2348814344,
+    "pr": 201602256,
+    "r4": 0,
+    "r5": 225280,
+    "r0": 2348814342,
+    "status": 1,
+    "cmd": 17,
+    "remaining": 605,
+    "total": 715,
+    "req": 60
+  },
+  "last": {
+    "fn": 2,
+    "group": 0,
+    "pc": 2348814344,
+    "pr": 201602256,
+    "r4": 0,
+    "r5": 203024792,
+    "r0": 2348814342,
+    "status": 0,
+    "cmd": 17,
+    "remaining": 0,
+    "total": 715,
+    "req": 4294967295
+  },
+  "observer": "tools\\emu\\flycast-build\\flycast_reios_context_trace_v2.exe",
+  "observer_sha256": "c16d4123c4b2145149eae0e28a2f329756df071ed4b7efadbcc1e674a51e66b4",
+  "patch": "refs\\dream-recomp\\tools\\flycast\\oracle\\flycast-gdrom-trace.patch",
+  "patch_sha256": "a92ef9e1b36381b01d4ca9d3f02d24840bc7efc0b3ea872f0c7533bc041f86c6"
+}

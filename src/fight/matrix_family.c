@@ -273,11 +273,16 @@ int vf3_ring_bound_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_radial_bound_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_vector_sum_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_geometry_intersections_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *,uint32_t);
+int vf3_actor_table_apply_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_actor_table_family_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    if(entry==0x0c0a575cu) return vf3_actor_table_apply_c(s,ram);
+    if(entry==0x0c0a3242u||entry==0x0c0a3504u||entry==0x0c0a38aeu||entry==0x0c0a3af2u)
+        return vf3_actor_table_family_c(entry,s,ram);
     if(entry==0x0c0993e0u) return vf3_scene_input_transition_c(s,ram);
     if(entry==0x0c099540u||entry==0x0c099560u) return vf3_scene_replay_transition_c(entry,s,ram);
     if(entry==0x0c0a91dau) return vf3_replay_pair_reset_c(s,ram);

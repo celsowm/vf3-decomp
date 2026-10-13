@@ -1,0 +1,29 @@
+{
+  "schema": "coverage-65-09970a-entry-probe-v2",
+  "owner": "0x8c09970a",
+  "watch": "coverage_65_09970a_entry_probe_v2_watch.txt",
+  "ram_patch": "coverage_65_09970a_entry_probe_v2.ram_patch",
+  "patch_words": [
+    {
+      "entry": "0x8c09970a",
+      "address": "0x0c29bccc",
+      "value": "0x40000004"
+    },
+    {
+      "entry": "0x8c09970a",
+      "address": "0x0c29bcdc",
+      "value": "0x00000200"
+    },
+    {
+      "entry": "0x8c09970a",
+      "address": "0x0c29c05c",
+      "value": "0x02030000"
+    }
+  ],
+  "purpose": "diagnostic branch reachability under natural owner calls",
+  "limitations": [
+    "the fixture mutates original RAM at owner entry and is not rolled back",
+    "does not establish varied inputs, full-body replay, or held-state behavior",
+    "no coverage credit"
+  ]
+}

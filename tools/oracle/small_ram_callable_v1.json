@@ -1,0 +1,72 @@
+{
+  "0x8c0885d8": {
+    "kind": "vf3-small-ram-callers-v1",
+    "entry": "0x8c0885c4",
+    "dispatch_start": "0x8c088794",
+    "call_sites": [
+      "0x8c0887b2"
+    ],
+    "callee_save_prefix": [
+      "r14",
+      "r13",
+      "r12",
+      "r11",
+      "r10",
+      "fr15",
+      "fr14"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+        "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+      }
+    ]
+  },
+  "0x8c07b6f4": {
+    "kind": "vf3-small-ram-callers-v1",
+    "entry": "0x8c07b6f4",
+    "dispatch_start": "0x8c07bbaa",
+    "call_sites": [
+      "0x8c07bbac"
+    ],
+    "callee_save_prefix": [],
+    "original_caller_manifests": [
+      {
+        "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+        "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+      }
+    ]
+  },
+  "0x8c08c054": {
+    "kind": "vf3-small-ram-callers-v1",
+    "entry": "0x8c08c054",
+    "dispatch_start": "0x8c08be1e",
+    "call_sites": [
+      "0x8c08be20"
+    ],
+    "callee_save_prefix": [],
+    "original_caller_manifests": [
+      {
+        "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+        "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+      }
+    ]
+  },
+  "0x8c0860c6": {
+    "kind": "vf3-small-ram-callers-v1",
+    "entry": "0x8c0860c2",
+    "dispatch_start": "0x8c08b46e",
+    "call_sites": [
+      "0x8c08b4ae"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ],
+    "original_caller_manifests": [
+      {
+        "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+        "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+      }
+    ]
+  }
+}

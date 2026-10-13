@@ -10634,6 +10634,106 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a6ff8"
   },
+  "vf3_actor_tables_v1:0x8c0a3246": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a3242",
+      "index": 11,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_dev_v1\\callers_v2\\manifest.json",
+          "sha256": "8ab1ff6672e0988b082697ab92f6bab5fba1da514ffcda972f463a96aa8fc410"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_dev_v1/export/f_8c0a3242.cases",
+    "port": "src/fight/actor_table_family.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Frozen readable C; original resource-table caller windows; independent whole-body audit in each state; full 1418-binding and 39-suite regression; qualified development and independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a3242"
+  },
+  "vf3_actor_tables_v1:0x8c0a3508": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a3504",
+      "index": 24,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_dev_v1\\callers_v2\\manifest.json",
+          "sha256": "8ab1ff6672e0988b082697ab92f6bab5fba1da514ffcda972f463a96aa8fc410"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_dev_v1/export/f_8c0a3504.cases",
+    "port": "src/fight/actor_table_family.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Frozen readable C; original resource-table caller windows; independent whole-body audit in each state; full 1418-binding and 39-suite regression; qualified development and independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a3504"
+  },
+  "vf3_actor_tables_v1:0x8c0a38b2": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a38ae",
+      "index": 13,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_dev_v1\\callers_v2\\manifest.json",
+          "sha256": "8ab1ff6672e0988b082697ab92f6bab5fba1da514ffcda972f463a96aa8fc410"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_dev_v1/export/f_8c0a38ae.cases",
+    "port": "src/fight/actor_table_family.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Frozen readable C; original resource-table caller windows; independent whole-body audit in each state; full 1418-binding and 39-suite regression; qualified development and independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a38ae"
+  },
+  "vf3_actor_tables_v1:0x8c0a3af6": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a3af2",
+      "index": 1,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_dev_v1\\callers_v2\\manifest.json",
+          "sha256": "8ab1ff6672e0988b082697ab92f6bab5fba1da514ffcda972f463a96aa8fc410"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_dev_v1/export/f_8c0a3af2.cases",
+    "port": "src/fight/actor_table_family.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Frozen readable C; original resource-table caller windows; independent whole-body audit in each state; full 1418-binding and 39-suite regression; qualified development and independent acceptance.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a3af2"
+  },
   "vf3_fifth_leaf_unowned_adapter:0x8c070874": {
     "golden": "extract/analysis/fifth_leaf_fresh_v6_cases/f_8c070874.cases",
     "port": "src/fight/vf3_fifth_leaf_unowned_adapter.c",

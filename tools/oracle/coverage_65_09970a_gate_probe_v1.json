@@ -1,0 +1,24 @@
+{
+  "schema": "coverage-65-original-caller-gate-probe-v1",
+  "owner": "0x8c09970a",
+  "root": "0x8c0996f4",
+  "trigger": "0x8c0432e2",
+  "variants_per_state": 64,
+  "scenarios": ["state28", "state29"],
+  "branch_conditions": {
+    "0x0c29c05e": "byte equals 3",
+    "0x0c29bccc": "contains 0x40000004",
+    "0x0c29bcdd": "byte equals 2",
+    "callback": "0x0c0c66b8 reads byte at *(0x0c29bb98)+19; seeded pointer 0x0c20138c reaches 0x0c20139f, whose baseline byte is nonzero"
+  },
+  "input_overrides": {
+    "0x0c29c05c": "0x02030000",
+    "0x0c29bccc": "0x40000004",
+    "0x0c29bcdc": "0x00000200"
+  },
+  "baseline_inputs": "tools/oracle/percentage_inputs/coverage_65_scene_remaining_screen_v1_memory.json",
+  "baseline_registers": "tools/oracle/percentage_inputs/coverage_65_scene_remaining_screen_v1_registers.json",
+  "generator": "tools/oracle/coverage_65_09970a_gate_probe_v1.py",
+  "diagnostic_only": true,
+  "coverage_credit": false
+}

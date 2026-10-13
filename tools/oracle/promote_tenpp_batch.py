@@ -171,6 +171,8 @@ def main():
         frozen_body_bytes=frozen['total_body_bytes'], minimum_gain=1,
         target_gain=remaining, measured_gain=gain, target_met=gain >= remaining,
         minimum_cases=64, minimum_scenarios=2, entries=entries, excluded=excluded)
+    if a.evidence_root:
+        manifest['evidence_roots'] = [str(path.resolve()) for path in a.evidence_root]
     a.manifest.write_text(json.dumps(manifest, indent=1) + '\n')
     ledger_path.write_text(ledger_text.rstrip('\n') + '\n' + ''.join(additions))
     bindings_path.write_text(json.dumps(bindings, indent=2, sort_keys=True) + '\n')

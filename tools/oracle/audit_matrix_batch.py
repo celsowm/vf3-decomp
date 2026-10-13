@@ -23,7 +23,16 @@ def choose_bound_proof(proofs, golden, root=ROOT):
     return chosen
 
 
-def check_proof_archive(case, archive, check_hashes, root=ROOT):
+def artifact_name(path, root=ROOT, evidence_roots=()):
+    path, root = Path(path).resolve(), Path(root).resolve()
+    if path.is_relative_to(root):
+        return path.relative_to(root).as_posix()
+    if any(path.is_relative_to(Path(p).resolve()) for p in evidence_roots):
+        return path.as_posix()
+    raise ValueError('external proof archive needs an explicitly declared evidence root')
+
+
+def check_proof_archive(case, archive, check_hashes, root=ROOT, evidence_roots=()):
     files = sorted(p for p in case.parent.glob(case.stem+'*') if p.is_file())
     assert len(files) == archive['count'], 'proof artifact count changed'
     if check_hashes:
@@ -31,12 +40,13 @@ def check_proof_archive(case, archive, check_hashes, root=ROOT):
         for path in files:
             with path.open('rb') as stream:
                 file_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
-            digest.update((path.relative_to(root).as_posix()+'\\0'+file_hash+'\\n').encode())
+            digest.update((artifact_name(path,root,evidence_roots)+'\\0'+file_hash+'\\n').encode())
         assert digest.hexdigest() == archive['sha256'], 'proof corpus changed'
 
 
-def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
+def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json', evidence_roots=()):
     manifest = json.loads((ROOT/manifest_path).read_text())
+    evidence_roots = (*evidence_roots, *manifest.get('evidence_roots', []))
     bindings = json.loads((ROOT/'tools/golden_bindings.json').read_text())
     ledger = {int(r['entry'], 16): r for r in csv.DictReader((ROOT/'docs/decomp_status.csv').open()) if r['status'].startswith('ported')}
     sizes = {int(r['entry'], 16): int(r['size']) for r in csv.DictReader((ROOT/'extract/analysis/funcs_1ST_READ.unsc.bin.csv').open())}
@@ -97,7 +107,7 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
             if check_hashes:
                 with path.open('rb') as f:
                     digest = hashlib.file_digest(f, 'sha256').hexdigest()
-                artifact = path.relative_to(ROOT).as_posix()
+                artifact = artifact_name(path,ROOT,evidence_roots)
                 archive_hash.update((artifact+'\\0'+digest+'\\n').encode())
         if check_hashes:
             assert archive_hash.hexdigest() == evidence['artifacts']['sha256'], f'Changed corpus: {entry}'
@@ -107,7 +117,7 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                 proof_case = ROOT / proof['cases']
                 proof_dir = proof_case.parent
                 archive = evidence['proof_artifacts'][proof_name]
-                check_proof_archive(proof_case, archive, check_hashes)
+                check_proof_archive(proof_case, archive, check_hashes, evidence_roots=evidence_roots)
                 if attribution:
                     validate_callable(e, attribution, ranges[e], proof_dir)
                 else:
@@ -118,7 +128,7 @@ def audit(check_hashes=False, manifest_path='tools/oracle/matrix_batch.json'):
                 if bm.get('mode') == 'process_owned_audio':
                     live = evidence['live_audio_proofs'][proof_name]
                     batch_path = proof_dir/'batch_manifest.json'
-                    assert live['path'] == batch_path.relative_to(ROOT).as_posix()
+                    assert live['path'] == artifact_name(batch_path,ROOT,evidence_roots)
                     assert hashlib.sha256(batch_path.read_bytes()).hexdigest() == live['sha256'], 'changed live audio batch'
                 validate_batch(bm,check_hashes)
                 assert not cm.get('nondeterministic_entries')
@@ -161,5 +171,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--hashes', action='store_true', help='also rehash all archived RAM vectors')
     parser.add_argument('--manifest', default='tools/oracle/matrix_batch.json')
+    parser.add_argument('--evidence-root',type=Path,action='append',default=[])
     args = parser.parse_args()
-    audit(args.hashes, args.manifest)
+    audit(args.hashes, args.manifest, args.evidence_root)

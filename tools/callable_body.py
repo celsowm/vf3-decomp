@@ -10,6 +10,12 @@ def validate(owner, attribution, spans, corpus, image=None):
     """Require original BSR callers, a straight prefix, and complete image PCs."""
     image = image if image is not None else (ROOT / 'extract/gamedata/1ST_READ.BIN').read_bytes()
     kind = attribution.get('kind', 'bsr')
+    if kind == 'vf3-small-ram-callers-v1':
+        from callable_small_ram import validate_small_ram
+        return validate_small_ram(owner, attribution, spans, corpus, image)
+    if kind == 'vf3-resource-table-setters-v1':
+        from callable_actor_tables import validate_actor_table
+        return validate_actor_table(owner, attribution, spans, corpus, image)
     if kind == 'vf3-scene-replay-helpers-index57-v1':
         from callable_replay_transition import validate_replay_transition
         return validate_replay_transition(owner, attribution, spans, corpus, image)

@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import promote_tenpp_batch as promote
+from audit_matrix_batch import artifact_name
 
 
 class EvidencePathsTests(unittest.TestCase):
@@ -30,6 +31,14 @@ class EvidencePathsTests(unittest.TestCase):
             root=Path(name)
             with patch.object(promote,'ROOT',root/'workspace'),self.assertRaises(ValueError):
                 promote.evidence_name(root/'cache-other/cases',[root/'cache'])
+
+    def test_audit_names_match_promotion(self):
+        with tempfile.TemporaryDirectory() as name:
+            root=Path(name);workspace=root/'workspace';cache=root/'cache';case=cache/'cases'
+            with patch.object(promote,'ROOT',workspace):
+                self.assertEqual(artifact_name(case,workspace,[cache]),promote.evidence_name(case,[cache]))
+                with self.assertRaises(ValueError):artifact_name(case,workspace)
+                with self.assertRaises(ValueError):artifact_name(root/'cache-other/cases',workspace,[cache])
 
 
 if __name__=='__main__':unittest.main()

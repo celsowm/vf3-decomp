@@ -1,0 +1,218 @@
+{
+  "0x8c0a4668": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a4664",
+    "index": 16,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a4d40": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a4d3c",
+    "index": 19,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a575c": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a5758",
+    "index": 15,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a5b54": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a5b50",
+    "index": 8,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a5d9c": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a5d98",
+    "index": 21,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a3e22": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a3e1e",
+    "index": 14,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a52f0": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a52ec",
+    "index": 2,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a4414": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a4410",
+    "index": 3,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a423e": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a423a",
+    "index": 18,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a4b62": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a4b5e",
+    "index": 6,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a61fe": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a61fa",
+    "index": 7,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a40b0": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a40ac",
+    "index": 5,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a4872": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a486e",
+    "index": 4,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a49e6": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a49e2",
+    "index": 17,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a4f00": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a4efc",
+    "index": 12,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a506c": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a5068",
+    "index": 25,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a5f56": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a5f52",
+    "index": 10,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  },
+  "0x8c0a609e": {
+    "kind": "vf3-resource-table-setters-v1",
+    "entry": "0x8c0a609a",
+    "index": 23,
+    "table": "0xc10def0",
+    "call_sites": [
+      "0x8c0a2f40"
+    ],
+    "callee_save_prefix": [
+      "r14"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "owner": "0x8c09cada",
+  "watched_entry": "0x8c09cacc",
+  "observer": "tools\\emu\\flycast-build\\flycast_audio_fight_live_v1.exe",
+  "observer_sha256": "3e9a4bf81265ea3eb26ade637cd4343ad137a6dc28e7ed0b1e80502a26b23b6c",
+  "image": "extract\\gamedata\\1ST_READ.BIN",
+  "image_sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32",
+  "watch": "tools/oracle/coverage_65_9cada_hits_v1_watch.txt",
+  "watch_sha256": "b32fa0f11453e13131b87908bb0523c610761bd88566c9163d6874b0dd4f39b1",
+  "runs": [
+    {
+      "state_id": 26,
+      "state": "tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "state_sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+      "frames_expected": 14400,
+      "frames_run": 14400,
+      "returncode": 0,
+      "natural_hits": {
+        "0x8c09cacc": 0
+      },
+      "manifest": "extract\\analysis\\coverage_65_9cada_hits_v1\\batch_manifest.json",
+      "hits_csv": "extract\\analysis\\hits_coverage_65_9cada_hits_v1_s26.csv",
+      "hits_csv_sha256": "b90944abc0c7c4ba0a3cb8614e8dbd966b749b5a3a58750edeef48db9a3db4ae"
+    },
+    {
+      "state_id": 28,
+      "state": "tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "state_sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558",
+      "frames_expected": 14400,
+      "frames_run": 14400,
+      "returncode": 0,
+      "natural_hits": {
+        "0x8c09cacc": 0
+      },
+      "manifest": "extract\\analysis\\coverage_65_9cada_hits_v2\\batch_manifest.json",
+      "hits_csv": "extract\\analysis\\hits_coverage_65_9cada_hits_v2_s28.csv",
+      "hits_csv_sha256": "b90944abc0c7c4ba0a3cb8614e8dbd966b749b5a3a58750edeef48db9a3db4ae"
+    },
+    {
+      "state_id": 29,
+      "state": "tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "state_sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b",
+      "frames_expected": 14400,
+      "frames_run": 14400,
+      "returncode": 0,
+      "natural_hits": {
+        "0x8c09cacc": 0
+      },
+      "manifest": "extract\\analysis\\coverage_65_9cada_hits_v3\\batch_manifest.json",
+      "hits_csv": "extract\\analysis\\hits_coverage_65_9cada_hits_v3_s29.csv",
+      "hits_csv_sha256": "b90944abc0c7c4ba0a3cb8614e8dbd966b749b5a3a58750edeef48db9a3db4ae"
+    }
+  ],
+  "conclusion": "No natural calls in saved states 26, 28 or 29 over 14,400 frames each. This excludes only these contexts; it does not establish global unreachability or provide caller proof."
+}

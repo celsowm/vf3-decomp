@@ -1,0 +1,39 @@
+{
+  "schema": "coverage-65-09970a-nested-probe-v5",
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "root": "0x8c0996f4",
+  "owner": "0x8c09970a",
+  "trigger": "0x8c0432e2",
+  "variants": 16,
+  "watch": "coverage_65_09970a_nested_probe_v5_watch.txt",
+  "entry_patch": "coverage_65_09970a_nested_probe_v5.entry_patch",
+  "entry_ram_patch": "coverage_65_09970a_nested_probe_v5.ram_patch",
+  "callback_watched": true,
+  "gate_values": [
+    {
+      "address": "0x0c29bccc",
+      "value": "0x40000004"
+    },
+    {
+      "address": "0x0c29bcdc",
+      "value": "0x00000200"
+    },
+    {
+      "address": "0x0c29bcec",
+      "value": "0x00000300"
+    }
+  ],
+  "branch_contract": {
+    "0x0c29bced": "equals 3; seeded by aligned word 0x0c29bcec",
+    "0x0c29bccc": "contains 0x40000004",
+    "0x0c29bcdd": "equals 2; seeded by aligned word 0x0c29bcdc",
+    "callback": "0x0c0c66b8 reads nonzero byte at *(0x0c29bb98)+19"
+  },
+  "limitations": [
+    "child RAM fixture is applied at owner entry and rolled back with the synthetic parent",
+    "diagnostic reachability only; no varied owner inputs or complete behavioral proof",
+    "requires nested-entry-fixture observer and --probe-children",
+    "no coverage credit"
+  ]
+}
