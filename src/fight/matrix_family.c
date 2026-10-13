@@ -275,11 +275,34 @@ int vf3_vector_sum_c(vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_geometry_intersections_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *,uint32_t);
 int vf3_actor_table_apply_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_actor_table_family_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_actor_table_literal_c(uint32_t,vf3_matrix_state *,const vf3_ram_map *);
+int vf3_motion_settle_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_command_retire_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_event_admission_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_size_profile_init_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_profile_clear_c(vf3_matrix_state *,const vf3_ram_map *);
+int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    if(entry==0x0c085ca4u) return vf3_profile_clear_c(s,ram);
+    if(entry==0x0c095178u) return vf3_actor_profile_pair_c(s,ram);
+    if(entry==0x0c0885c4u) return vf3_motion_settle_c(s,ram);
+    if(entry==0x0c07b6f4u) return vf3_command_retire_c(s,ram);
+    if(entry==0x0c08c054u) return vf3_event_admission_c(s,ram);
+    if(entry==0x0c0860c2u) return vf3_size_profile_init_c(s,ram);
+    switch(entry) {
+    case 0x0c0a4664u: case 0x0c0a4d3cu: case 0x0c0a5758u:
+    case 0x0c0a5b50u: case 0x0c0a5d98u: case 0x0c0a3e1eu:
+    case 0x0c0a52ecu: case 0x0c0a4410u: case 0x0c0a423au:
+    case 0x0c0a4b5eu: case 0x0c0a61fau: case 0x0c0a40acu:
+    case 0x0c0a486eu: case 0x0c0a49e2u: case 0x0c0a4efcu:
+    case 0x0c0a5068u: case 0x0c0a5f52u: case 0x0c0a609au:
+        return vf3_actor_table_literal_c(entry,s,ram);
+    default: break;
+    }
     if(entry==0x0c0a575cu) return vf3_actor_table_apply_c(s,ram);
     if(entry==0x0c0a3242u||entry==0x0c0a3504u||entry==0x0c0a38aeu||entry==0x0c0a3af2u)
         return vf3_actor_table_family_c(entry,s,ram);

@@ -460,3 +460,25 @@ formats do not directly advance coverage: the frontend lacks a live debugger
 backend, and the DSP playground consumes textual DSP registers/programs while
 our `AICA_DUMP` capture contains sound RAM only. `docs/re/ref_nulldc_devtools.md`
 records the concrete integration gap and the future register-export bridge.
+
+## 7. 2026-10-13 target reached
+
+Verified C address union is now **282,534 / 434,656 = 65.0017485%**,
+exceeding the integer target **282,527** by seven bytes. The three accepted
+batches add **5,956 unique bytes** across 26 frozen owners: four original
+resource setters (1,236), eighteen more setters (4,164), and four RAM callbacks
+(556). SDK attribution, trace-only identification and off-baseline leaves
+contribute no bytes to this target calculation.
+
+Every new owner has independently complete original-body execution in each
+development and holdout state, original caller/prefix proofs, at least 64
+distinct valid cases per state and strict replay with zero skips. The final
+normal C build's complete binding inventory partitions into the full 1,422
+existing-binding regression and 22 newly promoted bindings' exact strict
+reports, all against the unchanged build. All 39 native suites and 418 oracle
+tests pass. The compiler archive contains 409 dependency files.
+
+See `actor_registration_tables.md`, `small_ram_callbacks.md`, and the final
+`tools/oracle/coverage_65_full_checkpoint_v1.json` for proof references.
+The excluded IRQ, VRAM-copy, scene-retirement and no-trigger specimens stay
+diagnostic. The large blocked scene owners remain uncredited.

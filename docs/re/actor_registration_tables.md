@@ -44,11 +44,13 @@ under `D:/vf3-captures/coverage_65_actor_tables_dev_v1/` and
 `coverage_65_actor_tables_accept_v2/`. Historical references preserve the
 first tested source closure before subsequent normal-build changes.
 
-## Remaining development candidates
+## Accepted expanded batch
 
-Eighteen additional immutable resource-table callbacks contain 4,164 marginal
-bytes. Their original development campaigns in states 28/29 cover every owner
-independently and their readable C passes all strict cases. Seventy-two original
+Eighteen additional immutable resource-table callbacks add 4,164 marginal
+bytes. Their development campaigns in states 28/29 and independent acceptance
+in states 45/46 cover every owner separately in each state. Their unchanged
+readable C passes all 4,595 development and 4,597 acceptance cases with zero
+skips. Seventy-two original
 caller windows validate their fixed table slots, descriptor inputs and returns.
 Two callbacks tail-call `0x8c095178`, which performs two actor-profile passes;
 the current typed inputs exercise the ordinary actor type, while types 8/21
@@ -62,5 +64,8 @@ the unused leading fields. The actor-profile tail legitimately reuses the
 wrapper's popped save slots; the validator checks the resulting saved zero
 argument and PR and the real wrapper save/restore sequence.
 
-These 18 candidates require the full normal-build regression, frozen
-development and independent acceptance before promotion.
+The 409-input normal-build archive passed all 1,422 existing bindings and
+39 native suites before development qualification and holdout generation.
+The 504 caller mutation checks also passed. Qualification and promotion are
+`tools/oracle/actor_tables_expanded_qualification_v1.json` and
+`actor_tables_expanded_v1_manifest.json`.

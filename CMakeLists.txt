@@ -54,6 +54,8 @@ add_library(vf3core STATIC
     src/fight/matrix_family.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c
+    src/fight/actor_table_literal.c
+    src/fight/small_ram_callbacks.c
     src/fight/matrix_adapters.c
     src/fight/fight_adapters.c
     src/fight/fight_adapters_0.c

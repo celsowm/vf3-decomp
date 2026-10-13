@@ -1,6 +1,6 @@
 # Small RAM callbacks for the 65% checkpoint
 
-Four original callbacks contribute a potential 556 marginal frozen bytes:
+Four original callbacks add 556 marginal frozen bytes:
 
 | True entry | Frozen owner | Behavior | Bytes |
 |---|---|---|---|
@@ -37,7 +37,16 @@ invalid specimens and incomplete valid-body union remain diagnostic only.
 The interrupted scene-retirement pilot and unused float-widen leaf also
 receive no credit.
 
-The four RAM callbacks are development candidates until the full normal-build
-regression and independent frozen-build acceptance qualify them. Captures,
-caller windows and source archives are under
-`D:/vf3-captures/coverage_65_small_ram_dev_v1/`.
+Independent acceptance in states 45/46 passes all 2,020 strict cases with zero
+skips. Both campaigns cover each owner's whole frozen body separately in each
+state, with at least 64 distinct valid inputs and no device records. The 28
+IRQ-invalid acceptance specimens remain excluded; no invocations are incomplete
+and no entries are nondeterministic. Holdout generation followed the complete
+1,422-binding and 39-native-suite gate and formal development qualification.
+No C changes followed that freeze.
+
+Qualification and promotion are
+`tools/oracle/small_ram_qualification_v1.json` and
+`small_ram_v1_manifest.json`. Captures, caller windows and the 409-input source
+archive are under `D:/vf3-captures/coverage_65_small_ram_dev_v1/`;
+acceptance is under `coverage_65_small_ram_accept_v1/`.

@@ -10634,6 +10634,456 @@
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c0a6ff8"
   },
+  "vf3_actor_tables_expanded_v1:0x8c0a3e22": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a3e1e",
+      "index": 14,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a3e1e.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a3e1e"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a40b0": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a40ac",
+      "index": 5,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a40ac.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a40ac"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a423e": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a423a",
+      "index": 18,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a423a.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a423a"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4414": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a4410",
+      "index": 3,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a4410.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a4410"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4668": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a4664",
+      "index": 16,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a4664.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a4664"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4872": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a486e",
+      "index": 4,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a486e.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a486e"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a49e6": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a49e2",
+      "index": 17,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a49e2.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a49e2"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4b62": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a4b5e",
+      "index": 6,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a4b5e.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a4b5e"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4d40": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a4d3c",
+      "index": 19,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a4d3c.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a4d3c"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a4f00": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a4efc",
+      "index": 12,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a4efc.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a4efc"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a506c": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a5068",
+      "index": 25,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a5068.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a5068"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a52f0": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a52ec",
+      "index": 2,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a52ec.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a52ec"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a575c": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a5758",
+      "index": 15,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a5758.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a5758"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a5b54": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a5b50",
+      "index": 8,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a5b50.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a5b50"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a5d9c": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a5d98",
+      "index": 21,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a5d98.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a5d98"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a5f56": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a5f52",
+      "index": 10,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a5f52.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a5f52"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a609e": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a609a",
+      "index": 23,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a609a.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a609a"
+  },
+  "vf3_actor_tables_expanded_v1:0x8c0a61fe": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0a2f40"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "entry": "0x8c0a61fa",
+      "index": 7,
+      "kind": "vf3-resource-table-setters-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_actor_tables_expanded_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "4111d2cc9ce864e11add25e931ab0ce8153117ced08e71fe3982b7a08e196db2"
+        }
+      ],
+      "table": "0xc10def0"
+    },
+    "golden": "D:/vf3-captures/coverage_65_actor_tables_expanded_dev_v1/export/f_8c0a61fa.cases",
+    "port": "src/fight/actor_table_literal.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0a61fa"
+  },
   "vf3_actor_tables_v1:0x8c0a3246": {
     "callable_body": {
       "call_sites": [
@@ -10856,5 +11306,103 @@
     "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Complete independent round campaign, all cases replayed; qualification and historical source closure in scene_round_qualification_v1.json and scene_round_historical_archive_v1.json; input-transition campaign excluded in full.",
     "strict": true,
     "test": "build/vf3matrixfamily.exe 0x8c098c62"
+  },
+  "vf3_small_ram_v1:0x8c07b6f4": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c07bbac"
+      ],
+      "callee_save_prefix": [],
+      "dispatch_start": "0x8c07bbaa",
+      "entry": "0x8c07b6f4",
+      "kind": "vf3-small-ram-callers-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+        }
+      ]
+    },
+    "golden": "D:/vf3-captures/coverage_65_small_ram_dev_v1/export/f_8c07b6f4.cases",
+    "port": "src/fight/small_ram_callbacks.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c07b6f4"
+  },
+  "vf3_small_ram_v1:0x8c0860c6": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c08b4ae"
+      ],
+      "callee_save_prefix": [
+        "r14"
+      ],
+      "dispatch_start": "0x8c08b46e",
+      "entry": "0x8c0860c2",
+      "kind": "vf3-small-ram-callers-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+        }
+      ]
+    },
+    "golden": "D:/vf3-captures/coverage_65_small_ram_dev_v1/export/f_8c0860c2.cases",
+    "port": "src/fight/small_ram_callbacks.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0860c2"
+  },
+  "vf3_small_ram_v1:0x8c0885d8": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c0887b2"
+      ],
+      "callee_save_prefix": [
+        "r14",
+        "r13",
+        "r12",
+        "r11",
+        "r10",
+        "fr15",
+        "fr14"
+      ],
+      "dispatch_start": "0x8c088794",
+      "entry": "0x8c0885c4",
+      "kind": "vf3-small-ram-callers-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+        }
+      ]
+    },
+    "golden": "D:/vf3-captures/coverage_65_small_ram_dev_v1/export/f_8c0885c4.cases",
+    "port": "src/fight/small_ram_callbacks.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c0885c4"
+  },
+  "vf3_small_ram_v1:0x8c08c054": {
+    "callable_body": {
+      "call_sites": [
+        "0x8c08be20"
+      ],
+      "callee_save_prefix": [],
+      "dispatch_start": "0x8c08be1e",
+      "entry": "0x8c08c054",
+      "kind": "vf3-small-ram-callers-v1",
+      "original_caller_manifests": [
+        {
+          "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\callers_v1\\manifest.json",
+          "sha256": "e51f522a96ee39e0382b02f8612a922468243de1d9ff4bc3c46bc4ada99f821b"
+        }
+      ]
+    },
+    "golden": "D:/vf3-captures/coverage_65_small_ram_dev_v1/export/f_8c08c054.cases",
+    "port": "src/fight/small_ram_callbacks.c",
+    "source": "100% frozen body; >=64 distinct development inputs in two scenarios; independent acceptance; Immutable 409-input normal C build; full baseline regression; original callers; independently whole in each development and holdout state; zero strict replay skips.",
+    "strict": true,
+    "test": "build/vf3matrixfamily.exe 0x8c08c054"
   }
 }

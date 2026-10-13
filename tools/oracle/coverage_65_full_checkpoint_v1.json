@@ -1,0 +1,558 @@
+{
+  "completed_utc": "2026-10-13T11:30:48.799461+00:00",
+  "verified_c_bytes": 282534,
+  "frozen_body_bytes": 434656,
+  "verified_percentage": 65.00174850916586,
+  "target_c_bytes": 282527,
+  "target_met": true,
+  "remaining_to_65": 0,
+  "new_owners": 26,
+  "marginal_c_bytes": 5956,
+  "compiled_inputs": 409,
+  "binding_inventory": 1444,
+  "native_suites": 39,
+  "oracle_tool_tests": 418,
+  "full_regression": {
+    "passed": true,
+    "baseline": {
+      "expected_bindings": 1422,
+      "reported_bindings": 1422,
+      "failures": [],
+      "errors": false,
+      "complete": true,
+      "passed": true,
+      "terminal": {
+        "portcheck": "PASS"
+      },
+      "last_lines": [
+        "  vf3_replay_transition_v1:0x8c0a91e6 PASS   matrix_family: 243/243 cases match (0 skipped) - PASS",
+        "  vf3_scene_round_decision_v1:0x8c098c70 PASS   matrix_family: 1003/1003 cases match (0 skipped) - PASS",
+        "portcheck: PASS"
+      ]
+    },
+    "new_bindings": 22,
+    "total_bindings": 1444,
+    "unchanged_native_sha256": "4dfb44c664043fb665950de4beedca0082db888cdc0d4a84eb60cfada6085c97",
+    "new_results": {
+      "vf3_actor_tables_expanded_v1:0x8c0a3e22": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a40b0": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a423e": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4414": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4668": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4872": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a49e6": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4b62": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4d40": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 254/254 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a4f00": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a506c": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a52f0": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a575c": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 253/253 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a5b54": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a5d9c": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 255/255 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a5f56": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a609e": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 256/256 cases match (0 skipped) - PASS"
+      },
+      "vf3_actor_tables_expanded_v1:0x8c0a61fe": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+          "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+        },
+        "stdout": "matrix_family: 254/254 cases match (0 skipped) - PASS"
+      },
+      "vf3_small_ram_v1:0x8c07b6f4": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\small_ram_dev_v3_native.json",
+          "sha256": "90d5a34599fac274116277f85e147502c298261937ca562658e1524d8b7d748d"
+        },
+        "stdout": "matrix_family: 506/506 cases match (0 skipped) - PASS"
+      },
+      "vf3_small_ram_v1:0x8c0860c6": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\small_ram_dev_v3_native.json",
+          "sha256": "90d5a34599fac274116277f85e147502c298261937ca562658e1524d8b7d748d"
+        },
+        "stdout": "matrix_family: 494/494 cases match (0 skipped) - PASS"
+      },
+      "vf3_small_ram_v1:0x8c0885d8": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\small_ram_dev_v3_native.json",
+          "sha256": "90d5a34599fac274116277f85e147502c298261937ca562658e1524d8b7d748d"
+        },
+        "stdout": "matrix_family: 512/512 cases match (0 skipped) - PASS"
+      },
+      "vf3_small_ram_v1:0x8c08c054": {
+        "report": {
+          "path": "E:\\vf3-decomp\\extract\\analysis\\small_ram_dev_v3_native.json",
+          "sha256": "90d5a34599fac274116277f85e147502c298261937ca562658e1524d8b7d748d"
+        },
+        "stdout": "matrix_family: 511/511 cases match (0 skipped) - PASS"
+      }
+    }
+  },
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\actor_tables_expanded_dev_v3_native.json",
+      "sha256": "2cd2b8f101ef3c9bb2fedee94c4a85626af9dfac228fd0fdba8af6f9dfa26db5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\small_ram_dev_v3_native.json",
+      "sha256": "90d5a34599fac274116277f85e147502c298261937ca562658e1524d8b7d748d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\actor_tables_expanded_qualification_v1.json",
+      "sha256": "f5843ff0e3f015491b833d844f8bbb67f5f9deeef5314f7845572bba9f483979"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\small_ram_qualification_v1.json",
+      "sha256": "823d9cd76508e1aaab054d4635680da3a324758e8d9af4a813a1fc9aa8b99e25"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\actor_tables_historical_v1.json",
+      "sha256": "3bb2680cba6e6d6631aec3e91ca1d29f9260021cc2f1a3bb091c2b34ab03d5f2"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3af734.exe",
+      "sha256": "749b72bbc6809afd62d70f8f435e9c8e8465927d3c2c582dd9a9a33c0e0ec9af",
+      "original_path": "E:\\vf3-decomp\\build\\vf3af734.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3afb76.exe",
+      "sha256": "bfb36d7b03b23dddd60c59425788d7106914dfcc413a0b43a41ab33e76eb0f3b",
+      "original_path": "E:\\vf3-decomp\\build\\vf3afb76.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3b10aa.exe",
+      "sha256": "a905e6941d1616b344d911c40416b5d6e3a65863a1fa3ac8828554d9b5e2b108",
+      "original_path": "E:\\vf3-decomp\\build\\vf3b10aa.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3bootmix.exe",
+      "sha256": "44f7864cd85c9334858bacbe74ef7d4c7dfd066b504ef8c34d1ffe1a6caf4951",
+      "original_path": "E:\\vf3-decomp\\build\\vf3bootmix.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3c5dbe.exe",
+      "sha256": "c9bb692c94db37d0d27122a14581215b5c032c3c7d623a56f4b0f66fec3471d3",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c5dbe.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3c6ec4.exe",
+      "sha256": "648be27f622639c743df42f72ba18e28e93fa32c856adc24cee23d8f4cc3d5cb",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c6ec4.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3c788.exe",
+      "sha256": "5a68185c9b5a0cece05b04f7534fb99011e624598133403beab8fd57f08c1507",
+      "original_path": "E:\\vf3-decomp\\build\\vf3c788.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3cbefc.exe",
+      "sha256": "01edad0305f0a0ca9a0868f8361f44d67756723d3c2d647e0e3696c78f94081d",
+      "original_path": "E:\\vf3-decomp\\build\\vf3cbefc.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3cc148.exe",
+      "sha256": "2d2af9ecd5c6e3b93affeee22f1a9316f3fdc6c8902c5a3b0cf87c7bbef23baf",
+      "original_path": "E:\\vf3-decomp\\build\\vf3cc148.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3cntup.exe",
+      "sha256": "f1dc0e76348e4af4b4d533c64470af082d6166f0c26ba3154e8d03d902bb1e51",
+      "original_path": "E:\\vf3-decomp\\build\\vf3cntup.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3d0fa.exe",
+      "sha256": "d65bcfba61e57b4e94c9ea3686864e0a28b9a05580a3eaf86255ee4129151ac3",
+      "original_path": "E:\\vf3-decomp\\build\\vf3d0fa.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3d452.exe",
+      "sha256": "77cddf77b92a0ba1c8cc05295b921a681364cff7979dea8f6c357a24a201c748",
+      "original_path": "E:\\vf3-decomp\\build\\vf3d452.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3dl.exe",
+      "sha256": "e0c56eb4c43a0e102b3499ca7748b3716703f93fd7a526610390c84e20ed17f3",
+      "original_path": "E:\\vf3-decomp\\build\\vf3dl.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f040f1e.exe",
+      "sha256": "e382ac90f027101fd61ee40bd147070c0c55418dc55ebbfb58e864c256db3d9c",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f040f1e.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f0747d8.exe",
+      "sha256": "5f748dc807f3e4641dbc5da0a856de8e915837d9ced064bbbd81243c5c3fdeef",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f0747d8.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f076c00.exe",
+      "sha256": "4fe5fefe0d1660422d3179ab90d3eecf5aa1f86f957b00006f590401910ef6d3",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f076c00.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f096258.exe",
+      "sha256": "74e580ccb24d490eaa4fb1f3427224e9853b1ddb28e4dcb20c7a4dd04cfb91bf",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f096258.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f9f354.exe",
+      "sha256": "b6aec4d01c198effca3bdf60878762dfa47b57368f1125e7c104967b03a4abb2",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f354.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f9f6dc.exe",
+      "sha256": "0a65baebacd1ec0e1ec6e79d9377d962664bba89b2605c764286c4a9077c45cd",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f6dc.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f9f6fc.exe",
+      "sha256": "3598538d19ac450881ef2ab540bf67c027d954fcabd42ad42f84bc4e35398b70",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f6fc.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3f9f9a8.exe",
+      "sha256": "cfaf242d999cb8dcd550fc94f4b5a0399832659c7e7d7c6a719aec1f9be05151",
+      "original_path": "E:\\vf3-decomp\\build\\vf3f9f9a8.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fcmpsel.exe",
+      "sha256": "46cecd2ab876b4bd78196421785cc02935a65a720f4b74d258e744e3e4186b1a",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fcmpsel.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fd9ec.exe",
+      "sha256": "adb2357fb13b432c269d8f4df8cb5a5f28ed6f75de4aa224fb92abe1eafc9a42",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fd9ec.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fdivker.exe",
+      "sha256": "c86fb03e75276c6dbf91993a29685eadb09e4da273a22cab9264c28f2ec2e5fe",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fdivker.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fminmax.exe",
+      "sha256": "7b1b9bb49ada61eb1174c7661a22d1744a1d01b8d072dd19276c7b68ef379f77",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fminmax.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fpu.exe",
+      "sha256": "6a7dc1b404dbae97ea19b25b4e526cc06632a54937657d784ee862ff18667941",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fpu.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fpucb.exe",
+      "sha256": "016961f7a28d8ddfaca7a8e20633a5c6e9c644e37824ba4a0a031fa60f45975c",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fpucb.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3frame.exe",
+      "sha256": "cc6b8b5e570a2503ad7be1545d6aac9fd911b5dda81bd4d92ac8a076d71cea46",
+      "original_path": "E:\\vf3-decomp\\build\\vf3frame.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3frameseq.exe",
+      "sha256": "ee8223d08fb2b372ec93f1fc178c46c762d0c8dd7d2a2696f558a64000f71374",
+      "original_path": "E:\\vf3-decomp\\build\\vf3frameseq.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecadd.exe",
+      "sha256": "48600a7848d7817997eb05d6617342bca4f24b6a25b9f4a7e3910519a52a6074",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecadd.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecmix0706c4.exe",
+      "sha256": "2f2721193e6b9cc27a6b6a124e51e38df01b98c65694cc66361abab94087eb07",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecmix0706c4.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecmix070832.exe",
+      "sha256": "0bf9b745dede4fe069314b2aaf0defcb057cffd52b3b5e037d7719d11f49fbc1",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecmix070832.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecmix070852.exe",
+      "sha256": "7a4322885efe827183763dc451f70ba6fa615f5aef3fb1203fa7c09e9a1145ca",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecmix070852.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecnorm070120.exe",
+      "sha256": "004cf03b9b9325d6bf1e66f4fbb5c1662b0a5a275e00171b0b51ffc4a25e6499",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070120.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecnorm07030c.exe",
+      "sha256": "5865998123053672b7aaf860e7b48eaac575d7b2900566a2601ec125804056ee",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm07030c.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecnorm070a84.exe",
+      "sha256": "99ae4ba40b58ff7f5f190631d6bcb6c43cbacd78cc13a7aae5d89b2ec1669703",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070a84.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecnorm070cf0.exe",
+      "sha256": "8a13ee39080d538d5a73eedfb51eb5d89b641bc46cf4095a9b60e5772fbe8f85",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070cf0.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvecnorm070x.exe",
+      "sha256": "8ff2a8ed454cc76cb92aebfb751befe16a025cf31541b9e8eff04c71e2462dd7",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvecnorm070x.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3fvectail.exe",
+      "sha256": "6c4355f3be0d17b26287570133f4661a484c931bd7f1ebaa80efe88e716167bd",
+      "original_path": "E:\\vf3-decomp\\build\\vf3fvectail.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3g77e4e.exe",
+      "sha256": "134f4c28b11ff0c19e2858641790a04359ae82b681e122dce40aa98707a25b66",
+      "original_path": "E:\\vf3-decomp\\build\\vf3g77e4e.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3g78044.exe",
+      "sha256": "93f96cc25b19bce54a6086bd768e923d7c8214a5c8db4d7b05ba67004014a4e1",
+      "original_path": "E:\\vf3-decomp\\build\\vf3g78044.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3g782ea.exe",
+      "sha256": "e604fd548b58a24a9de11e83d4bfd3f2bcf16ba7b17aed86bd69fbf881e86d4a",
+      "original_path": "E:\\vf3-decomp\\build\\vf3g782ea.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3libutil.exe",
+      "sha256": "9b9542c8254757d392408bcc3b9767db083c080f4ff29f5a84939cbc347497b0",
+      "original_path": "E:\\vf3-decomp\\build\\vf3libutil.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3loop.exe",
+      "sha256": "e7c1945c97ab52ded32310a1b7f1727c2ff18e8adcef725143e14e1ad35c6132",
+      "original_path": "E:\\vf3-decomp\\build\\vf3loop.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3maplookup.exe",
+      "sha256": "855e7f7a0b99401580dda260dfd7094f16706975ff7c6d1fd0f9f234217fd995",
+      "original_path": "E:\\vf3-decomp\\build\\vf3maplookup.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3matrix.exe",
+      "sha256": "17d3928d376fbada062e69785fd08b23cdec0681d4f8f9115850fb7a0b3808c5",
+      "original_path": "E:\\vf3-decomp\\build\\vf3matrix.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3meshnode.exe",
+      "sha256": "b219c497a2260b215f8de4d8d4b7e64ec944e1ee71b44f0c452f70a7b660ae07",
+      "original_path": "E:\\vf3-decomp\\build\\vf3meshnode.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3mtmount.exe",
+      "sha256": "cda61e9f2adf26cf6e8f8f062b96f00c9eff3ebd56e332210c938ab54d20cbac",
+      "original_path": "E:\\vf3-decomp\\build\\vf3mtmount.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3orient2.exe",
+      "sha256": "673665f67ba27c7bd43062da973c82e4539602987acf4dd34ff2c42e426dd7ec",
+      "original_path": "E:\\vf3-decomp\\build\\vf3orient2.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3poly.exe",
+      "sha256": "7f650b12edea3cf898c83aebebc7ccd3774abe5b86a4e5678b10381ed7a1de87",
+      "original_path": "E:\\vf3-decomp\\build\\vf3poly.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3scalemap.exe",
+      "sha256": "9f074927cc839f9c55de199776db61186653f8e631dfa90e561b6dcde394a794",
+      "original_path": "E:\\vf3-decomp\\build\\vf3scalemap.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3scaler3.exe",
+      "sha256": "5a8c21ad87c894f768681343679d9a2b315f3ccc023c2abfaa03c9e4acea6ce2",
+      "original_path": "E:\\vf3-decomp\\build\\vf3scaler3.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3statehelpers.exe",
+      "sha256": "ea72fe2fa7a03a76f2c14290e580a08b6987c47900684d89d4702be53c100fe5",
+      "original_path": "E:\\vf3-decomp\\build\\vf3statehelpers.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3tailcall.exe",
+      "sha256": "64f194823e936f27dcbf8dea7132e6ef5037c02924229a7d26c40f1e8b9699ac",
+      "original_path": "E:\\vf3-decomp\\build\\vf3tailcall.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3taskvm.exe",
+      "sha256": "2a3aff47b0e3472ed9011b663beab23dde11a3e8fe7317157673f355350cdff9",
+      "original_path": "E:\\vf3-decomp\\build\\vf3taskvm.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3vecpush.exe",
+      "sha256": "1fccd67a1533a2ce7ef21a71ea9bbf6bc5d6866af02ed55336a2628c482e5afa",
+      "original_path": "E:\\vf3-decomp\\build\\vf3vecpush.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3vm.exe",
+      "sha256": "63d307a00d593504ff7f0af5ee0ac68f3fb817206a9aa6210e28ce9ac83410f2",
+      "original_path": "E:\\vf3-decomp\\build\\vf3vm.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3walker.exe",
+      "sha256": "ebb28635c48c56c8e8094f7028430028ffb8896dc1489e36f0d11ad42a2deebb",
+      "original_path": "E:\\vf3-decomp\\build\\vf3walker.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\build\\vf3walker2.exe",
+      "sha256": "b3f4216e7c7d21b67a4679d28fe5a18730612a82193872e2313b0a1064c1532b",
+      "original_path": "E:\\vf3-decomp\\build\\vf3walker2.exe"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\docs\\coverage.md",
+      "sha256": "02b9946142ee6be73c4fb672ee206b43d9fc6c2b73eb72460d49eda354f0f8c6",
+      "original_path": "E:\\vf3-decomp\\docs\\coverage.md"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\docs\\decomp_status.csv",
+      "sha256": "6f884ea0081b26b66a6200c88d0e5fcdf85cc2871fc9b310b07b1162ae5821f7",
+      "original_path": "E:\\vf3-decomp\\docs\\decomp_status.csv"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\extract\\analysis\\coverage.json",
+      "sha256": "042ebacc14975e8e61a1a3fa4e05f6ce4037bff0b728ff116bc8552cf38209a4",
+      "original_path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_full_checkpoint_v1\\tools\\golden_bindings.json",
+      "sha256": "df9d86a6785061f86632e15ef76959202ec0ec67d5ebd45cef9395472414e3bd",
+      "original_path": "E:\\vf3-decomp\\tools\\golden_bindings.json"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\compiled_sources\\manifest.json",
+      "sha256": "443ed1bc21536f372f8aacecd495d73b31fa1fed30cf6d110cfb9e3c1f0f80f1"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\vf3matrixfamily_v2.exe",
+      "sha256": "4dfb44c664043fb665950de4beedca0082db888cdc0d4a84eb60cfada6085c97"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\baseline_bindings.json",
+      "sha256": "540c00f8a964c1ffe1974e5831e81e5d2472a6eb4a90ef38fc1c75b3552d95d7"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\full_regression.log",
+      "sha256": "e28c51701c4535adc51e17b5e62f806a6abb88cd3ce8aafd096ce653e3141cb0"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\final_chain_v1.json",
+      "sha256": "bce10b8f2bc7b56686e21b18ba5e94b8c3e509665d5ba762067441606fb6338e"
+    },
+    {
+      "path": "D:\\vf3-captures\\coverage_65_small_ram_dev_v1\\tool_tests_checkpoint.log",
+      "sha256": "413dd701f295bd6aedc80af83707fad85e3d1f9ed50f9aeeef2dfd7bef2e8c27"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_checkpoint.py",
+      "sha256": "7245497d20657bb325f74e0b462242f92964dc14be62df835aace3aa536914f7"
+    }
+  ]
+}
