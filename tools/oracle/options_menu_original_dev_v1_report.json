@@ -1,0 +1,86 @@
+{
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "original_image_checked": true,
+  "runs": [
+    {
+      "batch": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_options_menu_dev_v1_export\\batch_manifest.json",
+      "name": "s28",
+      "state_sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558",
+      "records": 128,
+      "started": 128,
+      "completed": 128,
+      "incomplete": [],
+      "unaccounted": 0,
+      "complete_accounting": true,
+      "frame_complete": true,
+      "ran_frames": 4000,
+      "returncode": 0
+    },
+    {
+      "batch": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\coverage_65_options_menu_dev_v1_export\\batch_manifest.json",
+      "name": "s29",
+      "state_sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b",
+      "records": 128,
+      "started": 128,
+      "completed": 128,
+      "incomplete": [],
+      "unaccounted": 0,
+      "complete_accounting": true,
+      "frame_complete": true,
+      "ran_frames": 4000,
+      "returncode": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "state_sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558",
+      "entries": {
+        "0x8c09bc1c": {
+          "owner": "0x8c09bc2e",
+          "valid_records": 128,
+          "distinct_inputs": 128,
+          "device_records": 0,
+          "excluded_flags": {},
+          "body_bytes": 664,
+          "covered_body_bytes": 650,
+          "missing_body_bytes": 14,
+          "missing_pcs": [
+            "0x8c09bd30",
+            "0x8c09bd32",
+            "0x8c09be92",
+            "0x8c09be94",
+            "0x8c09be96",
+            "0x8c09be98",
+            "0x8c09be9a"
+          ]
+        }
+      }
+    },
+    {
+      "state_sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b",
+      "entries": {
+        "0x8c09bc1c": {
+          "owner": "0x8c09bc2e",
+          "valid_records": 128,
+          "distinct_inputs": 128,
+          "device_records": 0,
+          "excluded_flags": {},
+          "body_bytes": 664,
+          "covered_body_bytes": 650,
+          "missing_body_bytes": 14,
+          "missing_pcs": [
+            "0x8c09bd30",
+            "0x8c09bd32",
+            "0x8c09be92",
+            "0x8c09be94",
+            "0x8c09be96",
+            "0x8c09be98",
+            "0x8c09be9a"
+          ]
+        }
+      }
+    }
+  ],
+  "nondeterministic_entries": []
+}

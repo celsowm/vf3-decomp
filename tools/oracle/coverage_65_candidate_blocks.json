@@ -1,0 +1,13 @@
+{
+  "coverage_credit": false,
+  "scope": "Candidate exclusions under the current captured-input and whole-owner protocol. Reopening requires evidence addressing the stated cause.",
+  "blocks": [
+    {"owner":"0x8c07cf50","reason":"Identical complete captured inputs and original instruction traces produce different original RAM outputs.","evidence":"tools/oracle/menu_selector_observable_quarantine_v1.json"},
+    {"owner":"0x8c0a8f98","reason":"Identical captured inputs produce differing original paths and outputs.","evidence":"tools/oracle/replay_interpolate_observable_quarantine_v1.json"},
+    {"owner":"0x8c0993e8","reason":"Identical complete captured inputs and original instructions produce different original RAM outputs.","evidence":"tools/oracle/scene_input_transition_observable_quarantine_v1.json"},
+    {"owner":"0x8c0c321e","reason":"Two original states reproduce differing final RAM from identical captured inputs.","evidence":"tools/oracle/selection_unlock_observable_quarantine_v1.json"},
+    {"owner":"0x8c09bc2e","reason":"Original reset helper clears configuration byte +14 before testing its nonzero branch; a changed initial byte cannot cover that branch.","evidence":"docs/re/coverage_65_batch_screening.md"},
+    {"owner":"0x8c09575c","reason":"Initialization performs explicit PVR register writes; needs a separately qualified device campaign rather than RAM-only screening.","evidence":"docs/re/coverage_65_batch_screening.md"},
+    {"owner":"0x8c096b0a","reason":"Both reset screens yield no valid calls; the extended campaign also has an incomplete invocation in each state. Requires a new original context hypothesis.","evidence":"tools/oracle/scene_retire_original_dev_v2_report.json"}
+  ]
+}

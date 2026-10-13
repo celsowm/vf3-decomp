@@ -1,0 +1,6 @@
+{
+  "sources": ["src/fight/options_menu.c"],
+  "routes": [
+    {"entries": ["0x0c09bc1c"], "function": "vf3_options_menu_c"}
+  ]
+}

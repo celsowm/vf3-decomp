@@ -12,8 +12,10 @@ The other two helper bodies already contribute to the baseline; their true
 entry prefixes remain verified dependencies and add no bytes. Qualification,
 promotion and preservation are recorded in `replay_transition_qualification_v1.json`,
 `replay_transition_v1_manifest.json` and `replay_transition_historical_archive_v1.json`.
-The expanded 1,418-binding regression is running; all 388 tool tests passed.
-`replay_transition_checkpoint.py` will seal the completed full gate. A new
+The expanded regression passed all **1,418 bindings and 39 native suites**;
+all **388 oracle tool tests** passed. `replay_transition_full_checkpoint_v1.json`
+seals the 408-file compiled source closure, independent acceptance evidence,
+and archived binding inventory, dashboard, ledger and native executables. A new
 screen enters scene-reset owner `0x8c096b0a` through its complete prefix at
 `0x8c096afc`; its 512 potential bytes remain advisory until the full proof exists.
 The first reset screen has no valid calls: two IRQ-invalid and two
@@ -26,6 +28,17 @@ IRQ-invalid, and each state has one incomplete invocation. The complete
 campaign is diagnostic only, with zero coverage credit; its audit is preserved
 in `tools/oracle/scene_retire_original_dev_v2_report.json`. A larger recording
 budget alone does not qualify this reset owner.
+
+The options-menu diagnostic adds a readable isolated C model matching all
+256 new strict original cases and 171 older cases. Each new state covers
+650/664 owner bytes, but the original reset helper makes a required nonzero
+configuration branch unreachable under this input model. The earlier ledger
+already recorded that blocker; the entire owner remains excluded. Details are
+in `docs/re/options_menu_diagnostic.md`. A reusable candidate-block registry
+and pool refresh now remove known blockers before further implementation.
+`coverage_65_remaining_pool_margin_v4.json` records 27 eligible advisory owners
+with 19,380 potential bytes against the unchanged 5,949-byte target gap.
+Potential bytes remain conditional on all original, C, caller and held gates.
 
 The preceding round checkpoint:
 

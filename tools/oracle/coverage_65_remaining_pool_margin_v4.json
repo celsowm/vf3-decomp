@@ -1,0 +1,246 @@
+{
+  "advisory": true,
+  "coverage_credit": false,
+  "accepted_bytes": 276578,
+  "target_bytes": 282527,
+  "remaining_verified_bytes": 5949,
+  "candidates": [
+    {
+      "owner": "0x8c07b6f4",
+      "frozen_bytes": 40,
+      "marginal_bytes": 40
+    },
+    {
+      "owner": "0x8c07cbda",
+      "frozen_bytes": 670,
+      "marginal_bytes": 670
+    },
+    {
+      "owner": "0x8c07d95a",
+      "frozen_bytes": 822,
+      "marginal_bytes": 822
+    },
+    {
+      "owner": "0x8c07dd04",
+      "frozen_bytes": 714,
+      "marginal_bytes": 714
+    },
+    {
+      "owner": "0x8c07e294",
+      "frozen_bytes": 1256,
+      "marginal_bytes": 1256
+    },
+    {
+      "owner": "0x8c07e96c",
+      "frozen_bytes": 268,
+      "marginal_bytes": 268
+    },
+    {
+      "owner": "0x8c07ec4a",
+      "frozen_bytes": 244,
+      "marginal_bytes": 244
+    },
+    {
+      "owner": "0x8c07f436",
+      "frozen_bytes": 626,
+      "marginal_bytes": 626
+    },
+    {
+      "owner": "0x8c07f722",
+      "frozen_bytes": 312,
+      "marginal_bytes": 312
+    },
+    {
+      "owner": "0x8c07f894",
+      "frozen_bytes": 704,
+      "marginal_bytes": 704
+    },
+    {
+      "owner": "0x8c080e74",
+      "frozen_bytes": 480,
+      "marginal_bytes": 480
+    },
+    {
+      "owner": "0x8c08231c",
+      "frozen_bytes": 1892,
+      "marginal_bytes": 1892
+    },
+    {
+      "owner": "0x8c0831f8",
+      "frozen_bytes": 1964,
+      "marginal_bytes": 1964
+    },
+    {
+      "owner": "0x8c089864",
+      "frozen_bytes": 504,
+      "marginal_bytes": 504
+    },
+    {
+      "owner": "0x8c09635a",
+      "frozen_bytes": 616,
+      "marginal_bytes": 616
+    },
+    {
+      "owner": "0x8c0972d2",
+      "frozen_bytes": 624,
+      "marginal_bytes": 624
+    },
+    {
+      "owner": "0x8c097abc",
+      "frozen_bytes": 1132,
+      "marginal_bytes": 1132
+    },
+    {
+      "owner": "0x8c09970a",
+      "frozen_bytes": 1172,
+      "marginal_bytes": 1172
+    },
+    {
+      "owner": "0x8c099d74",
+      "frozen_bytes": 648,
+      "marginal_bytes": 648
+    },
+    {
+      "owner": "0x8c09ac22",
+      "frozen_bytes": 534,
+      "marginal_bytes": 534
+    },
+    {
+      "owner": "0x8c09b37e",
+      "frozen_bytes": 726,
+      "marginal_bytes": 726
+    },
+    {
+      "owner": "0x8c09b6e4",
+      "frozen_bytes": 490,
+      "marginal_bytes": 490
+    },
+    {
+      "owner": "0x8c09cada",
+      "frozen_bytes": 764,
+      "marginal_bytes": 764
+    },
+    {
+      "owner": "0x8c0a13e8",
+      "frozen_bytes": 238,
+      "marginal_bytes": 238
+    },
+    {
+      "owner": "0x8c0a1658",
+      "frozen_bytes": 1176,
+      "marginal_bytes": 1176
+    },
+    {
+      "owner": "0x8c0a575c",
+      "frozen_bytes": 558,
+      "marginal_bytes": 558
+    },
+    {
+      "owner": "0x8c0a89c2",
+      "frozen_bytes": 206,
+      "marginal_bytes": 206
+    }
+  ],
+  "potential_unique_bytes": 19380,
+  "potential_shortfall": 0,
+  "potential_margin": 13431,
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\coverage.json",
+      "sha256": "8ab841024d6fa8a586a3aed96baa4a36735ef3fad1796eb89023789e9c35a0e4"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\decomp_status.csv",
+      "sha256": "45336942154d5b976237b6c517b36544e0f05b8e199efb68c6b5f5968febcf17"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\function_body_ranges.csv",
+      "sha256": "7ef0fdceb06e2b888381ab7a8d7a14e508a19dbfa07fa6320a34972e6c5d2b8d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\analysis\\funcs_1ST_READ.unsc.bin.csv",
+      "sha256": "b8813e391d57cc7067b87b5de613035610c888eb036938f0c01e82c64a66708e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\extract\\gamedata\\1ST_READ.BIN",
+      "sha256": "37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\candidate_margin.py",
+      "sha256": "198da1d111a82fd2b493a49b1e26209c878f3398592fb615c4c6e1810b737c13"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_remaining_pool_margin_v3.json",
+      "sha256": "f6e77c4f4824836bcc839389e8b27a225688456b98a262a85e293c113465c42b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\coverage_65_candidate_blocks.json",
+      "sha256": "245da473d54ecd1768a9d54540caf1447615461df9d85f27acad5dafe9482ea7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\menu_selector_observable_quarantine_v1.json",
+      "sha256": "3b14f57773a757361fb8076662906a7515732a54040e355849f4ca72fe1a491f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\re\\coverage_65_batch_screening.md",
+      "sha256": "b1b82ee60f9de89b88b167a02ddddddeda1708fb3b1c2365ce3548f4ad64fac3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_retire_original_dev_v2_report.json",
+      "sha256": "289816d2e1d7f6910bc3976f0dbb1d56f2383352f83e0e3854ee5f60a30ebe74"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\scene_input_transition_observable_quarantine_v1.json",
+      "sha256": "9a23d24ea1bc4ca10ec2209ac014b779e3f1c6ed2814b095eda7c1e108a16cb0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\re\\coverage_65_batch_screening.md",
+      "sha256": "b1b82ee60f9de89b88b167a02ddddddeda1708fb3b1c2365ce3548f4ad64fac3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\replay_interpolate_observable_quarantine_v1.json",
+      "sha256": "77dca02c021f513e54c53ac68d6af6abb7bb5c687108111e51d1431a2f3a2ea7"
+    }
+  ],
+  "excluded_candidates": [
+    {
+      "owner": "0x8c07cf50",
+      "reason": "Identical complete captured inputs and original instruction traces produce different original RAM outputs.",
+      "evidence": "tools/oracle/menu_selector_observable_quarantine_v1.json"
+    },
+    {
+      "owner": "0x8c09575c",
+      "reason": "Initialization performs explicit PVR register writes; needs a separately qualified device campaign rather than RAM-only screening.",
+      "evidence": "docs/re/coverage_65_batch_screening.md"
+    },
+    {
+      "owner": "0x8c096b0a",
+      "reason": "Both reset screens yield no valid calls; the extended campaign also has an incomplete invocation in each state. Requires a new original context hypothesis.",
+      "evidence": "tools/oracle/scene_retire_original_dev_v2_report.json"
+    },
+    {
+      "owner": "0x8c0993e8",
+      "reason": "Identical complete captured inputs and original instructions produce different original RAM outputs.",
+      "evidence": "tools/oracle/scene_input_transition_observable_quarantine_v1.json"
+    },
+    {
+      "owner": "0x8c09bc2e",
+      "reason": "Original reset helper clears configuration byte +14 before testing its nonzero branch; a changed initial byte cannot cover that branch.",
+      "evidence": "docs/re/coverage_65_batch_screening.md"
+    },
+    {
+      "owner": "0x8c0a8f98",
+      "reason": "Identical captured inputs produce differing original paths and outputs.",
+      "evidence": "tools/oracle/replay_interpolate_observable_quarantine_v1.json"
+    }
+  ],
+  "already_accepted_owners": [
+    "0x8c087e1c",
+    "0x8c08acd8",
+    "0x8c08f642",
+    "0x8c098b40",
+    "0x8c098c70",
+    "0x8c0991a2",
+    "0x8c0a8370"
+  ]
+}
