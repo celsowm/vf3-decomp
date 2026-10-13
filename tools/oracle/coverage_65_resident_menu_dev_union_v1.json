@@ -1,0 +1,134 @@
+{
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "entry": "0x8c09b36c",
+  "owner": "0x8c09b37e",
+  "owner_bytes": 726,
+  "states": [
+    {
+      "state_sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f",
+      "capture_reports": [
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v1_audit.json",
+          "valid_records": 384,
+          "distinct_inputs_in_report": 384,
+          "covered_body_bytes_in_report": 684,
+          "missing_body_bytes_in_report": 42
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v2_audit.json",
+          "valid_records": 256,
+          "distinct_inputs_in_report": 256,
+          "covered_body_bytes_in_report": 652,
+          "missing_body_bytes_in_report": 74
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v3_audit.json",
+          "valid_records": 24,
+          "distinct_inputs_in_report": 24,
+          "covered_body_bytes_in_report": 348,
+          "missing_body_bytes_in_report": 378
+        }
+      ],
+      "pc_union_covered_bytes": 702,
+      "pc_union_missing_bytes": 24,
+      "pc_union_missing_pcs": [
+        "0x8c09b640",
+        "0x8c09b642",
+        "0x8c09b644",
+        "0x8c09b646",
+        "0x8c09b652",
+        "0x8c09b654",
+        "0x8c09b656",
+        "0x8c09b658",
+        "0x8c09b65a",
+        "0x8c09b65c",
+        "0x8c09b65e",
+        "0x8c09b660"
+      ]
+    },
+    {
+      "state_sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+      "capture_reports": [
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v1_audit.json",
+          "valid_records": 384,
+          "distinct_inputs_in_report": 384,
+          "covered_body_bytes_in_report": 684,
+          "missing_body_bytes_in_report": 42
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v2_audit.json",
+          "valid_records": 255,
+          "distinct_inputs_in_report": 255,
+          "covered_body_bytes_in_report": 652,
+          "missing_body_bytes_in_report": 74
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v3_audit.json",
+          "valid_records": 24,
+          "distinct_inputs_in_report": 24,
+          "covered_body_bytes_in_report": 348,
+          "missing_body_bytes_in_report": 378
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v4_s26_audit.json",
+          "valid_records": 256,
+          "distinct_inputs_in_report": 256,
+          "covered_body_bytes_in_report": 652,
+          "missing_body_bytes_in_report": 74
+        },
+        {
+          "report": "tools\\oracle\\coverage_65_resident_menu_dev_v5_s26_audit.json",
+          "valid_records": 255,
+          "distinct_inputs_in_report": 255,
+          "covered_body_bytes_in_report": 652,
+          "missing_body_bytes_in_report": 74
+        }
+      ],
+      "pc_union_covered_bytes": 702,
+      "pc_union_missing_bytes": 24,
+      "pc_union_missing_pcs": [
+        "0x8c09b640",
+        "0x8c09b642",
+        "0x8c09b644",
+        "0x8c09b646",
+        "0x8c09b652",
+        "0x8c09b654",
+        "0x8c09b656",
+        "0x8c09b658",
+        "0x8c09b65a",
+        "0x8c09b65c",
+        "0x8c09b65e",
+        "0x8c09b660"
+      ]
+    }
+  ],
+  "limitations": [
+    "PC coverage union only; no qualification or coverage credit.",
+    "Distinct-input counts are reported per source and are not deduplicated across reports.",
+    "Caller provenance and compiled C behavior require separate gates."
+  ],
+  "sources": [
+    {
+      "path": "tools\\oracle\\coverage_65_resident_menu_dev_v1_audit.json",
+      "sha256": "1da4c2607b612c878c015a0b27aefaf8b98ab58412dacef972354cd29270ea68"
+    },
+    {
+      "path": "tools\\oracle\\coverage_65_resident_menu_dev_v2_audit.json",
+      "sha256": "698ecc9007b81dfa61c0222bfb862d9dc25dbf1b388a63fa014cf26fc40ae555"
+    },
+    {
+      "path": "tools\\oracle\\coverage_65_resident_menu_dev_v3_audit.json",
+      "sha256": "5a54275885609176246dac89de808f1740d64e6e5313b614b8ce727145387d23"
+    },
+    {
+      "path": "tools\\oracle\\coverage_65_resident_menu_dev_v4_s26_audit.json",
+      "sha256": "01919e55955d187291ab2dac4d54da592e67886dd36abd17aba98dcad289e573"
+    },
+    {
+      "path": "tools\\oracle\\coverage_65_resident_menu_dev_v5_s26_audit.json",
+      "sha256": "eb4d0961d6cb0ab4cabdfb9bc2568b1422775f59a758ffd66578c99549d1f469"
+    }
+  ]
+}

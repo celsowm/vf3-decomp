@@ -40,6 +40,16 @@ and pool refresh now remove known blockers before further implementation.
 with 19,380 potential bytes against the unchanged 5,949-byte target gap.
 Potential bytes remain conditional on all original, C, caller and held gates.
 
+The resident-menu owner `0x8c09b37e` remains blocked. Five complete diagnostic
+capture reports combine to **702/726 instruction bytes independently in both
+states 26/27**; the same 12 PCs remain uncovered at `0x8c09b640` through
+`0x8c09b660`. A focused mutable UI configuration reaches the alternate event
+handler, while later counter and task-pointer variations do not reach the
+clamp or swap tail. The evidence and reusable PC-union analyzer are in
+`coverage_65_resident_menu_dev_union_v1.json` and
+`coverage_65_capture_union.py`. No bytes are credited; reopening this owner
+requires the original task/counter context that reaches the tail.
+
 The preceding round checkpoint:
 
 The complete round-decision campaign adds **882 marginal bytes**, bringing

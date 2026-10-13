@@ -1,0 +1,78 @@
+{
+  "diagnostic_only": true,
+  "coverage_credit": false,
+  "original_image_checked": true,
+  "runs": [
+    {
+      "batch": "extract\\analysis\\coverage_65_batch_resident_dev_v4_s26\\batch_manifest.json",
+      "name": "s26",
+      "state_sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+      "records": 256,
+      "started": 256,
+      "completed": 256,
+      "incomplete": [],
+      "unaccounted": 0,
+      "complete_accounting": true,
+      "frame_complete": true,
+      "ran_frames": 14400,
+      "returncode": 0
+    }
+  ],
+  "scenarios": [
+    {
+      "state_sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487",
+      "entries": {
+        "0x8c09b36c": {
+          "owner": "0x8c09b37e",
+          "valid_records": 256,
+          "distinct_inputs": 256,
+          "device_records": 0,
+          "excluded_flags": {},
+          "body_bytes": 726,
+          "covered_body_bytes": 652,
+          "missing_body_bytes": 74,
+          "missing_pcs": [
+            "0x8c09b39e",
+            "0x8c09b3a0",
+            "0x8c09b3cc",
+            "0x8c09b3ce",
+            "0x8c09b3d0",
+            "0x8c09b3d2",
+            "0x8c09b3e0",
+            "0x8c09b3e2",
+            "0x8c09b3e4",
+            "0x8c09b3e6",
+            "0x8c09b43c",
+            "0x8c09b43e",
+            "0x8c09b440",
+            "0x8c09b442",
+            "0x8c09b49a",
+            "0x8c09b49c",
+            "0x8c09b49e",
+            "0x8c09b4a0",
+            "0x8c09b4b4",
+            "0x8c09b4b6",
+            "0x8c09b5ec",
+            "0x8c09b5ee",
+            "0x8c09b5f0",
+            "0x8c09b5f2",
+            "0x8c09b5f4",
+            "0x8c09b640",
+            "0x8c09b642",
+            "0x8c09b644",
+            "0x8c09b646",
+            "0x8c09b652",
+            "0x8c09b654",
+            "0x8c09b656",
+            "0x8c09b658",
+            "0x8c09b65a",
+            "0x8c09b65c",
+            "0x8c09b65e",
+            "0x8c09b660"
+          ]
+        }
+      }
+    }
+  ],
+  "nondeterministic_entries": []
+}
