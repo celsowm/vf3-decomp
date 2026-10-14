@@ -1,5 +1,20 @@
 # VF3tb decomp - progress log
 
+## GDROM_EXEC_SERVER stub + post-70% rescan (2026-10-14)
+
+The strict replay bench (`tools/replay_scan.py --deep`) re-probed all 134
+unported entries that have capture corpora. Owner `0x8c064246` was blocked
+at the REIOS vector `0x8C001006` on `GDROM_EXEC_SERVER` (r6=0, r7=2), which
+flycast-HLE treats as a no-op on an idle queue; the stub in
+`src/fight/vf3_aica_stub_adapter.c` now models it. Trampoline `0x8c0434c8`
+(14 B) subsequently replayed strictly across all 1,922 cases in 9 corpora
+and was promoted. Verified C is **304,462 / 434,656 (70.05%)**.
+
+The remaining `0x8c064246` failures are the `GET_CMD_STAT` transfer-size
+words (REIOS-internal history) and stay excluded; the recorded triage of
+that wall, the pointer-canonicalization corpus split, and the unrestorable
+shadow-missing capsules is in [reios_exec_server](re/reios_exec_server.md).
+
 ## Reach 70% verified C byte coverage (2026-10-13)
 
 Batch replay-scan promotion seals the 70% milestone. `tools/replay_scan.py`

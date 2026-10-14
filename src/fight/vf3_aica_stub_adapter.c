@@ -20,8 +20,20 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
     }
     --state->budget;
 
+    if (r[6] != 0u) {
+        state->failed_pc = entry;
+        return 0;
+    }
+
+    /* GDROM_EXEC_SERVER (r6=0, r7=2): with the captured idle drive queue the
+     * service returns immediately, leaving every register unchanged. */
+    if (r[7] == 2u) {
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
+
     /* GDROM_GET_DRV_STAT: group r6=0, function r7=4, output at *r4. */
-    if (r[6] != 0u || r[7] != 4u) {
+    if (r[7] != 4u) {
         state->failed_pc = entry;
         return 0;
     }
