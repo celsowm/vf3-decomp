@@ -1,5 +1,29 @@
 # VF3tb decomp - progress log
 
+## Generator PR-form fix + menu/sweep batch: 72.71% (2026-10-14)
+
+Root cause found for the `got 0c want 8c` stored-pointer class: the adapter
+generator emitted **masked** `pr` return addresses (`r[16]=0x0c…`) while the
+original hardware (and the capture shadows) carry the raw `0x8c…` form.
+`tools/oracle/translate_adapters.py` now emits the hardware form at bsr/jsr
+sites; the rts path already propagates the stored raw value. The `0x8c035da6`
+corpus is confirmed internally inconsistent on this convention (same store
+recorded masked and raw in different cases) and stays excluded.
+
+A generated batch (`tools/watch/vf3_sweep1.txt`, module
+`src/fight/vf3_sweep_adapters*.c`, 32,273 statements) plus the menu module
+(`src/fight/tenpp_menu_adapters.c`) replay strictly across all corpora of
+**49 previously unported owners (+11,588 B)**, including `0x8c07e294`
+(1,256 B × 42 cases), `0x8c05a538` (888 B), `0x8c07dd04` (714 B) and
+`0x8c05c4bc` / `0x8c07cbda` (670 B × 48). Verified C is **316,050 /
+434,656 bytes (72.71%)**; rigorous accounted 1,652 fns / 329,892 bytes
+(75.9%). Full gate: 39 native suites, 1,662 bindings, 418 oracle tool
+tests + 2,567 subtests.
+
+The 30 sweep entries that still fail cluster in three documented walls:
+REIOS HLE state (8), missing shadow windows (5), mixed 0c/8c corpora (4+),
+misc residual paths — see [reios_exec_server](re/reios_exec_server.md).
+
 ## GDROM_EXEC_SERVER stub + post-70% rescan (2026-10-14)
 
 The strict replay bench (`tools/replay_scan.py --deep`) re-probed all 134

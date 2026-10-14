@@ -316,7 +316,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         if top in (0xA,0xB):
             dest=a+4+sx(w&4095,12)*2
             if top==0xB:
-                lines.append(f'target=0x{dest:08x}u; r[16]=0x{a+4:08x}u;')
+                lines.append(f'target=0x{dest:08x}u; r[16]=0x{0x8c000000|a+4:08x}u;')
                 lines.extend(statements(a+2))
                 lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
                 lines.append(jump(a+4))
@@ -332,7 +332,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             rel=(w&0xF0FF) in (0x0003,0x0023)
             call=(w&0xF0FF) in (0x400B,0x0003)
             lines.append(f'target=r[{n}]'+(f'+0x{a+4:08x}u;' if rel else ';'))
-            if call: lines.append(f'r[16]=0x{a+4:08x}u;')
+            if call: lines.append(f'r[16]=0x{0x8c000000|a+4:08x}u;')
             lines.extend(statements(a+2))
             if call:
                 lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))

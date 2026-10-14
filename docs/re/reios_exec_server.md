@@ -56,6 +56,23 @@ These entries stay unpromoted from their current corpora. The same applies
 to the `device access mismatch W 1f000038` cluster (five entries) which
 needs a hardware write the recorders only logged in part: diagnosis only.
 
+## Sweep-batch outcome (2026-10-14)
+
+After the raw-`pr` generator fix, a 79-root sweep
+(`tools/watch/vf3_sweep1.txt`, entries whose replay failed at their own entry
+PC) promoted **49 owners / 11,588 bytes** with strict zero-skip replays.
+Remaining 30 fail for the named walls:
+
+- REIOS `GET_CMD_STAT`/`REQ_CMD` HLE state (8 entries: `0x8c03523c`,
+  `0x8c035518`, `0x8c035728`, `0x8c0357ca`, `0x8c0431ea`, `0x8c04326c`,
+  `0x8c0349ac`, `0x8c034f8a`, …) — excluded as before.
+- `PC 00000000 (N OOB)` — capture windows do not cover the executed pages
+  (5 entries, e.g. `0x8c045cb2`, `0x8c04c024`, `0x8c04dcd4`).
+- `got 8c want 0c` — the SAME stored-pointer value recorded in the sanitized
+  form in these corpora (mixed-capture-convention; e.g. `0x8c04ba56`,
+  `0x8c04c0fe`, `0x8c04c61e`, `0x8c05dbae`). Cannot be satisfied by the
+  hardware-true model; excluded from these corpora.
+
 ## Shadow-missing corpora not restorable
 
 `tools/regen_ram_shadows.py --all` finds 14 corpora whose `.cases` survive

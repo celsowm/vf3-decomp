@@ -29,6 +29,8 @@ int vf3_tenpp_recovery_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_recovery_adapter_contains(uint32_t);
 int vf3_tenpp_expanded_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_expanded_adapter_contains(uint32_t);
+int vf3_sweep_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_sweep_adapter_contains(uint32_t);
 int vf3_advance_closure_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_advance_closure_adapter_contains(uint32_t);
 int vf3_advance_worker_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
@@ -666,6 +668,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         if(vf3_ultimate_adapter_contains(entry)) return vf3_ultimate_adapter(entry,s,ram);
         if(vf3_tenpp_asset_adapter_contains(entry)) return vf3_tenpp_asset_adapter(entry,s,ram);
         if(vf3_tenpp_survey_adapter_contains(entry)) return vf3_tenpp_survey_adapter(entry,s,ram);
+        if(vf3_sweep_adapter_contains(entry)) return vf3_sweep_adapter(entry,s,ram);
         if(vf3_aica_stub_adapter_contains(entry)) return vf3_aica_stub_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }

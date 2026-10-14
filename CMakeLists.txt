@@ -102,6 +102,10 @@ add_library(vf3core STATIC
     src/fight/tenpp_asset_adapters.c
     src/fight/tenpp_complex_adapters.c
     src/fight/tenpp_expanded_adapters.c
+    src/fight/vf3_sweep_adapters.c
+    src/fight/vf3_sweep_adapters_0.c
+    src/fight/vf3_sweep_adapters_1.c
+    src/fight/vf3_sweep_adapters_2.c
     src/fight/advance_closure_adapters.c
     src/fight/advance_worker_adapters.c
     src/fight/advance_dynamic_06129c.c
