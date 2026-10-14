@@ -1,5 +1,17 @@
 # VF3tb decomp - progress log
 
+## Fight-trace reachability audit (2026-10-14)
+
+New committed tool `tools/fight_reach.py` scans a vf3trace record stream for
+per-owner body-range hits. Against `trace_fight1.bin` (197M records), 26 of
+the 853 unported owners execute in real fights (4,334 bytes), the largest
+being `0x8c09575c` (1,780 B, 4,627 hits). Crucially, all of them are reached
+**mid-body via dispatch-table targets**, never at their Ghidra entry PC —
+which is why the fixed entry-PC hit screens reported zero. The audit report
+is `extract/analysis/fight_reach_r76.csv` and the queue table + capture-
+campaign consequences are in [fight_reach](re/fight_reach.md). No coverage
+credit claimed from trace evidence.
+
 ## VBR + REIOS services + image fallback: 72.87% (2026-10-14)
 
 Three independent blockers fell during the "leave nothing on the table"
