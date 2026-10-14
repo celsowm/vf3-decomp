@@ -76,12 +76,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 70.05% verified C (b04fd0d + 9073d98). The capture-corpus pool is
-  drained at strict replay; remaining unported-with-corpora owners are blocked
-  on REIOS HLE state (GET_CMD_STAT/REQ_CMD), mixed 0c/8c capture conventions,
-  or unrestorable shadow capsules — see docs/re/reios_exec_server.md. Further
-  coverage needs fresh emulator capture campaigns (states, drive queues) or
-  direct translation of the big scene/actor owners.
+- Coverage: 72.84% verified C (b04fd0d … 2fe1d26; generator emits raw
+  hardware-form link values). The capture-corpus pool is drained at strict
+  replay; remaining unported-with-corpora owners are blocked on REIOS HLE
+  state (GET_CMD_STAT/REQ_CMD), missing shadow windows, or mixed 0c/8c
+  capture conventions — see docs/re/reios_exec_server.md. The 96-owner
+  bigscreen (docs/re/bigscreen_r72.md) found only 0x8c059aea + 0x8c064246
+  naturally reachable in replay states 45/46, and both reject natural
+  case capture; next gains need fight-active states or bounded probes.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
