@@ -1,5 +1,19 @@
 # VF3tb decomp - progress log
 
+## Fight scheduler loop recovered (2026-10-14)
+
+PC-predecessor analysis on `trace_fight1.bin` resolved WHY entry-PC screens
+miss the fight-hot unported owners: the trace capsule starts mid-frame,
+mid-iteration of the task-VM scheduler loop (`0x8c096170`: table walk over
+`0x0c1fe864` records, `jsr` each enabled handler with `r14`=record). The
+bytecode interpreter (`0x8c08b476..c4`), the vtable trampoline
+(`0x8c0ab870` via image table `0x0c10f414`), the op-thunk bra-table
+(`0x8c0786c4`+) and poll owner `0x8c059aea` (86M trace hits) all belong to
+this one family. Map + capture consequences:
+[fight_scheduler_loop](re/fight_scheduler_loop.md). The Phase-2 campaign
+is now well-defined: model the scheduler's table/cursor state, then
+fixture-capture through the front-door tick. No coverage credit claimed.
+
 ## Fight-trace reachability audit (2026-10-14)
 
 New committed tool `tools/fight_reach.py` scans a vf3trace record stream for

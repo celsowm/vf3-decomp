@@ -52,8 +52,31 @@ reachability evidence only — no owner earns coverage credit from it.
   these needs either a whole-session observer at a fight-active savestate or
   an invoker patch at the *dispatch* site (e.g. `0x8c095cfc` for
   `0x8c09575c`), not at the Ghidra function entry.
-- The small 48–170 B fight-hot owners (`0x8c0a037c`, `0x8c059a2e`,
+- The small 48-170 B fight-hot owners (`0x8c0a037c`, `0x8c059a2e`,
   `0x8c07023a`, `0x8c08b586`, `0x8c0a03f0`, …) are the cheapest full
   pipeline targets: state-45/46-adjacent bounded probes should find them.
 - OF THE ONES WITH EXISTING CORPORA: `0x8c09425e` and `0x8c03523c` stay
   parked (device-tape `0x1f000038` divergence and REIOS GET_CMD_STAT resp.).
+
+## 2026-10-14 follow-up: the mid-body sites are scheduler continuations
+
+PC-predecessor analysis of the first trace hits corrected the "mid-body
+entry" picture: `0x8c095cfc` is reached by `rts` from helper `0x8c096170` —
+it is a **stacked return address**, not a call target. The cluster bodies
+(`0x8c09575c`, `0x8c096170`, `0x8c07829a`→`0x8c0782e4`, trampoline table
+`0x8c0786c4`+, vtable trampoline `0x8c0ab870` via image table
+`0x0c10f414`) form one interconnected family: the **task-VM / scheduler
+core** already flagged in docs/re/task_vm.md (M19). Corpora-bearing
+members re-triaged against scan r75 remain walled: `0x8c08c12e` (41/41
+pass but 66 shadows lost with the tenpp capsules), `0x8c062ec4` (thunk
+that `jsr`s a RAM-resident function pointer — needs the task VM modeled),
+`0x8c07829a` (chains into the unmodeled trampoline table at
+`0x8c0786c4`). Consequences:
+
+- Every cheap front-door capture on this family collapses into the same
+  requirement: model the scheduler's save/resume mechanics FIRST. That is
+  the Phase-2 campaign: field schema (M19 tools/task_vm_map.py), resume
+  path, then fixture capture through the natural scheduler entry.
+- Non-cluster outliers still probeable cheaply: none material among the
+  26 — even `0x8c038cb0` (48 B, clean entry) tails into the `0x8c059xxx`
+  polling family (`0x8c059aea`, 86M hits, no corpus).

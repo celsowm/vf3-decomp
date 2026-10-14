@@ -46,3 +46,10 @@ Layout sings a per-part stride (8 parts, as the byte streams show): offsets
 The wf-ranging probe (fight-vs-attract mem-watch around the resolved base)
 will name each field via write-bursts. That was M19's original plan and is
 now tracked as a future probe (savestate-first known target: `vf3.state`).
+
+2026-10-14: the task-dispatch loop and its bytecode interpreter are now
+mapped - see [fight_scheduler_loop](fight_scheduler_loop.md). It is the
+single unlock for the 26 fight-trace-reachable unported owners
+([fight_reach](fight_reach.md), 4,334 B incl. `0x8c09575c` 1,780 B);
+fixture design should target the loop's table at `0x0c1fe864` and cursor
+cell `0x0c29bb84`, not the owner entries.
