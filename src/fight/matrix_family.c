@@ -159,6 +159,31 @@ int vf3_advance_branch_adapter_contains(uint32_t);
 #define FPSCR s->v[18]
 #define FPUL s->v[53]
 static void t(vf3_matrix_state*s,int v) { R(17)=(R(17)&~1u)|(v!=0); }
+static struct { uint8_t *data; uint32_t len; int tried; } vf3_image;
+static void vf3_load_image(void) {
+    if(vf3_image.tried) return;
+    vf3_image.tried=1;
+    const char *path=getenv("VF3_IMAGE"); if(!path) path="extract/gamedata/1ST_READ.BIN";
+    FILE *f=fopen(path,"rb");
+    if(!f) return;
+    fseek(f,0,SEEK_END); long n=ftell(f); fseek(f,0,SEEK_SET);
+    if(n>0) {
+        vf3_image.data=(uint8_t*)malloc((size_t)n);
+        if(vf3_image.data && fread(vf3_image.data,1,(size_t)n,f)==(size_t)n)
+            vf3_image.len=(uint32_t)n;
+        else { free(vf3_image.data); vf3_image.data=NULL; }
+    }
+    fclose(f);
+}
+static uint32_t vf3_image_byte(uint32_t addr) {
+    /* Identity-mapped retail image (docs/re/image_identity.md): serve bytes
+     * of the loaded 1ST_READ window for reads the corpus windows truncated.
+     * Runtime-writeable state beyond the image end is never served here. */
+    if(!vf3_image.tried) vf3_load_image();
+    if(vf3_image.data && addr>=0x0c010000u && addr-0x0c010000u<vf3_image.len)
+        return vf3_image.data[addr-0x0c010000u];
+    return 0x100u;  /* sentinel: not image-backed */
+}
 uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     uint32_t value=0;
     addr&=0x1FFFFFFFu;
@@ -173,6 +198,8 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
             value|=(uint32_t)ram->wins[i].data[addr+j-ram->wins[i].base]<<(8*j); found=1; break;
         }
         if(!found) {
+            uint32_t b=vf3_image_byte(addr+j);
+            if(b!=0x100u) { value|=b<<(8*j); continue; }
             if(!ram->oob && getenv("VF3_REPLAY_OOB"))
                 fprintf(stderr,"uncaptured read: %08x/%u\n",addr,size);
             ++((vf3_ram_map*)ram)->oob;

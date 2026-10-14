@@ -73,6 +73,32 @@ Remaining 30 fail for the named walls:
   `0x8c04c0fe`, `0x8c04c61e`, `0x8c05dbae`). Cannot be satisfied by the
   hardware-true model; excluded from these corpora.
 
+## Image-backed read fallback (2026-10-14)
+
+Corpus windows capture only the recorder's selected pages, so reads reaching
+un-captured code pages (e.g. the two-instruction leaf `0x8c05da42` at
+`0x0c05d000`, outside every survey corpus window) used to fail as OOB.
+`vf3_matrix_read` now serves identity image bytes
+(`extract/gamedata/1ST_READ.BIN`, range `0x0c010000..0x0c1300ff`) for
+addresses outside every window; runtime state beyond the image end is still
+OOB and the window compare stays authoritative (the fallback only fires for
+reads that previously *failed*; all 1,664 bindings + 39 suites replay
+unchanged and green).
+
+Rescan (`replay_scan_r73.csv`): no new full-sweep promoters — every
+remaining failure already carries a wall. The cluster ladder is clarified:
+`0x8c0598a8`/`0x8c05d8ee` now pass 3+/4 corpora; `0x8c05d8ee` keeps one
+corpus whose recorded shadow holds the *masked* stored-`pr` form
+(corpus-era inconsistency, excluded). The remaining walls:
+
+- REIOS HLE state (`0c001006`): 25 entries.
+- `PC 00000000` first divergence (8 entries): model walks to an
+  uninitialized function pointer — needs per-entry caller fix-up evidence,
+  not image fallback.
+- `stc vbr` at `0x8c0370a6` (4 entries: `0x8c0369d6`, `0x8c043ac6`,
+  `0x8c046182`, `0x8c046220`): needs the game's VBR value in the model.
+- REIOS SYS vector `0x8C001000` (4 entries).
+
 ## Shadow-missing corpora not restorable
 
 `tools/regen_ram_shadows.py --all` finds 14 corpora whose `.cases` survive
