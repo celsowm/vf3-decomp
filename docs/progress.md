@@ -1,4 +1,27 @@
-# VF3tb decomp — progress log
+# VF3tb decomp - progress log
+
+## Reach 70% verified C byte coverage (2026-10-13)
+
+Batch replay-scan promotion seals the 70% milestone. `tools/replay_scan.py`
+probed every unported baseline entry against every capture corpus;
+`tools/promote_replay.py` promoted 168 replay-clean entries (186 ledger rows),
+each only after an individual strict re-run with zero skips against its
+shadowed corpus, resolving the owning router via `owned_pcs` scans. RAM
+shadows are byte-identical regenerations of the recorded capsules
+(`tools/regen_ram_shadows.py`).
+
+Verified C address union is **304,448 / 434,656 bytes (70.04%)**: ported
+1,492 fns / 305,406 body bytes (70.3%); rigorous accounted (ported+SDK)
+1,619 fns / 321,166 bytes (73.9%); 1,627 fns / 322,194 bytes (74.1%)
+including trace-executed. The full gate passes on the unchanged build:
+39 native suites and 1,612 bindings under `tools/portcheck.py`, plus
+418 oracle tool tests and 2,567 subtests.
+
+An aborted same-day attempt on selection/unlock owner `0x8C0C321E` was
+screened out before integration (case-hardened outputs, no caller/whole-body
+proof); the owner stays excluded per
+`tools/oracle/selection_unlock_observable_quarantine_v1.json`.
+Ledger: `docs/decomp_status.csv`; dashboard: `docs/coverage.md`.
 
 ## Paired replay callback qualified (2026-10-11)
 

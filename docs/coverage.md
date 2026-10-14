@@ -4,23 +4,23 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 1391 (+22 off-baseline leaves) | 58.0% | 283412 | 65.2% |
-| SDK-attributed (masked byte match) | 72 | 3.0% | 15324 | 3.5% |
+| ported (src/) | 1492 (+109 off-baseline leaves) | 62.2% | 305406 | 70.3% |
+| SDK-attributed (masked byte match) | 54 | 2.3% | 10314 | 2.4% |
 | SDK-attributed (reloc-aware, L2 verified) | 0 | 0.0% | 0 | 0.0% |
-| SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 12 | 0.5% | 1178 | 0.3% |
-| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 55 | 2.3% | 4406 | 1.0% |
-| SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | 4 | 0.2% | 1172 | 0.3% |
-| SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | 21 | 0.9% | 802 | 0.2% |
+| SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 11 | 0.5% | 978 | 0.2% |
+| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 43 | 1.8% | 3334 | 0.8% |
+| SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | 2 | 0.1% | 596 | 0.1% |
+| SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | 17 | 0.7% | 538 | 0.1% |
 | SDK-fragment (union corpus partial) | 0 | 0.0% | 0 | 0.0% |
-| trace-executed (execution-ID, NOT ported/matched) | 10 | 0.4% | 1704 | 0.4% |
-| **rigorous accounted (ported+SDK)** | 1555 | 64.8% | 306294 | 70.5% |
-| **total incl. trace** | 1565 | 65.3% | 307998 | 70.9% |
+| trace-executed (execution-ID, NOT ported/matched) | 8 | 0.3% | 1028 | 0.2% |
+| **rigorous accounted (ported+SDK)** | 1619 | 67.5% | 321166 | 73.9% |
+| **total incl. trace** | 1627 | 67.8% | 322194 | 74.1% |
 
-Verified C address union: **282534 bytes** (65.0% of the frozen body denominator). Legacy port sums contain 878 overlapping bytes.
+Verified C address union: **304448 bytes** (70.0% of the frozen body denominator). Legacy port sums contain 958 overlapping bytes.
 
 SDK attribution by library (fn count):
-- ninja: 57
-- sh4nlfzz: 11
+- ninja: 44
+- sh4nlfzz: 6
 - shinobi: 2
 - kamui2_flat: 1
 - sg_mw: 1
