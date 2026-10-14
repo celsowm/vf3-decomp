@@ -59,6 +59,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    over the Ghidra dump when bodies are seed-fragmented (2,258 tiny junk fns,
    size<=8). New fn names: re-run `Vf3Baseline.java` to refresh
    `extract/analysis/funcs_1ST_READ.unsc.bin.csv`.
+6. replay bench: `tools/replay_scan.py` (batch strict-replay probe of unported
+   entries against every corpus; `--deep` for >400-case corpora),
+   `tools/promote_replay.py` (re-run gated promotion into
+   tools/golden_bindings.json + docs/decomp_status.csv),
+   `tools/regen_ram_shadows.py` (restore missing case shadows from capsules),
+   `tools/coverage70_audit.py` + `tools/final_status.py` (audit/gap reports).
+   The 70% milestone sealed the first full sweep (b04fd0d); remaining
+   corpus-blocked clusters are diagnosed in docs/re/reios_exec_server.md.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -68,6 +76,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
+- Coverage: 70.05% verified C (b04fd0d + 9073d98). The capture-corpus pool is
+  drained at strict replay; remaining unported-with-corpora owners are blocked
+  on REIOS HLE state (GET_CMD_STAT/REQ_CMD), mixed 0c/8c capture conventions,
+  or unrestorable shadow capsules — see docs/re/reios_exec_server.md. Further
+  coverage needs fresh emulator capture campaigns (states, drive queues) or
+  direct translation of the big scene/actor owners.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
