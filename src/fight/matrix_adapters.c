@@ -27981,6 +27981,7 @@ case 0x0c0ca49eu: goto P_0c0ca49e;
 case 0x0c0ca4a0u: goto P_0c0ca4a0;
 case 0x0c0ca4a2u: goto P_0c0ca4a2;
 default:
+    if((target&0x1ffffff0u)==0x0c001000u) return vf3_matrix_family(target,s,ram);
     if(vf3_device_adapter_contains(target) || vf3_next_adapter_contains(target) ||
        vf3_motion_adapter_contains(target) ||
        vf3_fight_adapter_contains(target)) return vf3_matrix_family(target,s,ram);
@@ -59536,7 +59537,7 @@ r[5]>>=1;
 goto P_0c051104;
 P_0c051104: /* original 04b3, guest PC 0x0c051104 */
 if(!s->budget--) { s->failed_pc=0x0c051104u; return 0; }
-s->failed_pc=0x0c051104u; return 0;
+/* ocbwb @r4 - operand-cache write-back; transparent to the RAM model. */
 goto P_0c051106;
 P_0c051106: /* original 4510, guest PC 0x0c051106 */
 if(!s->budget--) { s->failed_pc=0x0c051106u; return 0; }

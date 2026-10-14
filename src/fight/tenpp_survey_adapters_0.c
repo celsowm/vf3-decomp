@@ -1877,7 +1877,7 @@ r[3]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c0370deu,2);
 goto P_0c0370a6;
 P_0c0370a6: /* original 0222, guest PC 0x0c0370a6 */
 if(!s->budget--) { s->failed_pc=0x0c0370a6u; return 0; }
-s->failed_pc=0x0c0370a6u; return 0;
+r[2]=0x8c00f400u;  /* stc vbr,r2 - VBR fixed at boot by 1ST_READ init (0x8c01010e: ldc r0,vbr, r0=0x8c00f400) */
 goto P_0c0370a8;
 P_0c0370a8: /* original 343c, guest PC 0x0c0370a8 */
 if(!s->budget--) { s->failed_pc=0x0c0370a8u; return 0; }

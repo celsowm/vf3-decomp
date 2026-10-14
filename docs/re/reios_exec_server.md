@@ -99,6 +99,36 @@ corpus whose recorded shadow holds the *masked* stored-`pr` form
   `0x8c046182`, `0x8c046220`): needs the game's VBR value in the model.
 - REIOS SYS vector `0x8C001000` (4 entries).
 
+## REIOS gate-chain modeling (2026-10-14, second pass)
+
+The `0x8C001000..0x8C001008` gate bodies are reached via
+`jmp @r0` after loading the gate pointer from the ROM vector table
+(`*(0x8c0000b0 + slot)`). Studio-local evidence:
+
+- `vf3_aica_stub_adapter.c` now models four measured REIOS services:
+  `SYSINFO_INIT` (r7=0: writes the fixed 24-byte console record
+  `e619f54e b8cf7bd4 fffe 313130` + zeros at `0x8c000068`; verified
+  byte-invariant across 11 sampled corpora), `SYSINFO_ID` (r7=3),
+  `SYSINFO_ICON` (r7=2), `FLASHROM_READ` (r7=1) narrowed to the observed
+  2-byte console block at flash offset `0x1a05e`, and the existing
+  `GDROM_GET_DRV_STAT` / `GDROM_EXEC_SERVER`.
+- Legacy `matrix_adapters.c` dispatch escalates *only* REIOS-gate targets
+  (`0x0c001000..0x0c00100f`) to the family dispatcher; every other unknown
+  indirect target still fails closed. Unscoped escalation was tried and
+  reverted: it traded fast structural fails for slow budget-burning
+  recursion into garbage handlers, regressing green owners
+  (`0x8c06f9ac` family) via runaway budget — the direct evidence that these
+  paths expect REIOS gates, not generic SH-4 addresses.
+- `ocbwb @r4` at `0x8c051104` (operand-cache write-back loop) is modeled
+  as the RAM-transparent no-op it is.
+- The owner cluster reaching these services (`0x8c0377a8`, `0x8c03780c`,
+  `0x8c047230`, `0x8c0a1294` — config-editor/region-check family) now
+  executes past both REIOS services but dies later in the corner-block
+  descriptor flush loop at `0x8c0510b6` (dt/bf loop whose iteration count
+  is driven by `0x0c16cdxx` driver state not carried in these corpora).
+  It stays unpromoted; earlier in-session promotions of these four were
+  intentionally backed out of the ledger after full-gate regression.
+
 ## Shadow-missing corpora not restorable
 
 `tools/regen_ram_shadows.py --all` finds 14 corpora whose `.cases` survive

@@ -1,5 +1,33 @@
 # VF3tb decomp - progress log
 
+## VBR + REIOS services + image fallback: 72.87% (2026-10-14)
+
+Three independent blockers fell during the "leave nothing on the table"
+triage:
+
+- The game's VBR is `0x8c00f400` (set by the startup DC init at
+  `0x8c01010e`); the `stc vbr` + vbr-relative exception-context leaf at
+  `0x8c0370a6` is now modeled in the generated adapters. `0x8c046220`
+  (130 B) promotes on the strength of in-corpus REIOS evidence.
+- `vf3_matrix_read` serves identity-image bytes for reads outside captured
+  windows (code/literal pages; runtime state still OOB) — see
+  [reios_exec_server](re/reios_exec_server.md); fixes the leaf-window class
+  without touching the byte-exact compare.
+- The REIOS gate pointers at `0x8c0000b0..e0` route the REIOS service
+  vectors (`0x8c001000` SYSINFO, `0x8c001004` FLASHROM, `0x8c001006` GDROM)
+  through dedicated stubs in `vf3_aica_stub_adapter.c`; the legacy adapter
+  dispatch escalates only those vectors to the family, everything else
+  still fails closed. Each service contract is measured from the captures:
+  `SYSINFO_INIT`'s 24-byte record is invariant across corpora, and the
+  observed FLASHROM_READ copies the two console-variant bytes.
+
+Regression discipline: the unscoped legacy escalation + a 16-deep family
+guard were tried and reverted after they regressed green owners
+(`0x8c06f9ac` class) into budget exhaustion; the SYSINFO-service owners
+themselves stay unpromoted because their descriptor-flush loops still
+diverge from the recorded driver state (`docs/re/reios_exec_server.md`).
+Verified C is **316,730 / 434,656 bytes (72.87%)**.
+
 ## Generator PR-form fix + menu/sweep batch: 72.71% (2026-10-14)
 
 Root cause found for the `got 0c want 8c` stored-pointer class: the adapter
