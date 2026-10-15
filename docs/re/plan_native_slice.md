@@ -32,3 +32,20 @@ Rank by census weight; rewrite against the oracle; `readable` ledger column.
 
 ## Phase 4 - other scenes
 Same harness, other states.
+
+Status (2026-10-15): savestate sweep captured scheduler ticks for 13 of 46 states
+(4,5,7,9-16,37,41; the rest never reach 0x8c09616a within 300 frames, so they are not
+fight ticks - other scenes need a different entry). All 13 run 100% native in the
+verification harness (0 stubs, 0 mismatches, oracle and poison scratch modes).
+
+Standalone native tick: `build/vf3 <golden_tickx_vf3_N.bin> --expect oracle_tick_sN.bin
+--hw flycast_exit_sN.bin [--ta-out f]` (src/main.c, src/fight/native_tick.c) runs the
+tick with no oracle, no devlog and a baked call-target table
+(src/fight/call_targets.c, `tools/recomp/gen_call_targets.py`). `tools/recomp/run_native.sh
+4 5 7 9 10 11 12 13 14 15 16 37 41`: all complete, 0 RAM bytes differ from the oracle
+apart from 3-10 bytes per state where the oracle's denormal handling is wrong and native
+equals hardware. Against the emulator's exit RAM ~450 bytes differ per state
+(interrupt-driven counters, stack residue), expected and not tick logic.
+Limits: one scheduler tick per run (no main loop, no scene changes); ~32% of executed
+steps are readable ports, the rest generated adapters; call-target table covers only
+entries seen in the 13 captured ticks.

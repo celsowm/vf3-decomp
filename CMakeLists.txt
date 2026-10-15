@@ -61,6 +61,8 @@ add_library(vf3core STATIC
     src/fight/matrix_lib.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
+    src/fight/native_tick.c
+    src/fight/call_targets.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c
     src/fight/actor_table_literal.c
