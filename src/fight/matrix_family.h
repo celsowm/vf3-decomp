@@ -75,6 +75,8 @@ int vf3_fifth_leaf_extra_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fifth_leaf_extra_adapter_contains(uint32_t);
 int vf3_ultimate_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_ultimate_adapter_contains(uint32_t);
+int vf3_tickgap_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_tickgap_adapter_contains(uint32_t);
 int vf3_tenpp_asset_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_tenpp_asset_adapter_contains(uint32_t);
 int vf3_aica_stub_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);

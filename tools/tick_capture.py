@@ -33,6 +33,8 @@ def main() -> int:
     ap.add_argument('--pairs', type=int, default=2)
     ap.add_argument('--name', default='tick')
     ap.add_argument('--play', default='')
+    ap.add_argument('--exitsp', default='', help='required (r15 - entry r15) at the exit rts, e.g. -4')
+    ap.add_argument('--exitpc', default='', help='address of the exact rts that ends the function (boundary exit)')
     ap.add_argument('--timeout', type=int, default=1800)
     a = ap.parse_args()
     entry = int(a.entry, 16)
@@ -41,7 +43,10 @@ def main() -> int:
     trace = out / f'golden_{a.name}_{stem}.bin'
     log = out / f'golden_{a.name}_{stem}.log'
     watch = out / f'tickwatch_{a.name}_{stem}.txt'
-    watch.write_text(f'rampc {entry:x}\n')
+    wl = f'rampc {entry:x}\n'
+    if a.exitpc:
+        wl += f'exitpc {entry:x} {int(a.exitpc, 16):x}' + (f' {int(a.exitsp)}' if a.exitsp else '') + '\n'
+    watch.write_text(wl)
     env = dict(os.environ)
     for k in ('VF3_CAPSULE', 'VF3_HITS', 'VF3_RAM_PATCH', 'VF3_ENTRY_PATCH'):
         env.pop(k, None)

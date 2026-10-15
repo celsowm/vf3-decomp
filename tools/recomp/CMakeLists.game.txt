@@ -1,0 +1,1 @@
+dream_add_game(vf3tb TITLE "Virtua Fighter 3tb")

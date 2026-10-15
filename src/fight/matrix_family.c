@@ -1,6 +1,7 @@
 /* Matrix stack, affine transforms and register-bank adapters. This source
  * uses matrix/vector loops; it neither decodes opcodes nor executes the ROM. */
 #include "fight/matrix_family.h"
+#include "fight/family_hooks.h"
 int vf3_clip_strip_c(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_clip_strip_writers_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_clip_strip_writers_adapter_contains(uint32_t);
@@ -207,8 +208,22 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     }
     return value;
 }
+/* SH-4 store queues: 32-bit stores to 0xE0000000..0xE3FFFFFF fill SQ0/SQ1 (address bit 5);
+ * PREF @Rn on such an address bursts the 32 bytes to (QACRn.AREA<<26)|(Rn&0x03FFFFE0), which
+ * is how the game fills its geometry buffers and hands display lists to the TA. The stores
+ * stay visible to the device hook so existing device logs are unchanged. */
+static uint32_t vf3_sq_buf[2][8], vf3_sq_qacr[2];
+int vf3_sq_model;
+void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
+    unsigned n=(a>>5)&1u;
+    if(!vf3_sq_model) return;
+    uint32_t dest=(vf3_sq_qacr[n]<<24)|(a&0x03FFFFE0u);
+    for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
+}
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
+    if((addr&0xFC000000u)==0xE0000000u && size==4) vf3_sq_buf[(addr>>5)&1u][(addr>>2)&7u]=value;
     addr&=0x1FFFFFFFu;
+    if(addr==0x1F000038u || addr==0x1F00003Cu) vf3_sq_qacr[(addr>>2)&1u]=value&0x1Cu;
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);
     if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_write) {
@@ -311,7 +326,9 @@ int vf3_event_admission_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_size_profile_init_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_profile_clear_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
-int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
+vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
+vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
+static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
@@ -697,8 +714,60 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
         if(vf3_tenpp_survey_adapter_contains(entry)) return vf3_tenpp_survey_adapter(entry,s,ram);
         if(vf3_sweep_adapter_contains(entry)) return vf3_sweep_adapter(entry,s,ram);
         if(vf3_aica_stub_adapter_contains(entry)) return vf3_aica_stub_adapter(entry,s,ram);
+        if(vf3_tickgap_adapter_contains(entry)) return vf3_tickgap_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);
     return ram->oob==0;
+}
+
+/* Dispatcher entry. The two verification hooks wrap the generated chain so a
+ * readable port can pre-empt any ported entry, and an entry no ported code
+ * owns (the chain fails at that very address) can be answered by a recorded
+ * oracle effect. Both hooks are NULL outside tests. */
+static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
+    int ok, handled=0;
+    if(vf3_family_override) {
+        ok=vf3_family_override(entry&0x1FFFFFFFu,s,ram,&handled);
+        if(handled) return ok;
+    }
+    ok=vf3_matrix_family_core(entry,s,ram);
+    if(!ok && vf3_family_missing && s->failed_pc==(entry&0x1FFFFFFFu)) {
+        ok=vf3_family_missing(entry&0x1FFFFFFFu,s,ram,&handled);
+        if(handled) return ok;
+        ok=0;
+    }
+    if(!ok && vf3_family_fail) vf3_family_fail(entry&0x1FFFFFFFu,s,ram,&handled);
+    return ok;
+}
+static int vf3_matrix_family_once(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
+    int ok;
+    if(vf3_family_enter) vf3_family_enter(entry&0x1FFFFFFFu,s,ram,0);
+    ok=vf3_matrix_family_dispatch(entry,s,ram);
+    if(vf3_family_leave) vf3_family_leave(entry&0x1FFFFFFFu,s,ram,ok);
+    return ok;
+}
+/* A call is finished when control is back at the address the caller put in pr.
+ * The generated chain may hand back an earlier pc (a callee that tail-jumped
+ * into a fragment, or whose own continuation lives in another adapter); with
+ * vf3_family_complete_calls set, the continuation is run here, as a nested
+ * dispatch, so its rts is consumed by this call and not by the caller adapter
+ * that would otherwise execute the callee's tail inline and then return with
+ * the caller's own resume address still pending. */
+int vf3_family_complete_calls;
+int (*vf3_family_call_entry)(uint32_t entry);
+int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
+    uint32_t want=s->v[16]&0x1FFFFFFFu;
+    int ok=vf3_matrix_family_once(entry,s,ram);
+    /* only a real call target owns its pr: a fragment seed entered in the middle of a function sees a
+     * stale pr left by an inner call, and must hand its continuation back to the adapter that forwarded it */
+    int complete=vf3_family_complete_calls && (!vf3_family_call_entry || vf3_family_call_entry(entry&0x1FFFFFFFu));
+    while(complete && ok && (s->pc&0x1FFFFFFFu)!=want) {
+        uint32_t next=s->pc;
+        if((next&0x1FFFFFFFu)==(entry&0x1FFFFFFFu) && next==entry) break;
+        ok=vf3_matrix_family_once(next,s,ram);
+        if(ok && s->pc==next) break;
+        entry=next;
+    }
+    return ok;
 }

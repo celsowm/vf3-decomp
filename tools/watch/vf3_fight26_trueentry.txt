@@ -1,0 +1,27 @@
+# fight-26 true-entry watch (from trace_fight1.bin first-hit PCs)
+pc 0x8c059af6  # owner 0x8c059aea 494B hits=86134985
+pc 0x8c048578  # owner 0x8c04853a 120B hits=603591
+pc 0x8c064264  # owner 0x8c064246 508B hits=37382
+pc 0x8c0a0398  # owner 0x8c0a037c 98B hits=16991
+pc 0x8c059ab8  # owner 0x8c059a2e 170B hits=11317
+pc 0x8c09426a  # owner 0x8c09425e 60B hits=7815
+pc 0x8c045f74  # owner 0x8c045f62 28B hits=7186
+pc 0x8c07b2be  # owner 0x8c07b216 172B hits=7118
+pc 0x8c070fc4  # owner 0x8c070fba 28B hits=4645
+pc 0x8c095cfc  # owner 0x8c09575c 1780B hits=4627
+pc 0x8c062ecc  # owner 0x8c062ec4 50B hits=4106
+pc 0x8c0a041e  # owner 0x8c0a03f0 48B hits=3043
+pc 0x8c070240  # owner 0x8c07023a 24B hits=2948
+pc 0x8c08b5ac  # owner 0x8c08b586 62B hits=2056
+pc 0x8c038cb0  # owner 0x8c038cb0 48B hits=1544
+pc 0x8c035248  # owner 0x8c03523c 50B hits=1028
+pc 0x8c0460b4  # owner 0x8c0460a6 42B hits=1028
+pc 0x8c07c8d4  # owner 0x8c07c8cc 48B hits=1028
+pc 0x8c07c906  # owner 0x8c07c8fe 48B hits=1008
+pc 0x8c0abc10  # owner 0x8c0abc08 154B hits=263
+pc 0x8c0ab870  # owner 0x8c0ab870 48B hits=184
+pc 0x8c08c12e  # owner 0x8c08c12e 4B hits=172
+pc 0x8c0782e4  # owner 0x8c0782e4 6B hits=51
+pc 0x8c07829a  # owner 0x8c07829a 62B hits=48
+pc 0x8c078152  # owner 0x8c078112 72B hits=2
+pc 0x8c0b24aa  # owner 0x8c0b244c 110B hits=2

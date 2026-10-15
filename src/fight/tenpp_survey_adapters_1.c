@@ -7,6 +7,8 @@
 #include <string.h>
 #define read vf3_matrix_read
 #define write vf3_matrix_write
+#define pref vf3_matrix_pref
+void vf3_matrix_pref(const vf3_ram_map*,uint32_t);
 static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }
 static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }
 static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }
@@ -2406,6 +2408,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c051766;
 P_0c051766: /* original 0c83, guest PC 0x0c051766 */
 if(!s->budget--) { s->failed_pc=0x0c051766u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c051768;
 P_0c051768: /* original 000b, guest PC 0x0c051768 */
 if(!s->budget--) { s->failed_pc=0x0c051768u; return 0; }
@@ -2497,6 +2500,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c051796;
 P_0c051796: /* original 0c83, guest PC 0x0c051796 */
 if(!s->budget--) { s->failed_pc=0x0c051796u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c051798;
 P_0c051798: /* original 000b, guest PC 0x0c051798 */
 if(!s->budget--) { s->failed_pc=0x0c051798u; return 0; }
@@ -3066,6 +3070,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c051e64;
 P_0c051e64: /* original 0c83, guest PC 0x0c051e64 */
 if(!s->budget--) { s->failed_pc=0x0c051e64u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c051e66;
 P_0c051e66: /* original 000b, guest PC 0x0c051e66 */
 if(!s->budget--) { s->failed_pc=0x0c051e66u; return 0; }
@@ -3155,6 +3160,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c051e94;
 P_0c051e94: /* original 0c83, guest PC 0x0c051e94 */
 if(!s->budget--) { s->failed_pc=0x0c051e94u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c051e96;
 P_0c051e96: /* original 000b, guest PC 0x0c051e96 */
 if(!s->budget--) { s->failed_pc=0x0c051e96u; return 0; }
@@ -3472,6 +3478,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c0524d0;
 P_0c0524d0: /* original 0c83, guest PC 0x0c0524d0 */
 if(!s->budget--) { s->failed_pc=0x0c0524d0u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c0524d2;
 P_0c0524d2: /* original 000b, guest PC 0x0c0524d2 */
 if(!s->budget--) { s->failed_pc=0x0c0524d2u; return 0; }
@@ -3583,6 +3590,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c05250c;
 P_0c05250c: /* original 0c83, guest PC 0x0c05250c */
 if(!s->budget--) { s->failed_pc=0x0c05250cu; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c05250e;
 P_0c05250e: /* original 000b, guest PC 0x0c05250e */
 if(!s->budget--) { s->failed_pc=0x0c05250eu; return 0; }
@@ -3865,6 +3873,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c052b54;
 P_0c052b54: /* original 0c83, guest PC 0x0c052b54 */
 if(!s->budget--) { s->failed_pc=0x0c052b54u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c052b56;
 P_0c052b56: /* original 000b, guest PC 0x0c052b56 */
 if(!s->budget--) { s->failed_pc=0x0c052b56u; return 0; }
@@ -3967,6 +3976,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c052b8a;
 P_0c052b8a: /* original 0c83, guest PC 0x0c052b8a */
 if(!s->budget--) { s->failed_pc=0x0c052b8au; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c052b8c;
 P_0c052b8c: /* original 000b, guest PC 0x0c052b8c */
 if(!s->budget--) { s->failed_pc=0x0c052b8cu; return 0; }
@@ -4247,6 +4257,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c052e70;
 P_0c052e70: /* original 0c83, guest PC 0x0c052e70 */
 if(!s->budget--) { s->failed_pc=0x0c052e70u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c052e72;
 P_0c052e72: /* original 000b, guest PC 0x0c052e72 */
 if(!s->budget--) { s->failed_pc=0x0c052e72u; return 0; }
@@ -4351,6 +4362,7 @@ r[12]-=4; write(ram,r[12],r[4],4);
 goto P_0c052ea8;
 P_0c052ea8: /* original 0c83, guest PC 0x0c052ea8 */
 if(!s->budget--) { s->failed_pc=0x0c052ea8u; return 0; }
+if((r[12]&0xFC000000u)==0xE0000000u) pref(ram,r[12]);
 goto P_0c052eaa;
 P_0c052eaa: /* original 000b, guest PC 0x0c052eaa */
 if(!s->budget--) { s->failed_pc=0x0c052eaau; return 0; }

@@ -1,0 +1,28 @@
+# Virtua Fighter 3tb (USA), MK-51001. Scaffold/oracle config - lives under gitignored refs/.
+[game]
+id = "vf3tb"
+title = "Virtua Fighter 3tb"
+region = "USA"
+product = "MK-51001"
+
+[disc]
+image = "../../../../rom/vf3.gdi"
+
+[binary]
+path = "../../../../extract/gamedata/1ST_READ.BIN"
+load_address = 0x8C010000
+link_address = 0x0C010000
+entry = 0x8C010000
+
+# Katana startup stub: the first 0x100 bytes copy [0x0C010100, +0x3F00) to 0x8C004000.
+[[relocations]]
+source = 0x0C010100
+size = 0x3F00
+dest = 0x8C004000
+entries = [0x8C004000, 0x8C004070]
+
+[functions]
+pointers = true
+sweep = true
+extra = []
+exclude = [0x0C0E9FB0]

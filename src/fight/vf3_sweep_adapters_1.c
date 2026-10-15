@@ -7,6 +7,8 @@
 #include <string.h>
 #define read vf3_matrix_read
 #define write vf3_matrix_write
+#define pref vf3_matrix_pref
+void vf3_matrix_pref(const vf3_ram_map*,uint32_t);
 static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }
 static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }
 static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }
@@ -37085,6 +37087,7 @@ r[4]=r[14];
 goto P_0c05a83e;
 P_0c05a83e: /* original 0e83, guest PC 0x0c05a83e */
 if(!s->budget--) { s->failed_pc=0x0c05a83eu; return 0; }
+if((r[14]&0xFC000000u)==0xE0000000u) pref(ram,r[14]);
 goto P_0c05a840;
 P_0c05a840: /* original d32b, guest PC 0x0c05a840 */
 if(!s->budget--) { s->failed_pc=0x0c05a840u; return 0; }

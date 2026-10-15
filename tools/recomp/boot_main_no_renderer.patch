@@ -1,0 +1,24 @@
+diff --git a/runtime/boot/boot_main.cpp b/runtime/boot/boot_main.cpp
+index ab28acf..9ff1669 100644
+--- a/runtime/boot/boot_main.cpp
++++ b/runtime/boot/boot_main.cpp
+@@ -1235,6 +1235,11 @@ int main(int argc, char** argv) {
+         else if (!std::strcmp(argv[i], "--screenshot-presented"))
+             shot_presented = true;
+         else if (!std::strcmp(argv[i], "--present-mode") && i + 1 < argc) {
++#ifndef DREAM_WITH_RENDERER
++            ++i;
++            std::fprintf(stderr, "no renderer in this build\n");
++            return 2;
++#else
+             const char* m = argv[++i];
+             using PM = dream::render::vk::Window::PresentMode;
+             if (!std::strcmp(m, "mailbox"))
+@@ -1247,6 +1252,7 @@ int main(int argc, char** argv) {
+                 std::fprintf(stderr, "unknown present mode %s: vsync, mailbox or immediate\n", m);
+                 return 2;
+             }
++#endif
+         } else if (!std::strcmp(argv[i], "--bindings") && i + 1 < argc) {
+             bindings_file = argv[++i];
+             bindings_file_set = true;

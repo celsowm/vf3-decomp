@@ -52,6 +52,12 @@ add_library(vf3core STATIC
     src/fight/sh4_matrix.c
     src/fight/sh4_fpu.c
     src/fight/matrix_family.c
+    src/fight/readable.c
+    src/fight/task_sched.c
+    src/fight/geom_readable.c
+    src/fight/vertex_light.c
+    src/fight/vertex_emit.c
+    src/fight/vertex_clip.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c
     src/fight/actor_table_literal.c
@@ -99,6 +105,7 @@ add_library(vf3core STATIC
     src/fight/vf3_motion_unowned_extra_adapter.c
     src/fight/vf3_fifth_leaf_extra_adapter.c
     src/fight/vf3_ultimate_adapter.c
+    src/fight/tickgap_adapters.c
     src/fight/tenpp_asset_adapters.c
     src/fight/tenpp_complex_adapters.c
     src/fight/tenpp_expanded_adapters.c
@@ -313,6 +320,7 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/vf3_motion_unowned_extra_adapter.c
       src/fight/vf3_fifth_leaf_extra_adapter.c
       src/fight/vf3_ultimate_adapter.c
+      src/fight/tickgap_adapters.c
       src/fight/tenpp_asset_adapters.c
       src/fight/tenpp_complex_adapters.c
       src/fight/tenpp_expanded_adapters.c
@@ -428,6 +436,8 @@ add_port_test(vf3fpu tests/sh4_fpu_replay.c)
 add_port_test(vf3matrixfamily tests/matrix_family_replay.c)
 add_executable(vf3tick tests/tick_replay.c)
 target_link_libraries(vf3tick PRIVATE vf3core)
+add_executable(vf3tickmix tests/tick_mixed.c)
+target_link_libraries(vf3tickmix PRIVATE vf3core)
 add_port_test(vf3driverqueue tests/driver_queue_replay.c)
 add_port_test(vf3statehelpers tests/state_helpers_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)

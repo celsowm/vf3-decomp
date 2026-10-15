@@ -7,6 +7,8 @@
 #include <string.h>
 #define read vf3_matrix_read
 #define write vf3_matrix_write
+#define pref vf3_matrix_pref
+void vf3_matrix_pref(const vf3_ram_map*,uint32_t);
 static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }
 static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }
 static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }
@@ -16852,6 +16854,7 @@ if(!s->budget--) { s->failed_pc=0x0c04728cu; return 0; }
 return vf3_matrix_family(0x0c04728eu,s,ram);
 P_0c047670: /* original 0583, guest PC 0x0c047670 */
 if(!s->budget--) { s->failed_pc=0x0c047670u; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c047672;
 P_0c047672: /* original fd9d, guest PC 0x0c047672 */
 if(!s->budget--) { s->failed_pc=0x0c047672u; return 0; }
@@ -16881,6 +16884,7 @@ fr[11]=0x3f800000u;
 goto P_0c04767e;
 P_0c04767e: /* original 0483, guest PC 0x0c04767e */
 if(!s->budget--) { s->failed_pc=0x0c04767eu; return 0; }
+if((r[4]&0xFC000000u)==0xE0000000u) pref(ram,r[4]);
 goto P_0c047680;
 P_0c047680: /* original fd73, guest PC 0x0c047680 */
 if(!s->budget--) { s->failed_pc=0x0c047680u; return 0; }
@@ -16934,6 +16938,7 @@ r[5]+=0x00000010u;
 goto P_0c047696;
 P_0c047696: /* original 0583, guest PC 0x0c047696 */
 if(!s->budget--) { s->failed_pc=0x0c047696u; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c047698;
 P_0c047698: /* original fe9d, guest PC 0x0c047698 */
 if(!s->budget--) { s->failed_pc=0x0c047698u; return 0; }
@@ -16963,6 +16968,7 @@ fr[3]=0x3f800000u;
 goto P_0c0476a4;
 P_0c0476a4: /* original 0483, guest PC 0x0c0476a4 */
 if(!s->budget--) { s->failed_pc=0x0c0476a4u; return 0; }
+if((r[4]&0xFC000000u)==0xE0000000u) pref(ram,r[4]);
 goto P_0c0476a6;
 P_0c0476a6: /* original feb3, guest PC 0x0c0476a6 */
 if(!s->budget--) { s->failed_pc=0x0c0476a6u; return 0; }
@@ -17016,6 +17022,7 @@ r[5]+=0x00000010u;
 goto P_0c0476bc;
 P_0c0476bc: /* original 0583, guest PC 0x0c0476bc */
 if(!s->budget--) { s->failed_pc=0x0c0476bcu; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c0476be;
 P_0c0476be: /* original fc9d, guest PC 0x0c0476be */
 if(!s->budget--) { s->failed_pc=0x0c0476beu; return 0; }
@@ -17045,6 +17052,7 @@ fr[7]=0x3f800000u;
 goto P_0c0476ca;
 P_0c0476ca: /* original 0483, guest PC 0x0c0476ca */
 if(!s->budget--) { s->failed_pc=0x0c0476cau; return 0; }
+if((r[4]&0xFC000000u)==0xE0000000u) pref(ram,r[4]);
 goto P_0c0476cc;
 P_0c0476cc: /* original fc33, guest PC 0x0c0476cc */
 if(!s->budget--) { s->failed_pc=0x0c0476ccu; return 0; }
@@ -17098,6 +17106,7 @@ r[5]+=0x00000010u;
 goto P_0c0476e2;
 P_0c0476e2: /* original 0583, guest PC 0x0c0476e2 */
 if(!s->budget--) { s->failed_pc=0x0c0476e2u; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c0476e4;
 P_0c0476e4: /* original fd9d, guest PC 0x0c0476e4 */
 if(!s->budget--) { s->failed_pc=0x0c0476e4u; return 0; }
@@ -17184,6 +17193,7 @@ vf3_matrix_store(s,ram,4,r[5]);
 return vf3_matrix_family(0x0c047708u,s,ram);
 P_0c047720: /* original 0583, guest PC 0x0c047720 */
 if(!s->budget--) { s->failed_pc=0x0c047720u; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c047722;
 P_0c047722: /* original fe9d, guest PC 0x0c047722 */
 if(!s->budget--) { s->failed_pc=0x0c047722u; return 0; }
@@ -17270,6 +17280,7 @@ r[15]+=(r[18]&0x100000u)?8:4;
 goto P_0c047746;
 P_0c047746: /* original 0583, guest PC 0x0c047746 */
 if(!s->budget--) { s->failed_pc=0x0c047746u; return 0; }
+if((r[5]&0xFC000000u)==0xE0000000u) pref(ram,r[5]);
 goto P_0c047748;
 P_0c047748: /* original fc9d, guest PC 0x0c047748 */
 if(!s->budget--) { s->failed_pc=0x0c047748u; return 0; }
@@ -18655,9 +18666,11 @@ if(!cond) { goto P_0c05911e; }
 goto P_0c05912e;
 P_0c05912e: /* original af97, guest PC 0x0c05912e */
 if(!s->budget--) { s->failed_pc=0x0c05912eu; return 0; }
+if((r[14]&0xFC000000u)==0xE0000000u) pref(ram,r[14]);
 goto P_0c059060;
 P_0c059130: /* original 0e83, guest PC 0x0c059130 */
 if(!s->budget--) { s->failed_pc=0x0c059130u; return 0; }
+if((r[14]&0xFC000000u)==0xE0000000u) pref(ram,r[14]);
 return vf3_matrix_family(0x0c059132u,s,ram);
 P_0c059140: /* original f1fd, guest PC 0x0c059140 */
 if(!s->budget--) { s->failed_pc=0x0c059140u; return 0; }
@@ -45053,6 +45066,7 @@ r[10]+=0x00000024u;
 goto P_0c094292;
 P_0c094292: /* original 0a83, guest PC 0x0c094292 */
 if(!s->budget--) { s->failed_pc=0x0c094292u; return 0; }
+if((r[10]&0xFC000000u)==0xE0000000u) pref(ram,r[10]);
 goto P_0c094294;
 P_0c094294: /* original d216, guest PC 0x0c094294 */
 if(!s->budget--) { s->failed_pc=0x0c094294u; return 0; }

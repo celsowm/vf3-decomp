@@ -116,7 +116,8 @@ def emit(pc,w):
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
         if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
         if low==7: return [f"r[19]={rn}*{rm};"]
-        if k in (0x83,0x93,0xa3,0xb3): return [] # Non-strict emulator cache operations have no architectural result.
+        if k==0x83: return [f'if(({rn}&0xFC000000u)==0xE0000000u) pref(ram,{rn});'] # PREF into the store-queue area flushes the queue; elsewhere it is a cache hint.
+        if k in (0x93,0xa3,0xb3): return [] # Non-strict emulator cache operations have no architectural result.
         if k==0xc3: return [f'write(ram,{rn},r[0],4);'] # MOVCA.L: interpreter-visible RAM store.
     if top==8:
         k=(w>>8)&15; reg=(w>>4)&15; d=w&15
@@ -291,6 +292,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
            '#include "fight/matrix_family.h"','#include "fight/sh4_fpu.h"',
            '#include <math.h>','#include <string.h>',
            '#define read vf3_matrix_read','#define write vf3_matrix_write',
+           '#define pref vf3_matrix_pref','void vf3_matrix_pref(const vf3_ram_map*,uint32_t);',
            'static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }',
            'static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }',
            'static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }',

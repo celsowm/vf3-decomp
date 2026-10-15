@@ -7,6 +7,8 @@
 #include <string.h>
 #define read vf3_matrix_read
 #define write vf3_matrix_write
+#define pref vf3_matrix_pref
+void vf3_matrix_pref(const vf3_ram_map*,uint32_t);
 static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }
 static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }
 static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }
@@ -5931,9 +5933,11 @@ return vf3_matrix_family(0x0c042c06u,s,ram);
 P_0c0475aa: /* original 000b, guest PC 0x0c0475aa */
 if(!s->budget--) { s->failed_pc=0x0c0475aau; return 0; }
 target=r[16];
+if((r[4]&0xFC000000u)==0xE0000000u) pref(ram,r[4]);
 s->pc=target; return ram->oob==0;
 P_0c0475ac: /* original 0483, guest PC 0x0c0475ac */
 if(!s->budget--) { s->failed_pc=0x0c0475acu; return 0; }
+if((r[4]&0xFC000000u)==0xE0000000u) pref(ram,r[4]);
 return vf3_matrix_family(0x0c0475aeu,s,ram);
 P_0c07fca4: /* original 4f22, guest PC 0x0c07fca4 */
 if(!s->budget--) { s->failed_pc=0x0c07fca4u; return 0; }
