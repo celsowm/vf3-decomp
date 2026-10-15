@@ -11,6 +11,7 @@ int vf3_vertex_emit_sq_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vertex_emit_ring_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_emit_slot_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_strip_light_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_quad_strip_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_store_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_concat_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_premul_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -38,6 +39,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0) | B(2) | B(5) | B(6) | B(10) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) },
     { 0x0c0487a0u, "strip_light", vf3_strip_light_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(14) },
+    { 0x0c048600u, "quad_strip", vf3_quad_strip_entry,
+      B(0) | B(1) | B(2) | B(4) | B(5) | B(6) | B(9) | B(14) },
     /* FR0..FR15 and XF0..XF15 (v[21..52]) are all defined on exit */
     { 0x0c03b620u, "matrix_store", vf3_matrix_store_entry, B(0) | B(4) },
     { 0x0c03c0e0u, "matrix_concat", vf3_matrix_concat_entry, B(4) | B(15) | B(18) | B(53) | MATRIX_FP },

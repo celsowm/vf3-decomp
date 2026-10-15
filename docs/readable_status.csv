@@ -1,6 +1,7 @@
 entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0487a0,strip_light,src/fight/strip_light.c,r0 r1 r2 r3 r4 r5 r6 r14,61,116357,10.70,whole-tick
 0x8c048b00,vertex_light,src/fight/vertex_light.c,r0 r1 r2 r4 pr sr fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10,1677,57372,5.28,whole-tick
+0x8c048600,quad_strip,src/fight/quad_strip.c,r0 r1 r2 r4 r5 r6 r9 r14,49,56132,5.16,whole-tick
 0x8c068fe4,quad_node,src/fight/geom_readable.c,r0 r9 r10 r11 r12 r13 r14 r15 pr fr14 fr15,236,30720,2.82,whole-tick
 0x8c068f92,tri_winding,src/fight/geom_readable.c,r0 pr,1180,23723,2.18,whole-tick
 0x8c048be0,vertex_emit_sq,src/fight/vertex_emit.c,r2 r3 r5 r6 sr fr5 fr6,832,14144,1.30,whole-tick

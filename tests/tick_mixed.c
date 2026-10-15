@@ -354,8 +354,8 @@ static int store_matches_hw(const vf3_ram_map *ram, uint32_t a, unsigned sz)
 static uint64_t scratch_mask = ~0ull;
 /* With fewer than MIN_OBSERVED recorded calls (the top-level scheduler is called once and
  * the capture leaves r0-r3 undefined there) nothing is known about what is preserved:
- * the preservation check is skipped and the caller-saved set (r0-r7, macl/mach, fr0-fr15,
- * fpul) is what gets refilled. */
+ * the preservation check is skipped and the caller-saved set (r0-r7, macl/mach, fr0-fr11,
+ * fpul; fr12-fr15 are callee-saved in the SH ABI and hold the light vector) is refilled. */
 #define MIN_OBSERVED 4
 static uint64_t clobber_mask(uint32_t entry, int *known)
 {
@@ -375,7 +375,7 @@ static uint64_t clobber_mask(uint32_t entry, int *known)
     if (!*known) {
         m = 0;
         for (int i = 0; i < NREG; ++i)
-            if (i < 8 || (i >= 19 && i < 37) || i == 53) m |= 1ull << i;
+            if (i < 8 || (i >= 19 && i < 33) || i == 53) m |= 1ull << i;
     }
     if (n < 64) { cache[n].entry = entry; cache[n].mask = m; cache[n].known = *known; ++n; }
     return m;

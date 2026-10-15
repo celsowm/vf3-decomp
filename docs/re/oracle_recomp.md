@@ -170,6 +170,11 @@ keeps running generated code around it.
 | `0x8c048c20` | vertex_emit_ring | `vertex_emit.c` | same slot into the 4-slot clip ring at `0x0C1A5960` |
 | `0x8c048c80` | clip_emit_slot | `vertex_clip.c` | ring slot -> store queue, y'/z' scaled by 1/x' |
 | `0x8c048cc0` | clip_edge | `vertex_clip.c` | near-plane crossing: t = (plane-w0)/(w1-w0), lerp of every field |
+| `0x8c0487a0` | strip_light | `strip_light.c` | strip transformer: light + emit each vertex, chained strips via the trailer |
+| `0x8c048600` | quad_strip | `quad_strip.c` | groups of 4 vertices; only vertex 0 is lit (colour rides in the SQ buffer), quad or triangle by screen-space facing |
+| `0x8c03b620` | matrix_store | `matrix_lib.c` | save XMTRX to the matrix slot (r4 = 0: the current-matrix cell) |
+| `0x8c03c0e0` | matrix_concat | `matrix_lib.c` | XMTRX = XMTRX * M(r4) |
+| `0x8c03c1c0` | matrix_premul | `matrix_lib.c` | XMTRX = M(r4) * XMTRX |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

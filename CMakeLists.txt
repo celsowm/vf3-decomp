@@ -60,6 +60,7 @@ add_library(vf3core STATIC
     src/fight/vertex_clip.c
     src/fight/matrix_lib.c
     src/fight/strip_light.c
+    src/fight/quad_strip.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c
     src/fight/actor_table_literal.c
