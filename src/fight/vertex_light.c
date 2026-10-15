@@ -34,10 +34,13 @@
  */
 #include "fight/readable.h"
 #include "fight/readable_fp.h"
+#include "fight/vertex_light.h"
 
 #define VERTEX_INLINE_FLAG 1u
 #define VERTEX_SIZE_INLINE 32u
 #define VERTEX_SIZE_HEAD   8u
+
+enum { BODY_POS = 0, BODY_NORMAL = 12, BODY_W1 = 24, BODY_W2 = 28 };
 
 /* v^k by the same multiply chains as the original jump table; returns 0 on a
  * selector the table does not have. */
@@ -62,45 +65,50 @@ static int specular_power(const vf3_matrix_state *s, int32_t selector, float v, 
     return 1;
 }
 
-int vf3_vertex_light_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+uint32_t vf3_vertex_locate(const vf3_ram_map *ram, uint32_t record, uint32_t *next)
 {
-    uint32_t rec = s->v[4], body, next;
-    const int32_t selector = (int32_t)s->v[8];
-
-    if (vf3_mem_u32(ram, rec) & VERTEX_INLINE_FLAG) {
-        body = rec;
-        next = rec + VERTEX_SIZE_INLINE;
-    } else {
-        body = vf3_mem_u32(ram, rec + 4) + rec + VERTEX_SIZE_HEAD;
-        next = rec + VERTEX_SIZE_HEAD;
+    if (vf3_mem_u32(ram, record) & VERTEX_INLINE_FLAG) {
+        *next = record + VERTEX_SIZE_INLINE;
+        return record;
     }
-    uint32_t pos_in[4] = { vf3_mem_u32(ram, body), vf3_mem_u32(ram, body + 4),
-                           vf3_mem_u32(ram, body + 8), vf3_f32_bits(1.0f) };
-    const uint32_t n0 = vf3_mem_u32(ram, body + 12), n1 = vf3_mem_u32(ram, body + 16),
-                   n2 = vf3_mem_u32(ram, body + 20);
-    s->v[1] = vf3_mem_u32(ram, body + 24);
-    s->v[2] = vf3_mem_u32(ram, body + 28);
-    s->v[4] = next;
+    *next = record + VERTEX_SIZE_HEAD;
+    return vf3_mem_u32(ram, record + 4) + record + VERTEX_SIZE_HEAD;
+}
+
+int vf3_light_vertex(const vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t body,
+                     int32_t selector, int via_adder, vf3_lit_vertex *out)
+{
+    const uint32_t fpscr = s->v[VF3_REG_FPSCR];
+    uint32_t pos_in[4] = { vf3_mem_u32(ram, body + BODY_POS), vf3_mem_u32(ram, body + BODY_POS + 4),
+                           vf3_mem_u32(ram, body + BODY_POS + 8), vf3_f32_bits(1.0f) };
+    uint32_t n0 = vf3_mem_u32(ram, body + BODY_NORMAL);
+    const uint32_t n1 = vf3_mem_u32(ram, body + BODY_NORMAL + 4), n2 = vf3_mem_u32(ram, body + BODY_NORMAL + 8);
+    if (via_adder) n0 = vf3_f32_bits(vf3_f_add(s, 0.0f, vf3_bits_f32(n0)));
+    out->w1 = vf3_mem_u32(ram, body + BODY_W1);
+    out->w2 = vf3_mem_u32(ram, body + BODY_W2);
 
     /* FV4 = XMTRX * (x, y, z, 1) */
     uint32_t t[4];
-    if (!vf3_fpu_ftrv(&s->v[VF3_REG_XF0], pos_in, s->v[VF3_REG_FPSCR], t)) return 0;
-    const uint32_t depth = t[0], ty = t[1], tz = t[2], tw = t[3];
+    if (!vf3_fpu_ftrv(&s->v[VF3_REG_XF0], pos_in, fpscr, t)) return 0;
+    out->depth = t[0];
+    out->y = t[1];
+    out->z = t[2];
+    out->w = t[3];
 
     /* N.L with FV0 = (n1, n2, n0, 0) against FV12 */
     const uint32_t normal[4] = { n1, n2, n0, 0 };
     const uint32_t light[4] = { VF3_FR(s, 12), VF3_FR(s, 13), VF3_FR(s, 14), VF3_FR(s, 15) };
     uint32_t ndl_bits;
-    if (!vf3_fpu_fipr(light, normal, s->v[VF3_REG_FPSCR], &ndl_bits)) return 0;
+    if (!vf3_fpu_fipr(light, normal, fpscr, &ndl_bits)) return 0;
     const float n_dot_l = vf3_bits_f32(ndl_bits);
 
-    const float inv_depth = vf3_f_div(s, 1.0f, vf3_bits_f32(depth));
+    out->inv_depth = vf3_f_div(s, 1.0f, vf3_bits_f32(out->depth));
 
     /* N.H: FV0 is now (n1, n2, n0, N.L) and FV8's fourth lane is zero */
     const uint32_t normal_l[4] = { n1, n2, n0, ndl_bits };
     const uint32_t half[4] = { VF3_FR(s, 8), VF3_FR(s, 9), VF3_FR(s, 10), 0 };
     uint32_t n_dot_h_bits;
-    if (!vf3_fpu_fipr(normal_l, half, s->v[VF3_REG_FPSCR], &n_dot_h_bits)) return 0;
+    if (!vf3_fpu_fipr(normal_l, half, fpscr, &n_dot_h_bits)) return 0;
     const float n_dot_h = vf3_bits_f32(n_dot_h_bits);
 
     float intensity = vf3_bits_f32(VF3_FR(s, 15));
@@ -118,15 +126,29 @@ int vf3_vertex_light_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
             if (!specular_power(s, selector, vf3_f_add(s, 0.0f, v), &specular)) return 0;
         }
     }
+    out->intensity = intensity;
+    out->specular = specular;
+    return 1;
+}
 
-    s->v[0] = tw;
-    vf3_fr_set(s, 2, intensity);
-    vf3_fr_set(s, 3, specular);
-    VF3_FR(s, 4) = tw;
-    VF3_FR(s, 5) = ty;
-    VF3_FR(s, 6) = tz;
-    vf3_fr_set(s, 7, inv_depth);
-    s->v[VF3_REG_SR] = (s->v[VF3_REG_SR] & ~1u) | (s->v[12] > tw ? 1u : 0u);
+int vf3_vertex_light_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    uint32_t next;
+    const uint32_t body = vf3_vertex_locate(ram, s->v[4], &next);
+    vf3_lit_vertex lv;
+    if (!vf3_light_vertex(s, ram, body, (int32_t)s->v[8], 0, &lv)) return 0;
+
+    s->v[0] = lv.w;
+    s->v[1] = lv.w1;
+    s->v[2] = lv.w2;
+    s->v[4] = next;
+    vf3_fr_set(s, 2, lv.intensity);
+    vf3_fr_set(s, 3, lv.specular);
+    VF3_FR(s, 4) = lv.w;
+    VF3_FR(s, 5) = lv.y;
+    VF3_FR(s, 6) = lv.z;
+    vf3_fr_set(s, 7, lv.inv_depth);
+    s->v[VF3_REG_SR] = (s->v[VF3_REG_SR] & ~1u) | (s->v[12] > lv.w ? 1u : 0u);
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }

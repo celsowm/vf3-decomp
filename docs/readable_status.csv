@@ -1,10 +1,14 @@
 entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
+0x8c0487a0,strip_light,src/fight/strip_light.c,r0 r1 r2 r3 r4 r5 r6 r14,61,116357,10.70,whole-tick
 0x8c048b00,vertex_light,src/fight/vertex_light.c,r0 r1 r2 r4 pr sr fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10,1677,57372,5.28,whole-tick
 0x8c068fe4,quad_node,src/fight/geom_readable.c,r0 r9 r10 r11 r12 r13 r14 r15 pr fr14 fr15,236,30720,2.82,whole-tick
 0x8c068f92,tri_winding,src/fight/geom_readable.c,r0 pr,1180,23723,2.18,whole-tick
 0x8c048be0,vertex_emit_sq,src/fight/vertex_emit.c,r2 r3 r5 r6 sr fr5 fr6,832,14144,1.30,whole-tick
+0x8c03b620,matrix_store,src/fight/matrix_lib.c,r0 r4,512,11776,1.08,whole-tick
+0x8c03c0e0,matrix_concat,src/fight/matrix_lib.c,r4 r15 fpscr fpul,370,10730,0.99,whole-tick
 0x8c048cc0,clip_edge,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fpul,134,9230,0.85,whole-tick
 0x8c03a6e0,sin_u16,src/fight/geom_readable.c,pr fr0,100,7912,0.73,whole-tick
+0x8c03c1c0,matrix_premul,src/fight/matrix_lib.c,r4 r15,178,5518,0.51,whole-tick
 0x8c048c80,clip_emit_slot,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,97,2704,0.25,whole-tick
 0x8c048c20,vertex_emit_ring,src/fight/vertex_emit.c,r0 r10,170,2380,0.22,whole-tick
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick
