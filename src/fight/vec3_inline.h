@@ -116,4 +116,37 @@ static inline int v3_dot(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t a
     return 1;
 }
 
+/* d = a x b, the cross product laid out the way the original's inline sequence does (leaves FR0 = a.y,
+ * FR1..FR3 = x, y, z of the result and the pointer registers as the sequence ends) */
+static inline void v3_cross(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t d, uint32_t a, uint32_t b)
+{
+    R(4) = a + 8; R(5) = b + 8; R(6) = d;
+    F(0) = m32(ram, a); F(5) = m32(ram, a + 4); F(6) = m32(ram, a + 8);
+    F(8) = m32(ram, b); F(9) = m32(ram, b + 4); F(10) = m32(ram, b + 8);
+    F(3) = F(5); set_fl(s, 3, vf3_f_mul(s, fl(s, 3), fl(s, 8)));
+    F(2) = F(0); set_fl(s, 2, vf3_f_mul(s, fl(s, 2), fl(s, 10)));
+    F(1) = F(6); set_fl(s, 1, vf3_f_mul(s, fl(s, 1), fl(s, 9)));
+    F(3) ^= SIGN; set_fl(s, 3, vf3_f_mac(s, fl(s, 0), fl(s, 9), fl(s, 3)));
+    F(2) ^= SIGN; F(0) = F(6); set_fl(s, 2, vf3_f_mac(s, fl(s, 0), fl(s, 8), fl(s, 2)));
+    F(1) ^= SIGN;
+    w32(ram, d + 8, F(3));
+    F(0) = F(5); set_fl(s, 1, vf3_f_mac(s, fl(s, 0), fl(s, 10), fl(s, 1)));
+    w32(ram, d + 4, F(2)); w32(ram, d, F(1));
+}
+
+/* p = p / |p| in place (fipr + fsrra, no extra scale) */
+static inline int v3_unit(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t p)
+{
+    R(4) = p;
+    F(0) = m32(ram, p); F(1) = m32(ram, p + 4); F(2) = m32(ram, p + 8);
+    F(3) = 0;
+    if (!vf3_fpu_fipr(&F(0), &F(0), R(VF3_REG_FPSCR), &F(3))) return 0;
+    if (!vf3_fpu_fsrra(F(3), R(VF3_REG_FPSCR), &F(3))) return 0;
+    set_fl(s, 2, vf3_f_mul(s, fl(s, 2), fl(s, 3)));
+    set_fl(s, 1, vf3_f_mul(s, fl(s, 1), fl(s, 3)));
+    set_fl(s, 0, vf3_f_mul(s, fl(s, 0), fl(s, 3)));
+    w32(ram, p + 8, F(2)); w32(ram, p + 4, F(1)); w32(ram, p, F(0));
+    return 1;
+}
+
 #endif
