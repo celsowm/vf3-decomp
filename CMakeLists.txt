@@ -55,6 +55,7 @@ add_library(vf3core STATIC
     src/fight/readable.c
     src/fight/task_sched.c
     src/fight/geom_readable.c
+    src/fight/math_readable.c
     src/fight/vertex_light.c
     src/fight/vertex_emit.c
     src/fight/vertex_clip.c
