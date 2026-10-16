@@ -46,6 +46,9 @@ tick with no oracle, no devlog and a baked call-target table
 apart from 3-10 bytes per state where the oracle's denormal handling is wrong and native
 equals hardware. Against the emulator's exit RAM ~450 bytes differ per state
 (interrupt-driven counters, stack residue), expected and not tick logic.
-Limits: one scheduler tick per run (no main loop, no scene changes); ~32% of executed
-steps are readable ports, the rest generated adapters; call-target table covers only
-entries seen in the 13 captured ticks.
+Limits: one scheduler tick per run (no main loop, no scene changes); ~38.5% of state-7
+oracle self steps are readable ports (25 entries: sin/cos, push_offset, div_s32/u32, the
+matrix stack push/pop/concat family and frame wrappers, the vertex/strip/clip chain), the
+rest generated adapters; call-target table covers only entries seen in the 13 captured
+ticks. Next ports by census: 0x8c06f450, 0x8c070008, 0x8c071694, 0x8c073aac, 0x8c048260,
+0x8c03f830 (calls sin/cos + 0x8c03fb10).
