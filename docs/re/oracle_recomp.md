@@ -251,6 +251,7 @@ keeps running generated code around it.
 | `0x8c0692a6` | terrain_plane_hit | `terrain_plane_hit.c` | plane height at (x,z) for a terrain triangle plus its stored normal (calls nothing) |
 | `0x8c09382a` | sphere_segment | `sphere_segment.c` | point vs segment push-out (closest point on a line, three outcomes), guest call 093a9c |
 | `0x8c04b952` | byte_sink | `byte_sink.c` | byte run into an output descriptor (block copy or per-byte sink), guest calls 043018 / indirect |
+| `0x8c09dbc0` | pass_prep | `pass_prep.c` | setup pass around 03b450 with tail jump to 03c4a0 |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`

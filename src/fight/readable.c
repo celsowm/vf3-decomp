@@ -93,6 +93,7 @@ int vf3_terrain_quad_test_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_terrain_plane_hit_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_sphere_segment_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_byte_sink_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_pass_prep_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -186,6 +187,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
       B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c09dbc0u, "pass_prep", vf3_pass_prep_entry,
+      B(0)|B(4) },
     { 0x0c04b952u, "byte_sink", vf3_byte_sink_entry,
       B(0) },
     { 0x0c09382au, "sphere_segment", vf3_sphere_segment_entry,
