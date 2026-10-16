@@ -90,6 +90,7 @@ add_library(vf3core STATIC
     src/fight/sphere_segment.c
     src/fight/byte_sink.c
     src/fight/pass_prep.c
+    src/fight/matrix_concat_pair.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
