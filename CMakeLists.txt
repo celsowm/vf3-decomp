@@ -64,6 +64,7 @@ add_library(vf3core STATIC
     src/fight/glyph_quad.c
     src/fight/glyph_cache.c
     src/fight/project_verts.c
+    src/fight/format_int.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c

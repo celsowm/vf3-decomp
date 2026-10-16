@@ -24,6 +24,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c056b20,push_offset,src/fight/geom_readable.c,r0 r12 fr1 fr2,286,7150,0.66,whole-tick
 0x8c03d260,matrix_frame_a,src/fight/matrix_lib.c,,165,6765,0.62,whole-tick
 0x8c03c1c0,matrix_premul,src/fight/matrix_lib.c,r4 r15,178,5518,0.51,whole-tick
+0x8c04af04,format_int,src/fight/format_int.c,r5 r8 r9 r10 r11 r12 r13 r14 r15 pr sr,42,5153,0.47,whole-tick
 0x8c03c200,matrix_concat_parent,src/fight/matrix_lib.c,r4 r15 fpscr,165,4785,0.44,whole-tick
 0x8c03b530,matrix_copy,src/fight/matrix_lib.c,r4 r5 r6 r14 fr3,62,4526,0.42,whole-tick
 0x8c03efb0,matrix_load_wxyz,src/fight/matrix_lib.c,r4,165,4455,0.41,whole-tick
