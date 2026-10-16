@@ -36,6 +36,9 @@ int vf3_vertex_writer1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_color_pack_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec3_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_mem_fill_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_tex_cell_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_sprite_rect_a_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_sprite_rect_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -72,6 +75,11 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c03c140u, "matrix_concat_save", vf3_matrix_concat_save_entry, B(4) | B(15) | B(18) | MATRIX_FP },
     { 0x0c03c200u, "matrix_concat_parent", vf3_matrix_concat_parent_entry, B(4) | B(15) | B(18) | MATRIX_FP },
     { 0x0c095604u, "mem_fill", vf3_mem_fill_entry, B(0) | B(1) | B(2) | B(3) | B(4) | B(6) | B(7) | B(17) },
+    { 0x0c07b4d4u, "tex_cell_load", vf3_tex_cell_load_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(7) | B(17) | B(53) | FR(2) | FR(3) | FR(4) },
+    { 0x0c07b35cu, "sprite_rect_a", vf3_sprite_rect_a_entry,
+      B(0) | B(2) | B(3) | B(5) | B(6) | FR(3) | FR(4) | FR(5) | FR(9) | FR(10) | FR(11) },
+    { 0x0c07b398u, "sprite_rect_b", vf3_sprite_rect_b_entry, B(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },

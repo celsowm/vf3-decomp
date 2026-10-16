@@ -199,6 +199,9 @@ keeps running generated code around it.
 | `0x8c03efb0` | matrix_load_wxyz | `matrix_lib.c` | XMTRX with columns rotated, negated w |
 | `0x8c03b530` | matrix_copy | `matrix_lib.c` | 16-word copy or load/store dispatch |
 | `0x8c095604` | mem_fill | `mem_fill.c` | word fill then tail bytes, count split by div_s32 |
+| `0x8c07b4d4` | tex_cell_load | `sprite_uv.c` | texture cell record -> scratch block 0x0C1B9620 |
+| `0x8c07b35c` | sprite_rect_a | `sprite_uv.c` | sprite vertex block position/UV extent |
+| `0x8c07b398` | sprite_rect_b | `sprite_uv.c` | sprite far-corner UVs |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
