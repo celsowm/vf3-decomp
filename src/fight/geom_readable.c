@@ -295,3 +295,47 @@ int vf3_corner_fan_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* ---- 0x8C03FB80: pack four 0..1 floats into an ARGB byte word -----------
+ * FR4..FR7 (a, r, g, b) are scaled by 255, converted to unsigned integers (values at
+ * or above 2^31 wrap through a -2^32 bias, as the original does before ftrc), clamped
+ * to 255 as unsigned, and packed a:r:g:b into r0 (also left in r4). r5..r7 keep the
+ * clamped r, g, b. */
+#define COLOR_SCALE_ADDR 0x0C03FC38u
+#define COLOR_HALF_RANGE_ADDR 0x0C03FC3Cu
+#define COLOR_WRAP_BIAS_ADDR 0x0C03FC40u
+int vf3_color_pack_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const float scale = vf3_mem_f32(ram, COLOR_SCALE_ADDR);
+    const float half_range = vf3_mem_f32(ram, COLOR_HALF_RANGE_ADDR);
+    const float bias = vf3_mem_f32(ram, COLOR_WRAP_BIAS_ADDR);
+    float scaled[4];
+    uint32_t raw[4];
+    for (int i = 0; i < 4; ++i) {
+        scaled[i] = vf3_f_mul(s, vf3_fr_get(s, 4 + i), scale);
+        VF3_FR(s, 4 + i) = vf3_f32_bits(scaled[i]);
+    }
+    float converted = 0;
+    for (int i = 0; i < 4; ++i) {
+        converted = scaled[i] > half_range ? vf3_f_add(s, scaled[i], bias) : scaled[i];
+        raw[i] = (uint32_t)vf3_f_trunc(converted);
+    }
+    vf3_fr_set(s, 8, scaled[0]);
+    vf3_fr_set(s, 9, half_range);
+    vf3_fr_set(s, 3, converted);
+    vf3_fr_set(s, 4, scaled[3]);
+    s->v[VF3_REG_FPUL] = raw[3];
+
+    uint32_t packed = 0;
+    for (int i = 0; i < 4; ++i) {
+        const uint32_t byte = raw[i] > 0xFFu ? 0xFFu : raw[i];
+        packed = (packed << 8) | byte;
+        if (i > 0) s->v[4 + i] = byte;
+    }
+    s->v[4] = packed;
+    s->v[0] = packed;
+    s->v[1] = 0;
+    s->v[17] = (s->v[17] & ~1u) | (raw[3] > 0xFFu);          /* last cmp/hi */
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}

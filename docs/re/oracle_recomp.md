@@ -186,8 +186,8 @@ keeps running generated code around it.
 | `0x8c03d280` | matrix_frame_b | `matrix_lib.c` | as frame_a, plus a concat with *(0x0C19D2FC+8) before the parent concat |
 | `0x8c03d2b0` | matrix_frame_c | `matrix_lib.c` | push(*(0x0C19D2FC+8)); concat with parent; store to 0x0C19D498; pop(1) |
 | `0x8c03fb10` | corner_fan | `geom_readable.c` | four-corner offset fan: out arrays from obj+4/+8 and (u,v) table 0x0C0EA670 with fmac terms skipped at zero |
+| `0x8c03fb80` | color_pack | `geom_readable.c` | four 0..1 floats -> clamped ARGB byte word (ftrc with 2^32 wrap bias) |
 | `0x8c03f830` | sprite_quad | `sprite_readable.c` | billboard quad: corner fan + header patch + store-queue submit (header + 4 vertices) |
-| `0x8c03ecb0` | matrix_chain | `chain_readable.c` | trampoline: frame_a, camera basis (0x8c03ee40), then tail-jump to 0x8c03eff0 |
 | `0x8c03cc90` | vec3_load | `chain_readable.c` | load a 3-vector into FR4..FR6, tail-jump to 0x8c03cc60 (writes XD12/XD14 through SZ=1 fmov) |
 | `0x8c03c4f0` | matrix_push | `matrix_lib.c` | push XMTRX on the matrix stack (ctl 0x0C19D2E4), optionally XMTRX = M(r4) |
 

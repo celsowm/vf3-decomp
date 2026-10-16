@@ -69,6 +69,11 @@ int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     vf3_mem_set_f32(ram, frame + 4u, dy);
     const float inv_depth = vf3_f_div(s, one, vf3_mem_f32(ram, obj + 0x0C));   /* FR13 */
 
+    const uint32_t saved_fr13 = VF3_FR(s, 13), saved_fr14 = VF3_FR(s, 14), saved_fr15 = VF3_FR(s, 15);
+    vf3_fr_set(s, 13, inv_depth);                  /* the callees push these as dead words */
+    vf3_fr_set(s, 14, size_scale);
+    vf3_fr_set(s, 15, one);
+
     s->v[15] = frame;
     call_sin_cos(s, ram, 0, vf3_mem_u32(ram, obj + 0x28));
     vf3_mem_set_u32(ram, frame, VF3_FR(s, 0));
@@ -181,6 +186,9 @@ int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     const uint32_t cursor = vf3_mem_u32(ram, SQ_STATE) + line_off;
     vf3_mem_set_u32(ram, cursor, (vf3_mem_u32(ram, cursor) & SQ_REGION_MASK) | (q & SQ_ADDR_MASK));
 
+    VF3_FR(s, 13) = saved_fr13;
+    VF3_FR(s, 14) = saved_fr14;
+    VF3_FR(s, 15) = saved_fr15;
     s->v[15] = sp0;
     s->v[VF3_REG_PR] = pr;
     s->pc = pr;

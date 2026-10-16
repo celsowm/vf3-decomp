@@ -11,7 +11,6 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03b620,matrix_store,src/fight/matrix_lib.c,r0 r4,512,11776,1.08,whole-tick
 0x8c03c0e0,matrix_concat,src/fight/matrix_lib.c,r4 r15 fpscr fpul,370,10730,0.99,whole-tick
 0x8c03fb10,corner_fan,src/fight/geom_readable.c,r1 r3 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fpul,83,9711,0.89,whole-tick
-0x8c03ecb0,matrix_chain,src/fight/chain_readable.c,r0 r1 r2 r3 r4 r5 r7 sr fpscr macl mach fpul,150,9600,0.88,whole-tick
 0x8c048cc0,clip_edge,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fpul,134,9230,0.85,whole-tick
 0x8c03a140,cos_u16,src/fight/geom_readable.c,pr fr0,91,8098,0.74,whole-tick
 0x8c03a6e0,sin_u16,src/fight/geom_readable.c,pr fr0,100,7912,0.73,whole-tick
@@ -21,6 +20,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03c200,matrix_concat_parent,src/fight/matrix_lib.c,r4 r15 fpscr,165,4785,0.44,whole-tick
 0x8c03c4a0,matrix_pop,src/fight/matrix_lib.c,r0 r2 r3 r4 r6 r7 sr,151,4379,0.40,whole-tick
 0x8c03cc90,vec3_load,src/fight/chain_readable.c,r0 r3 fr4 fr5 fr6 fr7 fr28 fr29 fr30 fr31,236,3776,0.35,whole-tick
+0x8c03fb80,color_pack,src/fight/geom_readable.c,r0 r1 r4 r5 r6 r7 sr fr3 fr4 fr5 fr6 fr7 fr8 fr9 fpul,83,3569,0.33,whole-tick
 0x8c048c80,clip_emit_slot,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,97,2704,0.25,whole-tick
 0x8c048c20,vertex_emit_ring,src/fight/vertex_emit.c,r0 r10,170,2380,0.22,whole-tick
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
