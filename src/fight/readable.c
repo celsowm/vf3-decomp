@@ -23,6 +23,9 @@ int vf3_matrix_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_concat_save_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_concat_parent_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_frame_a_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_frame_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_frame_c_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_edge_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
@@ -56,6 +59,10 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c03c140u, "matrix_concat_save", vf3_matrix_concat_save_entry, B(4) | B(15) | B(18) | MATRIX_FP },
     { 0x0c03c200u, "matrix_concat_parent", vf3_matrix_concat_parent_entry, B(4) | B(15) | B(18) | MATRIX_FP },
     { 0x0c03c4a0u, "matrix_pop", vf3_matrix_pop_entry, B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(17) | MATRIX_XF },
+#define FRAME_OUT (B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(17) | B(18) | MATRIX_FP)
+    { 0x0c03d260u, "matrix_frame_a", vf3_matrix_frame_a_entry, FRAME_OUT },
+    { 0x0c03d280u, "matrix_frame_b", vf3_matrix_frame_b_entry, FRAME_OUT | B(53) },
+    { 0x0c03d2b0u, "matrix_frame_c", vf3_matrix_frame_c_entry, FRAME_OUT },
     { 0x0c03c0e0u, "matrix_concat", vf3_matrix_concat_entry, B(4) | B(15) | B(18) | B(53) | MATRIX_FP },
     { 0x0c03c1c0u, "matrix_premul", vf3_matrix_premul_entry, B(4) | B(15) | MATRIX_FP },
     { 0x0c042c20u, "div_s32", vf3_div_s32_entry, B(0) | B(1) | B(2) | B(3) | B(17) },

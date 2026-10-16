@@ -13,6 +13,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03a140,cos_u16,src/fight/geom_readable.c,pr fr0,91,8098,0.74,whole-tick
 0x8c03a6e0,sin_u16,src/fight/geom_readable.c,pr fr0,100,7912,0.73,whole-tick
 0x8c056b20,push_offset,src/fight/geom_readable.c,r0 r12 fr1 fr2,286,7150,0.66,whole-tick
+0x8c03d260,matrix_frame_a,src/fight/matrix_lib.c,,165,6765,0.62,whole-tick
 0x8c03c1c0,matrix_premul,src/fight/matrix_lib.c,r4 r15,178,5518,0.51,whole-tick
 0x8c03c200,matrix_concat_parent,src/fight/matrix_lib.c,r4 r15 fpscr,165,4785,0.44,whole-tick
 0x8c03c4a0,matrix_pop,src/fight/matrix_lib.c,r0 r2 r3 r4 r6 r7 sr,151,4379,0.40,whole-tick
@@ -21,3 +22,5 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick
 0x8c03c140,matrix_concat_save,src/fight/matrix_lib.c,r4 r15 fpscr,0,0,0.00,unexercised
+0x8c03d280,matrix_frame_b,src/fight/matrix_lib.c,fpul,0,0,0.00,unexercised
+0x8c03d2b0,matrix_frame_c,src/fight/matrix_lib.c,,0,0,0.00,unexercised

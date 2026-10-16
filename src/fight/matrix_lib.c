@@ -191,3 +191,46 @@ int vf3_matrix_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* 0x8C03D260 / 0x8C03D280 / 0x8C03D2B0  matrix_frame_*: "evaluate a child transform and
+ * remember it" sequences built from the stack helpers above. Each pushes the current XMTRX,
+ * multiplies in the parent (and in B's case the matrix at *(0x0C19D2FC+8) first), stores the
+ * result as a flat matrix in one of the fixed slots and pops the stack back (tail call). */
+#define MATRIX_SLOT_NODE    0x0C19D308u   /* control block whose top is pushed first (A, B) */
+#define MATRIX_SLOT_PARENT  0x0C19D2FCu   /* control block of the parent chain (B, C) */
+#define MATRIX_FLAT_A       0x0C19D4D8u
+#define MATRIX_FLAT_C       0x0C19D498u
+
+static int frame_chain(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t push_from,
+                       int concat_parent_matrix, uint32_t flat_slot)
+{
+    const uint32_t sp = s->v[15], pr = s->v[VF3_REG_PR];
+    vf3_mem_set_u32(ram, sp - 4u, pr);
+    s->v[15] = sp - 4u;
+
+    s->v[4] = vf3_mem_u32(ram, push_from + 8u);
+    if (!vf3_matrix_push_entry(s, ram)) return 0;
+    if (concat_parent_matrix) {
+        s->v[4] = vf3_mem_u32(ram, MATRIX_SLOT_PARENT + 8u);
+        if (!vf3_matrix_concat_entry(s, ram)) return 0;
+    }
+    if (!vf3_matrix_concat_parent_entry(s, ram)) return 0;
+    s->v[4] = flat_slot;
+    if (!vf3_matrix_store_entry(s, ram)) return 0;
+    s->v[4] = 1;
+    if (!vf3_matrix_pop_entry(s, ram)) return 0;
+
+    s->v[15] = sp;
+    s->v[VF3_REG_PR] = pr;
+    s->pc = pr;
+    return 1;
+}
+
+int vf3_matrix_frame_a_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{ return frame_chain(s, ram, MATRIX_SLOT_NODE, 0, MATRIX_FLAT_A); }
+
+int vf3_matrix_frame_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{ return frame_chain(s, ram, MATRIX_SLOT_NODE, 1, MATRIX_FLAT_A); }
+
+int vf3_matrix_frame_c_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{ return frame_chain(s, ram, MATRIX_SLOT_PARENT, 0, MATRIX_FLAT_C); }
