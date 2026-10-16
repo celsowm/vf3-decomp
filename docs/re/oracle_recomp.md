@@ -202,6 +202,7 @@ keeps running generated code around it.
 | `0x8c07b4d4` | tex_cell_load | `sprite_uv.c` | texture cell record -> scratch block 0x0C1B9620 |
 | `0x8c07b35c` | sprite_rect_a | `sprite_uv.c` | sprite vertex block position/UV extent |
 | `0x8c07b398` | sprite_rect_b | `sprite_uv.c` | sprite far-corner UVs |
+| `0x8c0c13c4` | glyph_quad | `glyph_quad.c` | one HUD font cell: cursor/size per font id, sprite rects, shade flags, sprite_quad |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

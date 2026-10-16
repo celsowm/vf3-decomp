@@ -10,6 +10,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03c4f0,matrix_push,src/fight/matrix_lib.c,r0 r4 sr,727,21609,1.99,whole-tick
 0x8c042c20,div_s32,src/fight/math_readable.c,r0 r1 r2 r3 sr,198,15444,1.42,whole-tick
 0x8c048be0,vertex_emit_sq,src/fight/vertex_emit.c,r2 r3 r5 r6 sr fr5 fr6,832,14144,1.30,whole-tick
+0x8c0c13c4,glyph_quad,src/fight/glyph_quad.c,r0 r11 r12 r13 r14 r15 pr fr13 fr14 fr15,78,12168,1.12,whole-tick
 0x8c03b620,matrix_store,src/fight/matrix_lib.c,r0 r4,512,11776,1.08,whole-tick
 0x8c03c0e0,matrix_concat,src/fight/matrix_lib.c,r4 r15 fpscr fpul,370,10730,0.99,whole-tick
 0x8c095604,mem_fill,src/fight/mem_fill.c,r0 r1 r2 r3 r4 r6 r7 sr,120,10080,0.93,whole-tick

@@ -61,6 +61,7 @@ add_library(vf3core STATIC
     src/fight/vertex_writers.c
     src/fight/mem_fill.c
     src/fight/sprite_uv.c
+    src/fight/glyph_quad.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c
