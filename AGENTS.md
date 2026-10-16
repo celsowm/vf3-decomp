@@ -89,6 +89,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
   (VF3_WATCH / AICA_DUMP) added M10; front-to-fight capture M13 landed the
   BGM voice-kit boundary (docs/re/sound_bgm.md).
+- Native fight tick (2026-10-15): `build/vf3 <golden_tickx_vf3_N.bin> --expect ...`
+  (src/main.c, src/fight/native_tick.c) runs one scheduler tick (0x8C09616A) on C only
+  for 13 captured fight states; 0 unowned calls, RAM equals the reference oracle.
+  ~32% of executed steps are readable ports (docs/readable_status.csv), the rest
+  generated adapters. Plan/limits: docs/re/plan_native_slice.md; verify with
+  tools/recomp/run_state.sh and run_native.sh.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
 - MT record field semantics (motion VM)
