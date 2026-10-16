@@ -75,6 +75,7 @@ add_library(vf3core STATIC
     src/fight/capsule_chain.c
     src/fight/body_capsule.c
     src/fight/chain_frames.c
+    src/fight/hitbox_overlap.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c

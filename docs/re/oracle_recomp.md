@@ -237,6 +237,7 @@ keeps running generated code around it.
 | `0x8c070008` | capsule_chain | `capsule_chain.c` | chain of 24-byte nodes pushed out of a capsule (two end points, axis, radius) in two stage kinds, then clamped to link length from the previous node |
 | `0x8c06f450` | body_capsule | `body_capsule.c` | fits the capsule record's end points / axes through two matrix blocks, builds the push-out vector, then per chain moves each node onto the capsule, transforms it back and runs capsule_chain; shared vec3 helpers in `vec3_inline.h` |
 | `0x8c071694` | chain_frames | `chain_frames.c` | per-node side vector of a closed chain strip: edge vectors to the neighbours, two crosses normalised, summed and normalised into node+12, eight walk phases (calls nothing) |
+| `0x8c073aac` | hitbox_overlap | `hitbox_overlap.c` | fighter-vs-fighter capsule overlap scan: optional radius-array rebuild, per-capsule-pair interval rejects + segment closest-approach, hit words / min distance / pair count into the result block (calls nothing) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

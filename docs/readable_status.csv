@@ -5,6 +5,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c048b00,vertex_light,src/fight/vertex_light.c,r0 r1 r2 r4 pr sr fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10,1677,57372,5.28,whole-tick
 0x8c048600,quad_strip,src/fight/quad_strip.c,r0 r1 r2 r4 r5 r6 r9 r14,49,56132,5.16,whole-tick
 0x8c071694,chain_frames,src/fight/chain_frames.c,r8 r9 r10 r11 r12 r13 r14 r15 pr sr,6,53550,4.92,whole-tick
+0x8c073aac,hitbox_overlap,src/fight/hitbox_overlap.c,r8 r9 r10 r11 r12 r13 r14 r15 pr sr,1,46132,4.24,whole-tick
 0x8c048260,display_list,src/fight/display_list.c,r4 r5 r6,150,41357,3.80,whole-tick
 0x8c0568a0,tri_strip,src/fight/tri_strip.c,r4 r12 macl mach,15,35833,3.30,whole-tick
 0x8c068fe4,quad_node,src/fight/geom_readable.c,r0 r9 r10 r11 r12 r13 r14 r15 pr fr14 fr15,236,30720,2.82,whole-tick
