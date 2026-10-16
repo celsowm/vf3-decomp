@@ -39,6 +39,10 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c056aa0,vertex_writer0,src/fight/vertex_writers.c,r0 fr1 fr2,105,2520,0.23,whole-tick
 0x8c03ccb0,matrix_identity,src/fight/matrix_lib.c,fr0 fr1 fr2 fr3,142,2414,0.22,whole-tick
 0x8c048c20,vertex_emit_ring,src/fight/vertex_emit.c,r0 r10,170,2380,0.22,whole-tick
+0x8c03c880,rotate_y,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,118,2242,0.21,whole-tick
+0x8c03b450,xform_point,src/fight/leaf_math.c,r4 fr4 fr5 fr6 fr7,170,1870,0.17,whole-tick
+0x8c03c940,rotate_z,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,89,1691,0.16,whole-tick
+0x8c043018,mem_move,src/fight/leaf_math.c,r0 sr,63,1659,0.15,whole-tick
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
 0x8c07b2be,pool_alloc,src/fight/glyph_cache.c,r0 r2 r3 r5 r6 r7 sr,13,351,0.03,whole-tick
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick

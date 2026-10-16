@@ -44,6 +44,10 @@ int vf3_pool_alloc_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_glyph_cache_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_project_verts_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_format_int_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_rotate_y_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_rotate_z_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_xform_point_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_mem_move_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -96,6 +100,12 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(8) | FR(9) | FR(10) | FR(11) | FR(12) | FR(13) | FR(14) | FR(15) },
     { 0x0c04af04u, "format_int", vf3_format_int_entry,
       B(5) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c03c880u, "rotate_y", vf3_rotate_y_entry,
+      B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c03c940u, "rotate_z", vf3_rotate_z_entry,
+      B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c03b450u, "xform_point", vf3_xform_point_entry, B(4) | FR(4) | FR(5) | FR(6) | FR(7) },
+    { 0x0c043018u, "mem_move", vf3_mem_move_entry, B(0) | B(17) },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },

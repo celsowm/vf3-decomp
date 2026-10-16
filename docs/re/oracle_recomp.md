@@ -207,6 +207,10 @@ keeps running generated code around it.
 | `0x8c0c1fba` | glyph_cache | `glyph_cache.c` | retire/allocate a text-layer glyph entry and build its sprite object |
 | `0x8c058ea0` | project_verts | `project_verts.c` | XMTRX projection + light of a vertex run into 16-byte records (mode-bit-2 side-list variant unexercised) |
 | `0x8c04af04` | format_int | `format_int.c` | printf integer conversion (d i u o x X): sign/prefix, digits via rem/quo helpers, pad fields in the spec |
+| `0x8c03c880` | rotate_y | `leaf_math.c` | XMTRX rotation about Y from an fsca angle (r4) |
+| `0x8c03c940` | rotate_z | `leaf_math.c` | XMTRX rotation about Z from an fsca angle (r4) |
+| `0x8c03b450` | xform_point | `leaf_math.c` | (x,y,z,1) at r4 through XMTRX -> three floats at r5 |
+| `0x8c043018` | mem_move | `leaf_math.c` | overlap-safe byte memmove (r4 dst, r5 src, r6 count) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
