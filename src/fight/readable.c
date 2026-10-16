@@ -50,6 +50,7 @@ int vf3_rotate_y_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_rotate_z_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_xform_point_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_mem_move_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_store_keep_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_axis_extract_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -111,6 +112,8 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c043018u, "mem_move", vf3_mem_move_entry, B(0) | B(17) },
     { 0x0c03ee40u, "axis_extract", vf3_axis_extract_entry,
       B(0) | B(4) | B(5) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c09d4e6u, "store_keep_translation", vf3_store_keep_translation_entry,
+      B(0) | B(3) | B(4) | B(13) | B(14) | B(15) | B(16) | FR(3) },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },

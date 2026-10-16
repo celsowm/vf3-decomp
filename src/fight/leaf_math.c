@@ -81,3 +81,37 @@ int vf3_mem_move_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* 0x8C09D4E6  store XMTRX into the transform object at r4 but keep the object's own translation
+ * (floats at +48, +52, +56): they are parked on the stack around the matrix_store call. */
+int vf3_store_keep_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    enum { TRANSLATION = 48, MATRIX_STORE = 0x8C03B620, RET_AFTER_STORE = 0x8C09D50E, SAVED = 12 };
+    const uint32_t sp0 = s->v[15], pr0 = s->v[VF3_REG_PR], saved_r14 = s->v[14], saved_r13 = s->v[13];
+    const uint32_t object = s->v[4], frame = sp0 - SAVED - 12u;
+
+    vf3_mem_set_u32(ram, sp0 - 4u, saved_r14);
+    vf3_mem_set_u32(ram, sp0 - 8u, saved_r13);
+    vf3_mem_set_u32(ram, sp0 - 12u, pr0);
+    for (uint32_t i = 0; i < 3; ++i) {
+        VF3_FR(s, 3) = vf3_mem_u32(ram, object + TRANSLATION + 4u * i);
+        vf3_mem_set_u32(ram, frame + 4u * i, VF3_FR(s, 3));
+    }
+    s->v[0] = TRANSLATION + 8;
+    s->v[14] = object;
+    s->v[13] = frame;
+    s->v[15] = frame;
+    s->v[3] = 0x0C03B620u;                      /* the literal-pool form of the target */
+    if (!vf3_guest_call(s, ram, MATRIX_STORE, RET_AFTER_STORE)) return 0;
+    for (uint32_t i = 0; i < 3; ++i) {
+        VF3_FR(s, 3) = vf3_mem_u32(ram, frame + 4u * i);
+        vf3_mem_set_u32(ram, object + TRANSLATION + 4u * i, VF3_FR(s, 3));
+    }
+    s->v[0] = TRANSLATION + 8;
+    s->v[15] = sp0;
+    s->v[14] = saved_r14;
+    s->v[13] = saved_r13;
+    s->v[VF3_REG_PR] = pr0;
+    s->pc = pr0;
+    return 1;
+}
