@@ -192,6 +192,12 @@ keeps running generated code around it.
 | `0x8c048260` | display_list | `display_list.c` | model display-list walker: sphere cull (depth limit + 4 side planes), light block setup, per-strip TA header slots, dispatch to the strip transformers; sprite-only emit for culled nodes |
 | `0x8c03cc90` | vec3_load | `chain_readable.c` | load a 3-vector into FR4..FR6, tail-jump to 0x8c03cc60 (writes XD12/XD14 through SZ=1 fmov) |
 | `0x8c03c4f0` | matrix_push | `matrix_lib.c` | push XMTRX on the matrix stack (ctl 0x0C19D2E4), optionally XMTRX = M(r4) |
+| `0x8c056aa0` | vertex_writer0 | `vertex_writers.c` | first strip vertex TA slot |
+| `0x8c056ae0` | vertex_writer1 | `vertex_writers.c` | second strip vertex TA slot, flushes previous |
+| `0x8c03bd80` | matrix_load | `matrix_lib.c` | XMTRX from r4 (or stack top) |
+| `0x8c03ccb0` | matrix_identity | `matrix_lib.c` | XMTRX = identity |
+| `0x8c03efb0` | matrix_load_wxyz | `matrix_lib.c` | XMTRX with columns rotated, negated w |
+| `0x8c03b530` | matrix_copy | `matrix_lib.c` | 16-word copy or load/store dispatch |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

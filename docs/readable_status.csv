@@ -20,10 +20,16 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03d260,matrix_frame_a,src/fight/matrix_lib.c,,165,6765,0.62,whole-tick
 0x8c03c1c0,matrix_premul,src/fight/matrix_lib.c,r4 r15,178,5518,0.51,whole-tick
 0x8c03c200,matrix_concat_parent,src/fight/matrix_lib.c,r4 r15 fpscr,165,4785,0.44,whole-tick
+0x8c03b530,matrix_copy,src/fight/matrix_lib.c,r4 r5 r6 r14 fr3,62,4526,0.42,whole-tick
+0x8c03efb0,matrix_load_wxyz,src/fight/matrix_lib.c,r4,165,4455,0.41,whole-tick
 0x8c03c4a0,matrix_pop,src/fight/matrix_lib.c,r0 r2 r3 r4 r6 r7 sr,151,4379,0.40,whole-tick
+0x8c03bd80,matrix_load,src/fight/matrix_lib.c,r4,193,4053,0.37,whole-tick
 0x8c03cc90,vec3_load,src/fight/chain_readable.c,r0 r3 fr4 fr5 fr6 fr7 fr28 fr29 fr30 fr31,236,3776,0.35,whole-tick
 0x8c03fb80,color_pack,src/fight/geom_readable.c,r0 r1 r4 r5 r6 r7 sr fr3 fr4 fr5 fr6 fr7 fr8 fr9 fpul,83,3569,0.33,whole-tick
 0x8c048c80,clip_emit_slot,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,97,2704,0.25,whole-tick
+0x8c056ae0,vertex_writer1,src/fight/vertex_writers.c,r0 r12 fr1 fr2,105,2625,0.24,whole-tick
+0x8c056aa0,vertex_writer0,src/fight/vertex_writers.c,r0 fr1 fr2,105,2520,0.23,whole-tick
+0x8c03ccb0,matrix_identity,src/fight/matrix_lib.c,fr0 fr1 fr2 fr3,142,2414,0.22,whole-tick
 0x8c048c20,vertex_emit_ring,src/fight/vertex_emit.c,r0 r10,170,2380,0.22,whole-tick
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick

@@ -58,6 +58,7 @@ add_library(vf3core STATIC
     src/fight/sprite_readable.c
     src/fight/display_list.c
     src/fight/tri_strip.c
+    src/fight/vertex_writers.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c

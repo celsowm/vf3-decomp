@@ -234,3 +234,81 @@ int vf3_matrix_frame_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
 
 int vf3_matrix_frame_c_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
 { return frame_chain(s, ram, MATRIX_SLOT_PARENT, 0, MATRIX_FLAT_C); }
+
+/* 0x8C03BD80  matrix_load: XMTRX = the matrix at r4 (r4 = 0: the stack top); r4 advances by 64. */
+int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    uint32_t src = s->v[4];
+    if (src == 0) src = vf3_mem_u32(ram, MATRIX_STACK_PTR);
+    uint32_t *xf = xf_bank(s);
+    for (int i = 0; i < MATRIX_WORDS; ++i) xf[i] = vf3_mem_u32(ram, src + 4u * i);
+    s->v[4] = src + MATRIX_BYTES;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03CCB0  matrix_identity: XMTRX = identity. Builds it from FR0..FR3 = (1, 0, 0, 1), which
+ * stay behind. */
+int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    static const float identity[MATRIX_WORDS] = { 1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0,  0, 0, 0, 1 };
+    uint32_t *xf = xf_bank(s);
+    for (int i = 0; i < MATRIX_WORDS; ++i) xf[i] = vf3_f32_bits(identity[i]);
+    vf3_fr_set(s, 0, 1.0f);
+    vf3_fr_set(s, 1, 0.0f);
+    vf3_fr_set(s, 2, 0.0f);
+    vf3_fr_set(s, 3, 1.0f);
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03EFB0  matrix_load_wxyz: loads the matrix at r4 into XMTRX with every column rotated to
+ * (w, x, y) and a negated w behind it: column (a b c d) becomes (d a b -d). r4 advances by 64. */
+int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t src = s->v[4];
+    uint32_t *xf = xf_bank(s);
+    for (int c = 0; c < 4; ++c) {
+        const uint32_t a = vf3_mem_u32(ram, src + 16u * c), b = vf3_mem_u32(ram, src + 16u * c + 4u);
+        const uint32_t cc = vf3_mem_u32(ram, src + 16u * c + 8u), d = vf3_mem_u32(ram, src + 16u * c + 12u);
+        (void)cc;
+        xf[4 * c] = d;
+        xf[4 * c + 1] = a;
+        xf[4 * c + 2] = b;
+        xf[4 * c + 3] = d ^ 0x80000000u;
+    }
+    s->v[4] = src + MATRIX_BYTES;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03B530  matrix_copy(dst = r4, src = r5): copies 16 words; a null dst loads XMTRX from src
+ * (matrix_load), a null src stores XMTRX to dst (matrix_store). Saves r14. */
+int vf3_matrix_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t dst = s->v[4], src = s->v[5], saved_r14 = s->v[14];
+    vf3_mem_set_u32(ram, s->v[15] - 4u, saved_r14);          /* dead r14 push */
+    if (dst == 0) {
+        if (src == 0) { s->pc = s->v[VF3_REG_PR]; return 1; }
+        s->v[4] = src;
+        s->v[14] = saved_r14;
+        return vf3_matrix_load_entry(s, ram);
+    }
+    if (src == 0) {
+        s->v[14] = saved_r14;
+        return vf3_matrix_store_entry(s, ram);
+    }
+    uint32_t word = 0;
+    for (int i = 0; i < MATRIX_WORDS; ++i) {
+        word = vf3_mem_u32(ram, src + 4u * i);
+        vf3_mem_set_u32(ram, dst + 4u * i, word);
+    }
+    VF3_FR(s, 3) = word;
+    s->v[4] = 0;
+    s->v[5] = dst + MATRIX_BYTES;
+    s->v[6] = src + MATRIX_BYTES;
+    s->v[14] = saved_r14;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}

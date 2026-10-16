@@ -31,8 +31,14 @@ int vf3_corner_fan_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_display_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_tri_strip_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_vertex_writer0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_vertex_writer1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_color_pack_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec3_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -64,6 +70,10 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c03c4f0u, "matrix_push", vf3_matrix_push_entry, B(0) | B(4) | B(17) | MATRIX_XF },
     { 0x0c03c140u, "matrix_concat_save", vf3_matrix_concat_save_entry, B(4) | B(15) | B(18) | MATRIX_FP },
     { 0x0c03c200u, "matrix_concat_parent", vf3_matrix_concat_parent_entry, B(4) | B(15) | B(18) | MATRIX_FP },
+    { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
+    { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
+    { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },
+    { 0x0c03b530u, "matrix_copy", vf3_matrix_copy_entry, B(4) | B(5) | B(6) | B(14) | FR(3) | MATRIX_XF },
     { 0x0c03c4a0u, "matrix_pop", vf3_matrix_pop_entry, B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(17) | MATRIX_XF },
 #define FRAME_OUT (B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(17) | B(18) | MATRIX_FP)
     { 0x0c03d260u, "matrix_frame_a", vf3_matrix_frame_a_entry, FRAME_OUT },
@@ -80,6 +90,8 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c03f830u, "sprite_quad", vf3_sprite_quad_entry, B(15) | B(16) },
     { 0x0c048260u, "display_list", vf3_display_list_entry, B(4) | B(5) | B(6) },
     { 0x0c0568a0u, "tri_strip", vf3_tri_strip_entry, B(4) | B(12) | B(19) | B(20) },
+    { 0x0c056aa0u, "vertex_writer0", vf3_vertex_writer0_entry, B(0) | FR(1) | FR(2) },
+    { 0x0c056ae0u, "vertex_writer1", vf3_vertex_writer1_entry, B(0) | B(12) | FR(1) | FR(2) },
     { 0x0c03cc90u, "vec3_load", vf3_vec3_load_entry,
       B(0) | B(3) | FR(4) | FR(5) | FR(6) | FR(7) | B(49) | B(50) | B(51) | B(52) },
     { 0x0c03fb80u, "color_pack", vf3_color_pack_entry,
