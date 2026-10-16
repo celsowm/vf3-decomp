@@ -71,6 +71,7 @@ int vf3_terrain_flat_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_terrain_height_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_printf_core_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_bone_pose_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_body_capsule_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_capsule_chain_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -167,6 +168,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c091438u, "bone_pose", vf3_bone_pose_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) |
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
+    { 0x0c06f450u, "body_capsule", vf3_body_capsule_entry,
+      B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(19) |
+      FR(12) | FR(13) | FR(14) | FR(15) },
     { 0x0c070008u, "capsule_chain", vf3_capsule_chain_entry,
       B(0) | B(1) | B(7) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) |
       FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | FR(8) | FR(9) | FR(10) | FR(11) | FR(12) | FR(13) | FR(14) | FR(15) },
@@ -244,7 +248,7 @@ void vf3_mem_set_f32(const vf3_ram_map *ram, uint32_t a, float f)
 int vf3_guest_call(vf3_matrix_state *s, const vf3_ram_map *ram,
                    uint32_t target, uint32_t ret_addr)
 {
-    s->v[16] = ret_addr;
+    s->v[16] = 0x0C000000u | (ret_addr & 0x0FFFFFFFu);   /* the guest keeps its return addresses in the 0x0C form */
     if (!vf3_matrix_family(target, s, ram)) return 0;
     return (s->pc & 0x1FFFFFFFu) == (ret_addr & 0x1FFFFFFFu);
 }

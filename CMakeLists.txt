@@ -73,6 +73,7 @@ add_library(vf3core STATIC
     src/fight/printf_core.c
     src/fight/bone_pose.c
     src/fight/capsule_chain.c
+    src/fight/body_capsule.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c
