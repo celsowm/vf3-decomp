@@ -229,6 +229,9 @@ keeps running generated code around it.
 | `0x8c03e980` | world_reset | `matrix_extra.c` | transpose, transform two vectors, transpose back |
 | `0x8c03e8c0` | bone_transforms | `matrix_extra.c` | push/invert matrix, transform vector+point of each in-use 0xB0 entry |
 | `0x8c09d670` | anim_channels | `anim_channels.c` | sample the 63-channel animation record at a time (const/linear/Hermite keys) |
+| `0x8c068d54` | terrain_wrap | `terrain_height.c` | stage-type coordinate scaling/folding of x,z |
+| `0x8c068de4` | terrain_flat | `terrain_height.c` | flat-ground normal (0,1,0), -0.5 beyond +-6 |
+| `0x8c068e0e` | terrain_height | `terrain_height.c` | ground height: clamp, 5 samples/unit bilinear blend over the 128-wide table |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

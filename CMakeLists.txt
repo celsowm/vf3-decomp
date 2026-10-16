@@ -69,6 +69,7 @@ add_library(vf3core STATIC
     src/fight/axis_extract.c
     src/fight/matrix_extra.c
     src/fight/anim_channels.c
+    src/fight/terrain_height.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c

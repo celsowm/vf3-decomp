@@ -66,6 +66,9 @@ int vf3_matrix_invert_scaled_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_world_reset_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_bone_transforms_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_anim_channels_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_terrain_wrap_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_terrain_flat_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_terrain_height_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -149,6 +152,13 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
     { 0x0c09d670u, "anim_channels", vf3_anim_channels_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(7) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | MATRIX_FP },
+    { 0x0c068d54u, "terrain_wrap", vf3_terrain_wrap_entry,
+      B(0) | B(4) },
+    { 0x0c068de4u, "terrain_flat", vf3_terrain_flat_entry,
+      B(0) | B(17) | FR(0) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) },
+    { 0x0c068e0eu, "terrain_height", vf3_terrain_height_entry,
+      B(0) | B(2) | B(3) | B(4) | B(5) | B(6) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) |
+      FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | FR(8) },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },
