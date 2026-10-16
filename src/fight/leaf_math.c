@@ -202,3 +202,79 @@ int vf3_matrix_invert_rigid_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* 0x8C03C6C0  rotation about X from an fsca angle (r4): columns 1 and 2 of XMTRX */
+int vf3_rotate_x_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    uint32_t *fr = fr_bank(s), *xf = xf_bank(s);
+    s->v[VF3_REG_FPUL] = s->v[4];
+    vf3_fpu_fsca(s->v[VF3_REG_FPUL], fr + 4);
+    const uint32_t sin_a = fr[4], cos_a = fr[5];
+    fr[0] = 0; fr[3] = 0; fr[7] = 0;
+    fr[1] = cos_a; fr[2] = sin_a;
+    fr[5] = sin_a ^ NEGATE;                            /* second row (0, -sin, cos, 0) */
+    fr[6] = cos_a;
+    if (!vf3_fpu_ftrv(xf, fr + 0, s->v[VF3_REG_FPSCR], fr + 0)) return 0;
+    fr[4] = 0;
+    if (!vf3_fpu_ftrv(xf, fr + 4, s->v[VF3_REG_FPSCR], fr + 4)) return 0;
+    for (int i = 0; i < 8; ++i) xf[4 + i] = fr[i];
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C09D52E  transform the point (FR4, 0, 0) by XMTRX and store it at r4 */
+int vf3_xform_axis_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    enum { XFORM_POINT = 0x8C03B450, RET_AFTER_XFORM = 0x8C09D54C };
+    const uint32_t sp0 = s->v[15], pr0 = s->v[VF3_REG_PR], dest = s->v[4], frame = sp0 - 20u;
+
+    vf3_mem_set_u32(ram, sp0 - 4u, pr0);
+    vf3_mem_set_u32(ram, frame, dest);
+    vf3_mem_set_u32(ram, frame + 4u, VF3_FR(s, 4));
+    VF3_FR(s, 4) = 0;
+    vf3_mem_set_u32(ram, frame + 8u, 0);
+    vf3_mem_set_u32(ram, frame + 12u, 0);
+    s->v[0] = 12;
+    s->v[3] = 0x0C03B450u;
+    s->v[4] = frame + 4u;
+    s->v[5] = dest;
+    s->v[15] = frame;
+    if (!vf3_guest_call(s, ram, XFORM_POINT, RET_AFTER_XFORM)) return 0;
+    s->v[15] = sp0;
+    s->v[VF3_REG_PR] = pr0;
+    s->pc = pr0;
+    return 1;
+}
+
+/* 0x8C09D480  apply the three 16-bit Euler angles at r4 (Z, Y, then X) to XMTRX */
+int vf3_rotate_euler_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    enum { ROTATE_Z = 0x8C03C940, ROTATE_Y = 0x8C03C880, ROTATE_X = 0x8C03C6C0,
+           RET_AFTER_Z = 0x8C09D49A, RET_AFTER_Y = 0x8C09D4A4 };
+    const uint32_t sp0 = s->v[15], pr0 = s->v[VF3_REG_PR], angles = s->v[4], frame = sp0 - 16u;
+    const uint32_t z = vf3_mem_u16(ram, angles), y = vf3_mem_u16(ram, angles + 2u),
+                   x = vf3_mem_u16(ram, angles + 4u);
+
+    vf3_mem_set_u32(ram, sp0 - 4u, pr0);
+    vf3_mem_set_u16(ram, frame + 8u, (uint16_t)z);
+    vf3_mem_set_u16(ram, frame + 4u, (uint16_t)y);
+    vf3_mem_set_u16(ram, frame, (uint16_t)x);
+    s->v[15] = frame;
+
+    s->v[0] = (uint32_t)(int32_t)(int16_t)z;
+    s->v[3] = 0x0C03C940u;
+    s->v[4] = z;
+    if (!vf3_guest_call(s, ram, ROTATE_Z, RET_AFTER_Z)) return 0;
+    s->v[0] = (uint32_t)(int32_t)(int16_t)y;
+    s->v[3] = 0x0C03C880u;
+    s->v[4] = y;
+    s->v[15] = frame;
+    if (!vf3_guest_call(s, ram, ROTATE_Y, RET_AFTER_Y)) return 0;
+
+    s->v[4] = x;
+    s->v[15] = sp0;
+    s->v[3] = 0x0C03C6C0u;
+    s->v[VF3_REG_PR] = pr0;                            /* the original tail-jumps with PR restored */
+    return vf3_guest_call(s, ram, ROTATE_X, pr0);
+}

@@ -220,6 +220,9 @@ keeps running generated code around it.
 | `0x8c03c970` | matrix_rotate_sc | `leaf_math.c` | rotation about Z from ready sin/cos in FR4/FR5 |
 | `0x8c03cb70` | matrix_scale | `leaf_math.c` | scale XMTRX axis columns by FR4..FR6 (through the stack) |
 | `0x8c03c5b0` | matrix_invert_rigid | `leaf_math.c` | in-place inverse of a rigid XMTRX (R^T, -R^T t) |
+| `0x8c03c6c0` | rotate_x | `leaf_math.c` | XMTRX rotation about X from an fsca angle (r4) |
+| `0x8c09d52e` | xform_axis | `leaf_math.c` | transform (FR4,0,0) by XMTRX, store at r4 (calls xform_point) |
+| `0x8c09d480` | rotate_euler | `leaf_math.c` | apply three s16 Euler angles at r4 (Z, Y, X) to XMTRX |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
