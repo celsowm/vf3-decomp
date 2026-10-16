@@ -232,6 +232,7 @@ keeps running generated code around it.
 | `0x8c068d54` | terrain_wrap | `terrain_height.c` | stage-type coordinate scaling/folding of x,z |
 | `0x8c068de4` | terrain_flat | `terrain_height.c` | flat-ground normal (0,1,0), -0.5 beyond +-6 |
 | `0x8c068e0e` | terrain_height | `terrain_height.c` | ground height: clamp, 5 samples/unit bilinear blend over the 128-wide table |
+| `0x8c04a6c8` | printf_core | `printf_core.c` | the engine's vfprintf: flags/width/precision/size parsing, d i u o x X c s p n %% and float conversions (only plain-int paths exercised) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
