@@ -1,5 +1,6 @@
 entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0487a0,strip_light,src/fight/strip_light.c,r0 r1 r2 r3 r4 r5 r6 r14,61,116357,10.70,whole-tick
+0x8c070008,capsule_chain,src/fight/capsule_chain.c,r0 r1 r7 r8 r9 r10 r11 r12 r13 r14 r15 pr sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fpul,33,60640,5.58,whole-tick
 0x8c048b00,vertex_light,src/fight/vertex_light.c,r0 r1 r2 r4 pr sr fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10,1677,57372,5.28,whole-tick
 0x8c048600,quad_strip,src/fight/quad_strip.c,r0 r1 r2 r4 r5 r6 r9 r14,49,56132,5.16,whole-tick
 0x8c048260,display_list,src/fight/display_list.c,r4 r5 r6,150,41357,3.80,whole-tick
