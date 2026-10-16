@@ -261,6 +261,7 @@ keeps running generated code around it.
 | `0x8c0a76ec` | node_pass | `node_pass.c` | scene pass for one list node with tail jump to 03c4a0 |
 | `0x8c093768` | aim_step | `aim_step.c` | push point A to step length from B along A-B, unit direction out |
 | `0x8c09363a` | point_contact | `point_contact.c` | Resolve a point against a collision record's segment table (sphere_segment / 0x8C093A9C) |
+| `0x8c0748e0` | vec_shift | `vec_shift.c` | Add an offset vector to an object's position and its 28 point records |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`

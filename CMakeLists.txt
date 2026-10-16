@@ -99,6 +99,7 @@ add_library(vf3core STATIC
     src/fight/node_pass.c
     src/fight/aim_step.c
     src/fight/point_contact.c
+    src/fight/vec_shift.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
