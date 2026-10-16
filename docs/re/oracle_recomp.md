@@ -243,6 +243,7 @@ keeps running generated code around it.
 | `0x8c042d7c` | div_signed | `div_signed.c` | signed 32-bit divide r1/r0 by 32 div1 steps; zero divisor sets flag 0x0C1A5A60 (calls nothing) |
 | `0x8c0cc3f0` | extent_flip | `extent_flip.c` | adds an extent record's two vec3 halves, floors y at FR4 (calls nothing) |
 | `0x8c0cc334` | frame_counter_step | `frame_counter_step.c` | steps a looping frame counter and the floats it drives (calls nothing) |
+| `0x8c0cc432` | extent_list | `extent_list.c` | steps each live 32-byte extent record via frame_counter_step + extent_flip (guest calls) |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
