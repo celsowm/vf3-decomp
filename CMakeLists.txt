@@ -79,6 +79,7 @@ add_library(vf3core STATIC
     src/fight/negate_copy.c
     src/fight/word_copy.c
     src/fight/div_signed.c
+    src/fight/extent_flip.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
