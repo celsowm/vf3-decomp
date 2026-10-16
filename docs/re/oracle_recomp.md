@@ -246,6 +246,7 @@ keeps running generated code around it.
 | `0x8c0cc432` | extent_list | `extent_list.c` | steps each live 32-byte extent record via frame_counter_step + extent_flip (guest calls) |
 | `0x8c0c1754` | text_cursor | `text_cursor.c` | walks a string tracking a packed text cursor (control chars 8/9/10/13/92), drawing each char via 0x8C0C13C4 |
 | `0x8c06938c` | terrain_probe | `terrain_probe.c` | grid lookup of the terrain triangle under (x,z), guest calls to 068d54/068de4/068fe4/0692a6/087ace |
+| `0x8c06911c` | terrain_probe_flip | `terrain_probe_flip.c` | terrain_probe variant with mirrored z; triangle record carries the normal (guest calls 068d54/068de4/068fe4/087ace) |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
