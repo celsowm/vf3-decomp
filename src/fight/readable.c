@@ -97,6 +97,7 @@ int vf3_pass_prep_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_concat_pair_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_atan_table_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_unit_triple_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_count_leading_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -190,6 +191,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
       B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c0769c6u, "count_leading", vf3_count_leading_entry,
+      B(0)|B(3)|B(5)|B(6)|B(17) },
     { 0x0c09dc34u, "unit_triple", vf3_unit_triple_entry,
       B(0)|B(2)|B(3)|FR(0)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c069624u, "atan_table", vf3_atan_table_entry,

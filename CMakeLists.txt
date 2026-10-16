@@ -93,6 +93,7 @@ add_library(vf3core STATIC
     src/fight/matrix_concat_pair.c
     src/fight/atan_table.c
     src/fight/unit_triple.c
+    src/fight/count_leading.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
