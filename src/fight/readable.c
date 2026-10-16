@@ -70,6 +70,7 @@ int vf3_terrain_wrap_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_terrain_flat_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_terrain_height_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_printf_core_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_bone_pose_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -162,6 +163,9 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | FR(8) },
     { 0x0c04a6c8u, "printf_core", vf3_printf_core_entry,
       B(0) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c091438u, "bone_pose", vf3_bone_pose_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) |
+      FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },

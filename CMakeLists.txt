@@ -71,6 +71,7 @@ add_library(vf3core STATIC
     src/fight/anim_channels.c
     src/fight/terrain_height.c
     src/fight/printf_core.c
+    src/fight/bone_pose.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
     src/fight/vertex_light.c
