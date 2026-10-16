@@ -248,6 +248,7 @@ keeps running generated code around it.
 | `0x8c06938c` | terrain_probe | `terrain_probe.c` | grid lookup of the terrain triangle under (x,z), guest calls to 068d54/068de4/068fe4/0692a6/087ace |
 | `0x8c06911c` | terrain_probe_flip | `terrain_probe_flip.c` | terrain_probe variant with mirrored z; triangle record carries the normal (guest calls 068d54/068de4/068fe4/087ace) |
 | `0x8c068fe4` | terrain_quad_test | `terrain_quad_test.c` | point-in-quad test via five tri_winding edge calls; returns 0/1/2/4 |
+| `0x8c0692a6` | terrain_plane_hit | `terrain_plane_hit.c` | plane height at (x,z) for a terrain triangle plus its stored normal (calls nothing) |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`

@@ -56,6 +56,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c056ae0,vertex_writer1,src/fight/vertex_writers.c,r0 r12 fr1 fr2,105,2625,0.24,whole-tick
 0x8c056aa0,vertex_writer0,src/fight/vertex_writers.c,r0 fr1 fr2,105,2520,0.23,whole-tick
 0x8c03ccb0,matrix_identity,src/fight/matrix_lib.c,fr0 fr1 fr2 fr3,142,2414,0.22,whole-tick
+0x8c0692a6,terrain_plane_hit,src/fight/terrain_plane_hit.c,r0 r1,23,2392,0.22,whole-tick
 0x8c048c20,vertex_emit_ring,src/fight/vertex_emit.c,r0 r10,170,2380,0.22,whole-tick
 0x8c0cc334,frame_counter_step,src/fight/frame_counter_step.c,r0 r1 r2 r3 r5 sr fr0 fr2 fr3 fr6 fr7 fr8 fpul,75,2333,0.21,whole-tick
 0x8c03c880,rotate_y,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,118,2242,0.21,whole-tick

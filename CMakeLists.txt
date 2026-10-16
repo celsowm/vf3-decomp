@@ -86,6 +86,7 @@ add_library(vf3core STATIC
     src/fight/terrain_probe.c
     src/fight/terrain_probe_flip.c
     src/fight/terrain_quad_test.c
+    src/fight/terrain_plane_hit.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
