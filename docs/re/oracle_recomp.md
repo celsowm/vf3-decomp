@@ -254,6 +254,7 @@ keeps running generated code around it.
 | `0x8c09dbc0` | pass_prep | `pass_prep.c` | setup pass around 03b450 with tail jump to 03c4a0 |
 | `0x8c03dd00` | matrix_concat_pair | `matrix_concat_pair.c` | XMTRX = XMTRX*A*B for two stored 4x4 matrices (bank swaps + ftrv) |
 | `0x8c069624` | atan_table | `atan_table.c` | binary angle of (FR4,FR5) via slope table at 0eaf60 |
+| `0x8c09dc34` | unit_triple | `unit_triple.c` | triple from pass_prep to two angle calls (03c970, 03c8b0) and lengths |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
