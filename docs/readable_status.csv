@@ -68,6 +68,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03c940,rotate_z,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,89,1691,0.16,whole-tick
 0x8c09d480,rotate_euler,src/fight/leaf_math.c,r0 r3 r4 r15 pr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,40,1680,0.15,whole-tick
 0x8c043018,mem_move,src/fight/leaf_math.c,r0 sr,63,1659,0.15,whole-tick
+0x8c04b952,byte_sink,src/fight/byte_sink.c,r0,60,1500,0.14,whole-tick
 0x8c042e44,mod_u32,src/fight/math_readable.c,r0 r1 sr,19,1425,0.13,whole-tick
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
 0x8c03c970,matrix_rotate_sc,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,68,1156,0.11,whole-tick
