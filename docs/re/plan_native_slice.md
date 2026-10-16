@@ -56,4 +56,4 @@ cannot be pinned by the poison audit - the FR/XF bank swaps in push/pop carry va
 reader still depends on - so those stay generated; `fmov` with SZ=1 writes XD pairs (0x8c03cc60 changes XF12..15).
 Phase 4 items that need new captures (other scenes, multi-tick, wider call-target table) are blocked on
 savestates beyond the 13 fight ticks. Next ports by census: 0x8c06f450, 0x8c070008, 0x8c071694, 0x8c073aac, 0x8c048260,
-0x8c03f830 (calls sin/cos + 0x8c03fb10).
+0x8c0568a0, 0x8c0c1fba.
