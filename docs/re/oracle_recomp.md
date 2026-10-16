@@ -179,6 +179,7 @@ keeps running generated code around it.
 | `0x8c03b620` | matrix_store | `matrix_lib.c` | save XMTRX to the matrix slot (r4 = 0: the current-matrix cell) |
 | `0x8c03c0e0` | matrix_concat | `matrix_lib.c` | XMTRX = XMTRX * M(r4) |
 | `0x8c03c1c0` | matrix_premul | `matrix_lib.c` | XMTRX = M(r4) * XMTRX |
+| `0x8c03c4f0` | matrix_push | `matrix_lib.c` | push XMTRX on the matrix stack (ctl 0x0C19D2E4), optionally XMTRX = M(r4) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

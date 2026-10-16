@@ -93,3 +93,39 @@ int vf3_matrix_premul_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* 0x8C03C4F0  matrix_push: push XMTRX on the matrix stack, optionally load a new one.
+ *
+ * The stack's control block is at 0x0C19D2E4: word 0 = (limit << 16) | count (two int16),
+ * word 8 = stack top. XMTRX is written at the top (FR0 lowest) and the top moves up by one
+ * matrix; the count is incremented whether or not it stays below the limit (the limit test
+ * only leaves its result in r0). With r4 != 0 the matrix at r4 then becomes XMTRX and r4
+ * advances past it. The front FR bank is untouched; SR.T ends as r4 == 0, or as
+ * "r4 is 8-byte aligned" (which picks the pair-load path) when a matrix is loaded. */
+#define MATRIX_STACK_CTL 0x0C19D2E4u
+
+int vf3_matrix_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t top = vf3_mem_u32(ram, MATRIX_STACK_CTL + 8u);
+    const uint32_t ctl = vf3_mem_u32(ram, MATRIX_STACK_CTL);
+    const uint32_t *xf = xf_bank(s);
+    for (int i = 0; i < MATRIX_WORDS; ++i) vf3_mem_set_u32(ram, top + 4u * i, xf[i]);
+
+    const int32_t count = (int16_t)(ctl & 0xFFFFu), limit = (int16_t)(ctl >> 16);
+    s->v[0] = limit > count;
+    vf3_mem_set_u32(ram, MATRIX_STACK_CTL + 8u, top + MATRIX_BYTES);
+    vf3_matrix_write(ram, MATRIX_STACK_CTL, (uint32_t)(count + 1) & 0xFFFFu, 2);
+
+    int t;
+    if (s->v[4] == 0) {
+        t = 1;
+    } else {
+        uint32_t *dst = xf_bank(s);
+        for (int i = 0; i < MATRIX_WORDS; ++i) dst[i] = vf3_mem_u32(ram, s->v[4] + 4u * i);
+        t = (s->v[4] & 4u) == 0;
+        s->v[4] += MATRIX_BYTES;
+    }
+    s->v[17] = (s->v[17] & ~1u) | (uint32_t)t;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}

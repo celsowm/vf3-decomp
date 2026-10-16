@@ -19,11 +19,13 @@ int vf3_quad_strip_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_store_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_concat_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_premul_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_edge_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
 #define MATRIX_FP (((1ull << 32) - 1) << 21)
+#define MATRIX_XF (((1ull << 16) - 1) << 37)
 const vf3_readable_entry vf3_readable_table[] = {
     /* callee-saved r12-r14, sp and pr are the whole contract of the scheduler */
     { 0x0c09616au, "task_sched", vf3_task_sched_entry, B(12) | B(13) | B(14) | B(15) | B(16) },
@@ -47,6 +49,7 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0) | B(1) | B(2) | B(4) | B(5) | B(6) | B(9) | B(14) },
     /* FR0..FR15 and XF0..XF15 (v[21..52]) are all defined on exit */
     { 0x0c03b620u, "matrix_store", vf3_matrix_store_entry, B(0) | B(4) },
+    { 0x0c03c4f0u, "matrix_push", vf3_matrix_push_entry, B(0) | B(4) | B(17) | MATRIX_XF },
     { 0x0c03c0e0u, "matrix_concat", vf3_matrix_concat_entry, B(4) | B(15) | B(18) | B(53) | MATRIX_FP },
     { 0x0c03c1c0u, "matrix_premul", vf3_matrix_premul_entry, B(4) | B(15) | MATRIX_FP },
     { 0x0c042c20u, "div_s32", vf3_div_s32_entry, B(0) | B(1) | B(2) | B(3) | B(17) },
