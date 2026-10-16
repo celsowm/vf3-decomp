@@ -194,3 +194,37 @@ int vf3_cos_u16_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->v[4] = 0x4000u - angle;
     return vf3_sin_u16_entry(s, ram);
 }
+
+/* ---- 0x8C056B20: push one scaled 2D offset onto a descending record ------
+ * Register-passed helper of a larger routine: r8 -> source (two int16 at +0E, +10),
+ * r12 -> record cursor, r6 and FR12..FR15 -> values to push, FR3 -> scale. It writes
+ *     [r12+30] = FR14, [r12+2C] = FR13, [r12+28] = FR12, [r12+24] = r6   (old r12 + 30 - 4k)
+ *     [r12'+14] = float(s16 @ src+10) * scale     [r12'+10] = float(s16 @ src+0E) * scale
+ *     [r12'+18] = FR15, [r12'+1C] = 0
+ * with r12' = r12 + 0x20 on return; r0 = 0, r8 is unchanged. */
+int vf3_push_offset_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t src = s->v[8], cursor = s->v[12] + 0x30u;
+    const float scale = vf3_fr_get(s, 3);
+    const int32_t first = (int16_t)vf3_mem_u16(ram, src + 0x0Eu);
+    const int32_t second = (int16_t)vf3_mem_u16(ram, src + 0x10u);
+
+    const float y = vf3_f_mul(s, vf3_f_from_int(s, second), scale);
+    const float x = vf3_f_mul(s, vf3_f_from_int(s, first), scale);
+    vf3_fr_set(s, 1, y);
+    vf3_fr_set(s, 2, x);
+
+    const uint32_t top = cursor - 16u;
+    vf3_mem_set_u32(ram, cursor - 4u, VF3_FR(s, 14));
+    vf3_mem_set_u32(ram, cursor - 8u, VF3_FR(s, 13));
+    vf3_mem_set_u32(ram, cursor - 12u, VF3_FR(s, 12));
+    vf3_mem_set_u32(ram, top, s->v[6]);
+    vf3_mem_set_u32(ram, top + 20u, vf3_f32_bits(y));
+    vf3_mem_set_u32(ram, top + 16u, vf3_f32_bits(x));
+    vf3_mem_set_u32(ram, top + 24u, VF3_FR(s, 15));
+    vf3_mem_set_u32(ram, top + 28u, 0);
+    s->v[0] = 0;
+    s->v[12] = top;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
