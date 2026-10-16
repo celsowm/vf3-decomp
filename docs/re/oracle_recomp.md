@@ -258,6 +258,7 @@ keeps running generated code around it.
 | `0x8c0769c6` | count_leading | `count_leading.c` | leading zero count loop |
 | `0x8c0b1a46` | scene_link | `scene_link.c` | scene pass for one list node, cursor advance by mode |
 | `0x8c0a756c` | slot_pass | `slot_pass.c` | scene pass for one slot-table entry with tail jump to 03c4a0 |
+| `0x8c0a76ec` | node_pass | `node_pass.c` | scene pass for one list node with tail jump to 03c4a0 |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
