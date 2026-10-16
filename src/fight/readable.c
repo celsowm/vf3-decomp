@@ -29,6 +29,7 @@ int vf3_matrix_frame_c_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_edge_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_corner_fan_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_display_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_color_pack_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec3_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
@@ -76,6 +77,7 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(1) | B(3) | B(5) | B(6) | B(7) | B(17) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) |
       FR(6) | FR(7) | FR(8) | FR(9) | FR(10) | FR(11) },
     { 0x0c03f830u, "sprite_quad", vf3_sprite_quad_entry, B(15) | B(16) },
+    { 0x0c048260u, "display_list", vf3_display_list_entry, B(4) | B(5) | B(6) },
     { 0x0c03cc90u, "vec3_load", vf3_vec3_load_entry,
       B(0) | B(3) | FR(4) | FR(5) | FR(6) | FR(7) | B(49) | B(50) | B(51) | B(52) },
     { 0x0c03fb80u, "color_pack", vf3_color_pack_entry,
