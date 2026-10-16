@@ -40,6 +40,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03c200,matrix_concat_parent,src/fight/matrix_lib.c,r4 r15 fpscr,165,4785,0.44,whole-tick
 0x8c06938c,terrain_probe,src/fight/terrain_probe.c,r0,23,4746,0.44,whole-tick
 0x8c03b530,matrix_copy,src/fight/matrix_lib.c,r4 r5 r6 r14 fr3,62,4526,0.42,whole-tick
+0x8c09382a,sphere_segment,src/fight/sphere_segment.c,r0,27,4482,0.41,whole-tick
 0x8c03efb0,matrix_load_wxyz,src/fight/matrix_lib.c,r4,165,4455,0.41,whole-tick
 0x8c03c4a0,matrix_pop,src/fight/matrix_lib.c,r0 r2 r3 r4 r6 r7 sr,151,4379,0.40,whole-tick
 0x8c03bd80,matrix_load,src/fight/matrix_lib.c,r4,193,4053,0.37,whole-tick
