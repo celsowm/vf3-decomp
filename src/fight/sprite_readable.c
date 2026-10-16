@@ -182,6 +182,7 @@ int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     vf3_mem_set_u32(ram, cursor, (vf3_mem_u32(ram, cursor) & SQ_REGION_MASK) | (q & SQ_ADDR_MASK));
 
     s->v[15] = sp0;
+    s->v[VF3_REG_PR] = pr;
     s->pc = pr;
     return 1;
 }

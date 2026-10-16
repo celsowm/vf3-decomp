@@ -29,6 +29,8 @@ int vf3_matrix_frame_c_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_edge_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_corner_fan_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_sprite_quad_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_chain_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_vec3_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -74,6 +76,10 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(1) | B(3) | B(5) | B(6) | B(7) | B(17) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) |
       FR(6) | FR(7) | FR(8) | FR(9) | FR(10) | FR(11) },
     { 0x0c03f830u, "sprite_quad", vf3_sprite_quad_entry, B(15) | B(16) },
+    { 0x0c03ecb0u, "matrix_chain", vf3_matrix_chain_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(7) | B(17) | B(18) | B(19) | B(20) | B(53) | MATRIX_FP },
+    { 0x0c03cc90u, "vec3_load", vf3_vec3_load_entry,
+      B(0) | B(3) | FR(4) | FR(5) | FR(6) | FR(7) | B(49) | B(50) | B(51) | B(52) },
     { 0x0c03a140u, "cos_u16", vf3_cos_u16_entry, B(16) | FR(0) },
     { 0x0c03a6e0u, "sin_u16", vf3_sin_u16_entry,
       B(16) | FR(0) },
