@@ -86,6 +86,7 @@ int vf3_div_signed_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_extent_flip_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_counter_step_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_extent_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_text_cursor_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -179,6 +180,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
       B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c0c1754u, "text_cursor", vf3_text_cursor_entry,
+      B(0)|B(2)|B(3)|B(5)|B(17) },
     { 0x0c0cc432u, "extent_list", vf3_extent_list_entry,
       B(0)|B(17) },
     { 0x0c0cc334u, "frame_counter_step", vf3_frame_counter_step_entry,

@@ -82,6 +82,7 @@ add_library(vf3core STATIC
     src/fight/extent_flip.c
     src/fight/frame_counter_step.c
     src/fight/extent_list.c
+    src/fight/text_cursor.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c

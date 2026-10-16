@@ -64,6 +64,7 @@ int vf3_extent_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     for (int i = 0; i < 6; ++i) R(pushed[i]) = saved_r[i];
     F(15) = saved_f[0]; F(14) = saved_f[1]; F(13) = saved_f[2];
     R(15) = sp0;
+    R(VF3_REG_PR) = pr0;
     s->pc = pr0;
     return 1;
 }
