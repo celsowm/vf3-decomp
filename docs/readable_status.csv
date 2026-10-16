@@ -11,6 +11,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0c1fba,glyph_cache,src/fight/glyph_cache.c,r0 r8 r9 r10 r11 r12 r13 r14 r15 pr fr12 fr13 fr14 fr15,26,17872,1.64,whole-tick
 0x8c042c20,div_s32,src/fight/math_readable.c,r0 r1 r2 r3 sr,198,15444,1.42,whole-tick
 0x8c048be0,vertex_emit_sq,src/fight/vertex_emit.c,r2 r3 r5 r6 sr fr5 fr6,832,14144,1.30,whole-tick
+0x8c058ea0,project_verts,src/fight/project_verts.c,r0 r1 r2 r3 r4 r5 r6 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15,13,12379,1.14,whole-tick
 0x8c0c13c4,glyph_quad,src/fight/glyph_quad.c,r0 r11 r12 r13 r14 r15 pr fr13 fr14 fr15,78,12168,1.12,whole-tick
 0x8c03b620,matrix_store,src/fight/matrix_lib.c,r0 r4,512,11776,1.08,whole-tick
 0x8c03c0e0,matrix_concat,src/fight/matrix_lib.c,r4 r15 fpscr fpul,370,10730,0.99,whole-tick

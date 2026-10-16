@@ -205,6 +205,7 @@ keeps running generated code around it.
 | `0x8c0c13c4` | glyph_quad | `glyph_quad.c` | one HUD font cell: cursor/size per font id, sprite rects, shade flags, sprite_quad |
 | `0x8c07b2be` | pool_alloc | `glyph_cache.c` | next free 68-byte entry of the text layer's sprite pool |
 | `0x8c0c1fba` | glyph_cache | `glyph_cache.c` | retire/allocate a text-layer glyph entry and build its sprite object |
+| `0x8c058ea0` | project_verts | `project_verts.c` | XMTRX projection + light of a vertex run into 16-byte records (mode-bit-2 side-list variant unexercised) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
