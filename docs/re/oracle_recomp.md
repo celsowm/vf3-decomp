@@ -211,6 +211,8 @@ keeps running generated code around it.
 | `0x8c03c940` | rotate_z | `leaf_math.c` | XMTRX rotation about Z from an fsca angle (r4) |
 | `0x8c03b450` | xform_point | `leaf_math.c` | (x,y,z,1) at r4 through XMTRX -> three floats at r5 |
 | `0x8c043018` | mem_move | `leaf_math.c` | overlap-safe byte memmove (r4 dst, r5 src, r6 count) |
+| `0x8c042e44` | mod_u32 | `math_readable.c` | unsigned remainder r1 % r0 (DIV1 chain, add-back fix) |
+| `0x8c042d7c` | mod_s32 | `math_readable.c` | signed remainder r1 % r0 (sign-restoring correction step) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
