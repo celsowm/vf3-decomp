@@ -240,6 +240,7 @@ keeps running generated code around it.
 | `0x8c073aac` | hitbox_overlap | `hitbox_overlap.c` | fighter-vs-fighter capsule overlap scan: optional radius-array rebuild, per-capsule-pair interval rejects + segment closest-approach, hit words / min distance / pair count into the result block (calls nothing) |
 | `0x8c072b02` | negate_copy | `negate_copy.c` | copies pairs of vec3 lists, second vec3 negated (calls nothing) |
 | `0x8c042f08` | word_copy | `word_copy.c` | copies r0 bytes (<=64) r2->r1 through an unrolled jump-table chain (calls nothing) |
+| `0x8c042d7c` | div_signed | `div_signed.c` | signed 32-bit divide r1/r0 by 32 div1 steps; zero divisor sets flag 0x0C1A5A60 (calls nothing) |
 | `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`

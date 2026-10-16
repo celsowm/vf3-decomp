@@ -82,6 +82,7 @@ int vf3_matrix_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_negate_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_edge_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_word_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_div_signed_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -175,6 +176,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
       B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c042d7cu, "div_signed", vf3_div_signed_entry,
+      B(0)|B(1)|B(17) },
     { 0x0c042f08u, "word_copy", vf3_word_copy_entry,
       B(0) },
     { 0x0c072b02u, "negate_copy", vf3_negate_copy_entry,
