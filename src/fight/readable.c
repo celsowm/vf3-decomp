@@ -60,6 +60,11 @@ int vf3_matrix_scale_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_invert_rigid_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_store_keep_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_axis_extract_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_xform_vector_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_transpose_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_invert_scaled_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_world_reset_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_bone_transforms_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -134,6 +139,13 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0) | B(3) | B(4) | B(5) | B(15) | B(16) | FR(4) | FR(5) | FR(6) | FR(7) },
     { 0x0c09d480u, "rotate_euler", vf3_rotate_euler_entry,
       B(0) | B(3) | B(4) | B(15) | B(16) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c03b4b0u, "xform_vector", vf3_xform_vector_entry, B(4) | FR(4) | FR(5) | FR(6) | FR(7) },
+    { 0x0c03cc30u, "matrix_transpose", vf3_matrix_transpose_entry, B(53) | MATRIX_XF },
+    { 0x0c03b5c0u, "matrix_invert_scaled", vf3_matrix_invert_scaled_entry, B(53) | MATRIX_XF },
+    { 0x0c03e980u, "world_reset", vf3_world_reset_entry,
+      B(2) | B(3) | B(4) | B(5) | B(15) | B(16) | B(53) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c03e8c0u, "bone_transforms", vf3_bone_transforms_entry,
+      B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },

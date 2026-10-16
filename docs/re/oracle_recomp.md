@@ -223,6 +223,11 @@ keeps running generated code around it.
 | `0x8c03c6c0` | rotate_x | `leaf_math.c` | XMTRX rotation about X from an fsca angle (r4) |
 | `0x8c09d52e` | xform_axis | `leaf_math.c` | transform (FR4,0,0) by XMTRX, store at r4 (calls xform_point) |
 | `0x8c09d480` | rotate_euler | `leaf_math.c` | apply three s16 Euler angles at r4 (Z, Y, X) to XMTRX |
+| `0x8c03b4b0` | xform_vector | `matrix_extra.c` | (x,y,z,0) at r4 through XMTRX, three floats to r5 |
+| `0x8c03cc30` | matrix_transpose | `matrix_extra.c` | transpose XMTRX through FPUL |
+| `0x8c03b5c0` | matrix_invert_scaled | `matrix_extra.c` | in-place inverse of a scaled rotation+translation XMTRX |
+| `0x8c03e980` | world_reset | `matrix_extra.c` | transpose, transform two vectors, transpose back |
+| `0x8c03e8c0` | bone_transforms | `matrix_extra.c` | push/invert matrix, transform vector+point of each in-use 0xB0 entry |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
