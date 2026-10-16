@@ -188,6 +188,7 @@ keeps running generated code around it.
 | `0x8c03fb10` | corner_fan | `geom_readable.c` | four-corner offset fan: out arrays from obj+4/+8 and (u,v) table 0x0C0EA670 with fmac terms skipped at zero |
 | `0x8c03fb80` | color_pack | `geom_readable.c` | four 0..1 floats -> clamped ARGB byte word (ftrc with 2^32 wrap bias) |
 | `0x8c03f830` | sprite_quad | `sprite_readable.c` | billboard quad: corner fan + header patch + store-queue submit (header + 4 vertices) |
+| `0x8c0568a0` | tri_strip | `tri_strip.c` | screen-space triangle strips: z-range outcodes, winding/area cull, clipper hand-off (0x8c051f50), vertex writers via the table at 0x0c056a78, end-of-strip words |
 | `0x8c048260` | display_list | `display_list.c` | model display-list walker: sphere cull (depth limit + 4 side planes), light block setup, per-strip TA header slots, dispatch to the strip transformers; sprite-only emit for culled nodes |
 | `0x8c03cc90` | vec3_load | `chain_readable.c` | load a 3-vector into FR4..FR6, tail-jump to 0x8c03cc60 (writes XD12/XD14 through SZ=1 fmov) |
 | `0x8c03c4f0` | matrix_push | `matrix_lib.c` | push XMTRX on the matrix stack (ctl 0x0C19D2E4), optionally XMTRX = M(r4) |
