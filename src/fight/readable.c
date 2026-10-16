@@ -80,6 +80,7 @@ int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_negate_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_edge_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -171,6 +172,8 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c091438u, "bone_pose", vf3_bone_pose_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) |
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
+    { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
+      B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
     { 0x0c072b02u, "negate_copy", vf3_negate_copy_entry,
       0 },
     { 0x0c073aacu, "hitbox_overlap", vf3_hitbox_overlap_entry,

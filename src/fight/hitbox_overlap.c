@@ -27,6 +27,7 @@
 #include "fight/family_hooks.h"
 #include "fight/sh4_fpu.h"
 #include "fight/vec3_inline.h"
+#include "fight/fr_ops.h"
 
 enum {
     SAVED_BYTES = 44, FRAME_BYTES = 152,
@@ -43,15 +44,8 @@ enum {
 #define FLAG_OFF      0x1A04u
 #define TOP           0x80000000u
 
-/* the original's FR sequences, spelled out */
 #define LD(o)       m32(ram, f + (o))
 #define ST(o, v)    w32(ram, f + (o), (v))
-#define FMOV(d, m)  (F(d) = F(m))
-#define FADD(d, m)  set_fl(s, (d), vf3_f_add(s, fl(s, (d)), fl(s, (m))))
-#define FSUB(d, m)  set_fl(s, (d), vf3_f_sub(s, fl(s, (d)), fl(s, (m))))
-#define FMUL(d, m)  set_fl(s, (d), vf3_f_mul(s, fl(s, (d)), fl(s, (m))))
-#define FMAC(n, m)  set_fl(s, (n), vf3_f_mac(s, fl(s, 0), fl(s, (m)), fl(s, (n))))   /* FRn += FR0 * FRm */
-#define GT(m, n)    (fl(s, (n)) > fl(s, (m)))                                         /* fcmp/gt FRm,FRn */
 
 int vf3_hitbox_overlap_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
 {

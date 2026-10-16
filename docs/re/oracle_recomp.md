@@ -239,6 +239,7 @@ keeps running generated code around it.
 | `0x8c071694` | chain_frames | `chain_frames.c` | per-node side vector of a closed chain strip: edge vectors to the neighbours, two crosses normalised, summed and normalised into node+12, eight walk phases (calls nothing) |
 | `0x8c073aac` | hitbox_overlap | `hitbox_overlap.c` | fighter-vs-fighter capsule overlap scan: optional radius-array rebuild, per-capsule-pair interval rejects + segment closest-approach, hit words / min distance / pair count into the result block (calls nothing) |
 | `0x8c072b02` | negate_copy | `negate_copy.c` | copies pairs of vec3 lists, second vec3 negated (calls nothing) |
+| `0x8c06e31c` | edge_probe | `edge_probe.c` | four quarter-turn rays from a fighter against the stage outline: first crossed edge gives distance + edge angle (calls the 0x8c069624 angle helper) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).
