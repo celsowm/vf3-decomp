@@ -8,6 +8,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03b620,matrix_store,src/fight/matrix_lib.c,r0 r4,512,11776,1.08,whole-tick
 0x8c03c0e0,matrix_concat,src/fight/matrix_lib.c,r4 r15 fpscr fpul,370,10730,0.99,whole-tick
 0x8c048cc0,clip_edge,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fpul,134,9230,0.85,whole-tick
+0x8c03a140,cos_u16,src/fight/geom_readable.c,pr fr0,91,8098,0.74,whole-tick
 0x8c03a6e0,sin_u16,src/fight/geom_readable.c,pr fr0,100,7912,0.73,whole-tick
 0x8c03c1c0,matrix_premul,src/fight/matrix_lib.c,r4 r15,178,5518,0.51,whole-tick
 0x8c048c80,clip_emit_slot,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,97,2704,0.25,whole-tick

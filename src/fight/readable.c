@@ -5,6 +5,7 @@
 int vf3_task_sched_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_tri_winding_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_sin_u16_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_cos_u16_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_quad_node_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vertex_light_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vertex_emit_sq_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -45,6 +46,7 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c03b620u, "matrix_store", vf3_matrix_store_entry, B(0) | B(4) },
     { 0x0c03c0e0u, "matrix_concat", vf3_matrix_concat_entry, B(4) | B(15) | B(18) | B(53) | MATRIX_FP },
     { 0x0c03c1c0u, "matrix_premul", vf3_matrix_premul_entry, B(4) | B(15) | MATRIX_FP },
+    { 0x0c03a140u, "cos_u16", vf3_cos_u16_entry, B(16) | FR(0) },
     { 0x0c03a6e0u, "sin_u16", vf3_sin_u16_entry,
       B(16) | FR(0) },
 };

@@ -164,6 +164,7 @@ keeps running generated code around it.
 | `0x8c09616a` | task_sched | `task_sched.c` | scheduler loop, r12..r15 + pr |
 | `0x8c068f92` | tri_winding | `geom_readable.c` | sign of 2D triangle area -> r0 = 2 / 1 / 4 |
 | `0x8c068fe4` | quad_node | `geom_readable.c` | point in quad, five winding calls |
+| `0x8c03a140` | cos_u16 | `geom_readable.c` | cos of a 16-bit angle: folds to the first half turn, tail-calls sin_u16(0x4000-a) |
 | `0x8c03a6e0` | sin_u16 | `geom_readable.c` | 16-bit-angle sine (tan continued fraction) |
 | `0x8c048b00` | vertex_light | `vertex_light.c` | ftrv + N.L / N.H, specular v^k table |
 | `0x8c048be0` | vertex_emit_sq | `vertex_emit.c` | pack a lit vertex into the store queue (strip control word) |

@@ -180,3 +180,17 @@ out:
     s->pc = saved_pr;
     return 1;
 }
+
+/* ---- 0x8C03A140: cos() of a 16-bit angle --------------------------------
+ * cos(a) = sin(0x4000 - a') where a' folds the angle into the first half turn
+ * (a' = 0x10000 - a when a > 0x8000). Tail-calls the sine routine, whose
+ * result lands in FR0. r14 is saved and restored by the original. */
+int vf3_cos_u16_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    /* the original pushes r14 and pops it again; the dead stack word is visible in RAM */
+    vf3_mem_set_u32(ram, s->v[15] - 4u, s->v[14]);
+    uint32_t angle = s->v[4] & 0xFFFFu;
+    if (angle > 0x8000u) angle = 0x10000u - angle;
+    s->v[4] = 0x4000u - angle;
+    return vf3_sin_u16_entry(s, ram);
+}
