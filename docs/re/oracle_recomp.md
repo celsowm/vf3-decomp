@@ -215,6 +215,11 @@ keeps running generated code around it.
 | `0x8c042d7c` | mod_s32 | `math_readable.c` | signed remainder r1 % r0 (sign-restoring correction step) |
 | `0x8c03ee40` | axis_extract | `axis_extract.c` | axes from the 0x0C0EA624 table through XMTRX^T (row copy + normalised axis) into 0x0C1A58A0 |
 | `0x8c09d4e6` | store_keep_translation | `leaf_math.c` | matrix_store into a transform object while preserving its translation floats (+48..+56) |
+| `0x8c03cbd0` | matrix_set_translation | `leaf_math.c` | XMTRX elements 12..14 = three floats at r4 |
+| `0x8c03cc60` | matrix_translate_by | `leaf_math.c` | XMTRX translation = XMTRX*(FR4,FR5,FR6,1) |
+| `0x8c03c970` | matrix_rotate_sc | `leaf_math.c` | rotation about Z from ready sin/cos in FR4/FR5 |
+| `0x8c03cb70` | matrix_scale | `leaf_math.c` | scale XMTRX axis columns by FR4..FR6 (through the stack) |
+| `0x8c03c5b0` | matrix_invert_rigid | `leaf_math.c` | in-place inverse of a rigid XMTRX (R^T, -R^T t) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

@@ -115,3 +115,90 @@ int vf3_store_keep_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram
     s->pc = pr0;
     return 1;
 }
+
+/* ---- XMTRX editing routines (the matrix is the X bank; the originals reach it with FRCHG) ---- */
+
+/* 0x8C03CBD0  XMTRX translation (elements 12..14) = the three floats at r4 */
+int vf3_matrix_set_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    uint32_t *xf = xf_bank(s);
+    for (int i = 0; i < 3; ++i) xf[12 + i] = vf3_mem_u32(ram, s->v[4] + 4u * (uint32_t)i);
+    s->v[4] += 12;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03CC60  XMTRX translation = XMTRX * (FR4, FR5, FR6, 1): move the origin by a local offset */
+int vf3_matrix_translate_by_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    uint32_t *fr = fr_bank(s), *xf = xf_bank(s);
+    vf3_fr_set(s, 7, 1.0f);
+    if (!vf3_fpu_ftrv(xf, fr + 4, s->v[VF3_REG_FPSCR], fr + 4)) return 0;
+    xf[12] = fr[4]; xf[13] = fr[5]; xf[14] = fr[6]; xf[15] = fr[7];
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03C970  rotation about Z from a ready sin (FR4) / cos (FR5): the body of 0x8C03C940 */
+int vf3_matrix_rotate_sc_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    uint32_t *fr = fr_bank(s), *xf = xf_bank(s);
+    fr[1] = fr[4];
+    fr[4] ^= NEGATE;
+    fr[0] = fr[5]; fr[2] = 0; fr[3] = 0;
+    if (!vf3_fpu_ftrv(xf, fr + 0, s->v[VF3_REG_FPSCR], fr + 0)) return 0;
+    fr[6] = 0; fr[7] = 0;
+    if (!vf3_fpu_ftrv(xf, fr + 4, s->v[VF3_REG_FPSCR], fr + 4)) return 0;
+    for (int i = 0; i < 8; ++i) xf[i] = fr[i];
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03CB70  scale XMTRX's three axis columns by (FR4, FR5, FR6); FR4..FR6 pass through the stack */
+int vf3_matrix_scale_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    uint32_t *fr = fr_bank(s), *xf = xf_bank(s);
+    const uint32_t sp = s->v[15], saved_fr15 = xf[15];
+    for (int i = 0; i < 3; ++i) vf3_mem_set_u32(ram, sp - 4u * (uint32_t)(i + 1), fr[6 - i]);
+    s->v[VF3_REG_FPUL] = saved_fr15;
+    for (int axis = 0; axis < 3; ++axis) {
+        xf[15] = fr[4 + axis];
+        const float scale = vf3_bits_f32(xf[15]);
+        for (int i = 0; i < 4; ++i)
+            xf[4 * axis + i] = vf3_f32_bits(vf3_f_mul(s, vf3_bits_f32(xf[4 * axis + i]), scale));
+    }
+    xf[15] = s->v[VF3_REG_FPUL];
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03C5B0  invert the (rigid) XMTRX in place: transpose the 3x3 rotation and set the
+ * translation to -(R^T * t). The dot products run on the pre-swap matrix; FPUL ends up holding
+ * the last swapped element. */
+int vf3_matrix_invert_rigid_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    uint32_t *xf = xf_bank(s);
+    const uint32_t fpscr = s->v[VF3_REG_FPSCR];
+    xf[3] = 0; xf[7] = 0;
+    xf[11] = vf3_f32_bits(vf3_f_sub(s, vf3_bits_f32(xf[11]), vf3_bits_f32(xf[11])));
+    xf[15] = vf3_f32_bits(1.0f);
+    if (!vf3_fpu_fipr(xf + 12, xf + 0, fpscr, xf + 3)) return 0;
+    if (!vf3_fpu_fipr(xf + 12, xf + 4, fpscr, xf + 7)) return 0;
+    if (!vf3_fpu_fipr(xf + 12, xf + 8, fpscr, xf + 11)) return 0;
+    const float zero = 0.0f;
+    xf[12] = vf3_f32_bits(vf3_f_sub(s, zero, vf3_bits_f32(xf[3])));
+    xf[13] = vf3_f32_bits(vf3_f_sub(s, zero, vf3_bits_f32(xf[7])));
+    xf[14] = vf3_f32_bits(vf3_f_sub(s, zero, vf3_bits_f32(xf[11])));
+    static const int pairs[3][2] = { { 1, 4 }, { 2, 8 }, { 6, 9 } };
+    for (int i = 0; i < 3; ++i) {
+        s->v[VF3_REG_FPUL] = xf[pairs[i][0]];
+        xf[pairs[i][0]] = xf[pairs[i][1]];
+        xf[pairs[i][1]] = s->v[VF3_REG_FPUL];
+    }
+    xf[3] = xf[7] = xf[11] = 0;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
