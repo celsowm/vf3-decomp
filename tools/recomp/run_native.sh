@@ -6,8 +6,8 @@
 # Exit status is the number of states that did not complete or did not match.
 cd "$(dirname "$0")/../.." || exit 2
 A=extract/analysis
-EXE=./build/vf3
-[ -x "$EXE" ] || EXE=./build/vf3.exe
+EXE=${BUILD_DIR:-./build}/vf3
+[ -x "$EXE" ] || EXE=$EXE.exe
 bad=0
 for n in "$@"; do
   out=$($EXE "$A/golden_tickx_vf3_$n.bin" --expect "$A/oracle_tick_s$n.bin" --hw "$A/flycast_exit_s$n.bin" \

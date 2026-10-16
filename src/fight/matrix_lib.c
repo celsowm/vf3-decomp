@@ -129,3 +129,65 @@ int vf3_matrix_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = s->v[VF3_REG_PR];
     return 1;
 }
+
+/* 0x8C03C140  matrix_concat_save: same product as matrix_concat (XMTRX = XMTRX * M(r4), banks
+ * end up swapped) but it keeps the caller's FR12..FR15 on the stack as four words and puts
+ * them back into the new front bank. */
+int vf3_matrix_concat_save_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    uint32_t *fr = fr_bank(s);
+    uint32_t m[MATRIX_WORDS], out[MATRIX_WORDS];
+    const uint32_t saved[4] = { fr[12], fr[13], fr[14], fr[15] };
+
+    for (int i = 3; i >= 0; --i) push_word(s, ram, saved[i]);          /* FR15 first */
+    for (int i = 0; i < MATRIX_WORDS; ++i) m[i] = vf3_mem_u32(ram, s->v[4] + 4u * i);
+    s->v[4] += MATRIX_BYTES;
+    for (int c = 0; c < 4; ++c)
+        if (!vf3_fpu_ftrv(xf_bank(s), &m[4 * c], s->v[VF3_REG_FPSCR], &out[4 * c])) return 0;
+
+    for (int i = 0; i < MATRIX_WORDS; ++i) fr[i] = xf_bank(s)[i];
+    for (int i = 0; i < MATRIX_WORDS; ++i) xf_bank(s)[i] = out[i];
+    s->v[VF3_REG_FPSCR] ^= 0x00200000u;
+    for (int i = 0; i < 4; ++i) fr[12 + i] = saved[i];
+    s->v[15] += 16;
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}
+
+/* 0x8C03C200  matrix_concat_parent: XMTRX = XMTRX * (the matrix just below the stack top). */
+int vf3_matrix_concat_parent_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    s->v[4] = vf3_mem_u32(ram, MATRIX_STACK_CTL + 8u) - MATRIX_BYTES;
+    return vf3_matrix_concat_save_entry(s, ram);
+}
+
+/* 0x8C03C4A0  matrix_pop: drop r4 matrices (at least one, never below an empty stack) and load
+ * the new top into XMTRX. The control block is {int16 count, int16 limit, u32 base, u32 top}.
+ * The top pointer is only rewritten while the new count is below the limit. Leaves
+ * r0 = (count >= r4), r6 = new count, r7 = address past the loaded matrix. */
+int vf3_matrix_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const int32_t drop = (int32_t)s->v[4] > 0 ? (int32_t)s->v[4] : 1;
+    const uint32_t ctl = vf3_mem_u32(ram, MATRIX_STACK_CTL);
+    const int32_t count = (int16_t)(ctl & 0xFFFFu), limit = (int16_t)(ctl >> 16);
+    const uint32_t base = vf3_mem_u32(ram, MATRIX_STACK_CTL + 4u);
+
+    const int enough = count >= drop;
+    const int32_t new_count = enough ? count - drop : 0;
+    uint32_t addr = base + ((uint32_t)new_count << 6);
+    vf3_matrix_write(ram, MATRIX_STACK_CTL, (uint32_t)new_count & 0xFFFFu, 2);
+    if (new_count < limit) vf3_mem_set_u32(ram, MATRIX_STACK_CTL + 8u, addr);
+
+    uint32_t *xf = xf_bank(s);
+    for (int i = 0; i < MATRIX_WORDS; ++i) xf[i] = vf3_mem_u32(ram, addr + 4u * i);
+
+    s->v[0] = (uint32_t)enough;
+    s->v[2] = (uint32_t)limit;
+    s->v[3] = MATRIX_STACK_CTL;
+    s->v[4] = (uint32_t)new_count << 6;
+    s->v[6] = (uint32_t)new_count;
+    s->v[7] = addr + MATRIX_BYTES;
+    s->v[17] = (s->v[17] & ~1u) | (uint32_t)(new_count >= limit);
+    s->pc = s->v[VF3_REG_PR];
+    return 1;
+}

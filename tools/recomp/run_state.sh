@@ -17,7 +17,7 @@ for n in "$@"; do
   if [ ! -s "$A/fxr_tick_s$n.bin" ]; then echo "state $n: no complete entry/exit pair"; continue; fi
   for mode in oracle poison; do
     out=$(TICK_SCRATCH=$mode TICK_DEVLOG=$A/devlog_tick_s$n.bin TICK_HW_RAM=$A/flycast_exit_s$n.bin \
-      ./build/vf3tickmix.exe 0x8c09616a "$g" $A/fxr_tick_s$n.bin $A/oracle_tick_s$n.bin 0 2>&1)
+      ${BUILD_DIR:-./build}/vf3tickmix.exe 0x8c09616a "$g" $A/fxr_tick_s$n.bin $A/oracle_tick_s$n.bin 0 2>&1)
     steps=$(echo "$out" | sed -n 's/^oracle steps under top-level calls: \([0-9]*\),.*native: \(.*\)$/\1 steps, native \2/p')
     stubs=$(echo "$out" | sed -n 's/^stub calls \([0-9]*\) .*readable calls \([0-9]*\)$/\1 stubs, \2 readable calls/p')
     mism=$(echo "$out" | sed -n 's/^arg mismatches \([0-9]*\)  readable output mismatches \([0-9]*\).*/\1 arg \2 out mismatches/p')
