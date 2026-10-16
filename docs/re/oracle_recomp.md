@@ -185,6 +185,7 @@ keeps running generated code around it.
 | `0x8c03d260` | matrix_frame_a | `matrix_lib.c` | push(*(0x0C19D308+8)); concat with parent; store to 0x0C19D4D8; pop(1) |
 | `0x8c03d280` | matrix_frame_b | `matrix_lib.c` | as frame_a, plus a concat with *(0x0C19D2FC+8) before the parent concat |
 | `0x8c03d2b0` | matrix_frame_c | `matrix_lib.c` | push(*(0x0C19D2FC+8)); concat with parent; store to 0x0C19D498; pop(1) |
+| `0x8c03fb10` | corner_fan | `geom_readable.c` | four-corner offset fan: out arrays from obj+4/+8 and (u,v) table 0x0C0EA670 with fmac terms skipped at zero |
 | `0x8c03c4f0` | matrix_push | `matrix_lib.c` | push XMTRX on the matrix stack (ctl 0x0C19D2E4), optionally XMTRX = M(r4) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
