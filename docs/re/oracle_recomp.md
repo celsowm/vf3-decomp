@@ -228,6 +228,7 @@ keeps running generated code around it.
 | `0x8c03b5c0` | matrix_invert_scaled | `matrix_extra.c` | in-place inverse of a scaled rotation+translation XMTRX |
 | `0x8c03e980` | world_reset | `matrix_extra.c` | transpose, transform two vectors, transpose back |
 | `0x8c03e8c0` | bone_transforms | `matrix_extra.c` | push/invert matrix, transform vector+point of each in-use 0xB0 entry |
+| `0x8c09d670` | anim_channels | `anim_channels.c` | sample the 63-channel animation record at a time (const/linear/Hermite keys) |
 
 `python tools/recomp/readable_ledger.py` regenerates `docs/readable_status.csv`
 (entry, file, contract, oracle census weight, verification status).

@@ -65,6 +65,7 @@ int vf3_matrix_transpose_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_invert_scaled_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_world_reset_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_bone_transforms_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_anim_channels_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_identity_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_load_wxyz_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -146,6 +147,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(2) | B(3) | B(4) | B(5) | B(15) | B(16) | B(53) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
     { 0x0c03e8c0u, "bone_transforms", vf3_bone_transforms_entry,
       B(0) | B(2) | B(3) | B(4) | B(6) | B(7) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(53) | FR(4) | FR(5) | FR(6) | FR(7) | MATRIX_XF },
+    { 0x0c09d670u, "anim_channels", vf3_anim_channels_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(7) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | MATRIX_FP },
     { 0x0c03bd80u, "matrix_load", vf3_matrix_load_entry, B(4) | MATRIX_XF },
     { 0x0c03ccb0u, "matrix_identity", vf3_matrix_identity_entry, FR(0) | FR(1) | FR(2) | FR(3) | MATRIX_XF },
     { 0x0c03efb0u, "matrix_load_wxyz", vf3_matrix_load_wxyz_entry, B(4) | MATRIX_XF },
