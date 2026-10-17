@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """chain_ticks.py - run the reference oracle on K consecutive scheduler ticks of one captured state.
 
-  python tools/recomp/chain_ticks.py <state> <K> [--label NAME]
+  python tools/recomp/chain_ticks.py <state> <K> [--label NAME] [--code-check]
 
 Starts from extract/analysis/golden_tickx_vf3_<state>.bin, runs the oracle (refs/dream-recomp build) for tick 1,
 feeds its exit RAM in as the entry RAM of tick 2, and so on, with no interrupts or main-loop code between ticks
@@ -45,6 +45,37 @@ def ram_offset(path):
     raise SystemExit(f'{path}: no entry RAM window')
 
 
+CODE_CHECK = False
+TEXT_BASE = int(os.environ.get('CHAIN_TEXT_BASE', '0x0C010000'), 0)
+
+
+TEXT_LEN = int(os.environ.get('CHAIN_TEXT_LEN', '0xF0000'), 0)
+MIN_RUN = int(os.environ.get('CHAIN_MIN_RUN', '8'))
+_text_ref = []
+
+
+def code_damage(dump):
+    """Words of the program text (TEXT_BASE.., TEXT_LEN bytes) that differ from the text after tick 1."""
+    with open(dump, 'rb') as f:
+        f.seek(HEADER + (TEXT_BASE - RAM_BASE))
+        ram = f.read(TEXT_LEN)
+    if not _text_ref:
+        _text_ref.append(ram)
+        return []
+    ref = _text_ref[0]
+    changed = [i for i in range(0, TEXT_LEN - 3, 4) if ref[i:i + 4] != ram[i:i + 4]]
+    runs, run = [], []
+    for i in changed + [None]:
+        if run and (i is None or i != run[-1] + 4):
+            if len(run) >= MIN_RUN:
+                runs.append(run)
+            run = []
+        if i is not None:
+            run.append(i)
+    return [(TEXT_BASE + r[0], int.from_bytes(ref[r[0]:r[0] + 4], 'little'), int.from_bytes(ram[r[0]:r[0] + 4], 'little'))
+            for r in runs]
+
+
 def patch(golden, dump, out, offset):
     shutil.copyfile(golden, out)
     words = array.array('I')
@@ -78,6 +109,12 @@ def main(state, k, label):
         oracle(cur, env)
         if not tmp_dump.exists() or tmp_dump.stat().st_size != HEADER + RAM_LEN:
             raise SystemExit(f'tick {t}: the oracle produced no dump')
+        if CODE_CHECK:
+            bad = code_damage(tmp_dump)
+            if bad:
+                print(f'tick {t}: program text changed in {len(bad)} runs, first {bad[0][0]:#010x} '
+                      f'was {bad[0][1]:#010x} now {bad[0][2]:#010x}', flush=True)
+                raise SystemExit(1)
         if last:
             shutil.copyfile(cur, A / f'golden_tickx_vf3_{label}.bin') if cur == base else None
             if cur != base:
@@ -99,6 +136,9 @@ if __name__ == '__main__':
     label = None
     if '--label' in args:
         j = args.index('--label'); label = args[j + 1]; del args[j:j + 2]
+    if '--code-check' in args:
+        CODE_CHECK = True
+        args.remove('--code-check')
     if len(args) != 2:
         raise SystemExit(__doc__)
     main(args[0], int(args[1]), label or f'c{args[0]}_{args[1]}')

@@ -115,3 +115,15 @@ Update: 0x0c09e060 (aim_frame.c) and 0x0c09e6b2 (aim_frame_b.c) are now readable
 verify; 109 entries, 95.8% of state-7 oracle steps. What is left by weight is the trampolines 0x0c03ecb0 /
 0x0c0a7662, the ftrv culling walk 0x0c04a1a0, the GBR routines 0x0c055646 / 0x0c0cab30 and four 1-2 KB game-logic
 functions (0x0c0b1550, 0x0c0c6770, 0x0c0927e6, 0x0c0a045c), each between 0.15% and 0.2% of the tick.
+
+Why the chains stop (2026-10-17): the oracle does not fault on a native-side gap; it faults after a *scene transition* has
+overwritten program text. `chain_ticks.py --code-check` (env CHAIN_TEXT_BASE / CHAIN_TEXT_LEN / CHAIN_MIN_RUN narrow
+it to a window) shows the program text of state 41 changing during tick 120 (0x0c03b800, 0x0c03c4a0.. now hold other
+code) and the oracle then executing garbage in that same tick, so "tick 121" never existed: a fight left to run
+without input ends after ~120 ticks (state 7: ~200) and the game starts loading the next scene's overlay from the
+disc, which the no-interrupt, no-GDFS model cannot serve. The ticks up to the wall are all real fight ticks and native
+runs them. Past it needs the file-loader/GDFS side (docs/re/reios_exec_server.md has the REIOS HLE state) - that is the
+"other scenes" half of Phase 4, not more fight adapters. `tools/recomp/frame_delta.py` lists the words the real machine
+moves per frame beyond the recompiled tick (13 states): a handful of small counters (+1/+2 per frame) at 0x0c0ea2f8,
+0x0c0ea710.., 0x0c16cdf0, 0x0c19e998.., 0x0c19fc40.., 0x0c1a0be8.., 0x0c1a5b9c.. plus scratch data; that is the
+interrupt/main-loop contribution a driver would have to add between ticks.
