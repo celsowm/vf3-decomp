@@ -273,6 +273,7 @@ keeps running generated code around it.
 | `0x8c055646` | submit_object | `submit_object.c` | 0x8C055646 submit_object: depth-cull then submit one object under the fight GBR |
 | `0x8c04a320` | clip_near_triangle | `clip_near_triangle.c` | near-plane triangle clipper writing the store queue (0x8c04a320 - 0x8c04a5a2) |
 | `0x8c048f60` | strip_vertex_lit | `strip_vertex_lit.c` | lit vertex strip transformed into the store queue (0x8c048f60 - 0x8c049080) |
+| `0x8c091c20` | joint_chain | `joint_chain.c` | five-link joint chain posed onto the matrix stack and drawn (0x8c091c20 - 0x8c091dbc) |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |
 | `0x8c03ffd0` | queue_flush | `queue_flush.c` | Prime the store-queue registers and submit an object's staged work |
 | `0x8c09da72` | seven_pass | `seven_pass.c` | Run the seven-segment pass for one object |

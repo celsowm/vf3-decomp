@@ -85,6 +85,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c048ec0,vertex_classify,src/fight/vertex_classify.c,r0 r1 r4 r9 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,24,1248,0.11,whole-tick
 0x8c03ffd0,queue_flush,src/fight/queue_flush.c,,15,1200,0.11,whole-tick
 0x8c03c970,matrix_rotate_sc,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,68,1156,0.11,whole-tick
+0x8c091c20,joint_chain,src/fight/joint_chain.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr4 fr5 fr6 fr13 fr14 fr15 fpul,2,1117,0.10,whole-tick
 0x8c042f08,word_copy,src/fight/word_copy.c,r0,99,1109,0.10,whole-tick
 0x8c03c5b0,matrix_invert_rigid,src/fight/leaf_math.c,fpul,37,1073,0.10,whole-tick
 0x8c03cb70,matrix_scale,src/fight/leaf_math.c,fpul,46,1058,0.10,whole-tick
