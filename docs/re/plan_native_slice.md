@@ -67,4 +67,7 @@ reference to compare against). It shows how far the captured coverage carries on
   (unowned entry 0x0c0786d4), state 14 at tick 38 (0x0c0786d4), state 41 at tick 49 (0x0c0af072).
 - So the wider call-target table is not just a table: the generated adapters also exist only for entries
   the oracle saw. Widening needs either new captures that reach those paths (round end / state changes) or a
-  static adapter generator. Porting 0x0c0786d4 and 0x0c0af072 by hand is the next concrete step.
+  static adapter generator. The two failing entries are not standalone functions: 0x0c0786d4 is a table of
+`bra` stubs (a jump-table dispatch into 0x0c078dd0 ... 0x0c079488) and 0x0c0af072 is one opcode handler of a
+byte-code interpreter that loops back to 0x0c0ae29c. They need the interpreter's dispatch modelled as a whole,
+not a hand port of a single entry.
