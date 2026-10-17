@@ -88,3 +88,11 @@ capture. Notes from state 7 (label c7_114, 114 chained ticks):
   0x0c0cc2d6), but the native run diverges inside the generated adapter of the command parser 0x0c0782e4
   (2 calls, 8,761 steps, 0x884-byte frame, jump-table stubs at 0x0c0786d4): it dispatches into the stubs where
   the oracle does not. That is the next verifiable target; fxr_tick_sc7_114.bin is the reference for it.
+
+Widening by regen (2026-10-16): feeding the executed PCs of a chained tick (`tick_s<label>_pcs.txt`, now written by
+chain_ticks.py) to `regen_tickgap.sh` together with every `tick_s*_pcs.txt` extends the gap adapters. `vf3 --ticks`
+now reaches tick 202 for state 7 (was 114), 131 for state 14 (was 38) and 53 for state 41 (was 38; chained c41_49
+already included). The tick-202 wall of state 7 is not a port bug: the oracle itself faults there ("unimplemented
+instruction 0xffff" at 0x0c03a140, executing data), so no-interrupt chaining runs out of valid state around tick 201.
+State 14's tick 131 ends on the same kind of garbage address (1c8efd1f); state 41's next wall is the unowned entry
+0x0c07887c.
