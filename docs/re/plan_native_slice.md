@@ -110,3 +110,8 @@ the trampolines 0x0c03ecb0 / 0x0c0a7662 (poison-audit-unpinnable), the GBR + ftr
 (~0.3% each, 0x0c0cab30 has a 60-byte frame and ~100 insns), and 0x0c09e060 / 0x0c09e6b2: a ~1.2 KB matrix/angle
 builder with a 0x128-byte frame, 20+ guest calls and long FR sequences (~0.26% each). None is blocked by a harness
 limit; each is a multi-hour faithful transcription for under 0.4% of the tick.
+
+Update: 0x0c09e060 (aim_frame.c) and 0x0c09e6b2 (aim_frame_b.c) are now readable ports, both clean on the first
+verify; 109 entries, 95.8% of state-7 oracle steps. What is left by weight is the trampolines 0x0c03ecb0 /
+0x0c0a7662, the ftrv culling walk 0x0c04a1a0, the GBR routines 0x0c055646 / 0x0c0cab30 and four 1-2 KB game-logic
+functions (0x0c0b1550, 0x0c0c6770, 0x0c0927e6, 0x0c0a045c), each between 0.15% and 0.2% of the tick.
