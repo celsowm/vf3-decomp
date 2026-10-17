@@ -141,3 +141,10 @@ run_state with the same TICK_QACR0 gives native 100.0% of 1,536,545 steps, 0 arg
 all the known one-ulp / -0 stores in clip_edge+display_list. The ~120/200-tick limits of states 41/7/14 therefore lift
 (re-check each with the two env vars); the oracle patch (refs/dream-recomp/games/vf3tb/tick_oracle.cpp: TICK_QACR0/1,
 LASTSTEP print at TICK_STEPS) is local to the gitignored GPL clone.
+
+Remaining-entry assessment (2026-10-17): 0x0c04a1a0 (the ftrv culling walk) is not a leaf port. It reads XMTRX, runs a
+data-dependent loop with `trapa #48/#49` exits, store-queue bursts and a nested `bsr 0x8c04a320` (a second ftrv/fschg
+routine of its own); the harness has no trapa model, so a faithful port needs that model first. The other ten entries are
+each <=0.3% of a tick (two are poison-unpinnable trampolines, two use GBR, four are 1-2 KB game logic). With the 41/7/14
+chains now reaching 135/260/200 ticks at 100.0% native steps, the next value is in new scenes (Phase 4, needs the GDFS/REIOS
+loader state), not in these entries.
