@@ -199,3 +199,10 @@ Phase 4, state 8 (2026-10-17): the savestate is parked inside the 0x8C0488EA str
 `run_scene.sh ... p4_8`: 8,405 oracle steps, 577 readable calls, 0 stubs, 0 arg/out mismatches, native 100.0% in both scratch
 modes; standalone `vf3 --entry 0x8c09144e` runs 4,425 blocks with 0 unowned calls and 0 RAM bytes different. Phase 4 now
 covers states 1, 2, 3, 6 and 8; states 20-35 remain (boot/loader polling, needs the GDFS/REIOS command-stat model).
+
+Phase 4, survey of the remaining non-fight states (2026-10-17, 300 frames each): 36/38/39 show no frame function (a few
+edges at address 0, boot), 42-46 sit in the boot/loader chain (0x8C034864, 0x8C035518, 0x8C03523C; one edge, never return),
+and state 40 behaves like state 8 (strip helper 0x8C0488EA, then 0x8C09144E). State 40 captured and verified the same
+way: 41,909 oracle steps, 1,342 readable calls, 0 stubs, 0 arg/out mismatches, native 100.0% in both scratch modes
+(23 oracle-quirk stores accepted, 1 RAM byte, same class as states 3 and 6). Phase 4 now covers states 1, 2, 3, 6, 8, 40;
+the other non-fight states (20-35, 36, 38, 39, 42-46) are all boot/loader code and wait on the GDFS/REIOS model.
