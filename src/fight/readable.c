@@ -132,6 +132,10 @@ int vf3_strlen_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_negate_run_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_float_to_short_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_handler_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_run_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -252,6 +256,14 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c09d590u, "float_to_short", vf3_float_to_short_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c0b1b2eu, "handler_list", vf3_handler_list_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c0c1296u, "record_run", vf3_record_run_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
+      B(0)|B(1)|B(4)|B(17) },
+    { 0x0c08b5acu, "record_select", vf3_record_select_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c0c1208u, "frame_call", vf3_frame_call_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c09dcdcu, "facing_update", vf3_facing_update_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(17)|B(53)|FR(0)|FR(1)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|FR(7)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
@@ -417,4 +429,12 @@ int vf3_guest_call(vf3_matrix_state *s, const vf3_ram_map *ram,
     s->v[16] = 0x0C000000u | (ret_addr & 0x0FFFFFFFu);   /* the guest keeps its return addresses in the 0x0C form */
     if (!vf3_matrix_family(target, s, ram)) return 0;
     return (s->pc & 0x1FFFFFFFu) == (ret_addr & 0x1FFFFFFFu);
+}
+
+/* A tail jump: the callee runs with the caller's own pr exactly as it was (the guest may hold it in the 0x8C form). */
+int vf3_guest_tail_call(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t target, uint32_t pr)
+{
+    s->v[16] = pr;
+    if (!vf3_matrix_family(target, s, ram)) return 0;
+    return (s->pc & 0x1FFFFFFFu) == (pr & 0x1FFFFFFFu);
 }

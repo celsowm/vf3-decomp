@@ -52,5 +52,7 @@ void vf3_mem_set_f32(const vf3_ram_map *ram, uint32_t addr, float v);
  * to `ret_addr`. Returns 0 on failure. */
 int vf3_guest_call(vf3_matrix_state *s, const vf3_ram_map *ram,
                    uint32_t target, uint32_t ret_addr);
+int vf3_guest_tail_call(vf3_matrix_state *s, const vf3_ram_map *ram,
+                        uint32_t target, uint32_t pr);
 
 #endif /* VF3_READABLE_H */

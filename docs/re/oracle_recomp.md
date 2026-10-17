@@ -276,6 +276,10 @@ keeps running generated code around it.
 | `0x8c091c20` | joint_chain | `joint_chain.c` | five-link joint chain posed onto the matrix stack and drawn (0x8c091c20 - 0x8c091dbc) |
 | `0x8c0562e0` | color_unpack | `color_unpack.c` | three packed byte triples unpacked into scaled floats (0x8c0562e0 - 0x8c056352) |
 | `0x8c09dcdc` | facing_update | `facing_update.c` | character heading/pitch turned toward a target and its matrix refreshed (0x8c09dcdc - 0x8c09e038) |
+| `0x8c0c1208` | frame_call | `misc_wrappers.c` | big-frame call pair |
+| `0x8c08b5ac` | record_select | `misc_wrappers.c` | record select tail-jump |
+| `0x8c055b28` | clamp_cell | `misc_wrappers.c` | clamp halfword to cell |
+| `0x8c0c1296` | record_run | `misc_wrappers.c` | 120-record 0x8C095604 sweep |
 | `0x8c0b1b2e` | handler_list | `small_leaves.c` | zero-terminated handler list runner (0x8c0b1b2e) |
 | `0x8c09d590` | float_to_short | `small_leaves.c` | 42 floats truncated to halfwords (0x8c09d590) |
 | `0x8c09d408` | negate_run | `small_leaves.c` | negate 21 floats at stride 12 (0x8c09d408) |
