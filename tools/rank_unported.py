@@ -22,7 +22,7 @@ def main():
     rows = []
     for e, n in tot.most_common(a.top):
         addr = '0x8c' + e[4:]
-        lines = subprocess.run([sys.executable, 'tools/sh4dump.py', addr, '200'], capture_output=True, text=True).stdout.splitlines()
+        lines = subprocess.run([os.path.join('tools', '.venv', 'Scripts', 'python.exe') if os.path.exists(os.path.join('tools', '.venv', 'Scripts', 'python.exe')) else sys.executable, 'tools/sh4dump.py', addr, '200'], capture_output=True, text=True).stdout.splitlines()
         size = next((i + 2 for i, l in enumerate(lines) if ' rts' in l), None)
         rows.append((e, n, size))
     rows.sort(key=lambda x: -(x[1] / (x[2] or 300)))
