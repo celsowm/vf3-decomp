@@ -110,6 +110,7 @@ int vf3_seven_pass_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_slot_scan_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_poly_clip_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_aim_frame_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_aim_frame_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -211,6 +212,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       0 },
     { 0x0c091de6u, "pose_blend", vf3_pose_blend_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|FR(3)|FR(4)|FR(5) },
+    { 0x0c09e6b2u, "aim_frame_b", vf3_aim_frame_b_entry,
+      B(15) | B(16) },
     { 0x0c09e060u, "aim_frame", vf3_aim_frame_entry,
       B(15) | B(16) },
     { 0x0c0488e0u, "poly_clip_walk", vf3_poly_clip_walk_entry,
