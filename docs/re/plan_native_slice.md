@@ -104,3 +104,9 @@ state 41 to 120 (was 38), state 14 to ~130. Reaching further needs the main-loop
 
 State 14 re-checked: the oracle also produces no completed tick 131 (no PC dump), so its wall at 131 is the same
 oracle fault as states 7 and 41, not a native gap. All three chain walls are therefore oracle-side.
+
+Remaining census after poly_clip_walk (107 entries, 95.3%): the biggest unported entries by self steps in state 7 are
+the trampolines 0x0c03ecb0 / 0x0c0a7662 (poison-audit-unpinnable), the GBR + ftrv routines 0x0c055646 and 0x0c0cab30
+(~0.3% each, 0x0c0cab30 has a 60-byte frame and ~100 insns), and 0x0c09e060 / 0x0c09e6b2: a ~1.2 KB matrix/angle
+builder with a 0x128-byte frame, 20+ guest calls and long FR sequences (~0.26% each). None is blocked by a harness
+limit; each is a multi-hour faithful transcription for under 0.4% of the tick.
