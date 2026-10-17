@@ -2,6 +2,8 @@
 """chain_ticks.py - run the reference oracle on K consecutive scheduler ticks of one captured state.
 
   python tools/recomp/chain_ticks.py <state> <K> [--label NAME] [--code-check]
+  CHAIN_RESET=0x0c16ca44:8 python ...   rewind the display-list ring cursors to their tick-1 values every tick
+  TICK_QACR0=0x10 python ...            force the store-queue area (the captured QACR can predate the game's own)
 
 Starts from extract/analysis/golden_tickx_vf3_<state>.bin, runs the oracle (refs/dream-recomp build) for tick 1,
 feeds its exit RAM in as the entry RAM of tick 2, and so on, with no interrupts or main-loop code between ticks
@@ -88,10 +90,30 @@ def patch(golden, dump, out, offset):
         wide.tofile(f)
 
 
+def frame_reset(path, base, offset):
+    """Put the words listed in CHAIN_RESET ("addr:bytes,addr:bytes", RAM addresses) back to their tick-1 values.
+
+    The real main loop rewinds the display-list ring cursors once per frame; chained ticks have no main loop,
+    so without this the cursors march up through RAM until they overwrite program text."""
+    spec = os.environ.get('CHAIN_RESET', '')
+    if not spec:
+        return
+    with open(base, 'rb') as f:
+        for item in spec.split(','):
+            addr, length = (int(x, 0) for x in item.split(':'))
+            first = offset + (addr - RAM_BASE) // 4
+            f.seek(first * 8)
+            words = array.array('Q')
+            words.fromfile(f, length // 4)
+            with open(path, 'r+b') as o:
+                o.seek(first * 8)
+                words.tofile(o)
+
+
 def oracle(golden, env_extra):
     env = dict(os.environ, TICK_GBR='0x0c16b880', TICK_INTERP='1', **env_extra)
     r = subprocess.run([str(ORACLE), '0x8c09616a', str(golden), '0'], env=env, capture_output=True, text=True)
-    return r.returncode
+    return r.returncode, next((l for l in r.stdout.splitlines() if l.startswith('run: FAULT')), None)
 
 
 def main(state, k, label):
@@ -106,7 +128,10 @@ def main(state, k, label):
         if last:
             env.update(TICK_REC=str(A / f'fxr_tick_s{label}.bin'), TICK_STATS=str(A / f'fxr_tick_s{label}_stats.csv'),
                        TICK_DEVLOG=str(A / f'devlog_tick_s{label}.bin'), TICK_PCS=str(A / f'tick_s{label}_pcs.txt'))
-        oracle(cur, env)
+        _, fault = oracle(cur, env)
+        if fault:
+            print(f'tick {t}: oracle {fault[:160]}', flush=True)
+            raise SystemExit(1)
         if not tmp_dump.exists() or tmp_dump.stat().st_size != HEADER + RAM_LEN:
             raise SystemExit(f'tick {t}: the oracle produced no dump')
         if CODE_CHECK:
@@ -123,6 +148,7 @@ def main(state, k, label):
             print(f'tick {t} recorded as state {label}')
             return
         patch(base, tmp_dump, tmp_gold, offset)
+        frame_reset(tmp_gold, base, offset)
         if cur != base:
             os.remove(cur)
         cur = A / f'_chain_cur_{label}.bin'
