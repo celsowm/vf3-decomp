@@ -113,6 +113,7 @@ add_library(vf3core STATIC
     src/fight/strip_vertex_lit.c
     src/fight/joint_chain.c
     src/fight/color_unpack.c
+    src/fight/facing_update.c
     src/fight/pose_blend.c
     src/fight/queue_flush.c
     src/fight/seven_pass.c

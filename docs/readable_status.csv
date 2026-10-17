@@ -94,6 +94,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03e980,world_reset,src/fight/matrix_extra.c,r2 r3 r4 r5 r15 pr fr4 fr5 fr6 fr7 fpul,26,1014,0.09,whole-tick
 0x8c068d54,terrain_wrap,src/fight/terrain_height.c,r0 r4,110,990,0.09,whole-tick
 0x8c0cc4dc,slot_scan,src/fight/slot_scan.c,,1,973,0.09,whole-tick
+0x8c09dcdc,facing_update,src/fight/facing_update.c,r0 r1 r3 r4 r5 r6 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,4,960,0.09,whole-tick
 0x8c0b1a46,scene_link,src/fight/scene_link.c,r0,16,937,0.09,whole-tick
 0x8c03cc60,matrix_translate_by,src/fight/leaf_math.c,fr4 fr5 fr6 fr7,129,903,0.08,whole-tick
 0x8c069624,atan_table,src/fight/atan_table.c,r0 r4 fr2 fr3 fr6 fr7 fr8 fpul,26,901,0.08,whole-tick
