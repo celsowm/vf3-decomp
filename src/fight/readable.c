@@ -106,6 +106,7 @@ int vf3_point_contact_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec_shift_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pose_blend_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_queue_flush_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_seven_pass_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -199,6 +200,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       FR(3) | FR(4) | FR(5) | FR(6) | FR(14) | FR(15) | MATRIX_XF },
     { 0x0c06e31cu, "edge_probe", vf3_edge_probe_entry,
       B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c09da72u, "seven_pass", vf3_seven_pass_entry,
+      0 },
     { 0x0c03ffd0u, "queue_flush", vf3_queue_flush_entry,
       0 },
     { 0x0c091de6u, "pose_blend", vf3_pose_blend_entry,
