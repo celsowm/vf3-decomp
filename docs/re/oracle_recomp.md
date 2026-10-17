@@ -266,6 +266,7 @@ keeps running generated code around it.
 | `0x8c09e060` | aim_frame | `aim_frame.c` | Build the transform block of an aimed segment from two endpoints |
 | `0x8c09e6b2` | aim_frame_b | `aim_frame_b.c` | Second aim-frame builder: rotation block and translated point pair |
 | `0x8c0a045c` | id_bytes_submit | `id_bytes_submit.c` | Stamp four id bytes into the request block and submit it to 0x8C0C11F4 |
+| `0x8c048ec0` | vertex_classify | `vertex_classify.c` | 0x8C048EC0 vertex_classify: three strip points through XMTRX, outcode bits into r9 |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |
 | `0x8c03ffd0` | queue_flush | `queue_flush.c` | Prime the store-queue registers and submit an object's staged work |
 | `0x8c09da72` | seven_pass | `seven_pass.c` | Run the seven-segment pass for one object |

@@ -80,6 +80,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c042cd4,div_u32,src/fight/math_readable.c,r0 r1 r2 sr,19,1368,0.13,whole-tick
 0x8c03dd00,matrix_concat_pair,src/fight/matrix_concat_pair.c,r4 r5 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31,24,1320,0.12,whole-tick
 0x8c0a045c,id_bytes_submit,src/fight/id_bytes_submit.c,r12 r13 r14 r15 pr,6,1314,0.12,whole-tick
+0x8c048ec0,vertex_classify,src/fight/vertex_classify.c,r0 r1 r4 r9 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,24,1248,0.11,whole-tick
 0x8c03ffd0,queue_flush,src/fight/queue_flush.c,,15,1200,0.11,whole-tick
 0x8c03c970,matrix_rotate_sc,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,68,1156,0.11,whole-tick
 0x8c042f08,word_copy,src/fight/word_copy.c,r0,99,1109,0.10,whole-tick
