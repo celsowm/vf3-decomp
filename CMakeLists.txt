@@ -103,6 +103,7 @@ add_library(vf3core STATIC
     src/fight/pose_blend.c
     src/fight/queue_flush.c
     src/fight/seven_pass.c
+    src/fight/slot_scan.c
     src/fight/edge_probe.c
     src/fight/chain_readable.c
     src/fight/math_readable.c
