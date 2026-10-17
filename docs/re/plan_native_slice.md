@@ -57,3 +57,14 @@ reader still depends on - so those stay generated; `fmov` with SZ=1 writes XD pa
 Phase 4 items that need new captures (other scenes, multi-tick, wider call-target table) are blocked on
 savestates beyond the 13 fight ticks. Next ports by census: 0x8c06f450, 0x8c070008, 0x8c071694, 0x8c073aac,
 0x8c0c1fba.
+
+## Multi-tick probe (2026-10-16)
+`build2/vf3.exe <golden_tickx_vf3_N.bin> --ticks N` runs the scheduler tick N times back to back on the RAM
+the previous tick left, from the same entry registers (no interrupts, no main-loop code between ticks, no
+reference to compare against). It shows how far the captured coverage carries on its own:
+- 3 chained ticks complete on all 13 states with 0 unowned calls and 0 out-of-bounds accesses.
+- 120 chained ticks fail once game timers run into code the captures never executed: state 7 at tick 114
+  (unowned entry 0x0c0786d4), state 14 at tick 38 (0x0c0786d4), state 41 at tick 49 (0x0c0af072).
+- So the wider call-target table is not just a table: the generated adapters also exist only for entries
+  the oracle saw. Widening needs either new captures that reach those paths (round end / state changes) or a
+  static adapter generator. Porting 0x0c0786d4 and 0x0c0af072 by hand is the next concrete step.

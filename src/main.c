@@ -1,6 +1,6 @@
 /* VF3tb source port: host-native fight tick (clean-room reconstruction).
  *
- *   vf3 <tick-capture.bin> [--pair N] [--gbr ADDR] [--expect RAM [--hw RAM]] [--ta-out FILE]
+ *   vf3 <tick-capture.bin> [--pair N] [--gbr ADDR] [--expect RAM [--hw RAM]] [--ta-out FILE] [--ticks N]
  *
  * Loads the machine state a fight scheduler tick started from (a tools/tick_capture.py recording
  * made from the retail game) and runs that tick on C code only: the readable ports where they
@@ -84,10 +84,11 @@ static int compare_ram(const uint8_t *ram, const char *path, const char *hw_path
 int main(int argc, char **argv)
 {
     const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL;
-    unsigned pair = 0;
+    unsigned pair = 0, ticks = 1;
     uint32_t gbr = DEFAULT_GBR;
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--pair") && i + 1 < argc) pair = (unsigned)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--ticks") && i + 1 < argc) ticks = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gbr") && i + 1 < argc) gbr = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--expect") && i + 1 < argc) expect = argv[++i];
         else if (!strcmp(argv[i], "--hw") && i + 1 < argc) hw = argv[++i];
@@ -123,6 +124,18 @@ int main(int argc, char **argv)
         FILE *f = fopen(ta_out, "wb");
         if (!f || fwrite(r.ta, 4, r.ta_words, f) != r.ta_words) { fprintf(stderr, "vf3: cannot write %s\n", ta_out); status = 1; }
         if (f) fclose(f);
+    }
+    /* More ticks run back to back on the RAM the last one left, from the same entry registers: no
+     * interrupts or main-loop code in between, so this only shows whether the readable ports and the
+     * call-target table keep holding on state the capture never saw. There is no reference for it. */
+    for (unsigned t = 2; t <= ticks && status == 0; ++t) {
+        vf3_native_tick_run(ram, regs, VF3_NATIVE_SCHED_ENTRY, gbr, &r);
+        printf("tick %u %s: pc %08x, %u blocks, %u readable-port calls, %u unowned calls, %u oob accesses\n", t,
+               r.ok ? "completed" : "FAILED", r.pc, r.steps_budget_used, r.readable_calls, r.unowned_calls, r.oob);
+        if (!r.ok || r.unowned_calls) {
+            printf("  failed at %08x, first unowned entry %08x\n", r.failed_pc, r.first_unowned);
+            status = 1;
+        }
     }
     free(ram);
     return status;
