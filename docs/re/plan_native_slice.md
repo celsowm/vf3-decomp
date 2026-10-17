@@ -46,8 +46,8 @@ tick with no oracle, no devlog and a baked call-target table
 apart from 3-10 bytes per state where the oracle's denormal handling is wrong and native
 equals hardware. Against the emulator's exit RAM ~450 bytes differ per state
 (interrupt-driven counters, stack residue), expected and not tick logic.
-Limits: one scheduler tick per run (no main loop, no scene changes); ~56.6% of state-7
-oracle self steps are readable ports (44 entries incl. the 0x8c048260 display-list walker and the 0x8c0568a0 triangle-strip builder: sin/cos, push_offset, div_s32/u32, the
+Limits: one scheduler tick per run (no main loop, no scene changes); ~94.4% of state-7
+oracle self steps are readable ports (106 entries as of 2026-10-16, incl. the 0x8c048260 display-list walker and the 0x8c0568a0 triangle-strip builder: sin/cos, push_offset, div_s32/u32, the
 matrix stack push/pop/concat family and frame wrappers, the vertex/strip/clip chain), the
 rest generated adapters; call-target table covers only entries seen in the 13 captured
 ticks. Harness lessons: `TICK_SCRATCH_ONLY` takes ONE entry (a comma list silently keeps only the first);
