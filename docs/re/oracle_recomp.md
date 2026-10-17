@@ -269,6 +269,7 @@ keeps running generated code around it.
 | `0x8c048ec0` | vertex_classify | `vertex_classify.c` | 0x8C048EC0 vertex_classify: three strip points through XMTRX, outcode bits into r9 |
 | `0x8c047ea0` | vertex_lit | `vertex_lit.c` | 0x8C047EA0 vertex_lit: transform a vertex, diffuse/specular ladder via braf |
 | `0x8c055e00` | poly_header_sq | `poly_header_sq.c` | 0x8C055E00 poly_header_sq: polygon header into the GBR store-queue slot |
+| `0x8c055be0` | fight_tick_driver | `fight_tick_driver.c` | 0x8C055BE0 fight_tick_driver: GBR-table submit driver around 0x8C055646 |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |
 | `0x8c03ffd0` | queue_flush | `queue_flush.c` | Prime the store-queue registers and submit an object's staged work |
 | `0x8c09da72` | seven_pass | `seven_pass.c` | Run the seven-segment pass for one object |

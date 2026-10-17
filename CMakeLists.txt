@@ -107,6 +107,7 @@ add_library(vf3core STATIC
     src/fight/vertex_classify.c
     src/fight/vertex_lit.c
     src/fight/poly_header_sq.c
+    src/fight/fight_tick_driver.c
     src/fight/pose_blend.c
     src/fight/queue_flush.c
     src/fight/seven_pass.c

@@ -115,6 +115,7 @@ int vf3_id_bytes_submit_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vertex_classify_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vertex_lit_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_poly_header_sq_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_fight_tick_driver_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -216,6 +217,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       0 },
     { 0x0c091de6u, "pose_blend", vf3_pose_blend_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|FR(3)|FR(4)|FR(5) },
+    { 0x0c055be0u, "fight_tick_driver", vf3_fight_tick_driver_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(7) | B(8) | B(9) | B(10) | B(11) | B(12) | B(13) | B(14) | B(15) | B(16) | B(17) | B(18) | B(19) | B(20) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | FR(8) | FR(9) | FR(10) | FR(11) },
     { 0x0c055e00u, "poly_header_sq", vf3_poly_header_sq_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(12) | B(17) },
     { 0x0c047ea0u, "vertex_lit", vf3_vertex_lit_entry,
