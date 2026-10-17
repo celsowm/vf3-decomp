@@ -127,3 +127,17 @@ runs them. Past it needs the file-loader/GDFS side (docs/re/reios_exec_server.md
 moves per frame beyond the recompiled tick (13 states): a handful of small counters (+1/+2 per frame) at 0x0c0ea2f8,
 0x0c0ea710.., 0x0c16cdf0, 0x0c19e998.., 0x0c19fc40.., 0x0c1a0be8.., 0x0c1a5b9c.. plus scratch data; that is the
 interrupt/main-loop contribution a driver would have to add between ticks.
+
+CORRECTION (2026-10-17, same day): the wall is not a scene transition. Bisecting state 41 tick 120 found two writers:
+(1) a texture-upload store-queue burst (`mov.l r13,@(60,r4)` at 0x0c03fad2 then `pref @r4`, r4 = 0xE10303C0) that the
+oracle sends to RAM because the captured QACR (0x0c) predates the game's own retarget to 0x10; (2) the display-list ring
+cursors at [0x0c16ca44] / [0x0c16ca48] (0xACC085C0 / 0xACC641C0 at the first tick) that the main loop rewinds every
+frame - chained ticks have no main loop, so after ~119 ticks the cursor reaches 0x0c03c4a0 and the emitter
+(0x8C048C06 `mov.l r2,@r6`) overwrites program text. Fix = model the between-tick state:
+`TICK_QACR0=0x10` (new oracle switch, also read by src/fight/matrix_family.c's SQ model) and
+`CHAIN_RESET=0x0c16ca44:8` (chain_ticks.py puts those words back to their tick-1 values every tick).
+`TICK_QACR0=0x10 CHAIN_RESET=0x0c16ca44:8 python tools/recomp/chain_ticks.py 41 135 --label q41_135` now completes;
+run_state with the same TICK_QACR0 gives native 100.0% of 1,536,545 steps, 0 arg mismatches, 13 output mismatches that are
+all the known one-ulp / -0 stores in clip_edge+display_list. The ~120/200-tick limits of states 41/7/14 therefore lift
+(re-check each with the two env vars); the oracle patch (refs/dream-recomp/games/vf3tb/tick_oracle.cpp: TICK_QACR0/1,
+LASTSTEP print at TICK_STEPS) is local to the gitignored GPL clone.
