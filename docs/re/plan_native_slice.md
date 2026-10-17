@@ -74,3 +74,17 @@ not a hand port of a single entry.
 The interpreter (loop head 0x0c0ae29c, handler table at 0x0c10f2e8) dispatches through at least 80 word
 entries into roughly 16 KB of handlers (0x0c0ab8a0 ... 0x0c0af728). Only the handlers the captured ticks
 ran have adapters or an oracle reference; porting the rest would be an unverifiable bulk job.
+
+### Oracle-chained captures (2026-10-16)
+Waiting for new savestates is not the only way to reach later game state: the statically recompiled oracle
+can run a tick from any RAM image, so `tools/recomp/chain_ticks.py <state> <K> [--label NAME]` feeds each
+tick's oracle exit RAM into the next (same no-interrupt model as `vf3 --ticks`; ~0.6 s per tick) and records
+tick K in full under the label (golden_tickx_vf3_NAME.bin, fxr_tick_sNAME.bin, oracle_tick_sNAME.bin, ...), so
+`run_state.sh NAME` and the tickmix harness work on it. `tools/recomp/chain_capture.py` builds a single next
+capture. Notes from state 7 (label c7_114, 114 chained ticks):
+- tick 3: native vs oracle is clean except 8 one-ulp stores in clip_edge/display_list (no hardware RAM to tell
+  the oracle's denormal quirk apart); poison RAM diffs are expected without a TICK_HW_RAM image.
+- tick 114: the oracle's tick calls only 3 entries the 13 captured ticks never did (0x0c078170, 0x0c08c990,
+  0x0c0cc2d6), but the native run diverges inside the generated adapter of the command parser 0x0c0782e4
+  (2 calls, 8,761 steps, 0x884-byte frame, jump-table stubs at 0x0c0786d4): it dispatches into the stubs where
+  the oracle does not. That is the next verifiable target; fxr_tick_sc7_114.bin is the reference for it.
