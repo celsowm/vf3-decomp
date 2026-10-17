@@ -276,6 +276,7 @@ keeps running generated code around it.
 | `0x8c091c20` | joint_chain | `joint_chain.c` | five-link joint chain posed onto the matrix stack and drawn (0x8c091c20 - 0x8c091dbc) |
 | `0x8c0562e0` | color_unpack | `color_unpack.c` | three packed byte triples unpacked into scaled floats (0x8c0562e0 - 0x8c056352) |
 | `0x8c09dcdc` | facing_update | `facing_update.c` | character heading/pitch turned toward a target and its matrix refreshed (0x8c09dcdc - 0x8c09e038) |
+| `0x8c074702` | vec_offset | `vec_offset.c` | add xz offset to position and point list |
 | `0x8c0c1208` | frame_call | `misc_wrappers.c` | big-frame call pair |
 | `0x8c08b5ac` | record_select | `misc_wrappers.c` | record select tail-jump |
 | `0x8c055b28` | clamp_cell | `misc_wrappers.c` | clamp halfword to cell |
