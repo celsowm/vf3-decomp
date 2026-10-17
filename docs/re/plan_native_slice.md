@@ -183,3 +183,12 @@ capture does not apply there; those states need the GDFS/REIOS command-stat mode
 the chain is waiting on the disc. State 2's standalone RAM also matches the oracle (0 bytes).
 
 Trampolines solved (2026-10-17): 0x0c03ecb0 / 0x0c0a7662 were declared poison-audit-unpinnable, but a readable port that runs the nested callees for real and declares the whole caller-saved file (r0..r7, T, FR0..15, XF0..15, FPUL) as output verifies clean (src/fight/trampolines.c, 122 entries, 98.9% of state-7 oracle steps).
+
+Remaining readable work (2026-10-17, 138 entries, 99.5% of state-7 oracle steps; unported 3.59% over all captured states):
+- Tail-jump ports must use vf3_guest_tail_call (keeps the caller's 8c-form pr); vf3_guest_call forces the 0c form and
+  a deeper frame then saves the wrong form (STORE MISMATCH 0c vs 8c).
+- 0x8c04a1a0 (0.18%) needs a trapa model: its inner loop issues trapa #48 / #49, which the replay harness cannot run.
+- 0x8c047f60 / 0x8c048d60 are mid-function entries of the strip-vertex family; they read the caller's register context
+  (r9, r11, r12 and local bsr helpers 0x8c048b00 / 0x8c048c20), so a port needs the whole family modelled together.
+- 0x0c0cab30, 0x0c0b1550, 0x0c0c6770, 0x0c0927e6, 0x0c0782e4 (87-way braf interpreter) are >200-instruction bodies.
+- Phase 4 (scenes beyond 0x8C09144E, boot states 8 and 20-35) still needs the GDFS/REIOS loader model.
