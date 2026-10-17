@@ -109,6 +109,7 @@ add_library(vf3core STATIC
     src/fight/poly_header_sq.c
     src/fight/fight_tick_driver.c
     src/fight/submit_object.c
+    src/fight/clip_near_triangle.c
     src/fight/pose_blend.c
     src/fight/queue_flush.c
     src/fight/seven_pass.c

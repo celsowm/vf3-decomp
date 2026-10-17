@@ -117,6 +117,7 @@ int vf3_vertex_lit_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_poly_header_sq_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_fight_tick_driver_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_submit_object_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_clip_near_triangle_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -218,6 +219,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       0 },
     { 0x0c091de6u, "pose_blend", vf3_pose_blend_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|FR(3)|FR(4)|FR(5) },
+    { 0x0c04a320u, "clip_near_triangle", vf3_clip_near_triangle_entry,
+      B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(11) | B(14) | B(17) | B(21) | B(22) | B(23) | B(24) | B(25) | B(26) | B(27) | B(28) | B(29) | B(30) | B(31) | B(32) | B(33) | B(34) | B(35) | B(36) | B(53) },
     { 0x0c055646u, "submit_object", vf3_submit_object_entry,
       B(0) | B(1) | B(2) | B(3) | B(4) | B(5) | B(6) | B(7) | B(17) | B(53) | FR(0) | FR(1) | FR(2) | FR(3) | FR(4) | FR(5) | FR(6) | FR(7) | FR(8) | FR(9) | FR(10) | FR(11) },
     { 0x0c055be0u, "fight_tick_driver", vf3_fight_tick_driver_entry,
