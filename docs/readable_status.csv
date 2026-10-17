@@ -107,6 +107,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c09da72,seven_pass,src/fight/seven_pass.c,,4,732,0.07,whole-tick
 0x8c055be0,fight_tick_driver,src/fight/fight_tick_driver.c,r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 pr sr fpscr macl mach fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fpul,13,728,0.07,whole-tick
 0x8c047ea0,vertex_lit,src/fight/vertex_lit.c,r0 r1 r2 r4 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr11 fpul,22,726,0.07,whole-tick
+0x8c0562e0,color_unpack,src/fight/color_unpack.c,r0 r1 r2 r4 r5 r6 fr0 fr1 fr2 fr4 fr5 fr6 fr7 fpul,11,627,0.06,whole-tick
 0x8c03b5c0,matrix_invert_scaled,src/fight/matrix_extra.c,fpul,13,585,0.05,whole-tick
 0x8c03cc30,matrix_transpose,src/fight/matrix_extra.c,fpul,26,546,0.05,whole-tick
 0x8c03c6c0,rotate_x,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,21,441,0.04,whole-tick

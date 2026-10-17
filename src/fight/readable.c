@@ -120,6 +120,7 @@ int vf3_submit_object_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clip_near_triangle_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_strip_vertex_lit_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_joint_chain_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_color_unpack_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -221,6 +222,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       0 },
     { 0x0c091de6u, "pose_blend", vf3_pose_blend_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|FR(3)|FR(4)|FR(5) },
+    { 0x0c0562e0u, "color_unpack", vf3_color_unpack_entry,
+      B(0)|B(1)|B(2)|B(4)|B(5)|B(6)|B(53)|FR(0)|FR(1)|FR(2)|FR(4)|FR(5)|FR(6)|FR(7) },
     { 0x0c091c20u, "joint_chain", vf3_joint_chain_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|FR(4)|FR(5)|FR(6)|FR(13)|FR(14)|FR(15) },
     { 0x0c048f60u, "strip_vertex_lit", vf3_strip_vertex_lit_entry,
