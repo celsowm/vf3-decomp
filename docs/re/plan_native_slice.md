@@ -148,3 +148,27 @@ routine of its own); the harness has no trapa model, so a faithful port needs th
 each <=0.3% of a tick (two are poison-unpinnable trampolines, two use GBR, four are 1-2 KB game logic). With the 41/7/14
 chains now reaching 135/260/200 ticks at 100.0% native steps, the next value is in new scenes (Phase 4, needs the GDFS/REIOS
 loader state), not in these entries.
+
+## Phase 4 first result: scene frame function 0x8C09144E (2026-10-17)
+The "other scenes" blocker was only that the fight scheduler 0x8C09616A is not their entry. `tools/scene_survey.py <state>`
+logs call edges (`VF3_EDGES`, needs `VF3_FULL=1`) for 120 frames and names the function holding the most shallowest-depth
+calls plus its rts. Of the 29 non-fight states, 1/2/3/6 run 0x8C09144E (766 bytes, rts at 0x8C0917E6; a loop that calls the
+matrix/strip helpers 40 times per run) and 8 is parked inside the 0x8C0488EA strip helper family (not an entry - the survey
+heuristic only names real frame functions when the state is saved between helpers). States 20-35 sit in boot/idle code
+(0x8C035518, 0x8C034864) with no per-frame call tree inside the window.
+
+Capture + verify (no new ports were needed):
+`python tools/tick_capture.py 0x8c09144e --state tools/emu/flycast-build/data/vf3_N.state --frames 300 --pairs 1 --name p4scene --exitpc 0x8c0917e6`
+(no `--exitsp`; the rts is the transfer pc) then `tools/recomp/run_scene.sh 0x8c09144e extract/analysis/golden_p4scene_vf3_N.bin p4_N`.
+
+| state | oracle steps | readable calls | stubs | arg/out mismatches | native |
+|---|---|---|---|---|---|
+| 1 | 8,405 | 554 | 0 | 0 | 100.0% |
+| 2 | 8,405 | 554 | 0 | 0 | 100.0% |
+| 3 | 80,507 | 2,327 | 0 | 0 | 100.0% |
+| 6 | 44,139 | 1,391 | 0 | 0 | 100.0% |
+
+Both scratch modes (oracle, poison) agree; states 3 and 6 show 1 RAM byte of oracle-quirk difference (23 accepted
+oracle-quirk stores), the same class as the fight states. Remaining Phase 4 work: scenes whose savestates sit inside
+helpers (8, 20-35) need states captured between frames, and a standalone `vf3` runner for this entry (native_tick.c is
+wired to 0x8C09616A only).
