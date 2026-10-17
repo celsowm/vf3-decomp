@@ -103,6 +103,7 @@ add_library(vf3core STATIC
     src/fight/poly_clip_walk.c
     src/fight/aim_frame.c
     src/fight/aim_frame_b.c
+    src/fight/id_bytes_submit.c
     src/fight/pose_blend.c
     src/fight/queue_flush.c
     src/fight/seven_pass.c
