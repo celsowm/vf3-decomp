@@ -263,6 +263,7 @@ keeps running generated code around it.
 | `0x8c09363a` | point_contact | `point_contact.c` | Resolve a point against a collision record's segment table (sphere_segment / 0x8C093A9C) |
 | `0x8c0748e0` | vec_shift | `vec_shift.c` | Add an offset vector to an object's position and its 28 point records |
 | `0x8c0488e0` | poly_clip_walk | `poly_clip_walk.c` | Walk a polygon's vertex records through the light/clip/emit helpers |
+| `0x8c09e060` | aim_frame | `aim_frame.c` | Build the transform block of an aimed segment from two endpoints |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |
 | `0x8c03ffd0` | queue_flush | `queue_flush.c` | Prime the store-queue registers and submit an object's staged work |
 | `0x8c09da72` | seven_pass | `seven_pass.c` | Run the seven-segment pass for one object |

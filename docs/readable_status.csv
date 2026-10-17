@@ -51,6 +51,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c042d7c,mod_s32,src/fight/math_readable.c,r0 r1 sr,40,3520,0.32,whole-tick
 0x8c06911c,terrain_probe_flip,src/fight/terrain_probe_flip.c,r0,20,3504,0.32,whole-tick
 0x8c09d4e6,store_keep_translation,src/fight/leaf_math.c,r0 r3 r4 r13 r14 r15 pr fr3,84,2856,0.26,whole-tick
+0x8c09e060,aim_frame,src/fight/aim_frame.c,r15 pr,8,2800,0.26,whole-tick
 0x8c07b35c,sprite_rect_a,src/fight/sprite_uv.c,r0 r2 r3 r5 r6 fr3 fr4 fr5 fr9 fr10 fr11,94,2726,0.25,whole-tick
 0x8c048c80,clip_emit_slot,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7,97,2704,0.25,whole-tick
 0x8c0c1754,text_cursor,src/fight/text_cursor.c,r0 r2 r3 r5 sr,12,2700,0.25,whole-tick
