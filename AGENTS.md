@@ -92,7 +92,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - Native fight tick (2026-10-15): `build/vf3 <golden_tickx_vf3_N.bin> --expect ...`
   (src/main.c, src/fight/native_tick.c) runs one scheduler tick (0x8C09616A) on C only
   for 13 captured fight states; 0 unowned calls, RAM equals the reference oracle.
-  ~94.4% of executed steps (106 readable entries) are readable ports (docs/readable_status.csv), the rest
+  ~95.3% of executed steps (107 readable entries) are readable ports (docs/readable_status.csv), the rest
   generated adapters. Plan/limits: docs/re/plan_native_slice.md; verify with
   tools/recomp/run_state.sh and run_native.sh.
 - Task-VM field schema: docs/re/task_vm.md (M19).
