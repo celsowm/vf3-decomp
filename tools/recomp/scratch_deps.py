@@ -19,7 +19,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent.parent
 A = REPO / 'extract' / 'analysis'
-EXE = REPO / 'build' / 'vf3tickmix.exe'
+EXE = REPO / 'build2' / 'vf3tickmix.exe'
 # v[] indices that can be clobbered; vf3tickmix itself intersects the mask with the
 # registers the original function really changes (from the oracle records) and with
 # everything outside the entry's out_regs
