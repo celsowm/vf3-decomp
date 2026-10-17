@@ -176,3 +176,8 @@ wired to 0x8C09616A only).
 Standalone: `build/vf3 <golden_p4scene_vf3_N.bin> --entry 0x8c09144e --expect oracle_p4_N.bin --hw flycast_exit_p4_N.bin`
 (new `--entry` option; `gen_call_targets.py` now also reads `fxr_p4_*.bin`, 421 targets) runs states 1/3/6 with 0 unowned
 calls and 0 RAM bytes different from the oracle; the 13 fight states still all pass `run_native.sh`.
+
+States 20-35 with a 1500-frame edge window (state 21 checked, 917k edges): the whole window is one call chain entered once
+from 0x8C03552C into 0x8C035CBA (depth 1, never returns), the boot/loader polling path - not a per-frame scene function. Entry-pair
+capture does not apply there; those states need the GDFS/REIOS command-stat model (docs/re/reios_exec_server.md) because
+the chain is waiting on the disc. State 2's standalone RAM also matches the oracle (0 bytes).
