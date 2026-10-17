@@ -96,3 +96,8 @@ already included). The tick-202 wall of state 7 is not a port bug: the oracle it
 instruction 0xffff" at 0x0c03a140, executing data), so no-interrupt chaining runs out of valid state around tick 201.
 State 14's tick 131 ends on the same kind of garbage address (1c8efd1f); state 41's next wall is the unowned entry
 0x0c07887c.
+
+Chaining limit reached (2026-10-16): state 41 stops at tick 121 for the same reason as state 7 at 202 - the oracle
+itself faults there (0x0000 executed at 0x0c03b87c), since nothing in a no-interrupt tick loop services the timers
+and queues the main loop would. Native `vf3 --ticks` now runs every chained tick the oracle can run: state 7 to 201,
+state 41 to 120 (was 38), state 14 to ~130. Reaching further needs the main-loop/interrupt layer, not more adapters.
