@@ -71,3 +71,6 @@ reference to compare against). It shows how far the captured coverage carries on
 `bra` stubs (a jump-table dispatch into 0x0c078dd0 ... 0x0c079488) and 0x0c0af072 is one opcode handler of a
 byte-code interpreter that loops back to 0x0c0ae29c. They need the interpreter's dispatch modelled as a whole,
 not a hand port of a single entry.
+The interpreter (loop head 0x0c0ae29c, handler table at 0x0c10f2e8) dispatches through at least 80 word
+entries into roughly 16 KB of handlers (0x0c0ab8a0 ... 0x0c0af728). Only the handlers the captured ticks
+ran have adapters or an oracle reference; porting the rest would be an unverifiable bulk job.
