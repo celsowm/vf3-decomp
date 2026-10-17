@@ -276,6 +276,8 @@ keeps running generated code around it.
 | `0x8c091c20` | joint_chain | `joint_chain.c` | five-link joint chain posed onto the matrix stack and drawn (0x8c091c20 - 0x8c091dbc) |
 | `0x8c0562e0` | color_unpack | `color_unpack.c` | three packed byte triples unpacked into scaled floats (0x8c0562e0 - 0x8c056352) |
 | `0x8c09dcdc` | facing_update | `facing_update.c` | character heading/pitch turned toward a target and its matrix refreshed (0x8c09dcdc - 0x8c09e038) |
+| `0x8c0a7662` | trampoline_a7662 | `trampolines.c` | slot dispatcher: set-up calls then 0x8c03ecb0 or 0x8c03e8c0/0x8c0558a0, tail 0x8c03c4a0 (0x8c0a7662 - 0x8c0a76bc) |
+| `0x8c03ecb0` | trampoline_3ecb0 | `trampolines.c` | wrapper: 0x8c03d260 + 0x8c03ee40 then tail 0x8c03eff0 (0x8c03ecb0 - 0x8c03eccc) |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |
 | `0x8c03ffd0` | queue_flush | `queue_flush.c` | Prime the store-queue registers and submit an object's staged work |
 | `0x8c09da72` | seven_pass | `seven_pass.c` | Run the seven-segment pass for one object |

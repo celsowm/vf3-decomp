@@ -25,11 +25,13 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03fb10,corner_fan,src/fight/geom_readable.c,r1 r3 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fpul,83,9711,0.89,whole-tick
 0x8c068e0e,terrain_height,src/fight/terrain_height.c,r0 r2 r3 r4 r5 r6 r13 r14 r15 pr sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fpul,67,9648,0.89,whole-tick
 0x8c07b4d4,tex_cell_load,src/fight/sprite_uv.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr2 fr3 fr4 fpul,98,9604,0.88,whole-tick
+0x8c03ecb0,trampoline_3ecb0,src/fight/trampolines.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,150,9600,0.88,whole-tick
 0x8c0488e0,poly_clip_walk,src/fight/poly_clip_walk.c,r0 r3 r4 r5 r6 r9 r10 r11 r12 r15 pr sr,20,9396,0.86,whole-tick
 0x8c04a6c8,printf_core,src/fight/printf_core.c,r0 r8 r9 r10 r11 r12 r13 r14 r15 pr sr,12,9240,0.85,whole-tick
 0x8c048cc0,clip_edge,src/fight/vertex_clip.c,r0 r2 r5 r6 r10 fr0 fr1 fr2 fr3 fr4 fr5 fpul,134,9230,0.85,whole-tick
 0x8c091438,bone_pose,src/fight/bone_pose.c,r0 r1 r2 r3 r4 r8 r9 r10 r11 r12 r13 r14 r15 pr sr fr3 fr4 fr5 fr6 fr14 fr15 fpul,2,9104,0.84,whole-tick
 0x8c03ee40,axis_extract,src/fight/axis_extract.c,r0 r4 r5 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,150,9000,0.83,whole-tick
+0x8c0a7662,trampoline_a7662,src/fight/trampolines.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,151,8668,0.80,whole-tick
 0x8c03a140,cos_u16,src/fight/geom_readable.c,pr fr0,91,8098,0.74,whole-tick
 0x8c03a6e0,sin_u16,src/fight/geom_readable.c,pr fr0,100,7912,0.73,whole-tick
 0x8c056b20,push_offset,src/fight/geom_readable.c,r0 r12 fr1 fr2,286,7150,0.66,whole-tick

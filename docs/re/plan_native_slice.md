@@ -181,3 +181,5 @@ States 20-35 with a 1500-frame edge window (state 21 checked, 917k edges): the w
 from 0x8C03552C into 0x8C035CBA (depth 1, never returns), the boot/loader polling path - not a per-frame scene function. Entry-pair
 capture does not apply there; those states need the GDFS/REIOS command-stat model (docs/re/reios_exec_server.md) because
 the chain is waiting on the disc. State 2's standalone RAM also matches the oracle (0 bytes).
+
+Trampolines solved (2026-10-17): 0x0c03ecb0 / 0x0c0a7662 were declared poison-audit-unpinnable, but a readable port that runs the nested callees for real and declares the whole caller-saved file (r0..r7, T, FR0..15, XF0..15, FPUL) as output verifies clean (src/fight/trampolines.c, 122 entries, 98.9% of state-7 oracle steps).
