@@ -8,7 +8,7 @@ feeds its exit RAM in as the entry RAM of tick 2, and so on, with no interrupts 
 (the same model as `vf3 --ticks`). Only the last tick is recorded in full. The outputs, named with <NAME>
 (default c<state>_<K>), are what tools/recomp/run_state.sh and verify_port.sh read for a state called <NAME>:
   golden_tickx_vf3_<NAME>.bin   entry state of tick K (exit side is a leftover and unused)
-  fxr_tick_s<NAME>.bin, _stats.csv, oracle_tick_s<NAME>.bin, devlog_tick_s<NAME>.bin   the oracle's records of tick K
+  fxr_tick_s<NAME>.bin, _stats.csv, oracle_tick_s<NAME>.bin, devlog_tick_s<NAME>.bin, tick_s<NAME>_pcs.txt: the oracle's records of tick K
 Local scaffold: needs the GPL dream-recomp oracle build that is gitignored under refs/."""
 import array
 import os
@@ -74,7 +74,7 @@ def main(state, k, label):
         env = {'TICK_DUMP': str(tmp_dump)}
         if last:
             env.update(TICK_REC=str(A / f'fxr_tick_s{label}.bin'), TICK_STATS=str(A / f'fxr_tick_s{label}_stats.csv'),
-                       TICK_DEVLOG=str(A / f'devlog_tick_s{label}.bin'))
+                       TICK_DEVLOG=str(A / f'devlog_tick_s{label}.bin'), TICK_PCS=str(A / f'tick_s{label}_pcs.txt'))
         oracle(cur, env)
         if not tmp_dump.exists() or tmp_dump.stat().st_size != HEADER + RAM_LEN:
             raise SystemExit(f'tick {t}: the oracle produced no dump')
