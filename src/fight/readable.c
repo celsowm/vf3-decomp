@@ -124,6 +124,14 @@ int vf3_color_unpack_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_facing_update_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_trampoline_3ecb0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_trampoline_a7662_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_xf_store_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_vec3_sub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_rotation_xmtrx_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_flag40_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_strlen_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_negate_run_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_float_to_short_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_handler_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -229,6 +237,22 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c0a7662u, "trampoline_a7662", vf3_trampoline_a7662_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c03b820u, "xf_store", vf3_xf_store_entry,
+      0 },
+    { 0x0c03cee0u, "vec3_sub", vf3_vec3_sub_entry,
+      B(4)|B(5)|B(6)|FR(0)|FR(1)|FR(2)|FR(4)|FR(5)|FR(6) },
+    { 0x0c03c8b0u, "rotation_xmtrx", vf3_rotation_xmtrx_entry,
+      FR(0)|FR(1)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|FR(7)|B(37)|B(38)|B(39)|B(40)|B(45)|B(46)|B(47)|B(48) },
+    { 0x0c04b9beu, "record_flag40", vf3_record_flag40_entry,
+      B(0)|B(17) },
+    { 0x0c05342cu, "strlen", vf3_strlen_entry,
+      B(0)|B(3)|B(4)|B(5)|B(17) },
+    { 0x0c09d408u, "negate_run", vf3_negate_run_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c09d590u, "float_to_short", vf3_float_to_short_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c0b1b2eu, "handler_list", vf3_handler_list_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c09dcdcu, "facing_update", vf3_facing_update_entry,
       B(0)|B(1)|B(3)|B(4)|B(5)|B(6)|B(17)|B(53)|FR(0)|FR(1)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|FR(7)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c0562e0u, "color_unpack", vf3_color_unpack_entry,
@@ -301,7 +325,7 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c0cc3f0u, "extent_flip", vf3_extent_flip_entry,
       B(0)|B(2)|B(3)|B(17)|FR(2)|FR(3)|FR(5)|FR(6)|FR(7) },
     { 0x0c042d7cu, "div_signed", vf3_div_signed_entry,
-      B(0)|B(1)|B(17) },
+      B(0)|B(17) },
     { 0x0c042f08u, "word_copy", vf3_word_copy_entry,
       B(0) },
     { 0x0c072b02u, "negate_copy", vf3_negate_copy_entry,

@@ -276,6 +276,14 @@ keeps running generated code around it.
 | `0x8c091c20` | joint_chain | `joint_chain.c` | five-link joint chain posed onto the matrix stack and drawn (0x8c091c20 - 0x8c091dbc) |
 | `0x8c0562e0` | color_unpack | `color_unpack.c` | three packed byte triples unpacked into scaled floats (0x8c0562e0 - 0x8c056352) |
 | `0x8c09dcdc` | facing_update | `facing_update.c` | character heading/pitch turned toward a target and its matrix refreshed (0x8c09dcdc - 0x8c09e038) |
+| `0x8c0b1b2e` | handler_list | `small_leaves.c` | zero-terminated handler list runner (0x8c0b1b2e) |
+| `0x8c09d590` | float_to_short | `small_leaves.c` | 42 floats truncated to halfwords (0x8c09d590) |
+| `0x8c09d408` | negate_run | `small_leaves.c` | negate 21 floats at stride 12 (0x8c09d408) |
+| `0x8c05342c` | strlen | `small_leaves.c` | strlen (0x8c05342c) |
+| `0x8c04b9be` | record_flag40 | `small_leaves.c` | record kind test (0x8c04b9be) |
+| `0x8c03c8b0` | rotation_xmtrx | `small_leaves.c` | rotation XMTRX from (sin, cos) (0x8c03c8b0) |
+| `0x8c03cee0` | vec3_sub | `small_leaves.c` | r4 = r5 - r6 three-vector difference (0x8c03cee0) |
+| `0x8c03b820` | xf_store | `small_leaves.c` | XF12..XF14 stored at r4 (0x8c03b820) |
 | `0x8c0a7662` | trampoline_a7662 | `trampolines.c` | slot dispatcher: set-up calls then 0x8c03ecb0 or 0x8c03e8c0/0x8c0558a0, tail 0x8c03c4a0 (0x8c0a7662 - 0x8c0a76bc) |
 | `0x8c03ecb0` | trampoline_3ecb0 | `trampolines.c` | wrapper: 0x8c03d260 + 0x8c03ee40 then tail 0x8c03eff0 (0x8c03ecb0 - 0x8c03eccc) |
 | `0x8c091de6` | pose_blend | `pose_blend.c` | Advance a blend weight and mix two 26-halfword poses |

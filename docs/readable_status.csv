@@ -50,7 +50,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03bd80,matrix_load,src/fight/matrix_lib.c,r4,193,4053,0.37,whole-tick
 0x8c03cc90,vec3_load,src/fight/chain_readable.c,r0 r3 fr4 fr5 fr6 fr7 fr28 fr29 fr30 fr31,236,3776,0.35,whole-tick
 0x8c03fb80,color_pack,src/fight/geom_readable.c,r0 r1 r4 r5 r6 r7 sr fr3 fr4 fr5 fr6 fr7 fr8 fr9 fpul,83,3569,0.33,whole-tick
-0x8c042d7c,div_signed,src/fight/div_signed.c,r0 r1 sr,40,3520,0.32,whole-tick
+0x8c042d7c,div_signed,src/fight/div_signed.c,r0 sr,40,3520,0.32,whole-tick
 0x8c042d7c,mod_s32,src/fight/math_readable.c,r0 r1 sr,40,3520,0.32,whole-tick
 0x8c06911c,terrain_probe_flip,src/fight/terrain_probe_flip.c,r0,20,3504,0.32,whole-tick
 0x8c055646,submit_object,src/fight/submit_object.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fpul,13,3431,0.32,whole-tick
@@ -105,16 +105,24 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c093768,aim_step,src/fight/aim_step.c,r0 r3 r4 r5 fr0 fr1 fr2 fr3 fr4 fr5,9,819,0.08,whole-tick
 0x8c0a76ec,node_pass,src/fight/node_pass.c,r0 r4 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31,13,819,0.08,whole-tick
 0x8c09d52e,xform_axis,src/fight/leaf_math.c,r0 r3 r4 r5 r15 pr fr4 fr5 fr6 fr7,48,816,0.08,whole-tick
+0x8c03b820,xf_store,src/fight/small_leaves.c,,115,805,0.07,whole-tick
 0x8c03b4b0,xform_vector,src/fight/matrix_extra.c,r4 fr4 fr5 fr6 fr7,69,759,0.07,whole-tick
 0x8c055e00,poly_header_sq,src/fight/poly_header_sq.c,r0 r1 r2 r3 r4 r5 r6 r12 sr,15,750,0.07,whole-tick
 0x8c09da72,seven_pass,src/fight/seven_pass.c,,4,732,0.07,whole-tick
 0x8c055be0,fight_tick_driver,src/fight/fight_tick_driver.c,r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 pr sr fpscr macl mach fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fpul,13,728,0.07,whole-tick
 0x8c047ea0,vertex_lit,src/fight/vertex_lit.c,r0 r1 r2 r4 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr11 fpul,22,726,0.07,whole-tick
 0x8c0562e0,color_unpack,src/fight/color_unpack.c,r0 r1 r2 r4 r5 r6 fr0 fr1 fr2 fr4 fr5 fr6 fr7 fpul,11,627,0.06,whole-tick
+0x8c09d590,float_to_short,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,2,600,0.06,whole-tick
 0x8c03b5c0,matrix_invert_scaled,src/fight/matrix_extra.c,fpul,13,585,0.05,whole-tick
 0x8c03cc30,matrix_transpose,src/fight/matrix_extra.c,fpul,26,546,0.05,whole-tick
+0x8c0b1b2e,handler_list,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,18,481,0.04,whole-tick
 0x8c03c6c0,rotate_x,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,21,441,0.04,whole-tick
+0x8c03cee0,vec3_sub,src/fight/small_leaves.c,r4 r5 r6 fr0 fr1 fr2 fr4 fr5 fr6,28,420,0.04,whole-tick
+0x8c05342c,strlen,src/fight/small_leaves.c,r0 r3 r4 r5 sr,42,378,0.03,whole-tick
 0x8c07b2be,pool_alloc,src/fight/glyph_cache.c,r0 r2 r3 r5 r6 r7 sr,13,351,0.03,whole-tick
+0x8c03c8b0,rotation_xmtrx,src/fight/small_leaves.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr16 fr17 fr18 fr19 fr24 fr25 fr26 fr27,20,340,0.03,whole-tick
+0x8c04b9be,record_flag40,src/fight/small_leaves.c,r0 sr,66,264,0.02,whole-tick
+0x8c09d408,negate_run,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,2,220,0.02,whole-tick
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick
 0x8c03c140,matrix_concat_save,src/fight/matrix_lib.c,r4 r15 fpscr,0,0,0.00,unexercised
 0x8c068de4,terrain_flat,src/fight/terrain_height.c,r0 sr fr0 fr3 fr4 fr5 fr6 fr7,0,0,0.00,unexercised
