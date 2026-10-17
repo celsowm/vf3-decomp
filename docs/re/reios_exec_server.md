@@ -135,3 +135,22 @@ The `0x8C001000..0x8C001008` gate bodies are reached via
 without RAM shadows, but every source capsule is missing from local storage
 (raw captures remain on D:). The 27 affected owners (2,328 bytes) stay parked
 until the capsules are available.
+
+## Scope of a GDFS/REIOS model for the boot states (2026-10-17)
+
+Target: states 20-35, 36, 38, 39 and 42-46, which sit in the boot/loader chain (0x8C035518, 0x8C034864, 0x8C03523C) and
+never return to a per-frame function, so they cannot be captured as entry/exit pairs. Reference: the flycast HLE
+(`tools/emu/flycast/core/reios/gdrom_hle.cpp`, 998 lines; local only, GPL, never committed).
+
+What a faithful C model needs, and why it is a design project, not another entry port:
+1. Command state: `gd_hle_state` (params[4], result[4] incl. the transfer byte count in result[2], status,
+   multi_read_{sector,offset,count,total}, cur_sector). GET_CMD_STAT (r7=1) returns it; REQ_CMD (r7=0) fills params and
+   starts a transfer; EXEC_SERVER (r7=2) advances `multi_read` in steps of up to 5 sectors.
+2. Disc access: sectors come from the GDI image (`rom/vf3.gdi`, never committed); the model needs a read-only sector
+   source under `--disc`, with DMA writes into guest RAM (`readSectors`) and the PIO path (`multi_xfer`).
+3. Initial state: none of it is in guest RAM, so it must be added to the savestate-to-capture path (a `gd_hle_state` dump
+   written next to `flycast_exit_*.bin` by the instrumented emulator) before any model can be checked against the oracle.
+4. Timing: transfers complete on scheduler events and raise SB_ISTNRM bits (see 0x8C064246 above); the model has to
+   say when, which means a cycle or frame budget model the harness does not have yet.
+Verification gate for the first slice: replay state 21 from the dumped `gd_hle_state` for N frames and require RAM
+equality with the oracle at the loader chain's next return, the same standard as the scene entries.
