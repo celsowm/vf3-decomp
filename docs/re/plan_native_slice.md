@@ -192,3 +192,10 @@ Remaining readable work (2026-10-17, 138 entries, 99.5% of state-7 oracle steps;
   (r9, r11, r12 and local bsr helpers 0x8c048b00 / 0x8c048c20), so a port needs the whole family modelled together.
 - 0x0c0cab30, 0x0c0b1550, 0x0c0c6770, 0x0c0927e6, 0x0c0782e4 (87-way braf interpreter) are >200-instruction bodies.
 - Phase 4 (scenes beyond 0x8C09144E, boot states 8 and 20-35) still needs the GDFS/REIOS loader model.
+
+Phase 4, state 8 (2026-10-17): the savestate is parked inside the 0x8C0488EA strip helper, but a 600-frame edge survey
+(`tools/scene_survey.py 8 --frames 600`) shows it reaching the same frame function 0x8C09144E (1,746 depth-1 edges) later.
+`tick_capture.py 0x8c09144e --state vf3_8.state --frames 900 --pairs 1 --name p4scene --exitpc 0x8c0917e6` then
+`run_scene.sh ... p4_8`: 8,405 oracle steps, 577 readable calls, 0 stubs, 0 arg/out mismatches, native 100.0% in both scratch
+modes; standalone `vf3 --entry 0x8c09144e` runs 4,425 blocks with 0 unowned calls and 0 RAM bytes different. Phase 4 now
+covers states 1, 2, 3, 6 and 8; states 20-35 remain (boot/loader polling, needs the GDFS/REIOS command-stat model).
