@@ -85,8 +85,9 @@ int main(int argc, char **argv)
 {
     const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL;
     unsigned pair = 0, ticks = 1;
-    uint32_t gbr = DEFAULT_GBR;
+    uint32_t gbr = DEFAULT_GBR, entry = VF3_NATIVE_SCHED_ENTRY;
     for (int i = 1; i < argc; ++i) {
+        if (!strcmp(argv[i], "--entry") && i + 1 < argc) { entry = (uint32_t)strtoul(argv[++i], NULL, 0); continue; }
         if (!strcmp(argv[i], "--pair") && i + 1 < argc) pair = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--ticks") && i + 1 < argc) ticks = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gbr") && i + 1 < argc) gbr = (uint32_t)strtoul(argv[++i], NULL, 0);
@@ -97,7 +98,7 @@ int main(int argc, char **argv)
         else { capture = NULL; break; }
     }
     if (!capture) {
-        fprintf(stderr, "usage: vf3 <tick-capture.bin> [--pair N] [--gbr ADDR] [--expect RAM [--hw RAM]] [--ta-out FILE]\n");
+        fprintf(stderr, "usage: vf3 <tick-capture.bin> [--pair N] [--entry ADDR] [--gbr ADDR] [--expect RAM [--hw RAM]] [--ta-out FILE]\n");
         return 2;
     }
 
@@ -110,7 +111,7 @@ int main(int argc, char **argv)
     }
 
     vf3_native_tick_result r;
-    vf3_native_tick_run(ram, regs, VF3_NATIVE_SCHED_ENTRY, gbr, &r);
+    vf3_native_tick_run(ram, regs, entry, gbr, &r);
     printf("tick %s: pc %08x, %u blocks, %u readable-port calls, %u unowned calls, %u oob accesses\n",
            r.ok ? "completed" : "FAILED", r.pc, r.steps_budget_used, r.readable_calls, r.unowned_calls, r.oob);
     printf("hardware: %u device reads, %u writes outside RAM, %u TA words\n",
@@ -129,7 +130,7 @@ int main(int argc, char **argv)
      * interrupts or main-loop code in between, so this only shows whether the readable ports and the
      * call-target table keep holding on state the capture never saw. There is no reference for it. */
     for (unsigned t = 2; t <= ticks && status == 0; ++t) {
-        vf3_native_tick_run(ram, regs, VF3_NATIVE_SCHED_ENTRY, gbr, &r);
+        vf3_native_tick_run(ram, regs, entry, gbr, &r);
         printf("tick %u %s: pc %08x, %u blocks, %u readable-port calls, %u unowned calls, %u oob accesses\n", t,
                r.ok ? "completed" : "FAILED", r.pc, r.steps_budget_used, r.readable_calls, r.unowned_calls, r.oob);
         if (!r.ok || r.unowned_calls) {

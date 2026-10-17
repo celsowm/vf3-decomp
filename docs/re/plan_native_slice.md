@@ -172,3 +172,7 @@ Both scratch modes (oracle, poison) agree; states 3 and 6 show 1 RAM byte of ora
 oracle-quirk stores), the same class as the fight states. Remaining Phase 4 work: scenes whose savestates sit inside
 helpers (8, 20-35) need states captured between frames, and a standalone `vf3` runner for this entry (native_tick.c is
 wired to 0x8C09616A only).
+
+Standalone: `build/vf3 <golden_p4scene_vf3_N.bin> --entry 0x8c09144e --expect oracle_p4_N.bin --hw flycast_exit_p4_N.bin`
+(new `--entry` option; `gen_call_targets.py` now also reads `fxr_p4_*.bin`, 421 targets) runs states 1/3/6 with 0 unowned
+calls and 0 RAM bytes different from the oracle; the 13 fight states still all pass `run_native.sh`.
