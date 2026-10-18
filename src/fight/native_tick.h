@@ -62,6 +62,8 @@ void vf3_native_set_poll_hook(void (*hook)(void *), void *ctx);
 void vf3_native_set_stop(uint32_t pc);
 /* A second address that also ends the run (e.g. the function return of a loop body); 0 clears it. */
 void vf3_native_set_extra_stop(uint32_t pc);
+/* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop). */
+void vf3_native_set_budget_hook(uint32_t (*hook)(void));
 /* Limit a run to `steps` guest steps (a time slice); 0 restores the default. An exhausted run reports ok = 0 with failed_pc at the next step. */
 void vf3_native_set_budget(unsigned steps);
 

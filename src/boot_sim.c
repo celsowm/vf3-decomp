@@ -78,12 +78,26 @@ static void poll_irq(void *ctx)
     if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) irq.failed = 1;
 }
 
+static unsigned hook_slice;
+static uint32_t slice_hook(void)
+{
+    /* the guest has run a time slice: the drive and the frame clock move, the vblank pair is taken in place */
+    clk.now += hook_slice;
+    if (clk.gd) vf3_bios_gd_advance_cycles(clk.gd, hook_slice);
+    while (clk.now >= clk.next) {
+        clk.next += CYCLES_PER_FRAME;
+        ++clk.taken;
+        if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) { irq.failed = 1; return 0; }
+    }
+    return clk.taken < 400 ? hook_slice : 0;
+}
+
 int main(int argc, char **argv)
 {
     const char *gdi_path = NULL, *gd_state = NULL;
     uint32_t loop_entry = 0, loop_stop = 0, irqa = 0, irqb = 0, per_poll = 2688, per_step = 1000000;
     int in_poll = 0, go_on = 0;
-    unsigned slice_steps = 50000000;   /* slicing a run unwinds the callers' C frames and loses their pr: only for experiments */
+    unsigned slice_steps = 20000;   /* guest steps per time slice: the budget hook moves the clocks and takes the vblank pair in place */
     uint64_t gd_phase = 0;
     unsigned cycle_frames = 0;
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
@@ -185,6 +199,8 @@ int main(int argc, char **argv)
                 vf3_native_set_stop(0);
                 vf3_native_set_extra_stop(0);
                 vf3_native_set_budget(slice_steps);
+                hook_slice = slice_steps;
+                vf3_native_set_budget_hook(slice_hook);
                 vf3_native_tick_run(loop.ram, after.regs, at, GBR_DEFAULT, &r);
                 vf3_native_set_budget(0);
                 const int sliced = !r.ok && !r.unowned_calls && !r.oob && r.failed_pc != 0 && r.steps_budget_used >= slice_steps;

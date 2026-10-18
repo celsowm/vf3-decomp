@@ -739,8 +739,12 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
     /* A module that reaches a register-indirect jump whose target it was not generated with stops at that target with the jump
      * already taken (delay slot done, pr kept). The target is owned by another module or by nobody: continue there as the tail
      * transfer it is. An exhausted step budget (counter wrapped) is not such a stop and is left to the caller. */
-    while(!ok && vf3_family_tail_retry && s->failed_pc && s->budget!=0xFFFFFFFFu
-          && (s->failed_pc&0x1FFFFFFFu)!=(entry&0x1FFFFFFFu)) {
+    while(!ok && s->failed_pc) {
+        if(s->budget==0xFFFFFFFFu) {   /* the step budget ran out: the hook lets time pass (interrupts) and refills it, in place */
+            const uint32_t more=vf3_family_budget_hook?vf3_family_budget_hook():0;
+            if(!more) break;
+            s->budget=more;
+        } else if(!vf3_family_tail_retry || (s->failed_pc&0x1FFFFFFFu)==(entry&0x1FFFFFFFu)) break;
         const uint32_t target=s->failed_pc;
         s->failed_pc=0;
         entry=target;
@@ -768,6 +772,7 @@ static int vf3_matrix_family_once(uint32_t entry,vf3_matrix_state*s,const vf3_ra
  * dispatch, so its rts is consumed by this call and not by the caller adapter
  * that would otherwise execute the callee's tail inline and then return with
  * the caller's own resume address still pending. */
+uint32_t (*vf3_family_budget_hook)(void);
 int vf3_family_tail_retry;      /* continue at the target of an indirect jump a module was not generated with */
 uint32_t vf3_family_extra_stop;   /* a second address that ends a completion loop (0: none) */
 int vf3_family_complete_calls;

@@ -121,6 +121,8 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32
 void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
+static uint32_t (*budget_hook)(void);
+void vf3_native_set_budget_hook(uint32_t (*hook)(void)) { budget_hook = hook; }
 
 void vf3_native_attach_gdrom(vf3_gdrom *gd)
 {
@@ -194,6 +196,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_complete_calls = 1;
     vf3_family_extra_stop = machine.extra_stop;
     vf3_family_tail_retry = 1;
+    vf3_family_budget_hook = !nested && saved.budget ? budget_hook : NULL;   /* an interrupt taken inside a slice is not sliced */
     vf3_sq_model = 1;
 
     const int ok = vf3_matrix_family(entry, &st, &map);
@@ -221,6 +224,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
         machine.ta = ta;
         machine.ta_cap = ta_cap;
         memcpy(snapshot_xf, saved_xf, sizeof saved_xf);
+        vf3_family_budget_hook = run_depth == 1 && machine.budget ? budget_hook : NULL;
     }
     return ok;
 }
