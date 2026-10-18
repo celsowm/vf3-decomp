@@ -240,3 +240,11 @@ generated routers either stop at the unmodelled helper (`unsupported helper/stat
 adapter's EXEC_SERVER no-op through to the caller (`exit PC 0c0434d0 != 8c001006`). So replay needs the router to treat
 the REIOS vector as the stub's exit boundary (or the corpus to be re-captured with the return as the boundary) before a
 readable stub port can be promoted; `replay_scan.py` also only scans directories named `*cases`.
+
+Re-capture with the return as the boundary (plain `pc` lines, no `exitpc`; states 42 / 21 / 30): the stubs
+0x8C0430A0 / 0x8C0430B4 and the wrapper 0x8C0432DE export 3 complete cases each (0x8C035CBA is rejected, flag 4/5: 195
+specimens). Strict replay still fails 0/3: the router stops at the unmodelled vector (`unsupported helper/state ... PC
+0c001006`), and for EXEC_SERVER the no-op adapter returns r0 = 0x8C001006 where the recording wants 1. The recorded r0 of
+GET_CMD_STAT / EXEC_SERVER is the REIOS command state, so replaying them needs the vf3_gd model seeded per case from the
+dumped state (tools/gd_state_dump.py) - the router-side hook for that is the remaining piece. Corpus (ignored):
+extract/analysis/goldens_loader_ret.
