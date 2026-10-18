@@ -314,3 +314,16 @@ Correction (read of `vf3_matrix_family`, src/fight/matrix_family.c:763): the wal
 `vf3_family_complete_calls` set (native_tick sets it), a call whose pc comes back different from the caller's pr is
 continued as a nested dispatch at that pc until control reaches the pr. So 0x8C0430B4 and 0x8C035CBA need no walker
 change; what is still missing is a boot-state native harness (states 20-46) to exercise them.
+
+## First native boot-state span (state 21, 0x8C034864)
+
+`tools/tick_capture.py 0x8c034864 --state vf3_21.state --frames 300 --pairs 1 --name bootB` records the loader function
+that calls the GD wrapper (0x8C0432DE); `build/vf3 golden_bootB_vf3_21.bin --entry 0x8c034864 --gdi rom/vf3.gdi
+--gd-state extract/analysis/gdstate_s21_0c0432de.txt --vs-exit` runs it on C only (46 blocks, 2 readable ports, 1 BIOS
+call served, 0 unowned) and diffs the whole 16 MiB against the recorded hardware exit (`vf3_native_load_exit`).
+
+- Default (clocked) poll: 10189 bytes differ, in three clusters. The big one is the GD destination (0x0CACA000..): the
+  model moves a sector batch on each busy poll, the drive had not moved them yet when the function returned. This is the
+  timer-cadence question, now visible as a measurable diff.
+- `VF3_GD_NOCLOCK=1` (a poll never advances the drive): 4 bytes differ, all at 0x0C31F9DC, the saved-return slot
+  (native 0xDEAD0000 sentinel, hardware 0x0C035530). So everything else in the span is bit-exact.

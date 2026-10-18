@@ -132,7 +132,10 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
         const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
         const uint32_t args[8] = { 0, 0, 0, 0, s->v[4], s->v[5], s->v[6], s->v[7] };
         uint32_t r0 = 0;
-        if (vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0)) {
+        /* VF3_GD_NOCLOCK=1: a poll never advances the drive (isolates timing-dependent differences) */
+        const int served = getenv("VF3_GD_NOCLOCK") ? vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)
+                                                     : vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0);
+        if (served) {
             ++machine.bios_calls;
             s->v[0] = r0;
             s->pc = s->v[16];
@@ -191,4 +194,68 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->ta = machine.ta;
     memcpy(out->regs, st.v, sizeof out->regs);
     return ok;
+}
+
+/* ---------------------------------------------------------------- the recorded exit */
+
+/* Skips or loads one window list: <count>, then per window <base> <len> and len/4 word records. */
+static int read_windows(FILE *f, uint8_t **ram)
+{
+    uint64_t v, windows;
+    if (!read_rec(f, &windows)) return 0;
+    for (uint32_t w = 0; w < (uint32_t)windows; ++w) {
+        uint64_t base, len;
+        if (!read_rec(f, &base) || !read_rec(f, &len)) return 0;
+        const int is_ram = ram && (uint32_t)base == VF3_NATIVE_RAM_BASE && (uint32_t)len == VF3_NATIVE_RAM_LEN;
+        if (is_ram && !*ram) *ram = malloc(VF3_NATIVE_RAM_LEN);
+        for (uint32_t i = 0; i < (uint32_t)len / 4; ++i) {
+            if (!read_rec(f, &v)) return 0;
+            if (is_ram && *ram) {
+                const uint32_t word = (uint32_t)v;
+                memcpy(*ram + 4 * i, &word, 4);
+            }
+        }
+    }
+    return 1;
+}
+
+int vf3_native_load_exit(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram)
+{
+    FILE *f = fopen(path, "rb");
+    uint64_t v;
+    unsigned seen = 0;
+    int stage = 0; /* 0 entry regs, 1 entry windows, 2 exit regs, 3 exit windows */
+    *ram = NULL;
+    if (!f) return 0;
+    while (read_rec(f, &v)) {
+        const uint32_t marker = (uint32_t)(v & 0xFFFFu);
+        if ((v >> 16) == 0 || marker < 0xFA30) continue;
+        if (marker == 0xFA30 && stage == 0) {
+            for (int i = 0; i < 37; ++i) if (!read_rec(f, &v)) goto fail;
+            stage = 1;
+        } else if (marker == 0xFA50 && stage == 1) {
+            if (!read_windows(f, NULL)) goto fail;
+            stage = 2;
+        } else if (marker == 0xFA32 && stage == 2) {
+            for (int i = 0; i < 37; ++i) {
+                if (!read_rec(f, &v)) goto fail;
+                if (seen == pair) regs[i] = (uint32_t)v;
+            }
+            stage = 3;
+        } else if (marker == 0xFA60 && stage == 3) {
+            if (seen == pair) {
+                if (!read_windows(f, ram)) goto fail;
+                fclose(f);
+                return *ram != NULL;
+            }
+            if (!read_windows(f, NULL)) goto fail;
+            ++seen;
+            stage = 0;
+        }
+    }
+fail:
+    fclose(f);
+    free(*ram);
+    *ram = NULL;
+    return 0;
 }

@@ -103,6 +103,7 @@ static int load_gd_words(vf3_gdrom *gd, const char *path)
 int main(int argc, char **argv)
 {
     const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL, *gdi_path = NULL, *gd_state = NULL;
+    int vs_exit = 0;
     unsigned pair = 0, ticks = 1;
     uint32_t gbr = DEFAULT_GBR, entry = VF3_NATIVE_SCHED_ENTRY;
     for (int i = 1; i < argc; ++i) {
@@ -113,6 +114,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--expect") && i + 1 < argc) expect = argv[++i];
         else if (!strcmp(argv[i], "--hw") && i + 1 < argc) hw = argv[++i];
         else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
+        else if (!strcmp(argv[i], "--vs-exit")) vs_exit = 1;
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (argv[i][0] != '-' && !capture) capture = argv[i];
@@ -151,6 +153,26 @@ int main(int argc, char **argv)
     if (r.unowned_calls) printf("  first unowned entry %08x\n", r.first_unowned);
 
     int status = r.ok && !r.unowned_calls ? 0 : 1;
+    if (vs_exit) {
+        /* the recorded exit is the reference: every byte the native run left different is a finding */
+        uint8_t *ref;
+        uint32_t xregs[37] = { 0 };
+        if (!vf3_native_load_exit(capture, pair, xregs, &ref)) { fprintf(stderr, "vf3: no exit state in %s\n", capture); status = 1; }
+        else {
+            unsigned bytes = 0, clusters = 0;
+            uint32_t last = 0;
+            for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) {
+                if (ram[i] == ref[i]) continue;
+                if (bytes++ < 16) printf("  ram %08x: native %02x, recorded %02x\n", VF3_NATIVE_RAM_BASE + i, ram[i], ref[i]);
+                if (!(i - last < 4096)) ++clusters;
+                last = i;
+            }
+            if (clusters) printf("%u 4 KiB-separated difference clusters\n", clusters);
+            printf("ram vs recorded exit: %u bytes differ; exit pc native %08x, recorded %08x\n", bytes, r.pc, xregs[16]);
+            if (bytes) status = 1;
+            free(ref);
+        }
+    }
     if (expect && compare_ram(ram, expect, hw) != 0) status = 1;
     if (ta_out) {
         FILE *f = fopen(ta_out, "wb");
