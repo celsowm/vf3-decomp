@@ -295,3 +295,10 @@ readable and oracle-replayed; the rest of the hot set is 0x8C035CBA (vtable tram
 0x8C0430B4 (EXEC_SERVER stub, no clean boundary) and 0x8C062E8E (`ocbwb @r4; rts`, observer exports no case for the cache
 op) - while the long tail (everything else runs <= ~110 times per 120 frames) is 480+ functions, each needing its own
 capture boundary, replay and port. A native boot-state run is therefore a campaign of that size, not one more step.
+
+Trampoline port: `src/fight/vtable_trampoline.c` (0x8C035CBA) ends in a true tail jump (pc = [obj+68], pr untouched), the
+convention the jmp-boundary corpus records. `VF3_READABLE=1 VF3_STRICT_REPLAY=1 build/vf3matrixfamily.exe 0x8c035cba
+extract/analysis/goldens_loader_hot/f_8c035cba.cases` is **3/3 PASS** (the generated chain fails the same cases on
+out-of-window reads; the readable port needs none). The null-object branch is transcribed, not oracle-covered. A native
+runner must treat a readable port that returns with pc != pr as a jump to that pc (native_tick does not yet - it only
+needs this once the loader chain runs). 157 readable entries.

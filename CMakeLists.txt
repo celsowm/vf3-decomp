@@ -130,6 +130,7 @@ add_library(vf3core STATIC
     src/fight/timecode_digits.c
     src/fight/scaled_vec_add.c
     src/fight/gd_status_wrapper.c
+    src/fight/vtable_trampoline.c
     src/fight/gd_syscall_stub.c
     src/fight/ring_probe.c
     src/fight/call_sequences.c
