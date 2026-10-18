@@ -511,3 +511,4 @@ The caller at 0x8C0A8006 is the first game-code address past the loader's wait.
 - Growing adapters along the boot path: `tools/static_pcs.py` (static recursive-descent PC dump from seeds in tools/watch/boot_seeds.txt) and `tools/recomp/grow_boot.sh [rounds] [state]`.
 - Fight regression after these changes: states 7 and 13 still `ram 0 bytes differ`.
 - Still open: 8,192 GD-data bytes, 7 game-state bytes, fixed 2,688-cycle poll, states 22+ not chained.
+- State 30 (`grow_boot.sh 3 30`): the wait and everything after it run natively to the sentinel, 13 vblanks, 0 unowned calls, no adapter growth needed. State 42 has no `golden_bootV_vf3_42.bin` (only B/S), so the same driver cannot run it yet.
