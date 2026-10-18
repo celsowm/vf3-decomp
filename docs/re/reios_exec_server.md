@@ -248,3 +248,11 @@ specimens). Strict replay still fails 0/3: the router stops at the unmodelled ve
 GET_CMD_STAT / EXEC_SERVER is the REIOS command state, so replaying them needs the vf3_gd model seeded per case from the
 dumped state (tools/gd_state_dump.py) - the router-side hook for that is the remaining piece. Corpus (ignored):
 extract/analysis/goldens_loader_ret.
+
+Per-invocation GD state logging (local flycast patch, tools/emu is gitignored): `VF3_GDLOG=<file>` makes the vf3oracle
+observer append one line per watched invocation start (`S`) and exit (`E`): `kind id entry` then the 16-word REIOS command
+state from `vf3GdSnapshot()` (reios/gdrom_hle.cpp: last_request_id, next_request_id, status, command, params[4],
+result[4], cur_sector, multi_read_sector / offset / count). `id` is the capsule invocation id. Logs for the loader
+watch set at states 42 / 21 / 30: extract/analysis/gdlog_s<N>.txt (ignored), e.g. the 0x8C0432DE entry of s42 starts in
+status 1 (BUSY) with a DMA command in flight at multi_read_count 0xC9. Still to do: carry the S/E record into the case
+metadata through golden_extract (join on invocation id), seed `vf3_gdrom` from it in the router adapter, and compare.
