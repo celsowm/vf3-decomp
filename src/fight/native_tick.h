@@ -22,7 +22,8 @@
 #define VF3_NATIVE_RAM_BASE 0x0C000000u
 #define VF3_NATIVE_RAM_LEN  0x01000000u
 #define VF3_NATIVE_SCHED_ENTRY 0x8C09616Au
-#define VF3_BIOS_SYSCALL_VECTOR 0x0C0000BCu
+/* the loader stubs jump through the pointer word at 0x8C0000BC; REIOS fills it with this entry */
+#define VF3_BIOS_SYSCALL_VECTOR 0x0C001006u
 
 typedef struct {
     int ok;                       /* the entry returned to its caller */

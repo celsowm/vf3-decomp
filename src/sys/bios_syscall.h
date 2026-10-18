@@ -1,5 +1,5 @@
 #pragma once
-/* sys/bios_syscall.h - guest-visible calling convention of the BIOS GD-ROM syscall (vector 0x8C0000BC, r6 = 0).
+/* sys/bios_syscall.h - guest-visible calling convention of the BIOS GD-ROM syscall (pointer word at 0x8C0000BC -> REIOS entry 0x8C001006, r6 = 0).
  *
  * r7 selects the call: 0 REQ_CMD (r4 = command, r5 = pointer to 4 param words, returns the request id in r0),
  * 1 GET_CMD_STAT (r4 = request id, r5 = pointer to 4 result words, returns the status in r0),
