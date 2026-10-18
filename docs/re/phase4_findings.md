@@ -28,10 +28,11 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - `vf3boot --free 1 --loop-entry <pc>` (python tools/boot_states.py --free 0x0c03fa52 --capture) runs a capture from its pc with no
   wait-loop machinery. The state-31 "jump to pc 1" is the **task exit marker**: the routine was entered with pr = 1 saved in
   its frame, so returning to 1 means the task finished. boot_sim stops cleanly there.
-  Results (docs/boot_states.csv): 31 and 34 run to the exit marker, 0 unowned; 33 hands back twice (0x0C0C15A0, 0x0C0A057E)
-  then calls 0x0C29BB84, loaded code outside the static image (unowned); 35, 36, 38 return through a stack slot that holds
-  data (a different frame layout: the savestate was taken at another depth of the same routine); 32 and 39 captures gave no
-  result; state 20 (BIOS 0x8C00909A) not captured.
+  A task whose bottom frame holds a marker or data (1, 0, a table address, a float) has finished: when a hop resumes outside the
+  image (0C010000-0C130000) boot_sim reports "task left the code" and counts the run ok.
+  Results (docs/boot_states.csv, entry = the savestate pc): 31, 33, 34, 35, 36, 38 (pc 0x0C03FA52), 32 (0x0C0361F4) and 39
+  (0x0C0AA0F2) all run to the end of their task with 0 unowned calls. State 20 sits in the BIOS ROM (0x8C00909A), which is not in the
+  image, so it is out of scope for the native port (a BIOS HLE boundary, not a gap in the game code).
 
 ## Still open
 - Past the title screen (state 21 -> 22 differs by 475 KB of GD-loaded data 0x0CAB4000-0x0CAE9000): the gate is not Maple;
@@ -39,4 +40,4 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - Fixed 2,688-cycle poll (cycles are not counted per instruction); 7 game-state bytes of the 8,220-byte frame diff
   (0x0C2A62E4, 0x0C2A73A9/A, 0x0C31F9AD/AE/C1/C2) - attributed to interrupt ordering, not proven.
 - Maple: both items now confirmed (docs/re/maple.md, last section).
-- Free-run coverage of states 20 and 31-36, 38, 39.
+- Nothing further for the savestate coverage; the 2,688-cycle poll is a calibrated constant (it reproduces the emulator GD log: 191 sectors left at the same cycle), not a counted cycle total.

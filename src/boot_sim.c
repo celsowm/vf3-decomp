@@ -252,6 +252,11 @@ int main(int argc, char **argv)
                 /* A hop is a time slice of guest steps. It ends where a returning function hands control back to a frame the port has
                  * not entered (resume there with a fresh pr), or where the slice ran out (resume in place, pr kept). Slice time moves
                  * the drive and the frame clock; the vblank pair is taken between slices. */
+                if (free_run && hop && ((at & 0x1FFFFFFFu) < 0x0C010000u || (at & 0x1FFFFFFFu) >= 0x0C130000u)) {   /* the task stack ran out: its bottom frame holds a marker or data, not a return address into the image */
+                    printf("  task left the code at %08x (outside the image 0C010000-0C130000): the task function returned%c", (unsigned)at, 10);
+                    memset(&r, 0, sizeof r); r.ok = 1; r.pc = at;
+                    break;
+                }
                 vf3_native_set_xf(cur.xf);
                 vf3_native_set_stop(0);
                 vf3_native_set_extra_stop(0);
