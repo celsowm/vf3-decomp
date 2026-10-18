@@ -78,3 +78,6 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - Open question is therefore not the wait but what native does after the read function (0x0C0A7F3C family, returns r14=0 ->
   0x0C0A8024 cleanup) and whether the next request (state 2 write at 0x0C035848) is issued later than the 60-vblank cap.
   A 900-vblank native run from state 21 is the check (slow, ~15 min+).
+- Result of the 900-vblank native run from state 21 (13.5 min wall): ok 1, 0 unowned, 3.0e9 cycles, GD idle (0 sectors left)
+  and no new request is ever issued. So the next read is not a timing artefact; the frame loop is missing a condition that the
+  emulator satisfies (next lead: diff the frame-loop task state, [0x0C16CDF0..] and the request-issuing caller of 0x0C035848).
