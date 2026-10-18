@@ -10,5 +10,5 @@ for n in "$@"; do
   $python tools/tick_capture.py "$entry" --state tools/emu/flycast-build/data/vf3_$n.state --frames 120 --pairs 1 --name bootS > /dev/null 2>&1
   seed=extract/analysis/gdstate_s${n}_0c0432de.txt
   [ -f "$seed" ] && seedarg="--gd-state $seed" || seedarg=""
-  echo "state $n: $(./build/vf3.exe extract/analysis/golden_bootS_vf3_$n.bin --entry "$entry" --gdi rom/vf3.gdi $seedarg --gd-polls-per-step 179 --vs-exit 2>&1 | grep -E 'tick |ram vs|no ' | tr '\n' ' ')"
+  echo "state $n: $(./build/vf3.exe extract/analysis/golden_bootS_vf3_$n.bin --entry "$entry" --gdi rom/vf3.gdi $seedarg --gd-cycles 2688 1000000 --vs-exit 2>&1 | grep -E 'tick |ram vs|no ' | tr '\n' ' ')"
 done

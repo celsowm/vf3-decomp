@@ -391,3 +391,16 @@ Edge logs (extract/analysis/p4/e<N>.bin) and run PCs (p4/l<N>.log) classify ever
   BIOS/flash addresses). 1ST_READ.BIN does not contain this code and the port does not own it. Decision: the platform boundary
   of the port. The native run starts at the first game-code entry (the 1ST_READ jump) and the system area is represented by
   the BIOS vector (0x8C001006, served by sys/bios_syscall) plus the snapshot RAM, not by ported C.
+
+## Timer model: cycle-based drive clock (measured)
+
+The local flycast patch now appends the SH-4 scheduler time to each GD log row when `VF3_GDLOG_TIME=1` (` @<cycles>`).
+State 30, 900 frames, 3000 wrapper polls: successive polls are 2688 cycles apart, and the busy drive state changes exactly
+once per 1,000,000 cycles (spacings 999936-1000384, i.e. 1 ms-quantised by the poll spacing): one 5-sector step per
+5 ms (200 MHz), ~372 polls per step. The earlier 179-polls guess came from a window that happened to contain one step;
+it was consistent with 250 polls (672k cycles) of no change in states 21/42 and is superseded.
+`vf3_bios_gd_set_cycle_clock(per_poll, per_step)` / `--gd-cycles 2688 1000000` implements it (each busy poll costs
+2688 cycles, a step per 1,000,000 accumulated cycles); `tools/recomp/boot_span.sh` uses it, and the 0x8C034864 spans in
+states 21/30/42 stay bit-exact. What this is not: the poll cost is the idle loop's, a different caller loop would need its
+own per-poll cost, so the real model is a cycle counter advanced by executed instructions (native_tick does not count
+cycles yet).

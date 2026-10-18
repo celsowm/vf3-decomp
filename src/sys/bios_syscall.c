@@ -2,6 +2,14 @@
 #include "sys/bios_syscall.h"
 
 static uint32_t polls_per_step = 1, polls_seen;
+static uint64_t cycles_per_poll, cycles_per_step, cycle_acc;
+
+void vf3_bios_gd_set_cycle_clock(uint32_t per_poll, uint32_t per_step)
+{
+    cycles_per_poll = per_poll;
+    cycles_per_step = per_step;
+    cycle_acc = 0;
+}
 
 void vf3_bios_gd_set_poll_divider(uint32_t polls)
 {
@@ -11,7 +19,9 @@ void vf3_bios_gd_set_poll_divider(uint32_t polls)
 
 int vf3_bios_gd_syscall_clocked(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out)
 {
-    if (r[6] == 0 && r[7] == VF3_GD_GET_CMD_STAT && gd->st.status == VF3_GDC_BUSY && ++polls_seen >= polls_per_step) {
+    if (r[6] == 0 && r[7] == VF3_GD_GET_CMD_STAT && gd->st.status == VF3_GDC_BUSY && cycles_per_step) {
+        for (cycle_acc += cycles_per_poll; cycle_acc >= cycles_per_step; cycle_acc -= cycles_per_step) vf3_gd_sched_step(gd);
+    } else if (r[6] == 0 && r[7] == VF3_GD_GET_CMD_STAT && gd->st.status == VF3_GDC_BUSY && ++polls_seen >= polls_per_step) {
         polls_seen = 0;
         vf3_gd_sched_step(gd);
     }
