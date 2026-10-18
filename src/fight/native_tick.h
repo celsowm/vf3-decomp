@@ -64,6 +64,8 @@ void vf3_native_set_stop(uint32_t pc);
 void vf3_native_set_extra_stop(uint32_t pc);
 /* Number of DMAC channel-2 transfers the guest started since the last call (the caller models their end interrupt). */
 unsigned vf3_native_take_dma2(void);
+/* Maple DMA starts since the last call; *list receives the transfer-list address (SB_MDSTAR). */
+unsigned vf3_native_take_maple(uint32_t *list);
 /* ASIC normal-interrupt status the model keeps: raise bits, read what is pending, count STARTRENDER writes. */
 void vf3_native_raise_asic(uint32_t mask);
 uint32_t vf3_native_asic_pending(void);

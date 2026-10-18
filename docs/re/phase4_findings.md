@@ -47,6 +47,21 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - Next step: compare [mpdrv driver state] in the native run against the emulator state 22 and trace which per-frame function
   would raise the next GD request (docs/re/sound_bgm.md covers the BGM voice-kit side).
 
+## Correction: mpdrv is the Maple peripheral driver (2026-10-18, later)
+- The strings "mpdrv_frame_send / mpdrv_frame_recv_pre / DriverState is not RECEIVED / SENT / DMA incompleted" and "mpdrv_set_getcond_ns,
+  mpdrv_set_dreq_ns, mpdrv_make_rootdevicedata, mpdrv_set_ft4ctrl" belong to the **Maple peripheral driver** (mp = Maple Peripheral),
+  not the sound driver; the earlier note above that called it "sound" is wrong. The register base stored at struct+0x10EC is 0xA05F6C00
+  and `(base+0x18) & 1` is SB_MDST (DMA busy). Driver state lives at [0x0C1A0BE8]: 0 = SENT, 1 = RECEIVED.
+- Emulator ground truth (`python tools/mem_watch.py 21 0x8C1A0BE8 4 --frames 1500 --writes`, new): the word toggles every frame,
+  written 0 by pc 0x0C036276 (frame_send: DMA started) and 1 by pc 0x0C03632A (frame_recv_pre, after the DMA-end event).
+- State 21 was saved with the word at 0 (a Maple DMA in flight). The native run had no Maple at all, so frame_send failed with
+  "not RECEIVED" every frame. Added: `src/sys/maple_hle.c` (answers a transfer list: DEVINFO and GET_CONDITION for a stand-in pad
+  on port A, 0xFFFFFFFF "no device" elsewhere), SB_MDSTAR/SB_MDST capture in native_tick.c, ASIC bit 0x1000 on DMA end in boot_sim,
+  and `--maple-inflight 1` (raises the pending DMA-end event at start for a savestate taken mid-DMA).
+- Result: with the driver unblocked (also tried with the word poked to 1: `BS_POKE=0x0c1a0be8:1`, which makes the driver start a
+  real DMA: MDSTAR=0x0C2C4420, MDST=1) the game still sits in the render-wait spin at 0x0C0597CA for 100 vblanks and issues no GD
+  request. So the Maple handshake was one blocker but is **not sufficient**; the gate is elsewhere in the render/scene wait.
+
 ## Still open
 - Past the title screen (state 21 -> 22 differs by 475 KB of GD-loaded data 0x0CAB4000-0x0CAE9000): the gate is not Maple;
   look for the game-side GD request or timer that never fires in the model.

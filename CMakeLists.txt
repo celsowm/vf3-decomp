@@ -157,6 +157,7 @@ add_library(vf3core STATIC
     src/fight/native_tick.c
     src/sys/gdrom_hle.c
     src/sys/bios_syscall.c
+    src/sys/maple_hle.c
     src/fight/call_targets.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c

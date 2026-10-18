@@ -50,6 +50,8 @@ static struct {
     unsigned bios_calls;
     uint32_t istnrm;             /* ASIC normal interrupt status (SB_ISTNRM): pending events the model raised */
     unsigned render_started;     /* STARTRENDER writes not yet taken by the caller */
+    uint32_t maple_list;         /* SB_MDSTAR as last written */
+    unsigned maple_started;      /* Maple DMA starts (SB_MDST written with bit 0) not yet taken by the caller */
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
 } machine;
 
@@ -71,6 +73,8 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     (void)context; (void)size;
     ++machine.writes;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
+    if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;
+    if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) ++machine.maple_started;
     if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) ++machine.render_started;
@@ -140,6 +144,7 @@ void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
 void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
+unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(void);
 void vf3_native_set_budget_hook(uint32_t (*hook)(void)) { budget_hook = hook; }

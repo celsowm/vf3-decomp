@@ -12,6 +12,7 @@
 #include <string.h>
 
 #include "fight/native_tick.h"
+#include "sys/maple_hle.h"
 #include "sys/bios_syscall.h"
 #include "sys/gdrom_hle.h"
 
@@ -101,6 +102,14 @@ static uint32_t slice_hook(void)
         static const uint32_t bits[5] = { 0x80u, 0x100u, 0x200u, 0x400u, 0x200000u };
         for (unsigned i = 0; i < 5; ++i) if (want & (1u << i)) vf3_native_raise_asic(bits[i]);
     }
+    {   /* Maple: the list is answered at once (a stand-in pad on port A) and the DMA-end event follows */
+        uint32_t list = 0;
+        static const vf3_maple_pad pad = { 0xFFFFu, 0, 0, 0x80, 0x80, 0x80, 0x80 };
+        for (unsigned n = vf3_native_take_maple(&list); n; --n) {
+            vf3_maple_dma(irq.ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, list, &pad);
+            vf3_native_raise_asic(0x1000u);
+        }
+    }
     for (unsigned n = vf3_native_take_render(); n; --n) vf3_native_raise_asic(0x4u);
     if (vf3_native_asic_pending() && !asic_busy) {   /* the ASIC interrupt handler dispatches them */
         asic_busy = 1;
@@ -148,6 +157,7 @@ int main(int argc, char **argv)
     unsigned slice_steps = 20000;   /* guest steps per time slice: the budget hook moves the clocks and takes the vblank pair in place */
     uint64_t gd_phase = 0;
     unsigned cycle_frames = 0;
+    int maple_inflight = 0;   /* the savestate was taken with a Maple DMA running (mpdrv state SENT): its end event is due */
     int free_run = 0;   /* the capture is a plain game state, not a loader wait: run its code from --loop-entry for the vblank cap */
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
     if (argc < 4) { fprintf(stderr, "usage: vf3boot loop.bin irqA.bin irqB.bin --loop-entry E --loop-stop S --irqa E --irqb E [--frames N] [--first-polls P] [--gdi f --gd-state f]\n"); return 2; }
@@ -165,6 +175,7 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--full-loop")) full_loop = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--slice")) slice_steps = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--vblank-cap")) irq_cap = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--maple-inflight")) maple_inflight = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--free")) free_run = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--continue")) go_on = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
@@ -211,6 +222,14 @@ int main(int argc, char **argv)
         snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
         uint32_t ret = 0, resume = loop_entry, head = loop_stop;
         int finished = 0;
+        if (getenv("BS_POKE")) {   /* BS_POKE=addr:value (hex): an experiment, write one RAM word before the run starts */
+            unsigned pa = 0, pv = 0;
+            if (sscanf(getenv("BS_POKE"), "%x:%x", &pa, &pv) == 2) {
+                const uint32_t off = (uint32_t)pa & 0x00FFFFFFu;
+                memcpy(loop.ram + off, &pv, 4);
+                fprintf(stderr, "poked %08x = %08x%c", pa, pv, 10);
+            }
+        }
         if (getenv("BS_FIND")) {   /* BS_FIND=word: every RAM address holding that 32-bit word, with the three words before and after */
             const uint32_t want = (uint32_t)strtoul(getenv("BS_FIND"), NULL, 0);
             for (uint32_t a = VF3_NATIVE_RAM_BASE; a < VF3_NATIVE_RAM_BASE + VF3_NATIVE_RAM_LEN - 16; a += 4)
@@ -225,6 +244,7 @@ int main(int argc, char **argv)
             for (unsigned i = 0; i < 24; ++i) fprintf(stderr, "%08x: %08x%c", w0 + 4 * i, rd32(loop.ram, w0 + 4 * i), 10);
             for (unsigned i = 0; i < 20; ++i) fprintf(stderr, "r%u=%08x%c", i, cur.regs[i], i % 4 == 3 ? 10 : 32);
         }
+        if (maple_inflight) vf3_native_raise_asic(0x1000u);
         if (free_run) { finished = 1; ret = loop_entry; memcpy(last_regs, cur.regs, sizeof last_regs); }
         while (!free_run && clk.taken < cycle_frames && iters < 300000) {
             if (full_loop && iters == 1) {   /* past the first poll an iteration is the whole loop body: poll, decide, time out or return */
