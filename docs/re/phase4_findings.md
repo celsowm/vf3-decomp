@@ -69,3 +69,12 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
   (0x0C2A62E4, 0x0C2A73A9/A, 0x0C31F9AD/AE/C1/C2) - attributed to interrupt ordering, not proven.
 - Maple: both items now confirmed (docs/re/maple.md, last section).
 - Nothing further for the savestate coverage; the 2,688-cycle poll is a calibrated constant (it reproduces the emulator GD log: 191 sectors left at the same cycle), not a counted cycle total.
+
+## State 21: the wait object really completes (2026-10-18)
+- Wait object r14 = 0x0C2A7390, request state is the halfword at +0x4C (0x0C2A73DC): 2 = busy, 1 = done (0x35A20 returns it;
+  0x35510 returns 0 on 1). mem_watch over 900 emulator frames shows three cycles state 1 (pc 0x0C0348BC) -> 0 (0x0C035128)
+  -> 2 (0x0C035848): the emulator finishes the request, then issues the next one. So the early native exit (wait=0, 2 iterations)
+  is correct; the "emulator stays in the loader wait" reading came from the hot polling functions dominating the hit counts.
+- Open question is therefore not the wait but what native does after the read function (0x0C0A7F3C family, returns r14=0 ->
+  0x0C0A8024 cleanup) and whether the next request (state 2 write at 0x0C035848) is issued later than the 60-vblank cap.
+  A 900-vblank native run from state 21 is the check (slow, ~15 min+).
