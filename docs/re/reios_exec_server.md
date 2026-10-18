@@ -233,3 +233,10 @@ Root cause of the empty exports: `VF3_WATCH` needs a `pc <entry>` line for every
 the transfer boundary of an already-listed one (vf3oracle.cpp, watch parsing). With `pc` lines added to
 tools/watch/vf3_loader_hot.txt the stubs 0x8C0430A0 / 0x8C0430B4 and the trampoline 0x8C035CBA each export 3 distinct
 complete cases (states 42 / 21 / 30, 120 frames), next to 0x8C0432DE's 3. Corpus: extract/analysis/goldens_loader_hot.
+
+Strict replay of the new corpora (`VF3_STRICT_REPLAY=1 build/vf3matrixfamily.exe 0x<entry> goldens_loader_hot/f_<entry>.cases`):
+all four entries fail 0/3. The captured exit of the stubs is the BIOS entry itself (`pc 0x8C001006`, the jmp boundary); the
+generated routers either stop at the unmodelled helper (`unsupported helper/state ... PC 0c001006`) or run the AICA stub
+adapter's EXEC_SERVER no-op through to the caller (`exit PC 0c0434d0 != 8c001006`). So replay needs the router to treat
+the REIOS vector as the stub's exit boundary (or the corpus to be re-captured with the return as the boundary) before a
+readable stub port can be promoted; `replay_scan.py` also only scans directories named `*cases`.
