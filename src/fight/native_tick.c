@@ -13,6 +13,7 @@
 #define TA_AREA_BASE 0x10000000u         /* area 4: Tile Accelerator FIFOs and texture memory */
 #define TA_AREA_END  0x14000000u
 #define GUEST_RETURN_SENTINEL 0xDEAD0000u
+#define SPG_VBLANK_IN_LINE 0x104u
 #define BLOCK_BUDGET 1000000000u
 
 /* ---------------------------------------------------------------- loading */
@@ -93,8 +94,12 @@ static struct {
 
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
-    (void)context; (void)address; (void)size;
+    (void)context; (void)size;
     ++machine.reads;
+    /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
+     * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
+     * inside the interrupt sees. */
+    if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     return 0;
 }
 

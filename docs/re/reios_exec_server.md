@@ -434,3 +434,21 @@ wait loop runs through the full 0x1F-sector transfer on the cycle clock; what fo
 compared.
 Verified: 100 iterations leave the GD model BUSY with 31 sectors to go (268k cycles, no step yet); 4000 iterations leave it idle with
 0 left, i.e. the loop consumed the COMPLETE status; the executable prints this as "GD model at end".
+
+## What follows the final poll: it is the vblank interrupt (not a boot hand-off)
+
+The edge log of state 30 (record 4782, 531 polls ~ 0.43 frame in) shows calls from 0x8C004C9E.. (decoded as `stc.l spc/ssr/vbr/gbr,@-r0`,
+`sts.l pr` - the BIOS exception entry saving the context; the odd 0x18012xxx "callees" are the decoder following those `stc.l`
+opcodes), then 0x8C004058: `INTEVT >> 3` indexes the vector table at RAM and jumps - the IRQ dispatcher. It enters the game's
+two interrupt handlers 0x8C063D1E and 0x8C062E94 (17 distinct callees, 11 not marked ported though 6 of them replay 6/6 on the
+generated chain: 0x8C035E90 0x8C036132 0x8C043964 0x8C043BB4 0x8C045EBE 0x8C045F0A 0x8C063D1E). So the "hand-off" is the
+interrupt model, and one frame = 3.34M cycles = ~1240 idle polls.
+
+`tools/ram_dis.py <capture> <addr>` disassembles any address out of a capture's entry RAM (BIOS/system code included).
+
+Both handlers run natively from the state-30 capture (`boot_span.sh 0x8c063d1e 30`, `... 0x8c062e94 30`): 204 and 2028 blocks, 0
+unowned, return slot only - once the one hardware read is modelled: the vblank handler (via 0x8C043BB4) stores
+`PVR SPG_STATUS (0xA05F810C) & 0x3FF` into 0x0C19E9C6, recorded 0x104 (scanline 260); `device_read` now returns 0x104 for that register
+(a constant standing for "the line the vblank-in interrupt is raised on"; no beam model). 0x8C062E94 is also bit-exact in states 21, 42 and 43.
+So the interrupt side of the timer model is: raise the vblank handlers (0x8C063D1E then 0x8C062E94 after the BIOS dispatcher) every
+~3.34M cycles on top of the polling loop; what's missing is the injection itself in the native runner.
