@@ -143,6 +143,7 @@ int vf3_scene_slot_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_wall_flags_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_fighter_refresh_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_steer_flags_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_sweep_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -280,6 +281,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c0a7750u, "scene_slot", vf3_scene_slot_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
+    { 0x0c0927e6u, "record_sweep", vf3_record_sweep_entry,
+      B(0)|B(17) },
     { 0x0c0c6770u, "steer_flags", vf3_steer_flags_entry,
       B(0)|B(17) },
     { 0x0c0b1550u, "fighter_refresh", vf3_fighter_refresh_entry,
