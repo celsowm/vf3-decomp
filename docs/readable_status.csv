@@ -132,6 +132,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c07b2be,pool_alloc,src/fight/glyph_cache.c,r0 r2 r3 r5 r6 r7 sr,13,351,0.03,whole-tick
 0x8c03c8b0,rotation_xmtrx,src/fight/small_leaves.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr16 fr17 fr18 fr19 fr24 fr25 fr26 fr27,20,340,0.03,whole-tick
 0x8c0c1208,frame_call,src/fight/misc_wrappers.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,12,324,0.03,whole-tick
+0x8c03c750,axis_angle_matrix,src/fight/axis_angle_matrix.c,r0 r3 r4 r5 fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31,3,288,0.03,whole-tick
 0x8c04b9be,record_flag40,src/fight/small_leaves.c,r0 sr,66,264,0.02,whole-tick
 0x8c09d408,negate_run,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,2,220,0.02,whole-tick
 0x8c08b5ac,record_select,src/fight/misc_wrappers.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,1,220,0.02,whole-tick
