@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Full per-port verification: state replay, native tick, oracle+poison tickmix, scratch deps, ledger.
 # usage: tools/recomp/verify_port.sh 0x8c073aac   (run after serial build into build2)
-export PATH="/c/msys64/ucrt64/bin:/c/msys64/usr/bin:$PATH"
+export PATH="$PATH:/c/msys64/ucrt64/bin:/c/msys64/usr/bin"
 S="4 5 7 9 10 11 12 13 14 15 16 37 41"
 echo "run_state (want 26): $(BUILD_DIR=./build2 bash tools/recomp/run_state.sh $S 2>&1 | grep -c '; 0 arg 0 out mismatches')"
 echo "run_native (want 13): $(BUILD_DIR=./build2 bash tools/recomp/run_native.sh $S 2>&1 | grep -c 'ram 0 bytes differ')"
