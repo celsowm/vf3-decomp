@@ -48,6 +48,8 @@ static struct {
     uint32_t stop_pc;            /* run ends when control reaches this address (0: the return sentinel) */
     vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
     unsigned bios_calls;
+    uint32_t istnrm;             /* ASIC normal interrupt status (SB_ISTNRM): pending events the model raised */
+    unsigned render_started;     /* STARTRENDER writes not yet taken by the caller */
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
 } machine;
 
@@ -60,6 +62,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
+    if ((address & 0x1FFFFFFFu) == 0x005F6900u) return machine.istnrm;
     return 0;
 }
 
@@ -68,6 +71,8 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     (void)context; (void)size;
     ++machine.writes;
     if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
+    if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
+    if ((address & 0x1FFFFFFFu) == 0x005F8014u) ++machine.render_started;
     if (address < TA_AREA_BASE || address >= TA_AREA_END) return;   /* QACR, store-queue folds */
     if (machine.ta_len == machine.ta_cap) {
         machine.ta_cap = machine.ta_cap ? 2 * machine.ta_cap : 1u << 16;
@@ -131,6 +136,9 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32
 void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
+void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
+uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
+unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(void);
 void vf3_native_set_budget_hook(uint32_t (*hook)(void)) { budget_hook = hook; }

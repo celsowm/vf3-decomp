@@ -64,6 +64,10 @@ void vf3_native_set_stop(uint32_t pc);
 void vf3_native_set_extra_stop(uint32_t pc);
 /* Number of DMAC channel-2 transfers the guest started since the last call (the caller models their end interrupt). */
 unsigned vf3_native_take_dma2(void);
+/* ASIC normal-interrupt status the model keeps: raise bits, read what is pending, count STARTRENDER writes. */
+void vf3_native_raise_asic(uint32_t mask);
+uint32_t vf3_native_asic_pending(void);
+unsigned vf3_native_take_render(void);
 /* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop). */
 void vf3_native_set_budget_hook(uint32_t (*hook)(void));
 /* Limit a run to `steps` guest steps (a time slice); 0 restores the default. An exhausted run reports ok = 0 with failed_pc at the next step. */

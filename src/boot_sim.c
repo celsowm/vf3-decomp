@@ -78,7 +78,8 @@ static void poll_irq(void *ctx)
     if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) irq.failed = 1;
 }
 
-static unsigned hook_slice;
+static unsigned hook_slice, irq_cap = 400, asic_busy, peek_last;
+static uint32_t rd32(const uint8_t *ram, uint32_t a) { uint32_t v; memcpy(&v, ram + (a & 0x0FFFFFFFu) - 0x0C000000u, 4); return v; }
 static uint32_t slice_hook(void)
 {
     /* the guest has run a time slice: the drive and the frame clock move, the vblank pair is taken in place */
@@ -89,12 +90,33 @@ static uint32_t slice_hook(void)
         ++clk.taken;
         if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) { irq.failed = 1; return 0; }
     }
-    for (unsigned n = vf3_native_take_dma2(); n; --n) {   /* a DMA transfer ended: the ASIC handler clears the channel and starts the next queued one */
+    int dma_done = 0;
+    for (unsigned n = vf3_native_take_dma2(); n; --n) {
+        dma_done = 1;   /* a DMA transfer ended: the ASIC handler clears the channel and starts the next queued one */
+        vf3_native_raise_asic(0x80000u);   /* Ch2-DMA end: the handler clears the channel and starts the next queued transfer */
+    }
+    /* PVR/TA events: the lists a DMA fed end (the game says which it expects in 0x0C16CDE8), a started render ends */
+    if (dma_done) {
+        const uint32_t want = rd32(irq.ram, 0x0C16CDE8u) & ~rd32(irq.ram, 0x0C16CDECu);   /* lists not yet ended */
+        static const uint32_t bits[5] = { 0x80u, 0x100u, 0x200u, 0x400u, 0x200000u };
+        for (unsigned i = 0; i < 5; ++i) if (want & (1u << i)) vf3_native_raise_asic(bits[i]);
+    }
+    for (unsigned n = vf3_native_take_render(); n; --n) vf3_native_raise_asic(0x4u);
+    if (vf3_native_asic_pending() && !asic_busy) {   /* the ASIC interrupt handler dispatches them */
+        asic_busy = 1;
         snap d = *irq.a;
         d.regs[16] = 0xDEAD0000u;
-        if (!run(irq.ram, &d, 0x0C0631D8u, 0, "dma end")) { irq.failed = 1; return 0; }
+        if (!run(irq.ram, &d, 0x0C06423Au, 0, "asic handler")) { irq.failed = 1; return 0; }
+        asic_busy = 0;
     }
-    return clk.taken < 400 ? hook_slice : 0;
+    if (getenv("BS_PEEK") && clk.taken % 40 == 0 && clk.taken != peek_last) {
+        peek_last = clk.taken;
+        static const uint32_t a[] = { 0x0C16CDCCu, 0x0C16CDD0u, 0x0C16CC90u, 0x0C16CC94u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDF0u, 0x0C16CDF4u, 0x0C16CDF8u, 0x0C16CD30u, 0x0C16CCACu, 0x0C16CCB0u };
+        fprintf(stderr, "peek vb %u:", clk.taken);
+        for (unsigned i = 0; i < sizeof a / sizeof *a; ++i) fprintf(stderr, " %08x", rd32(irq.ram, a[i]));
+        fputc(10, stderr);
+    }
+    return clk.taken < irq_cap ? hook_slice : 0;
 }
 
 int main(int argc, char **argv)
