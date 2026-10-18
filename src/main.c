@@ -105,6 +105,8 @@ int main(int argc, char **argv)
 {
     const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL, *gdi_path = NULL, *gd_state = NULL;
     int vs_exit = 0;
+    uint32_t peek[8];
+    unsigned npeek = 0;
     unsigned pair = 0, ticks = 1;
     uint32_t gbr = DEFAULT_GBR, entry = VF3_NATIVE_SCHED_ENTRY;
     for (int i = 1; i < argc; ++i) {
@@ -119,6 +121,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--stop") && i + 1 < argc) vf3_native_set_stop((uint32_t)strtoul(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--gd-polls-per-step") && i + 1 < argc) vf3_bios_gd_set_poll_divider((uint32_t)strtoul(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--gd-cycles") && i + 2 < argc) { const uint32_t a = (uint32_t)strtoul(argv[i + 1], NULL, 0), b = (uint32_t)strtoul(argv[i + 2], NULL, 0); vf3_bios_gd_set_cycle_clock(a, b); i += 2; }
+        else if (!strcmp(argv[i], "--peek") && i + 1 < argc && npeek < 8) peek[npeek++] = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (argv[i][0] != '-' && !capture) capture = argv[i];
@@ -137,6 +140,11 @@ int main(int argc, char **argv)
         return 2;
     }
 
+    for (unsigned k = 0; k < npeek; ++k) {
+        uint32_t w;
+        memcpy(&w, ram + ((peek[k] & 0x0FFFFFFFu) - VF3_NATIVE_RAM_BASE), 4);
+        printf("peek %08x at entry = %08x\n", peek[k], w);
+    }
     vf3_gdi gdi;
     vf3_gdrom gd;
     if (gdi_path) {
@@ -156,6 +164,11 @@ int main(int argc, char **argv)
     if (!r.ok) printf("  failed at %08x%s\n", r.failed_pc, r.unowned_calls ? " (call into unported code)" : "");
     if (r.unowned_calls) printf("  first unowned entry %08x\n", r.first_unowned);
 
+    for (unsigned k = 0; k < npeek; ++k) {
+        uint32_t w;
+        memcpy(&w, ram + ((peek[k] & 0x0FFFFFFFu) - VF3_NATIVE_RAM_BASE), 4);
+        printf("peek %08x at exit  = %08x\n", peek[k], w);
+    }
     int status = r.ok && !r.unowned_calls ? 0 : 1;
     if (vs_exit) {
         /* the recorded exit is the reference: every byte the native run left different is a finding */

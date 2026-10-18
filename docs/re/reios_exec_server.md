@@ -412,9 +412,12 @@ The state-21 "iteration" of the earlier section is really the vtable trampoline 
 whose slot is 0x8C0434C8 (the EXEC_SERVER caller). The span capture `tick_capture.py 0x8c035cba --exitpc 0x8c0349a6`
 replays natively with 0x8C035238 now a readable port (`src/fight/loader_dispatch_5238.c`) and with readable ports counted
 as call targets in native_tick (the oracle table only knew the fight ticks' entries, so a boot tail-jump chain stopped at
-the first target). Result, states 21 and 30: 13 bytes differ = the saved-return slot (4), the 0x0C31F9C1 halfword (2) and
-0x0C2A62E8 / 0x0C2A73CC.. (7): the object fields the real EXEC_SERVER round trip updates. The native stand-in returns 0
-without those side effects; they are the GD completion/IRQ work done asynchronously by the emulator's REIOS, i.e. the next
-piece of the timer/interrupt model, not a transcription error in the chain.
+the first target). Result: with the GD seed (`--gd-state gdstate_s<N>_0c0432de.txt`; the first run lacked it, the drive then reads idle and
+the loop takes another branch, which produced the "13 bytes" and the wrong async-work theory) and `--stop 0x0c035530` (the
+return address the real iteration used) the iteration is **bit-exact: 0 bytes differ and the exit pc equals the recording**,
+states 21 and 30 (68 blocks, 5 readable-port calls, 1 BIOS call served). Without `--stop` the only difference is the
+sentinel in the saved-return slot. This closes the "7 bytes / wrong end address" item of the idle-loop section: it was the same
+missing seed plus a mid-function entry. One whole idle-loop iteration of the loader is now a verified native run.
+`--peek ADDR` and `VF3_TRACE_ENTRIES=1` (entry trace to stderr) were added to find this.
 Not yet verified by replay: the port's own corpus (goldens_l238, 1 case) fails in the replay harness at the BIOS tail
 jump (PC 0) even with VF3_COMPLETE_CALLS=1 (new harness switch) and the GD seed; the port is checked by the native span only.
