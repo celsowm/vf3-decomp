@@ -115,6 +115,27 @@ static uint32_t slice_hook(void)
         fprintf(stderr, "peek vb %u:", clk.taken);
         for (unsigned i = 0; i < sizeof a / sizeof *a; ++i) fprintf(stderr, " %08x", rd32(irq.ram, a[i]));
         fputc(10, stderr);
+        if (getenv("BS_CMP")) {   /* distance to a later captured state: bytes of RAM that differ */
+            static snap cmp; static int have;
+            if (!have) { have = load(getenv("BS_CMP"), 0, &cmp) ? 1 : -1; }
+            if (have > 0) {
+                unsigned long diff = 0;
+                for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) diff += irq.ram[i] != cmp.ram[i];
+                fprintf(stderr, "cmp vb %u: %lu bytes differ%c", clk.taken, diff, 10);
+                if (getenv("BS_CMPV")) {   /* the 4 KB blocks that differ most */
+                    static unsigned blk[VF3_NATIVE_RAM_LEN >> 12];
+                    memset(blk, 0, sizeof blk);
+                    for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) blk[i >> 12] += irq.ram[i] != cmp.ram[i];
+                    for (unsigned n = 0; n < 24; ++n) {
+                        unsigned best = 0;
+                        for (unsigned j = 1; j < (VF3_NATIVE_RAM_LEN >> 12); ++j) if (blk[j] > blk[best]) best = j;
+                        if (!blk[best]) break;
+                        fprintf(stderr, "  block %08x: %u%c", VF3_NATIVE_RAM_BASE + (best << 12), blk[best], 10);
+                        blk[best] = 0;
+                    }
+                }
+            }
+        }
     }
     return clk.taken < irq_cap ? hook_slice : 0;
 }
