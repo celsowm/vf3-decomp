@@ -147,6 +147,8 @@ add_library(vf3core STATIC
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
+    src/sys/gdrom_hle.c
+    src/sys/bios_syscall.c
     src/fight/call_targets.c
     src/fight/actor_table_apply.c
     src/fight/actor_table_family.c
@@ -459,7 +461,7 @@ target_link_libraries(vf3loop PRIVATE vf3core)
 add_executable(vf3libutil tests/libutil_replay.c)
 target_link_libraries(vf3libutil PRIVATE vf3core)
 
-add_executable(vf3gdrom tests/gdrom_hle_test.c src/sys/gdrom_hle.c)
+add_executable(vf3gdrom tests/gdrom_hle_test.c src/sys/gdrom_hle.c src/sys/bios_syscall.c)
 target_include_directories(vf3gdrom PRIVATE src)
 
 add_executable(vf3taskvm tests/taskvm_replay.c)

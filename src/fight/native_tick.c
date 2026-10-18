@@ -8,6 +8,7 @@
 #include "fight/family_hooks.h"
 #include "fight/matrix_family.h"
 #include "fight/readable.h"
+#include "sys/bios_syscall.h"
 
 #define TA_AREA_BASE 0x10000000u         /* area 4: Tile Accelerator FIFOs and texture memory */
 #define TA_AREA_END  0x14000000u
@@ -75,6 +76,9 @@ static struct {
     uint32_t first_unowned;
     uint32_t *ta;
     size_t ta_len, ta_cap;
+    uint8_t *ram;                /* the image of the run in progress */
+    vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
+    unsigned bios_calls;
 } machine;
 
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
@@ -104,9 +108,38 @@ static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map 
     return ok;
 }
 
+/* guest RAM behind the GD-ROM model: transfers land in the image of the run in progress */
+static void gd_write(void *ctx, uint32_t addr, const uint8_t *data, uint32_t len)
+{
+    (void)ctx;
+    const uint32_t off = (addr & 0x0FFFFFFFu) - VF3_NATIVE_RAM_BASE;
+    if (machine.ram && (addr & 0x0FFFFFFFu) >= VF3_NATIVE_RAM_BASE && off + len <= VF3_NATIVE_RAM_LEN)
+        memcpy(machine.ram + off, data, len);
+}
+
+static uint32_t gd_mem_read(void *ctx, uint32_t addr) { return vf3_mem_u32((const vf3_ram_map *)ctx, addr); }
+static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32((const vf3_ram_map *)ctx, addr, v); }
+
+void vf3_native_attach_gdrom(vf3_gdrom *gd)
+{
+    machine.gd = gd;
+    if (gd) { gd->write = gd_write; gd->write_ctx = NULL; }
+}
+
 static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
-    (void)s; (void)ram;
+    if (machine.gd && (entry & 0x0FFFFFFFu) == VF3_BIOS_SYSCALL_VECTOR) {
+        const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
+        const uint32_t args[8] = { 0, 0, 0, 0, s->v[4], s->v[5], s->v[6], s->v[7] };
+        uint32_t r0 = 0;
+        if (vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)) {
+            ++machine.bios_calls;
+            s->v[0] = r0;
+            s->pc = s->v[16];
+            *handled = 1;
+            return 1;
+        }
+    }
     if (!machine.unowned_calls++) machine.first_unowned = entry;
     *handled = 0;
     return 0;
@@ -121,6 +154,8 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
 
     machine.reads = machine.writes = machine.readable_calls = machine.unowned_calls = 0;
     machine.first_unowned = 0;
+    machine.bios_calls = 0;
+    machine.ram = ram;
     machine.ta_len = 0;                /* the buffer itself is reused between runs */
     memset(&st, 0, sizeof st);
     st.budget = BLOCK_BUDGET;
@@ -148,6 +183,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->readable_calls = machine.readable_calls;
     out->unowned_calls = machine.unowned_calls;
     out->first_unowned = machine.first_unowned;
+    out->bios_calls = machine.bios_calls;
     out->device_reads = machine.reads;
     out->device_writes = machine.writes;
     out->ta_words = (unsigned)machine.ta_len;

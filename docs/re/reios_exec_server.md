@@ -194,3 +194,15 @@ What is still missing for a native run of states 20-46 (`tools/boot_scope.py` ov
 unported callees across the boot states (loader/GDFS library functions around 0x8C0354xx-0x8C0366xx and 0x8C0430xx-0x8C0460xx,
 the 12 BIOS-area helpers at 0x98012b44-0x98012e2a, and 0x8C04C47C / 0x8C053CA4 / 0x8C0365EA), none of which has a capture
 corpus, and no scheduler/timer model to decide when `vf3_gd_sched_step` fires relative to the guest's polling loop.
+
+## Syscall front end and native-tick attachment (2026-10-18)
+
+`src/sys/bios_syscall.{h,c}` turns the r4..r7 register convention of the BIOS vector into calls on the GD-ROM model:
+`vf3_bios_gd_syscall` serves REQ_CMD (r4 = command, r5 = param quad), GET_CMD_STAT (r4 = id, r5 = result quad),
+EXEC_SERVER and INIT with r6 = 0, and reports anything else unhandled. `vf3_native_attach_gdrom` (native_tick.c) makes a
+call to `0x0C0000BC` in a native run go to that model instead of counting as an unowned call, and lands sector
+transfers in the RAM image of the running tick. The 13 fight-state native ticks are unchanged (0 unowned, RAM equal).
+
+Still open for a native boot run: the loader functions between the stubs have no readable ports or corpora (123 unported
+callees across states 20-46), and the model has no clock, so a runner must call `vf3_gd_sched_step` itself between
+polls of the loader loop.

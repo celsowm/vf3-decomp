@@ -1,0 +1,32 @@
+/* bios_syscall.c - register-level front end of the GD-ROM model; see bios_syscall.h */
+#include "sys/bios_syscall.h"
+
+int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out)
+{
+    if (r[6] != 0) return 0;
+    switch (r[7]) {
+    case VF3_GD_REQ_CMD: {
+        uint32_t params[4] = { 0, 0, 0, 0 };
+        if (r[5])
+            for (int i = 0; i < 4; ++i) params[i] = mem->read32(mem->ctx, r[5] + 4u * (uint32_t)i);
+        *r0_out = vf3_gd_req_cmd(gd, r[4], params);
+        return 1;
+    }
+    case VF3_GD_GET_CMD_STAT: {
+        uint32_t ext[4] = { 0, 0, 0, 0 };
+        *r0_out = (uint32_t)vf3_gd_get_cmd_stat(gd, r[4], ext);
+        if (r[5])
+            for (int i = 0; i < 4; ++i) mem->write32(mem->ctx, r[5] + 4u * (uint32_t)i, ext[i]);
+        return 1;
+    }
+    case VF3_GD_EXEC_SERVER:
+        vf3_gd_exec_server(gd);
+        *r0_out = 0;
+        return 1;
+    case VF3_GD_INIT_SYSTEM:
+        *r0_out = 0;
+        return 1;
+    default:
+        return 0;
+    }
+}

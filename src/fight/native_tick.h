@@ -17,9 +17,12 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "sys/gdrom_hle.h"
+
 #define VF3_NATIVE_RAM_BASE 0x0C000000u
 #define VF3_NATIVE_RAM_LEN  0x01000000u
 #define VF3_NATIVE_SCHED_ENTRY 0x8C09616Au
+#define VF3_BIOS_SYSCALL_VECTOR 0x0C0000BCu
 
 typedef struct {
     int ok;                       /* the entry returned to its caller */
@@ -28,6 +31,7 @@ typedef struct {
     unsigned readable_calls;      /* calls served by readable ports */
     unsigned unowned_calls;       /* calls into code nobody ported (each one is a failure) */
     uint32_t first_unowned;
+    unsigned bios_calls;          /* BIOS GD-ROM syscalls served by the attached model */
     unsigned device_reads, device_writes, ta_words, oob;
     const uint32_t *ta;           /* the TA FIFO words, in order; valid until the next run */
     uint32_t regs[54];            /* register file at exit, layout of matrix_family.h */
@@ -41,6 +45,11 @@ int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37],
  * fight tasks address with @(disp,GBR); the capture format does not carry it. */
 int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, uint32_t gbr,
                         vf3_native_tick_result *out);
+
+/* Serve calls to the BIOS GD-ROM vector (VF3_BIOS_SYSCALL_VECTOR, r6 = 0) from `gd` instead of reporting them as
+ * unowned code; sector transfers land in the RAM image of the running tick. Pass NULL to detach. The caller steps the
+ * transfer with vf3_gd_sched_step() between ticks (the model has no clock). */
+void vf3_native_attach_gdrom(vf3_gdrom *gd);
 
 /* Generated: is this a call target (as opposed to a seed in the middle of a function)? */
 int vf3_native_call_target(uint32_t entry);

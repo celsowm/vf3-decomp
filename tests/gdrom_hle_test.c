@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "sys/bios_syscall.h"
 #include "sys/gdrom_hle.h"
 
 static int failures;
@@ -106,12 +107,63 @@ static int resume_from_dump(const vf3_gdi *gdi, const char *path)
     return 0;
 }
 
+typedef struct { uint8_t *mem; uint32_t base; } fakemem;
+
+static uint32_t fm_read(void *ctx, uint32_t a)
+{
+    fakemem *m = ctx;
+    uint32_t v;
+    memcpy(&v, m->mem + (a - m->base), 4);
+    return v;
+}
+
+static void fm_write(void *ctx, uint32_t a, uint32_t v)
+{
+    fakemem *m = ctx;
+    memcpy(m->mem + (a - m->base), &v, 4);
+}
+
+/* the same read as full_cycle, but driven through the r4..r7 register convention of the BIOS vector */
+static void syscall_cycle(const vf3_gdi *gdi)
+{
+    const uint32_t fad = 0x81ADB, count = 7, base = 0x0C000000u;
+    uint8_t *ram = calloc(1, 0x4000);
+    fakemem fm = { ram, base };
+    vf3_guest_mem gm = { &fm, fm_read, fm_write };
+    sink s = { calloc(count, VF3_GD_SECTOR), 0x0C002000u, count * VF3_GD_SECTOR };
+    vf3_gdrom gd;
+    vf3_gd_init(&gd, gdi, sink_write, &s);
+    const uint32_t params = base + 0x100, out = base + 0x120;
+    fm_write(&fm, params, fad);
+    fm_write(&fm, params + 4, count);
+    fm_write(&fm, params + 8, 0x0C002000u);
+    uint32_t r[8] = { 0, 0, 0, 0, VF3_GDCC_DMAREAD, params, 0, VF3_GD_REQ_CMD }, r0 = 0;
+    CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0) && r0 == 2, "REQ_CMD through the vector: id %u", r0);
+    r[7] = VF3_GD_EXEC_SERVER;
+    CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0), "EXEC_SERVER through the vector");
+    while (vf3_gd_sched_step(&gd)) {}
+    r[4] = 2; r[5] = out; r[7] = VF3_GD_GET_CMD_STAT;
+    CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0) && (int32_t)r0 == VF3_GDC_COMPLETE, "GET_CMD_STAT status %d", (int)r0);
+    CHECK(fm_read(&fm, out + 8) == count * VF3_GD_SECTOR, "size word %x", fm_read(&fm, out + 8));
+    r[6] = 1;
+    CHECK(!vf3_bios_gd_syscall(&gd, &gm, r, &r0), "r6 != 0 must be left to the caller");
+    uint8_t refsec[VF3_GD_SECTOR];
+    int bad = 0;
+    for (uint32_t i = 0; i < count; ++i)
+        if (vf3_gdi_read_sector(gdi, fad + i, refsec) != 0 || memcmp(refsec, s.mem + i * VF3_GD_SECTOR, VF3_GD_SECTOR)) ++bad;
+    CHECK(bad == 0, "%d syscall-delivered sectors differ", bad);
+    printf("syscall cycle: %u sectors, %d differ\n", count, bad);
+    free(s.mem);
+    free(ram);
+}
+
 int main(int argc, char **argv)
 {
     const char *gdi_path = argc > 1 ? argv[1] : "rom/vf3.gdi";
     vf3_gdi gdi;
     if (vf3_gdi_open(&gdi, gdi_path) != 0) { printf("cannot open %s - skipped\n", gdi_path); return 0; }
     full_cycle(&gdi);
+    syscall_cycle(&gdi);
     resume_from_dump(&gdi, argc > 2 ? argv[2] : "extract/analysis/gd_state/vf3_24.txt");
     resume_from_dump(&gdi, "extract/analysis/gd_state/vf3_25.txt");
     printf(failures ? "gdrom_hle: %d FAILURES\n" : "gdrom_hle: all checks passed\n", failures);
