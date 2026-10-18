@@ -43,9 +43,20 @@ static int run(uint8_t *ram, const snap *s, uint32_t entry, uint32_t stop, const
 /* --irq-in-poll: the vblank handlers are taken inside the BIOS poll of the last iteration of a frame, as the real interrupt is */
 static struct { int armed; uint8_t *ram; const snap *a, *b; uint32_t irqa, irqb; int failed; } irq;
 
+/* --cycle-frames: a free-running clock; every served poll costs per_poll cycles and the vblank pair is taken inside the poll
+ * whose cycle count crosses the next frame boundary */
+static struct { int on; uint64_t now, next; unsigned taken; uint32_t per_poll; vf3_gdrom *gd; } clk;
+
 static void poll_irq(void *ctx)
 {
     (void)ctx;
+    if (clk.on) {
+        clk.now += clk.per_poll;
+        if (clk.now < clk.next) return;
+        clk.next += CYCLES_PER_FRAME;
+        ++clk.taken;
+        irq.armed = 1;
+    }
     if (!irq.armed) return;
     irq.armed = 0;
     if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) irq.failed = 1;
@@ -56,6 +67,8 @@ int main(int argc, char **argv)
     const char *gdi_path = NULL, *gd_state = NULL;
     uint32_t loop_entry = 0, loop_stop = 0, irqa = 0, irqb = 0, per_poll = 2688, per_step = 1000000;
     int in_poll = 0;
+    uint64_t gd_phase = 0;
+    unsigned cycle_frames = 0;
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
     if (argc < 4) { fprintf(stderr, "usage: vf3boot loop.bin irqA.bin irqB.bin --loop-entry E --loop-stop S --irqa E --irqb E [--frames N] [--first-polls P] [--gdi f --gd-state f]\n"); return 2; }
     for (int i = 4; i + 1 < argc; i += 2) {
@@ -67,6 +80,8 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--frames")) frames = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--polls-per-frame")) polls_per_frame = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--first-polls")) first_polls = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--cycle-frames")) cycle_frames = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--gd-phase")) gd_phase = (uint64_t)strtoull(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
         else if (!strcmp(k, "--gdi")) gdi_path = v;
         else if (!strcmp(k, "--gd-state")) gd_state = v;
@@ -99,8 +114,23 @@ int main(int argc, char **argv)
         }
         vf3_native_attach_gdrom(&gd);
         vf3_bios_gd_set_cycle_clock(per_poll, per_step);
+        if (gd_phase) vf3_bios_gd_advance_cycles(&gd, gd_phase);   /* the drive is part-way through a step when the capture begins */
     }
 
+    if (cycle_frames) {
+        clk.on = 1; clk.per_poll = per_poll; clk.next = CYCLES_PER_FRAME - (uint64_t)(first_polls ? first_polls : 0) * per_poll * 0; clk.gd = gdi_path ? &gd : NULL;
+        if (first_polls) clk.next = (uint64_t)first_polls * per_poll;
+        irq.ram = loop.ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
+        vf3_native_set_poll_hook(poll_irq, NULL);
+        unsigned iters = 0;
+        while (clk.taken < cycle_frames) {
+            if (!run(loop.ram, &loop, loop_entry, loop_stop, "wait loop") || irq.failed) { fprintf(stderr, "vf3boot: stopped after %u iterations, %u frames\n", iters, clk.taken); return 1; }
+            ++iters;
+        }
+        printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
+        if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);
+        return 0;
+    }
     uint8_t *ram = loop.ram;
     irq.ram = ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
     if (in_poll) vf3_native_set_poll_hook(poll_irq, NULL);

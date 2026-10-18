@@ -477,3 +477,11 @@ are the BIOS work area. `--irq-in-poll 1` takes both vblank handlers inside the 
 `vf3_native_tick_run` (`vf3_native_set_poll_hook`; the interrupted run's machine and XF bank are saved and restored); it runs
 clean, and the handlers' own writes are then the extra diff against the *pre*-IRQ reference, as expected. `VF3_DEVLOG=1` prints
 every device-register read of a run.
+
+### Free-running clock (vf3boot --cycle-frames N --gd-phase P)
+Every served poll costs 2688 cycles; the vblank pair is taken inside the poll whose running count crosses the next 3,336,670-cycle
+boundary (first boundary = `--first-polls` x 2688). `--gd-phase 565440` starts the drive part-way through a step (the emulator's
+first step fell 434,560 cycles after the first poll). State 30, 2 vblanks (1773 iterations, 4,765,824 cycles): the model ends with
+**191 sectors left, cur 0x68F0A, the same as the emulator's GD log at that cycle** (without the phase it is one step behind, 196).
+The run completes with no failed handler or unowned call; the RAM diff against the emulator is not meaningful past frame 1 because the
+recorded irqA pairs are not consecutive frames.
