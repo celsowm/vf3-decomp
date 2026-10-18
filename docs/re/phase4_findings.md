@@ -81,3 +81,19 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - Result of the 900-vblank native run from state 21 (13.5 min wall): ok 1, 0 unowned, 3.0e9 cycles, GD idle (0 sectors left)
   and no new request is ever issued. So the next read is not a timing artefact; the frame loop is missing a condition that the
   emulator satisfies (next lead: diff the frame-loop task state, [0x0C16CDF0..] and the request-issuing caller of 0x0C035848).
+
+## State 21 gate found: AICA sound RAM was not modelled (2026-10-18)
+The post-wait caller (0x0C0C5C3A) loads DTPK files into sound RAM through the loader at 0x0C0406B2. Its header check
+(0x0C040154) reads **AICA RAM 0xA0800088** (driver-published free size, `0x001E0000` in the emulator) and fails with -4 if the
+file does not fit; native device reads returned 0, so the loader reported an error, closed the GDFS (globals 0x0C0EA2EC /
+0x0C0EA314 zeroed), every later open failed, and the game never asked the GD for the next file.
+- Fix: `native_tick.c` now backs 0x00800000-0x009FFFFF with a 2 MB array (`vf3_native_aica_poke`, boot_sim `--aica-word off:val`;
+  boot_states and grow_boot pass `88:001e0000`).
+- The upload then handshakes with the ARM7 driver through the mailbox: `[0xB4]` goes 0 -> 1 after 2223 polls, the SH-4 writes
+  `[0xB0]=1`, `[0xB4]` drops to 0 after ~5947 polls, the SH-4 clears `[0xB0]` (emulator trace, tools/mem_watch.py). Modelled by poll
+  count. `[0x98]` (command-taken flag the SH-4 polls) reads 0.
+- Result: from state 21 native now loads on, issues the next GD request and sits in a second loader wait (GD status 1);
+  states 26, 27, 28 reach the frame loop with 0 genuine unowned calls. State 29/46 grow past 0x0C0AB8A0 only to reach the
+  frame loop. The second loader wait is not yet driven by the harness (it only drives the first), which is the next item.
+- New debug: `VF3_TRACE_ENTRIES` now also prints `leave` lines (r0) and the AICA/GDFS globals on 0x0C035C60;
+  `tools/entry_order.py` lists emulator entry order + callers from a savestate.

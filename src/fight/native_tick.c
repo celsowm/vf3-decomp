@@ -37,6 +37,9 @@ int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37],
 
 /* ---------------------------------------------------------------- the machine around the tick */
 
+#define AICA_RAM_BASE 0x00800000u
+#define AICA_RAM_LEN 0x200000u
+
 static struct {
     unsigned reads, writes, readable_calls, unowned_calls;
     uint32_t first_unowned;
@@ -55,6 +58,19 @@ static struct {
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
 } machine;
 
+/* sound RAM (0x00800000): the loader reads the driver-published free size at 0x88. Kept outside `machine`, which nested runs copy */
+static uint8_t aica_ram[AICA_RAM_LEN];
+
+/* The ARM7 sound driver answers the SH-4 upload mailbox at 0x008000B0 (command, written by the SH-4) / 0x008000B4 (state,
+ * written by the driver): the driver raises B4 once it is idle, the SH-4 sets B0 = 1, the driver clears B4 when it has taken
+ * the data, the SH-4 clears B0. Poll counts measured in the emulator from savestate 21 (docs/re/phase4_findings.md). */
+#define AICA_MBOX_CMD 0x008000B0u
+#define AICA_MBOX_STATE 0x008000B4u
+#define AICA_MBOX_BUSY 0x00800098u
+#define AICA_MBOX_IDLE_POLLS 2223u
+#define AICA_MBOX_BUSY_POLLS 5947u
+static unsigned aica_mbox_polls;
+
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
     (void)context; (void)size;
@@ -63,6 +79,18 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
+    if ((address & 0x1FFFFFFFu) == AICA_MBOX_BUSY) return 0;   /* the driver has always already taken the SH-4's command */
+    if ((address & 0x1FFFFFFFu) == AICA_MBOX_STATE) {
+        uint32_t cmd;
+        memcpy(&cmd, aica_ram + (AICA_MBOX_CMD - AICA_RAM_BASE), 4);
+        ++aica_mbox_polls;
+        return cmd ? (aica_mbox_polls >= AICA_MBOX_BUSY_POLLS ? 0u : 1u) : (aica_mbox_polls >= AICA_MBOX_IDLE_POLLS ? 1u : 0u);
+    }
+    if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN) {
+        uint32_t v = 0;
+        memcpy(&v, aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), size > 4 ? 4 : size);
+        return v;
+    }
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) return machine.istnrm;
     return 0;
@@ -73,6 +101,9 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     (void)context; (void)size;
     ++machine.writes;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
+    if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
+    if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN)
+        memcpy(aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), &value, size > 4 ? 4 : size);
     if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) ++machine.maple_started;
     if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
@@ -91,8 +122,16 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
  * (the boot loader's own functions are not in the fight table) */
 static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
 {
-    (void)ram; (void)ok;
-    fprintf(stderr, "enter %08x pr %08x sp %08x\n", entry, s->v[16], s->v[15]);
+    (void)ok;
+    fprintf(stderr, "enter %08x pr %08x sp %08x%c", entry, s->v[16], s->v[15], 10);
+    if (entry == 0x0C040154u) fprintf(stderr, "  hdr r4 %08x [r4] %08x r5 %08x%c", s->v[4], vf3_matrix_read(ram, s->v[4], 4), s->v[5], 10);
+    if (entry == 0x0C035C60u) fprintf(stderr, "  [0c0ea314] %08x [0c0ea2ec] %08x%c", vf3_matrix_read(ram, 0x0C0EA314u, 4), vf3_matrix_read(ram, 0x0C0EA2ECu, 4), 10);
+}
+
+static void trace_leave(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
+{
+    (void)ram;
+    fprintf(stderr, "leave %08x ok %d r0 %08x pc %08x%c", entry, ok, s->v[0], s->pc, 10);
 }
 
 static int call_target(uint32_t entry)
@@ -142,6 +181,7 @@ void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
 void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
+void vf3_native_aica_poke(uint32_t offset, uint32_t value) { if (offset <= AICA_RAM_LEN - 4) memcpy(aica_ram + offset, &value, 4); }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
@@ -216,7 +256,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_missing = unowned_hook;
     vf3_family_fail = NULL;
     vf3_family_enter = getenv("VF3_TRACE_ENTRIES") ? trace_enter : NULL;
-    vf3_family_leave = NULL;
+    vf3_family_leave = getenv("VF3_TRACE_ENTRIES") ? trace_leave : NULL;
     vf3_family_call_entry = call_target;
     vf3_family_complete_calls = 1;
     vf3_family_extra_stop = machine.extra_stop;

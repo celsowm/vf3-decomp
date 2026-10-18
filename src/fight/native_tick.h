@@ -68,6 +68,8 @@ unsigned vf3_native_take_dma2(void);
 unsigned vf3_native_take_maple(uint32_t *list);
 /* ASIC normal-interrupt status the model keeps: raise bits, read what is pending, count STARTRENDER writes. */
 void vf3_native_raise_asic(uint32_t mask);
+/* write one word of the modelled AICA sound RAM (offset from 0x00800000) before a run */
+void vf3_native_aica_poke(uint32_t offset, uint32_t value);
 uint32_t vf3_native_asic_pending(void);
 unsigned vf3_native_take_render(void);
 /* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop). */

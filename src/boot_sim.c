@@ -176,6 +176,7 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--slice")) slice_steps = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--vblank-cap")) irq_cap = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--maple-inflight")) maple_inflight = (int)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--aica-word")) { unsigned ao, av; if (sscanf(v, "%x:%x", &ao, &av) == 2) vf3_native_aica_poke(ao, av); }
         else if (!strcmp(k, "--free")) free_run = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--continue")) go_on = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }

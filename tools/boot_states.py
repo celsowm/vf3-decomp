@@ -62,7 +62,7 @@ def run(n: int, cap: int, timeout: int, free: str = '') -> dict:
     cmd = [str(EXE), str(v), str(A / 'golden_bootI_vf3_30.bin'), str(A / 'golden_bootS_vf3_30.bin'),
            '--loop-entry', free or '0x8c035cba', '--loop-stop', '0x0c035530', *(['--free', '1'] if free else []), '--irqa', '0x8c063d1e', '--irqb', '0x8c062e94',
            '--cycle-frames', '300', '--first-polls', '531', '--gd-phase', '565440', '--full-loop', '1', '--continue', '4000',
-           '--vblank-cap', str(cap), '--gdi', str(REPO / 'rom' / 'vf3.gdi'), '--gd-state', str(g)]
+           '--vblank-cap', str(cap), '--aica-word', '88:001e0000', '--gdi', str(REPO / 'rom' / 'vf3.gdi'), '--gd-state', str(g)]
     try:
         p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=REPO)
     except subprocess.TimeoutExpired:

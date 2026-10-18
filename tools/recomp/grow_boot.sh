@@ -17,7 +17,7 @@ while [ $i -lt $ROUNDS ]; do
     i=$((i + 1))
     out=$(./build/vf3boot.exe $A/golden_bootV_vf3_$ST.bin $A/golden_bootI_vf3_30.bin $A/golden_bootS_vf3_30.bin \
         --loop-entry 0x8c035cba --loop-stop 0x0c035530 --irqa 0x8c063d1e --irqb 0x8c062e94 --cycle-frames 300 \
-        --first-polls 531 --gd-phase 565440 --full-loop 1 --continue 4000 --gdi rom/vf3.gdi \
+        --first-polls 531 --gd-phase 565440 --full-loop 1 --continue 4000 --aica-word 88:001e0000 --vblank-cap 120 --gdi rom/vf3.gdi \
         --gd-state $A/gdstate_s${ST}_0c0432de.txt 2>&1 | grep -E "hop|after the wait" | tail -2)
     echo "round $i: $out" | tail -3
     bad=$(echo "$out" | grep -o "failed [0-9a-f]*" | tail -1 | cut -d' ' -f2)
