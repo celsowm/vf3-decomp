@@ -359,3 +359,11 @@ the ~10,000-byte destination diff. `vf3_bios_gd_set_poll_divider(n)` / `--gd-pol
 poll; with n = 179 the 0x8C034864 span in states 21, 30 and 42 is again bit-exact (4-byte return slot only) with the
 clock RUNNING, no VF3_GD_NOCLOCK needed. A real model should be vblank/frame driven (one step per N frames); polls
 per frame is not logged yet, so the divider is the stand-in until the observer records frame numbers.
+
+## Idle-loop spans across the boot states
+
+Most boot savestates are the same GD idle loop (edge logs: 0x8C035CBA / 0x8C0434C8 / 0x8C0430B4 / 0x8C0432DE at depth 1-3).
+`tools/recomp/boot_span.sh <entry> <state...>` captures a function and replays it natively against the recorded exit.
+0x8C0434C8 (the EXEC_SERVER caller) in states 21 23 24 27 28 29 44 45 46: 6 blocks, 1 readable port, 0 unowned, and 4 bytes
+differ (the saved-return slot) in all nine. With 0x8C034864 in 21/30/42 that is 12 of the 27 boot states running bit-exact
+spans. Not idle-loop states (different code, where the unported long tail lives): 20, 25, 31-36, 38, 39, 40.
