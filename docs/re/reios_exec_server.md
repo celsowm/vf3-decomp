@@ -309,3 +309,8 @@ entry read from 0x8C0000BC, r6 = 0, r7 = 2) and replays **3/3** against the jmp-
 different conventions: 0x8C0430A0 makes a guest call that returns to the caller's pr (verified through the wrapper
 replay), 0x8C0430B4 and 0x8C035CBA end with pc at the jump target (verified against jmp-boundary corpora). A native
 runner has to honor both. 158 readable entries.
+
+Correction (read of `vf3_matrix_family`, src/fight/matrix_family.c:763): the walker already honors tail-jump ports. With
+`vf3_family_complete_calls` set (native_tick sets it), a call whose pc comes back different from the caller's pr is
+continued as a nested dispatch at that pc until control reaches the pr. So 0x8C0430B4 and 0x8C035CBA need no walker
+change; what is still missing is a boot-state native harness (states 20-46) to exercise them.
