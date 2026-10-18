@@ -382,10 +382,10 @@ the remaining non-game boot code and needs its own decision (port or treat as a 
 
 Edge logs (extract/analysis/p4/e<N>.bin) and run PCs (p4/l<N>.log) classify every boot savestate:
 
-- **Game code, native span bit-exact (return slot only):** 21-30, 32, 37?, 39, 40, 41?-46 where captured. Verified this session:
-  21 22? 23 24 25 27 28 29 30 32 39 40 42 44 45 46 (`boot_span.sh`; the GD wrapper chain in 21/30/42, the EXEC_SERVER caller
-  0x8C0434C8 in 21 23 24 25 27 28 29 44 45 46, 0x8C03658C / 0x8C0365EA / 0x8C053CA4 / 0x8C046AEE in 32 and 39, the state-40 matrix
-  and 0x8C048Bxx functions). 0x8C0365EA in state 39 is exactly 0 bytes (no stack slot).
+- **Game code, native span bit-exact (saved-return slot only):** 21-30, 32, 39, 40, 42-46 (`boot_span.sh`): the GD wrapper
+  chain 0x8C034864 in 21/30/42; the EXEC_SERVER caller 0x8C0434C8 in 21-26 (all of 21 22 23 24 25 26), 27 28 29 and 43-46;
+  0x8C03658C / 0x8C0365EA / 0x8C053CA4 / 0x8C046AEE in 32 and 39 (0x8C0365EA is exactly 0 bytes); the state-40 matrix and
+  0x8C048Bxx functions. States 37 and 41 are fight states, covered by the whole-tick native runs.
 - **System-area bootstrap, not game code:** 20, 35, 36 run at 0x8C008xxx-0x8C00Axxx (IP.BIN, edge targets 0x8C0083C0, 0x8C009DEC...);
   31, 33, 34, 38 run the uncached system code at 0xAC0044D4 / 0xAC00479A / 0xAC005880 / 0xAC0059EA (edge `0x18012E2A` etc. are
   BIOS/flash addresses). 1ST_READ.BIN does not contain this code and the port does not own it. Decision: the platform boundary
