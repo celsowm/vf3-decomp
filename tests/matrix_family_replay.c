@@ -1,5 +1,7 @@
 #include "port_harness.h"
 #include "fight/matrix_family.h"
+#include "fight/family_hooks.h"
+#include "fight/readable.h"
 static FILE *xfin,*xfout,*extra,*gbr,*bank_file,*device_file;
 static uint32_t entry;
 typedef struct { uint32_t address,size,value,write; } DeviceAccess;
@@ -76,7 +78,16 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
     }
     return vf3h_mem_ok(m,err,len);
 }
+/* VF3_READABLE=1: let the readable ports of src/fight/readable.c pre-empt the generated chain, so the same oracle cases
+ * check the readable C instead of the generated adapter. */
+static unsigned readable_used;
+static int readable_hook(uint32_t e,vf3_matrix_state*s,const vf3_ram_map*ram,int*handled) {
+    const int ok=vf3_readable_override(e,s,ram,handled);
+    if(*handled) ++readable_used;
+    return ok;
+}
 int main(int argc,char**argv) {
+    if(getenv("VF3_READABLE")) vf3_family_override=readable_hook;
     if(argc!=3) { fprintf(stderr,"usage: vf3matrixfamily entry cases\n"); return 2; }
     entry=(uint32_t)strtoul(argv[1],NULL,0);
     char path[1400],stem[1200]; snprintf(stem,sizeof(stem),"%s",argv[2]);
@@ -90,6 +101,7 @@ int main(int argc,char**argv) {
     if(!xfin||!xfout||!extra) return 2;
     char *args[]={argv[0],argv[2]};
     int result=vf3h_harness_main(2,args,"matrix_family",argv[2],run_case);
+    if(getenv("VF3_READABLE")) printf("readable ports used: %u calls\n",readable_used);
     if(fgetc(xfin)!=EOF || fgetc(xfout)!=EOF || fgetc(extra)!=EOF) result=1;
     if(gbr && fgetc(gbr)!=EOF) result=1;
     if(bank_file && fgetc(bank_file)!=EOF) result=1;

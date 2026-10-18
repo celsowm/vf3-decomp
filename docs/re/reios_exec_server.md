@@ -275,3 +275,11 @@ extract/analysis/goldens_gdw<N>/f_8c0432de.cases` is **1/1 PASS in states 42, 21
 and the C GD model together reproduce the oracle's registers and memory for the BUSY polling case. The stubs themselves
 (0x8C0430A0 / 0x8C0430B4) still have no clean boundary - their recorded exit is the BIOS entry or the caller - so they
 are verified only as part of the wrapper.
+
+Readable port of the wrapper: `src/fight/gd_status_wrapper.c` (0x8C0432DE, translates the BIOS GET_CMD_STAT status and
+error words into the loader's result codes). `tests/matrix_family_replay.c` gained `VF3_READABLE=1` (the readable ports
+pre-empt the generated chain; it prints how many calls they served), so the same oracle cases check the readable C:
+`VF3_READABLE=1 VF3_GD_STATE=extract/analysis/gdstatew_s<N>.txt VF3_STRICT_REPLAY=1 build/vf3matrixfamily.exe
+0x8c0432de extract/analysis/goldens_gdw<N>/f_8c0432de.cases` passes 1/1 in states 42, 21 and 30 with 1 readable call.
+Only the BUSY path (status 1) is covered by the cases; the other status branches and the error table are transcribed
+from the disassembly (braf table at 0x8C043360) and not oracle-checked. Fight-state regression unchanged (155 entries).
