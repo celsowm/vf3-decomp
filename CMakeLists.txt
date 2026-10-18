@@ -469,6 +469,8 @@ target_link_libraries(vf3loop PRIVATE vf3core)
 add_executable(vf3libutil tests/libutil_replay.c)
 target_link_libraries(vf3libutil PRIVATE vf3core)
 
+add_executable(vf3boot src/boot_sim.c)
+target_link_libraries(vf3boot PRIVATE vf3core)
 add_executable(vf3gdrom tests/gdrom_hle_test.c src/sys/gdrom_hle.c src/sys/bios_syscall.c)
 target_include_directories(vf3gdrom PRIVATE src)
 

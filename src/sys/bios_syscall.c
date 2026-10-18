@@ -17,6 +17,12 @@ void vf3_bios_gd_set_poll_divider(uint32_t polls)
     polls_seen = 0;
 }
 
+void vf3_bios_gd_advance_cycles(vf3_gdrom *gd, uint64_t cycles)
+{
+    if (!cycles_per_step || gd->st.status != VF3_GDC_BUSY) return;
+    for (cycle_acc += cycles; cycle_acc >= cycles_per_step; cycle_acc -= cycles_per_step) vf3_gd_sched_step(gd);
+}
+
 int vf3_bios_gd_syscall_clocked(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out)
 {
     if (r[6] == 0 && r[7] == VF3_GD_GET_CMD_STAT && gd->st.status == VF3_GDC_BUSY && cycles_per_step) {

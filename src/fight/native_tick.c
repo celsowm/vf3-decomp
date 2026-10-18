@@ -25,58 +25,14 @@ static int read_rec(FILE *f, uint64_t *v) { return fread(v, 8, 1, f) == 1; }
 /* the extended bank (xfpc records) of the last loaded entry; zero when the capture carries none */
 static uint32_t snapshot_xf[16];
 
+void vf3_native_get_xf(uint32_t xf[16]) { memcpy(xf, snapshot_xf, sizeof snapshot_xf); }
+void vf3_native_set_xf(const uint32_t xf[16]) { memcpy(snapshot_xf, xf, sizeof snapshot_xf); }
+
+static int load_pair(const char *path, unsigned pair, int want_exit, uint32_t regs[37], uint8_t **ram);
+
 int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram)
 {
-    memset(snapshot_xf, 0, sizeof snapshot_xf);
-    FILE *f = fopen(path, "rb");
-    uint64_t v;
-    unsigned seen = 0;
-    int stage = 0; /* 0 wait entry regs, 1 wait entry RAM, 2 skip to the pair's exit regs */
-    *ram = NULL;
-    if (!f) return 0;
-    while (read_rec(f, &v)) {
-        const uint32_t marker = (uint32_t)(v & 0xFFFFu);
-        if ((v >> 16) == 0 || marker < 0xFA30) continue;
-        if (marker == 0xFA30 && stage == 0) {
-            if (seen != pair) { stage = 2; continue; }
-            for (int i = 0; i < 37; ++i) {
-                if (!read_rec(f, &v)) goto fail;
-                regs[i] = (uint32_t)v;
-            }
-            stage = 1;
-        } else if (marker == 0xFA70 && stage == 1) {
-            for (int i = 0; i < 16; ++i) {
-                if (!read_rec(f, &v)) goto fail;
-                snapshot_xf[i] = (uint32_t)(v >> 16);
-            }
-        } else if (marker == 0xFA50 && stage == 1) {
-            uint64_t windows;
-            if (!read_rec(f, &windows)) goto fail;
-            for (uint32_t w = 0; w < (uint32_t)windows; ++w) {
-                uint64_t base, len;
-                if (!read_rec(f, &base) || !read_rec(f, &len)) goto fail;
-                const int is_ram = (uint32_t)base == VF3_NATIVE_RAM_BASE && (uint32_t)len == VF3_NATIVE_RAM_LEN;
-                if (is_ram && !*ram) *ram = malloc(VF3_NATIVE_RAM_LEN);
-                for (uint32_t i = 0; i < (uint32_t)len / 4; ++i) {
-                    if (!read_rec(f, &v)) goto fail;
-                    if (is_ram && *ram) {
-                        const uint32_t word = (uint32_t)v;
-                        memcpy(*ram + 4 * i, &word, 4);
-                    }
-                }
-            }
-            fclose(f);
-            return *ram != NULL;
-        } else if (marker == 0xFA32 && stage == 2) {
-            ++seen;
-            stage = 0;
-        }
-    }
-fail:
-    fclose(f);
-    free(*ram);
-    *ram = NULL;
-    return 0;
+    return load_pair(path, pair, 0, regs, ram);
 }
 
 /* ---------------------------------------------------------------- the machine around the tick */
@@ -253,34 +209,48 @@ static int read_windows(FILE *f, uint8_t **ram)
 
 int vf3_native_load_exit(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram)
 {
+    return load_pair(path, pair, 1, regs, ram);
+}
+
+/* Walks the recording structurally (marker, then exactly its payload), so RAM words that happen to look like a marker are never
+ * mistaken for one: per pair entry regs (0xFA30) [+ XF bank 0xFA70] + entry windows (0xFA50), exit regs (0xFA32) + exit windows (0xFA60). */
+static int load_pair(const char *path, unsigned pair, int want_exit, uint32_t regs[37], uint8_t **ram)
+{
     FILE *f = fopen(path, "rb");
     uint64_t v;
     unsigned seen = 0;
     int stage = 0; /* 0 entry regs, 1 entry windows, 2 exit regs, 3 exit windows */
     *ram = NULL;
+    memset(snapshot_xf, 0, sizeof snapshot_xf);
     if (!f) return 0;
     while (read_rec(f, &v)) {
         const uint32_t marker = (uint32_t)(v & 0xFFFFu);
         if ((v >> 16) == 0 || marker < 0xFA30) continue;
+        const int mine = seen == pair;
         if (marker == 0xFA30 && stage == 0) {
-            for (int i = 0; i < 37; ++i) if (!read_rec(f, &v)) goto fail;
+            for (int i = 0; i < 37; ++i) {
+                if (!read_rec(f, &v)) goto fail;
+                if (mine && !want_exit) regs[i] = (uint32_t)v;
+            }
             stage = 1;
+        } else if (marker == 0xFA70 && stage == 1) {
+            for (int i = 0; i < 16; ++i) {
+                if (!read_rec(f, &v)) goto fail;
+                if (mine && !want_exit) snapshot_xf[i] = (uint32_t)(v >> 16);
+            }
         } else if (marker == 0xFA50 && stage == 1) {
-            if (!read_windows(f, NULL)) goto fail;
+            if (!read_windows(f, mine && !want_exit ? ram : NULL)) goto fail;
+            if (mine && !want_exit) { fclose(f); return *ram != NULL; }
             stage = 2;
         } else if (marker == 0xFA32 && stage == 2) {
             for (int i = 0; i < 37; ++i) {
                 if (!read_rec(f, &v)) goto fail;
-                if (seen == pair) regs[i] = (uint32_t)v;
+                if (mine && want_exit) regs[i] = (uint32_t)v;
             }
             stage = 3;
         } else if (marker == 0xFA60 && stage == 3) {
-            if (seen == pair) {
-                if (!read_windows(f, ram)) goto fail;
-                fclose(f);
-                return *ram != NULL;
-            }
-            if (!read_windows(f, NULL)) goto fail;
+            if (!read_windows(f, mine && want_exit ? ram : NULL)) goto fail;
+            if (mine && want_exit) { fclose(f); return *ram != NULL; }
             ++seen;
             stage = 0;
         }

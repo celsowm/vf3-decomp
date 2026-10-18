@@ -452,3 +452,19 @@ unowned, return slot only - once the one hardware read is modelled: the vblank h
 (a constant standing for "the line the vblank-in interrupt is raised on"; no beam model). 0x8C062E94 is also bit-exact in states 21, 42 and 43.
 So the interrupt side of the timer model is: raise the vblank handlers (0x8C063D1E then 0x8C062E94 after the BIOS dispatcher) every
 ~3.34M cycles on top of the polling loop; what's missing is the injection itself in the native runner.
+
+## One native frame of the loader (vf3boot, state 30)
+
+`build/vf3boot` (src/boot_sim.c) runs `polls` wait-loop iterations on the cycle-clocked GD model, then the two vblank handlers
+with their recorded entry registers, and diffs the RAM with the emulator's RAM at the next recorded vblank entry
+(`BS_REF=<pair>` picks the reference pair; the irqA capture's pairs are NOT consecutive frames - pair 1 already holds 446 more
+sectors than pair 0, so pair 0 is the frame that follows loop pair 0).
+State 30, 531 polls, reference irqA pair 0: **8312 bytes differ**, split as
+- 8192 bytes at 0x0C83C000-0x0C83E000: the five sectors the first drive step moves. The emulator's copies are pure 0x00/0x80
+  filler sectors (and so are its sectors for the whole 0x0C828800.. destination), while the disc image's FADs 0x68EC9.. carry
+  ff-filled and mixed data. The content the emulator delivers is not the disc's data at those FADs, so this block is a
+  data-fidelity question about the oracle, not a timing error of the model (the model's sector count agrees: 211 left).
+- ~98 bytes in the BIOS work area 0x0C00E000/0x0C00F000 (BIOS interrupt-context saves; the BIOS is not modelled);
+- ~20 bytes in game areas (0x0C0EA000, 0x0C16C000, 0x0C198000, 0x0C19E000-0x0C1A0000, 0x0C2A6000/7000, 0x0C31F000) - ordering
+  noise from taking the interrupt between iterations instead of inside a BIOS poll.
+`vf3_bios_gd_advance_cycles` lets time outside the polls (interrupt work) move the drive.

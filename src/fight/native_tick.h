@@ -41,6 +41,9 @@ typedef struct {
 /* Load the entry state of pair `pair` from a tools/tick_capture.py recording:
  * the 37 registers and the 16 MiB RAM image. *ram is malloc'd. Returns 1 on success. */
 int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram);
+/* The extended (XF) bank of the last loaded entry, and the one the next run starts with. */
+void vf3_native_get_xf(uint32_t xf[16]);
+void vf3_native_set_xf(const uint32_t xf[16]);
 /* The RAM and registers the recorded run ended with (the hardware reference for a whole-run comparison). */
 int vf3_native_load_exit(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram);
 
