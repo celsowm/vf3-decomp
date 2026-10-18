@@ -88,6 +88,7 @@ static int readable_hook(uint32_t e,vf3_matrix_state*s,const vf3_ram_map*ram,int
 }
 int main(int argc,char**argv) {
     if(getenv("VF3_READABLE")) vf3_family_override=readable_hook;
+    if(getenv("VF3_COMPLETE_CALLS")) vf3_family_complete_calls=1;
     if(argc!=3) { fprintf(stderr,"usage: vf3matrixfamily entry cases\n"); return 2; }
     entry=(uint32_t)strtoul(argv[1],NULL,0);
     char path[1400],stem[1200]; snprintf(stem,sizeof(stem),"%s",argv[2]);

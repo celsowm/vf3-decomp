@@ -111,6 +111,13 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     machine.ta[machine.ta_len++] = value;
 }
 
+/* the oracle-derived table only knows entries the captured fight ticks called; every readable port is a function entry too
+ * (the boot loader's own functions are not in the fight table) */
+static int call_target(uint32_t entry)
+{
+    return vf3_native_call_target(entry) || vf3_readable_find(entry) != NULL;
+}
+
 static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
     const int ok = vf3_readable_override(entry, s, ram, handled);
@@ -185,7 +192,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_missing = unowned_hook;
     vf3_family_fail = NULL;
     vf3_family_enter = vf3_family_leave = NULL;
-    vf3_family_call_entry = vf3_native_call_target;
+    vf3_family_call_entry = call_target;
     vf3_family_complete_calls = 1;
     vf3_sq_model = 1;
 

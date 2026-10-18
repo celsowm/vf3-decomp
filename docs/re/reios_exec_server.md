@@ -404,3 +404,17 @@ it was consistent with 250 polls (672k cycles) of no change in states 21/42 and 
 states 21/30/42 stay bit-exact. What this is not: the poll cost is the idle loop's, a different caller loop would need its
 own per-poll cost, so the real model is a cycle counter advanced by executed instructions (native_tick does not count
 cycles yet).
+
+## The loader's trampoline chain: 0x8C035CBA -> 0x8C035238 -> 0x8C0434C8 (state 21/30)
+
+The state-21 "iteration" of the earlier section is really the vtable trampoline call at 0x8C03552C: it tail-jumps to
+[[0x0C0EA314]+68] = 0x8C035238, a virtual-call prologue (`obj=[0x0C0EA2EC]; ([[obj+20]+64])()` -> falls into 0x8C035248),
+whose slot is 0x8C0434C8 (the EXEC_SERVER caller). The span capture `tick_capture.py 0x8c035cba --exitpc 0x8c0349a6`
+replays natively with 0x8C035238 now a readable port (`src/fight/loader_dispatch_5238.c`) and with readable ports counted
+as call targets in native_tick (the oracle table only knew the fight ticks' entries, so a boot tail-jump chain stopped at
+the first target). Result, states 21 and 30: 13 bytes differ = the saved-return slot (4), the 0x0C31F9C1 halfword (2) and
+0x0C2A62E8 / 0x0C2A73CC.. (7): the object fields the real EXEC_SERVER round trip updates. The native stand-in returns 0
+without those side effects; they are the GD completion/IRQ work done asynchronously by the emulator's REIOS, i.e. the next
+piece of the timer/interrupt model, not a transcription error in the chain.
+Not yet verified by replay: the port's own corpus (goldens_l238, 1 case) fails in the replay harness at the BIOS tail
+jump (PC 0) even with VF3_COMPLETE_CALLS=1 (new harness switch) and the GD seed; the port is checked by the native span only.
