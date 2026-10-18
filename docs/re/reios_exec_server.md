@@ -331,3 +331,14 @@ call served, 0 unowned) and diffs the whole 16 MiB against the recorded hardware
 States 30 and 42 give the identical result for the same function (captures bootB, seeds gdstate_s{30,42}_0c0432de.txt):
 `VF3_GD_NOCLOCK=1` leaves 4 bytes, the saved-return slot (0x0C31F9C8 there), and nothing else. Three boot states, one
 function: bit-exact modulo the return sentinel and the unmodelled drive cadence.
+
+## State 21 idle loop: iteration capture attempt
+
+The edge log of state 21 shows no function-level exit: each pass through 0x8C035530 returns from 0x8C0349A6 into the
+middle of an outer function that never exits (depth grows). A span there has to be a loop iteration, not a function.
+`tick_capture.py 0x8c035530 --exitpc 0x8c0349a6 --pairs 1` records one, and `build/vf3 ... --entry 0x8c035530
+--stop 0x8c035530` (new `--stop`: end the run when control reaches that address) replays it. Result with
+`VF3_GD_NOCLOCK=1`: 7 bytes differ (stack slots around 0x0C31F9F4..FA), and the native run ends at 0x0C035248 where the
+recording ends at 0x0C035530, i.e. the entry state is mid-function (a return site) and the walker's fragment seed for
+0x8C035530 does not follow the same path as the real rts. Open: define iteration spans from call/return edge pairs
+instead of an arrival pc, then widen to states 20-46.

@@ -53,6 +53,8 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
  * unowned code; sector transfers land in the RAM image of the running tick. Pass NULL to detach. The caller steps the
  * transfer with vf3_gd_sched_step() between ticks (the model has no clock). */
 void vf3_native_attach_gdrom(vf3_gdrom *gd);
+/* End the run when control reaches `pc` (a loop head) instead of at a return to the caller; 0 restores the default. */
+void vf3_native_set_stop(uint32_t pc);
 
 /* Generated: is this a call target (as opposed to a seed in the middle of a function)? */
 int vf3_native_call_target(uint32_t entry);

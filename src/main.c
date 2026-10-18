@@ -115,6 +115,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--hw") && i + 1 < argc) hw = argv[++i];
         else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
         else if (!strcmp(argv[i], "--vs-exit")) vs_exit = 1;
+        else if (!strcmp(argv[i], "--stop") && i + 1 < argc) vf3_native_set_stop((uint32_t)strtoul(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (argv[i][0] != '-' && !capture) capture = argv[i];
