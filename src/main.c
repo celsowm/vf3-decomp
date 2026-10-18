@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "fight/native_tick.h"
+#include "sys/gdrom_hle.h"
 #include "sys/hal.h"
 
 #define DEFAULT_GBR 0x0C16B880u         /* the fight tasks' global-state block, see tick_mixed.c */
@@ -81,9 +82,27 @@ static int compare_ram(const uint8_t *ram, const char *path, const char *hw_path
     return (int)bytes;
 }
 
+/* 16 hex words of the REIOS command state (tools/watch GD log "S" rows), as vf3_aica_stub_adapter reads them */
+static int load_gd_words(vf3_gdrom *gd, const char *path)
+{
+    FILE *f = fopen(path, "r");
+    unsigned w[16];
+    int n = 0;
+    if (!f) return 0;
+    while (n < 16 && fscanf(f, "%x", &w[n]) == 1) ++n;
+    fclose(f);
+    if (n != 16) return 0;
+    vf3_gd_state *st = &gd->st;
+    st->last_request_id = w[0]; st->next_request_id = w[1]; st->status = (int32_t)w[2]; st->command = w[3];
+    for (int i = 0; i < 4; ++i) { st->params[i] = w[4 + i]; st->result[i] = w[8 + i]; }
+    st->cur_sector = w[12]; st->multi_read_sector = w[13]; st->multi_read_offset = w[14]; st->multi_read_count = w[15];
+    st->multi_read_total = w[15];
+    return 1;
+}
+
 int main(int argc, char **argv)
 {
-    const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL;
+    const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL, *gdi_path = NULL, *gd_state = NULL;
     unsigned pair = 0, ticks = 1;
     uint32_t gbr = DEFAULT_GBR, entry = VF3_NATIVE_SCHED_ENTRY;
     for (int i = 1; i < argc; ++i) {
@@ -94,6 +113,8 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--expect") && i + 1 < argc) expect = argv[++i];
         else if (!strcmp(argv[i], "--hw") && i + 1 < argc) hw = argv[++i];
         else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
+        else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
+        else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (argv[i][0] != '-' && !capture) capture = argv[i];
         else { capture = NULL; break; }
     }
@@ -110,8 +131,18 @@ int main(int argc, char **argv)
         return 2;
     }
 
+    vf3_gdi gdi;
+    vf3_gdrom gd;
+    if (gdi_path) {
+        if (vf3_gdi_open(&gdi, gdi_path) != 0) { fprintf(stderr, "vf3: cannot open %s\n", gdi_path); return 2; }
+        vf3_gd_init(&gd, &gdi, NULL, NULL);
+        if (gd_state && !load_gd_words(&gd, gd_state)) { fprintf(stderr, "vf3: bad GD state %s\n", gd_state); return 2; }
+        vf3_native_attach_gdrom(&gd);
+    }
+
     vf3_native_tick_result r;
     vf3_native_tick_run(ram, regs, entry, gbr, &r);
+    if (gdi_path) printf("bios syscalls served: %u\n", r.bios_calls);
     printf("tick %s: pc %08x, %u blocks, %u readable-port calls, %u unowned calls, %u oob accesses\n",
            r.ok ? "completed" : "FAILED", r.pc, r.steps_budget_used, r.readable_calls, r.unowned_calls, r.oob);
     printf("hardware: %u device reads, %u writes outside RAM, %u TA words\n",
