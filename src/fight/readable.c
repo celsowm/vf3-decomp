@@ -151,6 +151,7 @@ int vf3_axis_angle_matrix_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_ring_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec_lerp21_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vec_add_pair_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_gate_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -290,6 +291,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(53)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30)|B(31)|B(32)|B(33)|B(34)|B(35)|B(36)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c0ca6c6u, "ring_probe", vf3_ring_probe_entry,
       B(0)|B(4)|B(17) },
+    { 0x0c08b5dau, "gate_dispatch", vf3_gate_dispatch_entry,
+      B(0)|B(17) },
     { 0x0c092a70u, "vec_add_pair", vf3_vec_add_pair_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26) },
     { 0x0c09f354u, "vec_lerp21", vf3_vec_lerp21_entry,
