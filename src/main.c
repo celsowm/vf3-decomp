@@ -101,10 +101,37 @@ static int load_gd_words(vf3_gdrom *gd, const char *path)
     return 1;
 }
 
+/* The recorded exit is the reference: every byte the native run left different is a finding. Returns the differing bytes. */
+static int report_exit_diff(const char *capture, unsigned pair, const uint8_t *ram, uint32_t native_pc)
+{
+    int status = 0;
+    /* the recorded exit is the reference: every byte the native run left different is a finding */
+    uint8_t *ref;
+    uint32_t xregs[37] = { 0 };
+    if (!vf3_native_load_exit(capture, pair, xregs, &ref)) { fprintf(stderr, "vf3: no exit state in %s\n", capture); status = 1; }
+    else {
+        unsigned bytes = 0, clusters = 0;
+        uint32_t last = 0;
+        for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) {
+            if (ram[i] == ref[i]) continue;
+            if (bytes++ < 16) printf("  ram %08x: native %02x, recorded %02x\n", VF3_NATIVE_RAM_BASE + i, ram[i], ref[i]);
+            if (!(i - last < 4096)) ++clusters;
+            last = i;
+        }
+        if (clusters) printf("%u 4 KiB-separated difference clusters\n", clusters);
+        printf("ram vs recorded exit: %u bytes differ; exit pc native %08x, recorded %08x\n", bytes, native_pc, xregs[16]);
+        if (bytes) status = 1;
+        free(ref);
+    }
+
+    return status;
+}
+
 int main(int argc, char **argv)
 {
     const char *capture = NULL, *expect = NULL, *hw = NULL, *ta_out = NULL, *gdi_path = NULL, *gd_state = NULL;
-    int vs_exit = 0;
+    int vs_exit = 0, exit_after_ticks = 0;
+    unsigned exit_pair = ~0u;
     uint32_t peek[8];
     unsigned npeek = 0;
     unsigned pair = 0, ticks = 1;
@@ -118,6 +145,8 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--hw") && i + 1 < argc) hw = argv[++i];
         else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
         else if (!strcmp(argv[i], "--vs-exit")) vs_exit = 1;
+        else if (!strcmp(argv[i], "--vs-exit-after-ticks")) vs_exit = exit_after_ticks = 1;
+        else if (!strcmp(argv[i], "--exit-pair") && i + 1 < argc) exit_pair = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--stop") && i + 1 < argc) vf3_native_set_stop((uint32_t)strtoul(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--gd-polls-per-step") && i + 1 < argc) vf3_bios_gd_set_poll_divider((uint32_t)strtoul(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--gd-cycles") && i + 2 < argc) { const uint32_t a = (uint32_t)strtoul(argv[i + 1], NULL, 0), b = (uint32_t)strtoul(argv[i + 2], NULL, 0); vf3_bios_gd_set_cycle_clock(a, b); i += 2; }
@@ -145,6 +174,7 @@ int main(int argc, char **argv)
         memcpy(&w, ram + ((peek[k] & 0x0FFFFFFFu) - VF3_NATIVE_RAM_BASE), 4);
         printf("peek %08x at entry = %08x\n", peek[k], w);
     }
+    if (exit_pair == ~0u) exit_pair = exit_after_ticks && ticks ? ticks - 1 : pair;
     vf3_gdi gdi;
     vf3_gdrom gd;
     if (gdi_path) {
@@ -170,26 +200,7 @@ int main(int argc, char **argv)
         printf("peek %08x at exit  = %08x\n", peek[k], w);
     }
     int status = r.ok && !r.unowned_calls ? 0 : 1;
-    if (vs_exit) {
-        /* the recorded exit is the reference: every byte the native run left different is a finding */
-        uint8_t *ref;
-        uint32_t xregs[37] = { 0 };
-        if (!vf3_native_load_exit(capture, pair, xregs, &ref)) { fprintf(stderr, "vf3: no exit state in %s\n", capture); status = 1; }
-        else {
-            unsigned bytes = 0, clusters = 0;
-            uint32_t last = 0;
-            for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) {
-                if (ram[i] == ref[i]) continue;
-                if (bytes++ < 16) printf("  ram %08x: native %02x, recorded %02x\n", VF3_NATIVE_RAM_BASE + i, ram[i], ref[i]);
-                if (!(i - last < 4096)) ++clusters;
-                last = i;
-            }
-            if (clusters) printf("%u 4 KiB-separated difference clusters\n", clusters);
-            printf("ram vs recorded exit: %u bytes differ; exit pc native %08x, recorded %08x\n", bytes, r.pc, xregs[16]);
-            if (bytes) status = 1;
-            free(ref);
-        }
-    }
+    if (vs_exit && !exit_after_ticks) status |= report_exit_diff(capture, exit_pair, ram, r.pc);
     if (expect && compare_ram(ram, expect, hw) != 0) status = 1;
     if (ta_out) {
         FILE *f = fopen(ta_out, "wb");
@@ -208,6 +219,7 @@ int main(int argc, char **argv)
             status = 1;
         }
     }
+    if (vs_exit && exit_after_ticks) status |= report_exit_diff(capture, exit_pair, ram, r.pc);
     free(ram);
     return status;
 }

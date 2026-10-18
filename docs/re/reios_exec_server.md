@@ -421,3 +421,14 @@ missing seed plus a mid-function entry. One whole idle-loop iteration of the loa
 `--peek ADDR` and `VF3_TRACE_ENTRIES=1` (entry trace to stderr) were added to find this.
 Not yet verified by replay: the port's own corpus (goldens_l238, 1 case) fails in the replay harness at the BIOS tail
 jump (PC 0) even with VF3_COMPLETE_CALLS=1 (new harness switch) and the GD seed; the port is checked by the native span only.
+
+### Consecutive iterations (state 21)
+
+`build/vf3 golden_bootV3_vf3_21.bin --entry 0x8c035cba --stop 0x0c035530 --gdi rom/vf3.gdi --gd-state
+extract/analysis/gdstate_s21_0c0432de.txt --gd-cycles 2688 1000000 --ticks N --vs-exit-after-ticks` (new flags;
+`--exit-pair K` picks another recorded exit) runs N back-to-back iterations of the loader's wait loop and diffs the RAM
+against the emulator's N-th recorded exit: N = 1, 2, 3, 6 all give **0 bytes differ, exit pc equal**. (`--ticks` restarts each
+iteration from the entry registers, which for this loop is exactly what the real one does: the loop head's registers are
+reloaded every pass.) Long runs (4000 iterations, ~10.7M cycles of drive time) complete with 0 unowned calls, so the loader
+wait loop runs through the full 0x1F-sector transfer on the cycle clock; what follows completion is unported code and not yet
+compared.
