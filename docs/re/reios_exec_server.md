@@ -223,3 +223,8 @@ architectural effect; the callback wrapper proper starts at 0x8C062E94) and 0x8C
 overflow flags come from the observer's call/return pairing across these trampoline tail-jumps, not from long bodies;
 raising the bound will not help. Next: fix the pairing in vf3oracle.cpp for `jmp`-ended watched entries, or watch the
 callee targets of the trampoline instead.
+
+Retry with transfer boundaries (`exitpc <entry> <jmp pc>` for the three jmp-ended stubs/trampolines, states 42, 21, 30):
+the rejections vanish (`Rejected specimens: {}`), but only 0x8C0432DE yields cases (3 distinct, complete); the stub and
+trampoline entries still export no `.cases`, so their exit snapshots are not being accepted by the converter (not yet
+diagnosed - check the batch manifest / observer log for the jmp-ended entries).
