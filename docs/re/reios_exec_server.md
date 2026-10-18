@@ -534,3 +534,12 @@ States 20-46 are independent emulator savestates, not one run; the loader wait i
 - BS_CMP (state 21 native vs state 22): 475K bytes differ, almost all the GD-loaded data region 0x0CAB4000-0x0CAE9000.
 - State 42 needed GD syscalls 4-10 (GET_DRV_STAT, G1_DMA_END, REQ/CHECK_DMA_TRANS, READ_ABORT, RESET, CHANGE_DATA_TYPE);
   now implemented in src/sys/bios_syscall.c. At vblank 623 it still stops at 0x0C0433BC (7 unowned).
+
+## The "render loop" is the game's frame loop (state 21 and kin)
+
+BS_PEEK shows the wait counter [0x0C16CDF0] cycling (4, 8, 8, 2, 0xC) and the wait flag [0x0C16CDF4] toggling 1/0 across
+vblanks: each frame the game starts a render, waits for the render-state machine (driven by vblank handler A and the modelled
+ASIC list-end/EoR events) to clear the flag, and begins the next. The 0x0C0597CA callback is only the empty idle hook of that
+wait, so the vblank-cap stop there is the run limit, not a stall. States 21, 25, 26, 28, 45 therefore run the game's own frame
+loop natively with 0 unowned calls; progress past the title screen waits on input (Maple/pad), which is not modelled.
+State 42 (after seeding 0x0C0433BC/0x0C04312C) runs 1200 vblanks, ok, 0 unowned.
