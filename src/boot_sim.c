@@ -89,6 +89,11 @@ static uint32_t slice_hook(void)
         ++clk.taken;
         if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) { irq.failed = 1; return 0; }
     }
+    for (unsigned n = vf3_native_take_dma2(); n; --n) {   /* a DMA transfer ended: the ASIC handler clears the channel and starts the next queued one */
+        snap d = *irq.a;
+        d.regs[16] = 0xDEAD0000u;
+        if (!run(irq.ram, &d, 0x0C0631D8u, 0, "dma end")) { irq.failed = 1; return 0; }
+    }
     return clk.taken < 400 ? hook_slice : 0;
 }
 

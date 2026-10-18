@@ -30685,9 +30685,8 @@ P_0c036fee: /* original 64d3, guest PC 0x0c036fee */
 if(!s->budget--) { s->failed_pc=0x0c036feeu; return 0; }
 r[4]=r[13];
 goto P_0c036ff0;
-P_0c036ff0: /* original 04a3, guest PC 0x0c036ff0 */
+P_0c036ff0: /* original 04a3, guest PC 0x0c036ff0 (OCBP: a cache operation, no architectural result) */
 if(!s->budget--) { s->failed_pc=0x0c036ff0u; return 0; }
-s->failed_pc=0x0c036ff0u; return 0;
 goto P_0c036ff2;
 P_0c036ff2: /* original 0009, guest PC 0x0c036ff2 */
 if(!s->budget--) { s->failed_pc=0x0c036ff2u; return 0; }

@@ -48,6 +48,7 @@ static struct {
     uint32_t stop_pc;            /* run ends when control reaches this address (0: the return sentinel) */
     vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
     unsigned bios_calls;
+    unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
 } machine;
 
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
@@ -66,6 +67,7 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
 {
     (void)context; (void)size;
     ++machine.writes;
+    if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
     if (address < TA_AREA_BASE || address >= TA_AREA_END) return;   /* QACR, store-queue folds */
     if (machine.ta_len == machine.ta_cap) {
         machine.ta_cap = machine.ta_cap ? 2 * machine.ta_cap : 1u << 16;
@@ -101,6 +103,14 @@ static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map 
         *handled = 1;
         return 1;
     }
+    /* BIOS ROM-font syscall stubs (0x8C04A5C0 address, 0x8C04A5D4 lock, 0x8C04A5E8 unlock: jmp @[0x8C0000B4] with r1 = function).
+     * No BIOS image is loaded: the font lives at its fixed address, a lock is granted and an unlock succeeds. */
+    switch (entry & 0x0FFFFFFFu) {
+    case 0x0C04A5C0u: s->v[0] = 0xA0100020u; s->pc = s->v[16]; *handled = 1; return 1;
+    case 0x0C04A5D4u:
+    case 0x0C04A5E8u: s->v[0] = 0; s->pc = s->v[16]; *handled = 1; return 1;
+    default: break;
+    }
     const int ok = vf3_readable_override(entry, s, ram, handled);
     if (*handled) ++machine.readable_calls;
     return ok;
@@ -121,6 +131,7 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32
 void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
+unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(void);
 void vf3_native_set_budget_hook(uint32_t (*hook)(void)) { budget_hook = hook; }
 
