@@ -126,7 +126,7 @@ static uint32_t slice_hook(void)
                     static unsigned blk[VF3_NATIVE_RAM_LEN >> 12];
                     memset(blk, 0, sizeof blk);
                     for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) blk[i >> 12] += irq.ram[i] != cmp.ram[i];
-                    for (unsigned n = 0; n < 24; ++n) {
+                    for (unsigned n = 0; n < 400; ++n) {
                         unsigned best = 0;
                         for (unsigned j = 1; j < (VF3_NATIVE_RAM_LEN >> 12); ++j) if (blk[j] > blk[best]) best = j;
                         if (!blk[best]) break;
@@ -211,6 +211,15 @@ int main(int argc, char **argv)
         snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
         uint32_t ret = 0, resume = loop_entry, head = loop_stop;
         int finished = 0;
+        if (getenv("BS_FIND")) {   /* BS_FIND=word: every RAM address holding that 32-bit word, with the three words before and after */
+            const uint32_t want = (uint32_t)strtoul(getenv("BS_FIND"), NULL, 0);
+            for (uint32_t a = VF3_NATIVE_RAM_BASE; a < VF3_NATIVE_RAM_BASE + VF3_NATIVE_RAM_LEN - 16; a += 4)
+                if (rd32(loop.ram, a) == want) {
+                    fprintf(stderr, "find %08x:", a);
+                    for (int k = -3; k <= 3; ++k) fprintf(stderr, " %08x", rd32(loop.ram, a + 4 * (uint32_t)k));
+                    fputc(10, stderr);
+                }
+        }
         if (getenv("BS_WORDS")) {   /* BS_WORDS=addr: 24 RAM words from addr at the start, and the entry registers */
             const uint32_t w0 = (uint32_t)strtoul(getenv("BS_WORDS"), NULL, 0);
             for (unsigned i = 0; i < 24; ++i) fprintf(stderr, "%08x: %08x%c", w0 + 4 * i, rd32(loop.ram, w0 + 4 * i), 10);

@@ -34,6 +34,19 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
   (0x0C0AA0F2) all run to the end of their task with 0 unowned calls. State 20 sits in the BIOS ROM (0x8C00909A), which is not in the
   image, so it is out of scope for the native port (a BIOS HLE boundary, not a gap in the game code).
 
+## Title-screen gate: what was ruled out (state 21, 2026-10-18)
+- State 21 is a loader wait with a read in flight (gd_state: request 0x11, 31 sectors left). The model finishes the read in about 6 drive
+  steps, the wait returns, and the game then runs its frame loop; the emulator reaches state 22 (requests 0x12, 0x13 done) from there
+  with no input, so the next GD request is issued by game logic, not by the pad. The native frame loop never issues it.
+- The "PORT"/"FUNC" driver struct at [0x0C1A0D24] -> 0x0C19FC30 with base 0xA05F6C00 at +0x10EC belongs to `mpdrv_` (the sound driver:
+  strings "mpdrv_frame_send", "DriverState is not 'RECEIVED'", "DMA incompleted."), not to a Maple driver. 0xA05F6C00 is only a
+  register base there; the game has no literal for SB_MDSTAR/MDEN/MDST in the image, and a 30-vblank run touches no 0x5F6C00-FF.
+- Functions entered once per frame in the native loop (60-vblank run): 0x0C036132 (mpdrv_frame_send), 0x0C03B620, 0x0C03BD80,
+  0x0C043964, 0x0C043BB4, 0x0C045F5E, 0x0C0460A4, 0x0C0A2E06. The sound-driver handshake with the ARM7 (DriverState RECEIVED) is the
+  first candidate for what the loading sequence waits on; the AICA/ARM7 side is not modelled in vf3boot.
+- Next step: compare [mpdrv driver state] in the native run against the emulator state 22 and trace which per-frame function
+  would raise the next GD request (docs/re/sound_bgm.md covers the BGM voice-kit side).
+
 ## Still open
 - Past the title screen (state 21 -> 22 differs by 475 KB of GD-loaded data 0x0CAB4000-0x0CAE9000): the gate is not Maple;
   look for the game-side GD request or timer that never fires in the model.
