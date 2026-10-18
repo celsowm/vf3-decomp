@@ -160,6 +160,7 @@ int vf3_gd_status_wrapper_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_gd_get_cmd_stat_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_gd_exec_server_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vtable_trampoline_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_cache_wb_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -305,6 +306,8 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(6)|B(7)|B(17) },
     { 0x0c035cbau, "vtable_trampoline", vf3_vtable_trampoline_entry,
       B(0)|B(1)|B(3)|B(17) },
+    { 0x0c062e8eu, "cache_wb_stub", vf3_cache_wb_stub_entry,
+      B(0)|B(4)|B(15)|B(16) },
     { 0x0c0432deu, "gd_status_wrapper", vf3_gd_status_wrapper_entry,
       B(0)|B(4)|B(5)|B(6)|B(17) },
     { 0x0c09302au, "scaled_vec_add", vf3_scaled_vec_add_entry,

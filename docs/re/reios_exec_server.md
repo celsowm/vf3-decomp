@@ -342,3 +342,10 @@ middle of an outer function that never exits (depth grows). A span there has to 
 recording ends at 0x0C035530, i.e. the entry state is mid-function (a return site) and the walker's fragment seed for
 0x8C035530 does not follow the same path as the real rts. Open: define iteration spans from call/return edge pairs
 instead of an arrival pc, then widen to states 20-46.
+
+## 0x8C062E8E (ocbwb @r4; rts) closed
+
+The earlier "no case" was a short capture window (120 frames of state 42 never reach it; 900 do) plus a missing `exitpc`
+(`tools/watch/vf3_cache_stub.txt`). 64 cases recorded; the readable port (`src/fight/cache_wb_stub.c`, the cache is
+not modelled so the op is a no-op) replays 64/64 with `VF3_READABLE=1 VF3_STRICT_REPLAY=1`. 159 readable entries; the hot
+loader set is now complete.
