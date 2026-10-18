@@ -1,6 +1,12 @@
 /* bios_syscall.c - register-level front end of the GD-ROM model; see bios_syscall.h */
 #include "sys/bios_syscall.h"
 
+int vf3_bios_gd_syscall_clocked(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out)
+{
+    if (r[6] == 0 && r[7] == VF3_GD_GET_CMD_STAT && gd->st.status == VF3_GDC_BUSY) vf3_gd_sched_step(gd);
+    return vf3_bios_gd_syscall(gd, mem, r, r0_out);
+}
+
 int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out)
 {
     if (r[6] != 0) return 0;

@@ -132,7 +132,7 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
         const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
         const uint32_t args[8] = { 0, 0, 0, 0, s->v[4], s->v[5], s->v[6], s->v[7] };
         uint32_t r0 = 0;
-        if (vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)) {
+        if (vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0)) {
             ++machine.bios_calls;
             s->v[0] = r0;
             s->pc = s->v[16];

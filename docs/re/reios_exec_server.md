@@ -204,5 +204,6 @@ call to `0x0C0000BC` in a native run go to that model instead of counting as an 
 transfers in the RAM image of the running tick. The 13 fight-state native ticks are unchanged (0 unowned, RAM equal).
 
 Still open for a native boot run: the loader functions between the stubs have no readable ports or corpora (123 unported
-callees across states 20-46), and the model has no clock, so a runner must call `vf3_gd_sched_step` itself between
-polls of the loader loop.
+callees across states 20-46), and the model has no hardware clock. `vf3_bios_gd_syscall_clocked` (used by the native attachment) substitutes a
+deterministic one: every GET_CMD_STAT poll that finds the drive BUSY first runs one `vf3_gd_sched_step`, so a 7-sector read
+completes on the second poll. Whether that cadence matches the loader's timing is unverified.

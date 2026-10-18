@@ -141,9 +141,11 @@ static void syscall_cycle(const vf3_gdi *gdi)
     CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0) && r0 == 2, "REQ_CMD through the vector: id %u", r0);
     r[7] = VF3_GD_EXEC_SERVER;
     CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0), "EXEC_SERVER through the vector");
-    while (vf3_gd_sched_step(&gd)) {}
     r[4] = 2; r[5] = out; r[7] = VF3_GD_GET_CMD_STAT;
-    CHECK(vf3_bios_gd_syscall(&gd, &gm, r, &r0) && (int32_t)r0 == VF3_GDC_COMPLETE, "GET_CMD_STAT status %d", (int)r0);
+    int polls = 0;
+    do { vf3_bios_gd_syscall_clocked(&gd, &gm, r, &r0); ++polls; } while ((int32_t)r0 == VF3_GDC_BUSY && polls < 100);
+    CHECK(polls == 2, "poll clock: %d polls for 7 sectors", polls);
+    CHECK((int32_t)r0 == VF3_GDC_COMPLETE, "last poll status %d", (int)r0);
     CHECK(fm_read(&fm, out + 8) == count * VF3_GD_SECTOR, "size word %x", fm_read(&fm, out + 8));
     r[6] = 1;
     CHECK(!vf3_bios_gd_syscall(&gd, &gm, r, &r0), "r6 != 0 must be left to the caller");
