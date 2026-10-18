@@ -327,3 +327,7 @@ call served, 0 unowned) and diffs the whole 16 MiB against the recorded hardware
   timer-cadence question, now visible as a measurable diff.
 - `VF3_GD_NOCLOCK=1` (a poll never advances the drive): 4 bytes differ, all at 0x0C31F9DC, the saved-return slot
   (native 0xDEAD0000 sentinel, hardware 0x0C035530). So everything else in the span is bit-exact.
+
+States 30 and 42 give the identical result for the same function (captures bootB, seeds gdstate_s{30,42}_0c0432de.txt):
+`VF3_GD_NOCLOCK=1` leaves 4 bytes, the saved-return slot (0x0C31F9C8 there), and nothing else. Three boot states, one
+function: bit-exact modulo the return sentinel and the unmodelled drive cadence.
