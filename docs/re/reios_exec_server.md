@@ -288,3 +288,10 @@ Stub port: `src/fight/gd_syscall_stub.c` registers 0x8C0430A0 (GET_CMD_STAT: r6 
 0x8C0000BC). It is verified as the callee inside the wrapper replay (`readable ports used: 2 calls`, 1/1 in states 42 /
 21 / 30). 0x8C0430B4 (EXEC_SERVER, r7 = 2) is the same code but has no oracle case with a clean boundary, so it is not
 registered. 156 readable entries.
+
+Scope correction (tools/boot_scope.py over states 21..46): the union of unported executed callees is **489** functions,
+not 122 (that figure was the union over three states). The polling hot path is now covered - 0x8C0432DE and 0x8C0430A0 are
+readable and oracle-replayed; the rest of the hot set is 0x8C035CBA (vtable trampoline, no clean capture yet),
+0x8C0430B4 (EXEC_SERVER stub, no clean boundary) and 0x8C062E8E (`ocbwb @r4; rts`, observer exports no case for the cache
+op) - while the long tail (everything else runs <= ~110 times per 120 frames) is 480+ functions, each needing its own
+capture boundary, replay and port. A native boot-state run is therefore a campaign of that size, not one more step.
