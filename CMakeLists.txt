@@ -122,6 +122,7 @@ add_library(vf3core STATIC
     src/fight/point_wrap.c
     src/fight/matrix_basis.c
     src/fight/axis_angle_matrix.c
+    src/fight/ring_probe.c
     src/fight/call_sequences.c
     src/fight/vec_offset3.c
     src/fight/vec_offset.c
