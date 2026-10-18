@@ -56,6 +56,8 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
  * unowned code; sector transfers land in the RAM image of the running tick. Pass NULL to detach. The caller steps the
  * transfer with vf3_gd_sched_step() between ticks (the model has no clock). */
 void vf3_native_attach_gdrom(vf3_gdrom *gd);
+/* Called after every served BIOS poll; the callback may start a nested run (an interrupt taken inside the poll). */
+void vf3_native_set_poll_hook(void (*hook)(void *), void *ctx);
 /* End the run when control reaches `pc` (a loop head) instead of at a return to the caller; 0 restores the default. */
 void vf3_native_set_stop(uint32_t pc);
 

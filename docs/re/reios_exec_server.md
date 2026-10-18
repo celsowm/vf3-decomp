@@ -468,3 +468,12 @@ State 30, 531 polls, reference irqA pair 0: **8312 bytes differ**, split as
 - ~20 bytes in game areas (0x0C0EA000, 0x0C16C000, 0x0C198000, 0x0C19E000-0x0C1A0000, 0x0C2A6000/7000, 0x0C31F000) - ordering
   noise from taking the interrupt between iterations instead of inside a BIOS poll.
 `vf3_bios_gd_advance_cycles` lets time outside the polls (interrupt work) move the drive.
+
+### Correct reference for the frame diff, and the interrupt inside the poll
+The recorded irqA pair is the RAM *before* the handler ran, so the right native comparison runs the polls and stops
+(`--irq-in-poll 2`, `BS_REF=0`): **8220 bytes differ** = the 8192-byte GD data block + 28 bytes; of those, 7 bytes are game
+state (0x0C2A62E4, 0x0C2A73A9/A, 0x0C31F9AD/AE/C1/C2: a 0x0028-vs-0x0168 word and flags, no device read is involved) and ~21 bytes
+are the BIOS work area. `--irq-in-poll 1` takes both vblank handlers inside the BIOS poll of the last iteration through a nested
+`vf3_native_tick_run` (`vf3_native_set_poll_hook`; the interrupted run's machine and XF bank are saved and restored); it runs
+clean, and the handlers' own writes are then the extra diff against the *pre*-IRQ reference, as expected. `VF3_DEVLOG=1` prints
+every device-register read of a run.

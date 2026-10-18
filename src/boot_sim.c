@@ -40,10 +40,22 @@ static int run(uint8_t *ram, const snap *s, uint32_t entry, uint32_t stop, const
     return 1;
 }
 
+/* --irq-in-poll: the vblank handlers are taken inside the BIOS poll of the last iteration of a frame, as the real interrupt is */
+static struct { int armed; uint8_t *ram; const snap *a, *b; uint32_t irqa, irqb; int failed; } irq;
+
+static void poll_irq(void *ctx)
+{
+    (void)ctx;
+    if (!irq.armed) return;
+    irq.armed = 0;
+    if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) irq.failed = 1;
+}
+
 int main(int argc, char **argv)
 {
     const char *gdi_path = NULL, *gd_state = NULL;
     uint32_t loop_entry = 0, loop_stop = 0, irqa = 0, irqb = 0, per_poll = 2688, per_step = 1000000;
+    int in_poll = 0;
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
     if (argc < 4) { fprintf(stderr, "usage: vf3boot loop.bin irqA.bin irqB.bin --loop-entry E --loop-stop S --irqa E --irqb E [--frames N] [--first-polls P] [--gdi f --gd-state f]\n"); return 2; }
     for (int i = 4; i + 1 < argc; i += 2) {
@@ -55,6 +67,7 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--frames")) frames = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--polls-per-frame")) polls_per_frame = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--first-polls")) first_polls = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
         else if (!strcmp(k, "--gdi")) gdi_path = v;
         else if (!strcmp(k, "--gd-state")) gd_state = v;
         else { fprintf(stderr, "vf3boot: unknown option %s\n", k); return 2; }
@@ -89,10 +102,15 @@ int main(int argc, char **argv)
     }
 
     uint8_t *ram = loop.ram;
+    irq.ram = ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
+    if (in_poll) vf3_native_set_poll_hook(poll_irq, NULL);
     for (unsigned f = 0; f < frames; ++f) {
         const unsigned polls = f == 0 && first_polls ? first_polls : per_frame;
-        for (unsigned p = 0; p < polls; ++p)
-            if (!run(ram, &loop, loop_entry, loop_stop, "wait loop")) return 1;
+        for (unsigned p = 0; p < polls; ++p) {
+            irq.armed = in_poll == 1 && p + 1 == polls;
+            if (!run(ram, &loop, loop_entry, loop_stop, "wait loop") || irq.failed) return 1;
+        }
+        if (in_poll) continue;
         /* the rest of the frame is interrupt work: it moves the drive too */
         if (gdi_path && (uint64_t)polls * per_poll < CYCLES_PER_FRAME && f > 0) vf3_bios_gd_advance_cycles(&gd, CYCLES_PER_FRAME - (uint64_t)polls * per_poll);
         if (!run(ram, &a, irqa, 0, "vblank handler A") || !run(ram, &b, irqb, 0, "vblank handler B")) return 1;
@@ -102,7 +120,7 @@ int main(int argc, char **argv)
     unsigned bytes = 0, shown = 0;
     for (uint32_t i = 0; i < VF3_NATIVE_RAM_LEN; ++i) {
         if (ram[i] == ref.ram[i]) continue;
-        if (shown < 24) { printf("  ram %08x: native %02x, emulator %02x\n", VF3_NATIVE_RAM_BASE + i, ram[i], ref.ram[i]); ++shown; }
+        if (shown < 200 && (i >= 0x100000u || getenv("BS_ALL")) && i < 0x800000u) { printf("  ram %08x: native %02x, emulator %02x\n", VF3_NATIVE_RAM_BASE + i, ram[i], ref.ram[i]); ++shown; }
         ++bytes;
     }
     {

@@ -52,6 +52,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
     (void)context; (void)size;
     ++machine.reads;
+    if (getenv("VF3_DEVLOG")) fprintf(stderr, "devread %08x size %u\n", address, size);
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
@@ -112,6 +113,12 @@ void vf3_native_attach_gdrom(vf3_gdrom *gd)
     if (gd) { gd->write = gd_write; gd->write_ctx = NULL; }
 }
 
+static void (*poll_hook)(void *);
+static void *poll_ctx;
+static unsigned run_depth;
+
+void vf3_native_set_poll_hook(void (*hook)(void *), void *ctx) { poll_hook = hook; poll_ctx = ctx; }
+
 static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
     if (machine.gd && (entry & 0x0FFFFFFFu) == VF3_BIOS_SYSCALL_VECTOR) {
@@ -126,6 +133,7 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
             s->v[0] = r0;
             s->pc = s->v[16];
             *handled = 1;
+            if (poll_hook) poll_hook(poll_ctx);   /* time passes inside the poll: an interrupt may land here */
             return 1;
         }
     }
@@ -140,6 +148,12 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_ram_win window = { ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN };
     vf3_ram_map map = { &window, 1, 0, device_read, device_write, NULL };
     vf3_matrix_state st;
+    /* a nested run (an interrupt taken inside a poll) leaves the interrupted run's machine as it found it */
+    const int nested = run_depth > 0;
+    const typeof(machine) saved = machine;
+    uint32_t saved_xf[16];
+    memcpy(saved_xf, snapshot_xf, sizeof saved_xf);
+    ++run_depth;
 
     machine.reads = machine.writes = machine.readable_calls = machine.unowned_calls = 0;
     machine.first_unowned = 0;
@@ -181,6 +195,15 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->oob = map.oob;
     out->ta = machine.ta;
     memcpy(out->regs, st.v, sizeof out->regs);
+    --run_depth;
+    if (nested) {
+        uint32_t *ta = machine.ta;
+        size_t ta_cap = machine.ta_cap;
+        machine = saved;
+        machine.ta = ta;
+        machine.ta_cap = ta_cap;
+        memcpy(snapshot_xf, saved_xf, sizeof saved_xf);
+    }
     return ok;
 }
 
