@@ -154,3 +154,22 @@ What a faithful C model needs, and why it is a design project, not another entry
    say when, which means a cycle or frame budget model the harness does not have yet.
 Verification gate for the first slice: replay state 21 from the dumped `gd_hle_state` for N frames and require RAM
 equality with the oracle at the loader chain's next return, the same standard as the scene entries.
+
+## gd_hle_state at every boot-state savestate (2026-10-18)
+
+`tools/gd_state_dump.py` (needs the local flycast fork's `VF3_GDDUMP` hook in `reios_deserialize`; the fork is gitignored)
+loads each `vf3_<N>.state` and writes the REIOS command state to `extract/analysis/gd_state/vf3_<N>.txt` + `summary.csv`.
+Findings, which settle step 3 of the scope above:
+
+- Every state after 20 sits inside the same command: `command = 0x11` (GDCC_DMAREAD) with `params = {start sector, sector
+  count, destination RAM address, 0}`. State 20 is the idle initial state (all zero).
+- States 21-30 and 42-46 are mid-transfer: `status = 1` (BUSY), `multi_read_count` sectors still outstanding of
+  `multi_read_total`, and `result[2] = (total - count) * 2048` (e.g. state 21: 0x56 - 0x1f = 0x37 sectors = 0x1B800 bytes).
+- States 31-39 are idle again (`status = 0`) with the previous request's stale params (sector 0x68EC9, 0x100 sectors,
+  dest 0x0C828800) and `result[2] = 0x80000` = the full transfer; they wait on the loader, not on the drive.
+- Destinations are the loader's staging areas 0x0C5F4000, 0x0C828800, 0x0CAAE800, 0x0CB6A800, 0x0CBA8000, 0x0C370800.
+  Transfers are 0x4B-0x397 sectors (150 KB - 1.8 MB), so the sector source must cover whole files, not single sectors.
+
+So the minimum viable model is: the initial `gd_hle_state` from this dump, a sector reader over the GDI (`rom/vf3.gdi`)
+that streams the outstanding sectors into the destination, and an EXEC_SERVER step of up to 5 sectors per call; timing
+(`xfer_end_time`) remains the open item.
