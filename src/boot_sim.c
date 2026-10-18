@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     const char *gdi_path = NULL, *gd_state = NULL;
     uint32_t loop_entry = 0, loop_stop = 0, irqa = 0, irqb = 0, per_poll = 2688, per_step = 1000000;
     int in_poll = 0, go_on = 0;
-    unsigned slice_steps = 20000;
+    unsigned slice_steps = 50000000;   /* slicing a run unwinds the callers' C frames and loses their pr: only for experiments */
     uint64_t gd_phase = 0;
     unsigned cycle_frames = 0;
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
