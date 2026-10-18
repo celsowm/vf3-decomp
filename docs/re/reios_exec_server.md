@@ -173,3 +173,24 @@ Findings, which settle step 3 of the scope above:
 So the minimum viable model is: the initial `gd_hle_state` from this dump, a sector reader over the GDI (`rom/vf3.gdi`)
 that streams the outstanding sectors into the destination, and an EXEC_SERVER step of up to 5 sectors per call; timing
 (`xfer_end_time`) remains the open item.
+
+## Functional GD-ROM model and boot-chain scope (2026-10-18)
+
+`src/sys/gdrom_hle.{h,c}` models the BIOS GD-ROM syscall (vector 0x8C0000BC, r6 = 0) for the loader's DMA-read path:
+`vf3_gd_req_cmd` (r7 = 0), `vf3_gd_get_cmd_stat` (r7 = 1), `vf3_gd_exec_server` (r7 = 2) and `vf3_gd_sched_step` (the
+original's scheduler timer: up to 5 sectors per tick, COMPLETE on the last one), plus a GDI reader (track 3 is raw
+2352-byte sectors, user data at +16). `tests/gdrom_hle_test.c` (`build2/vf3gdrom`) checks a full request cycle for the
+0x4B-sector read that boot state 24 is inside (15 ticks, BUSY until the last, COMPLETE once, then idle) and resumes the
+dumped command state of states 24 and 25 (70 and 739 remaining sectors): every sector equals the reader's, the final size
+word is total * 2048. `tools/gd_verify_state.py` confirms the reader against the savestate: state 24's five transferred
+sectors are found contiguously in its RAM at the dumped destination; in states whose transfer is further along the loader
+has already consumed (overwritten) the buffer.
+
+The loader's syscall stubs are 0x8C0430A0 (r7 = 1 GET_CMD_STAT) and 0x8C0430B4 (r7 = 2 EXEC_SERVER): `mov #0,r6; mov
+#n,r7; jmp @[0x8C0000BC]`. They, 0x8C0432DE (the status wrapper, calls 0x8C0430A0) and 0x8C035CBA (an indirect call through
+the object at 0x0C0EA314 + 0x44) account for ~75k calls per 300-frame window in every boot state.
+
+What is still missing for a native run of states 20-46 (`tools/boot_scope.py` over the call-edge logs): 123 distinct
+unported callees across the boot states (loader/GDFS library functions around 0x8C0354xx-0x8C0366xx and 0x8C0430xx-0x8C0460xx,
+the 12 BIOS-area helpers at 0x98012b44-0x98012e2a, and 0x8C04C47C / 0x8C053CA4 / 0x8C0365EA), none of which has a capture
+corpus, and no scheduler/timer model to decide when `vf3_gd_sched_step` fires relative to the guest's polling loop.
