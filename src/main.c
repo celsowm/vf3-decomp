@@ -219,6 +219,7 @@ int main(int argc, char **argv)
             status = 1;
         }
     }
+    if (gdi_path) printf("GD model at end: status %d, %u sectors left to move\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count);
     if (vs_exit && exit_after_ticks) status |= report_exit_diff(capture, exit_pair, ram, r.pc);
     free(ram);
     return status;

@@ -432,3 +432,5 @@ iteration from the entry registers, which for this loop is exactly what the real
 reloaded every pass.) Long runs (4000 iterations, ~10.7M cycles of drive time) complete with 0 unowned calls, so the loader
 wait loop runs through the full 0x1F-sector transfer on the cycle clock; what follows completion is unported code and not yet
 compared.
+Verified: 100 iterations leave the GD model BUSY with 31 sectors to go (268k cycles, no step yet); 4000 iterations leave it idle with
+0 left, i.e. the loop consumed the COMPLETE status; the executable prints this as "GD model at end".
