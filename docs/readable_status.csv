@@ -70,6 +70,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0cc334,frame_counter_step,src/fight/frame_counter_step.c,r0 r1 r2 r3 r5 sr fr0 fr2 fr3 fr6 fr7 fr8 fpul,75,2333,0.21,whole-tick
 0x8c03c880,rotate_y,src/fight/leaf_math.c,fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fpul,118,2242,0.21,whole-tick
 0x8c0b1550,fighter_refresh,src/fight/fighter_refresh.c,r0 sr,2,2160,0.20,whole-tick
+0x8c0c6770,steer_flags,src/fight/steer_flags.c,r0 sr,2,1986,0.18,whole-tick
 0x8c03e8c0,bone_transforms,src/fight/matrix_extra.c,r0 r2 r3 r4 r6 r7 r10 r11 r12 r13 r14 r15 pr sr fr4 fr5 fr6 fr7 fpul,13,1924,0.18,whole-tick
 0x8c03b450,xform_point,src/fight/leaf_math.c,r4 fr4 fr5 fr6 fr7,170,1870,0.17,whole-tick
 0x8c0769c6,count_leading,src/fight/count_leading.c,r0 r3 r5 r6 sr,11,1866,0.17,whole-tick

@@ -116,6 +116,7 @@ add_library(vf3core STATIC
     src/fight/facing_update.c
     src/fight/wall_flags.c
     src/fight/fighter_refresh.c
+    src/fight/steer_flags.c
     src/fight/call_sequences.c
     src/fight/vec_offset3.c
     src/fight/vec_offset.c
