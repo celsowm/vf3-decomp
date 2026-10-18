@@ -120,6 +120,7 @@ add_library(vf3core STATIC
     src/fight/record_sweep.c
     src/fight/segment_delta.c
     src/fight/point_wrap.c
+    src/fight/matrix_basis.c
     src/fight/call_sequences.c
     src/fight/vec_offset3.c
     src/fight/vec_offset.c
