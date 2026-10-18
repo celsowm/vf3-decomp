@@ -21,8 +21,12 @@
  * 0xFA50 = RAM windows, 0xFA32 = exit registers, 0xFA60 = exit windows), then the payload. */
 static int read_rec(FILE *f, uint64_t *v) { return fread(v, 8, 1, f) == 1; }
 
+/* the extended bank (xfpc records) of the last loaded entry; zero when the capture carries none */
+static uint32_t snapshot_xf[16];
+
 int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram)
 {
+    memset(snapshot_xf, 0, sizeof snapshot_xf);
     FILE *f = fopen(path, "rb");
     uint64_t v;
     unsigned seen = 0;
@@ -39,6 +43,11 @@ int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37],
                 regs[i] = (uint32_t)v;
             }
             stage = 1;
+        } else if (marker == 0xFA70 && stage == 1) {
+            for (int i = 0; i < 16; ++i) {
+                if (!read_rec(f, &v)) goto fail;
+                snapshot_xf[i] = (uint32_t)(v >> 16);
+            }
         } else if (marker == 0xFA50 && stage == 1) {
             uint64_t windows;
             if (!read_rec(f, &windows)) goto fail;
@@ -166,6 +175,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     memset(&st, 0, sizeof st);
     st.budget = BLOCK_BUDGET;
     memcpy(st.v, regs, 37 * sizeof regs[0]);
+    memcpy(st.v + 37, snapshot_xf, sizeof snapshot_xf);
     st.v[16] = machine.stop_pc ? machine.stop_pc : GUEST_RETURN_SENTINEL;
     st.gbr = gbr;
     st.gbr_known = 1;

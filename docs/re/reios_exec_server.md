@@ -367,3 +367,13 @@ Most boot savestates are the same GD idle loop (edge logs: 0x8C035CBA / 0x8C0434
 0x8C0434C8 (the EXEC_SERVER caller) in states 21 23 24 27 28 29 44 45 46: 6 blocks, 1 readable port, 0 unowned, and 4 bytes
 differ (the saved-return slot) in all nine. With 0x8C034864 in 21/30/42 that is 12 of the 27 boot states running bit-exact
 spans. Not idle-loop states (different code, where the unported long tail lives): 20, 25, 31-36, 38, 39, 40.
+
+## XF bank in entry snapshots; more states
+
+The first state-40 span (0x8C03C4F0 matrix_push, `frchg` then stores the other bank) differed by 46 bytes because the native
+run started with a zero XF bank: entry snapshots only carry XF when the watch has an `xfpc` line. `tick_capture.py` now
+writes `xfpc <entry>` and `vf3_native_load_snapshot` loads the FA70 record into the run (zeros when absent, so the older fight
+captures are unchanged: states 7 and 13 still 0 bytes differ). With it matrix_push, 0x8C048B00 and 0x8C048BE0 in state 40
+and 0x8C03658C in state 32 are bit-exact (state 32: return slot only). States 20 and 36 start in the 0x8C008xxx-0x8C00Axxx
+system area (IP.BIN / boot ROM, not part of 1ST_READ), which no ported code owns: one unowned call at entry. That area is
+the remaining non-game boot code and needs its own decision (port or treat as a platform boundary).

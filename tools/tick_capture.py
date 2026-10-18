@@ -43,7 +43,7 @@ def main() -> int:
     trace = out / f'golden_{a.name}_{stem}.bin'
     log = out / f'golden_{a.name}_{stem}.log'
     watch = out / f'tickwatch_{a.name}_{stem}.txt'
-    wl = f'rampc {entry:x}\n'
+    wl = f'rampc {entry:x}\nxfpc {entry:x}\n'
     if a.exitpc:
         wl += f'exitpc {entry:x} {int(a.exitpc, 16):x}' + (f' {int(a.exitsp)}' if a.exitsp else '') + '\n'
     watch.write_text(wl)
