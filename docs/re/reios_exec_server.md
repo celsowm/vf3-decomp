@@ -283,3 +283,8 @@ pre-empt the generated chain; it prints how many calls they served), so the same
 0x8c0432de extract/analysis/goldens_gdw<N>/f_8c0432de.cases` passes 1/1 in states 42, 21 and 30 with 1 readable call.
 Only the BUSY path (status 1) is covered by the cases; the other status branches and the error table are transcribed
 from the disassembly (braf table at 0x8C043360) and not oracle-checked. Fight-state regression unchanged (155 entries).
+
+Stub port: `src/fight/gd_syscall_stub.c` registers 0x8C0430A0 (GET_CMD_STAT: r6 = 0, r7 = 1, tail call through the pointer at
+0x8C0000BC). It is verified as the callee inside the wrapper replay (`readable ports used: 2 calls`, 1/1 in states 42 /
+21 / 30). 0x8C0430B4 (EXEC_SERVER, r7 = 2) is the same code but has no oracle case with a clean boundary, so it is not
+registered. 156 readable entries.

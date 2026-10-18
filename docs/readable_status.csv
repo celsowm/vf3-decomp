@@ -149,6 +149,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c09616a,task_sched,src/fight/task_sched.c,r12 r13 r14 r15 pr,0,0,0.00,whole-tick
 0x8c03c140,matrix_concat_save,src/fight/matrix_lib.c,r4 r15 fpscr,0,0,0.00,unexercised
 0x8c068de4,terrain_flat,src/fight/terrain_height.c,r0 sr fr0 fr3 fr4 fr5 fr6 fr7,0,0,0.00,unexercised
+0x8c0430a0,gd_get_cmd_stat_stub,src/fight/gd_syscall_stub.c,r0 r2 r4 r5 r6 r7 sr,0,0,0.00,unexercised
 0x8c0432de,gd_status_wrapper,src/fight/gd_status_wrapper.c,r0 r4 r5 r6 sr,0,0,0.00,unexercised
 0x8c09f354,vec_lerp21,src/fight/vec_lerp21.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11,0,0,0.00,unexercised
 0x8c04a320,clip_near_triangle,src/fight/clip_near_triangle.c,r0 r1 r2 r3 r4 r5 r6 r11 r14 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fpul,0,0,0.00,unexercised
