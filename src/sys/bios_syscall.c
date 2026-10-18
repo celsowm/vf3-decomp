@@ -59,6 +59,34 @@ int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t 
     case VF3_GD_INIT_SYSTEM:
         *r0_out = 0;
         return 1;
+    case VF3_GD_GET_DRV_STAT:   /* r4 -> { drive status (1: paused), disc type (0x80: GD-ROM) } */
+        if (r[4]) { mem->write32(mem->ctx, r[4], 1u); mem->write32(mem->ctx, r[4] + 4u, 0x80u); }
+        *r0_out = 0;
+        return 1;
+    case VF3_GD_G1_DMA_END:     /* callback registration: the model delivers no G1 DMA interrupt */
+    case VF3_GD_CHANGE_DATA_TYPE:
+        *r0_out = 0;
+        return 1;
+    case VF3_GD_CHECK_DMA_TRANS: {   /* r5 -> bytes still to transfer; OK while a transfer is pending, else BUSY */
+        if (r[5]) mem->write32(mem->ctx, r[5], gd->st.multi_read_count);
+        *r0_out = gd->st.status == VF3_GDC_CONTINUE ? 0u : 1u;
+        return 1;
+    }
+    case VF3_GD_READ_ABORT: {
+        const int32_t s = gd->st.status;
+        if (r[4] == gd->st.last_request_id && (s == VF3_GDC_CONTINUE || s == VF3_GDC_BUSY || s == VF3_GDC_COMPLETE)) {
+            gd->st.multi_read_count = 0;
+            *r0_out = 0;
+        } else {
+            *r0_out = (uint32_t)-1;
+        }
+        return 1;
+    }
+    case VF3_GD_RESET:
+        gd->st.last_request_id = 0xFFFFFFFFu;
+        gd->st.status = VF3_GDC_OK;
+        *r0_out = 0;
+        return 1;
     default:
         return 0;
     }

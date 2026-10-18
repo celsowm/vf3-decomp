@@ -523,3 +523,14 @@ The caller at 0x8C0A8006 is the first game-code address past the loader's wait.
 - ROM-font stubs 0x8C04A5C0/D4/E8 (BIOS vector 0x8C0000B4: address, lock, unlock) are answered in `readable_hook`; OCBP in the stale generated `matrix_adapters.c` is a no-op.
 - Result: the wait ([0x0C16CDF4]) is released every few frames and the game cycles through its render state machine (states at 0x0C16CDCC) for 400 vblanks with 0 unowned calls: the frame loop runs natively from state 21. `BS_PEEK=1` prints the state words every 40 vblanks.
 - Long run (`--vblank-cap 3000`, state 21, 10.0e9 cycles): 0 unowned calls, 0 BIOS calls, the render state machine cycles for all 3,000 vblanks and the game never leaves it (the GD model is idle at sector 0x822D8). A steady loop with no scene change means the game is waiting on an input or event the model does not produce (pad/maple, a GD command it never issues, a timer): finding that trigger is the step that leads to states 22+.
+
+## All loader-wait states (boot_states.py)
+
+States 20-46 are independent emulator savestates, not one run; the loader wait is live in 21-30 and 42-46.
+`tools/boot_states.py` runs vf3boot on each and writes docs/boot_states.csv. Result (cap 40 vblanks):
+- 14 of 15 states leave the wait (returns 0 to 0x0C0A8006) with 0 unowned calls; 21 and 25 reach the render loop
+  (0x0C0597CA empty callback, run cap), 22-24, 29, 30, 42-44, 46 run to the end of the capture.
+- 26, 27, 28, 45 stall at pc 0x0C0559B4 with 0 unowned calls: a spin on state the model does not drive (next lead).
+- BS_CMP (state 21 native vs state 22): 475K bytes differ, almost all the GD-loaded data region 0x0CAB4000-0x0CAE9000.
+- State 42 needed GD syscalls 4-10 (GET_DRV_STAT, G1_DMA_END, REQ/CHECK_DMA_TRANS, READ_ABORT, RESET, CHANGE_DATA_TYPE);
+  now implemented in src/sys/bios_syscall.c. At vblank 623 it still stops at 0x0C0433BC (7 unowned).
