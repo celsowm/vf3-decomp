@@ -302,3 +302,10 @@ extract/analysis/goldens_loader_hot/f_8c035cba.cases` is **3/3 PASS** (the gener
 out-of-window reads; the readable port needs none). The null-object branch is transcribed, not oracle-covered. A native
 runner must treat a readable port that returns with pc != pr as a jump to that pc (native_tick does not yet - it only
 needs this once the loader chain runs). 157 readable entries.
+
+EXEC_SERVER stub: `vf3_gd_exec_server_stub_entry` (0x8C0430B4, in gd_syscall_stub.c) uses the tail-jump form (pc = the BIOS
+entry read from 0x8C0000BC, r6 = 0, r7 = 2) and replays **3/3** against the jmp-boundary corpus
+(`VF3_READABLE=1 ... 0x8c0430b4 extract/analysis/goldens_loader_hot/f_8c0430b4.cases`). Note the two stub ports use
+different conventions: 0x8C0430A0 makes a guest call that returns to the caller's pr (verified through the wrapper
+replay), 0x8C0430B4 and 0x8C035CBA end with pc at the jump target (verified against jmp-boundary corpora). A native
+runner has to honor both. 158 readable entries.

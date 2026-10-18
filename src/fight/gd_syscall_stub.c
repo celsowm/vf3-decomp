@@ -27,3 +27,14 @@ static int stub(vf3_matrix_state *s, const vf3_ram_map *ram, uint32_t call)
 }
 
 int vf3_gd_get_cmd_stat_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram) { return stub(s, ram, 1); }
+
+/* 0x8C0430B4 EXEC_SERVER: the same stub with r7 = 2, in the tail-jump form the jmp-boundary corpus records (pc = the BIOS
+ * entry, pr and the stack untouched). */
+int vf3_gd_exec_server_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    R(6) = 0;
+    R(7) = 2;
+    R(0) = m32(ram, BIOS_VECTOR_PTR);
+    s->pc = R(0);
+    return 1;
+}
