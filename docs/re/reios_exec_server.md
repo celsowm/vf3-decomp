@@ -228,3 +228,8 @@ Retry with transfer boundaries (`exitpc <entry> <jmp pc>` for the three jmp-ende
 the rejections vanish (`Rejected specimens: {}`), but only 0x8C0432DE yields cases (3 distinct, complete); the stub and
 trampoline entries still export no `.cases`, so their exit snapshots are not being accepted by the converter (not yet
 diagnosed - check the batch manifest / observer log for the jmp-ended entries).
+
+Root cause of the empty exports: `VF3_WATCH` needs a `pc <entry>` line for every watched entry; an `exitpc` line only sets
+the transfer boundary of an already-listed one (vf3oracle.cpp, watch parsing). With `pc` lines added to
+tools/watch/vf3_loader_hot.txt the stubs 0x8C0430A0 / 0x8C0430B4 and the trampoline 0x8C035CBA each export 3 distinct
+complete cases (states 42 / 21 / 30, 120 frames), next to 0x8C0432DE's 3. Corpus: extract/analysis/goldens_loader_hot.
