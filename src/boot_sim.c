@@ -211,6 +211,11 @@ int main(int argc, char **argv)
         snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
         uint32_t ret = 0, resume = loop_entry, head = loop_stop;
         int finished = 0;
+        if (getenv("BS_WORDS")) {   /* BS_WORDS=addr: 24 RAM words from addr at the start, and the entry registers */
+            const uint32_t w0 = (uint32_t)strtoul(getenv("BS_WORDS"), NULL, 0);
+            for (unsigned i = 0; i < 24; ++i) fprintf(stderr, "%08x: %08x%c", w0 + 4 * i, rd32(loop.ram, w0 + 4 * i), 10);
+            for (unsigned i = 0; i < 20; ++i) fprintf(stderr, "r%u=%08x%c", i, cur.regs[i], i % 4 == 3 ? 10 : 32);
+        }
         if (free_run) { finished = 1; ret = loop_entry; memcpy(last_regs, cur.regs, sizeof last_regs); }
         while (!free_run && clk.taken < cycle_frames && iters < 300000) {
             if (full_loop && iters == 1) {   /* past the first poll an iteration is the whole loop body: poll, decide, time out or return */
@@ -274,7 +279,7 @@ int main(int argc, char **argv)
                 /* A callee that returns into a frame this hop never entered (its pr came off the stack) ends with ok 0, no failed pc
                  * and nothing unowned: that is a hand-back, so resume at the return address like the ok-1 hops do. */
                 const int handed_back = !r.ok && !r.failed_pc && !r.oob && !r.unowned_calls && r.pc != at;
-                if ((!r.ok && !handed_back) || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u) break;
+                if ((!r.ok && !handed_back) || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u || (free_run && r.pc == 1)) break;   /* pc 1: a task function returning to its exit marker */
                 at = r.pc;
                 memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
                 after.regs[16] = 0xDEAD0000u;

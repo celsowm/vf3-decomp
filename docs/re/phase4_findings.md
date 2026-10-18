@@ -25,14 +25,18 @@ Runner: `build/vf3boot` (src/boot_sim.c) on the native tick (src/fight/native_ti
 - 31-36, 38, 39 share one GD snapshot (idle, request 0x8A done) and start at pc 0x0C03FA52 (not a loader wait; a store-queue
   copy routine). State 20 starts at the BIOS 0x8C00909A. 37, 40, 41 are fight states and already pass `run_native.sh`
   (0 unowned, ram 0 bytes differ). The others have no 0x8C09616A tick in the 300-frame capture window.
-- `vf3boot --free 1 --loop-entry <pc>` (new) runs a capture's code from that pc without the wait-loop machinery. First try on
-  state 31 (capture `golden_freeA_vf3_31.bin`, tick_capture.py name freeA): 93 steps, then a jump to pc 1 - the capture
-  begins mid-routine and its live registers/pr are not restored the way a call entry's are. Open.
+- `vf3boot --free 1 --loop-entry <pc>` (python tools/boot_states.py --free 0x0c03fa52 --capture) runs a capture from its pc with no
+  wait-loop machinery. The state-31 "jump to pc 1" is the **task exit marker**: the routine was entered with pr = 1 saved in
+  its frame, so returning to 1 means the task finished. boot_sim stops cleanly there.
+  Results (docs/boot_states.csv): 31 and 34 run to the exit marker, 0 unowned; 33 hands back twice (0x0C0C15A0, 0x0C0A057E)
+  then calls 0x0C29BB84, loaded code outside the static image (unowned); 35, 36, 38 return through a stack slot that holds
+  data (a different frame layout: the savestate was taken at another depth of the same routine); 32 and 39 captures gave no
+  result; state 20 (BIOS 0x8C00909A) not captured.
 
 ## Still open
 - Past the title screen (state 21 -> 22 differs by 475 KB of GD-loaded data 0x0CAB4000-0x0CAE9000): the gate is not Maple;
   look for the game-side GD request or timer that never fires in the model.
 - Fixed 2,688-cycle poll (cycles are not counted per instruction); 7 game-state bytes of the 8,220-byte frame diff
   (0x0C2A62E4, 0x0C2A73A9/A, 0x0C31F9AD/AE/C1/C2) - attributed to interrupt ordering, not proven.
-- Maple: last-packet bit 31 and ISTNRM bit 12 (0x1000) as DMA-end are unconfirmed.
+- Maple: both items now confirmed (docs/re/maple.md, last section).
 - Free-run coverage of states 20 and 31-36, 38, 39.

@@ -36,3 +36,8 @@ When the DMA ends the ASIC raises ISTNRM bit 12 (Maple DMA end, 0x1000 - from me
 VF3_DEVLOG on state 21 over 30 vblanks: no access to 0x5F6C00..0x5F6CFF at all (reads are SPG_STATUS 5F8138, TMU 1FD8000C, ASIC
 5F6900/5F6908, DMAC ch2). So state 21's frame loop never polls the pad; the title screen idle needs a different gate. Model
 Maple only when a run writes SB_MDSTAR/SB_MDST.
+
+## Confirmed against local references (2026-10-18)
+- ISTNRM bit 12 = Maple DMA end (refs/DreamcastRecompiled dc_runtime.cpp: `kAsicEventMapleDmaBit = 1u << 12`, ASIC_EVT_MAPLE_DMA).
+- Transfer header (refs/dream-recomp/runtime/src/maple/maple.cpp:338): bit 31 = **last** (set on the final block, so the Linux code
+  is right and its comment wrong), bits 17:16 port, 10:8 pattern, 7:0 frame words - 1; then the receive address, then the frame.

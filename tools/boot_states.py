@@ -41,25 +41,26 @@ def gdstate(n: int) -> Path | None:
     return out
 
 
-def capture(n: int) -> bool:
-    out = A / f'golden_bootV_vf3_{n}.bin'
+def capture(n: int, free: str = '') -> bool:
+    name = 'freeA' if free else 'bootV'
+    out = A / f'golden_{name}_vf3_{n}.bin'
     if out.exists():
         return True
     state = REPO / 'tools' / 'emu' / 'flycast-build' / 'data' / f'vf3_{n}.state'
-    r = subprocess.run([sys.executable, str(REPO / 'tools' / 'tick_capture.py'), '0x8c035cba', '--state', str(state),
-                        '--frames', '300', '--pairs', '1', '--exitpc', '0x8c0349a6', '--name', 'bootV'],
+    r = subprocess.run([sys.executable, str(REPO / 'tools' / 'tick_capture.py'), free or '0x8c035cba', '--state', str(state),
+                        '--frames', '300', '--pairs', '1', '--exitpc', '0x8c0349a6', '--name', name],
                        capture_output=True, text=True, timeout=900)
     return out.exists()
 
 
-def run(n: int, cap: int, timeout: int) -> dict:
+def run(n: int, cap: int, timeout: int, free: str = '') -> dict:
     row: dict = {'state': n}
-    v, g = A / f'golden_bootV_vf3_{n}.bin', gdstate(n)
+    v, g = A / f'golden_{"freeA" if free else "bootV"}_vf3_{n}.bin', gdstate(n)
     if not v.exists() or g is None:
         row['result'] = 'no capture' if not v.exists() else 'no gd state'
         return row
     cmd = [str(EXE), str(v), str(A / 'golden_bootI_vf3_30.bin'), str(A / 'golden_bootS_vf3_30.bin'),
-           '--loop-entry', '0x8c035cba', '--loop-stop', '0x0c035530', '--irqa', '0x8c063d1e', '--irqb', '0x8c062e94',
+           '--loop-entry', free or '0x8c035cba', '--loop-stop', '0x0c035530', *(['--free', '1'] if free else []), '--irqa', '0x8c063d1e', '--irqb', '0x8c062e94',
            '--cycle-frames', '300', '--first-polls', '531', '--gd-phase', '565440', '--full-loop', '1', '--continue', '4000',
            '--vblank-cap', str(cap), '--gdi', str(REPO / 'rom' / 'vf3.gdi'), '--gd-state', str(g)]
     try:
@@ -87,6 +88,7 @@ def main() -> int:
     ap.add_argument('--states', type=int, nargs='+', required=True)
     ap.add_argument('--cap', type=int, default=60, help='vblanks to run after the wait')
     ap.add_argument('--capture', action='store_true', help='record missing loop captures with the emulator')
+    ap.add_argument('--free', default='', help='pc: the states are plain game states, capture and run from this pc (no loader wait)')
     ap.add_argument('--timeout', type=int, default=600)
     ap.add_argument('--csv', default=str(REPO / 'docs' / 'boot_states.csv'))
     args = ap.parse_args()
@@ -94,8 +96,8 @@ def main() -> int:
     rows = []
     for n in args.states:
         if args.capture:
-            capture(n)
-        row = run(n, args.cap, args.timeout)
+            capture(n, args.free)
+        row = run(n, args.cap, args.timeout, args.free)
         rows.append(row)
         print(' '.join(f'{c}={row.get(c, "")}' for c in cols), flush=True)
     path = Path(args.csv)
