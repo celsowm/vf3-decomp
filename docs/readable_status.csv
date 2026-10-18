@@ -121,6 +121,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0562e0,color_unpack,src/fight/color_unpack.c,r0 r1 r2 r4 r5 r6 fr0 fr1 fr2 fr4 fr5 fr6 fr7 fpul,11,627,0.06,whole-tick
 0x8c09d590,float_to_short,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,2,600,0.06,whole-tick
 0x8c074702,vec_offset,src/fight/vec_offset.c,r0 r5 r6 sr fr2 fr3 fr4 fr5,2,596,0.05,whole-tick
+0x8c09f5f8,point_wrap,src/fight/point_wrap.c,r0 sr fr0 fr1 fr2 fr3 fr10 fr11,10,590,0.05,whole-tick
 0x8c03b5c0,matrix_invert_scaled,src/fight/matrix_extra.c,fpul,13,585,0.05,whole-tick
 0x8c03cc30,matrix_transpose,src/fight/matrix_extra.c,fpul,26,546,0.05,whole-tick
 0x8c0b1b2e,handler_list,src/fight/small_leaves.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,18,481,0.04,whole-tick
