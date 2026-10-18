@@ -1,0 +1,38 @@
+# Dreamcast Maple bus - notes for the pad model
+
+Sources: Linux drivers/sh/maple/maple.c (https://codebrowser.dev/linux/linux/drivers/sh/maple/maple.c.html), MAME dc.h /
+maple-dc.cpp register map (https://git.redump.net/hbmame/tree/src/mame/includes/dc.h), KallistiOS controller.h
+(https://cadcdev.sourceforge.net/docs/kos-2.0.0/controller_8h.html), Linux maplecontrol.c.
+
+## DMA registers (base 0x005F6C00)
+| addr | name | meaning |
+|---|---|---|
+| 5F6C04 | SB_MDSTAR | physical address of the transmit block list |
+| 5F6C10 | SB_MDTSEL | trigger: 0 = software (MDST), 1 = vblank |
+| 5F6C14 | SB_MDEN | DMA enable |
+| 5F6C18 | SB_MDST | start (software trigger); reads busy while a DMA runs |
+| 5F6C80 | SB_MSYS | bits 31-16 timeout (20 ns), 9-8 speed (0 = 2 Mbps), 3-0 delay after vblank (1.3 ms units) |
+| 5F6C84 | SB_MST | state, bit 0 = DMA in progress |
+
+(Offsets from MAME's map; the Linux names MAPLE_DMAADDR/ENABLE/TRIGTYPE/SPEED/STATE are the same registers.)
+
+## Transmit block (per packet, 3 + len words)
+1. header: `(port << 16) | len | last<<31` (bit 31 set on the final packet of the list)
+2. receive address: physical address where the response is written
+3. frame: `command | to << 8 | from << 16 | len << 24` (port in bits 7-6 of from/to; unit 0 = main = 0x20, sub-units 1-5 = bit mask)
+4. payload `len` words; first word is the function code (big-endian)
+Linux's comment says the last header has bit 31 set to 0 while its code leaves it set: unresolved, check against flycast.
+
+## Response (receive buffer)
+byte 0 = response code (0xFF none, 5 DEVINFO, 8 DATATRF, 0xFE file error ...); DEVINFO: +4 function code, +8 function data (3 words),
++20 area, +21 connector dir, +22 name[30], +112 standby, +114 max power. GET_CONDITION answer = DATATRF with function 0x01000000
+(controller) then buttons u16 (wire is active low: Linux inverts it), rtrig, ltrig, joy x, y (0x80 centred), joy2 x, y.
+Button bits (KOS): C=0 B=1 A=2 START=3 UP=4 DOWN=5 LEFT=6 RIGHT=7 Y=9 X=10.
+
+## Completion
+When the DMA ends the ASIC raises ISTNRM bit 12 (Maple DMA end, 0x1000 - from memory of flycast/KOS, not verified in the sources above).
+
+## What the native runs do (2026-10-18)
+VF3_DEVLOG on state 21 over 30 vblanks: no access to 0x5F6C00..0x5F6CFF at all (reads are SPG_STATUS 5F8138, TMU 1FD8000C, ASIC
+5F6900/5F6908, DMAC ch2). So state 21's frame loop never polls the pad; the title screen idle needs a different gate. Model
+Maple only when a run writes SB_MDSTAR/SB_MDST.

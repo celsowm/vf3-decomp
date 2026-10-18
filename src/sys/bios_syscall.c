@@ -67,6 +67,13 @@ int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t 
     case VF3_GD_CHANGE_DATA_TYPE:
         *r0_out = 0;
         return 1;
+    case VF3_GD_REQ_DMA_TRANS:   /* the sector copy is done by the model as each step lands; report what is left, request accepted */
+    case VF3_GD_REQ_PIO_TRANS:
+        if (r[4] != gd->st.last_request_id) { *r0_out = (uint32_t)-1; return 1; }
+        if (r[5]) mem->write32(mem->ctx, r[5], gd->st.multi_read_count);
+        *r0_out = 0;
+        return 1;
+    case VF3_GD_CHECK_PIO_TRANS:
     case VF3_GD_CHECK_DMA_TRANS: {   /* r5 -> bytes still to transfer; OK while a transfer is pending, else BUSY */
         if (r[5]) mem->write32(mem->ctx, r[5], gd->st.multi_read_count);
         *r0_out = gd->st.status == VF3_GDC_CONTINUE ? 0u : 1u;

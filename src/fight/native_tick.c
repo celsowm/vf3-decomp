@@ -70,6 +70,7 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
 {
     (void)context; (void)size;
     ++machine.writes;
+    if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
     if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) ++machine.render_started;
