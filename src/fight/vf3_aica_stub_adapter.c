@@ -9,6 +9,33 @@
 #include "fight/matrix_family.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "sys/bios_syscall.h"
+
+/* GD-ROM command state for replay: VF3_GD_STATE names a one-line file of the 16 hex words tools/gd_model_check.py reads
+ * from the observer log (last_request_id, next_request_id, status, command, params[4], result[4], cur_sector,
+ * multi_read_sector, multi_read_offset, multi_read_count). With it, GET_CMD_STAT / EXEC_SERVER are answered by the
+ * vf3_gdrom model instead of failing closed; the state is reloaded on every call (one case per process). */
+static int load_gd_state(vf3_gdrom *gd)
+{
+    const char *path = getenv("VF3_GD_STATE");
+    FILE *f = path ? fopen(path, "r") : NULL;
+    unsigned w[16];
+    int n = 0;
+    if (!f) return 0;
+    while (n < 16 && fscanf(f, "%x", &w[n]) == 1) ++n;
+    fclose(f);
+    if (n != 16) return 0;
+    vf3_gd_init(gd, NULL, NULL, NULL);
+    vf3_gd_state *st = &gd->st;
+    st->last_request_id = w[0]; st->next_request_id = w[1]; st->status = (int32_t)w[2]; st->command = w[3];
+    for (int i = 0; i < 4; ++i) { st->params[i] = w[4 + i]; st->result[i] = w[8 + i]; }
+    st->cur_sector = w[12]; st->multi_read_sector = w[13]; st->multi_read_offset = w[14]; st->multi_read_count = w[15];
+    st->multi_read_total = w[15];
+    return 1;
+}
+
+static uint32_t gd_mem_read(void *ctx, uint32_t addr) { return vf3_matrix_read((const vf3_ram_map *)ctx, addr, 4u); }
+static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_matrix_write((const vf3_ram_map *)ctx, addr, v, 4u); }
 
 int vf3_reios_system_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
 int vf3_reios_flashrom_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
@@ -34,6 +61,22 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
     if (r[6] != 0u) {
         state->failed_pc = entry;
         return 0;
+    }
+
+    if ((r[7] == 1u || r[7] == 2u) && getenv("VF3_GD_STATE")) {
+        vf3_gdrom gd;
+        if (load_gd_state(&gd)) {
+            const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
+            const uint32_t args[8] = { 0, 0, 0, 0, r[4], r[5], r[6], r[7] };
+            uint32_t r0 = r[0];
+            if (vf3_bios_gd_syscall(&gd, &gm, args, &r0)) {
+                if (r[7] == 1u) {
+                    r[0] = r0;
+                }
+                state->pc = r[16];
+                return ram->oob == 0u;
+            }
+        }
     }
 
     /* GDROM_EXEC_SERVER (r6=0, r7=2): with the captured idle drive queue the

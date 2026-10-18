@@ -263,3 +263,15 @@ GET_CMD_STAT semantics - exit state identical, and the 0x8C0432DE wrapper's r0 e
 (BUSY -> 4). Limits: every captured invocation is BUSY with a DMA read in flight (status 1), so COMPLETE / CONTINUE /
 idle paths are not exercised by these captures, the EXEC_SERVER check only asserts "state unchanged or BUSY", and the
 stub's own exit is the outer return (the jmp returns straight to the wrapper's caller).
+
+Strict replay with a seeded model (2026-10-18): `src/fight/vf3_aica_stub_adapter.c` now answers GET_CMD_STAT (r7 = 1) and
+EXEC_SERVER (r7 = 2) from `vf3_gdrom` when `VF3_GD_STATE` names a one-line file of the 16 state words
+(the `S` record of the case's first invocation in the VF3_GDLOG file; see gd_model_check.py). The earlier 0/3 failures
+were partly a capture-boundary artifact: with the plain `pc` watch the wrapper's capsule exit lies in its caller
+(0x0C034888, r10 already reloaded), so no replay could match. Re-captured with `exitpc 0x8c0432de 0x8c0433b8`
+(tools/watch/vf3_gd_wrapper.txt, the wrapper's `rts`), then
+`VF3_GD_STATE=extract/analysis/gdstatew_s<N>.txt VF3_STRICT_REPLAY=1 build/vf3matrixfamily.exe 0x8c0432de
+extract/analysis/goldens_gdw<N>/f_8c0432de.cases` is **1/1 PASS in states 42, 21 and 30**: the generated wrapper, the stub
+and the C GD model together reproduce the oracle's registers and memory for the BUSY polling case. The stubs themselves
+(0x8C0430A0 / 0x8C0430B4) still have no clean boundary - their recorded exit is the BIOS entry or the caller - so they
+are verified only as part of the wrapper.
