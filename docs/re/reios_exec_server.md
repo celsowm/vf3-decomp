@@ -207,3 +207,12 @@ Still open for a native boot run: the loader functions between the stubs have no
 callees across states 20-46), and the model has no hardware clock. `vf3_bios_gd_syscall_clocked` (used by the native attachment) substitutes a
 deterministic one: every GET_CMD_STAT poll that finds the drive BUSY first runs one `vf3_gd_sched_step`, so a 7-sector read
 completes on the second poll. Whether that cadence matches the loader's timing is unverified.
+
+## First loader capture attempt (2026-10-18)
+
+`tools/watch/vf3_loader_hot.txt` (0x8C062E8E, 0x8C035CBA, 0x8C0432DE) captured with `golden_batch.py --capsule` from boot
+states 42 and 21 (120 frames each, no play file): only 0x8C0432DE produced cases - 2 distinct complete ones - and 128
+specimens were rejected (flag 4 capture overflow: 93, flag 1 interrupt/exception: 28, flag 5: 7). The polling wrappers
+run long enough to exceed the 100,000-instruction capture bound and take timer interrupts, so the hot loader
+functions need either a raised capture bound / interrupt-free window or capture of the leaf callees instead. Output:
+extract/analysis/goldens_loader_hot (ignored).
