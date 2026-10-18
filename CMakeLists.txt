@@ -128,6 +128,7 @@ add_library(vf3core STATIC
     src/fight/call_seq_da1e.c
     src/fight/atan_turn.c
     src/fight/timecode_digits.c
+    src/fight/scaled_vec_add.c
     src/fight/ring_probe.c
     src/fight/call_sequences.c
     src/fight/vec_offset3.c
