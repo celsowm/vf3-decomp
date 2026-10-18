@@ -82,7 +82,8 @@ int main(int argc, char **argv)
 {
     const char *gdi_path = NULL, *gd_state = NULL;
     uint32_t loop_entry = 0, loop_stop = 0, irqa = 0, irqb = 0, per_poll = 2688, per_step = 1000000;
-    int in_poll = 0;
+    int in_poll = 0, go_on = 0;
+    unsigned slice_steps = 20000;
     uint64_t gd_phase = 0;
     unsigned cycle_frames = 0;
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
@@ -99,6 +100,8 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--cycle-frames")) cycle_frames = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--gd-phase")) gd_phase = (uint64_t)strtoull(v, NULL, 0);
         else if (!strcmp(k, "--full-loop")) full_loop = (int)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--slice")) slice_steps = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--continue")) go_on = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
         else if (!strcmp(k, "--gdi")) gdi_path = v;
         else if (!strcmp(k, "--gd-state")) gd_state = v;
@@ -164,6 +167,50 @@ int main(int argc, char **argv)
             clk.polled = 0;
         }
         if (finished) printf("the wait function returned %d to %08x after %u iterations\n", (int)last_regs[0], (unsigned)ret, iters);
+        if (finished && go_on) {   /* the caller of the wait function: game code, run as far as the port reaches */
+            snap after = cur;
+            memcpy(after.regs, last_regs, sizeof after.regs);
+            after.regs[16] = 0xDEAD0000u;
+            vf3_native_tick_result r;
+            vf3_native_set_xf(cur.xf);
+            vf3_native_set_stop(0);
+            vf3_native_set_extra_stop(0);
+            uint32_t at = ret;
+            unsigned slices = 0;
+            for (unsigned hop = 0; hop < (unsigned)go_on; ++hop) {
+                /* A hop is a time slice of guest steps. It ends where a returning function hands control back to a frame the port has
+                 * not entered (resume there with a fresh pr), or where the slice ran out (resume in place, pr kept). Slice time moves
+                 * the drive and the frame clock; the vblank pair is taken between slices. */
+                vf3_native_set_xf(cur.xf);
+                vf3_native_set_stop(0);
+                vf3_native_set_extra_stop(0);
+                vf3_native_set_budget(slice_steps);
+                vf3_native_tick_run(loop.ram, after.regs, at, GBR_DEFAULT, &r);
+                vf3_native_set_budget(0);
+                const int sliced = !r.ok && !r.unowned_calls && !r.oob && r.failed_pc != 0 && r.steps_budget_used >= slice_steps;
+                if (!sliced || hop % 50 == 0)
+                    printf("  hop %u: %08x -> pc %08x ok %d unowned %u failed %08x steps %u vblanks %u\n", hop, (unsigned)at, (unsigned)r.pc, r.ok, r.unowned_calls, (unsigned)r.failed_pc, r.steps_budget_used, clk.taken);
+                clk.now += r.steps_budget_used;
+                if (gdi_path) vf3_bios_gd_advance_cycles(&gd, r.steps_budget_used);
+                while (clk.now >= clk.next) {
+                    clk.next += CYCLES_PER_FRAME;
+                    ++clk.taken;
+                    if (!run(loop.ram, &a, irqa, 0, "vblank handler A") || !run(loop.ram, &b, irqb, 0, "vblank handler B")) { r.ok = 0; break; }
+                }
+                if (sliced) {
+                    ++slices;
+                    at = r.failed_pc;
+                    memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
+                    continue;
+                }
+                if (!r.ok || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u) break;
+                at = r.pc;
+                memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
+                after.regs[16] = 0xDEAD0000u;
+            }
+            printf("%u time slices of %u steps\n", slices, slice_steps);
+            printf("after the wait: ok %d, pc %08x, failed %08x, unowned %u (first %08x), %u BIOS calls, %u vblanks\n", r.ok, (unsigned)r.pc, (unsigned)r.failed_pc, r.unowned_calls, (unsigned)r.first_unowned, r.bios_calls, clk.taken);
+        }
         printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
         if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);
         return 0;

@@ -502,3 +502,12 @@ clock and the vblank pair taken inside the polls. Result, both from the recorded
 - state 30: the function returns **0 (success) to 0x0C0A8006** after 13 vblanks / 43.4M cycles (216 sectors at 5 per 1M cycles);
 - state 21: returns **0 to 0x0C0A8006** after 2 vblanks / 6.4M cycles (31 sectors).
 The caller at 0x8C0A8006 is the first game-code address past the loader's wait.
+
+## Past the loader wait (state 21, native)
+
+- REIOS MISC gate 0x8C001008 is answered in `readable_hook`: r4=1, r5=0x91, r6=0x0C1A0D58 is a vector registration (setvector); the native run returns r0=0.
+- Code after the wait (0x8C0A8006 -> 0x0C0C5C3A ... 0x0C04B9F4) runs natively to the sentinel: 9,799 steps, 2 vblanks, 0 unowned calls (`vf3boot --continue 4000`; long hops run in time slices, vblank pair fired between slices).
+- Indirect-jump targets missing from a generated module are retried as new entries (`vf3_family_tail_retry`).
+- Growing adapters along the boot path: `tools/static_pcs.py` (static recursive-descent PC dump from seeds in tools/watch/boot_seeds.txt) and `tools/recomp/grow_boot.sh [rounds] [state]`.
+- Fight regression after these changes: states 7 and 13 still `ram 0 bytes differ`.
+- Still open: 8,192 GD-data bytes, 7 game-state bytes, fixed 2,688-cycle poll, states 22+ not chained.

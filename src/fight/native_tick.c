@@ -43,6 +43,7 @@ static struct {
     uint32_t *ta;
     size_t ta_len, ta_cap;
     uint8_t *ram;                /* the image of the run in progress */
+    unsigned budget;             /* guest-step budget of a run (0: the default, effectively unlimited) */
     uint32_t extra_stop;         /* a second address that ends the run (0: none) */
     uint32_t stop_pc;            /* run ends when control reaches this address (0: the return sentinel) */
     vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
@@ -89,6 +90,17 @@ static int call_target(uint32_t entry)
 
 static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
+    /* REIOS MISC (vector 0x8C001008): the game registers its interrupt handlers with it (r4 = function, r5 = vector id,
+     * r6 = handler). The native run takes its vblank handlers directly, so the registration is only recorded. It is answered
+     * here, before the chain: the generated gate dispatch escalates 0x0C001000..F back to the family dispatcher, which would
+     * recurse for ever on a gate nobody owns. */
+    if ((entry & 0x0FFFFFFFu) == 0x0C001008u) {
+        if (getenv("VF3_TRACE_ENTRIES")) fprintf(stderr, "bios misc r4=%u r5=%08x r6=%08x\n", s->v[4], s->v[5], s->v[6]);
+        s->v[0] = 0;
+        s->pc = s->v[16];
+        *handled = 1;
+        return 1;
+    }
     const int ok = vf3_readable_override(entry, s, ram, handled);
     if (*handled) ++machine.readable_calls;
     return ok;
@@ -108,6 +120,7 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32
 
 void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
+void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
 
 void vf3_native_attach_gdrom(vf3_gdrom *gd)
 {
@@ -163,7 +176,8 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     machine.ram = ram;
     machine.ta_len = 0;                /* the buffer itself is reused between runs */
     memset(&st, 0, sizeof st);
-    st.budget = BLOCK_BUDGET;
+    const unsigned budget = !nested && saved.budget ? saved.budget : BLOCK_BUDGET;   /* an interrupt taken inside a slice is not sliced */
+    st.budget = budget;
     memcpy(st.v, regs, 37 * sizeof regs[0]);
     memcpy(st.v + 37, snapshot_xf, sizeof snapshot_xf);
     st.v[16] = machine.stop_pc ? machine.stop_pc : GUEST_RETURN_SENTINEL;
@@ -179,6 +193,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_call_entry = call_target;
     vf3_family_complete_calls = 1;
     vf3_family_extra_stop = machine.extra_stop;
+    vf3_family_tail_retry = 1;
     vf3_sq_model = 1;
 
     const int ok = vf3_matrix_family(entry, &st, &map);
@@ -187,7 +202,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->ok = ok;
     out->pc = st.pc;
     out->failed_pc = st.failed_pc;
-    out->steps_budget_used = BLOCK_BUDGET - st.budget;
+    out->steps_budget_used = budget - st.budget;
     out->readable_calls = machine.readable_calls;
     out->unowned_calls = machine.unowned_calls;
     out->first_unowned = machine.first_unowned;
