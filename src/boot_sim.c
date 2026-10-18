@@ -148,6 +148,7 @@ int main(int argc, char **argv)
     unsigned slice_steps = 20000;   /* guest steps per time slice: the budget hook moves the clocks and takes the vblank pair in place */
     uint64_t gd_phase = 0;
     unsigned cycle_frames = 0;
+    int free_run = 0;   /* the capture is a plain game state, not a loader wait: run its code from --loop-entry for the vblank cap */
     unsigned frames = 1, first_polls = 0, per_frame = 0, polls_per_frame = 0;
     if (argc < 4) { fprintf(stderr, "usage: vf3boot loop.bin irqA.bin irqB.bin --loop-entry E --loop-stop S --irqa E --irqb E [--frames N] [--first-polls P] [--gdi f --gd-state f]\n"); return 2; }
     for (int i = 4; i + 1 < argc; i += 2) {
@@ -164,6 +165,7 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--full-loop")) full_loop = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--slice")) slice_steps = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--vblank-cap")) irq_cap = (unsigned)strtoul(v, NULL, 0);
+        else if (!strcmp(k, "--free")) free_run = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--continue")) go_on = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
         else if (!strcmp(k, "--gdi")) gdi_path = v;
@@ -209,7 +211,8 @@ int main(int argc, char **argv)
         snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
         uint32_t ret = 0, resume = loop_entry, head = loop_stop;
         int finished = 0;
-        while (clk.taken < cycle_frames && iters < 300000) {
+        if (free_run) { finished = 1; ret = loop_entry; memcpy(last_regs, cur.regs, sizeof last_regs); }
+        while (!free_run && clk.taken < cycle_frames && iters < 300000) {
             if (full_loop && iters == 1) {   /* past the first poll an iteration is the whole loop body: poll, decide, time out or return */
                 const uint32_t sp = cur.regs[15] & 0x00FFFFFFu;
                 memcpy(&ret, loop.ram + sp, 4);   /* the pr the function pushed on entry */
