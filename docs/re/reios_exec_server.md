@@ -216,3 +216,10 @@ specimens were rejected (flag 4 capture overflow: 93, flag 1 interrupt/exception
 run long enough to exceed the 100,000-instruction capture bound and take timer interrupts, so the hot loader
 functions need either a raised capture bound / interrupt-free window or capture of the leaf callees instead. Output:
 extract/analysis/goldens_loader_hot (ignored).
+
+Follow-up on the rejections: the hot "functions" are tiny. 0x8C062E8E is `ocbwb @r4; rts` (a cache write-back, no
+architectural effect; the callback wrapper proper starts at 0x8C062E94) and 0x8C035CBA is a vtable trampoline
+(`r14 = [0x0C0EA314]; if r14 { jmp [r14+68] }`, returning through the callee). Neither can run long, so the 100k
+overflow flags come from the observer's call/return pairing across these trampoline tail-jumps, not from long bodies;
+raising the bound will not help. Next: fix the pairing in vf3oracle.cpp for `jmp`-ended watched entries, or watch the
+callee targets of the trampoline instead.
