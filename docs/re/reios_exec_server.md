@@ -349,3 +349,13 @@ The earlier "no case" was a short capture window (120 frames of state 42 never r
 (`tools/watch/vf3_cache_stub.txt`). 64 cases recorded; the readable port (`src/fight/cache_wb_stub.c`, the cache is
 not modelled so the op is a no-op) replays 64/64 with `VF3_READABLE=1 VF3_STRICT_REPLAY=1`. 159 readable entries; the hot
 loader set is now complete.
+
+## Drive cadence measured (timer model, first data)
+
+The GD log of the three boot states shows the emulator's REIOS drive almost standing still while the loader polls: states 21
+and 42 have one distinct command state over ~250 polls each, state 30 two (0xD8 -> 0xD3 sectors left, i.e. exactly one
+5-sector scheduler step in 179 polls). The poll-driven stand-in ran a step on every busy poll, ~100x too fast, which is
+the ~10,000-byte destination diff. `vf3_bios_gd_set_poll_divider(n)` / `--gd-polls-per-step n` runs a step every n-th busy
+poll; with n = 179 the 0x8C034864 span in states 21, 30 and 42 is again bit-exact (4-byte return slot only) with the
+clock RUNNING, no VF3_GD_NOCLOCK needed. A real model should be vblank/frame driven (one step per N frames); polls
+per frame is not logged yet, so the divider is the stand-in until the observer records frame numbers.

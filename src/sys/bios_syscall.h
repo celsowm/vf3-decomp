@@ -17,6 +17,9 @@ typedef struct {
 /* Deterministic clock: the original advances transfers from a scheduler timer. A caller without one can let each
  * GET_CMD_STAT poll of the loader loop stand for one timer tick: with `gd_poll_clock` set (the default of
  * vf3_bios_gd_syscall_clocked), every GET_CMD_STAT that finds the drive BUSY first runs one vf3_gd_sched_step. */
+/* Only every `polls`-th busy poll runs a scheduler step (default 1). The emulator's REIOS drive moved 5 sectors in 179 polls
+ * of state 30 (docs/re/reios_exec_server.md), so a per-poll step runs far ahead of the real cadence. */
+void vf3_bios_gd_set_poll_divider(uint32_t polls);
 int vf3_bios_gd_syscall_clocked(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out);
 
 /* run one syscall; returns 1 and stores r0 in *r0_out when handled, 0 otherwise */
