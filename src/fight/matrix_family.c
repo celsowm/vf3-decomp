@@ -758,6 +758,7 @@ static int vf3_matrix_family_once(uint32_t entry,vf3_matrix_state*s,const vf3_ra
  * dispatch, so its rts is consumed by this call and not by the caller adapter
  * that would otherwise execute the callee's tail inline and then return with
  * the caller's own resume address still pending. */
+uint32_t vf3_family_extra_stop;   /* a second address that ends a completion loop (0: none) */
 int vf3_family_complete_calls;
 int (*vf3_family_call_entry)(uint32_t entry);
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
@@ -766,7 +767,7 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     /* only a real call target owns its pr: a fragment seed entered in the middle of a function sees a
      * stale pr left by an inner call, and must hand its continuation back to the adapter that forwarded it */
     int complete=vf3_family_complete_calls && (!vf3_family_call_entry || vf3_family_call_entry(entry&0x1FFFFFFFu));
-    while(complete && ok && (s->pc&0x1FFFFFFFu)!=want) {
+    while(complete && ok && (s->pc&0x1FFFFFFFu)!=want && (!vf3_family_extra_stop || (s->pc&0x1FFFFFFFu)!=(vf3_family_extra_stop&0x1FFFFFFFu))) {
         uint32_t next=s->pc;
         if((next&0x1FFFFFFFu)==(entry&0x1FFFFFFFu) && next==entry) break;
         ok=vf3_matrix_family_once(next,s,ram);

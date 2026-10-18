@@ -19,6 +19,7 @@ typedef void (*vf3_family_obs_fn)(uint32_t entry, vf3_matrix_state *, const vf3_
 extern vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
 /* nonzero: vf3_matrix_family keeps dispatching until pc reaches the caller's pr */
 extern int vf3_family_complete_calls;
+extern uint32_t vf3_family_extra_stop;
 /* Store-queue bursts (PREF @Rn with Rn in 0xE0000000..0xE3FFFFFF). The replay corpora under
  * extract/analysis predate the burst model and their device tapes do not contain the burst
  * writes, so the model is opt-in: whole-tick runs set it, the legacy per-function gates do not. */

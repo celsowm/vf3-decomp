@@ -493,3 +493,12 @@ in both state 21 and state 30 with no failed run and no unowned call; the transf
 status idle, 0 left; state 21: cur 0x822D8, idle). The loop head is then reached forever: whatever releases the loader from the wait
 (the next state's first entry, captured as the next boot state) is outside this loop's closure - the same platform boundary as the
 system-area states.
+
+### The wait function returns (vf3boot --full-loop 1)
+The idle-loop iteration only reached 0x8C035530; the decision half (0x8C035A20 status query, the error codes, the 0x4B0-tick timeout
+against the counter at [0x0C0EA2F8]) was never executed, which is why the loop looked endless. With `--full-loop 1` the second
+iteration is the whole loop body (resume at 0x0C035530, `vf3_family_extra_stop` = the pr the function pushed), driven by the free-running
+clock and the vblank pair taken inside the polls. Result, both from the recorded GD seeds with `--gd-phase 565440`:
+- state 30: the function returns **0 (success) to 0x0C0A8006** after 13 vblanks / 43.4M cycles (216 sectors at 5 per 1M cycles);
+- state 21: returns **0 to 0x0C0A8006** after 2 vblanks / 6.4M cycles (31 sectors).
+The caller at 0x8C0A8006 is the first game-code address past the loader's wait.

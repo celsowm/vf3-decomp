@@ -43,6 +43,7 @@ static struct {
     uint32_t *ta;
     size_t ta_len, ta_cap;
     uint8_t *ram;                /* the image of the run in progress */
+    uint32_t extra_stop;         /* a second address that ends the run (0: none) */
     uint32_t stop_pc;            /* run ends when control reaches this address (0: the return sentinel) */
     vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
     unsigned bios_calls;
@@ -106,6 +107,7 @@ static uint32_t gd_mem_read(void *ctx, uint32_t addr) { return vf3_mem_u32((cons
 static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_mem_set_u32((const vf3_ram_map *)ctx, addr, v); }
 
 void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
+void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 
 void vf3_native_attach_gdrom(vf3_gdrom *gd)
 {
@@ -176,6 +178,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_leave = NULL;
     vf3_family_call_entry = call_target;
     vf3_family_complete_calls = 1;
+    vf3_family_extra_stop = machine.extra_stop;
     vf3_sq_model = 1;
 
     const int ok = vf3_matrix_family(entry, &st, &map);

@@ -27,17 +27,28 @@ static int load(const char *path, unsigned pair, snap *s)
     return 1;
 }
 
+static int full_loop, run_depth;
+static uint32_t next_extra, last_regs[37], last_pc;
+
 static int run(uint8_t *ram, const snap *s, uint32_t entry, uint32_t stop, const char *what)
 {
     vf3_native_tick_result r;
     vf3_native_set_xf(s->xf);
     vf3_native_set_stop(stop);
+    vf3_native_set_extra_stop(next_extra);
+    next_extra = 0;
+    ++run_depth;
     vf3_native_tick_run(ram, s->regs, entry, GBR_DEFAULT, &r);
+    --run_depth;
+    if (!run_depth) {   /* only the outermost run's final registers are the loop's; an interrupt taken inside it is nested */
+        memcpy(last_regs, r.regs, sizeof last_regs);
+        last_pc = r.pc;
+    }
     if (!r.ok || r.unowned_calls) {
         fprintf(stderr, "vf3boot: %s failed at %08x (unowned %u, first %08x)\n", what, r.failed_pc, r.unowned_calls, r.first_unowned);
         return 0;
     }
-    if (stop && r.pc != stop) {
+    if (stop && r.pc != stop && !full_loop) {
         static unsigned shown;
         if (shown++ < 5) fprintf(stderr, "vf3boot: %s ended at %08x, not the loop head %08x\n", what, r.pc, stop);
     }
@@ -87,6 +98,7 @@ int main(int argc, char **argv)
         else if (!strcmp(k, "--first-polls")) first_polls = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--cycle-frames")) cycle_frames = (unsigned)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--gd-phase")) gd_phase = (uint64_t)strtoull(v, NULL, 0);
+        else if (!strcmp(k, "--full-loop")) full_loop = (int)strtoul(v, NULL, 0);
         else if (!strcmp(k, "--irq-in-poll")) { in_poll = (int)strtoul(v, NULL, 0); }
         else if (!strcmp(k, "--gdi")) gdi_path = v;
         else if (!strcmp(k, "--gd-state")) gd_state = v;
@@ -128,15 +140,30 @@ int main(int argc, char **argv)
         irq.ram = loop.ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
         vf3_native_set_poll_hook(poll_irq, NULL);
         unsigned iters = 0;
+        snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
+        uint32_t ret = 0, resume = loop_entry, head = loop_stop;
+        int finished = 0;
         while (clk.taken < cycle_frames && iters < 300000) {
-            if (!run(loop.ram, &loop, loop_entry, loop_stop, "wait loop") || irq.failed) { fprintf(stderr, "vf3boot: stopped after %u iterations, %u frames\n", iters, clk.taken); return 1; }
+            if (full_loop && iters == 1) {   /* past the first poll an iteration is the whole loop body: poll, decide, time out or return */
+                const uint32_t sp = cur.regs[15] & 0x00FFFFFFu;
+                memcpy(&ret, loop.ram + sp, 4);   /* the pr the function pushed on entry */
+                resume = loop_stop; head = 0x0C035524u;
+            }
+            if (full_loop && iters >= 1) next_extra = ret;
+            if (!run(loop.ram, &cur, resume, head, "wait loop") || irq.failed) { fprintf(stderr, "vf3boot: stopped after %u iterations, %u frames\n", iters, clk.taken); return 1; }
             ++iters;
+            if (full_loop) {
+                memcpy(cur.regs, last_regs, sizeof cur.regs);
+                if (iters > 1 && (last_pc & 0x1FFFFFFFu) == (ret & 0x1FFFFFFFu)) { finished = 1; break; }
+                resume = head;
+            }
             if (!clk.polled) {   /* an iteration that never reached the BIOS still takes time: the drive and the frame clock move */
                 if (gdi_path) vf3_bios_gd_advance_cycles(&gd, per_poll);
                 poll_irq(NULL);
             }
             clk.polled = 0;
         }
+        if (finished) printf("the wait function returned %d to %08x after %u iterations\n", (int)last_regs[0], (unsigned)ret, iters);
         printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
         if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);
         return 0;
