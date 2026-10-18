@@ -485,3 +485,11 @@ first step fell 434,560 cycles after the first poll). State 30, 2 vblanks (1773 
 **191 sectors left, cur 0x68F0A, the same as the emulator's GD log at that cycle** (without the phase it is one step behind, 196).
 The run completes with no failed handler or unowned call; the RAM diff against the emulator is not meaningful past frame 1 because the
 recorded irqA pairs are not consecutive frames.
+
+### 242 vblanks, states 21 and 30
+An iteration that never reaches the BIOS (the drive is idle after the transfer) is charged one poll interval too, and moves the
+drive. With that, `vf3boot --cycle-frames 300 --gd-phase 565440` runs 300,000 wait-loop iterations over **242 vblanks (806M cycles)**
+in both state 21 and state 30 with no failed run and no unowned call; the transfers finish (state 30: cur 0x68FC9 = 0x68EC9 + 0x100,
+status idle, 0 left; state 21: cur 0x822D8, idle). The loop head is then reached forever: whatever releases the loader from the wait
+(the next state's first entry, captured as the next boot state) is outside this loop's closure - the same platform boundary as the
+system-area states.

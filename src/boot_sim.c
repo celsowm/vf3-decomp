@@ -37,6 +37,10 @@ static int run(uint8_t *ram, const snap *s, uint32_t entry, uint32_t stop, const
         fprintf(stderr, "vf3boot: %s failed at %08x (unowned %u, first %08x)\n", what, r.failed_pc, r.unowned_calls, r.first_unowned);
         return 0;
     }
+    if (stop && r.pc != stop) {
+        static unsigned shown;
+        if (shown++ < 5) fprintf(stderr, "vf3boot: %s ended at %08x, not the loop head %08x\n", what, r.pc, stop);
+    }
     return 1;
 }
 
@@ -45,12 +49,13 @@ static struct { int armed; uint8_t *ram; const snap *a, *b; uint32_t irqa, irqb;
 
 /* --cycle-frames: a free-running clock; every served poll costs per_poll cycles and the vblank pair is taken inside the poll
  * whose cycle count crosses the next frame boundary */
-static struct { int on; uint64_t now, next; unsigned taken; uint32_t per_poll; vf3_gdrom *gd; } clk;
+static struct { int on; uint64_t now, next; unsigned taken; int polled; uint32_t per_poll; vf3_gdrom *gd; } clk;
 
 static void poll_irq(void *ctx)
 {
     (void)ctx;
     if (clk.on) {
+        clk.polled = 1;
         clk.now += clk.per_poll;
         if (clk.now < clk.next) return;
         clk.next += CYCLES_PER_FRAME;
@@ -123,9 +128,14 @@ int main(int argc, char **argv)
         irq.ram = loop.ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
         vf3_native_set_poll_hook(poll_irq, NULL);
         unsigned iters = 0;
-        while (clk.taken < cycle_frames) {
+        while (clk.taken < cycle_frames && iters < 300000) {
             if (!run(loop.ram, &loop, loop_entry, loop_stop, "wait loop") || irq.failed) { fprintf(stderr, "vf3boot: stopped after %u iterations, %u frames\n", iters, clk.taken); return 1; }
             ++iters;
+            if (!clk.polled) {   /* an iteration that never reached the BIOS still takes time: the drive and the frame clock move */
+                if (gdi_path) vf3_bios_gd_advance_cycles(&gd, per_poll);
+                poll_irq(NULL);
+            }
+            clk.polled = 0;
         }
         printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
         if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);
