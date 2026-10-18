@@ -254,13 +254,13 @@ int main(int argc, char **argv)
                 vf3_native_set_budget(0);
                 const int sliced = !r.ok && !r.unowned_calls && !r.oob && r.failed_pc != 0 && r.steps_budget_used >= slice_steps;
                 if (!sliced || hop % 50 == 0)
-                    printf("  hop %u: %08x -> pc %08x ok %d unowned %u failed %08x steps %u vblanks %u\n", hop, (unsigned)at, (unsigned)r.pc, r.ok, r.unowned_calls, (unsigned)r.failed_pc, r.steps_budget_used, clk.taken);
+                    printf("  hop %u: %08x -> pc %08x ok %d unowned %u failed %08x steps %u vblanks %u oob %u fpscr %08x\n", hop, (unsigned)at, (unsigned)r.pc, r.ok, r.unowned_calls, (unsigned)r.failed_pc, r.steps_budget_used, clk.taken, r.oob, (unsigned)r.regs[18]);
                 clk.now += r.steps_budget_used;
                 if (gdi_path) vf3_bios_gd_advance_cycles(&gd, r.steps_budget_used);
                 while (clk.now >= clk.next) {
                     clk.next += CYCLES_PER_FRAME;
                     ++clk.taken;
-                    if (!run(loop.ram, &a, irqa, 0, "vblank handler A") || !run(loop.ram, &b, irqb, 0, "vblank handler B")) { r.ok = 0; break; }
+                    if (!run(loop.ram, &a, irqa, 0, "vblank handler A") || !run(loop.ram, &b, irqb, 0, "vblank handler B")) { r.ok = 0; r.oob = 1; break; }
                 }
                 if (sliced) {
                     ++slices;
@@ -268,7 +268,10 @@ int main(int argc, char **argv)
                     memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
                     continue;
                 }
-                if (!r.ok || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u) break;
+                /* A callee that returns into a frame this hop never entered (its pr came off the stack) ends with ok 0, no failed pc
+                 * and nothing unowned: that is a hand-back, so resume at the return address like the ok-1 hops do. */
+                const int handed_back = !r.ok && !r.failed_pc && !r.oob && !r.unowned_calls && r.pc != at;
+                if ((!r.ok && !handed_back) || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u) break;
                 at = r.pc;
                 memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
                 after.regs[16] = 0xDEAD0000u;
