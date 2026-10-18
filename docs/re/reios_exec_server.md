@@ -256,3 +256,10 @@ result[4], cur_sector, multi_read_sector / offset / count). `id` is the capsule 
 watch set at states 42 / 21 / 30: extract/analysis/gdlog_s<N>.txt (ignored), e.g. the 0x8C0432DE entry of s42 starts in
 status 1 (BUSY) with a DMA command in flight at multi_read_count 0xC9. Still to do: carry the S/E record into the case
 metadata through golden_extract (join on invocation id), seed `vf3_gdrom` from it in the router adapter, and compare.
+
+First oracle check of the GD model (tools/gd_model_check.py, capsules joined to the VF3_GDLOG records by invocation id):
+all 566 recorded invocations of 0x8C0430A0 / 0x8C0430B4 / 0x8C0432DE in states 42 / 21 / 30 agree with the C model's
+GET_CMD_STAT semantics - exit state identical, and the 0x8C0432DE wrapper's r0 equals the model's status mapped
+(BUSY -> 4). Limits: every captured invocation is BUSY with a DMA read in flight (status 1), so COMPLETE / CONTINUE /
+idle paths are not exercised by these captures, the EXEC_SERVER check only asserts "state unchanged or BUSY", and the
+stub's own exit is the outer return (the jmp returns straight to the wrapper's caller).
