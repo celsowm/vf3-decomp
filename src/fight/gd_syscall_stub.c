@@ -62,3 +62,24 @@ int vf3_empty_rts_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = R(VF3_REG_PR);
     return 1;
 }
+
+/* 0x8C0624BA: scan the 4096-record scene object table (0x0C16CF6C, stride 24) and clear bit 0 of the first
+ * record whose address is r4. The original always walks the whole table, leaving r1=0x1000 and r5/r6 at the end. */
+int vf3_scene_clear_flag_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t base = 0x0C16CF6Cu;
+    const uint32_t target = R(4);
+    for (uint32_t i = 0; i < 0x1000u; ++i) {
+        const uint32_t rec = base + 24u * i;
+        if (rec == target) {
+            vf3_mem_set_u16(ram, rec, (uint16_t)(vf3_mem_u16(ram, rec) & 0xFFFEu));
+            break;
+        }
+    }
+    R(1) = 0x1000u;
+    R(5) = base + 24u * 0x1000u;
+    R(6) = base + 24u * 0x1000u;
+    R(7) = 0x1000u;
+    s->pc = R(VF3_REG_PR);
+    return 1;
+}

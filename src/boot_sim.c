@@ -83,6 +83,9 @@ static void poll_irq(void *ctx)
 static unsigned hook_slice, irq_cap = 400, asic_busy, peek_last;
 static int asic_first;   /* VF3_ASIC_FIRST: ASIC list-end/render events before the vblank pair (the hardware order) */
 static int asic_vblank;  /* VF3_ASIC_VBLANK: take vblank-in through the ASIC handler (bit 0x8) instead of calling A/B directly */
+static int task_pump;    /* BS_TASK_PUMP: when the boot continuation reaches the sentinel, run the task scheduler 0x8C09616A again */
+static int frame_loop;   /* BS_FRAME_LOOP: at the sentinel, enter the title frame loop 0x8C095CC2 (it never returns) */
+static int scene_setup;  /* BS_SCENE_SETUP: at the sentinel, call the title scene handler 0x8C096E62 directly (CP_LOGO request) */
 
 /* One frame boundary. The real vblank-in is ASIC normal-interrupt bit 0x8: the handler at 0x8C06423A calls the vblank
  * handler 0x8C063D1E and then 0x8C05FCC4, which tail-jumps through [0x0C16CCF8]. The direct pair used by the old runs
@@ -219,6 +222,9 @@ int main(int argc, char **argv)
     if (use_tmu) vf3_native_enable_tmu();
     asic_first = getenv("VF3_ASIC_FIRST") != NULL;           /* opt-in: dispatch the ASIC events before the vblank pair */
     asic_vblank = getenv("VF3_ASIC_VBLANK") != NULL;         /* opt-in: vblank-in through the ASIC handler (bit 0x8) */
+    task_pump = getenv("BS_TASK_PUMP") != NULL;              /* opt-in: resume the task table when the continuation hands back */
+    frame_loop = getenv("BS_FRAME_LOOP") != NULL;            /* opt-in: enter the title frame loop at the first sentinel */
+    scene_setup = getenv("BS_SCENE_SETUP") != NULL;          /* opt-in: call the title scene handler at the first sentinel */
 
     snap loop, a, b, ref;
     if (!load(argv[1], 0, &loop) || !load(argv[2], 0, &a) || !load(argv[3], 0, &b)) return 2;
@@ -312,7 +318,7 @@ int main(int argc, char **argv)
             vf3_native_set_stop(0);
             vf3_native_set_extra_stop(0);
             uint32_t at = ret;
-            unsigned slices = 0;
+            unsigned slices = 0, pumps = 0, frame_entered = 0, scene_entered = 0;
             for (unsigned hop = 0; hop < (unsigned)go_on; ++hop) {
                 /* A hop is a time slice of guest steps. It ends where a returning function hands control back to a frame the port has
                  * not entered (resume there with a fresh pr), or where the slice ran out (resume in place, pr kept). Slice time moves
@@ -355,6 +361,43 @@ int main(int argc, char **argv)
                     for (unsigned k = 0; k < 12; ++k) fprintf(stderr, " %08x", rd32(loop.ram, 0x0C000000u + sp + 4u * k));
                     fputc(10, stderr);
                 }
+                if (r.pc == 0xDEAD0000u && scene_setup && !scene_entered) {   /* the loader pass is over: run the title scene handler that requests CP_LOGO */
+                    scene_entered = 1;
+                    fprintf(stderr, "scene setup: calling 0x8C096E62 at vblank %u sp %08x%c", clk.taken, r.regs[15], 10);
+                    at = 0x8C096E62u;
+                    memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
+                    after.regs[4] = 0x0C29B864u;
+                    after.regs[5] = 8u;
+                    after.regs[16] = 0x8C095CC2u;
+                    continue;
+                }
+                if (r.pc == 0xDEAD0000u && frame_loop && !frame_entered) {   /* the boot setup fell off its synthetic frame: enter the real per-frame loop */
+                    frame_entered = 1;
+                    const char *fp = getenv("BS_FRAME_PR");
+                    const uint32_t fpr = fp ? (uint32_t)strtoul(fp, NULL, 0) : 0x8C095CC2u;   /* the loop's own entry: a tail helper's rts re-enters it */
+                    const char *pok = getenv("BS_FRAME_POKE");
+                    if (pok) {   /* experiment: addr:value, e.g. the scene sub-state word 0C29B86C:02030203 */
+                        unsigned pa = 0, pv = 0;
+                        if (sscanf(pok, "%x:%x", &pa, &pv) == 2) {
+                            memcpy(loop.ram + ((uint32_t)pa & 0x00FFFFFFu), &pv, 4);
+                            fprintf(stderr, "frame poke %08x = %08x%c", pa, pv, 10);
+                        }
+                    }
+                    fprintf(stderr, "frame loop: entering 0x8C095CC2 at vblank %u sp %08x pr %08x%c", clk.taken, r.regs[15], fpr, 10);
+                    at = 0x8C095CC2u;
+                    memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
+                    after.regs[16] = fpr;
+                    continue;
+                }
+                if (r.pc == 0xDEAD0000u && task_pump && pumps < 20000) {   /* the boot task returned: walk the task table again */
+                    ++pumps;
+                    if (pumps <= 8 || pumps % 100 == 0)
+                        fprintf(stderr, "task pump %u: vblanks %u sp %08x%c", pumps, clk.taken, r.regs[15], 10);
+                    at = 0x0C09616Au;
+                    memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
+                    after.regs[16] = 0xDEAD0000u;
+                    continue;
+                }
                 if ((!r.ok && !handed_back) || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u || (free_run && r.pc == 1)) break;   /* pc 1: a task function returning to its exit marker */
                 at = r.pc;
                 memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
@@ -365,6 +408,11 @@ int main(int argc, char **argv)
         }
         printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
         if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);
+        if (getenv("BS_DUMP_RAM")) {   /* experiment: the final RAM, for task-table / scene-state inspection */
+            FILE *f = fopen(getenv("BS_DUMP_RAM"), "wb");
+            if (f) { fwrite(loop.ram, 1, VF3_NATIVE_RAM_LEN, f); fclose(f); }
+            else fprintf(stderr, "vf3boot: cannot write %s\n", getenv("BS_DUMP_RAM"));
+        }
         return 0;
     }
     uint8_t *ram = loop.ram;

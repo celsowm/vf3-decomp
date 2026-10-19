@@ -86,3 +86,13 @@ starts earlier), not a function entry. That is the same synthetic-stack
 problem: the continuation is following returns into frames the port never
 entered. `BS_SENTINEL_STACK` prints the caller's stack words at the sentinel
 to make the real frame visible when this is chased further.
+
+## CP_LOGO trigger
+
+The per-frame title loop at `0x8C095CC2` calls the scene dispatcher
+`0x8C0968CC`; scene state 3 / sub-state 2 selects the setup
+`0x8C096E5C`/`0x8C096E62`, which calls `0x8C07AAAC(0x414F)` and requests
+`CP_LOGO.BIN` (FAD `0x68ec9`, `0x100` sectors, destination `0x0C828800`).
+`tools/boot_cp_logo_probe.py` enters the setup with the scene arguments and an
+idle drive and verifies that first read with 0 unowned calls. Details in
+`docs/re/title_cp_logo.md`.
