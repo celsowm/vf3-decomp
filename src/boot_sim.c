@@ -312,7 +312,7 @@ int main(int argc, char **argv)
         if (finished && go_on) {   /* the caller of the wait function: game code, run as far as the port reaches */
             snap after = cur;
             memcpy(after.regs, last_regs, sizeof after.regs);
-            after.regs[16] = 0xDEAD0000u;
+            if (!getenv("BS_KEEP_PR")) after.regs[16] = 0xDEAD0000u;   /* opt-in: keep the capture's real return address */
             vf3_native_tick_result r;
             vf3_native_set_xf(cur.xf);
             vf3_native_set_stop(0);

@@ -57,6 +57,20 @@ python tools/boot_cp_logo_probe.py
 The handler runs entirely through readable/adapted code (0 unowned) and issues the CP_LOGO
 read, followed by the next title resources.
 
+## Real-stack setup capture
+
+`tick_capture.py 0x8C096E62 --state tools/emu/flycast-build/data/vf3_22.state --frames 2000
+--pairs 1 --name setup_entry_s22` captures the setup entry with the frame loop's real return
+address (`pr=0x0C095CF2`) and stack (`sp=0x0C31FA38`). Running that capture free with
+`BS_KEEP_PR=1` (keep the captured return address instead of the sentinel) is clean (0 unowned)
+but issues **no** new GD read: the loader at `0x8C096F24` returns without a BIOS request.
+
+A hybrid with the state-25 pre-load RAM and the setup capture's real 4 KiB stack behaves the
+same. The direct probe (state-25 RAM, `r4`/`r5`/`pr`, idle GD) still issues CP_LOGO, so the
+skip is a game-side loader/request-state difference in the setup-entry capture, not the scene
+handler's loader call. The next diagnostic is to trace `0x8C07AAAC`/`0x8C0A7F5A` entries in the
+setup-capture run and compare the request struct at `0x0C2A7390`.
+
 ## Remaining gap in the natural boot run
 
 The boot continuation's loader pass reaches the frame loop only after the vblank cap
@@ -66,6 +80,7 @@ run issues no CP_LOGO read. The direct probe demonstrates the handler; the next 
 preserve the scene sub-state 2 across the loader pass (or dispatch the sub-state-2 handler at
 the frame-loop entry) and verify the request inside the frame loop.
 
+`BS_KEEP_PR=1` keeps the capture's real return address at the start of a free run;
 `BS_FRAME_POKE=0C29B86C:02030203` writes the scene word (state 3, sub-state 2) at the
 frame-loop entry. The state-25 1,500-vblank run applies the poke at vblank 1516, but the
 frame-loop body's first call chain still hands back to the sentinel before the scene
