@@ -45,6 +45,8 @@ int vf3_gdi_open(vf3_gdi *gdi, const char *gdi_path)
 
 int vf3_gdi_read_sector(const vf3_gdi *gdi, uint32_t fad, uint8_t out[VF3_GD_SECTOR])
 {
+    /* the drive addresses FADs; the GDI lists tracks by LBA, which is the FAD minus the 150-sector pregap */
+    fad -= 150u;
     const vf3_gdi_track *best = NULL;
     for (int i = 0; i < gdi->ntracks; ++i)
         if (gdi->track[i].start_fad <= fad && (!best || gdi->track[i].start_fad > best->start_fad)) best = &gdi->track[i];

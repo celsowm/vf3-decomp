@@ -123,3 +123,17 @@ file does not fit; native device reads returned 0, so the loader reported an err
   ([0x0C29BEB4], [0x0C1B9610]) at the first 0x0C06911C entry (pc watch payload) and diff against native's.
 - `VF3_TRACE_ENTRIES` / `VF3_GDTRACE` additions: enter lines carry r4/r5; `scan`, `sc`, `grid`, `rec` probes for 0x0C068FE4,
   0x0C06911C, 0x0C0A28D4; `req cmd` lines for REQ_CMD parameters.
+
+
+## State 27 solved: GD addresses are FADs (2026-10-19)
+
+The GD model fed the game's sector addresses straight to the GDI track lookup, but the drive speaks FADs
+(LBA + 150). State 27's first file (FAD 0x7ED77) therefore read float data from 150 sectors later, so the header
+size field was garbage (0x3D0DF800) and the follow-on loader destinations were bad (0xCFAEF000, 0xCBB30000).
+`vf3_gdi_read_sector` now subtracts 150. Destinations match the emulator (0x0CBA9800, 0x0C376000, 0x0CBAB800) and the
+header at 0x0C350000 matches (0x25A08 / 0x24400).
+
+Final 15-state sweep (docs/boot_states.csv): every state 21-30 and 42-46 reaches the frame loop 0x0C0597CA or ends at
+0xDEAD0000 (22, 23). With real file data the loads are bigger: state 30 needs about 700 vblanks (grown with
+`CAP=700 sh tools/recomp/grow_boot.sh 8 30`; its row is from that direct run, boot_states.py times out at that cap).
+States 29 and 46 needed no extra growth after the fix. `sh tools/recomp/run_native.sh 7 13`: 0 unowned, RAM equal.
