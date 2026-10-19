@@ -57,7 +57,9 @@ static int run(uint8_t *ram, const snap *s, uint32_t entry, uint32_t stop, const
 }
 
 /* --irq-in-poll: the vblank handlers are taken inside the BIOS poll of the last iteration of a frame, as the real interrupt is */
-static struct { int armed; uint8_t *ram; const snap *a, *b; uint32_t irqa, irqb; int failed; } irq;
+static struct { int armed; uint8_t *ram; const snap *a, *b, *asic; uint32_t irqa, irqb; int failed; } irq;
+
+static const snap *asic_regs(void) { return irq.asic ? irq.asic : irq.a; }   /* BS_ASIC: the ASIC handler's own entry state */
 
 /* --cycle-frames: a free-running clock; every served poll costs per_poll cycles and the vblank pair is taken inside the poll
  * whose cycle count crosses the next frame boundary */
@@ -99,7 +101,7 @@ static void take_vblank(void)
     vf3_native_raise_asic(0x8u);
     if (vf3_native_asic_pending() && !asic_busy) {
         asic_busy = 1;
-        snap d = *irq.a;
+        snap d = *asic_regs();
         d.regs[16] = 0xDEAD0000u;
         if (!run(irq.ram, &d, 0x0C06423Au, 0, "asic vblank")) irq.failed = 1;
         asic_busy = 0;
@@ -140,7 +142,7 @@ static uint32_t slice_hook(void)
     for (unsigned n = vf3_native_take_render(); n; --n) vf3_native_raise_asic(0x4u);
     if (vf3_native_asic_pending() && !asic_busy) {   /* the ASIC interrupt handler dispatches them */
         asic_busy = 1;
-        snap d = *irq.a;
+        snap d = *asic_regs();
         d.regs[16] = 0xDEAD0000u;
         if (!run(irq.ram, &d, 0x0C06423Au, 0, "asic handler")) { irq.failed = 1; return 0; }
         asic_busy = 0;
@@ -226,10 +228,13 @@ int main(int argc, char **argv)
     frame_loop = getenv("BS_FRAME_LOOP") != NULL;            /* opt-in: enter the title frame loop at the first sentinel */
     scene_setup = getenv("BS_SCENE_SETUP") != NULL;          /* opt-in: call the title scene handler at the first sentinel */
 
-    snap loop, a, b, ref;
+    snap loop, a, b, ref, asic = {0};
+    int have_asic = 0;
+    const char *asic_path = getenv("BS_ASIC");       /* optional: the ASIC handler's own entry state */
     if (!load(argv[1], 0, &loop) || !load(argv[2], 0, &a) || !load(argv[3], 0, &b)) return 2;
+    if (asic_path) { if (!load(asic_path, 0, &asic)) return 2; have_asic = 1; }
     if (use_tmu) vf3_native_tmu_set(rd32(loop.ram, 0x0C1981C8u));   /* start the frame clock where the savestate left it */
-    free(a.ram); free(b.ram);                       /* only their entry registers are used */
+    free(a.ram); free(b.ram); if (have_asic) free(asic.ram);   /* only their entry registers are used */
     if (!load(argv[2], getenv("BS_REF") ? (unsigned)atoi(getenv("BS_REF")) : frames, &ref)) return 2;
 
     vf3_gdi gdi;
@@ -258,7 +263,7 @@ int main(int argc, char **argv)
     if (cycle_frames) {
         clk.on = 1; clk.per_poll = per_poll; clk.next = CYCLES_PER_FRAME - (uint64_t)(first_polls ? first_polls : 0) * per_poll * 0; clk.gd = gdi_path ? &gd : NULL;
         if (first_polls) clk.next = (uint64_t)first_polls * per_poll;
-        irq.ram = loop.ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
+        irq.ram = loop.ram; irq.a = &a; irq.b = &b; irq.asic = have_asic ? &asic : NULL; irq.irqa = irqa; irq.irqb = irqb;
         vf3_native_set_poll_hook(poll_irq, NULL);
         unsigned iters = 0;
         snap cur = loop;   /* the register file of the wait function, carried from one iteration to the next */
@@ -416,7 +421,7 @@ int main(int argc, char **argv)
         return 0;
     }
     uint8_t *ram = loop.ram;
-    irq.ram = ram; irq.a = &a; irq.b = &b; irq.irqa = irqa; irq.irqb = irqb;
+    irq.ram = ram; irq.a = &a; irq.b = &b; irq.asic = have_asic ? &asic : NULL; irq.irqa = irqa; irq.irqb = irqb;
     if (in_poll) vf3_native_set_poll_hook(poll_irq, NULL);
     for (unsigned f = 0; f < frames; ++f) {
         const unsigned polls = f == 0 && first_polls ? first_polls : per_frame;

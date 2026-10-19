@@ -96,3 +96,13 @@ The per-frame title loop at `0x8C095CC2` calls the scene dispatcher
 `tools/boot_cp_logo_probe.py` enters the setup with the scene arguments and an
 idle drive and verifies that first read with 0 unowned calls. Details in
 `docs/re/title_cp_logo.md`.
+
+## State-22 IRQ capture (2026-10-19)
+
+The state-30 IRQ captures cannot be reused against the state-22 title RAM: the ASIC
+dispatch eventually takes an invalid pointer (`0x0C19E998`, a data page). Capturing
+`0x8C063D1E`, `0x8C062E94` and `0x8C06423A` from `vf3_22.state` and passing the ASIC
+capture separately (`BS_ASIC=...`) keeps the vblank pair's registers and the ASIC handler's
+registers separate. The title slice then issues 13 GD reads over 299 vblanks with 0 unowned
+calls; the ASIC-vblank path runs 672 vblanks with 0 unowned and completes CP_LOGO, then waits
+at scene `+0x1CC`. See `docs/re/title_cp_logo.md`.

@@ -82,14 +82,29 @@ state word at `0x0C2A620C + 2*0x0E = 0x0C2A6228` (resource `0x414F` maps through
 `0x0C11ABB0 + 6*(0x414F & 0x3FFF)` to index `0x0E`); the frame-entry capture has state 0, i.e.
 "load". The request is the first native GD read, and the run is 0 unowned.
 
-## Remaining boot gap
+## Long title slice (state-22 captures)
 
-The frame loop now issues CP_LOGO from the real captured entry. Reaching the next title
-resource (or a scene transition) still needs the frame loop to run long enough for the
-vblank-driven loader completion; the capture starts at the frame-loop entry with the ROB read
-already complete, so the CP_LOGO request is the immediate next step. The 1,500-vblank boot
-continuation reaches the frame loop after its cap and with sub-state 3, so it does not
-re-enter the setup; that is a capture-length/state issue, not the handler.
+The state-30 IRQ captures are not valid for the state-22 title RAM: the direct pair eventually
+calls `0x0C19E998` (a data page) at vblank ~240. Capturing the two vblank handlers and the
+ASIC handler from state 22 fixes the entry state:
+
+```
+tick_capture.py 0x8C063D1E --state tools/emu/flycast-build/data/vf3_22.state ... --name irqa_s22
+tick_capture.py 0x8C062E94 ... --name irqb_s22
+tick_capture.py 0x8C06423A ... --name asic_s22
+```
+
+The frame loop with the direct pair and `BS_ASIC=<asic capture>` (new optional third entry
+state; the slice hook's ASIC handler uses it while the vblank pair keeps its own registers),
+`VF3_ASIC_FIRST=1`, `BS_KEEP_PR=1`, `BS_REF=0`, `--slice 200000`, runs **13 GD reads**
+(CP_LOGO then the title resource set) over **299 vblanks with 0 unowned**; it ends on an ASIC
+capture-state artifact (invalid callback), not an unported call.
+
+With `VF3_ASIC_VBLANK=1` and the state-22 ASIC capture as `--irqa`, the title loop runs
+**672 vblanks, 0 unowned**, CP_LOGO completes (GD model idle at `0x68fc9`), then it sits in
+scene state 3 / sub-state 3. That sub-state polls scene context `+0x1CC` through
+`0x8C0C6742`; the field stays 0, so the title waits for the logo display/load completion (or
+input). That is the next boot gate, not a coverage hole: the executed loop is 0 unowned.
 
 `BS_KEEP_PR=1` keeps the capture's real return address at the start of a free run;
 `BS_FRAME_POKE=0C29B86C:02030203` remains available for scene-state experiments.
