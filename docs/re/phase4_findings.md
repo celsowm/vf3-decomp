@@ -203,3 +203,18 @@ are opt-in; details and the negative long-run result are in
 docs/re/boot_asic_order.md. New readable ports on the path: 0x8C0434C8
 (EXEC_SERVER wrapper) and 0x8C0597CA (empty render callback). Fight states 7
 and 13 remain 0-unowned / 0 bytes differ.
+
+## CP_LOGO native proof (2026-10-19)
+
+The title frame loop at 0x8C095CC2 calls the scene dispatcher 0x8C0968CC with
+the context at 0x0C29B864 (state 3). Sub-state 2 selects the setup
+0x8C096E5C/0x8C096E62; at 0x8C096F24 the setup calls the resource loader
+0x8C07AAAC with r4=0x414F, which asks the file loader for file index 5:
+CP_LOGO.BIN, FAD 0x68ec9, 0x100 sectors, destination 0x0C828800.
+tools/boot_cp_logo_probe.py enters the setup from the state-25 capture with an
+idle drive and verifies that the first native GD read is CP_LOGO, with 0
+unowned calls. The natural continuation still reaches the frame loop only at
+the vblank cap with scene sub-state 3, so it does not re-enter the setup; the
+scene-substate reset experiment is BS_FRAME_POKE=0C29B86C:02030203. New
+readable port: 0x8C0624BA (scene object-table flag clear). Details in
+docs/re/title_cp_logo.md.
