@@ -146,3 +146,5 @@ reach the frame loop at 0x0C0597CA after 700 vblanks (the "unowned 1" is the cap
 more seed at this cap (a gap at 0x0C0BBDD6 that only showed past 384 vblanks). docs/boot_states.csv is this run's output
 (the earlier hand-entered state 30 row is replaced by a measured one). Still accepted: poll constant, 7 game-state
 bytes, state 20 BIOS boundary, heuristic render-end events, mailbox poll counts measured on state 21 only.
+
+Regression after the last seed: `sh tools/recomp/run_native.sh 7 13` clean (states 7 and 13: 0 unowned calls, 0 oob, RAM equal to the oracle).
