@@ -68,8 +68,13 @@ but issues **no** new GD read: the loader at `0x8C096F24` returns without a BIOS
 A hybrid with the state-25 pre-load RAM and the setup capture's real 4 KiB stack behaves the
 same. The direct probe (state-25 RAM, `r4`/`r5`/`pr`, idle GD) still issues CP_LOGO, so the
 skip is a game-side loader/request-state difference in the setup-entry capture, not the scene
-handler's loader call. The next diagnostic is to trace `0x8C07AAAC`/`0x8C0A7F5A` entries in the
-setup-capture run and compare the request struct at `0x0C2A7390`.
+handler's loader call.
+
+A short `VF3_TRACE_ENTRIES` run of the setup capture shows the setup entering the wait loop
+`0x8C035CBA` and **never** entering `0x8C07AAAC` or `0x8C0A7F5A`: the captured state still has
+the previous GD read in flight. The direct probe forces the game-visible drive state idle, which
+is the point where the loader call runs. The next diagnostic is that game-side wait flag (the
+value the loader polls), not the scene handler.
 
 ## Remaining gap in the natural boot run
 
