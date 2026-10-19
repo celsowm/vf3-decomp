@@ -59,9 +59,23 @@ previously verified 300-vblank sweep is unchanged. Combined with `VF3_TMU=1`:
 Fight regression stays clean: states 7 and 13, 0 unowned, `ram 0 bytes
 differ`.
 
-## Open
+## Long-run result (2026-10-19)
 
-The title timer/scheduler still has to request file index 5. The long
-`VF3_ASIC_FIRST=1 VF3_TMU=1` state-25 run (`--vblank-cap 1500`) is the next
-check. If it reaches `CP_LOGO`, make the ordering the default for the boot
-harness and update the 15-state table.
+`VF3_ASIC_FIRST=1 VF3_TMU=1` from state 25, `--vblank-cap 1500`, runs 1516
+vblanks and ends at the sentinel with 0 unowned calls, but issues **no** new
+GD read: the final sector stays `0x7167a` (the inherited ROB_ALP.TEX read),
+not `0x68ec9`/`0x68fc9` for `CP_LOGO.BIN`. The render state cycles
+(`0x0C16CDCC` = 3/4/7, `0x0C16CDEC` = `0xF`), and the frame loop waits on
+`0x0C16CDF4`, but the title task never requests file index 5.
+
+`VF3_ASIC_VBLANK=1` (vblank-in through ASIC bit 0x8, so the handler calls
+`0x8C063D1E` and `0x8C05FCC4` -> `[0x0C16CCF8]` = `0x0C039CB0`) gives the same
+result: 225 vblanks, no GD read, then the boot task returns at `0x0C0930F6`
+(or `0x0C09315A` in the ASIC_FIRST-only run) to the sentinel.
+
+So the missing piece is not the render event cadence. The boot task's caller
+is the scheduler; the continuation stops at its synthetic `pr` before the
+scheduler can run the next task/timer. The next step is to resume the task
+scheduler after `0x0C0930F6`/`0x0C09315A` returns (the `0x0C09616A` task-sched
+entry used by the fight tick is the natural candidate), then check whether the
+title task requests `CP_LOGO`.

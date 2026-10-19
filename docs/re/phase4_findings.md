@@ -189,3 +189,17 @@ for 1500 vblanks. The released wait does not yet issue CP_LOGO.BIN; the
 drive stays at 0x6c1d4, so the next step is the scheduler continuation after
 the task return. Details in docs/re/boot_frame_clock.md and
 docs/re/boot_gd_ladder.md.
+
+## ASIC event order in the title wait (2026-10-19)
+
+The emulator's render cycle writes `0x0C16CDF4 = 1`, then gets list-end ASIC
+bits `0x80/0x100/0x200/0x400` (CDEC = 1,3,7,F), then the vblank handler sets
+`0x0C16CC90 = 1`; the list-end handler skips clearing CDF4 when CC90 is set.
+The native hook ran the vblank pair first, so it saw the set flag and never
+released the wait. `VF3_ASIC_FIRST=1` dispatches ASIC events before vblank;
+`VF3_ASIC_VBLANK=1` additionally takes vblank-in through ASIC bit 0x8 (the
+handler calls 0x8C063D1E and 0x8C05FCC4 -> [0x0C16CCF8] = 0x0C039CB0). Both
+are opt-in; details and the negative long-run result are in
+docs/re/boot_asic_order.md. New readable ports on the path: 0x8C0434C8
+(EXEC_SERVER wrapper) and 0x8C0597CA (empty render callback). Fight states 7
+and 13 remain 0-unowned / 0 bytes differ.
