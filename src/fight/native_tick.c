@@ -66,10 +66,16 @@ static uint8_t aica_ram[AICA_RAM_LEN];
  * the data, the SH-4 clears B0. Poll counts measured in the emulator from savestate 21 (docs/re/phase4_findings.md). */
 #define AICA_MBOX_CMD 0x008000B0u
 #define AICA_MBOX_STATE 0x008000B4u
-#define AICA_MBOX_BUSY 0x00800098u
 #define AICA_MBOX_IDLE_POLLS 2223u
 #define AICA_MBOX_BUSY_POLLS 5947u
 static unsigned aica_mbox_polls;
+/* The upload engine: the SH-4 writes source / destination / length to 0x90 / 0x94 / 0x98 and polls 0x98, which reads back the
+ * length until the driver has copied it. Emulator state 27: 325,867 and 315,413 busy reads for two 0x25EB0-byte uploads,
+ * about 2.1 reads per byte. */
+#define AICA_UPLOAD_LEN 0x00800098u
+#define AICA_UPLOAD_POLLS_PER_BYTE_X10 21u
+static uint32_t aica_upload_len;
+static uint64_t aica_upload_polls_left;
 
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
@@ -79,7 +85,11 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
-    if ((address & 0x1FFFFFFFu) == AICA_MBOX_BUSY) return 0;   /* the driver has always already taken the SH-4's command */
+    if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
+        if (!aica_upload_polls_left) return 0;
+        --aica_upload_polls_left;
+        return aica_upload_len;
+    }
     if ((address & 0x1FFFFFFFu) == AICA_MBOX_STATE) {
         uint32_t cmd;
         memcpy(&cmd, aica_ram + (AICA_MBOX_CMD - AICA_RAM_BASE), 4);
@@ -102,6 +112,10 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     ++machine.writes;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
     if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
+    if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
+        aica_upload_len = value;
+        aica_upload_polls_left = (uint64_t)value * AICA_UPLOAD_POLLS_PER_BYTE_X10 / 10u;
+    }
     if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN)
         memcpy(aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), &value, size > 4 ? 4 : size);
     if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;

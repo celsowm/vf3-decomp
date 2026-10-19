@@ -148,3 +148,15 @@ more seed at this cap (a gap at 0x0C0BBDD6 that only showed past 384 vblanks). d
 bytes, state 20 BIOS boundary, heuristic render-end events, mailbox poll counts measured on state 21 only.
 
 Regression after the last seed: `sh tools/recomp/run_native.sh 7 13` clean (states 7 and 13: 0 unowned calls, 0 oob, RAM equal to the oracle).
+
+
+## Mailbox on state 27 (second upload path), measured 2026-10-19
+
+`tools/mem_watch.py 27 0xA0800090 0x28 --frames 1500` (emulator). The sound driver is handshaken twice, per upload:
+B4 reads 0 for 4,544 polls then 1; the SH-4 writes source / destination / length to 0x90 / 0x94 / 0x98 (0x1A63F0 /
+0x1818F8 / 0x25EB0, then 0x1818F8 / 0x1AB1C4 / 0x25EB0); 0x98 reads back the length for 325,867 polls (second upload
+315,413) and then 0; B0 = 1; B4 reads 1 for 2,733 polls then 0; B0 = 0; B4 reads 0 for 4,754 polls then 1.
+Busy window is about 2.1 polls per byte. Native now models that window (`AICA_UPLOAD_*` in native_tick.c): a write to
+0x98 arms `len * 2.1` reads that return the length; state 21 never writes 0x98 so it is unchanged. States 21 and 27 give
+the same frame-loop result as before at cap 700. The B0/B4 handshake counts (state 21: 2,223 / 5,947; state 27: 2,733,
+4,544, 4,754) differ per state, so they stay fixed constants: they only affect how many vblanks pass, not the data.
