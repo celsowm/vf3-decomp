@@ -181,6 +181,7 @@ void vf3_native_set_stop(uint32_t pc) { machine.stop_pc = pc; }
 void vf3_native_set_extra_stop(uint32_t pc) { machine.extra_stop = pc; }
 void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
 void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
+int vf3_native_gd_attached(void) { return machine.gd != NULL; }
 void vf3_native_aica_poke(uint32_t offset, uint32_t value) { if (offset <= AICA_RAM_LEN - 4) memcpy(aica_ram + offset, &value, 4); }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
@@ -210,6 +211,7 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
         /* VF3_GD_NOCLOCK=1: a poll never advances the drive (isolates timing-dependent differences) */
         const int served = getenv("VF3_GD_NOCLOCK") ? vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)
                                                      : vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0);
+        if (served && getenv("VF3_GDTRACE")) fprintf(stderr, "gdsys r7 %u r4 %08x r5 %08x -> r0 %08x st %d left %u%c", s->v[7], s->v[4], s->v[5], r0, machine.gd->st.status, machine.gd->st.multi_read_count, 10);
         if (served) {
             ++machine.bios_calls;
             s->v[0] = r0;

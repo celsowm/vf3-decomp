@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sys/bios_syscall.h"
+#include "fight/native_tick.h"
 
 /* GD-ROM command state for replay: VF3_GD_STATE names a one-line file of the 16 hex words tools/gd_model_check.py reads
  * from the observer log (last_request_id, next_request_id, status, command, params[4], result[4], cur_sector,
@@ -81,7 +82,7 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
 
     /* GDROM_EXEC_SERVER (r6=0, r7=2): with the captured idle drive queue the
      * service returns immediately, leaving every register unchanged. */
-    if (r[7] == 2u) {
+    if (r[7] == 2u && !vf3_native_gd_attached()) {   /* with a drive model attached the native run serves it (native_tick.c) */
         state->pc = r[16];
         return ram->oob == 0u;
     }
