@@ -67,7 +67,10 @@ preserve the scene sub-state 2 across the loader pass (or dispatch the sub-state
 the frame-loop entry) and verify the request inside the frame loop.
 
 `BS_FRAME_POKE=0C29B86C:02030203` writes the scene word (state 3, sub-state 2) at the
-frame-loop entry for that experiment.
+frame-loop entry. The state-25 1,500-vblank run applies the poke at vblank 1516, but the
+frame-loop body's first call chain still hands back to the sentinel before the scene
+dispatcher; no GD read follows. The frame-loop entry needs the real caller stack (the
+prologue is before `0x8C095CC2`), so the poke alone is not enough.
 
 ## New readable port on this path
 
