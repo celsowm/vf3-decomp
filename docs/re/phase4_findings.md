@@ -137,3 +137,12 @@ Final 15-state sweep (docs/boot_states.csv): every state 21-30 and 42-46 reaches
 0xDEAD0000 (22, 23). With real file data the loads are bigger: state 30 needs about 700 vblanks (grown with
 `CAP=700 sh tools/recomp/grow_boot.sh 8 30`; its row is from that direct run, boot_states.py times out at that cap).
 States 29 and 46 needed no extra growth after the fix. `sh tools/recomp/run_native.sh 7 13`: 0 unowned, RAM equal.
+
+
+## Final one-pass sweep (2026-10-19)
+
+`python tools/boot_states.py --states 21..30 42..46 --cap 700 --timeout 3600` on the final build: 15 of 15 states
+reach the frame loop at 0x0C0597CA after 700 vblanks (the "unowned 1" is the cap stop, not a gap). State 27 needed one
+more seed at this cap (a gap at 0x0C0BBDD6 that only showed past 384 vblanks). docs/boot_states.csv is this run's output
+(the earlier hand-entered state 30 row is replaced by a measured one). Still accepted: poll constant, 7 game-state
+bytes, state 20 BIOS boundary, heuristic render-end events, mailbox poll counts measured on state 21 only.
