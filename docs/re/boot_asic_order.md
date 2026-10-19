@@ -79,3 +79,10 @@ scheduler can run the next task/timer. The next step is to resume the task
 scheduler after `0x0C0930F6`/`0x0C09315A` returns (the `0x0C09616A` task-sched
 entry used by the fight tick is the natural candidate), then check whether the
 title task requests `CP_LOGO`.
+
+A cap-250 control with `BS_SENTINEL_STACK=1` instead hits an unowned hand-back
+at `0x0C092F1C`, which is mid-function floating-point code (the function
+starts earlier), not a function entry. That is the same synthetic-stack
+problem: the continuation is following returns into frames the port never
+entered. `BS_SENTINEL_STACK` prints the caller's stack words at the sentinel
+to make the real frame visible when this is chased further.

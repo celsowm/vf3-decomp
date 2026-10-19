@@ -349,6 +349,12 @@ int main(int argc, char **argv)
                 /* A callee that returns into a frame this hop never entered (its pr came off the stack) ends with ok 0, no failed pc
                  * and nothing unowned: that is a hand-back, so resume at the return address like the ok-1 hops do. */
                 const int handed_back = !r.ok && !r.failed_pc && !r.oob && !r.unowned_calls && r.pc != at;
+                if (r.pc == 0xDEAD0000u && getenv("BS_SENTINEL_STACK")) {   /* experiment: what the caller's frame holds at the sentinel */
+                    const uint32_t sp = r.regs[15] & 0x00FFFFFFu;
+                    fprintf(stderr, "sentinel at %08x sp %08x:", r.pc, r.regs[15]);
+                    for (unsigned k = 0; k < 12; ++k) fprintf(stderr, " %08x", rd32(loop.ram, 0x0C000000u + sp + 4u * k));
+                    fputc(10, stderr);
+                }
                 if ((!r.ok && !handed_back) || r.unowned_calls || r.pc == at || r.pc == 0xDEAD0000u || (free_run && r.pc == 1)) break;   /* pc 1: a task function returning to its exit marker */
                 at = r.pc;
                 memcpy(after.regs, r.regs, 37 * sizeof after.regs[0]);
