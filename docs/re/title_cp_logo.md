@@ -57,40 +57,42 @@ python tools/boot_cp_logo_probe.py
 The handler runs entirely through readable/adapted code (0 unowned) and issues the CP_LOGO
 read, followed by the next title resources.
 
-## Real-stack setup capture
+## Real frame-loop proof
 
-`tick_capture.py 0x8C096E62 --state tools/emu/flycast-build/data/vf3_22.state --frames 2000
---pairs 1 --name setup_entry_s22` captures the setup entry with the frame loop's real return
-address (`pr=0x0C095CF2`) and stack (`sp=0x0C31FA38`). Running that capture free with
-`BS_KEEP_PR=1` (keep the captured return address instead of the sentinel) is clean (0 unowned)
-but issues **no** new GD read: the loader at `0x8C096F24` returns without a BIOS request.
+`tick_capture.py 0x8C095CC2 --state tools/emu/flycast-build/data/vf3_22.state --frames 1000
+--pairs 1 --name frame_entry_s22` captures the exact title frame-loop entry with the real caller
+return (`pr=0x0C02007C`), stack (`sp=0x0C31FA80`) and registers (`r4=0x0DCE`,
+`r5=0x0C33C1A8`). `entry_order.py 22` shows the order: frame loop `0x8C095CC2` -> loop head
+`0x8C095CCC` -> dispatcher `0x8C0968CC` (`pr=0x0C095CF2`) -> setup `0x8C096E62` ->
+`0x8C07AAAC(r4=0x414F)` (`pr=0x0C096F28`) -> file loader `0x8C0A7F5A(file 5)`.
 
-A hybrid with the state-25 pre-load RAM and the setup capture's real 4 KiB stack behaves the
-same. The direct probe (state-25 RAM, `r4`/`r5`/`pr`, idle GD) still issues CP_LOGO, so the
-skip is a game-side loader/request-state difference in the setup-entry capture, not the scene
-handler's loader call.
+`tools/boot_cp_logo_frame_probe.py` runs that capture free with `BS_KEEP_PR=1` and
+`--slice 200000`:
 
-A short `VF3_TRACE_ENTRIES` run of the setup capture shows the setup entering the wait loop
-`0x8C035CBA` and **never** entering `0x8C07AAAC` or `0x8C0A7F5A`: the captured state still has
-the previous GD read in flight. The direct probe forces the game-visible drive state idle, which
-is the point where the loader call runs. The next diagnostic is that game-side wait flag (the
-value the loader polls), not the scene handler.
+```
+python tools/boot_cp_logo_frame_probe.py
+  first GD reads:
+    0: fad 00068ec9 sectors 00000100 dest 0c828800
+  PASS: frame loop ... CP_LOGO.BIN ...; unowned=0
+```
 
-## Remaining gap in the natural boot run
+The default 20,000-step slice stops inside the render callback `0x0C059BEE` before the
+dispatcher; a larger slice is required for one full frame. The loader gate is the resource
+state word at `0x0C2A620C + 2*0x0E = 0x0C2A6228` (resource `0x414F` maps through
+`0x0C11ABB0 + 6*(0x414F & 0x3FFF)` to index `0x0E`); the frame-entry capture has state 0, i.e.
+"load". The request is the first native GD read, and the run is 0 unowned.
 
-The boot continuation's loader pass reaches the frame loop only after the vblank cap
-(1,506/1,516 vblanks in the 1,500-cap runs); by then the scene context is state 3 /
-sub-state 3 and the drive is idle. The setup (sub-state 2) is not re-entered, so the natural
-run issues no CP_LOGO read. The direct probe demonstrates the handler; the next step is to
-preserve the scene sub-state 2 across the loader pass (or dispatch the sub-state-2 handler at
-the frame-loop entry) and verify the request inside the frame loop.
+## Remaining boot gap
+
+The frame loop now issues CP_LOGO from the real captured entry. Reaching the next title
+resource (or a scene transition) still needs the frame loop to run long enough for the
+vblank-driven loader completion; the capture starts at the frame-loop entry with the ROB read
+already complete, so the CP_LOGO request is the immediate next step. The 1,500-vblank boot
+continuation reaches the frame loop after its cap and with sub-state 3, so it does not
+re-enter the setup; that is a capture-length/state issue, not the handler.
 
 `BS_KEEP_PR=1` keeps the capture's real return address at the start of a free run;
-`BS_FRAME_POKE=0C29B86C:02030203` writes the scene word (state 3, sub-state 2) at the
-frame-loop entry. The state-25 1,500-vblank run applies the poke at vblank 1516, but the
-frame-loop body's first call chain still hands back to the sentinel before the scene
-dispatcher; no GD read follows. The frame-loop entry needs the real caller stack (the
-prologue is before `0x8C095CC2`), so the poke alone is not enough.
+`BS_FRAME_POKE=0C29B86C:02030203` remains available for scene-state experiments.
 
 ## New readable port on this path
 
