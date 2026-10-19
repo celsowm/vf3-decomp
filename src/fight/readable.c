@@ -159,6 +159,8 @@ int vf3_scaled_vec_add_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_gd_status_wrapper_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_gd_get_cmd_stat_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_gd_exec_server_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_gd_exec_server_wrapper_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_empty_rts_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vtable_trampoline_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_cache_wb_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_loader_dispatch_5238_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -305,6 +307,9 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(2)|B(4)|B(5)|B(6)|B(7)|B(17) },
     { 0x0c0430b4u, "gd_exec_server_stub", vf3_gd_exec_server_stub_entry,
       B(0)|B(6)|B(7)|B(17) },
+    { 0x0c0434c8u, "gd_exec_server_wrapper", vf3_gd_exec_server_wrapper_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17) },
+    { 0x0c0597cau, "render_callback_stub", vf3_empty_rts_entry, 0 },
     { 0x0c035cbau, "vtable_trampoline", vf3_vtable_trampoline_entry,
       B(0)|B(1)|B(3)|B(17) },
     { 0x0c035238u, "loader_dispatch_5238", vf3_loader_dispatch_5238_entry,

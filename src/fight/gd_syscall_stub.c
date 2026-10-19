@@ -38,3 +38,27 @@ int vf3_gd_exec_server_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
     s->pc = R(0);
     return 1;
 }
+
+/* 0x8C0434C8: calls 0x8C0430B4 and then forces r0 = 1 (the wrapper's `rts` delay slot). The BIOS call is made as a guest
+ * call so the exec-server side effect happens, then the wrapper's return value and pr are restored. */
+int vf3_gd_exec_server_wrapper_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    const uint32_t sp0 = R(15), pr0 = R(VF3_REG_PR);
+    R(6) = 0;
+    R(7) = 2;
+    R(0) = m32(ram, BIOS_VECTOR_PTR);
+    if (!vf3_guest_call(s, ram, R(0) & 0x0FFFFFFFu, pr0)) return 0;
+    R(15) = sp0;
+    R(VF3_REG_PR) = pr0;
+    R(0) = 1;
+    s->pc = pr0;
+    return 1;
+}
+
+/* 0x8C0597CA: the render-callback slot's empty function (`rts`); it changes no register. */
+int vf3_empty_rts_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    (void)ram;
+    s->pc = R(VF3_REG_PR);
+    return 1;
+}

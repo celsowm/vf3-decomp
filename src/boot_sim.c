@@ -81,6 +81,7 @@ static void poll_irq(void *ctx)
 }
 
 static unsigned hook_slice, irq_cap = 400, asic_busy, peek_last;
+static int asic_first;   /* VF3_ASIC_FIRST: ASIC list-end/render events before the vblank pair (the hardware order) */
 static uint32_t rd32(const uint8_t *ram, uint32_t a) { uint32_t v; memcpy(&v, ram + (a & 0x0FFFFFFFu) - 0x0C000000u, 4); return v; }
 static uint32_t slice_hook(void)
 {
@@ -88,7 +89,7 @@ static uint32_t slice_hook(void)
     clk.now += hook_slice;
     vf3_native_tmu_advance(hook_slice);
     if (clk.gd) vf3_bios_gd_advance_cycles(clk.gd, hook_slice);
-    while (clk.now >= clk.next) {
+    if (!asic_first) while (clk.now >= clk.next) {
         clk.next += CYCLES_PER_FRAME;
         ++clk.taken;
         if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) { irq.failed = 1; return 0; }
@@ -119,6 +120,11 @@ static uint32_t slice_hook(void)
         d.regs[16] = 0xDEAD0000u;
         if (!run(irq.ram, &d, 0x0C06423Au, 0, "asic handler")) { irq.failed = 1; return 0; }
         asic_busy = 0;
+    }
+    if (asic_first) while (clk.now >= clk.next) {   /* the frame ends after the events the frame produced have been dispatched */
+        clk.next += CYCLES_PER_FRAME;
+        ++clk.taken;
+        if (!run(irq.ram, irq.a, irq.irqa, 0, "vblank handler A") || !run(irq.ram, irq.b, irq.irqb, 0, "vblank handler B")) { irq.failed = 1; return 0; }
     }
     if (getenv("BS_PEEK") && clk.taken % 40 == 0 && clk.taken != peek_last) {
         peek_last = clk.taken;
@@ -189,6 +195,7 @@ int main(int argc, char **argv)
     per_frame = polls_per_frame ? polls_per_frame : CYCLES_PER_FRAME / per_poll;
     const int use_tmu = cycle_frames && getenv("VF3_TMU");   /* opt-in: the frame clock the render/title waits sample */
     if (use_tmu) vf3_native_enable_tmu();
+    asic_first = getenv("VF3_ASIC_FIRST") != NULL;           /* opt-in: dispatch the ASIC events before the vblank pair */
 
     snap loop, a, b, ref;
     if (!load(argv[1], 0, &loop) || !load(argv[2], 0, &a) || !load(argv[3], 0, &b)) return 2;
