@@ -123,11 +123,12 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
 static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
 {
     (void)ok;
-    fprintf(stderr, "enter %08x pr %08x sp %08x%c", entry, s->v[16], s->v[15], 10);
+    fprintf(stderr, "enter %08x pr %08x sp %08x r4 %08x r5 %08x%c", entry, s->v[16], s->v[15], s->v[4], s->v[5], 10);
     if (entry == 0x0C040154u) fprintf(stderr, "  hdr r4 %08x [r4] %08x r5 %08x%c", s->v[4], vf3_matrix_read(ram, s->v[4], 4), s->v[5], 10);
     if (entry == 0x0C068FE4u) fprintf(stderr, "  scan r4 %08x%c", s->v[4], 10);
     if (entry == 0x0C06911Cu) fprintf(stderr, "  sc r4 %08x r5 %08x [0c113a0c] %08x fr4 %08x fr5 %08x%c", s->v[4], s->v[5], vf3_matrix_read(ram, 0x0C113A0Cu, 4), s->v[25], s->v[26], 10);
     if (entry == 0x0C06911Cu) fprintf(stderr, "  grid [29bcc4+1f0] %08x [29beb4] %08x [1b9610] %08x hdr %08x %08x %08x%c", vf3_matrix_read(ram, 0x0C29BCC4u + 0x1F0u, 4), vf3_matrix_read(ram, 0x0C29BEB4u, 4), vf3_matrix_read(ram, 0x0C1B9610u, 4), vf3_matrix_read(ram, 0x0CBCE800u, 4), vf3_matrix_read(ram, 0x0CBCE804u, 4), vf3_matrix_read(ram, 0x0CBCE808u, 4), 10);
+    if (entry == 0x0C0A28D4u) fprintf(stderr, "  rec r4 %08x r5 %08x r6 %08x r7 %08x [r6+0..28] %08x %08x %08x %08x %08x %08x %08x %08x%c", s->v[4], s->v[5], s->v[6], s->v[7], vf3_matrix_read(ram, s->v[6], 4), vf3_matrix_read(ram, s->v[6] + 4, 4), vf3_matrix_read(ram, s->v[6] + 8, 4), vf3_matrix_read(ram, s->v[6] + 12, 4), vf3_matrix_read(ram, s->v[6] + 16, 4), vf3_matrix_read(ram, s->v[6] + 20, 4), vf3_matrix_read(ram, s->v[6] + 24, 4), vf3_matrix_read(ram, s->v[6] + 28, 4), 10);
     if (entry == 0x0C035C60u) fprintf(stderr, "  [0c0ea314] %08x [0c0ea2ec] %08x%c", vf3_matrix_read(ram, 0x0C0EA314u, 4), vf3_matrix_read(ram, 0x0C0EA2ECu, 4), 10);
 }
 
@@ -215,6 +216,7 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
         const int served = getenv("VF3_GD_NOCLOCK") ? vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)
                                                      : vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0);
         if (served && getenv("VF3_GDTRACE")) fprintf(stderr, "gdsys r7 %u r4 %08x r5 %08x -> r0 %08x st %d left %u%c", s->v[7], s->v[4], s->v[5], r0, machine.gd->st.status, machine.gd->st.multi_read_count, 10);
+        if (served && s->v[7] == 0 && getenv("VF3_GDTRACE")) fprintf(stderr, "  req cmd %u params %08x %08x %08x %08x%c", s->v[4], vf3_matrix_read(ram, s->v[5], 4), vf3_matrix_read(ram, s->v[5] + 4, 4), vf3_matrix_read(ram, s->v[5] + 8, 4), vf3_matrix_read(ram, s->v[5] + 12, 4), 10);
         if (served) {
             ++machine.bios_calls;
             s->v[0] = r0;

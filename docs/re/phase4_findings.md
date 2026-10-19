@@ -114,3 +114,12 @@ file does not fit; native device reads returned 0, so the loader reported an err
   Native answers `[0x98]` = 0 at once, so it is hundreds of frames *ahead* of the emulator and may be running the next phase
   with data the real console would not have had yet (or the buffer is simply different). A 3000-frame emulator entry trace
   (`tools/entry_order.py 27 ...`) is the comparison.
+- State 27, further: the native GD requests after the in-flight one carry destinations 0xCFAEF000 and 0xCBB30000
+  (`VF3_GDTRACE=1` prints every GD syscall and REQ_CMD params). They come from the loader pair at 0x0C0A28D4 (r6 = buffer base; the
+  second buffer base is read via [0x0C113A18+..] at 0x0C0B21B2 and is zero-filled data at 0xCBB30000), i.e. the per-slot buffer table in
+  the savestate does not describe a loaded buffer at that point. The emulator's 3000-frame trace enters 0x0C06911C with the same
+  arguments as native (0x0C0C6BB0 -> 0x0C06911C), so the emulator's grid pointers must be valid there; native's are rewritten by the
+  0x0C068C10 callback from the wrong buffer. Next step: dump the emulator's [0x0C113A0C], [0x0C113A18..] and the grid pointers
+  ([0x0C29BEB4], [0x0C1B9610]) at the first 0x0C06911C entry (pc watch payload) and diff against native's.
+- `VF3_TRACE_ENTRIES` / `VF3_GDTRACE` additions: enter lines carry r4/r5; `scan`, `sc`, `grid`, `rec` probes for 0x0C068FE4,
+  0x0C06911C, 0x0C0A28D4; `req cmd` lines for REQ_CMD parameters.
