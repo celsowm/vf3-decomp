@@ -97,3 +97,20 @@ file does not fit; native device reads returned 0, so the loader reported an err
   frame loop. The second loader wait is not yet driven by the harness (it only drives the first), which is the next item.
 - New debug: `VF3_TRACE_ENTRIES` now also prints `leave` lines (r0) and the AICA/GDFS globals on 0x0C035C60;
   `tools/entry_order.py` lists emulator entry order + callers from a savestate.
+
+## EXEC_SERVER and the 300-vblank sweep (2026-10-19)
+- `vf3_aica_stub_adapter.c` (replay era) answered GDROM_EXEC_SERVER (r7=2) as a no-op, so in the native boot flow queued GD
+  requests were never executed: the drive stayed BUSY with 0 sectors left after the first request. With a drive model attached
+  (`vf3_native_gd_attached()`) the call now reaches the model; from state 21 the game then runs request after request
+  (cur sector 0x85324 at 300 vblanks) and reaches the frame loop.
+- Sweep at `--cap 300` (docs/boot_states.csv): 21-26, 28-30, 42-46 reach the frame loop (the "unowned 1 @ 0x0C0597CA" in the
+  table is the vblank cap ending the run inside that loop). State 30 ends at the sentinel. State 22 needed adapters grown to
+  0x0C096E5C (`CAP=300 sh tools/recomp/grow_boot.sh 30 22`; grow_boot now takes CAP).
+- State 27 is the open one. Native spins in a grid lookup (0x0C06911C -> 0x0C068FE4, scan runs off a table with no -1 terminator:
+  r4 climbs from 0x4BFA9B6B in steps of 8). The grid pointers come from the stage file the loader callback 0x0C068C10 parses
+  out of the buffer at [0x0C113A0C] = 0x0CBCE800, which holds float data, not the expected two-offset header.
+  The emulator never reaches that point inside 600 frames: from state 27 it sits in a sound-RAM upload (0x0C040A54 mailbox,
+  then 0x0C0400C0 command: [0x90]=dest, [0x94]=src, [0x98]=size 0x25EB0, `[0x98]` polled ~326,000 times until the ARM7 clears it).
+  Native answers `[0x98]` = 0 at once, so it is hundreds of frames *ahead* of the emulator and may be running the next phase
+  with data the real console would not have had yet (or the buffer is simply different). A 3000-frame emulator entry trace
+  (`tools/entry_order.py 27 ...`) is the comparison.

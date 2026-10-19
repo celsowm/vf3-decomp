@@ -125,6 +125,9 @@ static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
     (void)ok;
     fprintf(stderr, "enter %08x pr %08x sp %08x%c", entry, s->v[16], s->v[15], 10);
     if (entry == 0x0C040154u) fprintf(stderr, "  hdr r4 %08x [r4] %08x r5 %08x%c", s->v[4], vf3_matrix_read(ram, s->v[4], 4), s->v[5], 10);
+    if (entry == 0x0C068FE4u) fprintf(stderr, "  scan r4 %08x%c", s->v[4], 10);
+    if (entry == 0x0C06911Cu) fprintf(stderr, "  sc r4 %08x r5 %08x [0c113a0c] %08x fr4 %08x fr5 %08x%c", s->v[4], s->v[5], vf3_matrix_read(ram, 0x0C113A0Cu, 4), s->v[25], s->v[26], 10);
+    if (entry == 0x0C06911Cu) fprintf(stderr, "  grid [29bcc4+1f0] %08x [29beb4] %08x [1b9610] %08x hdr %08x %08x %08x%c", vf3_matrix_read(ram, 0x0C29BCC4u + 0x1F0u, 4), vf3_matrix_read(ram, 0x0C29BEB4u, 4), vf3_matrix_read(ram, 0x0C1B9610u, 4), vf3_matrix_read(ram, 0x0CBCE800u, 4), vf3_matrix_read(ram, 0x0CBCE804u, 4), vf3_matrix_read(ram, 0x0CBCE808u, 4), 10);
     if (entry == 0x0C035C60u) fprintf(stderr, "  [0c0ea314] %08x [0c0ea2ec] %08x%c", vf3_matrix_read(ram, 0x0C0EA314u, 4), vf3_matrix_read(ram, 0x0C0EA2ECu, 4), 10);
 }
 
