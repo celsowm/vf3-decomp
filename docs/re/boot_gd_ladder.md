@@ -60,3 +60,34 @@ from state 22 does not issue it in 600 or 900 frames either. A 1500-frame
 emulator run issues it as its sixth request (`0x100`), followed by `0x81`
 and more, so the gap is a game-side wait after the ROB assets, not a missing
 read. The wait is the frame clock (see `boot_frame_clock.md`).
+
+## Where the file names and indices come from (2026-10-19)
+
+The boot file list is the pointer table at `0x0C1068AC` (1ST_READ image).
+Its entries are `char *` names; the indices the loader uses are:
+
+| index | file |
+|---|---|
+| 0 | 1ST_READ.BIN |
+| 1 | CP_ASC.BIN |
+| 3 | CP_GM_J.BIN |
+| 5 | CP_LOGO.BIN |
+| 0x40-0x43 | ROB_BALL.POL, ROB_BALL.TEX, ROB_ALP.POL, ROB_ALP.TEX |
+
+The emulator opens them in the order 3, 0x40, 0x41, 0x42, 0x43, 5. The
+first and last (CP_GM_J, CP_LOGO) come through `0x8C0A7F5A` from the
+resource loader at `0x8C07AAAC` (return address `0x0C07AADE`); the four ROB
+files come through the pair loader at `0x0C0A28D4` (returns `0x0C0A294C` /
+`0x0C0A2916`). The resource loader itself is entered from the task/scheduler
+region (`pr 0x0C095B26` for resource 9 = CP_GM_J, and `pr 0x0C096F28` for a
+second request).
+
+The GDFS directory entry is 44 bytes: `+0` LBA, `+4` size in bytes, `+8`
+flags, `+10` name. The drive request is `LBA + 0x96` (150), e.g. CP_GM_J LBA
+`0x68b33` becomes FAD `0x68bc9`; the native GD model subtracts the same 150
+before indexing track 3. This is the same pregap the FAD fix uses, seen from
+inside the SDK.
+
+Native issues indices 3 and 0x40-0x43 and then stops. Index 5 (CP_LOGO) is
+the resource request the title code has not made yet; the GD layer itself is
+not the blocker.
