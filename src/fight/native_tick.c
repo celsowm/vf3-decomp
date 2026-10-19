@@ -77,11 +77,29 @@ static unsigned aica_mbox_polls;
 static uint32_t aica_upload_len;
 static uint64_t aica_upload_polls_left;
 
+/* The game's free-running frame clock: TMU channel 0 (TCNT0, 0xFFD8000C, read through the 0x1Fxxxxxx mirror after the
+ * driver masks with 0x1FFFFFFF). The init at 0x8C039C10 starts all three channels from 0xFFFFFFFF with TCR = 2; the
+ * emulator's TCNT0 counts down by 13,033 per frame (3,336,670 cycles / 256). The frame loop (0x8C059B48), the vblank
+ * handler (0x8C063C40) and the ASIC handler (0x8C06402C) sample it and store old - new as the frame delta, so a reader
+ * that always returns 0 makes every timed wait last for ever. Off by default: the fight ticks never read it. */
+static int tmu_on;
+static uint64_t tmu_cycles;
+
+void vf3_native_enable_tmu(void) { tmu_on = 1; }
+void vf3_native_tmu_advance(uint32_t cycles) { if (tmu_on) tmu_cycles += cycles; }
+void vf3_native_tmu_set(uint32_t tcnt)
+{
+    /* tcnt = 0xFFFFFFFF - cycles/256, so seed the cycle accumulator from the value the savestate sampled last. */
+    tmu_cycles = (uint64_t)(0xFFFFFFFFu - tcnt) << 8;
+}
+
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
     (void)context; (void)size;
     ++machine.reads;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devread %08x size %u\n", address, size);
+    if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* TCNT0: counts down at CPU/256 */
+        return (uint32_t)(0xFFFFFFFFu - (tmu_cycles >> 8));
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
@@ -111,6 +129,8 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     (void)context; (void)size;
     ++machine.writes;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
+    if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* a guest write re-seeds TCNT0 */
+        tmu_cycles = (uint64_t)(0xFFFFFFFFu - value) << 8;
     if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
     if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         aica_upload_len = value;

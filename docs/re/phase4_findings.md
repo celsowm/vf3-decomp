@@ -160,3 +160,32 @@ Busy window is about 2.1 polls per byte. Native now models that window (`AICA_UP
 0x98 arms `len * 2.1` reads that return the length; state 21 never writes 0x98 so it is unchanged. States 21 and 27 give
 the same frame-loop result as before at cap 700. The B0/B4 handshake counts (state 21: 2,223 / 5,947; state 27: 2,733,
 4,544, 4,754) differ per state, so they stay fixed constants: they only affect how many vblanks pass, not the data.
+
+## GD request ladder and the frame clock (2026-10-19)
+
+`tools/boot_req_ladder.py` compares a native run's REQ_CMD trace with the
+in-flight read recorded in the gdstate of states 21-29. The state-21 run
+issues the emulator's seven reads in order: PLAYER.BIN, CP_ASC.BIN,
+CP_GM_J.BIN and the four ROB_*.POL/TEX files. State 22 (CP_ASC.BIN, 0x130
+sectors) matches exactly. The state-22 RAM at 0x0C828800 equals the track-3
+data at FAD 0x68999 (209 of 304 sectors), confirming the -150 FAD mapping.
+
+The next ladder read is CP_LOGO.BIN (state 23, request id 0x19). The
+emulator does not issue it in the first 900 frames from state 22, but does
+issue it by frame 1200. The old native run at 1500 vblanks never issues it:
+the wait is not vblank-counted.
+
+The gate is TMU channel 0. The game reads TCNT0 (0xFFD8000C) in the frame
+loop (0x8C059B48), vblank handler (0x8C063C40) and ASIC handler
+(0x8C06402C/0x8C064292), and computes old - new as the elapsed frame time.
+The emulator's TCNT0 decreases 13,033 ticks per frame = 3,336,670 / 256.
+`native_tick.c` now models it (off for the fight ticks; opt-in with
+`VF3_TMU=1` in `boot_sim.c`) and `boot_sim.c` advances it with the
+poll/slice clocks and seeds it from 0x0C1981C8 in the savestate. A 300-vblank run is otherwise unchanged: same seven reads, same
+frame loop, drive idle at 0x6c1d4. The clock-enabled run then leaves the
+frame loop and the boot task returns at the 1600-vblank cap
+(0x0C0429FE -> sentinel, 0 unowned), while the old build stays in the loop
+for 1500 vblanks. The released wait does not yet issue CP_LOGO.BIN; the
+drive stays at 0x6c1d4, so the next step is the scheduler continuation after
+the task return. Details in docs/re/boot_frame_clock.md and
+docs/re/boot_gd_ladder.md.

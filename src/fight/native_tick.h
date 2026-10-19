@@ -70,6 +70,11 @@ unsigned vf3_native_take_maple(uint32_t *list);
 void vf3_native_raise_asic(uint32_t mask);
 /* write one word of the modelled AICA sound RAM (offset from 0x00800000) before a run */
 void vf3_native_aica_poke(uint32_t offset, uint32_t value);
+/* frame clock: enable the TMU channel-0 counter and advance it as guest time passes */
+void vf3_native_enable_tmu(void);
+void vf3_native_tmu_advance(uint32_t cycles);
+/* seed the counter with the value the captured state last sampled (TCNT0 counts down from 0xFFFFFFFF) */
+void vf3_native_tmu_set(uint32_t tcnt);
 /* 1 while a GD-ROM model is attached (BIOS GD calls are then served by it, EXEC_SERVER included) */
 int vf3_native_gd_attached(void);
 uint32_t vf3_native_asic_pending(void);

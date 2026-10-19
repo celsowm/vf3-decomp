@@ -69,6 +69,7 @@ static void poll_irq(void *ctx)
     if (clk.on) {
         clk.polled = 1;
         clk.now += clk.per_poll;
+        vf3_native_tmu_advance(clk.per_poll);
         if (clk.now < clk.next) return;
         clk.next += CYCLES_PER_FRAME;
         ++clk.taken;
@@ -85,6 +86,7 @@ static uint32_t slice_hook(void)
 {
     /* the guest has run a time slice: the drive and the frame clock move, the vblank pair is taken in place */
     clk.now += hook_slice;
+    vf3_native_tmu_advance(hook_slice);
     if (clk.gd) vf3_bios_gd_advance_cycles(clk.gd, hook_slice);
     while (clk.now >= clk.next) {
         clk.next += CYCLES_PER_FRAME;
@@ -120,7 +122,7 @@ static uint32_t slice_hook(void)
     }
     if (getenv("BS_PEEK") && clk.taken % 40 == 0 && clk.taken != peek_last) {
         peek_last = clk.taken;
-        static const uint32_t a[] = { 0x0C16CDCCu, 0x0C16CDD0u, 0x0C16CC90u, 0x0C16CC94u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDF0u, 0x0C16CDF4u, 0x0C16CDF8u, 0x0C16CD30u, 0x0C16CCACu, 0x0C16CCB0u };
+        static const uint32_t a[] = { 0x0C16CDCCu, 0x0C16CDD0u, 0x0C16CC90u, 0x0C16CC94u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDF0u, 0x0C16CDF4u, 0x0C16CDF8u, 0x0C16CD30u, 0x0C16CCACu, 0x0C16CCB0u, 0x0C1981C8u, 0x0C1981D0u };
         fprintf(stderr, "peek vb %u:", clk.taken);
         for (unsigned i = 0; i < sizeof a / sizeof *a; ++i) fprintf(stderr, " %08x", rd32(irq.ram, a[i]));
         fputc(10, stderr);
@@ -185,9 +187,12 @@ int main(int argc, char **argv)
         else { fprintf(stderr, "vf3boot: unknown option %s\n", k); return 2; }
     }
     per_frame = polls_per_frame ? polls_per_frame : CYCLES_PER_FRAME / per_poll;
+    const int use_tmu = cycle_frames && getenv("VF3_TMU");   /* opt-in: the frame clock the render/title waits sample */
+    if (use_tmu) vf3_native_enable_tmu();
 
     snap loop, a, b, ref;
     if (!load(argv[1], 0, &loop) || !load(argv[2], 0, &a) || !load(argv[3], 0, &b)) return 2;
+    if (use_tmu) vf3_native_tmu_set(rd32(loop.ram, 0x0C1981C8u));   /* start the frame clock where the savestate left it */
     free(a.ram); free(b.ram);                       /* only their entry registers are used */
     if (!load(argv[2], getenv("BS_REF") ? (unsigned)atoi(getenv("BS_REF")) : frames, &ref)) return 2;
 

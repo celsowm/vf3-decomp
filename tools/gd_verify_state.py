@@ -5,6 +5,9 @@ Reads extract/analysis/gd_state/vf3_<N>.txt (tools/gd_state_dump.py), decodes th
 outstanding DMA request compares the first sectors (already transferred) against the savestate's decompressed RAM:
 the block read from the disc must occur in the state at the destination offset.
 
+The GD state holds FADs (drive addresses). The GDI lists tracks by LBA, which is the FAD minus the 150-sector pregap,
+so read_sector converts before indexing a track (src/sys/gdrom_hle.c does the same).
+
   python tools/gd_verify_state.py 21 22 23
 """
 import struct
@@ -30,8 +33,9 @@ def load_gdi():
 
 
 def read_sector(tracks, fad):
-    t = max((t for t in tracks if t['start'] <= fad), key=lambda t: t['start'])
-    pos = (fad - t['start']) * t['size'] + t['off'] + (16 if t['size'] == 2352 else 0)
+    lba = fad - 150          # the drive speaks FADs; the GDI start fields are LBAs
+    t = max((t for t in tracks if t['start'] <= lba), key=lambda t: t['start'])
+    pos = (lba - t['start']) * t['size'] + t['off'] + (16 if t['size'] == 2352 else 0)
     with open(t['file'], 'rb') as f:
         f.seek(pos)
         return f.read(2048)
