@@ -15002,5 +15002,565 @@
   "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 93 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
   "strict": true,
   "test": "build/vf3matrixfamily.exe 0x8c03dca0"
+ },
+ "0x8c08e0cc": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08e0cc/f_8c08e0cc.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08e0cc"
+ },
+ "0x8c08444a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08444a/f_8c08444a.cases",
+  "port": "src/fight/motion_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08444a"
+ },
+ "0x8c0c2872": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c2872/f_8c0c2872.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c2872"
+ },
+ "0x8c07ee90": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07ee90/f_8c07ee90.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07ee90"
+ },
+ "0x8c082ba6": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c082ba6/f_8c082ba6.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 6 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c082ba6"
+ },
+ "0x8c09b2a4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c09b2a4/f_8c09b2a4.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 5 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c09b2a4"
+ },
+ "0x8c085faa": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c085faa/f_8c085faa.cases",
+  "port": "src/fight/target_extended_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c085faa"
+ },
+ "0x8c08887c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08887c/f_8c08887c.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08887c"
+ },
+ "0x8c0c0ec6": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c0ec6/f_8c0c0ec6.cases",
+  "port": "src/fight/vf3_c90e_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c0ec6"
+ },
+ "0x8c03cfaa": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03cfaa/f_8c03cfaa.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03cfaa"
+ },
+ "0x8c03cf0a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03cf0a/f_8c03cf0a.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03cf0a"
+ },
+ "0x8c080112": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080112/f_8c080112.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080112"
+ },
+ "0x8c07af78": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07af78/f_8c07af78.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07af78"
+ },
+ "0x8c09a4d8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c09a4d8/f_8c09a4d8.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c09a4d8"
+ },
+ "0x8c06dd2a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c06dd2a/f_8c06dd2a.cases",
+  "port": "src/fight/vf3_c90e_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c06dd2a"
+ },
+ "0x8c08205c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08205c/f_8c08205c.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08205c"
+ },
+ "0x8c07f12e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07f12e/f_8c07f12e.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 4 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07f12e"
+ },
+ "0x8c06dfe8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c06dfe8/f_8c06dfe8.cases",
+  "port": "src/fight/tenpp_expanded_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c06dfe8"
+ },
+ "0x8c097062": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c097062/f_8c097062.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c097062"
+ },
+ "0x8c07ffa0": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07ffa0/f_8c07ffa0.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07ffa0"
+ },
+ "0x8c080512": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080512/f_8c080512.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 4 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080512"
+ },
+ "0x8c0802c6": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0802c6/f_8c0802c6.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0802c6"
+ },
+ "0x8c0803a4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0803a4/f_8c0803a4.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0803a4"
+ },
+ "0x8c07eafa": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07eafa/f_8c07eafa.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07eafa"
+ },
+ "0x8c0a28dc": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0a28dc/f_8c0a28dc.cases",
+  "port": "src/fight/fight_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0a28dc"
+ },
+ "0x8c038774": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c038774/f_8c038774.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c038774"
+ },
+ "0x8c080576": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080576/f_8c080576.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 5 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080576"
+ },
+ "0x8c0c8df0": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c8df0/f_8c0c8df0.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c8df0"
+ },
+ "0x8c07eb54": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07eb54/f_8c07eb54.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07eb54"
+ },
+ "0x8c07f2c4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07f2c4/f_8c07f2c4.cases",
+  "port": "src/fight/vf3_c90d_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07f2c4"
+ },
+ "0x8c0c91e4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c91e4/f_8c0c91e4.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c91e4"
+ },
+ "0x8c07ff64": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07ff64/f_8c07ff64.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07ff64"
+ },
+ "0x8c07add4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07add4/f_8c07add4.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07add4"
+ },
+ "0x8c08028c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08028c/f_8c08028c.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08028c"
+ },
+ "0x8c080320": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080320/f_8c080320.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080320"
+ },
+ "0x8c0a2804": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0a2804/f_8c0a2804.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0a2804"
+ },
+ "0x8c0c2cce": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c2cce/f_8c0c2cce.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 5 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c2cce"
+ },
+ "0x8c0c9d50": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c9d50/f_8c0c9d50.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c9d50"
+ },
+ "0x8c0372e2": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0372e2/f_8c0372e2.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0372e2"
+ },
+ "0x8c046858": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c046858/f_8c046858.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c046858"
+ },
+ "0x8c07ee34": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07ee34/f_8c07ee34.cases",
+  "port": "src/fight/target_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07ee34"
+ },
+ "0x8c06dbe8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c06dbe8/f_8c06dbe8.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c06dbe8"
+ },
+ "0x8c07f3e2": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07f3e2/f_8c07f3e2.cases",
+  "port": "src/fight/vf3_c90e_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07f3e2"
+ },
+ "0x8c06dc18": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c06dc18/f_8c06dc18.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c06dc18"
+ },
+ "0x8c04417e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c04417e/f_8c04417e.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c04417e"
+ },
+ "0x8c05e2bc": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c05e2bc/f_8c05e2bc.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c05e2bc"
+ },
+ "0x8c09127c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c09127c/f_8c09127c.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c09127c"
+ },
+ "0x8c080400": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080400/f_8c080400.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080400"
+ },
+ "0x8c080018": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080018/f_8c080018.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080018"
+ },
+ "0x8c076b74": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c076b74/f_8c076b74.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c076b74"
+ },
+ "0x8c03b510": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03b510/f_8c03b510.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03b510"
+ },
+ "0x8c0463ee": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0463ee/f_8c0463ee.cases",
+  "port": "src/fight/tickgap_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 4 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0463ee"
+ },
+ "0x8c0c9b4a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c9b4a/f_8c0c9b4a.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c9b4a"
+ },
+ "0x8c0800d8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0800d8/f_8c0800d8.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0800d8"
+ },
+ "0x8c0a11ee": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0a11ee/f_8c0a11ee.cases",
+  "port": "src/fight/matrix_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0a11ee"
+ },
+ "0x8c07c42c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07c42c/f_8c07c42c.cases",
+  "port": "src/fight/tickgap_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07c42c"
+ },
+ "0x8c08019e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c08019e/f_8c08019e.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c08019e"
+ },
+ "0x8c072d0c": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c072d0c/f_8c072d0c.cases",
+  "port": "src/fight/vf3_c90b_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c072d0c"
+ },
+ "0x8c03a120": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03a120/f_8c03a120.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03a120"
+ },
+ "0x8c0371aa": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0371aa/f_8c0371aa.cases",
+  "port": "src/fight/device_adapters_0.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0371aa"
+ },
+ "0x8c080006": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c080006/f_8c080006.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c080006"
+ },
+ "0x8c04c14a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c04c14a/f_8c04c14a.cases",
+  "port": "src/fight/tickgap_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c04c14a"
+ },
+ "0x8c0a27f4": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0a27f4/f_8c0a27f4.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0a27f4"
+ },
+ "0x8c03a4d0": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03a4d0/f_8c03a4d0.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03a4d0"
+ },
+ "0x8c03a4c0": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03a4c0/f_8c03a4c0.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03a4c0"
+ },
+ "0x8c053d54": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c053d54/f_8c053d54.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 5 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c053d54"
+ },
+ "0x8c0c9c54": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0c9c54/f_8c0c9c54.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0c9c54"
+ },
+ "0x8c0431cc": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0431cc/f_8c0431cc.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 16 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0431cc"
+ },
+ "0x8c043eda": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c043eda/f_8c043eda.cases",
+  "port": "src/fight/fight_adapters_0.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c043eda"
+ },
+ "0x8c07aec8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07aec8/f_8c07aec8.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07aec8"
+ },
+ "0x8c05851e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c05851e/f_8c05851e.cases",
+  "port": "src/fight/tenpp_leaf_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c05851e"
+ },
+ "0x8c03b6b8": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03b6b8/f_8c03b6b8.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03b6b8"
+ },
+ "0x8c07ae8e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c07ae8e/f_8c07ae8e.cases",
+  "port": "src/fight/tenpp_expanded_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c07ae8e"
+ },
+ "0x8c03b6fa": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c03b6fa/f_8c03b6fa.cases",
+  "port": "src/fight/vf3_c90f_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c03b6fa"
+ },
+ "0x8c058654": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c058654/f_8c058654.cases",
+  "port": "src/fight/vf3_c90_adapter.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c058654"
+ },
+ "0x8c074a34": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c074a34/f_8c074a34.cases",
+  "port": "src/fight/fifth_adapters_1.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c074a34"
+ },
+ "0x8c074a2e": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c074a2e/f_8c074a2e.cases",
+  "port": "src/fight/fifth_adapters_1.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c074a2e"
+ },
+ "0x8c04776a": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c04776a/f_8c04776a.cases",
+  "port": "src/fight/advance_worker_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c04776a"
+ },
+ "0x8c0803fe": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c0803fe/f_8c0803fe.cases",
+  "port": "src/fight/target_retained_scene_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 3 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c0803fe"
+ },
+ "0x8c058794": {
+  "golden": "extract/analysis/u90_sweep/u90_sweep_8c058794/f_8c058794.cases",
+  "port": "src/fight/tenpp_leaf_adapters.c",
+  "source": "Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)",
+  "strict": true,
+  "test": "build/vf3matrixfamily.exe 0x8c058794"
  }
 }
