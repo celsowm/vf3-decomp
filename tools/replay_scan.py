@@ -39,18 +39,40 @@ def load_ledger_and_sizes():
     return ported, size
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parent / "oracle"))
+from prune_corpus import parse_row, row_complete  # noqa: E402
+
+
+def corpus_complete(corpus: Path, entry: str) -> bool:
+    """Every row has its entry/exit RAM shadow blobs."""
+    try:
+        cases = corpus / f"f_{entry}.cases"
+        for line in cases.read_text(encoding="ascii", errors="replace").splitlines():
+            if line.strip():
+                ok, _ = row_complete(corpus, parse_row(line))
+                if not ok:
+                    return False
+        return True
+    except (OSError, ValueError):
+        return False
+
+
 def corpora_map() -> dict[str, list[tuple[Path, bool]]]:
-    """entry hex -> [(corpus dir, has_shadows)] over every captured corpus.
+    """entry hex -> [(corpus dir, has_complete_shadows)] over every corpus.
 
     Corpus directories are not all named ``*cases`` (e.g. ``coverage_65_*``
     and ``advance_*_dev_fp`` hold real, shadowed corpora), so discover by
-    the ``f_<pc>.cases`` sidecar and use its parent directory.
+    the ``f_<pc>.cases`` sidecar and use its parent directory.  A corpus with
+    some rows missing their RAM shadows is not admissible evidence: strict
+    replay would skip those rows and leave the remaining rows' sidecars
+    unread.
     """
     out: dict[str, list[tuple[Path, bool]]] = {}
     for c in sorted(AN.rglob("f_*.cases")):
         d = c.parent
         e = c.stem[2:]
-        shadowed = (d / f"{c.stem}_0.in.bin").exists()
+        shadowed = ((d / f"{c.stem}_0.in.bin").exists()
+                    and corpus_complete(d, e))
         out.setdefault(e, []).append((d, shadowed))
     return out
 

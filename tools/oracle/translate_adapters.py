@@ -299,6 +299,8 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
            'static void divide_step(vf3_matrix_state*s,unsigned n,unsigned m) { uint32_t *r=s->v; unsigned oldq=(r[17]>>8)&1u,sign=(r[17]>>9)&1u,q=r[n]>>31; uint32_t divisor=r[m],shifted=(r[n]<<1)|(r[17]&1u); r[n]=oldq==sign?shifted-divisor:shifted+divisor; unsigned carry=oldq==sign?r[n]>shifted:r[n]<shifted; q^=carry^sign; r[17]=(r[17]&~0x101u)|(q<<8)|(q==sign); }',
            f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
            'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
+           '/* PR keeps the alias of the executing image: the capture alias is visible in the caller return address. */',
+           'uint32_t code_base=((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u;',
            'dispatch:', 'if(!s->budget--) goto unsupported;',
            'switch(target&0x1fffffffu) {']
     for a in sorted(ops): lines.append(f'case 0x{a:08x}u: goto {label(a)};')
@@ -318,7 +320,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         if top in (0xA,0xB):
             dest=a+4+sx(w&4095,12)*2
             if top==0xB:
-                lines.append(f'target=0x{dest:08x}u; r[16]=0x{0x8c000000|a+4:08x}u;')
+                lines.append(f'target=0x{dest:08x}u; r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
                 lines.extend(statements(a+2))
                 lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
                 lines.append(jump(a+4))
@@ -334,7 +336,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             rel=(w&0xF0FF) in (0x0003,0x0023)
             call=(w&0xF0FF) in (0x400B,0x0003)
             lines.append(f'target=r[{n}]'+(f'+0x{a+4:08x}u;' if rel else ';'))
-            if call: lines.append(f'r[16]=0x{0x8c000000|a+4:08x}u;')
+            if call: lines.append(f'r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
             lines.extend(statements(a+2))
             if call:
                 lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
@@ -375,6 +377,8 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             name=f'{function}_{index}'; owned=set(pcs)
             body=prefix+[f'int {name}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
               'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
+           '/* PR keeps the alias of the executing image: the capture alias is visible in the caller return address. */',
+           'uint32_t code_base=((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u;',
               'dispatch:', 'if(!s->budget--) goto unsupported;', 'switch(target&0x1fffffffu) {',
               *[f'case 0x{pc:08x}u: goto {label(pc)};' for pc in pcs],
               'default: return vf3_matrix_family(target,s,ram);', '}']

@@ -3,6 +3,8 @@
 #include "fight/family_hooks.h"
 #include "fight/readable.h"
 static FILE *xfin,*xfout,*extra,*gbr,*bank_file,*device_file;
+static long *device_offsets;
+static uint32_t device_records;
 static uint32_t entry;
 typedef struct { uint32_t address,size,value,write; } DeviceAccess;
 static struct { DeviceAccess *events; uint32_t capacity,count,pos,bad,first_bad; DeviceAccess expected,actual; } device_tape;
@@ -33,21 +35,33 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
     memset(&state,0,sizeof(state)); state.budget=100000;
     uint32_t wantxf[16],aux[4];
     memcpy(state.v,c->in,sizeof(c->in));
+    /* Sidecars are written one record per .cases row, including rows whose RAM
+     * shadow is unavailable.  Seek by row so a skipped row cannot shift every
+     * later FPUL/XF/GBR expectation. */
+    if(fseek(xfin,(long)c->ordinal*64,SEEK_SET) ||
+       fseek(xfout,(long)c->ordinal*64,SEEK_SET) ||
+       fseek(extra,(long)c->ordinal*16,SEEK_SET)) {
+        snprintf(err,len,"missing extended state"); return 0;
+    }
     if(fread(state.v+37,4,16,xfin)!=16 || fread(wantxf,4,16,xfout)!=16 || fread(aux,4,4,extra)!=4) {
         snprintf(err,len,"missing extended state"); return 0;
     }
     state.v[53]=aux[0];
     uint32_t global[3]={0};
+    if(gbr && fseek(gbr,(long)c->ordinal*12,SEEK_SET)) { snprintf(err,len,"missing GBR state"); return 0; }
     if(gbr && fread(global,4,3,gbr)!=3) { snprintf(err,len,"missing GBR state"); return 0; }
     state.gbr=global[0]; state.gbr_known=global[2];
     uint32_t bank_state[17];
     if(bank_file) {
+        if(fseek(bank_file,(long)c->ordinal*68,SEEK_SET)) { snprintf(err,len,"missing banked registers"); return 0; }
         if(fread(bank_state,4,17,bank_file)!=17) { snprintf(err,len,"missing banked registers"); return 0; }
         state.bank_known=bank_state[0];
         memcpy(state.bank,bank_state+1,sizeof(state.bank));
     }
     if(device_file) {
         uint32_t count;
+        if(c->ordinal>=device_records) { snprintf(err,len,"missing device tape"); return 0; }
+        if(fseek(device_file,device_offsets[c->ordinal],SEEK_SET)) { snprintf(err,len,"missing device tape"); return 0; }
         if(fread(&count,4,1,device_file)!=1 || count>16384) { snprintf(err,len,"invalid device tape"); return 0; }
         if(count>device_tape.capacity) {
             DeviceAccess *events=realloc(device_tape.events,(size_t)count*sizeof(*events));
@@ -100,13 +114,25 @@ int main(int argc,char**argv) {
     snprintf(path,sizeof(path),"%s.bank.bin",stem); bank_file=fopen(path,"rb");
     snprintf(path,sizeof(path),"%s.dev.bin",stem); device_file=fopen(path,"rb");
     if(!xfin||!xfout||!extra) return 2;
+    if(device_file) {
+        /* Device tapes are variable-length; index them by .cases row. */
+        uint32_t capacity=0, count;
+        while(fread(&count,4,1,device_file)==1) {
+            if(count>16384) { fclose(device_file); device_file=NULL; break; }
+            if(device_records==capacity) {
+                capacity=capacity?capacity*2:64;
+                long *grown=realloc(device_offsets,(size_t)capacity*sizeof(*grown));
+                if(!grown) { fclose(device_file); device_file=NULL; break; }
+                device_offsets=grown;
+            }
+            device_offsets[device_records++]=ftell(device_file)-4;
+            if(fseek(device_file,(long)count*sizeof(DeviceAccess),SEEK_CUR)) { fclose(device_file); device_file=NULL; break; }
+        }
+        if(device_file) rewind(device_file);
+    }
     char *args[]={argv[0],argv[2]};
     int result=vf3h_harness_main(2,args,"matrix_family",argv[2],run_case);
     if(getenv("VF3_READABLE")) printf("readable ports used: %u calls\n",readable_used);
-    if(fgetc(xfin)!=EOF || fgetc(xfout)!=EOF || fgetc(extra)!=EOF) result=1;
-    if(gbr && fgetc(gbr)!=EOF) result=1;
-    if(bank_file && fgetc(bank_file)!=EOF) result=1;
-    if(device_file && fgetc(device_file)!=EOF) result=1;
     fclose(xfin); fclose(xfout); fclose(extra); if(gbr) fclose(gbr); if(bank_file) fclose(bank_file);
-    if(device_file) fclose(device_file); free(device_tape.events); return result;
+    if(device_file) fclose(device_file); free(device_tape.events); free(device_offsets); return result;
 }

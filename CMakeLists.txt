@@ -327,6 +327,7 @@ add_library(vf3core STATIC
     src/fight/advance_branch_adapters.c
     src/fight/advance_leaf_ranked_more_adapters.c
     src/fight/advance_leaf_041b94_adapters.c
+    src/fight/vf3_9970a_adapter.c
     src/fight/advance_05b20e_adapters.c
     src/fight/tenpp_leaf_adapters.c
     src/fight/tenpp_leaf_adapters_0.c
@@ -428,6 +429,7 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       src/fight/advance_closure_adapters.c
       src/fight/advance_worker_adapters.c
       src/fight/advance_leaf_ranked_more_adapters.c
+      src/fight/vf3_9970a_adapter.c
       src/fight/tenpp_leaf_adapters.c
       src/fight/tenpp_leaf_adapters_0.c
       src/fight/tenpp_leaf_adapters_1.c

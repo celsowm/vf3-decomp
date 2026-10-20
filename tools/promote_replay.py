@@ -33,14 +33,34 @@ LEDGER = REPO / "docs" / "decomp_status.csv"
 FIELDS = ["entry", "status", "file", "size", "method", "oracle"]
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "oracle"))
 from coverage70_audit import router_owned_pcs  # noqa: E402
+from prune_corpus import parse_row, row_complete  # noqa: E402
+
+
+def corpus_complete(corpus: Path, entry: str) -> bool:
+    """True when every row has its entry/exit RAM shadow blobs."""
+    cases = corpus / f"f_{entry}.cases"
+    try:
+        lines = cases.read_text(encoding="ascii", errors="replace").splitlines()
+        if not lines:
+            return False
+        for line in lines:
+            if not line.strip():
+                continue
+            ok, _ = row_complete(corpus, parse_row(line))
+            if not ok:
+                return False
+        return True
+    except (OSError, ValueError):
+        return False
 
 
 def corpora_for(entry: str) -> list[Path]:
     out = []
     for c in sorted(AN.rglob(f"f_{entry}.cases")):
         d = c.parent
-        if (d / f"f_{entry}_0.in.bin").exists():
+        if (d / f"f_{entry}_0.in.bin").exists() and corpus_complete(d, entry):
             out.append(d)
     return out
 
