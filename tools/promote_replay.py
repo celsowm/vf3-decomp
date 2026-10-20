@@ -103,7 +103,15 @@ def main() -> int:
         if pc in bindings or pc in ledger_ported:
             skipped.append(pc)
             continue
-        corpora = corpora_for(e)
+        corpus_csv = (r.get("corpus") or "").strip()
+        if corpus_csv:
+            corpora = [REPO / p.strip() for p in corpus_csv.split(";")
+                       if p.strip()]
+            corpora = [d for d in corpora
+                       if (d / f"f_{e}.cases").exists()
+                       and corpus_complete(d, e)]
+        else:
+            corpora = corpora_for(e)
         if not corpora:
             failed.append((pc, "no shadowed corpus"))
             continue

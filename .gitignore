@@ -2,6 +2,7 @@
 rom/
 extract/
 tools/*.zip
+*.zip
 tools/katana/
 tools/kamui/
 tools/_katana_pkg/

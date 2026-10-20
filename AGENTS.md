@@ -61,12 +61,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    `extract/analysis/funcs_1ST_READ.unsc.bin.csv`.
 6. replay bench: `tools/replay_scan.py` (batch strict-replay probe of unported
    entries against every corpus; `--deep` for >400-case corpora),
+   `tools/sweep_top.py` (same probe restricted to the largest N unported
+   entries that already own a shadowed corpus; emits a promote-ready CSV with
+   a `corpus` column),
    `tools/promote_replay.py` (re-run gated promotion into
    tools/golden_bindings.json + docs/decomp_status.csv),
    `tools/regen_ram_shadows.py` (restore missing case shadows from capsules),
    `tools/coverage70_audit.py` + `tools/final_status.py` (audit/gap reports).
-   The 70% milestone sealed the first full sweep (b04fd0d); remaining
-   corpus-blocked clusters are diagnosed in docs/re/reios_exec_server.md.
+   The 70% milestone sealed the first full sweep (b04fd0d); the 78% milestone
+   was crossed by promoting 23 already-replaying-but-unledgered owners
+   (5,764 B). Remaining corpus-blocked clusters are diagnosed in
+   docs/re/reios_exec_server.md.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -76,14 +81,28 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 72.84% verified C (b04fd0d … 2fe1d26; generator emits raw
-  hardware-form link values). The capture-corpus pool is drained at strict
-  replay; remaining unported-with-corpora owners are blocked on REIOS HLE
-  state (GET_CMD_STAT/REQ_CMD), missing shadow windows, or mixed 0c/8c
-  capture conventions — see docs/re/reios_exec_server.md. The 96-owner
+- Coverage: 79.23% verified C (344,358 B of 434,656). The 78% bar
+  (339,032 B) is cleared with ~5.3 KB of margin. 0x8C09970A + 0x8C097ABC
+  landed in 87ae128 (sidecar row-alignment fix included — the old
+  `extract/analysis/dbg_97abc_case52` capsule predates it and still shows
+  the pre-fix FPUL mismatch; it is not a live corpus). The capture pool is
+  NOT drained: 805 unported owners still own a shadowed corpus, and 42 of
+  them already replayed clean on real captures while missing a ledger row
+  (promoted, 6,952 B). That pool is now mined out — nothing above 130 B
+  remains in it. Remaining unported-with-corpora owners are blocked on
+  REIOS HLE state (GET_CMD_STAT/REQ_CMD), missing shadow windows, or mixed
+  0c/8c capture conventions — see docs/re/reios_exec_server.md. The 96-owner
   bigscreen (docs/re/bigscreen_r72.md) found only 0x8c059aea + 0x8c064246
   naturally reachable in replay states 45/46, and both reject natural
   case capture; next gains need fight-active states or bounded probes.
+- FPU lane: 0x8C06A35C (570 B) is a live FPUL defect, but NOT an FTRC
+  semantics bug — the repo oracle (extract/analysis/fsca_modes.bin.ops)
+  confirms ftrc(+Inf)=0x7fffffff, ftrc(-Inf)=ftrc(NaN)=0x80000000, which
+  src/fight/sh4_fpu.c already matches. The divergence is upstream: the
+  reference's r10 at the 0x8c06a3c4 ftrc site is negative (giving -Inf),
+  ours is +1 (giving +Inf). r10 comes from the REIOS dispatch stub
+  0x0c0c66c8, modelled in matrix_adapters.c as `r0 = *(r4)`, so the real
+  fix is a faithful REIOS service model, not a float change.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure

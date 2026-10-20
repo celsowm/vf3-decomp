@@ -4,25 +4,24 @@ Baseline: `extract/analysis/funcs_1ST_READ.unsc.bin.csv` (2398 functions, 434656
 
 | bucket | functions | % | body bytes | % |
 |---|---|---|---|---|
-| ported (src/) | 1639 (+121 off-baseline leaves) | 68.3% | 334936 | 77.1% |
-| SDK-attributed (masked byte match) | 42 | 1.8% | 8384 | 1.9% |
+| ported (src/) | 1690 (+121 off-baseline leaves) | 70.5% | 345316 | 79.4% |
+| SDK-attributed (masked byte match) | 37 | 1.5% | 7396 | 1.7% |
 | SDK-attributed (reloc-aware, L2 verified) | 0 | 0.0% | 0 | 0.0% |
 | SDK-attributed (Katana 0.40 adjacent, GDFS/mpdrv/pdmain) | 9 | 0.4% | 706 | 0.2% |
-| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 39 | 1.6% | 2764 | 0.6% |
+| SDK-attributed (GDFS 0.53 sample-ELF, exact version) | 38 | 1.6% | 2452 | 0.6% |
 | SDK-fragment (GDFS 0.53 partial, span>=60B & cov>=40%) | 0 | 0.0% | 0 | 0.0% |
 | SDK-attributed (union corpus: release-8 SH-4 ELFs/libs) | 17 | 0.7% | 538 | 0.1% |
 | SDK-fragment (union corpus partial) | 0 | 0.0% | 0 | 0.0% |
-| trace-executed (execution-ID, NOT ported/matched) | 5 | 0.2% | 608 | 0.1% |
-| **rigorous accounted (ported+SDK)** | 1746 | 72.8% | 347328 | 79.9% |
-| **total incl. trace** | 1751 | 73.0% | 347936 | 80.0% |
+| trace-executed (execution-ID, NOT ported/matched) | 4 | 0.2% | 546 | 0.1% |
+| **rigorous accounted (ported+SDK)** | 1791 | 74.7% | 356408 | 82.0% |
+| **total incl. trace** | 1795 | 74.9% | 356954 | 82.1% |
 
-Verified C address union: **333978 bytes** (76.8% of the frozen body denominator). Legacy port sums contain 958 overlapping bytes.
+Verified C address union: **344358 bytes** (79.2% of the frozen body denominator). Legacy port sums contain 958 overlapping bytes.
 
 SDK attribution by library (fn count):
-- ninja: 34
-- sh4nlfzz: 6
+- ninja: 31
+- sh4nlfzz: 5
 - kamui2_flat: 1
-- sg_mw: 1
 
 Ported ledger: `docs/decomp_status.csv`; trace bucket:
 extract/analysis/trace_executed.csv (method: execution-ID — identified, not verified-ported)
