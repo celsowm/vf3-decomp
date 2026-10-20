@@ -96,34 +96,41 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 81.16% verified C (352,776 B of 434,656). The 80% bar (347,725 B)
-  is cleared with 5,051 B of margin. The 78% bar was crossed by promoting 42
-  ledger ghosts in 434d22b (bodies whose C already existed and replayed clean
-  but had no docs/decomp_status.csv row). That pool is mined out; the 80% and
-  81% bars were crossed by *new* C: 33 bodies ported through the repo's own
-  adapter translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c, vf3_c81_adapter.c and vf3_c82_adapter.c —
-  8,418 B over 33 entries, every one strict-replay clean with zero skipped
-  cases. Recipe, checks and the bodies left out:
-  docs/re/coverage_80_generated_adapters.md. Next bar: 82% = 356,418 B
-  (3,642 B more).
-- The largest remaining unported body, 0x8C0831F8 (1,964 B), is fully
-  implemented in vf3_c80_adapter.c and is exercised by 0x8C083AA8's 182-case
-  corpus, but it is NOT credited: it has no corpus of its own. The emulator
-  reached the entry on all 256 synthetic-patch invocations and rejected every
-  specimen with flags=4 — the oracle's RAM window is a compile-time
-  `LIMIT = 128` pages (512 KB) in tools/emu/flycast/core/vf3oracle.cpp, and
-  --probe-ops is capped at 100000 by tools/golden_batch.py. 0x8C0A8ACA (544 B)
-  and 0x8C04C9AE (362 B) are the same shape: their RAM shadows were deleted
-  with their capsules, so they replay as "no RAM cases".
-- FPU lane: 0x8C06A35C (570 B) is a live FPUL defect, but NOT an FTRC
-  semantics bug — the repo oracle (extract/analysis/fsca_modes.bin.ops)
-  confirms ftrc(+Inf)=0x7fffffff, ftrc(-Inf)=ftrc(NaN)=0x80000000, which
-  src/fight/sh4_fpu.c already matches. The divergence is upstream: the
-  reference's r10 at the 0x8c06a3c4 ftrc site is negative (giving -Inf),
-  ours is +1 (giving +Inf). r10 comes from the REIOS dispatch stub
-  0x0c0c66c8, modelled in matrix_adapters.c as `r0 = *(r4)`, so the real
-  fix is a faithful REIOS service model, not a float change.
+- Coverage: 91.26% verified C (396,652 B of 434,656). The 90% bar
+  (391,190 B) is cleared with 5,462 B of margin. The 80%, 81%, 82% and 83%
+  bars were crossed by *new* C ported through the repo's own adapter
+  translator (tools/oracle/translate_adapters.py) into
+  src/fight/vf3_c80_adapter.c ... vf3_c93_adapter.c; the 84%-90% stretch
+  came from the device-tape capture work below.  Recipe, checks and the
+  bodies left out: docs/re/coverage_80_generated_adapters.md and
+  docs/re/oracle_device_reads.md.  Next bar: 92% = 401,084 B (4,432 B more).
+- **Coverage is a body-range union, not a ledger sum.**  tools/decomp_stats.py
+  merges the body ranges of every ported ledger entry, so promoting an entry
+  whose body is nested inside another ported entry adds zero bytes.  Use
+  extract/analysis/u90_newbytes.py to rank the unported entries by the
+  bytes they would *add*; extract/analysis/u90_pools.py only ranks them by
+  ledger membership and over-counts.
+- **The capture blocker was the oracle's device policy, not the fixture.**
+  A synthetic probe that touched a device address was rejected (flags 2|4),
+  which is why 383 unported entries had no corpus at all.  The oracle now
+  allows a device *read* of a register with no read side effect and
+  *suppresses* a device write instead of aborting the specimen; the value is
+  journalled in the capsule's device tape and the C replay feeds it back
+  through ram->device_read.  The patch also clears SR.FD for the probe: with
+  the FPU disabled, every FPU instruction in the target raises
+  Sh4Ex_FpuDisabled and the oracle retires the specimen on the RTE.  See docs/re/oracle_device_reads.md and
+  docs/re/patches/oracle_device_reads.patch (the oracle lives in the
+  gitignored tools/emu tree, so the patch is kept in the repo).
+- tools/oracle/isolated_probes.py gained --arena-seeds (seed every register
+  the static inference could not classify with a RAM arena pointer) and now
+  passes --probe-ops through to tools/golden_batch.py instead of leaving
+  every probe on the 20,000-instruction default budget.
+- Still unpromoted, by cause: the REIOS/BIOS vector at 0x8C001006 (the GD
+  loader stubs write a BIOS-internal state block at 0x0C2A7344, so a faithful
+  REIOS service model is needed - see docs/re/reios_exec_server.md); a null
+  dispatch that reads the null page (needs the device tape, which the
+  pre-patch corpora do not carry); and two unmodelled leaf helpers
+  (0x0C0635EC, 0x0C055578).
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure

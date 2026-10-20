@@ -69,3 +69,17 @@
  void hooks() {
      if (ReadMem32==r32) return;
      rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
+@@ -701,6 +726,13 @@
+                 }
+             }
+             applySyntheticRegs(mutableCtx,variant);
++            /* The probe inherits the game's SR.  If the FPU is disabled there,
++             * every FPU instruction in the target raises Sh4Ex_FpuDisabled, the
++             * guest takes the exception through the BIOS vector and the
++             * specimen is lost (the oracle retires it on the RTE).  The game
++             * itself only reaches FPU code with the FPU enabled, so clear the
++             * FD bit (SR bit 12) for the probe. */
++            mutableCtx->sr.setFull(mutableCtx->sr.getFull() & ~0x1000u);
+             /* Seed the fixture. The emulated operand cache is write-back and the
+              * game has almost certainly touched these pages already, so a bare
+              * host write into mem_b is invisible: the core keeps hitting cached

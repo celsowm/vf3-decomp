@@ -117,6 +117,8 @@ int vf3_c92_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_c92_adapter_contains(uint32_t);
 int vf3_c93_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_c93_adapter_contains(uint32_t);
+int vf3_c94_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_c94_adapter_contains(uint32_t);
 int vf3_motion_record_init(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_angle(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_mesh(uint32_t,vf3_matrix_state*,const vf3_ram_map*);

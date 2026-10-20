@@ -60,6 +60,29 @@ Everything else is a plain read in the emulator: SCBRR, the CCR, the AICA
 timer levels, the interrupt status registers, the VRAM banks, the boot ROM
 and the unknown P4 MMIO holes.
 
+## The FPU-disabled exception
+
+A second, separate policy cost the rest of the pool.  The probe inherits the
+game's `SR`, and `SR.FD` (bit 12) disables the FPU: with it set, *every* FPU
+instruction in the target raises `Sh4Ex_FpuDisabled`, the guest takes the
+exception through the BIOS vector, and the oracle retires the specimen on the
+`RTE` (`flags=1`).
+
+`0x8C0115C2` shows the shape of the failure: the probe executed 5,408
+instructions of `0x0000` starting at the entry address, because the game had
+erased that code at run time.  The `RTE` was the *symptom*; the exception was
+the cause.
+
+The patch therefore clears `SR.FD` for the probe:
+
+```c
+mutableCtx->sr.setFull(mutableCtx->sr.getFull() & ~0x1000u);
+```
+
+The game itself only reaches FPU code with the FPU enabled, so this changes
+nothing about the recorded behaviour - it only stops the probe from taking a
+trap the game would never take.
+
 ## Why a suppressed write is faithful
 
 The C replay does not apply device writes either.  `device_write` in
