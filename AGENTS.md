@@ -75,6 +75,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    was crossed by promoting 23 already-replaying-but-unledgered owners
    (5,764 B). Remaining corpus-blocked clusters are diagnosed in
    docs/re/reios_exec_server.md.
+7. porting a body: `tools/oracle/translate_adapters.py` walks the CFG from a
+   set of watch roots and emits readable C (0 unsupported instructions per
+   batch). `tools/gen_translate.py` resolves each root's capture dirs from the
+   recorded `f_<entry>.ops.json` maps and prints the invocation;
+   `tools/body_complete.py` proves every PC of the entry's body ranges is
+   emitted; `tools/binding_steal.py` lists the pre-existing golden bindings a
+   new module would shadow. Wire the result into `src/fight/matrix_family.c`
+   (router chain) + `matrix_family.h` + `CMakeLists.txt` (two source lists),
+   then promote with `tools/promote_replay.py`. Used for the 80% milestone:
+   16 bodies, 5,084 B — see docs/re/coverage_80_generated_adapters.md.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -84,20 +94,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 79.23% verified C (344,358 B of 434,656). The 78% bar
-  (339,032 B) is cleared with ~5.3 KB of margin. 0x8C09970A + 0x8C097ABC
-  landed in 87ae128 (sidecar row-alignment fix included — the old
-  `extract/analysis/dbg_97abc_case52` capsule predates it and still shows
-  the pre-fix FPUL mismatch; it is not a live corpus). The capture pool is
-  NOT drained: 805 unported owners still own a shadowed corpus, and 42 of
-  them already replayed clean on real captures while missing a ledger row
-  (promoted, 6,952 B). That pool is now mined out — nothing above 130 B
-  remains in it. Remaining unported-with-corpora owners are blocked on
-  REIOS HLE state (GET_CMD_STAT/REQ_CMD), missing shadow windows, or mixed
-  0c/8c capture conventions — see docs/re/reios_exec_server.md. The 96-owner
-  bigscreen (docs/re/bigscreen_r72.md) found only 0x8c059aea + 0x8c064246
-  naturally reachable in replay states 45/46, and both reject natural
-  case capture; next gains need fight-active states or bounded probes.
+- Coverage: 80.40% verified C (349,442 B of 434,656). The 80% bar (347,725 B)
+  is cleared with 1,717 B of margin. The 78% bar was crossed by promoting 42
+  ledger ghosts in 434d22b (bodies whose C already existed and replayed clean
+  but had no docs/decomp_status.csv row). That pool is mined out; the 80% bar
+  was crossed by *new* C: 16 bodies ported through the repo's own adapter
+  translator (tools/oracle/translate_adapters.py) into src/fight/vf3_c80_adapter.c
+  and src/fight/vf3_c81_adapter.c — 5,084 B, 16 entries, every one strict-replay
+  clean with zero skipped cases. Recipe, checks and the two bodies left out:
+  docs/re/coverage_80_generated_adapters.md. Next bar: 82% = 356,418 B
+  (6,976 B more).
+- The largest remaining unported body, 0x8C0831F8 (1,964 B), is fully
+  implemented in vf3_c80_adapter.c and is exercised by 0x8C083AA8's 182-case
+  corpus, but it is NOT credited: it has no corpus of its own. The emulator
+  reached the entry on all 256 synthetic-patch invocations and rejected every
+  specimen with flags=4 — the oracle's RAM window is a compile-time
+  `LIMIT = 128` pages (512 KB) in tools/emu/flycast/core/vf3oracle.cpp, and
+  --probe-ops is capped at 100000 by tools/golden_batch.py. 0x8C0A8ACA (544 B)
+  and 0x8C04C9AE (362 B) are the same shape: their RAM shadows were deleted
+  with their capsules, so they replay as "no RAM cases".
 - FPU lane: 0x8C06A35C (570 B) is a live FPUL defect, but NOT an FTRC
   semantics bug — the repo oracle (extract/analysis/fsca_modes.bin.ops)
   confirms ftrc(+Inf)=0x7fffffff, ftrc(-Inf)=ftrc(NaN)=0x80000000, which
