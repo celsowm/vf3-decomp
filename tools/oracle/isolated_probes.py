@@ -21,9 +21,19 @@ def main():
     ap.add_argument('--limit', type=int, default=30)
     ap.add_argument('--frames', type=int, default=120)
     ap.add_argument('--max-samples', type=int, default=8)
+    ap.add_argument('--probe-ops', type=int, default=100000,
+                    help='synthetic-call instruction budget per probe')
     ap.add_argument('--states', default='20,21')
     ap.add_argument('--trigger', type=lambda s: int(s, 16), default=0x8c063d36)
     ap.add_argument('--pointer-fixtures', action='store_true')
+    ap.add_argument('--arena-seeds', action='store_true',
+                    help='seed every register the fixture did not infer with a '
+                         'RAM arena pointer, so a bogus live pointer cannot '
+                         'reach a device address')
+    ap.add_argument('--arena-base', type=lambda s: int(s, 16), default=0x0c420000)
+    ap.add_argument('--arena-variants', type=int, default=8,
+                    help='number of seed variants; each one points the arena '
+                         'registers at a different page')
     ap.add_argument('--seed-mode', choices=('zero', 'open', 'one'), default='zero')
     ap.add_argument('--timeout', type=int, default=90,
                     help='seconds allowed per target, including both state runs')
@@ -42,12 +52,41 @@ def main():
         watch = directory / 'watch.txt'
         patch = directory / 'entry.patch'
         watch.write_text(f'pc 0x{entry:08x}\n')
-        patch.write_text(f'entry 0x{a.trigger:08x} 0x{entry:08x}\n'
-                         f'target 0x{a.trigger:08x} 0x{entry & 0x1fffffff:08x}\n'
-                         f'reg 0x{a.trigger:08x} pr 0x{(a.trigger + 2) & 0x1fffffff:08x}\n')
+        registers, words = ({}, {})
         if a.pointer_fixtures:
             from pointer_seeds import fixture
             registers, words = fixture(entry, a.seed_mode)
+        if a.arena_seeds:
+            # The probe runs with the game's live registers unless the patch
+            # overrides them.  A live register that holds a bogus pointer
+            # (a null-ish 0x11, say) makes the target dereference a device
+            # address, and the oracle rejects the specimen (flags 2|4).
+            # Point every register the static inference could not classify at
+            # a page of the RAM arena instead: the probe then stays inside
+            # the main RAM the oracle already snapshots and restores.
+            lines = ['entry 0x%08x 0x%08x' % (a.trigger, entry)]
+            for variant in range(a.arena_variants):
+                if variant:
+                    lines.append('seed 0x%08x' % a.trigger)
+                lines += ['target 0x%08x 0x%08x' % (a.trigger, entry & 0x1fffffff),
+                          'reg 0x%08x pr 0x%08x' % (a.trigger, (a.trigger + 2) & 0x1fffffff)]
+                for reg in range(15):
+                    if reg in registers:
+                        value = registers[reg]
+                    else:
+                        value = a.arena_base + (reg + variant * 16) * 0x1000
+                    lines.append('reg 0x%08x r%d 0x%08x' % (a.trigger, reg, value & 0xffffffff))
+                # r15 is the stack pointer: give it its own page so a frame
+                # push lands in the arena instead of under the null pointer.
+                lines.append('reg 0x%08x r15 0x%08x' %
+                             (a.trigger, a.arena_base + (15 + variant * 16) * 0x1000))
+                for addr, value in sorted(words.items()):
+                    lines.append('ram 0x%08x 0x%08x 0x%08x' % (a.trigger, addr, value & 0xffffffff))
+            patch.write_text('\n'.join(lines) + '\n')
+        else:
+            patch.write_text(f'entry 0x{a.trigger:08x} 0x{entry:08x}\n'
+                             f'target 0x{a.trigger:08x} 0x{entry & 0x1fffffff:08x}\n'
+                             f'reg 0x{a.trigger:08x} pr 0x{(a.trigger + 2) & 0x1fffffff:08x}\n')
             with patch.open('a') as output:
                 for register, value in sorted(registers.items()):
                     output.write(f'reg 0x{a.trigger:08x} r{register} 0x{value:08x}\n')
@@ -56,7 +95,8 @@ def main():
         cmd = [sys.executable, '-u', 'tools/golden_batch.py', '--name', name,
                '--watch', str(watch), '--out', str(directory), '--entry-patch',
                str(patch), '--capsule', '--probe-debug', '--probe-only',
-               '--max-samples', str(a.max_samples)]
+               '--max-samples', str(a.max_samples),
+               '--probe-ops', str(a.probe_ops)]
         for state in a.states.split(','):
             cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as log:

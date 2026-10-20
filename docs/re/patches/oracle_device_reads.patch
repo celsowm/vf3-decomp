@@ -1,0 +1,71 @@
+--- a/core/vf3oracle.cpp
++++ b/core/vf3oracle.cpp
+@@ -343,8 +343,23 @@
+     }
+ }
+ bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
+-bool blockSyntheticDevice(unsigned addr,unsigned size) {
++/* A device *read* is safe for a synthetic probe when the register has no read
++ * side effect: the value is journalled in the device tape and the C replay
++ * feeds it back, so the captured behaviour stays exact.  These registers do
++ * have a side effect and stay rejected:
++ *   0xff000034  SCIF RDR     - reading it pops the receive FIFO
++ *   0xa05f8000  AICA common  - sgc::ReadCommonReg can start a DMA
++ * Everything else (SCBRR, CCR, the timer levels, the interrupt status
++ * registers, the VRAM banks, the boot ROM and the unknown P4 MMIO holes) is
++ * a plain read in the emulator. */
++bool deviceReadIsSafe(unsigned addr) {
++    if (addr==0xff000034u) return false;
++    if (addr>=0xa05f8000u && addr<0xa05f8018u) return false;
++    return true;
++}
++bool blockSyntheticDevice(unsigned addr,unsigned size,unsigned write,bool *suppress) {
+     bool blocked=false;
++    *suppress=false;
+     for (auto &c:active) if (c.synthetic) {
+ #ifdef VF3_HEADLESS
+         /* Only the canonical uncached 2 MiB sound RAM window, never AICA
+@@ -375,21 +390,31 @@
+             continue;
+         }
+ #endif
+-        /* Device state cannot be restored from RAM pages. Reject the specimen
+-         * before issuing an access, then restore at the next instruction. */
+-        c.flags|=2; c.invalidAddress=addr;
+-        c.aborted=true; c.skipFetched=true; c.countdown=1; blocked=true;
++        /* A device write would change state that the RAM rollback cannot
++         * restore, so the write is dropped instead of the specimen being
++         * rejected: the access is still journalled, the C replay verifies the
++         * same sequence, and the device keeps the value the game left.  The
++         * probe therefore observes the pre-probe device state, which is the
++         * state the game itself resumes with. */
++        if (write) { *suppress=true; continue; }
++        /* A side-effect-free device read leaves the device untouched, so the
++         * rollback stays exact.  Its value is journalled by device() and the
++         * C replay reproduces it through the device tape. */
++        if (!deviceReadIsSafe(addr)) {
++            c.flags|=2; c.invalidAddress=addr;
++            c.aborted=true; c.skipFetched=true; c.countdown=1; blocked=true;
++        }
+     }
+     return blocked;
+ }
+-u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,1)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
+-u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,2)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
+-u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,4)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
+-u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,8)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
+-void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { if(blockSyntheticDevice(a,1)) return; device(a,1,v,1); } else touch(a,1); wr8(a,v); }
+-void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { if(blockSyntheticDevice(a,2)) return; device(a,2,v,1); } else touch(a,2); wr16(a,v); }
+-void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { if(blockSyntheticDevice(a,4)) return; device(a,4,v,1); } else touch(a,4); wr32(a,v); }
+-void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { if(blockSyntheticDevice(a,8)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
++u8 DYNACALL r8(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,1,0,&s)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
++u16 DYNACALL r16(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,2,0,&s)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
++u32 DYNACALL r32(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,4,0,&s)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
++u64 DYNACALL r64(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,8,0,&s)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
++void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,1,1,&s)) return; device(a,1,v,1); if(s) return; } else touch(a,1); wr8(a,v); }
++void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,2,1,&s)) return; device(a,2,v,1); if(s) return; } else touch(a,2); wr16(a,v); }
++void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,4,1,&s)) return; device(a,4,v,1); if(s) return; } else touch(a,4); wr32(a,v); }
++void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,8,1,&s)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); if(s) return; } else touch(a,8); wr64(a,v); }
+ void hooks() {
+     if (ReadMem32==r32) return;
+     rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
