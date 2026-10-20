@@ -1,11 +1,12 @@
-# Coverage 80%: the generated-adapter batch
+# Coverage 80% and beyond: the generated-adapter batches
 
 Pure-C verified coverage crossed the 80% bar (347,725 B of the 434,656 B
-frozen body denominator) at **349,442 B / 80.3951%**, adding **5,084 B**
-across 16 newly ported bodies and one ledger-correction lane.
+frozen body denominator) and then some:
 
-    before  344,358 B  79.2254%   1,815 entries
-    after   349,442 B  80.3951%   1,831 entries
+    78% bar   347,725 B
+    batch 1+2 349,442 B  80.3951%   16 bodies, 5,084 B
+    batch 3   352,776 B  81.1621%   17 bodies, 3,334 B
+    total     352,776 B  81.1621%   33 bodies, 8,418 B
 
 The 78% milestone had been crossed by promoting *ledger ghosts* — bodies whose
 C already existed and replayed clean but had no `docs/decomp_status.csv` row.
@@ -41,10 +42,12 @@ the translator cannot express is a hard blocker, not a silent one.
 
 ## What was ported
 
-Sixteen bodies, in two generated modules. A root with an unported callee is
-listed with that callee: the callee is a *gap* function (no body range of its
-own, so no coverage credit) but the root's replay exercises it, and the
-translator owns its flow.
+Thirty-three bodies, in three generated modules. A root with an unported
+callee is listed with that callee: the callee is a *gap* function (no body
+range of its own, so no coverage credit) but the root's replay exercises it,
+and the translator owns its flow.
+
+### Batch 1+2 — `vf3_c80_adapter.c`, `vf3_c81_adapter.c` (16 bodies, 5,084 B)
 
 | entry    | bytes | module             | evidence                                  |
 |----------|-------|--------------------|-------------------------------------------|
@@ -65,20 +68,43 @@ translator owns its flow.
 | `0x8C04EA52` | 250 | `vf3_c81_adapter.c` | 1 pruned corpus, 126 cases      |
 | `0x8C04ED8C` | 248 | `vf3_c81_adapter.c` | 1 pruned corpus, 125 cases      |
 
-Sum: 5,084 B. Every one of these replays under `VF3_STRICT_REPLAY=1` with
-**zero skipped cases** on a real captured corpus.
+### Batch 3 — `vf3_c82_adapter.c` (17 bodies, 3,334 B)
+
+| entry    | bytes | corpora | cases   | note                          |
+|----------|-------|---------|---------|-------------------------------|
+| `0x8C0871EE` | 294 | 2 | 529   | 2 further corpora pruned      |
+| `0x8C03A07C` | 244 | 9 | 3,675 | shares a block with `motion_adapters_0.c` |
+| `0x8C05E86A` | 228 | 3 | 688   |                               |
+| `0x8C0C78E0` | 202 | 3 | 1,163 |                               |
+| `0x8C08870A` | 196 | 4 | 998   |                               |
+| `0x8C0884EA` | 190 | 5 | 783   |                               |
+| `0x8C04EC8E` | 190 | 3 | 1,275 | 2 further corpora pruned      |
+| `0x8C07B784` | 188 | 1 | 511   |                               |
+| `0x8C0C3A26` | 188 | 2 | 885   |                               |
+| `0x8C05961E` | 188 | 3 | 555   |                               |
+| `0x8C0C7562` | 188 | 1 | 486   |                               |
+| `0x8C0C8E7C` | 186 | 1 | 256   |                               |
+| `0x8C08A7DE` | 184 | 4 | 474   |                               |
+| `0x8C088B5C` | 182 | 1 | 254   |                               |
+| `0x8C0C601C` | 164 | 3 | 804   |                               |
+| `0x8C06AC7A` | 162 | 1 | 142   |                               |
+| `0x8C08E028` | 160 | 1 | 238   | 1 corpus dropped, see below   |
+
+Every one of these replays under `VF3_STRICT_REPLAY=1` with **zero skipped
+cases** on a real captured corpus.
 
 ## Four checks that gate the credit
 
 1. **Body completeness.** For each new entry, every PC of every Ghidra body
-   range must be emitted by some adapter. The new modules own 3,083 and 2,962
-   PCs respectively; a body that is only *partly* translated would otherwise
-   be credited for bytes it does not implement.
+   range must be emitted by some adapter. The new modules own 3,083, 2,962
+   and 3,830 PCs respectively; a body that is only *partly* translated would
+   otherwise be credited for bytes it does not implement.
 2. **No stolen routing.** A new adapter is inserted into the router chain
    ahead of the generic `matrix_adapters.c` fallback, so a new module can
-   shadow an older owner. The three pre-existing bindings whose entry is now
-   owned by `vf3_c81_adapter.c` (`0x8C04FE9E`, `0x8C0C66B8`, `0x8C068C72`)
-   were re-verified and still pass.
+   shadow an older owner. The pre-existing bindings whose entry is now owned
+   by a new module were re-verified and all still pass: `0x8C04FE9E`,
+   `0x8C0C66B8`, `0x8C068C72` (batch 1+2) and `0x8C0A2E8C`, `0x8C0A7F68`,
+   `0x8C086B3A` (batch 3).
 3. **Strict replay, zero skips.** A corpus whose per-row RAM shadows were
    pruned away replays as "N/N match, K skipped" and is *not* evidence.
    `tools/promote_replay.py` refuses such a corpus via `corpus_complete`.
@@ -86,8 +112,22 @@ Sum: 5,084 B. Every one of these replays under `VF3_STRICT_REPLAY=1` with
    `tools/oracle/prune_corpus.py` to derive a complete subset: the pruned
    corpus keeps the original row ordinals and invents no state, it only drops
    the rows whose entry/exit RAM blobs are gone.
+   The corpus list per entry is resolved by `tools/build_promote_csv.py`,
+   which reuses `promote_replay`'s own `corpus_complete` so the two agree.
 4. **Regression sample.** 400 random pre-existing bindings were re-run
-   against their own test binaries: 400/400 PASS.
+   against their own test binaries: 400/400 PASS, after each batch.
+
+### Two corpora dropped for a good reason
+
+`0x8C08E028` also has a 3-row corpus in `percentage_loaded_states_dev` whose
+row 2 has no RAM shadow. The harness compares that row against a stale image
+and reports "mem win12 @+0x300: got 00 want 01" — a missing-blob artefact,
+not a behavioural defect. `corpus_complete` excludes the corpus, and the
+entry's remaining corpus (238 cases) passes with zero skips.
+
+`0x8C082E0E` (186 B) was translated but **not** promoted: its corpus reports
+`case 8: unsupported helper/state at 8c082e0e PC 0c082f28 (0 OOB)` — a real
+defect, so the entry stays unported until the helper is understood.
 
 ## Two bodies that stayed out
 
@@ -138,19 +178,27 @@ Committed:
   is emitted by some adapter, so a partly translated body is never credited.
 * `tools/binding_steal.py` — lists the pre-existing golden bindings a new
   adapter would shadow, so they can be re-verified before the change lands.
-* `tools/watch/vf3_c80_batch.txt` — the 16 watch roots of the batch.
+* `tools/build_promote_csv.py` — resolves each entry's complete corpora and
+  writes the promote CSV, so the corpus column is never hand-typed and always
+  agrees with `promote_replay.py`'s own completeness rule.
+* `tools/watch/vf3_c80_batch.txt`, `tools/watch/vf3_c82_batch.txt` — the
+  watch roots of the two batches.
 * `tools/watch/vf3_c80_0831f8.txt` — the 0x8C0831F8 capture recipe.
 
 Scratch (gitignored, under `extract/analysis/`): `gap_map.py`,
-`credit_map.py`, `cand_deps.py`, `next_group.py`, `verify_batch.py`,
-`body_owners.py`, `sample_check.py`.
+`credit_map.py`, `cand_deps.py`, `next_group.py`, `next_batch.py`,
+`verify_batch.py`, `body_owners.py`, `sample_check.py`.
 
 ## Reproducing
 
-    python tools/oracle/translate_adapters.py <capture dirs...> \
-        --watch tools/watch/vf3_c80_batch.txt \
-        --out src/fight/vf3_c80_adapter.c \
-        --function vf3_c80_adapter --reuse-adapter 'src/fight/*.c'
+    python tools/gen_translate.py <roots...> \
+        --watch-file tools/watch/vf3_c80_batch.txt \
+        --out src/fight/vf3_c80_adapter.c --function vf3_c80_adapter
+    # ... run the printed command ...
+    # wire the module into matrix_family.c / matrix_family.h / CMakeLists.txt
     cmake --build build
-    python tools/promote_replay.py --scan <promote csv>
+    python tools/body_complete.py <roots...>
+    python tools/binding_steal.py
+    python tools/build_promote_csv.py <roots...> --out scan.csv
+    python tools/promote_replay.py --scan scan.csv
     python tools/decomp_stats.py && python tools/final_status.py

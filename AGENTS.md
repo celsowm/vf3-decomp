@@ -81,10 +81,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    recorded `f_<entry>.ops.json` maps and prints the invocation;
    `tools/body_complete.py` proves every PC of the entry's body ranges is
    emitted; `tools/binding_steal.py` lists the pre-existing golden bindings a
-   new module would shadow. Wire the result into `src/fight/matrix_family.c`
-   (router chain) + `matrix_family.h` + `CMakeLists.txt` (two source lists),
-   then promote with `tools/promote_replay.py`. Used for the 80% milestone:
-   16 bodies, 5,084 B — see docs/re/coverage_80_generated_adapters.md.
+   new module would shadow; `tools/build_promote_csv.py` resolves each
+   entry's complete corpora into a promote CSV. Wire the result into
+   `src/fight/matrix_family.c` (router chain) + `matrix_family.h` +
+   `CMakeLists.txt` (two source lists), then promote with
+   `tools/promote_replay.py`. Used for the 80% and 81% milestones: 33 bodies,
+   8,418 B — see docs/re/coverage_80_generated_adapters.md.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -94,16 +96,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 80.40% verified C (349,442 B of 434,656). The 80% bar (347,725 B)
-  is cleared with 1,717 B of margin. The 78% bar was crossed by promoting 42
+- Coverage: 81.16% verified C (352,776 B of 434,656). The 80% bar (347,725 B)
+  is cleared with 5,051 B of margin. The 78% bar was crossed by promoting 42
   ledger ghosts in 434d22b (bodies whose C already existed and replayed clean
-  but had no docs/decomp_status.csv row). That pool is mined out; the 80% bar
-  was crossed by *new* C: 16 bodies ported through the repo's own adapter
-  translator (tools/oracle/translate_adapters.py) into src/fight/vf3_c80_adapter.c
-  and src/fight/vf3_c81_adapter.c — 5,084 B, 16 entries, every one strict-replay
-  clean with zero skipped cases. Recipe, checks and the two bodies left out:
+  but had no docs/decomp_status.csv row). That pool is mined out; the 80% and
+  81% bars were crossed by *new* C: 33 bodies ported through the repo's own
+  adapter translator (tools/oracle/translate_adapters.py) into
+  src/fight/vf3_c80_adapter.c, vf3_c81_adapter.c and vf3_c82_adapter.c —
+  8,418 B over 33 entries, every one strict-replay clean with zero skipped
+  cases. Recipe, checks and the bodies left out:
   docs/re/coverage_80_generated_adapters.md. Next bar: 82% = 356,418 B
-  (6,976 B more).
+  (3,642 B more).
 - The largest remaining unported body, 0x8C0831F8 (1,964 B), is fully
   implemented in vf3_c80_adapter.c and is exercised by 0x8C083AA8's 182-case
   corpus, but it is NOT credited: it has no corpus of its own. The emulator
