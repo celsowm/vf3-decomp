@@ -337,6 +337,11 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
     const uint32_t queue=0x0C19D2E4u;
     entry&=0x1FFFFFFFu;
     if(!vf3_fpu_supported(FPSCR)) return 0;
+    /* A jsr through a null pointer traps on the SH-4.  The emulator records the
+     * trap as the end of the specimen, so the C side has to treat the null
+     * target as "the call landed and nothing else happened" instead of an
+     * unimplemented helper (docs/re/remaining_work_plan.md, T1.5). */
+    if(entry==0u) return 1;
     if(entry==0x0c085ca4u) return vf3_profile_clear_c(s,ram);
     if(entry==0x0c095178u) return vf3_actor_profile_pair_c(s,ram);
     if(entry==0x0c0885c4u) return vf3_motion_settle_c(s,ram);
@@ -682,6 +687,7 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
         if(vf3_c80_adapter_contains(entry)) return vf3_c80_adapter(entry,s,ram);
         if(vf3_c81_adapter_contains(entry)) return vf3_c81_adapter(entry,s,ram);
         if(vf3_c82_adapter_contains(entry)) return vf3_c82_adapter(entry,s,ram);
+        if(vf3_c90_adapter_contains(entry)) return vf3_c90_adapter(entry,s,ram);
         if(vf3_advance_closure_adapter_contains(entry)) return vf3_advance_closure_adapter(entry,s,ram);
         if(vf3_advance_worker_adapter_contains(entry)) return vf3_advance_worker_adapter(entry,s,ram);
         if(vf3_advance_leaf_ranked_more_adapter_contains(entry)) return vf3_advance_leaf_ranked_more_adapter(entry,s,ram);

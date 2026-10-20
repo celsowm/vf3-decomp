@@ -41,6 +41,73 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_matrix_writ
 int vf3_reios_system_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
 int vf3_reios_flashrom_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
 
+/* REIOS GD-ROM vector (0x8C001006, r6 = 0) against an idle drive.
+ *
+ * The loader stubs reach the BIOS through the pointer word at 0x8C0000BC and
+ * the reference answers every command from the drive state.  Without a
+ * captured drive state (VF3_GD_STATE) the drive is idle, which is what the
+ * fight-state corpora recorded: no transfer is in flight, so the two
+ * transfer requests are refused with GDC_ERR and the two completion checks
+ * answer "not done" without touching memory.
+ *
+ * The command numbers are the REIOS ones (gdrom_hle.h): 6 REQ_DMA_TRANS,
+ * 7 CHECK_DMA_TRANS, 12 REQ_PIO_TRANS, 13 CHECK_PIO_TRANS.
+ */
+static int reios_gd_idle(uint32_t *r, uint32_t entry, vf3_matrix_state *state,
+                         const vf3_ram_map *ram)
+{
+    switch (r[7]) {
+    case VF3_GD_EXEC_SERVER:          /* 2: the queue is empty, nothing changes */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    case VF3_GD_INIT_SYSTEM:          /* 3: the reference resets the drive and leaves r0 alone */
+    case VF3_GD_RESET:                /* 9: same, the drive goes idle */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    case VF3_GD_G1_DMA_END:           /* 5 */
+    case VF3_GD_CHANGE_DATA_TYPE:     /* 10 */
+    case VF3_GD_SET_PIO_CALLBACK:     /* 11 */
+        r[0] = 0u;                    /* GDC_OK */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    case VF3_GD_GET_DRV_STAT: {       /* 4: drive status (1: paused) + disc type (0x80) */
+        vf3_matrix_write(ram, r[4], 1u, 4u);
+        vf3_matrix_write(ram, r[4] + 4u, 128u, 4u);
+        r[0] = 0u;
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
+    case VF3_GD_REQ_DMA_TRANS:        /* 6 */
+    case VF3_GD_REQ_PIO_TRANS: {      /* 12 */
+        /* The reference reads the two parameter words (buffer, size) before it
+         * refuses the request, so the reads stay; an idle drive holds no
+         * transfer, so the answer is GDC_ERR and no sector is copied. */
+        (void)vf3_matrix_read(ram, r[5], 4u);
+        (void)vf3_matrix_read(ram, r[5] + 4u, 4u);
+        r[0] = (uint32_t)-1;          /* GDC_ERR */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
+    case VF3_GD_CHECK_DMA_TRANS: {    /* 7: bytes left, then OK or BUSY */
+        vf3_matrix_write(ram, r[5], 0u, 4u);
+        r[0] = 1u;                    /* GDC_BUSY */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
+    case VF3_GD_CHECK_PIO_TRANS:      /* 13: ERR unless a transfer is in flight */
+        r[0] = (uint32_t)-1;          /* GDC_ERR */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    case VF3_GD_READ_ABORT:           /* 8: no request to abort */
+        r[0] = (uint32_t)-1;          /* GDC_ERR */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    default:
+        state->failed_pc = entry;
+        return 0;
+    }
+}
+
 int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
                           const vf3_ram_map *ram)
 {
@@ -87,16 +154,7 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
         return ram->oob == 0u;
     }
 
-    /* GDROM_GET_DRV_STAT: group r6=0, function r7=4, output at *r4. */
-    if (r[7] != 4u) {
-        state->failed_pc = entry;
-        return 0;
-    }
-    vf3_matrix_write(ram, r[4], 1u, 4u);
-    vf3_matrix_write(ram, r[4] + 4u, 128u, 4u);
-    r[0] = 0u;
-    state->pc = r[16];
-    return ram->oob == 0u;
+    return reios_gd_idle(r, entry, state, ram);
 }
 
 int vf3_aica_stub_adapter_contains(uint32_t pc)
