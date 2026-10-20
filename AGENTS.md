@@ -64,6 +64,9 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    `tools/sweep_top.py` (same probe restricted to the largest N unported
    entries that already own a shadowed corpus; emits a promote-ready CSV with
    a `corpus` column),
+   `tools/check_new_bindings.py` (strict-replay gate over a chosen binding
+   set, e.g. `--only-new-since HEAD~1`; honours each binding's own test
+   binary),
    `tools/promote_replay.py` (re-run gated promotion into
    tools/golden_bindings.json + docs/decomp_status.csv),
    `tools/regen_ram_shadows.py` (restore missing case shadows from capsules),
