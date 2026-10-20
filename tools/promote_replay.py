@@ -38,8 +38,9 @@ from coverage70_audit import router_owned_pcs  # noqa: E402
 
 def corpora_for(entry: str) -> list[Path]:
     out = []
-    for d in sorted(AN.glob("*cases")):
-        if (d / f"f_{entry}.cases").exists() and (d / f"f_{entry}_0.in.bin").exists():
+    for c in sorted(AN.rglob(f"f_{entry}.cases")):
+        d = c.parent
+        if (d / f"f_{entry}_0.in.bin").exists():
             out.append(d)
     return out
 

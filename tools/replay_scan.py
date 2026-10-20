@@ -40,15 +40,18 @@ def load_ledger_and_sizes():
 
 
 def corpora_map() -> dict[str, list[tuple[Path, bool]]]:
-    """entry hex -> [(corpus dir, has_shadows)] over every *cases dir."""
+    """entry hex -> [(corpus dir, has_shadows)] over every captured corpus.
+
+    Corpus directories are not all named ``*cases`` (e.g. ``coverage_65_*``
+    and ``advance_*_dev_fp`` hold real, shadowed corpora), so discover by
+    the ``f_<pc>.cases`` sidecar and use its parent directory.
+    """
     out: dict[str, list[tuple[Path, bool]]] = {}
-    for d in sorted(AN.glob("*cases")):
-        if not d.is_dir():
-            continue
-        for c in sorted(d.glob("f_*.cases")):
-            e = c.stem[2:]
-            shadowed = (d / f"{c.stem}_0.in.bin").exists()
-            out.setdefault(e, []).append((d, shadowed))
+    for c in sorted(AN.rglob("f_*.cases")):
+        d = c.parent
+        e = c.stem[2:]
+        shadowed = (d / f"{c.stem}_0.in.bin").exists()
+        out.setdefault(e, []).append((d, shadowed))
     return out
 
 
