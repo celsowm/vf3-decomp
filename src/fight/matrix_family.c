@@ -689,6 +689,8 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
         if(vf3_c82_adapter_contains(entry)) return vf3_c82_adapter(entry,s,ram);
         if(vf3_c90_adapter_contains(entry)) return vf3_c90_adapter(entry,s,ram);
         if(vf3_c90b_adapter_contains(entry)) return vf3_c90b_adapter(entry,s,ram);
+        if(vf3_c90d_adapter_contains(entry)) return vf3_c90d_adapter(entry,s,ram);
+        if(vf3_c90e_adapter_contains(entry)) return vf3_c90e_adapter(entry,s,ram);
         if(vf3_advance_closure_adapter_contains(entry)) return vf3_advance_closure_adapter(entry,s,ram);
         if(vf3_advance_worker_adapter_contains(entry)) return vf3_advance_worker_adapter(entry,s,ram);
         if(vf3_advance_leaf_ranked_more_adapter_contains(entry)) return vf3_advance_leaf_ranked_more_adapter(entry,s,ram);
