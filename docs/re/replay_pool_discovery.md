@@ -22,8 +22,8 @@ This is the capture-possible pool the previous scans never saw.
 
 ## Promoted (strict replay, all corpora)
 
-Batches 1-5 ran the top 108 candidates through `promote_replay.py`; **28 entries /
-9,448 B** passed every corpus with `VF3_STRICT_REPLAY=1` and `0 skipped`. The largest:
+Batches 1-9 ran the recovered shadowed-corpus pool through `promote_replay.py`; **91 entries /
+14,896 B** passed every corpus with `VF3_STRICT_REPLAY=1` and `0 skipped`. The largest:
 
 | entry | bytes | router |
 |---|---:|---|
@@ -41,7 +41,7 @@ Batches 1-5 ran the top 108 candidates through `promote_replay.py`; **28 entries
 The full set is in `docs/decomp_status.csv` (method `capture-driven port (batch replay_scan)`)
 and `tools/golden_bindings.json`.
 
-Coverage: **316,778 B (72.8802%) -> 326,226 B (75.0538%)**, +9,448 B. `final_status.py`
+Coverage: **316,778 B (72.8802%) -> 331,674 B (76.3072%)**, +14,896 B. `final_status.py`
 reads `extract/analysis/coverage.json`; regenerate it with `tools/decomp_stats.py` after a
 promotion or the number stays stale.
 
@@ -55,7 +55,13 @@ promotion or the number stays stale.
 
 ## Next
 
-Remaining true-unported entries with a shadowed corpus: **301 entries / 42,266 B**.
-Continue `promote_replay.py` batches over them; the observed pass rate is about 20%, and
-the tool refuses anything that fails a single corpus. Batch selection should prefer entries
-whose router source exists and whose corpora have shadows.
+The recovered shadowed-corpus pool is now **exhausted of replay-clean entries**: every
+remaining candidate fails at least one corpus. The failures cluster as:
+
+- generated adapter incomplete (`unsupported helper/state`, most of the pool);
+- real state mismatch (`FPUL`, device access, `0c`/`8c` memory-window alias);
+- missing shadowed corpus / capsule gone.
+
+Further gains need new captures or scenarios, or restored shadows from surviving capsules
+(`tools/regen_ram_shadows.py`). The 91 promotions are each bound to a specific corpus and a
+router source in `tools/golden_bindings.json`.
