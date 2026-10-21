@@ -167,7 +167,7 @@ class BindingGateTests(unittest.TestCase):
                        "VF3_IMAGE": "extract/gamedata/1ST_READ.BIN"}
         with mock.patch.dict(os.environ, environment):
             self.assertEqual(self.main(["--report", "audit/replay.json", "--jobs", "2"]), 1)
-        report_text = (self.root / "audit/replay.json").read_text()
+        report_text = (self.root / "audit/replay.json").read_text(encoding="utf-8")
         report = json.loads(report_text)
         self.assertEqual(report["schema_version"], 1)
         self.assertEqual(report["exit_code"], 1)
@@ -223,7 +223,7 @@ class BindingGateTests(unittest.TestCase):
         report_path.write_text(json.dumps({"outcome": "pass", "old_report": True}))
 
         self.assertEqual(self.main(["--report", "audit.json", "--jobs", "2"]), 1)
-        report = json.loads(report_path.read_text())
+        report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertNotIn("old_report", report)
         self.assertEqual(report["outcome"], "fail")
         self.assertEqual(report["totals"]["by_status"], {"PASS": 1, "FAIL": 1})
@@ -278,14 +278,14 @@ class BindingGateTests(unittest.TestCase):
     def test_no_selection_report_says_no_replays_not_pass(self):
         with mock.patch.object(gate, "entries_new_since", return_value=set()):
             self.assertEqual(self.main(["--only-new-since", "HEAD", "--report", "audit.json"]), 0)
-        report = json.loads((self.root / "audit.json").read_text())
+        report = json.loads((self.root / "audit.json").read_text(encoding="utf-8"))
         self.assertEqual(report["outcome"], "no_replays")
         self.assertEqual(report["results"], [])
         self.assertEqual(report["totals"]["executed"], 0)
 
     def test_selection_error_is_recorded_with_nonzero_exit(self):
         self.assertEqual(self.main(["--pc", "0x8c000002", "--report", "audit.json"]), 2)
-        report = json.loads((self.root / "audit.json").read_text())
+        report = json.loads((self.root / "audit.json").read_text(encoding="utf-8"))
         self.assertEqual(report["exit_code"], 2)
         self.assertEqual(report["outcome"], "error")
         self.assertIn("no binding", report["error"])
