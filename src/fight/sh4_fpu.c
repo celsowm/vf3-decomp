@@ -92,8 +92,15 @@ uint32_t vf3_fpu_ftrc(uint32_t value) {
     return (uint32_t)(int32_t)d;
 }
 uint32_t vf3_fpu_mac(uint32_t a,uint32_t b,uint32_t c,uint32_t fpscr) {
+    /* The captured x86 FMA chooses the first NaN in FR0, FRm, FRn order
+     * (Intel SDM vol. 1, table 14-17), including an addend NaN with 0*Inf.
+     * Preserve the selected sign/payload and quiet it before host fmaf can
+     * choose a different operand or generate its own INVALID NaN. */
+    if(is_nan_bits(a)) return a|0x00400000u;
+    if(is_nan_bits(b)) return b|0x00400000u;
+    if(is_nan_bits(c)) return c|0x00400000u;
     HostEnv e; begin(&e,fpscr); volatile float z=fmaf(as_float(a),as_float(b),as_float(c));
-    uint32_t result=generated_nan(as_bits(flush(z,fpscr)),is_nan_bits(a)||is_nan_bits(b)||is_nan_bits(c));
+    uint32_t result=generated_nan(as_bits(flush(z,fpscr)),0);
     end(&e); return result;
 }
 int vf3_fpu_fsrra(uint32_t value,uint32_t fpscr,uint32_t *result) {

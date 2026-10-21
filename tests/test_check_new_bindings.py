@@ -196,17 +196,47 @@ class BindingGateTests(unittest.TestCase):
         detail = gate.run_detail("pc", {"golden": "fixture.cases", "test": [sys.executable, str(runner), "long"]}, environment={})
         self.assertEqual(detail["status"], "PASS")
         expected = {
-            "stdout": b"fixture=synthetic fixture\nstrict=False\n" + b"x" * (gate.OUTPUT_LIMIT + 17),
-            "stderr": b"diagnostic stderr\n" + b"y" * (gate.OUTPUT_LIMIT + 31),
+            "stdout": "fixture=synthetic fixture\nstrict=False\n".replace("\n", os.linesep).encode() + b"x" * (gate.OUTPUT_LIMIT + 17),
+            "stderr": "diagnostic stderr\n".replace("\n", os.linesep).encode() + b"y" * (gate.OUTPUT_LIMIT + 31),
         }
-        # Child text output is normalized by subprocess universal newlines on
-        # Windows too, so the report's stream hashes use UTF-8 with LF.
+        # Python's child text streams use the platform newline; raw capture
+        # must preserve those bytes instead of normalizing Windows CRLF.
         for channel, full in expected.items():
             with self.subTest(channel=channel):
                 self.assertTrue(detail[channel]["truncated"])
                 self.assertLessEqual(len(detail[channel]["text"].encode("utf-8")), gate.OUTPUT_LIMIT)
                 self.assertEqual(detail[channel]["bytes"], len(full))
                 self.assertEqual(detail[channel]["sha256"], hashlib.sha256(full).hexdigest())
+
+    def test_invalid_utf8_preserves_child_status_and_replaces_old_report(self):
+        runner = self.make_audit_runner()
+        runner.write_text(
+            "import os, sys\n"
+            "os.write(1, b'out\\xff\\r\\n')\n"
+            "os.write(2, b'err\\xfe\\r\\n')\n"
+            "sys.exit(int(sys.argv[1]))\n", encoding="utf-8")
+        passing = {"golden": "fixture.cases", "test": [sys.executable, str(runner), "0"]}
+        failing = {"golden": "fixture.cases", "test": [sys.executable, str(runner), "7"]}
+        self.bindings = {"0x8c000001": passing, "holdout:0x8c000001": failing}
+        self.write_bindings()
+        report_path = self.root / "audit.json"
+        report_path.write_text(json.dumps({"outcome": "pass", "old_report": True}))
+
+        self.assertEqual(self.main(["--report", "audit.json", "--jobs", "2"]), 1)
+        report = json.loads(report_path.read_text())
+        self.assertNotIn("old_report", report)
+        self.assertEqual(report["outcome"], "fail")
+        self.assertEqual(report["totals"]["by_status"], {"PASS": 1, "FAIL": 1})
+        self.assertEqual([row["exit_code"] for row in report["results"]], [0, 7])
+        for row in report["results"]:
+            for channel, raw in (("stdout", b"out\xff\r\n"), ("stderr", b"err\xfe\r\n")):
+                with self.subTest(binding=row["binding"], channel=channel):
+                    self.assertEqual(row[channel]["bytes"], len(raw))
+                    self.assertEqual(row[channel]["sha256"], hashlib.sha256(raw).hexdigest())
+                    self.assertEqual(row[channel]["text"], raw.decode("utf-8", errors="replace"))
+                    self.assertFalse(row[channel]["truncated"])
+            self.assertEqual(row["tail"], "err\ufffd")
+        self.assertEqual(gate.run("pc", failing), ("pc", "FAIL", "err\ufffd"))
 
     def test_report_timeout_keeps_partial_output_and_no_success_code(self):
         self.make_audit_runner()
@@ -225,6 +255,16 @@ class BindingGateTests(unittest.TestCase):
                 output = gate.captured_output(text)
                 self.assertLessEqual(len(output["text"].encode("utf-8")), gate.OUTPUT_LIMIT)
                 self.assertTrue(output["truncated"])
+
+    def test_invalid_bytes_expansion_marks_presentation_truncated(self):
+        raw = b"\xff" * 10000
+        self.assertLess(len(raw), gate.OUTPUT_LIMIT)
+        output = gate.captured_output(raw)
+        self.assertTrue(output["truncated"])
+        self.assertEqual(output["bytes"], len(raw))
+        self.assertEqual(output["sha256"], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(output["text"], "\ufffd" * (gate.OUTPUT_LIMIT // 3))
+        self.assertLessEqual(len(output["text"].encode("utf-8")), gate.OUTPUT_LIMIT)
 
     def test_report_preflight_failure_is_not_executed(self):
         spec = {"golden": "missing.cases", "test": [sys.executable], "strict": True}

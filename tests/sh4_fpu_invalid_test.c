@@ -61,6 +61,23 @@ int main(void)
                0xff800000u, fpscr), 0xffc00000u);
         expect("FMAC NaN", vf3_fpu_mac(0x3f800000u, 0x3f800000u,
                0x7fc12345u, fpscr), 0x7fc12345u);
+        /* Intel SDM vol.1 table 14-17: first NaN in x,y,z wins, even
+         * when the remaining product would be 0*infinity. Distinct payloads
+         * detect operand selection rather than only the NaN sign. */
+        static const struct { uint32_t a, b, c, want; } mac_nans[] = {
+            {0xffc12345u, 0x7fc23456u, 0x7fc34567u, 0xffc12345u},
+            {0x7fc12345u, 0xffc23456u, 0xffc34567u, 0x7fc12345u},
+            {0, 0xffc23456u, 0x7fc34567u, 0xffc23456u},
+            {0x3f800000u, 0x7fc23456u, 0xffc34567u, 0x7fc23456u},
+            {0, 0xff800000u, 0xffc34567u, 0xffc34567u},
+            {0x7f800000u, 0, 0x7fc34567u, 0x7fc34567u},
+            {0xff800001u, 0x7fc23456u, 0x7fc34567u, 0xffc00001u},
+            {0x3f800000u, 0x7f800002u, 0xffc34567u, 0x7fc00002u},
+            {0, 0xff800000u, 0xff800003u, 0xffc00003u}
+        };
+        for (unsigned i = 0; i < sizeof mac_nans / sizeof mac_nans[0]; ++i)
+            expect("FMAC NaN priority", vf3_fpu_mac(mac_nans[i].a,
+                   mac_nans[i].b, mac_nans[i].c, fpscr), mac_nans[i].want);
         expect("finite multiply", vf3_fpu_binary(0x40000000u, 0x40400000u,
                fpscr, '*'), 0x40c00000u);
         expect("divide by zero", vf3_fpu_binary(0x3f800000u, 0,

@@ -11,8 +11,9 @@ Missing evidence and invalid selections never count as successful replays.
     python tools/check_new_bindings.py --report extract/analysis/replay_audit.json
 
 The optional report records artifact digests and child results, not additional
-coverage credit. Reported stream hashes use the captured text's UTF-8 bytes
-(subprocess text mode normalizes newlines); timeout byte output is hashed as-is.
+coverage credit. Stream hashes and byte counts use raw child output, including
+original newlines. Presentation text decodes UTF-8 with replacement for invalid
+bytes; decoding never changes the child exit status.
 """
 from __future__ import annotations
 
@@ -85,12 +86,12 @@ def replay_environment(env: dict) -> dict:
 
 
 def captured_output(value: str | bytes | None) -> dict:
-    # TimeoutExpired may return bytes even with text=True. Full output hashes
-    # let a saved external log be matched when the inline excerpt is capped.
+    # Both completed children and timeouts retain raw bytes. String support
+    # preserves compatibility with callers/tests supplying captured text.
     data = value if isinstance(value, bytes) else (value or "").encode("utf-8", errors="replace")
     excerpt = data[:OUTPUT_LIMIT].decode("utf-8", errors="replace").encode("utf-8")
     return {"text": excerpt[:OUTPUT_LIMIT].decode("utf-8", errors="ignore"),
-            "bytes": len(data), "truncated": len(data) > OUTPUT_LIMIT,
+            "bytes": len(data), "truncated": len(data) > OUTPUT_LIMIT or len(excerpt) > OUTPUT_LIMIT,
             "sha256": hashlib.sha256(data).hexdigest()}
 
 
@@ -263,7 +264,7 @@ def _run_binding(pc: str, spec: dict, config: str | None = None, *,
         return done("EMPTY-GOLDEN", str(golden))
     started = time.perf_counter()
     try:
-        p = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO,
+        p = subprocess.run(cmd, capture_output=True, cwd=REPO,
                            timeout=900, env=env)
     except subprocess.TimeoutExpired as exc:
         detail.update(executed=True, stdout=captured_output(exc.stdout), stderr=captured_output(exc.stderr))
@@ -274,7 +275,9 @@ def _run_binding(pc: str, spec: dict, config: str | None = None, *,
         detail["duration_seconds"] = round(time.perf_counter() - started, 6)
     detail.update(executed=True, exit_code=p.returncode,
                   stdout=captured_output(p.stdout), stderr=captured_output(p.stderr))
-    lines = ((p.stdout or "") + (p.stderr or "")).strip().splitlines()
+    stdout = p.stdout.decode("utf-8", errors="replace") if isinstance(p.stdout, bytes) else (p.stdout or "")
+    stderr = p.stderr.decode("utf-8", errors="replace") if isinstance(p.stderr, bytes) else (p.stderr or "")
+    lines = (stdout + stderr).strip().splitlines()
     tail = lines[-1] if lines else ""
     return done("PASS" if p.returncode == 0 else "FAIL", tail)
 
@@ -351,7 +354,7 @@ def main(argv: list[str] | None = None) -> int:
             "inherited_environment": replay_environment(environment),
             "notes": ["PASS means the child returned zero; this report does not independently count replay cases.",
                       "Unmarked bindings retain their original semantics; inherited VF3_STRICT_REPLAY still applies.",
-                      "A bounded output excerpt and the complete captured stream hash are stored for each stream."],
+                      "Stream hashes and byte counts cover raw child output, including original newlines; bounded UTF-8 excerpts replace invalid bytes."],
         }
 
     def finish(code: int, error: str | None = None) -> int:

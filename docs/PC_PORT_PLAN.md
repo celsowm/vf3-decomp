@@ -1,6 +1,6 @@
 # VF3tb: completion and native SDL PC port plan
 
-Initial baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Integrated the maintainer's concurrent `c4c9de3` update before publication; counts below reflect that revision. Work continues directly on `main` at the user's request; the default branch has not been renamed. The user confirmed Windows x86-64 as the primary release target, with Linux x86-64 support. macOS remains a development/test target.
+Initial baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Integrated upstream through `78a93c3` on 2026-10-21. Counts below reflect that revision and the supplied evidence audit. Work continues directly on `main` at the user's request; the default branch has not been renamed. The user confirmed Windows x86-64 as the primary release target, with Linux x86-64 support. macOS remains a development/test target.
 
 ## Outcome and acceptance contract
 
@@ -17,11 +17,11 @@ Identical original executable bytes are not the project's goal. Deterministic ga
 
 | Item | Evidence at baseline | Qualification |
 |---|---|---|
-| Ported address union | 396,830 / 434,656 bytes = 91.30%, `docs/coverage.md` | Historical recorded result; missing inventory prevents local recomputation |
-| Remaining address union | 37,826 bytes under that denominator | Not an estimate of remaining engineering effort |
-| Ported ledger | 2,220 unique entries; 2,224 ported rows | Four duplicate rows must not inflate progress |
-| Golden bindings | 2,231 bindings, 2,183 marked strict | All referenced golden files absent in a fresh clone |
-| Native tick | Author records 13 captured fight states with exact RAM | Captured states are unavailable locally; not rerun here |
+| Ported address union | 400,098 / 434,656 bytes = 92.05%, `docs/coverage.md` | Recomputed with restored frozen inputs; ledger coverage is not gameplay fidelity |
+| Remaining address union | 34,558 bytes under that denominator | Not an estimate of remaining engineering effort |
+| Ported ledger | 2,239 unique entries; 2,243 ported rows | Four duplicate rows must not inflate progress |
+| Golden bindings | 2,250 bindings, 2,202 marked strict | All golden descriptors restored locally; six corpora lack 5,408 RAM blobs |
+| Native tick | Author records 13 captured fight states with exact RAM | The supplied bundle omits all 39 tick input files; not rerun here |
 | Boot experiment | 15 recorded states reach 700 vblanks | Rows also record `ok=0`, `unowned=1`, failed PC `0c0597ca`; not a clean full-boot pass |
 | Native executable | `vf3` loads captured RAM/registers; `vf3boot` requires three captures | No disc-only cold boot |
 | Video | TA word collection and POL summaries | No complete native PVR/VRAM renderer |
@@ -30,7 +30,7 @@ Identical original executable bytes are not the project's goal. Deterministic ga
 
 `docs/re/oracle_device_reads.md` records that some synthetic probes suppress device writes and replay the recorded read tape. These fixtures validate the specified probe policy, not unmodified-device behavior. Keep their results separate from live-device acceptance.
 
-The initial macOS Debug build succeeds, but emits existing warnings, including out-of-range register-array indices in `src/fight/c6ec4.c`, a placeholder null dereference in `src/fight/task_run_c.c`, and overlong strings in `src/sys/gdfs_table.h`. Each must be triaged for reachability and semantics, not silenced globally or fixed speculatively without reference behavior.
+The imported evidence exposed and reproduced a stack-array overrun in `src/fight/c6ec4.c` and host-dependent INVALID NaN generation. Both are corrected with focused differential and sanitizer checks. Live GD-ROM requests now precede capture-only REIOS stubs when a drive is attached. Existing warnings include a placeholder null dereference in `src/fight/task_run_c.c` and overlong strings in `src/sys/gdfs_table.h`; these still need reachability and semantic triage.
 
 ## Deliverable sequence
 
@@ -46,11 +46,11 @@ Exit: deterministic import, baseline builds, negative-path tests, and a machine-
 
 ### M1 — Restore and qualify the reference oracle
 
-Recover the author's local evidence package or regenerate equivalent captures from the supplied disc. Minimum handoff:
+The received archive restores the frozen inventory and most replay inputs. See [the import audit](EVIDENCE_IMPORT_AUDIT.md) and [oracle reproducibility audit](ORACLE_REPRODUCIBILITY_AUDIT.md) for exact gaps. Minimum complete handoff:
 
 - Frozen `extract/analysis/funcs_1ST_READ.unsc.bin.csv` and `function_body_ranges.csv`, hashes, analysis-tool versions and provenance.
 - Every golden file selected by `tools/golden_bindings.json`, its RAM shadows, `.ops.json` maps, device tapes and related metadata required by its runner. Include a file manifest with hashes; deduplicate shared corpora by path/hash.
-- `golden_tickx_vf3_<N>.bin`, `oracle_tick_s<N>.bin` and `flycast_exit_s<N>.bin` for states 4, 5, 7, 9–16, 37 and 41, boot loop captures for states 21–30 and 42–46, `golden_bootI_vf3_30.bin`, `golden_bootS_vf3_30.bin`, and GD state dumps, with the commands used to create them. Four golden paths currently refer to an absolute Windows user directory; record a reproducible relocation map when importing them.
+- `golden_tickx_vf3_<N>.bin`, `oracle_tick_s<N>.bin` and `flycast_exit_s<N>.bin` for states 4, 5, 7, 9–16, 37 and 41, boot loop captures for states 21–30 and 42–46, `golden_bootI_vf3_30.bin`, `golden_bootS_vf3_30.bin`, and GD state dumps, with the commands used to create them. Thirty golden paths use absolute Windows locations (26 capture-drive and four user-cache paths); preserve canonical manifests and use a separate relocation map.
 - Source and exact commit of the instrumented `tools/emu` oracle; upstream revision plus all local patches, build recipe, configuration, savestate format and capture recipes. A binary or unversioned working directory alone is insufficient.
 - Reference-code revision/build details where `refs/dream-recomp` is needed. Clarify provenance and redistribution terms before incorporating reference implementation code.
 
@@ -118,4 +118,4 @@ Parallel responsibilities: runtime/devices; renderer; audio; decomp/fixtures; po
 
 Track separate quantities: historical byte union, locally rerun strict cases, completed feature scenarios, graphics/audio comparisons, unresolved native calls and release-platform checks. A percentage for one must never stand in for another.
 
-No credible completion date can be set before M1 restores the evidence and M2 measures the runtime blockers. Completion means all gates are satisfied, not a calendar promise. Immediate critical path: restore the missing reference package → rerun strict evidence → implement continuous cold-boot runtime while video/audio development proceeds in parallel.
+No credible completion date can be set before M1 restores the evidence and M2 measures the runtime blockers. Completion means all gates are satisfied, not a calendar promise. Immediate critical path: close the remaining fixture and oracle-build gaps → capture tick/boot references → implement continuous cold-boot runtime while video/audio development proceeds in parallel.

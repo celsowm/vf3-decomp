@@ -1,12 +1,12 @@
 # VF3tb decomp
 
-![recorded C coverage](https://img.shields.io/badge/recorded%20C%20coverage-91.30%25-blue)
+![recorded C coverage](https://img.shields.io/badge/recorded%20C%20coverage-92.05%25-blue)
 ![native port](https://img.shields.io/badge/native%20PC%20port-in%20development-orange)
 ![language](https://img.shields.io/badge/language-C99-informational)
 
 A clean-room, readable C source port of **Virtua Fighter 3tb** (Sega Dreamcast, MK-51001 V1.002). Byte-matching is not
-the goal; a readable C mirror of the game's behavior is. Every port is checked against captured hardware-form state
-(strict register/RAM replay), not just compiled.
+the goal; a readable C mirror of the game's behavior is. The replay tools compare captured register/RAM state. The imported evidence and its limits are documented in
+[the evidence audit](docs/EVIDENCE_IMPORT_AUDIT.md); a passing build alone does not establish fidelity.
 
 The repo carries no game data. You supply your own disc dump; `rom/` and `extract/` are gitignored.
 
@@ -18,11 +18,15 @@ cold boot, continuous runtime, renderer, sound, content and 1:1 acceptance gates
 
 | Metric | Recorded state | Qualification |
 |---|---|---|
-| Verified C address union | 396,830 / 434,656 bytes (**91.30%**) | Historical `docs/coverage.md`; frozen inventory and replay corpora must be supplied to reproduce it |
-| Ported entries | 2,220 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
-| Native fight tick | 13 captured states reported RAM-exact by the author | Local captures are required; not a disc-only game |
-| Boot experiments | 15 recorded states reach the frame budget | Their rows also record an unowned call; not a clean full-boot pass |
+| Ported C address union | 400,098 / 434,656 bytes (**92.05%**) | Recomputed on 2026-10-21 using the restored frozen inventory; measures ledger ranges, not whole-game equivalence |
+| Ported entries | 2,239 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
+| Native fight tick | 13 captured states reported RAM-exact by the author | All 39 required tick inputs are absent from the supplied bundle; not locally rerun |
+| Boot experiments | 15 recorded states reach the frame budget | Their rows also record an unowned call; the 17 boot input files are still absent |
 | SDL3 host foundation | Window/framebuffer presentation, events, two host pads, clock | Integration into the native game loop, renderer and sound remains open |
+
+The imported bundle restores all 2,250 golden descriptors and the frozen coverage inventory. Six boundary corpora
+still lack 5,408 RAM blobs. The [oracle audit](docs/ORACLE_REPRODUCIBILITY_AUDIT.md) records the missing Flycast build
+and control evidence needed to regenerate captures.
 
 `python3 tools/port_preflight.py` reports missing local evidence. Missing evidence, a capped run and a passing replay
 are separate outcomes. `docs/re/oracle_device_reads.md` explains the modified device policy of some synthetic probes;
@@ -95,7 +99,7 @@ Captured-state regression tools (only after supplying their local inputs):
 
 ```sh
 build/vf3 <golden_tickx_vf3_N.bin> --expect ...
-python3 tools/check_new_bindings.py --pc 0x8c064246
+python3 tools/check_new_bindings.py --pc 0x8c064246 --report extract/analysis/replay_audit.json
 python3 tools/boot_states.py --states 21 22 23 24 25 26 27 28 29 30 42 43 44 45 46 --cap 700 --timeout 3600
 ```
 
