@@ -113,7 +113,8 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
 {
     uint32_t *r = state->v;
     uint32_t pc = entry & 0x1fffffffu;
-    static long d_=0; if(getenv("VF3_DEBUG_STUB") && (d_++%50)==0) fprintf(stderr,"STUB pc=%08x r7=%08x r16=%08x d=%ld\n",pc,r[7],r[16],d_);
+    static long d_=0; int dbg_=getenv("VF3_DEBUG_STUB")!=NULL;
+    if(dbg_ && (d_++%50)==0) fprintf(stderr,"STUB pc=%08x r6=%08x r7=%08x r16=%08x budget=%u d=%ld\n",pc,r[6],r[7],r[16],state->budget,d_);
 
     if (pc == 0x0c001000u)
         return vf3_reios_system_adapter(entry, state, ram);
@@ -121,12 +122,14 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
         return vf3_reios_flashrom_adapter(entry, state, ram);
 
     if (pc != 0x0c001006u || state->budget == 0u) {
+        if(dbg_) fprintf(stderr,"STUB fail: pc=%08x budget=%u\n",pc,state->budget);
         state->failed_pc = entry;
         return 0;
     }
     --state->budget;
 
     if (r[6] != 0u) {
+        if(dbg_) fprintf(stderr,"STUB fail: r6=%08x (want 0)\n",r[6]);
         state->failed_pc = entry;
         return 0;
     }

@@ -1,6 +1,22 @@
 --- a/core/vf3oracle.cpp
 +++ b/core/vf3oracle.cpp
-@@ -343,8 +343,23 @@
+@@ -34,7 +34,14 @@
+ void vf3GdSnapshot(unsigned out[16]);   /* reios/gdrom_hle.cpp */
+ 
+ namespace {
+-constexpr unsigned PAGE = 4096, LIMIT = 128;
++/* The RAM page cache is what makes a synthetic probe's memory state observable:
++ * every page the probe touches is journalled so the C replay sees the same
++ * bytes.  The original 128-page (512 KiB) ceiling was a memory budget, but the
++ * arena-seeded fixture alone spreads its 16 registers over 128 pages, so any
++ * target that also touches its own data tips over the limit and the specimen is
++ * rejected with flags=4.  1024 pages (4 MiB) leaves room for the fixture, the
++ * target's own data and the pre-probe restore image. */
++constexpr unsigned PAGE = 4096, LIMIT = 1024;
+ using State = std::array<unsigned, 63>;
+ static FILE *gdLog = nullptr;
+ static void logGd(char kind, unsigned long long id, unsigned entry)
+@@ -343,8 +350,23 @@
      }
  }
  bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
@@ -25,7 +41,7 @@
      for (auto &c:active) if (c.synthetic) {
  #ifdef VF3_HEADLESS
          /* Only the canonical uncached 2 MiB sound RAM window, never AICA
-@@ -375,21 +390,31 @@
+@@ -375,21 +397,31 @@
              continue;
          }
  #endif
@@ -69,7 +85,7 @@
  void hooks() {
      if (ReadMem32==r32) return;
      rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
-@@ -701,6 +726,13 @@
+@@ -701,6 +733,13 @@
                  }
              }
              applySyntheticRegs(mutableCtx,variant);

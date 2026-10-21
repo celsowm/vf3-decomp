@@ -340,8 +340,13 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
     /* A jsr through a null pointer traps on the SH-4.  The emulator records the
      * trap as the end of the specimen, so the C side has to treat the null
      * target as "the call landed and nothing else happened" instead of an
-     * unimplemented helper (docs/re/remaining_work_plan.md, T1.5). */
-    if(entry==0u) return 1;
+     * unimplemented helper (docs/re/remaining_work_plan.md, T1.5).
+     *
+     * The caller checks s->pc against the jsr's return address after the call
+     * returns; leaving s->pc untouched would re-dispatch to the null target
+     * forever.  The PR already holds that return address (the generated code
+     * stores it before the call), so hand it back and let the call unwind. */
+    if(entry==0u) { s->pc=s->v[16]&0x1FFFFFFFu; return 1; }
     if(entry==0x0c085ca4u) return vf3_profile_clear_c(s,ram);
     if(entry==0x0c095178u) return vf3_actor_profile_pair_c(s,ram);
     if(entry==0x0c0885c4u) return vf3_motion_settle_c(s,ram);
@@ -678,6 +683,7 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        if(vf3_c95_adapter_contains(entry)) return vf3_c95_adapter(entry,s,ram);
         if(vf3_9970a_adapter_contains(entry)) return vf3_9970a_adapter(entry,s,ram);
         if(vf3_09b_adapter_contains(entry)) return vf3_09b_adapter(entry,s,ram);
         if(vf3_0a67_adapter_contains(entry)) return vf3_0a67_adapter(entry,s,ram);

@@ -57,6 +57,7 @@ entry,status,file,size,method,oracle
 0x8c0371aa,ported,src/fight/device_adapters_0.c,18,capture-driven port (batch replay_scan),u90_sweep_8c0371aa: matrix_family: 2/2 cases match (0 skipped) - PASS
 0x8c0372e2,ported,src/fight/vf3_c90f_adapter.c,52,capture-driven port (batch replay_scan),u90_sweep_8c0372e2: matrix_family: 2/2 cases match (0 skipped) - PASS
 0x8c037316,ported,src/fight/target_record_adapters.c,60,capture-driven port (batch replay_scan),target_static_fields_dev_8c037316: matrix_family: 512/512 cases match (0 skipped) - PASS; target_static_parent_accept_8c037316: matrix_family: 256/256 cases match (0 skipped) - PASS; target_static_parent_dev_8c037316: matrix_family: 256/256 cases match (0 skipped) - PASS
+0x8c03746a,ported,src/fight/vf3_c93_adapter.c,152,capture-driven port (batch replay_scan),u90_sw2_8c03746a: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c03750a,ported,src/fight/vf3_c94_adapter.c,42,capture-driven port (batch replay_scan),u90_sw2_8c03750a: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c03757c,ported,src/fight/vf3_c81_adapter.c,270,capture-driven port (batch replay_scan),u90_dead_sw_8c03757c: matrix_family: 2/2 cases match (0 skipped) - PASS
 0x8c0376a0,ported-invocation,src/fight/advance_static_helpers.c,64,static original-image C; complete body and helper behavior,"matrix_family: 512/512 cases match (0 skipped) - PASS; Original calendar, numeric text, record and scene helpers; strict zero-skip replay; changed reserved-state inputs and pointer relocation; full frozen development bodies"
@@ -694,6 +695,7 @@ entry,status,file,size,method,oracle
 0x8c05dc42,ported,src/fight/vf3_sweep_adapters.c,308,capture-driven port (batch replay_scan),tenpp_survey_final_cases: matrix_family: 1/1 cases match (0 skipped) - PASS
 0x8c05ddaa,ported,src/fight/vf3_c94_adapter.c,72,capture-driven port (batch replay_scan),u90_sw2_8c05ddaa: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c05dfe6,ported-invocation,src/fight/tenpp_expanded_adapters.c,252,static original-image C; complete body and helper behavior,matrix_family: 1024/1024 cases match (0 skipped) - PASS; Original matrix-buffer/prologue contract and signed boundary arguments; independent relocated strict acceptance
+0x8c05e12e,ported,src/fight/vf3_c94_adapter.c,24,capture-driven port (batch replay_scan),u90_sw2_8c05e12e: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c05e146,ported,src/fight/vf3_c94_adapter.c,56,capture-driven port (batch replay_scan),u90_sw2_8c05e146: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c05e17e,ported,src/fight/vf3_c94_adapter.c,28,capture-driven port (batch replay_scan),u90_sw2_8c05e17e: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c05e19a,ported,src/fight/vf3_c94_adapter.c,24,capture-driven port (batch replay_scan),u90_sw2_8c05e19a: matrix_family: 16/16 cases match (0 skipped) - PASS
@@ -1120,6 +1122,7 @@ entry,status,file,size,method,oracle
 0x8c0732cc,ported,src/fight/tenpp_survey_adapters.c,0,capture-driven port (batch replay_scan),"Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 2 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)"
 0x8c073328,ported,src/fight/matrix_adapters.c,0,capture-driven port (batch replay_scan),"Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 4 corpora, 5 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)"
 0x8c0733d0,ported,src/fight/vf3_c90b_adapter.c,294,capture-driven port (batch replay_scan),u90_hot_8c0733d0: matrix_family: 3/3 cases match (0 skipped) - PASS
+0x8c0734fe,ported,src/fight/vf3_c94_adapter.c,2,capture-driven port (batch replay_scan),u90_sw2_8c0734fe: matrix_family: 7/7 cases match (0 skipped) - PASS
 0x8c073514,ported,src/fight/vf3_c91_adapter.c,46,capture-driven port (batch replay_scan),u90_sw3_8c073514: matrix_family: 3/3 cases match (0 skipped) - PASS
 0x8c07356e,ported,src/fight/vf3_c92_adapter.c,236,capture-driven port (batch replay_scan),u90_sw2_8c07356e: matrix_family: 3/3 cases match (0 skipped) - PASS
 0x8c073696,ported,src/fight/tenpp_survey_adapters.c,0,capture-driven port (batch replay_scan),"Batch replay promotion (replay_scan): strict vf3matrixfamily replay PASS in 1 corpora, 1 cases; RAM shadows byte-identical regenerations of the recorded capsule (tools/regen_ram_shadows.py)"
