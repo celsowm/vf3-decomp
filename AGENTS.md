@@ -97,16 +97,18 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 
 ## Current frontier
 - Coverage: 92.05% verified C (400,098 B of 434,656). The 90% bar
-  (391,190 B) and the 92% bar (401,084 B) - the 92% bar is reached on the
+  (391,191 B) and the 92% bar (399,884 B) - the 92% bar is reached on the
   *union* of body ranges, which is the number `tools/final_status.py` prints;
   `tools/decomp_stats.py` counts 403,920 B because it also credits the
-  trace-covered bodies.  The 80%-91% stretch came from the device-tape
+  SDK-matched bodies; including trace-covered bodies gives 404,084 B.
+  These are scope unions, not end-to-end gameplay validation.
+  The 80%-91% stretch came from the device-tape
   capture work and from bodies ported through the repo's own adapter
   translator (tools/oracle/translate_adapters.py) into
   src/fight/vf3_c80_adapter.c ... vf3_c96_adapter.c.  Recipe, checks and the
   bodies left out: docs/re/coverage_80_generated_adapters.md,
   docs/re/coverage_92_translator_gaps.md and docs/re/oracle_device_reads.md.
-  Next bar: 93% = 404,230 B (4,132 B more).
+  Next bar: 93% = 404,231 B (4,133 B more).
 - **A generated module must claim, not just own.**  The router picks an owner
   by entry PC, and the chain order decides who wins a contested PC.  The
   generator therefore emits two arrays: owned_pcs[] (every PC it implements,

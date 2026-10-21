@@ -24,6 +24,14 @@ COVERAGE_INPUTS = (
     "extract/analysis/funcs_1ST_READ.unsc.bin.csv",
     "extract/analysis/function_body_ranges.csv",
 )
+# Required per-row state read by the corresponding C replay runners.
+# GBR, banked-register and device tapes remain optional in matrix_family.
+SIDECAR_STRIDES = {
+    "vf3matrixfamily": {".xfin.bin": 64, ".xfout.bin": 64, ".extra.bin": 16},
+    "vf3bootmix": {".xfin.bin": 64, ".xfout.bin": 64},
+    "vf3fd9ec": {".xfin.bin": 64, ".xfout.bin": 64},
+    "vf3d452": {".xfin.bin": 64, ".xfout.bin": 64},
+}
 
 
 def present(root: Path, relative: str) -> bool:
@@ -110,12 +118,20 @@ def sized_inventory(root: Path, sizes: dict[str, int]) -> dict:
 
 def case_evidence(root: Path, cfg: dict) -> dict:
     cases = sorted({spec["golden"] for spec in cfg.values() if spec["golden"].lower().endswith(".cases")})
-    matrix_cases = {spec["golden"] for spec in cfg.values()
-                    if spec["golden"].lower().endswith(".cases") and
-                    Path(test_arguments(spec)[0].replace("\\", "/")).name.lower().removesuffix(".exe") == "vf3matrixfamily"}
+    sidecar_requirements: dict[str, dict[str, int]] = {}
+    sidecar_runners = set()
+    for spec in cfg.values():
+        if not spec["golden"].lower().endswith(".cases"):
+            continue
+        runner = Path(test_arguments(spec)[0].replace("\\", "/")).name.lower().removesuffix(".exe")
+        if runner in SIDECAR_STRIDES:
+            sidecar_runners.add(runner)
+            requirements = sidecar_requirements.setdefault(spec["golden"], {})
+            for suffix, stride in SIDECAR_STRIDES[runner].items():
+                requirements[suffix] = max(stride, requirements.get(suffix, 0))
     sidecar_sizes = {}
-    for path in matrix_cases:
-        for suffix in (".xfin.bin", ".xfout.bin", ".extra.bin"):
+    for path, requirements in sidecar_requirements.items():
+        for suffix in requirements:
             sidecar_sizes[Path(path).with_suffix(suffix).as_posix()] = 1
     ram_sizes: dict[str, int] = {}
     errors = []
@@ -141,21 +157,25 @@ def case_evidence(root: Path, cfg: dict) -> dict:
             parsed_files += 1
             if not rows:
                 errors.append({"path": relative, "line": None, "error": "no parseable RAM cases"})
-            if relative in matrix_cases:
-                for suffix, stride in ((".xfin.bin", 64), (".xfout.bin", 64), (".extra.bin", 16)):
-                    sidecar_sizes[Path(relative).with_suffix(suffix).as_posix()] = max(1, rows * stride)
+            for suffix, stride in sidecar_requirements.get(relative, {}).items():
+                sidecar_sizes[Path(relative).with_suffix(suffix).as_posix()] = max(1, rows * stride)
         except (OSError, UnicodeError) as exc:
             errors.append({"path": relative, "line": None, "error": str(exc)})
     return {"case_files": len(cases), "parsed_files": parsed_files, "parse_errors": errors,
+            # Keep the schema-v1 key for existing report consumers. It now
+            # includes all listed runners' mandatory XF/extra sidecars.
             "matrix_sidecars": sized_inventory(root, sidecar_sizes),
+            "sidecar_runners": sorted(sidecar_runners),
             "ram_blobs": sized_inventory(root, ram_sizes)}
 
 
-def inspect(root: Path, config: str | None = None) -> dict:
+def inspect(root: Path, config: str | None = None,
+            bindings: str | Path = "tools/golden_bindings.json") -> dict:
     root = root.resolve()
-    raw = json.loads((root / "tools/golden_bindings.json").read_text(encoding="utf-8"))
+    manifest = (root / bindings).resolve()
+    raw = json.loads(manifest.read_text(encoding="utf-8"))
     if not isinstance(raw, dict) or not raw:
-        raise ValueError("golden_bindings.json must be a nonempty object")
+        raise ValueError(f"bindings manifest must be a nonempty object: {manifest}")
     cfg = {pc.lower(): spec for pc, spec in raw.items()}
     if len(cfg) != len(raw):
         raise ValueError("duplicate case-insensitive binding keys")
@@ -203,10 +223,11 @@ def inspect(root: Path, config: str | None = None) -> dict:
              and all(x["status"] == "present" for x in executables))
     return {
         "schema_version": 1, "root": root.as_posix(), "prerequisites_present": ready,
+        "bindings_manifest": manifest.relative_to(root).as_posix() if manifest.is_relative_to(root) else manifest.as_posix(),
         "checks_executed": False,
         "limits": [
             "File presence does not validate file format, provenance, replay results, or 1:1 behavior.",
-            "Parsed .cases RAM blobs and mandatory matrix extended-state files are inventoried, not replayed.",
+            "Parsed .cases RAM blobs and mandatory runner extended-state files are inventoried, not replayed.",
             "Optional GBR/banked/device tapes, capsules and independent holdouts still need provenance and behavioral validation.",
             "Coverage needs the original frozen function inventory/ranges; a new Ghidra analysis may change its denominator.",
             "No coverage percentage is recomputed or certified by this preflight.",
@@ -246,7 +267,7 @@ def print_summary(report: dict) -> None:
             print(f"  missing: {path}")
     print(f"Boot GD states missing: {len(report['boot']['missing_gd_states'])}")
     evidence = bindings["case_evidence"]
-    for label, group in (("Matrix sidecars", "matrix_sidecars"), ("Referenced RAM blobs", "ram_blobs")):
+    for label, group in (("Required runner sidecars", "matrix_sidecars"), ("Referenced RAM blobs", "ram_blobs")):
         item = evidence[group]
         print(f"{label}: {item['present']}/{item['required']} present; {len(item['short'])} too short")
     print(f"Case parse errors: {len(evidence['parse_errors'])}; RAM dependencies cannot be inventoried for absent case files")
@@ -261,11 +282,13 @@ def print_summary(report: dict) -> None:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--root", type=Path, default=REPO)
+    ap.add_argument("--bindings", type=Path, default=Path("tools/golden_bindings.json"),
+                    help="binding manifest, absolute or relative to --root (default: tools/golden_bindings.json)")
     ap.add_argument("--json", action="store_true", help="print full machine-readable inventory")
     ap.add_argument("--build-config", choices=["Debug", "Release", "RelWithDebInfo", "MinSizeRel"])
     args = ap.parse_args(argv)
     try:
-        report = inspect(args.root, args.build_config)
+        report = inspect(args.root, args.build_config, bindings=args.bindings)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(f"port_preflight: {exc}", file=sys.stderr)
         return 2

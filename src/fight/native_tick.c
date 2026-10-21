@@ -179,8 +179,14 @@ static int call_target(uint32_t entry)
     return vf3_native_call_target(entry) || vf3_readable_find(entry) != NULL;
 }
 
+static int gdrom_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled);
+
 static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
+    /* An attached drive owns its live command state. Serve it before the
+     * capture-specific REIOS adapter can answer with its synthetic idle/busy
+     * state. Without a drive, leave that adapter unchanged for strict replay. */
+    if (gdrom_hook(entry, s, ram, handled)) return 1;
     /* REIOS MISC (vector 0x8C001008): the game registers its interrupt handlers with it (r4 = function, r5 = vector id,
      * r6 = handler). The native run takes its vblank handlers directly, so the registration is only recorded. It is answered
      * here, before the chain: the generated gate dispatch escalates 0x0C001000..F back to the family dispatcher, which would
@@ -242,7 +248,7 @@ static unsigned run_depth;
 
 void vf3_native_set_poll_hook(void (*hook)(void *), void *ctx) { poll_hook = hook; poll_ctx = ctx; }
 
-static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
+static int gdrom_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
     if (machine.gd && (entry & 0x0FFFFFFFu) == VF3_BIOS_SYSCALL_VECTOR) {
         const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
@@ -262,6 +268,12 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
             return 1;
         }
     }
+    return 0;
+}
+
+static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
+{
+    if (gdrom_hook(entry, s, ram, handled)) return 1;
     if (!machine.unowned_calls++) machine.first_unowned = entry;
     *handled = 0;
     return 0;

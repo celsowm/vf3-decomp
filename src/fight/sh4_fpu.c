@@ -13,6 +13,22 @@ static const uint32_t sine[32768] = {
 };
 static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }
 static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }
+static int is_nan_bits(uint32_t u) { return (u&0x7fffffffu)>0x7f800000u; }
+/* The frozen x86 capture oracle generates negative quiet NaN for INVALID
+ * arithmetic with non-NaN inputs (for example 0*infinity). ARM generates a
+ * positive NaN instead. Pin only newly generated NaNs; guest NaN signs and
+ * payloads still follow the existing propagation rules below. This is
+ * captured-oracle behavior, not hardware-certified SH-4 NaN semantics. */
+static uint32_t generated_nan(uint32_t result,int nan_input) {
+    return !nan_input && is_nan_bits(result) ? 0xffc00000u : result;
+}
+static double generated_nan_double(double result,int nan_input) {
+    if(!nan_input && isnan(result)) {
+        const uint64_t bits=UINT64_C(0xfff8000000000000);
+        memcpy(&result,&bits,sizeof(result));
+    }
+    return result;
+}
 int vf3_fpu_supported(uint32_t fpscr) { return !(fpscr&0x80000u) && (fpscr&3u)<=1; }
 void vf3_fpu_fsca(uint32_t angle, uint32_t out[2]) {
     uint32_t a=angle&65535u, b=(a+16384u)&65535u;
@@ -50,7 +66,7 @@ uint32_t vf3_fpu_binary(uint32_t a,uint32_t b,uint32_t fpscr,char operation) {
     HostEnv e; volatile float x=as_float(a),y=as_float(b),z=0;
     begin(&e,fpscr);
     switch(operation) { case '+': z=x+y; break; case '-': z=x-y; break; case '*': z=x*y; break; case '/': z=x/y; break; }
-    uint32_t result=as_bits(flush(z,fpscr));
+    uint32_t result=generated_nan(as_bits(flush(z,fpscr)),is_nan_bits(a)||is_nan_bits(b));
     /* The capture interpreter's ADDSS/MULSS put FRm in the destination,
      * whereas SUBSS/DIVSS put FRn there. When both operands are NaNs,
      * SSE preserves that destination's payload. C may exchange the operands
@@ -62,7 +78,7 @@ uint32_t vf3_fpu_binary(uint32_t a,uint32_t b,uint32_t fpscr,char operation) {
 }
 uint32_t vf3_fpu_sqrt(uint32_t a,uint32_t fpscr) {
     HostEnv e; begin(&e,fpscr); volatile float z=sqrtf(as_float(a));
-    uint32_t result=as_bits(flush(z,fpscr)); end(&e); return result;
+    uint32_t result=generated_nan(as_bits(flush(z,fpscr)),is_nan_bits(a)); end(&e); return result;
 }
 uint32_t vf3_fpu_float(uint32_t value,uint32_t fpscr) {
     HostEnv e; begin(&e,fpscr); volatile int32_t input=(int32_t)value;
@@ -77,7 +93,8 @@ uint32_t vf3_fpu_ftrc(uint32_t value) {
 }
 uint32_t vf3_fpu_mac(uint32_t a,uint32_t b,uint32_t c,uint32_t fpscr) {
     HostEnv e; begin(&e,fpscr); volatile float z=fmaf(as_float(a),as_float(b),as_float(c));
-    uint32_t result=as_bits(flush(z,fpscr)); end(&e); return result;
+    uint32_t result=generated_nan(as_bits(flush(z,fpscr)),is_nan_bits(a)||is_nan_bits(b)||is_nan_bits(c));
+    end(&e); return result;
 }
 int vf3_fpu_fsrra(uint32_t value,uint32_t fpscr,uint32_t *result) {
     HostEnv e;
@@ -85,13 +102,13 @@ int vf3_fpu_fsrra(uint32_t value,uint32_t fpscr,uint32_t *result) {
     begin(&e,fpscr);
     volatile float root=sqrtf(as_float(value));
     volatile float inverse=1.0f/root;
-    *result=as_bits(flush(inverse,fpscr));
+    *result=generated_nan(as_bits(flush(inverse,fpscr)),is_nan_bits(value));
     end(&e); return 1;
 }
 static double product(uint32_t a,uint32_t b,int nan_operand) {
     if(nan_operand>=0 && (a&0x7fffffffu)>0x7f800000u && (b&0x7fffffffu)>0x7f800000u)
         return (double)as_float((nan_operand?b:a)|0x00400000u);
-    return (double)as_float(a)*(double)as_float(b);
+    return generated_nan_double((double)as_float(a)*(double)as_float(b),is_nan_bits(a)||is_nan_bits(b));
 }
 static float dot(const uint32_t a[4],const uint32_t b[4],int nan_operand) {
     volatile double sum=product(a[0],b[0],nan_operand);
@@ -99,7 +116,7 @@ static float dot(const uint32_t a[4],const uint32_t b[4],int nan_operand) {
         volatile double term=product(a[i],b[i],nan_operand);
         /* Preserve the accumulated NaN's sign/payload. Host compilers may
          * exchange ADD operands even with contraction disabled. */
-        if (!isnan(sum)) sum=sum+term;
+        if (!isnan(sum)) sum=generated_nan_double(sum+term,isnan(term));
     }
     return (float)sum;
 }

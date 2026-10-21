@@ -99,7 +99,7 @@ jobs:
       - name: Build core and SDL diagnostics
         run: |
           cmake --build build --parallel 3 --target \
-            vf3 vf3boot vf3gdrom vf3platform-smoke vf3platform-test
+            vf3 vf3boot vf3gdrom vf3nativegdrom vf3fpuinvalid vf3platform-smoke vf3platform-test
 
       # The GD-ROM test explicitly skips with code 77 when the user's disc is
       # absent. No ROM, capture corpus, game asset, or build artifact is uploaded.

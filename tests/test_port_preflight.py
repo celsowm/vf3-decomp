@@ -105,6 +105,55 @@ class PreflightTests(unittest.TestCase):
         self.assertEqual(evidence["ram_blobs"]["short"][0]["path"], "extract/analysis/entry.bin")
         self.assertEqual(evidence["ram_blobs"]["missing"], ["extract/analysis/exit.bin"])
 
+    def test_xf_runners_require_only_xf_sidecars_with_per_row_lengths(self):
+        for runner in ("vf3bootmix", "vf3fd9ec", "vf3d452"):
+            with self.subTest(runner=runner):
+                stem = f"extract/analysis/{runner}"
+                manifest = {"0x8c000001": {"golden": stem + ".cases", "test": f"build/{runner}.exe"}}
+                evidence = preflight.case_evidence(self.root, manifest)
+                self.assertEqual(evidence["sidecar_runners"], [runner])
+                self.assertEqual(evidence["matrix_sidecars"]["missing"], [stem + ".xfin.bin", stem + ".xfout.bin"])
+                self.write(stem + ".cases", self.case_line() * 2)
+                self.write(stem + ".xfin.bin", bytes(127))
+                self.write(stem + ".xfout.bin", bytes(128))
+                evidence = preflight.case_evidence(self.root, manifest)
+                self.assertEqual(evidence["matrix_sidecars"]["required"], 2)
+                self.assertEqual(evidence["matrix_sidecars"]["missing"], [])
+                self.assertEqual(evidence["matrix_sidecars"]["short"], [
+                    {"path": stem + ".xfin.bin", "minimum_bytes": 128, "actual_bytes": 127},
+                ])
+
+    def test_shared_cases_combine_runner_requirements_without_duplicates(self):
+        manifest = {
+            "0x8c000001": {"golden": "extract/analysis/shared.cases", "test": "build/vf3matrixfamily 0x8c000001"},
+            "holdout:0x8c000001": {"golden": "extract/analysis/shared.cases", "test": r"build\Release\vf3fd9ec.exe"},
+        }
+        evidence = preflight.case_evidence(self.root, manifest)
+        self.assertEqual(evidence["matrix_sidecars"]["required"], 3)
+        self.assertEqual(evidence["sidecar_runners"], ["vf3fd9ec", "vf3matrixfamily"])
+
+    def test_custom_bindings_manifest_relative_absolute_and_cli(self):
+        original = (self.root / "tools/golden_bindings.json").read_bytes()
+        local = "extract/analysis/remapped_bindings.json"
+        manifest = {"0x8c000003": {"golden": "extract/analysis/remapped.cases", "test": "build/vf3d452"}}
+        self.write(local, json.dumps(manifest).encode())
+        relative_report = preflight.inspect(self.root, bindings=local)
+        absolute_report = preflight.inspect(self.root, bindings=self.root / local)
+        self.assertEqual(relative_report, absolute_report)
+        self.assertEqual(relative_report["bindings_manifest"], local)
+        self.assertEqual(relative_report["bindings"]["total"], 1)
+        self.assertEqual(relative_report["bindings"]["golden_files"]["missing"], ["extract/analysis/remapped.cases"])
+        self.assertEqual(preflight.inspect(self.root)["bindings"]["total"], 2)
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            self.assertEqual(preflight.main(["--root", str(self.root), "--bindings", local, "--json"]), 1)
+        self.assertEqual(json.loads(output.getvalue()), relative_report)
+        self.assertEqual((self.root / "tools/golden_bindings.json").read_bytes(), original)
+
+    def test_missing_custom_bindings_is_error_without_default_fallback(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(preflight.main(["--root", str(self.root), "--bindings", "missing.json"]), 2)
+
     def test_malformed_cases_report_parse_error_and_not_ready(self):
         self.write("extract/analysis/shared.cases", b"not a case\n")
         report = preflight.inspect(self.root)

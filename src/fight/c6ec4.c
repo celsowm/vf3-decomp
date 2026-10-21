@@ -187,13 +187,11 @@ void vf3_c6ec4_8c0c6ec4(const uint32_t in[37], uint32_t out[37],
         r[8 + i] = c6_rd32(ram, sp + 4u + (uint32_t)i * 4u);
     r[15] = sp + 32u;
     fr[15] = saved_fr15;
-    r[17] = sr;
-    r[18] = fpscr;
     for (int i = 0; i < 16; i++)
         out[21 + i] = fr[i];
     for (int i = 0; i < 16; i++)
         out[i] = r[i];
     out[16] = pr;
-    out[17] = r[17];
-    out[18] = r[18];
+    out[17] = sr;
+    out[18] = fpscr;
 }
