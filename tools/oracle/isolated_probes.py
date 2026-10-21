@@ -30,7 +30,22 @@ def main():
                     help='seed every register the fixture did not infer with a '
                          'RAM arena pointer, so a bogus live pointer cannot '
                          'reach a device address')
+    ap.add_argument('--emulator', type=Path,
+                    help='explicit immutable oracle executable; default is the '
+                         'local build.  The extended observer '
+                         '(tools/oracle/extended_observer_controls_v1.json) '
+                         'records up to 500,000 instructions per probe, which '
+                         'is what a target whose loop count comes from the '
+                         'arena spread needs.')
     ap.add_argument('--arena-base', type=lambda s: int(s, 16), default=0x0c420000)
+    ap.add_argument('--arena-stride', type=lambda s: int(s, 16), default=0x1000,
+                    help='distance between the arena pages the seeded registers '
+                         'point at.  The default spreads them over 16 pages; a '
+                         'target that derives a loop count from the distance '
+                         'between two of them then runs 16k iterations and the '
+                         'probe hits its instruction budget instead of '
+                         'returning, so a tighter spread makes those targets '
+                         'come back.')
     ap.add_argument('--arena-variants', type=int, default=8,
                     help='number of seed variants; each one points the arena '
                          'registers at a different page')
@@ -74,12 +89,12 @@ def main():
                     if reg in registers:
                         value = registers[reg]
                     else:
-                        value = a.arena_base + (reg + variant * 16) * 0x1000
+                        value = a.arena_base + (reg + variant * 16) * a.arena_stride
                     lines.append('reg 0x%08x r%d 0x%08x' % (a.trigger, reg, value & 0xffffffff))
                 # r15 is the stack pointer: give it its own page so a frame
                 # push lands in the arena instead of under the null pointer.
                 lines.append('reg 0x%08x r15 0x%08x' %
-                             (a.trigger, a.arena_base + (15 + variant * 16) * 0x1000))
+                             (a.trigger, a.arena_base + (15 + variant * 16) * a.arena_stride))
                 for addr, value in sorted(words.items()):
                     lines.append('ram 0x%08x 0x%08x 0x%08x' % (a.trigger, addr, value & 0xffffffff))
             patch.write_text('\n'.join(lines) + '\n')
@@ -97,6 +112,10 @@ def main():
                str(patch), '--capsule', '--probe-debug', '--probe-only',
                '--max-samples', str(a.max_samples),
                '--probe-ops', str(a.probe_ops)]
+        if a.emulator:
+            cmd += ['--emulator', str(a.emulator)]
+            cmd += ['--observer-controls',
+                    str(ROOT / 'tools/oracle/extended_observer_controls_v1.json')]
         for state in a.states.split(','):
             cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as log:

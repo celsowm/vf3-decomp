@@ -152,14 +152,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   every probe on the 20,000-instruction default budget.
 - Still unpromoted, by cause: the drive state behind the GD vector (the
   loader polls GET_CMD_STAT until the transfer completes, and the size it
-  reports is the byte count the drive has moved - two corpora of the same
-  entry can disagree about it, so a faithful REIOS service model is needed -
-  see docs/re/reios_exec_server.md); the corner-block descriptor loop at
+  reports is the byte count the drive has moved - the oracle's VF3_GDLOG
+  observer shows the state per invocation, and result[2] in that log is
+  exactly the size the corpus expects, so the corpus only has to carry the
+  state of each of its cases; two corpora of the same entry can disagree
+  about it, so a faithful REIOS service model is needed - see
+  docs/re/reios_exec_server.md); the corner-block descriptor loop at
   0x0c0510b6 (its trip count comes from driver state the corpora do not
   carry); STC VBR in the helper 0x0c060eba; a device write the reference did
   not make (0x8c09aa14); an uncaptured write (0x8c0a2a84); one byte of a RAM
   window (0x8c04340c); and the literal-pool family (0x8c058780/84/88/8c,
   whose bodies run into a literal pool and execute data in the reference).
+- **The 500,000-instruction probe budget is validated but locked.**
+  tools/oracle/extended_observer_controls_v1.json authorises the separate
+  recorder flycast_capsule_extended_v1.exe to record 500,000 instructions per
+  probe, which is what a spinning probe needs.  The proof pins a reference log
+  (extract/analysis/extended_capsule_tool_tests_v1.log) by digest; that file
+  lived in the gitignored extract/ tree and is gone, so the proof cannot be
+  validated and the budget cannot be used.  Most of the 260 corpus-less
+  entries (33,970 B) are waiting for it.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure

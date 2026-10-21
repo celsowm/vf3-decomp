@@ -191,14 +191,24 @@ The yield is low, and the reason is uniform: the probe never returns.
 | fixture | entries attempted | entries with cases |
 |---|---|---|
 | arena seeds (8 variants) | 260 | 5 |
-| live registers | 260 | see `extract/analysis/u95_live*/progress.json` |
+| the game's live registers | 260 | 9 |
+| static pointer inference | 260 | 8 |
+| arena seeds, tight spread (`--arena-stride 0x100`) | 65 | 3 |
+| natural capture over the fight states | 260 | 0 |
+
+The union over all of them is 12 entries (one of them, `0x8c04340c`, needed
+the drive state), and the entry the fixture picked did not change: the eleven
+that came out of it are ported by `src/fight/vf3_c96_adapter.c`.
 
 `flags=4` on a synthetic probe means the excursion hit the 100,000-instruction
 budget (`c.ops.size()>=probeOps`), i.e. the target spun.  The arena fixture
 makes that likely: every register points at a zeroed arena page, so a loop
 whose trip count comes from game data never terminates.  The live registers
 give the target real data and do better, but the trip count still comes from
-data the probe's state does not contain.
+data the probe's state does not contain.  A *natural* capture - watching the
+entries without redirecting a call - found none of them: in the recorded
+states the game never calls these bodies at all.
+
 
 ## 7. The REIOS cluster is a state problem, not a dispatch problem
 
@@ -293,5 +303,58 @@ the byte count the drive has moved so far.  Two corpora of the same entry can
 disagree about it (the transfer was at a different point when they were
 recorded), and no single static answer satisfies both - the same
 mixed-capture-convention wall the ledger already records.
+
+### The drive state is observable, and it is per case
+
+The oracle's `VF3_GDLOG` observer writes one line per watched invocation with
+the drive's sixteen state words, and it settles the question of what the
+reference had:
+
+```
+E 1 8c04340c 00000011 00000012 00000001 00000011 00082282 00000056 0caae800
+              00000000 00000000 00000000 00020800 00000000 000822c3 000822c3
+              0cacf000 00000015
+```
+
+`status = 1` (busy), `command = 0x11` (a DMA read) and `result[2] = 0x20800`
+- and `0x20800` is exactly the size the corpus of `0x8c04340c` expects in
+`r5`.  The second invocation of the same entry logs `result[2] = 0x2b000`, so
+the state is per case, not per entry.
+
+Two things follow.  The stub can serve the GD vector from a seeded drive
+state: `vf3_gdrom` already models the whole command set, and
+`VF3_GD_STATE` already loads a state file, so the corpus only has to carry
+the state of each of its cases.  And the entries whose *older* corpora
+disagree are blocked by exactly that: a corpus recorded before the drive
+reached a different point in its transfer asks for a different size, and no
+single static answer satisfies both.  Re-recording every corpus of those
+entries with the observer log is the way out.
+
+## 9. What the 500,000-instruction probe budget would need
+
+A probe that spins hits the instruction budget before it returns, and the
+budget is the reason most of the 260 corpus-less entries have no corpus at
+all.  The oracle's own limit is 100,000 recorded instructions per probe, and
+`tools/oracle/extended_observer_controls_v1.json` is a validated proof that
+authorises a *separate* recorder (`flycast_capsule_extended_v1.exe`) to record
+500,000.
+
+That proof is currently unusable: it pins a reference log
+(`extract/analysis/extended_capsule_tool_tests_v1.log`) by digest, and the
+file lived in the gitignored `extract/` tree, so it is gone and the eight
+control windows cannot be re-validated.  Recreating the log byte-exactly is
+not possible from the repository alone, and re-running the audit would need
+the file as well (`tools/oracle/extended_observer_controls_audit.py` reads it).
+
+The lever is therefore real but currently locked: the arena fixture spreads
+the sixteen seeded registers over sixteen pages, so a target that derives a
+loop count from the distance between two of them runs ~15,000 iterations and
+needs more than the 100,000 instructions the current recorder keeps.
+`tools/oracle/isolated_probes.py` gained `--arena-stride` to test that
+hypothesis (a tighter spread makes the loop count small), and `--emulator`
+to point the sweep at a different recorder; a tighter spread on the 65
+largest entries produced no new corpus, so the loop count is not only a
+function of the pointer distance.
+
 
 
