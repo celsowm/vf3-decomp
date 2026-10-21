@@ -27984,7 +27984,16 @@ case 0x0c0ca4a0u: goto P_0c0ca4a0;
 case 0x0c0ca4a2u: goto P_0c0ca4a2;
 default:
     if(target==0u) return vf3_matrix_family(target,s,ram);
-    if((target&0x1ffffff0u)==0x0c001000u) return vf3_matrix_family(target,s,ram);
+    /* The REIOS BIOS vectors (0x8C001000 system, 0x8C001002 font, 0x8C001004
+     * flashrom, 0x8C001006 gdrom) are served by the stub adapter.  Escalating
+     * the whole 0x0c0010xx family would send a vector nobody implements (the
+     * misc vector at 0x8C001008) back to this module, and the call would
+     * recurse until the C stack overflows.  Only the four the stub owns are
+     * handed on.  The target is masked first: a caller may hold the address
+     * in the 0x8c form, and the comparison has to see both forms. */
+    const uint32_t vec = target & 0x1fffffffu;
+    if(vec==0x0c001000u || vec==0x0c001002u || vec==0x0c001004u || vec==0x0c001006u)
+        return vf3_matrix_family(vec,s,ram);
     if(vf3_device_adapter_contains(target) || vf3_next_adapter_contains(target) ||
        vf3_motion_adapter_contains(target) ||
        vf3_fight_adapter_contains(target)) return vf3_matrix_family(target,s,ram);

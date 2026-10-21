@@ -684,6 +684,7 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
     default:
         /* Ownership is selected before execution; failed calls never retry. */
         if(vf3_c95_adapter_contains(entry)) return vf3_c95_adapter(entry,s,ram);
+        if(vf3_c96_adapter_contains(entry)) return vf3_c96_adapter(entry,s,ram);
         if(vf3_9970a_adapter_contains(entry)) return vf3_9970a_adapter(entry,s,ram);
         if(vf3_09b_adapter_contains(entry)) return vf3_09b_adapter(entry,s,ram);
         if(vf3_0a67_adapter_contains(entry)) return vf3_0a67_adapter(entry,s,ram);

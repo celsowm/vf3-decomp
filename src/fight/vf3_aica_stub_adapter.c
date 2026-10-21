@@ -41,6 +41,28 @@ static void gd_mem_write(void *ctx, uint32_t addr, uint32_t v) { vf3_matrix_writ
 int vf3_reios_system_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
 int vf3_reios_flashrom_adapter(uint32_t, vf3_matrix_state *, const vf3_ram_map *);
 
+/* REIOS FONTROM vector (0x8C001002, r1 = command).
+ *
+ * The BIOS keeps its font table in its own ROM, so the call only hands back
+ * the table's address (reios/reios.cpp, reios_sys_font):
+ *   0 FONTROM_ADDRESS -> r0 = 0xA0100020
+ *   1 FONTROM_LOCK    -> r0 = 0
+ *   2 FONTROM_UNLOCK  -> r0 = 0
+ * An unknown command leaves r0 alone, exactly like the reference.
+ */
+static int reios_font(uint32_t *r, uint32_t entry, vf3_matrix_state *state,
+                      const vf3_ram_map *ram)
+{
+    switch (r[1]) {
+    case 0: r[0] = 0xA0100020u; break;   /* FONT_TABLE_ADDR */
+    case 1: r[0] = 0u; break;            /* FONTROM_LOCK */
+    case 2: r[0] = 0u; break;            /* FONTROM_UNLOCK */
+    default: break;                      /* the reference warns and returns */
+    }
+    state->pc = r[16];
+    return ram->oob == 0u;
+}
+
 /* REIOS GD-ROM vector (0x8C001006, r6 = 0) against an idle drive.
  *
  * The loader stubs reach the BIOS through the pointer word at 0x8C0000BC and
@@ -57,6 +79,30 @@ static int reios_gd_idle(uint32_t *r, uint32_t entry, vf3_matrix_state *state,
                          const vf3_ram_map *ram)
 {
     switch (r[7]) {
+    case VF3_GD_REQ_CMD: {   /* 0: enqueue a command */
+        /* The drive the corpora recorded has a transfer in flight, so it is
+         * not idle and the firmware refuses the command: the reference sets
+         * r0 = 0 and does not read the parameter block
+         * (reios/gdrom_hle.cpp, GDROM_REQ_CMD: "if (status != GDC_OK) r[0] = 0"). */
+        r[0] = 0u;
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
+    case VF3_GD_GET_CMD_STAT: {   /* 1: the extended status quad, then the status */
+        /* The firmware writes the four extended-status words before it answers
+         * (reios/gdrom_hle.cpp, GDROM_GET_CMD_STAT): error, error1, size and the
+         * wait state.  An idle drive holds no transfer, so the quad is the
+         * cleared result[] of the command state and the status is GDC_OK ("no
+         * such request active").  The loader polls this until the request
+         * completes, and its status wrapper turns the 0 into "idle". */
+        vf3_matrix_write(ram, r[5], 0u, 4u);
+        vf3_matrix_write(ram, r[5] + 4u, 0u, 4u);
+        vf3_matrix_write(ram, r[5] + 8u, 0u, 4u);
+        vf3_matrix_write(ram, r[5] + 12u, 0u, 4u);
+        r[0] = 0u;                    /* GDC_OK */
+        state->pc = r[16];
+        return ram->oob == 0u;
+    }
     case VF3_GD_EXEC_SERVER:          /* 2: the queue is empty, nothing changes */
         state->pc = r[16];
         return ram->oob == 0u;
@@ -114,10 +160,12 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
     uint32_t *r = state->v;
     uint32_t pc = entry & 0x1fffffffu;
     static long d_=0; int dbg_=getenv("VF3_DEBUG_STUB")!=NULL;
-    if(dbg_ && (d_++%50)==0) fprintf(stderr,"STUB pc=%08x r6=%08x r7=%08x r16=%08x budget=%u d=%ld\n",pc,r[6],r[7],r[16],state->budget,d_);
+    if(dbg_) fprintf(stderr,"STUB pc=%08x r6=%08x r7=%08x r16=%08x budget=%u d=%ld\n",pc,r[6],r[7],r[16],state->budget,d_++);
 
     if (pc == 0x0c001000u)
         return vf3_reios_system_adapter(entry, state, ram);
+    if (pc == 0x0c001002u)
+        return reios_font(r, entry, state, ram);
     if (pc == 0x0c001004u)
         return vf3_reios_flashrom_adapter(entry, state, ram);
 
@@ -163,7 +211,7 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
 int vf3_aica_stub_adapter_contains(uint32_t pc)
 {
     pc &= 0x1fffffffu;
-    return pc == 0x0c001006u || pc == 0x0c001000u || pc == 0x0c001004u;
+    return pc == 0x0c001006u || pc == 0x0c001000u || pc == 0x0c001002u || pc == 0x0c001004u;
 }
 
 /* REIOS FLASHROM_READ (vector 0x8c001004, r7=1): every recorded invocation
@@ -211,8 +259,13 @@ int vf3_reios_system_adapter(uint32_t entry, vf3_matrix_state *state,
         return ram->oob == 0u;
     }
     if (r[7] != 0u) {
-        state->failed_pc = entry;
-        return 0;
+        /* The firmware answers an unknown system command with -1 and carries
+         * on (reios/reios.cpp, reios_sys_system: the default case warns and
+         * sets r0 = -1).  It does not abort the caller. */
+        --state->budget;
+        r[0] = 0xffffffffu;
+        state->pc = r[16];
+        return ram->oob == 0u;
     }
     --state->budget;
     for (unsigned i = 0; i < sizeof(info); i += 4) {

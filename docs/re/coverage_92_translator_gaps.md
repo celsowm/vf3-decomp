@@ -194,14 +194,24 @@ The yield is low, and the reason is uniform: the probe never returns.
 | fixture | entries attempted | entries with cases |
 |---|---|---|
 | arena seeds (8 variants) | 260 | 5 |
-| live registers | 260 | see `extract/analysis/u95_live*/progress.json` |
+| the game's live registers | 260 | 9 |
+| static pointer inference | 260 | 8 |
+| arena seeds, tight spread (`--arena-stride 0x100`) | 65 | 3 |
+| natural capture over the fight states | 260 | 0 |
+
+The union over all of them is 12 entries (one of them, `0x8c04340c`, needed
+the drive state), and the entry the fixture picked did not change: the eleven
+that came out of it are ported by `src/fight/vf3_c96_adapter.c`.
 
 `flags=4` on a synthetic probe means the excursion hit the 100,000-instruction
 budget (`c.ops.size()>=probeOps`), i.e. the target spun.  The arena fixture
 makes that likely: every register points at a zeroed arena page, so a loop
 whose trip count comes from game data never terminates.  The live registers
 give the target real data and do better, but the trip count still comes from
-data the probe's state does not contain.
+data the probe's state does not contain.  A *natural* capture - watching the
+entries without redirecting a call - found none of them: in the recorded
+states the game never calls these bodies at all.
+
 
 ## 7. The REIOS cluster is a state problem, not a dispatch problem
 
@@ -244,4 +254,110 @@ different drive states.
 So the cluster (10 entries, 742 B) needs the corpus to carry the GD state per
 case.  That is the concrete remainder of the design project scoped in
 `docs/re/reios_exec_server.md`.
+
+## 8. The REIOS vectors that were missing from the stub
+
+The cluster above is not one problem but four, and three of them were the
+stub's own gaps.  The BIOS exposes five syscall vectors
+(reios/reios.cpp: `setup_syscall(0x8C001000, ...)` and friends):
+
+| vector | service | stub before | stub now |
+|---|---|---|---|
+| 0x8C001000 | system (SYSINFO) | r7 = 0/2/3 only | any r7: an unknown command answers -1 |
+| 0x8C001002 | font (FONTROM) | **missing** | r1 = 0/1/2 |
+| 0x8C001004 | flashrom | present | present |
+| 0x8C001006 | gdrom | r7 = 2..13 | r7 = 0..13 |
+| 0x8C001008 | misc | **missing** | still missing (needs the hardware) |
+
+The missing font vector was not a small gap: the legacy adapter escalated the
+whole 0x0c0010xx family to the router, and the router handed the vector
+straight back to the legacy adapter, so a call into the font vector recursed
+until the C stack overflowed (exit code 0xC00000FD).  The escalation now names
+the four vectors the stub owns, and masks the target first - a caller may hold
+the address in the 0x8c form, and the comparison has to see both forms.
+
+The GD vector needed three more commands:
+
+* `GET_CMD_STAT` (r7 = 1) writes the four extended-status words to `*r5` and
+  then answers with the status; an idle drive answers `GDC_OK` with a cleared
+  quad (`reios/gdrom_hle.cpp`, `GDROM_GET_CMD_STAT`).
+* `REQ_CMD` (r7 = 0) is refused with `r0 = 0` when the drive is not idle
+  (`if (gd_hle_state.status != GDC_OK) r[0] = 0;`).  The drive the corpora
+  recorded holds a transfer, so the request is refused.  This one command
+  unblocked 13 entries.
+* the system vector answers an unknown command with -1 and carries on
+  (`reios_sys_system`, the default case), instead of aborting the caller.
+
+With those in place 24 of the 34 re-captured corpora replay clean, and the
+entries that still fail do so for reasons the stub cannot reach:
+
+| wall | entries | bytes |
+|---|---|---|
+| the drive's transfer size (`result[2]`, e.g. 0x20800) | 0x8c035518, 0x8c0432e2 | 338 B |
+| the corner-block descriptor loop (0x0c0510b6) | 4 | 300 B |
+| `STC VBR` in the helper 0x0c060eba | 1 | 80 B |
+| a device write the reference did not make | 0x8c09aa14 | 336 B |
+| an uncaptured write | 0x8c0a2a84 | 248 B |
+| one byte of a RAM window | 0x8c04340c | 14 B |
+
+The size case is the one that needs the per-case drive state: the loader polls
+`GET_CMD_STAT` until the transfer completes, and the size it then reports is
+the byte count the drive has moved so far.  Two corpora of the same entry can
+disagree about it (the transfer was at a different point when they were
+recorded), and no single static answer satisfies both - the same
+mixed-capture-convention wall the ledger already records.
+
+### The drive state is observable, and it is per case
+
+The oracle's `VF3_GDLOG` observer writes one line per watched invocation with
+the drive's sixteen state words, and it settles the question of what the
+reference had:
+
+```
+E 1 8c04340c 00000011 00000012 00000001 00000011 00082282 00000056 0caae800
+              00000000 00000000 00000000 00020800 00000000 000822c3 000822c3
+              0cacf000 00000015
+```
+
+`status = 1` (busy), `command = 0x11` (a DMA read) and `result[2] = 0x20800`
+- and `0x20800` is exactly the size the corpus of `0x8c04340c` expects in
+`r5`.  The second invocation of the same entry logs `result[2] = 0x2b000`, so
+the state is per case, not per entry.
+
+Two things follow.  The stub can serve the GD vector from a seeded drive
+state: `vf3_gdrom` already models the whole command set, and
+`VF3_GD_STATE` already loads a state file, so the corpus only has to carry
+the state of each of its cases.  And the entries whose *older* corpora
+disagree are blocked by exactly that: a corpus recorded before the drive
+reached a different point in its transfer asks for a different size, and no
+single static answer satisfies both.  Re-recording every corpus of those
+entries with the observer log is the way out.
+
+## 9. What the 500,000-instruction probe budget would need
+
+A probe that spins hits the instruction budget before it returns, and the
+budget is the reason most of the 260 corpus-less entries have no corpus at
+all.  The oracle's own limit is 100,000 recorded instructions per probe, and
+`tools/oracle/extended_observer_controls_v1.json` is a validated proof that
+authorises a *separate* recorder (`flycast_capsule_extended_v1.exe`) to record
+500,000.
+
+That proof is currently unusable: it pins a reference log
+(`extract/analysis/extended_capsule_tool_tests_v1.log`) by digest, and the
+file lived in the gitignored `extract/` tree, so it is gone and the eight
+control windows cannot be re-validated.  Recreating the log byte-exactly is
+not possible from the repository alone, and re-running the audit would need
+the file as well (`tools/oracle/extended_observer_controls_audit.py` reads it).
+
+The lever is therefore real but currently locked: the arena fixture spreads
+the sixteen seeded registers over sixteen pages, so a target that derives a
+loop count from the distance between two of them runs ~15,000 iterations and
+needs more than the 100,000 instructions the current recorder keeps.
+`tools/oracle/isolated_probes.py` gained `--arena-stride` to test that
+hypothesis (a tighter spread makes the loop count small), and `--emulator`
+to point the sweep at a different recorder; a tighter spread on the 65
+largest entries produced no new corpus, so the loop count is not only a
+function of the pointer distance.
+
+
 
