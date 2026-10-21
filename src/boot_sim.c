@@ -131,11 +131,19 @@ static uint32_t slice_hook(void)
         static const uint32_t bits[5] = { 0x80u, 0x100u, 0x200u, 0x400u, 0x200000u };
         for (unsigned i = 0; i < 5; ++i) if (want & (1u << i)) vf3_native_raise_asic(bits[i]);
     }
-    {   /* Maple: the list is answered at once (a stand-in pad on port A) and the DMA-end event follows */
+    {   /* Captured boot harness: neutral pad A. Raise completion only after a valid list. */
         uint32_t list = 0;
-        static const vf3_maple_pad pad = { 0xFFFFu, 0, 0, 0x80, 0x80, 0x80, 0x80 };
+        vf3_maple_bus bus;
+        vf3_maple_bus_init(&bus, 1);
         for (unsigned n = vf3_native_take_maple(&list); n; --n) {
-            vf3_maple_dma(irq.ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, list, &pad);
+            const vf3_maple_dma_result result = vf3_maple_dma_bus(irq.ram,
+                VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, list, &bus);
+            if (result.status != VF3_MAPLE_DMA_OK) {
+                fprintf(stderr, "vf3boot: Maple DMA failed (%u) at %08x after %u blocks\n",
+                    (unsigned)result.status, result.address, result.blocks);
+                irq.failed = 1;
+                return 0;
+            }
             vf3_native_raise_asic(0x1000u);
         }
     }

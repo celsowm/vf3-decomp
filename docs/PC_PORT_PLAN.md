@@ -24,12 +24,36 @@ Identical original executable bytes are not the project's goal. Deterministic ga
 | Local fixture replay | 2,202/2,202 marked-strict PASS; 2,244/2,250 total | Six missing-RAM failures; 14 unmarked passes skip 700 rows |
 | Native tick | Author records 13 captured fight states with exact RAM | The supplied bundle omits all 39 tick input files; not rerun here |
 | Boot experiment | 15 recorded states reach 700 vblanks | Rows also record `ok=0`, `unowned=1`, failed PC `0c0597ca`; not a clean full-boot pass |
-| Native executable | `vf3` loads captured RAM/registers; `vf3boot` requires three captures | No disc-only cold boot |
-| Video | TA word collection and POL summaries | No complete native PVR/VRAM renderer |
+| Native executable | `vf3` loads captured RAM/registers; `vf3boot` requires three captures; two original boot segments now match fresh full-state captures | No disc-only cold boot |
+| Video | Persistent native VRAM, incremental TA parser and a software rendering subset, integrated with original emitters | Fog, sprites, VQ/mipmaps, translucency sorting and other paths remain; no complete-frame parity |
 | Audio | ADPCM decode and command queue | No complete voice/DSP/mix playback engine |
-| Input | Maple HLE answers port A, initially neutral in boot harness | SDL host inputs still need game-loop and second-port integration |
+| Input | Independent Maple main ports; SDL keyboard and virtual-controller samples tested through A/B guest responses | Boot harness remains neutral; complete game-loop sampling/timing remains |
 
 `docs/re/oracle_device_reads.md` records that some synthetic probes suppress device writes and replay the recorded read tape. These fixtures validate the specified probe policy, not unmodified-device behavior. Keep their results separate from live-device acceptance.
+
+### Fresh-reference and runtime work, 2026-10-21
+
+An isolated official Flycast revision now builds locally and cold-starts the
+supplied disc with HLE BIOS and a passive interpreter observer. This new
+reference has its own source/build/capture manifests; it does not reproduce
+the historical missing seals. See [the new reference](NEW_ORACLE.md).
+Its null renderer is suitable for the measured CPU bootstrap transitions,
+not graphics or complete-game fidelity qualification.
+
+The native relocation `AC010000 -> AC004000` and CRT0
+`0C020000 -> 0C09574E` each match all 16 MiB RAM and 64 context words, with
+exact instruction counts (24,198 and 1,282,358). Dirty-BSS synthetic cases
+also verify the clear operations. The intermediate bootstrap and startup
+remain unimplemented; these are bounded code segments, not a coldboot
+executable. See [boot boundaries](re/native_boot_entry.md).
+
+Native invocations now commit nested hardware effects, preserve ordered TA
+output, restore caller hooks, reset session/SQ state explicitly, and report
+attached-device failures. This repairs the base for a persistent runtime;
+it does not preserve a native C continuation after returning to the host.
+See [runtime lifecycle](re/native_runtime_lifecycle.md) and
+[native PVR subset](re/native_pvr.md). Historical coverage/replay totals above
+are unchanged; none of these new subsystem checks adds automatic ledger credit.
 
 The imported evidence exposed and reproduced a stack-array overrun in `src/fight/c6ec4.c` and host-dependent INVALID NaN generation. Both are corrected with focused differential and sanitizer checks. Live GD-ROM requests now precede capture-only REIOS stubs when a drive is attached. Existing warnings include a placeholder null dereference in `src/fight/task_run_c.c` and overlong strings in `src/sys/gdfs_table.h`; these still need reachability and semantic triage.
 
@@ -119,4 +143,9 @@ Parallel responsibilities: runtime/devices; renderer; audio; decomp/fixtures; po
 
 Track separate quantities: historical byte union, locally rerun strict cases, completed feature scenarios, graphics/audio comparisons, unresolved native calls and release-platform checks. A percentage for one must never stand in for another.
 
-No credible completion date can be set before M1 restores the evidence and M2 measures the runtime blockers. Completion means all gates are satisfied, not a calendar promise. Immediate critical path: close the remaining fixture and oracle-build gaps → capture tick/boot references → implement continuous cold-boot runtime while video/audio development proceeds in parallel.
+No credible completion date is established. Completion means all gates are
+satisfied. Immediate critical path: use the newly reproducible reference to
+capture startup/ticks and close native bootstrap/continuation/device gaps,
+while completing video/audio and retaining the historical missing-evidence
+list. The new oracle must be qualified independently before replacing any
+historical reference claims.

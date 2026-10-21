@@ -25,8 +25,9 @@ const char *vf3_platform_error(void);
  * mapping: P1 arrows + Z(A), X(B), A(X), S(Y), Return(Start);
  * P2 I/K/J/L + V(A), B(B), F(X), G(Y), RShift(Start).
  * Gamepad face buttons map by position: south/east/west/north -> A/B/X/Y.
- * This supplies two pad states; the existing Maple bus still needs multiport
- * integration before the game can consume player 2. */
+ * Copy these into vf3_maple_bus.pads[0..1] at the guest sampling boundary.
+ * The bus supports independent ports; connecting this to a complete native
+ * game loop remains separate from polling the host devices. */
 int vf3_platform_poll(vf3_platform *platform, vf3_maple_pad pads[VF3_HOST_PLAYERS]);
 /* Exact 640x480 packed native uint32_t values 0xAARRGGBB; pitch is in bytes.
  * Content is letterboxed to 4:3 on resize, with nearest-neighbor sampling. */

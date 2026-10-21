@@ -495,6 +495,12 @@ if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
       COMPILE_OPTIONS "-O0;-frounding-math;-ffp-contract=off")
 endif()
 
+target_sources(vf3core PRIVATE src/render/pvr_ta.c src/render/pvr_native.c src/sys/boot_entry.c)
+if(NOT MSVC)
+  set_source_files_properties(src/render/pvr_ta.c PROPERTIES
+    COMPILE_OPTIONS "-ffp-contract=off")
+endif()
+
 add_executable(vf3 src/main.c)
 target_link_libraries(vf3 PRIVATE vf3core)
 
@@ -614,6 +620,22 @@ if(BUILD_TESTING)
   add_executable(vf3nativegdrom tests/native_gdrom_test.c)
   target_link_libraries(vf3nativegdrom PRIVATE vf3core)
   add_test(NAME native_gdrom COMMAND vf3nativegdrom)
+  # Controlled dispatcher isolates nested-call/device lifetime semantics.
+  # vf3nativegdrom above keeps coverage of the actual generated router.
+  add_executable(vf3nativeruntime tests/native_runtime_test.c
+    src/fight/native_tick.c src/sys/bios_syscall.c src/sys/gdrom_hle.c)
+  target_include_directories(vf3nativeruntime PRIVATE src)
+  add_test(NAME native_runtime COMMAND vf3nativeruntime ${CMAKE_CURRENT_BINARY_DIR}/native-runtime-fixture)
+  add_executable(vf3maplebus tests/maple_bus_test.c src/sys/maple_hle.c)
+  target_include_directories(vf3maplebus PRIVATE src)
+  add_test(NAME maple_bus COMMAND vf3maplebus)
+  add_executable(vf3pvrtest tests/pvr_ta_test.c)
+  target_compile_definitions(vf3pvrtest PRIVATE VF3_PVR_TEST_EMITTERS=1)
+  target_link_libraries(vf3pvrtest PRIVATE vf3core)
+  add_test(NAME pvr_ta COMMAND vf3pvrtest)
+  add_executable(vf3bootentry tests/boot_entry_test.c src/sys/boot_entry.c)
+  target_include_directories(vf3bootentry PRIVATE src)
+  add_test(NAME boot_entry COMMAND vf3bootentry)
   add_executable(vf3fpuinvalid tests/sh4_fpu_invalid_test.c src/fight/sh4_fpu.c)
   target_include_directories(vf3fpuinvalid PRIVATE src)
   if(NOT MSVC)
@@ -628,6 +650,8 @@ if(BUILD_TESTING)
     set_tests_properties(python_${suite} PROPERTIES
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
   endforeach()
+  add_test(NAME python_new_reference
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/oracle/new_reference/test_reference.py)
   add_test(NAME gdrom_cli
     COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/gdrom_cli_test.py
             $<TARGET_FILE:vf3gdrom>)

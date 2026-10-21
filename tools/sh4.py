@@ -231,6 +231,8 @@ def decode(w, pc=0):
             return "shll2", GPR[n]
         if (w & 0xF0FF) == 0x4009:
             return "shlr2", GPR[n]
+        if (w & 0xF0FF) == 0x4010:
+            return "dt", GPR[n]
         if (w & 0xF0FF) == 0x4018:
             return "shll8", GPR[n]
         if (w & 0xF0FF) == 0x4019:

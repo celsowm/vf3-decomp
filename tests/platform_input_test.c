@@ -7,6 +7,33 @@
 
 #define CHECK(expr) do { if (!(expr)) { fprintf(stderr, "%s:%d: %s (%s)\n", __FILE__, __LINE__, #expr, SDL_GetError()); return 1; } } while (0)
 
+/* Drive the same two host samples through guest Maple requests. Distinct
+ * player buttons must arrive at distinct receive buffers, active-low. */
+static int maple_delivery(const vf3_maple_pad pads[2])
+{
+    uint8_t ram[256] = {0};
+    vf3_maple_bus bus;
+    const uint32_t words[8] = {
+        1, 0x0c000080u, 0x01002009u, 0x01000000u,
+        0x80010001u, 0x0c000090u, 0x01406009u, 0x01000000u
+    };
+    for (unsigned i = 0; i < 8; ++i)
+        for (unsigned b = 0; b < 4; ++b) ram[4*i+b] = (uint8_t)(words[i] >> (8*b));
+    vf3_maple_bus_init(&bus, 3);
+    bus.pads[0] = pads[0]; bus.pads[1] = pads[1];
+    vf3_maple_dma_result r = vf3_maple_dma_bus(ram, 0x0c000000u,
+        sizeof ram, 0x0c000000u, &bus);
+    CHECK(r.status == VF3_MAPLE_DMA_OK && r.blocks == 2);
+    for (unsigned p = 0; p < 2; ++p) {
+        const uint8_t *wire = ram+128+16*p;
+        CHECK(wire[0] == 8 && wire[1] == 64*p && wire[2] == 32+64*p && wire[3] == 3);
+        CHECK(((unsigned)wire[8] | (unsigned)wire[9]<<8) == pads[p].buttons);
+        CHECK(wire[10] == pads[p].rtrig && wire[11] == pads[p].ltrig);
+        CHECK(wire[12] == pads[p].joyx && wire[13] == pads[p].joyy);
+    }
+    return 0;
+}
+
 static int mapping(void)
 {
     vf3_host_input input = {0};
@@ -98,6 +125,7 @@ static int virtual_gamepads(vf3_platform *platform, SDL_WindowID id)
     CHECK(pads[0].buttons == (uint16_t)~0x0444u);
     CHECK(pads[1].buttons == (uint16_t)~0x0002u);
     CHECK(pads[1].joyx == 0 && pads[1].rtrig == 255 && pads[1].ltrig == 0);
+    CHECK(!maple_delivery(pads));
     SDL_CloseJoystick(joysticks[0]);
     CHECK(SDL_DetachVirtualJoystick(ids[0]));
     CHECK(vf3_platform_poll(platform, pads));
@@ -143,6 +171,7 @@ static int lifecycle(void)
     CHECK(vf3_platform_poll(platform, pads));
     CHECK(pads[0].buttons == (uint16_t)~0x0014u);
     CHECK(pads[1].buttons == (uint16_t)~0x000cu);
+    CHECK(!maple_delivery(pads));
     CHECK(!event(id, SDL_EVENT_KEY_UP, SDL_SCANCODE_Z));
     CHECK(vf3_platform_poll(platform, pads));
     CHECK(pads[0].buttons == (uint16_t)~0x0010u);

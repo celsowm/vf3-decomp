@@ -26,6 +26,8 @@ extern uint32_t (*vf3_family_budget_hook)(void);
  * extract/analysis predate the burst model and their device tapes do not contain the burst
  * writes, so the model is opt-in: whole-tick runs set it, the legacy per-function gates do not. */
 extern int vf3_sq_model;
+/* New-session reset, never between nested calls in the same guest session. */
+void vf3_matrix_reset_sq(void);
 /* Store-queue burst of PREF @Rn; the caller checks Rn is in 0xE0000000..0xE3FFFFFF. */
 void vf3_matrix_pref(const vf3_ram_map *ram, uint32_t addr);
 /* optional filter for the above: returns nonzero when `entry` is a call target (jsr/bsr/jmp-tail

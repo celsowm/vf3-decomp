@@ -41,3 +41,23 @@ Maple only when a run writes SB_MDSTAR/SB_MDST.
 - ISTNRM bit 12 = Maple DMA end (refs/DreamcastRecompiled dc_runtime.cpp: `kAsicEventMapleDmaBit = 1u << 12`, ASIC_EVT_MAPLE_DMA).
 - Transfer header (refs/dream-recomp/runtime/src/maple/maple.cpp:338): bit 31 = **last** (set on the final block, so the Linux code
   is right and its comment wrong), bits 17:16 port, 10:8 pattern, 7:0 frame words - 1; then the receive address, then the frame.
+
+## Independent controller ports (2026-10-21)
+
+`vf3_maple_dma_bus` now accepts a stable input snapshot for four main ports,
+with independent connection bits and pad states. The SDL host produces two
+samples for ports A/B; the runtime must latch them at the guest polling
+boundary. Main-unit addresses include their port bits, and sub-units remain
+absent. The old `vf3_maple_dma` wrapper preserves the one-pad capture API.
+
+Invalid list bounds, mismatched descriptor/frame lengths, unaligned accesses,
+short receive buffers, unsupported DMA patterns and unterminated 64-block
+lists return explicit failures. No response is partly written on a short
+buffer. The boot harness stops instead of signalling Maple completion after
+such a failure. Other DMA patterns and VMUs are still unimplemented.
+
+ROM-free tests cover all four port addresses, different simultaneous inputs,
+disconnect without moving player 2, RAM aliases and malformed lists. The SDL
+test feeds virtual-controller and keyboard events into two guest GETCOND
+requests and verifies the returned wire bytes. This establishes the input
+transport, not two-player game acceptance or calibrated device timing.

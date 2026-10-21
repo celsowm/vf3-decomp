@@ -18,7 +18,8 @@ add_executable(vf3platform-smoke "${VF3_PLATFORM_ROOT}/src/platform/platform_smo
 target_link_libraries(vf3platform-smoke PRIVATE vf3platform)
 include(CTest)
 if(BUILD_TESTING)
-  add_executable(vf3platform-test "${VF3_PLATFORM_ROOT}/tests/platform_input_test.c")
+  add_executable(vf3platform-test "${VF3_PLATFORM_ROOT}/tests/platform_input_test.c"
+    "${VF3_PLATFORM_ROOT}/src/sys/maple_hle.c")
   target_link_libraries(vf3platform-test PRIVATE vf3platform)
   add_test(NAME platform_input COMMAND vf3platform-test)
   add_test(NAME platform_smoke COMMAND vf3platform-smoke --frames 3 --hidden)

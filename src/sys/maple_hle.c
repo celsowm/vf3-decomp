@@ -16,39 +16,62 @@ static int in_ram(uint32_t a, uint32_t n, uint32_t base, uint32_t len)
 
 static uint32_t rd(const uint8_t *ram, uint32_t base, uint32_t a)
 {
-    uint32_t v;
-    memcpy(&v, ram + ((a & 0x1FFFFFFFu) - (base & 0x1FFFFFFFu)), 4);
-    return v;
+    const uint8_t *p = ram + ((a & 0x1FFFFFFFu) - (base & 0x1FFFFFFFu));
+    return (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24;
 }
 
 static void wr(uint8_t *ram, uint32_t base, uint32_t a, uint32_t v)
 {
-    memcpy(ram + ((a & 0x1FFFFFFFu) - (base & 0x1FFFFFFFu)), &v, 4);
+    uint8_t *p = ram + ((a & 0x1FFFFFFFu) - (base & 0x1FFFFFFFu));
+    for (unsigned n = 0; n < 4; ++n) p[n] = (uint8_t)(v >> (n * 8));
 }
 
-unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32_t list_addr, const vf3_maple_pad *pad)
+void vf3_maple_bus_init(vf3_maple_bus *bus, unsigned connected)
 {
-    unsigned blocks = 0;
+    const vf3_maple_pad neutral = {0xFFFFu, 0, 0, 128, 128, 128, 128};
+    for (unsigned p = 0; p < VF3_MAPLE_PORTS; ++p) bus->pads[p] = neutral;
+    bus->connected = connected & 15u;
+}
+
+vf3_maple_dma_result vf3_maple_dma_bus(uint8_t *ram, uint32_t ram_base,
+    uint32_t ram_len, uint32_t list_addr, const vf3_maple_bus *bus)
+{
+    vf3_maple_dma_result result = {VF3_MAPLE_DMA_OK, 0, 0};
     uint32_t at = list_addr;
-    for (; blocks < 64; ++blocks) {
-        if (!in_ram(at, 12, ram_base, ram_len)) break;
+    for (; result.blocks < 64; ++result.blocks) {
+        if (!ram || !bus || (at & 3u) || !in_ram(at, 12, ram_base, ram_len)) {
+            result.status = VF3_MAPLE_DMA_BAD_LIST; result.address = at; return result;
+        }
         const uint32_t head = rd(ram, ram_base, at), recv = rd(ram, ram_base, at + 4), frame = rd(ram, ram_base, at + 8);
         const unsigned port = (head >> 16) & 3u, words = (head & 0xFFu) + 1u;
         const unsigned command = frame & 0xFFu, to = (frame >> 8) & 0xFFu;
-        if (words > 0 && !in_ram(at, 12 + 4 * (words - 1), ram_base, ram_len)) break;
+        /* Patterns other than normal transmit are bus operations with a
+         * different layout, not ordinary frames. Do not reinterpret them. */
+        if (head & 0x700u) {
+            result.status = VF3_MAPLE_DMA_UNSUPPORTED_PATTERN; result.address = at; return result;
+        }
+        if (!in_ram(at, 8 + 4 * words, ram_base, ram_len) || (frame >> 24) != words - 1u) {
+            result.status = VF3_MAPLE_DMA_BAD_LIST; result.address = at; return result;
+        }
         const uint32_t next = at + 8 + 4 * words;
         /* the host is address 0 of the port; the main unit answers from port << 6 | 0x20, a sub-unit bit would be 1..0x1F */
         const uint32_t from = (port << 6) | 0x20u, host = port << 6;
-        const int present = port == 0 && (to & 0x3Fu) == 0x20u;
-        if (in_ram(recv, 4, ram_base, ram_len)) {
+        const int present = (bus->connected & (1u << port)) && to == from;
+        const vf3_maple_pad *pad = &bus->pads[port];
+        unsigned response_size = 4;
+        if (present && command == MAPLE_REQ_DEVINFO) response_size = 116;
+        if (present && command == MAPLE_REQ_GETCOND) response_size = 16;
+        if ((recv & 3u) || !in_ram(recv, response_size, ram_base, ram_len)) {
+            result.status = VF3_MAPLE_DMA_BAD_RECEIVE; result.address = recv; return result;
+        }
+        {
             if (!present || (command != MAPLE_REQ_DEVINFO && command != MAPLE_REQ_GETCOND)) {
                 wr(ram, ram_base, recv, 0xFFFFFFFFu);
             } else if (command == MAPLE_REQ_DEVINFO && in_ram(recv, 116, ram_base, ram_len)) {
                 uint8_t body[112];
                 memset(body, 0, sizeof body);
-                const uint32_t func = MAPLE_FUNC_CONTROLLER, fdata = 0xFE060F00u;   /* the standard pad's button mask */
-                memcpy(body, &func, 4);
-                memcpy(body + 4, &fdata, 4);
+                body[3] = 1;       /* controller function 0x01000000, little endian */
+                body[5] = 0x0F; body[6] = 0x06; body[7] = 0xFE; /* standard pad mask */
                 body[16] = 0xFF;   /* area: all regions */
                 body[17] = 0;
                 memset(body + 18, ' ', 30);
@@ -65,8 +88,18 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 wr(ram, ram_base, recv + 12, (uint32_t)pad->joyx | (uint32_t)pad->joyy << 8 | (uint32_t)pad->joy2x << 16 | (uint32_t)pad->joy2y << 24);
             }
         }
-        if (head & 0x80000000u) { ++blocks; break; }
+        if (head & 0x80000000u) { ++result.blocks; return result; }
         at = next;
     }
-    return blocks;
+    result.status = VF3_MAPLE_DMA_BLOCK_LIMIT;
+    result.address = at;
+    return result;
+}
+
+unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32_t list_addr, const vf3_maple_pad *pad)
+{
+    vf3_maple_bus bus;
+    vf3_maple_bus_init(&bus, pad ? 1u : 0u);
+    if (pad) bus.pads[0] = *pad;
+    return vf3_maple_dma_bus(ram, ram_base, ram_len, list_addr, &bus).blocks;
 }

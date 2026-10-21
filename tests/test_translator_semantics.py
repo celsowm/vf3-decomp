@@ -32,6 +32,15 @@ def signed(value, bits):
 
 
 class TranslatorSemantics(unittest.TestCase):
+    def test_crt0_decrement_loop_disassembly(self):
+        spec = importlib.util.spec_from_file_location('sh4', ROOT / 'tools/sh4.py')
+        sh4 = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(sh4)
+        # CRT0's BSS clear loop uses DT R4 (4410), formerly shown as data.
+        self.assertEqual(sh4.decode(0x4410, 0x8c02000a), ('dt', 'r4'))
+        for register in range(16):
+            self.assertEqual(sh4.decode(0x4010 | register << 8), ('dt', f'r{register}'))
+
     @classmethod
     def setUpClass(cls):
         cls.temp = tempfile.TemporaryDirectory(prefix='vf3-translator-')

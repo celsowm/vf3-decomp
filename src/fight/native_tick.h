@@ -26,17 +26,44 @@
 #define VF3_BIOS_SYSCALL_VECTOR 0x0C001006u
 
 typedef struct {
-    int ok;                       /* the entry returned to its caller */
-    uint32_t pc, failed_pc;       /* where it stopped when not ok */
-    unsigned steps_budget_used;   /* guest basic-block budget consumed */
+    int ok;                       /* dispatcher succeeded and no own/nested failure was recorded */
+    uint32_t pc, failed_pc;       /* this invocation's context, even when only a descendant failed */
+    unsigned steps_budget_used;   /* consumed steps, refills and nested calls included; saturates at UINT_MAX */
     unsigned readable_calls;      /* calls served by readable ports */
     unsigned unowned_calls;       /* calls into code nobody ported (each one is a failure) */
     uint32_t first_unowned;
     unsigned bios_calls;          /* BIOS GD-ROM syscalls served by the attached model */
     unsigned device_reads, device_writes, ta_words, oob;
-    const uint32_t *ta;           /* the TA FIFO words, in order; valid until the next run */
+    unsigned device_errors;      /* attached bus rejected an access; ok is then 0 */
+    uint32_t first_device_error;  /* address of its first rejected access */
+    unsigned ta_failed;          /* TA allocation failed; ok is then 0, existing words remain available */
+    unsigned nested_failures;    /* failed descendant invocations, each counted once */
+    uint32_t first_nested_entry; /* entry of first observed failing descendant (0 when none) */
+    uint32_t first_nested_failed_pc; /* its reported failed_pc, possibly 0; never replaces parent's PC */
+    const uint32_t *ta;           /* ordered borrowed view; top-level valid until next top-level run/reset;
+                                 * nested view can be invalidated when its enclosing run appends more words */
     uint32_t regs[54];            /* register file at exit, layout of matrix_family.h */
 } vf3_native_tick_result;
+
+/* Fresh host session: detach the GD drive, forget the caller-owned RAM image,
+ * release TA storage, clear device state, clocks, hooks, stops and XF seed.
+ * Does not free caller RAM/disc objects or reset a detached drive object.
+ * Returns 0 without changes during an active invocation, otherwise 1.
+ * This single-session API is not thread-safe. It does not initialize a console
+ * BIOS/CPU or make an arbitrary captured PC a resumable native continuation. */
+int vf3_native_reset(void);
+
+/* Optional persistent device implementation, e.g. the native PVR. Callbacks
+ * return 1 handled, 0 outside their device, -1 error. Built-in timer/ASIC/AICA
+ * reads take priority. Errors fail the invocation and are never passed off as
+ * successful device operations. The bus structure is copied, context remains
+ * caller-owned. Attach/detach only between calls; reset detaches it. */
+typedef struct {
+    int (*read)(void *context, uint32_t address, unsigned size, uint32_t *value);
+    int (*write)(void *context, uint32_t address, unsigned size, uint32_t value);
+    void *context;
+} vf3_native_device_bus;
+int vf3_native_attach_device_bus(const vf3_native_device_bus *bus);
 
 /* Load the entry state of pair `pair` from a tools/tick_capture.py recording:
  * the 37 registers and the 16 MiB RAM image. *ram is malloc'd. Returns 1 on success. */
@@ -44,11 +71,19 @@ int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37],
 /* The extended (XF) bank of the last loaded entry, and the one the next run starts with. */
 void vf3_native_get_xf(uint32_t xf[16]);
 void vf3_native_set_xf(const uint32_t xf[16]);
-/* The RAM and registers the recorded run ended with (the hardware reference for a whole-run comparison). */
+/* The recorded exit for comparison. Does not change the next invocation's XF seed. */
 int vf3_native_load_exit(const char *path, unsigned pair, uint32_t regs[37], uint8_t **ram);
 
-/* Run the tick from `regs` on `ram` (modified in place). `gbr` is the global-state block the
- * fight tasks address with @(disp,GBR); the capture format does not carry it. */
+/* Invoke a function from `regs` on `ram` (modified in place). PR is replaced
+ * with the configured stop/sentinel. This is not an arbitrary-PC CPU-resume
+ * API: native C continuations cannot survive returning from this call.
+ * `gbr` is supplied separately because the capture format does not carry it.
+ * Device state persists until reset. Nested calls commit their device effects
+ * and append TA words; all diagnostic counters include nested calls, while
+ * pc/failed_pc/regs describe only this invocation. A nested call restores its
+ * parent's configuration/hooks/XF seed before returning. Any failed descendant
+ * also fails its ancestors, even if a callback ignores the result. OOB and
+ * unowned accesses fail the invocation even when its dispatcher returns 1. */
 int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, uint32_t gbr,
                         vf3_native_tick_result *out);
 

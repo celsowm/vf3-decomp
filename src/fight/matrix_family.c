@@ -213,15 +213,21 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
  * is how the game fills its geometry buffers and hands display lists to the TA. The stores
  * stay visible to the device hook so existing device logs are unchanged. */
 static uint32_t vf3_sq_buf[2][8], vf3_sq_qacr[2];
+static int vf3_sq_forced[2] = {-2, -2};
 int vf3_sq_model;
+void vf3_matrix_reset_sq(void) {
+    memset(vf3_sq_buf, 0, sizeof vf3_sq_buf);
+    memset(vf3_sq_qacr, 0, sizeof vf3_sq_qacr);
+    vf3_sq_forced[0] = vf3_sq_forced[1] = -2;
+    vf3_sq_model = 0;
+}
 void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     unsigned n=(a>>5)&1u;
     if(!vf3_sq_model) return;
     /* chained ticks restart from a capture whose QACR predates the game's own retarget; TICK_QACR0/1 (the same
      * switches the oracle takes) pin the area so both sides burst to the same place */
-    static int forced[2]={-2,-2};
-    if(forced[n]==-2) { const char *e=getenv(n?"TICK_QACR1":"TICK_QACR0"); forced[n]=e?(int)(strtoul(e,0,0)&0x1Cu):-1; }
-    uint32_t dest=((forced[n]>=0?(uint32_t)forced[n]:vf3_sq_qacr[n])<<24)|(a&0x03FFFFE0u);
+    if(vf3_sq_forced[n]==-2) { const char *e=getenv(n?"TICK_QACR1":"TICK_QACR0"); vf3_sq_forced[n]=e?(int)(strtoul(e,0,0)&0x1Cu):-1; }
+    uint32_t dest=((vf3_sq_forced[n]>=0?(uint32_t)vf3_sq_forced[n]:vf3_sq_qacr[n])<<24)|(a&0x03FFFFE0u);
     for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
 }
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
