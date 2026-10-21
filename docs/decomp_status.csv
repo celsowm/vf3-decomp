@@ -1,4 +1,13 @@
 entry,status,file,size,method,oracle
+0x8c01089a,ported,src/fight/vf3_c99_adapter.c,80,capture-driven port (batch replay_scan),u110_sweep_1_8c01089a: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c0109c4,ported,src/fight/vf3_c99_adapter.c,50,capture-driven port (batch replay_scan),u110_sweep_2_8c0109c4: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c010c2e,ported,src/fight/vf3_c98_adapter.c,184,capture-driven port (batch replay_scan),u105_seed_8c010c2e: matrix_family: 6/6 cases match (0 skipped) - PASS; u107_counter_8c010c2e: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c010f42,ported,src/fight/vf3_c98_adapter.c,258,capture-driven port (batch replay_scan),u105_seed_8c010f42: matrix_family: 6/6 cases match (0 skipped) - PASS; u106_seed_sweep_8c010f42: matrix_family: 4/4 cases match (0 skipped) - PASS; u107_counter_8c010f42: matrix_family: 6/6 cases match (0 skipped) - PASS
+0x8c0110ee,ported,src/fight/vf3_c99_adapter.c,60,capture-driven port (batch replay_scan),u110_sweep_2_8c0110ee: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c01112c,ported,src/fight/vf3_c99_adapter.c,82,capture-driven port (batch replay_scan),u110_sweep_1_8c01112c: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c01117e,ported,src/fight/vf3_c99_adapter.c,68,capture-driven port (batch replay_scan),u110_sweep_2_8c01117e: matrix_family: 2/2 cases match (0 skipped) - PASS
+0x8c0113c2,ported,src/fight/vf3_c98_adapter.c,368,capture-driven port (batch replay_scan),u105_seed_8c0113c2: matrix_family: 6/6 cases match (0 skipped) - PASS; u106_seed_sweep_8c0113c2: matrix_family: 4/4 cases match (0 skipped) - PASS; u107_counter_8c0113c2: matrix_family: 4/4 cases match (0 skipped) - PASS
+0x8c0115c2,ported,src/fight/vf3_c98_adapter.c,648,capture-driven port (batch replay_scan),u104_seed: matrix_family: 6/6 cases match (0 skipped) - PASS; u105_seed_8c0115c2: matrix_family: 6/6 cases match (0 skipped) - PASS; u106_seed_sweep_8c0115c2: matrix_family: 6/6 cases match (0 skipped) - PASS; u107_counter_8c0115c2: matrix_family: 5/5 cases match (0 skipped) - PASS
 0x8c02eed8,ported,src/fight/vf3_c94_adapter.c,18,capture-driven port (batch replay_scan),u90_sw2_8c02eed8: matrix_family: 16/16 cases match (0 skipped) - PASS
 0x8c03482a,ported,src/lib/sh4rt.c,30,transliteration,tests/libutil_replay.c PASS
 0x8c034852,ported-alias,src/sys/mainloop.c,0,transliteration,tests/mainloop_replay.c PASS

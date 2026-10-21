@@ -18,9 +18,35 @@ ROOT=Path(__file__).resolve().parents[2]
 MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
         0x0c03c0e0,0x0c03c4a0,0x0c03c4f0,0x0c03c610,0x0c03c6c0,0x0c03c880,
         0x0c03c940,0x0c03c970,0x0c03cbd0,0x0c03cc60,0x0c03cc90,0x0c03ccb0}
+# The address alias a site ran under, as the capture recorded it.  The game
+# reaches some code through the 0xac mirror, and the reference's PC-relative
+# constants and link register carry that alias in the register file.
+BASE_ALIAS=0x0c000000
+SITE_ALIAS={}
 def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
 def label(pc): return f"P_{pc:08x}"
 def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
+
+def site_alias(pc):
+    """The alias the capture recorded for this site, or BASE_ALIAS."""
+    aliases=SITE_ALIAS.get(pc)
+    if not aliases or len(aliases)!=1: return BASE_ALIAS
+    return next(iter(aliases))
+
+def alias_addr(alias,addr):
+    """Re-base a canonical 0x0c.... address onto another mirror."""
+    if alias==BASE_ALIAS: return addr
+    return (alias | (addr & 0x00ffffff)) & 0xffffffff
+
+def pr_literal(pc,alias):
+    """The link register a call at this site installs.
+
+    The base alias keeps the runtime code_base (the capture's own PR decides
+    it); another mirror is spelled out, because the reference's link register
+    carries the alias of the code that took the call.
+    """
+    if alias==BASE_ALIAS: return f'code_base|0x{pc+4&0x0fffffff:08x}u'
+    return f'0x{alias_addr(alias,(pc+4)&0x00ffffff):08x}u'
 
 def mac_lines(size,n,m):
     """MAC.W / MAC.L @Rm+,@Rn+ : mac.full += rm*rn, both pointers advance.
@@ -155,7 +181,7 @@ def emit(pc,w):
         k=(w>>8)&15
         if k in (0,1,2): return ['if(!s->gbr_known) goto unsupported;',f'write(ram,s->gbr+{(w&255)*(1<<k)},r[0],{1<<k});']
         if k in (4,5,6): return ['if(!s->gbr_known) goto unsupported;',f"r[0]={ {4:'(uint32_t)(int32_t)(int8_t)',5:'(uint32_t)(int32_t)(int16_t)',6:''}[k]}read(ram,s->gbr+{(w&255)*(1<<(k-4))},{1<<(k-4)});"]
-        if k==7: return [f"r[0]=0x{((pc+4)&~3)+(w&255)*4:08x}u;"]
+        if k==7: return [f"r[0]=0x{alias_addr(site_alias(pc),((pc+4)&~3)+(w&255)*4):08x}u;"]
         if k==8: return [t(f"(r[0]&{w&255}u)==0")]
         if k in (9,10,11): return [f"r[0]{ {9:'&=',10:'^=',11:'|='}[k]}{w&255}u;"]
         if k in (0xC,0xD,0xE,0xF):
@@ -224,6 +250,7 @@ def indirect_destinations(path, image):
 
 def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None):
     legacy=watch is None
+    SITE_ALIAS.clear()
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
     existing=set()
@@ -251,9 +278,11 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             if legacy and p.stem in ("f_8c076c00.ops", "f_8c0782ea.ops"):
                 continue
             for a,w in json.loads(p.read_text()).items():
-                a=int(a,16)&0x1fffffff; w=int(w,16)
+                raw=int(a,16); a=raw&0x1fffffff; w=int(w,16)
                 if a in ops and ops[a]!=w: raise ValueError(f"code identity conflict {a:x}")
                 ops[a]=w
+                # Remember the mirror the capture ran this site under.
+                SITE_ALIAS.setdefault(a,set()).add(raw&0xff000000)
     # Hand-written kernels take precedence. Their opcodes are never emitted.
     # Drop capture-only legacy regression workers from this new family.
     ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
@@ -354,9 +383,9 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         if top in (0xA,0xB):
             dest=a+4+sx(w&4095,12)*2
             if top==0xB:
-                lines.append(f'target=0x{dest:08x}u; r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
+                lines.append(f'target=0x{dest:08x}u; r[16]={pr_literal(a,site_alias(a))};')
                 lines.extend(statements(a+2))
-                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
+                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
                 lines.append(jump(a+4))
             else:
                 lines.extend(statements(a+2)); lines.append(jump(dest))
@@ -370,10 +399,10 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             rel=(w&0xF0FF) in (0x0003,0x0023)
             call=(w&0xF0FF) in (0x400B,0x0003)
             lines.append(f'target=r[{n}]'+(f'+0x{a+4:08x}u;' if rel else ';'))
-            if call: lines.append(f'r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
+            if call: lines.append(f'r[16]={pr_literal(a,site_alias(a))};')
             lines.extend(statements(a+2))
             if call:
-                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if(s->pc!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
+                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
             else:
                 lines.append('switch(target&0x1fffffffu) {')
                 for dest in indirect.get(a, ()):

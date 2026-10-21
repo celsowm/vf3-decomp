@@ -34,6 +34,19 @@ def sizes() -> dict[str, int]:
     with SIZES.open(newline="", encoding="utf-8", errors="replace") as fh:
         for row in csv.DictReader(fh):
             out[row["entry"].lower()] = int(row["size"])
+    # The Ghidra seed table predates some entries; fall back to the recorded
+    # body range so a newly captured entry still gets its byte credit.
+    ranges = ANALYSIS / "function_body_ranges.csv"
+    if ranges.is_file():
+        with ranges.open(newline="", encoding="utf-8", errors="replace") as fh:
+            for row in csv.DictReader(fh):
+                e = row["entry"].lower().replace("0x", "")
+                if e in out:
+                    continue
+                start = int(row["start"], 16) & 0x1FFFFFFF
+                end = int(row["end"], 16) & 0x1FFFFFFF
+                if end > start:
+                    out[e] = end - start
     return out
 
 

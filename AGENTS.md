@@ -96,18 +96,40 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 92.43% verified C (401,750 B of 434,656). The 90% bar
+- Coverage: 92.84% verified C (403,548 B of 434,656). The 90% bar
   (391,190 B) and the 92% bar (401,084 B) - the 92% bar is reached on the
   *union* of body ranges, which is the number `tools/final_status.py` prints;
-  `tools/decomp_stats.py` counts 405,354 B because it also credits the
+  `tools/decomp_stats.py` counts 406,812 B because it also credits the
   trace-covered bodies.  The 80%-91% stretch came from the device-tape
   capture work and from bodies ported through the repo's own adapter
   translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c97_adapter.c.  Recipe, checks and the
+  src/fight/vf3_c80_adapter.c ... vf3_c99_adapter.c.  Recipe, checks and the
   bodies left out: docs/re/coverage_80_generated_adapters.md,
-  docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md and
-  docs/re/oracle_device_reads.md.
-  Next bar: 93% = 404,230 B (2,480 B more).
+  docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md,
+  docs/re/coverage_93_low_region.md and docs/re/oracle_device_reads.md.
+  Next bar: 93% = 404,230 B (682 B more).
+- **The oracle arms every watched entry it meets, so a callee needs only to be
+  watched once.**  A watched entry's `f_<entry>.ops.json` holds the whole call
+  tree it executed; the callee ran, but it earned no corpus because it was not
+  in the watch list.  tools/oracle/reobserve.py re-runs a recorded batch (its
+  manifest carries the state, play script, frame count, RAM patch, probe
+  fixture and the exact emulator build) with the callees added to the watch
+  file, and `--probe-children` keeps the nested entries armed while a probe
+  is active.  The oracle matches a watched entry against the *raw* guest PC,
+  so a callee reached through the 0xac mirror must be watched as `pc 0xac...`.
+  This turned 90 corpus-less entries into recorded corpora.
+- **A probe must not jump into RAM the loader never filled.**  The game runs
+  1ST_READ from the RAM copy at 0x0C010000, but the region 0x0C010000-0x0C030000
+  stays zero in every captured state, so a synthetic probe aimed there ran
+  `MOV R0,@R0` straight through until the erased 0xffff padding raised an
+  illegal instruction (flags=1).  tools/oracle/ram_image_seed.py writes the
+  image's own bytes into that region as a VF3_RAM_PATCH fixture
+  (isolated_probes.py --ram-patch); the low region had 77 unported functions
+  because of it.
+- **A register the static inference cannot classify is a counter, not a
+  pointer.**  Seeding it with an arena pointer never terminates (`dt r5`
+  counts down from 0x0c4xxxxx), so isolated_probes.py --counter-variants adds
+  seed variants with small values alongside the pointer-style ones.
 - **The replay step budget has to cover the reference's own step count.**
   The port spends one step per emulated instruction, exactly like the oracle,
   so a body with a counted loop (0x8c04ba30 copies 50,464 bytes, ~350k steps)

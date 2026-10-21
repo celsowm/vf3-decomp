@@ -25,6 +25,14 @@ def main():
                     help='synthetic-call instruction budget per probe')
     ap.add_argument('--states', default='20,21')
     ap.add_argument('--trigger', type=lambda s: int(s, 16), default=0x8c063d36)
+    ap.add_argument('--target-form', choices=('ram', 'rom'), default='ram',
+                    help='address form the synthetic probe jumps to.  The RAM alias '
+                         '(0x0c) is where the game runs the image from, but the RAM '
+                         'copy only covers the part of the image the loader has '
+                         'already placed; the low image region is still zero there '
+                         'and the probe would execute zeros until it hits the '
+                         'erased 0xffff padding.  The ROM form (0x8c) always holds '
+                         'the image.')
     ap.add_argument('--pointer-fixtures', action='store_true')
     ap.add_argument('--arena-seeds', action='store_true',
                     help='seed every register the fixture did not infer with a '
@@ -42,6 +50,17 @@ def main():
                     help='proof that pins the recorder used with --emulator; it '
                          'authorises the recorded instruction bound the sweep may '
                          'ask for')
+    ap.add_argument('--counter-variants', type=int, default=4,
+                    help='extra seed variants that give the registers the static '
+                         'inference did not classify small values instead of arena '
+                         'pointers, so a target whose unclassified register is a '
+                         'counter terminates instead of looping forever')
+    ap.add_argument('--ram-patch', type=Path,
+                    help='global RAM fixture applied at start-up (the oracle\'s '
+                         'VF3_RAM_PATCH two-field form).  tools/oracle/ram_image_seed.py '
+                         'writes one that fills the low RAM region with the image, '
+                         'so a probe that targets an entry there runs the real code '
+                         'instead of zeros.')
     ap.add_argument('--arena-base', type=lambda s: int(s, 16), default=0x0c420000)
     ap.add_argument('--arena-stride', type=lambda s: int(s, 16), default=0x1000,
                     help='distance between the arena pages the seeded registers '
@@ -85,14 +104,26 @@ def main():
             # a page of the RAM arena instead: the probe then stays inside
             # the main RAM the oracle already snapshots and restores.
             lines = ['entry 0x%08x 0x%08x' % (a.trigger, entry)]
-            for variant in range(a.arena_variants):
+            probe_target = (entry & 0x1fffffff) if a.target_form == 'ram' else (entry | 0x80000000)
+            for variant in range(a.arena_variants + a.counter_variants):
                 if variant:
                     lines.append('seed 0x%08x' % a.trigger)
-                lines += ['target 0x%08x 0x%08x' % (a.trigger, entry & 0x1fffffff),
+                lines += ['target 0x%08x 0x%08x' % (a.trigger, probe_target),
                           'reg 0x%08x pr 0x%08x' % (a.trigger, (a.trigger + 2) & 0x1fffffff)]
                 for reg in range(15):
                     if reg in registers:
                         value = registers[reg]
+                    elif variant >= a.arena_variants:
+                        # The static inference only classifies the registers the
+                        # target dereferences.  A register it never dereferences
+                        # is usually a counter, and a counter seeded with an
+                        # arena pointer never terminates: `dt r5` on a pointer
+                        # counts down from 0x0c4xxxxx and the probe spends its
+                        # whole budget inside the loop.  The extra variants seed
+                        # those registers with small values instead, so a target
+                        # that counts comes back; the pointer-style variants
+                        # still cover the registers only a callee dereferences.
+                        value = (reg % 8) + 1
                     else:
                         value = a.arena_base + (reg + variant * 16) * a.arena_stride
                     lines.append('reg 0x%08x r%d 0x%08x' % (a.trigger, reg, value & 0xffffffff))
@@ -121,7 +152,10 @@ def main():
             cmd += ['--emulator', str(a.emulator)]
             cmd += ['--observer-controls', str(a.observer_controls)]
         for state in a.states.split(','):
-            cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
+            run = f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}'
+            if a.ram_patch:
+                run += f':{a.ram_patch}'
+            cmd += ['--run', run]
         with (directory / 'capture.log').open('w') as log:
             process = subprocess.Popen(cmd, cwd=ROOT, stdout=log, stderr=log)
             try:
