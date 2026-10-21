@@ -337,6 +337,11 @@ int vf3_profile_clear_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
 vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
 vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
+/* Alias handoff between the generated adapters.  The router masks the entry PC
+ * to 29 bits, so the 0x0c/0x8c/0xac mirror the callee runs under is passed
+ * out of band: the caller sets these two words before it hands control over. */
+uint32_t vf3_matrix_call_alias=0u;
+uint32_t vf3_matrix_call_alias_pc=0xffffffffu;
 static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     uint32_t audio_alias=(entry&0x80000000u)?0x8c000000u:0x0c000000u;
     const uint32_t queue=0x0C19D2E4u;
@@ -688,11 +693,17 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
     }
     default:
         /* Ownership is selected before execution; failed calls never retry. */
+        /* c102 owns the literal-pool family (0x8c058780/84/88/8c) and the
+         * corner-block helper 0x8c0512dc; c95 walked into them as well and
+         * claims them, so c102 has to sit ahead of it to win its own roots. */
+        if(vf3_c103_adapter_contains(entry)) return vf3_c103_adapter(entry,s,ram);
+        if(vf3_c102_adapter_contains(entry)) return vf3_c102_adapter(entry,s,ram);
         if(vf3_c95_adapter_contains(entry)) return vf3_c95_adapter(entry,s,ram);
         if(vf3_c96_adapter_contains(entry)) return vf3_c96_adapter(entry,s,ram);
         if(vf3_c97_adapter_contains(entry)) return vf3_c97_adapter(entry,s,ram);
 if(vf3_c98_adapter_contains(entry)) return vf3_c98_adapter(entry,s,ram);
 if(vf3_c99_adapter_contains(entry)) return vf3_c99_adapter(entry,s,ram);
+if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
         if(vf3_9970a_adapter_contains(entry)) return vf3_9970a_adapter(entry,s,ram);
         if(vf3_09b_adapter_contains(entry)) return vf3_09b_adapter(entry,s,ram);
         if(vf3_0a67_adapter_contains(entry)) return vf3_0a67_adapter(entry,s,ram);
@@ -774,6 +785,10 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
         if(handled) return ok;
     }
     ok=vf3_matrix_family_core(entry,s,ram);
+    /* A module that failed without naming the address it stopped at leaves
+     * failed_pc empty; record the entry the chain could not serve so the
+     * harness can name it instead of printing a bare zero. */
+    if(!ok && !s->failed_pc && !s->lost_pc) s->lost_pc=entry;
     /* A module that reaches a register-indirect jump whose target it was not generated with stops at that target with the jump
      * already taken (delay slot done, pr kept). The target is owned by another module or by nobody: continue there as the tail
      * transfer it is. An exhausted step budget (counter wrapped) is not such a stop and is left to the caller. */

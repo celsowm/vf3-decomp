@@ -33,6 +33,10 @@ static void device_write(void *context,uint32_t address,unsigned size,uint32_t v
 static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
     vf3_matrix_state state;
     memset(&state,0,sizeof(state));
+    /* The alias handoff is per case: a stale one from the previous case would
+     * give the entry the wrong mirror (0x0c/0x8c/0xac) to compute addresses
+     * with. */
+    vf3_matrix_call_alias=0u; vf3_matrix_call_alias_pc=0xffffffffu;
     /* The step budget has to cover the reference's own instruction count for
      * the case: a body with a counted loop (e.g. 0x8c04ba30 copies 50464
      * bytes) needs far more than 100k steps, and the port spends one step
@@ -77,7 +81,7 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
         device_tape.count=count; device_tape.pos=device_tape.bad=0;
         m->ram.device_read=device_read; m->ram.device_write=device_write;
     }
-    if(!vf3_matrix_family(entry,&state,&m->ram)) { snprintf(err,len,"unsupported helper/state at %08x PC %08x (%u OOB)",entry,state.failed_pc,m->ram.oob); return 0; }
+    if(!vf3_matrix_family(entry,&state,&m->ram)) { snprintf(err,len,"unsupported helper/state at %08x PC %08x (%u OOB)",entry,state.failed_pc?state.failed_pc:state.lost_pc,m->ram.oob); return 0; }
     if(device_file && (device_tape.bad || device_tape.pos!=device_tape.count)) {
         if(device_tape.bad)
             snprintf(err,len,"device access mismatch at %u/%u: got %c %08x/%u=%08x, expected %c %08x/%u=%08x",

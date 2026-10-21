@@ -5,10 +5,22 @@ struct vf3_task_driver_scope;
 typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr, bank[8]; unsigned budget, gbr_known, bank_known;
     /* Native continuation owner, never part of the captured guest state. */
     struct vf3_task_driver_scope *task_driver;
+    /* Entry the dispatcher could not route, when the failing module left
+     * failed_pc empty.  Diagnostic only, never part of the guest state. */
+    uint32_t lost_pc;
 } vf3_matrix_state;
 /* Complete helper semantics, with guest state isolated in this adapter.
  * State layout is the existing 37 words, XF[16], then FPUL. */
 int vf3_matrix_family(uint32_t entry,vf3_matrix_state *state,const vf3_ram_map *ram);
+/* The SH-4 mirrors the 0x0c000000 region at 0x8c000000 and 0xac000000, and the
+ * same code legitimately runs under all three.  A branch into the 0xac mirror
+ * makes the code there compute 0xac-prefixed PC-relative addresses, so the
+ * caller has to tell the callee which mirror it jumped to: the router masks
+ * the entry PC to 29 bits, which loses that alias.  The caller sets these
+ * two words right before it hands control over; the callee reads them once,
+ * on entry, and derives its code base from them. */
+extern uint32_t vf3_matrix_call_alias;    /* top byte of the call target */
+extern uint32_t vf3_matrix_call_alias_pc;  /* masked PC of that target (0xffffffff: none) */
 /* Shared ABI mechanics for statically translated callers. */
 uint32_t vf3_matrix_read(const vf3_ram_map*,uint32_t,unsigned);
 void vf3_matrix_write(const vf3_ram_map*,uint32_t,uint32_t,unsigned);
@@ -129,6 +141,12 @@ int vf3_c98_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_c98_adapter_contains(uint32_t);
 int vf3_c99_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_c99_adapter_contains(uint32_t);
+int vf3_c101_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_c101_adapter_contains(uint32_t);
+int vf3_c102_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_c102_adapter_contains(uint32_t);
+int vf3_c103_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_c103_adapter_contains(uint32_t);
 int vf3_motion_record_init(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_angle(vf3_matrix_state*,const vf3_ram_map*);
 int vf3_fight_mesh(uint32_t,vf3_matrix_state*,const vf3_ram_map*);

@@ -96,18 +96,46 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 92.84% verified C (403,548 B of 434,656). The 90% bar
-  (391,190 B) and the 92% bar (401,084 B) - the 92% bar is reached on the
-  *union* of body ranges, which is the number `tools/final_status.py` prints;
-  `tools/decomp_stats.py` counts 406,812 B because it also credits the
-  trace-covered bodies.  The 80%-91% stretch came from the device-tape
-  capture work and from bodies ported through the repo's own adapter
-  translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c99_adapter.c.  Recipe, checks and the
+- Coverage: 93.26% verified C (405,364 B of 434,656). The 90% bar
+  (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
+  reached on the *union* of body ranges, which is the number
+  `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
+  it also credits the trace-covered bodies.  The 80%-91% stretch came from the
+  device-tape capture work and from bodies ported through the repo's own
+  adapter translator (tools/oracle/translate_adapters.py) into
+  src/fight/vf3_c80_adapter.c ... vf3_c103_adapter.c.  Recipe, checks and the
   bodies left out: docs/re/coverage_80_generated_adapters.md,
   docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md,
-  docs/re/coverage_93_low_region.md and docs/re/oracle_device_reads.md.
-  Next bar: 93% = 404,230 B (682 B more).
+  docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md and
+  docs/re/oracle_device_reads.md.
+  Next bar: 94% = 408,576 B (3,212 B more).
+- **The address mirror travels with the call.**  The SH-4 mirrors 0x0c000000
+  at 0x8c000000 and at 0xac000000, and the loader reaches the same code
+  through all three, so a PC-relative `mova` computes a different address
+  under each.  The alias is a property of the *run*, not of the instruction:
+  the translator keeps a `code_base` that follows the execution (the entry
+  sets it, an indirect jump sets it from the branch target, `mova` emits
+  `code_base|...`).  The router masks the entry PC to 29 bits, so the mirror
+  cannot travel in the entry PC: the caller sets `vf3_matrix_call_alias` /
+  `vf3_matrix_call_alias_pc` before it hands control over, the callee reads
+  them once on entry, and the harness resets them per case.  See
+  docs/re/coverage_93_alias_claim.md.
+- **A module serves the PCs no other module *claims*, not the ones no other
+  module owns.**  Two modules can own the same PC while neither claims it -
+  then nobody serves it and the router has nowhere to send the call
+  (`unsupported helper/state at 8c063446 PC 0c0635ec`).  The translator now
+  reads the other modules' claim arrays (their owned set for the legacy
+  modules, which have none) and treats that as the already-implemented set.
+- **A corpus without its RAM shadow is not evidence.**  Three entries had a
+  recorded corpus whose `.in.bin`/`.out.bin` shadows were gone, so they were
+  excluded (814 B).  The shadows are exactly regenerable from the capsule
+  (tools/regen_ram_shadows.py) or from a re-capture with the 1024-page
+  observer (tools/oracle/recapture_v2.py).  The re-capture has to raise
+  `--max-samples` (the manifest does not record it; the recorded campaigns
+  used 256) and the frame count (the bigger page budget makes every probe
+  restore costlier, so the campaign needs more frames to reach the same
+  seeds).
+
 - **The oracle arms every watched entry it meets, so a callee needs only to be
   watched once.**  A watched entry's `f_<entry>.ops.json` holds the whole call
   tree it executed; the callee ran, but it earned no corpus because it was not

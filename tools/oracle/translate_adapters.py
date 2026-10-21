@@ -18,35 +18,14 @@ ROOT=Path(__file__).resolve().parents[2]
 MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
         0x0c03c0e0,0x0c03c4a0,0x0c03c4f0,0x0c03c610,0x0c03c6c0,0x0c03c880,
         0x0c03c940,0x0c03c970,0x0c03cbd0,0x0c03cc60,0x0c03cc90,0x0c03ccb0}
-# The address alias a site ran under, as the capture recorded it.  The game
-# reaches some code through the 0xac mirror, and the reference's PC-relative
-# constants and link register carry that alias in the register file.
-BASE_ALIAS=0x0c000000
-SITE_ALIAS={}
+# The address alias the code runs under.  The game reaches some code through
+# the 0xac mirror, and the reference's PC-relative constants and link
+# register carry that alias in the register file, so the port tracks it at
+# run time: the alias of the address the CPU jumped to.
 def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
 def label(pc): return f"P_{pc:08x}"
 def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
 
-def site_alias(pc):
-    """The alias the capture recorded for this site, or BASE_ALIAS."""
-    aliases=SITE_ALIAS.get(pc)
-    if not aliases or len(aliases)!=1: return BASE_ALIAS
-    return next(iter(aliases))
-
-def alias_addr(alias,addr):
-    """Re-base a canonical 0x0c.... address onto another mirror."""
-    if alias==BASE_ALIAS: return addr
-    return (alias | (addr & 0x00ffffff)) & 0xffffffff
-
-def pr_literal(pc,alias):
-    """The link register a call at this site installs.
-
-    The base alias keeps the runtime code_base (the capture's own PR decides
-    it); another mirror is spelled out, because the reference's link register
-    carries the alias of the code that took the call.
-    """
-    if alias==BASE_ALIAS: return f'code_base|0x{pc+4&0x0fffffff:08x}u'
-    return f'0x{alias_addr(alias,(pc+4)&0x00ffffff):08x}u'
 
 def mac_lines(size,n,m):
     """MAC.W / MAC.L @Rm+,@Rn+ : mac.full += rm*rn, both pointers advance.
@@ -80,6 +59,25 @@ def adapter_pcs(paths):
     """Read emitted labels, excluding comments, routers and inferred seeds."""
     return {int(a,16) for path in paths
             for a in re.findall(r'^P_([0-9a-f]+):',Path(path).read_text(),re.M)}
+def adapter_claims(paths):
+    """The PCs a module actually serves.
+
+    A generated module routes a PC to itself when the PC is in its claim_pcs
+    array; the legacy modules, which have no such array, route every PC they
+    own.  Ownership alone is not enough: two modules can own the same PC
+    while neither claims it, and then *nobody* serves it and the router has
+    nowhere to send a call.  The claim set of the other modules is therefore
+    what decides whether a PC may be implemented here.
+    """
+    served=set()
+    for path in paths:
+        text=Path(path).read_text()
+        owned={int(a,16) for a in re.findall(r'^P_([0-9a-f]+):',text,re.M)}
+        claims=set()
+        for m in re.finditer(r'static const uint32_t claim_pcs\[\]=\{(.*?)\};',text,re.S):
+            claims|={int(w,16) for w in re.findall(r'0x([0-9a-f]+)u',m.group(1))}
+        served|=claims or owned
+    return served
 def emit(pc,w):
     n,m=(w>>8)&15,(w>>4)&15
     rn,rm=f"r[{n}]",f"r[{m}]"
@@ -181,7 +179,7 @@ def emit(pc,w):
         k=(w>>8)&15
         if k in (0,1,2): return ['if(!s->gbr_known) goto unsupported;',f'write(ram,s->gbr+{(w&255)*(1<<k)},r[0],{1<<k});']
         if k in (4,5,6): return ['if(!s->gbr_known) goto unsupported;',f"r[0]={ {4:'(uint32_t)(int32_t)(int8_t)',5:'(uint32_t)(int32_t)(int16_t)',6:''}[k]}read(ram,s->gbr+{(w&255)*(1<<(k-4))},{1<<(k-4)});"]
-        if k==7: return [f"r[0]=0x{alias_addr(site_alias(pc),((pc+4)&~3)+(w&255)*4):08x}u;"]
+        if k==7: return [f"r[0]=code_base|0x{(((pc+4)&~3)+(w&255)*4)&0x00ffffff:08x}u;"]
         if k==8: return [t(f"(r[0]&{w&255}u)==0")]
         if k in (9,10,11): return [f"r[0]{ {9:'&=',10:'^=',11:'|='}[k]}{w&255}u;"]
         if k in (0xC,0xD,0xE,0xF):
@@ -250,13 +248,12 @@ def indirect_destinations(path, image):
 
 def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None):
     legacy=watch is None
-    SITE_ALIAS.clear()
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
     existing=set()
     forced=set()
     if reuse_matrix:
-        existing=adapter_pcs([ROOT/'src/fight/matrix_adapters.c'])
+        existing=adapter_claims([ROOT/'src/fight/matrix_adapters.c'])
     for pattern in reuse_adapters:
         paths=list(ROOT.glob(pattern))
         if not paths: raise ValueError(f'no adapter sources match {pattern}')
@@ -264,7 +261,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         paths=[p for p in paths if p.resolve()!=output and not
                (p.parent.resolve()==output.parent and
                 p.stem.startswith(output.stem+'_'))]
-        existing.update(adapter_pcs(paths))
+        existing.update(adapter_claims(paths))
     if reuse_matrix or reuse_adapters:
         for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
             if int(row['entry'],16)&0x1fffffff in roots:
@@ -281,8 +278,6 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
                 raw=int(a,16); a=raw&0x1fffffff; w=int(w,16)
                 if a in ops and ops[a]!=w: raise ValueError(f"code identity conflict {a:x}")
                 ops[a]=w
-                # Remember the mirror the capture ran this site under.
-                SITE_ALIAS.setdefault(a,set()).add(raw&0xff000000)
     # Hand-written kernels take precedence. Their opcodes are never emitted.
     # Drop capture-only legacy regression workers from this new family.
     ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
@@ -349,6 +344,11 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             todo.append(a+4)
             if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
         elif a not in delayed: todo.append(a+2)
+    def handoff():
+        # The callee runs under the mirror the caller jumped to.
+        return 'vf3_matrix_call_alias_pc=(target&0x1fffffffu); vf3_matrix_call_alias=(target&0xff000000u); '
+    def lost(target):
+        return 'if(!s->lost_pc) s->lost_pc=%s; ' % target
     lines=['/* Static C ABI adapters. Generated with tools/oracle/translate_adapters.py.',
            ' * Matrix operations are hand-written in matrix_family.c; unknown code fails.',
            ' * Executed opcodes are checked against the untouched identity image. */',
@@ -362,15 +362,20 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
            'static void divide_step(vf3_matrix_state*s,unsigned n,unsigned m) { uint32_t *r=s->v; unsigned oldq=(r[17]>>8)&1u,sign=(r[17]>>9)&1u,q=r[n]>>31; uint32_t divisor=r[m],shifted=(r[n]<<1)|(r[17]&1u); r[n]=oldq==sign?shifted-divisor:shifted+divisor; unsigned carry=oldq==sign?r[n]>shifted:r[n]<shifted; q^=carry^sign; r[17]=(r[17]&~0x101u)|(q<<8)|(q==sign); }',
            f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
            'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
-           '/* PR keeps the alias of the executing image: the capture alias is visible in the caller return address. */',
-           'uint32_t code_base=((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u;',
+           '/* The code base is the mirror the code runs under: 0x0c, 0x8c or 0xac.  A call hands the callee the mirror it jumped to (the router masks the entry PC to 29 bits, which loses it); a direct entry falls back to the alias the caller left in the link register. */',
+           'uint32_t code_base=(vf3_matrix_call_alias_pc==(entry&0x1fffffffu))?vf3_matrix_call_alias:(((entry&0xff000000u)==0x8c000000u)?(((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u):(entry&0xff000000u));',
            'dispatch:', 'if(!s->budget--) goto unsupported;',
            'switch(target&0x1fffffffu) {']
     for a in sorted(ops): lines.append(f'case 0x{a:08x}u: goto {label(a)};')
-    lines.extend(['default: s->failed_pc=target; return 0;' if legacy else 'default: return vf3_matrix_family(target,s,ram);', '}'])
+    lines.extend(['default: s->failed_pc=target; return 0;' if legacy else 'default: '+handoff()+lost('target')+'if(!vf3_matrix_family(target,s,ram)) return 0; return 1;', '}'])
     unsupported={}; emitted=set()
     def jump(a):
-        return f'goto {label(a)};' if a in ops else (f's->failed_pc=0x{a:08x}u; return 0;' if legacy else f'return vf3_matrix_family(0x{a:08x}u,s,ram);')
+        # A target the module does not implement is the router's business; if
+        # the router cannot serve it either, name it so the harness can say
+        # which address was lost.
+        return (f'goto {label(a)};' if a in ops else
+                (f's->failed_pc=0x{a:08x}u; return 0;' if legacy else
+                 f'if(!vf3_matrix_family(0x{a:08x}u,s,ram)) {{ if(!s->lost_pc) s->lost_pc=0x{a:08x}u; return 0; }} return 1;'))
     def statements(pc):
         try: return emit(pc,word(pc))
         except ValueError as e: unsupported[pc]=str(e); return [f's->failed_pc=0x{pc:08x}u; return 0;']
@@ -383,9 +388,9 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         if top in (0xA,0xB):
             dest=a+4+sx(w&4095,12)*2
             if top==0xB:
-                lines.append(f'target=0x{dest:08x}u; r[16]={pr_literal(a,site_alias(a))};')
+                lines.append(f'target=code_base|0x{dest&0x0fffffff:08x}u; r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
                 lines.extend(statements(a+2))
-                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
+                lines.append(handoff()+f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
                 lines.append(jump(a+4))
             else:
                 lines.extend(statements(a+2)); lines.append(jump(dest))
@@ -399,16 +404,19 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             rel=(w&0xF0FF) in (0x0003,0x0023)
             call=(w&0xF0FF) in (0x400B,0x0003)
             lines.append(f'target=r[{n}]'+(f'+0x{a+4:08x}u;' if rel else ';'))
-            if call: lines.append(f'r[16]={pr_literal(a,site_alias(a))};')
+            if call: lines.append(f'r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
             lines.extend(statements(a+2))
             if call:
-                lines.append(f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
+                lines.append(handoff()+f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
             else:
+                # An indirect jump lands on the target's own mirror, so the
+                # code that runs there carries that alias.
+                lines.append('code_base=target&0xff000000u;')
                 lines.append('switch(target&0x1fffffffu) {')
                 for dest in indirect.get(a, ()):
                     if dest not in MANUAL:
                         lines.append(f'case 0x{dest:08x}u: {jump(dest)}')
-                for helper in sorted(MANUAL): lines.append(f'case 0x{helper:08x}u: return vf3_matrix_family(target,s,ram);')
+                for helper in sorted(MANUAL): lines.append(f'case 0x{helper:08x}u: '+handoff()+'return vf3_matrix_family(target,s,ram);')
                 lines.append('default: goto dispatch; }')
         elif w==0xB:
             lines.append('target=r[16];'); lines.extend(statements(a+2)); lines.append('s->pc=target; return ram->oob==0;')
@@ -449,7 +457,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             body=prefix+[f'int {name}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
               'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
            '/* PR keeps the alias of the executing image: the capture alias is visible in the caller return address. */',
-           'uint32_t code_base=((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u;',
+           'uint32_t code_base=((entry&0xff000000u)==0x8c000000u)?(((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u):(entry&0xff000000u);',
               'dispatch:', 'if(!s->budget--) goto unsupported;', 'switch(target&0x1fffffffu) {',
               *[f'case 0x{pc:08x}u: goto {label(pc)};' for pc in pcs],
               'default: return vf3_matrix_family(target,s,ram);', '}']
