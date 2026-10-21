@@ -24,7 +24,11 @@
 #include "fight/poly_classify.h"   /* vf3_ram_win / vf3_ram_map */
 
 #define VF3H_NVALS 37
-#define VF3H_MAXWIN 128
+/* The oracle records up to 1024 RAM pages per specimen (LIMIT = 1024 in
+ * tools/emu/flycast/core/vf3oracle.cpp).  A .cases row carries the *merged*
+ * windows, so the row bound must admit everything the oracle can hand us;
+ * 128 made a wide probe unparsable and silently dropped the case. */
+#define VF3H_MAXWIN 1024
 
 typedef struct {
     unsigned ordinal;       /* row in the deduplicated .cases file */

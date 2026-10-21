@@ -1,0 +1,149 @@
+Evidências do port C de Virtua Fighter 3tb (Dreamcast)
+=====================================================
+
+Este pacote é o material de verificação do port clean-room em C do VF3tb.
+Ele foi montado a partir do repositório `vf3-decomp` e contém tudo que é
+preciso para conferir as afirmações do port sem acesso à máquina original.
+
+
+O que é o jogo
+--------------
+
+* Shinobi/SEGA, Dreamcast, código de vendagem MK-51001 V1.002.
+* A imagem 1ST_READ.BIN é entregue *sem* ofuscação ( scrambling ), então
+  `tools/dc_scramble.py` não deve ser rodado sobre esses binários.
+* Endereços são de 32 bits com base 0x8C010000; a RAM do guest vai de
+  0x0C000000 a 0x0C0FFFFF.
+
+
+Estado do port no momento do empacotamento
+-------------------------------------------
+
+    C verificado:  400.098 bytes de 434.656   (92,05 %)
+    entradas portadas no ledger: 2.243
+    ainda por portar: 280 entradas / 35.610 bytes
+
+O ledger é `docs/decomp_status.csv`. A cobertura é a *união dos intervalos de
+corpo* das entradas portadas, não a soma dos bytes do ledger: uma entrada
+aninhada dentro de outra já portada não acrescenta bytes.
+
+Para repetir a medição:
+
+    python tools/final_status.py
+    python tools/decomp_stats.py
+
+
+Como o pacote está organizado
+-----------------------------
+
+    extract/analysis/          os relatórios e as cápsulas de captura
+    extract/analysis/oracle_revision/   a revisão do oráculo (ver abaixo)
+    external_capture_mirror/   as fixtures que viviam fora do repositório
+    tools/golden_bindings.json o mapa entrada -> corpus -> porta C
+    tools/oracle/              o ferramental de captura e as auditorias
+    tools/*.py                 as ferramentas de RE
+    docs/decomp_status.csv     o ledger das entradas portadas
+    docs/re/                   as notas de engenharia reversa
+    src/                       o port em C
+    tests/                     os testes de replay
+    CMakeLists.txt             o build
+
+Os caminhos dentro do pacote reproduzem a árvore do repositório, de modo que
+extrair por cima de um checkout do `vf3-decomp` faz tudo resolver.
+
+
+As fixtures (o que realmente prova o port)
+-------------------------------------------
+
+`tools/golden_bindings.json` liga cada entrada portada ao seu arquivo
+`.cases` e ao seu módulo em `src/fight/`. Um `.cases` é uma tabela: cada
+linha traz 37 palavras de estado de entrada, 37 de estado de saída, e o nome
+dos blobs de RAM (`.bin`) que ficam ao lado do `.cases` e descrevem as
+janelas de memória antes e depois.
+
+O harness `tests/port_harness.h` carrega essas linhas, materializa as
+sombras de RAM, chama o módulo C e compara byte a byte. Para reproduzir:
+
+    cmake -S . -B build && cmake --build build -j8
+    python tools/check_new_bindings.py          # replay estrito de tudo
+
+Os blobs de RAM são quase todos zeros (o fixture semeia registradores numa
+arena zerada), por isso o volume bruto de 27,5 GB comprime para ~235 MB.
+
+
+As fixtures que estavam fora do repositório
+--------------------------------------------
+
+30 das 2.250 bindings apontam para corpora exportados fora da árvore do
+repositório (`D:\vf3-captures\...` e a cache de evidências do usuário). Elas
+estão no pacote em `external_capture_mirror/`, com a unidade e o diretório
+preservados. Para que as bindings apontem para o espelho, rode uma vez na
+raiz extraída:
+
+    python tools/fix_external_paths.py
+
+Ele reescreve `tools/golden_bindings.json` in-place e informa quantas
+entradas mudaram.
+
+
+A revisão do oráculo (tools/emu)
+---------------------------------
+
+O oráculo de captura (`tools/emu/flycast/core/vf3oracle.cpp`) vive dentro do
+clone do Flycast, que é gitignored. A diferença entre o oráculo original e o
+que roda hoje só existia na árvore de trabalho, então a revisão foi
+materializada em `extract/analysis/oracle_revision/`:
+
+* `vf3oracle_pristine.cpp` / `vf3oracle_patched.cpp` — as duas versões
+* `vf3oracle_full.patch` — o diff unificado completo
+* `oracle_device_reads.patch` — o diff reproduzível por
+  `extract/analysis/make_oracle_patch.py`
+* `build_extended_observer_v2.py` e `extended_observer_controls_v2.json` —
+  o gravador de 500.000 instruções por probe e o selo que o autoriza
+
+O `REBUILD.md` dessa pasta explica como reconstruir o oráculo e como selar
+o gravador.
+
+O que mudou no oráculo, em resumo:
+
+1. leitura de registro de device sem efeito colateral passa a ser permitida
+   (o valor vai para a fita de device e o replay C alimenta de volta), e
+   escrita de device passa a ser suprimida em vez de abortar o espécime;
+2. o bit SR.FD é limpo no probe, senão cada instrução FPU do alvo levanta
+   exceção e o BIOS mata o espécime no RTE;
+3. o orçamento de páginas de RAM subiu de 128 para 1024 (era um orçamento de
+   memória, não uma restrição semântica).
+
+O gravador separado (500.000 instruções por probe) só pode ser usado quando o
+executável exato está pinado por um selo de controles; `observer_record_limit()`
+em `tools/golden_batch.py` recusa qualquer outro par.
+
+
+O que ainda não está portado, e por quê
+----------------------------------------
+
+As 280 entradas restantes se dividem em dois grupos, e nenhum dos dois é
+defeito de tradução ou de despacho:
+
+* **sem corpus (249 entradas / 32.000 bytes).**  O alvo entra em laço com os
+  registradores do fixture e nunca retorna; quando o laço está dentro do BIOS
+  do REIOS, ele fica sondando um registro de device que o emulador não move,
+  então o probe só termina no orçamento de instruções.  Levar o orçamento para
+  500.000 rendeu 2 entradas no piloto; o resto precisa do modelo de estado do
+  drive que `docs/re/reios_exec_server.md` descreve.
+* **com corpus (31 entradas / 3.610 bytes).**  Falham por cinco classes
+  nomeadas em `docs/re/coverage_92_translator_gaps.md`: o vetor GD do BIOS do
+  REIOS, escritas de RAM que a captura antiga não guardou (registrada antes do
+  aumento do orçamento de páginas), o laço de descritores de bloco de canto em
+  0x0c0510b6, um `STC VBR` em 0x0c060eba e quatro divergências de registro ou
+  de device.
+
+
+Como conferir o pacote
+-----------------------
+
+O próprio 7-Zip guarda o CRC de cada arquivo, então a integridade do
+conteúdo está no arquivo. `evidence_manifest.json` traz as contagens e o
+`docs/re/` traz o histórico de cada passo. O `tools/oracle/` tem as
+auditorias que geraram cada prova, e elas são reexecutáveis: cada uma lê as
+entradas que pinou por digest e falha se algo mudou.

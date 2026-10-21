@@ -33,6 +33,11 @@ SIDECAR_SIZES = {
     "bank.bin": 68,
 }
 
+# The oracle records up to 1024 RAM pages per specimen (docs/re/oracle_device_reads.md).
+# A corpus row carries the *merged* windows, so the row bound has to admit
+# everything the oracle can legally hand us; 128 silently truncated the pool.
+MAX_WINDOWS = 1024
+
 
 def parse_row(line: str):
     t = line.split()
@@ -40,7 +45,7 @@ def parse_row(line: str):
         raise ValueError(f"short row ({len(t)} tokens)")
     entry = t[74]
     nwin = int(t[75])
-    if nwin <= 0 or nwin > 128:
+    if nwin <= 0 or nwin > MAX_WINDOWS:
         raise ValueError("bad entry window count")
     j = 76
     ebase, elen = [], []
@@ -49,7 +54,7 @@ def parse_row(line: str):
     if j >= len(t):
         raise ValueError("missing exit windows")
     xexit = t[j]; nexit = int(t[j + 1]); j += 2
-    if nexit < 0 or nexit > 128:
+    if nexit < 0 or nexit > MAX_WINDOWS:
         raise ValueError("bad exit window count")
     xbase, xlen = [], []
     for _ in range(nexit):

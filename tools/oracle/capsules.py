@@ -39,7 +39,13 @@ def records(path):
             ndev, = struct.unpack('<I',take(4)) if magic in (b"VF3CAP5\0",b"VF3CAP6\0",b"VF3CAP7\0") else (0,)
             expected_state = {b"VF3CAP3\0":54,b"VF3CAP4\0":55,b"VF3CAP5\0":55,b"VF3CAP6\0":63,b"VF3CAP7\0":63}[magic]
             maximum_ops = 500000 if magic == b"VF3CAP7\0" else 100000
-            if npage > 128 or nop > maximum_ops or ndev > 16384 or nstate != expected_state:
+            # The oracle records up to 1024 RAM pages per specimen (see
+            # docs/re/oracle_device_reads.md); the parser has to admit every
+            # page the oracle can legally hand us, or a wide probe is thrown
+            # away as "invalid record sizes" after the capture already paid
+            # for it.
+            maximum_pages = 1024
+            if npage > maximum_pages or nop > maximum_ops or ndev > 16384 or nstate != expected_state:
                 raise ValueError(f"{path}: invalid record sizes")
             before, after = take(nstate*4), take(nstate*4)
             pages = []

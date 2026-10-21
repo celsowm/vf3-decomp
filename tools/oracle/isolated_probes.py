@@ -37,6 +37,11 @@ def main():
                          'records up to 500,000 instructions per probe, which '
                          'is what a target whose loop count comes from the '
                          'arena spread needs.')
+    ap.add_argument('--observer-controls', type=Path,
+                    default=ROOT / 'tools/oracle/extended_observer_controls_v1.json',
+                    help='proof that pins the recorder used with --emulator; it '
+                         'authorises the recorded instruction bound the sweep may '
+                         'ask for')
     ap.add_argument('--arena-base', type=lambda s: int(s, 16), default=0x0c420000)
     ap.add_argument('--arena-stride', type=lambda s: int(s, 16), default=0x1000,
                     help='distance between the arena pages the seeded registers '
@@ -114,8 +119,7 @@ def main():
                '--probe-ops', str(a.probe_ops)]
         if a.emulator:
             cmd += ['--emulator', str(a.emulator)]
-            cmd += ['--observer-controls',
-                    str(ROOT / 'tools/oracle/extended_observer_controls_v1.json')]
+            cmd += ['--observer-controls', str(a.observer_controls)]
         for state in a.states.split(','):
             cmd += ['--run', f's{state}:tools/emu/flycast-build/data/vf3_{state}.state::{a.frames}']
         with (directory / 'capture.log').open('w') as log:
