@@ -21,6 +21,7 @@ Identical original executable bytes are not the project's goal. Deterministic ga
 | Remaining address union | 34,558 bytes under that denominator | Not an estimate of remaining engineering effort |
 | Ported ledger | 2,239 unique entries; 2,243 ported rows | Four duplicate rows must not inflate progress |
 | Golden bindings | 2,250 bindings, 2,202 marked strict | All golden descriptors restored locally; six corpora lack 5,408 RAM blobs |
+| Local fixture replay | 2,202/2,202 marked-strict PASS; 2,244/2,250 total | Six missing-RAM failures; 14 unmarked passes skip 700 rows |
 | Native tick | Author records 13 captured fight states with exact RAM | The supplied bundle omits all 39 tick input files; not rerun here |
 | Boot experiment | 15 recorded states reach 700 vblanks | Rows also record `ok=0`, `unowned=1`, failed PC `0c0597ca`; not a clean full-boot pass |
 | Native executable | `vf3` loads captured RAM/registers; `vf3boot` requires three captures | No disc-only cold boot |

@@ -99,9 +99,10 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - Coverage: 92.05% verified C (400,098 B of 434,656). The 90% bar
   (391,191 B) and the 92% bar (399,884 B) - the 92% bar is reached on the
   *union* of body ranges, which is the number `tools/final_status.py` prints;
-  `tools/decomp_stats.py` counts 403,920 B because it also credits the
-  SDK-matched bodies; including trace-covered bodies gives 404,084 B.
-  These are scope unions, not end-to-end gameplay validation.
+  `tools/decomp_stats.py` also reports legacy sums: 403,920 B with
+  SDK-matched bodies, or 404,084 B including trace-covered bodies. Those
+  sums retain 958 overlapping ported bytes; use the 400,098 B pure-C union
+  for the C coverage milestone. None measures end-to-end gameplay validation.
   The 80%-91% stretch came from the device-tape
   capture work and from bodies ported through the repo's own adapter
   translator (tools/oracle/translate_adapters.py) into

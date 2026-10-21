@@ -20,6 +20,7 @@ cold boot, continuous runtime, renderer, sound, content and 1:1 acceptance gates
 |---|---|---|
 | Ported C address union | 400,098 / 434,656 bytes (**92.05%**) | Recomputed on 2026-10-21 using the restored frozen inventory; measures ledger ranges, not whole-game equivalence |
 | Ported entries | 2,239 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
+| Local fixture replay | 2,202/2,202 marked-strict bindings pass; 2,244/2,250 total | Six lack RAM; 14 unmarked passes skip 700 rows; see the evidence audit |
 | Native fight tick | 13 captured states reported RAM-exact by the author | All 39 required tick inputs are absent from the supplied bundle; not locally rerun |
 | Boot experiments | 15 recorded states reach the frame budget | Their rows also record an unowned call; the 17 boot input files are still absent |
 | SDL3 host foundation | Window/framebuffer presentation, events, two host pads, clock | Integration into the native game loop, renderer and sound remains open |

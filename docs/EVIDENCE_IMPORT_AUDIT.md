@@ -39,11 +39,27 @@ SHA-256 `37f38dd9a47b785f526157c4a1674ca75322f0de1342f64bbf33c88d128e4b32`.
 The inventory checks file availability and minimum payload sizes. It executes
 no replay and establishes no current coverage percentage or playability claim.
 
-The initial native replay baseline was **2,162/2,250 PASS, 88 not-PASS** in
-`vf3-evidence-bindings.log`. This is a **preliminary, pre-fix baseline**; code
-repairs and a complete rerun are being recorded separately. It is not the final
-validation result, and its denominator counts bindings rather than game states
-or unique functions.
+The initial native replay baseline was **2,162/2,250 PASS, 88 not-PASS**.
+After the repairs below, a complete macOS ARM64 Debug run at clean code commit
+`5c76b249581b73e9d608aaa0fd3c83765ec33ed9` produced **2,244/2,250 PASS**:
+
+| Binding group | PASS | Not-PASS | Interpretation |
+| --- | ---: | ---: | --- |
+| Marked strict | 2,202 | 0 | All selected strict runners returned success |
+| Unmarked | 42 | 6 | Fourteen passes contain the explicitly skipped rows below |
+| Total | 2,244 | 6 | Six failures are the missing-RAM fixtures, all exit code 3 |
+
+The 81 NaN-related failures and the `c6ec4` process abort were eliminated.
+There are no remaining computed mismatches in this supplied binding set, but
+the full command correctly returns nonzero because six fixtures cannot run.
+The local report is `extract/analysis/evidence_import/full_bindings_final_20261021.json`;
+it records the clean Git revision, manifest/runner/binary hashes, command,
+strictness, exit code, duration and bounded raw-output evidence for each binding.
+Counts are bindings, not game states or unique functions. These results do not
+validate absent evidence, oracle generation, cold boot or gameplay.
+
+All 13 local CTest groups passed, including the supplied disc. The strict
+fixture suite is local-only; CI does not have the captured RAM or disc assets.
 
 ## Six unavailable RAM corpora
 
@@ -179,3 +195,13 @@ explicit no-RAM rows.
 
 These repairs do not add coverage credit or close cold boot, rendering, audio,
 or whole-game acceptance. Captures and comparison strictness were unchanged.
+
+## Additional strict check of legacy bindings
+
+A separate run selected all 48 originally unmarked bindings and set
+`VF3_STRICT_REPLAY=1`, without changing their manifest flags or fixtures.
+It returned 28 PASS and 20 not-PASS: the six missing-RAM corpora plus the
+14 fixtures with the 700 explicitly skipped rows listed above. Each of those
+14 matched all of its executed RAM-bearing rows but correctly failed strict
+acceptance because of skips. The local report is
+`extract/analysis/evidence_import/unmarked_forced_strict_20261021.json`.
