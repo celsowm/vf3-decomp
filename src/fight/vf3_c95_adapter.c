@@ -13616,7 +13616,7 @@ r[14]=tmp;
 return vf3_matrix_family(0x0c05e17eu,s,ram);
 P_0c060eba: /* original 0222, guest PC 0x0c060eba */
 if(!s->budget--) { s->failed_pc=0x0c060ebau; return 0; }
-s->failed_pc=0x0c060ebau; return 0;
+r[2]=0x0c00f400u;
 goto P_0c060ebc;
 P_0c060ebc: /* original 901b, guest PC 0x0c060ebc */
 if(!s->budget--) { s->failed_pc=0x0c060ebcu; return 0; }

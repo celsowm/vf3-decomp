@@ -162,11 +162,15 @@ def emit(pc,w):
         if k==0x12: return ['if(!s->gbr_known) goto unsupported;',f'{rn}=s->gbr;']
         if k==0x29: return [f"{rn}=r[17]&1u;"]
         if k==0x22:
-            # STC VBR: the REIOS firmware sets the vector base to the start of
-            # the SH-4 RAM (tools/emu/flycast/core/reios/reios.cpp: ctx.vbr =
-            # 0x0c000000) and the game never changes it, so the register the
-            # instruction produces holds that constant.
-            return [f"{rn}=0x0c000000u;"]
+            # STC VBR: the vector base the game installs for its own trap
+            # handlers.  The REIOS firmware starts it at the SH-4 RAM
+            # (tools/emu/flycast/core/reios/reios.cpp: ctx.vbr = 0x0c000000),
+            # but the game moves it before any recorded specimen runs: the
+            # handler installer at 0x0c060ea6 writes its function pointer to
+            # VBR+0x224, and every recorded specimen shows that word at
+            # 0x0c00f624 - so VBR is 0x0c00f400 in the game (27 cases across
+            # six corpora of 0x8c06371c).
+            return [f"{rn}=0x0c00f400u;"]
         src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17}.get(k)
         if src is not None: return [f"{rn}=r[{src}];"]
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
