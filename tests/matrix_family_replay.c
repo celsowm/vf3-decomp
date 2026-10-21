@@ -32,7 +32,12 @@ static void device_write(void *context,uint32_t address,unsigned size,uint32_t v
 }
 static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
     vf3_matrix_state state;
-    memset(&state,0,sizeof(state)); state.budget=100000;
+    memset(&state,0,sizeof(state));
+    /* The step budget has to cover the reference's own instruction count for
+     * the case: a body with a counted loop (e.g. 0x8c04ba30 copies 50464
+     * bytes) needs far more than 100k steps, and the port spends one step
+     * per emulated instruction just like the oracle does. */
+    state.budget=4000000;
     uint32_t wantxf[16],aux[4];
     memcpy(state.v,c->in,sizeof(c->in));
     /* Sidecars are written one record per .cases row, including rows whose RAM

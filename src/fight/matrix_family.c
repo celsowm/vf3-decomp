@@ -231,6 +231,11 @@ void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsign
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);
     if((addr<0x0c000000u || addr>=0x0d000000u) && ram->device_write) {
+        /* The SH-4 store narrows the value to the access size before the write
+         * reaches the bus (WriteMemU8 takes a u8), and the oracle journals the
+         * narrowed value.  The port has to narrow it the same way or a byte
+         * store of a sign-extended register reads back as 0xffffffxx. */
+        if(size==1) value&=0xffu; else if(size==2) value&=0xffffu;
         ram->device_write(ram->device_context,addr,size,value); return;
     }
     for(unsigned j=0;j<size;++j) {
@@ -685,6 +690,7 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
         /* Ownership is selected before execution; failed calls never retry. */
         if(vf3_c95_adapter_contains(entry)) return vf3_c95_adapter(entry,s,ram);
         if(vf3_c96_adapter_contains(entry)) return vf3_c96_adapter(entry,s,ram);
+        if(vf3_c97_adapter_contains(entry)) return vf3_c97_adapter(entry,s,ram);
         if(vf3_9970a_adapter_contains(entry)) return vf3_9970a_adapter(entry,s,ram);
         if(vf3_09b_adapter_contains(entry)) return vf3_09b_adapter(entry,s,ram);
         if(vf3_0a67_adapter_contains(entry)) return vf3_0a67_adapter(entry,s,ram);

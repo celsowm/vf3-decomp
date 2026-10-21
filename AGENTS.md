@@ -96,17 +96,28 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 92.05% verified C (400,098 B of 434,656). The 90% bar
+- Coverage: 92.43% verified C (401,750 B of 434,656). The 90% bar
   (391,190 B) and the 92% bar (401,084 B) - the 92% bar is reached on the
   *union* of body ranges, which is the number `tools/final_status.py` prints;
-  `tools/decomp_stats.py` counts 403,920 B because it also credits the
+  `tools/decomp_stats.py` counts 405,354 B because it also credits the
   trace-covered bodies.  The 80%-91% stretch came from the device-tape
   capture work and from bodies ported through the repo's own adapter
   translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c96_adapter.c.  Recipe, checks and the
+  src/fight/vf3_c80_adapter.c ... vf3_c97_adapter.c.  Recipe, checks and the
   bodies left out: docs/re/coverage_80_generated_adapters.md,
-  docs/re/coverage_92_translator_gaps.md and docs/re/oracle_device_reads.md.
-  Next bar: 93% = 404,230 B (4,132 B more).
+  docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md and
+  docs/re/oracle_device_reads.md.
+  Next bar: 93% = 404,230 B (2,480 B more).
+- **The replay step budget has to cover the reference's own step count.**
+  The port spends one step per emulated instruction, exactly like the oracle,
+  so a body with a counted loop (0x8c04ba30 copies 50,464 bytes, ~350k steps)
+  cannot finish inside a 100k ceiling.  tests/matrix_family_replay.c now
+  allows 4,000,000 steps per case.
+- **A device store must narrow its value to the access size.**  The SH-4
+  store path takes the value already narrowed (WriteMemU8 -> w8(u8)) and the
+  oracle journals the narrowed value, so `vf3_matrix_write` masks the value
+  before the device hook sees it.  Without it a byte store of a sign-extended
+  register reaches the hook as 0xffffffb0 where the reference had 0x000000b0.
 - **A generated module must claim, not just own.**  The router picks an owner
   by entry PC, and the chain order decides who wins a contested PC.  The
   generator therefore emits two arrays: owned_pcs[] (every PC it implements,
@@ -159,18 +170,20 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   about it, so a faithful REIOS service model is needed - see
   docs/re/reios_exec_server.md); the corner-block descriptor loop at
   0x0c0510b6 (its trip count comes from driver state the corpora do not
-  carry); STC VBR in the helper 0x0c060eba; a device write the reference did
-  not make (0x8c09aa14); an uncaptured write (0x8c0a2a84); one byte of a RAM
-  window (0x8c04340c); and the literal-pool family (0x8c058780/84/88/8c,
-  whose bodies run into a literal pool and execute data in the reference).
-- **The 500,000-instruction probe budget is validated but locked.**
-  tools/oracle/extended_observer_controls_v1.json authorises the separate
-  recorder flycast_capsule_extended_v1.exe to record 500,000 instructions per
-  probe, which is what a spinning probe needs.  The proof pins a reference log
-  (extract/analysis/extended_capsule_tool_tests_v1.log) by digest; that file
-  lived in the gitignored extract/ tree and is gone, so the proof cannot be
-  validated and the budget cannot be used.  Most of the 260 corpus-less
-  entries (33,970 B) are waiting for it.
+  carry); STC VBR in the helper 0x0c060eba; an uncaptured write (0x8c0a2a84);
+  one byte of a RAM window (0x8c04340c); and the literal-pool family
+  (0x8c058780/84/88/8c, whose bodies run into a literal pool and execute data
+  in the reference).  The "a device write the reference did not make"
+  (0x8c09aa14) cause is **retired**: it was the un-narrowed store value.
+- **The 500,000-instruction probe budget is unlocked** (4b09d98).  The v1
+  proof pinned a tool-test log that lived in the gitignored extract/ tree, so
+  tools/oracle/build_extended_observer_v2.py now builds a *v2* recorder from
+  the patched oracle source (device reads + 1024 pages) and
+  tools/oracle/extended_observer_controls_audit_v2.py re-validates it against
+  the 8 original control windows; tools/oracle/extended_observer_controls_v2.json
+  is the new seal.  The v2 sweep of the corpus-less pool captured 8 of the 249
+  entries (1,162 B) - the other 241 spin in the REIOS BIOS polling a device
+  register, which is a service-model problem, not a budget one.
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure
