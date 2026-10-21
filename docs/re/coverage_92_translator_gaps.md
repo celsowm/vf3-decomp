@@ -1,5 +1,7 @@
 # The translator's missing instruction families, and the claim-set rule
 
+Post-merge correction: [the semantics review](translator_semantics_review.md) fixes MAC operand handling and removes the incomplete LDC.L-to-SR support. Instruction-support counts below are historical. Capture/replay results below are the upstream author's recorded results; the corresponding local corpora are unavailable in this checkout and have not been rerun here.
+
 Date: 2026-10-21. Follows `docs/re/coverage_80_generated_adapters.md` (the
 recipe for the generated adapter batches).
 
@@ -47,19 +49,20 @@ The seven families that were missing:
 | `0xcc**` | `TST.B #imm,@(R0,GBR)` | `T = ((u8)mem8[GBR+R0] & imm) == 0` |
 | `0xcd**` | `AND.B #imm,@(R0,GBR)` | `mem8[GBR+R0] &= imm` (read-modify-write) |
 | `0xce**` / `0xcf**` | `XOR.B` / `OR.B` | same shape as `AND.B` |
-| `0x?xxx7` (format 0) | `MAC.L @Rm+,@Rn+` | `mac.full += (s64)rm * (s64)rn`; `Rm`/`Rn` advance by 4 |
-| `0x4xxxF` (format 4) | `MAC.W @Rm+,@Rn+` | same with 16-bit operands, advance by 2 |
-| `0x3?xxF` (format 3) | `ADDV Rm,Rn` | `Rn += Rm`, `T` = signed 32-bit overflow |
-| `0x4x07` (format 4) | `LDC.L @Rn+,SR` | `SR = mem32[Rn] & 0x700083F2` (the emulator's `sr_t::MASK`), `Rn += 4` |
+| `0x0nmF` (format 0) | `MAC.L @Rm+,@Rn+` | `mac.full += (s64)rm * (s64)rn`; `Rm`/`Rn` advance by 4 |
+| `0x4nmF` (format 4) | `MAC.W @Rm+,@Rn+` | same with 16-bit operands, advance by 2 |
+| `0x3nmF` (format 3) | `ADDV Rm,Rn` | `Rn += Rm`, `T` = signed 32-bit overflow |
+| `0x4n07` (format 4) | `LDC.L @Rn+,SR` | Incomplete in this original report; removed after review, see below |
 
 Two details are easy to get wrong and were taken from the emulator rather
 than from the instruction manual:
 
 * `MAC.L` adjusts the **RN** address when `n == m` (`Rn + 4`), `MAC.W`
   adjusts the **RM** address (`Rm + 2`).  The two forms are not symmetric.
-* `LDC.L @Rn+,SR` loads the *masked* SR: the emulator's `sr_t::setFull`
-  keeps only `0x700083F2` (S, IMASK, Q, M, BL/RB/MD and T) and drops the
-  reserved bits, so the C state has to store the same masked value.
+* Correction: the emulator stores T separately from its `0x700083F2` SR
+  mask. This project's combined representation needs the T bit as well
+  (`0x700083F3`), plus register-bank and interrupt effects. A masked
+  assignment alone is insufficient; the incomplete LDC.L decoder was removed.
 
 `TRAPA #imm` and `STC SGR,Rn` stayed unsupported on purpose: a trap raises an
 exception the port cannot reproduce, and `SGR` is a control register the
@@ -113,7 +116,7 @@ every corpus they own and are promoted:
 |---|---|---|
 | `0x8c03746a` | 152 B | the owner's body held 15 `TST.B #imm,@(R0,GBR)` instructions the old translator could not express |
 | `0x8c05e12e` | 24 B | two `AND.B #imm,@(R0,GBR)` instructions |
-| `0x8c0734fe` | 2 B | one `MAC.L @Rm+,@Rn+` |
+| `0x8c0734fe` | 2 B | `STS.L PR,@-R15` at this 2-byte owner; the emitted continuation contains three MAC.L instructions |
 
 The three shadowed golden bindings (`0x8c0483f4`, `0x8c05e146`,
 `0x8c073514`) were re-verified strict-clean after the rewire, and the

@@ -116,7 +116,7 @@ def case_evidence(root: Path, cfg: dict) -> dict:
     sidecar_sizes = {}
     for path in matrix_cases:
         for suffix in (".xfin.bin", ".xfout.bin", ".extra.bin"):
-            sidecar_sizes[str(Path(path).with_suffix(suffix))] = 1
+            sidecar_sizes[Path(path).with_suffix(suffix).as_posix()] = 1
     ram_sizes: dict[str, int] = {}
     errors = []
     parsed_files = 0
@@ -136,14 +136,14 @@ def case_evidence(root: Path, cfg: dict) -> dict:
                     rows += 1
                     for blob, minimum in dependencies:
                         target = path.parent / blob
-                        name = str(target.relative_to(root)) if target.is_relative_to(root) else str(target)
+                        name = target.relative_to(root).as_posix() if target.is_relative_to(root) else target.as_posix()
                         ram_sizes[name] = max(minimum, ram_sizes.get(name, 0))
             parsed_files += 1
             if not rows:
                 errors.append({"path": relative, "line": None, "error": "no parseable RAM cases"})
             if relative in matrix_cases:
                 for suffix, stride in ((".xfin.bin", 64), (".xfout.bin", 64), (".extra.bin", 16)):
-                    sidecar_sizes[str(Path(relative).with_suffix(suffix))] = max(1, rows * stride)
+                    sidecar_sizes[Path(relative).with_suffix(suffix).as_posix()] = max(1, rows * stride)
         except (OSError, UnicodeError) as exc:
             errors.append({"path": relative, "line": None, "error": str(exc)})
     return {"case_files": len(cases), "parsed_files": parsed_files, "parse_errors": errors,
@@ -177,7 +177,7 @@ def inspect(root: Path, config: str | None = None) -> dict:
         try:
             path = resolve_test(command, root, config)
             executables.append({"command": command, "status": "present" if path else "missing",
-                                "resolved": str(path.relative_to(root)) if path and path.is_relative_to(root) else str(path) if path else None})
+                                "resolved": path.relative_to(root).as_posix() if path and path.is_relative_to(root) else path.as_posix() if path else None})
         except ValueError as exc:
             executables.append({"command": command, "status": "ambiguous", "error": str(exc)})
     native_paths = [f"extract/analysis/{pattern.format(n=n)}" for n in NATIVE_STATES
@@ -202,7 +202,7 @@ def inspect(root: Path, config: str | None = None) -> dict:
                      for group in ("matrix_sidecars", "ram_blobs"))
              and all(x["status"] == "present" for x in executables))
     return {
-        "schema_version": 1, "root": str(root), "prerequisites_present": ready,
+        "schema_version": 1, "root": root.as_posix(), "prerequisites_present": ready,
         "checks_executed": False,
         "limits": [
             "File presence does not validate file format, provenance, replay results, or 1:1 behavior.",

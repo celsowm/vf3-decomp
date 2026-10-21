@@ -14355,10 +14355,15 @@ r[17]=(r[17]&~1u)|((r[2]>=r[5])!=0);
 goto P_0c07350a;
 P_0c07350a: /* original 0c0f, guest PC 0x0c07350a */
 if(!s->budget--) { s->failed_pc=0x0c07350au; return 0; }
+if(r[17]&2u) goto unsupported;
+{
+int64_t mac_m=(int64_t)(int32_t)read(ram,r[0],4);
+int64_t mac_n=(int64_t)(int32_t)read(ram,r[12],4);
 wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);
-wide+=(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[0],4)*(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[12]+((r[12]==r[0])?4u:0u),4);
+wide+=(uint64_t)(mac_m*mac_n);
 r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);
 r[12]+=4; r[0]+=4;
+}
 goto P_0c07350c;
 P_0c07350c: /* original 3368, guest PC 0x0c07350c */
 if(!s->budget--) { s->failed_pc=0x0c07350cu; return 0; }
@@ -14366,10 +14371,15 @@ r[3]-=r[6];
 goto P_0c07350e;
 P_0c07350e: /* original 0c0f, guest PC 0x0c07350e */
 if(!s->budget--) { s->failed_pc=0x0c07350eu; return 0; }
+if(r[17]&2u) goto unsupported;
+{
+int64_t mac_m=(int64_t)(int32_t)read(ram,r[0],4);
+int64_t mac_n=(int64_t)(int32_t)read(ram,r[12],4);
 wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);
-wide+=(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[0],4)*(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[12]+((r[12]==r[0])?4u:0u),4);
+wide+=(uint64_t)(mac_m*mac_n);
 r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);
 r[12]+=4; r[0]+=4;
+}
 goto P_0c073510;
 P_0c073510: /* original 33bc, guest PC 0x0c073510 */
 if(!s->budget--) { s->failed_pc=0x0c073510u; return 0; }
@@ -14377,10 +14387,15 @@ r[3]+=r[11];
 goto P_0c073512;
 P_0c073512: /* original 0c0f, guest PC 0x0c073512 */
 if(!s->budget--) { s->failed_pc=0x0c073512u; return 0; }
+if(r[17]&2u) goto unsupported;
+{
+int64_t mac_m=(int64_t)(int32_t)read(ram,r[0],4);
+int64_t mac_n=(int64_t)(int32_t)read(ram,r[12],4);
 wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);
-wide+=(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[0],4)*(uint64_t)(int64_t)(uint32_t)(int32_t)read(ram,r[12]+((r[12]==r[0])?4u:0u),4);
+wide+=(uint64_t)(mac_m*mac_n);
 r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);
 r[12]+=4; r[0]+=4;
+}
 goto P_0c073514;
 P_0c073514: /* original 4f22, guest PC 0x0c073514 */
 if(!s->budget--) { s->failed_pc=0x0c073514u; return 0; }

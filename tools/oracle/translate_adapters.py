@@ -25,24 +25,31 @@ def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
 def mac_lines(size,n,m):
     """MAC.W / MAC.L @Rm+,@Rn+ : mac.full += rm*rn, both pointers advance.
 
-    The SH-4 forms differ in which operand picks up the same-register
-    adjustment: MAC.L reads RN at Rn+4 when n==m, MAC.W reads RM at Rm+2.
+    Match the non-saturating Flycast interpreter oracle. The read order is
+    RN then RM for MAC.W and RM then RN for MAC.L. Only the same encoded
+    register gets the second-read adjustment, not distinct registers whose
+    values happen to match. Keep reads in separate statements for devices.
+    SR.S=1 is unsupported by this oracle and must fail before any effects.
     """
+    if size not in (2,4):
+        raise ValueError(f'unsupported MAC operand size: {size}')
     if size==2:
-        rd=lambda a:f"(uint32_t)(int32_t)(int16_t)read(ram,{a},2)"
-        step,adj='2','2u'
-        rm_addr=f"r[{m}]+((r[{n}]==r[{m}])?{adj}:0u)"
-        rn_addr=f"r[{n}]"
+        reads=[f'int64_t mac_n=(int64_t)(int16_t)read(ram,r[{n}],2);',
+               f'int64_t mac_m=(int64_t)(int16_t)read(ram,r[{m}]'+('+2u' if n==m else '')+',2);']
     else:
-        rd=lambda a:f"(uint32_t)(int32_t)read(ram,{a},4)"
-        step,adj='4','4u'
-        rm_addr=f"r[{m}]"
-        rn_addr=f"r[{n}]+((r[{n}]==r[{m}])?{adj}:0u)"
+        reads=[f'int64_t mac_m=(int64_t)(int32_t)read(ram,r[{m}],4);',
+               f'int64_t mac_n=(int64_t)(int32_t)read(ram,r[{n}]'+('+4u' if n==m else '')+',4);']
     return [
+        'if(r[17]&2u) goto unsupported;',
+        '{',
+        *reads,
         'wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);',
-        f'wide+=(uint64_t)(int64_t){rd(rm_addr)}*(uint64_t)(int64_t){rd(rn_addr)};',
+        # The signed product fits int64_t even for INT32_MIN squared.
+        # Adding its modulo-2^64 representation avoids signed overflow.
+        'wide+=(uint64_t)(mac_m*mac_n);',
         'r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);',
-        f'r[{n}]+={step}; r[{m}]+={step};',
+        f'r[{n}]+={size}; r[{m}]+={size};',
+        '}',
     ]
 
 def write_source(path, content):
@@ -123,7 +130,9 @@ def emit(pc,w):
         if k==0x24: return [f"tmp={rn}>>31; {rn}=({rn}<<1)|(r[17]&1u);",t("tmp")]
         if k==0x25: return [f"tmp={rn}&1u; {rn}=({rn}>>1)|((r[17]&1u)<<31);",t("tmp")]
         if k==0x05: return [t(f'{rn}&1u'),f'{rn}=({rn}>>1)|({rn}<<31);']
-        if (w&0xF00F)==0x4007: return [f"{rn}=read(ram,{rn},4)&0x700083F2u; {rn}+=4;"] # LDC.L @Rn+,SR
+        # LDC.L @Rn+,SR (k==0x07) remains unsupported: an SR load needs
+        # T preservation, effective MD/RB bank changes and IRQ-state updates.
+        # Do not match other LDC.L control registers with a broad F00F mask.
         if low==0xF: return mac_lines(2,n,m) # MAC.W @Rm+,@Rn+
         if k==0x04: return [t(f'{rn}>>31'),f'{rn}=({rn}<<1)|({rn}>>31);']
         dest={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x0E:17}.get(k)

@@ -17,7 +17,7 @@ python3 tools/port_preflight.py
 
 The supplied archive matches all three expected track SHA-1 values and the GDI identity. Extraction produced 412 game files and an exact match for the retail executable SHA-256. The original ZIP was retained. No game data is committed.
 
-The local CTest suite covers six Python groups, SDL input integration, SDL software/dummy presentation and real-disc GD-ROM reads. SDL tests include virtual controllers, active-low mapping, stable hotplug slots and initial/unfocused input neutrality. A visible native-window diagnostic was also run on the Mac. These are host-platform tests, not game rendering tests.
+The local CTest suite covers seven Python groups, SDL input integration, SDL software/dummy presentation, synthetic GD-ROM CLI regressions and real-disc GD-ROM reads. SDL tests include virtual controllers, active-low mapping, stable hotplug slots and initial/unfocused input neutrality. A visible native-window diagnostic was also run on the Mac. These are host-platform tests, not game rendering tests.
 
 The real-disc test transferred 75 sectors over 15 DMA steps and 7 sectors via the BIOS syscall path, with zero byte differences from the sector reader. Two optional saved-state resume checks were explicitly skipped because their dumps are unavailable.
 
@@ -30,3 +30,7 @@ The Python suite checks archive safety/conflicts/identity import, gate exit stat
 The original core has compiler warnings and placeholders documented in `PC_PORT_PLAN.md`; they are not covered up by this milestone. No cold-boot game, native PVR renderer, AICA mixer or completed two-player runtime has been certified. The next acceptance gates are in the completion plan.
 
 Remote platform results are recorded by the `Native build and ROM-free tests` workflow attached to each pushed commit. CI deliberately skips the real-disc test when game assets are absent; that skip does not certify the disc path or gameplay.
+
+The first remote run exposed a tracked GDI descriptor being mistaken for a complete local disc, plus two Windows path-separator assumptions. The gate now checks referenced tracks, skips only missing inputs and still fails on malformed/truncated inputs. Seven executable-level regressions cover those boundaries, explicit missing dump requests and a successful synthetic transfer. JSON paths are normalized to forward slashes across hosts.
+
+The post-merge [translator review](re/translator_semantics_review.md) adds compiled C regression tests for signed MAC arithmetic and rejects incomplete SR-load handling. The entire c95 corpus still needs independent replay; no new byte coverage is claimed.

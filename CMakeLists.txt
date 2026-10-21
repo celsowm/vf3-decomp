@@ -609,13 +609,16 @@ target_link_libraries(vf3vecpush PRIVATE vf3core)
 include(cmake/SDLPlatform.cmake)
 if(BUILD_TESTING)
   find_package(Python3 3.12 COMPONENTS Interpreter REQUIRED)
-  foreach(suite prepare_rom boot_states check_new_bindings port_preflight batch_pipeline capsules)
+  foreach(suite prepare_rom boot_states check_new_bindings port_preflight batch_pipeline capsules translator_semantics)
     add_test(NAME python_${suite}
       COMMAND ${Python3_EXECUTABLE} -m unittest discover
               -s ${CMAKE_CURRENT_SOURCE_DIR}/tests -p test_${suite}.py)
     set_tests_properties(python_${suite} PROPERTIES
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
   endforeach()
+  add_test(NAME gdrom_cli
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/gdrom_cli_test.py
+            $<TARGET_FILE:vf3gdrom>)
   add_test(NAME gdrom_disc
     COMMAND vf3gdrom ${CMAKE_CURRENT_SOURCE_DIR}/rom/vf3.gdi)
   set_tests_properties(gdrom_disc PROPERTIES

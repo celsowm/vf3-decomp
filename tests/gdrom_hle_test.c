@@ -1,4 +1,5 @@
-/* gdrom_hle_test.c - exercise sys/gdrom_hle on the real disc image (rom/vf3.gdi, never committed).
+/* gdrom_hle_test.c - exercise sys/gdrom_hle on a local disc image.
+ * The GDI descriptor is tracked; its referenced track files are not.
  *
  *   vf3gdrom [gdi] [gd_state dump]
  *
@@ -10,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #include "sys/bios_syscall.h"
 #include "sys/gdrom_hle.h"
@@ -160,16 +162,79 @@ static void syscall_cycle(const vf3_gdi *gdi)
     free(ram);
 }
 
+/* Opening a GDI only parses its text; it does not open any track file.
+ * Missing optional local assets skip the disc test, while malformed inputs
+ * and unreadable/truncated files remain failures. Cryptographic disc identity
+ * is checked by prepare_rom.py, not by this transfer-model regression. */
+static int open_test_disc(vf3_gdi *gdi, const char *path)
+{
+    FILE *descriptor = fopen(path, "r");
+    if (!descriptor) {
+        if (errno == ENOENT) {
+            fprintf(stderr, "missing disc descriptor %s - SKIP (77)\n", path);
+            return 77;
+        }
+        fprintf(stderr, "cannot read disc descriptor %s: %s\n", path, strerror(errno));
+        return 1;
+    }
+    int declared = 0;
+    int valid_header = fscanf(descriptor, "%d", &declared) == 1 && declared > 0 && declared <= 16;
+    fclose(descriptor);
+    if (!valid_header || vf3_gdi_open(gdi, path) != 0 || gdi->ntracks != declared) {
+        fprintf(stderr, "invalid disc descriptor %s\n", path);
+        return 1;
+    }
+    int missing = 0;
+    for (int i = 0; i < gdi->ntracks; ++i) {
+        const vf3_gdi_track *track = &gdi->track[i];
+        if ((track->sector_size != 2048 && track->sector_size != 2352) ||
+            (track->ctrl != 0 && track->ctrl != 4) ||
+            (i && track->start_fad <= gdi->track[i - 1].start_fad)) {
+            fprintf(stderr, "invalid track metadata in %s (track %d)\n", path, i + 1);
+            return 1;
+        }
+        FILE *file = fopen(track->path, "rb");
+        if (!file) {
+            if (errno == ENOENT) {
+                fprintf(stderr, "missing track %s\n", track->path);
+                missing = 1;
+                continue;
+            }
+            fprintf(stderr, "cannot read track %s: %s\n", track->path, strerror(errno));
+            return 1;
+        }
+        const uint64_t offset = (uint64_t)track->file_offset + (track->sector_size == 2352 ? 16u : 0u);
+        uint8_t first[VF3_GD_SECTOR];
+#ifdef _WIN32
+        int positioned = _fseeki64(file, (long long)offset, SEEK_SET) == 0;
+#else
+        int positioned = fseeko(file, (off_t)offset, SEEK_SET) == 0;
+#endif
+        int readable = positioned && fread(first, 1, sizeof first, file) == sizeof first;
+        fclose(file);
+        if (!readable) {
+            fprintf(stderr, "invalid or truncated track %s\n", track->path);
+            return 1;
+        }
+    }
+    if (missing) {
+        fprintf(stderr, "required local track files absent - SKIP (77)\n");
+        return 77;
+    }
+    return 0;
+}
+
 int main(int argc, char **argv)
 {
     const char *gdi_path = argc > 1 ? argv[1] : "rom/vf3.gdi";
     vf3_gdi gdi;
-    if (vf3_gdi_open(&gdi, gdi_path) != 0) { fprintf(stderr, "cannot open %s - SKIP (77)\n", gdi_path); return 77; }
     if (argc > 2) {
         FILE *dump = fopen(argv[2], "rb");
         if (!dump) { fprintf(stderr, "cannot open requested state %s\n", argv[2]); return 2; }
         fclose(dump);
     }
+    int disc_status = open_test_disc(&gdi, gdi_path);
+    if (disc_status) return disc_status;
     full_cycle(&gdi);
     syscall_cycle(&gdi);
     resume_from_dump(&gdi, argc > 2 ? argv[2] : "extract/analysis/gd_state/vf3_24.txt");

@@ -121,7 +121,7 @@ class Capsules(unittest.TestCase):
         again=capsules.convert([source],out)
         self.assertEqual(again['quarantined_artifacts'],[])
         self.assertEqual(again['nondeterministic_entries'],['0x8c03c4f0'])
-        self.assertEqual({str(p.relative_to(out)):p.read_bytes()
+        self.assertEqual({p.relative_to(out).as_posix():p.read_bytes()
                           for p in (out/'quarantine').rglob('*.quarantined')},archived)
         for name in generated: self.assertFalse((out/name).exists())
 

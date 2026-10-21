@@ -73,6 +73,8 @@ class PreflightTests(unittest.TestCase):
         with mock.patch.object(preflight, "RETAIL_SHA256", hashlib.sha256(data).hexdigest()):
             result = preflight.inspect(self.root)
         self.assertTrue(result["prerequisites_present"])
+        self.assertEqual(result["root"], self.root.resolve().as_posix())
+        self.assertTrue(all("\\" not in item["resolved"] for item in result["test_executables"]))
         self.assertFalse(result["checks_executed"])
         self.assertEqual(result["bindings"]["golden_files"]["bindings_with_present_file"], 2)
         self.assertNotIn("coverage_percent", result)
@@ -84,6 +86,10 @@ class PreflightTests(unittest.TestCase):
         evidence = preflight.inspect(self.root)["bindings"]["case_evidence"]
         self.assertEqual(evidence["matrix_sidecars"]["required"], 3)
         self.assertEqual(evidence["matrix_sidecars"]["present"], 0)
+        self.assertEqual(evidence["matrix_sidecars"]["missing"], [
+            "extract/analysis/shared.extra.bin", "extract/analysis/shared.xfin.bin",
+            "extract/analysis/shared.xfout.bin",
+        ])
         self.assertEqual(evidence["ram_blobs"]["required"], 0)  # absent case contents are not guessed
 
         self.write("extract/analysis/shared.cases", self.case_line())
@@ -93,8 +99,10 @@ class PreflightTests(unittest.TestCase):
         self.write("extract/analysis/entry.bin", b"12")
         evidence = preflight.inspect(self.root)["bindings"]["case_evidence"]
         self.assertEqual(evidence["matrix_sidecars"]["short"][0]["minimum_bytes"], 16)
+        self.assertEqual(evidence["matrix_sidecars"]["short"][0]["path"], "extract/analysis/shared.extra.bin")
         self.assertEqual(evidence["ram_blobs"]["required"], 2)
         self.assertEqual(evidence["ram_blobs"]["short"][0]["minimum_bytes"], 4)
+        self.assertEqual(evidence["ram_blobs"]["short"][0]["path"], "extract/analysis/entry.bin")
         self.assertEqual(evidence["ram_blobs"]["missing"], ["extract/analysis/exit.bin"])
 
     def test_malformed_cases_report_parse_error_and_not_ready(self):

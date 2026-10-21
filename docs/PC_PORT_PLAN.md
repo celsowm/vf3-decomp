@@ -64,7 +64,7 @@ Exit: reference results reproduce from a clean checkout plus the documented loca
 
 Extract reusable state ownership from `native_tick.c` / `boot_sim.c`: RAM, registers, banked FPU state, VRAM, device state, scheduling and lifecycle. Preserve snapshot runners as regression tools. Implement an explicit cold-boot path from disc with specified reset/BIOS state rather than captured fight RAM. Resolve the REIOS/GD loader state around `0x8C001006` and `0x0C2A7344` from captured evidence.
 
-Implement and validate timers, ASIC/vblank scheduling, DMA, GD command completion, Maple polling, callbacks and shutdown. Replace polling-count shortcuts and temporary synthetic return markers on production paths with validated service behavior. Log unknown hardware accesses and unowned calls as errors.
+Implement and validate timers, ASIC/vblank scheduling, DMA, GD command completion, Maple polling, callbacks and shutdown. Audit SR-load register banking and interrupt effects, including the older direct `LDC Rn,SR` emitter (see `docs/re/translator_semantics_review.md`). Replace polling-count shortcuts and temporary synthetic return markers on production paths with validated service behavior. Log unknown hardware accesses and unowned calls as errors.
 
 Wire the SDL host to the continuous loop. Capture input at the original emulated sampling boundary; host frame rate must not alter simulation. Complete two Maple ports before claiming two-player support. Keep reproducible input playback and RNG initialization available headlessly.
 
