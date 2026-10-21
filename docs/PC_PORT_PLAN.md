@@ -1,6 +1,6 @@
 # VF3tb: completion and native SDL PC port plan
 
-Baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Work continues directly on `main` at the user's request; the default branch has not been renamed. Primary release targets are Windows x86-64 and Linux x86-64; macOS is a development/test target. These platform priorities are an explicit working assumption, pending the user's preference.
+Initial baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Integrated the maintainer's concurrent `c4c9de3` update before publication; counts below reflect that revision. Work continues directly on `main` at the user's request; the default branch has not been renamed. Primary release targets are Windows x86-64 and Linux x86-64; macOS is a development/test target. These platform priorities are an explicit working assumption, pending the user's preference.
 
 ## Outcome and acceptance contract
 
@@ -17,10 +17,10 @@ Identical original executable bytes are not the project's goal. Deterministic ga
 
 | Item | Evidence at baseline | Qualification |
 |---|---|---|
-| Ported address union | 396,652 / 434,656 bytes = 91.26%, `docs/coverage.md` | Historical recorded result; missing inventory prevents local recomputation |
-| Remaining address union | 38,004 bytes under that denominator | Not an estimate of remaining engineering effort |
-| Ported ledger | 2,217 unique entries; 2,221 ported rows | Four duplicate rows must not inflate progress |
-| Golden bindings | 2,228 bindings, 2,180 marked strict | All referenced golden files absent in a fresh clone |
+| Ported address union | 396,830 / 434,656 bytes = 91.30%, `docs/coverage.md` | Historical recorded result; missing inventory prevents local recomputation |
+| Remaining address union | 37,826 bytes under that denominator | Not an estimate of remaining engineering effort |
+| Ported ledger | 2,220 unique entries; 2,224 ported rows | Four duplicate rows must not inflate progress |
+| Golden bindings | 2,231 bindings, 2,183 marked strict | All referenced golden files absent in a fresh clone |
 | Native tick | Author records 13 captured fight states with exact RAM | Captured states are unavailable locally; not rerun here |
 | Boot experiment | 15 recorded states reach 700 vblanks | Rows also record `ok=0`, `unowned=1`, failed PC `0c0597ca`; not a clean full-boot pass |
 | Native executable | `vf3` loads captured RAM/registers; `vf3boot` requires three captures | No disc-only cold boot |

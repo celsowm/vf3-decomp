@@ -1,6 +1,6 @@
 # VF3tb decomp
 
-![recorded C coverage](https://img.shields.io/badge/recorded%20C%20coverage-91.26%25-blue)
+![recorded C coverage](https://img.shields.io/badge/recorded%20C%20coverage-91.30%25-blue)
 ![native port](https://img.shields.io/badge/native%20PC%20port-in%20development-orange)
 ![language](https://img.shields.io/badge/language-C99-informational)
 
@@ -18,8 +18,8 @@ cold boot, continuous runtime, renderer, sound, content and 1:1 acceptance gates
 
 | Metric | Recorded state | Qualification |
 |---|---|---|
-| Verified C address union | 396,652 / 434,656 bytes (**91.26%**) | Historical `docs/coverage.md`; frozen inventory and replay corpora must be supplied to reproduce it |
-| Ported entries | 2,217 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
+| Verified C address union | 396,830 / 434,656 bytes (**91.30%**) | Historical `docs/coverage.md`; frozen inventory and replay corpora must be supplied to reproduce it |
+| Ported entries | 2,220 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
 | Native fight tick | 13 captured states reported RAM-exact by the author | Local captures are required; not a disc-only game |
 | Boot experiments | 15 recorded states reach the frame budget | Their rows also record an unowned call; not a clean full-boot pass |
 | SDL3 host foundation | Window/framebuffer presentation, events, two host pads, clock | Integration into the native game loop, renderer and sound remains open |
