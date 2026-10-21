@@ -96,14 +96,39 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 91.26% verified C (396,652 B of 434,656). The 90% bar
-  (391,190 B) is cleared with 5,462 B of margin. The 80%, 81%, 82% and 83%
-  bars were crossed by *new* C ported through the repo's own adapter
+- Coverage: 92.05% verified C (400,098 B of 434,656). The 90% bar
+  (391,190 B) and the 92% bar (401,084 B) - the 92% bar is reached on the
+  *union* of body ranges, which is the number `tools/final_status.py` prints;
+  `tools/decomp_stats.py` counts 403,920 B because it also credits the
+  trace-covered bodies.  The 80%-91% stretch came from the device-tape
+  capture work and from bodies ported through the repo's own adapter
   translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c93_adapter.c; the 84%-90% stretch
-  came from the device-tape capture work below.  Recipe, checks and the
-  bodies left out: docs/re/coverage_80_generated_adapters.md and
-  docs/re/oracle_device_reads.md.  Next bar: 92% = 401,084 B (4,432 B more).
+  src/fight/vf3_c80_adapter.c ... vf3_c96_adapter.c.  Recipe, checks and the
+  bodies left out: docs/re/coverage_80_generated_adapters.md,
+  docs/re/coverage_92_translator_gaps.md and docs/re/oracle_device_reads.md.
+  Next bar: 93% = 404,230 B (4,132 B more).
+- **A generated module must claim, not just own.**  The router picks an owner
+  by entry PC, and the chain order decides who wins a contested PC.  The
+  generator therefore emits two arrays: owned_pcs[] (every PC it implements,
+  for the coverage audit) and claim_pcs[] (the PCs it may route: the ones no
+  other module owns, plus its own roots).  Without the second array a module
+  placed early in the chain takes over entries it only implements partially.
+- **The REIOS BIOS vectors are the loader's door.**  0x8C001000 system,
+  0x8C001002 font, 0x8C001004 flashrom, 0x8C001006 gdrom, 0x8C001008 misc.
+  A missing vector is not a small gap: the legacy adapter used to escalate
+  the whole 0x0c0010xx family to the router, which handed it straight back,
+  and the call recursed until the C stack overflowed.  Escalate only the
+  vectors the stub owns, and mask the target (a caller may hold it in the
+  0x8c form).
+- **The oracle's RAM page budget was 128 pages (512 KiB) and the arena
+  fixture alone used all of it.**  The budget is a memory limit, not a
+  semantic one; `docs/re/patches/oracle_device_reads.patch` now raises it to
+  1024 pages, and the corpora recorded after that carry every page the
+  target touched.  A corpus recorded before the raise can be *truncated* -
+  the port then reads a dropped page as zero and the harness's
+  out-of-window counter rejects a correct port.  Promotion may drop such a
+  corpus only when another corpus of the same entry replays clean
+  (extract/analysis/u99_filter_truncated.py).
 - **Coverage is a body-range union, not a ledger sum.**  tools/decomp_stats.py
   merges the body ranges of every ported ledger entry, so promoting an entry
   whose body is nested inside another ported entry adds zero bytes.  Use
@@ -125,12 +150,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the static inference could not classify with a RAM arena pointer) and now
   passes --probe-ops through to tools/golden_batch.py instead of leaving
   every probe on the 20,000-instruction default budget.
-- Still unpromoted, by cause: the REIOS/BIOS vector at 0x8C001006 (the GD
-  loader stubs write a BIOS-internal state block at 0x0C2A7344, so a faithful
-  REIOS service model is needed - see docs/re/reios_exec_server.md); a null
-  dispatch that reads the null page (needs the device tape, which the
-  pre-patch corpora do not carry); and two unmodelled leaf helpers
-  (0x0C0635EC, 0x0C055578).
+- Still unpromoted, by cause: the drive state behind the GD vector (the
+  loader polls GET_CMD_STAT until the transfer completes, and the size it
+  reports is the byte count the drive has moved - two corpora of the same
+  entry can disagree about it, so a faithful REIOS service model is needed -
+  see docs/re/reios_exec_server.md); the corner-block descriptor loop at
+  0x0c0510b6 (its trip count comes from driver state the corpora do not
+  carry); STC VBR in the helper 0x0c060eba; a device write the reference did
+  not make (0x8c09aa14); an uncaptured write (0x8c0a2a84); one byte of a RAM
+  window (0x8c04340c); and the literal-pool family (0x8c058780/84/88/8c,
+  whose bodies run into a literal pool and execute data in the reference).
 - Fight dispatcher: switch-table hypothesis FALSIFIED 2026-09-19
   (docs/re/dispatcher_falsify.md); the true chain is the scene-0x0A predicate
   + walker (docs/re/fight_dispatch_chain.md). Probe-mode infrastructure

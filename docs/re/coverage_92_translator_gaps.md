@@ -242,3 +242,56 @@ So the cluster (10 entries, 742 B) needs the corpus to carry the GD state per
 case.  That is the concrete remainder of the design project scoped in
 `docs/re/reios_exec_server.md`.
 
+## 8. The REIOS vectors that were missing from the stub
+
+The cluster above is not one problem but four, and three of them were the
+stub's own gaps.  The BIOS exposes five syscall vectors
+(reios/reios.cpp: `setup_syscall(0x8C001000, ...)` and friends):
+
+| vector | service | stub before | stub now |
+|---|---|---|---|
+| 0x8C001000 | system (SYSINFO) | r7 = 0/2/3 only | any r7: an unknown command answers -1 |
+| 0x8C001002 | font (FONTROM) | **missing** | r1 = 0/1/2 |
+| 0x8C001004 | flashrom | present | present |
+| 0x8C001006 | gdrom | r7 = 2..13 | r7 = 0..13 |
+| 0x8C001008 | misc | **missing** | still missing (needs the hardware) |
+
+The missing font vector was not a small gap: the legacy adapter escalated the
+whole 0x0c0010xx family to the router, and the router handed the vector
+straight back to the legacy adapter, so a call into the font vector recursed
+until the C stack overflowed (exit code 0xC00000FD).  The escalation now names
+the four vectors the stub owns, and masks the target first - a caller may hold
+the address in the 0x8c form, and the comparison has to see both forms.
+
+The GD vector needed three more commands:
+
+* `GET_CMD_STAT` (r7 = 1) writes the four extended-status words to `*r5` and
+  then answers with the status; an idle drive answers `GDC_OK` with a cleared
+  quad (`reios/gdrom_hle.cpp`, `GDROM_GET_CMD_STAT`).
+* `REQ_CMD` (r7 = 0) is refused with `r0 = 0` when the drive is not idle
+  (`if (gd_hle_state.status != GDC_OK) r[0] = 0;`).  The drive the corpora
+  recorded holds a transfer, so the request is refused.  This one command
+  unblocked 13 entries.
+* the system vector answers an unknown command with -1 and carries on
+  (`reios_sys_system`, the default case), instead of aborting the caller.
+
+With those in place 24 of the 34 re-captured corpora replay clean, and the
+entries that still fail do so for reasons the stub cannot reach:
+
+| wall | entries | bytes |
+|---|---|---|
+| the drive's transfer size (`result[2]`, e.g. 0x20800) | 0x8c035518, 0x8c0432e2 | 338 B |
+| the corner-block descriptor loop (0x0c0510b6) | 4 | 300 B |
+| `STC VBR` in the helper 0x0c060eba | 1 | 80 B |
+| a device write the reference did not make | 0x8c09aa14 | 336 B |
+| an uncaptured write | 0x8c0a2a84 | 248 B |
+| one byte of a RAM window | 0x8c04340c | 14 B |
+
+The size case is the one that needs the per-case drive state: the loader polls
+`GET_CMD_STAT` until the transfer completes, and the size it then reports is
+the byte count the drive has moved so far.  Two corpora of the same entry can
+disagree about it (the transfer was at a different point when they were
+recorded), and no single static answer satisfies both - the same
+mixed-capture-convention wall the ledger already records.
+
+
