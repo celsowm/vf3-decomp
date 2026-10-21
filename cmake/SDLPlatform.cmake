@@ -1,0 +1,27 @@
+# Optional host layer. No game data or emulator is fetched by this module.
+option(VF3_BUILD_SDL3 "Build the SDL3 platform library and host diagnostic" OFF)
+if(NOT VF3_BUILD_SDL3)
+  return()
+endif()
+find_package(SDL3 3.2 CONFIG REQUIRED)
+get_filename_component(VF3_PLATFORM_ROOT "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)
+add_library(vf3platform STATIC
+  "${VF3_PLATFORM_ROOT}/src/platform/input.c"
+  "${VF3_PLATFORM_ROOT}/src/platform/sdl_platform.c")
+target_include_directories(vf3platform PUBLIC "${VF3_PLATFORM_ROOT}/src")
+target_compile_features(vf3platform PUBLIC c_std_99)
+target_link_libraries(vf3platform PUBLIC SDL3::SDL3)
+if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(vf3platform PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+add_executable(vf3platform-smoke "${VF3_PLATFORM_ROOT}/src/platform/platform_smoke.c")
+target_link_libraries(vf3platform-smoke PRIVATE vf3platform)
+include(CTest)
+if(BUILD_TESTING)
+  add_executable(vf3platform-test "${VF3_PLATFORM_ROOT}/tests/platform_input_test.c")
+  target_link_libraries(vf3platform-test PRIVATE vf3platform)
+  add_test(NAME platform_input COMMAND vf3platform-test)
+  add_test(NAME platform_smoke COMMAND vf3platform-smoke --frames 3 --hidden)
+  set_tests_properties(platform_input platform_smoke PROPERTIES
+    ENVIRONMENT "SDL_VIDEODRIVER=dummy;SDL_RENDER_DRIVER=software" TIMEOUT 15)
+endif()

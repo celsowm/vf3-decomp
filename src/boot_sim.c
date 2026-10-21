@@ -409,7 +409,7 @@ int main(int argc, char **argv)
                 after.regs[16] = 0xDEAD0000u;
             }
             printf("%u time slices of %u steps\n", slices, slice_steps);
-            printf("after the wait: ok %d, pc %08x, failed %08x, unowned %u (first %08x), %u BIOS calls, %u vblanks\n", r.ok, (unsigned)r.pc, (unsigned)r.failed_pc, r.unowned_calls, (unsigned)r.first_unowned, r.bios_calls, clk.taken);
+            printf("after the wait: ok %d, pc %08x, failed %08x, unowned %u (first %08x), %u BIOS calls, %u vblanks, oob %u\n", r.ok, (unsigned)r.pc, (unsigned)r.failed_pc, r.unowned_calls, (unsigned)r.first_unowned, r.bios_calls, clk.taken, r.oob);
         }
         printf("ran %u wait-loop iterations over %u vblanks (%llu cycles)\n", iters, clk.taken, (unsigned long long)clk.now);
         if (gdi_path) printf("GD model: status %d, %u sectors left, cur %08x\n", (int)gd.st.status, (unsigned)gd.st.multi_read_count, (unsigned)gd.st.cur_sector);

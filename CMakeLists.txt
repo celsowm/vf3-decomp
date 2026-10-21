@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project(vf3decomp C)
 
+include(CTest)
+
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
@@ -399,6 +401,9 @@ add_library(vf3core STATIC
     src/render/dl.c
 )
 target_include_directories(vf3core PUBLIC src)
+if(UNIX)
+  target_link_libraries(vf3core PUBLIC m)
+endif()
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
   set_source_files_properties(src/fight/sh4_fpu.c PROPERTIES
       COMPILE_OPTIONS "-frounding-math;-ffp-contract=off")
@@ -597,3 +602,20 @@ add_port_test(vf3g782ea tests/g782ea_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)
+
+# Standalone host diagnostics; no game assets are bundled or downloaded.
+include(cmake/SDLPlatform.cmake)
+if(BUILD_TESTING)
+  find_package(Python3 3.12 COMPONENTS Interpreter REQUIRED)
+  foreach(suite prepare_rom boot_states check_new_bindings port_preflight batch_pipeline capsules)
+    add_test(NAME python_${suite}
+      COMMAND ${Python3_EXECUTABLE} -m unittest discover
+              -s ${CMAKE_CURRENT_SOURCE_DIR}/tests -p test_${suite}.py)
+    set_tests_properties(python_${suite} PROPERTIES
+      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+  endforeach()
+  add_test(NAME gdrom_disc
+    COMMAND vf3gdrom ${CMAKE_CURRENT_SOURCE_DIR}/rom/vf3.gdi)
+  set_tests_properties(gdrom_disc PROPERTIES
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} SKIP_RETURN_CODE 77)
+endif()

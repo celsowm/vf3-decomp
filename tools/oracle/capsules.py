@@ -1,18 +1,55 @@
 #!/usr/bin/env python3
 """Convert invocation-addressed VF3CAP3/4/5/6/7 specimens into compatible .cases.
 
-The fingerprint includes registers, XF, FPUL, initial RAM and device reads. Repeated inputs
-with different exits are errors, never silently deduplicated. Invalid samples
-are retained in the manifest but excluded from replay. All reads are bounded.
+The fingerprint includes registers, XF, FPUL, initial RAM and device reads.
+Repeated inputs with different exits quarantine the entire entry, including
+older generated fixtures in a reused output directory. Invalid samples are
+retained in the manifest but excluded from replay. All reads are bounded.
 """
 import argparse
 from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path
+import re
 import struct
+import tempfile
 
 PAGE = 4096
+
+def quarantine_existing(out, entries):
+    """Retire only this converter's exact generated filenames for bad entries.
+
+    Preserve old bytes for diagnosis, but append .quarantined so recursive
+    *.cases / *.ops.json / *.bin discovery cannot consume them. A unique batch
+    directory prevents a later run from replacing an earlier quarantine.
+    """
+    moved = []
+    for entry in sorted(entries):
+        stem = f"f_{entry:08x}"
+        generated = re.compile(
+            re.escape(stem) + r"(?:\.(?:cases|ops\.json|"
+            r"(?:xfin|xfout|extra|gbr|bank|dev)\.bin)|_[0-9]+\.(?:in|out)\.bin)\Z")
+        paths = [path for path in out.iterdir() if generated.fullmatch(path.name)]
+        if not paths:
+            continue
+        for path in paths:
+            if not path.is_file() and not path.is_symlink():
+                raise ValueError(f"Cannot quarantine non-file generated artifact: {path}")
+        quarantine = out / "quarantine"
+        if quarantine.is_symlink():
+            raise ValueError(f"Refusing symlink quarantine directory: {quarantine}")
+        quarantine.mkdir(exist_ok=True)
+        batch = Path(tempfile.mkdtemp(prefix=stem + "-", dir=quarantine))
+        # Retire discovery entry points first. Any I/O failure propagates and
+        # aborts conversion instead of reporting a successful usable corpus.
+        paths.sort(key=lambda p: (not p.name.endswith((".cases", ".ops.json")), p.name))
+        for path in paths:
+            destination = batch / (path.name + ".quarantined")
+            path.rename(destination)
+            moved.append({"entry": hex(entry), "original": path.name,
+                          "preserved": destination.relative_to(out).as_posix()})
+    return moved
 
 def records(path):
     with Path(path).open("rb") as f:
@@ -112,8 +149,11 @@ def convert(paths, out, entries=None, clean_only=False):
                       f"unaccounted at shutdown")
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
+    quarantined_artifacts = quarantine_existing(out, nondeterministic)
     manifest = {"format":"VF3CAP6 (CAP3/4/5 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
-                "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)], "entries":{}}
+                "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)],
+                "quarantine_directory":"quarantine", "quarantined_artifacts":quarantined_artifacts,
+                "entries":{}}
     if entries is not None: manifest['selected_entries']=[hex(e) for e in sorted(entries)]
     for entry, bucket in sorted(grouped.items()):
         stem = f"f_{entry:08x}"

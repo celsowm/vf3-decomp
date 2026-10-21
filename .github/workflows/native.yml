@@ -1,0 +1,107 @@
+name: Native build and ROM-free tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    name: ${{ matrix.os }} / Clang / SDL 3.2.10
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            shell: bash
+          - os: macos-latest
+            shell: bash
+          - os: windows-latest
+            shell: msys2 {0}
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+    env:
+      CC: clang
+      CXX: clang++
+      SDL_VIDEODRIVER: dummy
+      SDL_RENDER_DRIVER: software
+      SDL_AUDIODRIVER: dummy
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        if: runner.os != 'Windows'
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      # CLANG64 supplies a GNU-compatible Clang toolchain, C runtime and Python.
+      # The core uses GNU/Clang builtins; this job does not claim MSVC support.
+      - name: Set up Windows Clang toolchain
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@ec48f7c5447b3140e2b088413ae3a55687bccb6e # v2
+        with:
+          msystem: CLANG64
+          update: true
+          install: >-
+            mingw-w64-clang-x86_64-clang
+            mingw-w64-clang-x86_64-cmake
+            mingw-w64-clang-x86_64-ninja
+            mingw-w64-clang-x86_64-python
+
+      - name: Check out official SDL source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: libsdl-org/SDL
+          ref: 877399b2b2cf21e67554ed9046410f268ce1d1b2 # release-3.2.10
+          path: .ci-sdl-source
+          persist-credentials: false
+
+      - name: Build local static SDL
+        run: |
+          prefix="$PWD/.ci-sdl"
+          if [ "$RUNNER_OS" = Windows ]; then
+            prefix="$(cygpath -m "$prefix")"
+          fi
+          extra=()
+          if [ "$RUNNER_OS" = Linux ]; then
+            # This CI exercises SDL's dummy/software path without a display
+            # server. Hardware presentation is a separate acceptance gate.
+            extra+=(-DSDL_X11=OFF -DSDL_WAYLAND=OFF -DSDL_UNIX_CONSOLE_BUILD=ON)
+          fi
+          cmake -S .ci-sdl-source -B .ci-sdl-build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX="$prefix" \
+            -DSDL_SHARED=OFF -DSDL_STATIC=ON -DSDL_TEST_LIBRARY=OFF \
+            -DSDL_TESTS=OFF -DSDL_EXAMPLES=OFF "${extra[@]}"
+          cmake --build .ci-sdl-build --parallel 3
+          cmake --install .ci-sdl-build
+
+      - name: Configure native targets
+        run: |
+          prefix="$PWD/.ci-sdl"
+          if [ "$RUNNER_OS" = Windows ]; then
+            prefix="$(cygpath -m "$prefix")"
+          fi
+          cmake -S . -B build -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH="$prefix" \
+            -DBUILD_TESTING=ON -DVF3_BUILD_SDL3=ON
+
+      - name: Build core and SDL diagnostics
+        run: |
+          cmake --build build --parallel 3 --target \
+            vf3 vf3boot vf3gdrom vf3platform-smoke vf3platform-test
+
+      # The GD-ROM test explicitly skips with code 77 when the user's disc is
+      # absent. No ROM, capture corpus, game asset, or build artifact is uploaded.
+      - name: Run ROM-free tests
+        run: ctest --test-dir build --output-on-failure --no-tests=error

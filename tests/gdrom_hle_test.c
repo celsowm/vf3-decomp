@@ -14,7 +14,7 @@
 #include "sys/bios_syscall.h"
 #include "sys/gdrom_hle.h"
 
-static int failures;
+static int failures, skipped;
 #define CHECK(c, ...) do { if (!(c)) { ++failures; printf("FAIL %s:%d: ", __FILE__, __LINE__); printf(__VA_ARGS__); printf("\n"); } } while (0)
 
 typedef struct { uint8_t *mem; uint32_t base, len; } sink;
@@ -64,7 +64,7 @@ static int full_cycle(const vf3_gdi *gdi)
 static int resume_from_dump(const vf3_gdi *gdi, const char *path)
 {
     FILE *f = fopen(path, "r");
-    if (!f) { printf("no dump %s - skipped\n", path); return 0; }
+    if (!f) { printf("no dump %s - skipped\n", path); ++skipped; return 0; }
     vf3_gd_state st;
     memset(&st, 0, sizeof st);
     char name[64];
@@ -83,6 +83,7 @@ static int resume_from_dump(const vf3_gdi *gdi, const char *path)
     }
     fclose(f);
     if (st.status != VF3_GDC_BUSY || st.command != VF3_GDCC_DMAREAD || !st.multi_read_count) {
+        ++skipped;
         printf("dump %s is not a mid-transfer state - skipped\n", path);
         return 0;
     }
@@ -163,11 +164,16 @@ int main(int argc, char **argv)
 {
     const char *gdi_path = argc > 1 ? argv[1] : "rom/vf3.gdi";
     vf3_gdi gdi;
-    if (vf3_gdi_open(&gdi, gdi_path) != 0) { printf("cannot open %s - skipped\n", gdi_path); return 0; }
+    if (vf3_gdi_open(&gdi, gdi_path) != 0) { fprintf(stderr, "cannot open %s - SKIP (77)\n", gdi_path); return 77; }
+    if (argc > 2) {
+        FILE *dump = fopen(argv[2], "rb");
+        if (!dump) { fprintf(stderr, "cannot open requested state %s\n", argv[2]); return 2; }
+        fclose(dump);
+    }
     full_cycle(&gdi);
     syscall_cycle(&gdi);
     resume_from_dump(&gdi, argc > 2 ? argv[2] : "extract/analysis/gd_state/vf3_24.txt");
     resume_from_dump(&gdi, "extract/analysis/gd_state/vf3_25.txt");
-    printf(failures ? "gdrom_hle: %d FAILURES\n" : "gdrom_hle: all checks passed\n", failures);
+    printf("gdrom_hle: %d failures; %d optional resume checks skipped\n", failures, skipped);
     return failures != 0;
 }

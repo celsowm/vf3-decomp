@@ -50,8 +50,25 @@ class AdapterOpcodeTests(unittest.TestCase):
         self.assertEqual(statements[1],'r[0]=(r[0]<<1)|(r[0]>>31);')
 
     def test_cache_allocate_store_does_not_read_a_banked_register(self):
-        self.assertEqual(emit(0x0c010000,0x04c3),['write(ram,r[4],r[0],4);'])
-        with self.assertRaises(ValueError): emit(0x0c010000,0x04c2)
+        # MOVCA.L R0,@Rn (0000 nnnn 1100 0011) must write memory even
+        # when no bank-register sidecar was captured.
+        for n in range(16):
+            with self.subTest(register=n):
+                self.assertEqual(emit(0x0c010000,0x00c3|(n<<8)),
+                                 [f'write(ram,r[{n}],r[0],4);'])
+
+    def test_stc_banked_register_requires_captured_bank(self):
+        # The adjacent encoding ending in 2 is STC Rm_BANK,Rn, supported
+        # since VF3CAP6. Its source is the bank sidecar, not a RAM load.
+        for n in range(16):
+            for bank in range(8):
+                with self.subTest(register=n,bank=bank):
+                    self.assertEqual(emit(0x0c010000,0x0082|(n<<8)|(bank<<4)),
+                                     ['if(!s->bank_known) goto unsupported;',
+                                      f'r[{n}]=s->bank[{bank}];'])
+
+    def test_reserved_neighbor_opcode_is_rejected(self):
+        with self.assertRaises(ValueError): emit(0x0c010000,0x04c1)
 
 
 class ParallelBindingTests(unittest.TestCase):

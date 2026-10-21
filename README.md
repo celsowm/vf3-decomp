@@ -1,12 +1,7 @@
 # VF3tb decomp
 
-![verified C](https://img.shields.io/badge/verified%20C-72.88%25-brightgreen)
-![readable steps](https://img.shields.io/badge/readable%20ports%20%28fight%20tick%29-99.9%25-brightgreen)
-![ported entries](https://img.shields.io/badge/ported%20entries-1671-blue)
-![fight ticks](https://img.shields.io/badge/native%20fight%20ticks-13%2F13%20RAM--exact-brightgreen)
-![boot states](https://img.shields.io/badge/boot%20states%20to%20frame%20loop-15%2F15-brightgreen)
-![target](https://img.shields.io/badge/70%25%20milestone-sealed-success)
-![platform](https://img.shields.io/badge/platform-Dreamcast%20SH--4-orange)
+![recorded C coverage](https://img.shields.io/badge/recorded%20C%20coverage-91.26%25-blue)
+![native port](https://img.shields.io/badge/native%20PC%20port-in%20development-orange)
 ![language](https://img.shields.io/badge/language-C99-informational)
 
 A clean-room, readable C source port of **Virtua Fighter 3tb** (Sega Dreamcast, MK-51001 V1.002). Byte-matching is not
@@ -17,17 +12,21 @@ The repo carries no game data. You supply your own disc dump; `rom/` and `extrac
 
 ## Status
 
-| Metric | Value | Where |
-|---|---|---|
-| Verified C coverage (bytes of the retail 1ST_READ.BIN) | **72.88%** (316,778 bytes; 70% target was 304,259) | `python tools/final_status.py` |
-| Ported entries | 1,671 | `docs/decomp_status.csv` |
-| Readable ports in the executed fight tick (state 7) | 159 entries, about 99.9% of executed steps; the rest are generated adapters | `docs/readable_status.csv` |
-| Native fight tick (`build/vf3`) | 13 captured fight states, 0 unowned calls, RAM equal to the reference oracle | `sh tools/recomp/run_native.sh 7 13` |
-| Boot states run natively (`build/vf3boot`) | 15 of 15 savestates (21-30, 42-46) reach the frame loop | `docs/boot_states.csv` |
+**There is no complete playable native PC port yet.** The current game executables run captured states. The optional
+SDL3 target is a host-platform diagnostic, not VF3tb gameplay. See [the completion plan](docs/PC_PORT_PLAN.md) for
+cold boot, continuous runtime, renderer, sound, content and 1:1 acceptance gates.
 
-Coverage numbers are the verified share of code bytes with a C port whose behavior was replay-checked; they move as the
-capture-corpus work continues. The remaining unported owners are mostly blocked on BIOS/GD state or missing capture
-windows (`docs/re/reios_exec_server.md`).
+| Metric | Recorded state | Qualification |
+|---|---|---|
+| Verified C address union | 396,652 / 434,656 bytes (**91.26%**) | Historical `docs/coverage.md`; frozen inventory and replay corpora must be supplied to reproduce it |
+| Ported entries | 2,217 unique ledger entries | Body ranges overlap; summing ledger sizes overcounts |
+| Native fight tick | 13 captured states reported RAM-exact by the author | Local captures are required; not a disc-only game |
+| Boot experiments | 15 recorded states reach the frame budget | Their rows also record an unowned call; not a clean full-boot pass |
+| SDL3 host foundation | Window/framebuffer presentation, events, two host pads, clock | Integration into the native game loop, renderer and sound remains open |
+
+`python3 tools/port_preflight.py` reports missing local evidence. Missing evidence, a capped run and a passing replay
+are separate outcomes. `docs/re/oracle_device_reads.md` explains the modified device policy of some synthetic probes;
+those results are not proof of unmodified device behavior. Code coverage does not measure overall playability.
 
 ## The disc these numbers were measured on
 
@@ -54,18 +53,55 @@ that they match any particular catalogue entry.
 - `docs/` progress, format specs and the RE ledger (`docs/re/`)
 - `rom/`, `extract/`, `refs/`, `build/` local only, never committed
 
-## Build and run
+## Prepare the local disc
 
 ```sh
-cmake -S . -B build
-cmake --build build --target vf3 vf3boot
-build/vf3 <golden_tickx_vf3_N.bin> --expect ...     # one native fight scheduler tick
-sh tools/recomp/run_native.sh 7 13                   # fight regression
-python tools/boot_states.py --states 21 22 23 24 25 26 27 28 29 30 42 43 44 45 46 --cap 700 --timeout 3600
+python3 tools/prepare_rom.py --zip /path/to/rom_compactado.zip --verify-only
+python3 tools/prepare_rom.py --zip /path/to/rom_compactado.zip
 ```
 
-Most tools need the extracted binaries under `extract/exe/` and `extract/gamedata/` (see `AGENTS.md` for the pipeline).
-`tools/sh4dump.py` needs the venv in `tools/.venv`.
+The offline importer checks the exact image identities below, extracts 412 files, identity-copies the three executable
+images into `extract/exe/`, and writes `extract/rom_manifest.json`. It refuses differing existing files. These retail
+binaries are already unscrambled: do not run the MIL-CD descrambler on them. ROMs, extracted assets and captures stay local.
+
+## Build and test
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build --parallel
+ctest --test-dir build --output-on-failure
+python3 tools/port_preflight.py
+```
+
+The ROM-free Python checks run on a clean checkout. CTest explicitly skips `gdrom_disc` when the disc is absent; with the
+disc installed it exercises DMA/BIOS reads and reports unavailable optional saved-state checks. Missing strict replay
+fixtures remain a preflight failure. These checks do not certify gameplay fidelity.
+
+With an installed SDL3 development package discoverable by CMake:
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DVF3_BUILD_SDL3=ON
+cmake --build build --parallel
+build/vf3platform-smoke --frames 120
+ctest --test-dir build --output-on-failure
+```
+
+`vf3platform-smoke` displays a synthetic diagnostic pattern and polls input; it does not load the game. See
+[src/platform/README.md](src/platform/README.md) for the host API and controls. SDL3 package/build integration follows the
+[official SDL CMake guide](https://wiki.libsdl.org/SDL3/README-cmake). CI builds the source and ROM-free diagnostics on
+Windows, Linux and macOS; actual game validation requires the local evidence package.
+
+Captured-state regression tools (only after supplying their local inputs):
+
+```sh
+build/vf3 <golden_tickx_vf3_N.bin> --expect ...
+python3 tools/check_new_bindings.py --pc 0x8c064246
+python3 tools/boot_states.py --states 21 22 23 24 25 26 27 28 29 30 42 43 44 45 46 --cap 700 --timeout 3600
+```
+
+Boot reports default to ignored `extract/analysis/boot_states.csv`; `--csv` and `--exe` override output/binary locations.
+Capped or failed runs exit nonzero. The historical `docs/boot_states.csv` is retained as evidence, not rewritten by tests.
+See `AGENTS.md` for the analysis pipeline and the completion plan for the missing evidence handoff.
 
 ## Solved formats
 
