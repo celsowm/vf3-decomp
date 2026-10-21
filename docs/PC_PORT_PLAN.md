@@ -1,6 +1,6 @@
 # VF3tb: completion and native SDL PC port plan
 
-Initial baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Integrated the maintainer's concurrent `c4c9de3` update before publication; counts below reflect that revision. Work continues directly on `main` at the user's request; the default branch has not been renamed. Primary release targets are Windows x86-64 and Linux x86-64; macOS is a development/test target. These platform priorities are an explicit working assumption, pending the user's preference.
+Initial baseline inspected: `35aba99` on upstream `master`, 2026-10-20. Integrated the maintainer's concurrent `c4c9de3` update before publication; counts below reflect that revision. Work continues directly on `main` at the user's request; the default branch has not been renamed. The user confirmed Windows x86-64 as the primary release target, with Linux x86-64 support. macOS remains a development/test target.
 
 ## Outcome and acceptance contract
 
