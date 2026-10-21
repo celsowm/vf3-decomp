@@ -696,6 +696,7 @@ static int vf3_matrix_family_core(uint32_t entry,vf3_matrix_state*s,const vf3_ra
         /* c102 owns the literal-pool family (0x8c058780/84/88/8c) and the
          * corner-block helper 0x8c0512dc; c95 walked into them as well and
          * claims them, so c102 has to sit ahead of it to win its own roots. */
+        if(vf3_c105_adapter_contains(entry)) return vf3_c105_adapter(entry,s,ram);
         if(vf3_c103_adapter_contains(entry)) return vf3_c103_adapter(entry,s,ram);
         if(vf3_c102_adapter_contains(entry)) return vf3_c102_adapter(entry,s,ram);
         if(vf3_c95_adapter_contains(entry)) return vf3_c95_adapter(entry,s,ram);

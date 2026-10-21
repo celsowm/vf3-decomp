@@ -161,6 +161,12 @@ def emit(pc,w):
         if (w&0xF08F)==0x0082: return ['if(!s->bank_known) goto unsupported;',f'{rn}=s->bank[{(w>>4)&7}];']
         if k==0x12: return ['if(!s->gbr_known) goto unsupported;',f'{rn}=s->gbr;']
         if k==0x29: return [f"{rn}=r[17]&1u;"]
+        if k==0x22:
+            # STC VBR: the REIOS firmware sets the vector base to the start of
+            # the SH-4 RAM (tools/emu/flycast/core/reios/reios.cpp: ctx.vbr =
+            # 0x0c000000) and the game never changes it, so the register the
+            # instruction produces holds that constant.
+            return [f"{rn}=0x0c000000u;"]
         src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17}.get(k)
         if src is not None: return [f"{rn}=r[{src}];"]
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
@@ -301,6 +307,27 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         off=(pc|0x80000000)-0x8c010000
         if not 0<=off<len(image)-1: raise ValueError(f"outside image {pc:08x}")
         return struct.unpack_from("<H",image,off)[0]
+    def literal_jump(a):
+        """Static destination of an indirect jump fed by the literal pool.
+
+        `mov.l @(disp,PC),Rn` copies a 32-bit constant out of the original
+        image into Rn and `jmp @Rn` lands on it.  The constant is a property
+        of the code, not of the run, so the destination is resolvable without
+        a reviewed hint list.  The emitted switch keeps its default arm, so a
+        runtime target that differs from the literal still reaches the router.
+        """
+        w=word(a)
+        if (w&0xf0ff)!=0x402b: return None
+        n=(w>>8)&15
+        try: prev=word(a-2)
+        except ValueError: return None
+        if (prev&0xf000)!=0xd000 or ((prev>>8)&15)!=n: return None
+        pool=((a-2)&~3)+4+(prev&0xff)*4
+        off=(pool|0x80000000)-0x8c010000
+        if not 0<=off<len(image)-3: return None
+        target=struct.unpack_from("<I",image,off)[0]&0x1fffffff
+        if target&1 or not 0xc010000<=target<0xc010000+len(image)-1: return None
+        return target
     for a,w in ops.items():
         if word(a)!=w: raise ValueError(f"executed image mismatch {a:x}")
     # Close statically reachable branches from the original image, including
@@ -339,6 +366,8 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         elif w in (0xB,0x2B): pass
         elif (w&0xf0ff) in (0x402b,0x0023):
             if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
+            lit=literal_jump(a)
+            if lit is not None and lit not in MANUAL: todo.append(lit)
             todo.extend(indirect.get(a, ()))
         elif (w&0xf0ff) in (0x400b,0x0003):
             todo.append(a+4)
@@ -413,7 +442,10 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
                 # code that runs there carries that alias.
                 lines.append('code_base=target&0xff000000u;')
                 lines.append('switch(target&0x1fffffffu) {')
-                for dest in indirect.get(a, ()):
+                dests=list(indirect.get(a, ()))
+                lit=literal_jump(a)
+                if lit is not None and lit not in dests: dests.append(lit)
+                for dest in dests:
                     if dest not in MANUAL:
                         lines.append(f'case 0x{dest:08x}u: {jump(dest)}')
                 for helper in sorted(MANUAL): lines.append(f'case 0x{helper:08x}u: '+handoff()+'return vf3_matrix_family(target,s,ram);')

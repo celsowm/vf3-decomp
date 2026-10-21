@@ -112,6 +112,12 @@ static int readable_hook(uint32_t e,vf3_matrix_state*s,const vf3_ram_map*ram,int
 int main(int argc,char**argv) {
     if(getenv("VF3_READABLE")) vf3_family_override=readable_hook;
     if(getenv("VF3_COMPLETE_CALLS")) vf3_family_complete_calls=1;
+    /* A module that reaches a register-indirect jump whose target it was not
+     * generated with stops at that target with the jump already taken.  The
+     * reference continues there as the tail transfer it is, so the replay does
+     * too: the dispatcher resumes at the lost PC instead of failing there.
+     * Set VF3_TAIL_RETRY=0 to keep the strict single-module behaviour. */
+    { const char *tr=getenv("VF3_TAIL_RETRY"); vf3_family_tail_retry=(!tr||tr[0]!='0'); }
     if(argc!=3) { fprintf(stderr,"usage: vf3matrixfamily entry cases\n"); return 2; }
     entry=(uint32_t)strtoul(argv[1],NULL,0);
     char path[1400],stem[1200]; snprintf(stem,sizeof(stem),"%s",argv[2]);

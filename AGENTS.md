@@ -96,19 +96,41 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.26% verified C (405,364 B of 434,656). The 90% bar
+- Coverage: 93.33% verified C (405,664 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
   it also credits the trace-covered bodies.  The 80%-91% stretch came from the
   device-tape capture work and from bodies ported through the repo's own
   adapter translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c103_adapter.c.  Recipe, checks and the
+  src/fight/vf3_c80_adapter.c ... vf3_c105_adapter.c.  Recipe, checks and the
   bodies left out: docs/re/coverage_80_generated_adapters.md,
   docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md,
-  docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md and
-  docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (3,212 B more).
+  docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
+  docs/re/coverage_93_tail_transfer.md and docs/re/oracle_device_reads.md.
+  Next bar: 94% = 408,576 B (2,912 B more).
+- **A tail transfer is not a failed call.**  A module that reaches a
+  register-indirect jump whose target it was not generated with stops at that
+  target with the jump already taken; the reference continues there as the tail
+  transfer it is.  `vf3_family_tail_retry` (already used by the native tick)
+  makes the dispatcher resume at the lost PC; the replay harness now sets it.
+  `VF3_TAIL_RETRY=0` restores the strict single-module behaviour.  The gate
+  compares the whole register file, XF, FPUL, GBR, the exit PC and the RAM
+  windows, so the retry cannot make a wrong port pass.  See
+  docs/re/coverage_93_tail_transfer.md.
+- **A `jmp @rN` whose register was just loaded from the literal pool has a
+  static destination.**  `mov.l @(disp,PC),Rn` + `jmp @Rn` reads a 32-bit
+  constant out of the original image, so the target is a property of the code
+  (357 such sites).  The translator resolves it, adds the body to the CFG and
+  gives the emitted switch one more `case`; the switch keeps its `default`
+  arm, so a runtime target that differs from the literal still reaches the
+  router.
+- **Do not regenerate `src/fight/vf3_c95_adapter.c` from the current
+  translator.**  The regeneration with the alias handoff computes the code
+  base from the *masked* entry (`vf3_matrix_family_core` masks it to 29
+  bits), so a direct `0x8c` entry falls back to the `0x0c` mirror and the
+  stored pointers differ (`mem win5 @+0x8bb: got 0c want 8c`).  The alias
+  model has to keep the *unmasked* entry's alias first.
 - **The address mirror travels with the call.**  The SH-4 mirrors 0x0c000000
   at 0x8c000000 and at 0xac000000, and the loader reaches the same code
   through all three, so a PC-relative `mova` computes a different address
