@@ -22,6 +22,29 @@ def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
 def label(pc): return f"P_{pc:08x}"
 def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
 
+def mac_lines(size,n,m):
+    """MAC.W / MAC.L @Rm+,@Rn+ : mac.full += rm*rn, both pointers advance.
+
+    The SH-4 forms differ in which operand picks up the same-register
+    adjustment: MAC.L reads RN at Rn+4 when n==m, MAC.W reads RM at Rm+2.
+    """
+    if size==2:
+        rd=lambda a:f"(uint32_t)(int32_t)(int16_t)read(ram,{a},2)"
+        step,adj='2','2u'
+        rm_addr=f"r[{m}]+((r[{n}]==r[{m}])?{adj}:0u)"
+        rn_addr=f"r[{n}]"
+    else:
+        rd=lambda a:f"(uint32_t)(int32_t)read(ram,{a},4)"
+        step,adj='4','4u'
+        rm_addr=f"r[{m}]"
+        rn_addr=f"r[{n}]+((r[{n}]==r[{m}])?{adj}:0u)"
+    return [
+        'wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);',
+        f'wide+=(uint64_t)(int64_t){rd(rm_addr)}*(uint64_t)(int64_t){rd(rn_addr)};',
+        'r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);',
+        f'r[{n}]+={step}; r[{m}]+={step};',
+    ]
+
 def write_source(path, content):
     path = Path(path)
     if not path.exists() or path.read_text(encoding='ascii') != content:
@@ -65,6 +88,7 @@ def emit(pc,w):
         if low==0xA: return [f"wide=(uint64_t){rn}-{rm}-(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
         if low==0xE: return [f"wide=(uint64_t){rn}+{rm}+(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
         if low in (5,13): return [f"wide={('(uint64_t)((int64_t)(int32_t)'+rn+'*(int64_t)(int32_t)'+rm+')') if low==13 else '(uint64_t)'+rn+'*'+rm}; r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);"]
+        if low==0xF: return [f"tmp={rn}+{rm};",t(f"((({rn}^tmp)&({rm}^tmp))>>31)"),f"{rn}+={rm};"]
     if top==6:
         if low<=2 or 4<=low<=6:
             k=low if low<=2 else low-4; size=1<<k
@@ -99,6 +123,8 @@ def emit(pc,w):
         if k==0x24: return [f"tmp={rn}>>31; {rn}=({rn}<<1)|(r[17]&1u);",t("tmp")]
         if k==0x25: return [f"tmp={rn}&1u; {rn}=({rn}>>1)|((r[17]&1u)<<31);",t("tmp")]
         if k==0x05: return [t(f'{rn}&1u'),f'{rn}=({rn}>>1)|({rn}<<31);']
+        if (w&0xF00F)==0x4007: return [f"{rn}=read(ram,{rn},4)&0x700083F2u; {rn}+=4;"] # LDC.L @Rn+,SR
+        if low==0xF: return mac_lines(2,n,m) # MAC.W @Rm+,@Rn+
         if k==0x04: return [t(f'{rn}>>31'),f'{rn}=({rn}<<1)|({rn}>>31);']
         dest={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x0E:17}.get(k)
         if dest is not None: return [f"r[{dest}]={rn};"]
@@ -116,6 +142,7 @@ def emit(pc,w):
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
         if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
         if low==7: return [f"r[19]={rn}*{rm};"]
+        if low==0xF: return mac_lines(4,n,m) # MAC.L @Rm+,@Rn+
         if k==0x83: return [f'if(({rn}&0xFC000000u)==0xE0000000u) pref(ram,{rn});'] # PREF into the store-queue area flushes the queue; elsewhere it is a cache hint.
         if k in (0x93,0xa3,0xb3): return [] # Non-strict emulator cache operations have no architectural result.
         if k==0xc3: return [f'write(ram,{rn},r[0],4);'] # MOVCA.L: interpreter-visible RAM store.
@@ -131,6 +158,13 @@ def emit(pc,w):
         if k==7: return [f"r[0]=0x{((pc+4)&~3)+(w&255)*4:08x}u;"]
         if k==8: return [t(f"(r[0]&{w&255}u)==0")]
         if k in (9,10,11): return [f"r[0]{ {9:'&=',10:'^=',11:'|='}[k]}{w&255}u;"]
+        if k in (0xC,0xD,0xE,0xF):
+            # TST.B / AND.B / XOR.B / OR.B #imm,@(R0,GBR)
+            op={0xC:'&',0xD:'&',0xE:'^',0xF:'|'}[k]
+            read=f"read(ram,s->gbr+r[0],1)"
+            if k==0xC:
+                return ['if(!s->gbr_known) goto unsupported;',t(f"({read}&{w&255}u)==0")]
+            return ['if(!s->gbr_known) goto unsupported;',f"write(ram,s->gbr+r[0],{read}{op}{w&255}u,1);"]
     if top==0xF:
         if w==0xFBFD: return ["vf3_matrix_swap(s);"]
         if w==0xF3FD: return ["r[18]^=0x100000u;"]
@@ -355,11 +389,19 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
             lines.extend(statements(a)); lines.append(jump(a+2))
     lines.extend(['unsupported: s->failed_pc=target; return 0;','}'])
     def ownership():
+        # The router picks an owner by entry PC, and the chain order decides
+        # who wins a contested PC.  A module placed early in the chain must
+        # not take over an entry whose body another module owns, so the claim
+        # set is: the PCs no other module owns, plus this module's own roots.
+        # With the usual "new module last" order this is the same set as the
+        # owned PCs, because the earlier module wins the contested ones.
+        claim=sorted((set(ops)-existing) | (roots & set(ops)))
         return ['static const uint32_t owned_pcs[]={',*[''.join(f'0x{a:08x}u,' for a in sorted(ops)[i:i+16]) for i in range(0,len(ops),16)], '};',
+          'static const uint32_t claim_pcs[]={',*[''.join(f'0x{a:08x}u,' for a in claim[i:i+16]) for i in range(0,len(claim),16)], '};',
           f'int {function}_contains(uint32_t pc) {{',
-          'pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(owned_pcs)/sizeof(owned_pcs[0]);',
-          'while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(owned_pcs[mid]<pc) lo=mid+1; else hi=mid; }',
-          'return lo<sizeof(owned_pcs)/sizeof(owned_pcs[0]) && owned_pcs[lo]==pc;', '}']
+          'pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(claim_pcs)/sizeof(claim_pcs[0]);',
+          'while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(claim_pcs[mid]<pc) lo=mid+1; else hi=mid; }',
+          'return lo<sizeof(claim_pcs)/sizeof(claim_pcs[0]) && claim_pcs[lo]==pc;', '}']
     if split_size and not legacy:
         starts=[i for i,line in enumerate(lines) if re.match(r'^P_[0-9a-f]+:',line)]
         blocks={int(lines[i][2:10],16):lines[i:(starts[j+1] if j+1<len(starts) else len(lines)-2)] for j,i in enumerate(starts)}

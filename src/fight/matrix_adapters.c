@@ -27983,6 +27983,7 @@ case 0x0c0ca49eu: goto P_0c0ca49e;
 case 0x0c0ca4a0u: goto P_0c0ca4a0;
 case 0x0c0ca4a2u: goto P_0c0ca4a2;
 default:
+    if(target==0u) return vf3_matrix_family(target,s,ram);
     if((target&0x1ffffff0u)==0x0c001000u) return vf3_matrix_family(target,s,ram);
     if(vf3_device_adapter_contains(target) || vf3_next_adapter_contains(target) ||
        vf3_motion_adapter_contains(target) ||
