@@ -2,7 +2,7 @@
 #include "fight/matrix_family.h"
 #include "fight/family_hooks.h"
 #include "fight/readable.h"
-static FILE *xfin,*xfout,*extra,*gbr,*bank_file,*device_file;
+static FILE *xfin,*xfout,*extra,*gbr,*bank_file,*gd_file,*device_file;
 static long *device_offsets;
 static uint32_t device_records;
 static uint32_t entry;
@@ -67,6 +67,14 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
         state.bank_known=bank_state[0];
         memcpy(state.bank,bank_state+1,sizeof(state.bank));
     }
+    /* The REIOS drive state of this case: sixteen words the observer logged
+     * when the specimen started.  The drive is not SH-4 RAM, so the corpus has
+     * to carry it; without it the GD service keeps its idle behaviour. */
+    if(gd_file) {
+        if(fseek(gd_file,(long)c->ordinal*64,SEEK_SET)) { snprintf(err,len,"missing GD drive state"); return 0; }
+        if(fread(state.gd_state,4,16,gd_file)!=16) { snprintf(err,len,"missing GD drive state"); return 0; }
+        state.gd_state_known=1;
+    }
     if(device_file) {
         uint32_t count;
         if(c->ordinal>=device_records) { snprintf(err,len,"missing device tape"); return 0; }
@@ -127,6 +135,7 @@ int main(int argc,char**argv) {
     snprintf(path,sizeof(path),"%s.extra.bin",stem); extra=fopen(path,"rb");
     snprintf(path,sizeof(path),"%s.gbr.bin",stem); gbr=fopen(path,"rb");
     snprintf(path,sizeof(path),"%s.bank.bin",stem); bank_file=fopen(path,"rb");
+    snprintf(path,sizeof(path),"%s.gd.bin",stem); gd_file=fopen(path,"rb");
     snprintf(path,sizeof(path),"%s.dev.bin",stem); device_file=fopen(path,"rb");
     if(!xfin||!xfout||!extra) return 2;
     if(device_file) {

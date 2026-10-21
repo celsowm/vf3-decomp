@@ -96,7 +96,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.33% verified C (405,664 B of 434,656). The 90% bar
+- Coverage: 93.35% verified C (405,744 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -107,8 +107,21 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   bodies left out: docs/re/coverage_80_generated_adapters.md,
   docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md,
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
-  docs/re/coverage_93_tail_transfer.md and docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,912 B more).
+  docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
+  docs/re/oracle_device_reads.md.
+  Next bar: 94% = 408,576 B (2,832 B more).
+- **The REIOS drive is not RAM: its state belongs in the corpus.**
+  `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
+  the command while the drive is idle, so `r0` after the call is external
+  state, not something the guest can compute.  The corpus now carries it:
+  `tools/oracle/capsules.py` writes `f_<entry>.gd.bin` (16 words per case),
+  `tests/matrix_family_replay.c` seeds `vf3_matrix_state.gd_state`, and
+  `src/fight/vf3_aica_stub_adapter.c` runs the service model
+  (`src/sys/gdrom_hle.c`) forward from that state.  The observer needs the
+  state *at the entry* of a specimen, so a synthetic redirect has to record it
+  too (docs/re/patches/oracle_drive_state.patch,
+  tools/oracle/build_extended_observer_v3.py, `tools/golden_batch.py --gd-log`).
+  See docs/re/gd_drive_state.md.
 - **A tail transfer is not a failed call.**  A module that reaches a
   register-indirect jump whose target it was not generated with stops at that
   target with the jump already taken; the reference continues there as the tail
@@ -240,9 +253,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   exactly the size the corpus expects, so the corpus only has to carry the
   state of each of its cases; two corpora of the same entry can disagree
   about it, so a faithful REIOS service model is needed - see
-  docs/re/reios_exec_server.md); the corner-block descriptor loop at
+  docs/re/reios_exec_server.md).  That model now exists and the corpus format
+  carries the drive state (docs/re/gd_drive_state.md), but four of the five
+  GD-family corpora predate the observer's device-read policy: their capsules
+  are gone and the current observer no longer reproduces their specimens (the
+  original capsule manifest records started=2/completed=2 and started=8/
+  completed=8 where a re-capture gives 1 and 1), so their drive state cannot
+  be recovered; the corner-block descriptor loop at
   0x0c0510b6 (its trip count comes from driver state the corpora do not
-  carry); STC VBR in the helper 0x0c060eba; an uncaptured write (0x8c0a2a84);
+  carry); STC VBR in the helper 0x0c060eba (now ported, see
+  docs/re/coverage_93_stc_vbr.md); an uncaptured write (0x8c0a2a84);
   one byte of a RAM window (0x8c04340c); and the literal-pool family
   (0x8c058780/84/88/8c, whose bodies run into a literal pool and execute data
   in the reference).  The "a device write the reference did not make"

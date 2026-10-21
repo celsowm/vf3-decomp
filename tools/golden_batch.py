@@ -88,6 +88,9 @@ def main() -> int:
     ap.add_argument("--no-extract", action="store_true")
     ap.add_argument("--capsule", action="store_true",
                     help="capture touched RAM pages and aligned XF/FPUL state")
+    ap.add_argument("--gd-log", action="store_true",
+                    help="record the REIOS GD-ROM drive state per specimen "
+                         "(writes <capsule>.gdlog and the f_*.gd.bin sidecar)")
     ap.add_argument("--hits", action="store_true",
                     help="count watched entry hits without invocation or RAM capture")
     ap.add_argument("--probe-debug", action="store_true",
@@ -186,6 +189,13 @@ def main() -> int:
         if a.capsule:
             env["VF3_CAPSULE"] = str(capsule)
             env["VF3_CAPSULE_N"] = str(a.max_samples)
+            if a.gd_log:
+                # The observer restarts the invocation id at 1 for every run and
+                # truncates its log, so each run gets its own file next to its
+                # capsule.
+                env["VF3_GDLOG"] = str(capsule) + ".gdlog"
+            else:
+                env.pop("VF3_GDLOG", None)
         if a.hits:
             env["VF3_HITS"] = str(hits)
         env.update({

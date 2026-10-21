@@ -16,16 +16,8 @@
  * from the observer log (last_request_id, next_request_id, status, command, params[4], result[4], cur_sector,
  * multi_read_sector, multi_read_offset, multi_read_count). With it, GET_CMD_STAT / EXEC_SERVER are answered by the
  * vf3_gdrom model instead of failing closed; the state is reloaded on every call (one case per process). */
-static int load_gd_state(vf3_gdrom *gd)
+static int seed_gd_state(vf3_gdrom *gd, const uint32_t w[16])
 {
-    const char *path = getenv("VF3_GD_STATE");
-    FILE *f = path ? fopen(path, "r") : NULL;
-    unsigned w[16];
-    int n = 0;
-    if (!f) return 0;
-    while (n < 16 && fscanf(f, "%x", &w[n]) == 1) ++n;
-    fclose(f);
-    if (n != 16) return 0;
     vf3_gd_init(gd, NULL, NULL, NULL);
     vf3_gd_state *st = &gd->st;
     st->last_request_id = w[0]; st->next_request_id = w[1]; st->status = (int32_t)w[2]; st->command = w[3];
@@ -33,6 +25,19 @@ static int load_gd_state(vf3_gdrom *gd)
     st->cur_sector = w[12]; st->multi_read_sector = w[13]; st->multi_read_offset = w[14]; st->multi_read_count = w[15];
     st->multi_read_total = w[15];
     return 1;
+}
+
+static int load_gd_state(vf3_gdrom *gd)
+{
+    const char *path = getenv("VF3_GD_STATE");
+    FILE *f = path ? fopen(path, "r") : NULL;
+    uint32_t w[16];
+    int n = 0;
+    if (!f) return 0;
+    while (n < 16 && fscanf(f, "%x", &w[n]) == 1) ++n;
+    fclose(f);
+    if (n != 16) return 0;
+    return seed_gd_state(gd, w);
 }
 
 static uint32_t gd_mem_read(void *ctx, uint32_t addr) { return vf3_matrix_read((const vf3_ram_map *)ctx, addr, 4u); }
@@ -180,6 +185,30 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
         if(dbg_) fprintf(stderr,"STUB fail: r6=%08x (want 0)\n",r[6]);
         state->failed_pc = entry;
         return 0;
+    }
+
+    /* The corpus carries the drive state of this case.  It decides whether the
+     * firmware accepts a queued command at all: GDROM_REQ_CMD returns the
+     * request id when the drive is idle and 0 while a transfer is in flight
+     * (reios/gdrom_hle.cpp, GDROM_REQ_CMD), and the request id is the counter
+     * the drive carries, not something the guest can compute.  The service
+     * model therefore runs forward from the recorded state instead of the
+     * narrow idle assumption. */
+    if (state->gd_state_known) {
+        vf3_gdrom gd;
+        seed_gd_state(&gd, state->gd_state);
+        const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
+        const uint32_t args[8] = { 0, 0, 0, 0, r[4], r[5], r[6], r[7] };
+        uint32_t r0 = r[0];
+        if (vf3_bios_gd_syscall(&gd, &gm, args, &r0)) {
+            /* REQ_CMD and GET_CMD_STAT answer in r0; EXEC_SERVER does not
+             * touch it (reios/gdrom_hle.cpp, GDROM_EXEC_SERVER). */
+            if (r[7] == 0u || r[7] == 1u) {
+                r[0] = r0;
+            }
+            state->pc = r[16];
+            return ram->oob == 0u;
+        }
     }
 
     if ((r[7] == 1u || r[7] == 2u) && getenv("VF3_GD_STATE")) {

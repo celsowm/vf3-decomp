@@ -64,6 +64,33 @@ def records(path):
                        before=before, after=after, pages=sorted(pages), ops=ops,
                        device=device, nstate=nstate)
 
+def gd_records(path):
+    """The observer's drive-state log for one capsule (VF3_GDLOG).
+
+    The REIOS GD-ROM service is not SH-4 RAM: its request counter and its
+    status survive across calls and decide whether GDROM_REQ_CMD is accepted
+    at all.  The observer writes one 'S' record (the state when the specimen
+    started) and one 'E' record (the state when it ended) per invocation, so
+    the corpus can carry the state the guest actually saw.
+
+    The log is keyed by the invocation id, which the observer restarts at 1 for
+    every run, so it only ever belongs to the capsule of that run.
+    """
+    log = Path(str(path) + ".gdlog")
+    if not log.exists():
+        return {}
+    out = {}
+    for line in log.read_text(encoding="ascii", errors="replace").splitlines():
+        fields = line.split()
+        if len(fields) != 19 or fields[0] not in ("S", "E"):
+            continue
+        try:
+            out[(fields[0], int(fields[1]))] = [int(word, 16) for word in fields[3:]]
+        except ValueError:
+            continue
+    return out
+
+
 def convert(paths, out, entries=None, clean_only=False):
     out = Path(out)
     grouped, invalid, runs = defaultdict(dict), [], []
@@ -72,8 +99,10 @@ def convert(paths, out, entries=None, clean_only=False):
         summary=Path(str(path)+'.summary.json')
         run=json.loads(summary.read_text()) if summary.exists() else {"summary_missing":True}
         count=0
+        gd = gd_records(path)
         for r in records(path):
             count+=1
+            r["gd"] = gd.get(("S", r["id"]))
             source = dict(source=str(path), invocation=r["id"], entry=f'0x{r["entry"]:08x}',
                           exit=f'0x{r["exitpc"]:08x}')
             if r["flags"]:
@@ -119,11 +148,14 @@ def convert(paths, out, entries=None, clean_only=False):
         runs.append({"source":str(path),**run})
     out.mkdir(parents=True, exist_ok=True)
     manifest = {"format":"VF3CAP6 (CAP3/4/5 compatible)", "inputs":[str(p) for p in paths], "runs":runs,
-                "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)], "entries":{}}
+                "invalid":invalid, "nondeterministic_entries":[hex(e) for e in sorted(nondeterministic)], "entries":{},
+                "gd_state_entries":[]}
     if entries is not None: manifest['selected_entries']=[hex(e) for e in sorted(entries)]
     for entry, bucket in sorted(grouped.items()):
         stem = f"f_{entry:08x}"
         lines, xfin, xfout, extras, gbrs, banks, devices, cases = [], bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), bytearray(), []
+        gds = bytearray()
+        gd_complete = True
         allops = {}
         for i, r in enumerate(bucket.values()):
             # Merge adjacent pages to fit older replay runners efficiently.
@@ -148,6 +180,12 @@ def convert(paths, out, entries=None, clean_only=False):
             banks.extend(struct.pack('<I',r['nstate']==63))
             banks.extend(r['before'][220:252] if r['nstate']==63 else bytes(32))
             banks.extend(r['after'][220:252] if r['nstate']==63 else bytes(32))
+            if r.get("gd"):
+                gds.extend(struct.pack("<16I", *r["gd"]))
+            else:
+                # A case without the drive state would leave a hole in the
+                # sidecar; the whole entry keeps the narrow idle behaviour.
+                gd_complete = False
             devices.extend(struct.pack('<I',len(r['device'])))
             devices.extend(b''.join(struct.pack('<4I',*event) for event in r['device']))
             cases.append({"sources":r["sources"], "instructions":len(r["ops"]), "pages":len(r["pages"]),
@@ -162,6 +200,9 @@ def convert(paths, out, entries=None, clean_only=False):
         (out/f"{stem}.gbr.bin").write_bytes(gbrs)
         (out/f"{stem}.bank.bin").write_bytes(banks)
         (out/f"{stem}.dev.bin").write_bytes(devices)
+        if gd_complete and gds:
+            (out/f"{stem}.gd.bin").write_bytes(gds)
+            manifest["gd_state_entries"].append(f"0x{entry:08x}")
         (out/f"{stem}.ops.json").write_text(json.dumps({f"{pc:08x}":f"{op:04x}" for pc,op in sorted(allops.items())},indent=1))
         manifest["entries"][f"0x{entry:08x}"] = cases
         print(f"{stem}: {len(lines)} distinct complete cases, {len(allops)} executed PCs")

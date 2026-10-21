@@ -8,6 +8,17 @@ typedef struct { uint32_t v[54]; uint32_t pc, failed_pc, gbr, bank[8]; unsigned 
     /* Entry the dispatcher could not route, when the failing module left
      * failed_pc empty.  Diagnostic only, never part of the guest state. */
     uint32_t lost_pc;
+    /* REIOS GD-ROM drive state carried by the corpus for this case.  The drive
+     * is not SH-4 RAM: its request counter and its status live in the BIOS
+     * service, survive across calls and decide whether GDROM_REQ_CMD is
+     * accepted at all.  gd_state holds the sixteen words the observer logged
+     * (last_request_id, next_request_id, status, command, params[4], result[4],
+     * cur_sector, multi_read_sector, multi_read_offset, multi_read_count); the
+     * replay seeds it before the case and the service model runs forward from
+     * there.  gd_state_known is 0 when the corpus carries no drive state, and
+     * the service then keeps its narrow idle behaviour. */
+    uint32_t gd_state[16];
+    unsigned gd_state_known;
 } vf3_matrix_state;
 /* Complete helper semantics, with guest state isolated in this adapter.
  * State layout is the existing 37 words, XF[16], then FPUL. */

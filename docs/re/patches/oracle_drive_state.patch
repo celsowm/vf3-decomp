@@ -1,0 +1,15 @@
+--- a/core/vf3oracle.cpp
++++ b/core/vf3oracle.cpp
+@@ -770,6 +770,12 @@
+                 if (c.oneShot) {
+                     oneShotStarted=true;
+                     vf3AudioBegin(targetPc,pendingSubOp,mutableCtx);
+                 }
++                /* The synthetic arm is the redirect's entry into the target, so it
++                 * is the moment the drive state the target sees.  The natural
++                 * watch path logs the same record (see the generic arm below);
++                 * without it a redirected specimen only carries its exit state. */
++                logGd('S', c.id, c.entry);
+                 active.push_back(std::move(c));
+             }
+             /* The redirect already owns the target's invocation: the generic watch
