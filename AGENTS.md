@@ -502,6 +502,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   and the loop's counter is decremented **at the top** while the branch that
   ends the loop is at the bottom, so the T bit the caller sees is the last
   iteration's.  docs/re/node_rotate.md.
+- Motion VM step (0x8C0CB8AC) ported readable: src/fight/scale_step.c, proved
+  against the retained generated translation by
+  tests/scale_step_replay.c (7 differential cases).  When the mode byte's low
+  four bits say 1, it reduces the VM's step count by sixty, makes it positive,
+  parks it in **FPUL** and writes `constant_two * count + constant_one` into
+  the caller's structure and into the structure the VM names.  Three details
+  the port has to keep: the mode byte is **masked to four bits** before it is
+  compared (so 17 is a step and 9 is not); the count is made positive and *that*
+  value goes into FPUL; and the scale is a **fused** multiply-add.
+  docs/re/scale_step.md.
+- **The gap tool only counts the generated adapters.**  A call target that one
+  of the *hand-written* modules already serves still shows up as unported:
+  `0x8C040F1E` (the queue push) is implemented by hand in
+  `src/fight/command_encoders.c` (`enqueue`, served as `vf3_audio_queue_c`),
+  and the generated copies of it in the phase2, seventh-c and fight modules
+  are shadowed.  The hand-written port even *bakes in* the literal pool's
+  values (`0x0C19E218`, `0xA0800500`, `0xA0800400`) where the generated copy
+  reads them from the pool at `0x0C040F68`.  Check a candidate with
+  `tools/handwritten_entries.py <entry>` before porting it.
 - **A differential passes even when the fixture is wrong.**  The first version
   of the counter test pointed the block's global straight at the block instead
   of at a header whose first word is the block; the reference then read the
