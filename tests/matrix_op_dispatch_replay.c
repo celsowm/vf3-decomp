@@ -1,5 +1,5 @@
 /* matrix_op_dispatch_replay.c - the readable matrix-op dispatcher against the
- * retained generated translation of SH-4 0x8C035CE8.
+ * retained generated translation of SH-4 0x8C035CE8 and 0x8C035C60.
  *
  * The generated translation is the reference: it is the machine translation
  * the oracle proved against the captured fight states.  The readable port has
@@ -23,9 +23,9 @@
 #include <string.h>
 
 int vf3_matrix_op_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_op_dispatch_38_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
-#define DISPATCH_ENTRY 0x0c035ce8u
-#define RETURN_PC      0x0c0abcdeu
+#define RETURN_PC 0x0c0abcdeu
 
 /* the operations a node may name */
 #define OP_IDENTITY 0x0c03ccb0u   /* matrix_identity */
@@ -44,9 +44,6 @@ int vf3_matrix_op_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 #define MATRIX_BASE  0x0c320000u
 #define MATRIX_LEN   0x100u
 
-/* the node's word with the operation's entry */
-#define NODE_OP 0x50u
-
 #define SP 0x0c108000u
 
 /* the shadow layout: one byte array per run, cut into the windows */
@@ -56,6 +53,19 @@ int vf3_matrix_op_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 #define OFF_NODE    (OFF_NODEPTR + NODEPTR_LEN)
 #define OFF_MATRIX  (OFF_NODE + NODE_LEN)
 #define SHADOW_LEN  (OFF_MATRIX + MATRIX_LEN)
+
+/* the two members of the family: the entry and the node word the operation
+ * comes from */
+struct entry {
+    uint32_t entry;
+    vf3_readable_fn fn;
+    uint32_t slot;
+};
+
+static const struct entry entries[] = {
+    { 0x0c035ce8u, vf3_matrix_op_dispatch_entry,    0x50u },
+    { 0x0c035c60u, vf3_matrix_op_dispatch_38_entry, 0x38u },
+};
 
 struct scenario {
     const char *name;
@@ -80,7 +90,7 @@ static void w32(uint8_t *p, uint32_t off, uint32_t v)
     p[off + 3] = (uint8_t)(v >> 24);
 }
 
-static void setup(struct run *r, const struct scenario *sc)
+static void setup(struct run *r, const struct scenario *sc, const struct entry *e)
 {
     uint8_t *p = r->shadow;
     memset(p, 0, SHADOW_LEN);
@@ -90,7 +100,7 @@ static void setup(struct run *r, const struct scenario *sc)
     /* the node pointer */
     w32(p + OFF_NODEPTR, 0, sc->node);
     if (sc->node)
-        w32(p + OFF_NODE, NODE_OP, sc->op);
+        w32(p + OFF_NODE, e->slot, sc->op);
     /* the matrix the operation works on: a rotation about z, so the
      * transform has no infinity and raises no FP exception */
     static const uint32_t m[16] = {
@@ -158,38 +168,39 @@ static int same(const struct run *a, const struct run *b, const char *what)
     return 1;
 }
 
-static int compare(const struct scenario *sc)
+static int compare(const struct scenario *sc, const struct entry *e)
 {
     struct run ref, port, hook;
-    setup(&ref, sc);
-    setup(&port, sc);
-    setup(&hook, sc);
+    setup(&ref, sc, e);
+    setup(&port, sc, e);
+    setup(&hook, sc, e);
 
-    const int ok_ref = vf3_matrix_family(DISPATCH_ENTRY, &ref.state, &ref.map);
-    const int ok_port = vf3_matrix_op_dispatch_entry(&port.state, &port.map);
+    const int ok_ref = vf3_matrix_family(e->entry, &ref.state, &ref.map);
+    const int ok_port = e->fn(&port.state, &port.map);
     int handled = 0;
-    const int ok_hook = vf3_readable_override(DISPATCH_ENTRY, &hook.state, &hook.map, &handled);
+    const int ok_hook = vf3_readable_override(e->entry, &hook.state, &hook.map, &handled);
 
     if (ok_ref != ok_port || ok_ref != ok_hook || !handled ||
         !same(&ref, &port, "port") || !same(&ref, &hook, "hook")) {
-        fprintf(stderr, "matrix op dispatch: %s differs (ok %d/%d/%d)\n",
-                sc->name, ok_ref, ok_port, ok_hook);
+        fprintf(stderr, "matrix op dispatch: %08x %s differs (ok %d/%d/%d)\n",
+                e->entry, sc->name, ok_ref, ok_port, ok_hook);
         return 0;
     }
     if (ok_ref != sc->expect_ok) {
-        fprintf(stderr, "matrix op dispatch: %s returned %d, expected %d\n",
-                sc->name, ok_ref, sc->expect_ok);
+        fprintf(stderr, "matrix op dispatch: %08x %s returned %d, expected %d\n",
+                e->entry, sc->name, ok_ref, sc->expect_ok);
         return 0;
     }
     /* the dispatcher answers 0 for a node that is not there */
     if (!sc->node && ref.state.v[0] != 0u) {
-        fprintf(stderr, "matrix op dispatch: %s answered r0 %08x\n",
-                sc->name, ref.state.v[0]);
+        fprintf(stderr, "matrix op dispatch: %08x %s answered r0 %08x\n",
+                e->entry, sc->name, ref.state.v[0]);
         return 0;
     }
     /* and the T flag says the node was missing */
     if (!sc->node && !(ref.state.v[17] & 1u)) {
-        fprintf(stderr, "matrix op dispatch: %s did not set the T flag\n", sc->name);
+        fprintf(stderr, "matrix op dispatch: %08x %s did not set the T flag\n",
+                e->entry, sc->name);
         return 0;
     }
     ++cases;
@@ -198,11 +209,14 @@ static int compare(const struct scenario *sc)
 
 int main(void)
 {
-    /* the port has to be registered, or the native tick never reaches it */
-    const vf3_readable_entry *reg = vf3_readable_find(DISPATCH_ENTRY);
-    if (!reg || reg->fn != vf3_matrix_op_dispatch_entry) {
-        fprintf(stderr, "matrix op dispatch: the port is not registered\n");
-        return 1;
+    /* the ports have to be registered, or the native tick never reaches them */
+    for (unsigned i = 0; i < sizeof entries / sizeof entries[0]; ++i) {
+        const vf3_readable_entry *reg = vf3_readable_find(entries[i].entry);
+        if (!reg || reg->fn != entries[i].fn) {
+            fprintf(stderr, "matrix op dispatch: %08x is not registered\n",
+                    entries[i].entry);
+            return 1;
+        }
     }
     static const struct scenario scenarios[] = {
         /* no node: there is no operation to run */
@@ -216,8 +230,9 @@ int main(void)
         /* the node names a pointer no module owns: the jump fails */
         { "unknown",   NODE_BASE,  OP_UNKNOWN,  0 },
     };
-    for (unsigned i = 0; i < sizeof scenarios / sizeof scenarios[0]; ++i)
-        if (!compare(&scenarios[i])) return 1;
+    for (unsigned i = 0; i < sizeof entries / sizeof entries[0]; ++i)
+        for (unsigned j = 0; j < sizeof scenarios / sizeof scenarios[0]; ++j)
+            if (!compare(&scenarios[j], &entries[i])) return 1;
     printf("matrix_op_dispatch: %u differential cases - PASS\n", cases);
     return 0;
 }

@@ -314,14 +314,21 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/artifact_gap.md), so the chain readable == generated == oracle is
   carried by the earlier promotion of the generated translation.
   docs/re/record_state_walk.md.
-- Matrix-op dispatcher (0x8C035CE8) ported readable: src/fight/matrix_op_dispatch.c,
-  proved against the retained generated translation by
-  tests/matrix_op_dispatch_replay.c (5 differential cases).  It runs the matrix
-  operation the current node names (the node's word at +0x50); all eighteen
-  operations it can name are already ported readably.  The readable port hands
-  every pointer to the chain, where the generated translation switches on the
-  eighteen it knows and stops for anything else - the difference needs the
-  test-only `missing` hook to show.  docs/re/matrix_op_dispatch.md.
+- Matrix-op dispatcher (0x8C035CE8) ported readable, with its sibling
+  (0x8C035C60): src/fight/matrix_op_dispatch.c, proved against the retained
+  generated translation by tests/matrix_op_dispatch_replay.c (10 differential
+  cases).  The node behind the global at 0x8C035D60 names the operation in
+  its word at +0x50 (or +0x38); all eighteen operations it can name are
+  already ported readably.  The third member of the family (0x8C035CBA,
+  slot +0x44) is already ported as `vtable_trampoline`, and that port does
+  not match the retained translation - it does not restore r14 and it reads
+  the global 0x8C0EA314 where the translation reads the literal pool slot
+  (which holds that address in the image).  It is marked `unexercised` in
+  the ledger, so no differential test covers it; worth checking against the
+  oracle when the corpora are back.  The readable port hands every pointer to
+  the chain, where the translation switches on the eighteen operations it
+  knows and stops for anything else - the difference needs the test-only
+  `missing` hook to show.  docs/re/matrix_op_dispatch.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

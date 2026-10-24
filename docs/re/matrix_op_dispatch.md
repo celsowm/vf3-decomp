@@ -1,4 +1,4 @@
-# The matrix-op dispatcher (SH-4 0x8C035CE8)
+# The matrix-op dispatcher (SH-4 0x8C035CE8 and 0x8C035C60)
 
 A readable port of the fight engine's matrix-op dispatcher, and the evidence
 for it.
@@ -47,6 +47,44 @@ Every one of them is already ported readably (`src/fight/matrix_lib.c`,
 `src/fight/small_leaves.c`), so the dispatcher is the last piece that was
 still machine-generated between the fight engine and the matrix library.
 
+## The family
+
+The node has three such words, and each of them has its own dispatcher. The
+three are the same function with a different slot:
+
+| entry | the node's word | module | state |
+|---|---|---|---|
+| `0x8C035C60` | `+0x38` | `next_adapters_0` | ported here (`matrix_op_dispatch_38`) |
+| `0x8C035CBA` | `+0x44` | `next_adapters_0` | already ported as `vtable_trampoline` |
+| `0x8C035CE8` | `+0x50` | `matrix_adapters` | ported here (`matrix_op_dispatch`) |
+
+The `+0x38` and `+0x50` members are the same code, so one readable body
+(`dispatch_node_op`) serves both; the `+0x44` member differs in two details:
+the operation lands in `r1` instead of `r0`, and the guest leaves `r0` alone
+for a node that is not there instead of answering `0`.
+
+**Open item: the `vtable_trampoline` port does not match the translation.**
+Two differences, both visible in the sources:
+
+* It reads the global `0x8C0EA314` directly, where the translation reads the
+  literal pool slot at `0x8C035D60` and dereferences *that*. The pool slot
+  holds `0x8C0EA314` in the image (the native tick's trace prints that
+  address for the sibling entry `0x8C035C60`), so the two agree in the game;
+  they differ only in a synthetic RAM image. This port follows the
+  translation and reads the pool slot.
+* It does not restore `r14` from the stack. The guest has to: the function
+  pushes `r14` and the `rts` pops the return address, so the `r14` has to be
+  gone before the `rts` runs. The translation restores it (the translator
+  folds the restore into the `rts` block), the port does not, and the port's
+  own comment says the restore happens "in the jump's delay slot" without
+  doing it.
+
+The ledger marks `vtable_trampoline` as `unexercised`, so no differential
+test covers it. This is worth checking against the oracle when the corpora
+are back; nothing was changed here, because that port was verified against
+the oracle once and the corpora that would settle it are gone (see
+[artifact_gap](artifact_gap.md)).
+
 ## How it was recovered
 
 The generated modules under `src/fight/*adapter*.c` are the machine
@@ -86,10 +124,11 @@ generated translation of the same function over five scenarios and compares
 **the whole register file (the FP registers included), the return PC, the
 failed PC, the out-of-window counter and every RAM byte**. The port runs
 twice: once called directly and once through the readable override, which is
-how the native tick reaches it.
+how the native tick reaches it. Both members of the family run the same
+scenarios, so the test holds ten cases:
 
 ```
-matrix_op_dispatch: 5 differential cases - PASS
+matrix_op_dispatch: 10 differential cases - PASS
 ```
 
 The scenarios cover a node that is not there, a node that names the identity,
