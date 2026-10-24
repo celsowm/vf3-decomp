@@ -62,6 +62,25 @@ RTS_RE = re.compile(r"s->pc=target")
 GOTO_RE = re.compile(r"goto P_([0-9a-f]{8});")
 
 
+def body_of(entry: int, module: str, blocks: dict | None = None) -> list[str]:
+    """The statements of a generated function, in control-flow order.
+
+    The blocks of a module belong to several functions, so the function's own
+    blocks are the ones the CFG walk from the entry reaches.
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from adapter_dump import index_modules, walk  # noqa: E402
+
+    if blocks is None:
+        blocks = index_modules().get(module, {})
+    pcs, _ = walk(entry, blocks)
+    out: list[str] = []
+    for pc in pcs:
+        for stmt in blocks[pc][1]:
+            out.append(stmt)
+    return out
+
+
 def scan_functions() -> list[tuple[int, str, int, bool]]:
     """Split every generated module into functions.
 
@@ -92,6 +111,14 @@ def main() -> int:
                     help="also rank the call-target functions that still contain a loop")
     ap.add_argument("--overlap", action="store_true",
                     help="list the readable ports that still have a generated twin")
+    ap.add_argument("--small", action="store_true",
+                    help="rank the small call-target functions still generated")
+    ap.add_argument("--max-size", type=int, default=24,
+                    help="the instruction ceiling for --small")
+    ap.add_argument("--leaf", action="store_true",
+                    help="rank the call-target functions that save their registers")
+    ap.add_argument("--min-size", type=int, default=8,
+                    help="the instruction floor for --leaf")
     args = ap.parse_args()
 
     readable = read_readable()
@@ -131,6 +158,48 @@ def main() -> int:
         print(f"\nreadable ports that still have a generated twin: {len(twin)}")
         for pc in twin:
             print(f"0x{pc:08x}  {readable[pc]:<28}  {per_pc[pc][0]}")
+
+    if args.small:
+        target_set = set(targets)
+        fns = [f for f in scan_functions()
+               if f[0] in target_set and f[0] not in readable]
+        small = [f for f in fns if not f[3] and f[2] <= args.max_size]
+        print(f"\ncall-target functions still generated: {len(fns)}"
+              f"   small ones (<= {args.max_size} instructions): {len(small)}\n")
+        print(f"{'entry':>10}  {'module':<34}  instr")
+        for entry, module, size, _ in sorted(small, key=lambda f: (f[2], f[0]))[: args.top]:
+            print(f"0x{entry:08x}  {module:<34}  {size}")
+        return 0
+
+    if args.leaf:
+        # A call target that is only a few instructions long is usually the
+        # landing pad of a tail transfer into the middle of another
+        # function, not a function of its own.  A real body saves the
+        # callee-saved registers first.
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from adapter_dump import index_modules  # noqa: E402
+
+        all_blocks = index_modules()
+        target_set = set(targets)
+        out = []
+        for entry, module, size, loop in scan_functions():
+            if entry not in target_set or entry in readable:
+                continue
+            if loop or size < args.min_size or size > args.max_size:
+                continue
+            body = body_of(entry, module, all_blocks.get(module))
+            if not body:
+                continue
+            # The budget guard comes first in every block, so the prologue is
+            # in the statements right behind it.
+            if not any("r[15]-=4" in stmt for stmt in body[:3]):
+                continue
+            out.append((entry, module, size, body))
+        print(f"\ncall-target functions with a prologue: {len(out)}\n")
+        print(f"{'entry':>10}  {'module':<30}  instr  first")
+        for entry, module, size, body in sorted(out, key=lambda f: -f[2])[: args.top]:
+            first = next((s for s in body if "s->budget--" not in s), body[0])
+            print(f"0x{entry:08x}  {module:<30}  {size:4d}  {first[:60]}")
     return 0
 
 
