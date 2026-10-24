@@ -150,6 +150,7 @@ int vf3_table_grow_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_range_flag_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_counter_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_byte_decode_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_node_rotate_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -357,6 +358,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the word off the caller's stack, turned around or not */
     { 0x0c04538au, "byte_decode", vf3_byte_decode_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(15)|B(16)|B(17) },
+    /* the fighter's nodes turned around, and the root moved */
+    { 0x0c09f83cu, "node_rotate", vf3_node_rotate_entry,
+      B(0)|B(4)|B(5)|B(6)|B(7)|B(16)|B(17)|B(21)|B(22)|B(23)|B(24)|B(25)|B(26)|B(27)|B(28)|B(29)|B(30) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

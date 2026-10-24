@@ -164,6 +164,7 @@ add_library(vf3core STATIC
     src/fight/range_flag.c
     src/fight/counter_advance.c
     src/fight/byte_decode.c
+    src/fight/node_rotate.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -627,6 +628,7 @@ add_port_test(vf3tablegrow tests/table_grow_replay.c)
 add_port_test(vf3rangeflag tests/range_flag_replay.c)
 add_port_test(vf3counteradvance tests/counter_advance_replay.c)
 add_port_test(vf3bytedecode tests/byte_decode_replay.c)
+add_port_test(vf3noderotate tests/node_rotate_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

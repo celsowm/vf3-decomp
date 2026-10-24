@@ -491,6 +491,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   each end in a branch whose **delay slot is the store**.  The byte-order
   test's T bit is *unobservable* - the mark's `cmp/eq` overwrites it - so that
   one is free.  docs/re/byte_decode.md.
+- Node rotation (0x8C09F83C) ported readable: src/fight/node_rotate.c, proved
+  against the retained generated translation by
+  tests/node_rotate_replay.c (6 differential cases).  It turns seven
+  twelve-byte records around - each holding two floats eight bytes apart - by
+  the angle the caller leaves in FR4 and FR5, and then moves the root's three
+  coordinates by FR6.  Two details the port has to keep: the second
+  coordinate is a **fused** multiply-add (`vf3_fpu_mac` rounds once, a
+  multiply and an add round twice, so the port cannot write `a * b + c` in C);
+  and the loop's counter is decremented **at the top** while the branch that
+  ends the loop is at the bottom, so the T bit the caller sees is the last
+  iteration's.  docs/re/node_rotate.md.
 - **A differential passes even when the fixture is wrong.**  The first version
   of the counter test pointed the block's global straight at the block instead
   of at a header whose first word is the block; the reference then read the
