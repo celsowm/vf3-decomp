@@ -227,6 +227,7 @@ add_library(vf3core STATIC
     src/fight/advance_config_editors.c
     src/fight/advance_client_wrappers.c
     src/fight/advance_state_helpers.c
+    src/fight/record_state_walk.c
     src/fight/continuation_input_controls.c
     src/fight/command_encoders.c
     src/fight/audio_channels.c
@@ -600,6 +601,7 @@ add_executable(vf3tickmix tests/tick_mixed.c)
 target_link_libraries(vf3tickmix PRIVATE vf3core)
 add_port_test(vf3driverqueue tests/driver_queue_replay.c)
 add_port_test(vf3statehelpers tests/state_helpers_replay.c)
+add_port_test(vf3recordwalk tests/record_state_walk_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

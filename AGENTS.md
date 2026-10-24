@@ -287,8 +287,31 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   ~99.9% of state-7 executed steps (159 readable entries) are readable ports (docs/readable_status.csv), the rest
   generated adapters. Plan/limits: docs/re/plan_native_slice.md; verify with
   tools/recomp/run_state.sh and run_native.sh.
+- **The artifacts are gone from this checkout** (2026-10-24): `extract/`
+  (the ROM images, the Ghidra project, the capture corpora, the analysis
+  CSVs), `tools/emu` (the patched oracle), `refs/dream-recomp`, the ROM
+  tracks and the Ghidra/SDK installs are all absent, and `rom/vf3.gdi` is
+  only the 175-byte descriptor. The coverage bar (94%) and the oracle
+  replay gate wait for them; the tracked tree still builds and the
+  self-contained suites still pass. What is left is the *readable* track:
+  the generated adapters under `src/fight/*adapter*.c` are a faithful
+  disassembly, so a readable port can be written against them and proved
+  offline by differential execution against the translation it replaces
+  (`tests/state_helpers_replay.c`, `tests/record_state_walk_replay.c`).
+  Reading tools: `tools/adapter_dump.py` (a generated function as guest
+  disassembly), `tools/adapter_body.py` (the raw source of a PC range,
+  module by module - several modules carry the same PC and the router
+  serves the first one that owns it), `tools/readable_gap.py` (the
+  call-target entries no readable port covers). Full list of what is
+  missing and how to rebuild it: docs/re/artifact_gap.md.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
+- Record state walk (0x8C03550C) ported readable: src/fight/record_state_walk.c,
+  proved against the retained generated translation by
+  tests/record_state_walk_replay.c (11 differential cases). The oracle
+  replay could not be re-run (the corpora are gone, see docs/re/artifact_gap.md),
+  so the chain readable == generated == oracle is carried by the earlier
+  promotion of the generated translation. docs/re/record_state_walk.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
