@@ -365,7 +365,10 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   shared `vf3_guest_call` helper for it - that one forces the `0x0c` form.
   tools/adapter_owner.py (new) resolves which module the router really serves
   for a PC - several modules carry the same guest code and model it
-  differently.  docs/re/table_getter.md.
+  differently.  Its `--body` reports the *file* the copy lives in: the
+  router's name and the file's name do not line up (the router calls
+  `vf3_fifth_leaf_adapter_contains` while the code lives in
+  `fifth_leaf_adapters_0.c` and `fifth_leaf_adapters_1.c`).  docs/re/table_getter.md.
 - Node query (0x8C053CA4) ported readable: src/fight/node_query.c, proved
   against the retained generated translation by tests/node_query_replay.c (5
   differential cases).  It looks the node up as table[index*4] and asks two
@@ -420,6 +423,20 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the first bit is *assigned* into an answer the guest zeroes first, while the
   rest are or-ed in.  The pool slot is read only when the last bit goes in.
   docs/re/status_flags.md.
+- Table grower (0x8C044C7C) ported readable: src/fight/table_grow.c, proved
+  against the retained generated translation by tests/table_grow_replay.c (5
+  differential cases).  It adds N entries (r4) to two arrays behind one
+  header: the first array's pointer moves on by its stride and the new
+  entries get the fill value, the second array's count becomes N and its
+  pointer moves on by N words.  The header sits behind the global at
+  0x8C044D44 and the slots are offsets in the literal pool (0x8C044D16,
+  0x8C044D18, 0x8C044D1A).  Two details the port has to keep: **the two
+  indirections are not the same** - the global holds the header's address and
+  the word at that address holds the base - so reading the base out of the
+  base is the same value but a different access, which the out-of-window
+  counter sees; and the loop's guard is **signed**, so a negative count skips
+  the loop but still moves the second array's pointer backwards.
+  docs/re/table_grow.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

@@ -160,6 +160,7 @@ add_library(vf3core STATIC
     src/fight/node_handler.c
     src/fight/halfword_frame.c
     src/fight/status_flags.c
+    src/fight/table_grow.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -619,6 +620,7 @@ add_port_test(vf3nodequery tests/node_query_replay.c)
 add_port_test(vf3nodehandler tests/node_handler_replay.c)
 add_port_test(vf3halfwordframe tests/halfword_frame_replay.c)
 add_port_test(vf3statusflags tests/status_flags_replay.c)
+add_port_test(vf3tablegrow tests/table_grow_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

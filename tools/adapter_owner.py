@@ -86,25 +86,59 @@ def owner(pc: int) -> tuple[str | None, list[str]]:
     return (carriers[0] if carriers else None), carriers
 
 
-def body_of(pc: int, module: str) -> list[tuple[int, str]]:
-    """The generated source of a PC and its neighbours, in one module."""
-    path = SRC / f"{module}.c"
-    if not path.exists():
-        return []
-    blocks: dict[int, list[str]] = {}
-    cur: int | None = None
-    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
-        m = LABEL.match(line)
-        if m:
-            cur = int(m.group(1), 16)
-            blocks[cur] = []
+def normalize(stem: str) -> str:
+    """The family a file belongs to: `fifth_leaf_adapters_1` -> `fifth_leaf`.
+
+    The router's name and the file's name do not line up: the router calls
+    `vf3_fifth_leaf_adapter_contains` while the code lives in
+    `fifth_leaf_adapters_0.c` and `fifth_leaf_adapters_1.c`, and
+    `vf3_sweep_adapter_contains` lives in `vf3_sweep_adapters.c` with the code
+    in `vf3_sweep_adapters_0.c`.
+    """
+    s = stem
+    if s.startswith("vf3_"):
+        s = s[4:]
+    s = re.sub(r"_\d+$", "", s)
+    for suf in ("_adapters", "_adapter", "adapters", "adapter"):
+        if s.endswith(suf):
+            s = s[: -len(suf)]
+            break
+    return s
+
+
+def body_of(pc: int, module: str) -> list[tuple[str, list[tuple[int, str]]]]:
+    """The generated source of a PC and its neighbours, in every file of the
+    module's family that carries it.
+
+    Several files can hold the same guest code (one family per campaign), so
+    the body is reported per file.
+    """
+    want = normalize(module)
+    label = f"P_{pc:08x}:"
+    out: list[tuple[str, list[tuple[int, str]]]] = []
+    for path in sorted(SRC.glob("*adapter*.c")):
+        if normalize(path.stem) != want:
             continue
-        if cur is not None:
-            s = line.strip()
-            if s and not s.startswith("if(!s->budget--)"):
-                blocks[cur].append(s)
-    return [(p, " ".join(blocks[p])) for p in sorted(blocks)
-            if pc <= p < pc + 0x40]
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if label not in text:
+            continue
+        blocks: dict[int, list[str]] = {}
+        cur: int | None = None
+        for line in text.splitlines():
+            m = LABEL.match(line)
+            if m:
+                cur = int(m.group(1), 16)
+                blocks[cur] = []
+                continue
+            if cur is not None:
+                s = line.strip()
+                if s and not s.startswith("if(!s->budget--)"):
+                    blocks[cur].append(s)
+        body = [(p, " ".join(blocks[p])) for p in sorted(blocks)
+                if pc <= p < pc + 0x40]
+        if body:
+            out.append((path.name, body))
+    return out
 
 
 def main() -> int:
@@ -128,8 +162,10 @@ def main() -> int:
         if len(carriers) > 1:
             print("carriers: " + ", ".join(carriers))
     if args.body and served:
-        for p, text in body_of(pc, served):
-            print(f"  {p:08x}  {text}")
+        for name, body in body_of(pc, served):
+            print(f"  --- {name}")
+            for p, text in body:
+                print(f"  {p:08x}  {text}")
     return 0
 
 
