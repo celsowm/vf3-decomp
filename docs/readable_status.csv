@@ -179,6 +179,7 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c043a7c,record_copy,src/fight/record_copy.c,r0 r2 r3 r4 r5 r6 r7 pr sr,0,0,0.00,differential
 0x8c03e810,float_blend,src/fight/float_blend.c,r0 r2 r3 r4 r5 r6 r7 r15 pr fr0 fr2 fr3,0,0,0.00,differential
 0x8c06d792,float_table,src/fight/float_table.c,r0 r1 r2 r3 r4 r5 r6 r7 pr fr4 fr5 fr6,0,0,0.00,differential
+0x8c038990,mode_index,src/fight/mode_index.c,r0 r1 r2 r3 r4 pr sr,0,0,0.00,differential
 0x8c035238,loader_dispatch_5238,src/fight/loader_dispatch_5238.c,r0 r1 r2 r3 r15 pr,0,0,0.00,unexercised
 0x8c0434c8,gd_exec_server_wrapper,src/fight/gd_syscall_stub.c,r0 r1 r2 r3 r4 r5 r6 r7 sr,0,0,0.00,unexercised
 0x8c0597ca,render_callback_stub,src/fight/gd_syscall_stub.c,,0,0,0.00,unexercised

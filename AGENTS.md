@@ -554,6 +554,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   keep: the second structure is reached through **two** indirections (the pool
   gives a cell, the cell gives the structure), and the offset is a **signed**
   halfword, so it can point below the structure.  docs/re/float_table.md.
+- Mode index (0x8C038990) ported readable: src/fight/mode_index.c, proved
+  against the retained generated translation by tests/mode_index_replay.c
+  (9 differential cases).  It turns a mode flag into an index into a table:
+  four flags are constants (8, 16, 32 and 64) and four live in the literal
+  pool, and a flag that is none of them is **left alone**.  Two details the
+  port has to keep: the guest compares the four constants against a **copy** of
+  the flag it made in `r0`, while the four pool flags are compared against the
+  flag itself; and the **T bit** the caller sees is the one of the comparison
+  that answered, so it is set on a hit and cleared when no flag matched.
+  docs/re/mode_index.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in
