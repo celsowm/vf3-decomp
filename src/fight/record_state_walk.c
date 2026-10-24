@@ -1,5 +1,5 @@
-/* record_state_walk.c - SH-4 0x8C03550C: walk a record's node chain and
- * report the state the node is in.
+/* record_state_walk.c - SH-4 0x8C03550C: read a record's node state and
+ * report it.
  *
  * The record (r4) owns a vtable (its first word); slot 9 of that vtable
  * (offset 36) is the node's kind.  A kind of 2 means "no callback"; every
@@ -7,15 +7,16 @@
  * at 0x8C0355EC - before the state is read.
  *
  * The state itself comes from the helper at 0x8C035A20, which reads the
- * record's field pair: a flag halfword at +0x48 and a code halfword at
- * +0x4C.  A record whose flag is clear has no code, and the helper answers
- * -10 for it.  The walk reads the code like this:
+ * record's field pair: the busy word at +0x48 and the state word at +0x4C
+ * (the field names src/sys/taskvm.c gives the same node: N_W48_BUSY and
+ * N_W4C_ST).  A record that is not busy has no state, and the helper
+ * answers -10 for it.  The walk reads the state like this:
  *
- *   code 0        the node is empty      -> -32
- *   code 1        the walk is finished   -> 0
- *   codes 2..4    the walk goes on       -> next round
- *   codes 5, 6    the node holds a value  -> the halfword at +0x4E
- *   any other     a code the walk does not know -> -25
+ *   state 0        the node is empty      -> -32
+ *   state 1        the walk is finished   -> 0
+ *   states 2..4    the walk goes on       -> next round
+ *   states 5, 6    the node holds a value  -> the halfword at +0x4E
+ *   any other     a state the walk does not know -> -25
  *
  * Every round moves the walk cursor.  The cursor lives behind the global
  * pointer at 0x8C0355E8 and its first word is the current position; the
@@ -49,24 +50,24 @@
 
 /* The guest's own result codes. */
 #define RESULT_NO_NODE  0xffffffe0u   /* -32: the node is empty */
-#define RESULT_BAD_CODE 0xffffffe7u   /* -25: a code the walk does not know */
+#define RESULT_BAD_STATE 0xffffffe7u  /* -25: a state the walk does not know */
 #define RESULT_STEP_OVER 0xffffffebu  /* -21: the step ran past the limit */
 
 /* The record's fields. */
 #define NODE_VTABLE 0u
 #define NODE_CURSOR 24u
-#define NODE_FLAG   0x48u
-#define NODE_CODE   0x4cu
+#define NODE_BUSY   0x48u
+#define NODE_STATE  0x4cu
 #define NODE_VALUE  0x4eu
 #define VTABLE_KIND 36u
 
-/* The codes the walk knows. */
-#define CODE_EMPTY      0u
-#define CODE_DONE       1u
-#define CODE_WALK_FIRST 2u
-#define CODE_WALK_LAST  4u
-#define CODE_VALUE_FIRST 5u
-#define CODE_VALUE_LAST  6u
+/* The states the walk knows. */
+#define STATE_EMPTY        0u
+#define STATE_DONE         1u
+#define STATE_WALK_FIRST   2u
+#define STATE_WALK_LAST    4u
+#define STATE_VALUE_FIRST  5u
+#define STATE_VALUE_LAST   6u
 
 /* The kind that asks for no callback. */
 #define KIND_NO_CALLBACK 2u
@@ -109,26 +110,26 @@ int vf3_record_state_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
         /* the state getter reads the record's field pair */
         R(4) = R(14);
         if (!vf3_guest_call(s, ram, STATE_GETTER, CONT_STATE)) return 0;
-        const uint32_t code = R(0);
-        R(4) = code;
-        if (code == CODE_EMPTY) {
+        const uint32_t state = R(0);
+        R(4) = state;
+        if (state == STATE_EMPTY) {
             R(0) = RESULT_NO_NODE;
             set_t(s, 1);
             break;
         }
-        if (code == CODE_DONE) {
+        if (state == STATE_DONE) {
             R(0) = 0;
             set_t(s, 1);
             break;
         }
-        if (code >= CODE_WALK_FIRST && code <= CODE_WALK_LAST) {
+        if (state >= STATE_WALK_FIRST && state <= STATE_WALK_LAST) {
             /* the walk goes on: the cursor bookkeeping follows */
-        } else if (code >= CODE_VALUE_FIRST && code <= CODE_VALUE_LAST) {
+        } else if (state >= STATE_VALUE_FIRST && state <= STATE_VALUE_LAST) {
             R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, R(14) + NODE_VALUE);
             set_t(s, 1);
             break;
         } else {
-            R(0) = RESULT_BAD_CODE;
+            R(0) = RESULT_BAD_STATE;
             set_t(s, 0);
             break;
         }

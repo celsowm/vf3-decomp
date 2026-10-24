@@ -4,9 +4,9 @@ A readable port of the fight engine's record walk, and the evidence for it.
 
 ## The function
 
-`0x8C03550C` walks a record's node chain and reports the state the node is
-in. The record comes in `r4`; the guest keeps it in `r14` and saves `r14`,
-`r13`, `r12`, `r11`, `r10` and `pr` around the work.
+`0x8C03550C` reads a record's node state and reports it. The record comes
+in `r4`; the guest keeps it in `r14` and saves `r14`, `r13`, `r12`, `r11`,
+`r10` and `pr` around the work.
 
 The record's first word is a vtable pointer, and slot 9 of that vtable
 (offset 36) is the node's *kind*. A kind of 2 means "no callback"; every
@@ -14,27 +14,28 @@ other kind calls the node callback - the function pointer in the global at
 `0x8C0355EC` - before the state is read.
 
 The state itself comes from the helper at `0x8C035A20`, which reads the
-record's field pair: a flag halfword at `+0x48` and a code halfword at
-`+0x4C`. A record whose flag is clear has no code, and the helper answers
--10 for it. The walk reads the code like this:
+record's field pair: the busy word at `+0x48` and the state word at `+0x4C`
+(the names `src/sys/taskvm.c` gives the same node: `N_W48_BUSY` and
+`N_W4C_ST`). A record that is not busy has no state, and the helper answers
+-10 for it. The walk reads the state like this:
 
-| code | meaning | result |
+| state | meaning | result |
 |---|---|---|
 | 0 | the node is empty | -32 (`0xFFFFFFE0`) |
 | 1 | the walk is finished | 0 |
 | 2, 3, 4 | the walk goes on | next round |
 | 5, 6 | the node holds a value | the signed halfword at `+0x4E` |
-| any other | a code the walk does not know | -25 (`0xFFFFFFE7`) |
+| any other | a state the walk does not know | -25 (`0xFFFFFFE7`) |
 
-Every round moves the walk cursor. The cursor lives behind the global
-pointer at `0x8C0355E8` and its first word is the current position; the step
-from the previous position has to stay inside the limit in the global
-halfword at `0x8C0355E4`, or the walk ends with -21 (`0xFFFFFFEB`). The
-previous position is the cursor's own value from the last time the record's
-node pointer (its word at `+0x18`) moved, and the value the cursor carried
-when the walk started. The comparison is the SH-4 `cmp/hi`, so it is
-unsigned, while the limit is read as a *signed* short - a negative limit is
-a huge unsigned one.
+The rounds are bounded by the walk cursor. The cursor lives behind the
+global pointer at `0x8C0355E8` and its first word is the current position;
+the step from the previous position has to stay inside the limit in the
+global halfword at `0x8C0355E4`, or the walk ends with -21
+(`0xFFFFFFEB`). The previous position is the cursor's own value from the
+last time the record's node pointer (its word at `+0x18`) moved, and the
+value the cursor carried when the walk started. The comparison is the
+SH-4 `cmp/hi`, so it is unsigned, while the limit is read as a *signed*
+short - a negative limit is a huge unsigned one.
 
 The port: `src/fight/record_state_walk.c`, registered in
 `src/fight/readable.c` as `record_state_walk`.
@@ -45,12 +46,23 @@ The walk reads the state through a helper, and that helper is ported
 readably too: `src/fight/record_state_field.c`, registered as
 `record_state_get`.
 
-The getter answers the record's code halfword at `+0x4C`, but only when the
-flag halfword at `+0x48` says the record carries one. A record without a
-flag - and a null record - answers -10, the "no code" answer the walk turns
-into -25. The function has no frame: it pushes nothing, so the readable
-port does not either, and it leaves the flag in `r2`, the code (or -10) in
-`r0` and the T flag saying whether the record was empty.
+The getter answers the record's state word at `+0x4C`, but only when the
+busy word at `+0x48` says the record carries one. A record that is not
+busy - and a null record - answers -10, the "no state" answer the walk
+turns into -25. The function has no frame: it pushes nothing, so the
+readable port does not either, and it leaves the busy word in `r2`, the
+state (or -10) in `r0` and the T flag saying whether the record was empty.
+
+## The neighbours
+
+`src/sys/taskvm.c` already carries readable ports of the two functions
+around this one - `node_finalize` (`0x8C0355A0`) and `node_unlink`
+(`0x8C035A4E`) - and its notes on the unlink flow match the machine code
+this port was written from: "if klass->f28(40) == node: r1 =
+klass->f14->f14; jsr @r1 with r4 = node->f3C; then bsr f_8c03550c(node)".
+The same file holds a stub for this entry (`link_op`), because the task-VM
+model is a struct-C model of the game logic and not a translation of the
+guest code; the port here is the guest-code translation.
 
 ## How it was recovered
 
