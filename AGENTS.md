@@ -564,6 +564,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   flag itself; and the **T bit** the caller sees is the one of the comparison
   that answered, so it is set on a hit and cleared when no flag matched.
   docs/re/mode_index.md.
+- Structure init (0x8C036A58) ported readable: src/fight/range_init.c, proved
+  against the retained generated translation by tests/range_init_replay.c
+  (4 differential cases).  It sets up a forty-four byte structure: mostly
+  zeros, but four words in the middle carry a range whose shape depends on a
+  **word behind a pointer** the pool gives - `0, -1, 0, 0` when that word is
+  zero and `-1, 0, -1, -1` when it is not.  Three details the port has to
+  keep: the branch's **delay slot** sets the marker on both paths; the two
+  paths do **not** share their writes (one of them stores the structure's
+  `+20` in the delay slot of the branch that leaves it); and the word that
+  lands in the structure's `+36` is stored in the **`rts`'s delay slot**.
+  docs/re/range_init.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

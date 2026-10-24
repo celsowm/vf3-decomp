@@ -156,6 +156,7 @@ int vf3_record_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_float_blend_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_float_table_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_mode_index_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_range_init_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -381,6 +382,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* a mode flag turned into an index */
     { 0x0c038990u, "mode_index", vf3_mode_index_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(16)|B(17) },
+    /* a structure, initialised */
+    { 0x0c036a58u, "range_init", vf3_range_init_entry,
+      B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,
