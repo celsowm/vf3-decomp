@@ -152,6 +152,7 @@ int vf3_counter_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_byte_decode_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_node_rotate_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_scale_step_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -365,6 +366,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the motion VM's scaling step */
     { 0x0c0cb8acu, "scale_step", vf3_scale_step_entry,
       B(0)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17)|B(53)|FR(0)|FR(3)|FR(4)|FR(5)|FR(6) },
+    /* twenty-four records, repacked on the way out */
+    { 0x0c043a7cu, "record_copy", vf3_record_copy_entry,
+      B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

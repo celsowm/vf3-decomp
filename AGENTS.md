@@ -512,6 +512,19 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   compared (so 17 is a step and 9 is not); the count is made positive and *that*
   value goes into FPUL; and the scale is a **fused** multiply-add.
   docs/re/scale_step.md.
+- Record repack (0x8C043A7C) ported readable: src/fight/record_copy.c, proved
+  against the retained generated translation by tests/record_copy_replay.c
+  (4 differential cases).  It copies twenty-four records out of a table and
+  into a destination array, and the two records do not have the same shape:
+  the source's bytes 0..3 and 8..11 and its words 16 and 20 become the
+  destination's bytes 0..3 and 4..7 and its words 8 and 12.  Four details the
+  port has to keep: the table is read through **two indirections** (the pool
+  gives the table, the table's cell gives the source's base) and the first
+  record is **+0x28** into that base; the source's records are 0x2C apart and
+  the destination's 0x18; the loop's exit test is the **T bit** of a compare
+  the body has already bumped, so the T bit the caller sees is the last
+  iteration's; and the bytes are **sign-extended** into the register they
+  travel through.  docs/re/record_copy.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in
@@ -532,7 +545,15 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   out-of-window counter**, and `VF3_REPLAY_OOB=1` names the uncaptured read.
   A fixture that leaves a path reading outside the windows passes silently;
   the way to see it is to read the *translated* body's address chain and lay
-  the fixture out for it.
+  the fixture out for it.  **A read that falls inside a window but on the
+  wrong part of it is not caught by any counter.**  The record repack's first
+  fixture laid the records one stride too low, so both sides read the zero gap
+  between the records and agreed on nothing while the out-of-window counter
+  stayed at zero - the address was still inside a captured window.  The guard
+  that does catch it is to check the result **against the fixture itself**,
+  without consulting the generated translation: the destination's bytes have
+  to be the source's bytes where the guest puts them.  A mutation the test
+  cannot see is a path the test never reaches.
 - **The registry has two entry addresses that are registered twice.**
   `vf3_readable_find` returns the first match, so the second row of each pair
   can never be served: `0x0C042D7C` is registered as both `div_signed` and
