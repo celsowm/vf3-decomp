@@ -329,6 +329,15 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the chain, where the translation switches on the eighteen operations it
   knows and stops for anything else - the difference needs the test-only
   `missing` hook to show.  docs/re/matrix_op_dispatch.md.
+- Record predicate (0x8C03772A) ported readable: src/fight/record_match.c,
+  proved against the retained generated translation by
+  tests/record_match_replay.c (8 differential cases).  It asks two helpers
+  (the function pointers in the literal pool at 0x8C03779C and 0x8C0377A0)
+  and then checks a record and a twelve-byte header: the record's first
+  word 14, the header's words 1, the global halfword at 0x8C03778E, 1, and
+  its last two bytes 0.  The header sits below the two saved registers, so
+  it is twenty bytes under the entry's sp - the port has to keep that.
+  docs/re/record_match.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
