@@ -228,6 +228,7 @@ add_library(vf3core STATIC
     src/fight/advance_client_wrappers.c
     src/fight/advance_state_helpers.c
     src/fight/record_state_walk.c
+    src/fight/record_state_field.c
     src/fight/continuation_input_controls.c
     src/fight/command_encoders.c
     src/fight/audio_channels.c

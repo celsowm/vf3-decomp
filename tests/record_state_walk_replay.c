@@ -24,8 +24,10 @@
 #include <string.h>
 
 int vf3_record_state_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_state_get_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define WALK_ENTRY     0x0c03550cu
+#define GETTER_ENTRY   0x0c035a20u
 #define CALLBACK_ENTRY 0x0c0ff0f0u
 #define RETURN_PC      0x0c0abcdeu
 
@@ -252,12 +254,61 @@ static int compare(const struct scenario *sc)
     return 1;
 }
 
+/* the state getter on its own: a null record, a record without a flag and a
+ * record that carries a code */
+static int compare_getter(const char *name, uint32_t record, uint32_t flag,
+                          uint32_t code, int has_flag)
+{
+    struct run ref, port, hook;
+    struct scenario sc;
+    memset(&sc, 0, sizeof sc);
+    sc.flag = flag;
+    sc.code = code;
+    sc.cursor = 0x100;
+    setup(&ref, &sc);
+    setup(&port, &sc);
+    setup(&hook, &sc);
+    for (unsigned k = 0; k < 3; ++k) {
+        struct run *r = k == 0 ? &ref : (k == 1 ? &port : &hook);
+        r->state.v[4] = record;
+        if (has_flag) {
+            w16(r->shadow + OFF_NODE, NODE_FLAG, flag);
+            w16(r->shadow + OFF_NODE, NODE_CODE, code);
+        }
+    }
+
+    vf3_family_missing = missing_hook;
+
+    cb_calls = 0;
+    const int ok_ref = vf3_matrix_family(GETTER_ENTRY, &ref.state, &ref.map);
+    cb_calls = 0;
+    const int ok_port = vf3_record_state_get_entry(&port.state, &port.map);
+    int handled = 0;
+    cb_calls = 0;
+    const int ok_hook = vf3_readable_override(GETTER_ENTRY, &hook.state, &hook.map, &handled);
+    vf3_family_missing = NULL;
+
+    if (ok_ref != ok_port || ok_ref != ok_hook || !handled ||
+        !same(&ref, &port, "port") || !same(&ref, &hook, "hook")) {
+        fprintf(stderr, "record getter: %s differs (ok %d/%d/%d)\n",
+                name, ok_ref, ok_port, ok_hook);
+        return 0;
+    }
+    ++cases;
+    return 1;
+}
+
 int main(void)
 {
     /* the port has to be registered, or the native tick never reaches it */
     const vf3_readable_entry *reg = vf3_readable_find(WALK_ENTRY);
     if (!reg || reg->fn != vf3_record_state_walk_entry) {
         fprintf(stderr, "record walk: the port is not registered\n");
+        return 1;
+    }
+    const vf3_readable_entry *reg_get = vf3_readable_find(GETTER_ENTRY);
+    if (!reg_get || reg_get->fn != vf3_record_state_get_entry) {
+        fprintf(stderr, "record walk: the getter is not registered\n");
         return 1;
     }
     static const struct scenario scenarios[] = {
@@ -286,6 +337,11 @@ int main(void)
     };
     for (unsigned i = 0; i < sizeof scenarios / sizeof scenarios[0]; ++i)
         if (!compare(&scenarios[i])) return 1;
+    if (!compare_getter("null record", 0, 0, 0, 0)) return 1;
+    if (!compare_getter("no flag", NODE_BASE, 0, 5, 0)) return 1;
+    if (!compare_getter("code 5", NODE_BASE, 1, 5, 1)) return 1;
+    if (!compare_getter("code -3", NODE_BASE, 1, 0xfffd, 1)) return 1;
+    if (!compare_getter("code 0", NODE_BASE, 1, 0, 1)) return 1;
     printf("record_state_walk: %u differential cases - PASS\n", cases);
     return 0;
 }

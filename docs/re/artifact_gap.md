@@ -43,7 +43,7 @@ build/vf3taskvm     taskvm_replay: PASS
 build/vf3mtmount    mtmount_replay: PASS
 build/vf3walker     walker_replay: PASS
 build/vf3statehelpers  state_helpers: 8836 differential cases - PASS
-build/vf3recordwalk    record_state_walk: 11 differential cases - PASS
+build/vf3recordwalk    record_state_walk: 16 differential cases - PASS
 ```
 
 The rest of the replay suites print `cannot open extract/analysis/...` and

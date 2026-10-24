@@ -306,12 +306,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   missing and how to rebuild it: docs/re/artifact_gap.md.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
-- Record state walk (0x8C03550C) ported readable: src/fight/record_state_walk.c,
-  proved against the retained generated translation by
-  tests/record_state_walk_replay.c (11 differential cases). The oracle
-  replay could not be re-run (the corpora are gone, see docs/re/artifact_gap.md),
-  so the chain readable == generated == oracle is carried by the earlier
-  promotion of the generated translation. docs/re/record_state_walk.md.
+- Record state walk (0x8C03550C) ported readable, with its state getter
+  (0x8C035A20): src/fight/record_state_walk.c and
+  src/fight/record_state_field.c, proved against the retained generated
+  translation by tests/record_state_walk_replay.c (16 differential cases).
+  The oracle replay could not be re-run (the corpora are gone, see
+  docs/re/artifact_gap.md), so the chain readable == generated == oracle is
+  carried by the earlier promotion of the generated translation.
+  docs/re/record_state_walk.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

@@ -158,3 +158,4 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03d280,matrix_frame_b,src/fight/matrix_lib.c,fpul,0,0,0.00,unexercised
 0x8c03d2b0,matrix_frame_c,src/fight/matrix_lib.c,,0,0,0.00,unexercised
 0x8c03550c,record_state_walk,src/fight/record_state_walk.c,r0 r1 r3 r4 pr sr,0,0,0.00,differential
+0x8c035a20,record_state_get,src/fight/record_state_field.c,r0 r2 pr sr,0,0,0.00,differential

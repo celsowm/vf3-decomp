@@ -39,6 +39,19 @@ a huge unsigned one.
 The port: `src/fight/record_state_walk.c`, registered in
 `src/fight/readable.c` as `record_state_walk`.
 
+## The state getter (SH-4 0x8C035A20)
+
+The walk reads the state through a helper, and that helper is ported
+readably too: `src/fight/record_state_field.c`, registered as
+`record_state_get`.
+
+The getter answers the record's code halfword at `+0x4C`, but only when the
+flag halfword at `+0x48` says the record carries one. A record without a
+flag - and a null record - answers -10, the "no code" answer the walk turns
+into -25. The function has no frame: it pushes nothing, so the readable
+port does not either, and it leaves the flag in `r2`, the code (or -10) in
+`r0` and the T flag saying whether the record was empty.
+
 ## How it was recovered
 
 The generated modules under `src/fight/*adapter*.c` are the machine
@@ -74,10 +87,12 @@ generated translation of the same function over eleven scenarios and
 compares **the whole register file, the return PC, the failed PC, the
 out-of-window counter, every RAM byte and the number of callback calls**.
 The port runs twice: once called directly and once through the readable
-override, which is how the native tick reaches it:
+override, which is how the native tick reaches it. The same file covers the
+state getter in five more scenarios (a null record, a record without a
+flag and three codes):
 
 ```
-record_state_walk: 11 differential cases - PASS
+record_state_walk: 16 differential cases - PASS
 ```
 
 The scenarios cover the empty record, the finished walk, both value codes,
