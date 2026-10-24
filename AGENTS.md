@@ -601,6 +601,19 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the guest puts back from the stack - the last pop is the **`rts`'s delay
   slot**.  The third limit is dead: it repeats the first and the fourth
   overwrites the T bit it leaves.  docs/re/clamp_pair.md.
+- Capped move (0x8C08DD5C) ported readable: src/fight/move_cap.c, proved against
+  the retained generated translation by tests/move_cap_replay.c (9 differential
+  cases).  It knows two positions - the one the object had at the start of the
+  frame (r4, r5) and the one it has now (*r6, *r7) - and moves the current one
+  by the difference, but never by more than the longest movement the literal
+  pool holds.  It is the 2D sibling of the already-ported `aim_step`
+  (0x8C093768) and shares its epsilon (1e-7).  Four details the port has to
+  keep: the length comes from **fsra**, the SH-4's *approximate* reciprocal of
+  the square root, so it is not `1/sqrt` in C; the squared length is a
+  **fused** multiply-add; the factor is compared as an absolute value, which
+  the guest does by **masking the sign bit off the float's bits**; and the
+  difference is only truncated when it is scaled - a short movement keeps the
+  *integer* difference.  docs/re/move_cap.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in
