@@ -338,6 +338,15 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   its last two bytes 0.  The header sits below the two saved registers, so
   it is twenty bytes under the entry's sp - the port has to keep that.
   docs/re/record_match.md.
+- Record lookup (0x8C037788) ported readable: src/fight/record_lookup.c, proved
+  against the retained generated translation by tests/record_lookup_replay.c (3
+  differential cases).  It picks the record (the index 1 and the table behind the
+  global at 0x8C0377A4), asks the record predicate (0x8C03772A) and, when the
+  record fits, the table's getter (the function pointer in the literal pool at
+  0x8C037798).  The answer is 0 with the record in r4, -1 when the predicate says
+  no, or the getter's negative answer.  The frame (the index and the table) and
+  the getter's three argument words have to stay where the guest puts them, or
+  the RAM the test compares differs.  docs/re/record_lookup.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

@@ -138,6 +138,7 @@ int vf3_record_state_get_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_op_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_op_dispatch_38_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_match_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_lookup_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -308,6 +309,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the record predicate: the answer, the record and the T flag */
     { 0x0c03772au, "record_match", vf3_record_match_entry,
       B(0)|B(2)|B(3)|B(4)|B(5)|B(14)|B(15)|B(16)|B(17) },
+    /* the lookup that asks the predicate and the table's getter */
+    { 0x0c037788u, "record_lookup", vf3_record_lookup_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,
