@@ -168,3 +168,4 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0440c8,table_getter_0,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
 0x8c053ca4,node_query,src/fight/node_query.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
 0x8c0ab870,node_handler,src/fight/node_handler.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
+0x8c09d4b0,halfword_frame,src/fight/halfword_frame.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential

@@ -144,6 +144,7 @@ int vf3_table_getter_1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_getter_0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_node_query_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_node_handler_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_halfword_frame_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -332,6 +333,9 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     /* the node's handler, called with the object's data in a frame */
     { 0x0c0ab870u, "node_handler", vf3_node_handler_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
+    /* the frame of halfwords and the three calls it feeds */
+    { 0x0c09d4b0u, "halfword_frame", vf3_halfword_frame_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },

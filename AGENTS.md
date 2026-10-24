@@ -388,6 +388,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   are part of the contract and the port calls the same
   vf3_matrix_load/vf3_matrix_store helpers the translation uses.
   docs/re/node_handler.md.
+- Halfword frame (0x8C09D4B0) ported readable: src/fight/halfword_frame.c,
+  proved against the retained generated translation by
+  tests/halfword_frame_replay.c (3 differential cases).  It puts the argument
+  (r5) and the object's three halfwords in a frame (at S-20, S-16, S-12, S-8
+  under the entry's sp) and calls three things with values derived from it:
+  the first handler (the pool at 0x8C09D580) gets the object's first halfword,
+  the second (0x8C09D584) gets the argument plus the object's second halfword,
+  and the third (0x8C09D588) gets the object's third halfword as a **tail
+  transfer** - the guest pops pr and jumps, so it runs in the caller's frame.
+  Two details the port has to keep: the `jsr` **delay slot runs before the
+  callee** (the translator merges it into the call block, so the `extu.w` mask
+  and the add are visible to the callee), and `mov.w` sign-extends where
+  `extu.w` does not.  The third call is a `jmp @r3`, so it needs
+  `vf3_guest_tail_call` - the shared `vf3_guest_call` would force the `0x0c`
+  form of pr and lose the caller's own return address.  **A stub callee that
+  only answers hides the continuation**: it returns to pr, so a port with the
+  wrong continuation still comes back "right"; the test's stubs now record the
+  return address they were called with, which is what pins it.
+  docs/re/halfword_frame.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
