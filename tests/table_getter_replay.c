@@ -1,19 +1,24 @@
-/* table_getter_replay.c - the readable table getter against the retained
- * generated translation of SH-4 0x8C044068.
+/* table_getter_replay.c - the readable table getters against the retained
+ * generated translation of SH-4 0x8C044068 and its two siblings.
  *
  * The generated translation is the reference: it is the machine translation
- * the oracle proved against the captured fight states.  The readable port has
- * to leave the same registers, the same RAM and the same return address as
- * that translation, for every answer the getter can give.
+ * the oracle proved against the captured fight states.  The readable ports
+ * have to leave the same registers, the same RAM and the same return
+ * address as that translation, for every answer the getter can give.
  *
- * The port is run twice: once called directly and once through the readable
- * override, which is how the native tick reaches it.
+ * Every port is run twice: once called directly and once through the
+ * readable override, which is how the native tick reaches it.
  *
- * The getter hands the caller's three frame words to the table's handler, so
- * the handler is an entry no ported code owns and the test answers it
- * through the dispatcher's "missing" hook.  The answer it gives mixes the
- * three words, so a getter that forwarded them in the wrong order would
- * answer something else and the test would say so.
+ * The getter hands the caller's frame words to the table's handler, so the
+ * handler is an entry no ported code owns and the test answers it through
+ * the dispatcher's "missing" hook.  The answer it gives mixes the frame
+ * words, so a getter that forwarded them in the wrong order would answer
+ * something else and the test would say so.
+ *
+ * The caller's return address carries the mirror the run came through: the
+ * two younger getters write their continuations with the code base they
+ * derive from it, so the test uses the 0x8c form and the continuations
+ * have to follow.
  */
 #include "fight/matrix_family.h"
 #include "fight/family_hooks.h"
@@ -23,20 +28,28 @@
 #include <string.h>
 
 int vf3_table_getter_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_table_getter_1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_table_getter_0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
-#define GETTER_ENTRY 0x0c044068u
-#define RETURN_PC   0x0c0abcdeu
+#define GETTER_3_ENTRY 0x0c044068u
+#define GETTER_1_ENTRY 0x0c04409cu
+#define GETTER_0_ENTRY 0x0c0440c8u
+
+/* the caller's return address, in the 0x8c mirror */
+#define RETURN_PC   0x8c0abcdeu
 
 /* the two entries no ported code owns */
 #define HANDLER      0x0c0ff130u   /* the table's handler            */
 #define FALLBACK_CAL 0x0c0ff134u   /* the fallback's own callee      */
 
-/* the getter's literal pool */
+/* the getters' literal pool */
 #define POOL_BASE   0x0c044130u
 #define POOL_LEN    0x30u
 #define G_INDEX     (POOL_BASE + 0x0au)   /* the slot's offset  0x8C04413A */
 #define G_TABLE     (POOL_BASE + 0x10u)   /* the table          0x8C044140 */
-#define G_HANDLER   (POOL_BASE + 0x14u)   /* the handler        0x8C044144 */
+#define G_HANDLER_3 (POOL_BASE + 0x14u)   /* the handler        0x8C044144 */
+#define G_HANDLER_1 (POOL_BASE + 0x18u)   /* the handler        0x8C044148 */
+#define G_HANDLER_0 (POOL_BASE + 0x1cu)   /* the handler        0x8C04414C */
 
 /* the fallback's literal pool */
 #define FBPOOL_BASE 0x0c043d80u
@@ -44,7 +57,7 @@ int vf3_table_getter_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 #define FB_OFFSET   (FBPOOL_BASE + 0x02u)  /* the offset        0x8C043D82 */
 #define FB_FLAG     (FBPOOL_BASE + 0x10u)  /* the word it sets  0x8C043D90 */
 #define FB_CALLEE   (FBPOOL_BASE + 0x14u)  /* the callee        0x8C043D94 */
-#define FB_ARRAY_SLOT (FBPOOL_BASE + 0x18u)  /* the array         0x8C043D98 */
+#define FB_ARRAY_SLOT (FBPOOL_BASE + 0x18u)/* the array         0x8C043D98 */
 
 #define STACK_BASE  0x0c100000u
 #define STACK_LEN   0x10000u
@@ -70,9 +83,11 @@ int vf3_table_getter_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 struct scenario {
     const char *name;
-    uint32_t frame[3];      /* the caller's three frame words */
-    uint32_t slot;          /* the slot's value: 0 means the fallback runs */
-    int expect_fallback;    /* whether the fallback has to run */
+    uint32_t entry;          /* the getter's entry */
+    unsigned nwords;         /* the frame words it forwards */
+    uint32_t frame[3];       /* the caller's frame words */
+    uint32_t slot;           /* the slot's value: 0 means the fallback is not asked */
+    int expect_fallback;     /* whether the fallback has to run */
 };
 
 /* one run: its own RAM shadow, its own guest state */
@@ -108,20 +123,21 @@ static uint32_t r32(const struct run *r, uint32_t addr)
            ((uint32_t)r->shadow[off + 2] << 16) | ((uint32_t)r->shadow[off + 3] << 24);
 }
 
+/* how many frame words the handler of this run gets */
+static unsigned hook_words;
+
 static int missing_hook(uint32_t entry, vf3_matrix_state *s,
                         const vf3_ram_map *ram, int *handled)
 {
     if (entry == (HANDLER & 0x1FFFFFFFu)) {
-        /* the table's handler: it gets the caller's three frame words on the
-         * stack and answers a mix of them, so a getter that forwarded them
-         * in the wrong order would answer something else */
+        /* the table's handler: it gets the caller's frame words on the stack
+         * and answers a mix of them, so a getter that forwarded them in the
+         * wrong order would answer something else */
         const uint32_t sp = s->v[15];
-        uint32_t a[3];
-        for (unsigned i = 0; i < 3; ++i) {
-            const uint32_t at = sp + i * 4u;
-            a[i] = (uint32_t)vf3_matrix_read(ram, at, 4);
-        }
-        s->v[0] = a[0] ^ (a[1] << 1) ^ (a[2] << 2);
+        uint32_t mix = 0u;
+        for (unsigned i = 0; i < hook_words; ++i)
+            mix ^= vf3_matrix_read(ram, sp + i * 4u, 4) << i;
+        s->v[0] = mix;
         s->pc = s->v[16];
         *handled = 1;
         return 1;
@@ -143,10 +159,12 @@ static void setup(struct run *r, const struct scenario *sc)
     uint8_t *p = r->shadow;
     memset(p, 0, SHADOW_LEN);
 
-    /* the getter's pool */
+    /* the getters' pool */
     w16(p + OFF_POOL, G_INDEX - POOL_BASE, 4);
     w32(p + OFF_POOL, G_TABLE - POOL_BASE, TABLE_PTR);
-    w32(p + OFF_POOL, G_HANDLER - POOL_BASE, HANDLER);
+    w32(p + OFF_POOL, G_HANDLER_3 - POOL_BASE, HANDLER);
+    w32(p + OFF_POOL, G_HANDLER_1 - POOL_BASE, HANDLER);
+    w32(p + OFF_POOL, G_HANDLER_0 - POOL_BASE, HANDLER);
 
     /* the fallback's pool */
     w16(p + OFF_FBPOOL, FB_OFFSET - FBPOOL_BASE, 0);
@@ -159,8 +177,8 @@ static void setup(struct run *r, const struct scenario *sc)
     w32(p + OFF_DATA, SLOT - DATA_BASE, sc->slot);
     w32(p + OFF_DATA, FB_ARRAY_PTR - DATA_BASE, FB_ARRAY);
 
-    /* the caller's frame: the three words the getter hands to the handler.
-     * They sit at the caller's sp and above it */
+    /* the caller's frame: the words the getter hands to the handler.  They
+     * sit at the caller's sp and above it */
     for (unsigned i = 0; i < 3; ++i)
         w32(p + OFF_STACK, (SP - STACK_BASE) + i * 4u, sc->frame[i]);
 
@@ -217,6 +235,15 @@ static int same(const struct run *a, const struct run *b, const char *what)
     return 1;
 }
 
+static int call_port(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    switch (entry) {
+    case GETTER_3_ENTRY: return vf3_table_getter_entry(s, ram);
+    case GETTER_1_ENTRY: return vf3_table_getter_1_entry(s, ram);
+    default:             return vf3_table_getter_0_entry(s, ram);
+    }
+}
+
 static int compare(const struct scenario *sc)
 {
     struct run ref, port, hook;
@@ -224,12 +251,13 @@ static int compare(const struct scenario *sc)
     setup(&port, sc);
     setup(&hook, sc);
 
+    hook_words = sc->nwords;
     vf3_family_missing = missing_hook;
 
-    const int ok_ref = vf3_matrix_family(GETTER_ENTRY, &ref.state, &ref.map);
-    const int ok_port = vf3_table_getter_entry(&port.state, &port.map);
+    const int ok_ref = vf3_matrix_family(sc->entry, &ref.state, &ref.map);
+    const int ok_port = call_port(sc->entry, &port.state, &port.map);
     int handled = 0;
-    const int ok_hook = vf3_readable_override(GETTER_ENTRY, &hook.state, &hook.map, &handled);
+    const int ok_hook = vf3_readable_override(sc->entry, &hook.state, &hook.map, &handled);
 
     vf3_family_missing = NULL;
 
@@ -240,8 +268,10 @@ static int compare(const struct scenario *sc)
         return 0;
     }
 
-    /* the answer is the handler's, a mix of the three frame words */
-    const uint32_t expect = sc->frame[0] ^ (sc->frame[1] << 1) ^ (sc->frame[2] << 2);
+    /* the answer is the handler's, a mix of the frame words */
+    uint32_t expect = 0u;
+    for (unsigned i = 0; i < sc->nwords; ++i)
+        expect ^= sc->frame[i] << i;
     if (ref.state.v[0] != expect) {
         fprintf(stderr, "table getter: %s answered %08x, expected %08x\n",
                 sc->name, ref.state.v[0], expect);
@@ -262,19 +292,36 @@ static int compare(const struct scenario *sc)
 
 int main(void)
 {
-    /* the port has to be registered, or the native tick never reaches it */
-    const vf3_readable_entry *reg = vf3_readable_find(GETTER_ENTRY);
-    if (!reg || reg->fn != vf3_table_getter_entry) {
-        fprintf(stderr, "table getter: the port is not registered\n");
-        return 1;
+    /* the ports have to be registered, or the native tick never reaches them */
+    static const struct { uint32_t entry; const vf3_readable_entry *reg;
+                          vf3_readable_fn fn; } ports[] = {
+        { GETTER_3_ENTRY, NULL, vf3_table_getter_entry },
+        { GETTER_1_ENTRY, NULL, vf3_table_getter_1_entry },
+        { GETTER_0_ENTRY, NULL, vf3_table_getter_0_entry },
+    };
+    for (unsigned i = 0; i < sizeof ports / sizeof ports[0]; ++i) {
+        const vf3_readable_entry *reg = vf3_readable_find(ports[i].entry);
+        if (!reg || reg->fn != ports[i].fn) {
+            fprintf(stderr, "table getter: the port at %08x is not registered\n",
+                    ports[i].entry);
+            return 1;
+        }
     }
+
     static const struct scenario scenarios[] = {
         /* the slot is taken: the fallback lets the manager know */
-        { "taken",  { 0x11111111u, 0x22222222u, 0x33333333u }, 0x5a5a5a5au, 1 },
+        { "3 taken", GETTER_3_ENTRY, 3, { 0x11111111u, 0x22222222u, 0x33333333u }, 0x5a5a5a5au, 1 },
         /* the slot is clear: the fallback is not asked */
-        { "clear",  { 0x11111111u, 0x22222222u, 0x33333333u }, 0u, 0 },
+        { "3 clear", GETTER_3_ENTRY, 3, { 0x11111111u, 0x22222222u, 0x33333333u }, 0u, 0 },
+        /* the one-word getter */
+        { "1 taken", GETTER_1_ENTRY, 1, { 0x11111111u, 0x22222222u, 0x33333333u }, 0x5a5a5a5au, 1 },
+        { "1 clear", GETTER_1_ENTRY, 1, { 0x11111111u, 0x22222222u, 0x33333333u }, 0u, 0 },
+        /* the getter without a frame word */
+        { "0 taken", GETTER_0_ENTRY, 0, { 0x11111111u, 0x22222222u, 0x33333333u }, 0x5a5a5a5au, 1 },
+        { "0 clear", GETTER_0_ENTRY, 0, { 0x11111111u, 0x22222222u, 0x33333333u }, 0u, 0 },
         /* the frame words are in another order: the answer follows them */
-        { "order",  { 0xdeadbeefu, 0x00000001u, 0x00010000u }, 0x5a5a5a5au, 1 },
+        { "3 order", GETTER_3_ENTRY, 3, { 0xdeadbeefu, 0x00000001u, 0x00010000u }, 0x5a5a5a5au, 1 },
+        { "1 order", GETTER_1_ENTRY, 1, { 0xdeadbeefu, 0x00000001u, 0x00010000u }, 0u, 0 },
     };
     for (unsigned i = 0; i < sizeof scenarios / sizeof scenarios[0]; ++i)
         if (!compare(&scenarios[i])) return 1;

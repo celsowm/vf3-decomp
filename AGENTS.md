@@ -347,20 +347,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   no, or the getter's negative answer.  The frame (the index and the table) and
   the getter's three argument words have to stay where the guest puts them, or
   the RAM the test compares differs.  docs/re/record_lookup.md.
-- Table getter (0x8C044068) ported readable: src/fight/table_getter.c, proved
-  against the retained generated translation by tests/table_getter_replay.c (3
-  differential cases).  It hands the caller's three frame words to the table's
-  handler (the pointer in the literal pool at 0x8C044144), reads the table's
-  slot (the pool at 0x8C044140 and the halfword offset at 0x8C04413A) and,
-  when the slot is *taken*, asks the fallback 0x8C043D04 - whose answer is
-  dropped.  The handler's answer waits in the frame while the slot is
-  checked, so the fallback cannot change it.  It is the first of a run of
-  getters (0x8C04409C, 0x8C0440C8, ...) that differ only in their handler and
-  in how many frame words they forward; the ones after it live in another
-  module and follow the alias, so they are not ported yet.  tools/adapter_owner.py
-  (new) resolves which module the router really serves for a PC - several
-  modules carry the same guest code and model it differently.
-  docs/re/table_getter.md.
+- Table getters (0x8C044068) and its two siblings (0x8C04409C, 0x8C0440C8)
+  ported readable: src/fight/table_getter.c, proved against the retained
+  generated translation by tests/table_getter_replay.c (8 differential cases).
+  A getter hands the caller's frame words to the table's handler (the
+  pointer in the literal pool next to it), reads the table's slot (the pool
+  at 0x8C044140 and the halfword offset at 0x8C04413A) and, when the slot is
+  *taken*, asks the fallback 0x8C043D04 - whose answer is dropped.  The
+  handler's answer waits in the frame while the slot is checked, so the
+  fallback cannot change it.  The three differ only in their handler and in
+  how many frame words they forward (3, 1 and 0).
+  **The two younger ones write their continuations with a code base that is
+  NOT the `vf3_matrix_call_alias` model**: `vf3_c91_adapter` derives it from
+  the caller's return address (`(pr&0xff000000)==0x0c000000 ? 0x0c : 0x8c`),
+  so the continuation carries the mirror the run came through.  A readable
+  port has to use the rule of the module it replaces, and it cannot use the
+  shared `vf3_guest_call` helper for it - that one forces the `0x0c` form.
+  tools/adapter_owner.py (new) resolves which module the router really serves
+  for a PC - several modules carry the same guest code and model it
+  differently.  docs/re/table_getter.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

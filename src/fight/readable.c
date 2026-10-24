@@ -140,6 +140,8 @@ int vf3_matrix_op_dispatch_38_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
 int vf3_record_match_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_lookup_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_getter_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_table_getter_1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_table_getter_0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -315,6 +317,13 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     /* the getter of a table entry: the frame words go to the handler */
     { 0x0c044068u, "table_getter", vf3_table_getter_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
+    /* the same getter with one frame word, and with none; their module
+     * writes the continuations with the code base, so the mirror the run
+     * came through travels in them */
+    { 0x0c04409cu, "table_getter_1", vf3_table_getter_1_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
+    { 0x0c0440c8u, "table_getter_0", vf3_table_getter_0_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
