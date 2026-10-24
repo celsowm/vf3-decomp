@@ -586,6 +586,21 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   second one is written later, so it wins; the entry's three bytes are
   **sign-extended** into the registers they travel through; and the last float
   is stored in the **`rts`'s delay slot**.  docs/re/entry_copy.md.
+- Clamp pair (0x8C08DCB0) ported readable: src/fight/clamp_pair.c, proved against
+  the retained generated translation by tests/clamp_pair_replay.c (14 differential
+  cases).  It takes two numbers (r4 and r5) and writes four limited values: the
+  first number clamped into one range (twice, to r6 and to the caller's frame)
+  and the second number clamped into two *different* ranges.  The bounds are
+  signed halfwords in the pool; two of the four destinations are addresses the
+  caller leaves in its own frame, eight bytes above the callee's stack pointer.
+  Three details the port has to keep: the **low** bound is tested before the
+  high one, so a value below the low bound is never compared against the high
+  one (a range whose bounds are the wrong way round tells the two apart); the T
+  bit the caller sees is the one of the **last** comparison, which is the
+  fourth limit's; and the limited values travel in r13, r14, r1 and r4, which
+  the guest puts back from the stack - the last pop is the **`rts`'s delay
+  slot**.  The third limit is dead: it repeats the first and the fourth
+  overwrites the T bit it leaves.  docs/re/clamp_pair.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in
@@ -595,6 +610,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   values (`0x0C19E218`, `0xA0800500`, `0xA0800400`) where the generated copy
   reads them from the pool at `0x0C040F68`.  Check a candidate with
   `tools/handwritten_entries.py <entry>` before porting it.
+- **A scan for "not ported yet" has to know the readable registry's shape.**  The
+  registry in `src/fight/readable.c` writes its rows as `{ 0x0c..., "name", fn,
+  mask }`, so a scan that only looks for `case 0x...` and `entry == 0x...`
+  misses every readable port.  The four compiler-runtime division helpers
+  (0x8C042C20, 0x8C042CD4, 0x8C042D7C, 0x8C042E44) are ported in
+  `src/fight/math_readable.c` and still look unported that way.  The same goes
+  for the *call-free* filter: the generated modules follow a branch's **not
+  taken** arm when they walk a body, so a walk that follows the last `goto` of
+  a block misses the body of every conditional and the calls inside it.
+  `tools/adapter_owner.py <entry> --body` shows the whole body, and
+  `tools/handwritten_entries.py <entry>` answers the other half.
 - **A differential passes even when the fixture is wrong.**  The first version
   of the counter test pointed the block's global straight at the block instead
   of at a header whose first word is the block; the reference then read the

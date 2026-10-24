@@ -172,6 +172,7 @@ add_library(vf3core STATIC
     src/fight/mode_index.c
     src/fight/range_init.c
     src/fight/entry_copy.c
+    src/fight/clamp_pair.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -643,6 +644,7 @@ add_port_test(vf3floattable tests/float_table_replay.c)
 add_port_test(vf3modeindex tests/mode_index_replay.c)
 add_port_test(vf3rangeinit tests/range_init_replay.c)
 add_port_test(vf3entrycopy tests/entry_copy_replay.c)
+add_port_test(vf3clamppair tests/clamp_pair_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

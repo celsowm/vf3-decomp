@@ -187,3 +187,4 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0597ca,render_callback_stub,src/fight/gd_syscall_stub.c,,0,0,0.00,unexercised
 0x8c0624ba,scene_clear_flag,src/fight/gd_syscall_stub.c,r1 r5 r6 r7,0,0,0.00,unexercised
 0x8c062e8e,cache_wb_stub,src/fight/cache_wb_stub.c,r0 r4 r15 pr,0,0,0.00,unexercised
+0x8c08dcb0,clamp_pair,src/fight/clamp_pair.c,r0 r1 r3 r4 r5 r13 r14 r15 pr sr,0,0,0.00,differential
