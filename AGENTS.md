@@ -437,6 +437,20 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   counter sees; and the loop's guard is **signed**, so a negative count skips
   the loop but still moves the second array's pointer backwards.
   docs/re/table_grow.md.
+- Out-of-range flag (0x8C0CAA9C) ported readable: src/fight/range_flag.c,
+  proved against the retained generated translation by
+  tests/range_flag_replay.c (7 differential cases).  It sets the 0x10 bit of a
+  flag byte when one of four floats is outside the range the two bounds
+  describe, and clears it again when they are all inside.  The byte's own
+  0x40 bit gates everything - when it is clear the function does not even
+  write the byte back.  Two details the port has to keep: the end of the
+  comparison chain has **two arms and they are not symmetric** - the arm that
+  is left is the "everything is inside" one, and it clears the flag with a
+  *mask* (`& 0xFFFFFFEF`, which takes the neighbouring bit with it) rather
+  than by writing a zero; and the comparisons **short-circuit**, so the T bit
+  the guest leaves behind is the one of the last comparison it actually
+  reached.  The float loads go through the shared helpers, so the test has to
+  set the FPSCR the way the reference sees it.  docs/re/range_flag.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
