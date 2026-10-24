@@ -191,6 +191,14 @@ static int compare(const struct scenario *sc)
                 sc->name, ok_ref, ok_port, ok_hook);
         return 0;
     }
+    /* a case that reads outside the windows passes the differential anyway -
+     * both sides read the same uncaptured address - so the out-of-window
+     * counter is checked on its own */
+    if (ref.map.oob || port.map.oob || hook.map.oob) {
+        fprintf(stderr, "counter advance: %s reads outside the windows (oob %u/%u/%u)\n",
+                sc->name, ref.map.oob, port.map.oob, hook.map.oob);
+        return 0;
+    }
 
     ++cases;
     return 1;

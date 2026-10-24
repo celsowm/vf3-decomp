@@ -149,6 +149,7 @@ int vf3_status_flags_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_grow_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_range_flag_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_counter_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_byte_decode_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -353,6 +354,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the frame counters: the record's three and the block's one */
     { 0x0c08b338u, "counter_advance", vf3_counter_advance_entry,
       B(0)|B(1)|B(2)|B(3)|B(5)|B(6)|B(7)|B(16)|B(17) },
+    /* the word off the caller's stack, turned around or not */
+    { 0x0c04538au, "byte_decode", vf3_byte_decode_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

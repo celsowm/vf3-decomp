@@ -476,14 +476,33 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   that takes the carry becomes -32768 and does not wrap.  The block is reached
   through **two** indirections (the global, then a header whose first word is
   the block).  docs/re/counter_advance.md.
+- Word decoder (0x8C04538A) ported readable: src/fight/byte_decode.c, proved
+  against the retained generated translation by
+  tests/byte_decode_replay.c (10 differential cases).  It pops a word off the
+  caller's stack, pushes it on its own stack, copies its four bytes into the
+  object at +8..+11 - in the natural order or turned around, as a table's entry
+  says - and writes the answer at the object's +20: -1 when the object's first
+  byte equals the mark, the caller's *next* word when the byte is at or above
+  the limit, and zero otherwise.  Three details the port has to keep: the
+  bytes are read back **out of the stack** (the push is part of the contract);
+  the table's base is a **signed halfword added to a 32-bit word**, so a port
+  that treats it as a stride reads a different address and shows up as an
+  out-of-window read rather than a wrong value; and the answer's three arms
+  each end in a branch whose **delay slot is the store**.  The byte-order
+  test's T bit is *unobservable* - the mark's `cmp/eq` overwrites it - so that
+  one is free.  docs/re/byte_decode.md.
 - **A differential passes even when the fixture is wrong.**  The first version
   of the counter test pointed the block's global straight at the block instead
   of at a header whose first word is the block; the reference then read the
   counter from an address outside every window, and the test still passed -
   both sides read the same uncaptured address and the out-of-window counter
-  matched.  The counter was simply never exercised.  A fixture that leaves a
-  path reading outside the windows passes silently; the way to see it is to
-  read the *translated* body's address chain and lay the fixture out for it.
+  matched.  The counter was simply never exercised.  The word decoder's test
+  walked into the same trap (the table's base laid out as a stride instead of
+  a signed halfword), so **both new tests now fail on a non-zero
+  out-of-window counter**, and `VF3_REPLAY_OOB=1` names the uncaptured read.
+  A fixture that leaves a path reading outside the windows passes silently;
+  the way to see it is to read the *translated* body's address chain and lay
+  the fixture out for it.
 - **The registry has two entry addresses that are registered twice.**
   `vf3_readable_find` returns the first match, so the second row of each pair
   can never be served: `0x0C042D7C` is registered as both `div_signed` and
