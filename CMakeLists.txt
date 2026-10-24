@@ -155,6 +155,7 @@ add_library(vf3core STATIC
     src/fight/matrix_op_dispatch.c
     src/fight/record_match.c
     src/fight/record_lookup.c
+    src/fight/table_getter.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -609,6 +610,7 @@ add_port_test(vf3recordwalk tests/record_state_walk_replay.c)
 add_port_test(vf3matrixop tests/matrix_op_dispatch_replay.c)
 add_port_test(vf3recordmatch tests/record_match_replay.c)
 add_port_test(vf3recordlookup tests/record_lookup_replay.c)
+add_port_test(vf3tablegetter tests/table_getter_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)
