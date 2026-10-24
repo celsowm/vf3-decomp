@@ -159,16 +159,22 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03d2b0,matrix_frame_c,src/fight/matrix_lib.c,,0,0,0.00,unexercised
 0x8c03550c,record_state_walk,src/fight/record_state_walk.c,r0 r1 r3 r4 pr sr,0,0,0.00,differential
 0x8c035a20,record_state_get,src/fight/record_state_field.c,r0 r2 pr sr,0,0,0.00,differential
-0x8c035ce8,matrix_op_dispatch,src/fight/matrix_op_dispatch.c,r0 r3 r14 sp pr sr,0,0,0.00,differential
-0x8c035c60,matrix_op_dispatch_38,src/fight/matrix_op_dispatch.c,r0 r3 r14 sp pr sr,0,0,0.00,differential
-0x8c03772a,record_match,src/fight/record_match.c,r0 r2 r3 r4 r5 r14 sp pr sr,0,0,0.00,differential
-0x8c037788,record_lookup,src/fight/record_lookup.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c044068,table_getter,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c04409c,table_getter_1,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c0440c8,table_getter_0,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c053ca4,node_query,src/fight/node_query.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c0ab870,node_handler,src/fight/node_handler.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
-0x8c09d4b0,halfword_frame,src/fight/halfword_frame.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 sp pr sr,0,0,0.00,differential
+0x8c035ce8,matrix_op_dispatch,src/fight/matrix_op_dispatch.c,r0 r3 r14 r15 pr sr,0,0,0.00,differential
+0x8c035c60,matrix_op_dispatch_38,src/fight/matrix_op_dispatch.c,r0 r3 r14 r15 pr sr,0,0,0.00,differential
+0x8c03772a,record_match,src/fight/record_match.c,r0 r2 r3 r4 r5 r14 r15 pr sr,0,0,0.00,differential
+0x8c037788,record_lookup,src/fight/record_lookup.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c044068,table_getter,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c04409c,table_getter_1,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c0440c8,table_getter_0,src/fight/table_getter.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c053ca4,node_query,src/fight/node_query.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c0ab870,node_handler,src/fight/node_handler.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
+0x8c09d4b0,halfword_frame,src/fight/halfword_frame.c,r0 r1 r2 r3 r4 r5 r6 r7 r14 r15 pr sr,0,0,0.00,differential
 0x8c0961f4,status_flags,src/fight/status_flags.c,r0 r1 r3 r6 sr,0,0,0.00,differential
 0x8c044c7c,table_grow,src/fight/table_grow.c,r0 r1 r2 r3 r4 r5 r6 r7 pr sr,0,0,0.00,differential
 0x8c0caa9c,range_flag,src/fight/range_flag.c,r0 r1 r3 r5 pr sr fr4 fr5 fr6 fr7 fr8 fr9,0,0,0.00,differential
+0x8c08b338,counter_advance,src/fight/counter_advance.c,r0 r1 r2 r3 r5 r6 r7 pr sr,0,0,0.00,differential
+0x8c035238,loader_dispatch_5238,src/fight/loader_dispatch_5238.c,r0 r1 r2 r3 r15 pr,0,0,0.00,unexercised
+0x8c0434c8,gd_exec_server_wrapper,src/fight/gd_syscall_stub.c,r0 r1 r2 r3 r4 r5 r6 r7 sr,0,0,0.00,unexercised
+0x8c0597ca,render_callback_stub,src/fight/gd_syscall_stub.c,,0,0,0.00,unexercised
+0x8c0624ba,scene_clear_flag,src/fight/gd_syscall_stub.c,r1 r5 r6 r7,0,0,0.00,unexercised
+0x8c062e8e,cache_wb_stub,src/fight/cache_wb_stub.c,r0 r4 r15 pr,0,0,0.00,unexercised

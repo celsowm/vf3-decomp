@@ -461,6 +461,43 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the guest leaves behind is the one of the last comparison it actually
   reached.  The float loads go through the shared helpers, so the test has to
   set the FPSCR the way the reference sees it.  docs/re/range_flag.md.
+- Frame counters (0x8C08B338) ported readable: src/fight/counter_advance.c,
+  proved against the retained generated translation by
+  tests/counter_advance_replay.c (8 differential cases).  It advances three
+  counters in a record (seven bits at +12, two bits at +14, four bits at +16)
+  and one in a block (at +0x54, wrapping at 127), but only when the value a
+  global points at has **no** bit in common with the mask.  Three details the
+  port has to keep: the gate is the *absence* of a common bit (the `tst` sets T
+  when the two share nothing and the `bf` skips the body when T is clear); the
+  carried bit is the low bit of the **incremented** wide counter (`r6 = 1 &
+  (wide + 1)`), so the wide counter's own wrap carries *nothing* and the
+  narrow counters move on every other step; and the block's wrap test is a
+  **signed** comparison on the sign-extended halfword, so a counter of 32767
+  that takes the carry becomes -32768 and does not wrap.  The block is reached
+  through **two** indirections (the global, then a header whose first word is
+  the block).  docs/re/counter_advance.md.
+- **A differential passes even when the fixture is wrong.**  The first version
+  of the counter test pointed the block's global straight at the block instead
+  of at a header whose first word is the block; the reference then read the
+  counter from an address outside every window, and the test still passed -
+  both sides read the same uncaptured address and the out-of-window counter
+  matched.  The counter was simply never exercised.  A fixture that leaves a
+  path reading outside the windows passes silently; the way to see it is to
+  read the *translated* body's address chain and lay the fixture out for it.
+- **The registry has two entry addresses that are registered twice.**
+  `vf3_readable_find` returns the first match, so the second row of each pair
+  can never be served: `0x0C042D7C` is registered as both `div_signed` and
+  `mod_s32` (two ports of the same signed division), and `0x0C068FE4` as both
+  `quad_node` and `terrain_quad_test`.  The dispatcher behaviour is right -
+  the first row of each pair is the one the translation matches - but the
+  second port of each pair is dead code, and `tools/recomp/readable_ledger.py`
+  collapses the two rows into one when it derives the ledger.
+- **The `out_regs` mask names registers with `FR(n)`, not `B(21+n)`.**  The
+  ledger tool reads `FR(4)` as "FR4" but `B(25)` as "fr4" as well (it maps
+  every `B(n)` with n >= 21 through the FR numbering), so a mask written with
+  the raw bit numbers is mislabelled in `docs/readable_status.csv`.  The
+  range-flag row had it wrong in both directions (it named FR0..FR4 while the
+  port writes FR4..FR9); it is fixed now.  Write the FP registers as `FR(n)`.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
