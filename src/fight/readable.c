@@ -142,6 +142,7 @@ int vf3_record_lookup_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_getter_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_getter_1_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_getter_0_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_node_query_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -324,6 +325,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c04409cu, "table_getter_1", vf3_table_getter_1_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c0440c8u, "table_getter_0", vf3_table_getter_0_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
+    /* the query about a node of the table: two handlers, one answer */
+    { 0x0c053ca4u, "node_query", vf3_node_query_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },

@@ -366,6 +366,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   tools/adapter_owner.py (new) resolves which module the router really serves
   for a PC - several modules carry the same guest code and model it
   differently.  docs/re/table_getter.md.
+- Node query (0x8C053CA4) ported readable: src/fight/node_query.c, proved
+  against the retained generated translation by tests/node_query_replay.c (5
+  differential cases).  It looks the node up as table[index*4] and asks two
+  handlers about it - the pointers in the literal pool at 0x8C053D48 and
+  0x8C053D4C - and answers 1 when the status byte they point at is not zero
+  and the flags word they point at carries the bit 1.  **A stub callee that
+  only answers hides the continuation**: the epilogue restores pr from the
+  stack and the continuation is never pushed, so a port that ignored the
+  code base still passed until the stub was made to *record* the return
+  address it was called with.  The test does that, and the recorded address
+  is what makes the mirror visible.  docs/re/node_query.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
