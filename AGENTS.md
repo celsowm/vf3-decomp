@@ -543,6 +543,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   is a multiply and two **fused** multiply-adds, so it cannot be written as an
   expression of C floats; and the array's step is **eight bytes when the
   FPSCR is double** and four otherwise.  docs/re/float_blend.md.
+- Table unpack (0x8C06D792) ported readable: src/fight/float_table.c, proved
+  against the retained generated translation by tests/float_table_replay.c
+  (6 differential cases).  It looks a table entry up by the low **four** bits
+  of an index byte - the entries are **sixty-four bytes** apart - and unpacks
+  it into two structures: the entry's two halfwords go into the first
+  structure at its +32 and +34, and they are **swapped** on the way, and the
+  entry's three floats go into the second structure at the pool's offset, at
+  eight bytes below it and at four below that.  Two details the port has to
+  keep: the second structure is reached through **two** indirections (the pool
+  gives a cell, the cell gives the structure), and the offset is a **signed**
+  halfword, so it can point below the structure.  docs/re/float_table.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

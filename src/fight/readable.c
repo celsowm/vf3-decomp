@@ -154,6 +154,7 @@ int vf3_node_rotate_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_scale_step_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_float_blend_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_float_table_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -373,6 +374,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* four floats in, one blended float out */
     { 0x0c03e810u, "float_blend", vf3_float_blend_entry,
       B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(15)|B(16)|FR(0)|FR(2)|FR(3) },
+    /* a table entry, unpacked into two structures */
+    { 0x0c06d792u, "float_table", vf3_float_table_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(16)|FR(4)|FR(5)|FR(6) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,
