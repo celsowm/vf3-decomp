@@ -87,6 +87,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    `CMakeLists.txt` (two source lists), then promote with
    `tools/promote_replay.py`. Used for the 80% and 81% milestones: 33 bodies,
    8,418 B — see docs/re/coverage_80_generated_adapters.md.
+   On the *readable* track a port is proved offline, against the retained
+   generated translation, and `tools/mutate.py` proves the proof has teeth:
+   it applies one mutation at a time to the port's source, rebuilds and
+   requires the port's test to fail.  The mutation list lives next to the test
+   it guards, as `tests/<name>_mutations.json`.  A mutation the test cannot
+   see is a path the test never reaches.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -525,6 +531,18 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the body has already bumped, so the T bit the caller sees is the last
   iteration's; and the bytes are **sign-extended** into the register they
   travel through.  docs/re/record_copy.md.
+- Float blend (0x8C03E810) ported readable: src/fight/float_blend.c, proved
+  against the retained generated translation by tests/float_blend_replay.c
+  (4 differential cases).  It copies four floats out of an array and into a
+  structure of four slots, and then writes a weighted sum over three of the
+  slots back into the first one:
+  `slot0 = weight_a * slot2 + weight_b * slot1 + weight_c * slot3`.  The first
+  source float is therefore dropped.  Three details the port has to keep: the
+  two slot addresses the blend reads back are **pushed on the stack** and
+  popped again by the `rts`, so the frame is part of the contract; the blend
+  is a multiply and two **fused** multiply-adds, so it cannot be written as an
+  expression of C floats; and the array's step is **eight bytes when the
+  FPSCR is double** and four otherwise.  docs/re/float_blend.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

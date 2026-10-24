@@ -149,7 +149,10 @@ instead of passing it.
 ### The test has teeth, and the mutations were checked
 
 Nineteen mutations of the port were applied one at a time; each one has to make
-the test fail. All nineteen do:
+the test fail. All nineteen do. The mutations are checked with
+`tools/mutate.py`, which applies one at a time to the port's source, rebuilds
+and requires the test to fail; the list lives in
+`tests/record_copy_mutations.json`, next to the test it guards.
 
 * the record count moved to twenty-three fails with the differing `r0` named
   (`v0 00000032` != `00000031`) - the last byte read is one record short;
