@@ -314,6 +314,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/artifact_gap.md), so the chain readable == generated == oracle is
   carried by the earlier promotion of the generated translation.
   docs/re/record_state_walk.md.
+- Matrix-op dispatcher (0x8C035CE8) ported readable: src/fight/matrix_op_dispatch.c,
+  proved against the retained generated translation by
+  tests/matrix_op_dispatch_replay.c (5 differential cases).  It runs the matrix
+  operation the current node names (the node's word at +0x50); all eighteen
+  operations it can name are already ported readably.  The readable port hands
+  every pointer to the chain, where the generated translation switches on the
+  eighteen it knows and stops for anything else - the difference needs the
+  test-only `missing` hook to show.  docs/re/matrix_op_dispatch.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

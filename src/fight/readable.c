@@ -135,6 +135,7 @@ int vf3_handler_list_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_run_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_state_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_state_get_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_matrix_op_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -296,6 +297,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the getter leaves the flag in r2 and the code (or -10) in r0 */
     { 0x0c035a20u, "record_state_get", vf3_record_state_get_entry,
       B(0)|B(2)|B(16)|B(17) },
+    /* the node behind the global, the operation it names and the T flag */
+    { 0x0c035ce8u, "matrix_op_dispatch", vf3_matrix_op_dispatch_entry,
+      B(0)|B(3)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

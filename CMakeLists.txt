@@ -152,6 +152,7 @@ add_library(vf3core STATIC
     src/fight/vertex_emit.c
     src/fight/vertex_clip.c
     src/fight/matrix_lib.c
+    src/fight/matrix_op_dispatch.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -603,6 +604,7 @@ target_link_libraries(vf3tickmix PRIVATE vf3core)
 add_port_test(vf3driverqueue tests/driver_queue_replay.c)
 add_port_test(vf3statehelpers tests/state_helpers_replay.c)
 add_port_test(vf3recordwalk tests/record_state_walk_replay.c)
+add_port_test(vf3matrixop tests/matrix_op_dispatch_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)
