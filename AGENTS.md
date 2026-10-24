@@ -304,6 +304,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   serves the first one that owns it), `tools/readable_gap.py` (the
   call-target entries no readable port covers). Full list of what is
   missing and how to rebuild it: docs/re/artifact_gap.md.
+- **A generated dump walks the fall-through, so a branch-only arm is
+  invisible.**  `tools/adapter_dump.py` follows the *last* `goto` of a
+  block, so the arm a conditional branch skips over never appears in the
+  listing - and a port written from that listing misses it.  The range
+  flag (0x8C0CAA9C) has two arms: the comparisons branch *away* when a
+  value is out of range, so the arm that is left is the "everything is
+  inside" one, and it clears the flag with a mask rather than by writing
+  a zero.  The first version of the port missed it and the differential
+  caught it.  Read the *whole* function out of the module source
+  (`tools/adapter_body.py`) before porting it, not the dump alone.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
 - Record state walk (0x8C03550C) ported readable, with its state getter
