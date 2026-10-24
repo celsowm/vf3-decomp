@@ -575,6 +575,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   `+20` in the delay slot of the branch that leaves it); and the word that
   lands in the structure's `+36` is stored in the **`rts`'s delay slot**.
   docs/re/range_init.md.
+- Entry copy (0x8C06D7D6) ported readable: src/fight/entry_copy.c, proved
+  against the retained generated translation by tests/entry_copy_replay.c
+  (6 differential cases).  It looks a table entry up and copies some of its
+  fields into a structure **twice**, once at each of the two signed halfword
+  offsets the pool holds.  Four details the port has to keep: the index is the
+  **whole** byte (the table has 256 entries of sixty-four bytes - the sibling
+  function at 0x8C06D792 masks the same byte to four bits, so the two read the
+  same table at two different depths); the two groups **can overlap** and the
+  second one is written later, so it wins; the entry's three bytes are
+  **sign-extended** into the registers they travel through; and the last float
+  is stored in the **`rts`'s delay slot**.  docs/re/entry_copy.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

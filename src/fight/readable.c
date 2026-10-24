@@ -157,6 +157,7 @@ int vf3_float_blend_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_float_table_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_mode_index_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_range_init_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_entry_copy_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -385,6 +386,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* a structure, initialised */
     { 0x0c036a58u, "range_init", vf3_range_init_entry,
       B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17) },
+    /* a table entry's fields, into two places */
+    { 0x0c06d7d6u, "entry_copy", vf3_entry_copy_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(16)|FR(4)|FR(5)|FR(6)|FR(7)|FR(8) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,
