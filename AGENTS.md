@@ -407,6 +407,19 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   wrong continuation still comes back "right"; the test's stubs now record the
   return address they were called with, which is what pins it.
   docs/re/halfword_frame.md.
+- Status flags (0x8C0961F4) ported readable: src/fight/status_flags.c, proved
+  against the retained generated translation by
+  tests/status_flags_replay.c (5 differential cases).  It turns a record into a
+  bitmask: it reads eight fields of the record (at +8, +12, +0, +4, +24, +20,
+  +28 and +32 - the gaps and the order are the guest's) and puts one bit in
+  the answer for every field that has a bit in common with the mask (r4).  The
+  last bit comes out of the literal pool at 0x8C09630A.  Three details the
+  port has to keep: the **delay slot runs before the branch**, so the next
+  field is loaded before the current test is resolved; `tst` sets the **T
+  bit**, which the caller can read, so the port sets it after every test; and
+  the first bit is *assigned* into an answer the guest zeroes first, while the
+  rest are or-ed in.  The pool slot is read only when the last bit goes in.
+  docs/re/status_flags.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
