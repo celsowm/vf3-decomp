@@ -377,6 +377,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   code base still passed until the stub was made to *record* the return
   address it was called with.  The test does that, and the recorded address
   is what makes the mirror visible.  docs/re/node_query.md.
+- Node handler (0x8C0AB870) ported readable: src/fight/node_handler.c, proved
+  against the retained generated translation by tests/node_handler_replay.c (3
+  differential cases).  It takes an object (r4) and a node (r6) and calls
+  the handler the node names - the table's entry at the node's second word,
+  the table behind the pool at 0x8C0AB9A0 - with a five-word frame: the
+  handler, the object's first word, the node's two words and the float that
+  belongs to the object (the pool's offset at 0x8C0AB990).  r5 points at the
+  frame's second word.  The float travels through FR3, so the FP registers
+  are part of the contract and the port calls the same
+  vf3_matrix_load/vf3_matrix_store helpers the translation uses.
+  docs/re/node_handler.md.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
