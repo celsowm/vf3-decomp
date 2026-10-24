@@ -320,6 +320,18 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   a zero.  The first version of the port missed it and the differential
   caught it.  Read the *whole* function out of the module source
   (`tools/adapter_body.py`) before porting it, not the dump alone.
+- **A plain `bt`/`bf` has no delay slot; only the `/s` forms have one.**
+  `tools/sh4.py` says so (*"Only the /s conditional forms plus the
+  unconditional control transfers have a delay slot.  Plain bf/bt are direct
+  jumps (no delay slot)."*), and the translator emits it that way: for a
+  plain `bt`/`bf` the instruction at PC+4 is a block of its own and the
+  branch jumps straight to the target *without* it, while a `/s` form has its
+  delay slot merged into the branch block and runs it on both paths.  A
+  readable port that treats the instruction after a plain `bt` as a delay
+  slot runs it on the path the branch takes and gets the stack, the
+  registers or the T bit wrong.  The band probe (0x8C0B0F28) has both
+  shapes: four plain `bt`/`bf` and, in the same function, the `bra` whose
+  delay slot is the store.  docs/re/band_probe.md.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
 - Record state walk (0x8C03550C) ported readable, with its state getter
