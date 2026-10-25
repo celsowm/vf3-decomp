@@ -320,6 +320,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   a zero.  The first version of the port missed it and the differential
   caught it.  Read the *whole* function out of the module source
   (`tools/adapter_body.py`) before porting it, not the dump alone.
+- **The repo's decoder had a hole in the SH-4's group 4 row 0001, and a
+  listing built from it silently lost the instruction.**  `tools/sh4.py`
+  returned `None` for `0100 Rn 0001 0000` (`dec Rn`), `0100 Rn 0001 0001`
+  (`cmp/ge #0,Rn`) and `0100 Rn 0001 0101` (`cmp/gt #0,Rn`) - 1,500-odd
+  executed instructions in the generated modules - so `build/listing.py`
+  printed `???` for them and a port written from that listing would have
+  dropped them.  The row keeps the *register* in bits 8-11 (the same place
+  the `jsr`/`jmp`/`ldc` rows of the same group keep it) and the op in bits
+  3-0; the two comparisons are against the **immediate zero**, not against
+  `r0`'s value - the game keeps values in `r0` (at 0x8C0C14C0 it holds 8
+  when the `cmp/ge` at 0x8C0C14D2 runs).  `tools/sh4.py` now decodes the row,
+  and also `fsca`/`fsrra` (the FP row keeps the FR in bits 11-8).  The
+  `fipr` words are still undecoded: the branch in the decoder compares
+  against a value its own mask clears, so it is dead code, and the operand
+  layout has not been pinned down.  Check the decoder against the modules
+  before trusting a listing: `python -c "import sys;sys.path.insert(0,
+  'tools');import sh4;print(sh4.decode(0x4e10,0))"`.
+- **The generated translation's `shar` takes the T bit from the wrong end.**
+  It emits `T = (Rn & 1)` where the SH-4 takes the **sign** bit (`T = (Rn <
+  0)`); the shifted value (an arithmetic shift right) is right.  There are
+  203 `shar` sites in the modules and at **none** of them does the next
+  instruction read the T bit (no `bt`/`bf` and no `movt` follows), so the
+  divergence never changes the guest's control flow in this image - but a
+  port that reproduces the translation's T bit reproduces its mistake.
 - **A plain `bt`/`bf` has no delay slot; only the `/s` forms have one.**
   `tools/sh4.py` says so (*"Only the /s conditional forms plus the
   unconditional control transfers have a delay slot.  Plain bf/bt are direct

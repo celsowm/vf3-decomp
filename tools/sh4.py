@@ -235,6 +235,17 @@ def decode(w, pc=0):
             return "shll8", GPR[n]
         if (w & 0xF0FF) == 0x4019:
             return "shlr8", GPR[n]
+        # The SH-4's group 4 row 0001: the register is in bits 8-11 (the same
+        # place the jsr/jmp/ldc rows of this group keep it) and the op in bits
+        # 3-0.  The row holds the decrement, the two comparisons against the
+        # *immediate* zero (not against r0's value - r0 is a general register
+        # here, and the game keeps values in it) and the eight bit shifts.
+        if (w & 0xF0FF) == 0x4010:
+            return "dec", GPR[n]
+        if (w & 0xF0FF) == 0x4011:
+            return "cmp/ge", f"#0,{GPR[n]}"
+        if (w & 0xF0FF) == 0x4015:
+            return "cmp/gt", f"#0,{GPR[n]}"
         if (w & 0xF0FF) == 0x4020:
             return "shal", GPR[n]
         if (w & 0xF0FF) == 0x4021:
@@ -256,7 +267,6 @@ def decode(w, pc=0):
         if (w & 0xF00F) == 0x400F:
             return "mac.w", f"@{GPR[m]}+,@{GPR[n]}+"
         return None
-
     if top == 0x5:
         return "mov.l", f"@({d4*4},{GPR[m]}),{GPR[n]}"
 
@@ -388,6 +398,13 @@ def decode(w, pc=0):
             vn = ((w >> 10) & 3) * 4
             vm = ((w >> 6) & 3) * 4
             return "fipr", f"fv{vm},fv{vn}"
+        # The FP row 0xF keeps the FR in bits 11-8 (not in a group of four).
+        # 0111 in bits 7-4 is the reciprocal square root, 1111 the sine and
+        # cosine; both take FPUL as their argument.
+        if (w & 0xF0FF) == 0xF07D:
+            return "fsrra", FR[n]
+        if (w & 0xF0FF) == 0xF0FD:
+            return "fsca", FR[n]
         if (w & 0xF00F) == 0xF000:
             return "fadd", f"{FR[m]},{FR[n]}"
         if (w & 0xF00F) == 0xF001:
