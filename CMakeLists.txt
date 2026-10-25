@@ -182,6 +182,7 @@ add_library(vf3core STATIC
     src/fight/state_rotate.c
     src/fight/queue_ops.c
     src/fight/pack_expand.c
+    src/fight/state_flag.c
     src/fight/record_kind.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
@@ -668,6 +669,8 @@ add_port_test(vf3queueops tests/queue_ops_replay.c)
 add_port_test(vf3queueopsoracle tests/queue_ops_oracle.c)
 add_port_test(vf3packexpand tests/pack_expand_replay.c)
 add_port_test(vf3packexpandoracle tests/pack_expand_oracle.c)
+add_port_test(vf3stateflag tests/state_flag_replay.c)
+add_port_test(vf3stateflagoracle tests/state_flag_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)
 add_port_test(vf3recordkindoracle tests/record_kind_oracle.c)
 add_port_test(vf3d452 tests/d452_replay.c)

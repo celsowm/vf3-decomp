@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.58% verified C (406,742 B of 434,656). The 90% bar
+- Coverage: 93.60% verified C (406,838 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (1,834 B more).
+  Next bar: 94% = 408,576 B (1,738 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -894,6 +894,49 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   table's base.  The ledger row adds 182 B (406,560 -> 406,742): the entry is
   off-baseline, so its row is worth its own body span.  186 further corpora
   reach it.  docs/re/pack_expand.md.
+- Fight state flag (0x8C0B0FD2) ported readable: src/fight/state_flag.c, proved
+  against the retained generated translation by tests/state_flag_replay.c
+  (14 differential cases) and against the **oracle** by tests/state_flag_oracle.c
+  (fight_all_cases 277/277 and fight_release_cases 341/341; the readable port
+  served the entry 277 and 341 times).  39/39 mutations caught.  The function is
+  a self-contained leaf (no calls, no FP): it sets **one of two bits** in a
+  state word, or nothing.  The pool holds the offset of the value's halfword
+  (0x0C0B1070 -> 0x1494), the two bands' four bounds (0x0C0B1072 -> -5460,
+  0x0C0B1074 -> -27300, 0x0C0B1078 -> 5460, 0x0C0B107A -> 27300), the two
+  bits (0x0C0B1076 -> 0x0800, 0x0C0B107C -> 0x1000), the gate's mask
+  (0x0C0B1094 -> 0x00A02000) and the xor constant (0x0C0B1098 -> 0x00008000).
+  The two bands are mirror images and **answer the opposite way round**: in the
+  middle band a clear parity bit sets the low bit, in the high band it sets the
+  high one.  The ledger row adds 96 B (406,742 -> 406,838): the entry is
+  off-baseline, so its row is worth its own body span.  24 further corpora
+  reach it, and the state-7 tick calls it twice.  docs/re/state_flag.md.
+- **The generated translation's `shad` is a signed variable shift, and the
+  corpus pins it.**  The translator models `shad Rm,Rn` as "a negative count
+  shifts right by the count's two's complement masked to five bits", which is
+  not the SH-4 manual's "shift by half the count".  The oracle's own exit
+  register settles it for this image: the second parity word 0xA6000000 comes
+  out as 0xFFE98000, an arithmetic shift right by **ten** - the translation's
+  model, not the manual's.  A port that follows the manual would replay
+  neither the translation nor the oracle.  (0x8C0B0FD2, docs/re/state_flag.md.)
+- **A filtered dump of a generated module can invert a branch.**  `build/fn.py`
+  and `tools/adapter_body.py` print a module's blocks, and 0x8C0B0FD2's two
+  `bf`s point at *opposite* arms - one at the high-bit write, one at the
+  low-bit write - so a listing that loses a block turns one of them into its
+  mirror image.  The **raw module source** is the authority
+  (`src/fight/fight_adapters_2.c`, blocks `P_0c0b0fd2`..`P_0c0b1030`).
+- **A comparison's transient T bit is unobservable when the next test
+  overwrites it.**  0x8C0B0FD2's port writes the comparison and the branch as
+  separate expressions; four of the comparisons' T bits are overwritten before
+  the function returns, and the values *at* a band boundary take the other
+  path, so flipping those T bits changes nothing the corpus or the
+  differential can see.  The mutations that flip the **branch** are the
+  observable ones, and they are in the list (docs/re/state_flag.md).
+- **A boundary the corpus never reaches is a hole in the proof.**  0x8C0B0FD2's
+  corpus values never land on a band boundary, so the comparisons' `<` and
+  `<=` are interchangeable *in the corpus*; the differential's fixture has to
+  carry the four boundaries itself.  The same goes for the corpus' own
+  `ops.json`: it lists the **executed path**, not the body's instructions (38
+  of the 48 here), so the arms it never ran are the differential's business.
 - **A guest's dead stack push can leave no trace at all.**  0x8C09D5AE pushes
   the record on its stack and pops it again without using it - and the second
   push, of the two words it remembers, writes over the very same address, so the

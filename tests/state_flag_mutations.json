@@ -1,0 +1,353 @@
+[
+ {
+  "name": "the_value_offset_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE    0x0c0b1070u  /* the offset of the value's halfword */",
+    "#define POOL_TABLE    0x0c0b1072u  /* the offset of the value's halfword */"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_bands_upper_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_LOW      0x0c0b1072u  /* the middle band's upper bound */",
+    "#define POOL_LOW      0x0c0b1074u  /* the middle band's upper bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_bands_lower_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MID      0x0c0b1074u  /* the middle band's lower bound */",
+    "#define POOL_MID      0x0c0b1072u  /* the middle band's lower bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bit_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_BIT_LOW  0x0c0b1076u  /* the bit the low answer sets */",
+    "#define POOL_BIT_LOW  0x0c0b107cu  /* the bit the low answer sets */"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bands_lower_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HIGH     0x0c0b1078u  /* the high band's lower bound */",
+    "#define POOL_HIGH     0x0c0b107au  /* the high band's lower bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bands_upper_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HIGH2    0x0c0b107au  /* the high band's upper bound */",
+    "#define POOL_HIGH2    0x0c0b1078u  /* the high band's upper bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bit_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_BIT_HIGH 0x0c0b107cu  /* the bit the high answer sets */",
+    "#define POOL_BIT_HIGH 0x0c0b1076u  /* the bit the high answer sets */"
+   ]
+  ]
+ },
+ {
+  "name": "the_gates_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MASK     0x0c0b1094u  /* the gate's mask */",
+    "#define POOL_MASK     0x0c0b1098u  /* the gate's mask */"
+   ]
+  ]
+ },
+ {
+  "name": "the_xor_constant_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_XOR      0x0c0b1098u  /* the xor constant */",
+    "#define POOL_XOR      0x0c0b1094u  /* the xor constant */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_is_not_seventy_two_bytes_on",
+  "subs": [
+   [
+    "#define WORD_OFFSET 72u",
+    "#define WORD_OFFSET 68u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_shift_is_by_ten_and_not_by_twenty_five",
+  "subs": [
+   [
+    "#define COUNT_FIRST  0xffffffe7u  /* -25 */",
+    "#define COUNT_FIRST  0xfffffff6u  /* -25 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_shift_is_by_twenty_five_and_not_by_ten",
+  "subs": [
+   [
+    "#define COUNT_SECOND 0xfffffff6u  /* -10 */",
+    "#define COUNT_SECOND 0xffffffe7u  /* -10 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_the_other_way_round",
+  "subs": [
+   [
+    "    R(17) = (R(17) & ~1u) | (value != 0);",
+    "    R(17) = (R(17) & ~1u) | (value == 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pools_halfwords_are_not_sign_extended",
+  "subs": [
+   [
+    "    return (int32_t)(int16_t)vf3_mem_u16(ram, addr);",
+    "    return (int32_t)vf3_mem_u16(ram, addr);"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_is_not_sign_extended",
+  "subs": [
+   [
+    "    return (uint32_t)(int32_t)(int16_t)(uint16_t)value;",
+    "    return (uint32_t)(uint16_t)value;"
+   ]
+  ]
+ },
+ {
+  "name": "the_shift_does_not_fill_with_the_sign_bit",
+  "subs": [
+   [
+    "    if (value & 0x80000000u) return (value >> bits) | ~(0xffffffffu >> bits);",
+    "    if (value & 0x80000000u) return value >> bits;"
+   ]
+  ]
+ },
+ {
+  "name": "the_shift_does_not_use_the_counts_twos_complement",
+  "subs": [
+   [
+    "        const unsigned bits = (0u - count) & 31u;",
+    "        const unsigned bits = count & 31u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_exit_pc_is_not_the_return_address",
+  "subs": [
+   [
+    "    s->pc = R(16);",
+    "    s->pc = R(17);"
+   ]
+  ]
+ },
+ {
+  "name": "the_gates_test_is_the_other_way_round",
+  "subs": [
+   [
+    "    set_t(s, (R(2) & R(3)) == 0u);",
+    "    set_t(s, (R(2) & R(3)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_gates_branch_is_the_other_way_round",
+  "subs": [
+   [
+    "    if ((R(2) & R(3)) != 0u)",
+    "    if ((R(2) & R(3)) == 0u)"
+   ]
+  ]
+ },
+ {
+  "name": "the_xor_constant_is_not_applied_to_the_value",
+  "subs": [
+   [
+    "    R(5) ^= R(3);",
+    "    R(5) ^= 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_is_not_subtracted_from_the_value",
+  "subs": [
+   [
+    "    R(5) -= R(6);",
+    "    R(5) += R(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_word_is_read_from_the_wrong_place",
+  "subs": [
+   [
+    "    R(5) = vf3_mem_u32(ram, R(4));",
+    "    R(5) = vf3_mem_u32(ram, R(4) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_is_the_first_one_again",
+  "subs": [
+   [
+    "    R(4) = vf3_mem_u32(ram, R(4) + WORD_OFFSET);",
+    "    R(4) = vf3_mem_u32(ram, R(4));"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_is_not_compared_against_the_low_bound",
+  "subs": [
+   [
+    "    if ((int32_t)R(6) > (int32_t)R(3)) {\n        /* above the low bound: the high band, or nothing at all */",
+    "    if ((int32_t)R(6) >= (int32_t)R(3)) {\n        /* above the low bound: the high band, or nothing at all */"
+   ]
+  ]
+ },
+ {
+  "name": "the_parity_bit_is_not_kept_to_one_bit",
+  "subs": [
+   [
+    "    R(5) &= R(1);                      /* the delay slot of the branch */",
+    "    R(5) ^= R(1);                      /* the delay slot of the branch */"
+   ]
+  ]
+ },
+ {
+  "name": "the_ones_register_is_not_one",
+  "subs": [
+   [
+    "    R(1) = 1u;",
+    "    R(1) = 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bands_lower_bound_is_exclusive",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(6) >= (int32_t)R(0));\n    if ((int32_t)R(6) < (int32_t)R(0))",
+    "    set_t(s, (int32_t)R(6) > (int32_t)R(0));\n    if ((int32_t)R(6) <= (int32_t)R(0))"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bands_upper_bound_is_exclusive",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(6) > (int32_t)R(3));\n    if ((int32_t)R(6) > (int32_t)R(3))",
+    "    set_t(s, (int32_t)R(6) >= (int32_t)R(3));\n    if ((int32_t)R(6) >= (int32_t)R(3))"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_band_answers_the_other_way_round",
+  "subs": [
+   [
+    "    if (R(5) == 0u) {",
+    "    if (R(5) != 0u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_band_answers_the_other_way_round",
+  "subs": [
+   [
+    "    if (R(5) != 0u) {",
+    "    if (R(5) == 0u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_bands_lower_bound_is_exclusive",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(6) >= (int32_t)R(2));\n    if ((int32_t)R(6) < (int32_t)R(2))",
+    "    set_t(s, (int32_t)R(6) > (int32_t)R(2));\n    if ((int32_t)R(6) <= (int32_t)R(2))"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_word_is_not_written_back_in_the_high_band",
+  "subs": [
+   [
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));",
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_word_is_not_written_back_in_the_middle_band",
+  "subs": [
+   [
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));",
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bit_is_not_written_back",
+  "subs": [
+   [
+    "        vf3_mem_set_u32(ram, R(7), R(1));",
+    "        (void)R(1);"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_word_is_read_from_the_wrong_place_in_the_high_band",
+  "subs": [
+   [
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));",
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_word_is_read_from_the_wrong_place_in_the_middle_band",
+  "subs": [
+   [
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));",
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bit_answers_from_the_wrong_word",
+  "subs": [
+   [
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));\n    } else {\n        /* the low bit */\n        R(1) = vf3_mem_u32(ram, R(7));",
+    "    if (R(5) == 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));\n    } else {\n        /* the low bit */\n        R(1) = vf3_mem_u32(ram, R(7) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_bands_low_bit_answers_from_the_wrong_word",
+  "subs": [
+   [
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));\n    } else {\n        /* the low bit */\n        R(1) = vf3_mem_u32(ram, R(7));",
+    "    if (R(5) != 0u) {\n        /* the high bit */\n        R(2) = vf3_mem_u32(ram, R(7));\n        R(3) = (uint32_t)half(ram, POOL_BIT_HIGH);\n        R(2) |= R(3);\n        vf3_mem_set_u32(ram, R(7), R(2));\n    } else {\n        /* the low bit */\n        R(1) = vf3_mem_u32(ram, R(7) + 4u);"
+   ]
+  ]
+ }
+]

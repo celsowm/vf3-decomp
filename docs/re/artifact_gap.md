@@ -64,6 +64,8 @@ build/vf3queueops  queue_ops: 13 differential cases - PASS
 build/vf3queueopsoracle  queue_reset_oracle: 448/448, queue_reset_oracle_release: 576/576, queue_push_oracle: 396/396, queue_push_oracle_release: 484/484, queue_pop_oracle_next_device: 65/65, queue_pop_oracle_u90_sw2: 16/16 cases match - PASS
 build/vf3packexpand  pack_expand: 6 differential cases - PASS
 build/vf3packexpandoracle  pack_expand_oracle: 8/8 cases match - PASS (the readable port served 0x0c09d5ae 8 times)
+build/vf3stateflag  state_flag: 14 differential cases - PASS
+build/vf3stateflagoracle  state_flag_oracle: 277/277, state_flag_oracle_release: 341/341 cases match - PASS (the readable port served 0x0c0b0fd2 277 and 341 times)
 ```
 
 Run the suite from the **repository root**: the harness resolves
