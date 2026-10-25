@@ -58,6 +58,8 @@ build/vf3recordkindoracle  record_kind_oracle: 8/8 cases match - PASS
 build/vf3stateladder   state_ladder: 34 differential cases - PASS
 build/vf3stateresolve  state_resolve: 20 differential cases - PASS
 build/vf3stateresolveoracle  state_resolve_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
+build/vf3staterotate  state_rotate: 10 differential cases - PASS
+build/vf3staterotateoracle  state_rotate_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
 ```
 
 Run the suite from the **repository root**: the harness resolves

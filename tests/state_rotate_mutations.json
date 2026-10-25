@@ -1,0 +1,371 @@
+[
+ {
+  "name": "the_offset_of_the_vector_to_turn_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_SRC    0x0c06dfc4u",
+    "#define POOL_OFF_SRC    0x0c06dfc6u"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_of_the_turned_vector_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_ROT    0x0c06dfc6u",
+    "#define POOL_OFF_ROT    0x0c06dfc8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_of_the_pair_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_PAIR   0x0c06dfc8u",
+    "#define POOL_OFF_PAIR   0x0c06dfcau"
+   ]
+  ]
+ },
+ {
+  "name": "the_pointer_to_the_struct_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OBJECT     0x0c06dfccu",
+    "#define POOL_OBJECT     0x0c06dfd0u"
+   ]
+  ]
+ },
+ {
+  "name": "the_helper_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HELPER     0x0c06dfe0u",
+    "#define POOL_HELPER     0x0c06dfe4u"
+   ]
+  ]
+ },
+ {
+  "name": "the_constant_minus_one_comes_from_the_wrong_address",
+  "subs": [
+   [
+    "#define CONST_NEG_ONE   0x0c06dfdcu",
+    "#define CONST_NEG_ONE   0x0c06dfe0u"
+   ]
+  ]
+ },
+ {
+  "name": "the_constant_half_comes_from_the_wrong_address",
+  "subs": [
+   [
+    "#define CONST_HALF      0x0c06dfe4u",
+    "#define CONST_HALF      0x0c06dfe8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_continuation_of_the_helper_call_is_wrong",
+  "subs": [
+   [
+    "#define CONT_HELPER     0x0c06def6u",
+    "#define CONT_HELPER     0x0c06def8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_angle_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "vf3_mem_u16(ram, R(14) + 30u)",
+    "vf3_mem_u16(ram, R(14) + 32u)"
+   ]
+  ]
+ },
+ {
+  "name": "the_angle_is_not_narrowed_to_a_halfword",
+  "subs": [
+   [
+    "R(0) = (uint32_t)(int32_t)(int16_t)(uint16_t)vf3_mem_u16(ram, R(14) + 30u);",
+    "R(0) = (uint32_t)vf3_mem_u16(ram, R(14) + 30u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_private_frame_is_the_wrong_size",
+  "subs": [
+   [
+    "#define FRAME_LEN       8u",
+    "#define FRAME_LEN       4u"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_is_not_freed",
+  "subs": [
+   [
+    "    R(15) += FRAME_LEN;\n",
+    "    R(15) += 0u;\n"
+   ]
+  ]
+ },
+ {
+  "name": "the_helper_gets_the_wrong_frame_pointer",
+  "subs": [
+   [
+    "    R(5) = R(15);\n    R(6) = R(15);",
+    "    R(5) = R(15);\n    R(6) = R(15) + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_helper_gets_the_wrong_second_pointer",
+  "subs": [
+   [
+    "    R(5) += 4u;\n    if (!vf3_guest_call",
+    "    R(5) += 8u;\n    if (!vf3_guest_call"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_does_not_start_with_zero",
+  "subs": [
+   [
+    "    R(0) = 4u;\n    vf3_matrix_store(s, ram, 3, R(15) + R(0));     /* the frame's second float */",
+    "    R(0) = 4u;\n    vf3_matrix_store(s, ram, 3, R(15) + R(0) - 4u);     /* the frame's second float */"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_does_not_start_with_minus_one",
+  "subs": [
+   [
+    "    R(0) = CONST_NEG_ONE;\n    vf3_matrix_load(s, ram, 3, R(0));\n    vf3_matrix_store(s, ram, 3, R(15));",
+    "    R(0) = CONST_NEG_ONE;\n    vf3_matrix_load(s, ram, 3, R(0));\n    vf3_matrix_store(s, ram, 3, R(15) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_is_read_in_the_wrong_order",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 2, R(15));\n    vf3_matrix_load(s, ram, 3, R(15) + R(0));",
+    "    vf3_matrix_load(s, ram, 3, R(15));\n    vf3_matrix_load(s, ram, 2, R(15) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_turned_vector_is_added_in_the_wrong_order",
+  "subs": [
+   [
+    "    FR(14) = vf3_fpu_binary(FR(14), FR(2), R(18), '+');\n    FR(15) = vf3_fpu_binary(FR(15), FR(3), R(18), '+');",
+    "    FR(14) = vf3_fpu_binary(FR(14), FR(3), R(18), '+');\n    FR(15) = vf3_fpu_binary(FR(15), FR(2), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_turned_vector_is_subtracted",
+  "subs": [
+   [
+    "    FR(14) = vf3_fpu_binary(FR(14), FR(2), R(18), '+');",
+    "    FR(14) = vf3_fpu_binary(FR(14), FR(2), R(18), '-');"
+   ]
+  ]
+ },
+ {
+  "name": "the_turned_vector_is_stored_in_the_wrong_place",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 15, R(14) + R(0));\n    R(0) += 4u;\n    vf3_matrix_store(s, ram, 14, R(14) + R(0));",
+    "    vf3_matrix_store(s, ram, 14, R(14) + R(0));\n    R(0) += 4u;\n    vf3_matrix_store(s, ram, 15, R(14) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_vector_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    R(0) = 0x70u;\n    vf3_matrix_load(s, ram, 4, R(14) + R(0));",
+    "    R(0) = 0x74u;\n    vf3_matrix_load(s, ram, 4, R(14) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_vector_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    R(0) = 0x78u;\n    vf3_matrix_move(s, 7, 14);",
+    "    R(0) = 0x7cu;\n    vf3_matrix_move(s, 7, 14);"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_vector_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    R(0) += 0x40u;                                /* 0xb8 */",
+    "    R(0) += 0x44u;                                /* 0xb8 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_vector_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 8, R(14) + R(0));\n    R(0) += 8u;                                   /* 0xc0 */",
+    "    vf3_matrix_load(s, ram, 8, R(14) + R(0));\n    R(0) += 4u;                                   /* 0xc0 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_source_vector_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    R(0) = pool_half(ram, POOL_OFF_SRC);\n    vf3_matrix_load(s, ram, 15, R(14) + R(0));\n    R(0) += 8u;",
+    "    R(0) = pool_half(ram, POOL_OFF_SRC);\n    vf3_matrix_load(s, ram, 15, R(14) + R(0));\n    R(0) += 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_difference_is_not_taken",
+  "subs": [
+   [
+    "    FR(11) = vf3_fpu_binary(FR(11), FR(15), R(18), '-');",
+    "    FR(11) = vf3_fpu_binary(FR(11), FR(15), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_cross_product_is_not_taken",
+  "subs": [
+   [
+    "    FR(7) = vf3_fpu_binary(FR(7), FR(3), R(18), '-');",
+    "    FR(7) = vf3_fpu_binary(FR(7), FR(3), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_average_is_not_halved",
+  "subs": [
+   [
+    "    FR(1) = vf3_fpu_binary(FR(1), FR(9), R(18), '*');",
+    "    FR(1) = vf3_fpu_binary(FR(1), FR(9), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_average_is_not_halved",
+  "subs": [
+   [
+    "    FR(3) = vf3_fpu_binary(FR(3), FR(9), R(18), '*');",
+    "    FR(3) = vf3_fpu_binary(FR(3), FR(9), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_average_is_not_stored_in_the_frame",
+  "subs": [
+   [
+    "    vf3_matrix_move(s, 2, 5);\n    FR(2) = vf3_fpu_binary(FR(2), FR(6), R(18), '+');",
+    "    vf3_matrix_move(s, 2, 6);\n    FR(2) = vf3_fpu_binary(FR(2), FR(6), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_average_is_not_stored_in_the_frame",
+  "subs": [
+   [
+    "    vf3_matrix_move(s, 3, 4);\n    FR(3) = vf3_fpu_binary(FR(3), FR(8), R(18), '+');",
+    "    vf3_matrix_move(s, 3, 8);\n    FR(3) = vf3_fpu_binary(FR(3), FR(8), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_pair_is_not_multiplied_in",
+  "subs": [
+   [
+    "    FR(7) = vf3_fpu_mac(FR(0), FR(1), FR(7), R(18));",
+    "    FR(7) = vf3_fpu_binary(FR(7), FR(1), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_pair_is_not_added_in",
+  "subs": [
+   [
+    "    FR(2) = vf3_fpu_mac(FR(0), FR(3), FR(2), R(18));",
+    "    FR(2) = vf3_fpu_binary(FR(2), FR(3), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_sign_test_is_inverted",
+  "subs": [
+   [
+    "    set_t(s, as_float(FR(7)) > as_float(FR(3)));",
+    "    set_t(s, as_float(FR(7)) < as_float(FR(3)));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_order_of_the_pair_is_not_used",
+  "subs": [
+   [
+    "        R(0) = pool_half(ram, POOL_OFF_PAIR);\n        vf3_matrix_store(s, ram, 8, R(14) + R(0));",
+    "        R(0) = pool_half(ram, POOL_OFF_PAIR);\n        vf3_matrix_store(s, ram, 4, R(14) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_order_of_the_pair_is_not_used",
+  "subs": [
+   [
+    "        R(0) = pool_half(ram, POOL_OFF_PAIR);\n        vf3_matrix_store(s, ram, 4, R(14) + R(0));\n        R(0) += 4u;\n        vf3_matrix_store(s, ram, 5, R(14) + R(0));\n        R(0) += 4u;\n        vf3_matrix_store(s, ram, 8, R(14) + R(0));",
+    "        R(0) = pool_half(ram, POOL_OFF_PAIR);\n        vf3_matrix_store(s, ram, 4, R(14) + R(0));\n        R(0) += 4u;\n        vf3_matrix_store(s, ram, 5, R(14) + R(0));\n        R(0) += 4u;\n        vf3_matrix_store(s, ram, 6, R(14) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_return_address_is_not_taken_from_the_stack",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15)); R(15) += 4u;\n    vf3_matrix_load(s, ram, 14, R(15));",
+    "    R(16) = 0x0c0abcffu; R(15) += 4u;\n    vf3_matrix_load(s, ram, 14, R(15));"
+   ]
+  ]
+ },
+ {
+  "name": "the_saved_fp_registers_are_not_restored",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 14, R(15)); R(15) += (R(18) & 0x100000u) ? 8u : 4u;\n    vf3_matrix_load(s, ram, 15, R(15)); R(15) += (R(18) & 0x100000u) ? 8u : 4u;",
+    "    vf3_matrix_load(s, ram, 13, R(15)); R(15) += (R(18) & 0x100000u) ? 8u : 4u;\n    vf3_matrix_load(s, ram, 15, R(15)); R(15) += (R(18) & 0x100000u) ? 8u : 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_saved_registers_are_not_restored",
+  "subs": [
+   [
+    "    R(14) = vf3_mem_u32(ram, R(15)); R(15) += 4u;\n    s->pc = R(16);",
+    "    R(14) = 0u; R(15) += 4u;\n    s->pc = R(16);"
+   ]
+  ]
+ },
+ {
+  "name": "the_vector_is_not_loaded_into_fr15",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 15, R(14) + R(0));\n    R(0) += 8u;",
+    "    vf3_matrix_load(s, ram, 13, R(14) + R(0));\n    R(0) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_vector_does_not_go_into_fr4",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 4, R(14) + R(0));",
+    "    vf3_matrix_load(s, ram, 6, R(14) + R(0));"
+   ]
+  ]
+ }
+]

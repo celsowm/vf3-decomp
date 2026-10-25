@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.51% verified C (406,446 B of 434,656). The 90% bar
+- Coverage: 93.51% verified C (406,454 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,130 B more).
+  Next bar: 94% = 408,576 B (2,122 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -794,6 +794,35 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   not this port's oracle leg.  The ledger row adds 82 B (406,364 -> 406,446):
   the union is a body-range union, and `f_8c08e6a8`'s ported body already
   covers 544 of the 626 bytes.  docs/re/state_resolve.md.
+- Fighter-vector rotator (0x8C06DEC6) ported readable: src/fight/state_rotate.c,
+  proved against the retained generated translation by
+  tests/state_rotate_replay.c (10 differential cases) and against the **oracle** by
+  tests/state_rotate_oracle.c (192/192 on the fight_all_cases corpus and 256/256 on
+  the fight_release_cases one).  It takes the fighter's struct through a global,
+  turns the struct's vector at the pool's offset 256 by the angle the struct carries
+  in its halfword at +30, and writes two results back: the turned vector at the
+  pool's offset 984 and a normalised pair at 968.  99 instructions, body
+  0x0C06DEC6..0x0C06DF8C (198 B), **off-baseline** (the inventory has `f_8c06ddbc`
+  and `f_8c06dece`; the entry sits in the gap between them), and hot - the state-7
+  census has it at one call and 89 self-steps, with the rotation helper 0x8C09553C
+  at three calls and 99 self-steps.  The turn is done by the helper on a two-float
+  frame the guest fills with `(-1.0, 0.0)`, so the frame comes back as
+  `(-cos, -sin)`; the normalised pair is the midpoints of the struct's vectors at
+  0x70/0xb8 and 0x78/0xc0, combined with the turned vector by two fused macs, and
+  **the sign of the result (the T bit) picks the order** the four floats are stored
+  in.  Details the port has to keep: the pool is read at run time (the offsets 256,
+  984 and 968, the global and the helper's address), the two constants the guest
+  reaches through a PC-relative address (-1.0 and 0.5) are read from the image too,
+  the source vector's second float is **eight** bytes after the first (+0x108, not
+  +0x104), the turned vector is stored **before** fr15 is reused (so the port keeps
+  it in its own variable), the guest's own `0.0` into the frame is observable (the
+  stack is not clean), and the return pops r14 in the delay slot of the `rts`.
+  41/41 mutations caught.  **The oracle leg needs the same hook the resolver
+  needs** - one that serves only this entry, because the readable table shadows the
+  helper's leaves (0x0C03A6E0/0x0C03A140).  The ledger row adds 8 B
+  (406,446 -> 406,454): the union is a body-range union, and the neighbouring
+  ported entry `0x8C06DECE` already covers 190 of the 198 bytes.
+  docs/re/state_rotate.md.
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
   six stack reads were **eight bytes too high**: it added the guest's
