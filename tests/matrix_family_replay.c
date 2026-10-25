@@ -2,34 +2,15 @@
 #include "fight/matrix_family.h"
 #include "fight/family_hooks.h"
 #include "fight/readable.h"
-static FILE *xfin,*xfout,*extra,*gbr,*bank_file,*gd_file,*device_file;
-static long *device_offsets;
-static uint32_t device_records;
+#include "oracle_sidecars.h"
+
+static vf3h_sidecars sc;
 static uint32_t entry;
-typedef struct { uint32_t address,size,value,write; } DeviceAccess;
-static struct { DeviceAccess *events; uint32_t capacity,count,pos,bad,first_bad; DeviceAccess expected,actual; } device_tape;
-static void record_mismatch(DeviceAccess actual,DeviceAccess expected) {
-    if(!device_tape.bad) {
-        device_tape.first_bad=device_tape.pos ? device_tape.pos-1 : 0;
-        device_tape.expected=expected; device_tape.actual=actual;
-    }
-    device_tape.bad=1;
-}
-static uint32_t device_read(void *context,uint32_t address,unsigned size) {
-    (void)context;
-    if(device_tape.pos>=device_tape.count) { record_mismatch((DeviceAccess){address,size,0,0},(DeviceAccess){0}); return 0; }
-    DeviceAccess event=device_tape.events[device_tape.pos++];
-    if(event.address!=address || event.size!=size || event.write)
-        record_mismatch((DeviceAccess){address,size,event.value,0},event);
-    return event.value;
-}
-static void device_write(void *context,uint32_t address,unsigned size,uint32_t value) {
-    (void)context;
-    if(device_tape.pos>=device_tape.count) { record_mismatch((DeviceAccess){address,size,value,1},(DeviceAccess){0}); return; }
-    DeviceAccess event=device_tape.events[device_tape.pos++];
-    if(event.address!=address || event.size!=size || !event.write || event.value!=value)
-        record_mismatch((DeviceAccess){address,size,value,1},event);
-}
+
+/* The sidecar machinery (the XF registers, the FPUL, the GBR, the banked
+ * registers, the drive state and the device tape) lives in
+ * tests/oracle_sidecars.h, shared with the readable ports' oracle legs. */
+
 static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
     vf3_matrix_state state;
     memset(&state,0,sizeof(state));
@@ -42,69 +23,16 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
      * bytes) needs far more than 100k steps, and the port spends one step
      * per emulated instruction just like the oracle does. */
     state.budget=4000000;
-    uint32_t wantxf[16],aux[4];
     memcpy(state.v,c->in,sizeof(c->in));
-    /* Sidecars are written one record per .cases row, including rows whose RAM
-     * shadow is unavailable.  Seek by row so a skipped row cannot shift every
-     * later FPUL/XF/GBR expectation. */
-    if(fseek(xfin,(long)c->ordinal*64,SEEK_SET) ||
-       fseek(xfout,(long)c->ordinal*64,SEEK_SET) ||
-       fseek(extra,(long)c->ordinal*16,SEEK_SET)) {
-        snprintf(err,len,"missing extended state"); return 0;
-    }
-    if(fread(state.v+37,4,16,xfin)!=16 || fread(wantxf,4,16,xfout)!=16 || fread(aux,4,4,extra)!=4) {
-        snprintf(err,len,"missing extended state"); return 0;
-    }
-    state.v[53]=aux[0];
-    uint32_t global[3]={0};
-    if(gbr && fseek(gbr,(long)c->ordinal*12,SEEK_SET)) { snprintf(err,len,"missing GBR state"); return 0; }
-    if(gbr && fread(global,4,3,gbr)!=3) { snprintf(err,len,"missing GBR state"); return 0; }
-    state.gbr=global[0]; state.gbr_known=global[2];
-    uint32_t bank_state[17];
-    if(bank_file) {
-        if(fseek(bank_file,(long)c->ordinal*68,SEEK_SET)) { snprintf(err,len,"missing banked registers"); return 0; }
-        if(fread(bank_state,4,17,bank_file)!=17) { snprintf(err,len,"missing banked registers"); return 0; }
-        state.bank_known=bank_state[0];
-        memcpy(state.bank,bank_state+1,sizeof(state.bank));
-    }
-    /* The REIOS drive state of this case: sixteen words the observer logged
-     * when the specimen started.  The drive is not SH-4 RAM, so the corpus has
-     * to carry it; without it the GD service keeps its idle behaviour. */
-    if(gd_file) {
-        if(fseek(gd_file,(long)c->ordinal*64,SEEK_SET)) { snprintf(err,len,"missing GD drive state"); return 0; }
-        if(fread(state.gd_state,4,16,gd_file)!=16) { snprintf(err,len,"missing GD drive state"); return 0; }
-        state.gd_state_known=1;
-    }
-    if(device_file) {
-        uint32_t count;
-        if(c->ordinal>=device_records) { snprintf(err,len,"missing device tape"); return 0; }
-        if(fseek(device_file,device_offsets[c->ordinal],SEEK_SET)) { snprintf(err,len,"missing device tape"); return 0; }
-        if(fread(&count,4,1,device_file)!=1 || count>16384) { snprintf(err,len,"invalid device tape"); return 0; }
-        if(count>device_tape.capacity) {
-            DeviceAccess *events=realloc(device_tape.events,(size_t)count*sizeof(*events));
-            if(!events) { snprintf(err,len,"device tape allocation failed"); return 0; }
-            device_tape.events=events; device_tape.capacity=count;
-        }
-        if(fread(device_tape.events,sizeof(DeviceAccess),count,device_file)!=count) { snprintf(err,len,"short device tape"); return 0; }
-        device_tape.count=count; device_tape.pos=device_tape.bad=0;
-        m->ram.device_read=device_read; m->ram.device_write=device_write;
-    }
+    if(!vf3h_sidecars_load(&sc,c,&state,&m->ram,err,len)) return 0;
     if(!vf3_matrix_family(entry,&state,&m->ram)) { snprintf(err,len,"unsupported helper/state at %08x PC %08x (%u OOB)",entry,state.failed_pc?state.failed_pc:state.lost_pc,m->ram.oob); return 0; }
-    if(device_file && (device_tape.bad || device_tape.pos!=device_tape.count)) {
-        if(device_tape.bad)
-            snprintf(err,len,"device access mismatch at %u/%u: got %c %08x/%u=%08x, expected %c %08x/%u=%08x",
-                     device_tape.first_bad,device_tape.count,
-                     device_tape.actual.write?'W':'R',device_tape.actual.address,device_tape.actual.size,device_tape.actual.value,
-                     device_tape.expected.write?'W':'R',device_tape.expected.address,device_tape.expected.size,device_tape.expected.value);
-        else snprintf(err,len,"device tape has %u unconsumed events",device_tape.count-device_tape.pos);
-        return 0;
-    }
+    if(!vf3h_sidecars_devices_ok(&sc,err,len)) return 0;
     if(!vf3h_regs_ok(c,state.v,err,len)) return 0;
-    for(unsigned i=0;i<16;++i) if(state.v[37+i]!=wantxf[i]) { snprintf(err,len,"XF%u: %08x != %08x",i,state.v[37+i],wantxf[i]); return 0; }
-    if(state.v[53]!=aux[1]) { snprintf(err,len,"FPUL: %08x != %08x",state.v[53],aux[1]); return 0; }
-    if(state.pc!=aux[3]) { snprintf(err,len,"exit PC: %08x != %08x",state.pc,aux[3]); return 0; }
-    if(state.gbr_known && state.gbr!=global[1]) { snprintf(err,len,"GBR differs"); return 0; }
-    if(state.bank_known && memcmp(state.bank,bank_state+9,sizeof(state.bank))) {
+    for(unsigned i=0;i<16;++i) if(state.v[37+i]!=sc.wantxf[i]) { snprintf(err,len,"XF%u: %08x != %08x",i,state.v[37+i],sc.wantxf[i]); return 0; }
+    if(state.v[53]!=sc.aux[1]) { snprintf(err,len,"FPUL: %08x != %08x",state.v[53],sc.aux[1]); return 0; }
+    if(state.pc!=sc.aux[3]) { snprintf(err,len,"exit PC: %08x != %08x",state.pc,sc.aux[3]); return 0; }
+    if(state.gbr_known && state.gbr!=sc.global[1]) { snprintf(err,len,"GBR differs"); return 0; }
+    if(sc.bank_valid && memcmp(state.bank,sc.bank_state+9,sizeof(state.bank))) {
         snprintf(err,len,"banked registers differ"); return 0;
     }
     return vf3h_mem_ok(m,err,len);
@@ -112,13 +40,23 @@ static int run_case(const vf3_case*c,vf3_harness_mem*m,char*err,size_t len) {
 /* VF3_READABLE=1: let the readable ports of src/fight/readable.c pre-empt the generated chain, so the same oracle cases
  * check the readable C instead of the generated adapter. */
 static unsigned readable_used;
+/* VF3_READABLE_ONLY=<entry>: serve only that one entry readably.  The whole
+ * table pre-empts too much for a specimen whose other legs are not ported
+ * yet; this switch lets a single port be proved inside a corpus whose call
+ * tree reaches it. */
+static uint32_t readable_only;
 static int readable_hook(uint32_t e,vf3_matrix_state*s,const vf3_ram_map*ram,int*handled) {
+    if(readable_only && (e&0x1FFFFFFFu)!=(readable_only&0x1FFFFFFFu)) { *handled=0; return 0; }
     const int ok=vf3_readable_override(e,s,ram,handled);
     if(*handled) ++readable_used;
     return ok;
 }
 int main(int argc,char**argv) {
-    if(getenv("VF3_READABLE")) vf3_family_override=readable_hook;
+    if(getenv("VF3_READABLE")) {
+        const char *only=getenv("VF3_READABLE_ONLY");
+        if(only&&*only) readable_only=(uint32_t)strtoul(only,NULL,0);
+        vf3_family_override=readable_hook;
+    }
     if(getenv("VF3_COMPLETE_CALLS")) vf3_family_complete_calls=1;
     /* A module that reaches a register-indirect jump whose target it was not
      * generated with stops at that target with the jump already taken.  The
@@ -130,33 +68,9 @@ int main(int argc,char**argv) {
     entry=(uint32_t)strtoul(argv[1],NULL,0);
     char path[1400],stem[1200]; snprintf(stem,sizeof(stem),"%s",argv[2]);
     char *ext=strrchr(stem,'.'); if(!ext) return 2; *ext=0;
-    snprintf(path,sizeof(path),"%s.xfin.bin",stem); xfin=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.xfout.bin",stem); xfout=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.extra.bin",stem); extra=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.gbr.bin",stem); gbr=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.bank.bin",stem); bank_file=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.gd.bin",stem); gd_file=fopen(path,"rb");
-    snprintf(path,sizeof(path),"%s.dev.bin",stem); device_file=fopen(path,"rb");
-    if(!xfin||!xfout||!extra) return 2;
-    if(device_file) {
-        /* Device tapes are variable-length; index them by .cases row. */
-        uint32_t capacity=0, count;
-        while(fread(&count,4,1,device_file)==1) {
-            if(count>16384) { fclose(device_file); device_file=NULL; break; }
-            if(device_records==capacity) {
-                capacity=capacity?capacity*2:64;
-                long *grown=realloc(device_offsets,(size_t)capacity*sizeof(*grown));
-                if(!grown) { fclose(device_file); device_file=NULL; break; }
-                device_offsets=grown;
-            }
-            device_offsets[device_records++]=ftell(device_file)-4;
-            if(fseek(device_file,(long)count*sizeof(DeviceAccess),SEEK_CUR)) { fclose(device_file); device_file=NULL; break; }
-        }
-        if(device_file) rewind(device_file);
-    }
+    if(!vf3h_sidecars_open(&sc,stem)) return 2;
     char *args[]={argv[0],argv[2]};
     int result=vf3h_harness_main(2,args,"matrix_family",argv[2],run_case);
     if(getenv("VF3_READABLE")) printf("readable ports used: %u calls\n",readable_used);
-    fclose(xfin); fclose(xfout); fclose(extra); if(gbr) fclose(gbr); if(bank_file) fclose(bank_file);
-    if(device_file) fclose(device_file); free(device_tape.events); free(device_offsets); return result;
+    vf3h_sidecars_close(&sc); return result;
 }

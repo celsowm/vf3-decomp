@@ -166,6 +166,9 @@ int vf3_state_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_ladder_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_resolve_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_rotate_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_queue_reset_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_queue_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_queue_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_kind_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -428,6 +431,13 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c06dec6u, "state_rotate", vf3_state_rotate_entry,
       B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(14)|B(15)|B(16)|B(17)|
       FR(0)|FR(1)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|FR(7)|FR(8)|FR(9)|FR(10)|FR(11) },
+    /* the queue of two parallel words: the reset, the push and the pop */
+    { 0x0c038570u, "queue_reset", vf3_queue_reset_entry,
+      B(0)|B(4)|B(5)|B(16)|B(17) },
+    { 0x0c038590u, "queue_push", vf3_queue_push_entry,
+      B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17) },
+    { 0x0c0385c0u, "queue_pop", vf3_queue_pop_entry,
+      B(0)|B(1)|B(3)|B(4)|B(5)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

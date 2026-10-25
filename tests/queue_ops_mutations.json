@@ -1,0 +1,461 @@
+[
+ {
+  "name": "the_address_of_the_struct_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_STRUCT 0x0c0385f0u /* the address of the queue's struct */",
+    "#define POOL_STRUCT 0x0c0385f4u /* the address of the queue's struct */"
+   ]
+  ]
+ },
+ {
+  "name": "the_address_of_the_first_array_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_ARRAY1 0x0c0385f4u /* the address of the first array */",
+    "#define POOL_ARRAY1 0x0c0385f8u /* the address of the first array */"
+   ]
+  ]
+ },
+ {
+  "name": "the_address_of_the_second_array_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_ARRAY2 0x0c0385f8u /* the address of the second array */",
+    "#define POOL_ARRAY2 0x0c0385f4u /* the address of the second array */"
+   ]
+  ]
+ },
+ {
+  "name": "the_capacity_is_not_forty_eight",
+  "subs": [
+   [
+    "#define QUEUE_LIMIT 48u",
+    "#define QUEUE_LIMIT 47u"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_not_at_the_structs_offset_six",
+  "subs": [
+   [
+    "#define FIELD_COUNT 6u   /* the halfword: how many entries the queue holds */",
+    "#define FIELD_COUNT 8u   /* the halfword: how many entries the queue holds */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_word_is_not_at_the_structs_offset_forty_four",
+  "subs": [
+   [
+    "#define FIELD_A     44u  /* the word the first array carries */",
+    "#define FIELD_A     40u  /* the word the first array carries */"
+   ]
+  ]
+ },
+ {
+  "name": "the_duplicate_of_the_first_word_is_not_at_the_structs_offset_forty_eight",
+  "subs": [
+   [
+    "#define FIELD_A2    48u  /* its duplicate */",
+    "#define FIELD_A2    52u  /* its duplicate */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_is_not_at_the_structs_offset_fifty_six",
+  "subs": [
+   [
+    "#define FIELD_B     56u  /* the word the second array carries */",
+    "#define FIELD_B     64u  /* the word the second array carries */"
+   ]
+  ]
+ },
+ {
+  "name": "the_duplicate_of_the_second_word_is_not_at_the_structs_offset_sixty",
+  "subs": [
+   [
+    "#define FIELD_B2    60u  /* its duplicate */",
+    "#define FIELD_B2    68u  /* its duplicate */"
+   ]
+  ]
+ },
+ {
+  "name": "the_halfword_is_not_sign_extended",
+  "subs": [
+   [
+    "    return (uint32_t)(int32_t)(int16_t)(uint16_t)v;",
+    "    return v;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_compare_the_counter_with_the_limit",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(5) >= (int32_t)R(3));",
+    "    set_t(s, (int32_t)R(3) >= (int32_t)R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_compare_the_counter_with_zero",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(1) > 0);",
+    "    set_t(s, (int32_t)R(1) <= 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_increment_the_counter",
+  "subs": [
+   [
+    "    R(5) += 1u;\n    R(0) = R(5);",
+    "    R(5) += 0u;\n    R(0) = R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_decrement_the_counter",
+  "subs": [
+   [
+    "    R(0) += 0xffffffffu;            /* the counter goes down by one */",
+    "    R(0) += 0x00000000u;            /* the counter goes down by one */"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_write_the_counter_back",
+  "subs": [
+   [
+    "    R(0) = R(5);\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    R(0) = R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_write_the_counter_back",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(3));\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_not_stored_as_a_halfword",
+  "subs": [
+   [
+    "    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));\n\n    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_COUNT, R(0));\n\n    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_zero_the_counter",
+  "subs": [
+   [
+    "    R(0) = 0u;\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    R(0) = 1u;\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_touches_the_t_bit",
+  "subs": [
+   [
+    "    R(0) = 0u;\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    R(0) = 0u;\n    set_t(s, 0);\n    vf3_mem_set_u16(ram, R(4) + FIELD_COUNT, (uint16_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_read_the_first_array",
+  "subs": [
+   [
+    "    R(5) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(5) = vf3_mem_u32(ram, R(5));",
+    "    R(5) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(5) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_read_the_second_array",
+  "subs": [
+   [
+    "    R(5) = vf3_mem_u32(ram, POOL_ARRAY2);\n    R(5) = vf3_mem_u32(ram, R(5));",
+    "    R(5) = vf3_mem_u32(ram, POOL_ARRAY2);\n    R(5) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_write_the_structs_first_word",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(5));",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A2, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_write_the_structs_first_duplicate",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A2, R(5));",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_write_the_structs_second_word",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_B, R(5));",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_B2, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_write_the_structs_second_duplicate",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_B2, R(5));",
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_B, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_write_the_first_array",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(0) + R(5), R(2));",
+    "    (void)R(2);"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_write_the_second_array",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(0) + R(6), R(2));",
+    "    (void)R(2);"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_writes_the_first_array_at_the_old_index",
+  "subs": [
+   [
+    "    R(6) = R(5);\n    vf3_mem_set_u32(ram, R(0) + R(5), R(2));",
+    "    R(6) = R(5);\n    vf3_mem_set_u32(ram, R(0) + R(5) - 4u, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_writes_the_second_array_at_the_old_index",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(0) + R(6), R(2));",
+    "    vf3_mem_set_u32(ram, R(0) + R(6) - 4u, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_scales_the_index_by_eight",
+  "subs": [
+   [
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(5) <<= 2;",
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(5) <<= 3;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_reads_the_structs_duplicate_instead_of_its_first_word",
+  "subs": [
+   [
+    "    R(2) = vf3_mem_u32(ram, R(4) + FIELD_A);\n    R(6) = R(5);",
+    "    R(2) = vf3_mem_u32(ram, R(4) + FIELD_A2);\n    R(6) = R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_reads_the_structs_second_duplicate_instead_of_its_second_word",
+  "subs": [
+   [
+    "    R(2) = vf3_mem_u32(ram, R(4) + FIELD_B);\n    R(0) = vf3_mem_u32(ram, POOL_ARRAY2);",
+    "    R(2) = vf3_mem_u32(ram, R(4) + FIELD_B2);\n    R(0) = vf3_mem_u32(ram, POOL_ARRAY2);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_reads_the_first_array_from_the_second_array",
+  "subs": [
+   [
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(3) = vf3_mem_u32(ram, R(0) + R(5));",
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY2);\n    R(3) = vf3_mem_u32(ram, R(0) + R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_reads_the_second_array_from_the_first_array",
+  "subs": [
+   [
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY2);\n    R(5) = R(1);",
+    "    R(0) = vf3_mem_u32(ram, POOL_ARRAY1);\n    R(5) = R(1);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_write_the_structs_first_word",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(3));",
+    "    (void)R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_write_the_structs_second_word",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(4) + FIELD_B, R(3));",
+    "    (void)R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_scales_the_index_by_eight",
+  "subs": [
+   [
+    "    R(5) = R(1);\n    R(5) <<= 2;",
+    "    R(5) = R(1);\n    R(5) <<= 3;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_refuse_a_full_queue",
+  "subs": [
+   [
+    "    if (R(17) & 1u) {\n        /* the queue is full */",
+    "    if (0) {\n        /* the queue is full */"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_refuse_an_empty_queue",
+  "subs": [
+   [
+    "    if (!(R(17) & 1u)) {\n        /* the queue is empty */",
+    "    if (0) {\n        /* the queue is empty */"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_answers_zero_when_the_queue_is_full",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(5) >= (int32_t)R(3));\n    R(6) = 0xffffffffu;",
+    "    set_t(s, (int32_t)R(5) >= (int32_t)R(3));\n    R(6) = 0x00000000u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_answers_zero_when_the_queue_is_empty",
+  "subs": [
+   [
+    "    set_t(s, (int32_t)R(1) > 0);\n    R(5) = 0xffffffffu;",
+    "    set_t(s, (int32_t)R(1) > 0);\n    R(5) = 0x00000000u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_leaves_the_wrong_answer_in_r0",
+  "subs": [
+   [
+    "    R(6) = 0u;\n    R(0) = R(6);",
+    "    R(6) = 1u;\n    R(0) = R(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_leaves_the_wrong_answer_in_r0",
+  "subs": [
+   [
+    "    R(5) = 0u;\n    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(3));",
+    "    R(5) = 1u;\n    vf3_mem_set_u32(ram, R(4) + FIELD_A, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_copy_the_counter_into_r1",
+  "subs": [
+   [
+    "    R(0) = half(vf3_mem_u16(ram, R(4) + FIELD_COUNT));\n    R(1) = R(0);",
+    "    R(0) = half(vf3_mem_u16(ram, R(4) + FIELD_COUNT));\n    R(1) = R(0) + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_use_the_structs_address",
+  "subs": [
+   [
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT);\n    R(0) = 0u;",
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT) + 4u;\n    R(0) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_use_the_structs_address",
+  "subs": [
+   [
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT);\n    R(3) = QUEUE_LIMIT;",
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT) + 4u;\n    R(3) = QUEUE_LIMIT;"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_use_the_structs_address",
+  "subs": [
+   [
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT);\n    R(0) = half(vf3_mem_u16(ram, R(4) + FIELD_COUNT));",
+    "    R(4) = vf3_mem_u32(ram, POOL_STRUCT) + 4u;\n    R(0) = half(vf3_mem_u16(ram, R(4) + FIELD_COUNT));"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_keep_the_limit_in_r3",
+  "subs": [
+   [
+    "    R(3) = QUEUE_LIMIT;",
+    "    R(3) = QUEUE_LIMIT + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_reset_does_not_return_to_the_caller",
+  "subs": [
+   [
+    "    s->pc = R(16);",
+    "    s->pc = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_push_does_not_return_to_the_caller_when_it_refuses",
+  "subs": [
+   [
+    "        R(0) = R(6);                 /* the delay slot of the `rts` */\n        s->pc = R(16);",
+    "        R(0) = R(6);                 /* the delay slot of the `rts` */\n        s->pc = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_pop_does_not_return_to_the_caller",
+  "subs": [
+   [
+    "    R(0) = R(5);                     /* the delay slot of the `rts` */\n    s->pc = R(16);",
+    "    R(0) = R(5);                     /* the delay slot of the `rts` */\n    s->pc = 0u;"
+   ]
+  ]
+ }
+]

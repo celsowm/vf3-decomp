@@ -60,6 +60,8 @@ build/vf3stateresolve  state_resolve: 20 differential cases - PASS
 build/vf3stateresolveoracle  state_resolve_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
 build/vf3staterotate  state_rotate: 10 differential cases - PASS
 build/vf3staterotateoracle  state_rotate_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
+build/vf3queueops  queue_ops: 13 differential cases - PASS
+build/vf3queueopsoracle  queue_reset_oracle: 448/448, queue_reset_oracle_release: 576/576, queue_push_oracle: 396/396, queue_push_oracle_release: 484/484, queue_pop_oracle_next_device: 65/65, queue_pop_oracle_u90_sw2: 16/16 cases match - PASS
 ```
 
 Run the suite from the **repository root**: the harness resolves

@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.51% verified C (406,454 B of 434,656). The 90% bar
+- Coverage: 93.54% verified C (406,560 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,122 B more).
+  Next bar: 94% = 408,576 B (2,016 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -211,6 +211,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   oracle journals the narrowed value, so `vf3_matrix_write` masks the value
   before the device hook sees it.  Without it a byte store of a sign-extended
   register reaches the hook as 0xffffffb0 where the reference had 0x000000b0.
+- **The chain refuses to run anything when the FPU is unsupported.**  The
+  dispatcher gates on `vf3_fpu_supported(FPSCR)` - `FPSCR.RM` is 2 or 3, or the
+  precision bit is set - *before* it looks at the entry, so a synthetic
+  fixture with a made-up FPSCR makes every case look like a port failure
+  (`lost_pc = entry`, `failed_pc = 0`).  The corpora carry 0x240001 and
+  0x40001; a fixture has to carry one of those.
+- **The oracle's merged RAM shadow holds several windows concatenated.**  A
+  corpus' `.in.bin`/`.out.bin` is the merged windows one after the other, so
+  the file offset of an address is the window's base offset plus its place in
+  the window - the struct at 0x0C16B880 is at file offset 0x1886, not 0x886,
+  because the second window starts at 0x1000.  Reading it at the naive offset
+  gives a plausible but wrong value and makes a RAM diff look empty.
+- **`VF3_READABLE_ONLY=<entry>`** (tests/matrix_family_replay.c) serves exactly
+  one readable port inside a corpus whose call tree reaches it.  The whole
+  table pre-empts too much for a specimen whose other legs are not ported yet.
+- **A corpus whose specimen touches a device register needs its `.dev.bin`
+  tape.**  Without it the device reads as zero and the specimen wanders off
+  into dozens of out-of-window accesses; the tape, the banked registers and
+  the rest of the sidecars are loaded by tests/oracle_sidecars.h.
 - **A generated module must claim, not just own.**  The router picks an owner
   by entry PC, and the chain order decides who wins a contested PC.  The
   generator therefore emits two arrays: owned_pcs[] (every PC it implements,
@@ -823,6 +842,43 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   (406,446 -> 406,454): the union is a body-range union, and the neighbouring
   ported entry `0x8C06DECE` already covers 190 of the 198 bytes.
   docs/re/state_rotate.md.
+- Fight queue family (0x8C038570 reset / 0x8C038590 push / 0x8C0385C0 pop) ported
+  readable: src/fight/queue_ops.c, proved against the retained generated
+  translation by tests/queue_ops_replay.c (13 differential cases) and against the
+  **oracle** by tests/queue_ops_oracle.c (1,024 reset cases, 880 push cases and 81
+  pop cases).  The three share one struct and two global arrays, whose addresses
+  the literal pool holds (0x0C0385F0 -> the struct 0x0C16B880, 0x0C0385F4 -> the
+  first array 0x0C1A5720, 0x0C0385F8 -> the second 0x0C1A57E0).  The struct's
+  halfword at +6 is the counter, the words at 44/48 and 56/60 carry the pair the
+  arrays hold, and the capacity is 48.  The reset empties the queue and seeds the
+  struct from the arrays' first slots; the push appends the struct's two words at
+  the counter's **new** value and refuses with -1 once the counter has reached
+  the limit; the pop takes them back at the counter's **old** value and refuses
+  with -1 when the counter is not above zero.  All three are **off-baseline**
+  leaves and hot (the state-7 census has the reset at 10 calls/110 self-steps,
+  the push at 4/76 and the pop at 4/72).  Details the port has to keep:
+  **`cmp/ge r3,r5` sets T = (r5 >= r3)**, so the queue is full once the counter has
+  *reached* the limit (the corpus' own SR goes 0x60000001 -> 0x60000000 on a push
+  out of an empty queue - the first port had the comparison the other way round
+  and the corpus caught it); the **two arrays are 48 words apart**, so the first
+  array's slot 48 *is* the second array's slot 0 and the fixture models them as
+  the one contiguous space they are; the counter is a **halfword, sign extended**
+  (the captured fight only ever shows it at 0 - the push takes it to 1 - so the
+  sign extension is proved by the differential's negative-counter cases); a `/s` branch runs its
+  delay slot on both paths, so the refusal's -1 is written by the delay slot of
+  the `rts` (into r6 for the push, into r5 for the pop); the reset computes **no**
+  comparison and must not touch the T bit; and the pop writes the struct's words
+  at 44 and 56 **only** - the copies at 48 and 60 keep their old values, so the
+  fixture gives the four words distinct values.  51/51 mutations caught.  **The
+  pop has no corpus of its own** - nothing in the captured fight reaches it as a
+  watched entry - so its oracle leg is indirect: the readable pop was substituted
+  into the two corpora whose call tree contains it (65/65 and 16/16 cases), and
+  the test counts the calls so a corpus that never reaches the pop cannot pass
+  vacuously.  Those corpora touch a device register, so the sidecar loader (the
+  XF registers, the FPUL, the GBR, the banked registers and the **device tape**)
+  moved into tests/oracle_sidecars.h, shared with the chain's own harness.  The
+  ledger rows add 106 B (406,454 -> 406,560): all three are off-baseline, so
+  their rows are worth their own body span.  docs/re/queue_ops.md.
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
   six stack reads were **eight bytes too high**: it added the guest's

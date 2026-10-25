@@ -150,7 +150,10 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c0a7750,scene_slot,src/fight/call_sequences.c,r0 r1 r2 r3 r4 r5 r6 r7 sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11 fr12 fr13 fr14 fr15 fr16 fr17 fr18 fr19 fr20 fr21 fr22 fr23 fr24 fr25 fr26 fr27 fr28 fr29 fr30 fr31 fpul,4,164,0.02,whole-tick
 0x8c0b0f28,band_probe,src/fight/band_probe.c,r0 r1 r2 r3 r4 r5 r6 r7 r13 r15 pr sr,4,144,0.01,whole-tick
 0x8c055b28,clamp_cell,src/fight/misc_wrappers.c,r0 r1 r4 sr,11,121,0.01,whole-tick
+0x8c038570,queue_reset,src/fight/queue_ops.c,r0 r4 r5 pr sr,10,110,0.01,whole-tick
 0x8c06dec6,state_rotate,src/fight/state_rotate.c,r0 r2 r3 r4 r5 r6 r14 r15 pr sr fr0 fr1 fr2 fr3 fr4 fr5 fr6 fr7 fr8 fr9 fr10 fr11,1,89,0.01,whole-tick
+0x8c038590,queue_push,src/fight/queue_ops.c,r0 r2 r3 r4 r5 r6 pr sr,4,76,0.01,whole-tick
+0x8c0385c0,queue_pop,src/fight/queue_ops.c,r0 r1 r3 r4 r5 pr sr,4,72,0.01,whole-tick
 0x8c03e810,float_blend,src/fight/float_blend.c,r0 r2 r3 r4 r5 r6 r7 r15 pr fr0 fr2 fr3,2,68,0.01,whole-tick
 0x8c078044,record_kind,src/fight/record_kind.c,r0 r1 r2 r3 r4 r6 r7 r13 r14 r15 pr sr,2,50,0.00,whole-tick
 0x8c08dd5c,move_cap,src/fight/move_cap.c,r0 r1 r2 r3 r4 r14 r15 pr sr fr0 fr2 fr3 fr4 fr5 fr6 fr7 fpul,1,45,0.00,whole-tick
