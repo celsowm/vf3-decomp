@@ -176,13 +176,35 @@ oracle's own model**, and `0x8c039cb4` is promoted on it.
 
 | item | before | after |
 |---|---|---|
-| union of the ported body ranges | 406,964 B (93.6290%) | **436,928 B (100.52% of the 434,656 B denominator)** |
-| baseline entries with a ledger row | 2,161 / 2,398 | **2,398 / 2,398** |
-| entries still missing | 237 / 29,964 B | **0** |
+| baseline functions with a ledger row | 2,161 / 2,398 | **2,398 / 2,398** |
+| baseline halfwords covered by the union | 203,482 / 217,328 (93.63%) | **217,328 / 217,328 (100.0000%)** |
+| union of the ported body ranges | 406,964 B | 436,928 B (the 434,656 B baseline plus 2,272 B of off-baseline leaves) |
 
-The union is larger than the denominator because the ledger also credits the
-151 off-baseline leaves (3,964 B) whose bodies live outside the baseline's
-ranges; the baseline itself is fully covered.
+`tools/coverage_proof.py` is the proof: it takes the union of the ported
+entries' body ranges and checks it against the baseline's own address set.
+
+```text
+baseline functions: 2398 (217328 halfwords)
+ported baseline entries: 2398
+baseline halfwords covered by the union: 217328 / 217328 (100.0000%)
+union bytes: 436928
+```
+
+### 6.1 The ledger's entry column has to use the baseline's address form
+
+The first version of these rows wrote the entry as the **0x0c mirror**
+(`0x0c058784`), because the router masks the entry PC to 29 bits.  The
+baseline inventory writes the **0x8c form** (`8c058784`), and
+`tools/decomp_stats.py` compares the two numerically: a 0x0c row is not a
+baseline function, so its bytes are credited as an off-baseline leaf and its
+span lands in the *mirror's* address range, not in the baseline's.
+
+The symptom was a coverage number that was too good to be true - the union
+came out at 436,928 B while the function count stayed at 2,161.  With the
+rows in the baseline's form the two agree: 2,398 functions and 217,328
+halfwords.  `tools/fix_ledger_form.py` rewrites the rows, and the rule is
+worth keeping: **the ledger's entry column is the baseline's address, not
+the router's masked form.**
 
 ## 7. What is next
 
@@ -205,6 +227,8 @@ which turns a ROM-derived translation into a reviewed one.
 | `tools/gap_callees.py` | the call targets outside the Ghidra inventory |
 | `tools/gap_gen.py` | generates the batches in order (each reuses the earlier ones' claims) |
 | `tools/gap_promote.py` | writes the ledger rows with their evidence |
+| `tools/coverage_proof.py` | the proof that the baseline is fully covered |
+| `tools/fix_ledger_form.py` | the ledger's entry column in the baseline's address form |
 | `tools/image_check.py` | validates a restored image against the capture maps |
 | `tools/ops_coverage.py` | how much of the image the capture maps cover |
 

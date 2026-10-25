@@ -183,7 +183,7 @@ def main() -> int:
         oracle = "; ".join(parts)
         if old_with_cite:
             oracle += "; owner replay: " + cite[file_for(old_with_cite[0], mods)]
-        rows.append({"entry": f"0x{e:08x}", "status": "ported", "file": file,
+        rows.append({"entry": f"0x{g['entry']:08x}", "status": "ported", "file": file,
                      "size": funcs.get(e, g["new"]),
                      "method": method, "oracle": oracle})
 
