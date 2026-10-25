@@ -685,6 +685,44 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   probe the chain here is only *readable port == generated translation*: no
   corpus was ever captured for this entry, so the third link (== oracle) is
   missing and cannot be closed offline.  docs/re/state_advance.md.
+- Record kind (0x8C078044) ported readable: src/fight/record_kind.c, proved
+  against the retained generated translation by tests/record_kind_replay.c (30
+  differential cases, 49/49 mutations caught).  It is handed a record (r5 is
+  the base, r7 an index into it) and the flag word the caller left in its
+  frame.  The record keeps a **kind** byte (the pool's offset at 0x8C07815A
+  plus the index), a **state** byte (0x8C07815C) and a source byte (0x8C07815E)
+  that gets copied to two places: the destination offset (0x8C078160) plus the
+  index, and the source offset plus 51.  With no kind yet, the flag word's low
+  four bits decide - zero or fifteen mean the record is complete, anything
+  else gives it a kind of one and takes the four bits into the state byte.
+  With a kind, a **gate** mask (0x40000000, from the pool at 0x8C07816C) is
+  tested against the caller's word; when the gate is shut, three tests have to
+  hold - the state byte is four, the caller's mode word has bit two CLEAR, and
+  the flag word's low four bits are one - and then the byte is copied and the
+  kind cleared.  Otherwise the state byte joins the flag word, and if the
+  merged value is fifteen (or the kind byte was one) the kind is cleared, else
+  the kind byte counts down.  Details the port has to keep: the plain `bf`
+  branches when the T bit is CLEAR, so the mode word's bit two must be clear
+  for the three tests to fall through; the two copies leave the write address
+  in `r7` and in `r3`; `dec r14` takes down the *kind* byte; and the caller's
+  three frame words sit at the **entry** stack pointer + 0/4/8.  Three things
+  cannot be observed: the sign extension of the bytes it reads (every one is
+  masked back to eight bits before use), and the T bit of the kind, gate and
+  mode tests (the guest writes the T bit again before it returns).
+  docs/re/record_kind.md.
+- **The gap unit `src/fight/g78044.c` had three faults, all found by running
+  it against the readable port of the same function (0x8C078044).**  (1) Its
+  six stack reads were **eight bytes too high**: it added the guest's
+  displacement to the *entry* stack pointer instead of to the live one, so it
+  read the caller's words at entry+8/+12/+16 where the guest reads them at
+  entry+0/+4/+8.  (2) The two pops were wrong by the same eight bytes.
+  (3) At 0x8C0780BE and 0x8C0780EA it had `add r7,r3` the wrong way round
+  (`r7 += r3` instead of `r3 += r7`), which moved the write address and the
+  answer's r7.  The fix is oracle preserving: the old port matched the
+  oracle's recorded exit state, so the words it read and the words the guest
+  reads agreed in every bit the function looks at.  **The caller's frame
+  words sit at the entry stack pointer + 0/4/8** - `src/fight/af734.c`, whose
+  64 oracle cases confirmed it, reads them the same way.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

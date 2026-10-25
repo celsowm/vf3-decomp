@@ -163,6 +163,7 @@ int vf3_move_cap_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_band_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pair_verdict_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_record_kind_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -410,6 +411,9 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the entry counter steps forward, and the kind flags are told about it */
     { 0x0c06bea4u, "state_advance", vf3_state_advance_entry,
       B(0)|B(1)|B(2)|B(3)|B(7)|B(12)|B(13)|B(14)|B(15)|B(16)|B(17) },
+    /* the record's kind byte, and the flag word that goes with it */
+    { 0x0c078044u, "record_kind", vf3_record_kind_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(6)|B(7)|B(13)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

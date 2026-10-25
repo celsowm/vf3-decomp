@@ -76,7 +76,7 @@ void vf3_g78044_8c078044(uint32_t in_r4, uint32_t in_r5, uint32_t in_r6,
     uint32_t r0 = 0, r1 = 0, r2 = 0, r3 = 0;
     uint32_t r4 = in_r4, r5 = in_r5, r6 = in_r6, r7 = in_r7;
     uint32_t r13 = in_r13, r14 = in_r14;
-    uint32_t X = in_r15 - 8;            /* push r14 + push r13 */
+    uint32_t X = in_r15 - 8;            /* the live r15 after the two pushes */
     uint32_t sr = in_sr;
     int T = (in_sr & 1) != 0;
 
@@ -84,7 +84,7 @@ void vf3_g78044_8c078044(uint32_t in_r4, uint32_t in_r5, uint32_t in_r6,
     r4 = 15;                            /* 8c078046 */
     c_wr32(ram, in_r15 - 8, in_r13);    /* 8c078048 mov.l r13,@-r15 */
     r14 = 0x1BB0u;                      /* 8c07804a mov.w */
-    r6 = c_rd32(ram, X + 16);           /* 8c07804c mov.l @(8,r15),r6 */
+    r6 = c_rd32(ram, X + 8);            /* 8c07804c mov.l @(8,r15),r6 */
     r14 += r5;                          /* 8c07804e */
     r14 += r7;                          /* 8c078050 */
     r14 = (uint32_t)(uint8_t)c_rd8s(ram, r14); /* 8c078052 mov.b */
@@ -126,7 +126,7 @@ L_8090:
     r13 = 0x1BB2u;                      /* 8c078090 mov.w */
     r3 = 0x40000000u;                   /* 8c078092 mov.l pool value */
     r13 += r5;                          /* 8c078094 */
-    r2 = c_rd32(ram, X + 20);           /* 8c078096 mov.l @(12,r15),r2 */
+    r2 = c_rd32(ram, X + 12);           /* 8c078096 mov.l @(12,r15),r2 */
     r13 += r7;                          /* 8c078098 */
     r13 = (uint32_t)(uint8_t)c_rd8s(ram, r13); /* 8c07809a mov.b */
     T = ((r3 & r2) == 0);               /* 8c07809c tst r3,r2 */
@@ -137,7 +137,7 @@ L_8090:
     T = (r0 == 4);                      /* 8c0780a4 cmp/eq #4 */
     if (!T)
         goto L_80c8;                    /* 8c0780a6 bf */
-    r0 = c_rd32(ram, X + 24);           /* 8c0780a8 mov.l @(16,r15),r0 */
+    r0 = c_rd32(ram, X + 16);           /* 8c0780a8 mov.l @(16,r15),r0 */
     T = ((r0 & 4) == 0);                /* 8c0780aa tst #4,r0 */
     if (!T)
         goto L_80c8;                    /* 8c0780ac bf */
@@ -150,7 +150,7 @@ L_8090:
     r14 = (uint32_t)(uint8_t)c_rd8s(ram, r5 + r0); /* 8c0780b8 mov.b */
     r0 += 51;                           /* 8c0780ba -> 0x1bb6 */
     r3 += r5;                           /* 8c0780bc */
-    r7 += r3;                           /* 8c0780be add r3,r7 */
+    r3 += r7;                           /* 8c0780be add r7,r3 */
     r14 &= 0xFFu;                       /* 8c0780c0 extu.b */
     c_wr8(ram, r3, (uint8_t)r14);       /* 8c0780c2 mov.b */
     c_wr8(ram, r5 + r0, (uint8_t)r14);  /* 8c0780c6 delay (always) */
@@ -160,7 +160,7 @@ L_80c8:
     T = (r0 == 6);                      /* 8c0780ca cmp/eq #6 */
     if (!T)
         goto L_80da;                    /* 8c0780cc bf */
-    r0 = c_rd32(ram, X + 24);           /* 8c0780ce mov.l @(16,r15),r0 */
+    r0 = c_rd32(ram, X + 16);           /* 8c0780ce mov.l @(16,r15),r0 */
     r0 &= 15u;                          /* 8c0780d0 and #15,r0 */
     T = (r0 == 2);                      /* 8c0780d2 cmp/eq #2 */
     if (!T)
@@ -179,7 +179,7 @@ L_80da:
         goto L_80fc;                    /* 8c0780e4 bt */
     r3 = 0x1BB0u;                       /* 8c0780e6 mov.w */
     r3 += r5;                           /* 8c0780e8 */
-    r7 += r3;                           /* 8c0780ea add r3,r7 */
+    r3 += r7;                           /* 8c0780ea add r7,r3 */
     c_wr8(ram, r3, (uint8_t)r14);       /* 8c0780ec mov.b r14,@r3 */
     r3 = (uint32_t)(int32_t)-16;        /* 8c0780ee */
     r2 = 0x1BB2u;                       /* 8c0780f0 mov.w */
@@ -196,9 +196,9 @@ L_80fc:
     r7 += r1;                           /* 8c078104 add r1,r7 */
     c_wr8(ram, r7, (uint8_t)r3);        /* 8c078106 mov.b r3,@r7 */
 L_8108:
-    r13 = c_rd32(ram, X + 8);           /* 8c078108 pop r13 */
+    r13 = c_rd32(ram, X + 0);           /* 8c078108 pop r13 */
     r0 = r6;                            /* 8c07810a */
-    r14 = c_rd32(ram, X + 12);          /* 8c07810e delay (pop r14) */
+    r14 = c_rd32(ram, X + 4);           /* 8c07810e delay (pop r14) */
 
     o->r0 = r0;
     o->r3 = r3;
