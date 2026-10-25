@@ -176,6 +176,7 @@ add_library(vf3core STATIC
     src/fight/move_cap.c
     src/fight/band_probe.c
     src/fight/pair_verdict.c
+    src/fight/state_advance.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
     src/fight/native_tick.c
@@ -651,6 +652,7 @@ add_port_test(vf3clamppair tests/clamp_pair_replay.c)
 add_port_test(vf3movecap tests/move_cap_replay.c)
 add_port_test(vf3bandprobe tests/band_probe_replay.c)
 add_port_test(vf3pairverdict tests/pair_verdict_replay.c)
+add_port_test(vf3stateadvance tests/state_advance_replay.c)
 add_port_test(vf3d452 tests/d452_replay.c)
 add_port_test(vf3bootmix tests/bootmix_helper_replay.c)
 add_port_test(vf3f9f9a8 tests/f9f9a8_replay.c)

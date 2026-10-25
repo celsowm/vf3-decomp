@@ -635,6 +635,32 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the guest does by **masking the sign bit off the float's bits**; and the
   difference is only truncated when it is scaled - a short movement keeps the
   *integer* difference.  docs/re/move_cap.md.
+- State advance (0x8C06BEA4) ported readable: src/fight/state_advance.c, proved
+  against the retained generated translation by tests/state_advance_replay.c (23
+  differential cases).  It is handed two words - an **entry counter** (r4, of
+  which only the low four bits are used) and a **count** (r5) - and a kind in
+  r6.  The counter steps forward and wraps at sixteen (1, 2, ... 15, 0, 1, ...);
+  when it is at zero the guest counts down instead, restarting the counter at one
+  and taking one off the count, or - with the count at zero - leaving both at
+  zero.  It also maintains a byte of **kind flags** (the pointer to it is a word
+  in the pool at 0x8C06BFBC): the sixth register picks the kind, a table in the
+  pool (0x8C06BFC0) says what kind the current entry is, and the guest masks the
+  flags with the kind's mask (0x8C06BFAC / 0x8C06BFAE) and sets that kind's bit
+  only when the table has a non-zero byte there.  The counter is only looked up
+  when it is not zero, so the counting path leaves the flags alone.  Four details
+  the port has to keep: the **`bf/s` branches when the T bit is clear**, so the
+  table lookup is the *not zero* path; the **`/s` delay slot runs on both
+  paths**, so the counter the guest writes back is always one more than the
+  masked counter; the value written back is **masked again**, so the word's high
+  bits are dropped and the counter wraps at sixteen; and the counting path
+  writes **one**, not zero (the `bra`'s delay slot).  One thing here cannot be
+  observed: the flags byte is read signed and the mask is a signed halfword, but
+  only the low byte of the and-ed value reaches the RAM, and `&`/`|` are
+  bitwise - so no sign extension can change the byte that is written.
+  **0x8C06BEA4 has no row in `docs/decomp_status.csv`**, so unlike the band
+  probe the chain here is only *readable port == generated translation*: no
+  corpus was ever captured for this entry, so the third link (== oracle) is
+  missing and cannot be closed offline.  docs/re/state_advance.md.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

@@ -191,3 +191,4 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c08dd5c,move_cap,src/fight/move_cap.c,r0 r1 r2 r3 r4 r14 r15 pr sr fr0 fr2 fr3 fr4 fr5 fr6 fr7 fpul,0,0,0.00,differential
 0x8c0b0f28,band_probe,src/fight/band_probe.c,r0 r1 r2 r3 r4 r5 r6 r7 r13 r15 pr sr,0,0,0.00,differential
 0x8c074e7c,pair_verdict,src/fight/pair_verdict.c,r0 r1 r2 r3 r5 r6 r7 r13 r15 pr sr,0,0,0.00,differential
+0x8c06bea4,state_advance,src/fight/state_advance.c,r0 r1 r2 r3 r7 r12 r13 r14 r15 pr sr,0,0,0.00,differential
