@@ -66,6 +66,8 @@ build/vf3packexpand  pack_expand: 6 differential cases - PASS
 build/vf3packexpandoracle  pack_expand_oracle: 8/8 cases match - PASS (the readable port served 0x0c09d5ae 8 times)
 build/vf3stateflag  state_flag: 14 differential cases - PASS
 build/vf3stateflagoracle  state_flag_oracle: 277/277, state_flag_oracle_release: 341/341 cases match - PASS (the readable port served 0x0c0b0fd2 277 and 341 times)
+build/vf3bitalloc  bit_alloc: 8 differential cases - PASS
+build/vf3bitallocoracle  bit_alloc_oracle: 194/194 cases match - PASS (the readable port served 0x0c038860 194 times)
 ```
 
 Run the suite from the **repository root**: the harness resolves

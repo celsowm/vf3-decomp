@@ -171,6 +171,7 @@ int vf3_queue_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_queue_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pack_expand_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_flag_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_bit_alloc_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_kind_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -446,6 +447,10 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* one of two bits in the fight engine's state word */
     { 0x0c0b0fd2u, "state_flag", vf3_state_flag_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17) },
+    /* the fight engine's first free bit, taken out of its bit table */
+    { 0x0c038860u, "bit_alloc", vf3_bit_alloc_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(8)|B(9)|B(10)|B(11)|B(12)|
+      B(13)|B(14)|B(15)|B(16)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

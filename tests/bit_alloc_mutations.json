@@ -1,0 +1,362 @@
+[
+ {
+  "name": "the_count_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_COUNT 0x0c0389c8u  /* the count of the table's words */",
+    "#define POOL_COUNT 0x0c0389ccu  /* the count of the table's words */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE 0x0c0389ccu  /* the table: an array of word pointers */",
+    "#define POOL_TABLE 0x0c0389c8u  /* the table: an array of word pointers */"
+   ]
+  ]
+ },
+ {
+  "name": "the_end_marker_is_not_all_ones",
+  "subs": [
+   [
+    "#define EXHAUSTED 0xffffffffu",
+    "#define EXHAUSTED 0xfffffffeu"
+   ]
+  ]
+ },
+ {
+  "name": "a_word_holds_thirty_one_bits",
+  "subs": [
+   [
+    "#define BITS_PER_WORD 32u",
+    "#define BITS_PER_WORD 31u"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_holds_five_registers",
+  "subs": [
+   [
+    "#define FRAME_SIZE 6",
+    "#define FRAME_SIZE 5"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_r13_before_r14",
+  "subs": [
+   [
+    "static const uint8_t order[FRAME_SIZE] = { 14, 13, 11, 10, 9, 8 };",
+    "static const uint8_t order[FRAME_SIZE] = { 13, 14, 11, 10, 9, 8 };"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pops_r14_before_r13",
+  "subs": [
+   [
+    "static const uint8_t order[FRAME_SIZE] = { 8, 9, 10, 11, 13, 14 };",
+    "static const uint8_t order[FRAME_SIZE] = { 8, 9, 10, 11, 14, 13 };"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_eight_bytes_at_a_time",
+  "subs": [
+   [
+    "        R(15) -= 4u;\n        vf3_mem_set_u32(ram, R(15), R(order[i]));",
+    "        R(15) -= 8u;\n        vf3_mem_set_u32(ram, R(15), R(order[i]));"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_a_word_that_is_one_too_big",
+  "subs": [
+   [
+    "        vf3_mem_set_u32(ram, R(15), R(order[i]));",
+    "        vf3_mem_set_u32(ram, R(15), R(order[i]) + 1u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_guest_does_not_zero_its_counter",
+  "subs": [
+   [
+    "    R(7) = 0u;",
+    "    R(7) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_offset_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(5) = R(7);                     /* the bit offset */",
+    "    R(5) = R(7) + 4u;                /* the bit offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_byte_offset_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(14) = R(7);                    /* the byte offset of the slot */",
+    "    R(14) = R(7) + 4u;               /* the byte offset of the slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_index_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(10) = R(7);                    /* the index */",
+    "    R(10) = R(7) + 1u;               /* the index */"
+   ]
+  ]
+ },
+ {
+  "name": "the_mask_does_not_start_at_one",
+  "subs": [
+   [
+    "    R(9) = 1u;                       /* the mask the bit scan starts with */",
+    "    R(9) = 2u;                       /* the mask the bit scan starts with */"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_read_through_the_table",
+  "subs": [
+   [
+    "    R(8) = vf3_mem_u32(ram, POOL_COUNT);",
+    "    R(8) = vf3_mem_u32(ram, POOL_TABLE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_is_read_through_the_count",
+  "subs": [
+   [
+    "    R(13) = vf3_mem_u32(ram, POOL_TABLE);",
+    "    R(13) = vf3_mem_u32(ram, POOL_COUNT);"
+   ]
+  ]
+ },
+ {
+  "name": "the_byte_offset_into_the_table_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(11) = R(7);                    /* the byte offset into the table */",
+    "    R(11) = R(7) + 4u;               /* the byte offset into the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_read_through_the_wrong_pointer",
+  "subs": [
+   [
+    "        R(3) = vf3_mem_u32(ram, R(8));",
+    "        R(3) = vf3_mem_u32(ram, R(13));"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_of_the_count_test_is_inverted",
+  "subs": [
+   [
+    "        set_t(s, (int32_t)R(10) >= (int32_t)R(3));",
+    "        set_t(s, (int32_t)R(10) > (int32_t)R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_test_is_inverted",
+  "subs": [
+   [
+    "        if ((int32_t)R(10) >= (int32_t)R(3)) {",
+    "        if ((int32_t)R(10) > (int32_t)R(3)) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_exhausted_table_answers_zero_instead_of_minus_one",
+  "subs": [
+   [
+    "            R(0) = EXHAUSTED;",
+    "            R(0) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_is_not_dereferenced",
+  "subs": [
+   [
+    "        R(0) = vf3_mem_u32(ram, R(13));\n        R(0) = vf3_mem_u32(ram, R(0) + R(11));",
+    "        R(0) = R(13);\n        R(0) = vf3_mem_u32(ram, R(0) + R(11));"
+   ]
+  ]
+ },
+ {
+  "name": "the_word_is_not_copied_into_r1",
+  "subs": [
+   [
+    "        R(1) = R(0);                  /* the branch's delay slot: the guest\n                                      * copies the word into r1 on **both**\n                                      * paths, so an exhausted slot leaves\n                                      * r1 holding 0xffffffff */",
+    "        R(1) = R(2);                  /* the word is not copied into r1 */"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_byte_offset_by_eight",
+  "subs": [
+   [
+    "            R(14) += 4u;",
+    "            R(14) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_table_offset_by_eight",
+  "subs": [
+   [
+    "            R(11) += 4u;",
+    "            R(11) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_index_by_two",
+  "subs": [
+   [
+    "            R(10) += 1u;",
+    "            R(10) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_bit_offset_by_half_a_word",
+  "subs": [
+   [
+    "            R(5) += BITS_PER_WORD;",
+    "            R(5) += BITS_PER_WORD / 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_stops_the_scan",
+  "subs": [
+   [
+    "            continue;",
+    "            break;"
+   ]
+  ]
+ },
+ {
+  "name": "the_scan_starts_with_a_zero_mask",
+  "subs": [
+   [
+    "        R(4) = R(9);                  /* the mask */",
+    "        R(4) = R(7);                  /* the mask */"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_number_starts_at_one",
+  "subs": [
+   [
+    "        R(6) = R(7);                  /* the bit's number */",
+    "        R(6) = R(7) + 1u;             /* the bit's number */"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_of_the_bit_test_is_inverted",
+  "subs": [
+   [
+    "            set_t(s, (R(2) & R(4)) == 0u);",
+    "            set_t(s, (R(2) & R(4)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_free_bit_is_the_highest_one",
+  "subs": [
+   [
+    "            if ((R(2) & R(4)) == 0u) {",
+    "            if ((R(2) & R(4)) == R(4)) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_taken_bit_replaces_the_word",
+  "subs": [
+   [
+    "                R(2) |= R(4);",
+    "                R(2) = R(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_mask_moves_two_bits_at_a_time",
+  "subs": [
+   [
+    "            R(4) <<= 1;",
+    "            R(4) <<= 2;"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_number_moves_two_at_a_time",
+  "subs": [
+   [
+    "            R(6) += 1u;",
+    "            R(6) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_one_past_the_word",
+  "subs": [
+   [
+    "                R(0) = R(5);",
+    "                R(0) = R(5) + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_counts_one_bit_too_many",
+  "subs": [
+   [
+    "                R(0) += R(6);         /* the branch's delay slot */",
+    "                R(0) += R(6) + 1u;    /* the branch's delay slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_is_written_into_the_next_word",
+  "subs": [
+   [
+    "                vf3_mem_set_u32(ram, R(0) + R(14), R(2));",
+    "                vf3_mem_set_u32(ram, R(0) + R(14) + 4u, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_word_is_read_from_the_next_slot",
+  "subs": [
+   [
+    "                R(2) = vf3_mem_u32(ram, R(0) + R(14));",
+    "                R(2) = vf3_mem_u32(ram, R(0) + R(14) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_exit_pc_is_the_stack_pointer",
+  "subs": [
+   [
+    "    s->pc = R(16);",
+    "    s->pc = R(15);"
+   ]
+  ]
+ }
+]

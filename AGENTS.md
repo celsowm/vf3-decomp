@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.60% verified C (406,838 B of 434,656). The 90% bar
+- Coverage: 93.63% verified C (406,964 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (1,738 B more).
+  Next bar: 94% = 408,576 B (1,612 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -910,6 +910,45 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   high one.  The ledger row adds 96 B (406,742 -> 406,838): the entry is
   off-baseline, so its row is worth its own body span.  24 further corpora
   reach it, and the state-7 tick calls it twice.  docs/re/state_flag.md.
+- Fight bit allocator (0x8C038860) ported readable: src/fight/bit_alloc.c, proved
+  against the retained generated translation by tests/bit_alloc_replay.c
+  (8 differential scenarios) and against the **oracle** by
+  tests/bit_alloc_oracle.c (next_dev_cases 194/194; the readable port served
+  the entry 194 times).  40/40 mutations caught.  The function is a
+  self-contained leaf (no calls, no FP): it takes the **first free bit** of a
+  table of 32-bit words and answers with the bit's number in the whole table
+  (the word's index times 32, plus the bit's number inside the word); a table
+  with no free bit answers -1 and writes nothing.  The pool holds the address
+  of the count (0x0C0389C8 -> 0x0C0EA38C, and the count itself is 33) and the
+  table (0x0C0389CC -> 0x0C19CC2C, whose first entry points at the words at
+  0x0C2E185C); a word of 0xFFFFFFFF is an **exhausted slot**, not a free bit,
+  and the guest skips it and moves the answer's base up by a whole word.  The
+  ledger row adds 126 B (406,838 -> 406,964): the entry is off-baseline, so its
+  row is worth its own body span (the body ends at the `rts`'s delay slot,
+  0x0C0388DE).  2 further corpora reach the entry.  docs/re/bit_alloc.md.
+- **A `.cases` row names the entry blob *before* the window descriptors.**  The
+  row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
+  <base len>*`, so the *entry* blob is the token right after the 74 register
+  values and the *exit* blob is the one after the window pairs.  Reading the
+  wrong token does not fail - it reads the **exit** shadow and calls it the
+  entry state, and the words then look already-taken
+  (docs/re/bit_alloc.md).
+- **A window offset has to stay inside its window.**  The corpus' table sits
+  at `0x0C19CC2C`, which is offset `0x0C2C` from its window's base
+  `0x0C19C000` - **not** `0x0CC2C`.  The larger offset puts the address
+  `0x1000` past the window's end, the guest's read of the table's first entry
+  falls out of the window, and the differential then fails with an
+  out-of-window count instead of a register mismatch
+  (docs/re/bit_alloc.md).
+- **A mutation that turns the port into a non-terminating loop hangs the
+  gate.**  `tools/mutate.py` runs the port's test with **no timeout**, so a
+  mutation that makes the port spin forever does not fail the test - it stops
+  the run, and it leaves the port's source **mutated** (the restore only
+  happens when the run ends normally).  Inverting 0x8C038860's bit test is the
+  obvious mutation to write and the one that cannot be used: with the branch
+  inverted, a word with all its bits free walks the mask down to zero and the
+  scan never ends.  The branch's sense is covered instead by a mutation that
+  makes the **highest** set bit the free one (docs/re/bit_alloc.md).
 - **The generated translation's `shad` is a signed variable shift, and the
   corpus pins it.**  The translator models `shad Rm,Rn` as "a negative count
   shifts right by the count's two's complement masked to five bits", which is
