@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.54% verified C (406,560 B of 434,656). The 90% bar
+- Coverage: 93.58% verified C (406,742 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,016 B more).
+  Next bar: 94% = 408,576 B (1,834 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -879,6 +879,37 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   moved into tests/oracle_sidecars.h, shared with the chain's own harness.  The
   ledger rows add 106 B (406,454 -> 406,560): all three are off-baseline, so
   their rows are worth their own body span.  docs/re/queue_ops.md.
+- Packed-attribute expansion (0x8C09D5AE) ported readable: src/fight/pack_expand.c,
+  proved against the retained generated translation by tests/pack_expand_replay.c
+  (6 differential cases) and against the **oracle** by tests/pack_expand_oracle.c
+  (the 8-case corpus extract/analysis/coverage_65_natural_contracts_v1_cases/
+  f_8c09d5ae.cases: 8/8, the readable port served the entry 8 times).  45/45
+  mutations caught.  The function is a self-contained leaf (no calls, no FP): it
+  expands the **sixteen packed bytes** a record's table entry points at into
+  sixteen groups of four two-bit fields.  The literal pool holds the table
+  (0x0C09D6DC -> the address of a pointer -> the table's base), the record's
+  offset of its packed byte (0x0C09D6CE -> 8127) and its offset of the
+  destination (0x0C09D6D0 -> 7424); the record's halfword at +60 names the
+  entry, counted from one, and each entry carries three offsets from the
+  table's base.  The ledger row adds 182 B (406,560 -> 406,742): the entry is
+  off-baseline, so its row is worth its own body span.  186 further corpora
+  reach it.  docs/re/pack_expand.md.
+- **A guest's dead stack push can leave no trace at all.**  0x8C09D5AE pushes
+  the record on its stack and pops it again without using it - and the second
+  push, of the two words it remembers, writes over the very same address, so the
+  word the dead push leaves behind is overwritten.  The corpus' own exit RAM
+  shows it in all eight specimens: the word at `sp - 4` ends as the second
+  push's value, never as the record.  A mutation that changed the dead push's
+  *value* was therefore **missed** by the differential and had to be left out of
+  the mutation list, with the reason documented (docs/re/pack_expand.md).  The
+  stack pointer's round trip around the dead push *is* observable - a port that
+  skipped the pop would end four bytes lower - and that one is in the list.
+- **A pool offset that can be negative breaks a fixture that does its
+  arithmetic in unsigned.**  The SH-4 reads a pool offset with `mov.w`, so it
+  is sign extended: an offset of `0x8000` is negative and the record's fields
+  then sit *below* it.  The fixture has to apply the offset in signed
+  arithmetic and its window has to reach below the record, or the fixture
+  writes outside its own shadow (an access violation, not a wrong value).
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
   six stack reads were **eight bytes too high**: it added the guest's

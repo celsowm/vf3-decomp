@@ -1,0 +1,407 @@
+[
+ {
+  "name": "the_table_address_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE  0x0c09d6dcu /* the address of the table's pointer */",
+    "#define POOL_TABLE  0x0c09d6ceu /* the address of the table's pointer */"
+   ]
+  ]
+ },
+ {
+  "name": "the_packed_bytes_offset_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_PACKED 0x0c09d6ceu /* the record's offset of the packed byte */",
+    "#define POOL_PACKED 0x0c09d6d0u /* the record's offset of the packed byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_destinations_offset_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_DEST   0x0c09d6d0u /* the record's offset of the destination */",
+    "#define POOL_DEST   0x0c09d6ceu /* the record's offset of the destination */"
+   ]
+  ]
+ },
+ {
+  "name": "the_entry_is_not_twelve_bytes",
+  "subs": [
+   [
+    "#define ENTRY_SIZE   12u",
+    "#define ENTRY_SIZE   16u"
+   ]
+  ]
+ },
+ {
+  "name": "the_records_index_is_not_at_the_offset_sixty",
+  "subs": [
+   [
+    "#define RECORD_INDEX 60u",
+    "#define RECORD_INDEX 64u"
+   ]
+  ]
+ },
+ {
+  "name": "the_index_is_not_counted_from_one",
+  "subs": [
+   [
+    "    const uint32_t index = (uint32_t)vf3_mem_u16(ram, record + RECORD_INDEX) - 1u;",
+    "    const uint32_t index = (uint32_t)vf3_mem_u16(ram, record + RECORD_INDEX);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_offset_is_not_at_the_entrys_start",
+  "subs": [
+   [
+    "#define ENTRY_FIRST  0u  /* the packed bytes */",
+    "#define ENTRY_FIRST  4u  /* the packed bytes */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_offset_is_not_at_the_entrys_offset_four",
+  "subs": [
+   [
+    "#define ENTRY_SECOND 4u",
+    "#define ENTRY_SECOND 8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_offset_is_not_at_the_entrys_offset_eight",
+  "subs": [
+   [
+    "#define ENTRY_THIRD  8u",
+    "#define ENTRY_THIRD  12u"
+   ]
+  ]
+ },
+ {
+  "name": "the_offsets_are_not_from_the_tables_base",
+  "subs": [
+   [
+    "    const uint32_t second = base + vf3_mem_u32(ram, entry + ENTRY_SECOND);",
+    "    const uint32_t second = vf3_mem_u32(ram, entry + ENTRY_SECOND);"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_offset_is_not_from_the_tables_base",
+  "subs": [
+   [
+    "    const uint32_t third = base + vf3_mem_u32(ram, entry + ENTRY_THIRD);",
+    "    const uint32_t third = vf3_mem_u32(ram, entry + ENTRY_THIRD);"
+   ]
+  ]
+ },
+ {
+  "name": "the_head_is_not_shifted_by_twelve",
+  "subs": [
+   [
+    "#define HEAD_SHIFT 12",
+    "#define HEAD_SHIFT 8"
+   ]
+  ]
+ },
+ {
+  "name": "the_heads_mask_is_not_four",
+  "subs": [
+   [
+    "#define HEAD_MASK  4u",
+    "#define HEAD_MASK  1u"
+   ]
+  ]
+ },
+ {
+  "name": "the_packed_byte_moves_up_by_the_wrong_amount",
+  "subs": [
+   [
+    "#define PACKED_STEP 29",
+    "#define PACKED_STEP 28"
+   ]
+  ]
+ },
+ {
+  "name": "the_groups_do_not_start_at_the_destinations_offset_twelve",
+  "subs": [
+   [
+    "#define GROUP_ORIGIN 12u",
+    "#define GROUP_ORIGIN 16u"
+   ]
+  ]
+ },
+ {
+  "name": "the_group_is_not_four_bytes_wide",
+  "subs": [
+   [
+    "#define GROUP_SIZE  4u",
+    "#define GROUP_SIZE  8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_expansion_runs_for_eight_rounds",
+  "subs": [
+   [
+    "#define GROUP_COUNT 16u",
+    "#define GROUP_COUNT 8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_destinations_first_word_is_not_seventeen_past_the_source",
+  "subs": [
+   [
+    "#define SOURCE_HEAD_STEP 17u",
+    "#define SOURCE_HEAD_STEP 16u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_field_is_the_wrong_two_bits",
+  "subs": [
+   [
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 0u,\n                       (uint8_t)((value >> 6) & 3u));",
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 0u,\n                       (uint8_t)((value >> 4) & 3u));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_field_is_the_wrong_two_bits",
+  "subs": [
+   [
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 1u,\n                       (uint8_t)((value >> 4) & 3u));",
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 1u,\n                       (uint8_t)((value >> 2) & 3u));"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_field_is_the_wrong_two_bits",
+  "subs": [
+   [
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 2u,\n                       (uint8_t)((value >> 2) & 3u));",
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 2u,\n                       (uint8_t)((value >> 6) & 3u));"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_field_is_the_wrong_two_bits",
+  "subs": [
+   [
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 3u,\n                       (uint8_t)(value & 3u));",
+    "        vf3_mem_set_u8(ram, dest + GROUP_ORIGIN + stride + 3u,\n                       (uint8_t)((value >> 2) & 3u));"
+   ]
+  ]
+ },
+ {
+  "name": "the_expansion_reads_the_source_one_byte_off",
+  "subs": [
+   [
+    "        const uint8_t value = vf3_mem_u8(ram, first + 2u + round);",
+    "        const uint8_t value = vf3_mem_u8(ram, first + 1u + round);"
+   ]
+  ]
+ },
+ {
+  "name": "the_records_byte_is_not_written",
+  "subs": [
+   [
+    "    vf3_mem_set_u8(ram, record + (uint32_t)packed_at,\n                   (uint8_t)((head >> HEAD_SHIFT) & HEAD_MASK));",
+    "    (void)head;"
+   ]
+  ]
+ },
+ {
+  "name": "the_records_byte_29_up_is_not_written",
+  "subs": [
+   [
+    "    vf3_mem_set_u8(ram, record + (uint32_t)(packed_at + PACKED_STEP), packed);",
+    "    (void)packed;"
+   ]
+  ]
+ },
+ {
+  "name": "the_records_packed_byte_is_read_at_the_wrong_place",
+  "subs": [
+   [
+    "    const uint8_t packed = vf3_mem_u8(ram, record + (uint32_t)packed_at);",
+    "    const uint8_t packed = vf3_mem_u8(ram, record + (uint32_t)packed_at + 1u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_packed_bytes_offset_is_not_sign_extended",
+  "subs": [
+   [
+    "    const int32_t packed_at = (int32_t)(int16_t)vf3_mem_u16(ram, POOL_PACKED);",
+    "    const int32_t packed_at = (int32_t)vf3_mem_u16(ram, POOL_PACKED);"
+   ]
+  ]
+ },
+ {
+  "name": "the_destinations_offset_is_not_sign_extended",
+  "subs": [
+   [
+    "    const int32_t dest_at = (int32_t)(int16_t)vf3_mem_u16(ram, POOL_DEST);",
+    "    const int32_t dest_at = (int32_t)vf3_mem_u16(ram, POOL_DEST);"
+   ]
+  ]
+ },
+ {
+  "name": "the_destination_pointer_is_read_at_the_wrong_place",
+  "subs": [
+   [
+    "    const uint32_t dest = vf3_mem_u32(ram, record + (uint32_t)dest_at);",
+    "    const uint32_t dest = vf3_mem_u32(ram, record + (uint32_t)dest_at + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_dead_push_is_not_popped",
+  "subs": [
+   [
+    "    R(15) += 4u;                      /* the `bra`'s delay slot */",
+    "    R(15) += 0u;                      /* the `bra`'s delay slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_two_words_are_not_pushed",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(15), second);\n    vf3_mem_set_u32(ram, R(15) + 4u, third);",
+    "    (void)second;\n    (void)third;"
+   ]
+  ]
+ },
+ {
+  "name": "the_two_words_are_pushed_in_the_wrong_order",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(15), second);\n    vf3_mem_set_u32(ram, R(15) + 4u, third);",
+    "    vf3_mem_set_u32(ram, R(15), third);\n    vf3_mem_set_u32(ram, R(15) + 4u, second);"
+   ]
+  ]
+ },
+ {
+  "name": "the_stack_is_not_popped",
+  "subs": [
+   [
+    "    R(15) += 8u;\n    s->pc = R(16);",
+    "    R(15) += 0u;\n    s->pc = R(16);"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_not_set",
+  "subs": [
+   [
+    "    R(17) = (R(17) & ~1u) | 1u;",
+    "    R(17) = (R(17) & ~1u) | 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_destinations_words_are_swapped",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, dest + 8u, third);\n    vf3_mem_set_u32(ram, dest + 4u, second);",
+    "    vf3_mem_set_u32(ram, dest + 8u, second);\n    vf3_mem_set_u32(ram, dest + 4u, third);"
+   ]
+  ]
+ },
+ {
+  "name": "the_destinations_first_word_is_not_written",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, dest, first + SOURCE_HEAD_STEP);",
+    "    vf3_mem_set_u32(ram, dest, second);"
+   ]
+  ]
+ },
+ {
+  "name": "the_port_does_not_return_to_the_caller",
+  "subs": [
+   [
+    "    s->pc = R(16);",
+    "    s->pc = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_is_not_sixteen",
+  "subs": [
+   [
+    "    R(1) = GROUP_COUNT;               /* the loop's limit */",
+    "    R(1) = GROUP_COUNT + 1u;          /* the loop's limit */"
+   ]
+  ]
+ },
+ {
+  "name": "the_source_pointer_is_not_advanced",
+  "subs": [
+   [
+    "    R(2) = first + 2u + GROUP_COUNT;  /* the source, after the last read */",
+    "    R(2) = first + 2u;                /* the source, after the last read */"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_groups_address_is_wrong",
+  "subs": [
+   [
+    "    R(3) = dest + GROUP_ORIGIN + stride - GROUP_SIZE;  /* the last group */",
+    "    R(3) = dest + GROUP_ORIGIN + stride;  /* the last group */"
+   ]
+  ]
+ },
+ {
+  "name": "the_stride_is_not_left_in_r5",
+  "subs": [
+   [
+    "    R(5) = stride;                    /* the stride, one past the last group */",
+    "    R(5) = 0u;                        /* the stride, one past the last group */"
+   ]
+  ]
+ },
+ {
+  "name": "the_round_counter_is_not_left_in_r7",
+  "subs": [
+   [
+    "    R(7) = GROUP_COUNT;               /* the round counter */",
+    "    R(7) = 0u;                        /* the round counter */"
+   ]
+  ]
+ },
+ {
+  "name": "the_destination_is_not_left_in_r4",
+  "subs": [
+   [
+    "    R(4) = dest;                      /* the destination */",
+    "    R(4) = 0u;                        /* the destination */"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_byte_is_not_left_in_r0",
+  "subs": [
+   [
+    "        R(0) = value & 3u;             /* the last byte it wrote */",
+    "        R(0) = value;                  /* the last byte it wrote */"
+   ]
+  ]
+ },
+ {
+  "name": "the_packed_byte_is_not_left_in_r6",
+  "subs": [
+   [
+    "        R(6) = value;                  /* the packed byte it read */",
+    "        R(6) = 0u;                     /* the packed byte it read */"
+   ]
+  ]
+ }
+]

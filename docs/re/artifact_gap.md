@@ -62,6 +62,8 @@ build/vf3staterotate  state_rotate: 10 differential cases - PASS
 build/vf3staterotateoracle  state_rotate_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
 build/vf3queueops  queue_ops: 13 differential cases - PASS
 build/vf3queueopsoracle  queue_reset_oracle: 448/448, queue_reset_oracle_release: 576/576, queue_push_oracle: 396/396, queue_push_oracle_release: 484/484, queue_pop_oracle_next_device: 65/65, queue_pop_oracle_u90_sw2: 16/16 cases match - PASS
+build/vf3packexpand  pack_expand: 6 differential cases - PASS
+build/vf3packexpandoracle  pack_expand_oracle: 8/8 cases match - PASS (the readable port served 0x0c09d5ae 8 times)
 ```
 
 Run the suite from the **repository root**: the harness resolves
@@ -79,13 +81,13 @@ blobs the bundle does not carry.
 The coverage tools run:
 
 ```
-python tools/decomp_stats.py    # rigorous 410328/434656 bytes (94.4%)
-python tools/final_status.py    # Pure C union: 406446 bytes (93.5098%)
+python tools/decomp_stats.py    # rigorous 410814/434656 bytes (94.5%)
+python tools/final_status.py    # Pure C union: 406742 bytes (93.5779%)
 ```
 
-The **verified C address union** is 406,446 B (93.51%), so the 94% bar
-(408,576 B) is still 2,130 B away; `decomp_stats.py`'s "rigorous" figure of
-410,328 B adds the SDK-attributed regions, which are not ports, and it sums the
+The **verified C address union** is 406,742 B (93.58%), so the 94% bar
+(408,576 B) is still 1,834 B away; `decomp_stats.py`'s "rigorous" figure of
+410,814 B adds the SDK-attributed regions, which are not ports, and it sums the
 ledger's sizes where the union merges the overlapping body ranges.
 
 ## What is possible without the artifacts
