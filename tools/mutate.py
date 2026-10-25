@@ -17,6 +17,10 @@ documentation says so.
                            --exe build/vf3floatblend.exe \\
                            --mutations tests/float_blend_mutations.json
 
+--target names the ninja target to rebuild.  The port's own test target is
+usually enough and much faster than relinking every test in the tree; without
+it the whole build is rebuilt after each mutation.
+
 The mutation file is JSON: a list of objects with a name and a list of
 substitutions, each a [old, new] pair of strings that must occur in the port
 source.  The first occurrence of each pair is replaced.
@@ -42,9 +46,11 @@ def load_mutations(path):
     return out
 
 
-def build(build_dir):
-    return subprocess.run(["ninja", "-C", str(build_dir)],
-                          capture_output=True, text=True)
+def build(build_dir, target=None):
+    cmd = ["ninja", "-C", str(build_dir)]
+    if target:
+        cmd.append(target)
+    return subprocess.run(cmd, capture_output=True, text=True)
 
 
 def run(exe):
@@ -65,6 +71,9 @@ def main():
     ap.add_argument("--exe", required=True, help="the port's test binary")
     ap.add_argument("--mutations", required=True, help="the mutation file")
     ap.add_argument("--build", default="build", help="the build directory")
+    ap.add_argument("--target",
+                    help="the ninja target to rebuild (default: all of them); "
+                         "the port's own test target is usually enough")
     ap.add_argument("--keep-going", action="store_true",
                     help="do not stop at the first missed mutation")
     args = ap.parse_args()
@@ -94,7 +103,7 @@ def main():
                 results.append((name, False, "pattern missing"))
                 continue
             port.write_bytes(text.encode("utf-8"))
-            b = build(build_dir)
+            b = build(build_dir, args.target)
             if b.returncode != 0:
                 print(f"{name}: BUILD FAILED")
                 print((b.stdout or "")[-1500:], (b.stderr or "")[-1500:])
@@ -109,7 +118,7 @@ def main():
                 break
     finally:
         port.write_bytes(original)
-        build(build_dir)
+        build(build_dir, args.target)
 
     missed = [n for n, c, _ in results if not c]
     print(f"\n{len(results) - len(missed)}/{len(results)} mutations caught")

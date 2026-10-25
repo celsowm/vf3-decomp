@@ -92,7 +92,9 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    it applies one mutation at a time to the port's source, rebuilds and
    requires the port's test to fail.  The mutation list lives next to the test
    it guards, as `tests/<name>_mutations.json`.  A mutation the test cannot
-   see is a path the test never reaches.
+   see is a path the test never reaches.  Pass `--target <exe target>` so only
+   the port's own test is relinked: a full rebuild after every mutation turns
+   a 46-mutation gate into an hour of linking.
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -102,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.35% verified C (405,744 B of 434,656). The 90% bar
+- Coverage: 93.49% verified C (406,364 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -115,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,832 B more).
+  Next bar: 94% = 408,576 B (2,212 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -729,6 +731,37 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   ROM's, not runtime state), so the test supplies the six words the guest
   reads - constants of the image, not part of the captured state.
   docs/re/record_kind.md.
+- Fight-state ladder (0x8C08B89C) ported readable: src/fight/state_ladder.c,
+  proved against the retained generated translation by
+  tests/state_ladder_replay.c (34 differential cases).  It is the second half
+  of the counter updater (0x8C08B7EE, whose src/fight/cntup.c calls it
+  "callee-1"), it is **call-free**, and it is **off-baseline** - the inventory
+  jumps from f_8c08b836 to f_8c08bb26 - so it was a gap leaf in the ledger's
+  gap.  It is hot: the oracle's own census of the state-7 tick has it at two
+  calls and 378 self-steps, the biggest single count in its neighbourhood.
+  It folds six flag bits into the frame's word at F+0 (the state struct's
+  flags, the fighter's flags, the ladder's own counter at the pool's offset
+  0x1bce, the fighter's byte at +0x3b and word at the pool's offset 0x1b98,
+  and a threshold the task's burst byte picks) and steps the task's counters
+  (A+22, A+24, A+28, A+30, A+32, A+34, A+36, A+38, A+0x85, A+0x86).  Details
+  the port has to keep: the guest's frame offsets are **decimal** (F+12, F+16,
+  F+20, F+24, F+28, F+32, F+36, F+44, F+48) and the two struct pointers sit
+  at F+72 and F+76; the `shld` at 0x8C08B8EE shifts the pool's top bit
+  *right* and gives **zero** when the count's low five bits are zero; a `/s`
+  branch's delay slot spills into the scratch word below the saved registers
+  on **both** paths; the counter decrements saturate (A+30 stays zero, A+24
+  and A+20 are left alone); and the `rts` pops r14 in its delay slot.  Three
+  things cannot be observed: the sign extension of the byte reads, the T bits
+  the guest overwrites before it returns, and the delay-slot spills that a
+  later spill overwrites.  **The oracle leg is closed through the caller**:
+  `src/fight/cntup.c` used to model the ladder a second time and now
+  *calls* the readable port (the private frame is handed over as a RAM
+  window), so `cntup_replay` is a replay of the readable ladder - 8/8 PASS on
+  the goldens_b7 ten-window capture, whose task-struct window witnesses the
+  ladder's writes (with the per-call counter broken the same replay fails on
+  every case).  The ladder's *frame* is in no checked window, so that part
+  rests on the differential alone.  The ledger row adds 620 B
+  (405,744 -> 406,364).  docs/re/state_ladder.md.
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
   six stack reads were **eight bytes too high**: it added the guest's

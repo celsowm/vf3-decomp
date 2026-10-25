@@ -7,7 +7,7 @@
  *   r4 = [[0x0c29bb84]+40] ; r0 = [r4]
  *   if (r0 & 2) exit                         (guard 1)
  *   r2 = [0x0c29bcc0] ; if (r2 & 0x00080001) exit   (guard 2)
- *   r5 = r15+4 ; bsr 0x8C08B89C   (callee-1, modelled below)
+ *   r5 = r15+4 ; bsr 0x8C08B89C   (callee-1, CALLED — see below)
  *   r5 = r15+4 ; bsr 0x8C08BB14   (callee-2, DELEGATED — see below)
  *   [ [r15] +16 ] = [r15+4]       (final store; identical in all goldens)
  *   r15 += 84 ; pr = pop ; rts (delay: r14 = pop = caller word)
@@ -22,7 +22,16 @@
  *   [A+22]  = old-1, reload 0x0A at 0 (countdown; reload path reads
  *                             [A+46]/[B+97]/[A+0x85]/[A+0x86])
  *   [A+28]  = 0 ; [A+34] = 0         (cleared on the captured path)
- * FPU (fmov.s [r6+92]/spill) is skipped: fr3 is callee-2-owned at exit.
+ *
+ * callee-1 is NOT modelled here: it is ported readably in
+ * src/fight/state_ladder.c (registered in src/fight/readable.c) and called
+ * from cntup.c, with the private frame handed over as a RAM window so the
+ * ladder's own frame and stack traffic stay out of the checked windows.  The
+ * replay below is therefore a replay of the *readable* ladder: the oracle
+ * checks what the ladder writes to the task struct.  The ladder's frame
+ * contents are not in a checked window, so they are not checked here; the
+ * ladder's own proof is tests/state_ladder_replay.c (the retained generated
+ * translation) and docs/re/state_ladder.md.
  *
  * Callee-2 (0x8C08BB14 + nested bsr/jsr incl. a RAM-vector dynamic call)
  * is a documented scope cut (walker2-gate / frameseq precedent): its exit
