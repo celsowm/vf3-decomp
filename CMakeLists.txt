@@ -180,6 +180,7 @@ add_library(vf3core STATIC
     src/fight/state_ladder.c
     src/fight/state_resolve.c
     src/fight/state_rotate.c
+    src/fight/uncached_call.c
     src/fight/queue_ops.c
     src/fight/pack_expand.c
     src/fight/state_flag.c
@@ -671,6 +672,7 @@ add_port_test(vf3stateladder tests/state_ladder_replay.c)
 add_port_test(vf3stateresolve tests/state_resolve_replay.c)
 add_port_test(vf3stateresolveoracle tests/state_resolve_oracle.c)
 add_port_test(vf3staterotate tests/state_rotate_replay.c)
+add_port_test(vf3uncachedcall tests/uncached_call_replay.c)
 add_port_test(vf3staterotateoracle tests/state_rotate_oracle.c)
 add_port_test(vf3queueops tests/queue_ops_replay.c)
 add_port_test(vf3queueopsoracle tests/queue_ops_oracle.c)

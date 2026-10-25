@@ -59,6 +59,24 @@ def adapter_pcs(paths):
     """Read emitted labels, excluding comments, routers and inferred seeds."""
     return {int(a,16) for path in paths
             for a in re.findall(r'^P_([0-9a-f]+):',Path(path).read_text(),re.M)}
+def router_calls() -> set[str]:
+    """The `_contains` symbols the router actually calls.
+
+    A module under src/fight that the router never calls cannot serve a PC.
+    Its owned set must therefore not count as "already implemented": a new
+    module that skipped such a PC would leave it claimed by nobody, and the
+    router would have nowhere to send a call.  (fight26_mod.c and
+    seventh_final_adapters.c are such modules - they carry a full translation
+    of their bodies, but nothing dispatches to them.)
+    """
+    text=(ROOT/'src/fight/matrix_family.c').read_text()
+    return set(re.findall(r'vf3_(\w+)_contains\(',text))
+def file_serves(path: Path, called: set[str]) -> bool:
+    """Whether the router can reach this file's module."""
+    text=Path(path).read_text()
+    m=re.search(r'int vf3_(\w+)_contains\(uint32_t pc\)',text)
+    if not m: return True          # a hand-written or shared module
+    return m.group(1) in called
 def adapter_claims(paths):
     """The PCs a module actually serves.
 
@@ -278,6 +296,11 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
                (p.parent.resolve()==output.parent and
                 p.stem.startswith(output.stem+'_'))]
         paths=[p for p in paths if not any(p.match(pat) for pat in reuse_excludes)]
+        # Only the modules the router can dispatch to count as "already
+        # implemented"; a module nothing dispatches to would leave its PCs
+        # claimed by nobody.
+        called=router_calls()
+        paths=[p for p in paths if file_serves(p,called)]
         existing.update(adapter_claims(paths))
     if reuse_matrix or reuse_adapters:
         for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):

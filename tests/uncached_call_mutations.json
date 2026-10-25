@@ -1,0 +1,119 @@
+[
+ {
+  "name": "the_mirror_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define MIRROR_MASK 0x0c011a78u",
+    "#define MIRROR_MASK 0x0c011a7cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_entry_point_is_not_forced_into_the_uncached_mirror",
+  "subs": [
+   [
+    "    R(0) |= R(2);",
+    "    R(0) = R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_is_subtracted_from_the_base_instead_of_added",
+  "subs": [
+   [
+    "    R(3) += R(0);",
+    "    R(3) -= R(0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_is_not_added_to_the_base",
+  "subs": [
+   [
+    "    R(3) += R(0);",
+    "    R(3) = R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_base_is_not_copied_into_r0",
+  "subs": [
+   [
+    "    R(0) = R(3);",
+    "    R(0) = R(2);"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_inverted",
+  "subs": [
+   [
+    "    R(0) = zero ? 0u : 1u;",
+    "    R(0) = zero ? 1u : 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_always_one",
+  "subs": [
+   [
+    "    R(0) = zero ? 0u : 1u;",
+    "    R(0) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_inverted",
+  "subs": [
+   [
+    "    set_t(s, zero);",
+    "    set_t(s, !zero);"
+   ]
+  ]
+ },
+ {
+  "name": "the_continuation_is_the_wrong_address",
+  "subs": [
+   [
+    "#define CONT 0x0c011992u",
+    "#define CONT 0x0c01198eu"
+   ]
+  ]
+ },
+ {
+  "name": "the_callee_is_not_told_which_mirror_it_was_jumped_to",
+  "subs": [
+   [
+    "    vf3_matrix_call_alias_pc = target & 0x1fffffffu;",
+    "    vf3_matrix_call_alias_pc = 0xffffffffu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_mirror_the_run_came_through_is_not_read_on_entry",
+  "subs": [
+   [
+    "    if (vf3_matrix_call_alias_pc == (ENTRY & 0x1fffffffu)) return vf3_matrix_call_alias;",
+    "    if (0) return vf3_matrix_call_alias;"
+   ]
+  ]
+ },
+ {
+  "name": "the_pr_is_not_pushed",
+  "subs": [
+   [
+    "    R(15) -= 4u;\n    vf3_mem_set_u32(ram, R(15), R(16));",
+    "    /* the pr is not pushed */"
+   ]
+  ]
+ },
+ {
+  "name": "the_pr_is_not_popped",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+    "    /* the pr is not popped */"
+   ]
+  ]
+ }
+]

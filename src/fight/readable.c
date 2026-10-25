@@ -166,6 +166,7 @@ int vf3_state_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_ladder_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_resolve_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_rotate_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_uncached_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_queue_reset_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_queue_push_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_queue_pop_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -444,7 +445,11 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the packed bytes of a record, expanded into two-bit fields */
     { 0x0c09d5aeu, "pack_expand", vf3_pack_expand_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(15)|B(16)|B(17) },
-    /* one of two bits in the fight engine's state word */
+    /* an entry point called in its uncached mirror: the callee's answer
+     * becomes one or zero.  r2 is the mirror mask, r3 the base plus the
+     * offset, and the T bit ends up set when the answer is zero. */
+    { 0x0c011984u, "uncached_call", vf3_uncached_call_entry,
+      B(0)|B(2)|B(3)|B(15)|B(16)|B(17) },    /* one of two bits in the fight engine's state word */
     { 0x0c0b0fd2u, "state_flag", vf3_state_flag_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(16)|B(17) },
     /* the fight engine's first free bit, taken out of its bit table */

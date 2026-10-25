@@ -20,10 +20,14 @@ from __future__ import annotations
 
 import argparse
 import re
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "src" / "fight"
+
+sys.path.insert(0, str(REPO / "tools"))
+import sh4  # noqa: E402  (the repo's decoder; the path has to be set first)
 
 LABEL_RE = re.compile(r"^P_([0-9a-f]{8}):\s*(?:/\* original ([0-9a-f]{4}), guest PC 0x([0-9a-f]{8}) \*/)?")
 ADDR_RE = re.compile(r"0x([0-9a-f]{8})u")
@@ -61,20 +65,21 @@ def index_modules() -> dict[str, dict[int, tuple[str, list[str]]]]:
     return out
 
 
-def decode(word: str) -> str:
-    """Best-effort SH-4 mnemonic for an opcode word."""
+def decode(word: str, pc: int = 0) -> str:
+    """The SH-4 mnemonic for an opcode word.
+
+    The mnemonic comes from tools/sh4.py, the repo's decoder.  A local table
+    keyed on the top nibble cannot tell `mov.b r4,@r14` (0x2e42) from
+    `mulu.w r2,r4` - the group-2 sub-opcode sits in bits 3-0, not in the top
+    nibble - and a readable port written from the wrong mnemonic is wrong.
+    """
     if not word:
         return "?"
     w = int(word, 16)
-    n, m, d4 = (w >> 8) & 15, (w >> 4) & 15, w & 15
-    top = w >> 12
-    names = {0: "mov", 1: "mov.w", 2: "mov.b", 3: "add", 4: "addc",
-             5: "mov.l", 6: "mov", 7: "add", 8: "cmp/eq", 9: "mov.w(str)",
-             0xB: "bsr", 0xD: "mov.l(str)", 0xE: "mov #imm"}
-    if w == 0x0009:
-        return "nop"
-    if top in names:
-        return names[top]
+    dec = sh4.decode(w, pc)
+    if dec:
+        mnemonic, operands = dec
+        return f"{mnemonic} {operands}".strip()
     return "op?"
 
 
@@ -183,7 +188,7 @@ def main() -> int:
         seen.add(pc)
         word, body = blocks.get(pc, ("", []))
         code = " ".join(s for s in body if not s.startswith("if(!s->budget--)"))
-        print(f"  0x{pc:08x}  {word:<4}  {decode(word):<12}  {code}")
+        print(f"  0x{pc:08x}  {word:<4}  {decode(word, pc):<16}  {code}")
         count += 1
         nxt = None
         for stmt in body:

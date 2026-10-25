@@ -132,6 +132,38 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md,
   docs/re/coverage_100_gap_translation.md and docs/re/oracle_device_reads.md.
+- **A body is covered only if the router can be sent to every one of its
+  PCs.**  The coverage metric is a body-range union over the *ledger*, and
+  `tools/body_complete.py` proves every PC of every body carries a
+  translated label - but that says nothing about dispatch.  A module serves
+  a PC when the PC is in its `claim_pcs[]` (or, for the legacy modules with
+  no claim array, its `owned_pcs[]`), and the router walks the chain in
+  order.  `tools/gap_serve_audit.py` answers the dispatch question for the
+  gap batch: 182 of the 237 entries are served by the gap module that
+  translated them, 55 by an older (oracle-replayed) module that already
+  carried the same body, and **0** body PCs are unreachable.
+- **The chain's last module has no `_contains` symbol, and a scan that only
+  looks for those will call its PCs a hole.**  `vf3_matrix_adapter`
+  (`src/fight/matrix_adapters.c`) is the fallback the chain ends with; it
+  serves *every* PC its translation carries - 27,964 of them.  Two modules
+  in `src/fight` define a `_contains` the router never calls
+  (`fight26_mod.c`, `seventh_final_adapters.c`): they are dead code, and
+  their PCs are served by the fallback.  The first run of the audit called 93
+  PCs unreachable because it missed the fallback.
+- **"Already implemented" has to mean "servable by the router".**  The
+  translator's `existing` set decides which PCs a new module may claim
+  (`claim = (ops - existing) | (roots & ops)`), so a file the router never
+  dispatches to must not contribute to it.  `router_calls()` /
+  `file_serves()` in `tools/oracle/translate_adapters.py` now ask the chain.
+  The change is output-neutral today (the fallback covers those PCs) and
+  regenerates all six gap modules byte for byte.
+- **A dump tool with its own mnemonic table produces wrong ports.**
+  `tools/adapter_dump.py` is the bridge between the generated translation
+  and a hand-written readable port, and it used to print the group-2
+  sub-opcode from the top nibble - so `0x2e42` came out as `mov.b` when it
+  is `mov.l r4,@r14`.  It now calls `tools/sh4.py`.  Check the decoder
+  against the SH-4 prologue: `0x2fe6` is `mov.l r14,@-r15` only if the
+  sub-opcode sits in bits 3-0.
 
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
@@ -329,6 +361,17 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   ~99.9% of state-7 executed steps (159 readable entries) are readable ports (docs/readable_status.csv), the rest
   generated adapters. Plan/limits: docs/re/plan_native_slice.md; verify with
   tools/recomp/run_state.sh and run_native.sh.
+- **The readable track now reaches into the gap batch.**  0x8C011984 (the
+  uncached-mirror call) is the first of the 237 ROM-derived bodies to be
+  rewritten as source-level C: `src/fight/uncached_call.c`, proved against the
+  translation it replaces by `tests/uncached_call_replay.c` (8 differential
+  cases) and by the mutation gate (13/13 caught).  The pattern: the port
+  registers in `src/fight/readable.c`, the generated module stays in the tree
+  and still serves the entry, the ledger row names the readable port, and
+  `docs/re/uncached_call.md` records the reading.  The mirror the run came
+  through travels in `vf3_matrix_call_alias` / `vf3_matrix_call_alias_pc` -
+  the readable hook only ever sees the *masked* entry, so it cannot recover
+  the mirror any other way.
 - **The artifacts came back as a bundle** (2026-10-24): `extract/vf3tb-evidencias.7z`
   (393 MiB) holds `extract/analysis` in full - 984,385 files, 31 GB unpacked -
   with 2,219 `.cases` corpora and 1,885 RAM blobs, the baseline inventory
