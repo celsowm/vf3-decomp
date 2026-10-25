@@ -332,6 +332,15 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   registers or the T bit wrong.  The band probe (0x8C0B0F28) has both
   shapes: four plain `bt`/`bf` and, in the same function, the `bra` whose
   delay slot is the store.  docs/re/band_probe.md.
+- **A plain `bf` branches when the T bit is *clear*.**  So `tst rX,rX`
+  followed by a plain `bf` sends the tree away when `rX` is **not** zero -
+  the opposite of what the `tst` reads like.  The pair verdict
+  (0x8C074E7C) has seven of them, and the field it tests has to be
+  *empty* for the tree to go on.  The first version of the port read the
+  test the other way round and the differential caught it: the port read
+  the last mask where the reference stopped at the field.  When a branch
+  and the test before it are read together, write down which way round the
+  test is before the port is written.  docs/re/pair_verdict.md.
 - Task-VM field schema: docs/re/task_vm.md (M19).
 - Fight-frame composite: src/fight/frame.c + tests/frame_replay.c (M20).
 - Record state walk (0x8C03550C) ported readable, with its state getter
