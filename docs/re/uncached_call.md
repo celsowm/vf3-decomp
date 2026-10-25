@@ -18,15 +18,16 @@ replaces.
 0x0c01198a  mov r3,r0           ; r0 = r3
 0x0c01198c  or r2,r0            ; r0 |= r2
 0x0c01198e  jsr @r0             ; call it
-0x0c011990  nop                 ; the delay slot
+0x0c011990  nop                 ; the jsr's delay slot
 0x0c011992  tst r0,r0           ; T = (r0 == 0)
-0x0c011994  bt 0x0c01199c       ; if T, the zero arm
-0x0c011996  lds.l @r15+,pr      ; pop pr
-0x0c011998  rts                 ; r0 = 1
-0x0c01199a  mov #1,r0           ; the delay slot of the branch - runs on both paths
-0x0c01199c  mov #0,r0
-0x0c0119e   lds.l @r15+,pr      ; pop pr
-0x0c0119a0  rts
+0x0c011994  bt 0x0c01199c       ; a PLAIN bt: no delay slot
+0x0c011996  lds.l @r15+,pr      ; the fall-through: pop pr
+0x0c011998  rts                 ; pc = pr; the delay slot runs first
+0x0c01199a  mov #1,r0           ; the RTS's delay slot: r0 = 1
+0x0c01199c  mov #0,r0           ; the bt's target: r0 = 0
+0x0c01199e  lds.l @r15+,pr      ; pop pr
+0x0c0119a0  rts                 ; pc = pr
+0x0c0119a2  nop                 ; the rts's delay slot
 ```
 
 In words: **take a base in r3 and an offset in r0, add them, force the result
@@ -35,11 +36,18 @@ non-zero r0 and zero when it left zero.**
 
 Two details are easy to get wrong:
 
-* the branch's delay slot is `mov #1,r0`, and it runs on **both** paths.  On
-  the zero arm the slot sets r0 to 1 and the arm itself sets it back to 0; on
-  the other arm the slot sets r0 to 1 and the arm leaves it there.  The net
-  effect is `r0 = (r0 == 0) ? 0 : 1`, and the T bit ends up **set when the
-  answer is zero** - the last test the guest made is the one the caller sees.
+* the `mov #1,r0` belongs to the **delay slot of the `rts`**, not to the
+  branch.  The branch is a plain `bt`, and a plain `bt` has no delay slot -
+  only the `/s` forms have one.  So the non-zero arm pops the pr and returns
+  through the `rts`, whose delay slot sets r0 to one, and the zero arm
+  branches to the `mov #0,r0` and returns through an `rts` of its own.  The
+  net effect is `r0 = (r0 == 0) ? 0 : 1`, and the T bit ends up **set when
+  the answer is zero** - the last test the guest made is the one the caller
+  sees.
+* the `rts` only sets the pc: it does **not** restore r14.  A SH function
+  that wants r14 back pops it explicitly (`mov.l @r15+,r14`) in front of the
+  `rts`, and this function never touches r14 at all - so the port must not
+  touch it either.
 * the literal pool word at 0x0c011a78 is **0xa0000000**.  The SH-4 mirrors the
   0x0c000000 region at 0x8c000000 and again at 0xac000000, so the mask turns
   any address of the region into its 0xac form - the uncached one.
@@ -179,10 +187,12 @@ translation.  What the readable port adds is the *review* - the body is now
 readable C that a human can check against the disassembly, and the
 differential test proves the two agree.
 
-`docs/readable_status.csv` carries the readable entries; this one is not in
-it yet, because the readable track's own census (`tools/readable_census.py`?)
-counts the entries a *recorded state* executes, and this body is in the low
-region - the recorded states never call it.
+`docs/readable_status.csv` carries the readable entries; this one is in it
+with `verified=unexercised`, because the recorded states never call it - it
+is in the low region, and `src/fight/call_targets.c` (the entries the
+captured fight ticks call) does not name it.  `tools/readable_gap.py` ranks
+the entries the recorded states *do* call and that are still served only by a
+generated adapter; this body is not one of them.
 
 ## 6. The tools
 

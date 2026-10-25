@@ -9,9 +9,11 @@
  *
  * The answer is one when the callee left a non-zero r0 and zero when it left
  * zero.  The guest's own test is `tst r0,r0` - the T bit ends up *set* when
- * the answer is zero - and the branch that follows has `mov #1,r0` in its
- * delay slot, so r0 is one on the way out of the non-zero arm and zero on the
- * way out of the zero arm.
+ * the answer is zero - and the `mov #1,r0` that follows is the **delay slot
+ * of the `rts`**, not of the branch: the branch is a plain `bt`, and a plain
+ * `bt` has no delay slot.  So the non-zero arm pops the pr and returns
+ * through the `rts`, whose delay slot sets r0 to one, and the zero arm
+ * branches to a `mov #0,r0` and returns through an `rts` of its own.
  *
  * The call has to carry two things the router cannot see:
  *
@@ -51,7 +53,7 @@ static void set_t(vf3_matrix_state *s, int value)
 /* The mirror the run came through.  The caller leaves it in the alias; a run
  * that did not come through a caller is in the 0x0C mirror.
  */
-static uint32_t code_base_of(const vf3_matrix_state *s)
+static uint32_t code_base_of(void)
 {
     if (vf3_matrix_call_alias_pc == (ENTRY & 0x1fffffffu)) return vf3_matrix_call_alias;
     return 0x0c000000u;
@@ -87,7 +89,7 @@ static int guest_call(vf3_matrix_state *s, const vf3_ram_map *ram,
 
 int vf3_uncached_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram)
 {
-    const uint32_t base = code_base_of(s);
+    const uint32_t base = code_base_of();
     uint32_t target;
     int zero, tail = 0;
 
