@@ -293,17 +293,28 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   ~99.9% of state-7 executed steps (159 readable entries) are readable ports (docs/readable_status.csv), the rest
   generated adapters. Plan/limits: docs/re/plan_native_slice.md; verify with
   tools/recomp/run_state.sh and run_native.sh.
-- **The artifacts are gone from this checkout** (2026-10-24): `extract/`
-  (the ROM images, the Ghidra project, the capture corpora, the analysis
-  CSVs), `tools/emu` (the patched oracle), `refs/dream-recomp`, the ROM
-  tracks and the Ghidra/SDK installs are all absent, and `rom/vf3.gdi` is
-  only the 175-byte descriptor. The coverage bar (94%) and the oracle
-  replay gate wait for them; the tracked tree still builds and the
-  self-contained suites still pass. What is left is the *readable* track:
-  the generated adapters under `src/fight/*adapter*.c` are a faithful
-  disassembly, so a readable port can be written against them and proved
-  offline by differential execution against the translation it replaces
-  (`tests/state_helpers_replay.c`, `tests/record_state_walk_replay.c`).
+- **The artifacts came back as a bundle** (2026-10-24): `extract/vf3tb-evidencias.7z`
+  (393 MiB) holds `extract/analysis` in full - 984,385 files, 31 GB unpacked -
+  with 2,219 `.cases` corpora and 1,885 RAM blobs, the baseline inventory
+  (`funcs_1ST_READ.unsc.bin.csv`), the census and the coverage snapshots.
+  Unpacked, the offline suite goes from **37 pass / 62 fail** to **74 pass /
+  26 fail**, and the coverage tools run again
+  (`tools/decomp_stats.py`: the verified C address union is **405,744 B
+  (93.35%)**, so the 94% bar at 408,576 B is still 2,832 B away; its
+  "rigorous" figure of 409,082 B adds the SDK-attributed regions, which are
+  not ports).  What the bundle does **not** carry: `extract/exe` (the ROM
+  images), `extract/gamedata` (the ISO files), `extract/ghidra_proj`,
+  `tools/emu` (the patched oracle), `refs/dream-recomp`, the disc tracks
+  (`rom/vf3.gdi` is still only the 175-byte descriptor), the Ghidra and SDK
+  installs, and the RAM blobs of the older `goldens_*` corpora (their
+  metadata is there, the `.cases` are not) - so the disc, the FPU oracle
+  table and the XF sidecars are still out of reach.  The readable track is
+  unaffected: the generated adapters under `src/fight/*adapter*.c` are a
+  faithful disassembly, so a readable port can be written against them and
+  proved offline by differential execution against the translation it
+  replaces (`tests/state_helpers_replay.c`, `tests/record_state_walk_replay.c`)
+  - and, where the corpus is in the bundle, against the oracle as well
+  (`tests/record_kind_oracle.c`).
   Reading tools: `tools/adapter_dump.py` (a generated function as guest
   disassembly), `tools/adapter_body.py` (the raw source of a PC range,
   module by module - several modules carry the same PC and the router
