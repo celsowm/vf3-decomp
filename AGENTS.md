@@ -709,6 +709,14 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   cannot be observed: the sign extension of the bytes it reads (every one is
   masked back to eight bits before use), and the T bit of the kind, gate and
   mode tests (the guest writes the T bit again before it returns).
+  **The chain here is closed on all three legs**: tests/record_kind_oracle.c
+  replays the captured fight states (the corpus in
+  extract/analysis/goldens_78044/f_0c078044.cases, eight RAM cases over five
+  windows) through the readable port and matches the oracle's whole register
+  file and every exit byte - *readable port == generated translation == gap
+  unit == oracle*.  The corpus does not hold the literal pool (it is the
+  ROM's, not runtime state), so the test supplies the six words the guest
+  reads - constants of the image, not part of the captured state.
   docs/re/record_kind.md.
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
@@ -720,9 +728,13 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   (`r7 += r3` instead of `r3 += r7`), which moved the write address and the
   answer's r7.  The fix is oracle preserving: the old port matched the
   oracle's recorded exit state, so the words it read and the words the guest
-  reads agreed in every bit the function looks at.  **The caller's frame
-  words sit at the entry stack pointer + 0/4/8** - `src/fight/af734.c`, whose
-  64 oracle cases confirmed it, reads them the same way.
+  reads agreed in every bit the function looks at.  **Confirmed once the
+  corpora came back** (extract/vf3tb-evidencias.7z): the *old* gap unit and
+  the corrected one both replay `f_0c078044.cases` with an 8/8 match - the
+  three faults were latent in those cases, which is exactly what the
+  argument predicted.  **The caller's frame words sit at the entry stack
+  pointer + 0/4/8** - `src/fight/af734.c`, whose 64 oracle cases confirmed
+  it, reads them the same way.
 - **The gap tool only counts the generated adapters.**  A call target that one
   of the *hand-written* modules already serves still shows up as unported:
   `0x8C040F1E` (the queue push) is implemented by hand in

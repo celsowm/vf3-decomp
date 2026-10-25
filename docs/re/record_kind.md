@@ -303,16 +303,40 @@ port.  Three faults, all of them in `g78044.c`:
    `r3 += r7`; the gap unit did `r7 += r3`.  That moved the write address
    of the copied byte and the countdown's answer `r7`.
 
-The gap unit's oracle cases cannot be re-run here (the cases file lives under
-`extract/`, which is gone - see [artifact_gap](artifact_gap.md)), but the
-fixes are *oracle preserving* for them: the old port matched the oracle's
-recorded exit state, so the words it read and the words the guest reads
-agreed in every bit the function looks at; the corrected port reads the
+The gap unit's oracle cases could not be re-run when this was written - the
+cases file lives under `extract/`, which was gone (see
+[artifact_gap](artifact_gap.md)).  They have come back since, in
+`extract/vf3tb-evidencias.7z`, and the three fixes are **oracle preserving**:
+both the old gap unit and the corrected one replay the eight cases with an
+8/8 match.  That is what the argument predicted - the old port matched the
+oracle's recorded exit state, so the words it read and the words the guest
+reads agreed in every bit the function looks at; the corrected port reads the
 guest's words and therefore produces the same answers.
 
 With the three faults fixed, the gap unit and the readable port agree with
-the generated translation on all thirty scenarios, and the chain for this
-entry is **readable port == generated translation == gap unit == oracle**.
+the generated translation on all thirty scenarios.
+
+### The oracle replay
+
+`tests/record_kind_oracle.c` replays the *captured fight states* - the corpus
+in `extract/analysis/goldens_78044/f_0c078044.cases`, eight RAM cases over
+five windows - through the readable port, with the standard harness
+(`tests/port_harness.h`): the whole thirty-seven-word register file and every
+byte of every exit window are compared with what the oracle recorded.
+
+```
+record_kind_oracle: 8/8 cases match (56 skipped) - PASS
+```
+
+The corpus does not hold the literal pool - the pool is the ROM's, not
+runtime state, so the oracle's RAM capture never carried it - and the test
+supplies the six words the guest reads as a sixth window.  They are
+constants of the image (the same values `g78044.c` bakes in, which its own
+oracle replay confirmed), not part of the captured state.
+
+With this, the chain for this entry is closed on all three legs:
+
+**readable port == generated translation == gap unit == oracle.**
 
 ### The test has teeth, and the mutations were checked
 
@@ -429,12 +453,12 @@ This is the pattern `tests/state_helpers_replay.c` established: the generated
 translation stays in the tree as the reference, and the readable port is proved
 against it.
 
-**Caveat.** The oracle corpora live under `extract/`, and that tree is gone
-from this checkout (see [artifact_gap](artifact_gap.md)), so the oracle replay
-of this entry could not be re-run here.  What *is* in the tree is the gap
-unit's proof - eight RAM cases over five windows, recorded when the corpora
-were there - and the gap unit is now checked, byte for byte, against the
-readable port and the generated translation.
+**Caveat.** The oracle corpora live under `extract/`.  They were gone from this
+checkout when the port was written, and they have since come back in
+`extract/vf3tb-evidencias.7z`; the oracle replay above was run against the
+restored corpus, so for *this* entry the third leg is closed.  The rest of
+the tree's corpora are still to be put back, and until they are, the other
+readable ports still stand on *readable port == generated translation* alone.
 
 ## What the readable port has to keep
 
