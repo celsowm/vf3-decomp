@@ -104,20 +104,35 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.63% verified C (406,964 B of 434,656). The 90% bar
-  (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
-  reached on the *union* of body ranges, which is the number
-  `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
-  it also credits the trace-covered bodies.  The 80%-91% stretch came from the
-  device-tape capture work and from bodies ported through the repo's own
-  adapter translator (tools/oracle/translate_adapters.py) into
-  src/fight/vf3_c80_adapter.c ... vf3_c105_adapter.c.  Recipe, checks and the
-  bodies left out: docs/re/coverage_80_generated_adapters.md,
+- Coverage: **100%** - the union of the ported body ranges now covers every
+  baseline body (436,928 B against the 434,656 B denominator; the excess is
+  the 151 off-baseline leaves the ledger also credits).  All 2,398 baseline
+  entries have a ledger row; `tools/final_status.py` prints the union and
+  `tools/decomp_stats.py` the same figure plus the SDK-attributed regions.
+  The last 6.4% (237 entries / 29,964 B) came from the ROM itself: the
+  image was missing from the workspace, the disc has it, and the repo's own
+  translator walked the CFG of every still-unported body from the identity
+  image into src/fight/vf3_gap_b01_adapter.c ... vf3_gap_b06_adapter.c.
+  Evidence: 0 of 106,139 emitted blocks disagree with the image
+  (tools/gap_fidelity.py), 4,873 body PCs agree instruction-for-instruction
+  with the oracle-replayed modules, and 29 of the bodies are exercised by an
+  existing capture.  **208 of them have no per-entry oracle replay** (the
+  game never calls them in the recorded states), so their evidence is the
+  ROM translation, not a case-by-case comparison - the readable track is what
+  turns them into reviewed ports.  Recipe and checks:
+  docs/re/coverage_100_gap_translation.md.
+- The 90% bar (391,190 B), the 92% bar (401,084 B), the 93% bar (404,230 B)
+  and the 94% bar (408,576 B) were all reached on the *union* of body
+  ranges, which is the number `tools/final_status.py` prints.  The 80%-91%
+  stretch came from the device-tape capture work and from bodies ported
+  through the repo's own adapter translator (tools/oracle/translate_adapters.py)
+  into src/fight/vf3_c80_adapter.c ... vf3_c105_adapter.c.  Recipe, checks
+  and the bodies left out: docs/re/coverage_80_generated_adapters.md,
   docs/re/coverage_92_translator_gaps.md, docs/re/coverage_93_c97_batch.md,
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
-  docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
-  docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (1,612 B more).
+  docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md,
+  docs/re/coverage_100_gap_translation.md and docs/re/oracle_device_reads.md.
+
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -1049,8 +1064,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   without consulting the generated translation: the destination's bytes have
   to be the source's bytes where the guest puts them.  A mutation the test
   cannot see is a path the test never reaches.
-- **The registry has two entry addresses that are registered twice.**
-  `vf3_readable_find` returns the first match, so the second row of each pair
+- **The ROM can be missing from the workspace while the disc is on the disk.**
+  The evidence bundle does not carry `extract/exe`, and every porting tool
+  reads `extract/exe/1ST_READ.unsc.bin`.  The retail binaries ship
+  *unscrambled* (`docs/re/image_identity.md`), so `extract/exe/*.unsc.bin` is
+  the raw `*.BIN` of the disc - `D:\emuladores\dreamcast\isos\[GDI] Virtua
+  Fighter 3tb (US)\rip` in this workspace.  Copy them back and check the image
+  against the capture maps before trusting it: `tools/image_check.py` compares
+  every recorded (pc, opcode) pair with the image and only the REIOS BIOS
+  vectors (`0x0c001000`-`0x0c001006`, which live in the firmware) may differ.
+- **The SH-4 group-0 system family has the control select in bits 7-4, the
+  operation in bits 3-0 and the register in bits 11-8.**  `0x0002` is
+  `STC SR,Rn` (the game's own `stc sr,r0` at 0x8c060ea6), `0x0222` is
+  `STC VBR,Rn` (the helper at 0x8c060eba) and `0x023A` is **`LDS SR,R2`** -
+  the two families name different registers, so a decoder that reads the
+  `0x?A` forms as `STS` mislabels every one of them.  `tools/sh4.py` had
+  that mix-up and no `LDS` entry at all; both are fixed.
+- **A TRAPA is modelled by failing closed, and the oracle agrees.**  Three
+  ported, oracle-replayed entries contain a `TRAPA` (`0x8c046182`,
+  `0x8c046220`, `0x8c04a1c0`) and all three emit
+  `s->failed_pc=<pc>; return 0;` - the reference never returns from a trap,
+  so the trap is not observable in a capture.  A body whose only
+  unexpressible instruction is a `TRAPA` can therefore be promoted on the
+  same model.
+- **The registry has two entry addresses that are registered twice.**  `vf3_readable_find` returns the first match, so the second row of each pair
   can never be served: `0x0C042D7C` is registered as both `div_signed` and
   `mod_s32` (two ports of the same signed division), and `0x0C068FE4` as both
   `quad_node` and `terrain_quad_test`.  The dispatcher behaviour is right -

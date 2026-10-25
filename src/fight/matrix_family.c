@@ -769,6 +769,14 @@ if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
         if(vf3_sweep_adapter_contains(entry)) return vf3_sweep_adapter(entry,s,ram);
         if(vf3_aica_stub_adapter_contains(entry)) return vf3_aica_stub_adapter(entry,s,ram);
         if(vf3_tickgap_adapter_contains(entry)) return vf3_tickgap_adapter(entry,s,ram);
+        /* The gap modules come last: they serve the bodies no earlier module
+         * owns, and every PC an earlier module owns keeps its old owner. */
+        if(vf3_gap_b01_adapter_contains(entry)) return vf3_gap_b01_adapter(entry,s,ram);
+        if(vf3_gap_b02_adapter_contains(entry)) return vf3_gap_b02_adapter(entry,s,ram);
+        if(vf3_gap_b03_adapter_contains(entry)) return vf3_gap_b03_adapter(entry,s,ram);
+        if(vf3_gap_b04_adapter_contains(entry)) return vf3_gap_b04_adapter(entry,s,ram);
+        if(vf3_gap_b05_adapter_contains(entry)) return vf3_gap_b05_adapter(entry,s,ram);
+        if(vf3_gap_b06_adapter_contains(entry)) return vf3_gap_b06_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);

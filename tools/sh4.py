@@ -70,16 +70,28 @@ def decode(w, pc=0):
             return "stc", f"ssr,{GPR[n]}"
         if (w & 0xF0FF) == 0x0042:
             return "stc", f"spc,{GPR[n]}"
-        if (w & 0xF0FF) == 0x003A:
+        if (w & 0xF0FF) == 0x0052:
+            return "stc", f"fpul,{GPR[n]}"
+        if (w & 0xF0FF) == 0x0062:
+            return "stc", f"fpscr,{GPR[n]}"
+        if (w & 0xF0FF) == 0x0072:
             return "stc", f"sgr,{GPR[n]}"
+        # The operation sits in bits 3-0: 0x2 is STC (the system register into
+        # Rn), 0xA is LDS (Rn from the system register) and the control
+        # select sits in bits 7-4.  The two families name different registers:
+        # STC reads the system registers, LDS reads MACH/MACL/PR/SR/FPUL/FPSCR.
         if (w & 0xF0FF) == 0x000A:
-            return "sts", f"mach,{GPR[n]}"
+            return "lds", f"mach,{GPR[n]}"
         if (w & 0xF0FF) == 0x001A:
-            return "sts", f"macl,{GPR[n]}"
+            return "lds", f"macl,{GPR[n]}"
         if (w & 0xF0FF) == 0x002A:
-            return "sts", f"pr,{GPR[n]}"
+            return "lds", f"pr,{GPR[n]}"
+        if (w & 0xF0FF) == 0x003A:
+            return "lds", f"sr,{GPR[n]}"
         if (w & 0xF0FF) == 0x005A:
-            return "sts", f"fpul,{GPR[n]}"
+            return "lds", f"fpul,{GPR[n]}"
+        if (w & 0xF0FF) == 0x006A:
+            return "lds", f"fpscr,{GPR[n]}"
         if (w & 0xF0FF) == 0x006A:
             return "sts", f"fpscr,{GPR[n]}"
         if (w & 0xF0FF) == 0x0023:

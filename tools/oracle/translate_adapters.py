@@ -171,7 +171,13 @@ def emit(pc,w):
             # 0x0c00f624 - so VBR is 0x0c00f400 in the game (27 cases across
             # six corpora of 0x8c06371c).
             return [f"{rn}=0x0c00f400u;"]
-        src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17}.get(k)
+        # The group-0 system family: the control select sits in bits 7-4 and
+        # the operation in bits 3-0, and the register in bits 11-8.  0x0A is
+        # "LDS <reg>,Rn" with the control in bits 7-4 (0=MACH, 1=MACL,
+        # 2=PR, 5=FPUL, 6=FPSCR) while 0x02 is "STC SR,Rn" - both read the
+        # status register into Rn, so they share the SR slot.  0x3A is the
+        # matching "LDS SR,Rn" (control 3) and reads the same register.
+        src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17,0x3A:17}.get(k)
         if src is not None: return [f"{rn}=r[{src}];"]
         if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
         if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
@@ -256,7 +262,7 @@ def indirect_destinations(path, image):
     return result
 
 
-def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None):
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None,code_only=False,reuse_excludes=()):
     legacy=watch is None
     watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
     roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
@@ -271,6 +277,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         paths=[p for p in paths if p.resolve()!=output and not
                (p.parent.resolve()==output.parent and
                 p.stem.startswith(output.stem+'_'))]
+        paths=[p for p in paths if not any(p.match(pat) for pat in reuse_excludes)]
         existing.update(adapter_claims(paths))
     if reuse_matrix or reuse_adapters:
         for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
@@ -307,6 +314,17 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
         # Dynamically installed code is not an original-image implementation.
         # Preserve it as a blocker; dispatch to these PCs fails at replay.
         ops={a:w for a,w in ops.items() if a not in foreign}
+    # The Ghidra inventory is the repo's authority on what the image's code is.
+    # A static walk that leaves it is walking into a table, a literal pool or
+    # the padding - the emitted block there fails closed and only makes the
+    # module huge.  `--code-only` stops the walk at the inventory's edge.
+    allowed=None
+    if code_only:
+        allowed=set()
+        for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
+            allowed.update(range(int(row['start'],16)&0x1fffffff,int(row['end'],16)&0x1fffffff,2))
+        for row in csv.DictReader(open(ROOT/'extract/analysis/funcs_1ST_READ.unsc.bin.csv')):
+            allowed.add(int(row['entry'],16)&0x1fffffff)
     def word(pc):
         off=(pc|0x80000000)-0x8c010000
         if not 0<=off<len(image)-1: raise ValueError(f"outside image {pc:08x}")
@@ -359,6 +377,7 @@ def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matr
     while todo:
         a=todo.pop()
         if a in followed or reused(a) or not 0xc010000<=a<0xc010000+len(image): continue
+        if allowed is not None and a not in allowed: continue
         followed.add(a); w=word(a); ops[a]=w
         if len(ops)>50000: raise ValueError('CFG expansion exceeded 50000 statements')
         if delay(w):
@@ -531,6 +550,10 @@ if __name__=="__main__":
     ap.add_argument('--reuse-adapter',action='append',default=[],help='existing source glob whose PCs dispatch to their current owner')
     ap.add_argument('--reuse-sources-report',type=Path,
                     help='source_owners report providing linked C sources without a long command line')
+    ap.add_argument('--reuse-exclude',action='append',default=[],
+                    help='glob of reuse sources to leave out (a batch regenerated without its siblings)')
+    ap.add_argument('--code-only',action='store_true',
+                    help='stop the static walk at the Ghidra inventory edge (no data, no padding)')
     a=ap.parse_args()
     if a.reuse_sources_report:
         linked=json.loads(a.reuse_sources_report.read_text())['linked_sources']
@@ -540,4 +563,4 @@ if __name__=="__main__":
             if not path.is_relative_to(ROOT/'src') or not path.is_file():
                 raise ValueError(f'invalid linked C source: {source}')
             a.reuse_adapter.append(path.relative_to(ROOT).as_posix())
-    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter,a.indirect_targets)
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter,a.indirect_targets,code_only=a.code_only,reuse_excludes=a.reuse_exclude)
