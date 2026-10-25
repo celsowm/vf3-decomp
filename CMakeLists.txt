@@ -178,6 +178,7 @@ add_library(vf3core STATIC
     src/fight/pair_verdict.c
     src/fight/state_advance.c
     src/fight/state_ladder.c
+    src/fight/state_resolve.c
     src/fight/record_kind.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
@@ -656,6 +657,8 @@ add_port_test(vf3bandprobe tests/band_probe_replay.c)
 add_port_test(vf3pairverdict tests/pair_verdict_replay.c)
 add_port_test(vf3stateadvance tests/state_advance_replay.c)
 add_port_test(vf3stateladder tests/state_ladder_replay.c)
+add_port_test(vf3stateresolve tests/state_resolve_replay.c)
+add_port_test(vf3stateresolveoracle tests/state_resolve_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)
 add_port_test(vf3recordkindoracle tests/record_kind_oracle.c)
 add_port_test(vf3d452 tests/d452_replay.c)

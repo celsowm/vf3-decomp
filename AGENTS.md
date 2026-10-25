@@ -104,7 +104,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - POL: header + section table + float-vertex blocks (tools/pol_scan.py)
 
 ## Current frontier
-- Coverage: 93.49% verified C (406,364 B of 434,656). The 90% bar
+- Coverage: 93.51% verified C (406,446 B of 434,656). The 90% bar
   (391,190 B), the 92% bar (401,084 B) and the 93% bar (404,230 B) are all
   reached on the *union* of body ranges, which is the number
   `tools/final_status.py` prints; `tools/decomp_stats.py` counts more because
@@ -117,7 +117,7 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   docs/re/coverage_93_low_region.md, docs/re/coverage_93_alias_claim.md,
   docs/re/coverage_93_tail_transfer.md, docs/re/coverage_93_stc_vbr.md and
   docs/re/oracle_device_reads.md.
-  Next bar: 94% = 408,576 B (2,212 B more).
+  Next bar: 94% = 408,576 B (2,130 B more).
 - **The REIOS drive is not RAM: its state belongs in the corpus.**
   `GDROM_REQ_CMD` answers with the drive's *request counter* and only accepts
   the command while the drive is idle, so `r0` after the call is external
@@ -762,6 +762,38 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   every case).  The ladder's *frame* is in no checked window, so that part
   rests on the differential alone.  The ledger row adds 620 B
   (405,744 -> 406,364).  docs/re/state_ladder.md.
+- Fight-state resolver (0x8C08E68C) ported readable: src/fight/state_resolve.c,
+  proved against the retained generated translation by
+  tests/state_resolve_replay.c (20 differential cases) and against the **oracle**
+  by tests/state_resolve_oracle.c (192/192 on the fight_all_cases corpus and
+  256/256 on the fight_release_cases one).  It resolves the two fighters'
+  records into one output struct: 237 instructions, body 0x0C08E68C..0x0C08E8FE
+  (626 B), **off-baseline** (the inventory's `f_8c08e6a8` starts 28 bytes later,
+  so the entry is a gap leaf), and hot - the state-7 census has it at one call
+  and 171 self-steps.  It picks the row from the output struct's flag word (0x40
+  -> the second table's row at 452, 0x80 and 0x100 -> the row at 456), copies
+  the words the two records share with the output struct, and resolves one
+  3-float vector per record out of three sources in the record (its own words at
+  0x10, the pool's offset 1072, the pool's offset 496), negating the third
+  component.  A helper (0x8C09553C, called through a pointer in the pool) may
+  add a correction; it is called only when the record's count carries the bit
+  8192 and the "both" word says so.  Details the port has to keep: the pool is
+  read at run time (a replay has to supply it as a window; the oracle's capture
+  carries the pool as its first window), the `0.4` is negated **only** when the
+  count carries the high mask, the helper's "both" word is read into r3 on the
+  first call and into r2 on the second (the guest leaves the registers behind),
+  and the return pops r14 in the delay slot of the `rts`.  One thing cannot be
+  observed: the width of the *first* halfword store, because the next store
+  overwrites the bytes a word store would spill - the mutation list breaks the
+  last halfword store instead, whose spill nothing overwrites.  66/66 mutations
+  caught.
+  **The oracle leg needs a hook that serves only this entry**: the readable
+  table shadows the helper's leaves (the tree's `sin_u16`/`cos_u16` sit at
+  0x0C03A6E0/0x0C03A140 and leave a different r4 than the code the oracle ran),
+  so the plain `vf3matrixfamily` route with VF3_READABLE=1 gives 175/192 and is
+  not this port's oracle leg.  The ledger row adds 82 B (406,364 -> 406,446):
+  the union is a body-range union, and `f_8c08e6a8`'s ported body already
+  covers 544 of the 626 bytes.  docs/re/state_resolve.md.
 - **The gap unit `src/fight/g78044.c` had three faults, all found by running
   it against the readable port of the same function (0x8C078044).**  (1) Its
   six stack reads were **eight bytes too high**: it added the guest's

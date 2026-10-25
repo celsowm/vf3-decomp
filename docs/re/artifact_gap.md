@@ -56,6 +56,8 @@ build/vf3recordwalk    record_state_walk: 16 differential cases - PASS
 build/vf3recordkind    record_kind: 30 differential cases - PASS
 build/vf3recordkindoracle  record_kind_oracle: 8/8 cases match - PASS
 build/vf3stateladder   state_ladder: 34 differential cases - PASS
+build/vf3stateresolve  state_resolve: 20 differential cases - PASS
+build/vf3stateresolveoracle  state_resolve_oracle: 192/192 cases match - PASS (and 256/256 on the fight_release_cases corpus)
 ```
 
 Run the suite from the **repository root**: the harness resolves
@@ -73,13 +75,14 @@ blobs the bundle does not carry.
 The coverage tools run:
 
 ```
-python tools/decomp_stats.py    # rigorous 409702/434656 bytes (94.3%)
-python tools/final_status.py    # Pure C union: 406364 bytes (93.4909%)
+python tools/decomp_stats.py    # rigorous 410328/434656 bytes (94.4%)
+python tools/final_status.py    # Pure C union: 406446 bytes (93.5098%)
 ```
 
-The **verified C address union** is 406,364 B (93.49%), so the 94% bar
-(408,576 B) is still 2,212 B away; `decomp_stats.py`'s "rigorous" figure of
-409,702 B adds the SDK-attributed regions, which are not ports.
+The **verified C address union** is 406,446 B (93.51%), so the 94% bar
+(408,576 B) is still 2,130 B away; `decomp_stats.py`'s "rigorous" figure of
+410,328 B adds the SDK-attributed regions, which are not ports, and it sums the
+ledger's sizes where the union merges the overlapping body ranges.
 
 ## What is possible without the artifacts
 

@@ -164,6 +164,7 @@ int vf3_band_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pair_verdict_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_advance_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_state_ladder_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_state_resolve_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_kind_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -418,6 +419,10 @@ const vf3_readable_entry vf3_readable_table[] = {
     /* the fight's flag words folded into one, and the task's counters stepped */
     { 0x0c08b89cu, "state_ladder", vf3_state_ladder_entry,
       B(0)|B(1)|B(2)|B(3)|B(5)|B(6)|B(7)|B(15)|B(16)|B(17)|FR(3) },
+    /* the two fighters' records resolved into the output struct */
+    { 0x0c08e68cu, "state_resolve", vf3_state_resolve_entry,
+      B(8)|B(9)|B(10)|B(11)|B(12)|B(13)|B(14)|B(15)|B(16)|B(17)|
+      FR(12)|FR(13)|FR(14)|FR(15) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

@@ -1,0 +1,596 @@
+[
+ {
+  "name": "the_flag_128_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_FLAG_128     0x0c08e756u",
+    "#define POOL_FLAG_128     0x0c08e758u"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_256_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_FLAG_256     0x0c08e758u",
+    "#define POOL_FLAG_256     0x0c08e75au"
+   ]
+  ]
+ },
+ {
+  "name": "the_row_452_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_ROW_452      0x0c08e75au",
+    "#define POOL_ROW_452      0x0c08e75cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_row_456_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_ROW_456      0x0c08e75cu",
+    "#define POOL_ROW_456      0x0c08e75eu"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_6340_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_6340     0x0c08e75eu",
+    "#define POOL_OFF_6340     0x0c08e760u"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_6660_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_6660     0x0c08e760u",
+    "#define POOL_OFF_6660     0x0c08e762u"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_1072_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_1072     0x0c08e762u",
+    "#define POOL_OFF_1072     0x0c08e764u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE        0x0c08e764u",
+    "#define POOL_TABLE        0x0c08e768u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE2       0x0c08e768u",
+    "#define POOL_TABLE2       0x0c08e76cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MASK_HI      0x0c08e76cu",
+    "#define POOL_MASK_HI      0x0c08e770u"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MASK_LO      0x0c08e770u",
+    "#define POOL_MASK_LO      0x0c08e76cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_496_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_496      0x0c08e848u",
+    "#define POOL_OFF_496      0x0c08e84au"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_6672_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_6672_1   0x0c08e84au",
+    "#define POOL_OFF_6672_1   0x0c08e84cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_8192_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_BIT_8192_1   0x0c08e84cu",
+    "#define POOL_BIT_8192_1   0x0c08e84eu"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_5268_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_5268_1   0x0c08e84eu",
+    "#define POOL_OFF_5268_1   0x0c08e850u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_offset_1072_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_1072_2   0x0c08e850u",
+    "#define POOL_OFF_1072_2   0x0c08e852u"
+   ]
+  ]
+ },
+ {
+  "name": "the_float_04_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_F40_1        0x0c08e854u",
+    "#define POOL_F40_1        0x0c08e858u"
+   ]
+  ]
+ },
+ {
+  "name": "the_helper_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HELPER_1     0x0c08e858u",
+    "#define POOL_HELPER_1     0x0c08e85cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_low_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MASK_LO_2    0x0c08e85cu",
+    "#define POOL_MASK_LO_2    0x0c08e860u"
+   ]
+  ]
+ },
+ {
+  "name": "the_output_offset_196_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_OFF_196      0x0c08e906u",
+    "#define POOL_OFF_196      0x0c08e908u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_helper_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HELPER_2     0x0c08e90cu",
+    "#define POOL_HELPER_2     0x0c08e910u"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_0x40_is_inverted",
+  "subs": [
+   [
+    "set_t(s, (0x40u & R(6)) == 0u);",
+    "set_t(s, (0x40u & R(6)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_0x80_is_inverted",
+  "subs": [
+   [
+    "set_t(s, (pool_half(ram, POOL_FLAG_128) & R(6)) == 0u);",
+    "set_t(s, (pool_half(ram, POOL_FLAG_128) & R(6)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_0x100_is_inverted",
+  "subs": [
+   [
+    "set_t(s, (pool_half(ram, POOL_FLAG_256) & R(6)) == 0u);",
+    "set_t(s, (pool_half(ram, POOL_FLAG_256) & R(6)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_0x80_uses_the_row_452",
+  "subs": [
+   [
+    "                /* the flag bit 0x80: the second table's row at 456 */\n                row = pool_half(ram, POOL_ROW_456);",
+    "                /* the flag bit 0x80: the second table's row at 456 */\n                row = pool_half(ram, POOL_ROW_452);"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_0x100_uses_the_row_452",
+  "subs": [
+   [
+    "                    /* the flag bit 0x100: the second table's row at 456 */\n                    row = pool_half(ram, POOL_ROW_456);",
+    "                    /* the flag bit 0x100: the second table's row at 456 */\n                    row = pool_half(ram, POOL_ROW_452);"
+   ]
+  ]
+ },
+ {
+  "name": "the_row_that_is_the_table_entry_is_not_recognised",
+  "subs": [
+   [
+    "set_t(s, R(4) == R(13));",
+    "set_t(s, R(4) != R(13));"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_entries_are_swapped",
+  "subs": [
+   [
+    "R(4) = vf3_mem_u32(ram, R(5) + ((R(17) & 1u) ? 20u : 16u));",
+    "R(4) = vf3_mem_u32(ram, R(5) + ((R(17) & 1u) ? 16u : 20u));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_record_is_not_the_table_entry_at_16",
+  "subs": [
+   [
+    "R(4) = vf3_mem_u32(ram, R(5) + 16u);       /* the first record, by default */",
+    "R(4) = vf3_mem_u32(ram, R(5) + 20u);       /* the first record, by default */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_record_is_not_the_table_entry_at_20",
+  "subs": [
+   [
+    "R(13) = vf3_mem_u32(ram, R(5) + 20u);      /* the second record, by default */",
+    "R(13) = vf3_mem_u32(ram, R(5) + 16u);      /* the second record, by default */"
+   ]
+  ]
+ },
+ {
+  "name": "the_output_flag_word_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "R(6) = vf3_mem_u32(ram, R(14) + OUT_FLAGS);",
+    "R(6) = vf3_mem_u32(ram, R(14) + OUT_FLAGS + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_flags_are_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "#define REC_FLAGS 0x48u",
+    "#define REC_FLAGS 0x4cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_count_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "#define REC_COUNT 0x4cu",
+    "#define REC_COUNT 0x48u"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_halfword_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "#define REC_HALF  0x3eu",
+    "#define REC_HALF  0x40u"
+   ]
+  ]
+ },
+ {
+  "name": "the_output_struct_is_not_the_r4",
+  "subs": [
+   [
+    "R(14) = R(4);                       /* r14 = the output struct */",
+    "R(14) = R(4) + 4u;                  /* r14 = the output struct */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_records_word_at_6340_goes_to_the_wrong_output_word",
+  "subs": [
+   [
+    "vf3_mem_set_u32(ram, R(14) + 52u, R(12));",
+    "vf3_mem_set_u32(ram, R(14) + 56u, R(12));"
+   ]
+  ]
+ },
+ {
+  "name": "the_output_word_at_60_is_not_written",
+  "subs": [
+   [
+    "vf3_mem_set_u32(ram, R(14) + 60u, R(8));",
+    "vf3_mem_set_u32(ram, R(14) + 61u, R(8));"
+   ]
+  ]
+ },
+ {
+  "name": "the_halfword_is_written_as_a_word",
+  "subs": [
+   [
+    "R(0) = 0x5au;\n    vf3_mem_set_u16(ram, R(14) + R(0), (uint16_t)R(2));",
+    "R(0) = 0x5au;\n    vf3_mem_set_u32(ram, R(14) + R(0), R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_two_counts_are_not_xored",
+  "subs": [
+   [
+    "R(7) ^= R(11);                                  /* the two counts differ */",
+    "R(7) = R(11);                                  /* the two counts differ */"
+   ]
+  ]
+ },
+ {
+  "name": "the_both_word_is_not_masked",
+  "subs": [
+   [
+    "    R(9) &= R(12);",
+    "    R(9) = R(12);"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_bit_is_not_stored_in_the_frame",
+  "subs": [
+   [
+    "vf3_mem_set_u32(ram, frame + FRAME_FLAG, R(6));",
+    "vf3_mem_set_u32(ram, frame + FRAME_SEC2, R(6));"
+   ]
+  ]
+ },
+ {
+  "name": "the_both_word_is_not_stored_in_the_frame",
+  "subs": [
+   [
+    "    R(3) = R(7) & R(12);\n    vf3_mem_set_u32(ram, frame + FRAME_BOTH, R(3));",
+    "    R(3) = R(7) & R(12);\n    vf3_mem_set_u32(ram, frame + FRAME_SEC2, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_source_choice_ignores_the_flag_bit",
+  "subs": [
+   [
+    "    set_t(s, flag_bit0 == 0u);\n    if (R(17) & 1u) {",
+    "    set_t(s, 1u);\n    if (R(17) & 1u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_both_words_bit_2_is_inverted",
+  "subs": [
+   [
+    "        set_t(s, (both & R(bit2_reg)) == 0u);",
+    "        set_t(s, (both & R(bit2_reg)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_2_mask_is_not_loaded",
+  "subs": [
+   [
+    "        R(bit2_reg) = 4u;",
+    "        R(bit2_reg) = 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_mask_test_is_inverted",
+  "subs": [
+   [
+    "    set_t(s, (R(hi_reg) & mask_hi) == 0u);",
+    "    set_t(s, (R(hi_reg) & mask_hi) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_mask_test_is_inverted",
+  "subs": [
+   [
+    "    set_t(s, (rec_flags & R(low_reg)) == 0u);",
+    "    set_t(s, (rec_flags & R(low_reg)) != 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_and_the_second_source_are_swapped",
+  "subs": [
+   [
+    "    if (R(17) & 1u) return off_first;\n    return off_second;",
+    "    if (R(17) & 1u) return off_second;\n    return off_first;"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_bit_picks_the_first_source",
+  "subs": [
+   [
+    "        set_t(s, (both & R(bit2_reg)) == 0u);\n        if (R(17) & 1u) return off_third;",
+    "        set_t(s, (both & R(bit2_reg)) == 0u);\n        if (R(17) & 1u) return off_first;"
+   ]
+  ]
+ },
+ {
+  "name": "the_vector_is_not_negated",
+  "subs": [
+   [
+    "    FR(13) ^= 0x80000000u;            /* the branch's delay slot: fneg fr13 */",
+    "    /* the guest negates the third component: not here */"
+   ]
+  ]
+ },
+ {
+  "name": "the_correction_is_always_wanted",
+  "subs": [
+   [
+    "    if (R(17) & 1u) return 0;          /* the count does not carry the bit */",
+    "    if (R(17) & 1u) return 1;          /* the count does not carry the bit */"
+   ]
+  ]
+ },
+ {
+  "name": "the_correction_is_never_wanted",
+  "subs": [
+   [
+    "    if (!(R(17) & 1u)) return 1;        /* the count's own bit is set */",
+    "    if (!(R(17) & 1u)) return 0;        /* the count's own bit is set */"
+   ]
+  ]
+ },
+ {
+  "name": "the_both_word_is_not_read",
+  "subs": [
+   [
+    "    R(both_reg) = vf3_mem_u32(ram, frame + FRAME_BOTH);",
+    "    R(both_reg) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_argument_is_not_negated",
+  "subs": [
+   [
+    "    R(4) = 0u - R(4);",
+    "    R(4) = R(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_argument_goes_into_the_wrong_frame_word",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, frame + arg_slot, R(1));",
+    "    vf3_mem_set_u32(ram, frame + FRAME_SEC2, R(1));"
+   ]
+  ]
+ },
+ {
+  "name": "the_correction_third_float_goes_into_the_wrong_frame_word",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 12, frame + R(0));  /* frame+third = fr12 */",
+    "    vf3_matrix_store(s, ram, 12, frame + FRAME_SEC2);  /* frame+third = fr12 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_04_is_never_negated",
+  "subs": [
+   [
+    "    if (!(R(17) & 1u)) {\n        /* the guest negates the 0.4 when the count carries the high mask */",
+    "    if (0) {\n        /* the guest negates the 0.4 when the count carries the high mask */"
+   ]
+  ]
+ },
+ {
+  "name": "the_04_is_always_negated",
+  "subs": [
+   [
+    "    if (!(R(17) & 1u)) {\n        /* the guest negates the 0.4 when the count carries the high mask */",
+    "    if (1) {\n        /* the guest negates the 0.4 when the count carries the high mask */"
+   ]
+  ]
+ },
+ {
+  "name": "the_correction_joins_the_wrong_component",
+  "subs": [
+   [
+    "    FR(15) = vf3_fpu_binary(FR(15), FR(3), R(18), '+');",
+    "    FR(15) = vf3_fpu_binary(FR(15), FR(2), R(18), '+');"
+   ]
+  ]
+ },
+ {
+  "name": "the_correction_is_subtracted",
+  "subs": [
+   [
+    "    FR(13) = vf3_fpu_binary(FR(13), FR(1), R(18), '+');",
+    "    FR(13) = vf3_fpu_binary(FR(13), FR(1), R(18), '-');"
+   ]
+  ]
+ },
+ {
+  "name": "the_continuation_address_is_wrong",
+  "subs": [
+   [
+    "#define CONT_HELPER_1 0x0c08e7e6u",
+    "#define CONT_HELPER_1 0x0c08e7e8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_private_frame_is_the_wrong_size",
+  "subs": [
+   [
+    "#define FRAME_LEN    36u",
+    "#define FRAME_LEN    32u"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_is_not_freed",
+  "subs": [
+   [
+    "    R(15) += FRAME_LEN;",
+    "    /* the frame is not freed */"
+   ]
+  ]
+ },
+ {
+  "name": "the_return_address_is_not_taken_from_the_stack",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15)); R(15) += 4u;",
+    "    R(15) += 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_saved_registers_are_not_restored",
+  "subs": [
+   [
+    "    R(8) = vf3_mem_u32(ram, R(15)); R(15) += 4u;",
+    "    R(15) += 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_epilogue_writes_the_vector_to_the_wrong_place",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 15, R(14) + R(0));\n    R(0) += 4u;\n    vf3_matrix_store(s, ram, 14, R(14) + R(0));\n    R(0) += 4u;\n    vf3_matrix_store(s, ram, 13, R(14) + R(0));\n    vf3_matrix_load(s, ram, 12, R(15));",
+    "    vf3_matrix_store(s, ram, 15, R(14) + R(0));\n    R(0) += 4u;\n    vf3_matrix_store(s, ram, 14, R(14) + R(0));\n    R(0) += 8u;\n    vf3_matrix_store(s, ram, 13, R(14) + R(0));\n    vf3_matrix_load(s, ram, 12, R(15));"
+   ]
+  ]
+ }
+]
