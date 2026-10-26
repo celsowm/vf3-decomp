@@ -205,3 +205,38 @@ bytes have to be seeded into RAM when the probe is armed, which is what
 instructions, but the boot copy loop then branches through an arena-seeded
 register into the arena, so the seed plan is still the open half.
 
+## What the fresh capture says about the readable FPU ports
+
+The six readable FPU ports whose boundary corpora lost their RAM shadows
+(`0x8c070120`, `0x8c07030c`, `0x8c0706c4`, `0x8c0708b0`, `0x8c070a84`,
+`0x8c070cf0`) were re-captured with the restored observer and replayed with
+the matrix harness (the dedicated `fvecnorm*_boundary_replay` tests expect a
+boundary corpus and are the wrong tool here).  Three replay clean; three
+diverge on one case each:
+
+```
+0x8c070120: 2/2 cases match - PASS
+0x8c07030c: 2/2 cases match - PASS
+0x8c0706c4: 2/2 cases match - PASS
+0x8c0708b0: 3/4 cases match - FAIL   case 1: mem win3 @+0x8243: got ff want 7f
+0x8c070a84: 2/3 cases match - FAIL   case 1: mem win3 @+0x8243: got ff want 7f
+0x8c070cf0: 1/2 cases match - FAIL   case 1: mem win4 @+0x5243: got ff want 7f
+```
+
+The divergence is a *path*, not the arithmetic.  The guest body at
+`0x8C0708B0` sets `r0` with `mov #24,r0` (`0xE018`) and then branches on the
+FPU comparison (`fcmp/gt fr3,fr0` at `0x8C0708CA`) to the continuation at
+`0x8C0708D8`.  The readable ports implement the branch they were written for
+and end with `r0 = 0x18`; on the path the fresh capture reaches, the reference
+ends with `r0 = 0x20` or `0x24` - the continuation ran and changed `r0` - and
+one RAM byte differs (the reference wrote `0x7f`, the port `0xff`).
+
+So the readable FPU ports are **partial**: they cover the paths their corpus
+exercised, and the boundary corpus - whose RAM shadows are gone, so it can no
+longer be re-verified - did not cover the tail-transfer path.  The bindings
+still point at the boundary corpora: swapping in the fresh corpus would turn
+"no RAM cases" into a different failure without fixing the port.  The fresh
+corpora are at `extract/analysis/fpu070_v1/` and are the reproduction recipe
+for the finding.
+
+

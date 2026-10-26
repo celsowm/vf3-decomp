@@ -1143,6 +1143,15 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the raw bit numbers is mislabelled in `docs/readable_status.csv`.  The
   range-flag row had it wrong in both directions (it named FR0..FR4 while the
   port writes FR4..FR9); it is fixed now.  Write the FP registers as `FR(n)`.
+- **A readable port is only as complete as the corpus it was written
+  against.**  The six readable FPU ports (`0x8c070120/030c/06c4/08b0/0a84/0cf0`)
+  were proved against a *boundary* corpus whose RAM shadows are gone, so they
+  can no longer be re-verified.  A fresh capture with the restored oracle
+  shows that they implement only the paths that corpus exercised: on the
+  tail-transfer path the reference ends with `r0 = 0x20`/`0x24` (the
+  continuation ran) while the ports end with `r0 = 0x18`, and one RAM byte
+  differs (`0x7f` against `0xff`).  A corpus is evidence for the paths it
+  covers, not for the body.  See `docs/re/oracle_recovery.md`.
 - **The oracle is back; the gap bodies' wall is the seed plan, not the
   emulator.**  `tools/oracle/recover_oracle.py` stages the restored observer,
   seals it against the original control windows and re-verifies it (a fresh
