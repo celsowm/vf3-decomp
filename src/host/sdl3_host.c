@@ -32,6 +32,8 @@
 #include "fight/matrix_family.h"
 #include "fight/native_tick.h"
 #include "render/pvr2.h"
+#include "render/ta.h"
+#include "render/ta_stream.h"
 #include "sys/frame_events.h"
 #include "sys/gdrom_hle.h"
 
@@ -83,13 +85,40 @@ static unsigned g_budget_out = DEFAULT_SLICE; /* the budget the hook handed out 
 static unsigned g_hook_insns;              /* the steps the hooks have charged */
 static uint64_t g_insns;                   /* the guest instructions the clock has carried */
 
-/* The display commands of a slice: into the PVR2 model and into the capture. */
+/* The display commands of a slice: into the PVR2 model and into the capture.
+ *
+ * The bursts land in the TA's own list memory, the way the hardware's do: a
+ * burst that is written twice leaves the second one's words behind.  The list
+ * the TA runs is read back out of that memory at the frame's end. */
+static uint8_t *g_ta_mem;                       /* the TA's list area */
+static uint32_t g_ta_lo = 0xFFFFFFFFu, g_ta_hi = 0;   /* the region written */
+
 static void push_ta(const uint32_t *words, unsigned n)
 {
+    const uint32_t dest = vf3_ta_flush_dest;
     for (unsigned i = 0; i < n; ++i) {
         vf3_pvr2_ta_push(g_pvr2, words[i]);
         if (g_ta_file) fwrite(&words[i], 4, 1, g_ta_file);
     }
+    if (!g_ta_mem) return;
+    if (dest < VF3_TA_AREA_BASE || dest - VF3_TA_AREA_BASE + 4u * n > VF3_TA_AREA_SIZE) return;
+    const uint32_t off = dest - VF3_TA_AREA_BASE;
+    memcpy(g_ta_mem + off, words, 4u * n);
+    if (off < g_ta_lo) g_ta_lo = off;
+    if (off + 4u * n > g_ta_hi) g_ta_hi = off + 4u * n;
+}
+
+/* The display list the game wrote this frame, read back out of the TA's list
+ * memory.  The words are the ones the hardware would run. */
+static unsigned collect_ta(uint32_t **out)
+{
+    if (!g_ta_mem || g_ta_hi <= g_ta_lo) { *out = NULL; return 0; }
+    const unsigned words = (g_ta_hi - g_ta_lo) / 4u;
+    uint32_t *buf = malloc((size_t)words * 4u);
+    if (!buf) { *out = NULL; return 0; }
+    memcpy(buf, g_ta_mem + g_ta_lo, (size_t)words * 4u);
+    *out = buf;
+    return words;
 }
 
 /* An interrupt handler: the game's own code, run with the register file the
@@ -235,6 +264,8 @@ int main(int argc, char **argv)
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
     g_pvr2 = &pvr2;
+    g_ta_mem = calloc(VF3_TA_AREA_SIZE, 1);
+    if (!g_ta_mem) { fprintf(stderr, "vf3sdl: cannot allocate the TA list memory\n"); return 1; }
 
     /* The clock and the frame events.  The TMU starts where the state left
      * it: the game keeps the counter's last sample at 0x0C1981C8. */
@@ -312,6 +343,42 @@ int main(int argc, char **argv)
             frame_insns = g_insns;
             fprintf(stderr, "\n");
             vf3_pvr2_frame_begin(&pvr2);
+            /* the display list the game wrote, read back out of the TA's
+             * list memory and decoded with our own TA decoder */
+            uint32_t *list_words = NULL;
+            const unsigned nw = collect_ta(&list_words);
+            if (nw) {
+                vf3_ta_list list;
+                const int rc = vf3_ta_decode(list_words, nw, &list);
+                unsigned polys = 0, sprites = 0, textured = 0;
+                float minx = 1e30f, maxx = -1e30f, miny = 1e30f, maxy = -1e30f;
+                for (unsigned i = 0; i < list.count; ++i) {
+                    const vf3_ta_prim *p = &list.prims[i];
+                    if (p->is_sprite) sprites++; else polys++;
+                    if (vf3_ta_texture(p->param.pcw)) textured++;
+                    for (unsigned v = 0; v < p->count; ++v) {
+                        const vf3_ta_vertex *q = &p->verts[v];
+                        if (q->x < minx) minx = q->x;
+                        if (q->x > maxx) maxx = q->x;
+                        if (q->y < miny) miny = q->y;
+                        if (q->y > maxy) maxy = q->y;
+                    }
+                }
+                fprintf(stderr, "vf3sdl:   list %u words at %08x: %s, %u primitives (%u polygons, %u sprites, %u textured)\n",
+                        nw, VF3_TA_AREA_BASE + g_ta_lo, rc ? "PARSE ERROR" : "parsed",
+                        list.count, polys, sprites, textured);
+                if (getenv("VF3_TALOG")) {
+                    fprintf(stderr, "vf3sdl:   list head:");
+                    for (unsigned i = 0; i < 8 && i < nw; ++i) fprintf(stderr, " %08x", list_words[i]);
+                    fprintf(stderr, "\n");
+                }
+                if (list.count)
+                    fprintf(stderr, "vf3sdl:   vertex range x %g..%g y %g..%g\n", minx, maxx, miny, maxy);
+                vf3_ta_free(&list);
+                free(list_words);
+            }
+            g_ta_lo = 0xFFFFFFFFu;
+            g_ta_hi = 0;
         }
         if (getenv("VF3_VERBOSE")) {
             static const uint32_t watch[] = { 0x0C16CDF4u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDCCu,

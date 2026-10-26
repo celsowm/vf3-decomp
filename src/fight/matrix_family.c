@@ -145,6 +145,7 @@ int vf3_advance_branch_adapter_contains(uint32_t);
 #include "fight/sh4_matrix.h"
 #include "fight/sh4_fpu.h"
 #include "fight/fpu_tz.h"
+#include "render/ta_stream.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -187,7 +188,10 @@ static uint32_t vf3_image_byte(uint32_t addr) {
 }
 uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     uint32_t value=0;
-    addr&=0x1FFFFFFFu;
+    /* The PVR2's cached register view (0x8C000000) is the same registers as
+     * the uncached one (0x5F800000); see vf3_matrix_write. */
+    if((addr&0xFFFFF000u)==0x8C000000u) addr=0x1F800000u|(addr&0xFFFu);
+    else addr&=0x1FFFFFFFu;
     /* Area 3 mirrors the 16 MiB RAM four times across 0x0C..0x0F. */
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);
@@ -215,6 +219,7 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
 static uint32_t vf3_sq_buf[2][8], vf3_sq_qacr[2];
 int vf3_sq_model;
 void (*vf3_ta_flush_hook)(const uint32_t *words, unsigned n);
+uint32_t vf3_ta_flush_dest;
 void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     unsigned n=(a>>5)&1u;
     if(!vf3_sq_model) return;
@@ -223,19 +228,31 @@ void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     static int forced[2]={-2,-2};
     if(forced[n]==-2) { const char *e=getenv(n?"TICK_QACR1":"TICK_QACR0"); forced[n]=e?(int)(strtoul(e,0,0)&0x1Cu):-1; }
     uint32_t dest=((forced[n]>=0?(uint32_t)forced[n]:vf3_sq_qacr[n])<<24)|(a&0x03FFFFE0u);
+    if(getenv("VF3_SQLOG")) fprintf(stderr,"sq%d flush %08x -> %08x  %08x %08x %08x %08x\n",
+        n,a,dest,vf3_sq_buf[n][0],vf3_sq_buf[n][1],vf3_sq_buf[n][2],vf3_sq_buf[n][3]);
     /* The hardware splits the flush by its target: below 8 MB it is the TA's
      * polygon stream (the display commands), below 16 MB the YUV converter,
      * and above that the VRAM.  Only the first is a display command, so only
      * the first is handed on; the other two are not modelled. */
     if((dest&0x01FFFFE0u)<0x800000u) {
+        vf3_ta_flush_dest=dest;
         if(vf3_ta_flush_hook) vf3_ta_flush_hook(vf3_sq_buf[n],8);
         return;
     }
     for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
 }
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
-    if((addr&0xFC000000u)==0xE0000000u && size==4) vf3_sq_buf[(addr>>5)&1u][(addr>>2)&7u]=value;
-    addr&=0x1FFFFFFFu;
+    if((addr&0xFC000000u)==0xE0000000u && size==4) {
+        vf3_sq_buf[(addr>>5)&1u][(addr>>2)&7u]=value;
+        if(getenv("VF3_SQLOG")) fprintf(stderr,"  sq store %08x = %08x\n",addr,value);
+    }
+    /* The PVR2's registers are visible twice: cached at 0x8C000000 and
+     * uncached at 0x5F800000.  Masking the address to 29 bits maps the cached
+     * view onto the RAM (0x0C000000), so the writes went into the RAM window
+     * and the port never saw the render trigger.  Both views are the same
+     * registers, so both are folded onto the uncached one's masked address. */
+    if((addr&0xFFFFF000u)==0x8C000000u) addr=0x1F800000u|(addr&0xFFFu);
+    else addr&=0x1FFFFFFFu;
     if(addr==0x1F000038u || addr==0x1F00003Cu) vf3_sq_qacr[(addr>>2)&1u]=value&0x1Cu;
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);

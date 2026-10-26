@@ -572,12 +572,15 @@ if (VF3_SDL3)
                               IMPORTED_LOCATION "${SDL3_LIBRARY}"
                               INTERFACE_INCLUDE_DIRECTORIES "${SDL3_INCLUDE_DIR}")
     endif()
-    add_executable(vf3sdl src/host/sdl3_host.c src/render/pvr2.c src/sys/frame_events.c)
+    add_executable(vf3sdl src/host/sdl3_host.c src/render/pvr2.c src/render/ta.c src/sys/frame_events.c)
     target_link_libraries(vf3sdl PRIVATE vf3core SDL3::SDL3)
 endif()
 
 add_executable(vf3tool tools/vf3tool.c)
 target_link_libraries(vf3tool PRIVATE vf3core)
+
+add_executable(vf3ta tests/ta_decode.c src/render/ta.c)
+target_link_libraries(vf3ta PRIVATE vf3core)
 
 add_executable(vf3test tests/mt_oracle.c)
 
