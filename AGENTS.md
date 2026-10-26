@@ -1191,6 +1191,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
+- **The observer's own patches can stall the guest, and only the synthetic
+  captures ever noticed.**  The v3 observer loads the surviving savestates and
+  runs them, but the guest sits in the GD exec-server wrapper (14,724 hits on
+  `0x8C0434D0` in 240 frames, zero on the frame loop) and a disc boot never
+  reaches the game at all.  The same savestate in a *pristine* Flycast plays
+  the game - the attract screen, then the demo fight.  So a "the emulator does
+  not run this" conclusion has to be checked against a build that is not the
+  observer: the probe machinery redirects a call and captures a specimen, and
+  that needs the guest to reach the probe, not to run on its own.
+- **Flycast's ini options live in the `[config]` section, keyed by the option's
+  full name.**  `Dynarec.Enabled=0` under `[config]` turns the recompiler off;
+  the same key under `[Dynarec]` parses and is *silently ignored*, so the
+  emulator keeps using the recompiler and never auto-loads the savestate.
+  Values read with `config::loadStr("record", "rawvid")` do use the section
+  they name - the two kinds coexist in the same file.  The ini is read from
+  the exe directory when the user config directory has none
+  (`$XDG_CONFIG_HOME` / `$HOME`, falling back to `.`).
+- **`TEST_AUTOMATION` is the reference frame source.**  Upstream Flycast built
+  with `-DTEST_AUTOMATION=ON` writes every swapped frame raw to
+  `record:rawvid` and replays a recorded input script from
+  `scripts/<rom>input` (`record:replay_input=1`).  Its input-replay code does
+  not compile on Windows (`std::max(int64_t, 0L)`); upstream's fix is in
+  `docs/re/patches/reference_frame_dump.patch`.
+
 
 ## Conventions
 - Byte offsets hex, addresses include 0x8C010000 base

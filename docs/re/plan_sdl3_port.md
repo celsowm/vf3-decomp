@@ -82,6 +82,22 @@ only.  The state format the port reads is known (64-bit records: the marker
 the RAM windows as `<count>`, `<base>`, `<len>` and `len/4` words), so the
 dump patch writes exactly that.
 
+*Status (2026-10-26, later)*: option 1 is done.  `tools/refemu/vf3dump.c`
+(ours) writes that recording - the 37 registers, the XF bank and one 16 MiB
+window at `0x0C000000`, which is exactly the window the port expects - and
+counts how often each instruction of the game image runs.  Upstream's own
+`TEST_AUTOMATION` hook writes every rendered frame raw, so one run produces
+the state and the reference frames together.  The two hooks and the two
+configuration traps are in `docs/re/patches/reference_frame_dump.md` and
+`docs/re/p1_reference_frames.md`.
+
+The finding that unblocked the phase: **the observer's guest is stalled by the
+observer's own patches**, not by the savestate.  The v3 observer sits in the
+GD exec-server wrapper and never reaches the frame loop, while a pristine
+Flycast plays the same savestate - the attract screen, then the demo fight.
+Only synthetic captures ever noticed, because a probe needs the guest to reach
+the probe, not to run on its own.
+
 ### P2 - the frame loop
 One scheduler tick (`0x8C09616A`) per frame, plus the vblank handler and the
 timers, in a loop with a clock.  The pieces exist: `src/fight/native_tick.c`
@@ -107,6 +123,10 @@ The emulator-side dump (P1) plus `tools/pvr2_frame_diff.py`: same size, the
 fraction of pixels within +/-1 per channel, and the first differing pixel.
 *Verification*: the tool reports the mismatch count for a known-good pair
 (the emulator's own frame dumped twice) as 0.
+*Status (2026-10-26)*: the tool is written and its self-test passes (0 of
+307,200 pixels differ for the same frame twice).  The reference frames
+themselves are real: the emulator's raw video holds VF3tb's "Press Start
+Button" attract screen and the demo fight.
 
 ### P5 - audio
 The AICA model already records the commands; add the PCM generator (the
