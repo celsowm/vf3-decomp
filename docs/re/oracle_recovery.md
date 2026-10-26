@@ -154,6 +154,22 @@ what remains to be solved for that family.)
 The evidence chain is unchanged: a body is credited by a ledger row, and a row
 that claims an oracle replay names the cases that back it.
 
+## The gate after the recovery
+
+`tools/portcheck.py --jobs 4` still ends in `FAIL`, and every cause is the
+artefact gap rather than a regression:
+
+* the 64 bindings whose corpus file is gone (down from 71: the seven the
+  restored observer re-captured now replay);
+* 11 of the 39 gated replay tests, each because the file it reads is gone -
+  five FPU boundary corpora without their RAM shadows, five corpus files, and
+  the `fsca_modes.bin` fixture.
+
+Coverage itself did not move: `tools/final_status.py` still prints
+`Pure C union: 436928 bytes (100.5227%)`, and `tools/gap_fidelity.py` still
+reports 0 blocks whose opcode does not match the image.
+
+
 ## What was re-captured with it
 
 The eight `u98` corpora - the ones the corpus-less pool sweep produced before
