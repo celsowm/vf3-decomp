@@ -549,6 +549,32 @@ endif()
 add_executable(vf3 src/main.c)
 target_link_libraries(vf3 PRIVATE vf3core)
 
+# The SDL3 host (docs/re/plan_sdl3_port.md, phase P0).  Off by default: the
+# port itself does not need SDL3, only the host that presents its frames.
+option(VF3_SDL3 "Build the SDL3 host (vf3sdl)" OFF)
+if (VF3_SDL3)
+    find_package(SDL3 CONFIG QUIET)
+    if (NOT SDL3_FOUND)
+        # No CMake package config: find the headers and the import library
+        # directly (MSYS2's ucrt64 SDL3, or a plain install).
+        find_path(SDL3_INCLUDE_DIR NAMES SDL3/SDL.h
+                  HINTS "$ENV{MSYS2_ROOT}/ucrt64/include" "C:/msys64/ucrt64/include")
+        find_library(SDL3_LIBRARY NAMES SDL3 SDL3.dll
+                     HINTS "$ENV{MSYS2_ROOT}/ucrt64/lib" "C:/msys64/ucrt64/lib")
+        if (NOT SDL3_INCLUDE_DIR OR NOT SDL3_LIBRARY)
+            message(FATAL_ERROR
+                    "SDL3 not found. Install it (MSYS2: pacman -S mingw-w64-ucrt-x86_64-sdl3) "
+                    "or point SDL3_INCLUDE_DIR and SDL3_LIBRARY at it.")
+        endif()
+        add_library(SDL3::SDL3 UNKNOWN IMPORTED)
+        set_target_properties(SDL3::SDL3 PROPERTIES
+                              IMPORTED_LOCATION "${SDL3_LIBRARY}"
+                              INTERFACE_INCLUDE_DIRECTORIES "${SDL3_INCLUDE_DIR}")
+    endif()
+    add_executable(vf3sdl src/host/sdl3_host.c src/render/pvr2.c)
+    target_link_libraries(vf3sdl PRIVATE vf3core SDL3::SDL3)
+endif()
+
 add_executable(vf3tool tools/vf3tool.c)
 target_link_libraries(vf3tool PRIVATE vf3core)
 

@@ -56,7 +56,11 @@ native tick already does for the TA.
 `src/host/sdl3_host.c`: SDL3 init, a window, an event loop, `--dump-frame
 FILE` so the app can run without a display.  CMake option `VF3_SDL3=ON`
 builds the `vf3sdl` target against the MSYS2 `ucrt64` SDL3.
-*Done*: SDL3 installed; the target and the host file are the work.
+*Done (2026-10-26)*: SDL3 3.4.16 installed (`pacman -S
+mingw-w64-ucrt-x86_64-sdl3`); `src/render/pvr2.{c,h}` (the model's shape and
+the TA word histogram) and `src/host/sdl3_host.c` (the host) added;
+`vf3sdl.exe` builds and runs - it loads a state, runs the tick, feeds the TA
+stream to the model and writes a 640x480 PPM frame.
 
 ### P1 - a machine state the port can load
 The tick captures are gone, so the port needs its own state input.  Two
@@ -70,6 +74,13 @@ options, in order of cost:
    *and* a free reference frame (the last frame the emulator drew), at the
    cost of exact frame alignment.
 *Verification*: the loaded state reproduces the tick's entry registers.
+
+*Status (2026-10-26)*: option 1's build works - `tools/emu/flycast-ref-build/
+flycast.exe` is a MinGW/ucrt64 build of upstream Flycast with SDL3, OpenGL
+only.  The state format the port reads is known (64-bit records: the marker
+`0xFA30` with a non-zero high half carries the 37 entry registers, `0xFA50`
+the RAM windows as `<count>`, `<base>`, `<len>` and `len/4` words), so the
+dump patch writes exactly that.
 
 ### P2 - the frame loop
 One scheduler tick (`0x8C09616A`) per frame, plus the vblank handler and the
