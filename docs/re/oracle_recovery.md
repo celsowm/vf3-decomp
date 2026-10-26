@@ -149,3 +149,55 @@ what remains to be solved for that family.)
 
 The evidence chain is unchanged: a body is credited by a ledger row, and a row
 that claims an oracle replay names the cases that back it.
+
+## What was re-captured with it
+
+The eight `u98` corpora - the ones the corpus-less pool sweep produced before
+the oracle went missing - were re-captured with the restored observer, over
+six savestates (`vf3_{26,27,28,29,45,46}.state`) instead of the two the old
+campaign used:
+
+| entry | old corpus | re-captured | verdict |
+|---|---|---|---|
+| 0x8c0371c2 | 4 cases | 10 cases | `10/10 cases match (0 skipped) - PASS` |
+| 0x8c037248 | 2 cases | 4 cases | `4/4 cases match (0 skipped) - PASS` |
+| 0x8c046320 | 4 cases | 10 cases | `10/10 cases match (0 skipped) - PASS` |
+| 0x8c04ba30 | 4 cases | 14 cases | `14/14 cases match (0 skipped) - PASS` |
+| 0x8c053dda | 5 cases | 11 cases | `11/11 cases match (0 skipped) - PASS` |
+| 0x8c08a942 | 4 cases | 8 cases | `8/8 cases match (0 skipped) - PASS` |
+| 0x8c0c2706 | 5 cases | 12 cases | `12/12 cases match (0 skipped) - PASS` |
+| 0x8c07caa8 | 2 cases | *none* | every specimen ends `flags=4` |
+
+69 cases in all, and every one of them replays clean against the port.  The
+seventh row of the table is the exception: `0x8c07caa8` does not re-capture at
+all, because every specimen spins in the REIOS BIOS polling a device register
+until the 500,000-instruction budget runs out - the wall
+`docs/re/coverage_93_c97_batch.md` describes.  Its ledger row now says so
+instead of citing a corpus that is gone.
+
+## What the campaign over the gap bodies measured
+
+The 151 gap entries in the high region were swept with the restored observer
+(six savestates, the arena and pointer seed plans, 500,000 instructions per
+specimen).  **None of them yields a usable case.**  The failure modes are the
+documented ones:
+
+| flags | count | meaning |
+|---|---|---|
+| 1 | 342 | illegal instruction: the arena-seeded registers send the target into empty memory |
+| 4 | 229 | the record budget ran out: the probe spins in the REIOS BIOS |
+| 6 | 23 | budget *and* a device access |
+
+So the oracle was never the binding constraint on that family.  The seed plan
+is: a probe whose registers point at the arena reaches code that never
+dereferences them, and a probe that does reach the device service spins in the
+BIOS waiting for the drive.  Making those bodies replayable needs a per-entry
+seed plan (the `tools/oracle/seed_plan.py` approach), not a working emulator.
+
+The 58 gap entries in the low region (the image's boot and BSS code, which the
+game erases after it has used it) are a separate problem: the image's own
+bytes have to be seeded into RAM when the probe is armed, which is what
+`--ram-image-seed` now does.  With it the probe executes the image's real
+instructions, but the boot copy loop then branches through an arena-seeded
+register into the arena, so the seed plan is still the open half.
+

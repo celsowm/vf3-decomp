@@ -1143,6 +1143,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the raw bit numbers is mislabelled in `docs/readable_status.csv`.  The
   range-flag row had it wrong in both directions (it named FR0..FR4 while the
   port writes FR4..FR9); it is fixed now.  Write the FP registers as `FR(n)`.
+- **The oracle is back; the gap bodies' wall is the seed plan, not the
+  emulator.**  `tools/oracle/recover_oracle.py` stages the restored observer,
+  seals it against the original control windows and re-verifies it (a fresh
+  capture reproduces a recorded one byte for byte).  With it, the eight lost
+  `u98` corpora were re-captured and 69 cases replay clean.  But the 151 gap
+  entries in the high region still yield **no** usable case: the arena-seeded
+  registers send the target into empty memory (`flags=1`, 342 specimens) and
+  the REIOS BIOS spin burns the instruction budget (`flags=4`, 229).  Making
+  that family replayable needs a per-entry seed plan, not a working emulator.
+  See `docs/re/oracle_recovery.md`.
 - **A lost tool is usually in the local evidence cache, not gone.**  The
   instrumented oracle (`tools/emu`, gitignored) was "missing" while its
   binaries sat in `C:\Users\celso\AppData\Local\vf3-decomp\audio-evidence`
