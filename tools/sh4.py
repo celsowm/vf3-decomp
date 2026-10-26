@@ -402,13 +402,15 @@ def decode(w, pc=0):
             return "fcnvds", f"dr{n & 0xE},fpul"
         if (w & 0xF1FF) == 0xF0AD:
             return "fcnvsd", f"fpul,dr{n & 0xE}"
-        if (w & 0xF3FF) == 0xF1FD:
-            # ftrv xmtrx,FVn: idx = bits[11:10], group = idx*4
+        if (w & 0xF1FF) == 0xF1FD:
+            # ftrv xmtrx,FVn: the vector index is bits 11-10, bits 9-8 are 01
             return "ftrv", f"xmtrx,fv{((w >> 10) & 3) * 4}"
-        if (w & 0xF33F) == 0xF0ED:
-            # fipr FVm,FVn: idx n=bits[11:10], m=bits[7:6], group = idx*4
+        if (w & 0xF0FF) == 0xF0ED:
+            # fipr FVm,FVn: 1111 nnmm 1110 1101.  The vector index is two bits
+            # (bits 11-10 for FVN, bits 9-8 for FVM) and selects a group of
+            # four FRs, so the group base is the index times four.
             vn = ((w >> 10) & 3) * 4
-            vm = ((w >> 6) & 3) * 4
+            vm = ((w >> 8) & 3) * 4
             return "fipr", f"fv{vm},fv{vn}"
         # The FP row 0xF keeps the FR in bits 11-8 (not in a group of four).
         # 0111 in bits 7-4 is the reciprocal square root, 1111 the sine and

@@ -55,8 +55,8 @@ static void usage(void)
 {
     fprintf(stderr,
             "usage: vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR]\n"
-            "              [--gdi DISC] [--gd-state FILE] [--dump-frame FILE.ppm]\n"
-            "              [--headless] [--fps N]\n");
+            "              [--entry ADDR] [--gdi DISC] [--gd-state FILE]\n"
+            "              [--dump-frame FILE.ppm] [--headless] [--fps N]\n");
 }
 
 int main(int argc, char **argv)
@@ -64,6 +64,7 @@ int main(int argc, char **argv)
     const char *state = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL;
     unsigned pair = 0, frames = 1, fps = DEFAULT_FPS;
     uint32_t gbr = DEFAULT_GBR;
+    uint32_t entry = VF3_NATIVE_SCHED_ENTRY;
     int headless = 0;
 
     for (int i = 1; i < argc; ++i) {
@@ -71,6 +72,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--pair") && i + 1 < argc) pair = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--frames") && i + 1 < argc) frames = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gbr") && i + 1 < argc) gbr = (uint32_t)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--entry") && i + 1 < argc) entry = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (!strcmp(argv[i], "--dump-frame") && i + 1 < argc) dump = argv[++i];
@@ -145,13 +147,15 @@ int main(int argc, char **argv)
     Uint64 next = SDL_GetTicksNS();
     for (unsigned frame = 0; frame < frames; ++frame) {
         vf3_pvr2_frame_begin(&pvr2);
-        vf3_native_tick_run(ram, regs, VF3_NATIVE_SCHED_ENTRY, gbr, &r);
+        vf3_native_tick_run(ram, regs, entry, gbr, &r);
         if (!r.ok || r.unowned_calls) {
             fprintf(stderr, "vf3sdl: frame %u failed at %08x (%u unowned calls, first %08x)\n",
                     frame, r.failed_pc, r.unowned_calls, r.first_unowned);
             status = 1;
             break;
         }
+        /* the next frame starts where this one ended */
+        memcpy(regs, r.regs, 37 * sizeof regs[0]);
         for (unsigned i = 0; i < r.ta_words; ++i) vf3_pvr2_ta_push(&pvr2, r.ta[i]);
         vf3_pvr2_frame_end(&pvr2);
         fprintf(stderr, "vf3sdl: frame %u: %u TA words", frame, r.ta_words);
