@@ -61,6 +61,20 @@ def main():
                          'writes one that fills the low RAM region with the image, '
                          'so a probe that targets an entry there runs the real code '
                          'instead of zeros.')
+    ap.add_argument('--ram-image-seed', action='store_true',
+                    help='seed the image\'s own bytes into the low RAM region as part of '
+                         'every seed variant, so a probe that targets an entry there runs '
+                         'the real code.  The start-up fixture (--ram-patch) cannot do '
+                         'this: the observer reads it while the savestate is still being '
+                         'loaded, and the state then writes the region back to zero.  The '
+                         'seed variant is applied when the probe is armed, after the load, '
+                         'and the observer writes back and invalidates the cache lines it '
+                         'touches, so the guest really executes the seeded code.')
+    ap.add_argument('--ram-image', type=Path, default=ROOT/'extract/exe/1ST_READ.unsc.bin',
+                    help='the image the low region is seeded from (identity: file offset 0 '
+                         'is address 0x8c010000)')
+    ap.add_argument('--ram-image-start', type=lambda s: int(s, 16), default=0x0c010000)
+    ap.add_argument('--ram-image-end', type=lambda s: int(s, 16), default=0x0c030000)
     ap.add_argument('--arena-base', type=lambda s: int(s, 16), default=0x0c420000)
     ap.add_argument('--arena-stride', type=lambda s: int(s, 16), default=0x1000,
                     help='distance between the arena pages the seeded registers '
@@ -95,6 +109,19 @@ def main():
         if a.pointer_fixtures:
             from pointer_seeds import fixture
             registers, words = fixture(entry, a.seed_mode)
+        if a.ram_image_seed:
+            # The low region (0x0c010000-0x0c030000) is the image's boot and
+            # BSS code; the game erases it after it has used it, so every
+            # captured state has it zeroed and a probe aimed there would run
+            # zeros until the erased 0xffff padding raised an illegal
+            # instruction.  Seed the image's own bytes there instead.  The
+            # identity load puts file offset 0 at address 0x8c010000.
+            image = a.ram_image.read_bytes()
+            base = 0x8c010000
+            for addr in range(a.ram_image_start & ~3, a.ram_image_end & ~3, 4):
+                off = (addr | 0x80000000) - base
+                if 0 <= off <= len(image) - 4:
+                    words[addr] = int.from_bytes(image[off:off+4], 'little')
         if a.arena_seeds:
             # The probe runs with the game's live registers unless the patch
             # overrides them.  A live register that holds a bogus pointer

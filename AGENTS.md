@@ -1143,6 +1143,32 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the raw bit numbers is mislabelled in `docs/readable_status.csv`.  The
   range-flag row had it wrong in both directions (it named FR0..FR4 while the
   port writes FR4..FR9); it is fixed now.  Write the FP registers as `FR(n)`.
+- **A lost tool is usually in the local evidence cache, not gone.**  The
+  instrumented oracle (`tools/emu`, gitignored) was "missing" while its
+  binaries sat in `C:\Users\celso\AppData\Local\vf3-decomp\audio-evidence`
+  (`flycast_capsule_extended_v{1,2,3}.exe` plus their build directories) and
+  on the capture drive.  Search the app-data cache and `D:\vf3-captures`
+  before rebuilding anything: the *sources* of the observer are recoverable
+  too (`tools/oracle/vf3oracle_v3.cpp` is the exact source of the v3 observer,
+  `docs/re/patches/oracle_v3_from_pristine.patch` its delta against the
+  pristine one).  `tools/oracle/recover_oracle.py stage|seal|verify` is the
+  recipe, and it proves the observer by reproducing a recorded control window
+  byte for byte.  See `docs/re/oracle_recovery.md`.
+- **The start-up RAM fixture is applied while the savestate loads, so the
+  state overwrites it.**  `VF3_RAM_PATCH` is read by the observer's `init()`,
+  which runs *inside* the state load ("[vf3oracle] loaded N RAM fixture words"
+  appears between "loading state" and "state loaded"), and the state then
+  writes the region back to zero.  A fixture that has to survive the load
+  belongs to the *seed variant* instead: the entry patch's `ram` lines are
+  applied when the probe is armed, and the observer writes back and invalidates
+  the cache lines it touches, so the guest executes the seeded code.
+  `tools/oracle/isolated_probes.py --ram-image-seed` puts the image's own
+  bytes there.
+- **A capsule's raw bytes carry the recorder's format tag.**  The pristine
+  oracle wrote `VF3CAP6`, the extended ones write `VF3CAP7`, so a fresh
+  capture can never be byte-identical to an older recorder's file.  Compare a
+  fresh capture with the *same* recorder's recorded output (and compare the
+  older one semantically, with `tools/oracle/compare_original_samples.py`).
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)

@@ -1,0 +1,178 @@
+--- a/tools/oracle/vf3oracle.cpp
++++ b/tools/oracle/vf3oracle_v3.cpp
+@@ -19,6 +19,7 @@
+ #include "hw/sh4/sh4_opcode_list.h"
+ #include "hw/sh4/sh4_cache.h"
+ #include "hw/sh4/sh4_interrupts.h"
++#include "hw/sh4/sh4_sched.h"
+ #include "hw/sh4/modules/mmu.h"
+ #include "hw/aica/aica_if.h"
+ #include <algorithm>
+@@ -30,9 +31,29 @@
+ #include <string>
+ #include <vector>
+ 
++void vf3GdSnapshot(unsigned out[16]);   /* reios/gdrom_hle.cpp */
++
+ namespace {
+-constexpr unsigned PAGE = 4096, LIMIT = 128;
++/* The RAM page cache is what makes a synthetic probe's memory state observable:
++ * every page the probe touches is journalled so the C replay sees the same
++ * bytes.  The original 128-page (512 KiB) ceiling was a memory budget, but the
++ * arena-seeded fixture alone spreads its 16 registers over 128 pages, so any
++ * target that also touches its own data tips over the limit and the specimen is
++ * rejected with flags=4.  1024 pages (4 MiB) leaves room for the fixture, the
++ * target's own data and the pre-probe restore image. */
++constexpr unsigned PAGE = 4096, LIMIT = 1024;
+ using State = std::array<unsigned, 63>;
++static FILE *gdLog = nullptr;
++static void logGd(char kind, unsigned long long id, unsigned entry)
++{
++    if (!gdLog) return;
++    unsigned s[16];
++    vf3GdSnapshot(s);
++    std::fprintf(gdLog, "%c %llu %08x", kind, id, entry);
++    for (int i = 0; i < 16; ++i) std::fprintf(gdLog, " %08x", s[i]);
++    if (std::getenv("VF3_GDLOG_TIME")) std::fprintf(gdLog, " @%llu", (unsigned long long)sh4_sched_now64());
++    std::fputc(10, gdLog);
++}
+ struct Spec { unsigned pc, transfer, count = 0; };
+ struct Call {
+     unsigned long long id;
+@@ -157,6 +178,7 @@
+     for (const auto &p:c.pages) flushPage(p.first);
+     if (c.invalidAddress) ++nonRam[{c.entry,c.invalidAddress}];
+     State out=snapshot(ctx);
++    logGd('E', c.id, c.entry);
+     unsigned header[7]={c.entry,pc,c.flags,(unsigned)c.pages.size(),(unsigned)c.ops.size(),63,(unsigned)c.device.size()};
+     bool ok=std::fwrite(&c.id,8,1,output)==1 && std::fwrite(header,4,7,output)==7;
+     ok = ok && std::fwrite(c.in.data(),4,63,output)==63 && std::fwrite(out.data(),4,63,output)==63;
+@@ -328,8 +350,23 @@
+     }
+ }
+ bool device_address(unsigned a) { return !IsOnRam(a) && !mmu_enabled(); }
+-bool blockSyntheticDevice(unsigned addr,unsigned size) {
++/* A device *read* is safe for a synthetic probe when the register has no read
++ * side effect: the value is journalled in the device tape and the C replay
++ * feeds it back, so the captured behaviour stays exact.  These registers do
++ * have a side effect and stay rejected:
++ *   0xff000034  SCIF RDR     - reading it pops the receive FIFO
++ *   0xa05f8000  AICA common  - sgc::ReadCommonReg can start a DMA
++ * Everything else (SCBRR, CCR, the timer levels, the interrupt status
++ * registers, the VRAM banks, the boot ROM and the unknown P4 MMIO holes) is
++ * a plain read in the emulator. */
++bool deviceReadIsSafe(unsigned addr) {
++    if (addr==0xff000034u) return false;
++    if (addr>=0xa05f8000u && addr<0xa05f8018u) return false;
++    return true;
++}
++bool blockSyntheticDevice(unsigned addr,unsigned size,unsigned write,bool *suppress) {
+     bool blocked=false;
++    *suppress=false;
+     for (auto &c:active) if (c.synthetic) {
+ #ifdef VF3_HEADLESS
+         /* Only the canonical uncached 2 MiB sound RAM window, never AICA
+@@ -360,21 +397,31 @@
+             continue;
+         }
+ #endif
+-        /* Device state cannot be restored from RAM pages. Reject the specimen
+-         * before issuing an access, then restore at the next instruction. */
+-        c.flags|=2; c.invalidAddress=addr;
+-        c.aborted=true; c.skipFetched=true; c.countdown=1; blocked=true;
++        /* A device write would change state that the RAM rollback cannot
++         * restore, so the write is dropped instead of the specimen being
++         * rejected: the access is still journalled, the C replay verifies the
++         * same sequence, and the device keeps the value the game left.  The
++         * probe therefore observes the pre-probe device state, which is the
++         * state the game itself resumes with. */
++        if (write) { *suppress=true; continue; }
++        /* A side-effect-free device read leaves the device untouched, so the
++         * rollback stays exact.  Its value is journalled by device() and the
++         * C replay reproduces it through the device tape. */
++        if (!deviceReadIsSafe(addr)) {
++            c.flags|=2; c.invalidAddress=addr;
++            c.aborted=true; c.skipFetched=true; c.countdown=1; blocked=true;
++        }
+     }
+     return blocked;
+ }
+-u8 DYNACALL r8(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,1)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
+-u16 DYNACALL r16(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,2)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
+-u32 DYNACALL r32(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,4)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
+-u64 DYNACALL r64(unsigned a) { bool d=device_address(a); if(d && blockSyntheticDevice(a,8)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
+-void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { if(blockSyntheticDevice(a,1)) return; device(a,1,v,1); } else touch(a,1); wr8(a,v); }
+-void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { if(blockSyntheticDevice(a,2)) return; device(a,2,v,1); } else touch(a,2); wr16(a,v); }
+-void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { if(blockSyntheticDevice(a,4)) return; device(a,4,v,1); } else touch(a,4); wr32(a,v); }
+-void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { if(blockSyntheticDevice(a,8)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); } else touch(a,8); wr64(a,v); }
++u8 DYNACALL r8(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,1,0,&s)) return 0; if(!d) touch(a,1); u8 v=rd8(a); if(d) device(a,1,v,0); return v; }
++u16 DYNACALL r16(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,2,0,&s)) return 0; if(!d) touch(a,2); u16 v=rd16(a); if(d) device(a,2,v,0); return v; }
++u32 DYNACALL r32(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,4,0,&s)) return 0; if(!d) touch(a,4); u32 v=rd32(a); if(d) device(a,4,v,0); return v; }
++u64 DYNACALL r64(unsigned a) { bool d=device_address(a); bool s=false; if(d && blockSyntheticDevice(a,8,0,&s)) return 0; if(!d) touch(a,8); u64 v=rd64(a); if(d) { device(a,4,(u32)v,0); device(a+4,4,(u32)(v>>32),0); } return v; }
++void DYNACALL w8(unsigned a,u8 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,1,1,&s)) return; device(a,1,v,1); if(s) return; } else touch(a,1); wr8(a,v); }
++void DYNACALL w16(unsigned a,u16 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,2,1,&s)) return; device(a,2,v,1); if(s) return; } else touch(a,2); wr16(a,v); }
++void DYNACALL w32(unsigned a,u32 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,4,1,&s)) return; device(a,4,v,1); if(s) return; } else touch(a,4); wr32(a,v); }
++void DYNACALL w64(unsigned a,u64 v) { if(device_address(a)) { bool s=false; if(blockSyntheticDevice(a,8,1,&s)) return; device(a,4,(u32)v,1); device(a+4,4,(u32)(v>>32),1); if(s) return; } else touch(a,8); wr64(a,v); }
+ void hooks() {
+     if (ReadMem32==r32) return;
+     rd8=ReadMem8; rd16=ReadMem16; rd32=ReadMem32; rd64=ReadMem64;
+@@ -525,6 +572,7 @@
+                      syntheticPatches.size(), entryPatch, variants+1);
+     }
+     const char *path=std::getenv("VF3_CAPSULE");
++    if (const char *gl=std::getenv("VF3_GDLOG")) gdLog=std::fopen(gl,"w");
+     const char *hits=std::getenv("VF3_HITS");
+     if (path && hits) { std::fprintf(stderr,"[vf3oracle] choose capsule or hits\n"); std::abort(); }
+     if (!path && !hits) return;
+@@ -532,7 +580,7 @@
+         output=std::fopen(path,"wb"); if (!output) std::abort();
+         outputPath=path;
+         std::atexit(close_output);
+-        if (std::fwrite("VF3CAP6\0",1,8,output)!=8) std::abort();
++        if (std::fwrite("VF3CAP7\0",1,8,output)!=8) std::abort();
+     } else { hitsPath=hits; std::atexit(close_hits); }
+     const char *n=std::getenv("VF3_CAPSULE_N"); if(n) samples=std::strtoul(n,nullptr,0);
+     const char *dbg=std::getenv("VF3_ORACLE_DEBUG"); if(dbg&&*dbg) debugPath=dbg;
+@@ -685,6 +733,13 @@
+                 }
+             }
+             applySyntheticRegs(mutableCtx,variant);
++            /* The probe inherits the game's SR.  If the FPU is disabled there,
++             * every FPU instruction in the target raises Sh4Ex_FpuDisabled, the
++             * guest takes the exception through the BIOS vector and the
++             * specimen is lost (the oracle retires it on the RTE).  The game
++             * itself only reaches FPU code with the FPU enabled, so clear the
++             * FD bit (SR bit 12) for the probe. */
++            mutableCtx->sr.setFull(mutableCtx->sr.getFull() & ~0x1000u);
+             /* Seed the fixture. The emulated operand cache is write-back and the
+              * game has almost certainly touched these pages already, so a bare
+              * host write into mem_b is invisible: the core keeps hitting cached
+@@ -716,6 +771,11 @@
+                     oneShotStarted=true;
+                     vf3AudioBegin(targetPc,pendingSubOp,mutableCtx);
+                 }
++                /* The synthetic arm is the redirect's entry into the target, so it
++                 * is the moment the drive state the target sees.  The natural
++                 * watch path logs the same record (see the generic arm below);
++                 * without it a redirected specimen only carries its exit state. */
++                logGd('S', c.id, c.entry);
+                 active.push_back(std::move(c));
+             }
+             /* The redirect already owns the target's invocation: the generic watch
+@@ -747,6 +807,7 @@
+                     std::memcpy(&mem_b[word[0]&0x00ffffffu],&word[1],4);
+             }
+             Call c; c.id=++sequence; c.entry=pc; c.depth=depth; c.transfer=spec->transfer; c.in=snapshot(ctx);
++            logGd('S', c.id, c.entry);
+             active.push_back(std::move(c));
+         }
+     }
+@@ -775,7 +836,7 @@
+             c.needsSnapshot=false;
+             c.saved=*ctx; c.savedDepth=depth;
+         }
+-        if(c.ops.size()<100000) c.ops.push_back({pc,(unsigned)op}); else c.flags|=4;
++        if(c.ops.size()<500000) c.ops.push_back({pc,(unsigned)op}); else c.flags|=4;
+         /* Retire a probe that never returns: some seeds drive the target into a
+          * spin, and a 100k-instruction excursion is long enough to wreck the run
+          * (nested exceptions, interrupt bookkeeping inside the probe). Bail at

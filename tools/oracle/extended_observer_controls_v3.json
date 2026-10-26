@@ -1,0 +1,199 @@
+{
+  "coverage_credit": false,
+  "diagnostic_controls_passed": true,
+  "maximum_recorded_instructions": 500000,
+  "unchanged_original_simulation": true,
+  "observer": {
+    "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast_v3.exe",
+    "sha256": "143bb86088a83f086b533570e3b9e13e118958882ec59d4a2d1cf8c055045323"
+  },
+  "observer_source": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle_v3.cpp",
+    "sha256": "eec546e0802f013271ab5077b2f9bf6baae6b29af471bd18822b8db6b6aaded5"
+  },
+  "controls": [
+    {
+      "case": "replay_scene57_0",
+      "state": "vf3_28.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 10999,
+      "original_capsule_sha256": "90d3fc2c682278f9b77edae5769e2c0077b3892a5d14b1c54d0ea207dd2b2442",
+      "observer_capsule_sha256": "e2e86bc2feac390f4daa4b28931ee3208ad59aba0da1aa44b34b637af0ed0aef",
+      "original_audio_sha256": "e0d8d561e3437185a1dd56b2c19d3560391a410f39aeda3a03aa05ffe7a76b21",
+      "observer_audio_sha256": "2fdd6468acffb37f2ff896b967540d50ff0b9fa7064b102f4caa18c6edff1c78"
+    },
+    {
+      "case": "replay_scene57_32",
+      "state": "vf3_28.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 10388,
+      "original_capsule_sha256": "fcdf0d8f1cb8a896a13177d8cbc999342dbaad52940923edca8d12c4a6cb9fdc",
+      "observer_capsule_sha256": "baa3aa776dd536f43337209afb23bcf8e4cb2b7d069160e232d62ea5d7974dd3",
+      "original_audio_sha256": "27f7d438d3c28fb795b317934f71bf932c4abbe544f496531a44e76e0a36466e",
+      "observer_audio_sha256": "61681917d6697e5e0301f9fecb0fab45438344dfcb959b4b8a325ce473caef79"
+    },
+    {
+      "case": "replay_scene57_64",
+      "state": "vf3_28.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 10689,
+      "original_capsule_sha256": "1adf240810460880bb442506e5e029d9ad725c5e2801b15939a11a923e0ce6c9",
+      "observer_capsule_sha256": "6ebafbc3e334dc943d9dff823eb2e95e0ab00c8797fb21470efbc17162ba4bdb",
+      "original_audio_sha256": "15566e3e8f0709d778ec4185bf5f7c597a4bb996c0e5dd94b196f889ba825f3b",
+      "observer_audio_sha256": "9f887dc7df2aa576e44c0cc39340b27857272aa713df3d20d573e9622a45cf7f"
+    },
+    {
+      "case": "replay_scene57_96",
+      "state": "vf3_28.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 11299,
+      "original_capsule_sha256": "cae73670d0689ac9e7791b72c84bf7a685b56803298d79b256cf698d95f63d39",
+      "observer_capsule_sha256": "136587f41baf3d100e966ca71f8104d2f5174c2998652f4aa600a3b9a38243e1",
+      "original_audio_sha256": "f8c5823b57b424462c07cba66f5f7df9ea68845a13f66d28313776cc27ff70b2",
+      "observer_audio_sha256": "28279111fe2d4a2073abb96e326fd208bb483b0c6bbaeb21cbb6e448a806d41d"
+    },
+    {
+      "case": "replay_scene57_0",
+      "state": "vf3_29.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 13921,
+      "original_capsule_sha256": "d35672179274f44bf2356d2881ee7f50cf6421013d4fba20a6c45d1dac798326",
+      "observer_capsule_sha256": "7208c5033d649856fd3b1c6273d4cac220138516210dd45ca9be77619a491193",
+      "original_audio_sha256": "3e73914c2ab763ece447f1b180f537ff5dfd668c1ba07b297aa8f5a12505082e",
+      "observer_audio_sha256": "0453f7ab37666b580b64898eed75c0f53adb76889bd78d431e8fb0df67bfa9fe"
+    },
+    {
+      "case": "replay_scene57_32",
+      "state": "vf3_29.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 13310,
+      "original_capsule_sha256": "01be055f36ed98926c5f71d7dcd36792bc2bfe15e7818adf038ab54490da05bd",
+      "observer_capsule_sha256": "08c1e21648e5905fd8b90451c3087602e88155019707f1c309a27d7caaccdaf7",
+      "original_audio_sha256": "b56d26f3e17679aff1cda4d88e1bfe01e5deb12cc449e9817008cb514f813b5e",
+      "observer_audio_sha256": "8e48388e616da77055db3920405ee08bcdfcab42fbac4e8e95ba8868954356f8"
+    },
+    {
+      "case": "replay_scene57_64",
+      "state": "vf3_29.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 13611,
+      "original_capsule_sha256": "d984479ff44c886ea0e97cd2d2917122653f96fa5a2029607dded3f595f42c2f",
+      "observer_capsule_sha256": "7947e9cfb2c2b203132598c95aff745187d48415f730be2c8b346f097e7249b9",
+      "original_audio_sha256": "e624e0aca102cb2e2f202b252cd7435e3ef9032db05828df37f33e6a6e57778d",
+      "observer_audio_sha256": "fcefd36c5c5d102c533e8b6ed23ef2b433f0bddaccb8be9e19205d80c8cebbfb"
+    },
+    {
+      "case": "replay_scene57_96",
+      "state": "vf3_29.state",
+      "architecture_ram_and_trace_equal": true,
+      "audio_checkpoint_equal": true,
+      "patched_main_oracle_equal": true,
+      "instructions": 14221,
+      "original_capsule_sha256": "a3fd826c128d8b5742d4f67f79dacd29d748b5c5c9cd0d69e63c1a8fde9aefa7",
+      "observer_capsule_sha256": "2736880fed1fe63980df1ee7d5dae77a6d44c643658bc1ea432f8280076a62c7",
+      "original_audio_sha256": "8b770b631d24f3d1389e1dc0cfdaf8f25ce0e582f31854f91831c16153f63269",
+      "observer_audio_sha256": "199c26607182b03baae58f62c0e149912e8cec795c2919801db261f1253e7ba7"
+    }
+  ],
+  "limitation": "These controls validate the recording-only extension against the pristine original oracle on eight windows: architecture, RAM, the canonical instruction trace and the full audio checkpoint are equal.  A capture campaign still needs its own acceptance.",
+  "references": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle_v3.cpp",
+      "sha256": "eec546e0802f013271ab5077b2f9bf6baae6b29af471bd18822b8db6b6aaded5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\docs\\re\\patches\\oracle_v3_from_pristine.patch",
+      "sha256": "0b781a120015ebe111eb362649652a0520f298988244ea630df69677b82c5f0d"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle.cpp",
+      "sha256": "c08f79be12630d36a843f54b64765a63b81d629faeaf1cba3983262b803ea6a5"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\install.py",
+      "sha256": "67a95d47cf4e197494c7e42c2546015927e2ec8df73aebd589ffe1f07ef20124"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast_v3.exe",
+      "sha256": "143bb86088a83f086b533570e3b9e13e118958882ec59d4a2d1cf8c055045323"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_0_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_0_1.patch",
+      "sha256": "b343b43954cff2e2e4cd38f0a84ba8fb27966883aa670c5f849480a9968fe855"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_32_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_32_1.patch",
+      "sha256": "d52f1df44fc3262b1bd728cd8cc06b142ab5faa7f267e58bfacb0aea0b3967e7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_64_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_64_1.patch",
+      "sha256": "7c1a4371fab187702af17afe751d36e2b1147020c367714472edf5309fbf95e0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_96_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_96_1.patch",
+      "sha256": "a8792cb1b86f51a4cce5b644885898921a27f6269d06bf7c7a25a8b644918711"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_0_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_0_1.patch",
+      "sha256": "b343b43954cff2e2e4cd38f0a84ba8fb27966883aa670c5f849480a9968fe855"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_32_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_32_1.patch",
+      "sha256": "d52f1df44fc3262b1bd728cd8cc06b142ab5faa7f267e58bfacb0aea0b3967e7"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_64_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_64_1.patch",
+      "sha256": "7c1a4371fab187702af17afe751d36e2b1147020c367714472edf5309fbf95e0"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_96_1.watch",
+      "sha256": "3675cd34cecc74a2ddc37f4bab49b8e5ae00298f303f8ce0703fc7deeb07ebb3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_96_1.patch",
+      "sha256": "a8792cb1b86f51a4cce5b644885898921a27f6269d06bf7c7a25a8b644918711"
+    }
+  ]
+}

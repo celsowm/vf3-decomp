@@ -1,0 +1,231 @@
+{
+  "coverage_credit": false,
+  "oracle_restored": true,
+  "observer": {
+    "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\flycast_v3.exe",
+    "sha256": "143bb86088a83f086b533570e3b9e13e118958882ec59d4a2d1cf8c055045323"
+  },
+  "observer_source": {
+    "path": "E:\\vf3-decomp\\tools\\oracle\\vf3oracle_v3.cpp",
+    "sha256": "eec546e0802f013271ab5077b2f9bf6baae6b29af471bd18822b8db6b6aaded5"
+  },
+  "controls_proved": 8,
+  "windows": [
+    {
+      "case": "replay_scene57_0",
+      "state": "vf3_28.state",
+      "stem": "vf3_28_replay_scene57_0_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_0_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_0_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_0_1.capsule",
+      "original_capsule_sha256": "90d3fc2c682278f9b77edae5769e2c0077b3892a5d14b1c54d0ea207dd2b2442",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_0_1.audio.gz",
+      "original_audio_sha256": "e0d8d561e3437185a1dd56b2c19d3560391a410f39aeda3a03aa05ffe7a76b21",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_0_1.capsule",
+      "v3_capsule_sha256": "e2e86bc2feac390f4daa4b28931ee3208ad59aba0da1aa44b34b637af0ed0aef",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_0_1.audio",
+      "v3_audio_sha256": "2fdd6468acffb37f2ff896b967540d50ff0b9fa7064b102f4caa18c6edff1c78",
+      "instructions": 10999,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_32",
+      "state": "vf3_28.state",
+      "stem": "vf3_28_replay_scene57_32_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_32_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_32_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_32_1.capsule",
+      "original_capsule_sha256": "fcdf0d8f1cb8a896a13177d8cbc999342dbaad52940923edca8d12c4a6cb9fdc",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_32_1.audio.gz",
+      "original_audio_sha256": "27f7d438d3c28fb795b317934f71bf932c4abbe544f496531a44e76e0a36466e",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_32_1.capsule",
+      "v3_capsule_sha256": "baa3aa776dd536f43337209afb23bcf8e4cb2b7d069160e232d62ea5d7974dd3",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_32_1.audio",
+      "v3_audio_sha256": "61681917d6697e5e0301f9fecb0fab45438344dfcb959b4b8a325ce473caef79",
+      "instructions": 10388,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_64",
+      "state": "vf3_28.state",
+      "stem": "vf3_28_replay_scene57_64_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_64_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_64_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_64_1.capsule",
+      "original_capsule_sha256": "1adf240810460880bb442506e5e029d9ad725c5e2801b15939a11a923e0ce6c9",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_64_1.audio.gz",
+      "original_audio_sha256": "15566e3e8f0709d778ec4185bf5f7c597a4bb996c0e5dd94b196f889ba825f3b",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_64_1.capsule",
+      "v3_capsule_sha256": "6ebafbc3e334dc943d9dff823eb2e95e0ab00c8797fb21470efbc17162ba4bdb",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_64_1.audio",
+      "v3_audio_sha256": "9f887dc7df2aa576e44c0cc39340b27857272aa713df3d20d573e9622a45cf7f",
+      "instructions": 10689,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_96",
+      "state": "vf3_28.state",
+      "stem": "vf3_28_replay_scene57_96_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_96_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_28_replay_scene57_96_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_96_1.capsule",
+      "original_capsule_sha256": "cae73670d0689ac9e7791b72c84bf7a685b56803298d79b256cf698d95f63d39",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_28_replay_scene57_96_1.audio.gz",
+      "original_audio_sha256": "f8c5823b57b424462c07cba66f5f7df9ea68845a13f66d28313776cc27ff70b2",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_96_1.capsule",
+      "v3_capsule_sha256": "136587f41baf3d100e966ca71f8104d2f5174c2998652f4aa600a3b9a38243e1",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_28_replay_scene57_96_1.audio",
+      "v3_audio_sha256": "28279111fe2d4a2073abb96e326fd208bb483b0c6bbaeb21cbb6e448a806d41d",
+      "instructions": 11299,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_0",
+      "state": "vf3_29.state",
+      "stem": "vf3_29_replay_scene57_0_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_0_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_0_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_0_1.capsule",
+      "original_capsule_sha256": "d35672179274f44bf2356d2881ee7f50cf6421013d4fba20a6c45d1dac798326",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_0_1.audio.gz",
+      "original_audio_sha256": "3e73914c2ab763ece447f1b180f537ff5dfd668c1ba07b297aa8f5a12505082e",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_0_1.capsule",
+      "v3_capsule_sha256": "7208c5033d649856fd3b1c6273d4cac220138516210dd45ca9be77619a491193",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_0_1.audio",
+      "v3_audio_sha256": "0453f7ab37666b580b64898eed75c0f53adb76889bd78d431e8fb0df67bfa9fe",
+      "instructions": 13921,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_32",
+      "state": "vf3_29.state",
+      "stem": "vf3_29_replay_scene57_32_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_32_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_32_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_32_1.capsule",
+      "original_capsule_sha256": "01be055f36ed98926c5f71d7dcd36792bc2bfe15e7818adf038ab54490da05bd",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_32_1.audio.gz",
+      "original_audio_sha256": "b56d26f3e17679aff1cda4d88e1bfe01e5deb12cc449e9817008cb514f813b5e",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_32_1.capsule",
+      "v3_capsule_sha256": "08c1e21648e5905fd8b90451c3087602e88155019707f1c309a27d7caaccdaf7",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_32_1.audio",
+      "v3_audio_sha256": "8e48388e616da77055db3920405ee08bcdfcab42fbac4e8e95ba8868954356f8",
+      "instructions": 13310,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_64",
+      "state": "vf3_29.state",
+      "stem": "vf3_29_replay_scene57_64_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_64_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_64_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_64_1.capsule",
+      "original_capsule_sha256": "d984479ff44c886ea0e97cd2d2917122653f96fa5a2029607dded3f595f42c2f",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_64_1.audio.gz",
+      "original_audio_sha256": "e624e0aca102cb2e2f202b252cd7435e3ef9032db05828df37f33e6a6e57778d",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_64_1.capsule",
+      "v3_capsule_sha256": "7947e9cfb2c2b203132598c95aff745187d48415f730be2c8b346f097e7249b9",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_64_1.audio",
+      "v3_audio_sha256": "fcefd36c5c5d102c533e8b6ed23ef2b433f0bddaccb8be9e19205d80c8cebbfb",
+      "instructions": 13611,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    },
+    {
+      "case": "replay_scene57_96",
+      "state": "vf3_29.state",
+      "stem": "vf3_29_replay_scene57_96_1",
+      "watch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_96_1.watch",
+      "patch": "E:\\vf3-decomp\\tools\\oracle\\controls_v3\\vf3_29_replay_scene57_96_1.patch",
+      "original_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_96_1.capsule",
+      "original_capsule_sha256": "a3fd826c128d8b5742d4f67f79dacd29d748b5c5c9cd0d69e63c1a8fde9aefa7",
+      "original_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\vf3_29_replay_scene57_96_1.audio.gz",
+      "original_audio_sha256": "8b770b631d24f3d1389e1dc0cfdaf8f25ce0e582f31854f91831c16153f63269",
+      "v3_capsule": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_96_1.capsule",
+      "v3_capsule_sha256": "2736880fed1fe63980df1ee7d5dae77a6d44c643658bc1ea432f8280076a62c7",
+      "v3_audio": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\vf3_29_replay_scene57_96_1.audio",
+      "v3_audio_sha256": "199c26607182b03baae58f62c0e149912e8cec795c2919801db261f1253e7ba7",
+      "instructions": 14221,
+      "flags": 0,
+      "exit": "0x8c0432e4",
+      "result": 1
+    }
+  ],
+  "staged": [
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\dc_boot.bin",
+      "sha256": "88d6a666495ad14ab5988d8cb730533cfc94ec2cfd53a7eeda14642ab0d4abf9"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\dc_flash.bin",
+      "sha256": "dd8b365521a9c08bb4c170da3592212580f7251f35a45d6083774d1c030bc3e3"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\dc_nvmem.bin",
+      "sha256": "1aed60c8a61d9dff8b2a360df18d93fec0ecee301cfb38843873061847a5197a"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\MK-51001_vmu_save_A1.bin",
+      "sha256": "b4c5a531493665876fc72c3fcdef8ebd05fe0f7d14fb2aa73dd87d3586670b20"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_26.state",
+      "sha256": "fbd3f4a27b79aa7f4f9b5c1a54d97e03ee735782c24bc031bd3e1f6529301487"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_27.state",
+      "sha256": "17ca245bb3b9cd0d206150d69a751f42dec410a02077e56d51e5a65ed463f12f"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_28.state",
+      "sha256": "a96baa58d29ccc92adfe7a76c3e4c990f7779373bba6ac883c4d361e21ca7558"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_29.state",
+      "sha256": "ba125596043c594637f739e734326ad558dfad8fa4008ebfc5a27d5cf64b083b"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_45.state",
+      "sha256": "88c132cafb86bc92bb029a8ebd5d49cfb4a1bdbf245ba2ab1fb62fca64448e76"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vf3_46.state",
+      "sha256": "4cdafc1f4984c1c3b5168b4f0f4746551c84bd08eddccb76675499bcd2666056"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\emu\\flycast-build\\data\\vmu_save_A2.bin",
+      "sha256": "b4c5a531493665876fc72c3fcdef8ebd05fe0f7d14fb2aa73dd87d3586670b20"
+    }
+  ],
+  "references": [
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\replay_transition_original_dispatch_v2\\manifest.json",
+      "sha256": "e26ae7a26339ad5033395a0aecc8fb026023a0996415cfaeed7af2c802fdf604"
+    },
+    {
+      "path": "C:\\Users\\celso\\AppData\\Local\\vf3-decomp\\audio-evidence\\extended_observer_v3_controls\\manifest.json",
+      "sha256": "1671bcf13b64f7cf87c72e21667186bfa0fed1fd347d422df13faceb4c57a48e"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\extended_observer_controls_v3.json",
+      "sha256": "473432a98bf07f725116e72226a4df19472f3f0541de30a61017aee1fefb52ae"
+    },
+    {
+      "path": "E:\\vf3-decomp\\tools\\oracle\\recover_oracle.py",
+      "sha256": "0839162bcf2079ea200c30c1cda10060b06786bc105c13ff765eaff7756a80b4"
+    }
+  ]
+}
