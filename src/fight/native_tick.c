@@ -53,6 +53,7 @@ static struct {
     unsigned bios_calls;
     uint32_t istnrm;             /* ASIC normal interrupt status (SB_ISTNRM): pending events the model raised */
     unsigned render_started;     /* STARTRENDER writes not yet taken by the caller */
+    unsigned render_starts_total; /* every STARTRENDER write of the run */
     uint32_t maple_list;         /* SB_MDSTAR as last written */
     unsigned maple_started;      /* Maple DMA starts (SB_MDST written with bit 0) not yet taken by the caller */
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
@@ -142,14 +143,25 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) ++machine.maple_started;
     if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
-    if ((address & 0x1FFFFFFFu) == 0x005F8014u) ++machine.render_started;
+    if ((address & 0x1FFFFFFFu) == 0x005F8014u) { ++machine.render_started; ++machine.render_starts_total; }
+    /* A plain store into the PVR2 area is a VRAM or a register write, not a
+     * display command: the Tile Accelerator only receives the store queue's
+     * flushes (vf3_ta_flush_hook). */
     if (address < TA_AREA_BASE || address >= TA_AREA_END) return;   /* QACR, store-queue folds */
-    if (machine.ta_len == machine.ta_cap) {
-        machine.ta_cap = machine.ta_cap ? 2 * machine.ta_cap : 1u << 16;
-        machine.ta = realloc(machine.ta, machine.ta_cap * sizeof *machine.ta);
-        if (!machine.ta) { machine.ta_cap = machine.ta_len = 0; return; }
+}
+
+/* The store queue's flush into the Tile Accelerator: the display commands. */
+static void ta_flush(const uint32_t *words, unsigned n)
+{
+    for (unsigned i = 0; i < n; ++i) {
+        if (machine.ta_len == machine.ta_cap) {
+            machine.ta_cap = machine.ta_cap ? 2 * machine.ta_cap : 1u << 16;
+            uint32_t *ta = realloc(machine.ta, machine.ta_cap * sizeof *ta);
+            if (!ta) { machine.ta_cap = machine.ta_len = 0; return; }
+            machine.ta = ta;
+        }
+        machine.ta[machine.ta_len++] = words[i];
     }
-    machine.ta[machine.ta_len++] = value;
 }
 
 /* the oracle-derived table only knows entries the captured fight ticks called; every readable port is a function entry too
@@ -227,8 +239,8 @@ uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
-static uint32_t (*budget_hook)(void);
-void vf3_native_set_budget_hook(uint32_t (*hook)(void)) { budget_hook = hook; }
+static uint32_t (*budget_hook)(vf3_matrix_state *s);
+void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s)) { budget_hook = hook; }
 
 void vf3_native_attach_gdrom(vf3_gdrom *gd)
 {
@@ -284,7 +296,10 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     machine.first_unowned = 0;
     machine.bios_calls = 0;
     machine.ram = ram;
-    machine.ta_len = 0;                /* the buffer itself is reused between runs */
+    /* the buffer itself is reused between runs; a nested run (an interrupt
+     * taken inside a slice) appends to the outer run's words, because the
+     * commands it emits belong to the same frame */
+    if (!nested) machine.ta_len = 0;
     memset(&st, 0, sizeof st);
     const unsigned budget = !nested && saved.budget ? saved.budget : BLOCK_BUDGET;   /* an interrupt taken inside a slice is not sliced */
     st.budget = budget;
@@ -304,6 +319,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_complete_calls = 1;
     vf3_family_extra_stop = machine.extra_stop;
     vf3_family_tail_retry = 1;
+    vf3_ta_flush_hook = ta_flush;
     vf3_family_budget_hook = !nested && saved.budget ? budget_hook : NULL;   /* an interrupt taken inside a slice is not sliced */
     vf3_sq_model = 1;
 
@@ -314,6 +330,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->pc = st.pc;
     out->failed_pc = st.failed_pc;
     out->steps_budget_used = budget - st.budget;
+    out->budget_left = st.budget;
     out->readable_calls = machine.readable_calls;
     out->unowned_calls = machine.unowned_calls;
     out->first_unowned = machine.first_unowned;
@@ -321,6 +338,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->device_reads = machine.reads;
     out->device_writes = machine.writes;
     out->ta_words = (unsigned)machine.ta_len;
+    out->render_starts = machine.render_starts_total;
     out->oob = map.oob;
     out->ta = machine.ta;
     memcpy(out->regs, st.v, sizeof out->regs);
@@ -328,9 +346,12 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     if (nested) {
         uint32_t *ta = machine.ta;
         size_t ta_cap = machine.ta_cap;
+        /* the nested run appended its display commands to the outer run's */
+        size_t ta_len = machine.ta_len;
         machine = saved;
         machine.ta = ta;
         machine.ta_cap = ta_cap;
+        machine.ta_len = ta_len;
         memcpy(snapshot_xf, saved_xf, sizeof saved_xf);
         vf3_family_budget_hook = run_depth == 1 && machine.budget ? budget_hook : NULL;
     }

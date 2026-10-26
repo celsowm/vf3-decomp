@@ -1,7 +1,7 @@
 /* render/pvr2.c - the PVR2 model.
  *
  * Phase P0 of docs/re/plan_sdl3_port.md: the model owns the framebuffer and
- * counts the Tile Accelerator command stream.  The decoder and the rasteriser
+ * collects the Tile Accelerator command stream.  The decoder and the rasteriser
  * come in P3, once the SDK headers give the command layout and the captured
  * stream says which commands the game emits.
  *
@@ -28,13 +28,25 @@ void vf3_pvr2_init(vf3_pvr2 *p)
 void vf3_pvr2_free(vf3_pvr2 *p)
 {
     free(p->fb);
+    free(p->ta);
     p->fb = NULL;
+    p->ta = NULL;
+    p->ta_cap = p->ta_words = 0;
 }
 
 void vf3_pvr2_ta_push(vf3_pvr2 *p, uint32_t word)
 {
     ++p->stats.words;
     ++p->stats.classes[(word >> 29) & 7u];
+    /* the stream itself: the decoder needs the words in order, and the
+     * capture tool needs them out of the host */
+    if (p->ta_words == p->ta_cap) {
+        p->ta_cap = p->ta_cap ? 2 * p->ta_cap : 4096;
+        uint32_t *ta = realloc(p->ta, (size_t)p->ta_cap * sizeof *ta);
+        if (!ta) { p->ta_cap = p->ta_words = 0; return; }
+        p->ta = ta;
+    }
+    p->ta[p->ta_words++] = word;
 }
 
 void vf3_pvr2_frame_begin(vf3_pvr2 *p)
@@ -42,6 +54,7 @@ void vf3_pvr2_frame_begin(vf3_pvr2 *p)
     p->stats.words = 0;
     memset(p->stats.classes, 0, sizeof p->stats.classes);
     p->stats.pixels = 0;
+    p->ta_words = 0;
 }
 
 unsigned vf3_pvr2_frame_end(vf3_pvr2 *p)

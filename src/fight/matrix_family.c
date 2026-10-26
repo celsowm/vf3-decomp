@@ -214,6 +214,7 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
  * stay visible to the device hook so existing device logs are unchanged. */
 static uint32_t vf3_sq_buf[2][8], vf3_sq_qacr[2];
 int vf3_sq_model;
+void (*vf3_ta_flush_hook)(const uint32_t *words, unsigned n);
 void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     unsigned n=(a>>5)&1u;
     if(!vf3_sq_model) return;
@@ -222,6 +223,14 @@ void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     static int forced[2]={-2,-2};
     if(forced[n]==-2) { const char *e=getenv(n?"TICK_QACR1":"TICK_QACR0"); forced[n]=e?(int)(strtoul(e,0,0)&0x1Cu):-1; }
     uint32_t dest=((forced[n]>=0?(uint32_t)forced[n]:vf3_sq_qacr[n])<<24)|(a&0x03FFFFE0u);
+    /* The hardware splits the flush by its target: below 8 MB it is the TA's
+     * polygon stream (the display commands), below 16 MB the YUV converter,
+     * and above that the VRAM.  Only the first is a display command, so only
+     * the first is handed on; the other two are not modelled. */
+    if((dest&0x01FFFFE0u)<0x800000u) {
+        if(vf3_ta_flush_hook) vf3_ta_flush_hook(vf3_sq_buf[n],8);
+        return;
+    }
     for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
 }
 void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsigned size) {
@@ -335,6 +344,11 @@ int vf3_event_admission_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_size_profile_init_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_profile_clear_c(vf3_matrix_state *,const vf3_ram_map *);
 int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
+/* The seventh gap module (the bodies the fight scene runs and no earlier
+ * module owns).  Declared here instead of in matrix_family.h: that header is
+ * included by every generated adapter, and touching it rebuilds them all. */
+int vf3_gap_b07_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_gap_b07_adapter_contains(uint32_t);
 vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
 vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
 /* Alias handoff between the generated adapters.  The router masks the entry PC
@@ -777,6 +791,7 @@ if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
         if(vf3_gap_b04_adapter_contains(entry)) return vf3_gap_b04_adapter(entry,s,ram);
         if(vf3_gap_b05_adapter_contains(entry)) return vf3_gap_b05_adapter(entry,s,ram);
         if(vf3_gap_b06_adapter_contains(entry)) return vf3_gap_b06_adapter(entry,s,ram);
+        if(vf3_gap_b07_adapter_contains(entry)) return vf3_gap_b07_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);
@@ -803,7 +818,7 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
      * transfer it is. An exhausted step budget (counter wrapped) is not such a stop and is left to the caller. */
     while(!ok && s->failed_pc) {
         if(s->budget==0xFFFFFFFFu) {   /* the step budget ran out: the hook lets time pass (interrupts) and refills it, in place */
-            const uint32_t more=vf3_family_budget_hook?vf3_family_budget_hook():0;
+            const uint32_t more=vf3_family_budget_hook?vf3_family_budget_hook(s):0;
             if(!more) break;
             s->budget=more;
         } else if(!vf3_family_tail_retry || (s->failed_pc&0x1FFFFFFFu)==(entry&0x1FFFFFFFu)) break;
@@ -834,7 +849,10 @@ static int vf3_matrix_family_once(uint32_t entry,vf3_matrix_state*s,const vf3_ra
  * dispatch, so its rts is consumed by this call and not by the caller adapter
  * that would otherwise execute the callee's tail inline and then return with
  * the caller's own resume address still pending. */
-uint32_t (*vf3_family_budget_hook)(void);
+/* The budget hook: the guest's step budget ran out.  It gets the machine
+ * state, because the events it dispatches (the interrupt handlers) have to
+ * run with the registers the guest had at that point. */
+uint32_t (*vf3_family_budget_hook)(vf3_matrix_state *s);
 int vf3_family_tail_retry;      /* continue at the target of an indirect jump a module was not generated with */
 uint32_t vf3_family_extra_stop;   /* a second address that ends a completion loop (0: none) */
 int vf3_family_complete_calls;

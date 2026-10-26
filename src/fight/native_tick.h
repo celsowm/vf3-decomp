@@ -18,6 +18,7 @@
 #include <stdint.h>
 
 #include "sys/gdrom_hle.h"
+#include "fight/matrix_family.h"
 
 #define VF3_NATIVE_RAM_BASE 0x0C000000u
 #define VF3_NATIVE_RAM_LEN  0x01000000u
@@ -29,11 +30,13 @@ typedef struct {
     int ok;                       /* the entry returned to its caller */
     uint32_t pc, failed_pc;       /* where it stopped when not ok */
     unsigned steps_budget_used;   /* guest basic-block budget consumed */
+    unsigned budget_left;         /* the step budget still left when the run ended */
     unsigned readable_calls;      /* calls served by readable ports */
     unsigned unowned_calls;       /* calls into code nobody ported (each one is a failure) */
     uint32_t first_unowned;
     unsigned bios_calls;          /* BIOS GD-ROM syscalls served by the attached model */
     unsigned device_reads, device_writes, ta_words, oob;
+    unsigned render_starts;       /* the STARTRENDER writes of the run (the frames the game drew) */
     const uint32_t *ta;           /* the TA FIFO words, in order; valid until the next run */
     uint32_t regs[54];            /* register file at exit, layout of matrix_family.h */
 } vf3_native_tick_result;
@@ -79,8 +82,10 @@ void vf3_native_tmu_set(uint32_t tcnt);
 int vf3_native_gd_attached(void);
 uint32_t vf3_native_asic_pending(void);
 unsigned vf3_native_take_render(void);
-/* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop). */
-void vf3_native_set_budget_hook(uint32_t (*hook)(void));
+/* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop).
+ * The hook gets the machine state, because the interrupt handlers it dispatches have to run with the registers the
+ * guest had at that point. */
+void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s));
 /* Limit a run to `steps` guest steps (a time slice); 0 restores the default. An exhausted run reports ok = 0 with failed_pc at the next step. */
 void vf3_native_set_budget(unsigned steps);
 

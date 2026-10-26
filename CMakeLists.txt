@@ -396,6 +396,7 @@ add_library(vf3core STATIC
     src/fight/vf3_gap_b04_adapter.c
     src/fight/vf3_gap_b05_adapter.c
     src/fight/vf3_gap_b06_adapter.c
+    src/fight/vf3_gap_b07_adapter.c
     src/fight/advance_05b20e_adapters.c
     src/fight/tenpp_leaf_adapters.c
     src/fight/tenpp_leaf_adapters_0.c
@@ -571,7 +572,7 @@ if (VF3_SDL3)
                               IMPORTED_LOCATION "${SDL3_LIBRARY}"
                               INTERFACE_INCLUDE_DIRECTORIES "${SDL3_INCLUDE_DIR}")
     endif()
-    add_executable(vf3sdl src/host/sdl3_host.c src/render/pvr2.c)
+    add_executable(vf3sdl src/host/sdl3_host.c src/render/pvr2.c src/sys/frame_events.c)
     target_link_libraries(vf3sdl PRIVATE vf3core SDL3::SDL3)
 endif()
 

@@ -32,6 +32,13 @@ int vf3_matrix_family(uint32_t entry,vf3_matrix_state *state,const vf3_ram_map *
  * on entry, and derives its code base from them. */
 extern uint32_t vf3_matrix_call_alias;    /* top byte of the call target */
 extern uint32_t vf3_matrix_call_alias_pc;  /* masked PC of that target (0xffffffff: none) */
+/* The store queue's flush into the Tile Accelerator: the display commands.
+ * The SH-4's store queue is 32 bytes; a PREF into the queue area sends them to
+ * the address the queue's area register selects, and only the flushes that
+ * land below 8 MB are polygon commands (the rest go to the YUV converter and
+ * to the VRAM).  The native tick sets this hook to collect them; when it is
+ * NULL the flushes are dropped. */
+extern void (*vf3_ta_flush_hook)(const uint32_t *words, unsigned n);
 /* Shared ABI mechanics for statically translated callers. */
 uint32_t vf3_matrix_read(const vf3_ram_map*,uint32_t,unsigned);
 void vf3_matrix_write(const vf3_ram_map*,uint32_t,uint32_t,unsigned);

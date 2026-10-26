@@ -1,17 +1,24 @@
 /* host/sdl3_host.c - the SDL3 host for the native port.
  *
- *   vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR] [--gdi DISC]
- *           [--gd-state FILE] [--dump-frame FILE.ppm] [--headless] [--fps N]
+ *   vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR] [--entry ADDR]
+ *           [--gdi DISC] [--gd-state FILE] [--dump-frame FILE.ppm]
+ *           [--headless] [--fps N] [--slice STEPS] [--ta-out FILE]
  *
- * Loads a machine state the port can run from, runs the fight tick once per
- * frame, hands the Tile Accelerator command stream to the PVR2 model and
- * presents the frame the model produced.
+ * Loads a machine state the port can run from, runs the game's frame loop,
+ * hands the Tile Accelerator command stream to the PVR2 model and presents the
+ * frame the model produced.
  *
- * Phase P0 of docs/re/plan_sdl3_port.md.  What is real today: the host, the
- * frame loop over the native tick, the TA stream into the PVR2 model and the
- * frame out to SDL3.  What is not: the PVR2 model has no rasteriser yet (the
- * frame is black), the audio stream carries silence, and the gamepad is read
- * but not yet routed into the Maple bus (phase P6).
+ * Phase P2 of docs/re/plan_sdl3_port.md.  The frame loop needs three things
+ * the port did not have before: a clock (the TMU's channel 0 counts the CPU
+ * clock divided by 256, and drops 13,033 ticks per frame), the events that end
+ * a frame (the vblank-in and the TA list ends) and the interrupt handlers that
+ * serve them.  The model is src/sys/frame_events.c; the handlers are the
+ * game's own code, run from the register file the guest had when the event
+ * came.
+ *
+ * What is not real yet: the PVR2 model has no rasteriser (the frame is
+ * black), the audio stream carries silence, and the gamepad is read but not
+ * yet routed into the Maple bus (phase P6).
  *
  * The host owns no game logic: the game code keeps talking to the Dreamcast's
  * addresses and the models intercept the regions it writes to.
@@ -22,12 +29,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "fight/matrix_family.h"
 #include "fight/native_tick.h"
 #include "render/pvr2.h"
+#include "sys/frame_events.h"
 #include "sys/gdrom_hle.h"
 
 #define DEFAULT_GBR 0x0C16B880u        /* the fight tasks' global-state block */
 #define DEFAULT_FPS 60                 /* the NTSC field rate the DC ran at */
+#define DEFAULT_SLICE 200000u          /* guest steps between two event slices */
+#define TCNT0_SAMPLE 0x0C1981C8u       /* where the game keeps the TMU sample */
 
 /* A PPM (P6) of the last frame: the diff tool and any image viewer read it. */
 static int write_ppm(const char *path, const uint32_t *fb, unsigned w, unsigned h)
@@ -56,12 +67,85 @@ static void usage(void)
     fprintf(stderr,
             "usage: vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR]\n"
             "              [--entry ADDR] [--gdi DISC] [--gd-state FILE]\n"
-            "              [--dump-frame FILE.ppm] [--headless] [--fps N]\n");
+            "              [--dump-frame FILE.ppm] [--headless] [--fps N]\n"
+            "              [--slice STEPS] [--ta-out FILE]\n");
+}
+
+/* ---------------------------------------------------------------- the frame loop */
+
+static uint8_t *g_ram;                 /* the machine's RAM */
+static uint32_t g_gbr;                  /* the global-state block */
+static vf3_pvr2 *g_pvr2;                /* the PVR2 model */
+static FILE *g_ta_file;                 /* the display commands, as they arrive */
+static vf3_frame_events g_events;       /* the clock and the frame events */
+static unsigned g_slice = DEFAULT_SLICE; /* guest steps per event slice */
+static unsigned g_budget_out = DEFAULT_SLICE; /* the budget the hook handed out */
+static unsigned g_hook_insns;              /* the steps the hooks have charged */
+static uint64_t g_insns;                   /* the guest instructions the clock has carried */
+
+/* The display commands of a slice: into the PVR2 model and into the capture. */
+static void push_ta(const uint32_t *words, unsigned n)
+{
+    for (unsigned i = 0; i < n; ++i) {
+        vf3_pvr2_ta_push(g_pvr2, words[i]);
+        if (g_ta_file) fwrite(&words[i], 4, 1, g_ta_file);
+    }
+}
+
+/* An interrupt handler: the game's own code, run with the register file the
+ * guest had when the event came (the interrupt itself changes no register;
+ * the handler pushes what it needs).  The return address is the sentinel, so
+ * the handler's rts ends the nested run. */
+static int run_handler(uint32_t entry, const uint32_t regs[37], void *ctx)
+{
+    (void)ctx;
+    uint32_t r[37];
+    memcpy(r, regs, sizeof r);
+    r[16] = 0xDEAD0000u;               /* the handler returns to the sentinel */
+    vf3_native_tick_result hr;
+    if (!vf3_native_tick_run(g_ram, r, entry, g_gbr, &hr)) {
+        fprintf(stderr, "vf3sdl: the handler %08x failed at %08x (%u unowned, first %08x)\n",
+                entry, hr.failed_pc, hr.unowned_calls, hr.first_unowned);
+        return 0;
+    }
+    if (hr.unowned_calls) {
+        fprintf(stderr, "vf3sdl: the handler %08x called unowned code (%u, first %08x)\n",
+                entry, hr.unowned_calls, hr.first_unowned);
+        return 0;
+    }
+    /* the handler's display commands belong to the frame */
+    push_ta(hr.ta, hr.ta_words);
+    return 1;
+}
+
+/* The guest's step budget ran out: time passes and the events that came due
+ * are dispatched.
+ *
+ * The slice that just ended consumed exactly the budget this hook handed out
+ * (the generated code counts one step per guest instruction and the budget
+ * runs out at zero), so the clock is charged with that many instructions -
+ * not with the budget, which would charge the time the slice did *not* use. */
+static uint32_t slice_hook(vf3_matrix_state *s)
+{
+    uint32_t regs[37];
+    memcpy(regs, s->v, sizeof regs);
+    g_hook_insns += g_budget_out;
+    g_insns += g_budget_out;
+    return vf3_frame_events_slice(&g_events, g_budget_out, regs);
+}
+
+static uint32_t rd32(const uint8_t *ram, uint32_t a)
+{
+    uint32_t v;
+    const uint32_t off = (a & 0x0FFFFFFFu) - 0x0C000000u;
+    if (off + 4u > 0x01000000u) return 0;
+    memcpy(&v, ram + off, 4);
+    return v;
 }
 
 int main(int argc, char **argv)
 {
-    const char *state = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL;
+    const char *state = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL, *ta_out = NULL, *ram_out = NULL;
     unsigned pair = 0, frames = 1, fps = DEFAULT_FPS;
     uint32_t gbr = DEFAULT_GBR;
     uint32_t entry = VF3_NATIVE_SCHED_ENTRY;
@@ -76,7 +160,10 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (!strcmp(argv[i], "--dump-frame") && i + 1 < argc) dump = argv[++i];
+        else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
+        else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc) ram_out = argv[++i];
         else if (!strcmp(argv[i], "--fps") && i + 1 < argc) fps = (unsigned)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--slice") && i + 1 < argc) g_slice = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--headless")) headless = 1;
         else { usage(); return 2; }
     }
@@ -88,6 +175,8 @@ int main(int argc, char **argv)
         fprintf(stderr, "vf3sdl: no entry state %u in %s\n", pair, state);
         return 2;
     }
+    g_ram = ram;
+    g_gbr = gbr;
 
     /* The GD-ROM model: the loader polls it through the BIOS, so a tick that
      * touches the drive needs one attached. */
@@ -138,29 +227,103 @@ int main(int argc, char **argv)
         }
     }
 
+    if (ta_out) {
+        g_ta_file = fopen(ta_out, "wb");
+        if (!g_ta_file) fprintf(stderr, "vf3sdl: cannot write %s\n", ta_out);
+    }
+
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
+    g_pvr2 = &pvr2;
+
+    /* The clock and the frame events.  The TMU starts where the state left
+     * it: the game keeps the counter's last sample at 0x0C1981C8. */
+    vf3_native_enable_tmu();
+    vf3_native_tmu_set(rd32(ram, TCNT0_SAMPLE));
+    vf3_frame_events_init(&g_events, ram, gbr, run_handler, NULL);
+    g_events.asic_first = 1;            /* the ASIC events before the vblank pair */
+    g_events.vblank_through_asic = 1;   /* the vblank-in is ASIC normal-interrupt bit 0x8 */
+    vf3_native_set_budget_hook(slice_hook);
 
     vf3_native_tick_result r;
     int status = 0;
+    unsigned vblanks = 0;
+    uint64_t frame_insns = 0;
     const Uint64 frame_us = fps ? 1000000ull / fps : 0;
     Uint64 next = SDL_GetTicksNS();
-    for (unsigned frame = 0; frame < frames; ++frame) {
-        vf3_pvr2_frame_begin(&pvr2);
-        vf3_native_tick_run(ram, regs, entry, gbr, &r);
-        if (!r.ok || r.unowned_calls) {
-            fprintf(stderr, "vf3sdl: frame %u failed at %08x (%u unowned calls, first %08x)\n",
-                    frame, r.failed_pc, r.unowned_calls, r.first_unowned);
+    uint32_t at = entry;
+    uint32_t xf[16];
+    vf3_native_get_xf(xf);
+    vf3_pvr2_frame_begin(&pvr2);
+
+    while (vf3_frame_events_frames(&g_events) < frames) {
+        vf3_native_set_budget(g_slice);
+        g_budget_out = g_slice;
+        g_hook_insns = 0;
+        vf3_native_tick_run(ram, regs, at, gbr, &r);
+        vf3_native_set_budget(0);
+        /* The steps of the slice that ended early (the guest returned to the
+         * host before its budget ran out): the clock has to carry them too. */
+        if (r.ok && r.budget_left <= g_budget_out) {
+            const unsigned left = g_budget_out - r.budget_left;
+            if (left) {
+                g_insns += left;
+                vf3_frame_events_slice(&g_events, left, r.regs);
+            }
+        }
+        /* the display commands of this slice */
+        push_ta(r.ta, r.ta_words);
+        if (r.unowned_calls) {
+            fprintf(stderr, "vf3sdl: unowned call at %08x (%u unowned, first %08x)\n",
+                    r.failed_pc, r.unowned_calls, r.first_unowned);
             status = 1;
             break;
         }
-        /* the next frame starts where this one ended */
+        if (!r.ok) {
+            if (r.failed_pc) {
+                /* the slice ran out: resume where it stopped */
+                at = r.failed_pc;
+            } else if (!r.unowned_calls && r.pc && r.pc != at) {
+                /* A callee returned into a frame this run never entered (its pr
+                 * came off the stack): that is a hand-back, so resume at the
+                 * return address (the boot harness reads it the same way). */
+                at = r.pc;
+            } else {
+                fprintf(stderr, "vf3sdl: the frame ended at %08x with no address\n", r.pc);
+                status = 1;
+                break;
+            }
+        } else {
+            at = r.pc;
+        }
+        /* the next slice starts where this one ended */
         memcpy(regs, r.regs, 37 * sizeof regs[0]);
-        for (unsigned i = 0; i < r.ta_words; ++i) vf3_pvr2_ta_push(&pvr2, r.ta[i]);
-        vf3_pvr2_frame_end(&pvr2);
-        fprintf(stderr, "vf3sdl: frame %u: %u TA words", frame, r.ta_words);
-        for (unsigned c = 0; c < 8; ++c) fprintf(stderr, " %c%u", (char)('0' + c), pvr2.stats.classes[c]);
-        fprintf(stderr, ", %u pixels\n", pvr2.stats.pixels);
+        memcpy(xf, r.regs + 37, 16 * sizeof xf[0]);
+        vf3_native_set_xf(xf);
+        /* the vblank ends the frame the PVR2 model is filling */
+        if (vf3_frame_events_frames(&g_events) != vblanks) {
+            vblanks = vf3_frame_events_frames(&g_events);
+            vf3_pvr2_frame_end(&pvr2);
+            fprintf(stderr, "vf3sdl: frame %u: %u TA words", vblanks, pvr2.stats.words);
+            for (unsigned c = 0; c < 8; ++c) fprintf(stderr, " %c%u", (char)('0' + c), pvr2.stats.classes[c]);
+            fprintf(stderr, ", %u pixels, %u render starts, %llu guest instructions",
+                    pvr2.stats.pixels, r.render_starts,
+                    (unsigned long long)(g_insns - frame_insns));
+            frame_insns = g_insns;
+            fprintf(stderr, "\n");
+            vf3_pvr2_frame_begin(&pvr2);
+        }
+        if (getenv("VF3_VERBOSE")) {
+            static const uint32_t watch[] = { 0x0C16CDF4u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDCCu,
+                                             0x0C16CDDCu, 0x0C16CE00u, 0x0C1981C8u, 0x0C1981D0u };
+            fprintf(stderr, "vf3sdl:   slice steps %u, pc %08x failed %08x ta %u, model %llu cycles %u frames:",
+                    r.steps_budget_used, r.pc, r.failed_pc, r.ta_words,
+                    (unsigned long long)vf3_frame_events_cycles(&g_events),
+                    vf3_frame_events_frames(&g_events));
+            for (unsigned i = 0; i < sizeof watch / sizeof *watch; ++i)
+                fprintf(stderr, " %08x=%08x", watch[i], rd32(ram, watch[i]));
+            fprintf(stderr, "\n");
+        }
 
         if (texture) {
             SDL_UpdateTexture(texture, NULL, vf3_pvr2_framebuffer(&pvr2), VF3_PVR2_WIDTH * (int)sizeof(uint32_t));
@@ -172,7 +335,7 @@ int main(int argc, char **argv)
         /* events: the window's close button and the keyboard's escape */
         SDL_Event ev;
         while (SDL_PollEvent(&ev)) {
-            if (ev.type == SDL_EVENT_QUIT) { frames = frame + 1; status = 0; goto done; }
+            if (ev.type == SDL_EVENT_QUIT) { status = 0; goto done; }
             if (ev.type == SDL_EVENT_KEY_DOWN && ev.key.key == SDLK_ESCAPE) { goto done; }
         }
         if (frame_us) {
@@ -183,6 +346,21 @@ int main(int argc, char **argv)
         }
     }
 done:
+    if (ram_out) {
+        FILE *f = fopen(ram_out, "wb");
+        if (f) {
+            fwrite(ram, 1, 0x01000000u, f);
+            fclose(f);
+            fprintf(stderr, "vf3sdl: wrote %s\n", ram_out);
+        }
+    }
+    if (ta_out) {
+        if (g_ta_file) {
+            fclose(g_ta_file);
+            g_ta_file = NULL;
+            fprintf(stderr, "vf3sdl: wrote %s\n", ta_out);
+        }
+    }
     if (dump) {
         if (write_ppm(dump, vf3_pvr2_framebuffer(&pvr2), VF3_PVR2_WIDTH, VF3_PVR2_HEIGHT)) status = 1;
         else fprintf(stderr, "vf3sdl: wrote %s\n", dump);

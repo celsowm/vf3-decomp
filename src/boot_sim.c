@@ -108,8 +108,9 @@ static void take_vblank(void)
     }
 }
 static uint32_t rd32(const uint8_t *ram, uint32_t a) { uint32_t v; memcpy(&v, ram + (a & 0x0FFFFFFFu) - 0x0C000000u, 4); return v; }
-static uint32_t slice_hook(void)
+static uint32_t slice_hook(vf3_matrix_state *s)
 {
+    (void)s;   /* the loader's model runs the handlers from their captured entry states */
     /* the guest has run a time slice: the drive and the frame clock move, the vblank pair is taken in place */
     clk.now += hook_slice;
     vf3_native_tmu_advance(hook_slice);

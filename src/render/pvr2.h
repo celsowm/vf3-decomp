@@ -31,6 +31,9 @@ typedef struct {
 
 typedef struct {
     uint32_t *fb;            /* ARGB8888, VF3_PVR2_PIXELS entries (malloc'd) */
+    uint32_t *ta;            /* the TA words of the frame, in order (malloc'd) */
+    uint32_t ta_words;       /* how many of them there are */
+    uint32_t ta_cap;
     vf3_pvr2_stats stats;
 } vf3_pvr2;
 
