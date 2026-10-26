@@ -142,8 +142,12 @@ what remains to be solved for that family.)
 
 * the gap bodies can be given a real per-entry oracle replay, one campaign at
   a time, instead of resting on the ROM translation alone;
-* the 71 bindings whose corpus files were lost with the artefact bundle can be
-  re-captured;
+* of the 71 bindings whose corpus files were lost with the artefact bundle,
+  7 are back (below).  The remaining 64 are *not* recoverable with what
+  survives: 16 of them still have their watch file, but the campaigns that
+  produced them resumed from `vf3_23.state` and the other early states, and
+  those savestates are gone.  A boot run or one of the six surviving states
+  does not reach their call sites, so the game never enters the entries;
 * the GD-family corpora can carry the drive state at the entry of a redirected
   specimen, which is what `docs/re/reios_exec_server.md` asks for.
 
