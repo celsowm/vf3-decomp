@@ -449,6 +449,14 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     return ok;
 }
 
+unsigned vf3_native_take_ta(const uint32_t **words)
+{
+    const unsigned n = (unsigned)machine.ta_len;
+    *words = machine.ta;
+    machine.ta_len = 0;
+    return n;
+}
+
 /* ---------------------------------------------------------------- the recorded exit */
 
 /* Skips or loads one window list: <count>, then per window <base> <len> and len/4 word records. */

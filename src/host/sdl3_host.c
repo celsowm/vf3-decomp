@@ -94,6 +94,8 @@ static FILE *g_ta_file;                 /* the display commands, as they arrive 
 static vf3_frame_events g_events;       /* the clock and the frame events */
 static unsigned g_slice = DEFAULT_SLICE; /* guest steps per event slice */
 static unsigned g_budget_out = DEFAULT_SLICE; /* the budget the hook handed out */
+static unsigned g_vblanks, g_render_starts;  /* the frames the host has closed */
+static uint64_t g_frame_insns;
 static unsigned g_hook_insns;              /* the steps the hooks have charged */
 static uint64_t g_insns;                   /* the guest instructions the clock has carried */
 
@@ -169,6 +171,61 @@ static int run_handler(uint32_t entry, const uint32_t regs[37], void *ctx)
  * (the generated code counts one step per guest instruction and the budget
  * runs out at zero), so the clock is charged with that many instructions -
  * not with the budget, which would charge the time the slice did *not* use. */
+/* The vblank ends the frame the PVR2 model is filling: the blocks the TA received are decoded with our own
+ * TA decoder and drawn with our own rasteriser.  Called from the slice hook, so a long-running guest (the
+ * boot) is cut into frames too. */
+static void frame_boundary(void)
+{
+    const unsigned vblanks = g_vblanks;
+            /* the blocks the TA received this frame, decoded with our own
+             * TA decoder and drawn with our own rasteriser */
+            const unsigned nw = g_ta_fifo_words;
+            vf3_ta_list list;
+            int have_list = 0;
+            if (nw) have_list = vf3_ta_decode(g_ta_fifo, nw, &list) == 0;
+            if (have_list) vf3_pvr2_rasterise(g_pvr2, &list);
+            else vf3_pvr2_frame_end(g_pvr2);
+            fprintf(stderr, "vf3sdl: frame %u: %u TA words", vblanks, g_pvr2->stats.words);
+            for (unsigned c = 0; c < 8; ++c) fprintf(stderr, " %c%u", (char)('0' + c), g_pvr2->stats.classes[c]);
+            fprintf(stderr, ", %u pixels, %u render starts, %llu guest instructions",
+                    g_pvr2->stats.pixels, g_render_starts,
+                    (unsigned long long)(g_insns - g_frame_insns));
+            g_frame_insns = g_insns;
+            fprintf(stderr, "\n");
+            vf3_pvr2_frame_begin(g_pvr2);
+            if (have_list) {
+                unsigned polys = 0, sprites = 0, textured = 0, modvols = 0;
+                float minx = 1e30f, maxx = -1e30f, miny = 1e30f, maxy = -1e30f;
+                for (unsigned i = 0; i < list.count; ++i) {
+                    const vf3_ta_prim *p = &list.prims[i];
+                    if (p->is_sprite) sprites++;
+                    else if (p->is_modvol) modvols++;
+                    else polys++;
+                    if (vf3_ta_texture(p->param.pcw)) textured++;
+                    for (unsigned v = 0; v < p->count; ++v) {
+                        const vf3_ta_vertex *q = &list.verts[p->vstart + v];
+                        if (q->x < minx) minx = q->x;
+                        if (q->x > maxx) maxx = q->x;
+                        if (q->y < miny) miny = q->y;
+                        if (q->y > maxy) maxy = q->y;
+                    }
+                }
+                fprintf(stderr, "vf3sdl:   stream %u words (%u blocks): %s, %u lists, %u primitives"
+                                " (%u polygons, %u sprites, %u modvols, %u textured), %u skipped\n",
+                        nw, list.blocks, have_list ? "parsed" : "PARSE ERROR", list.lists, list.count,
+                        polys, sprites, modvols, textured, list.invalid);
+                if (getenv("VF3_TALOG")) {
+                    fprintf(stderr, "vf3sdl:   stream head:");
+                    for (unsigned i = 0; i < 8 && i < nw; ++i) fprintf(stderr, " %08x", g_ta_fifo[i]);
+                    fprintf(stderr, "\n");
+                }
+                if (list.count)
+                    fprintf(stderr, "vf3sdl:   vertex range x %g..%g y %g..%g\n", minx, maxx, miny, maxy);
+                vf3_ta_free(&list);
+            }
+            g_ta_fifo_words = 0;
+}
+
 static uint32_t slice_hook(vf3_matrix_state *s)
 {
     uint32_t regs[37];
@@ -177,7 +234,17 @@ static uint32_t slice_hook(vf3_matrix_state *s)
     g_insns += g_budget_out;
     if (getenv("VF3_HOST_TRACE"))
         fprintf(stderr, "slice: %llu insns, %u frames, pc %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc);
-    return vf3_frame_events_slice(&g_events, g_budget_out, regs);
+    const uint32_t next = vf3_frame_events_slice(&g_events, g_budget_out, regs);
+    {   /* the display commands so far, and the frame the vblank just ended */
+        const uint32_t *ta;
+        const unsigned n = vf3_native_take_ta(&ta);
+        if (n) push_ta(ta, n);
+        if (vf3_frame_events_frames(&g_events) != g_vblanks) {
+            g_vblanks = vf3_frame_events_frames(&g_events);
+            frame_boundary();
+        }
+    }
+    return next;
 }
 
 static uint32_t rd32(const uint8_t *ram, uint32_t a)
@@ -311,8 +378,6 @@ int main(int argc, char **argv)
 
     vf3_native_tick_result r;
     int status = 0;
-    unsigned vblanks = 0;
-    uint64_t frame_insns = 0;
     const Uint64 frame_us = fps ? 1000000ull / fps : 0;
     Uint64 next = SDL_GetTicksNS();
     uint32_t at = entry;
@@ -365,55 +430,10 @@ int main(int argc, char **argv)
         memcpy(xf, r.regs + 37, 16 * sizeof xf[0]);
         vf3_native_set_xf(xf);
         /* the vblank ends the frame the PVR2 model is filling */
-        if (vf3_frame_events_frames(&g_events) != vblanks) {
-            vblanks = vf3_frame_events_frames(&g_events);
-            /* the blocks the TA received this frame, decoded with our own
-             * TA decoder and drawn with our own rasteriser */
-            const unsigned nw = g_ta_fifo_words;
-            vf3_ta_list list;
-            int have_list = 0;
-            if (nw) have_list = vf3_ta_decode(g_ta_fifo, nw, &list) == 0;
-            if (have_list) vf3_pvr2_rasterise(&pvr2, &list);
-            else vf3_pvr2_frame_end(&pvr2);
-            fprintf(stderr, "vf3sdl: frame %u: %u TA words", vblanks, pvr2.stats.words);
-            for (unsigned c = 0; c < 8; ++c) fprintf(stderr, " %c%u", (char)('0' + c), pvr2.stats.classes[c]);
-            fprintf(stderr, ", %u pixels, %u render starts, %llu guest instructions",
-                    pvr2.stats.pixels, r.render_starts,
-                    (unsigned long long)(g_insns - frame_insns));
-            frame_insns = g_insns;
-            fprintf(stderr, "\n");
-            vf3_pvr2_frame_begin(&pvr2);
-            if (have_list) {
-                unsigned polys = 0, sprites = 0, textured = 0, modvols = 0;
-                float minx = 1e30f, maxx = -1e30f, miny = 1e30f, maxy = -1e30f;
-                for (unsigned i = 0; i < list.count; ++i) {
-                    const vf3_ta_prim *p = &list.prims[i];
-                    if (p->is_sprite) sprites++;
-                    else if (p->is_modvol) modvols++;
-                    else polys++;
-                    if (vf3_ta_texture(p->param.pcw)) textured++;
-                    for (unsigned v = 0; v < p->count; ++v) {
-                        const vf3_ta_vertex *q = &list.verts[p->vstart + v];
-                        if (q->x < minx) minx = q->x;
-                        if (q->x > maxx) maxx = q->x;
-                        if (q->y < miny) miny = q->y;
-                        if (q->y > maxy) maxy = q->y;
-                    }
-                }
-                fprintf(stderr, "vf3sdl:   stream %u words (%u blocks): %s, %u lists, %u primitives"
-                                " (%u polygons, %u sprites, %u modvols, %u textured), %u skipped\n",
-                        nw, list.blocks, have_list ? "parsed" : "PARSE ERROR", list.lists, list.count,
-                        polys, sprites, modvols, textured, list.invalid);
-                if (getenv("VF3_TALOG")) {
-                    fprintf(stderr, "vf3sdl:   stream head:");
-                    for (unsigned i = 0; i < 8 && i < nw; ++i) fprintf(stderr, " %08x", g_ta_fifo[i]);
-                    fprintf(stderr, "\n");
-                }
-                if (list.count)
-                    fprintf(stderr, "vf3sdl:   vertex range x %g..%g y %g..%g\n", minx, maxx, miny, maxy);
-                vf3_ta_free(&list);
-            }
-            g_ta_fifo_words = 0;
+        if (vf3_frame_events_frames(&g_events) != g_vblanks) {
+            g_vblanks = vf3_frame_events_frames(&g_events);
+            g_render_starts = r.render_starts;
+            frame_boundary();
         }
         if (getenv("VF3_VERBOSE")) {
             static const uint32_t watch[] = { 0x0C16CDF4u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDCCu,

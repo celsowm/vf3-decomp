@@ -85,6 +85,8 @@ unsigned vf3_native_take_render(void);
 /* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop).
  * The hook gets the machine state, because the interrupt handlers it dispatches have to run with the registers the
  * guest had at that point. */
+/* hands the display commands gathered so far to the caller and empties the buffer (valid until the next run) */
+unsigned vf3_native_take_ta(const uint32_t **words);
 void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s));
 /* Limit a run to `steps` guest steps (a time slice); 0 restores the default. An exhausted run reports ok = 0 with failed_pc at the next step. */
 void vf3_native_set_budget(unsigned steps);
