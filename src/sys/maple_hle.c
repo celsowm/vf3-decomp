@@ -110,7 +110,13 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
             } else if (command == MAPLE_REQ_GETMEDIAINFO) {
                 code = MAPLE_RES_DATATRF;
                 memcpy(out, &func, 4);
-                for (unsigned i = 0; i < 12; ++i) put16(out + 4 + 2 * i, vmu_media_info[i]);
+                {   /* VF3_VMU_INFO=a,b,..(12 decimal words) overrides the answer */
+                    uint16_t info[12];
+                    memcpy(info, vmu_media_info, sizeof info);
+                    const char *e = getenv("VF3_VMU_INFO");
+                    for (unsigned i = 0; e && i < 12; ++i) { info[i] = (uint16_t)strtoul(e, (char **)&e, 10); if (*e == ',') ++e; }
+                    for (unsigned i = 0; i < 12; ++i) put16(out + 4 + 2 * i, info[i]);
+                }
                 owords = 7;
             } else if (command == MAPLE_REQ_BLOCKREAD && func == MAPLE_FUNC_STORAGE) {
                 const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];
@@ -128,6 +134,14 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, out, 4 * owords);
             }
         vmu_done:
+            {   /* VF3_VMU_MIRROR=<hex delta>: also answer in the other receive bank (diagnostic) */
+                const char *m = getenv("VF3_VMU_MIRROR");
+                if (m) {
+                    const uint32_t alt = recv - (uint32_t)strtoul(m, NULL, 16);
+                    if (in_ram(recv, 140, ram_base, ram_len) && in_ram(alt, 140, ram_base, ram_len))
+                        memmove(ram + ((alt & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)), ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)), 140);
+                }
+            }
             if (head & 0x80000000u) { ++blocks; break; }
             at = next;
             continue;
