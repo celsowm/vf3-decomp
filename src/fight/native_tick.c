@@ -57,6 +57,11 @@ static struct {
     uint32_t maple_list;         /* SB_MDSTAR as last written */
     unsigned maple_started;      /* Maple DMA starts (SB_MDST written with bit 0) not yet taken by the caller */
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
+    /* The SH-4's DMA channel 2 and the SB's channel 2 registers: the game
+     * copies a block of main RAM into the PVR2's Tile Accelerator area with
+     * them (the display commands that do not go through the store queue). */
+    uint32_t dmac_sar2, dmac_dar2, dmac_dmatcr2, dmac_chcr2;
+    uint32_t sb_c2dstat, sb_c2dlen;
 } machine;
 
 /* sound RAM (0x00800000): the loader reads the driver-published free size at 0x88. Kept outside `machine`, which nested runs copy */
@@ -125,14 +130,59 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     return 0;
 }
 
+/* The store queue's flush into the Tile Accelerator: the display commands. */
+static void ta_flush(const uint32_t *words, unsigned n);
+
+/* The SH-4's DMA channel 2 copying into the PVR2.
+ *
+ * The game uses this path for the display commands that do not go through the
+ * store queue.  The source is in the main RAM, the destination is in the
+ * PVR2: below 0x11000000 it is the Tile Accelerator's own area (the first
+ * 8 MB is the polygon stream, the display commands), above it is the VRAM.
+ *
+ * The reference hands the Tile Accelerator a quarter of the blocks it copied
+ * - its own rule, and the one the frame we compare against was drawn with -
+ * so the port hands over the same quarter.
+ */
+static void dma2_ch2_transfer(void)
+{
+    const uint32_t src = machine.dmac_sar2 & 0x1FFFFFE0u;
+    const uint32_t dst = machine.sb_c2dstat & 0x01FFFFE0u;
+    const uint32_t len = machine.sb_c2dlen;
+
+    if ((src >> 26) == 3u && len) {
+        const uint32_t off = src & 0x00FFFFFFu;   /* the main RAM is 16 MB at 0x0C000000 */
+        if (off + len <= VF3_NATIVE_RAM_LEN) {
+            if ((dst & 0x01000000u) == 0u && (dst & 0x800000u) == 0u) {
+                /* the polygon stream: the display commands */
+                const unsigned blocks = (len / 32u) / 4u;
+                for (unsigned b = 0; b < blocks; ++b) {
+                    uint32_t buf[8];
+                    const uint8_t *p = machine.ram + off + b * 32u;
+                    for (unsigned w = 0; w < 8; ++w)
+                        buf[w] = ((uint32_t)p[w * 4] << 24) | ((uint32_t)p[w * 4 + 1] << 16) |
+                                 ((uint32_t)p[w * 4 + 2] << 8) | (uint32_t)p[w * 4 + 3];
+                    ta_flush(buf, 8);
+                }
+            }
+            /* above 8 MB in the TA's area is the YUV converter, and above
+             * 0x11000000 is the VRAM: neither is modelled yet */
+        }
+    }
+    machine.sb_c2dlen = 0;
+    machine.sb_c2dstat = 0;
+    machine.dmac_chcr2 |= 0x0200u;      /* the transfer ended */
+    machine.dmac_dmatcr2 = 0;
+    machine.istnrm |= 0x00080000u;      /* the ch2-DMA end interrupt (bit 19) */
+}
+
 static void device_write(void *context, uint32_t address, unsigned size, uint32_t value)
 {
     (void)context; (void)size;
     ++machine.writes;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
     if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* a guest write re-seeds TCNT0 */
-        tmu_cycles = (uint64_t)(0xFFFFFFFFu - value) << 8;
-    if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
+        tmu_cycles = (uint64_t)(0xFFFFFFFFu - value) << 8;    if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
     if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         aica_upload_len = value;
         aica_upload_polls_left = (uint64_t)value * AICA_UPLOAD_POLLS_PER_BYTE_X10 / 10u;
@@ -141,7 +191,16 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
         memcpy(aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), &value, size > 4 ? 4 : size);
     if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) ++machine.maple_started;
-    if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu && (value & 1u)) ++machine.dma2_started;
+    /* The SH-4's DMA channel 2 and the SB's channel 2: the game copies a
+     * block of main RAM into the PVR2 with them.  The copy runs when the SB's
+     * ch2 start register is written with bit 0. */
+    if ((address & 0x1FFFFFFFu) == 0x1FA00020u) machine.dmac_sar2 = value;
+    if ((address & 0x1FFFFFFFu) == 0x1FA00024u) machine.dmac_dar2 = value;
+    if ((address & 0x1FFFFFFFu) == 0x1FA00028u) machine.dmac_dmatcr2 = value;
+    if ((address & 0x1FFFFFFFu) == 0x1FA0002Cu) { machine.dmac_chcr2 = value; if (value & 1u) ++machine.dma2_started; }
+    if ((address & 0x1FFFFFFFu) == 0x005F6800u) machine.sb_c2dstat = value;
+    if ((address & 0x1FFFFFFFu) == 0x005F6804u) machine.sb_c2dlen = value;
+    if ((address & 0x1FFFFFFFu) == 0x005F6808u && (value & 1u)) dma2_ch2_transfer();
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) { ++machine.render_started; ++machine.render_starts_total; }
     /* A plain store into the PVR2 area is a VRAM or a register write, not a
