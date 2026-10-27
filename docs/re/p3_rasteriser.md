@@ -21,16 +21,7 @@ Faults found and fixed this session:
   (4/8 bit, PAL_RAM_CTRL) are implemented, but frame 300 uses none of them
   (formats are RGB565/ARGB4444/ARGB1555, VQ or twiddled), so they are untested.
 
-Not closed - the pixel diff against the reference is not meaningful yet:
-
-* the reference framebuffer in the VRAM dump and the TA frame are not aligned
-  (the best pairing is ~34% of pixels within 24 levels), and the sky texture
-  in the dump (1024x1024 VQ at 0x264000) is a dusk sky with no pink at all,
-  whereas the reference frame shows a pink sky - so either the texture is
-  rewritten between the dump and the render or the sprites are not what we
-  think they are.  The reference's own raw frame for 300 (`frames2/`) is
-  truncated and not 24-bit RGB;
-* no fog, no per-pixel LOD, no modifier volumes, no YUV, no user clip;
-* translucent-list sorting and the HUD sprites are unchecked.
-Next step: have the instrument dump the framebuffer *with* the TA frame in one
-run, so each frame has its own aligned reference.
+Alignment: TA frame 297 against the dump at marker 300 gives 90.9% of pixels
+within 24 levels (the display lags the TA by about three frames).  Still open:
+the stone's trilinear/mip detail, the fighters' edges, the exact fog density
+exponent (the sky is ~2 levels dark), modifier volumes, YUV, user clip.

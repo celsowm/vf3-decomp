@@ -205,6 +205,16 @@ static uint8_t float_to_u8(float v)
     return (uint8_t)(v * 255.0f);
 }
 
+/* The colour as the frame buffer's 5-6-5: rounded to the nearest level, the
+ * way the reference's pixels sit (a plain shift lands one level low). */
+static uint16_t pack565(float r, float g, float b)
+{
+    const uint32_t r5 = ((uint32_t)float_to_u8(r) * 31u + 127u) / 255u;
+    const uint32_t g6 = ((uint32_t)float_to_u8(g) * 63u + 127u) / 255u;
+    const uint32_t b5 = ((uint32_t)float_to_u8(b) * 31u + 127u) / 255u;
+    return (uint16_t)(r5 << 11 | g6 << 5 | b5);
+}
+
 /* The texture's size, address and format, from the TSP and the texture
  * control word. */
 typedef struct {
@@ -220,6 +230,7 @@ typedef struct {
     int vq;              /* the texture is vector-quantised */
     uint32_t data_addr;  /* the quantised data, past the codebook */
     int mip;             /* the texture carries a mipmap chain */
+    uint32_t filter;     /* 0: point, 1: bilinear, 2/3: trilinear */
     uint32_t mip_texels; /* the texels in front of the largest level */
     int linear;          /* scan order: rows follow each other, no twiddle */
     uint32_t stride;     /* the linear row length in texels (0: the width) */
@@ -249,6 +260,7 @@ static void read_texture(const vf3_pvr2 *p, const vf3_ta_prim *prim, texinfo *t)
      * texture's address and the quantised data follows it */
     t->vq = ((tcw >> 30) & 1u) != 0;
     t->mip = (int)((tcw >> 31) & 1u);
+    t->filter = (tsp >> 13) & 3u;
     t->linear = t->vq ? 0 : (int)((tcw >> 26) & 1u);
     t->pal_base = 0;
     if (t->format == 5 || t->format == 6) {
@@ -347,7 +359,7 @@ static uint32_t decode_texel(uint32_t format, uint32_t v)
         const uint32_t g = (v >> 5) & 0x1Fu;
         const uint32_t b = v & 0x1Fu;
         const uint32_t a = (v >> 15) & 1u;
-        return (a << 24) | ((r << 3 | r >> 2) << 16) | ((g << 3 | g >> 2) << 8) |
+        return (a ? 0xFF000000u : 0u) | ((r << 3 | r >> 2) << 16) | ((g << 3 | g >> 2) << 8) |
                (b << 3 | b >> 2);
     }
     case 1: {   /* RGB565 */
@@ -448,8 +460,42 @@ static uint32_t sample_texel(const vf3_pvr2 *p, const texinfo *t, int x, int y)
     return decode_texel(t->format, v);
 }
 
+/* A texel through the texture's addressing: flip, clamp or wrap. */
+static uint32_t texel_at(const vf3_pvr2 *p, const texinfo *t, int x, int y)
+{
+    x = mirror_coord(x, (int)t->width, t->flip_u && !t->clamp_u);
+    y = mirror_coord(y, (int)t->height, t->flip_v && !t->clamp_v);
+    return sample_texel(p, t, x, y);
+}
+
+/* The texture at (u, v).  Point sampling takes the texel the coordinate
+ * lands in; the bilinear filters weigh the four texels around it. */
+static uint32_t sample_filtered(const vf3_pvr2 *p, const texinfo *t, float u, float v)
+{
+    const float fu = u * (float)t->width;
+    const float fv = v * (float)t->height;
+    if (t->filter == 0)
+        return texel_at(p, t, (int)floorf(fu), (int)floorf(fv));
+    const float bu = fu - 0.5f, bv = fv - 0.5f;
+    const int x0 = (int)floorf(bu), y0 = (int)floorf(bv);
+    const float ax = bu - (float)x0, ay = bv - (float)y0;
+    const uint32_t c[4] = {
+        texel_at(p, t, x0, y0), texel_at(p, t, x0 + 1, y0),
+        texel_at(p, t, x0, y0 + 1), texel_at(p, t, x0 + 1, y0 + 1)
+    };
+    const float wgt[4] = {(1 - ax) * (1 - ay), ax * (1 - ay), (1 - ax) * ay, ax * ay};
+    uint32_t out = 0;
+    for (int sh = 0; sh < 32; sh += 8) {
+        float acc = 0.0f;
+        for (int k = 0; k < 4; ++k) acc += wgt[k] * (float)((c[k] >> sh) & 0xFFu);
+        out |= (uint32_t)(acc + 0.5f) << sh;
+    }
+    return out;
+}
+
 /* The primitive's own settings, taken out of the parameter block once. */
 typedef struct {
+    uint32_t fog_ctrl;   /* 0: table, 1: per vertex, 2: none, 3: table (alpha only) */
     int textured;
     int gouraud;
     int offset;
@@ -478,6 +524,7 @@ static void read_prim(const vf3_ta_prim *prim, const vf3_pvr2 *p, primstate *s)
     s->z_write_dis = ((isp >> 26) & 1u) != 0;
     s->cull_mode = (isp >> 27) & 3u;
     s->shad_instr = (tsp >> 6) & 3u;
+    s->fog_ctrl = (tsp >> 22) & 3u;
     s->src_instr = (tsp >> 29) & 7u;
     s->dst_instr = (tsp >> 26) & 7u;
     s->use_alpha = ((tsp >> 20) & 1u) != 0;
@@ -594,8 +641,35 @@ static void blend(uint16_t *dst, float sr, float sg, float sb, float sa,
     const float g = sg * sf[1] + dg * df[1];
     const float b = sb * sf[2] + db * df[2];
     const float a = sa * sf[3] + da * df[3];
-    *dst = (uint16_t)((float_to_u8(r) >> 3) << 11 | (float_to_u8(g) >> 2) << 5 |
-                       (float_to_u8(b) >> 3));
+    *dst = pack565(r, g, b);
+}
+
+/* The fog coefficient for a pixel of depth 1/w = z.  The density register
+ * holds a mantissa (bits 15-8, over 128) and a signed four bit exponent; the
+ * product with w picks one of the table's 128 entries (sixteen to the octave)
+ * and the entry's second byte is blended towards the next entry's by the
+ * fraction.  The exponent's offset is an empirical fit: the reference's sky
+ * (w = 301, fog share 0.457) needs a density between 2^-4 and 2^-3 times the
+ * mantissa for 0x890d. */
+static float fog_coefficient(const vf3_pvr2 *p, float z)
+{
+    const uint32_t dens = reg32(p, 0xB8u);
+    const int e = (((int)((dens & 0xFu) << 28)) >> 28) - 1;
+    const float density = (float)((dens >> 8) & 0xFFu) / 128.0f * ldexpf(1.0f, e);
+    float w = z > 0.0f ? 1.0f / z : 255.0f;
+    float zz = w * density;
+    if (zz < 1.0f) zz = 1.0f;
+    if (zz > 255.99998f) zz = 255.99998f;
+    const int ex = (int)floorf(log2f(zz));
+    const float m = zz * 16.0f / ldexpf(1.0f, ex) - 16.0f;
+    int idx = (int)m + ex * 16;
+    if (idx > 127) idx = 127;
+    const float frac = m - floorf(m);
+    const uint32_t entry = reg32(p, 0x200u + (uint32_t)idx * 4u);
+    const float hi = (float)((entry >> 8) & 0xFFu);
+    const float lo = (float)(entry & 0xFFu);
+    /* the table holds the *visibility*: the fog's share is what is left */
+    return 1.0f - (hi * (1.0f - frac) + lo * frac) / 255.0f;
 }
 
 /* Draw one triangle. */
@@ -661,11 +735,7 @@ static void draw_triangle(vf3_pvr2 *p, const rvertex *a, const rvertex *b,
                 const float zz = z != 0.0f ? z : 1.0f;
                 const float u = (l0 * a->u * a->z + l1 * b->u * b->z + l2 * c->u * c->z) / zz;
                 const float v = (l0 * a->v * a->z + l1 * b->v * b->z + l2 * c->v * c->z) / zz;
-                int tx = (int)floorf(u * (float)t->width);
-                int ty = (int)floorf(v * (float)t->height);
-                tx = mirror_coord(tx, (int)t->width, t->flip_u && !t->clamp_u);
-                ty = mirror_coord(ty, (int)t->height, t->flip_v && !t->clamp_v);
-                const uint32_t texel = sample_texel(p, t, tx, ty);
+                const uint32_t texel = sample_filtered(p, t, u, v);
                 static int raw_cache = -1;
                 if (raw_cache < 0) raw_cache = getenv("VF3_PVR_RAWTEX") != NULL;
                 const int raw = raw_cache;
@@ -694,6 +764,20 @@ static void draw_triangle(vf3_pvr2 *p, const rvertex *a, const rvertex *b,
                     cr += orr; cg += og; cb += ob;
                 }
             }
+            if (s->fog_ctrl == 0 || s->fog_ctrl == 1) {
+                float coef;
+                uint32_t fc;
+                if (s->fog_ctrl == 0) {
+                    coef = fog_coefficient(p, z);
+                    fc = reg32(p, 0xB0u);
+                } else {
+                    coef = l0 * a->oa + l1 * b->oa + l2 * c->oa;
+                    fc = reg32(p, 0xB4u);
+                }
+                cr += ((float)((fc >> 16) & 0xFFu) / 255.0f - cr) * coef;
+                cg += ((float)((fc >> 8) & 0xFFu) / 255.0f - cg) * coef;
+                cb += ((float)(fc & 0xFFu) / 255.0f - cb) * coef;
+            }
             if (s->colour_clamp) {
                 cr = cr < 0.0f ? 0.0f : (cr > 1.0f ? 1.0f : cr);
                 cg = cg < 0.0f ? 0.0f : (cg > 1.0f ? 1.0f : cg);
@@ -715,9 +799,7 @@ static void draw_triangle(vf3_pvr2 *p, const rvertex *a, const rvertex *b,
                 blend(&dst, cr, cg, cb, ca, s->src_instr, s->dst_instr);
                 p->fb[index] = dst;
             } else {
-                p->fb[index] = (uint16_t)((float_to_u8(cr) >> 3) << 11 |
-                                          (float_to_u8(cg) >> 2) << 5 |
-                                          (float_to_u8(cb) >> 3));
+                p->fb[index] = pack565(cr, cg, cb);
             }
             if (!s->z_write_dis) p->depth[index] = z;
             ++p->stats.pixels;
@@ -823,9 +905,14 @@ static void draw_sprite(vf3_pvr2 *p, const vf3_ta_prim *prim,
     make_vertex(prim, &verts[2], &rv[1]);
     make_vertex(prim, &verts[3], &rv[0]);
     sprite_plane(rv);
+    if (getenv("VF3_PVR_DEBUG3"))
+        for (int k = 0; k < 4; ++k)
+            fprintf(stderr, "  rv%d x %.1f y %.1f z %g u %.3f v %.3f c %.2f %.2f %.2f %.2f\n", k, rv[k].x, rv[k].y, rv[k].z, rv[k].u, rv[k].v, rv[k].r, rv[k].g, rv[k].b, rv[k].a);
 
     draw_triangle(p, &rv[0], &rv[1], &rv[2], &t, &s);
     draw_triangle(p, &rv[1], &rv[2], &rv[3], &t, &s);
+    if (getenv("VF3_PVR_DEBUG3"))
+        fprintf(stderr, "  -> pixels %u depth_mode %u cull %u zwd %d\n", p->stats.pixels, s.depth_mode, s.cull_mode, s.z_write_dis);
 }
 
 unsigned vf3_pvr2_rasterise(vf3_pvr2 *p, const vf3_ta_list *list)
