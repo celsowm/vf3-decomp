@@ -25,3 +25,16 @@ Alignment: TA frame 297 against the dump at marker 300 gives 90.9% of pixels
 within 24 levels (the display lags the TA by about three frames).  Still open:
 the stone's trilinear/mip detail, the fighters' edges, the exact fog density
 exponent (the sky is ~2 levels dark), modifier volumes, YUV, user clip.
+
+## The host end to end (state of 2026-10-27)
+
+`build/vf3sdl --state extract/analysis/p1/frm/st.bin.015800 --entry 0x8c059b48
+--frames N --headless` runs the game from a reference frame state (the default
+entry is the scheduler tick, which needs a tick capture and ends in an
+"unowned call at 1ead0000").  It runs, but the TA streams it produces are not
+yet the reference's: frame 1 has 20,997 blocks (the reference's frame 297 has
+18,198), frame 4 has 78,747 blocks with 22,048 skipped words, and the vertex
+range is +-1e38 - the port's DMA-2/TA hand-off (`dma2_ch2_transfer`, which now
+passes every copied block) or the frame events are submitting lists more than
+once.  The renderer is ready for them; the stream is the next thing to pin,
+by diffing the port's frame-1 stream block for block against the reference's.
