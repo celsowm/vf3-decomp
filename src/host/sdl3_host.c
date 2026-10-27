@@ -42,8 +42,9 @@
 #define DEFAULT_SLICE 200000u          /* guest steps between two event slices */
 #define TCNT0_SAMPLE 0x0C1981C8u       /* where the game keeps the TMU sample */
 
-/* A PPM (P6) of the last frame: the diff tool and any image viewer read it. */
-static int write_ppm(const char *path, const uint32_t *fb, unsigned w, unsigned h)
+/* A PPM (P6) of the last frame: the diff tool and any image viewer read it.
+ * The framebuffer holds RGB565, the way the hardware's framebuffer does. */
+static int write_ppm(const char *path, const vf3_pvr2 *pvr, unsigned w, unsigned h)
 {
     FILE *f = fopen(path, "wb");
     if (!f) { fprintf(stderr, "vf3sdl: cannot write %s\n", path); return 1; }
@@ -52,7 +53,7 @@ static int write_ppm(const char *path, const uint32_t *fb, unsigned w, unsigned 
     if (!row) { fclose(f); return 1; }
     for (unsigned y = 0; y < h; ++y) {
         for (unsigned x = 0; x < w; ++x) {
-            const uint32_t px = fb[(size_t)y * w + x];
+            const uint32_t px = vf3_pvr2_pixel(pvr, x, y);
             row[x * 3 + 0] = (unsigned char)(px >> 16);
             row[x * 3 + 1] = (unsigned char)(px >> 8);
             row[x * 3 + 2] = (unsigned char)(px);
@@ -178,6 +179,7 @@ static uint32_t rd32(const uint8_t *ram, uint32_t a)
 int main(int argc, char **argv)
 {
     const char *state = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL, *ta_out = NULL, *ram_out = NULL;
+    const char *pvr_state = NULL;
     unsigned pair = 0, frames = 1, fps = DEFAULT_FPS;
     uint32_t gbr = DEFAULT_GBR;
     uint32_t entry = VF3_NATIVE_SCHED_ENTRY;
@@ -192,6 +194,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (!strcmp(argv[i], "--dump-frame") && i + 1 < argc) dump = argv[++i];
+        else if (!strcmp(argv[i], "--pvr-state") && i + 1 < argc) pvr_state = argv[++i];
         else if (!strcmp(argv[i], "--ta-out") && i + 1 < argc) ta_out = argv[++i];
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc) ram_out = argv[++i];
         else if (!strcmp(argv[i], "--fps") && i + 1 < argc) fps = (unsigned)strtoul(argv[++i], NULL, 0);
@@ -267,6 +270,19 @@ int main(int argc, char **argv)
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
     g_pvr2 = &pvr2;
+    /* The PVR2 is a stateful device: the game programmed its registers at
+     * boot, before the port's entry point, so the state comes from the
+     * reference (the register file and the VRAM). */
+    if (pvr_state) {
+        if (vf3_pvr2_load_state(&pvr2, pvr_state) != 0) {
+            fprintf(stderr, "vf3sdl: cannot load the PVR2 state %s\n", pvr_state);
+            free(ram);
+            return 2;
+        }
+        fprintf(stderr, "vf3sdl: PVR2 state: %ux%u framebuffer, stride %u, pack %u, clip %u..%u %u..%u, %u VRAM bytes\n",
+                pvr2.fb_width, pvr2.fb_height, pvr2.fb_stride, pvr2.pack_mode,
+                pvr2.clip_x0, pvr2.clip_x1, pvr2.clip_y0, pvr2.clip_y1, pvr2.vram_bytes);
+    }
 
     /* The clock and the frame events.  The TMU starts where the state left
      * it: the game keeps the counter's last sample at 0x0C1981C8. */
@@ -335,7 +351,14 @@ int main(int argc, char **argv)
         /* the vblank ends the frame the PVR2 model is filling */
         if (vf3_frame_events_frames(&g_events) != vblanks) {
             vblanks = vf3_frame_events_frames(&g_events);
-            vf3_pvr2_frame_end(&pvr2);
+            /* the blocks the TA received this frame, decoded with our own
+             * TA decoder and drawn with our own rasteriser */
+            const unsigned nw = g_ta_fifo_words;
+            vf3_ta_list list;
+            int have_list = 0;
+            if (nw) have_list = vf3_ta_decode(g_ta_fifo, nw, &list) == 0;
+            if (have_list) vf3_pvr2_rasterise(&pvr2, &list);
+            else vf3_pvr2_frame_end(&pvr2);
             fprintf(stderr, "vf3sdl: frame %u: %u TA words", vblanks, pvr2.stats.words);
             for (unsigned c = 0; c < 8; ++c) fprintf(stderr, " %c%u", (char)('0' + c), pvr2.stats.classes[c]);
             fprintf(stderr, ", %u pixels, %u render starts, %llu guest instructions",
@@ -344,12 +367,7 @@ int main(int argc, char **argv)
             frame_insns = g_insns;
             fprintf(stderr, "\n");
             vf3_pvr2_frame_begin(&pvr2);
-            /* the blocks the TA received this frame, decoded with our own
-             * TA decoder */
-            const unsigned nw = g_ta_fifo_words;
-            if (nw) {
-                vf3_ta_list list;
-                const int rc = vf3_ta_decode(g_ta_fifo, nw, &list);
+            if (have_list) {
                 unsigned polys = 0, sprites = 0, textured = 0, modvols = 0;
                 float minx = 1e30f, maxx = -1e30f, miny = 1e30f, maxy = -1e30f;
                 for (unsigned i = 0; i < list.count; ++i) {
@@ -359,7 +377,7 @@ int main(int argc, char **argv)
                     else polys++;
                     if (vf3_ta_texture(p->param.pcw)) textured++;
                     for (unsigned v = 0; v < p->count; ++v) {
-                        const vf3_ta_vertex *q = &p->verts[v];
+                        const vf3_ta_vertex *q = &list.verts[p->vstart + v];
                         if (q->x < minx) minx = q->x;
                         if (q->x > maxx) maxx = q->x;
                         if (q->y < miny) miny = q->y;
@@ -368,7 +386,7 @@ int main(int argc, char **argv)
                 }
                 fprintf(stderr, "vf3sdl:   stream %u words (%u blocks): %s, %u lists, %u primitives"
                                 " (%u polygons, %u sprites, %u modvols, %u textured), %u skipped\n",
-                        nw, list.blocks, rc ? "PARSE ERROR" : "parsed", list.lists, list.count,
+                        nw, list.blocks, have_list ? "parsed" : "PARSE ERROR", list.lists, list.count,
                         polys, sprites, modvols, textured, list.invalid);
                 if (getenv("VF3_TALOG")) {
                     fprintf(stderr, "vf3sdl:   stream head:");
@@ -394,7 +412,19 @@ int main(int argc, char **argv)
         }
 
         if (texture) {
-            SDL_UpdateTexture(texture, NULL, vf3_pvr2_framebuffer(&pvr2), VF3_PVR2_WIDTH * (int)sizeof(uint32_t));
+            /* the framebuffer is RGB565; the screen wants 32 bit pixels */
+            static uint32_t *argb = NULL;
+            if (!argb) argb = malloc((size_t)VF3_PVR2_PIXELS * sizeof *argb);
+            if (argb) {
+                for (unsigned i = 0; i < VF3_PVR2_PIXELS; ++i) {
+                    const uint32_t v = pvr2.fb[i];
+                    const uint32_t r = ((v >> 11) & 0x1Fu) * 255u / 31u;
+                    const uint32_t g = ((v >> 5) & 0x3Fu) * 255u / 63u;
+                    const uint32_t b = (v & 0x1Fu) * 255u / 31u;
+                    argb[i] = 0xFF000000u | (r << 16) | (g << 8) | b;
+                }
+                SDL_UpdateTexture(texture, NULL, argb, VF3_PVR2_WIDTH * (int)sizeof(uint32_t));
+            }
             SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
             SDL_RenderClear(renderer);
             SDL_RenderTexture(renderer, texture, NULL, NULL);
@@ -430,7 +460,7 @@ done:
         }
     }
     if (dump) {
-        if (write_ppm(dump, vf3_pvr2_framebuffer(&pvr2), VF3_PVR2_WIDTH, VF3_PVR2_HEIGHT)) status = 1;
+        if (write_ppm(dump, &pvr2, VF3_PVR2_WIDTH, VF3_PVR2_HEIGHT)) status = 1;
         else fprintf(stderr, "vf3sdl: wrote %s\n", dump);
     }
     vf3_pvr2_free(&pvr2);

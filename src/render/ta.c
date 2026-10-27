@@ -82,6 +82,28 @@ int vf3_ta_param_is_64(uint32_t pcw)
     return 0;
 }
 
+/* Which of the five parameter blocks the object control selects.
+ *
+ * The words after the texture control word hold the face colour (the
+ * intensity layouts) or the second volume's texture words; the packed colour
+ * is in the vertices, so the parameter block has nothing there. */
+unsigned vf3_ta_param_type(uint32_t pcw)
+{
+    const unsigned col = vf3_ta_coltype(pcw);
+    if (!vf3_ta_volume(pcw)) {
+        if (col < 2) return VF3_TA_PARAM_PACKED;
+        if (col == 2) {
+            if (vf3_ta_texture(pcw) && vf3_ta_offset(pcw))
+                return VF3_TA_PARAM_FACE_OFFSET;
+            return VF3_TA_PARAM_FACE;
+        }
+        return VF3_TA_PARAM_PACKED;
+    }
+    if (col == 0) return VF3_TA_PARAM_TWO_VOL_PACKED;
+    if (col == 2) return VF3_TA_PARAM_TWO_VOL_FACE;
+    return VF3_TA_PARAM_PACKED;
+}
+
 /* Whether a vertex of this layout takes 64 bytes (two blocks).
  *
  * The layouts that carry a float colour or a second volume do; the others
@@ -130,8 +152,11 @@ static uint32_t f32bits(float f)
 void vf3_ta_free(vf3_ta_list *list)
 {
     free(list->prims);
+    free(list->verts);
     list->prims = NULL;
+    list->verts = NULL;
     list->count = list->capacity = 0;
+    list->vcount = list->vcapacity = 0;
 }
 
 static vf3_ta_prim *push_prim(vf3_ta_list *list)
@@ -145,6 +170,19 @@ static vf3_ta_prim *push_prim(vf3_ta_list *list)
     }
     memset(&list->prims[list->count], 0, sizeof list->prims[list->count]);
     return &list->prims[list->count++];
+}
+
+/* Reserve one vertex in the list's arena and return its index. */
+static unsigned push_vertex(vf3_ta_list *list)
+{
+    if (list->vcount == list->vcapacity) {
+        unsigned cap = list->vcapacity ? 2 * list->vcapacity : 1024;
+        vf3_ta_vertex *v = realloc(list->verts, (size_t)cap * sizeof *v);
+        if (!v) { list->vcapacity = list->vcount = 0; return 0; }
+        list->verts = v;
+        list->vcapacity = cap;
+    }
+    return list->vcount++;
 }
 
 /* Decode one vertex from its words into a vertex.
@@ -163,10 +201,11 @@ static void decode_vertex(unsigned vtype, const uint32_t *w, int have_next, vf3_
         v->colour = w[5];
         break;
     case VF3_TA_V_PLAIN_FLOAT:
-        /* the colour's four floats follow the position in the same block */
-        v->colour = 0xFF000000u | ((uint32_t)(f32(w[6]) * 255.0f) << 16) |
+        /* the colour's four floats follow the position in the same block:
+         * alpha, red, green, blue */
+        v->colour = 0xFF000000u | ((uint32_t)(f32(w[4]) * 255.0f) << 16) |
                                 ((uint32_t)(f32(w[5]) * 255.0f) << 8) |
-                                 (uint32_t)(f32(w[4]) * 255.0f);
+                                 (uint32_t)(f32(w[6]) * 255.0f);
         v->offset_colour = 0xFF000000u;
         break;
     case VF3_TA_V_PLAIN_INTENSITY:
@@ -189,24 +228,24 @@ static void decode_vertex(unsigned vtype, const uint32_t *w, int have_next, vf3_
         v->v = f32(w[4]);
         if (have_next) {
             /* the second block: the base colour's alpha, red, green, blue */
-            v->colour = 0xFF000000u | ((uint32_t)(f32(w[10]) * 255.0f) << 16) |
+            v->colour = 0xFF000000u | ((uint32_t)(f32(w[8]) * 255.0f) << 16) |
                                     ((uint32_t)(f32(w[9]) * 255.0f) << 8) |
-                                     (uint32_t)(f32(w[8]) * 255.0f);
-            v->offset_colour = 0xFF000000u | ((uint32_t)(f32(w[14]) * 255.0f) << 16) |
+                                     (uint32_t)(f32(w[10]) * 255.0f);
+            v->offset_colour = 0xFF000000u | ((uint32_t)(f32(w[12]) * 255.0f) << 16) |
                                           ((uint32_t)(f32(w[13]) * 255.0f) << 8) |
-                                           (uint32_t)(f32(w[12]) * 255.0f);
+                                           (uint32_t)(f32(w[14]) * 255.0f);
         }
         break;
     case VF3_TA_V_TEXT_FLOAT_16:
         v->v = ta_f16((uint16_t)w[3]);
         v->u = ta_f16((uint16_t)(w[3] >> 16));
         if (have_next) {
-            v->colour = 0xFF000000u | ((uint32_t)(f32(w[10]) * 255.0f) << 16) |
+            v->colour = 0xFF000000u | ((uint32_t)(f32(w[8]) * 255.0f) << 16) |
                                     ((uint32_t)(f32(w[9]) * 255.0f) << 8) |
-                                     (uint32_t)(f32(w[8]) * 255.0f);
-            v->offset_colour = 0xFF000000u | ((uint32_t)(f32(w[14]) * 255.0f) << 16) |
+                                     (uint32_t)(f32(w[10]) * 255.0f);
+            v->offset_colour = 0xFF000000u | ((uint32_t)(f32(w[12]) * 255.0f) << 16) |
                                           ((uint32_t)(f32(w[13]) * 255.0f) << 8) |
-                                           (uint32_t)(f32(w[12]) * 255.0f);
+                                           (uint32_t)(f32(w[14]) * 255.0f);
         }
         break;
     case VF3_TA_V_TEXT_INTENSITY:
@@ -340,18 +379,24 @@ int vf3_ta_decode(const uint32_t *words, unsigned count, vf3_ta_list *out)
             cur->param.pcw = pcw;
             cur->param.vertex_type = vtype;
             cur->param.param_words = p64 ? 16u : 8u;
+            cur->param.param_type = vf3_ta_param_type(pcw);
             cur->param.isp_tsp = blk[1];
             cur->param.tsp = blk[2];
             cur->param.tcw = blk[3];
             cur->param.base_colour = blk[4];
             cur->param.offset_colour = blk[5];
             cur_vtype = vtype;
+            cur->vstart = out->vcount;
             if (p64) {
-                /* the parameter block's second half: the two face colours */
+                /* the parameter block's second half: the face colours */
                 if (i + 16 > count) { out->error = 1; out->words = i; return -1; }
                 for (unsigned k = 0; k < 8; ++k) cur->param.face[k] = f32(words[i + 8 + k]);
                 i += 16;
             } else {
+                if (cur->param.param_type == VF3_TA_PARAM_FACE) {
+                    /* the face colour: alpha, red, green, blue */
+                    for (unsigned k = 0; k < 4; ++k) cur->param.face[k] = f32(blk[4 + k]);
+                }
                 i += 8;
             }
             break;
@@ -374,12 +419,14 @@ int vf3_ta_decode(const uint32_t *words, unsigned count, vf3_ta_list *out)
             cur->param.pcw = pcw;
             cur->param.vertex_type = 0xFFu;
             cur->param.param_words = 8u;
+            cur->param.param_type = VF3_TA_PARAM_PACKED;
             cur->param.isp_tsp = blk[1];
             cur->param.tsp = blk[2];
             cur->param.tcw = blk[3];
             cur->param.base_colour = blk[4];
             cur->param.offset_colour = blk[5];
             cur_vtype = 0xFFu;
+            cur->vstart = out->vcount;
             i += 8;
             break;
         }
@@ -393,14 +440,42 @@ int vf3_ta_decode(const uint32_t *words, unsigned count, vf3_ta_list *out)
                 /* the sprite's vertex data: 60 bytes after the control word,
                  * which is the rest of this block plus the next one */
                 if (i + 16 > count) { out->error = 1; out->words = i; return -1; }
-                decode_sprite(blk + 1, cur->verts);
+                if (out->vcount + 4 > out->vcapacity) {
+                    unsigned need = out->vcount + 4;
+                    unsigned cap = out->vcapacity ? out->vcapacity : 1024;
+                    while (cap < need) cap *= 2;
+                    vf3_ta_vertex *v = realloc(out->verts, (size_t)cap * sizeof *v);
+                    if (!v) { out->error = 1; out->words = i; return -1; }
+                    out->verts = v;
+                    out->vcapacity = cap;
+                }
+                decode_sprite(blk + 1, &out->verts[out->vcount]);
+                /* A sprite has no colour of its own: the hardware gives every
+                 * corner the face colour from the sprite's parameter block. */
+                for (unsigned k = 0; k < 4; ++k) {
+                    out->verts[out->vcount + k].colour = cur->param.base_colour;
+                    out->verts[out->vcount + k].offset_colour = cur->param.offset_colour;
+                }
+                out->vcount += 4;
                 cur->count = 4;
                 i += 16;
                 break;
             }
             if (cur->is_modvol) {
                 if (i + 16 > count) { out->error = 1; out->words = i; return -1; }
-                if (cur->count < VF3_TA_MAX_VERTS) decode_modvol(blk + 1, &cur->verts[cur->count]);
+                /* the modifier volume's vertex carries the four corners of
+                 * the volume, so it takes four slots in the arena */
+                if (out->vcount + 4 > out->vcapacity) {
+                    unsigned need = out->vcount + 4;
+                    unsigned cap = out->vcapacity ? out->vcapacity : 1024;
+                    while (cap < need) cap *= 2;
+                    vf3_ta_vertex *v = realloc(out->verts, (size_t)cap * sizeof *v);
+                    if (!v) { out->error = 1; out->words = i; return -1; }
+                    out->verts = v;
+                    out->vcapacity = cap;
+                }
+                decode_modvol(blk + 1, &out->verts[out->vcount]);
+                out->vcount += 4;
                 cur->count++;
                 i += 16;
                 break;
@@ -409,8 +484,14 @@ int vf3_ta_decode(const uint32_t *words, unsigned count, vf3_ta_list *out)
                 const int wide = vf3_ta_vertex_is_64(cur_vtype);
                 const unsigned need = wide ? 16u : 8u;
                 if (i + need > count) { out->error = 1; out->words = i; return -1; }
-                if (cur->count < VF3_TA_MAX_VERTS)
-                    decode_vertex(cur_vtype, blk + 1, wide, &cur->verts[cur->count]);
+                {
+                    const unsigned idx = push_vertex(out);
+                    decode_vertex(cur_vtype, blk + 1, wide, &out->verts[idx]);
+                    /* the vertex's own control word says where the strip ends:
+                     * the TA's polygons are triangle strips */
+                    out->verts[idx].end_strip = (uint8_t)((pcw >> 28) & 1u);
+                    if (out->verts[idx].end_strip) ++cur->strips;
+                }
                 cur->count++;
                 i += need;
             }

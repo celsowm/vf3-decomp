@@ -14,6 +14,12 @@ void vf3DumpCheck(u32 pc);
  * (core/hw/pvr/ta.cpp). */
 void vf3DumpTaBlock(const void *block32);
 
+/* The frame boundary: the game starts a new frame's display list by writing
+ * the TA's list control register, so the hook there (core/hw/pvr/pvr_regs.cpp)
+ * marks where one frame's blocks end and the next frame's begin.  The marker
+ * is a 32-byte block of its own, so the capture can be split into frames. */
+void vf3DumpTaFrame();
+
 /* The PVR2's own state: the register file (the frame buffer's configuration)
  * and the VRAM (the textures).  The emulator is the only place they exist,
  * and the port starts from a state the emulator dumped. */

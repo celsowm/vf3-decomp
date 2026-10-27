@@ -52,7 +52,7 @@ int main(int argc, char **argv)
         if (vf3_ta_texture(p->param.pcw)) textured++;
         if (p->list_type < 8) lists[p->list_type]++;
         for (unsigned v = 0; v < p->count; ++v) {
-            const vf3_ta_vertex *q = &p->verts[v];
+            const vf3_ta_vertex *q = &list.verts[p->vstart + v];
             if (q->x < minx) minx = q->x;
             if (q->x > maxx) maxx = q->x;
             if (q->y < miny) miny = q->y;
@@ -65,13 +65,40 @@ int main(int argc, char **argv)
     printf("vertex range: x %g .. %g, y %g .. %g\n", minx, maxx, miny, maxy);
 
     const unsigned limit = argc > 2 ? (unsigned)strtoul(argv[2], 0, 0) : 12u;
+
+    /* the distinct textures the frame uses */
+    {
+        printf("\ndistinct textures:\n");
+        for (unsigned i = 0; i < list.count; ++i) {
+            const vf3_ta_prim *p = &list.prims[i];
+            if (!vf3_ta_texture(p->param.pcw)) continue;
+            int seen = 0;
+            for (unsigned j = 0; j < i; ++j) {
+                const vf3_ta_prim *q = &list.prims[j];
+                if (q->param.tsp == p->param.tsp && q->param.tcw == p->param.tcw) {
+                    seen = 1;
+                    break;
+                }
+            }
+            if (seen) continue;
+            const uint32_t tsp = p->param.tsp;
+            const uint32_t tcw = p->param.tcw;
+            printf("  tsp %08x tcw %08x: %ux%u, addr 0x%05x -> 0x%06x, fmt %u, vq %u, "
+                   "filter %u, flip %u%u, clamp %u%u, shad %u\n",
+                   tsp, tcw, 8u << ((tsp >> 3) & 7u), 8u << (tsp & 7u),
+                   tcw & 0x1FFFFFu, (tcw & 0x1FFFFFu) << 3, (tcw >> 27) & 7u,
+                   (tcw >> 30) & 1u, (tsp >> 13) & 3u, (tsp >> 18) & 1u, (tsp >> 17) & 1u,
+                   (tsp >> 16) & 1u, (tsp >> 15) & 1u, (tsp >> 6) & 3u);
+        }
+    }
+
     for (unsigned i = 0; i < list.count && i < limit; ++i) {
         const vf3_ta_prim *p = &list.prims[i];
         printf("prim %u: %s list %u vtype %u verts %u pcw %08x isp %08x tsp %08x tcw %08x\n",
                i, p->is_sprite ? "sprite" : "polygon", p->list_type, p->param.vertex_type,
                p->count, p->param.pcw, p->param.isp_tsp, p->param.tsp, p->param.tcw);
         for (unsigned v = 0; v < p->count; ++v) {
-            const vf3_ta_vertex *q = &p->verts[v];
+            const vf3_ta_vertex *q = &list.verts[p->vstart + v];
             printf("   v%u: x %g y %g z %g u %g v %g col %08x\n",
                    v, q->x, q->y, q->z, q->u, q->v, q->colour);
         }

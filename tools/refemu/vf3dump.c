@@ -55,6 +55,7 @@ constexpr u32 RAM_LEN = 0x01000000;      /* the Dreamcast's 16 MiB of main RAM *
 constexpr u32 MARK_REGS = 0xFA30;
 constexpr u32 MARK_XF = 0xFA70;
 constexpr u32 MARK_WINDOWS = 0xFA50;
+constexpr u32 VF3_PVR_DUMP_MAX_FRAMES = 16;   /* the frames one run can dump */
 
 const char *statePath = nullptr;
 u32 skipHits = 0;
@@ -87,8 +88,14 @@ u64 nextHitsDump = 0;
 const char *taPath = nullptr;
 FILE *taFile = nullptr;
 u64 taBlocks = 0;
+u32 taFrames = 0;
 const char *pvrPath = nullptr;
 bool pvrDumped = false;
+const char *pvrAtPath = nullptr;  /* the VRAM dumped at a chosen frame */
+u32 pvrDumpFrame = 0;        /* the frame the VRAM dump is taken at */
+u32 pvrDumpFrames[VF3_PVR_DUMP_MAX_FRAMES];  /* the frames to dump at */
+u32 pvrDumpFrameCount = 0;   /* how many of them there are */
+u32 taFrameCount = 0;        /* the frames seen since the capture started */
 
 void put32(FILE *f, u32 v) {
     fwrite(&v, 4, 1, f);
@@ -185,6 +192,52 @@ void vf3DumpTaBlock(const void *block32) {
     ++taBlocks;
 }
 
+/* The frame boundary.  The marker is a block of its own: the first word is a
+ * magic that no TA block carries, the second the frame's number, the rest
+ * zero.  A capture can be split into frames by looking for it. */
+void vf3DumpTaFrame() {
+    if (taPath == nullptr)
+        return;
+    if (taFile == nullptr) {
+        taFile = fopen(taPath, "wb");
+        if (taFile == nullptr) {
+            fprintf(stderr, "[vf3dump] cannot write %s\n", taPath);
+            taPath = nullptr;
+            return;
+        }
+    }
+    u32 marker[8];
+    marker[0] = 0xDEADBE01u;
+    marker[1] = taFrameCount;
+    marker[2] = marker[3] = marker[4] = 0;
+    marker[5] = marker[6] = marker[7] = 0;
+    fwrite(marker, 32, 1, taFile);
+    ++taFrames;
+    ++taFrameCount;
+    /* the VRAM can be dumped at a chosen frame: the attract screen's textures
+     * change while it runs, so the state has to be taken where the frame is.
+     * The frame list is comma separated, and each dump gets its own file. */
+    if (pvrAtPath != nullptr && pvrDumpFrameCount > 0) {
+        for (u32 i = 0; i < pvrDumpFrameCount; ++i) {
+            if (taFrameCount != pvrDumpFrames[i])
+                continue;
+            char name[1200];
+            snprintf(name, sizeof name, "%s.%u", pvrAtPath, taFrameCount);
+            vf3DumpPvrState(name);
+            /* the frame is done with: the slot is freed */
+            pvrDumpFrames[i] = 0;
+            break;
+        }
+        /* drop the frames that have passed */
+        u32 keep = 0;
+        for (u32 i = 0; i < pvrDumpFrameCount; ++i) {
+            if (pvrDumpFrames[i] != 0)
+                pvrDumpFrames[keep++] = pvrDumpFrames[i];
+        }
+        pvrDumpFrameCount = keep;
+    }
+}
+
 /* The PVR2's register file and its VRAM, next to the state dump. */
 void vf3DumpPvrState(const char *path) {
     FILE *f = fopen(path, "wb");
@@ -232,6 +285,51 @@ void vf3DumpInit() {
     const char *pvp = getenv("VF3_PVR_DUMP");
     if (pvp != nullptr && *pvp != '\0')
         pvrPath = pvp;
+    const char *pvpf = getenv("VF3_PVR_DUMP_FRAME");
+    if (pvpf != nullptr && *pvpf != '\0') {
+        /* a comma separated list of frames: the first one that comes is
+         * dumped, and the rest are left for the following runs */
+        char list[256];
+        snprintf(list, sizeof list, "%s", pvpf);
+        char *p = list;
+        u32 next = 0;
+        while (*p != '\0') {
+            char *end = nullptr;
+            const u32 f = (u32)strtoul(p, &end, 0);
+            if (end == p)
+                break;
+            if (next == 0)
+                next = f;
+            p = end;
+            while (*p == ',' || *p == ' ')
+                ++p;
+        }
+        pvrDumpFrame = next;
+    }
+    const char *pvpa = getenv("VF3_PVR_DUMP_AT");
+    if (pvpa != nullptr && *pvpa != '\0')
+        pvrAtPath = pvpa;
+    const char *pvpal = getenv("VF3_PVR_DUMP_AT_FRAMES");
+    if (pvpal != nullptr && *pvpal != '\0') {
+        /* The frames the VRAM is dumped at, comma separated.  Several of them
+         * can be taken in one run, which is what a pixel comparison needs: the
+         * framebuffer of a frame is only there after the frame was rendered,
+         * so the render of frame N is in the dump of frame N+1 while the
+         * textures of frame N are in the dump of frame N. */
+        char list[256];
+        snprintf(list, sizeof list, "%s", pvpal);
+        char *p = list;
+        while (*p != '\0' && pvrDumpFrameCount < VF3_PVR_DUMP_MAX_FRAMES) {
+            char *end = nullptr;
+            const u32 f = (u32)strtoul(p, &end, 0);
+            if (end == p)
+                break;
+            pvrDumpFrames[pvrDumpFrameCount++] = f;
+            p = end;
+            while (*p == ',' || *p == ' ')
+                ++p;
+        }
+    }
     const char *path = getenv("VF3_DUMP_STATE");
     if (path == nullptr || *path == '\0')
         return;

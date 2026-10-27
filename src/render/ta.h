@@ -75,8 +75,9 @@ enum {
     VF3_TA_V_TEXT_INTENSITY_2VOL_16 = 14
 };
 
-#define VF3_TA_MAX_VERTS 4
-
+/* The vertices of a primitive live in the list's own arena: a strip can be
+ * hundreds of vertices long (the fight frame has strips of 282), so the
+ * primitive holds the arena's offsets, not the vertices themselves. */
 typedef struct {
     float x, y;          /* the screen position, in the TA's own units */
     float z;             /* 1/w: the reciprocal the TA divides by */
@@ -85,7 +86,26 @@ typedef struct {
     uint32_t offset_colour;
     float intensity;     /* the intensity layouts */
     float offset_intensity;
+    uint8_t end_strip;   /* 1: this vertex ends the strip it belongs to */
 } vf3_ta_vertex;
+
+/* The parameter block's five shapes.  They differ in what the words after
+ * the texture control word hold:
+ *
+ *   0  32 bytes: the packed or floating colour, in the vertices
+ *   1  32 bytes: the face colour, four floats
+ *   2  64 bytes: the face colour and the offset face colour, four floats each
+ *   3  32 bytes: the packed colour with two volumes: the second volume's
+ *                texture control and texture words
+ *   4  64 bytes: the intensity with two volumes: two face colours
+ */
+enum {
+    VF3_TA_PARAM_PACKED = 0,
+    VF3_TA_PARAM_FACE = 1,
+    VF3_TA_PARAM_FACE_OFFSET = 2,
+    VF3_TA_PARAM_TWO_VOL_PACKED = 3,
+    VF3_TA_PARAM_TWO_VOL_FACE = 4
+};
 
 /* The primitive's parameter block: the words after the PCW. */
 typedef struct {
@@ -98,6 +118,7 @@ typedef struct {
     float face[8];       /* the face colours (the 64-byte parameter block):
                           * the base colour's alpha, red, green, blue and then
                           * the offset colour's */
+    unsigned param_type; /* which of the five parameter blocks this is */
     unsigned vertex_type;/* the vertex layout the object control selected */
     unsigned param_words;/* the size of the parameter block, in words */
 } vf3_ta_param;
@@ -108,13 +129,17 @@ typedef struct {
     unsigned list_type;  /* the list the primitive belongs to */
     vf3_ta_param param;
     unsigned count;      /* the number of vertices */
-    vf3_ta_vertex verts[VF3_TA_MAX_VERTS];
+    unsigned strips;     /* the number of triangle strips the vertices form */
+    unsigned vstart;     /* the first vertex, in the list's arena */
 } vf3_ta_prim;
 
 typedef struct {
     vf3_ta_prim *prims;
     unsigned count;
     unsigned capacity;
+    vf3_ta_vertex *verts; /* the arena: every primitive's vertices */
+    unsigned vcount;
+    unsigned vcapacity;
     unsigned words;      /* the words the decoder consumed */
     unsigned blocks;     /* the 32-byte blocks the decoder consumed */
     unsigned lists;      /* the lists that ended */
@@ -143,6 +168,8 @@ static inline int vf3_ta_endofstrip(uint32_t pcw) { return (pcw >> 28) & 1u; }
  * block is 64 bytes. */
 unsigned vf3_ta_vertex_type(uint32_t pcw);
 int vf3_ta_param_is_64(uint32_t pcw);
+/* Which of the five parameter blocks the object control selects. */
+unsigned vf3_ta_param_type(uint32_t pcw);
 /* Whether a vertex of that layout takes 64 bytes (two blocks). */
 int vf3_ta_vertex_is_64(unsigned vtype);
 

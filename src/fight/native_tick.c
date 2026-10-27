@@ -140,9 +140,8 @@ static void ta_flush(const uint32_t *words, unsigned n);
  * PVR2: below 0x11000000 it is the Tile Accelerator's own area (the first
  * 8 MB is the polygon stream, the display commands), above it is the VRAM.
  *
- * The reference hands the Tile Accelerator a quarter of the blocks it copied
- * - its own rule, and the one the frame we compare against was drawn with -
- * so the port hands over the same quarter.
+ * The reference hands the Tile Accelerator every block it copied - it takes
+ * them four at a time - so the port does the same.
  */
 static void dma2_ch2_transfer(void)
 {
@@ -154,8 +153,10 @@ static void dma2_ch2_transfer(void)
         const uint32_t off = src & 0x00FFFFFFu;   /* the main RAM is 16 MB at 0x0C000000 */
         if (off + len <= VF3_NATIVE_RAM_LEN) {
             if ((dst & 0x01000000u) == 0u && (dst & 0x800000u) == 0u) {
-                /* the polygon stream: the display commands */
-                const unsigned blocks = (len / 32u) / 4u;
+                /* the polygon stream: the display commands.  The hardware takes
+                 * the copied blocks four at a time and hands all of them to the
+                 * Tile Accelerator. */
+                const unsigned blocks = len / 32u;
                 for (unsigned b = 0; b < blocks; ++b) {
                     uint32_t buf[8];
                     const uint8_t *p = machine.ram + off + b * 32u;

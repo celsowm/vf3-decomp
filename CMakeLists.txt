@@ -582,6 +582,11 @@ target_link_libraries(vf3tool PRIVATE vf3core)
 add_executable(vf3ta tests/ta_decode.c src/render/ta.c)
 target_link_libraries(vf3ta PRIVATE vf3core)
 
+# The PVR2 model: rasterise a captured TA command stream against the
+# reference's own PVR2 state.
+add_executable(vf3pvr tests/pvr2_render.c src/render/pvr2.c src/render/ta.c)
+target_link_libraries(vf3pvr PRIVATE vf3core)
+
 add_executable(vf3test tests/mt_oracle.c)
 
 add_executable(vf3frame tests/frame_replay.c)
