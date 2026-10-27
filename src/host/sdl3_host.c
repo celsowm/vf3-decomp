@@ -233,7 +233,7 @@ static uint32_t slice_hook(vf3_matrix_state *s)
     g_hook_insns += g_budget_out;
     g_insns += g_budget_out;
     if (getenv("VF3_HOST_TRACE"))
-        fprintf(stderr, "slice: %llu insns, %u frames, pc %08x r8-15 %08x %08x %08x %08x %08x %08x %08x %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc, s->v[8], s->v[9], s->v[10], s->v[11], s->v[12], s->v[13], s->v[14], s->v[15]);
+        fprintf(stderr, "slice: %llu insns, %u frames, pc %08x pr %08x r8-15 %08x %08x %08x %08x %08x %08x %08x %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc, s->v[16], s->v[8], s->v[9], s->v[10], s->v[11], s->v[12], s->v[13], s->v[14], s->v[15]);
     const uint32_t next = vf3_frame_events_slice(&g_events, g_budget_out, regs);
     {   /* the display commands so far, and the frame the vblank just ended */
         const uint32_t *ta;

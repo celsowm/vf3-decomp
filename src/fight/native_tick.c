@@ -152,7 +152,10 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     if ((address & 0x1FFFFFFFu) == 0x005F8000u) return 0x17FD11DBu;
     if ((address & 0x1FFFFFFFu) == 0x005F8004u) return 0x11u;
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
-    if ((address & 0x1FFFFFFFu) == 0x005F6900u) return machine.istnrm;
+    if ((address & 0x1FFFFFFFu) == 0x005F6900u) {
+        if (getenv("VF3_ASICLOG") && (machine.istnrm & ~8u)) fprintf(stderr, "istnrm read %08x\n", machine.istnrm);
+        return machine.istnrm;
+    }
     if (is_onchip(address)) {
         uint32_t v = 0;
         memcpy(&v, onchip_regs + (address & 0x00FFFFFFu), size > 4 ? 4 : size);
@@ -448,7 +451,19 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
         size_t ta_cap = machine.ta_cap;
         /* the nested run appended its display commands to the outer run's */
         size_t ta_len = machine.ta_len;
+        /* the device state is the machine's, not the run's: what an interrupt handler did to it (a Maple or DMA start, the
+         * ASIC's pending bits) must survive the handler's return */
+        const typeof(machine) inner = machine;
         machine = saved;
+        machine.istnrm = inner.istnrm;
+        machine.render_started = inner.render_started;
+        machine.render_starts_total = inner.render_starts_total;
+        machine.maple_list = inner.maple_list;
+        machine.maple_started = inner.maple_started;
+        machine.dma2_started = inner.dma2_started;
+        machine.dmac_sar2 = inner.dmac_sar2; machine.dmac_dar2 = inner.dmac_dar2;
+        machine.dmac_dmatcr2 = inner.dmac_dmatcr2; machine.dmac_chcr2 = inner.dmac_chcr2;
+        machine.sb_c2dstat = inner.sb_c2dstat; machine.sb_c2dlen = inner.sb_c2dlen;
         machine.ta = ta;
         machine.ta_cap = ta_cap;
         machine.ta_len = ta_len;

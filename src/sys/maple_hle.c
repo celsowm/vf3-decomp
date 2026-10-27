@@ -1,12 +1,45 @@
 #include "sys/maple_hle.h"
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 enum {
     MAPLE_REQ_DEVINFO = 1, MAPLE_REQ_GETCOND = 9,
     MAPLE_RES_NONE = 0xFF, MAPLE_RES_DEVINFO = 5, MAPLE_RES_DATATRF = 8,
-    MAPLE_FUNC_CONTROLLER = 0x01000000u
+    MAPLE_FUNC_CONTROLLER = 0x01000000u,
+    MAPLE_FUNC_STORAGE = 0x02000000u, MAPLE_FUNC_LCD = 0x04000000u, MAPLE_FUNC_CLOCK = 0x08000000u,
+    MAPLE_REQ_GETMEDIAINFO = 0x0A, MAPLE_REQ_BLOCKREAD = 0x0B, MAPLE_REQ_BLOCKWRITE = 0x0C, MAPLE_REQ_SETCOND = 0x0E,
+    MAPLE_RES_OK = 7
 };
+
+/* The memory card in slot 1 of port A: 256 blocks of 512 bytes, formatted the way the VMU's own file system lays it out
+ * (root block 255, FAT block 254, directory blocks 253..241, 200 free user blocks).  The game's start-up asks for a card
+ * with 12 free blocks and sits on a message screen without one. */
+enum { VMU_BLOCKS = 256, VMU_BLOCK = 512 };
+static uint8_t vmu[VMU_BLOCKS * VMU_BLOCK];
+static int vmu_ready;
+
+static void put16(uint8_t *p, unsigned v) { p[0] = (uint8_t)v; p[1] = (uint8_t)(v >> 8); }
+
+static void vmu_format(void)
+{
+    memset(vmu, 0, sizeof vmu);
+    uint8_t *root = vmu + 255 * VMU_BLOCK;
+    memset(root, 0x55, 16);
+    static const uint8_t date[8] = { 0x20, 0x00, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00 };
+    memcpy(root + 0x30, date, sizeof date);
+    put16(root + 0x46, 254); put16(root + 0x48, 1);      /* the FAT */
+    put16(root + 0x4A, 253); put16(root + 0x4C, 13);     /* the directory */
+    put16(root + 0x4E, 0);                               /* icon shape */
+    put16(root + 0x50, 200);                             /* user blocks */
+    uint8_t *fat = vmu + 254 * VMU_BLOCK;
+    for (unsigned b = 0; b < VMU_BLOCKS; ++b) put16(fat + 2 * b, 0xFFFC);   /* free */
+    put16(fat + 2 * 255, 0xFFFA);
+    put16(fat + 2 * 254, 0xFFFA);
+    for (unsigned b = 241; b <= 253; ++b) put16(fat + 2 * b, b == 241 ? 0xFFFA : b - 1);   /* the directory chain */
+    vmu_ready = 1;
+}
 
 static int in_ram(uint32_t a, uint32_t n, uint32_t base, uint32_t len)
 {
@@ -37,9 +70,60 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
         const unsigned command = frame & 0xFFu, to = (frame >> 8) & 0xFFu;
         if (words > 0 && !in_ram(at, 12 + 4 * (words - 1), ram_base, ram_len)) break;
         const uint32_t next = at + 8 + 4 * words;
+        if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple: block at %08x head %08x recv %08x frame %08x""\n", at, head, recv, frame);
         /* the host is address 0 of the port; the main unit answers from port << 6 | 0x20, a sub-unit bit would be 1..0x1F */
-        const uint32_t from = (port << 6) | 0x20u, host = port << 6;
+        const uint32_t from = (port << 6) | 0x20u | (port == 0 ? 1u : 0u), host = port << 6;   /* the pad reports the card in slot 1 */
         const int present = port == 0 && (to & 0x3Fu) == 0x20u;
+        if (port == 0 && (to & 0x3Fu) == 0x01u) {
+            if (!vmu_ready) vmu_format();
+            const uint32_t vfrom = (port << 6) | 0x01u;
+            const uint32_t func = words > 1 ? rd(ram, ram_base, at + 12) : 0;
+            const uint8_t *ra = ram + ((at + 16) & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu);
+            uint8_t out[8 + 128 + 8];
+            unsigned owords = 0;
+            uint32_t code = MAPLE_RES_OK;
+            memset(out, 0, sizeof out);
+            if (command == MAPLE_REQ_DEVINFO) {
+                code = MAPLE_RES_DEVINFO;
+                uint32_t f = MAPLE_FUNC_STORAGE | MAPLE_FUNC_LCD | MAPLE_FUNC_CLOCK, d0 = 0x403F0000u, d1 = 0x000F4100u, d2 = 0x00000000u;
+                uint8_t body[112];
+                memset(body, 0, sizeof body);
+                memcpy(body, &f, 4); memcpy(body + 4, &d0, 4); memcpy(body + 8, &d1, 4); memcpy(body + 12, &d2, 4);
+                body[16] = 0xFF;
+                memset(body + 18, ' ', 30); memcpy(body + 18, "Visual Memory", 13);
+                memset(body + 48, ' ', 60);
+                body[108] = 0x7C; body[109] = 0x00; body[110] = 0x82; body[111] = 0x00;
+                if (in_ram(recv, 116, ram_base, ram_len)) {
+                    wr(ram, ram_base, recv, code | (host << 8) | (vfrom << 16) | (28u << 24));
+                    memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, body, sizeof body);
+                }
+                goto vmu_done;
+            } else if (command == MAPLE_REQ_GETMEDIAINFO) {
+                static const uint16_t info[12] = { 255, 0, 255, 254, 1, 253, 13, 0, 0, 200, 0, 0 };
+                code = MAPLE_RES_DATATRF;
+                memcpy(out, &func, 4);
+                for (unsigned i = 0; i < 12; ++i) put16(out + 4 + 2 * i, info[i]);
+                owords = 7;
+            } else if (command == MAPLE_REQ_BLOCKREAD && func == MAPLE_FUNC_STORAGE) {
+                const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];
+                code = MAPLE_RES_DATATRF;
+                memcpy(out, &func, 4);
+                memcpy(out + 4, ra, 4);
+                if (block < VMU_BLOCKS && phase < 4) memcpy(out + 8, vmu + block * VMU_BLOCK + phase * 128, 128);
+                owords = 34;
+            } else if (command == MAPLE_REQ_BLOCKWRITE && func == MAPLE_FUNC_STORAGE) {
+                const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];
+                if (block < VMU_BLOCKS && phase < 4) memcpy(vmu + block * VMU_BLOCK + phase * 128, ra + 4, 128);
+            }
+            if (in_ram(recv, 4 + 4 * owords, ram_base, ram_len)) {
+                wr(ram, ram_base, recv, code | (host << 8) | (vfrom << 16) | (owords << 24));
+                memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, out, 4 * owords);
+            }
+        vmu_done:
+            if (head & 0x80000000u) { ++blocks; break; }
+            at = next;
+            continue;
+        }
         if (in_ram(recv, 4, ram_base, ram_len)) {
             if (!present || (command != MAPLE_REQ_DEVINFO && command != MAPLE_REQ_GETCOND)) {
                 wr(ram, ram_base, recv, 0xFFFFFFFFu);
