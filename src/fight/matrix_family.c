@@ -230,14 +230,21 @@ void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     uint32_t dest=((forced[n]>=0?(uint32_t)forced[n]:vf3_sq_qacr[n])<<24)|(a&0x03FFFFE0u);
     if(getenv("VF3_SQLOG")) fprintf(stderr,"sq%d flush %08x -> %08x  %08x %08x %08x %08x\n",
         n,a,dest,vf3_sq_buf[n][0],vf3_sq_buf[n][1],vf3_sq_buf[n][2],vf3_sq_buf[n][3]);
-    /* The hardware splits the flush by its target: below 8 MB it is the TA's
-     * polygon stream (the display commands), below 16 MB the YUV converter,
-     * and above that the VRAM.  Only the first is a display command, so only
-     * the first is handed on; the other two are not modelled. */
-    if((dest&0x01FFFFE0u)<0x800000u) {
-        vf3_ta_flush_dest=dest;
-        if(vf3_ta_flush_hook) vf3_ta_flush_hook(vf3_sq_buf[n],8);
-        return;
+    /* The store queue writes through to the area the QACR selects.  Area 4
+     * (0x10000000) is the TA's own area, and inside it the first 8 MB is the
+     * polygon stream (the display commands), the next 8 MB is the YUV
+     * converter and above that the VRAM.  Every other area is a plain write
+     * through (area 1 is the VRAM).  Only the polygon stream is a display
+     * command, so only that one is handed on; the VRAM is not modelled yet. */
+    const unsigned area=(dest>>26)&7u;
+    if(area==4u) {
+        const uint32_t off=dest&0x01FFFFE0u;
+        if(off<0x800000u) {
+            vf3_ta_flush_dest=dest;
+            if(vf3_ta_flush_hook) vf3_ta_flush_hook(vf3_sq_buf[n],8);
+            return;
+        }
+        if(off<0x1000000u) return;   /* the YUV converter: not modelled */
     }
     for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
 }

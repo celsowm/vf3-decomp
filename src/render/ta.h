@@ -1,9 +1,10 @@
 /* render/ta.h - the Tile Accelerator's command stream decoder.
  *
- * The PVR2's Tile Accelerator (TA) is fed a stream of 32-bit words: the
- * display list the game builds in the store queue.  The stream is a sequence
- * of 32-byte blocks; the first word of a block is its **parameter control
- * word** (PCW), whose top three bits say what the block is:
+ * The PVR2's Tile Accelerator (TA) is fed a stream of **32-byte blocks**, in
+ * the order they arrive: the display list the game builds in the store queue
+ * (and the blocks the SH-4's DMA copies into the TA).  Every block starts
+ * with a **parameter control word** (PCW), whose top three bits say what the
+ * block is:
  *
  *   000  end of list
  *   001  user tile clip (a rectangle in tile units)
@@ -17,6 +18,9 @@
  * and whether its texture coordinates are 16 bit.  Those bits select both the
  * size of the parameter block (32 or 64 bytes) and the layout of the vertices
  * that follow.
+ *
+ * The end of a list does not end the stream: the hardware raises that list's
+ * end interrupt and the next block starts the next list.
  *
  * This is our own decoder: it reads the hardware's format and hands the
  * primitives to the rasteriser (src/render/pvr2.c).
@@ -42,8 +46,15 @@ enum {
     VF3_TA_LIST_OPAQUE_MODVOL = 1,
     VF3_TA_LIST_TRANSLUCENT = 2,
     VF3_TA_LIST_TRANSLUCENT_MODVOL = 3,
-    VF3_TA_LIST_PUNCH_THROUGH = 4
+    VF3_TA_LIST_PUNCH_THROUGH = 4,
+    VF3_TA_LIST_NONE = 0xFF    /* no list is being built */
 };
+
+/* Whether a list carries modifier volumes (the odd list types). */
+static inline int vf3_ta_list_is_modvol(unsigned list_type)
+{
+    return (list_type & 1u) && list_type != VF3_TA_LIST_NONE;
+}
 
 /* The vertex layouts the object control selects. */
 enum {
@@ -84,13 +95,16 @@ typedef struct {
     uint32_t tcw;        /* the texture control word */
     uint32_t base_colour;
     uint32_t offset_colour;
-    float face[4];       /* the face colour (the intensity layouts) */
+    float face[8];       /* the face colours (the 64-byte parameter block):
+                          * the base colour's alpha, red, green, blue and then
+                          * the offset colour's */
     unsigned vertex_type;/* the vertex layout the object control selected */
     unsigned param_words;/* the size of the parameter block, in words */
 } vf3_ta_param;
 
 typedef struct {
     int is_sprite;       /* 0: a polygon, 1: a sprite */
+    int is_modvol;       /* 1: a modifier volume */
     unsigned list_type;  /* the list the primitive belongs to */
     vf3_ta_param param;
     unsigned count;      /* the number of vertices */
@@ -103,6 +117,8 @@ typedef struct {
     unsigned capacity;
     unsigned words;      /* the words the decoder consumed */
     unsigned blocks;     /* the 32-byte blocks the decoder consumed */
+    unsigned lists;      /* the lists that ended */
+    unsigned invalid;    /* the blocks the hardware would have skipped */
     int error;           /* 1: the stream did not parse */
 } vf3_ta_list;
 
@@ -127,5 +143,7 @@ static inline int vf3_ta_endofstrip(uint32_t pcw) { return (pcw >> 28) & 1u; }
  * block is 64 bytes. */
 unsigned vf3_ta_vertex_type(uint32_t pcw);
 int vf3_ta_param_is_64(uint32_t pcw);
+/* Whether a vertex of that layout takes 64 bytes (two blocks). */
+int vf3_ta_vertex_is_64(unsigned vtype);
 
 #endif
