@@ -29,7 +29,7 @@ def marker(pc: int, tag: int) -> bytes:
     return struct.pack('<Q', (pc << 16) | tag)
 
 
-def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int) -> bytes:
+def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int, low: bytes = b'') -> bytes:
     out = bytearray()
     out += marker(entry, MARK_REGS)
     regs = [0] * 16
@@ -48,6 +48,7 @@ def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int) -> bytes:
     off = (LOAD_ADDR & 0x00FFFFFF)
     if off + len(image) > RAM_LEN:
         raise SystemExit('the image does not fit in the 16 MiB of RAM')
+    ram[0:len(low)] = low
     ram[off:off + len(image)] = image
     # the image's first instructions are a copy stub (0x8C010000): it moves
     # 0x0C010100..0x0C014000 down to 0x0C004000 and jumps there
@@ -59,6 +60,14 @@ def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int) -> bytes:
     return bytes(out)
 
 
+def read_low_ram(path: Path, length: int = 0x10000) -> bytes:
+    """the first `length` bytes of the RAM window of a reference state"""
+    f = path.read_bytes()
+    off = 8 * (1 + 37 + 1 + 16 + 1 + 3)
+    words = struct.unpack_from('<%dQ' % (length // 4), f, off)
+    return struct.pack('<%dI' % len(words), *(w & 0xFFFFFFFF for w in words))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=(__doc__ or '').split('\n')[0])
     ap.add_argument('image', type=Path, help='1ST_READ.BIN (the retail ships it unscrambled)')
@@ -67,8 +76,10 @@ def main() -> int:
     ap.add_argument('--sp', type=lambda s: int(s, 0), default=0x8CFFFFE0)
     ap.add_argument('--sr', type=lambda s: int(s, 0), default=0x700000F0)
     ap.add_argument('--fpscr', type=lambda s: int(s, 0), default=0x00040001)
+    ap.add_argument('--low-ram', type=Path, help='a reference state whose first 0x10000 bytes (the BIOS system area and syscall stubs) seed the boot')
     a = ap.parse_args()
-    a.out.write_bytes(build(a.image.read_bytes(), a.entry, a.sp, a.sr, a.fpscr))
+    low = read_low_ram(a.low_ram) if a.low_ram else b''
+    a.out.write_bytes(build(a.image.read_bytes(), a.entry, a.sp, a.sr, a.fpscr, low))
     print(f'wrote {a.out} ({a.out.stat().st_size} bytes)')
     return 0
 

@@ -99,6 +99,13 @@ void vf3_native_tmu_set(uint32_t tcnt)
     tmu_cycles = (uint64_t)(0xFFFFFFFFu - tcnt) << 8;
 }
 
+/* The SH-4's on-chip registers (area 7, 0xFF000000..): the BSC, the DMAC, the TMU, the SCIF.
+ * The startup writes them and reads them back (the DMAOR handshake loops until the
+ * value it wrote is the value it reads), so a register that is not modelled holds
+ * what was written to it. */
+static uint8_t onchip_regs[0x01000000];
+static int is_onchip(uint32_t address) { return (address & 0x1F000000u) == 0x1F000000u; }
+
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
     (void)context; (void)size;
@@ -132,8 +139,16 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     if ((address & 0x1FFFFFFFu) == 0x030100C0u) return 0x8Fu;
     /* SCIF SCFSR2: transmit empty and transmit end, nothing received. */
     if ((address & 0x1FFFFFFFu) == 0x1FE80010u) return 0x60u;
+    /* PVR2 ID and revision: the video init (0x8C063446) takes its mode from them */
+    if ((address & 0x1FFFFFFFu) == 0x005F8000u) return 0x17FD11DBu;
+    if ((address & 0x1FFFFFFFu) == 0x005F8004u) return 0x11u;
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) return machine.istnrm;
+    if (is_onchip(address)) {
+        uint32_t v = 0;
+        memcpy(&v, onchip_regs + (address & 0x00FFFFFFu), size > 4 ? 4 : size);
+        return v;
+    }
     return 0;
 }
 
@@ -195,6 +210,7 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
 {
     (void)context; (void)size;
     ++machine.writes;
+    if (is_onchip(address)) memcpy(onchip_regs + (address & 0x00FFFFFFu), &value, size > 4 ? 4 : size);
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
     if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* a guest write re-seeds TCNT0 */
         tmu_cycles = (uint64_t)(0xFFFFFFFFu - value) << 8;    if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
