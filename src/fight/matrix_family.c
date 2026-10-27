@@ -382,6 +382,8 @@ int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
  * included by every generated adapter, and touching it rebuilds them all. */
 int vf3_gap_b07_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_gap_b07_adapter_contains(uint32_t);
+int vf3_boot_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_boot_adapter_contains(uint32_t);
 vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
 vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
 /* Alias handoff between the generated adapters.  The router masks the entry PC
@@ -825,6 +827,7 @@ if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
         if(vf3_gap_b05_adapter_contains(entry)) return vf3_gap_b05_adapter(entry,s,ram);
         if(vf3_gap_b06_adapter_contains(entry)) return vf3_gap_b06_adapter(entry,s,ram);
         if(vf3_gap_b07_adapter_contains(entry)) return vf3_gap_b07_adapter(entry,s,ram);
+        if(vf3_boot_adapter_contains(entry)) return vf3_boot_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);

@@ -155,6 +155,10 @@ def emit(pc,w):
         if k==0x13: return ['if(!s->gbr_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->gbr,4);']
         if k==0x17: return [f's->gbr=read(ram,{rn},4); {rn}+=4; s->gbr_known=1;']
         if k==0x1e: return [f's->gbr={rn}; s->gbr_known=1;']
+        # LDC Rn,VBR / LDC Rn,SSR: the startup code installs the vector base and
+        # the saved status.  The port keeps no exception state (STC VBR is the
+        # constant the game installs), so the load has no observable effect.
+        if k in (0x2e,0x3e): return []
         if k==0x10: return [f"--{rn};",t(f"{rn}==0")]
         if k in (0x11,0x15): return [t(f"(int32_t){rn}{'>=' if k==0x11 else '>'}0")]
         if k in (0,0x20): return [t(f"{rn}>>31"),f"{rn}<<=1;"]
