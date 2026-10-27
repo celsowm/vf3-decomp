@@ -106,9 +106,18 @@ void vf3_native_tmu_set(uint32_t tcnt)
 static uint8_t onchip_regs[0x01000000];
 static int is_onchip(uint32_t address) { return (address & 0x1F000000u) == 0x1F000000u; }
 
+static const uint8_t *bios_image;
+static size_t bios_len;
+void vf3_native_set_bios(const uint8_t *image, size_t len) { bios_image = image; bios_len = len; }
+
 static uint32_t device_read(void *context, uint32_t address, unsigned size)
 {
     (void)context; (void)size;
+    if (bios_image && (address & 0x1FFFFFFFu) < 0x00200000u && (address & 0x1FFFFFFFu) + size <= bios_len) {
+        uint32_t v = 0;
+        memcpy(&v, bios_image + (address & 0x1FFFFFFFu), size > 4 ? 4 : size);
+        return v;
+    }
     ++machine.reads;
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devread %08x size %u\n", address, size);
     if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* TCNT0: counts down at CPU/256 */

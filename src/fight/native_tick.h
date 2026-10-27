@@ -87,6 +87,8 @@ unsigned vf3_native_take_render(void);
  * guest had at that point. */
 /* hands the display commands gathered so far to the caller and empties the buffer (valid until the next run) */
 unsigned vf3_native_take_ta(const uint32_t **words);
+/* the boot ROM image (2 MiB at 0x00000000), when the user supplies one: the game reads the BIOS font from it */
+void vf3_native_set_bios(const uint8_t *image, size_t len);
 void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s));
 /* Limit a run to `steps` guest steps (a time slice); 0 restores the default. An exhausted run reports ok = 0 with failed_pc at the next step. */
 void vf3_native_set_budget(unsigned steps);

@@ -233,7 +233,7 @@ static uint32_t slice_hook(vf3_matrix_state *s)
     g_hook_insns += g_budget_out;
     g_insns += g_budget_out;
     if (getenv("VF3_HOST_TRACE"))
-        fprintf(stderr, "slice: %llu insns, %u frames, pc %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc);
+        fprintf(stderr, "slice: %llu insns, %u frames, pc %08x r8-15 %08x %08x %08x %08x %08x %08x %08x %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc, s->v[8], s->v[9], s->v[10], s->v[11], s->v[12], s->v[13], s->v[14], s->v[15]);
     const uint32_t next = vf3_frame_events_slice(&g_events, g_budget_out, regs);
     {   /* the display commands so far, and the frame the vblank just ended */
         const uint32_t *ta;
@@ -258,7 +258,7 @@ static uint32_t rd32(const uint8_t *ram, uint32_t a)
 
 int main(int argc, char **argv)
 {
-    const char *state = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL, *ta_out = NULL, *ram_out = NULL;
+    const char *state = NULL, *vram_out = NULL, *bios_path = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL, *ta_out = NULL, *ram_out = NULL;
     const char *pvr_state = NULL;
     unsigned pair = 0, frames = 1, fps = DEFAULT_FPS;
     uint32_t gbr = DEFAULT_GBR;
@@ -271,7 +271,9 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--frames") && i + 1 < argc) frames = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gbr") && i + 1 < argc) gbr = (uint32_t)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--entry") && i + 1 < argc) entry = (uint32_t)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--dump-vram") && i + 1 < argc) vram_out = argv[++i];
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
+        else if (!strcmp(argv[i], "--bios") && i + 1 < argc) bios_path = argv[++i];
         else if (!strcmp(argv[i], "--gd-state") && i + 1 < argc) gd_state = argv[++i];
         else if (!strcmp(argv[i], "--dump-frame") && i + 1 < argc) dump = argv[++i];
         else if (!strcmp(argv[i], "--pvr-state") && i + 1 < argc) pvr_state = argv[++i];
@@ -297,6 +299,12 @@ int main(int argc, char **argv)
      * touches the drive needs one attached. */
     vf3_gdi gdi;
     vf3_gdrom gd;
+    if (bios_path) {
+        static uint8_t *bios; FILE *bf = fopen(bios_path, "rb");
+        if (!bf) { fprintf(stderr, "vf3sdl: cannot open %s\n", bios_path); free(ram); return 2; }
+        bios = malloc(0x200000u); size_t bl = bios ? fread(bios, 1, 0x200000u, bf) : 0; fclose(bf);
+        vf3_native_set_bios(bios, bl);
+    }
     if (gdi_path) {
         if (vf3_gdi_open(&gdi, gdi_path) != 0) { fprintf(stderr, "vf3sdl: cannot open %s\n", gdi_path); free(ram); return 2; }
         vf3_gd_init(&gd, &gdi, NULL, NULL);
@@ -494,6 +502,10 @@ done:
             g_ta_file = NULL;
             fprintf(stderr, "vf3sdl: wrote %s\n", ta_out);
         }
+    }
+    if (vram_out && pvr2.vram) {
+        FILE *vf = fopen(vram_out, "wb");
+        if (vf) { fwrite(pvr2.vram, 1, pvr2.vram_bytes, vf); fclose(vf); fprintf(stderr, "vf3sdl: wrote %s\n", vram_out); }
     }
     if (dump) {
         if (write_ppm(dump, &pvr2, VF3_PVR2_WIDTH, VF3_PVR2_HEIGHT)) status = 1;
