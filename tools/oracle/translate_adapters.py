@@ -158,7 +158,17 @@ def emit(pc,w):
         # LDC Rn,VBR / LDC Rn,SSR: the startup code installs the vector base and
         # the saved status.  The port keeps no exception state (STC VBR is the
         # constant the game installs), so the load has no observable effect.
-        if k in (0x2e,0x3e): return []
+        if k==0x2e: return []
+        # SSR and SPC: the saved status and program counter an exception (or
+        # the kernel's context switch, which restores them for an RTE) uses.
+        # The state has no slot for them, so they live in two module-level
+        # words the boot's RTE stub (src/fight/boot_rte.c) reads.
+        if k in (0x3e,0x4e): return ['{ extern uint32_t vf3_boot_%s; vf3_boot_%s=%s; }'%(('ssr','ssr',rn) if k==0x3e else ('spc','spc',rn))]
+        if k in (0x37,0x47): return ['{ extern uint32_t vf3_boot_%s; vf3_boot_%s=read(ram,%s,4); } %s+=4;'%(('ssr','ssr',rn,rn) if k==0x37 else ('spc','spc',rn,rn))]
+        if k in (0x33,0x43): return ['{ extern uint32_t vf3_boot_%s; %s-=4; write(ram,%s,vf3_boot_%s,4); }'%(('ssr',rn,rn,'ssr') if k==0x33 else ('spc',rn,rn,'spc'))]
+        # STC.L VBR,@-Rn / LDC.L @Rn+,VBR: the constant STC VBR yields (see below).
+        if k==0x23: return [f'{rn}-=4; write(ram,{rn},0x0c00f400u,4);']
+        if k==0x27: return [f'{rn}+=4;']
         if k==0x10: return [f"--{rn};",t(f"{rn}==0")]
         if k in (0x11,0x15): return [t(f"(int32_t){rn}{'>=' if k==0x11 else '>'}0")]
         if k in (0,0x20): return [t(f"{rn}>>31"),f"{rn}<<=1;"]

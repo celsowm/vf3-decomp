@@ -125,6 +125,13 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
         memcpy(&v, aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), size > 4 ? 4 : size);
         return v;
     }
+    /* The SDK startup (0x8C010100) takes the board configuration from a byte
+     * the G2 bus answers at 0xA30100C0 when the BIOS' system area (0x8C000070)
+     * does not hold "00".  The reference's startup leaves 0x8F at 0x0C00F71C,
+     * bit 7 of which releases the startup's command loop. */
+    if ((address & 0x1FFFFFFFu) == 0x030100C0u) return 0x8Fu;
+    /* SCIF SCFSR2: transmit empty and transmit end, nothing received. */
+    if ((address & 0x1FFFFFFFu) == 0x1FE80010u) return 0x60u;
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) return machine.istnrm;
     return 0;

@@ -31,7 +31,9 @@ int vf3_gdi_open(vf3_gdi *gdi, const char *gdi_path)
     while (gdi->ntracks < 16 && fgets(line, sizeof line, f)) {
         unsigned idx, start, ctrl, size, off;
         char name[400];
-        if (sscanf(line, "%u %u %u %u \"%399[^\"]\" %u", &idx, &start, &ctrl, &size, name, &off) != 6) continue;
+        /* the name is quoted when it has spaces; a plain name is not */
+        if (sscanf(line, "%u %u %u %u \"%399[^\"]\" %u", &idx, &start, &ctrl, &size, name, &off) != 6 &&
+            sscanf(line, "%u %u %u %u %399s %u", &idx, &start, &ctrl, &size, name, &off) != 6) continue;
         vf3_gdi_track *t = &gdi->track[gdi->ntracks++];
         t->start_fad = start;
         t->ctrl = ctrl;

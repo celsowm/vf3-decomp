@@ -175,6 +175,8 @@ static uint32_t slice_hook(vf3_matrix_state *s)
     memcpy(regs, s->v, sizeof regs);
     g_hook_insns += g_budget_out;
     g_insns += g_budget_out;
+    if (getenv("VF3_HOST_TRACE"))
+        fprintf(stderr, "slice: %llu insns, %u frames, pc %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc);
     return vf3_frame_events_slice(&g_events, g_budget_out, regs);
 }
 
@@ -304,6 +306,7 @@ int main(int argc, char **argv)
     vf3_frame_events_init(&g_events, ram, gbr, run_handler, NULL);
     g_events.asic_first = 1;            /* the ASIC events before the vblank pair */
     g_events.vblank_through_asic = 1;   /* the vblank-in is ASIC normal-interrupt bit 0x8 */
+    g_events.cap = frames;              /* a guest that never returns (the boot) still stops */
     vf3_native_set_budget_hook(slice_hook);
 
     vf3_native_tick_result r;
