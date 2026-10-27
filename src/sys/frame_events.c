@@ -28,6 +28,8 @@
 #define LIST_STAGE       0x0C16CDCCu
 #define RENDER_WAIT      0x0C16CDF4u
 
+static uint16_t pad_buttons = 0xFFFFu;   /* the stand-in pad: nothing pressed */
+
 static uint32_t rd32(const uint8_t *ram, uint32_t addr)
 {
     uint32_t v;
@@ -91,6 +93,7 @@ static void dispatch_asic(vf3_frame_events *ev, const uint32_t regs[37])
 {
     if (!vf3_native_asic_pending()) return;
     run_handler(ev, ev->asic_entry, regs);
+    if (ev->asic2_entry && (vf3_native_asic_pending() & vf3_native_asic_iml2())) run_handler(ev, ev->asic2_entry, regs);
 }
 
 uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint32_t regs[37])
@@ -116,7 +119,7 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
     }
     {   /* the Maple: the list is answered at once (a stand-in pad on port A) */
         uint32_t list = 0;
-        static const vf3_maple_pad pad = { 0xFFFFu, 0, 0, 0x80, 0x80, 0x80, 0x80 };
+        vf3_maple_pad pad = { pad_buttons, 0, 0, 0x80, 0x80, 0x80, 0x80 };
         for (unsigned n = vf3_native_take_maple(&list); n; --n) {
             vf3_maple_dma(ev->ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, list, &pad);
             vf3_native_raise_asic(ASIC_MAPLE_END);
@@ -146,4 +149,5 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
 }
 
 unsigned vf3_frame_events_frames(const vf3_frame_events *ev) { return ev->frames; }
+void vf3_frame_events_set_buttons(uint16_t buttons) { pad_buttons = buttons; }
 uint64_t vf3_frame_events_cycles(const vf3_frame_events *ev) { return ev->now; }

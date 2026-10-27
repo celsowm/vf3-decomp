@@ -51,6 +51,7 @@ static struct {
     uint32_t stop_pc;            /* run ends when control reaches this address (0: the return sentinel) */
     vf3_gdrom *gd;               /* optional GD-ROM model behind the BIOS vector */
     unsigned bios_calls;
+    uint32_t iml2;               /* SB_IML2NRM as last written */
     uint32_t istnrm;             /* ASIC normal interrupt status (SB_ISTNRM): pending events the model raised */
     unsigned render_started;     /* STARTRENDER writes not yet taken by the caller */
     unsigned render_starts_total; /* every STARTRENDER write of the run */
@@ -151,6 +152,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     /* PVR2 ID and revision: the video init (0x8C063446) takes its mode from them */
     if ((address & 0x1FFFFFFFu) == 0x005F8000u) return 0x17FD11DBu;
     if ((address & 0x1FFFFFFFu) == 0x005F8004u) return 0x11u;
+    if ((address & 0x1FFFFFFFu) == 0x005F6910u) return machine.iml2;
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) {
         if (getenv("VF3_ASICLOG") && (machine.istnrm & ~8u)) fprintf(stderr, "istnrm read %08x\n", machine.istnrm);
@@ -244,6 +246,7 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if ((address & 0x1FFFFFFFu) == 0x005F6800u) machine.sb_c2dstat = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6804u) machine.sb_c2dlen = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6808u && (value & 1u)) dma2_ch2_transfer();
+    if ((address & 0x1FFFFFFFu) == 0x005F6910u) machine.iml2 = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
     if (vf3_pvr_reg_hook && (address & 0x1FFFE000u) == 0x005F8000u) vf3_pvr_reg_hook(address & 0x1FFFu, value);
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) { ++machine.render_started; ++machine.render_starts_total; }
@@ -339,6 +342,7 @@ void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
 int vf3_native_gd_attached(void) { return machine.gd != NULL; }
 void vf3_native_aica_poke(uint32_t offset, uint32_t value) { if (offset <= AICA_RAM_LEN - 4) memcpy(aica_ram + offset, &value, 4); }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
+uint32_t vf3_native_asic_iml2(void) { return machine.iml2; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
@@ -377,6 +381,14 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
             return 1;
         }
     }
+    if (entry == (GUEST_RETURN_SENTINEL & 0x1FFFFFFFu)) {
+        /* a module handed the run's return address back as a call (the 29-bit mask hides the 0xDEAD0000 form): the
+         * run is over, exactly as when the dispatcher meets it as a plain jump */
+        s->pc = GUEST_RETURN_SENTINEL;
+        *handled = 1;
+        return 1;
+    }
+    if (getenv("VF3_UNOWNED")) fprintf(stderr, "unowned entry %08x pr %08x r15 %08x\n", entry, s->v[16], s->v[15]);
     if (!machine.unowned_calls++) machine.first_unowned = entry;
     *handled = 0;
     return 0;
@@ -456,6 +468,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
         const typeof(machine) inner = machine;
         machine = saved;
         machine.istnrm = inner.istnrm;
+        machine.iml2 = inner.iml2;
         machine.render_started = inner.render_started;
         machine.render_starts_total = inner.render_starts_total;
         machine.maple_list = inner.maple_list;

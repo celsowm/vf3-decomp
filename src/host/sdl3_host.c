@@ -174,6 +174,20 @@ static int run_handler(uint32_t entry, const uint32_t regs[37], void *ctx)
 /* The vblank ends the frame the PVR2 model is filling: the blocks the TA received are decoded with our own
  * TA decoder and drawn with our own rasteriser.  Called from the slice hook, so a long-running guest (the
  * boot) is cut into frames too. */
+/* VF3_PRESS=<hex mask>,<from>,<hold>,<period>: hold the pad's buttons down for <hold> frames out of every <period>, from frame <from> */
+static void press_script(unsigned frame)
+{
+    static int init;
+    static unsigned mask, from, hold, period;
+    if (!init) {
+        init = 1;
+        const char *s = getenv("VF3_PRESS");
+        if (s) sscanf(s, "%x,%u,%u,%u", &mask, &from, &hold, &period);
+    }
+    if (!mask || !period || frame < from) return;
+    vf3_frame_events_set_buttons((uint16_t)(((frame - from) % period) < hold ? ~mask : 0xFFFFu));
+}
+
 static void frame_boundary(void)
 {
     const unsigned vblanks = g_vblanks;
@@ -242,6 +256,7 @@ static uint32_t slice_hook(vf3_matrix_state *s)
         if (vf3_frame_events_frames(&g_events) != g_vblanks) {
             g_vblanks = vf3_frame_events_frames(&g_events);
             frame_boundary();
+            press_script(g_vblanks);
         }
     }
     return next;
@@ -381,6 +396,7 @@ int main(int argc, char **argv)
     vf3_frame_events_init(&g_events, ram, gbr, run_handler, NULL);
     g_events.asic_first = 1;            /* the ASIC events before the vblank pair */
     g_events.vblank_through_asic = 1;   /* the vblank-in is ASIC normal-interrupt bit 0x8 */
+    g_events.asic2_entry = 0x8C0460E8u; /* the SDK's handler for the bits the game routes through IML2 (the Maple end) */
     g_events.cap = frames;              /* a guest that never returns (the boot) still stops */
     vf3_native_set_budget_hook(slice_hook);
 

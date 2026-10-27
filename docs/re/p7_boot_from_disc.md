@@ -56,3 +56,25 @@ step is to find which condition the first scene waits for.
   pointing at a return sentinel) instead of calling the game's handler directly.
 - Host switches added on the way: `--bios FILE` (optional boot ROM; the font reads), `--dump-vram`, `VF3_MAPLELOG`,
   `VF3_ASICLOG`, register trace in `VF3_HOST_TRACE`.
+
+## Status 2026-10-27: the Maple completion works; the card check does not pass yet
+
+- The SDK vector is not needed.  ASIC bits routed by SB_IML2NRM (0x005F6910, now modelled) go to the SDK's
+  second-level handler 0x8C0460E8 (`asic2_entry` in `frame_events`), which walks the callback lists at
+  0x0C1A0D48 + 4 * type and runs the maple-end callbacks 0x0C0439BA / 0x0C043A0E (the latter clears ISTNRM 0x1000).
+- Three fixes were needed for that: nested handler runs copy the device state (istnrm, iml2, maple/DMA registers)
+  back; a call to the masked return sentinel (0x1EAD0000) is a return (`unowned_hook`); a Maple block whose header
+  has instruction 7 is one word long and is skipped.
+- The game now issues VMU DEVINFO (frame 0x00000101) and GETMEDIAINFO (0x0200010a) to port A unit 1, once each, and
+  no BLOCKREAD follows.  The media-info words now follow a formatted card image (255,0,255,254,1,253,13,5,200,31,0,128);
+  that did not change the behaviour.
+- What the check reads: `0x8C0A1F50` asks the record array at 0x0C19C6A0 (stride 76; +0 attached, +2 usable); the
+  attach handler `0x8C0370F0` sets +2 only when `0x8C04667A` (-> 0x8C04D50C) finds the device in the mpdrv table at
+  0x0C1B34D8 (stride 0x148, byte +2 present).  `VF3_WATCHW=<hex addr>[,<hex len>]` (new) logs the writes into a RAM range:
+  device 0 gets its entry (+2 = 1, state 1..4) but **no write ever lands in the entries after it**, so the mpdrv
+  receive path (0x8C03631E.., per port/unit flag bytes at +0xF90, response header compared with -0x100 / -1 at
+  0x8C04517E) does not accept the VMU's DEVINFO answer.  The reason is not found yet.
+- Pressing Start (`VF3_PRESS=<hex mask>,<from>,<hold>,<period>`, new; `vf3_frame_events_set_buttons`) does not leave
+  the screen either, so it is not a plain "press a button" prompt.
+- Next: trace the mpdrv receive of the sub-unit response (flags at +0xF90, the `from` byte compare) against a log of
+  what the hardware writes for a sub-peripheral answer.

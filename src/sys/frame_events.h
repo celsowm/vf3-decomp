@@ -56,6 +56,7 @@ typedef struct {
     void *run_ctx;
     vf3_frame_clock_fn clock;      /* optional: another clock to advance */
     void *clock_ctx;
+    uint32_t asic2_entry;          /* the SDK's second-level handler for the bits the game routes through IML2 (0: none) */
     uint32_t asic_entry;           /* the ASIC interrupt handler (0x8C06423A) */
     uint32_t vblank_a;             /* the first vblank handler (0x8C063D1E) */
     uint32_t vblank_b;             /* the second vblank handler (0x8C062E94) */
@@ -83,6 +84,8 @@ void vf3_frame_events_default_handlers(vf3_frame_events *ev);
 uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint32_t regs[37]);
 /* The vblanks taken so far. */
 unsigned vf3_frame_events_frames(const vf3_frame_events *ev);
+/* The buttons the stand-in pad reports (wire format, active low: 0xFFFF = nothing pressed). */
+void vf3_frame_events_set_buttons(uint16_t buttons);
 /* The clock, in SH-4 clocks since the model started. */
 uint64_t vf3_frame_events_cycles(const vf3_frame_events *ev);
 

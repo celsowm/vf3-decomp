@@ -269,6 +269,11 @@ void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsign
      * registers, so both are folded onto the uncached one's masked address. */
     if((addr&0xFFFFF000u)==0x8C000000u) addr=0x1F800000u|(addr&0xFFFu);
     else addr&=0x1FFFFFFFu;
+    {   /* VF3_WATCHW=<hex addr>[,<hex len>]: log the writes that land in a RAM range */
+        static int init; static uint32_t lo, hi;
+        if(!init) { init=1; const char *w=getenv("VF3_WATCHW"); if(w) { char *e; lo=(uint32_t)strtoul(w,&e,16)&0x1FFFFFFFu; hi=lo+(*e==',' ? (uint32_t)strtoul(e+1,NULL,16) : 4u); } }
+        if(hi && addr>=lo && addr<hi) fprintf(stderr,"watchw %08x/%u = %08x%c",addr,size,value,10);
+    }
     if(addr==0x1F000038u || addr==0x1F00003Cu) vf3_sq_qacr[(addr>>2)&1u]=value&0x1Cu;
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);

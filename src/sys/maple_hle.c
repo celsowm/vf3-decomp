@@ -17,6 +17,9 @@ enum {
  * (root block 255, FAT block 254, directory blocks 253..241, 200 free user blocks).  The game's start-up asks for a card
  * with 12 free blocks and sits on a message screen without one. */
 enum { VMU_BLOCKS = 256, VMU_BLOCK = 512 };
+/* total size - 1, partition, system block, FAT block and size, directory block and size, icon shape, user blocks, then the
+ * three words the card keeps behind them (layout read off a formatted card image) */
+static const uint16_t vmu_media_info[12] = { 255, 0, 255, 254, 1, 253, 13, 5, 200, 31, 0, 0x80 };
 static uint8_t vmu[VMU_BLOCKS * VMU_BLOCK];
 static int vmu_ready;
 
@@ -27,12 +30,10 @@ static void vmu_format(void)
     memset(vmu, 0, sizeof vmu);
     uint8_t *root = vmu + 255 * VMU_BLOCK;
     memset(root, 0x55, 16);
+    root[0x10] = 1; root[0x11] = root[0x12] = root[0x13] = 0xFF; root[0x14] = 0x64;   /* colour: custom, white */
     static const uint8_t date[8] = { 0x20, 0x00, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00 };
     memcpy(root + 0x30, date, sizeof date);
-    put16(root + 0x46, 254); put16(root + 0x48, 1);      /* the FAT */
-    put16(root + 0x4A, 253); put16(root + 0x4C, 13);     /* the directory */
-    put16(root + 0x4E, 0);                               /* icon shape */
-    put16(root + 0x50, 200);                             /* user blocks */
+    for (unsigned i = 0; i < 12; ++i) put16(root + 0x40 + 2 * i, vmu_media_info[i]);   /* the layout the media-info request returns */
     uint8_t *fat = vmu + 254 * VMU_BLOCK;
     for (unsigned b = 0; b < VMU_BLOCKS; ++b) put16(fat + 2 * b, 0xFFFC);   /* free */
     put16(fat + 2 * 255, 0xFFFA);
@@ -65,6 +66,14 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
     uint32_t at = list_addr;
     for (; blocks < 64; ++blocks) {
         if (!in_ram(at, 12, ram_base, ram_len)) break;
+        {   /* instruction 7 (bits 10:8) is a no-op: one word, no receive address and no frame */
+            const uint32_t h = rd(ram, ram_base, at);
+            if (((h >> 8) & 7u) == 7u) {
+                if (h & 0x80000000u) { ++blocks; break; }
+                at += 4;
+                continue;
+            }
+        }
         const uint32_t head = rd(ram, ram_base, at), recv = rd(ram, ram_base, at + 4), frame = rd(ram, ram_base, at + 8);
         const unsigned port = (head >> 16) & 3u, words = (head & 0xFFu) + 1u;
         const unsigned command = frame & 0xFFu, to = (frame >> 8) & 0xFFu;
@@ -99,10 +108,9 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 }
                 goto vmu_done;
             } else if (command == MAPLE_REQ_GETMEDIAINFO) {
-                static const uint16_t info[12] = { 255, 0, 255, 254, 1, 253, 13, 0, 0, 200, 0, 0 };
                 code = MAPLE_RES_DATATRF;
                 memcpy(out, &func, 4);
-                for (unsigned i = 0; i < 12; ++i) put16(out + 4 + 2 * i, info[i]);
+                for (unsigned i = 0; i < 12; ++i) put16(out + 4 + 2 * i, vmu_media_info[i]);
                 owords = 7;
             } else if (command == MAPLE_REQ_BLOCKREAD && func == MAPLE_FUNC_STORAGE) {
                 const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];

@@ -81,6 +81,8 @@ void vf3_native_tmu_set(uint32_t tcnt);
 /* 1 while a GD-ROM model is attached (BIOS GD calls are then served by it, EXEC_SERVER included) */
 int vf3_native_gd_attached(void);
 uint32_t vf3_native_asic_pending(void);
+/* the ASIC normal-interrupt mask the game wrote to SB_IML2NRM (0x005F6910) */
+uint32_t vf3_native_asic_iml2(void);
 unsigned vf3_native_take_render(void);
 /* Called when a run's step budget (vf3_native_set_budget) is used up: time passes, it returns the next budget (0: stop).
  * The hook gets the machine state, because the interrupt handlers it dispatches have to run with the registers the
