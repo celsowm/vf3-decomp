@@ -40,6 +40,8 @@
 
 #include "hw/sh4/sh4_if.h"
 #include "hw/sh4/sh4_mem.h"
+#include "hw/pvr/pvr_mem.h"
+#include "hw/pvr/pvr_regs.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -80,6 +82,17 @@ const char *hitsPath = nullptr;
 std::vector<u32> hitsTable;
 u64 instrCount = 0;
 u64 nextHitsDump = 0;
+
+/* The Tile Accelerator's input and the PVR2's own state. */
+const char *taPath = nullptr;
+FILE *taFile = nullptr;
+u64 taBlocks = 0;
+const char *pvrPath = nullptr;
+bool pvrDumped = false;
+
+void put32(FILE *f, u32 v) {
+    fwrite(&v, 4, 1, f);
+}
 
 void put64(FILE *f, u64 v) {
     fwrite(&v, 8, 1, f);
@@ -154,6 +167,56 @@ void dumpName(char *out, size_t n, const char *path, u32 pc, u32 hits, bool once
 
 } // namespace
 
+/* The Tile Accelerator's input, in the order the hardware receives it.  The
+ * port's own FIFO has to match this stream word for word, so the blocks are
+ * recorded exactly as they are handed to the TA. */
+void vf3DumpTaBlock(const void *block32) {
+    if (taPath == nullptr)
+        return;
+    if (taFile == nullptr) {
+        taFile = fopen(taPath, "wb");
+        if (taFile == nullptr) {
+            fprintf(stderr, "[vf3dump] cannot write %s\n", taPath);
+            taPath = nullptr;
+            return;
+        }
+    }
+    fwrite(block32, 32, 1, taFile);
+    ++taBlocks;
+}
+
+/* The PVR2's register file and its VRAM, next to the state dump. */
+void vf3DumpPvrState(const char *path) {
+    FILE *f = fopen(path, "wb");
+    if (f == nullptr) {
+        fprintf(stderr, "[vf3dump] cannot write %s\n", path);
+        return;
+    }
+    const u32 vramSize = (u32)VRAM_SIZE;
+    put32(f, (u32)pvr_RegSize);
+    put32(f, vramSize);
+    fwrite(pvr_regs, 1, pvr_RegSize, f);
+    /* the VRAM region's memory is private, so it is read through its index */
+    std::vector<u8> mem(vramSize);
+    for (u32 i = 0; i < vramSize; ++i)
+        mem[i] = vram[i];
+    fwrite(mem.data(), 1, vramSize, f);
+    fclose(f);
+    fprintf(stderr, "[vf3dump] pvr state: %u register bytes, %u VRAM bytes -> %s\n",
+            (u32)pvr_RegSize, vramSize, path);
+}
+
+/* The PVR2's state belongs to the state it was taken with, so it is written
+ * once, next to the first state the emulator loads. */
+void vf3DumpPvrStateOnce() {
+    if (!initialized)
+        vf3DumpInit();
+    if (pvrPath == nullptr || pvrDumped)
+        return;
+    pvrDumped = true;
+    vf3DumpPvrState(pvrPath);
+}
+
 void vf3DumpInit() {
     if (initialized)
         return;
@@ -163,6 +226,12 @@ void vf3DumpInit() {
         hitsPath = hp;
         hitsTable.assign(IMAGE_SIZE / 4, 0);
     }
+    const char *tap = getenv("VF3_TA_DUMP");
+    if (tap != nullptr && *tap != '\0')
+        taPath = tap;
+    const char *pvp = getenv("VF3_PVR_DUMP");
+    if (pvp != nullptr && *pvp != '\0')
+        pvrPath = pvp;
     const char *path = getenv("VF3_DUMP_STATE");
     if (path == nullptr || *path == '\0')
         return;
@@ -256,6 +325,7 @@ void vf3DumpCheck(u32 pc) {
             char path[1024];
             dumpName(path, sizeof path, statePath, t.pc, t.hits - 1, true);
             writeState(&Sh4cntx, path, t.noRam);
+            vf3DumpPvrStateOnce();
             continue;
         }
         if ((t.hits - 1 - t.skip) % t.every != 0)
@@ -266,5 +336,6 @@ void vf3DumpCheck(u32 pc) {
         char path[1024];
         dumpName(path, sizeof path, statePath, t.pc, t.hits - 1, false);
         writeState(&Sh4cntx, path, t.noRam);
+        vf3DumpPvrStateOnce();
     }
 }

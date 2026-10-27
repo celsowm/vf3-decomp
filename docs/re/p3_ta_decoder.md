@@ -69,20 +69,53 @@ floats or two 16-bit halves.
 ## Where it stands
 
 The decoder parses the stream (`build/vf3ta <file.bin>` prints what a captured
-stream holds) and the port runs it on the list it read back from the TA's
-memory.  Two things are still open:
+stream holds) and the port runs it on the list the TA received.  What was
+still open has been settled:
 
-* **where the list starts.**  The game runs the list from an address the port
-  does not see yet: the PVR2's register writes do not reach the port's device
-  hook.  The PVR2's registers are visible twice - cached at `0x8C000000` and
-  uncached at `0x5F800000` - and the port used to mask the address to 29 bits,
-  which folded the cached view onto the RAM; that is fixed now
-  (`vf3_matrix_write`/`vf3_matrix_read` in `src/fight/matrix_family.c`), but
-  the fight scene still writes no PVR2 register the port can see, so the list
-  is still located by the bursts alone.
-* **the rasteriser.**  Nothing is drawn yet: the model counts the display
-  commands and the pixels stay at zero.  The rasteriser needs the list's
-  extent, the VRAM (the textures) and the frame buffer's configuration.
+* **where the list starts.**  The TA's input is not a memory: it is a **FIFO
+  of 32-byte blocks, in the order they arrive**, and a burst that is written
+  twice hands the TA both copies.  The port kept a memory image at the
+  burst's address and decoded that image, so the holes between the game's
+  scattered bursts read as end-of-list blocks and the decode stopped on the
+  first one: 0 primitives.  With the FIFO the fight frame decodes to 337
+  primitives (331 polygons, 6 sprites) with no block skipped, and the sprites
+  come out as the 1280x480 backdrop they are.
+* **the two paths into the TA.**  The store queue's `PREF` bursts (only area
+  4, `0x10000000`, is the TA's own area; inside it the first 8 MB is the
+  polygon stream) and the SH-4's DMA channel 2 with the SB's channel 2
+  registers (`0x1FA00020-0x2C` and `0x005F6800-08`; the copy runs when the
+  SB's ch2 start register is written with bit 0).
+* **the frame buffer's configuration.**  The game never writes the PVR2's
+  registers during the fight - the BIOS programmed them at boot, before the
+  port's entry point - so the port has to be told.  The reference emulator
+  knows: the instrument (`tools/refemu/`) dumps the PVR2's register file and
+  its VRAM next to the state dump (`docs/re/patches/reference_frame_dump.md`).
+  At the attract screen the reference's PVR2 holds:
+
+  | register | value | what it means |
+  |---|---|---|
+  | FB_W_CTRL | 0x09 | the pack mode is 1 (32 bit), dither on |
+  | FB_W_LINESTRIDE | 160 | 160 units of 16 bytes = 2560 bytes a line |
+  | FB_W_SOF1/SOF2 | 0x600000 | the frame buffer's address in the VRAM |
+  | FB_X_CLIP | 0..639 | the display is 640 pixels wide |
+  | FB_Y_CLIP | 0..479 | the display is 480 pixels high |
+  | TA_OL_BASE | 0x4CF080 | the object list's address in the VRAM |
+  | TA_ISP_BASE | 0x400000 | the ISP parameters' address in the VRAM |
+
+* **the rasteriser.**  It needs the VRAM (the textures) and the frame
+  buffer's configuration; the configuration is known now, the VRAM's fight
+  textures are not - see below.
+
+## What the disc's absence costs
+
+The reference emulator finds a state by the *content's* name, so it needs the
+disc - and the disc's tracks are gone from this workspace
+(`docs/re/artifact_gap.md`).  A stand-in disc (`extract/analysis/
+make_stub_disc.py`) gets the emulator as far as the attract screen, and the
+PVR2's state can be dumped there, but the game reads the disc for the attract
+movie and crashes when the data is not there.  So the fight frame's VRAM -
+the textures - cannot be captured, and the pixel diff is limited to the
+geometry until the disc is back.
 
 ## The decoder's own notes
 
