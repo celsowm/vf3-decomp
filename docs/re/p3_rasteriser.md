@@ -38,3 +38,20 @@ range is +-1e38 - the port's DMA-2/TA hand-off (`dma2_ch2_transfer`, which now
 passes every copied block) or the frame events are submitting lists more than
 once.  The renderer is ready for them; the stream is the next thing to pin,
 by diffing the port's frame-1 stream block for block against the reference's.
+
+### The host's stream was byte-swapped (fixed)
+
+`dma2_ch2_transfer` built each TA word from the RAM bytes big-endian; the
+SH-4's RAM is little-endian, so every block the DMA handed over was scrambled
+(that was the "garbage vertices", the 1e38 ranges and the 22,048 skipped
+words).  With the order fixed the host's frame 1 parses with 0 skipped words
+and 18,577 blocks (the reference's frame 297 has 18,198), and
+
+    vf3sdl --state extract/analysis/p1/frm_keep/st.bin.000280 \
+      --entry 0x8c059b48 --frames 18 --headless \
+      --pvr-state <ref pvr dump> --dump-frame out.ppm
+
+renders the attract fight - the game's own C code, our TA decoder, our
+rasteriser - with the HUD, the fighters and the stage.  (The textures come
+from a VRAM dump taken at a different moment, so some stage textures are
+wrong: the game does not fill the VRAM through the port yet.)

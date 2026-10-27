@@ -161,8 +161,8 @@ static void dma2_ch2_transfer(void)
                     uint32_t buf[8];
                     const uint8_t *p = machine.ram + off + b * 32u;
                     for (unsigned w = 0; w < 8; ++w)
-                        buf[w] = ((uint32_t)p[w * 4] << 24) | ((uint32_t)p[w * 4 + 1] << 16) |
-                                 ((uint32_t)p[w * 4 + 2] << 8) | (uint32_t)p[w * 4 + 3];
+                        buf[w] = ((uint32_t)p[w * 4 + 3] << 24) | ((uint32_t)p[w * 4 + 2] << 16) |
+                                 ((uint32_t)p[w * 4 + 1] << 8) | (uint32_t)p[w * 4];
                     ta_flush(buf, 8);
                 }
             }
