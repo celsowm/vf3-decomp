@@ -166,8 +166,15 @@ static void dma2_ch2_transfer(void)
                     ta_flush(buf, 8);
                 }
             }
-            /* above 8 MB in the TA's area is the YUV converter, and above
-             * 0x11000000 is the VRAM: neither is modelled yet */
+            else if ((dst & 0x01000000u) && vf3_vram_hook) {
+                /* 0x11000000 and up is the VRAM, in its 64 bit view */
+                for (uint32_t o = 0; o + 4u <= len; o += 4u) {
+                    const uint8_t *p = machine.ram + off + o;
+                    vf3_vram_hook(0x10000000u | ((dst + o) & 0x01FFFFFFu),
+                                  (uint32_t)p[0] | ((uint32_t)p[1] << 8) | ((uint32_t)p[2] << 16) | ((uint32_t)p[3] << 24));
+                }
+            }
+            /* the YUV converter (0x10800000) is not modelled yet */
         }
     }
     machine.sb_c2dlen = 0;
@@ -203,6 +210,7 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if ((address & 0x1FFFFFFFu) == 0x005F6804u) machine.sb_c2dlen = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6808u && (value & 1u)) dma2_ch2_transfer();
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
+    if (vf3_pvr_reg_hook && (address & 0x1FFFE000u) == 0x005F8000u) vf3_pvr_reg_hook(address & 0x1FFFu, value);
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) { ++machine.render_started; ++machine.render_starts_total; }
     /* A plain store into the PVR2 area is a VRAM or a register write, not a
      * display command: the Tile Accelerator only receives the store queue's

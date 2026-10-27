@@ -183,6 +183,37 @@ void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value)
     p->vram[off + 3] = (uint8_t)value;
 }
 
+/* A guest write into the VRAM.  The 64 bit view is the VRAM's own order; the
+ * 32 bit view interleaves the banks (vram_map).  Words are little-endian. */
+void vf3_pvr2_vram_store(vf3_pvr2 *p, uint32_t dest, uint32_t value)
+{
+    if (!p->vram) return;
+    uint32_t off;
+    if (((dest >> 26) & 7u) == 4u)
+        off = dest & (VF3_PVR2_VRAM_SIZE - 1u) & ~3u;
+    else
+        off = vram_map(dest & (VF3_PVR2_VRAM_SIZE - 1u));
+    p->vram[off] = (uint8_t)value;
+    p->vram[off + 1] = (uint8_t)(value >> 8);
+    p->vram[off + 2] = (uint8_t)(value >> 16);
+    p->vram[off + 3] = (uint8_t)(value >> 24);
+    if (p->vram_bytes < VF3_PVR2_VRAM_SIZE) p->vram_bytes = VF3_PVR2_VRAM_SIZE;
+}
+
+/* A guest write into the register file (the palette and the fog table
+ * included: they sit in the same 32 KiB). */
+void vf3_pvr2_reg_store(vf3_pvr2 *p, uint32_t off, uint32_t value)
+{
+    uint8_t *b = (uint8_t *)p->regs;
+    if (!b || off + 4u > VF3_PVR2_REG_SIZE) return;
+    if (p->reg_bytes < VF3_PVR2_REG_SIZE) p->reg_bytes = VF3_PVR2_REG_SIZE;
+    b[off] = (uint8_t)value;
+    b[off + 1] = (uint8_t)(value >> 8);
+    b[off + 2] = (uint8_t)(value >> 16);
+    b[off + 3] = (uint8_t)(value >> 24);
+    if (off < 0x200u) vf3_pvr2_read_config(p);
+}
+
 /* ---------------------------------------------------------------- the rasteriser */
 
 /* A vertex as the rasteriser works with it: the position, the texture

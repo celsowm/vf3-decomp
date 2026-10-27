@@ -39,6 +39,11 @@ extern uint32_t vf3_matrix_call_alias_pc;  /* masked PC of that target (0xffffff
  * to the VRAM).  The native tick sets this hook to collect them; when it is
  * NULL the flushes are dropped. */
 extern void (*vf3_ta_flush_hook)(const uint32_t *words, unsigned n);
+/* A word written into the PVR2's VRAM; the address is the physical one the
+ * writer used (0x10800000 and up: the 64 bit view, 0x04000000: the 32 bit view). */
+extern void (*vf3_vram_hook)(uint32_t dest, uint32_t value);
+/* A write into the PVR2's register file (0x005F8000..0x005F9FFF). */
+extern void (*vf3_pvr_reg_hook)(uint32_t addr, uint32_t value);
 /* Shared ABI mechanics for statically translated callers. */
 uint32_t vf3_matrix_read(const vf3_ram_map*,uint32_t,unsigned);
 void vf3_matrix_write(const vf3_ram_map*,uint32_t,uint32_t,unsigned);

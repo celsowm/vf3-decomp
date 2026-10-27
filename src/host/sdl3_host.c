@@ -79,6 +79,17 @@ static void usage(void)
 static uint8_t *g_ram;                 /* the machine's RAM */
 static uint32_t g_gbr;                  /* the global-state block */
 static vf3_pvr2 *g_pvr2;                /* the PVR2 model */
+
+/* The guest's own writes into the PVR2: the textures and the registers. */
+static void host_vram_write(uint32_t dest, uint32_t value)
+{
+    if (g_pvr2) vf3_pvr2_vram_store(g_pvr2, dest, value);
+}
+
+static void host_reg_write(uint32_t off, uint32_t value)
+{
+    if (g_pvr2) vf3_pvr2_reg_store(g_pvr2, off, value);
+}
 static FILE *g_ta_file;                 /* the display commands, as they arrive */
 static vf3_frame_events g_events;       /* the clock and the frame events */
 static unsigned g_slice = DEFAULT_SLICE; /* guest steps per event slice */
@@ -270,6 +281,8 @@ int main(int argc, char **argv)
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
     g_pvr2 = &pvr2;
+    vf3_vram_hook = host_vram_write;
+    vf3_pvr_reg_hook = host_reg_write;
     /* The PVR2 is a stateful device: the game programmed its registers at
      * boot, before the port's entry point, so the state comes from the
      * reference (the register file and the VRAM). */

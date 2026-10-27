@@ -85,5 +85,10 @@ uint32_t vf3_pvr2_pixel(const vf3_pvr2 *p, unsigned x, unsigned y);
 /* Write a word into the VRAM the way the hardware's bus does (the 64-bit
  * bus interleaves the two banks every 32 bits). */
 void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value);
+/* What the guest's writes do to the model: the physical address the writer
+ * used (0x10800000+: the 64 bit view of the VRAM, 0x04000000+: the 32 bit
+ * view) and a PVR2 register (offset from 0x005F8000). */
+void vf3_pvr2_vram_store(vf3_pvr2 *p, uint32_t dest, uint32_t value);
+void vf3_pvr2_reg_store(vf3_pvr2 *p, uint32_t off, uint32_t value);
 
 #endif

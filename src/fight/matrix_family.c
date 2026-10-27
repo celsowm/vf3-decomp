@@ -219,6 +219,8 @@ uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
 static uint32_t vf3_sq_buf[2][8], vf3_sq_qacr[2];
 int vf3_sq_model;
 void (*vf3_ta_flush_hook)(const uint32_t *words, unsigned n);
+void (*vf3_vram_hook)(uint32_t dest, uint32_t value);
+void (*vf3_pvr_reg_hook)(uint32_t addr, uint32_t value);
 uint32_t vf3_ta_flush_dest;
 void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
     unsigned n=(a>>5)&1u;
@@ -245,6 +247,13 @@ void vf3_matrix_pref(const vf3_ram_map *ram,uint32_t a) {
             return;
         }
         if(off<0x1000000u) return;   /* the YUV converter: not modelled */
+        if(vf3_vram_hook) {          /* the texture memory, 64 bit view */
+            for(unsigned i=0;i<8;++i) vf3_vram_hook(dest+4*i,vf3_sq_buf[n][i]);
+            return;
+        }
+    } else if(area==1u && vf3_vram_hook) {   /* the texture memory, 32 bit view */
+        for(unsigned i=0;i<8;++i) vf3_vram_hook(dest+4*i,vf3_sq_buf[n][i]);
+        return;
     }
     for(unsigned i=0;i<8;++i) vf3_matrix_write(ram,dest+4*i,vf3_sq_buf[n][i],4);
 }
