@@ -183,21 +183,65 @@ void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value)
     p->vram[off + 3] = (uint8_t)value;
 }
 
+/* Which of the two windows of the VRAM a guest address belongs to.
+ *
+ * The Dreamcast shows its VRAM twice, and the two views do not hold the same
+ * bytes at the same offsets:
+ *
+ *   0x04000000 (and its 0x06000000 mirror)  the 64 bit path: the banks one
+ *                                            after the other, the view the
+ *                                            Tile Accelerator samples.
+ *   0x05000000 (and its 0x07000000 mirror)  the 32 bit path: the banks
+ *                                            interleaved, so only half of
+ *                                            every 64 bit word is reachable.
+ *
+ * The 0x11000000 window (the P0 view of the Tile Accelerator's texture
+ * memory) follows the system bus' "long mode" bits: SB_LMMODE0 picks the 32
+ * bit path when it is set, the 64 bit path when it is clear.  The reference
+ * emulator maps the windows the same way
+ * (tools/emu/flycast/core/hw/sh4/sh4_mem.cpp, map_area1, and
+ * core/hw/pvr/pvr_mem.cpp, pvr_map32).
+ */
+static int vram_path_is_32bit(const vf3_pvr2 *p, uint32_t dest)
+{
+    switch (dest & 0x0F000000u) {
+    case 0x04000000u:
+    case 0x06000000u:
+        return 0;                       /* the 64 bit path */
+    case 0x05000000u:
+    case 0x07000000u:
+        return 1;                       /* the 32 bit path */
+    case 0x10000000u:
+    case 0x11000000u:
+        return p->lmmode0 != 0u;        /* the P0 window, lower half */
+    case 0x12000000u:
+    case 0x13000000u:
+        return p->lmmode1 != 0u;        /* the P0 window, upper half */
+    default:
+        return 0;
+    }
+}
+
 /* A guest write into the VRAM.  The 64 bit view is the VRAM's own order; the
  * 32 bit view interleaves the banks (vram_map).  Words are little-endian. */
-void vf3_pvr2_vram_store(vf3_pvr2 *p, uint32_t dest, uint32_t value)
+void vf3_pvr2_vram_store_n(vf3_pvr2 *p, uint32_t dest, uint32_t value, unsigned size)
 {
     if (!p->vram) return;
     uint32_t off;
-    if (((dest >> 26) & 7u) == 4u)
-        off = dest & (VF3_PVR2_VRAM_SIZE - 1u) & ~3u;
-    else
+    if (vram_path_is_32bit(p, dest))
         off = vram_map(dest & (VF3_PVR2_VRAM_SIZE - 1u));
-    p->vram[off] = (uint8_t)value;
-    p->vram[off + 1] = (uint8_t)(value >> 8);
-    p->vram[off + 2] = (uint8_t)(value >> 16);
-    p->vram[off + 3] = (uint8_t)(value >> 24);
+    else
+        off = dest & (VF3_PVR2_VRAM_SIZE - 1u) & ~3u;
+    /* The SH-4's store path narrows the value to the access size before the
+     * write reaches the bus, so a byte store writes one byte. */
+    for (unsigned i = 0; i < size && i < 4u; ++i)
+        p->vram[off + i] = (uint8_t)(value >> (8u * i));
     if (p->vram_bytes < VF3_PVR2_VRAM_SIZE) p->vram_bytes = VF3_PVR2_VRAM_SIZE;
+}
+
+void vf3_pvr2_vram_store(vf3_pvr2 *p, uint32_t dest, uint32_t value)
+{
+    vf3_pvr2_vram_store_n(p, dest, value, 4u);
 }
 
 /* A guest write into the register file (the palette and the fog table
@@ -212,6 +256,14 @@ void vf3_pvr2_reg_store(vf3_pvr2 *p, uint32_t off, uint32_t value)
     b[off + 2] = (uint8_t)(value >> 16);
     b[off + 3] = (uint8_t)(value >> 24);
     if (off < 0x200u) vf3_pvr2_read_config(p);
+}
+
+/* The system bus' long mode bits: they pick the 32 bit or the 64 bit path of
+ * the Tile Accelerator's texture memory window (0x11000000 and 0x13000000). */
+void vf3_pvr2_set_lmmode(vf3_pvr2 *p, uint32_t mode0, uint32_t mode1)
+{
+    p->lmmode0 = mode0 & 1u;
+    p->lmmode1 = mode1 & 1u;
 }
 
 /* ---------------------------------------------------------------- the rasteriser */
@@ -949,7 +1001,13 @@ static void draw_sprite(vf3_pvr2 *p, const vf3_ta_prim *prim,
 unsigned vf3_pvr2_rasterise(vf3_pvr2 *p, const vf3_ta_list *list)
 {
     if (!p->fb) return 0;
-    memset(p->fb, 0, (size_t)VF3_PVR2_PIXELS * sizeof *p->fb);
+    /* The frame buffer is the VRAM the PVR2 renders into, and the PVR2 does
+     * not clear it: the game draws over what is there.  So the model does not
+     * clear it either - a frame that renders nothing (a list of modifier
+     * volumes only, an idle frame) keeps the picture the last frame left.
+     * The depth buffer is our own (the hardware keeps its depth in the VRAM,
+     * which the game clears with writes the model does not see), so it is
+     * cleared here, per list. */
     memset(p->depth, 0, (size_t)VF3_PVR2_PIXELS * sizeof *p->depth);
     p->stats.pixels = 0;
     p->stats.triangles = 0;
@@ -978,8 +1036,11 @@ unsigned vf3_pvr2_rasterise(vf3_pvr2 *p, const vf3_ta_list *list)
 
 unsigned vf3_pvr2_frame_end(vf3_pvr2 *p)
 {
-    if (!p->fb) return 0;
-    memset(p->fb, 0, (size_t)VF3_PVR2_PIXELS * sizeof *p->fb);
+    /* The PVR2 has no frame-buffer clear: the frame buffer lives in VRAM and
+     * keeps whatever was last written into it, so a frame the game does not
+     * draw (the boot's idle frames, a screen that is still up) still shows the
+     * last picture.  The game clears the screen itself, by drawing over it.
+     * So the end of a frame only closes the frame's statistics. */
     p->stats.pixels = 0;
     return 0;
 }

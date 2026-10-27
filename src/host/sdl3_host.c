@@ -81,19 +81,52 @@ static uint32_t g_gbr;                  /* the global-state block */
 static vf3_pvr2 *g_pvr2;                /* the PVR2 model */
 
 /* The guest's own writes into the PVR2: the textures and the registers. */
+
+/* VF3_VRAMLOG: where the guest's texture writes go.  Two sources reach the
+ * VRAM - a plain store (the store queue's area 1 bursts and the guest's own
+ * stores) and the store queue's own flush - and both are counted by the
+ * megabyte of the address they used. */
+static uint64_t g_vram_plain[64], g_vram_plain_nz[64];
+static uint64_t g_vram_sq[64], g_vram_sq_nz[64];
+static int g_vramlog;
+
 static void host_vram_write(uint32_t dest, uint32_t value)
 {
+    if (g_vramlog) {
+        const unsigned r = (dest >> 20) & 0x3Fu;
+        ++g_vram_sq[r];
+        if (value) ++g_vram_sq_nz[r];
+    }
     if (g_pvr2) vf3_pvr2_vram_store(g_pvr2, dest, value);
+}
+
+/* A plain guest store into the texture memory, narrowed to the access size. */
+static void host_vram_store(uint32_t dest, uint32_t value, unsigned size)
+{
+    if (g_vramlog) {
+        const unsigned r = (dest >> 20) & 0x3Fu;
+        ++g_vram_plain[r];
+        if (value) ++g_vram_plain_nz[r];
+    }
+    if (g_pvr2) vf3_pvr2_vram_store_n(g_pvr2, dest, value, size);
 }
 
 static void host_reg_write(uint32_t off, uint32_t value)
 {
     if (g_pvr2) vf3_pvr2_reg_store(g_pvr2, off, value);
 }
+
+/* The system bus' long mode bits: they pick the 32 bit or the 64 bit path of
+ * the PVR2's texture memory window at 0x11000000. */
+static void host_lmmode(uint32_t mode0, uint32_t mode1)
+{
+    if (g_pvr2) vf3_pvr2_set_lmmode(g_pvr2, mode0, mode1);
+}
 static FILE *g_ta_file;                 /* the display commands, as they arrive */
 static vf3_frame_events g_events;       /* the clock and the frame events */
 static unsigned g_slice = DEFAULT_SLICE; /* guest steps per event slice */
 static unsigned g_budget_out = DEFAULT_SLICE; /* the budget the hook handed out */
+static uint64_t g_skipped;   /* the guest steps the idle skip did not execute */
 static unsigned g_vblanks, g_render_starts;  /* the frames the host has closed */
 static uint64_t g_frame_insns;
 static unsigned g_hook_insns;              /* the steps the hooks have charged */
@@ -248,7 +281,21 @@ static uint32_t slice_hook(vf3_matrix_state *s)
     g_insns += g_budget_out;
     if (getenv("VF3_HOST_TRACE"))
         fprintf(stderr, "slice: %llu insns, %u frames, pc %08x pr %08x r8-15 %08x %08x %08x %08x %08x %08x %08x %08x\n", (unsigned long long)g_insns, vf3_frame_events_frames(&g_events), s->pc, s->v[16], s->v[8], s->v[9], s->v[10], s->v[11], s->v[12], s->v[13], s->v[14], s->v[15]);
+    /* A slice that ends with the register file it started from is a spin wait (a frame counter, a flag): nothing the
+     * guest does can change before the next event, so the clock runs on to the next vblank without executing the
+     * instructions.  VF3_NO_IDLE_SKIP=1 turns it off. */
+    static uint32_t idle_prev[37];
+    static int idle_have;
+    const int idle = idle_have && !memcmp(idle_prev, regs, sizeof regs) && !getenv("VF3_NO_IDLE_SKIP");
+    memcpy(idle_prev, regs, sizeof regs);
+    idle_have = 1;
     const uint32_t next = vf3_frame_events_slice(&g_events, g_budget_out, regs);
+    if (idle && next && g_events.next > g_events.now && !g_events.failed) {
+        const uint64_t cycles = g_events.next - g_events.now;
+        const uint64_t steps = (cycles << 16) / (g_events.cyc_per_insn ? g_events.cyc_per_insn : 1) + 1;
+        vf3_frame_events_slice(&g_events, (unsigned)(steps > 0x7FFFFFFFu ? 0x7FFFFFFFu : steps), regs);
+        g_skipped += steps;
+    }
     {   /* the display commands so far, and the frame the vblank just ended */
         const uint32_t *ta;
         const unsigned n = vf3_native_take_ta(&ta);
@@ -373,7 +420,10 @@ int main(int argc, char **argv)
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
     g_pvr2 = &pvr2;
+    g_vramlog = getenv("VF3_VRAMLOG") != NULL;
     vf3_vram_hook = host_vram_write;
+    vf3_vram_store_hook = host_vram_store;
+    vf3_pvr_lmmode_hook = host_lmmode;
     vf3_pvr_reg_hook = host_reg_write;
     /* The PVR2 is a stateful device: the game programmed its registers at
      * boot, before the port's entry point, so the state comes from the
@@ -468,7 +518,7 @@ int main(int argc, char **argv)
                     vf3_frame_events_frames(&g_events));
             for (unsigned i = 0; i < sizeof watch / sizeof *watch; ++i)
                 fprintf(stderr, " %08x=%08x", watch[i], rd32(ram, watch[i]));
-            fprintf(stderr, "\n");
+            fprintf(stderr, " idle-skipped %llu\n", (unsigned long long)g_skipped);
         }
 
         if (texture) {
@@ -504,6 +554,15 @@ int main(int argc, char **argv)
         }
     }
 done:
+    if (g_vramlog) {
+        fprintf(stderr, "vf3sdl: VRAM writes by address megabyte\n");
+        for (unsigned r = 0; r < 64u; ++r) {
+            if (!g_vram_plain[r] && !g_vram_sq[r]) continue;
+            fprintf(stderr, "  %02x000000: plain %llu (%llu nonzero), sq %llu (%llu nonzero)\n",
+                    r, (unsigned long long)g_vram_plain[r], (unsigned long long)g_vram_plain_nz[r],
+                    (unsigned long long)g_vram_sq[r], (unsigned long long)g_vram_sq_nz[r]);
+        }
+    }
     if (ram_out) {
         FILE *f = fopen(ram_out, "wb");
         if (f) {

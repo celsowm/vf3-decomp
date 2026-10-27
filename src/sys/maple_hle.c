@@ -13,13 +13,20 @@ enum {
     MAPLE_RES_OK = 7
 };
 
+/* The two card slots of port A are occupied, so a reply to the main unit
+ * carries the bitmask 0x03 (Flycast's maple_GetAttachedDevices). */
+#define MAPLE_ATTACHED_MASK 0x03u
+#define MAPLE_SEGA_BRAND "Produced By or Under License From SEGA ENTERPRISES,LTD."
+
 /* The memory card in slot 1 of port A: 256 blocks of 512 bytes, formatted the way the VMU's own file system lays it out
  * (root block 255, FAT block 254, directory blocks 253..241, 200 free user blocks).  The game's start-up asks for a card
  * with 12 free blocks and sits on a message screen without one. */
 enum { VMU_BLOCKS = 256, VMU_BLOCK = 512 };
-/* total size - 1, partition, system block, FAT block and size, directory block and size, icon shape, user blocks, then the
- * three words the card keeps behind them (layout read off a formatted card image) */
-static const uint16_t vmu_media_info[12] = { 255, 0, 255, 254, 1, 253, 13, 5, 200, 31, 0, 0x80 };
+/* The media info the reference answers with (Flycast's maple_sega_vmu, the
+ * unformatted-card case): total size - 1, partition, system block, FAT block
+ * and size, directory block and size, icon shape, user blocks, then the three
+ * words the card keeps behind them. */
+static const uint16_t vmu_media_info[12] = { 255, 0, 255, 254, 1, 253, 0, 0, 200, 31, 0, 0 };
 static uint8_t vmu[VMU_BLOCKS * VMU_BLOCK];
 static int vmu_ready;
 
@@ -79,13 +86,26 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
         const unsigned command = frame & 0xFFu, to = (frame >> 8) & 0xFFu;
         if (words > 0 && !in_ram(at, 12 + 4 * (words - 1), ram_base, ram_len)) break;
         const uint32_t next = at + 8 + 4 * words;
-        if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple: block at %08x head %08x recv %08x frame %08x""\n", at, head, recv, frame);
-        /* the host is address 0 of the port; the main unit answers from port << 6 | 0x20, a sub-unit bit would be 1..0x1F */
-        const uint32_t from = (port << 6) | 0x20u | (port == 0 ? 1u : 0u), host = port << 6;   /* the pad reports the card in slot 1 */
-        const int present = port == 0 && (to & 0x3Fu) == 0x20u;
-        if (port == 0 && (to & 0x3Fu) == 0x01u) {
+        if (getenv("VF3_MAPLELOG")) {
+            fprintf(stderr, "maple: block at %08x head %08x recv %08x frame %08x", at, head, recv, frame);
+            for (unsigned w = 1; w < words; ++w)
+                fprintf(stderr, " [%08x]", rd(ram, ram_base, at + 8 + 4 * w));
+            fprintf(stderr, "\n");
+        }
+        /* The Dreamcast shows its Maple devices at (bus << 6) | (1 << port): the
+         * main unit of a bus is at 0x20 and the expansion slots at 0x01, 0x02,
+         * ...  The reply carries the address the request was addressed to, and
+         * a reply to the main unit also carries the bitmask of the attached
+         * sub-devices (Flycast's maple_base::RawDma).  The reference has the
+         * pad at 0x20 and a memory card in each of the two card slots. */
+        const uint32_t addr = to & 0x3Fu;
+        const uint32_t host = port << 6;
+        const int is_card = port == 0 && (addr == 0x01u || addr == 0x02u);
+        const int present = port == 0 && addr == 0x20u;
+        const uint32_t from = (addr & 0x20u) ? (to | MAPLE_ATTACHED_MASK) : to;
+        if (is_card) {
             if (!vmu_ready) vmu_format();
-            const uint32_t vfrom = (port << 6) | 0x01u;
+            const uint32_t vfrom = from;
             const uint32_t func = words > 1 ? rd(ram, ram_base, at + 12) : 0;
             const uint8_t *ra = ram + ((at + 16) & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu);
             uint8_t out[8 + 128 + 8];
@@ -94,13 +114,14 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
             memset(out, 0, sizeof out);
             if (command == MAPLE_REQ_DEVINFO) {
                 code = MAPLE_RES_DEVINFO;
-                uint32_t f = MAPLE_FUNC_STORAGE | MAPLE_FUNC_LCD | MAPLE_FUNC_CLOCK, d0 = 0x403F0000u, d1 = 0x000F4100u, d2 = 0x00000000u;
+                uint32_t f = MAPLE_FUNC_STORAGE | MAPLE_FUNC_LCD | MAPLE_FUNC_CLOCK;
+                uint32_t d0 = 0x403F7E7Eu, d1 = 0x00100500u, d2 = 0x00410F00u;   /* clock, LCD, storage */
                 uint8_t body[112];
                 memset(body, 0, sizeof body);
                 memcpy(body, &f, 4); memcpy(body + 4, &d0, 4); memcpy(body + 8, &d1, 4); memcpy(body + 12, &d2, 4);
                 body[16] = 0xFF;
                 memset(body + 18, ' ', 30); memcpy(body + 18, "Visual Memory", 13);
-                memset(body + 48, ' ', 60);
+                memset(body + 48, ' ', 60); memcpy(body + 48, MAPLE_SEGA_BRAND, (sizeof MAPLE_SEGA_BRAND) - 1);
                 body[108] = 0x7C; body[109] = 0x00; body[110] = 0x82; body[111] = 0x00;
                 if (in_ram(recv, 116, ram_base, ram_len)) {
                     wr(ram, ram_base, recv, code | (host << 8) | (vfrom << 16) | (28u << 24));
@@ -149,6 +170,7 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
         if (in_ram(recv, 4, ram_base, ram_len)) {
             if (!present || (command != MAPLE_REQ_DEVINFO && command != MAPLE_REQ_GETCOND)) {
                 wr(ram, ram_base, recv, 0xFFFFFFFFu);
+                if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> no device (ffffffff)\n");
             } else if (command == MAPLE_REQ_DEVINFO && in_ram(recv, 116, ram_base, ram_len)) {
                 uint8_t body[112];
                 memset(body, 0, sizeof body);
@@ -159,7 +181,7 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 body[17] = 0;
                 memset(body + 18, ' ', 30);
                 memcpy(body + 18, "Dreamcast Controller", 20);
-                memset(body + 48, ' ', 60);
+                memset(body + 48, ' ', 60); memcpy(body + 48, MAPLE_SEGA_BRAND, (sizeof MAPLE_SEGA_BRAND) - 1);
                 body[108] = 0xAE; body[109] = 0x01;   /* standby 430 */
                 body[110] = 0xF4; body[111] = 0x01;   /* max 500 */
                 wr(ram, ram_base, recv, MAPLE_RES_DEVINFO | (host << 8) | (from << 16) | (28u << 24));

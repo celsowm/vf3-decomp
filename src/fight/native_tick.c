@@ -12,6 +12,9 @@
 
 #define TA_AREA_BASE 0x10000000u         /* area 4: Tile Accelerator FIFOs and texture memory */
 #define TA_AREA_END  0x14000000u
+#define GD_REG_BASE  0x005F7000u         /* the GD-ROM's register block */
+#define GD_STATUS_DRDY 0x40u             /* the status register's DRDY bit */
+#define GD_UNIT_STANDBY 0x02u            /* the unit status: the drive is stopped */
 #define GUEST_RETURN_SENTINEL 0xDEAD0000u
 #define SPG_VBLANK_IN_LINE 0x104u
 #define BLOCK_BUDGET 1000000000u
@@ -40,6 +43,14 @@ int vf3_native_load_snapshot(const char *path, unsigned pair, uint32_t regs[37],
 #define AICA_RAM_BASE 0x00800000u
 #define AICA_RAM_LEN 0x200000u
 
+/* A guest store into the PVR2's texture memory.  The model intercepts it: the
+ * hook gets the physical address, the value and the access size. */
+void (*vf3_vram_store_hook)(uint32_t dest, uint32_t value, unsigned size);
+
+/* The system bus' long mode bits: they pick the 32 bit or the 64 bit path of
+ * the Tile Accelerator's texture memory window (0x11000000). */
+void (*vf3_pvr_lmmode_hook)(uint32_t mode0, uint32_t mode1);
+
 static struct {
     unsigned reads, writes, readable_calls, unowned_calls;
     uint32_t first_unowned;
@@ -63,6 +74,14 @@ static struct {
      * them (the display commands that do not go through the store queue). */
     uint32_t dmac_sar2, dmac_dar2, dmac_dmatcr2, dmac_chcr2;
     uint32_t sb_c2dstat, sb_c2dlen;
+    /* The system bus' long mode bits (SB_LMMODE0/1): they pick the 32 bit or
+     * the 64 bit path of the PVR2's texture memory window at 0x11000000. */
+    uint32_t sb_lmmode0, sb_lmmode1;
+    /* The GD-ROM's registers: the status register (the drive is idle and
+     * ready) and the unit status (the disc is in the drive). */
+    uint32_t gd_status, gd_unit_status;
+    /* the state of the run in progress: the device log wants the caller's PC */
+    vf3_matrix_state *cur;
 } machine;
 
 /* sound RAM (0x00800000): the loader reads the driver-published free size at 0x88. Kept outside `machine`, which nested runs copy */
@@ -120,7 +139,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
         return v;
     }
     ++machine.reads;
-    if (getenv("VF3_DEVLOG")) fprintf(stderr, "devread %08x size %u\n", address, size);
+    if (getenv("VF3_DEVLOG")) fprintf(stderr, "devread %08x size %u pc %08x\n", address, size, machine.cur ? machine.cur->pc : 0);
     if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* TCNT0: counts down at CPU/256 */
         return (uint32_t)(0xFFFFFFFFu - (tmu_cycles >> 8));
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
@@ -157,6 +176,18 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) {
         if (getenv("VF3_ASICLOG") && (machine.istnrm & ~8u)) fprintf(stderr, "istnrm read %08x\n", machine.istnrm);
         return machine.istnrm;
+    }
+    if ((address & 0x1FFFFFFFu) >= GD_REG_BASE && (address & 0x1FFFFFFFu) < GD_REG_BASE + 0x120u) {
+        /* The GD-ROM's own register block.  The game's GDFS driver drives the
+         * drive through these registers (the BIOS syscall the loader uses is
+         * a different door), so the port has to answer them: a drive that is
+         * present and idle reports DRDY, and its unit status is "standby".
+         * With every register reading as zero the driver concluded the drive
+         * was not there and the boot never read a file. */
+        const uint32_t a = address & 0x1FFFFFFFu;
+        if (a == 0x005F7018u || a == 0x005F709Cu) return machine.gd_status;   /* ALTSTAT / STATUS */
+        if (a == 0x005F708Cu) return machine.gd_unit_status;                 /* SECTNUM */
+        return 0;
     }
     if (is_onchip(address)) {
         uint32_t v = 0;
@@ -246,9 +277,51 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if ((address & 0x1FFFFFFFu) == 0x005F6800u) machine.sb_c2dstat = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6804u) machine.sb_c2dlen = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6808u && (value & 1u)) dma2_ch2_transfer();
+    if (getenv("VF3_DMALOG") && ((address & 0x1FFFFFFFu) < 0x1FA00080u ||
+                                 ((address & 0x1FFFFFFFu) >= 0x005F6800u && (address & 0x1FFFFFFFu) < 0x005F6820u)))
+        fprintf(stderr, "dma: devwrite %08x = %08x%c", address, value, 10);
     if ((address & 0x1FFFFFFFu) == 0x005F6910u) machine.iml2 = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) machine.istnrm &= ~value;   /* write-1-to-clear */
-    if (vf3_pvr_reg_hook && (address & 0x1FFFE000u) == 0x005F8000u) vf3_pvr_reg_hook(address & 0x1FFFu, value);
+    /* SB_LMMODE0/1 (the system bus' long mode bits): they pick the 32 bit or
+     * the 64 bit path of the PVR2's texture memory window at 0x11000000. */
+    if ((address & 0x1FFFFFFFu) == 0x005F6884u) {
+        machine.sb_lmmode0 = value & 1u;
+        if (vf3_pvr_lmmode_hook) vf3_pvr_lmmode_hook(machine.sb_lmmode0, machine.sb_lmmode1);
+    }
+    if ((address & 0x1FFFFFFFu) == 0x005F6888u) {
+        machine.sb_lmmode1 = value & 1u;
+        if (vf3_pvr_lmmode_hook) vf3_pvr_lmmode_hook(machine.sb_lmmode0, machine.sb_lmmode1);
+    }
+    if (vf3_pvr_reg_hook) {
+        /* The PVR2's register file is 32 KB and the Dreamcast shows it through
+         * several mirrors: the uncached 32 bit view at 0x005F8000, the 0xA0
+         * area at 0xA05F8000 (the same bits, the mask drops the area), and the
+         * cached view at 0x8C000000, which the store path folds to
+         * 0x1F800000.  The palette RAM (at +0x1000) and the fog table (at
+         * +0x200) live in the same 32 KB, and the game writes the palette
+         * through the 0xA0 mirror - so the window has to be 32 KB wide, not
+         * the 8 KB the old mask allowed: with it the palette was dropped and
+         * every palette-textured primitive came out black. */
+        const uint32_t a = address & 0x1FFFFFFFu;
+        if ((a & 0x1FFF8000u) == 0x005F8000u || (a & 0x1FFF8000u) == 0x1F800000u)
+            vf3_pvr_reg_hook(a & 0x7FFFu, value);
+    }
+    if (vf3_vram_store_hook) {
+        /* A plain store into the texture memory.  The Dreamcast shows its
+         * VRAM through two windows of area 1: the 64 bit path at 0x04000000
+         * (the banks one after the other, the view the Tile Accelerator
+         * samples) and the 32 bit path at 0x05000000 (the banks interleaved),
+         * each with a mirror at 0x06000000 and 0x07000000.  The game uploads
+         * its textures through the 32 bit path, so without it the model's VRAM
+         * stays empty and every texture samples as black.  The Tile
+         * Accelerator's own window at 0x11000000 (and 0x13000000) shows the
+         * VRAM too; the system bus' long mode bits pick which path it is. */
+        const uint32_t a = address & 0x1FFFFFFFu;
+        if ((a >= 0x04000000u && a < 0x08000000u) ||
+            (a >= 0x11000000u && a < 0x12000000u) ||
+            (a >= 0x13000000u && a < 0x14000000u))
+            vf3_vram_store_hook(a, value, size);
+    }
     if ((address & 0x1FFFFFFFu) == 0x005F8014u) { ++machine.render_started; ++machine.render_starts_total; }
     /* A plain store into the PVR2 area is a VRAM or a register write, not a
      * display command: the Tile Accelerator only receives the store queue's
@@ -353,6 +426,11 @@ void vf3_native_attach_gdrom(vf3_gdrom *gd)
 {
     machine.gd = gd;
     if (gd) { gd->write = gd_write; gd->write_ctx = NULL; }
+    /* a drive with a disc in it is ready: its status register reports DRDY
+     * and its unit status is "standby" (the reference emulator's
+     * gd_setdisc). */
+    machine.gd_status = GD_STATUS_DRDY;
+    machine.gd_unit_status = GD_UNIT_STANDBY;
 }
 
 static void (*poll_hook)(void *);
@@ -416,6 +494,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
      * commands it emits belong to the same frame */
     if (!nested) machine.ta_len = 0;
     memset(&st, 0, sizeof st);
+    machine.cur = &st;
     const unsigned budget = !nested && saved.budget ? saved.budget : BLOCK_BUDGET;   /* an interrupt taken inside a slice is not sliced */
     st.budget = budget;
     memcpy(st.v, regs, 37 * sizeof regs[0]);
@@ -458,6 +537,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     out->ta = machine.ta;
     memcpy(out->regs, st.v, sizeof out->regs);
     --run_depth;
+    if (!nested) machine.cur = NULL;
     if (nested) {
         uint32_t *ta = machine.ta;
         size_t ta_cap = machine.ta_cap;

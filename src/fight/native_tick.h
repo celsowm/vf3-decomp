@@ -98,4 +98,16 @@ void vf3_native_set_budget(unsigned steps);
 /* Generated: is this a call target (as opposed to a seed in the middle of a function)? */
 int vf3_native_call_target(uint32_t entry);
 
+/* A guest store into the PVR2's texture memory (the 64 bit view at 0x04000000
+ * and the 32 bit view at 0x05000000, plus the Tile Accelerator's own window
+ * at 0x11000000).  The model intercepts it: the hook gets the physical
+ * address, the value and the access size.  It lives here and not
+ * in matrix_family.h because touching that header rebuilds every generated
+ * adapter. */
+extern void (*vf3_vram_store_hook)(uint32_t dest, uint32_t value, unsigned size);
+/* The system bus' long mode bits (SB_LMMODE0 at 0x005F6884, SB_LMMODE1 at
+ * 0x005F6888): they pick the 32 bit or the 64 bit path of the PVR2's texture
+ * memory window at 0x11000000. */
+extern void (*vf3_pvr_lmmode_hook)(uint32_t mode0, uint32_t mode1);
+
 #endif

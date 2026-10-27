@@ -56,6 +56,10 @@ typedef struct {
     uint32_t ta_ol_base;     /* the object list's address in the VRAM */
     uint32_t ta_isp_base;    /* the ISP parameters' address in the VRAM */
 
+    /* The system bus' long mode bits (SB_LMMODE0/1): they pick the 32 bit or
+     * the 64 bit path of the PVR2's texture memory window at 0x11000000. */
+    uint32_t lmmode0, lmmode1;
+
     uint32_t *ta;            /* the TA words of the frame, in order (malloc'd) */
     uint32_t ta_words;       /* how many of them there are */
     uint32_t ta_cap;
@@ -89,6 +93,12 @@ void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value);
  * used (0x10800000+: the 64 bit view of the VRAM, 0x04000000+: the 32 bit
  * view) and a PVR2 register (offset from 0x005F8000). */
 void vf3_pvr2_vram_store(vf3_pvr2 *p, uint32_t dest, uint32_t value);
+/* The same, narrowed to the access size (the SH-4's store path narrows the
+ * value before it reaches the bus). */
+void vf3_pvr2_vram_store_n(vf3_pvr2 *p, uint32_t dest, uint32_t value, unsigned size);
 void vf3_pvr2_reg_store(vf3_pvr2 *p, uint32_t off, uint32_t value);
+/* The system bus' long mode bits: 0 selects the 64 bit path of the texture
+ * memory window, 1 the 32 bit path. */
+void vf3_pvr2_set_lmmode(vf3_pvr2 *p, uint32_t mode0, uint32_t mode1);
 
 #endif
