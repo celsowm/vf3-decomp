@@ -290,6 +290,21 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   and the call recursed until the C stack overflowed.  Escalate only the
   vectors the stub owns, and mask the target (a caller may hold it in the
   0x8c form).
+- **The boot's black screen is missing data, not a broken rasteriser.**  The
+  game renders a full-screen textured quad whose 512x512 ARGB1555 texture
+  (the Tile Accelerator samples it at 0x54D880) is empty: the port's boot
+  starts at the game's own entry (0x8C004000) with only the 1ST_READ image
+  in RAM, so the REIOS - the component that loads the game's files - never
+  runs, and the port's GD-ROM model is attached but never asked for anything.
+  The reference's boot does run it (its log carries 23,480 "GDROM: HLE
+  EXEC_SERVER" lines and the drive's sectors are read from the first
+  seconds), so the missing piece is the REIOS' file service (the system
+  vector 0x8C001000), not the renderer: the attract fight, which has its
+  textures, matches the reference at 95.48%.  Two false alarms hid this: the
+  host printed "unowned call at <pc>" at the end of every boot (that was the
+  event model's frame cap, not a missing port) and the claim audit reported
+  158 holes (it did not model the chain's fallback, which carries 27,964
+  PCs).  docs/re/boot_vram_traffic.md, docs/re/maple.md.
 - **The oracle's RAM page budget was 128 pages (512 KiB) and the arena
   fixture alone used all of it.**  The budget is a memory limit, not a
   semantic one; `docs/re/patches/oracle_device_reads.patch` now raises it to
