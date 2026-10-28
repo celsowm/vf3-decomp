@@ -25,12 +25,32 @@ enum { VMU_BLOCKS = 256, VMU_BLOCK = 512 };
 /* The media info the reference answers with (Flycast's maple_sega_vmu, the
  * unformatted-card case): total size - 1, partition, system block, FAT block
  * and size, directory block and size, icon shape, user blocks, then the three
- * words the card keeps behind them. */
-static const uint16_t vmu_media_info[12] = { 255, 0, 255, 254, 1, 253, 0, 0, 200, 31, 0, 0 };
+ * words the card keeps behind them.  The directory size is 13 because the
+ * card's own FAT chains thirteen directory blocks (253..241) - the reference
+ * says the same. */
+static const uint16_t vmu_media_info[12] = { 255, 0, 255, 254, 1, 253, 13, 0, 200, 31, 0, 0 };
 static uint8_t vmu[VMU_BLOCKS * VMU_BLOCK];
 static int vmu_ready;
 
 static void put16(uint8_t *p, unsigned v) { p[0] = (uint8_t)v; p[1] = (uint8_t)(v >> 8); }
+
+/* The Maple wire carries a word most significant byte first, but the guest
+ * writes it into the DMA buffer the way the SH-4 stores it (little endian),
+ * so the reference reads the request's words the other way round
+ * (maple_base's SWAP32). */
+static uint32_t maple_wire(uint32_t word)
+{
+    return ((word & 0x000000FFu) << 24) | ((word & 0x0000FF00u) << 8) |
+           ((word & 0x00FF0000u) >> 8) | ((word & 0xFF000000u) >> 24);
+}
+
+/* The block a storage request names (Flycast's maple_sega_vmu, MDCF_BlockRead
+ * and MDCF_BlockWrite, MFID_1_Storage): the low sixteen bits of the word that
+ * follows the function code, read the way the wire carries it, and a number
+ * above 255 is truncated to its low byte.  The game asks for the last blocks
+ * of the card as 0xFFFC..0xFFFF, so the truncation is what makes the request
+ * mean the blocks 252..255. */
+static unsigned maple_block(uint32_t word) { return (maple_wire(word) & 0xFFFFu) & 0xFFu; }
 
 static void vmu_format(void)
 {
@@ -108,7 +128,7 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
             const uint32_t vfrom = from;
             const uint32_t func = words > 1 ? rd(ram, ram_base, at + 12) : 0;
             const uint8_t *ra = ram + ((at + 16) & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu);
-            uint8_t out[8 + 128 + 8];
+            uint8_t out[8 + VMU_BLOCK + 8];
             unsigned owords = 0;
             uint32_t code = MAPLE_RES_OK;
             memset(out, 0, sizeof out);
@@ -140,15 +160,24 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 }
                 owords = 7;
             } else if (command == MAPLE_REQ_BLOCKREAD && func == MAPLE_FUNC_STORAGE) {
-                const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];
+                /* The whole 512 byte block comes back in one transfer (the
+                 * reference writes the block out in full and does not look at
+                 * the phase). */
+                const unsigned block = maple_block(ra[0]);
                 code = MAPLE_RES_DATATRF;
                 memcpy(out, &func, 4);
-                memcpy(out + 4, ra, 4);
-                if (block < VMU_BLOCKS && phase < 4) memcpy(out + 8, vmu + block * VMU_BLOCK + phase * 128, 128);
-                owords = 34;
+                memcpy(out + 4, ra, 4);        /* the reference echoes the word */
+                memcpy(out + 8, vmu + block * VMU_BLOCK, VMU_BLOCK);
+                owords = 2 + VMU_BLOCK / 4;
             } else if (command == MAPLE_REQ_BLOCKWRITE && func == MAPLE_FUNC_STORAGE) {
-                const unsigned phase = ra[1], block = ((unsigned)ra[2] << 8) | ra[3];
-                if (block < VMU_BLOCKS && phase < 4) memcpy(vmu + block * VMU_BLOCK + phase * 128, ra + 4, 128);
+                /* The block and the phase share the word: the block is its low
+                 * sixteen bits, the phase its bits 16-23, and the data follows
+                 * the word. */
+                const unsigned block = maple_block(ra[0]);
+                const unsigned phase = (maple_wire(ra[0]) >> 16) & 0xFFu;
+                const unsigned off = block * VMU_BLOCK + phase * (VMU_BLOCK / 4);
+                const unsigned len = words > 3 ? (words - 3) * 4 : 0;
+                if (len && off + len <= sizeof vmu) memcpy(vmu + off, ra + 4, len);
             }
             if (in_ram(recv, 4 + 4 * owords, ram_base, ram_len)) {
                 wr(ram, ram_base, recv, code | (host << 8) | (vfrom << 16) | (owords << 24));

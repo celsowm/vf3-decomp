@@ -133,12 +133,24 @@ There is no hole: every PC the ledger counts is servable by the router.
 ## What the next step is
 
 The picture is black because the boot never reads the disc, so the game's
-textures never arrive.  Two ways forward:
+textures never arrive.  The reference's own boot shows where the missing
+piece is: its log carries 23,480 "GDROM: HLE EXEC_SERVER" lines and
+thousands of "GET_CMD_STAT" polls, and the drive's sectors are read from the
+first seconds of the run - the REIOS' exec server loads the game's files.
+The port's boot starts at the game's own entry (0x8C004000) with only the
+1ST_READ image in RAM, so the REIOS never runs: the port's GD-ROM model is
+attached, but nothing asks it for anything (`VF3_GDTRACE` prints nothing) and
+the game sits on its message screen.
 
-* make the guest pass the memory card check, so the game asks the drive for
-  its files (the Maple receive path, docs/re/p7_boot_from_disc.md), and
-* model the ATA register interface the REIOS' exec server drives
-  (docs/re/reios_exec_server.md), so the port can serve the file reads.
+Two ways forward:
+
+* serve the REIOS' file service (the system vector 0x8C001000) in C, with the
+  game's files coming from the disc image (the port already reads sectors by
+  FAD, `src/sys/gdrom_hle.c`), or from the extracted image files
+  (`extract/gamedata/`); and
+* keep the card model honest, so the game passes its memory card check (the
+  card's block requests are answered the way the reference answers them now,
+  docs/re/maple.md).
 
 The renderer and the VRAM model are ready for the data: the attract fight,
 which has its textures, matches the reference.

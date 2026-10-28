@@ -41,3 +41,51 @@ Maple only when a run writes SB_MDSTAR/SB_MDST.
 - ISTNRM bit 12 = Maple DMA end (refs/DreamcastRecompiled dc_runtime.cpp: `kAsicEventMapleDmaBit = 1u << 12`, ASIC_EVT_MAPLE_DMA).
 - Transfer header (refs/dream-recomp/runtime/src/maple/maple.cpp:338): bit 31 = **last** (set on the final block, so the Linux code
   is right and its comment wrong), bits 17:16 port, 10:8 pattern, 7:0 frame words - 1; then the receive address, then the frame.
+
+## The card's block requests (2026-10-28)
+
+The port read the wrong block of the memory card.  The guest asks for a block
+with the word that follows the function code, and the reference reads that
+word the way the Maple wire carries it (most significant byte first, while the
+SH-4 stores it the other way round), keeps its low sixteen bits as the block
+number and truncates a number above 255 to its low byte
+(`tools/emu/flycast/core/hw/maple/maple_devs.cpp`, `MDCF_BlockRead` /
+`MFID_1_Storage`):
+
+```c
+u32 xo = r32();
+u32 Block = (SWAP32(xo)) & 0xffff;
+if (Block > 255) Block &= 255;
+wptr(flash_data + Block * 512, 512);     /* the whole block, in one transfer */
+```
+
+The game asks for the last blocks of the card as 0xFFFC..0xFFFF, so the
+truncation is what makes those requests mean the blocks 252..255.  The port
+read the phase and the block out of the *following* words, so every request
+answered with the block 0 - the game's read of the FAT (block 254) came back
+with the root block's bytes, the free-block count was zero and the game sat
+on the message screen.
+
+The port now parses the request the way the reference does and answers with
+the whole 512 byte block (`src/sys/maple_hle.c`, `maple_wire` / `maple_block`).
+The write path follows the reference as well: the block and the phase share
+the same word (the block is its low sixteen bits, the phase its bits 16-23)
+and the data follows it.
+
+The card's media info also had to match the reference: the directory size is
+13, because the card's own FAT chains thirteen directory blocks (253..241) -
+`maple_sega_vmu` writes the same number for an unformatted card.
+
+## Where the port's boot differs from the reference's (2026-10-28)
+
+The reference's boot runs the REIOS' *exec server*: the log of a clean
+Flycast boot carries 23,480 "GDROM: HLE EXEC_SERVER" lines and thousands of
+"GET_CMD_STAT" polls, and the drive's sector reads follow (the disc image is
+read from the first seconds of the run).  The port's boot starts at the
+game's own entry (0x8C004000) with only the 1ST_READ image in RAM, so the
+REIOS - the component that reads the disc and loads the game's files - never
+runs: the port's GD-ROM model is attached, but nothing asks it for anything
+(`VF3_GDTRACE` prints nothing), and the game's textures never arrive (the
+512x512 texture the Tile Accelerator samples, at 0x54D880, is empty).
+See docs/re/boot_vram_traffic.md.
+
