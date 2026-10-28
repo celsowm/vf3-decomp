@@ -188,10 +188,13 @@ static uint32_t vf3_image_byte(uint32_t addr) {
 }
 uint32_t vf3_matrix_read(const vf3_ram_map *ram,uint32_t addr,unsigned size) {
     uint32_t value=0;
-    /* The PVR2's cached register view (0x8C000000) is the same registers as
-     * the uncached one (0x5F800000); see vf3_matrix_write. */
-    if((addr&0xFFFFF000u)==0x8C000000u) addr=0x1F800000u|(addr&0xFFFu);
-    else addr&=0x1FFFFFFFu;
+    /* The address' region (bits 24-28) picks the window, the way the
+     * reference's map does (core/hw/sh4/sh4_mem.cpp): area 0 (the BIOS ROM,
+     * the flash, the SB and the PVR2's registers) is at 0x00|base, the RAM
+     * (area 3) at 0x0C|base - so 0x8C000000 is the RAM's cached mirror and
+     * NOT the PVR2's register file.  The PVR2's registers live in area 0
+     * (0x005F8000..0x005F9FFF, mirrored at 0xA05F8000). */
+    addr&=0x1FFFFFFFu;
     /* Area 3 mirrors the 16 MiB RAM four times across 0x0C..0x0F. */
     if(addr>=0x0c000000u && addr<0x10000000u)
         addr=0x0c000000u|(addr&0x00ffffffu);
@@ -262,13 +265,10 @@ void vf3_matrix_write(const vf3_ram_map *ram,uint32_t addr,uint32_t value,unsign
         vf3_sq_buf[(addr>>5)&1u][(addr>>2)&7u]=value;
         if(getenv("VF3_SQLOG")) fprintf(stderr,"  sq store %08x = %08x\n",addr,value);
     }
-    /* The PVR2's registers are visible twice: cached at 0x8C000000 and
-     * uncached at 0x5F800000.  Masking the address to 29 bits maps the cached
-     * view onto the RAM (0x0C000000), so the writes went into the RAM window
-     * and the port never saw the render trigger.  Both views are the same
-     * registers, so both are folded onto the uncached one's masked address. */
-    if((addr&0xFFFFF000u)==0x8C000000u) addr=0x1F800000u|(addr&0xFFFu);
-    else addr&=0x1FFFFFFFu;
+    /* The PVR2's register file is in area 0 (0x005F8000..0x005F9FFF, mirrored
+     * at 0xA05F8000); the 29 bit mask keeps both.  0x8C000000 is the RAM's
+     * cached mirror, not a register view - see vf3_matrix_read. */
+    addr&=0x1FFFFFFFu;
     {   /* VF3_WATCHW=<hex addr>[,<hex len>]: log the writes that land in a RAM range */
         static int init; static uint32_t lo, hi;
         if(!init) { init=1; const char *w=getenv("VF3_WATCHW"); if(w) { char *e; lo=(uint32_t)strtoul(w,&e,16)&0x1FFFFFFFu; hi=lo+(*e==',' ? (uint32_t)strtoul(e+1,NULL,16) : 4u); } }

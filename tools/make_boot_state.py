@@ -24,12 +24,35 @@ RAM_LEN = 0x01000000
 LOAD_ADDR = 0x8C010000
 MARK_REGS, MARK_XF, MARK_WINDOWS = 0xFA30, 0xFA70, 0xFA50
 
+# The reference's REIOS boot (tools/emu/flycast/core/reios/reios.cpp, reios_boot):
+# the first 64 KiB of the RAM are 0xFF, the IP.BIN (the disc's first 16
+# sectors) covers 0x8C008000..0x8C00FFFF, the boot file lands at 0x8C010000
+# and the system info (24 bytes) lands at 0x8C000068.
+#
+# The system area (the RAM at 0x8C000000) holds the BIOS service pointers:
+# the guest jumps through them to reach the BIOS (the dc_bios_syscall_* defines
+# in reios.cpp).  The reference patches each pointer at the hook address it
+# owns; the port serves the same entries (the chain masks the entry PC to 29
+# bits, so 0x8C001000 arrives as 0x0C001000).
+BIOS_SERVICES = {
+    0x8C0000B0: 0x8C001000,   # system (sysinfo)
+    0x8C0000B4: 0x8C001002,   # font
+    0x8C0000B8: 0x8C001004,   # flashrom
+    0x8C0000BC: 0x8C001006,   # gdrom
+    0x8C0000C0: 0x8C0010F0,   # gd2 (the reference's own entry point for it)
+    0x8C0000E0: 0x8C001008,   # misc
+}
+SYSINFO = 0x8C000068
+IP_BIN = 0x8C008000
+IP_BIN_LEN = 0x8000
+
 
 def marker(pc: int, tag: int) -> bytes:
     return struct.pack('<Q', (pc << 16) | tag)
 
 
-def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int, low: bytes = b'') -> bytes:
+def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int, low: bytes = b'',
+          ip_bin: bytes = b'', bios: bytes = b'') -> bytes:
     out = bytearray()
     out += marker(entry, MARK_REGS)
     regs = [0] * 16
@@ -45,11 +68,34 @@ def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int, low: bytes = b
     out += marker(entry, MARK_WINDOWS)
     out += struct.pack('<QQQ', 1, RAM_BASE, RAM_LEN)
     ram = bytearray(RAM_LEN)
+    # reios_boot: the first 64 KiB are 0xFF (the SDK's system area) ...
+    ram[0:0x10000] = b'\xff' * 0x10000
+    # ... and the IP.BIN covers the second 32 KiB.  In this disc dump the
+    # bootstrap is blank (the drive descrambles those sectors), so the area is
+    # zeros - the reference walks it as a NOP slide into the game image.
+    ip_off = IP_BIN & 0x00FFFFFF
+    ram[ip_off:ip_off + IP_BIN_LEN] = b'\x00' * IP_BIN_LEN
+    if ip_bin:
+        ram[ip_off:ip_off + len(ip_bin[:IP_BIN_LEN])] = ip_bin[:IP_BIN_LEN]
+    ram[0:len(low)] = low
     off = (LOAD_ADDR & 0x00FFFFFF)
     if off + len(image) > RAM_LEN:
         raise SystemExit('the image does not fit in the 16 MiB of RAM')
-    ram[0:len(low)] = low
     ram[off:off + len(image)] = image
+    # the BIOS service pointers of the system area
+    for vec, target in BIOS_SERVICES.items():
+        struct.pack_into('<I', ram, vec & 0x00FFFFFF, target)
+    # the system info (24 bytes) at 0x8C000068: the id and the properties come
+    # from the BIOS ROM (0x21A056 and 0x21A000), the settings from the flash's
+    # user block (the RTC's time and the language; the port has no clock, so
+    # the defaults the reference writes stand).
+    info = bytearray(24)
+    if len(bios) > 0x21A05D:
+        info[0:8] = bios[0x21A056:0x21A05E]
+        info[8:13] = bios[0x21A000:0x21A005]
+    info[19] = 1                       # autostart (flash_syscfg_block)
+    info_off = SYSINFO & 0x00FFFFFF
+    ram[info_off:info_off + 24] = info
     # the image's first instructions are a copy stub (0x8C010000): it moves
     # 0x0C010100..0x0C014000 down to 0x0C004000 and jumps there
     if entry == LOAD_ADDR:
@@ -77,9 +123,13 @@ def main() -> int:
     ap.add_argument('--sr', type=lambda s: int(s, 0), default=0x700000F0)
     ap.add_argument('--fpscr', type=lambda s: int(s, 0), default=0x00040001)
     ap.add_argument('--low-ram', type=Path, help='a reference state whose first 0x10000 bytes (the BIOS system area and syscall stubs) seed the boot')
+    ap.add_argument('--ip-bin', type=Path, help="the disc's IP.BIN bootstrap (32 KiB); blank in this disc dump")
+    ap.add_argument('--bios', type=Path, help='the BIOS ROM image (2 MiB): the system id and the properties come from it')
     a = ap.parse_args()
     low = read_low_ram(a.low_ram) if a.low_ram else b''
-    a.out.write_bytes(build(a.image.read_bytes(), a.entry, a.sp, a.sr, a.fpscr, low))
+    ip_bin = a.ip_bin.read_bytes() if a.ip_bin else b''
+    bios = a.bios.read_bytes() if a.bios else b''
+    a.out.write_bytes(build(a.image.read_bytes(), a.entry, a.sp, a.sr, a.fpscr, low, ip_bin, bios))
     print(f'wrote {a.out} ({a.out.stat().st_size} bytes)')
     return 0
 
