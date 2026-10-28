@@ -130,27 +130,62 @@ OWNED BUT ROUTABLE BY NOBODY: 0
 
 There is no hole: every PC the ledger counts is servable by the router.
 
+## The GD-ROM has two doors, and the port models one
+
+The Dreamcast's disc is reached in two different ways, and the port only has
+one of them:
+
+* **the BIOS syscall door** - the REIOS' own loader service at the vector
+  0x8C001006 (`vf3_bios_gd_syscall`, `src/sys/gdrom_hle.c`,
+  `src/sys/bios_syscall.c`).  The reference's boot drives it hard: the log
+  carries 23,480 "GDROM: HLE EXEC_SERVER" lines and thousands of
+  "GET_CMD_STAT" polls, and the drive's sectors are read from the first
+  seconds of the run.  This is the door the *REIOS* uses to load the game.
+* **the ATA register door** - the register block at 0x5F7000..0x5F711F, which
+  the game's own GDFS driver programs (the command block, the sector number,
+  the data port and the buffer control, with the transfer done by the SH-4's
+  DMA channel 1).  This is the door the *game* uses to read its own files.
+
+The port models the second door as a stub: `device_read` in
+`src/fight/native_tick.c` answers only STATUS/ALTSTAT (0x5F7018/0x5F709C)
+and SECTNUM (0x5F708C) and returns zero for everything else, with the port's
+own comment saying it: "With every register reading as zero the driver
+concluded the drive was not there and the boot never read a file."
+
+That is what the boot shows: with the card check passing, the game never
+calls the BIOS's GD service at all (`VF3_GDTRACE` prints nothing in 90
+frames) and never touches the ATA registers either (0 accesses to
+0x5F70xx out of 25,512 device reads in 60 frames).  So the game is not
+failing a transfer: it never asks for anything.
+
+## Where the reference's data is, and the port's boot state is not
+
+The port's boot state holds the 1ST_READ image and zeros.  The reference's
+state (the attract fight, `extract/analysis/p1/frm_keep/st.bin.000280`, the
+same file format) is 5,923,560 bytes different, and the RAM area that
+differs is 0x0C22E000..0x0C2DFFFF - the size of the 512x512 ARGB1555
+texture the Tile Accelerator samples, plus the sound buffer.  That is the
+game's data, loaded before the game runs.
+
+The same conclusion from the other side: the game never uploads the
+texture (the boot's 2,102,648 writes to the 32 bit path are the 8 MB clear
+plus ~5,500 words of font glyphs, and the 54,784 store-queue words are the
+display data - the 131,072 words of the texture are simply not there), so
+the texture was never in the VRAM and the data never arrived.
+
 ## What the next step is
 
-The picture is black because the boot never reads the disc, so the game's
-textures never arrive.  The reference's own boot shows where the missing
-piece is: its log carries 23,480 "GDROM: HLE EXEC_SERVER" lines and
-thousands of "GET_CMD_STAT" polls, and the drive's sectors are read from the
-first seconds of the run - the REIOS' exec server loads the game's files.
-The port's boot starts at the game's own entry (0x8C004000) with only the
-1ST_READ image in RAM, so the REIOS never runs: the port's GD-ROM model is
-attached, but nothing asks it for anything (`VF3_GDTRACE` prints nothing) and
-the game sits on its message screen.
+The picture is black because the game's data never arrives.  Two ways to put
+it there:
 
-Two ways forward:
-
-* serve the REIOS' file service (the system vector 0x8C001000) in C, with the
-  game's files coming from the disc image (the port already reads sectors by
-  FAD, `src/sys/gdrom_hle.c`), or from the extracted image files
-  (`extract/gamedata/`); and
-* keep the card model honest, so the game passes its memory card check (the
-  card's block requests are answered the way the reference answers them now,
-  docs/re/maple.md).
+* model the **ATA register interface** the game's GDFS driver talks to (the
+  port has the drive's *sector* model - `vf3_gdrom` reads sectors by FAD out
+  of the disc image - but not the register door that reaches it), so the game
+  can read the files itself; or
+* load the same data the way the reference has it, from the extracted image
+  files (`extract/gamedata/`, `extract/dtpk/`), at the addresses the
+  reference has it (0x0C22E000 and up).
 
 The renderer and the VRAM model are ready for the data: the attract fight,
-which has its textures, matches the reference.
+which has its textures, matches the reference, and the card model now answers
+the block requests the way the reference answers them (docs/re/maple.md).
