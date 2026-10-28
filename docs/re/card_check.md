@@ -101,13 +101,42 @@ The port's answer is the reference's answer, byte for byte:
 | function code | 0x0E000000 | `MFID_1_Storage\|MFID_2_LCD\|MFID_3_Clock` |
 | capabilities | 0x403F7E7E, 0x00100500, 0x00410F00 | the same three words |
 | area / direction | 0xFF / 0 | the same |
-| name / brand | "Visual Memory" / Sega | the same |
+| name / brand | "Visual Memory" / Sega | the same (`wstr` pads with spaces) |
 | standby / max | 0x007C / 0x0082 | the same |
 
-So the next step is to find which word of the answer the driver reads (the
-per-unit structure is filled from the reply buffer, and the answer's header
-is overwritten by the next transfer before it can be compared in a dump), not
-to change the answer itself.
+`tools/maple_card_header_probe.py` forces the reply's header
+(`VF3_MAPLE_HDR=<hex>`) and watches what the driver does with it:
+
+| the forced header | the driver's record |
+|---|---|
+| 0x1C010005 (the port's, and the reference's) | `[0, 0, 8, 17, 1, 0]` |
+| 0xFFFFFFFF (the "no device" answer) | `[0, 0, 0, 0, 0, 0]` |
+| 0x1CFF0005 (the sender byte 0xFF) | `[0, 0, 8, 17, 1, 0]` |
+| 0x1C00FF05 (the recipient byte 0xFF) | `[0, 0, 8, 17, 1, 0]` |
+| 0x1C010006 (the status-all code) | `[0, 0, 0, 0, 0, 0]` |
+
+So the driver *reads* the header and wants the response code 0x05 - which is
+what the port sends - and the sender and the recipient bytes make no
+difference.  The word the check at `0x0C04517E` compares is therefore not the
+header but something the driver derives from the answer, and that derivation
+is what still has to be found.
+
+## The RAM the driver's tables live in
+
+The mpdrv's record array is at `0x0C19C6A0` and the drive table at
+`0x0C1B34D8` - both above the 16 MiB the Dreamcast's RAM holds.  The
+reference folds them onto the lower half: `mapBlockMirror()` maps the RAM
+with the mask `RAM_SIZE - 1` (24 bits), so `0x0C19C6A0` is the physical
+`0x0C019C6A0`.  The port folds the same way (`0x0c000000 | (addr & 0x00ffffff)`
+in `vf3_matrix_read` / `vf3_matrix_write`), so the driver's tables land where
+the reference puts them - and they land on top of the game's own data there,
+which is what the reference does too.
+
+The reference's captured state (`extract/analysis/p1/frm_keep/st.bin.000280`,
+a 16 MiB window from the attract mode) shows the same folded address holding
+the game's data and not the driver's record array - the driver had already
+cleared it by then.  The port's boot state (a fresh boot, the driver just
+asked) holds the record the port's run produced: `[0, 0, 8, 17, 1, 0]`.
 
 ## The probes
 
