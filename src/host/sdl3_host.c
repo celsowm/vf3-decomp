@@ -85,17 +85,25 @@ static vf3_pvr2 *g_pvr2;                /* the PVR2 model */
 /* VF3_VRAMLOG: where the guest's texture writes go.  Two sources reach the
  * VRAM - a plain store (the store queue's area 1 bursts and the guest's own
  * stores) and the store queue's own flush - and both are counted by the
- * megabyte of the address they used. */
-static uint64_t g_vram_plain[64], g_vram_plain_nz[64];
-static uint64_t g_vram_sq[64], g_vram_sq_nz[64];
+ * *region* of the address they used (the Dreamcast's area 1 and area 4
+ * windows repeat every 0x20000000, so the region is the address' bits 24-28,
+ * not its megabyte).  The first and the last address of each region are kept
+ * too: the guest's uploads are long runs, and the range says which window
+ * they went through. */
+static uint64_t g_vram_plain[32], g_vram_plain_nz[32];
+static uint64_t g_vram_sq[32], g_vram_sq_nz[32];
+static uint32_t g_vram_plain_lo[32], g_vram_plain_hi[32];
+static uint32_t g_vram_sq_lo[32], g_vram_sq_hi[32];
 static int g_vramlog;
 
 static void host_vram_write(uint32_t dest, uint32_t value)
 {
     if (g_vramlog) {
-        const unsigned r = (dest >> 20) & 0x3Fu;
+        const unsigned r = (dest >> 24) & 0x1Fu;
         ++g_vram_sq[r];
         if (value) ++g_vram_sq_nz[r];
+        if (g_vram_sq[r] == 1u) g_vram_sq_lo[r] = dest;
+        if (dest > g_vram_sq_hi[r]) g_vram_sq_hi[r] = dest;
     }
     if (g_pvr2) vf3_pvr2_vram_store(g_pvr2, dest, value);
 }
@@ -104,9 +112,11 @@ static void host_vram_write(uint32_t dest, uint32_t value)
 static void host_vram_store(uint32_t dest, uint32_t value, unsigned size)
 {
     if (g_vramlog) {
-        const unsigned r = (dest >> 20) & 0x3Fu;
+        const unsigned r = (dest >> 24) & 0x1Fu;
         ++g_vram_plain[r];
         if (value) ++g_vram_plain_nz[r];
+        if (g_vram_plain[r] == 1u) g_vram_plain_lo[r] = dest;
+        if (dest > g_vram_plain_hi[r]) g_vram_plain_hi[r] = dest;
     }
     if (g_pvr2) vf3_pvr2_vram_store_n(g_pvr2, dest, value, size);
 }
@@ -342,6 +352,18 @@ static uint32_t slice_hook(vf3_matrix_state *s)
             press_script(g_vblanks);
         }
     }
+    {   /* the guest's own frame counter: the SDK's vblank handler (0x8C063D1E)
+         * increments the word at 0x0C16CDF0 once per vblank.  It is the counter
+         * the SDK scheduler's wait times out on, so it says whether the guest
+         * ever saw the vblanks the host raised. */
+        static uint32_t last_vc = 0xFFFFFFFFu;
+        uint32_t vc;
+        memcpy(&vc, g_ram + (0x0C16CDF0u - 0x0C000000u), 4);
+        if (vc != last_vc) {
+            last_vc = vc;
+            fprintf(stderr, "vf3sdl:   guest vblank counter %u\n", vc);
+        }
+    }
     return next;
 }
 
@@ -530,6 +552,14 @@ int main(int argc, char **argv)
         }
         /* the display commands of this slice */
         push_ta(r.ta, r.ta_words);
+        if (g_events.failed) {
+            /* An event handler could not be run: the guest is stuck and the
+             * port says so instead of running the next slice. */
+            fprintf(stderr, "vf3sdl: an event handler could not be run (frame %u, pc %08x)\n",
+                    vf3_frame_events_frames(&g_events), r.pc);
+            status = 1;
+            break;
+        }
         if (r.unowned_calls) {
             fprintf(stderr, "vf3sdl: unowned call at %08x (%u unowned, first %08x)\n",
                     r.failed_pc, r.unowned_calls, r.first_unowned);
@@ -564,7 +594,7 @@ int main(int argc, char **argv)
             frame_boundary();
         }
         if (getenv("VF3_VERBOSE")) {
-            static const uint32_t watch[] = { 0x0C16CDF4u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDCCu,
+            static const uint32_t watch[] = { 0x0C16CDF4u, 0x0C16CDF0u, 0x0C16CDE8u, 0x0C16CDECu, 0x0C16CDCCu,
                                              0x0C16CDDCu, 0x0C16CE00u, 0x0C1981C8u, 0x0C1981D0u };
             fprintf(stderr, "vf3sdl:   slice steps %u, pc %08x failed %08x ta %u, model %llu cycles %u frames:",
                     r.steps_budget_used, r.pc, r.failed_pc, r.ta_words,
@@ -611,12 +641,14 @@ done:
     g_watch_run = 0;
     if (g_watch_thread) { SDL_WaitThread(g_watch_thread, NULL); g_watch_thread = NULL; }
     if (g_vramlog) {
-        fprintf(stderr, "vf3sdl: VRAM writes by address megabyte\n");
-        for (unsigned r = 0; r < 64u; ++r) {
+        fprintf(stderr, "vf3sdl: VRAM writes by region (address bits 24-28)\n");
+        for (unsigned r = 0; r < 32u; ++r) {
             if (!g_vram_plain[r] && !g_vram_sq[r]) continue;
-            fprintf(stderr, "  %02x000000: plain %llu (%llu nonzero), sq %llu (%llu nonzero)\n",
+            fprintf(stderr, "  region %02x: plain %llu (%llu nonzero) %08x..%08x, sq %llu (%llu nonzero) %08x..%08x\n",
                     r, (unsigned long long)g_vram_plain[r], (unsigned long long)g_vram_plain_nz[r],
-                    (unsigned long long)g_vram_sq[r], (unsigned long long)g_vram_sq_nz[r]);
+                    g_vram_plain_lo[r], g_vram_plain_hi[r],
+                    (unsigned long long)g_vram_sq[r], (unsigned long long)g_vram_sq_nz[r],
+                    g_vram_sq_lo[r], g_vram_sq_hi[r]);
         }
     }
     if (ram_out) {

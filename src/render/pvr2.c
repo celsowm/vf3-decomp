@@ -188,12 +188,19 @@ void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value)
  * The Dreamcast shows its VRAM twice, and the two views do not hold the same
  * bytes at the same offsets:
  *
- *   0x04000000 (and its 0x06000000 mirror)  the 64 bit path: the banks one
- *                                            after the other, the view the
- *                                            Tile Accelerator samples.
- *   0x05000000 (and its 0x07000000 mirror)  the 32 bit path: the banks
- *                                            interleaved, so only half of
- *                                            every 64 bit word is reachable.
+ *   region 0x04 (0x04000000 and its mirrors)  the 64 bit path: the banks one
+ *                                             after the other, the view the
+ *                                             Tile Accelerator samples.
+ *   region 0x05 (0x05000000 and its mirrors)  the 32 bit path: the banks
+ *                                             interleaved, so only half of
+ *                                             every 64 bit word is reachable.
+ *
+ * The region is the address' bits 24-28; the mirror bits above them (the
+ * window repeats every 0x20000000) do not change the path, so the game can
+ * reach the same window through 0x04000000, 0x0A4000000 and 0xE4000000
+ * alike.  The boot copies its textures through the mirror at 0x0A5000000 -
+ * the 32 bit path - so a model that only knows the two base windows drops the
+ * whole upload and the screen stays black.
  *
  * The 0x11000000 window (the P0 view of the Tile Accelerator's texture
  * memory) follows the system bus' "long mode" bits: SB_LMMODE0 picks the 32
@@ -204,21 +211,16 @@ void vf3_pvr2_vram_write(vf3_pvr2 *p, uint32_t addr, uint32_t value)
  */
 static int vram_path_is_32bit(const vf3_pvr2 *p, uint32_t dest)
 {
-    switch (dest & 0x0F000000u) {
-    case 0x04000000u:
-    case 0x06000000u:
-        return 0;                       /* the 64 bit path */
-    case 0x05000000u:
-    case 0x07000000u:
+    switch ((dest >> 24) & 0x1Fu) {
+    case 0x05u:
+    case 0x07u:
         return 1;                       /* the 32 bit path */
-    case 0x10000000u:
-    case 0x11000000u:
+    case 0x11u:
         return p->lmmode0 != 0u;        /* the P0 window, lower half */
-    case 0x12000000u:
-    case 0x13000000u:
+    case 0x13u:
         return p->lmmode1 != 0u;        /* the P0 window, upper half */
     default:
-        return 0;
+        return 0;                       /* the 64 bit path */
     }
 }
 

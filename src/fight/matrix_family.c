@@ -848,6 +848,12 @@ if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
  * oracle effect. Both hooks are NULL outside tests. */
 static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {
     int ok, handled=0;
+    /* The run's time is over (the budget hook has no more events to give): the
+     * chain stopped at the address the budget ran out at, not at an address it
+     * could not serve.  The missing hook is for the second case only: sending
+     * the first one there makes the host report a missing port for a guest
+     * that simply ran out of frames. */
+    int out_of_time = 0;
     if(vf3_family_override) {
         ok=vf3_family_override(entry&0x1FFFFFFFu,s,ram,&handled);
         if(handled) return ok;
@@ -863,7 +869,7 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
     while(!ok && s->failed_pc) {
         if(s->budget==0xFFFFFFFFu) {   /* the step budget ran out: the hook lets time pass (interrupts) and refills it, in place */
             const uint32_t more=vf3_family_budget_hook?vf3_family_budget_hook(s):0;
-            if(!more) break;
+            if(!more) { out_of_time = 1; break; }
             s->budget=more;
         } else if(!vf3_family_tail_retry || (s->failed_pc&0x1FFFFFFFu)==(entry&0x1FFFFFFFu)) break;
         const uint32_t target=s->failed_pc;
@@ -871,7 +877,7 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
         entry=target;
         ok=vf3_matrix_family_core(entry,s,ram);
     }
-    if(!ok && vf3_family_missing && s->failed_pc==(entry&0x1FFFFFFFu)) {
+    if(!ok && !out_of_time && vf3_family_missing && s->failed_pc==(entry&0x1FFFFFFFu)) {
         ok=vf3_family_missing(entry&0x1FFFFFFFu,s,ram,&handled);
         if(handled) return ok;
         ok=0;

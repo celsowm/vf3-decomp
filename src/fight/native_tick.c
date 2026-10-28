@@ -484,7 +484,7 @@ static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
         *handled = 1;
         return 1;
     }
-    if (getenv("VF3_UNOWNED")) fprintf(stderr, "unowned entry %08x pr %08x r15 %08x\n", entry, s->v[16], s->v[15]);
+    if (getenv("VF3_UNOWNED")) fprintf(stderr, "unowned entry %08x pr %08x r11 %08x r15 %08x\n", entry, s->v[16], s->v[11], s->v[15]);
     if (!machine.unowned_calls++) machine.first_unowned = entry;
     *handled = 0;
     return 0;
