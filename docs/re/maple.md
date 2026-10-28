@@ -64,7 +64,10 @@ truncation is what makes those requests mean the blocks 252..255.  The port
 read the phase and the block out of the *following* words, so every request
 answered with the block 0 - the game's read of the FAT (block 254) came back
 with the root block's bytes, the free-block count was zero and the game sat
-on the message screen.
+on the message screen.  That was fixed in 6496dd3 - but the port then took
+the block number out of the *low byte* of the word, which is zero for the
+game's requests, so the block 0 still came back; the word is read whole now
+(see "The bus's model, settled against the reference" below).
 
 The port now parses the request the way the reference does and answers with
 the whole 512 byte block (`src/sys/maple_hle.c`, `maple_wire` / `maple_block`).
@@ -88,4 +91,56 @@ runs: the port's GD-ROM model is attached, but nothing asks it for anything
 (`VF3_GDTRACE` prints nothing), and the game's textures never arrive (the
 512x512 texture the Tile Accelerator samples, at 0x54D880, is empty).
 See docs/re/boot_vram_traffic.md.
+
+## The bus's model, settled against the reference (2026-10-29)
+
+`core/hw/maple/maple_if.cpp` and `core/hw/maple/maple_cfg.cpp` are the
+authority; the port's model (`src/sys/maple_hle.c`) now follows them.
+
+**The cards sit at the expansion slots, which are ports 0 and 1.**
+`createDreamcastDevices()` creates `MapleExpansionDevices[bus][0]` at port
+**0** and `[bus][1]` at port **1**, so `maple_GetAttachedDevices()` returns
+the bits 0 and 1: the attached mask is **0x03**, and the recipient 0x01
+selects the first card, 0x02 the second.  The port's mask of 0x06 told the
+game that the slots 2 and 3 held a card and that socket 1 was empty, so the
+game stopped enumerating and never asked about the card at all.  The
+recipient selects the device the way `getPort()` does: the first set bit of
+the recipient is the port, and a recipient with no bit set falls back to the
+main unit (5).  The other buses carry no device at all in the reference's
+default configuration, so every request to them is answered with 0xFFFFFFFF.
+
+**The reply carries the request's sender.**  `maple_base::RawDma` builds the
+reply's header as the response code, the sender in bits 8-15, the recipient
+(with the attached mask) in bits 16-23 and the data length in words in bits
+24-31.  The port's old code put the *bus* in the sender's place, which
+happened to be the same value for the two buses the game uses (the SDK sends
+`bus << 6` as the sender), but it is the request's sender that belongs there.
+
+**The other requests the devices answer.**  `MDC_AllStatusReq` (0x02) answers
+with the same status plus the device's firmware banner, and the response code
+`MDRS_DeviceStatusAll` (6); `MDCF_GetLastError` (0x0D), `MDC_DeviceReset`
+(0x03) and `MDC_DeviceKill` (0x04) answer with a plain reply; an unknown
+command answers `MDRE_UnknownCmd` (0xFD) and an unknown function
+`MDRE_UnknownFunction` (0xFE).  A missing device answers 0xFFFFFFFF - not
+"no device" only for the commands the devices answer.
+
+**The card's image is the reference's image.**  The reference initialises an
+empty VMU from a zlib blob (`maple_devs.cpp`, `vmu_default`), and its
+`data/vf3.gdi_vmu_save_A1.bin` is that image; the port's card is the same
+bytes (`tools/maple_vmu_default.py` writes it out,
+`tools/maple_vmu_regions.py` lists what is not zero).  The media info answer
+follows the card: the reference reads the 24 bytes of the root block's system
+area whenever the first word there is not 0xFFFF, and the reference's card
+holds 0x00FF there.
+
+**The block number is in a whole word.**  The port took the low *byte* of the
+word that follows the function code, so every block read answered with the
+block 0.  The word is read the way the Maple wire carries it (most
+significant byte first) and truncated to its low byte when it is above 255,
+exactly like the reference (`maple_sega_vmu`, `MDCF_BlockRead`).
+
+With all of this the game finds the card, reads its root block, its FAT and
+its directory chain, and the boot reaches the card check - see
+docs/re/card_check.md for what is still missing.
+
 
