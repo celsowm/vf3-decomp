@@ -146,3 +146,26 @@ asked) holds the record the port's run produced: `[0, 0, 8, 17, 1, 0]`.
   (the count does not follow the media info).
 - `tools/maple_card_header_probe.py` - the record with forced reply headers
   (`VF3_MAPLE_HDR=<hex>` overrides the card's reply header).
+
+## Where to look next
+
+The chain the check walks, with the port's RAM dump in brackets:
+
+```
+r6  = 0x0C1A0D24            (a constant in the image)
+r5  = *r6                   [0x0C19FC30 - the driver's own block]
+r0  = *r6 + 0x0D24 + (96 * (1 - the byte at *r6 + 0x31E)) & 0xFF
+                              [0x0C1A09B4 - the array of the answers]
+r2  = the word at (0x0C0CD918 + the unit)   [0, 6, 12, 18, 1, 0, ...]
+r1  = r0 + r2 * 4
+r4  = *r1                   [0 - the answer's pointer is never stored]
+r0  = *r4                   [the word the check compares]
+```
+
+The array at `0x0C1A09B4` is **all zeros** in the port's run: the driver never
+stored a pointer to the card's answer there, even though it copied the
+response code 0x05 into the per-unit entry at `0x0C1A1A90`.  The controller's
+answer pointer *is* stored (at `0x0C198308`, pointing at the reply buffer
+`0x0C2B7800`), so the store happens for the pad and not for the card - that
+is the step to find.
+
