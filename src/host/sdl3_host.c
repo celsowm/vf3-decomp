@@ -132,6 +132,41 @@ static uint64_t g_frame_insns;
 static unsigned g_hook_insns;              /* the steps the hooks have charged */
 static uint64_t g_insns;                   /* the guest instructions the clock has carried */
 
+/* The watchdog: the guest can stop making progress (a wait that never ends,
+ * an interrupt handler that spins), and then nothing in the main loop runs
+ * again.  A second thread looks at the frame counter and, when it stands
+ * still, says where the guest is. */
+static volatile int g_watch_run;
+static SDL_Thread *g_watch_thread;
+
+static int SDLCALL watch_thread(void *ctx)
+{
+    (void)ctx;
+    long last = -1;
+    int still = 0;
+    while (g_watch_run) {
+        SDL_Delay(1000);
+        const long frames = (long)vf3_frame_events_frames(&g_events);
+        if (frames != last) { last = frames; still = 0; continue; }
+        if (++still >= 5) {
+            still = 0;
+            const uint32_t pc = vf3_native_current_pc();
+            fprintf(stderr, "vf3sdl: no progress: frame %ld, the guest is at %08x\n",
+                    frames, pc);
+            /* the literal pool of the function the guest is in: it names the
+             * callees, so it says what the guest is waiting for */
+            if (g_ram && pc >= 0x0C010000u && pc < 0x0C100000u) {
+                const uint32_t off = (pc - 0x0C000000u) & ~3u;
+                fprintf(stderr, "vf3sdl:   literals:");
+                for (unsigned i = 0x100u; i < 0x200u; i += 4u)
+                    fprintf(stderr, " %08x=%08x", pc + i, ((const uint32_t *)(g_ram + off + i))[0]);
+                fprintf(stderr, "\n");
+            }
+        }
+    }
+    return 0;
+}
+
 /* The TA's input: the blocks the hardware receives, in the order it receives
  * them.
  *
@@ -182,6 +217,7 @@ static int run_handler(uint32_t entry, const uint32_t regs[37], void *ctx)
     memcpy(r, regs, sizeof r);
     r[16] = 0xDEAD0000u;               /* the handler returns to the sentinel */
     vf3_native_tick_result hr;
+    if (getenv("VF3_HANDLERLOG")) fprintf(stderr, "vf3sdl: handler %08x\n", entry);
     if (!vf3_native_tick_run(g_ram, r, entry, g_gbr, &hr)) {
         fprintf(stderr, "vf3sdl: the handler %08x failed at %08x (%u unowned, first %08x)\n",
                 entry, hr.failed_pc, hr.unowned_calls, hr.first_unowned);
@@ -449,6 +485,10 @@ int main(int argc, char **argv)
     g_events.asic2_entry = 0x8C0460E8u; /* the SDK's handler for the bits the game routes through IML2 (the Maple end) */
     g_events.cap = frames;              /* a guest that never returns (the boot) still stops */
     vf3_native_set_budget_hook(slice_hook);
+    /* the watchdog: it says where the guest is when the boot stops making
+     * progress (the main loop cannot report that itself - it is stuck) */
+    g_watch_run = 1;
+    g_watch_thread = SDL_CreateThread(watch_thread, "vf3-watch", NULL);
 
     vf3_native_tick_result r;
     int status = 0;
@@ -465,6 +505,20 @@ int main(int argc, char **argv)
         g_hook_insns = 0;
         vf3_native_tick_run(ram, regs, at, gbr, &r);
         vf3_native_set_budget(0);
+        {   /* A run that stops making progress: the frame counter stands still
+             * while the guest keeps running.  That is a stall (a wait that
+             * never ends, or an interrupt handler that fails), and the port
+             * says so instead of spinning quietly. */
+            static unsigned last_frames, stall_slices;
+            const unsigned now = vf3_frame_events_frames(&g_events);
+            if (now != last_frames) { last_frames = now; stall_slices = 0; }
+            else if (++stall_slices == 64u) {
+                fprintf(stderr, "vf3sdl: the boot stalled at frame %u: the last slice ran %u steps,"
+                                " ok %d, pc %08x, failed %08x, %u unowned calls\n",
+                        now, r.steps_budget_used, r.ok, r.pc, r.failed_pc, r.unowned_calls);
+                stall_slices = 0;
+            }
+        }
         /* The steps of the slice that ended early (the guest returned to the
          * host before its budget ran out): the clock has to carry them too. */
         if (r.ok && r.budget_left <= g_budget_out) {
@@ -554,6 +608,8 @@ int main(int argc, char **argv)
         }
     }
 done:
+    g_watch_run = 0;
+    if (g_watch_thread) { SDL_WaitThread(g_watch_thread, NULL); g_watch_thread = NULL; }
     if (g_vramlog) {
         fprintf(stderr, "vf3sdl: VRAM writes by address megabyte\n");
         for (unsigned r = 0; r < 64u; ++r) {

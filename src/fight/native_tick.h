@@ -98,6 +98,11 @@ void vf3_native_set_budget(unsigned steps);
 /* Generated: is this a call target (as opposed to a seed in the middle of a function)? */
 int vf3_native_call_target(uint32_t entry);
 
+/* The PC of the function the guest is in (0 when no run is in progress).  The
+ * watchdog in the host reads it to say where a boot that stopped making
+ * progress is stuck. */
+uint32_t vf3_native_current_pc(void);
+
 /* A guest store into the PVR2's texture memory (the 64 bit view at 0x04000000
  * and the 32 bit view at 0x05000000, plus the Tile Accelerator's own window
  * at 0x11000000).  The model intercepts it: the hook gets the physical

@@ -18,6 +18,10 @@
 #define GUEST_RETURN_SENTINEL 0xDEAD0000u
 #define SPG_VBLANK_IN_LINE 0x104u
 #define BLOCK_BUDGET 1000000000u
+/* An interrupt handler (a nested run) has no budget hook, so its budget is
+ * its only end: the cap keeps a handler that waits for something that never
+ * comes from hanging the port, and its failed PC says where it was. */
+#define VF3_NATIVE_NESTED_BUDGET 4000000u
 
 /* ---------------------------------------------------------------- loading */
 
@@ -82,6 +86,10 @@ static struct {
     uint32_t gd_status, gd_unit_status;
     /* the state of the run in progress: the device log wants the caller's PC */
     vf3_matrix_state *cur;
+    /* the readable port that is running right now (0: none): a readable port
+     * does not write the guest PC while it runs, so the watchdog needs its
+     * own field to name the port the guest is stuck in. */
+    uint32_t readable_entry;
 } machine;
 
 /* sound RAM (0x00800000): the loader reads the driver-published free size at 0x88. Kept outside `machine`, which nested runs copy */
@@ -391,7 +399,10 @@ static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map 
     case 0x0C04A5E8u: s->v[0] = 0; s->pc = s->v[16]; *handled = 1; return 1;
     default: break;
     }
+    const uint32_t saved_readable = machine.readable_entry;
+    if (vf3_readable_find(entry)) machine.readable_entry = entry;
     const int ok = vf3_readable_override(entry, s, ram, handled);
+    machine.readable_entry = saved_readable;
     if (*handled) ++machine.readable_calls;
     return ok;
 }
@@ -417,6 +428,13 @@ void vf3_native_aica_poke(uint32_t offset, uint32_t value) { if (offset <= AICA_
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 uint32_t vf3_native_asic_iml2(void) { return machine.iml2; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
+uint32_t vf3_native_current_pc(void)
+{
+    /* a readable port does not write the guest PC while it runs: the entry of
+     * the port that is running right now names it */
+    if (machine.readable_entry) return machine.readable_entry;
+    return machine.cur ? machine.cur->pc : 0u;
+}
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(vf3_matrix_state *s);
@@ -495,7 +513,12 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     if (!nested) machine.ta_len = 0;
     memset(&st, 0, sizeof st);
     machine.cur = &st;
-    const unsigned budget = !nested && saved.budget ? saved.budget : BLOCK_BUDGET;   /* an interrupt taken inside a slice is not sliced */
+    /* A nested run (an interrupt handler) has no budget hook, so its budget is
+     * its only end: without a cap a handler that waits for something that
+     * never comes spins for ever and the port hangs without a word.  The cap
+     * turns that into a report: the handler's failed PC says where it was. */
+    const unsigned budget = !nested && saved.budget ? saved.budget
+                             : (nested ? VF3_NATIVE_NESTED_BUDGET : BLOCK_BUDGET);
     st.budget = budget;
     memcpy(st.v, regs, 37 * sizeof regs[0]);
     memcpy(st.v + 37, snapshot_xf, sizeof snapshot_xf);
