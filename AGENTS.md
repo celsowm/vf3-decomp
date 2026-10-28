@@ -415,6 +415,35 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   serves the first one that owns it), `tools/readable_gap.py` (the
   call-target entries no readable port covers). Full list of what is
   missing and how to rebuild it: docs/re/artifact_gap.md.
+- **The gate cannot go green in this workspace, and that is not a port
+  failure.**  `tools/portcheck.py` fails on *file availability* first and on
+  the known-failing entries second, not on a regression:
+  - eleven test binaries exit 2 on a missing fixture (`vf3tailcall`,
+    `vf3meshnode`, `vf3d0fa`, `vf3c788`: "cannot open <corpus>";
+    `vf3matrix`: "missing XF sidecars"; the five `vf3fvecnorm*`: "no RAM
+    cases in ..."; `vf3fpu`: `extract/analysis/fsca_modes.bin` is not here);
+  - 64 of the 2,321 golden bindings have no `.cases` file
+    (`MISSING-GOLDEN`), and the rest that fail are the entries the docs
+    already list as failing (`docs/re/advance_progress.md`: the GD-ROM
+    firmware trap family, e.g. 0x8c03523c / 0x8c045f62; and the
+    "device access mismatch" cluster, `docs/re/reios_exec_server.md`).
+
+  The bindings phase alone runs 2,257 corpora and takes over an hour: run it
+  with `--jobs 4` in the background and read the log, or use
+  `tools/check_new_bindings.py --only-new-since <rev>` for the bindings a
+  commit added.  To see the *logic* part of the gate alone, point it at an
+  empty bindings file: `python tools/portcheck.py --bindings build/empty_bindings.json`.
+- **A device-tape mismatch at 0x1F8000BC is a lead, not a verdict.**  The
+  entries that fail with "device access mismatch at 0/0: got R 1f8000bc/4"
+  read 0x8C0000BC - the address the game uses for a *BIOS* pointer (the font
+  vector sits at 0x8C0000B4) - and the port answers it from the PVR2's
+  register view (the port maps 0x8C000000..0x8C000FFF to 0x1F800000, the
+  uncached PVR2 registers), while the reference records no device access
+  there.  So either the port's 0x8C0000xx mapping swallows a BIOS read, or
+  the reference reads the pointer from somewhere else.  Settle it against
+  the reference's own address decode (`tools/emu/flycast/core/hw/sh4/sh4_mem.cpp`)
+  before touching the mapping: the port's PVR2 view has to stay where the
+  game expects it.
 - **A generated dump walks the fall-through, so a branch-only arm is
   invisible.**  `tools/adapter_dump.py` follows the *last* `goto` of a
   block, so the arm a conditional branch skips over never appears in the
