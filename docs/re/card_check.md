@@ -150,6 +150,99 @@ Maple-end interrupt goes out with the answer (as in the reference).
 With both fixes the guest reads one block further (248) and the card's
 media info is the reference's.
 
+## What the reference does, exactly (the ground truth)
+
+`tools/emu/flycast-ref-build/flycast.log` is the reference's own log.  The card
+check is at `00:14:542`:
+
+```
+00:14:542 DoMapleDma SB_MDSTAR=c884b60   VMU A1 GetMediaInfo storage
+00:14:542                                VMU A2 GetMediaInfo storage
+00:14:555 DoMapleDma SB_MDSTAR=c887b60   VMU A1 block read: Block 255
+00:14:555                                VMU A2 block read: Block 255
+00:14:569 DoMapleDma SB_MDSTAR=c884b60   VMU A1 block read: Block 254
+00:14:569                                VMU A2 block read: Block 254
+...                                       (255, 254, 253, ... 241)
+00:14:782                                VMU A1 LCD write
+00:14:782                                VMU A2 LCD write
+```
+
+Three facts fall out of it, and all three are different from the port's
+behaviour:
+
+1. **One DMA carries both cards.**  The transfer list at `0x0C884B60` holds
+   two entries - recipient `0x01` and recipient `0x02` - and the reference
+   answers both from the same `maple_schd` pass.  The port's list holds one
+   entry, with recipient `0x01`.
+2. **The reference walks the whole directory chain** (255, 254, then 253 down
+   to 241 - thirteen directory blocks, the number the media info announces)
+   and then writes the card's LCD.  The port stops at 248, after six
+   directory blocks.
+3. **The reference's card list is not the mpdrv's pad list.**  Classifying
+   every `DoMapleDma` in the reference's log by what it carries:
+
+   | list | transfers | carries |
+   |---|---|---|
+   | `0x0C884B60` / `0x0C887B60` | 1713 / 1712 | the pad polls **and** the card operations |
+   | `0x0C2C3820` / `0x0C2C4420` | 1330 / 1330 | the pad polls only |
+   | `0x0C374900` / `0x0C377900` | 279 / 278 | the pad polls only |
+
+   The port uses `0x0C2C3820` / `0x0C2C4420` - the reference's *pad-only*
+   lists - for its card operations.
+
+The port's own log (`VF3_MAPLELOG=1`) shows the divergence from the other
+side: it never sends a single request with recipient `0x02`, and its list at
+`0x0C2C3820` holds the card entry at `+0x00` and the pad entry at `+0xE8`,
+with NOPs (`0x00000700`) in between where the second card's entry would go.
+
+`VF3_MAPLELIST=1` dumps the raw list of every transfer, which is how the
+NOP gap was found.
+
+## Where the SDK's device discovery lives
+
+Reading the SDK's own code (`tools/adapter_body.py` for the generated
+translation, `tools/sh4dump.py`-style decoding for the literals):
+
+| what | where |
+|---|---|
+| the Maple addresses of the eight ports | `0x0C0D25A8` = `1, 2, 7, 8, 13, 14, 19, 20` (bus * 6 + 1 + port) |
+| the per-device table (24 bytes per entry) | `0x0C19E758`; the function at `0x0C043A7C` copies the driver's per-unit records (`block + 40 + unit * 44`) into it |
+| the callback queue (stride `0x80`) | `0x0C1B20C0`; field `+4` is the port's device-present mask, `+116`/`+120` hold the two dispatchers |
+| the probe | `0x0C046AEE` -> `0x0C04C47C` = read the queue entry's field `+4`; non-zero means "a device is there" |
+| the mask loop | `0x0C046490`: probes the eight ports, builds the mask, and calls the "device changed" handler `0x0C0465D0`, which fills the queue entry (`+4` = the new mask) |
+| the request queue (stride 76) | `0x0C19C6A0`; the handler `0x0C037190` stores the address, the command and the flags there |
+| the attach dispatcher | `0x0C04C3C6` calls the queue entry's `+120` handler with `(r5=1, r6=the address, r7=0x11)`; it probes addresses 1, 2, 3 and 4 of the bus |
+
+## The measurement that pins the cause
+
+Watching the callback queue (`VF3_WATCHW=0c1b20c0,400`) shows the whole
+queue being cleared and then re-armed - and the device-present field:
+
+```
+watchw 0c1b2134/4 = 0c0370f0     <- the dispatcher, for all eight slots
+watchw 0c1b2138/4 = 0c037190
+...
+watchw 0c1b20c8/4 = 00000001
+watchw 0c1b20c4/4 = 00000001     <- slot 0's field +4: set
+```
+
+**Only slot 0's field `+4` is ever written with a non-zero value.**  The
+other seven slots keep it at zero, so the probe (`0x0C046AEE`) fails for
+them and the SDK's mask (`0x0C1A1A98`) stays `0x01` - one device.  The
+reference's mask is `0x01` too at the frame that was captured, but its card
+check had already run by then.
+
+Everything else agrees between the two runs: the driver's block, the
+per-device table, the SDK's data area (`0x0C0D1900..0x0C0D2700`), the masks
+and the FAT copy are byte for byte the same.  The port's Maple model is
+faithful where it matters here too - the main unit's status body is
+Flycast's (`0xFE060F00` capabilities, the name, the brand, the currents) and
+the reply header carries the attached mask `0x23` (`0x20 | 0x03`).
+
+**So the open question is narrow: what sets the callback queue entry's field
+`+4` for a port, and why does it not run for slot 1** (the second card,
+Maple address 2, the port the reference reads as `VMU A2`).
+
 ## What is still missing
 
 The guest never asks the second card (recipient `0x02`) and stops walking

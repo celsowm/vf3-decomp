@@ -145,6 +145,21 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
 {
     unsigned blocks = 0;
     uint32_t at = list_addr;
+    if (getenv("VF3_MAPLELIST")) {
+        /* The raw list the guest handed to the DMA, word by word, so the
+         * entries the model does not act on can be read too (the reference
+         * walks the list the same way: header_1, destination, then plen
+         * words of frame). */
+        fprintf(stderr, "maple: list at %08x\n", list_addr);
+        for (unsigned w = 0; w < 96; ++w) {
+            if (!in_ram(list_addr + 4 * w, 4, ram_base, ram_len)) break;
+            const uint32_t v = rd(ram, ram_base, list_addr + 4 * w);
+            fprintf(stderr, "  %08x: %08x\n", list_addr + 4 * w, v);
+            if (((v >> 8) & 7u) == 7u) { if (v & 0x80000000u) break; continue; }
+            if (v & 0x80000000u) break;
+            w += 2 + ((v & 0xFFu) + 1u) - 1u;   /* the whole entry */
+        }
+    }
     for (; blocks < 64; ++blocks) {
         if (!in_ram(at, 12, ram_base, ram_len)) break;
         {   /* instruction 7 (bits 10:8) is a no-op: one word, no receive address and no frame */
