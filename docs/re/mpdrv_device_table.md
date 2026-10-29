@@ -443,6 +443,162 @@ called.
   `tst r0,r0 ; bt label` branches when `r0 == 0`.  The probe's polarity
   depends on it.
 
+## The 2026-10-29 measurements: the Maple end path is fine, the SDK service table is not
+
+Measured on the port's own boot
+(`build/vf3sdl.exe --state build/boot2.state --entry 0x8c004000 --gdi rom/vf3.gdi
+--bios tools/emu/flycast-ref-build/data/dc_boot.bin --frames 45 --headless`)
+against the reference's `extract/analysis/p1/frm_keep/st.bin.000040`.
+
+### The IML2 hypothesis is falsified
+
+The earlier note assumed the Maple end bit never reached the SDK's second-level
+handler.  It does.  `VF3_TRACE_ONLY=0c0460e8,0c06423a,0c045f5e,0c0439ba,0c043a0e`
+over 45 frames:
+
+```
+Count Name
+----- ----
+  109 0c06423a      the normal ASIC handler
+   54 0c045f5e      the callback-list walker
+   27 0c0460e8      the SDK's IML2 handler (0x8C0460E8)
+   27 0c0439ba      the Maple end callback
+   27 0c043a0e      the Maple end callback (clears ISTNRM 0x1000)
+```
+
+`VF3_ASICLOG=1` shows the normal handler reading `istnrm read 00001000` - the
+Maple bit is pending when the handler runs.  The port's dispatch order is right:
+`dispatch_asic` runs the normal handler first and then the IML2 one, and the
+normal handler never touches bit 12 (`0x8C06423A` clears bits 3, 5, 2, 19, 6, 7,
+8, 9, 10, 21 and the *error* status at `SB_ISTERR`, which is `0x005F6908`, not
+`SB_IML6NRM` as the name suggests).
+
+The register map, from `core/hw/holly/sb.h`:
+
+```
+0x005F6900 SB_ISTNRM   the normal interrupt status
+0x005F6904 SB_ISTEXT   the external interrupt status
+0x005F6908 SB_ISTERR   the error interrupt status
+0x005F6910 SB_IML2NRM  the level-2 normal interrupt mask
+0x005F6914 SB_IML2EXT
+```
+
+The game writes the mask itself: `0x0C04621C` does `SB_IML2NRM |= r4` when it
+registers a service, which is why the devlog shows `0x005F6910` written
+`0x1000`, then `0x3000`, then `0x7000`.  The port's plain write model is right.
+
+### The enumeration result is already the reference's
+
+`0x0C1A1A90` (the initial mask) and the two masks beside it are **identical** in
+the reference and the port: `0x00020005, 1, 1, 0, 0`.  So the mpdrv finds the
+same devices in the port as in the reference; the gap is not the Maple model.
+
+### The mpdrv is polled far less often
+
+The mpdrv's core control `0x0C04BD62` counts its own calls at `handle+0x134`
+(`handle` = the pointer at `0x0C1B9608`):
+
+```
+reference  frame  0:   0     frame 40: 281    frame 280: 879   (3 per frame)
+port       frame 45:   9
+```
+
+The reference polls the driver three times per frame from frame 280 on; the port
+manages nine calls in forty-five frames.  The check callback `0x0C046406` runs
+nine times in the port (the fill `0x0C04C15C` nine times, the per-port probe
+`0x0C046AEE` 72 times = 8 ports x 9), so the port's mpdrv is only ever driven
+from the device check.
+
+### The per-port state machine and who can reach it
+
+`0x0C04C18C` is the per-port state machine (it switches on `queue[port]+8`, the
+port's state, and ends by calling the attach handler at `queue[port]+0x74`).
+It is reached only through the trampoline
+
+```
+8c04c162  bra 0x8c04c18c
+8c04c164  mov #0,r4        (the delay slot: the port index)
+```
+
+which `0x0C04C136` registers with the mpdrv core (`0x0C053D64`,
+`r5 = 0x0C1B24C0`).  The core's control calls it only for a port whose entry
+has `+0x0C == 1` (a transfer is pending); in the port and in the reference that
+field reads 0, so the machine is idle at the sampling points.
+
+### The queue is wiped fourteen times, and so is the whole table
+
+The game's mpdrv reset `0x0C0371E6` -> `0x0C0463EA` clears the mask area, wipes
+the request queue (`0x0C04C14A` = `memset(0x0C1B20C0, 0, 0x400)`) and calls the
+table reset `0x0C04CB3E`.  The port runs that reset **fourteen times**, and the
+queue ends up empty at frame 45 where the reference's still carries the two
+handlers at `+0x74`/`+0x78`.
+
+Each of the fourteen resets is preceded by a call to a **BIOS service
+dispatcher**:
+
+```
+0c035ca4  mov.l r3 = 0x0c0ea314
+0c035ca8  mov.l @r3,r14
+0c035caa  tst r14,r14
+0c035cac  bt 0x8c035cb4
+0c035cae  mov.l @(48,r14),r0
+0c035cb0  jmp @r0
+8c035cb4  mov #0,r0
+8c035cb6  rts
+```
+
+There are twenty-three such dispatchers (`0x0C035012` .. `0x0C0354A0`), one per
+slot of the table at `0x0C0EA284`.  They all read the object pointer at
+`0x0C0EA314` and return 0 when it is 0.
+
+### The SDK service table: the object pointer is missing in the port
+
+```
+                     reference        port
+[0x0C0EA290..2E4]    21 thunks        the same 21 thunks   (the image's .data)
+[0x0C0EA2E4] +0x60   0x0C2A62C0       0
+[0x0C0EA2E8] +0x64   0x00000050       0
+[0x0C0EA2EC] +0x68   0x00040010       0
+[0x0C0EA2F0] +0x6C   0x00000117       0x00000009
+[0x0C0EA308] +0x84   0x0C0EA260       0
+[0x0C0EA314] +0x90   0x0C0EA284       0        <- the object pointer
+```
+
+The slots are the game's own thunks and they come from the image's `.data`
+(`0x0C0EA290` already holds `0x0C034A64`, `0x0C034CE0`, ... in the image), so
+the port has the table; what it lacks is the **pointer to it**.
+
+`[0x0C0EA314] == 0` means every SDK service dispatcher returns 0 without
+calling anything.  That is why the game's thread service (slot +48) never
+creates the mpdrv's worker and the game retries the whole mpdrv setup
+fourteen times.
+
+### Where the writer is not
+
+* the literal `0x0C0EA284` occurs **exactly once** in `1ST_READ` - as data at
+  `0x0C0EA260`, the first word of the device-caps table (the table the lookup
+  `0x0C0462D0` walks);
+* no PC-relative load in the image spells `0x0C0EA284`, `0x0C0EA314` or
+  `0x0C0EA260` except the lookup's;
+* `dc_boot.bin` contains none of `0x0C0EA284`, `0x0C0EA260`, `0x0C0EA290`,
+  `0x0C0EA308` or `0x0C0EA314`;
+* the port's REIOS "system" vector model matches the Flycast's exactly
+  (`core/reios/reios.cpp:161` - commands 0, 2, 3 and -1 for the rest), so the
+  REIOS is not the writer either.
+
+So the writer reaches the table through a pointer it computes at run time.
+The next step is to find the code that stores `0x0C0EA284` at `0x0C0EA314`; a
+PC histogram of the reference's boot (`extract/analysis/p1/hits_cli.csv`) and
+the same for the port would name it.
+
+### The boot is no longer a black screen
+
+The port now draws: the first frame with a display list is frame 20 (128 TA
+words, 8 lists, 4 polygons) and frame 45 carries a full-screen textured quad
+(248 TA words, 245,760 pixels).  The vertices are still garbage
+(`vertex range x 1e+30..-1e+30`), so the geometry is not right yet, but the
+raster path is alive.
+
 ## Tools
 
 * `VF3_TRACE_ONLY=0c046406,0c04c3a0,0c04c3c6` with `VF3_TRACE_ENTRIES=1`
