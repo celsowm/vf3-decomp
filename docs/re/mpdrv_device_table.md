@@ -263,35 +263,66 @@ The mpdrv's **reset** wipes the queue, though:
 
 and the reset chain `0x0C0463EA` calls it (`0x0C0463FA: mov.l r3 = 0x0c04c14a`)
 right before the table reset `0x0C04CB3E`.  In the port that reset runs
-**fourteen times after** the registration - the game resets the driver once per
-device it enumerates - so the queue is zero when the port reaches the device
-check, and `queue[index]+0x74 == 0` makes the attach dispatcher return without
-calling anything.
+**fourteen times** - the game resets the driver once per device it
+enumerates - and it is the reason the port's queue is empty at frame 300
+while the reference's still carries the handlers.  At the *device check*,
+which happens before those resets, the handlers are still in place, so this
+is not what blocks the attach (but it is why the port cannot recover once
+the check has failed).
 
 In the reference the handlers are still there at frame 1600, so its
 registration is the last thing that touched the queue.
 
-### 2. The port-0 probe says "absent"
+### 2. Neither dispatcher ever calls its handler
 
-The attach dispatcher is only called for a port that is *both* new and
-present.  "New" is `(prev ^ cur) & cur` over the two bus masks
-(`0x0C1A1A94` = the previous one, `0x0C1A1A98` = the current one), and
-"present" is the mask the probe loop at `0x0C04649A` builds from the per-port
-probe `0x0C046AEE`, which answers `queue[port]+4`.
-
-At the port's first device check the state is
+The two dispatchers are the only way into the two handlers (the image holds
+exactly one pointer to `0x0C0370F0`, the pool word at `0x0C037210` of the
+Maple callback, and one to `0x0C037190`).  In the port:
 
 ```
-mask prev 00000000 cur 00000001 new 00000000 retry 00000000
-slot +8 00 +30 00000002 +34 00000011
-queue +4 00000001 +8 00000001 +74 0c0370f0 +78 0c037190 +7c 00000000
+attach dispatcher 0x0c04c3a0   entered 0 times
+store  dispatcher 0x0c04c3c6   entered 8 times
+attach handler    0x0c0370f0   entered 0 times
+store  handler    0x0c037190   entered 0 times
 ```
 
-so "new" is bit 0 - but `queue[0]+4` is **1**, the probe answers -1 ("not
-present"), and the attach dispatcher is skipped.  `queue[0]+4` is set to 1 by
-`0x0C04C49C` (the delay slot of its `rts`: `mov.l r1,@(4,r4)` with `r1 = 1`),
-the function that records a Maple answer in the queue; the reference's queue
-entry 0 is zero there, so the reference never recorded that answer.
+So the store dispatcher runs eight times and *still* leaves the queue's
+`+0x78` (the store handler) untouched - it reads it and returns.  The state
+at the dispatcher's own entry is
+
+```
+mpdrv mask prev 00000001 cur 00000001 new 00000000 retry 00000000
+| slot +8 00 +30 00000003 +34 00000011
+| queue +4 00000001 +8 00000001 +74 0c0370f0 +78 0c037190 +7c 00000000
+```
+
+so the handler *is* in the queue at that moment.  The dispatcher's own code
+is faithful (it reads `queue[port]+0x78` and jumps to it when it is not
+zero), so the jump is not taken - and the next question is why.
+
+The device check `0x0C046406` has two loops over the bus masks.  The first
+one handles the devices that *appeared* (`(prev ^ cur) & cur`) and calls the
+register-device function `0x0C046594`, which writes `queue[port]+8 = 1` and
+then calls `0x0C04C49C`, the function that records the device (it writes
+`queue[port]+4 = 1` in the delay slot of its `rts` and `+0x14 .. +0x28` with
+the device's data).  The second loop handles the devices that *disappeared*
+(`(cur ^ prev) & prev`) and calls the **attach** dispatcher with `r5 = 2`,
+`r6 = 0`.
+
+In the port that registration call carries **no data at all**:
+
+```
+enter 0c046594 pr 0c0464d6 r4 00000000 r5 0c19e998 r6 00000018 r7 00000018
+enter 0c04c48c pr 0c0465b0 r4 00000000 r5 00000001 r6 00000018 r7 00000018
+enter 0c04c49c pr 0c0465c4 r4 00000000 r5 00000000 r6 00000000 r7 00000000
+```
+
+`r5 = r6 = r7 = 0` and the three stack words are zero, so the table slot
+keeps the reference's first two bytes (`01 01`) but not the three that follow
+(`01 01 01` in the reference, `00 00 00` in the port).  The reference's queue
+entry 0 is zero apart from the two handlers, so the reference never
+registered a device in the queue at all - its table slot was filled by the
+per-device fill `0x0C04C750` from the Maple answer.
 
 The probe's polarity is worth spelling out, because `tst` sets T when the
 result is **zero** and `bt` branches when T is 1:
@@ -349,6 +380,35 @@ maple:   -> reply 1c230005 at 0c2b7800 (28 words)
 the main unit, sender `0x00`); the reply `0x1C230005` is code 5, sender 0,
 recipient `0x20 | 0x03` (the main unit with the two attached cards) and 28
 words of status.
+
+The 112 bytes of status match Flycast's VMU answer byte for byte
+(`core/hw/maple/maple_devs.cpp:490` - `MDC_DeviceRequest`/`MDC_AllStatusReq`):
+the function mask `MFID_1_Storage|MFID_2_LCD|MFID_3_Clock`, the three
+function words `0x403f7e7e / 0x00100500 / 0x00410f00`, the area byte `0xFF`,
+the direction byte `0`, the 30-byte name, the 60-byte brand and the two
+current words `0x007c / 0x0082`.  So the card's answers are right; what the
+mpdrv does with them is not.
+
+### The lookup has two gates
+
+The lookup `0x0C04667A` (-> `0x0C04D50C`) checks the slot twice:
+
+```
+8c04d52a  add r3,r13              ; r13 = the slot (base + index * 0x148)
+8c04d534  mov.b @(2,r13),r0       ; the slot's byte +2
+8c04d536  tst r0,r0
+8c04d538  bt/s 0x8c04d576         ; byte +2 != 0 -> found
+...
+8c04d56e  add r3,r2               ; r2 = the slot
+8c04d570  mov.b @(8,r2),r0        ; the slot's byte +8
+8c04d574  bf 0x8c04d57c           ; byte +8 == 0 -> "not found"
+8c04d576  mov.w r0 = 0xff01       ; found
+```
+
+The reference's slot 0 has `01` at both `+2` and `+8`; the port's has `01` at
+`+2` and `01` at `+8` from frame 31 on (before that `+8` is 0), so the lookup
+itself is not what fails in the port - the attach handler is simply never
+called.
 
 ## SH-4 facts this investigation turned up
 
