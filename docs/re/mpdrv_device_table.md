@@ -122,6 +122,100 @@ Port at frame 300:
 `+0=0 +2=0 +4=0 +8=8 +0xC=17 +0x10=1` - the store handler ran (with
 `r6=8` instead of `17`), the attach handler's conditions never held.
 
+## Where the port actually breaks (measured, frame by frame)
+
+The port's table is *right* for a while - the reset is what kills it.  Dumping
+the port's RAM at the end of each frame shows:
+
+| frame | what the port did | table slot 0 at 0x0C1B34D8 |
+|---|---|---|
+| 22 | the mpdrv init and the fill | `+8 = 0`, `+0x34 = 0` |
+| 23-31 | the device check (9 rounds) | `+8 = 1`, `+0x34 = 17` - **as the reference** |
+| 32+ | the reset chain, 14 times | the whole table zeroed |
+
+At frame 31 the port's slot 0 reads
+
+```
++0x00 00 00 01 00 00 00 00   +0x08 01 01 00 00 00 00 01 00
++0x10 01 00 0d 00 20 00 00 00   +0x18 00 00 00 00 38 7f 1b 0c
++0x30 0a 00 00 00 11 00 00 00
+```
+
+against the reference's
+
+```
++0x00 00 00 01 00 00 00 00   +0x08 01 01 01 01 01 00 01 00
++0x10 01 00 0d 00 20 00 00 00   +0x18 00 00 00 00 38 7f 1b 0c
++0x30 12 00 00 00 11 00 00 00
+```
+
+so the pointers, the device number (+0x34 = 17) and the lookup's gate
+(+8 = 1) all match.  What is still missing is the attach.
+
+### The attach never happens
+
+The attach handler is `0x0C0370F0`; the queue processor that calls it is
+`0x0C04C3A0`:
+
+```
+8c04c3a0  mov r4,r14 ; shll2 x3 ; shll        ; r14 = index * 0x80
+8c04c3ae  mov #116,r0                        ; 0x74
+8c04c3b0  add r3,r14                         ; r14 = 0x0c1b20c0 + index*0x80
+8c04c3b2  mov.l @(r0,r14),r2                 ; r2 = queue[index]+0x74
+8c04c3b4  tst r2,r2
+8c04c3b6  bt 0x8c04c3c2                      ; no handler -> return
+8c04c3b8  _mov.l @(r0,r14),r2
+8c04c3ba  mov #124,r0                        ; 0x7c
+8c04c3bc  mov.l @(r0,r14),r7                 ; r7 = queue[index]+0x7c
+8c04c3be  jmp @r2                            ; tail call the attach handler
+```
+
+The handler only sets `record[+0] = 1` when `r5 == 1 && r6 == 0`, and
+`record[+2] = 1` (the "usable" bit the card check reads) only when the
+lookup `0x0C04667A` succeeds - and the lookup ends at
+
+```
+8c04d56c  mov.l 0x8c04d680,r3  # lit=0c1b34d8
+8c04d56e  add r3,r2
+8c04d570  mov.b @(8,r2),r0     ; the slot's +8
+8c04d572  tst r0,r0
+8c04d574  bf 0x8c04d57c        ; +8 == 0 -> "not found"
+8c04d576  mov.w 0x8c04d676,r0  # lit.w=ff01
+```
+
+so the gate is `slot[+8] != 0`.
+
+The port's router trace shows the handler is never entered:
+
+```
+$ VF3_TRACE_ONLY=0c04c3a0,0c0370f0,0c037190,0c04c3c6,0c046406,0c04be44
+enter 0c04c3c6 ... r4 0 r5 1 r6 1 r7 0x11     (the store dispatcher)
+enter 0c04be44 ... r5 0x0c1b7f38 r7 0x11     (the device check)
+enter 0c04c3c6 ... r6 2 ...                   (and again, 3, 4, ...)
+```
+
+`0x0C0370F0` never appears.  The port's queue entry 0 still holds its
+`+4 = 1` at frame 31 while the reference's queue is empty at frame 40 - the
+port never consumes it.
+
+The port's per-port probe is `0x0C046AEE`, and its answer is the queue
+entry's `+4`:
+
+```
+8c046aee  sts.l pr,@-r15
+8c046af0  mov.l 0x8c046cb0,r3  # lit=0c04c47c
+8c046af2  jsr @r3
+8c046af4  _nop
+8c046af6  tst r0,r0
+8c046af8  bt 0x8c046b00        ; present -> r0 = 0
+8c046afa  lds.l @r15+,pr
+8c046afc  rts
+8c046afe  _mov #-1,r0          ; absent -> r0 = -1
+```
+
+and `0x0C04C47C` returns `queue[index]+4` from the **delay slot** of its own
+`rts` (`0x0C04C48A: mov.l @(4,r4),r0`).
+
 ## SH-4 facts this investigation turned up
 
 * **The delay slot runs before the call takes effect, and it can change the
