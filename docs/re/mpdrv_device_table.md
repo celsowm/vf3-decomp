@@ -591,6 +591,16 @@ The next step is to find the code that stores `0x0C0EA284` at `0x0C0EA314`; a
 PC histogram of the reference's boot (`extract/analysis/p1/hits_cli.csv`) and
 the same for the port would name it.
 
+> **Correction (2026-10-29).**  The writer *was* found, and the conclusion
+> above is wrong: the pointer **is** installed, with the reference's exact
+> values (`[0x0C0EA310] = 0x0C0EA260`, `[0x0C0EA314] = 0x0C0EA284`), at frame 22
+> of the boot.  The zeros this note measured were read at the *end* of the
+> boot, after the game had already torn the module down (frame 31).  The
+> writer is the register trampoline at `0x0C035B60` and the clearer is the
+> unregister trampoline at `0x0C035BC6`; see
+> `docs/re/service_pointer_and_teardown.md`.  The blocker is the card check,
+> not the service pointer.
+
 ### The boot is no longer a black screen
 
 The port now draws: the first frame with a display list is frame 20 (128 TA
