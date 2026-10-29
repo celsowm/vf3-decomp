@@ -380,10 +380,33 @@ static int trace_wanted(uint32_t entry)
     return 0;
 }
 
+/* The mpdrv's device state, as the driver sees it: the two bus masks
+ * (0x0C1A1A94 = the previous one, 0x0C1A1A98 = the current one, 0x0C1A1A9C
+ * and 0x0C1A1AA0 the two "changed" sets), the first slot of the device table
+ * (0x0C1B34D8, stride 0x148) and the first entry of the request queue
+ * (0x0C1B20C0, stride 0x80).  The attach dispatcher (0x0C04C3A0) only calls a
+ * device when the queue entry carries a handler, so a queue that was cleared
+ * after the Maple callback registered it explains a missing attach. */
+static void trace_mpdrv(const vf3_ram_map *ram)
+{
+    const uint32_t slot = 0x0C1B34D8u, queue = 0x0C1B20C0u;
+    fprintf(stderr, "  mpdrv mask prev %08x cur %08x new %08x retry %08x",
+            vf3_matrix_read(ram, 0x0C1A1A94u, 4), vf3_matrix_read(ram, 0x0C1A1A98u, 4),
+            vf3_matrix_read(ram, 0x0C1A1A9Cu, 4), vf3_matrix_read(ram, 0x0C1A1AA0u, 4));
+    fprintf(stderr, " | slot +8 %02x +30 %08x +34 %08x",
+            (unsigned)(vf3_matrix_read(ram, slot + 8u, 4) & 0xFFu),
+            vf3_matrix_read(ram, slot + 0x30u, 4), vf3_matrix_read(ram, slot + 0x34u, 4));
+    fprintf(stderr, " | queue +4 %08x +8 %08x +74 %08x +78 %08x +7c %08x%c",
+            vf3_matrix_read(ram, queue + 4u, 4), vf3_matrix_read(ram, queue + 8u, 4),
+            vf3_matrix_read(ram, queue + 0x74u, 4), vf3_matrix_read(ram, queue + 0x78u, 4),
+            vf3_matrix_read(ram, queue + 0x7Cu, 4), 10);
+}
+
 static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
 {
     (void)ok;
     if (!trace_wanted(entry)) return;
+    if (entry == 0x0C046406u || entry == 0x0C04C3A0u || entry == 0x0C04C3C6u) trace_mpdrv(ram);
     fprintf(stderr, "enter %08x pr %08x sp %08x r4 %08x r5 %08x r6 %08x r7 %08x%c", entry, s->v[16], s->v[15], s->v[4], s->v[5], s->v[6], s->v[7], 10);
     if (entry == 0x0C040154u) fprintf(stderr, "  hdr r4 %08x [r4] %08x r5 %08x%c", s->v[4], vf3_matrix_read(ram, s->v[4], 4), s->v[5], 10);
     if (entry == 0x0C068FE4u) fprintf(stderr, "  scan r4 %08x%c", s->v[4], 10);
@@ -408,6 +431,7 @@ static void trace_tail(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *r
 {
     (void)ram; (void)ok;
     if (!trace_wanted(entry)) return;
+    if (entry == 0x0C046406u || entry == 0x0C04C3A0u || entry == 0x0C04C3C6u) trace_mpdrv(ram);
     fprintf(stderr, "tail %08x r4 %08x r5 %08x r6 %08x r7 %08x%c",
             entry, s->v[4], s->v[5], s->v[6], s->v[7], 10);
 }

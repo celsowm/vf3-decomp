@@ -216,6 +216,140 @@ entry's `+4`:
 and `0x0C04C47C` returns `queue[index]+4` from the **delay slot** of its own
 `rts` (`0x0C04C48A: mov.l @(4,r4),r0`).
 
+## Why the attach never happens (measured, 2026-10-27 evening)
+
+Two independent things keep the attach handler from running, and both are
+visible in one trace.
+
+### 1. The queue is wiped after the handlers were registered
+
+The Maple callback `0x0C0371AA` registers the two handlers in the request
+queue (`0x0C1B20C0`, eight entries of `0x80` bytes):
+
+```
+8c0371aa  sts.l pr,@-r15
+8c0371ac  mov.l r3 = 0x0c046576      ; the enqueue
+8c0371ae  mov.l r4 = 0x0c0370f0      ; the attach handler
+8c0371b0  jsr @r3
+8c0371b4  mov.l r2 = 0x0c04657c      ; the enqueue
+8c0371b6  mov.l r4 = 0x0c037190      ; the store handler
+8c0371b8  jmp @r2
+```
+
+The enqueue (`0x0C04C434`, `0x0C04C44C`, `0x0C04C464`) writes the handler into
+**all eight** entries, at `+0x74` (attach), `+0x78` (store) and `+0x7C` (the
+device number) - the loop walks `r5 = 0x0C1B20C0 + i*0x80` and stops after
+`r6 >= 8`.  The port does it correctly (`VF3_WATCHW=0C1B20C0,400` shows the
+eight writes of `0x0C0370F0` and the eight of `0x0C037190`), and the reference
+has exactly that at frame 40:
+
+```
+0C1B2130  00 00 00 00 f0 70 03 0c 90 71 03 0c 00 00 00 00   entry 0
+0C1B21B0  00 00 00 00 f0 70 03 0c 90 71 03 0c 00 00 00 00   entry 1
+...   (all eight entries carry the two handlers)
+```
+
+The mpdrv's **reset** wipes the queue, though:
+
+```
+8c04c14a  sts.l pr,@-r15
+8c04c14c  mov.l r3 = 0x0c04b9e4      ; the byte fill
+8c04c14e  mov.l r4 = 0x0c1b20c0      ; the queue
+8c04c150  mov.w r6 = 0x0400
+8c04c152  jsr @r3
+8c04c154  _mov #0,r5                 ; the delay slot carries the value
+8c04c156  lds.l @r15+,pr
+```
+
+and the reset chain `0x0C0463EA` calls it (`0x0C0463FA: mov.l r3 = 0x0c04c14a`)
+right before the table reset `0x0C04CB3E`.  In the port that reset runs
+**fourteen times after** the registration - the game resets the driver once per
+device it enumerates - so the queue is zero when the port reaches the device
+check, and `queue[index]+0x74 == 0` makes the attach dispatcher return without
+calling anything.
+
+In the reference the handlers are still there at frame 1600, so its
+registration is the last thing that touched the queue.
+
+### 2. The port-0 probe says "absent"
+
+The attach dispatcher is only called for a port that is *both* new and
+present.  "New" is `(prev ^ cur) & cur` over the two bus masks
+(`0x0C1A1A94` = the previous one, `0x0C1A1A98` = the current one), and
+"present" is the mask the probe loop at `0x0C04649A` builds from the per-port
+probe `0x0C046AEE`, which answers `queue[port]+4`.
+
+At the port's first device check the state is
+
+```
+mask prev 00000000 cur 00000001 new 00000000 retry 00000000
+slot +8 00 +30 00000002 +34 00000011
+queue +4 00000001 +8 00000001 +74 0c0370f0 +78 0c037190 +7c 00000000
+```
+
+so "new" is bit 0 - but `queue[0]+4` is **1**, the probe answers -1 ("not
+present"), and the attach dispatcher is skipped.  `queue[0]+4` is set to 1 by
+`0x0C04C49C` (the delay slot of its `rts`: `mov.l r1,@(4,r4)` with `r1 = 1`),
+the function that records a Maple answer in the queue; the reference's queue
+entry 0 is zero there, so the reference never recorded that answer.
+
+The probe's polarity is worth spelling out, because `tst` sets T when the
+result is **zero** and `bt` branches when T is 1:
+
+```
+8c046aee  sts.l pr,@-r15
+8c046af0  mov.l r3 = 0x0c04c47c      ; queue[index]+4
+8c046af2  jsr @r3
+8c046af6  tst r0,r0                  ; T = (r0 == 0)
+8c046af8  bt 0x8c046b00             ; taken when r0 == 0 -> "present"
+8c046afa  lds.l @r15+,pr
+8c046afc  rts
+8c046afe  _mov #-1,r0                ; r0 != 0 -> "absent"
+8c046b00  mov #0,r0
+```
+
+### The enumeration path the port never reaches
+
+`0x0C046E14` is the stub that runs the enumeration fill `0x0C04C9A2` and then
+registers the device it found (`bra 0x8c046594`):
+
+```
+8c046e14  sts.l pr,@-r15
+8c046e16  mov.l r3 = 0x0c04c9a2
+8c046e1a  jsr @r3
+8c046e1c  _mov.l r4,@r15
+8c046e1e  mov r0,r4
+8c046e20  tst r4,r4
+8c046e22  bf 0x8c046e2c
+8c046e28  bra 0x8c046594
+```
+
+The stub has **no literal reference and no direct branch anywhere in the
+image** (a scan of the image for the pointer `0x0C046E14` finds nothing), so
+the mpdrv computes the target at run time - and the port never gets there.
+The reference's own recorded trace shows that path
+(`extract/analysis/target_extended_a_dev/.../f_8c046e14.ops.json`:
+`0c046e14..0c046e22`, `0c046e2c..0c046e32`, `0c04c9a2..0c04c9ba`,
+`0c04ca24..0c04ca28`, `0c04cb2e..0c04cb3c`).
+
+### The Maple model is right (checked against the reference)
+
+The port's framing matches Flycast's exactly.  `SB_MMSEL` is 1 after a reset
+(`core/hw/maple/maple_if.cpp:374`), so `swap_msb` is false and nothing is byte
+swapped; the reply header is built as
+`resp | send << 8 | reci << 16 | (outlen/4) << 24`
+(`core/hw/maple/maple_devs.h:292`), and the port builds the same word:
+
+```
+maple: block at 0c2c3820 head 00000000 recv 0c2b7800 frame 00002001
+maple:   -> reply 1c230005 at 0c2b7800 (28 words)
+```
+
+`0x00002001` is the frame header (command `0x01` = DEVINFO, recipient `0x20` =
+the main unit, sender `0x00`); the reply `0x1C230005` is code 5, sender 0,
+recipient `0x20 | 0x03` (the main unit with the two attached cards) and 28
+words of status.
+
 ## SH-4 facts this investigation turned up
 
 * **The delay slot runs before the call takes effect, and it can change the
@@ -233,9 +367,17 @@ and `0x0C04C47C` returns `queue[index]+4` from the **delay slot** of its own
   `tools/find_literal_ref.py` for the pool side and read the call site.
 * **`mov.l Rm,@(disp,Rn)` has `EA = Rn + disp`** (no scale), so
   `mov.b r0,@(2,r14)` is `r14+2` and `mov.l r13,@(4,r5)` is `r5+4`.
+* **`tst` sets T when the result is zero, and `bt` branches when T is 1.**
+  The SH-4's T is the zero flag, not a "true" flag, so
+  `tst r0,r0 ; bt label` branches when `r0 == 0`.  The probe's polarity
+  depends on it.
 
 ## Tools
 
+* `VF3_TRACE_ONLY=0c046406,0c04c3a0,0c04c3c6` with `VF3_TRACE_ENTRIES=1`
+  prints the mpdrv's state at each of those entries: the two bus masks, the
+  two "changed" sets, the first slot of the device table and the first entry of
+  the request queue (`src/fight/native_tick.c`, `trace_mpdrv`).
 * `tools/find_literal_ref.py` - fixed: the PC-relative base is
   `((pc+4) & ~3) + disp*4` with the 8-bit displacement signed, and the
   image loads at `0x0C010000`.
