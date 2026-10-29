@@ -114,5 +114,10 @@ extern void (*vf3_vram_store_hook)(uint32_t dest, uint32_t value, unsigned size)
  * 0x005F6888): they pick the 32 bit or the 64 bit path of the PVR2's texture
  * memory window at 0x11000000. */
 extern void (*vf3_pvr_lmmode_hook)(uint32_t mode0, uint32_t mode1);
+/* The dispatcher resumed at a PC the guest reached through a tail transfer
+ * (a register-indirect jump the module was not generated with), so the
+ * ordinary entry hook never saw it.  The hook names that address. */
+extern void (*vf3_family_tail_enter)(uint32_t entry, vf3_matrix_state *s,
+                                      const vf3_ram_map *ram, int ok);
 
 #endif

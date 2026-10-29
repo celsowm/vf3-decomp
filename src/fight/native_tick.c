@@ -352,11 +352,39 @@ static void ta_flush(const uint32_t *words, unsigned n)
 }
 
 /* the oracle-derived table only knows entries the captured fight ticks called; every readable port is a function entry too
- * (the boot loader's own functions are not in the fight table) */
+ * (the boot loader's own functions are not in the fight table)
+ *
+ * VF3_TRACE_ONLY=<hex>[,<hex>...] traces only the entries in the list: the
+ * boot walks millions of instructions, and the interesting question is always
+ * "did this one function run". */
+static int trace_wanted(uint32_t entry)
+{
+    static int init;
+    static uint32_t want[64];
+    static unsigned nwant;
+    if (!init) {
+        init = 1;
+        const char *e = getenv("VF3_TRACE_ONLY");
+        for (; e && *e && nwant < 64; ) {
+            char *end;
+            const unsigned long v = strtoul(e, &end, 16);
+            if (end == e) break;
+            want[nwant++] = (uint32_t)v;
+            e = end;
+            while (*e == ',' || *e == ' ') ++e;
+        }
+    }
+    if (!nwant) return 1;
+    for (unsigned i = 0; i < nwant; ++i)
+        if (want[i] == entry) return 1;
+    return 0;
+}
+
 static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
 {
     (void)ok;
-    fprintf(stderr, "enter %08x pr %08x sp %08x r4 %08x r5 %08x%c", entry, s->v[16], s->v[15], s->v[4], s->v[5], 10);
+    if (!trace_wanted(entry)) return;
+    fprintf(stderr, "enter %08x pr %08x sp %08x r4 %08x r5 %08x r6 %08x r7 %08x%c", entry, s->v[16], s->v[15], s->v[4], s->v[5], s->v[6], s->v[7], 10);
     if (entry == 0x0C040154u) fprintf(stderr, "  hdr r4 %08x [r4] %08x r5 %08x%c", s->v[4], vf3_matrix_read(ram, s->v[4], 4), s->v[5], 10);
     if (entry == 0x0C068FE4u) fprintf(stderr, "  scan r4 %08x%c", s->v[4], 10);
     if (entry == 0x0C06911Cu) fprintf(stderr, "  sc r4 %08x r5 %08x [0c113a0c] %08x fr4 %08x fr5 %08x%c", s->v[4], s->v[5], vf3_matrix_read(ram, 0x0C113A0Cu, 4), s->v[25], s->v[26], 10);
@@ -370,7 +398,18 @@ static void trace_enter(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *
 static void trace_leave(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
 {
     (void)ram;
+    if (!trace_wanted(entry)) return;
     fprintf(stderr, "leave %08x ok %d r0 %08x pc %08x%c", entry, ok, s->v[0], s->pc, 10);
+}
+
+/* A tail transfer: the dispatcher resumed at an address the guest reached
+ * through a register-indirect jump, so the entry hook never saw it. */
+static void trace_tail(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int ok)
+{
+    (void)ram; (void)ok;
+    if (!trace_wanted(entry)) return;
+    fprintf(stderr, "tail %08x r4 %08x r5 %08x r6 %08x r7 %08x%c",
+            entry, s->v[4], s->v[5], s->v[6], s->v[7], 10);
 }
 
 static int call_target(uint32_t entry)
@@ -532,6 +571,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
     vf3_family_fail = NULL;
     vf3_family_enter = getenv("VF3_TRACE_ENTRIES") ? trace_enter : NULL;
     vf3_family_leave = getenv("VF3_TRACE_ENTRIES") ? trace_leave : NULL;
+    vf3_family_tail_enter = getenv("VF3_TRACE_ENTRIES") ? trace_tail : NULL;
     vf3_family_call_entry = call_target;
     vf3_family_complete_calls = 1;
     vf3_family_extra_stop = machine.extra_stop;

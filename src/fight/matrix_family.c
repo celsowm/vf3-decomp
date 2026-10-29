@@ -393,6 +393,7 @@ int vf3_boot_rte_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_boot_rte_adapter_contains(uint32_t);
 vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
 vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
+vf3_family_obs_fn vf3_family_tail_enter;
 /* Alias handoff between the generated adapters.  The router masks the entry PC
  * to 29 bits, so the 0x0c/0x8c/0xac mirror the callee runs under is passed
  * out of band: the caller sets these two words before it hands control over. */
@@ -875,6 +876,11 @@ static int vf3_matrix_family_dispatch(uint32_t entry,vf3_matrix_state*s,const vf
         const uint32_t target=s->failed_pc;
         s->failed_pc=0;
         entry=target;
+        /* A tail transfer resumes at a PC the caller never entered through a
+         * jsr, so the entry hook above never sees it.  The hook here names
+         * the address the dispatcher resumed at - the only way to tell which
+         * code the guest actually ran. */
+        if(vf3_family_tail_enter) vf3_family_tail_enter(target&0x1FFFFFFFu,s,ram,0);
         ok=vf3_matrix_family_core(entry,s,ram);
     }
     if(!ok && !out_of_time && vf3_family_missing && s->failed_pc==(entry&0x1FFFFFFFu)) {

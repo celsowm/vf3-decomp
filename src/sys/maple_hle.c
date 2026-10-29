@@ -225,6 +225,7 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                     memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, body, sizeof body);
                     if (all)
                         memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4 + 112, MAPLE_VMU_EXTRA, extra_len);
+                    if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (%u words)\n", hdr, recv, (112u + extra_len) / 4u);
                 }
                 goto vmu_done;
             } else if (command == MAPLE_REQ_GETMEDIAINFO) {
@@ -287,8 +288,10 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 }
             }
             if (in_ram(recv, 4 + 4 * owords, ram_base, ram_len)) {
-                wr(ram, ram_base, recv, code | (sender << 8) | (vfrom << 16) | (owords << 24));
+                const uint32_t hdr = code | (sender << 8) | (vfrom << 16) | (owords << 24);
+                wr(ram, ram_base, recv, hdr);
                 memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, out, 4 * owords);
+                if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (%u words)\n", hdr, recv, owords);
             }
         vmu_done:
             {   /* VF3_VMU_MIRROR=<hex delta>: also answer in the other receive bank (diagnostic) */
@@ -325,21 +328,27 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 memset(body + 48, ' ', 60); memcpy(body + 48, MAPLE_SEGA_BRAND, (sizeof MAPLE_SEGA_BRAND) - 1);
                 body[108] = 0xAE; body[109] = 0x01;   /* standby 430 */
                 body[110] = 0xF4; body[111] = 0x01;   /* max 500 */
-                wr(ram, ram_base, recv, (all ? MAPLE_RES_DEVSTATUSALL : MAPLE_RES_DEVINFO) | (sender << 8) | (from << 16) | ((112u + extra_len) / 4u << 24));
+                const uint32_t hdr = (all ? MAPLE_RES_DEVSTATUSALL : MAPLE_RES_DEVINFO) | (sender << 8) | (from << 16) | ((112u + extra_len) / 4u << 24);
+                wr(ram, ram_base, recv, hdr);
                 memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, body, sizeof body);
                 if (all)
                     memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4 + 112, MAPLE_CONTROLLER_EXTRA, extra_len);
+                if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (%u words)\n", hdr, recv, (112u + extra_len) / 4u);
             } else if (command == MAPLE_REQ_GETCOND && in_ram(recv, 16, ram_base, ram_len)) {
-                wr(ram, ram_base, recv, MAPLE_RES_DATATRF | (sender << 8) | (from << 16) | (3u << 24));
+                const uint32_t hdr = MAPLE_RES_DATATRF | (sender << 8) | (from << 16) | (3u << 24);
+                wr(ram, ram_base, recv, hdr);
                 wr(ram, ram_base, recv + 4, MAPLE_FUNC_CONTROLLER);
                 wr(ram, ram_base, recv + 8, (uint32_t)pad->buttons | (uint32_t)pad->rtrig << 16 | (uint32_t)pad->ltrig << 24);
                 wr(ram, ram_base, recv + 12, (uint32_t)pad->joyx | (uint32_t)pad->joyy << 8 | (uint32_t)pad->joy2x << 16 | (uint32_t)pad->joy2y << 24);
+                if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (3 words)\n", hdr, recv);
             } else {
                 /* The reference's controller answers the reset and the kill
                  * with a plain reply and anything else with the unknown
                  * command code (maple_sega_controller::dma). */
                 const uint32_t code = (command == 0x03 || command == 0x04) ? MAPLE_RES_OK : 0xFDu;
-                wr(ram, ram_base, recv, code | (sender << 8) | (from << 16) | (0u << 24));
+                const uint32_t hdr = code | (sender << 8) | (from << 16) | (0u << 24);
+                wr(ram, ram_base, recv, hdr);
+                if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (0 words)\n", hdr, recv);
             }
         }
         if (head & 0x80000000u) { ++blocks; break; }
