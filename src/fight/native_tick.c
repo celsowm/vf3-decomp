@@ -9,6 +9,7 @@
 #include "fight/matrix_family.h"
 #include "fight/readable.h"
 #include "sys/bios_syscall.h"
+#include "sys/maple_hle.h"
 
 #define TA_AREA_BASE 0x10000000u         /* area 4: Tile Accelerator FIFOs and texture memory */
 #define TA_AREA_END  0x14000000u
@@ -72,6 +73,14 @@ static struct {
     unsigned render_starts_total; /* every STARTRENDER write of the run */
     uint32_t maple_list;         /* SB_MDSTAR as last written */
     unsigned maple_started;      /* Maple DMA starts (SB_MDST written with bit 0) not yet taken by the caller */
+    /* SB_MDST (0x005F6C18): the Maple-DMA start.  The guest polls it before and
+     * after every transfer to know whether the answer is already in its memory
+     * (Flycast's maple_SB_MDST_Write runs the transfer there and clears the
+     * register when the answer has been written).  The port answered the list
+     * at the next vblank instead, so the guest read a buffer the model had not
+     * written yet. */
+    uint32_t maple_mdst;
+    uint16_t maple_buttons;      /* the stand-in pad's buttons (the host's) */
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
     /* The SH-4's DMA channel 2 and the SB's channel 2 registers: the game
      * copies a block of main RAM into the PVR2's Tile Accelerator area with
@@ -180,6 +189,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     if ((address & 0x1FFFFFFFu) == 0x005F8000u) return 0x17FD11DBu;
     if ((address & 0x1FFFFFFFu) == 0x005F8004u) return 0x11u;
     if ((address & 0x1FFFFFFFu) == 0x005F6910u) return machine.iml2;
+    if ((address & 0x1FFFFFFFu) == 0x005F6C18u) return machine.maple_mdst;   /* SB_MDST */
     if ((address & 0x1FFFFFFFu) == 0x005F810Cu) return SPG_VBLANK_IN_LINE;
     if ((address & 0x1FFFFFFFu) == 0x005F6900u) {
         if (getenv("VF3_ASICLOG") && (machine.istnrm & ~8u)) fprintf(stderr, "istnrm read %08x\n", machine.istnrm);
@@ -274,7 +284,22 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN)
         memcpy(aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), &value, size > 4 ? 4 : size);
     if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;
-    if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) ++machine.maple_started;
+    if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) {
+        /* The Maple-DMA start.  The reference runs the transfer the moment the
+         * guest writes it (Flycast's maple_SB_MDST_Write -> maple_DoDma), so
+         * the answer is in the guest's memory before the guest reads it; the
+         * port used to wait for the next vblank, and the guest's poll of
+         * SB_MDST (which the port answered with zero) let it read the reply
+         * buffer before the model had written it. */
+        ++machine.maple_started;
+        machine.maple_mdst = 1;
+        if (machine.ram) {
+            const vf3_maple_pad pad = { machine.maple_buttons, 0, 0, 0x80, 0x80, 0x80, 0x80 };
+            vf3_maple_dma(machine.ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, machine.maple_list, &pad);
+            machine.maple_mdst = 0;
+            vf3_native_raise_asic(ASIC_MAPLE_END);
+        }
+    }
     /* The SH-4's DMA channel 2 and the SB's channel 2: the game copies a
      * block of main RAM into the PVR2 with them.  The copy runs when the SB's
      * ch2 start register is written with bit 0. */
@@ -499,6 +524,7 @@ uint32_t vf3_native_current_pc(void)
     return machine.cur ? machine.cur->pc : 0u;
 }
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
+void vf3_native_set_maple_buttons(uint16_t buttons) { machine.maple_buttons = buttons; }
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(vf3_matrix_state *s);
 void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s)) { budget_hook = hook; }
@@ -640,6 +666,7 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
         machine.render_starts_total = inner.render_starts_total;
         machine.maple_list = inner.maple_list;
         machine.maple_started = inner.maple_started;
+        machine.maple_mdst = inner.maple_mdst;
         machine.dma2_started = inner.dma2_started;
         machine.dmac_sar2 = inner.dmac_sar2; machine.dmac_dar2 = inner.dmac_dar2;
         machine.dmac_dmatcr2 = inner.dmac_dmatcr2; machine.dmac_chcr2 = inner.dmac_chcr2;

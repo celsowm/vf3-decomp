@@ -19,7 +19,6 @@
 #define ASIC_VBLANK_IN   0x00000008u   /* SB_ISTNRM bit 3: the vertical blank */
 #define ASIC_RENDER_END  0x00000004u   /* the end of a render (EoR) */
 #define ASIC_DMA_END     0x00080000u   /* SH-4 DMAC channel 2 finished */
-#define ASIC_MAPLE_END   0x00001000u   /* a Maple transfer finished */
 
 /* The TA list-end bits: the game says which lists it expects in 0x0C16CDE8
  * and clears them in 0x0C16CDEC as they end. */
@@ -117,13 +116,11 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
         for (unsigned i = 0; i < 5; ++i)
             if (want & (1u << i)) vf3_native_raise_asic(bits[i]);
     }
-    {   /* the Maple: the list is answered at once (a stand-in pad on port A) */
+    {   /* the Maple: the guest's transfer list is answered when it starts the
+         * transfer (the model answers SB_MDST, like the reference), so there is
+         * nothing left to do here but take the count. */
         uint32_t list = 0;
-        vf3_maple_pad pad = { pad_buttons, 0, 0, 0x80, 0x80, 0x80, 0x80 };
-        for (unsigned n = vf3_native_take_maple(&list); n; --n) {
-            vf3_maple_dma(ev->ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, list, &pad);
-            vf3_native_raise_asic(ASIC_MAPLE_END);
-        }
+        (void)vf3_native_take_maple(&list);
     }
     for (unsigned n = vf3_native_take_render(); n; --n) vf3_native_raise_asic(ASIC_RENDER_END);
 
@@ -149,5 +146,5 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
 }
 
 unsigned vf3_frame_events_frames(const vf3_frame_events *ev) { return ev->frames; }
-void vf3_frame_events_set_buttons(uint16_t buttons) { pad_buttons = buttons; }
+void vf3_frame_events_set_buttons(uint16_t buttons) { pad_buttons = buttons; vf3_native_set_maple_buttons(buttons); }
 uint64_t vf3_frame_events_cycles(const vf3_frame_events *ev) { return ev->now; }

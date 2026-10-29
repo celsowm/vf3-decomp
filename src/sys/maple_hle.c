@@ -231,12 +231,23 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
             } else if (command == MAPLE_REQ_GETMEDIAINFO) {
                 code = MAPLE_RES_DATATRF;
                 memcpy(out, &func, 4);
-                {   /* The card's own system area; VF3_VMU_INFO=a,b,.. (12
-                     * decimal words) overrides the answer. */
+                {   /* The reference's VMU (maple_sega_vmu::dma, MDCF_GetMediaInfo,
+                     * MFID_1_Storage) only reads the card's own system area back
+                     * when its first halfword is 0xFF; otherwise - and the card
+                     * the reference starts from begins with 0x00FF - it answers
+                     * with a fixed table.  The two differ in the volume icon and
+                     * in the last word, so the answer has to be the table. */
+                    static const uint16_t fixed[12] = {
+                        0x00ff, 0x0000, 0x00ff, 0x00fe, 0x0001, 0x00fd,
+                        0x000d, 0x0000, 0x00c8, 0x001f, 0x0000, 0x0000
+                    };
                     const uint8_t *area = vmu + 255 * VMU_BLOCK + 0x40;
                     uint16_t info[12];
+                    const unsigned area_head = (unsigned)(area[0] | (area[1] << 8));
                     for (unsigned i = 0; i < 12; ++i)
-                        info[i] = (uint16_t)(area[2 * i] | (area[2 * i + 1] << 8));
+                        info[i] = (area_head != 0xFFu)
+                            ? fixed[i]
+                            : (uint16_t)(area[2 * i] | (area[2 * i + 1] << 8));
                     const char *e = getenv("VF3_VMU_INFO");
                     for (unsigned i = 0; e && *e && i < 12; ++i) {
                         info[i] = (uint16_t)strtoul(e, (char **)&e, 10);

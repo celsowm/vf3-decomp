@@ -23,6 +23,8 @@
 #define VF3_NATIVE_RAM_BASE 0x0C000000u
 #define VF3_NATIVE_RAM_LEN  0x01000000u
 #define VF3_NATIVE_SCHED_ENTRY 0x8C09616Au
+/* a Maple transfer finished (SB_ISTNRM bit 12) */
+#define ASIC_MAPLE_END   0x00001000u
 /* the loader stubs jump through the pointer word at 0x8C0000BC; REIOS fills it with this entry */
 #define VF3_BIOS_SYSCALL_VECTOR 0x0C001006u
 
@@ -69,6 +71,10 @@ void vf3_native_set_extra_stop(uint32_t pc);
 unsigned vf3_native_take_dma2(void);
 /* Maple DMA starts since the last call; *list receives the transfer-list address (SB_MDSTAR). */
 unsigned vf3_native_take_maple(uint32_t *list);
+/* The stand-in pad's buttons: the Maple model answers the guest's DMA start
+ * with them (the answer goes out when the guest writes SB_MDST, like the
+ * reference). */
+void vf3_native_set_maple_buttons(uint16_t buttons);
 /* ASIC normal-interrupt status the model keeps: raise bits, read what is pending, count STARTRENDER writes. */
 void vf3_native_raise_asic(uint32_t mask);
 /* write one word of the modelled AICA sound RAM (offset from 0x00800000) before a run */
