@@ -273,32 +273,19 @@ the check has failed).
 In the reference the handlers are still there at frame 1600, so its
 registration is the last thing that touched the queue.
 
-### 2. Neither dispatcher ever calls its handler
+### 2. The attach dispatcher is never entered - the store dispatcher is
 
 The two dispatchers are the only way into the two handlers (the image holds
 exactly one pointer to `0x0C0370F0`, the pool word at `0x0C037210` of the
-Maple callback, and one to `0x0C037190`).  In the port:
+Maple callback, and one to `0x0C037190`).  In the port the **attach
+dispatcher `0x0C04C3A0` is never entered** (0 times), while the store
+dispatcher `0x0C04C3C6` is entered eight times.
 
-```
-attach dispatcher 0x0c04c3a0   entered 0 times
-store  dispatcher 0x0c04c3c6   entered 8 times
-attach handler    0x0c0370f0   entered 0 times
-store  handler    0x0c037190   entered 0 times
-```
-
-So the store dispatcher runs eight times and *still* leaves the queue's
-`+0x78` (the store handler) untouched - it reads it and returns.  The state
-at the dispatcher's own entry is
-
-```
-mpdrv mask prev 00000001 cur 00000001 new 00000000 retry 00000000
-| slot +8 00 +30 00000003 +34 00000011
-| queue +4 00000001 +8 00000001 +74 0c0370f0 +78 0c037190 +7c 00000000
-```
-
-so the handler *is* in the queue at that moment.  The dispatcher's own code
-is faithful (it reads `queue[port]+0x78` and jumps to it when it is not
-zero), so the jump is not taken - and the next question is why.
+(The trace's `enter` hook only fires on a *router* entry.  A handler that the
+dispatcher reaches through the module's own `goto dispatch` switch runs
+inside the module and never trips the hook - so "the handler was not
+entered" is not evidence about the handler.  The dispatchers are router
+entries, so their counts are reliable.)
 
 The device check `0x0C046406` has two loops over the bus masks.  The first
 one handles the devices that *appeared* (`(prev ^ cur) & cur`) and calls the
@@ -323,6 +310,30 @@ keeps the reference's first two bytes (`01 01`) but not the three that follow
 entry 0 is zero apart from the two handlers, so the reference never
 registered a device in the queue at all - its table slot was filled by the
 per-device fill `0x0C04C750` from the Maple answer.
+
+### 3. The port's enumeration stalls - it never reaches the card
+
+The store dispatcher is called once per device the per-device fill has
+found, and its `r6` is the device number it reports:
+
+```
+enter 0c04c3c6 pr 0c04cc94 r4 00000000 r5 00000001 r6 00000001 r7 00000011
+enter 0c04c3c6 pr 0c04bed0 r4 00000000 r5 00000001 r6 00000002 r7 00000011
+enter 0c04c3c6 pr 0c04bfba r4 00000000 r5 00000001 r6 00000003 r7 00000011
+...                                    (r6 = 1 .. 8)
+```
+
+`r5 = 1` is the flag the driver uses for "a device was stored", and `r6` is
+the device number - the reference's record (`0x0C19C6A0`) carries the number
+**17** at `+8` and `+0xC`, and its table slot carries 17 at `+0x34`; the
+port's record carries **8** at `+8`.  The port's enumeration therefore stops
+at eight or nine devices (its table's `+0x30` counter grows 2, 3, 4, ... 9
+and stops), while the reference has **18** devices by frame 40 and its
+`+0x30` stays at 18.
+
+So the card - the device the check asks about - is never reached in the port:
+the driver enumerates a fraction of what the reference enumerates, and the
+record for the card is never written.  That is the gap to close next.
 
 The probe's polarity is worth spelling out, because `tst` sets T when the
 result is **zero** and `bt` branches when T is 1:
