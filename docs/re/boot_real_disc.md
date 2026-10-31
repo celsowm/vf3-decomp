@@ -184,7 +184,10 @@ The two diverge at the reference's request 13: the reference asks for
 
 ## What is still open
 
-**The port loads one file and stops.**  The loader's buffer at `0x0C2A6300`
+**The port loads one file and stops.**  *(superseded 2026-10-31: the stall was
+the ARM7 handshake, not the loader - with the ARM7's boot modelled the port
+reads the files in the reference's order; see
+`docs/re/boot_arm7_wait.md`.)*  The loader's buffer at `0x0C2A6300`
 holds the next file it wants - the name `VF3TBE3.BIN;1` and the directory
 record - so the loader *did* find the next entry; it just never asked the
 drive for it.  The guest is parked at `0x0C0C5C00` (the host's `pc` in the
@@ -197,8 +200,10 @@ log says exactly which sector comes next.
 
 Two smaller leads are still open from the earlier notes:
 
-* the enumeration stub `0x0C046E14` - who computes its indirect target (no
-  literal, no direct branch, absent from RAM);
+* the enumeration stub `0x0C046E14` - **closed 2026-10-31**: its indirect
+  target is the plain literal `0x0C04C9A2` at `0x0C046E50` (the old note read
+  the pool slot four bytes too far and found code there);
+  `docs/re/enum_stub.md`.
 * the device-tape mismatch at `0x1F8000BC` - the port's PVR2 view swallows a
   BIOS pointer read.
 
