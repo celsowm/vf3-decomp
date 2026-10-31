@@ -300,7 +300,8 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   (the Tile Accelerator samples it at 0x54D880) is empty: the port's boot
   starts at the game's own entry (0x8C004000) with only the 1ST_READ image
   in RAM, so the REIOS - the component that loads the game's files - never
-  runs.  **The data is not there either**: the disc image in rom/ is entirely
+  runs.
+  **The data is not there either**: the disc image in rom/ is entirely
   zero (all three track files, tools/gd_sectorscan.py) and the game's 412
   data files are not in extract/gamedata either, so the loader's reads return
   zeros and this workspace's boot cannot reach the game at all -
@@ -317,6 +318,44 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   event model's frame cap, not a missing port) and the claim audit reported
   158 holes (it did not model the chain's fallback, which carries 27,964
   PCs).  docs/re/boot_vram_traffic.md, docs/re/maple.md.
+- **The disc was never missing - the images in `rom/` were placeholders.**
+  The three track files were zero-filled files of the **wrong size** (track03
+  was 1,305,360,000 B instead of 1,185,760,800 B), and the real image was in
+  the emulator's ISO directory all along:
+  `D:\emuladores\dreamcast\isos\[GDI] Virtua Fighter 3tb (US)\` (the `.gdi`
+  there is byte-identical to `rom/vf3.gdi`, so the descriptor was never
+  wrong - only the tracks it pointed at).  The real data track's 504,150
+  sectors are exactly what a GD-ROM needs (LBA 45,000..549,149).  With the
+  tracks and the 413 extracted files restored the boot reads the real
+  ISO9660 volume (PVD at FAD 0xb06e, the root directory at 0xb072..0xb07b),
+  loads /SNDDRV.BIN **byte for byte**, and the card check walks the whole
+  chain 255..241 and ends with the card's LCD write.  The 69 DTPK packages
+  are rebuilt from the restored data.  docs/re/boot_real_disc.md.
+- **A boot oracle exists now: the reference can boot for real.**  With the
+  disc in place, move the savestate aside
+  (`tools/emu/flycast-build/data/vf3.state`; Flycast loads it automatically
+  and `-config Dreamcast:AutoLoadState=0` does not stop it) and run
+  `tools\emu\flycast-build\flycast_v3.exe rom\vf3.gdi`.  The log lands in the
+  **current directory** and is 1.4 GB.  It shows the REIOS reading the real
+  disc (`product MK-51001 ... boot 1ST_READ.BIN ... name VF3TB`), 382 DMA
+  reads and **367 files loaded**.  In a real boot the reference **never asks
+  A2** (`grep -c 'VMU A2'` = 0), so the port's "never asks recipient 0x02" is
+  what the hardware does; the "fifteen blocks and two cards" of the old
+  notes was the save-state run's poll.  docs/re/boot_real_disc.md.
+- **The two boots line up request for request - and the port loads one file.**
+  `tools/boot_reads.py` compares them; it parses the reference's
+  `SPI_CD_READ - Sector=N` line (the sector the guest asked for) and **not**
+  the `GDROM-DMA ... fad X` line, whose "fad" is `read_params.start_sector`
+  *after* the transfer advanced it, so it names the sector **after** the one
+  that was read.  From the ISO directory on, the two agree exactly (same FAD,
+  same destination, same length) through `/SNDDRV.BIN`; the reference then
+  asks for `/COIN.BIN` and carries on to 367 files, the port stops.  The
+  guest is parked at `0x0C0C5C00`, and its loader buffer at `0x0C2A6300`
+  already holds the next file it wants (`VF3TBE3.BIN;1`), so it found the
+  entry and never asked the drive for it.  The oracle names the next sector.
+  Reading tools: `tools/iso9660.py` (the volume), `tools/boot_reads.py` (the
+  two boots), `tools/trace_bin_sum.py` (the reference's 8-byte-per-
+  instruction trace as a PC histogram).
 - **The reference's log is a run with a save state loaded, not a boot.**
   `flycast.log` opens with `SAVESTATE: Loaded state ver 854 from ...\data\vf3.state`,
   so everything after it belongs to the already running game: its 23,480

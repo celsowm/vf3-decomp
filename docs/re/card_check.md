@@ -127,6 +127,22 @@ per-unit state carries in word 2 (`0x00010007`); the port's state carries the
 last block read instead (`0x82010008`), because the port's guest never gets
 that far.
 
+**Correction (2026-10-31).**  Points 1 and 2 are measured from the
+reference's **save-state run**, and they do not describe the boot.  With the
+real disc in place the reference can boot for real (the savestate moved
+aside), and then:
+
+* it reads 255..241 - the same thirteen directory blocks - and the **port
+  reads the same fifteen** (the root, the FAT and the thirteen directory
+  blocks) and ends with the LCD write;
+* it talks to **A1 only**: a real boot never asks A2
+  (`grep -c 'VMU A2' flycast.log` = 0), so the port's "never asks `0x02`" is
+  what the hardware does at boot time.
+
+So the "the port stops at 248" and the "no second card" were both artifacts
+of the empty disc and of the save-state reference.  See
+`docs/re/boot_real_disc.md`.
+
 ## The driver's state is not the problem
 
 Measured on the port's frame 30 and on the reference's frame 40 (the
@@ -289,22 +305,46 @@ Maple address 2, the port the reference reads as `VMU A2`).
 
 ## What is still missing
 
-The guest never asks the second card (recipient `0x02`) and stops walking
-the directory chain at block 248 - the reference walks it to 241 and then
-writes the card's LCD.
+**Correction (2026-10-31).**  The two gaps this section names are **closed**,
+and they were closed by the disc, not by a change to the Maple model.
 
-The chain itself is not the problem: the FAT copy the guest keeps
-(`0x0C198AA0`) is byte for byte the reference's, and the chain it names
-(253 -> 252 -> ... -> 241) is the one the port reads.  So the guest stops
-for a reason of its own, and the next thing to look at is the SDK's card
-service: the function that reads the chain (the caller of the transfer
-builder at `0x0C036132`, whose PR is `0x0C043CAA`) and the limit it applies.
+The disc image in `rom/` was empty, and the game's own loader could not read
+the volume, so the boot never reached the SDK's card service properly: it
+walked the directory chain only to block 248 and never asked the second card.
+With the real disc in place (`docs/re/boot_real_disc.md`) the port's
+boot-time card check reads the **whole** chain and ends with the LCD write:
 
-**The reference is not the oracle here.**  Its log is a run with a save state
-of the already running game loaded, so its card check is the running game's
-poll and not the boot's card service; see
-`docs/re/boot_data_blocked.md`.  The guest's own code is the oracle for the
-boot-time check.
+```
+$ python tools/count_blocks.py build/maple_real.log
+block reads: 15
+  to=0x01 block=ff
+  ...
+  to=0x01 block=f1
+```
+
+and the last transfer is the LCD write (`frame 3200010c`, the `0x0C` command
+with the `0x04000000` argument).
+
+The missing second card was never a defect.  The reference's `flycast.log` is
+a **save-state run** - the running game's poll, which reads *both* VMUs - and
+the comparison was between two different scenarios.  In a **real boot** (the
+savestate moved aside, the reference reading the real disc) the reference
+never touches A2 at all:
+
+```
+$ grep -c 'VMU A2' flycast.log
+0
+```
+
+so "the port never asks `0x02`" is what the hardware does at boot time.  The
+open question this section framed - "what sets the callback queue entry's
+field `+4` for a port, and why does it not run for slot 1" - has the answer
+the boot gives: the boot-time card service checks **one** card, the one in
+expansion slot 1.
+
+The measurements above (the driver's block, the per-device table, the SDK's
+data area, the masks and the FAT copy being byte for byte the same) were
+never in question, and they still hold.
 
 The probes:
 

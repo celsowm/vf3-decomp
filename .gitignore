@@ -21,6 +21,9 @@ tools/katana_raw/
 build/
 build_tmu/
 
+# The reference emulator's own log (gigabytes for a clean boot)
+/flycast.log
+
 # Hand-over evidence bundles (huge, reproducible from extract/analysis)
 dist/
 *.7z

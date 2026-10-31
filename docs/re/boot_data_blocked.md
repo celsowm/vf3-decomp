@@ -1,24 +1,41 @@
 # The boot is blocked by data, not by the services
 
+**Correction (2026-10-31).**  The disc was **not** missing.  The images in
+`rom/` were zero-filled placeholders of the wrong size, and the real image
+was in the emulator's own ISO directory all along
+(`D:\emuladores\dreamcast\isos\[GDI] Virtua Fighter 3tb (US)\`).  With the
+real disc restored the port's boot reads the ISO9660 volume, loads the game's
+files and completes the card check; the reference can boot for real too.  See
+**`docs/re/boot_real_disc.md`** for the measurements, the tools and the two
+boots side by side.
+
+The rest of this note is what was measured against the empty disc, and it is
+kept because the reasoning still holds - in particular the second half, "the
+reference's log is a run with a save state loaded, not a boot", which is the
+reason the reference could not be compared with the port until now.
+
 This note records what the from-scratch boot of the port can and cannot do in
 this workspace, and what the reference's own log may be used as an oracle for.
 It is the correction of two beliefs that the earlier notes carried.
 
 ## The disc image in `rom/` is empty
 
-`rom/vf3.gdi` describes three tracks:
+**Correction (2026-10-31).**  The files in `rom/` are zero-filled placeholders
+of the **wrong size** - not a dump of a disc that has no data.  The real
+image was in the emulator's ISO directory:
 
-```
-3
-1 0 4 2352 track01.bin 0
-2 450 0 2352 track02.raw 0
-3 45000 4 2352 track03.bin 0
-```
+| file | `rom/` (before) | the real one |
+|---|---:|---:|
+| `track01.bin` | 9,408 B | 705,600 B |
+| `track02.raw` | 104,781,600 B | 1,237,152 B |
+| `track03.bin` | 1,305,360,000 B | 1,185,760,800 B |
 
-(track 1 at LBA 0 and track 3 at LBA 45000, 2352 bytes per sector - the raw
-layout with a 16 byte sync+header in front of the 2048 user bytes.)
+The real data track's 504,150 sectors are exactly what a GD-ROM needs (the
+track starts at LBA 45,000 and the disc ends at LBA 549,149).  The `.gdi`
+descriptor was never wrong - only the tracks it pointed at.
 
-The files have the right sizes and **no data at all**:
+The scan below is what the placeholders showed, and it is what the earlier
+notes measured:
 
 ```
 $ python tools/gd_sectorscan.py rom/track01.bin rom/track02.raw rom/track03.bin
@@ -27,17 +44,18 @@ track02.raw    104781600 bytes       0/  3198 chunks with data  first nz none  l
 track03.bin   1305360000 bytes       0/ 39837 chunks with data  first nz none  last nz none
 ```
 
-Every byte of the disc is zero.  A loader that reads the disc therefore gets
-zeros, and so does the reference emulator - it was pointed at the same `.gdi`.
-
-The game's own data files are missing as well: `extract/gamedata/` holds the
+The game's own data files were missing as well: `extract/gamedata/` held the
 three executables (`1ST_READ.BIN`, `RELOAD.BIN`, `VF3TBE3.BIN`), not the 412
 files of the data track that `AGENTS.md` describes.
 
-**Consequence.**  The port's boot can never reach the game from the disc, and
-the reference could not have either.  The black screen is explained: the
-loader runs, the drive answers, the sectors are empty.  The missing piece is
-the *data*, and no amount of service modelling will produce it.
+**Consequence (as measured then).**  The port's boot could never reach the
+game from the disc, and the reference could not have either.  The black
+screen was explained: the loader ran, the drive answered, the sectors were
+empty.  The missing piece was the *data*, and no amount of service modelling
+would produce it.
+
+**Consequence (now).**  The data was never missing; it was in the wrong
+place.  `docs/re/boot_real_disc.md` has the restored boot.
 
 ## The reference's log is a run with a save state loaded, not a boot
 
@@ -84,14 +102,27 @@ With the drive served (`docs/re/gd_service.md`), the port's boot now:
 * runs the SDK's card check, which walks the directory chain from block 255 to
   248 and asks the card in expansion socket 1 (`0x01`).
 
+**Correction (2026-10-31).**  With the real disc, the card check walks the
+chain to block **241** (fifteen blocks) and ends with the card's LCD write,
+and the loader reads the volume and loads `/SNDDRV.BIN` byte for byte.  See
+`docs/re/boot_real_disc.md`.
+
 ## What is left, and where to look next
 
-The card check's own limit (eight reads, and no second card) is still open,
-but it now has to be measured **against the boot-time card service**, not
-against the reference's running-game poll.  The guest's own code is the
-oracle here: the transfer builder is at `0x0C036132` (it writes `SB_MDST` at
-`0x0C0361F4`), the caller that walks the chain is at `0x0C043CAA`, and the
-chain itself is in the guest's FAT copy at `0x0C198AA0` (halfword *n* holds
+**Correction (2026-10-31).**  The card check's own limit (eight reads, and no
+second card) is **closed**: it was the empty disc.  The port's boot-time card
+check now reads 255..241 and writes the LCD, which is exactly what the
+reference does in a real boot (where it never touches A2 at all).
+
+What is left is the loader: the port loads one file (`/SNDDRV.BIN`) and stops,
+while the reference loads 367.  The guest is parked at `0x0C0C5C00`.  The
+oracle is the reference's own boot log - it names the next sector to read -
+and the tools are `tools/boot_reads.py` (the two boots side by side) and
+`tools/iso9660.py` (the volume).
+
+The guest's card service is at: the transfer builder `0x0C036132` (it writes
+`SB_MDST` at `0x0C0361F4`), the caller that walks the chain `0x0C043CAA`, and
+the chain itself in the guest's FAT copy at `0x0C198AA0` (halfword *n* holds
 block *n*; `FAT[241] = 0xFFFC` ends the chain, `FAT[248] = 0x00F7` says
 "continue").
 
@@ -99,6 +130,9 @@ The tools that read the tables:
 
 | tool | what it answers |
 |---|---|
+| `tools/iso9660.py <track>` | the data track's ISO9660 volume: the files, their extents, and the file a FAD belongs to |
+| `tools/boot_reads.py <ref log> [port log]` | the two boots side by side, request for request |
+| `tools/trace_bin_sum.py <trace>` | the reference's binary execution trace as a PC histogram |
 | `tools/maple_card_state.py <ram dump>` | the mpdrv tables in a RAM dump |
 | `tools/maple_card_probe.py` | the record with different media-info answers |
 | `tools/maple_card_count_probe.py` | the record with different root blocks (the count does not follow the media info) |
