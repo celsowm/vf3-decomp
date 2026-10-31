@@ -120,6 +120,54 @@ static unsigned aica_mbox_polls;
 static uint32_t aica_upload_len;
 static uint64_t aica_upload_polls_left;
 
+/* The ARM7's reset register.  The SH-4 reaches the AICA's register file in
+ * area 0 (0x00700000..0x00707FFF, the emulator's map in sb_mem.cpp) and the
+ * ARM reset sits at 0x00702C00 (aica_if.cpp: ARMRST, `arm::enable(ARMRST == 0)`).
+ * Writing 0 releases the ARM7, which then runs the sound driver the guest has
+ * just uploaded into the sound RAM; writing 1 holds it in reset.
+ *
+ * The port has no ARM7, so the model performs the two effects of the firmware's
+ * start-up that the guest waits for:
+ *
+ *   - the firmware publishes its "INIT" signature in the driver's status field
+ *     (sound RAM + 0x5C).  The guest polls exactly that word and never leaves
+ *     the poll while it is zero (0x0C040656: `mov.l @r2,r3; tst r3,r3; bt`),
+ *     so with the ARM7 idle the boot parks there for ever.
+ *   - the firmware publishes the free-size limit of the sound RAM (sound RAM +
+ *     0x88).  The loader checks the file it is about to upload against it
+ *     (0x0C0401D4) and fails with -4 when it does not fit.
+ *
+ * Both values are the ones the emulator's own AICA RAM carries: the "INIT"
+ * signature out of a Flycast savestate (the AICA RAM is part of the state) and
+ * the free size out of the emulator trace of the same loader (docs/re/
+ * phase4_findings.md).  docs/re/boot_arm7_wait.md has the evidence. */
+#define AICA_REG_ARMRST 0x00702C00u
+#define AICA_STATUS_INIT 0x5Cu
+#define AICA_INIT_MAGIC 0x54494E49u    /* "INIT" */
+#define AICA_FREE_LIMIT 0x88u
+#define AICA_FREE_VALUE 0x001E0000u
+static uint32_t aica_armrst;           /* the register as the guest left it */
+
+/* The ARM7's start-up: the driver image has to be in the sound RAM (the guest
+ * uploads it before it releases the reset), and its identification field (the
+ * "AM2/AICAsoundDrv..." string the driver carries at offset 0x20) is what
+ * tells the model that a driver is there at all. */
+static void aica_arm_boot(void)
+{
+    unsigned i;
+    int identified = 0;
+    for (i = 0x20; i < 0x40; ++i)
+        if (aica_ram[i] >= 0x20 && aica_ram[i] < 0x7f) { identified = 1; break; }
+    if (!identified) return;            /* no driver: the ARM7 would run noise */
+    {
+        const uint32_t magic = AICA_INIT_MAGIC;
+        const uint32_t limit = AICA_FREE_VALUE;
+        memcpy(aica_ram + AICA_STATUS_INIT, &magic, 4);
+        memcpy(aica_ram + AICA_FREE_LIMIT, &limit, 4);
+    }
+    if (getenv("VF3_DEVLOG")) fprintf(stderr, "aica: ARM7 released, driver up\n");
+}
+
 /* The game's free-running frame clock: TMU channel 0 (TCNT0, 0xFFD8000C, read through the 0x1Fxxxxxx mirror after the
  * driver masks with 0x1FFFFFFF). The init at 0x8C039C10 starts all three channels from 0xFFFFFFFF with TCR = 2; the
  * emulator's TCNT0 counts down by 13,033 per frame (3,336,670 cycles / 256). The frame loop (0x8C059B48), the vblank
@@ -162,6 +210,7 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
     /* PVR SPG_STATUS: the vertical-blank handler samples the scanline (low 10 bits) it was raised on. The emulator's
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
+    if ((address & 0x1FFFFFFFu) == AICA_REG_ARMRST) return aica_armrst;
     if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         if (!aica_upload_polls_left) return 0;
         --aica_upload_polls_left;
@@ -277,6 +326,10 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
     if (getenv("VF3_DEVLOG")) fprintf(stderr, "devwrite %08x size %u value %08x%c", address, size, value, 10);
     if (tmu_on && (address & 0x1FFFFFFFu) == 0x1FD8000Cu)   /* a guest write re-seeds TCNT0 */
         tmu_cycles = (uint64_t)(0xFFFFFFFFu - value) << 8;    if ((address & 0x1FFFFFFFu) == AICA_MBOX_CMD) aica_mbox_polls = 0;
+    if ((address & 0x1FFFFFFFu) == AICA_REG_ARMRST) {
+        aica_armrst = value & 1u;
+        if (!aica_armrst) aica_arm_boot();   /* 0 releases the ARM7 */
+    }
     if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         aica_upload_len = value;
         aica_upload_polls_left = (uint64_t)value * AICA_UPLOAD_POLLS_PER_BYTE_X10 / 10u;

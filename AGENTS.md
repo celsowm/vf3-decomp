@@ -342,20 +342,32 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   A2** (`grep -c 'VMU A2'` = 0), so the port's "never asks recipient 0x02" is
   what the hardware does; the "fifteen blocks and two cards" of the old
   notes was the save-state run's poll.  docs/re/boot_real_disc.md.
-- **The two boots line up request for request - and the port loads one file.**
-  `tools/boot_reads.py` compares them; it parses the reference's
-  `SPI_CD_READ - Sector=N` line (the sector the guest asked for) and **not**
-  the `GDROM-DMA ... fad X` line, whose "fad" is `read_params.start_sector`
-  *after* the transfer advanced it, so it names the sector **after** the one
-  that was read.  From the ISO directory on, the two agree exactly (same FAD,
-  same destination, same length) through `/SNDDRV.BIN`; the reference then
-  asks for `/COIN.BIN` and carries on to 367 files, the port stops.  The
-  guest is parked at `0x0C0C5C00`, and its loader buffer at `0x0C2A6300`
-  already holds the next file it wants (`VF3TBE3.BIN;1`), so it found the
-  entry and never asked the drive for it.  The oracle names the next sector.
-  Reading tools: `tools/iso9660.py` (the volume), `tools/boot_reads.py` (the
-  two boots), `tools/trace_bin_sum.py` (the reference's 8-byte-per-
-  instruction trace as a PC histogram).
+- **The ARM7 was the wall - the port now boots the game.**  The guest uploads the
+  ARM7 sound firmware into the AICA RAM (53,120 bytes, `0x00800000..0x0080CF7C`),
+  releases the ARM7 through the AICA's `ARMRST` register (`0x00702C00`) and then
+  polls the driver's status field at sound RAM `+0x5C` until the firmware
+  answers **"INIT"** (`0x54494E49`).  The port had no ARM7 and no `ARMRST`, so
+  the wait never ended: the park at `0x0C0C5C00` was the ARM7 handshake, not a
+  GD-ROM stall.  The answer is in the reference's own sound RAM - the AICA RAM is
+  part of a Flycast savestate and `tools/aica_state.py` reads it out (all six
+  reference savestates carry "INIT" at `+0x5C`; the uploaded file carries 0).
+  `src/fight/native_tick.c` now models the release and the firmware's start-up
+  (the "INIT" signature and the free-size limit at `+0x88`).  The port's boot
+  then reads the files in the reference's order - `tools/boot_reads.py` shows the
+  port's 42 requests are the reference's requests 5..46, same FAD, same length,
+  same destination - and the game renders (614,400 pixels at frame 150, where
+  the stalled boot rendered nothing).  The reference's first five requests are
+  the REIOS's own boot reads, which the port skips by construction (it starts
+  with the image already in RAM).  docs/re/boot_arm7_wait.md.
+- **The two boots line up request for request.**  `tools/boot_reads.py`
+  compares them; it parses the reference's `SPI_CD_READ - Sector=N` line (the
+  sector the guest asked for) and **not** the `GDROM-DMA ... fad X` line, whose
+  "fad" is `read_params.start_sector` *after* the transfer advanced it, so it
+  names the sector **after** the one that was read.  Reading tools:
+  `tools/iso9660.py` (the volume), `tools/boot_reads.py` (the two boots),
+  `tools/aica_state.py` (the AICA RAM out of a Flycast savestate),
+  `tools/trace_bin_sum.py` (the reference's 8-byte-per-instruction trace as a
+  PC histogram).
 - **The reference's log is a run with a save state loaded, not a boot.**
   `flycast.log` opens with `SAVESTATE: Loaded state ver 854 from ...\data\vf3.state`,
   so everything after it belongs to the already running game: its 23,480
