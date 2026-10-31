@@ -94,7 +94,12 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
    it guards, as `tests/<name>_mutations.json`.  A mutation the test cannot
    see is a path the test never reaches.  Pass `--target <exe target>` so only
    the port's own test is relinked: a full rebuild after every mutation turns
-   a 46-mutation gate into an hour of linking.
+   a 46-mutation gate into an hour of linking.  The tool mutates **one** file
+   per run, so a port that spans several files gets one list per file - the GD
+   service's four lists are `tests/gd_service_mutations.json` (the stub),
+   `tests/gd_service_native_mutations.json` (native_tick.c),
+   `tests/gd_service_model_mutations.json` (bios_syscall.c) and
+   `tests/gd_service_drive_mutations.json` (gdrom_hle.c).
 
 ## Solved formats
 - DTPK container + AICA ADPCM audio (tools/dtpk_extract.py, adpcm_decode.py;
@@ -295,16 +300,40 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   (the Tile Accelerator samples it at 0x54D880) is empty: the port's boot
   starts at the game's own entry (0x8C004000) with only the 1ST_READ image
   in RAM, so the REIOS - the component that loads the game's files - never
-  runs, and the port's GD-ROM model is attached but never asked for anything.
-  The reference's boot does run it (its log carries 23,480 "GDROM: HLE
-  EXEC_SERVER" lines and the drive's sectors are read from the first
-  seconds), so the missing piece is the REIOS' file service (the system
-  vector 0x8C001000), not the renderer: the attract fight, which has its
-  textures, matches the reference at 95.48%.  Two false alarms hid this: the
+  runs.  **The data is not there either**: the disc image in rom/ is entirely
+  zero (all three track files, tools/gd_sectorscan.py) and the game's 412
+  data files are not in extract/gamedata either, so the loader's reads return
+  zeros and this workspace's boot cannot reach the game at all -
+  docs/re/boot_data_blocked.md.
+  The GD-ROM service is no longer the hole: the chain's REIOS stub used to
+  answer the BIOS vector (0x8C001006) from an *idle* drive although a drive
+  with the disc was attached, so the loader's file reads never completed; the
+  service now lives in native_tick.c (vf3_native_gd_syscall) and both doors
+  call it - docs/re/gd_service.md, tests/gd_service_replay.c (11 mutations
+  caught).  The reference's log is **not a boot** - it loads a save state of
+  the already running game - so it is not the oracle for the boot's behaviour.
+  The attract fight, which has its textures, matches the reference at 95.48%.  Two false alarms hid this: the
   host printed "unowned call at <pc>" at the end of every boot (that was the
   event model's frame cap, not a missing port) and the claim audit reported
   158 holes (it did not model the chain's fallback, which carries 27,964
   PCs).  docs/re/boot_vram_traffic.md, docs/re/maple.md.
+- **The reference's log is a run with a save state loaded, not a boot.**
+  `flycast.log` opens with `SAVESTATE: Loaded state ver 854 from ...\data\vf3.state`,
+  so everything after it belongs to the already running game: its 23,480
+  "GDROM: HLE EXEC_SERVER" calls, its four DMA reads and its card check at
+  00:14:542 (blocks 255..241 to A1 *and* A2, then the LCD write) are the
+  running game's traffic.  The port's boot is a different scenario (it starts
+  at the game's own entry with the empty disc), so "the reference walks fifteen
+  blocks and talks to two cards, the port walks eight and talks to one" is not
+  a port defect - the boot-time card service has to be measured against the
+  guest's own code.  docs/re/boot_data_blocked.md, docs/re/card_check.md.
+- **`0x00FF` is `0xFF`.**  Flycast's `maple_sega_vmu::dma` reads the card's own
+  media-info area back when the first halfword at `root + 0x40` is `0xFF`, and
+  answers with the fixed table of an unformatted card otherwise.  The card the
+  reference starts from begins with `ff 00`, so that halfword is 255 and the
+  reference answers with the *card's own* area.  The port's code was right
+  (`src/sys/maple_hle.c`); the prose in docs/re/card_check.md and a comment in
+  the same file were wrong - both are corrected.
 - **The oracle's RAM page budget was 128 pages (512 KiB) and the arena
   fixture alone used all of it.**  The budget is a memory limit, not a
   semantic one; `docs/re/patches/oracle_device_reads.patch` now raises it to

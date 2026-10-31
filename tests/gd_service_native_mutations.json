@@ -1,0 +1,38 @@
+[
+ {
+  "name": "the_sector_copy_does_not_land_in_the_callers_ram",
+  "subs": [
+   [
+    "    gd_map = ram;",
+    "    gd_map = NULL;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_is_overwritten_even_when_the_command_leaves_it_alone",
+  "subs": [
+   [
+    "    if (vf3_bios_gd_r0_answered(s->v[7])) s->v[0] = r0;",
+    "    s->v[0] = r0;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_is_never_written",
+  "subs": [
+   [
+    "    if (vf3_bios_gd_r0_answered(s->v[7])) s->v[0] = r0;",
+    "    /* r0 is left alone */"
+   ]
+  ]
+ },
+ {
+  "name": "the_run_does_not_continue_at_the_return_address",
+  "subs": [
+   [
+    "    if (vf3_bios_gd_r0_answered(s->v[7])) s->v[0] = r0;\r\n    s->pc = s->v[16];",
+    "    if (vf3_bios_gd_r0_answered(s->v[7])) s->v[0] = r0;\r\n    s->pc = entry;"
+   ]
+  ]
+ }
+]

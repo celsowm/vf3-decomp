@@ -30,3 +30,6 @@ int vf3_bios_gd_syscall_clocked(vf3_gdrom *gd, const vf3_guest_mem *mem, const u
 
 /* run one syscall; returns 1 and stores r0 in *r0_out when handled, 0 otherwise */
 int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t r[8], uint32_t *r0_out);
+/* 1 when the command answers in r0, 0 when it leaves r0 alone (EXEC_SERVER,
+ * INIT_SYSTEM and RESET do).  The caller must not write r0 for the others. */
+int vf3_bios_gd_r0_answered(uint32_t r7);

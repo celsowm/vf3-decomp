@@ -639,6 +639,9 @@ function(add_port_test tname src)
 endfunction()
 
 add_port_test(vf3scalemap tests/scalemap_replay.c)
+# the REIOS GD-ROM service: the BIOS vector must be answered by the drive that
+# is attached to the run, not by the idle model (docs/re/gd_service.md)
+add_port_test(vf3gdservice tests/gd_service_replay.c)
 add_port_test(vf3maplookup tests/maplookup_replay.c)
 add_port_test(vf3meshnode tests/mesh_node_replay.c)
 add_port_test(vf3d0fa tests/d0fa_replay.c)

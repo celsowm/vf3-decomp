@@ -1,0 +1,29 @@
+[
+ {
+  "name": "the_transfer_is_not_armed_with_the_sector_count",
+  "subs": [
+   [
+    "            st->multi_read_count = st->params[1];",
+    "            st->multi_read_count = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "the_transfer_is_not_armed_with_the_destination",
+  "subs": [
+   [
+    "            st->multi_read_offset = st->params[2];",
+    "            st->multi_read_offset = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "the_transfer_starts_at_the_wrong_sector",
+  "subs": [
+   [
+    "            st->cur_sector = st->params[0] & 0xFFFFFFu;",
+    "            st->cur_sector = 0;"
+   ]
+  ]
+ }
+]

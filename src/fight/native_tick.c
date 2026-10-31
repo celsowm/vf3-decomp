@@ -293,6 +293,23 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
          * buffer before the model had written it. */
         ++machine.maple_started;
         machine.maple_mdst = 1;
+        if (getenv("VF3_MAPLEPC")) {
+            /* The guest's return addresses, from the stack it has pushed.
+             * The function that asks for the next block of the card's
+             * directory chain is one of them, so this is how the chain walk
+             * is located (docs/re/boot_data_blocked.md). */
+            fprintf(stderr, "maple: start at %08x pc %08x\n", machine.maple_list, machine.cur ? machine.cur->pc : 0u);
+            if (machine.cur && machine.ram) {
+                const uint32_t sp = machine.cur->v[15];
+                for (unsigned k = 0; k < 48u; ++k) {
+                    const uint32_t a = (sp + 4u * k) & 0x0FFFFFFFu;
+                    if (a < VF3_NATIVE_RAM_BASE || a + 4u > VF3_NATIVE_RAM_BASE + VF3_NATIVE_RAM_LEN) break;
+                    uint32_t w;
+                    memcpy(&w, machine.ram + (a - VF3_NATIVE_RAM_BASE), 4);
+                    if (w >= 0x0C000000u && w < 0x0C100000u) fprintf(stderr, "  stack[%02u] %08x -> %08x\n", k, sp + 4u * k, w);
+                }
+            }
+        }
         if (machine.ram) {
             const vf3_maple_pad pad = { machine.maple_buttons, 0, 0, 0x80, 0x80, 0x80, 0x80 };
             vf3_maple_dma(machine.ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, machine.maple_list, &pad);
@@ -495,10 +512,23 @@ static int readable_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map 
     return ok;
 }
 
+/* The RAM the GD-ROM model writes into.
+ *
+ * The sector copy belongs to the RAM window of the call in progress: the
+ * matrix chain hands the router a map, and the chain's REIOS stub serves the
+ * GD-ROM vector from the drive attached to the native run.  Outside a call
+ * (the scheduler stepping the drive between frames) the bytes belong to the
+ * RAM image of the run in progress. */
+static const vf3_ram_map *gd_map;
+
 /* guest RAM behind the GD-ROM model: transfers land in the image of the run in progress */
 static void gd_write(void *ctx, uint32_t addr, const uint8_t *data, uint32_t len)
 {
     (void)ctx;
+    if (gd_map) {
+        for (uint32_t i = 0; i < len; ++i) vf3_matrix_write(gd_map, addr + i, data[i], 1u);
+        return;
+    }
     const uint32_t off = (addr & 0x0FFFFFFFu) - VF3_NATIVE_RAM_BASE;
     if (machine.ram && (addr & 0x0FFFFFFFu) >= VF3_NATIVE_RAM_BASE && off + len <= VF3_NATIVE_RAM_LEN)
         memcpy(machine.ram + off, data, len);
@@ -546,26 +576,44 @@ static unsigned run_depth;
 
 void vf3_native_set_poll_hook(void (*hook)(void *), void *ctx) { poll_hook = hook; poll_ctx = ctx; }
 
+/* The BIOS GD-ROM service, served from the attached drive.
+ *
+ * The loader reaches the drive through the REIOS syscall vector (0x8C001006).
+ * Two doors lead there: the matrix chain's REIOS stub, which owns the entry
+ * (src/fight/vf3_aica_stub_adapter.c), and the unowned hook, which catches
+ * what no module claims.  Both come through here, so the two doors cannot
+ * answer the same call differently.
+ *
+ * The transfer is clocked the way the loader's poll loop clocks it: a busy
+ * GET_CMD_STAT advances the drive (see sys/bios_syscall.h).
+ */
+int vf3_native_gd_syscall(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram)
+{
+    if (!machine.gd || (entry & 0x0FFFFFFFu) != VF3_BIOS_SYSCALL_VECTOR) return 0;
+    const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
+    const uint32_t args[8] = { 0, 0, 0, 0, s->v[4], s->v[5], s->v[6], s->v[7] };
+    uint32_t r0 = 0;
+    /* the sector copy lands in the RAM window of this call */
+    const vf3_ram_map *saved_map = gd_map;
+    gd_map = ram;
+    /* VF3_GD_NOCLOCK=1: a poll never advances the drive (isolates timing-dependent differences) */
+    const int served = getenv("VF3_GD_NOCLOCK") ? vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)
+                                                 : vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0);
+    gd_map = saved_map;
+    if (served && getenv("VF3_GDTRACE")) fprintf(stderr, "gdsys r7 %u r4 %08x r5 %08x -> r0 %08x st %d left %u%c", s->v[7], s->v[4], s->v[5], r0, machine.gd->st.status, machine.gd->st.multi_read_count, 10);
+    if (served && s->v[7] == 0 && getenv("VF3_GDTRACE")) fprintf(stderr, "  req cmd %u params %08x %08x %08x %08x%c", s->v[4], vf3_matrix_read(ram, s->v[5], 4), vf3_matrix_read(ram, s->v[5] + 4, 4), vf3_matrix_read(ram, s->v[5] + 8, 4), vf3_matrix_read(ram, s->v[5] + 12, 4), 10);
+    if (!served) return 0;
+    ++machine.bios_calls;
+    /* the commands that leave r0 alone must not have it overwritten */
+    if (vf3_bios_gd_r0_answered(s->v[7])) s->v[0] = r0;
+    s->pc = s->v[16];
+    if (poll_hook) poll_hook(poll_ctx);   /* time passes inside the poll: an interrupt may land here */
+    return 1;
+}
+
 static int unowned_hook(uint32_t entry, vf3_matrix_state *s, const vf3_ram_map *ram, int *handled)
 {
-    if (machine.gd && (entry & 0x0FFFFFFFu) == VF3_BIOS_SYSCALL_VECTOR) {
-        const vf3_guest_mem gm = { (void *)ram, gd_mem_read, gd_mem_write };
-        const uint32_t args[8] = { 0, 0, 0, 0, s->v[4], s->v[5], s->v[6], s->v[7] };
-        uint32_t r0 = 0;
-        /* VF3_GD_NOCLOCK=1: a poll never advances the drive (isolates timing-dependent differences) */
-        const int served = getenv("VF3_GD_NOCLOCK") ? vf3_bios_gd_syscall(machine.gd, &gm, args, &r0)
-                                                     : vf3_bios_gd_syscall_clocked(machine.gd, &gm, args, &r0);
-        if (served && getenv("VF3_GDTRACE")) fprintf(stderr, "gdsys r7 %u r4 %08x r5 %08x -> r0 %08x st %d left %u%c", s->v[7], s->v[4], s->v[5], r0, machine.gd->st.status, machine.gd->st.multi_read_count, 10);
-        if (served && s->v[7] == 0 && getenv("VF3_GDTRACE")) fprintf(stderr, "  req cmd %u params %08x %08x %08x %08x%c", s->v[4], vf3_matrix_read(ram, s->v[5], 4), vf3_matrix_read(ram, s->v[5] + 4, 4), vf3_matrix_read(ram, s->v[5] + 8, 4), vf3_matrix_read(ram, s->v[5] + 12, 4), 10);
-        if (served) {
-            ++machine.bios_calls;
-            s->v[0] = r0;
-            s->pc = s->v[16];
-            *handled = 1;
-            if (poll_hook) poll_hook(poll_ctx);   /* time passes inside the poll: an interrupt may land here */
-            return 1;
-        }
-    }
+    if (vf3_native_gd_syscall(entry, s, ram)) { *handled = 1; return 1; }
     if (entry == (GUEST_RETURN_SENTINEL & 0x1FFFFFFFu)) {
         /* a module handed the run's return address back as a call (the 29-bit mask hides the 0xDEAD0000 form): the
          * run is over, exactly as when the dispatcher meets it as a plain jump */

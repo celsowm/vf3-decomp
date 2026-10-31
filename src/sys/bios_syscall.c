@@ -1,5 +1,6 @@
 /* bios_syscall.c - register-level front end of the GD-ROM model; see bios_syscall.h */
 #include "sys/bios_syscall.h"
+#include <string.h>
 
 static uint32_t polls_per_step = 1, polls_seen;
 static uint64_t cycles_per_poll, cycles_per_step, cycle_acc;
@@ -54,11 +55,23 @@ int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t 
     }
     case VF3_GD_EXEC_SERVER:
         vf3_gd_exec_server(gd);
-        *r0_out = 0;
-        return 1;
+        return 1;                      /* the reference leaves r0 alone */
     case VF3_GD_INIT_SYSTEM:
-        *r0_out = 0;
-        return 1;
+        /* the reference resets the whole command state (reios/gdrom_hle.cpp,
+         * GDROM_INIT_SYSTEM: "gd_hle_state = {}"), so the request counter
+         * starts over and the drive is idle again. */
+        gd->st.last_request_id = 0xFFFFFFFFu;
+        gd->st.next_request_id = 2;
+        gd->st.status = VF3_GDC_OK;
+        gd->st.command = VF3_GDCC_NONE;
+        memset(gd->st.params, 0, sizeof gd->st.params);
+        memset(gd->st.result, 0, sizeof gd->st.result);
+        gd->st.cur_sector = 0;
+        gd->st.multi_read_sector = 0;
+        gd->st.multi_read_offset = 0;
+        gd->st.multi_read_count = 0;
+        gd->st.multi_read_total = 0;
+        return 1;                      /* the reference leaves r0 alone */
     case VF3_GD_GET_DRV_STAT:   /* r4 -> { drive status (1: paused), disc type (0x80: GD-ROM) } */
         if (r[4]) { mem->write32(mem->ctx, r[4], 1u); mem->write32(mem->ctx, r[4] + 4u, 0x80u); }
         *r0_out = 0;
@@ -74,6 +87,15 @@ int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t 
         *r0_out = 0;
         return 1;
     case VF3_GD_CHECK_PIO_TRANS:
+        /* the reference answers GDC_ERR when the drive holds no multi-sector
+         * transfer (reios/gdrom_hle.cpp, GDROM_CHECK_PIO_TRANS) */
+        if (gd->st.status == VF3_GDC_CONTINUE) {
+            if (r[5]) mem->write32(mem->ctx, r[5], gd->st.multi_read_count);
+            *r0_out = 0;
+        } else {
+            *r0_out = (uint32_t)-1;
+        }
+        return 1;
     case VF3_GD_CHECK_DMA_TRANS: {   /* r5 -> bytes still to transfer; OK while a transfer is pending, else BUSY */
         if (r[5]) mem->write32(mem->ctx, r[5], gd->st.multi_read_count);
         *r0_out = gd->st.status == VF3_GDC_CONTINUE ? 0u : 1u;
@@ -92,9 +114,23 @@ int vf3_bios_gd_syscall(vf3_gdrom *gd, const vf3_guest_mem *mem, const uint32_t 
     case VF3_GD_RESET:
         gd->st.last_request_id = 0xFFFFFFFFu;
         gd->st.status = VF3_GDC_OK;
-        *r0_out = 0;
-        return 1;
+        return 1;                      /* the reference leaves r0 alone */
     default:
         return 0;
+    }
+}
+
+int vf3_bios_gd_r0_answered(uint32_t r7)
+{
+    /* The commands that leave r0 alone: EXEC_SERVER, INIT_SYSTEM and RESET
+     * (reios/gdrom_hle.cpp: none of them writes r[0]).  Every other command
+     * the service knows answers in r0. */
+    switch (r7) {
+    case VF3_GD_EXEC_SERVER:
+    case VF3_GD_INIT_SYSTEM:
+    case VF3_GD_RESET:
+        return 0;
+    default:
+        return 1;
     }
 }

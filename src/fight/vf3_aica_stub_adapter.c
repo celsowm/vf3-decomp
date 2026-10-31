@@ -201,9 +201,9 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
         const uint32_t args[8] = { 0, 0, 0, 0, r[4], r[5], r[6], r[7] };
         uint32_t r0 = r[0];
         if (vf3_bios_gd_syscall(&gd, &gm, args, &r0)) {
-            /* REQ_CMD and GET_CMD_STAT answer in r0; EXEC_SERVER does not
-             * touch it (reios/gdrom_hle.cpp, GDROM_EXEC_SERVER). */
-            if (r[7] == 0u || r[7] == 1u) {
+            /* the commands that leave r0 alone must not have it overwritten
+             * (reios/gdrom_hle.cpp: EXEC_SERVER, INIT_SYSTEM and RESET do) */
+            if (vf3_bios_gd_r0_answered(r[7])) {
                 r[0] = r0;
             }
             state->pc = r[16];
@@ -227,9 +227,20 @@ int vf3_aica_stub_adapter(uint32_t entry, vf3_matrix_state *state,
         }
     }
 
+    /* The native run attaches a drive (the real disc, when the caller gave
+     * one).  That drive owns the vector: the loader reads the disc through
+     * it, so the call has to be served from that drive and not from the idle
+     * model below - the idle model answers every command with "no transfer",
+     * which leaves the loader's file reads unfinished for ever.  The service
+     * lives in native_tick.c so that the chain's door and the unowned hook
+     * cannot answer the same call differently. */
+    if (vf3_native_gd_syscall(entry, state, ram)) {
+        return ram->oob == 0u;
+    }
+
     /* GDROM_EXEC_SERVER (r6=0, r7=2): with the captured idle drive queue the
      * service returns immediately, leaving every register unchanged. */
-    if (r[7] == 2u && !vf3_native_gd_attached()) {   /* with a drive model attached the native run serves it (native_tick.c) */
+    if (r[7] == 2u) {
         state->pc = r[16];
         return ram->oob == 0u;
     }

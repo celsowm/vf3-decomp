@@ -247,11 +247,13 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 code = MAPLE_RES_DATATRF;
                 memcpy(out, &func, 4);
                 {   /* The reference's VMU (maple_sega_vmu::dma, MDCF_GetMediaInfo,
-                     * MFID_1_Storage) only reads the card's own system area back
-                     * when its first halfword is 0xFF; otherwise - and the card
-                     * the reference starts from begins with 0x00FF - it answers
-                     * with a fixed table.  The two differ in the volume icon and
-                     * in the last word, so the answer has to be the table. */
+                     * MFID_1_Storage) reads the card's own system area back when
+                     * its first halfword is 0xFF, and answers with the fixed
+                     * table of an unformatted card otherwise.  0x00FF *is* 0xFF
+                     * (both are 255), and that is what the card the reference
+                     * starts from begins with - so the answer is the card's own
+                     * area.  The two differ in the volume icon and in the last
+                     * word, and the card's own area is the one the guest sees. */
                     static const uint16_t fixed[12] = {
                         0x00ff, 0x0000, 0x00ff, 0x00fe, 0x0001, 0x00fd,
                         0x000d, 0x0000, 0x00c8, 0x001f, 0x0000, 0x0000
@@ -318,6 +320,18 @@ unsigned vf3_maple_dma(uint8_t *ram, uint32_t ram_base, uint32_t ram_len, uint32
                 wr(ram, ram_base, recv, hdr);
                 memcpy(ram + ((recv & 0x1FFFFFFFu) - (ram_base & 0x1FFFFFFFu)) + 4, out, 4 * owords);
                 if (getenv("VF3_MAPLELOG")) fprintf(stderr, "maple:   -> reply %08x at %08x (%u words)\n", hdr, recv, owords);
+                if (getenv("VF3_MAPLELOG") && owords > 1) {
+                    /* The request's own words and the answer's first four.
+                     * The card's block number travels in the word after the
+                     * function code, so a card read is readable here without
+                     * decoding the wire format by hand. */
+                    const uint32_t *w = (const uint32_t *)out;
+                    fprintf(stderr, "maple:   req at %08x: %08x %08x %08x -> out: %08x %08x %08x\n", at,
+                            rd(ram, ram_base, at + 12), rd(ram, ram_base, at + 16), rd(ram, ram_base, at + 20),
+                            w[0], w[1], w[2]);
+                    fprintf(stderr, "maple:   out words: %08x %08x %08x %08x\n",
+                            w[0], w[1], w[2], w[3]);
+                }
             }
         vmu_done:
             {   /* VF3_VMU_MIRROR=<hex delta>: also answer in the other receive bank (diagnostic) */

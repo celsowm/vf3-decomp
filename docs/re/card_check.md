@@ -21,6 +21,44 @@ What the measurements actually show:
 | "the media info follows the card, not a fixed table" | the reference answers with Flycast's **fixed table**: `maple_sega_vmu::dma` reads the card's own system area only when the first *halfword* at `root + 0x40` is `0xFF`; the card starts with `0x00FF`, so the fixed table is what the guest sees (the two differ in the volume icon and in the last word) |
 | "the check compares the answer's header" | it compares a word the *driver* keeps per unit; the per-unit state at `block + 40 + unit * 44` holds it in word 2 |
 
+**Correction (2026-10-31).**  The media-info row above is wrong, and the
+section "The media info (Flycast's table, not the card's)" below repeats the
+mistake.  `0x00FF` **is** `0xFF` (both are 255), so the reference's test
+(`*(u16*)&flash_data[0xFF * 512 + 0x40] != 0xFF`) is **false** and Flycast
+takes the card's *own* area (`maple_sega_vmu::dma`, `MDCF_GetMediaInfo`):
+
+```cpp
+if (*(u16*)&flash_data[0xFF * 512 + 0x40] != 0xFF) {
+    /* the fixed table of an unformatted card */
+} else {
+    wptr(flash_data + 0xFF * 512 + 0x40, 24);      /* the card's own area */
+}
+```
+
+The card the reference starts from begins with `ff 00`, so the halfword is
+`0x00FF` = 255 = `0xFF`: the reference answers with the card's own area.  The
+port's code (`src/sys/maple_hle.c`) already did that - its `area_head !=
+0xFFu` test is false for `0x00FF`, so it reads the card's area - and the
+port's own log shows the card's bytes coming back (`ff 00 | 00 00 | ff 00 |
+fe 00 | 01 00 | fd 00 | ...`).  Only the prose was wrong; the comment in
+`src/sys/maple_hle.c` that called the answer "the fixed table" has been
+corrected too.
+
+Two more corrections:
+
+* **the FAT copy's base is `0x0C198AA0`**, not `0x0C198C82`.  The card state
+  struct at `0x0C198880` holds the media info at `+0x00`, the root copy at
+  `+0x20`, the **FAT copy at `+0x220`** and the directory area at `+0x420`;
+  `0x0C198C82` is the *slot of block 241 inside that copy* (halfword *n* holds
+  block *n*), which the earlier note used as if it were the base.
+* **the reference's log is not a boot.**  It loads a save state of the
+  already running game (`nullDC.cpp:360 N[SAVESTATE]: Loaded state ver 854
+  from ...\data\vf3.state`, at 00:00:778), so its card check at `00:14:542`
+  belongs to a running game and is **not** an oracle for the port's boot-time
+  card service.  "Fifteen blocks and two cards" against "eight blocks and one
+  card" compares two different scenarios.  See
+  `docs/re/boot_data_blocked.md`.
+
 ## What the game asks (the port's Maple log, `VF3_MAPLELOG=1`)
 
 ```
@@ -100,7 +138,7 @@ reference's capture `extract/analysis/p1/frm_keep/st.bin.000040` is the
 | the drive table `0x0C1B34D8` (record 0) | `00010000 00000000 00000101 00010000 000d0001 00000020 ...` | the same |
 | the attached flags `block + 0x0F90` (port * 6 + unit) | `82 69 0 0 0 0 / 82 0 0 0 0 0 / 0 ... / 0 ...` | the same |
 | the masks `block + 0x0FB8` | `00000001 ac2c3820 ac2b7800 ac2c3820` | the same |
-| the FAT copy at `0x0C198C82` (512 bytes) | identical, byte for byte | identical |
+| the FAT copy at `0x0C198AA0` (512 bytes) | identical, byte for byte | identical |
 | the per-unit state, unit 0 (the controller) | `00000101 09000909 03230008 ...` | the same |
 | the per-unit state, unit 6 (an empty port) | `00000000 01000101 ffffffff ...` | the same |
 | the per-unit state, unit 1 (the card), word 1 | `0b0b0000` | `00000000` |
@@ -112,7 +150,7 @@ two runs stopped.
 
 ## Two fixes that came out of this
 
-### The media info (Flycast's table, not the card's)
+### The media info (the card's own area, not the fixed table)
 
 `maple_sega_vmu::dma`, `MDCF_GetMediaInfo`, `MFID_1_Storage`:
 
@@ -127,11 +165,17 @@ if (*(u16*)&flash_data[0xFF * 512 + 0x40] != 0xFF) {
 }
 ```
 
-The card's first halfword is `0x00FF`, which is *not* `0xFF`, so the
-reference answers with the fixed table - and the table differs from the
-card's own area in the volume icon (`0` against `5`) and in the last word
-(`0` against `0x8000`).  `src/sys/maple_hle.c` now answers the way the
-reference does.
+The card's first halfword is `0x00FF`, and `0x00FF` **is** `0xFF` (255), so
+the test is false and the reference answers with the **card's own area** -
+the media info `255, 0, 255, 254, 1, 253, 13, 5, 200, 31, 0, 128`, which both
+of the reference's VMU images carry at `0x1FE40`
+(`tools/emu/flycast-ref-build/data/vf3.gdi_vmu_save_A1.bin` and
+`data/vmu_save_A2.bin`).
+
+`src/sys/maple_hle.c` answers the same way: its `area_head != 0xFFu` test is
+false for `0x00FF`, so it reads the card's area.  (The fixed table is kept in
+the code for a card that really is unformatted.)  The earlier version of this
+note claimed the opposite - see the correction at the top.
 
 ### The Maple answers at the transfer's start, and SB_MDST exists
 
@@ -250,11 +294,17 @@ the directory chain at block 248 - the reference walks it to 241 and then
 writes the card's LCD.
 
 The chain itself is not the problem: the FAT copy the guest keeps
-(`0x0C198C82`) is byte for byte the reference's, and the chain it names
+(`0x0C198AA0`) is byte for byte the reference's, and the chain it names
 (253 -> 252 -> ... -> 241) is the one the port reads.  So the guest stops
 for a reason of its own, and the next thing to look at is the SDK's card
 service: the function that reads the chain (the caller of the transfer
 builder at `0x0C036132`, whose PR is `0x0C043CAA`) and the limit it applies.
+
+**The reference is not the oracle here.**  Its log is a run with a save state
+of the already running game loaded, so its card check is the running game's
+poll and not the boot's card service; see
+`docs/re/boot_data_blocked.md`.  The guest's own code is the oracle for the
+boot-time check.
 
 The probes:
 
