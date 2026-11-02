@@ -100,4 +100,13 @@ void vf3_aica_arm_note_write(vf3_aica_arm *a, uint32_t offset, uint32_t value,
  * signature and the free-size limit it publishes next to it. */
 uint32_t vf3_aica_arm_word(const vf3_aica_arm *a, uint32_t offset);
 
+/* One-shot write trace for the live-runtime diagnostic: begin records every
+ * ARM7 bus write as (sample, at, value, size) for up to `max` writes until
+ * trace_end (the buffer's words are 64-bit).  at is the sound-RAM address,
+ * or the register-file offset with bit 31 set. */
+void vf3_aica_arm_trace_begin(uint32_t max);
+void vf3_aica_arm_trace_end(void);
+uint32_t vf3_aica_arm_trace_count(void);
+const uint64_t *vf3_aica_arm_trace_get(void);
+
 #endif

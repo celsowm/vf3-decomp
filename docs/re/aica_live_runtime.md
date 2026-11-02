@@ -67,9 +67,32 @@ cycles (3,552 samples x 512) and then the firmware's timing-sensitive loops
 (sequencer tempo, timer B) slip out of phase; once the register writes
 diverge, the (proven-correct) mixer mixes different data.
 
-Closing that - making the live fun match the reference for the whole window -
-needs cycle-accurate interrupt scheduling (modelling CYCL_CNT and the event
-buckets), a separate, uncertain effort.  Its render half is already exact.
+### Precise diagnosis (2026-11-02)
+
+A one-shot write trace was added to the ARM7 (`vf3_aica_arm_trace_begin/end`,
+in src/sys/aica_arm.c, disabled in normal runs) so the native live write
+stream can be compared against the reference.  The reference's *own* recorded
+write list puts its **first channel-slot write at tick 3557** - offset
+`0x1D01` (slot 58, byte 1), value 130 - and that is exactly where the first
+PCM frame diverges (first divergence at frame 3552).  The first 3,552 frames
+are therefore the *pre-seeded* music (already-programmed channels from the
+mid-fight savestate) matching exactly; the divergence begins precisely when
+the firmware actively programs a new voice at ~sample 3557, and from there
+the native ARM7 programs *different* channel targets than the reference (it
+never writes slot 58's `0x1D01` at all).
+
+The reference records 77,486 writes over the window (~5.4/sample), the native
+records 380,643 (~26/sample): the reference observer dedupes unchanged
+writes, the native logs every bus write, so the counts differ by an order of
+magnitude but the underlying steady state matches for 3,552 samples.  The
+divergence is a cadence/phase divergence (sequencer event dispatched at the
+wrong sample once a new command arrives), not a render bug and not silence.
+
+Closing it needs cycle-accurate ARM7 scheduling - modelling flycast's
+`CYCL_CNT` and event-bucket timing so timer B and the SAMPLE interrupt land on
+the same sample boundaries.  That is a separate, uncertain effort; its render
+half is already exact, and the trace gives the tooling to measure a future
+fix sample-by-sample.
 
 ## Where this leaves the "audio 100% correctly plays" goal
 

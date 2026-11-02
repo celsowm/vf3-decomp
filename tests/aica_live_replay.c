@@ -19,6 +19,7 @@
 #include "fight/native_tick.h"
 #include "sys/aica_model.h"
 #include "sys/aica_mixer.h"
+#include "sys/aica_arm.h"
 
 #define FIXTURE "extract/analysis/aica_mixer_fixture.bin"
 #define SEED "extract/analysis/aica_arm_seed.bin"
@@ -56,6 +57,7 @@ int main(void)
     size_t size = 0, seed_size = 0, offset;
     uint32_t reg_bytes, ram_bytes, channel_bytes, write_count, frames;
     const uint8_t *registers, *ram, *channels, *pcm;
+    const uint32_t *writes;
     int16_t *dst;
     unsigned long bad = 0, nz = 0;
     long peak = 0;
@@ -89,14 +91,57 @@ int main(void)
     channels = data + offset; offset += channel_bytes;
     offset += (size_t)write_count * 20u;
     pcm = data + offset;
+    writes = (const uint32_t *)(data + 32 + reg_bytes + ram_bytes + channel_bytes);
 
     /* Seed the machine state (replay disarmed) and the live ARM7. */
     vf3_native_aica_replay_init(registers, ram, channels, NULL, 0);
     vf3_native_aica_live_seed(seed, (uint32_t)(seed_size / 4u));
 
+    vf3_aica_arm_trace_begin(2000000u);
+
     dst = (int16_t *)malloc((size_t)frames * 2u * 2u);
     if (!dst) { free(data); free(seed); return 1; }
     vf3_native_aica_mix(dst, frames);
+
+    /* compare the native write stream to the reference's writes */
+    {
+        const uint64_t *tr = vf3_aica_arm_trace_get();
+        uint32_t tr_n = vf3_aica_arm_trace_count();
+        uint32_t ri = 0, li = 0, mism = 0;
+        const uint32_t *w = writes;
+        long first_at = -1, first_samp = -1;
+        uint32_t first_ga = 0, first_wa = 0, first_gv = 0, first_wv = 0;
+        vf3_aica_arm_trace_end();
+        while (ri < tr_n && li < write_count) {
+            uint32_t rs = (uint32_t)tr[ri * 4u], ra = (uint32_t)tr[ri * 4u + 1u];
+            uint32_t rv = (uint32_t)tr[ri * 4u + 2u];
+            uint32_t lt = w[li * 5u], lk = w[li * 5u + 1u], la = w[li * 5u + 2u];
+            uint32_t lv = w[li * 5u + 3u];
+            /* reference form -> native form: register writes carry bit 31 */
+            uint32_t wa = lk ? la : (0x80000000u | la);
+            if (rs < lt) { ++ri; continue; }      /* native write ref has not yet made */
+            if (rs > lt) { ++li; continue; }
+            if (ra != wa || rv != lv) {
+                ++mism;
+                if (first_at < 0) {
+                    first_at = (long)rs; first_samp = (long)rs;
+                    first_ga = ra; first_wa = wa; first_gv = rv; first_wv = lv;
+                }
+            }
+            ++ri; ++li;
+        }
+        printf("aica_live_replay: native %u vs reference %u writes; %u mismatched "
+               "(first at sample %ld: got %08x=%08x want %08x=%08x)\n",
+               tr_n, write_count, mism, first_samp, first_ga, first_gv, first_wa, first_wv);
+        if (tr_n) {
+            FILE *tf = fopen("build/native_trace.bin", "wb");
+            if (tf) {
+                fwrite(tr, 8, (size_t)tr_n * 4u, tf);
+                fclose(tf);
+                fprintf(stderr, "aica_live_replay: wrote build/native_trace.bin\n");
+            }
+        }
+    }
 
     for (i = 0; i < frames; ++i) {
         const int16_t want_right = (int16_t)read32(pcm + i * 4u);

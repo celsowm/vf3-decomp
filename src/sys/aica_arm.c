@@ -23,6 +23,38 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* ---- optional one-shot write trace, for the live-runtime diagnostic
+ * (tests/aica_live_replay.c).  A normal run never touches it: the buffer is
+ * NULL until vf3_aica_arm_trace_begin arms it, and disabled after.  Each
+ * entry is four u64: (sample, at, value, size) for every ARM7 bus write. */
+static uint64_t *tr_writes;
+static uint32_t tr_max, tr_count, tr_enabled;
+
+void vf3_aica_arm_trace_begin(uint32_t max)
+{
+    free(tr_writes);
+    tr_writes = NULL;
+    if (max) tr_writes = (uint64_t *)malloc((size_t)max * 4u * sizeof(uint64_t));
+    tr_max = max;
+    tr_count = 0;
+    tr_enabled = tr_writes != NULL;
+}
+
+void vf3_aica_arm_trace_end(void)
+{
+    tr_enabled = 0;
+}
+
+uint32_t vf3_aica_arm_trace_count(void)
+{
+    return tr_count;
+}
+
+const uint64_t *vf3_aica_arm_trace_get(void)
+{
+    return tr_writes;
+}
+
 /* The register file's offsets this module has an opinion about. */
 #define AICA_REG_SCI       0x289Cu
 #define AICA_REG_SCIPD     0x28A0u
@@ -265,9 +297,23 @@ static void arm_bus_write(void *context, uint32_t address, uint32_t value, unsig
             fprintf(stderr, "commit wr %04x = %08x / %u pc %04x\n",
                     address, value, size, a->cpu.last_pc);
         ram_write(a->model->ram, address, value, size);
+        if (tr_enabled && tr_count < tr_max) {
+            tr_writes[tr_count * 4u + 0u] = a->samples;
+            tr_writes[tr_count * 4u + 1u] = address;
+            tr_writes[tr_count * 4u + 2u] = value;
+            tr_writes[tr_count * 4u + 3u] = size;
+            ++tr_count;
+        }
         return;
     }
     arm_register_write(a, address, value, size);
+    if (tr_enabled && tr_count < tr_max) {
+        tr_writes[tr_count * 4u + 0u] = a->samples;
+        tr_writes[tr_count * 4u + 1u] = 0x80000000u | (address & 0x7FFFu);
+        tr_writes[tr_count * 4u + 2u] = value;
+        tr_writes[tr_count * 4u + 3u] = size;
+        ++tr_count;
+    }
 }
 
 /* -------------------------------------------------------- the register file */
