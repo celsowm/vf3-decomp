@@ -70,23 +70,30 @@ diverge, the (proven-correct) mixer mixes different data.
 ### Precise diagnosis (2026-11-02)
 
 A one-shot write trace was added to the ARM7 (`vf3_aica_arm_trace_begin/end`,
-in src/sys/aica_arm.c, disabled in normal runs) so the native live write
-stream can be compared against the reference.  The reference's *own* recorded
-write list puts its **first channel-slot write at tick 3557** - offset
-`0x1D01` (slot 58, byte 1), value 130 - and that is exactly where the first
-PCM frame diverges (first divergence at frame 3552).  The first 3,552 frames
-are therefore the *pre-seeded* music (already-programmed channels from the
-mid-fight savestate) matching exactly; the divergence begins precisely when
-the firmware actively programs a new voice at ~sample 3557, and from there
-the native ARM7 programs *different* channel targets than the reference (it
-never writes slot 58's `0x1D01` at all).
+in src/sys/aica_arm.c, disabled in normal runs; each entry is 5 x u64 - sample,
+address, value, size and the writing PC - parsed with `<QQQQQ`) so the native
+live write stream can be compared against the reference.  The reference's
+*own* recorded write list puts its **first channel-slot write at tick 3557** -
+offset `0x1D01` (slot 58, byte 1), value 130 - and that is exactly where the
+first PCM frame diverges (first divergence at frame 3552).  The first 3,552
+frames are therefore the *pre-seeded* music (already-programmed channels from
+the mid-fight savestate) matching exactly; the divergence begins precisely when
+the firmware actively programs a new voice at ~sample 3557.
 
-The reference records 77,486 writes over the window (~5.4/sample), the native
-records 380,643 (~26/sample): the reference observer dedupes unchanged
-writes, the native logs every bus write, so the counts differ by an order of
-magnitude but the underlying steady state matches for 3,552 samples.  The
-divergence is a cadence/phase divergence (sequencer event dispatched at the
-wrong sample once a new command arrives), not a render bug and not silence.
+**The native dispatches the same notes, not different ones.**  Parsing the
+native trace correctly (5 x u64, not the naive 16-byte read) shows the native
+ARM7 writes the **identical** channel-slot events as the reference - offsets
+`0x1D01/0x1781/0x1E81/0x0E81/0x1381/0x1601`, same values, same order - the
+earlier "it never writes slot 58 at all" was a mis-parsed trace.  The first
+native key-on is at sample 3538 vs the reference's 3557 (19 samples early),
+and then the native races ahead: it spreads 6 key-ons over ~16 samples where
+the reference takes ~116 (a ~7x cadence compression).  This is a
+per-instruction timing/scheduling divergence in the native ARM7 - it retires
+5,256,629 instructions over the window (~364/sample at 512 cyc/sample) with
+only 329 FIQs while the reference's denser interrupt cadence paces the
+sequencer's note dispatch far slower - not missing code, not a phase loss, and
+not a seed problem (the carried-phase and faithful-seed fixes, commits
+`2b53d37`/`e02a63d`, changed nothing).
 
 Closing it needs cycle-accurate ARM7 scheduling - modelling flycast's
 `CYCL_CNT` and event-bucket timing so timer B and the SAMPLE interrupt land on
