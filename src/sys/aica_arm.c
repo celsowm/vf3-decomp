@@ -34,7 +34,7 @@ void vf3_aica_arm_trace_begin(uint32_t max)
 {
     free(tr_writes);
     tr_writes = NULL;
-    if (max) tr_writes = (uint64_t *)malloc((size_t)max * 4u * sizeof(uint64_t));
+    if (max) tr_writes = (uint64_t *)malloc((size_t)max * 5u * sizeof(uint64_t));
     tr_max = max;
     tr_count = 0;
     tr_enabled = tr_writes != NULL;
@@ -302,6 +302,7 @@ static void arm_bus_write(void *context, uint32_t address, uint32_t value, unsig
             tr_writes[tr_count * 4u + 1u] = address;
             tr_writes[tr_count * 4u + 2u] = value;
             tr_writes[tr_count * 4u + 3u] = size;
+            tr_writes[tr_count * 4u + 4u] = a->cpu.last_pc;
             ++tr_count;
         }
         return;
@@ -312,6 +313,7 @@ static void arm_bus_write(void *context, uint32_t address, uint32_t value, unsig
         tr_writes[tr_count * 4u + 1u] = 0x80000000u | (address & 0x7FFFu);
         tr_writes[tr_count * 4u + 2u] = value;
         tr_writes[tr_count * 4u + 3u] = size;
+        tr_writes[tr_count * 4u + 4u] = a->cpu.last_pc;
         ++tr_count;
     }
 }

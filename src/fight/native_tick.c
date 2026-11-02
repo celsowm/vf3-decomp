@@ -1035,6 +1035,25 @@ unsigned vf3_native_aica_keyed(void)
     return n;
 }
 
+/* Live-ARM7 execution stats, for the runtime diagnostic 
+ * (tests/aica_live_replay.c): whether the interpreter is actually running,
+ * how many instructions/cycles it retired, whether it halted, and how many
+ * channel-slot (voice) writes it made. */
+void vf3_native_aica_arm_stats(unsigned *instructions, uint64_t *cycles,
+                               unsigned *halted, unsigned *channel_writes,
+                               unsigned *reg_writes, uint32_t *last_pc,
+                               unsigned *fiq_count)
+{
+    aica_ensure();
+    if (instructions)  *instructions  = (unsigned)aica_arm.cpu.instructions;
+    if (cycles)        *cycles        = aica_arm.cpu.cycles;
+    if (halted)        *halted        = aica_arm.cpu.halted;
+    if (channel_writes)*channel_writes = (unsigned)aica_arm.channel_writes;
+    if (reg_writes)    *reg_writes    = (unsigned)aica_arm.reg_writes;
+    if (last_pc)       *last_pc       = aica_arm.cpu.last_pc;
+    if (fiq_count)     *fiq_count     = aica_arm.fiq_count;
+}
+
 /* The register file, for tests and for a save state. */
 const vf3_aica_model *vf3_native_aica_model(void) { aica_ensure(); return &aica_model; }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }

@@ -101,9 +101,15 @@ void vf3_native_aica_poke(uint32_t offset, uint32_t value);
 /* Mix `frames` stereo samples out of the AICA's keyed channels into `dst`
  * (interleaved left, right).  The guest programs the channels through the
  * 0x00700000 register window, which the machine model now serves. */
+#include <stdint.h>
 void vf3_native_aica_mix(int16_t *dst, unsigned frames);
 /* How many of the 64 channels the driver has keyed (0: nothing to play). */
 unsigned vf3_native_aica_keyed(void);
+/* Live-ARM7 execution stats (runtime diagnostic). */
+void vf3_native_aica_arm_stats(unsigned *instructions, uint64_t *cycles,
+                               unsigned *halted, unsigned *channel_writes,
+                               unsigned *reg_writes, uint32_t *last_pc,
+                               unsigned *fiq_count);
 /* The register file, for tests and save states. */
 struct vf3_aica_model;
 const struct vf3_aica_model *vf3_native_aica_model(void);

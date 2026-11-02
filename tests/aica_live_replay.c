@@ -136,7 +136,7 @@ int main(void)
         if (tr_n) {
             FILE *tf = fopen("build/native_trace.bin", "wb");
             if (tf) {
-                fwrite(tr, 8, (size_t)tr_n * 4u, tf);
+                fwrite(tr, 8, (size_t)tr_n * 5u, tf);
                 fclose(tf);
                 fprintf(stderr, "aica_live_replay: wrote build/native_trace.bin\n");
             }
@@ -198,6 +198,16 @@ int main(void)
     printf("aica_live_replay: %u frames, %lu differ from the reference, "
            "%lu nonzero samples, peak %ld, keyed %u\n",
            frames, bad, nz, peak, vf3_native_aica_keyed());
+
+    {
+        unsigned insns = 0, halted = 0, chw = 0, rw = 0, fiq = 0;
+        uint64_t cyc = 0;
+        uint32_t lpc = 0;
+        vf3_native_aica_arm_stats(&insns, &cyc, &halted, &chw, &rw, &lpc, &fiq);
+        printf("aica_live_replay: arm7 %u insns / %llu cycles, halted %u, "
+               "chan-writes %u, reg-writes %u, fiq %u, last_pc %04x\n",
+               insns, (unsigned long long)cyc, halted, chw, rw, fiq, lpc);
+    }
 
     free(dst);
     free(data);
