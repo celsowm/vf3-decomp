@@ -203,3 +203,4 @@ entry,name,file,out_regs,calls_s7,self_steps_s7,pct_of_tick_s7,verified
 0x8c03d280,matrix_frame_b,src/fight/matrix_lib.c,fpul,0,0,0.00,unexercised
 0x8c03d2b0,matrix_frame_c,src/fight/matrix_lib.c,,0,0,0.00,unexercised
 0x8c011984,uncached_call,src/fight/uncached_call.c,r0 r2 r3 r15 pr sr,0,0,0.00,unexercised
+0x8c034a20,loader_check_dispatch,src/fight/loader_check_dispatch.c,r0 r1 r2 r3 r15 r16 sr,0,0,0.00,unexercised

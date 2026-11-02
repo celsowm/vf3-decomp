@@ -6528,6 +6528,7 @@ case 0x0c0675eeu: goto P_0c0675ee;
 case 0x0c0675f0u: goto P_0c0675f0;
 case 0x0c0675f2u: goto P_0c0675f2;
 case 0x0c0675f4u: goto P_0c0675f4;
+case 0x0c0675f6u: goto P_0c0675f6;
 case 0x0c0675fcu: goto P_0c0675fc;
 case 0x0c0675feu: goto P_0c0675fe;
 case 0x0c067600u: goto P_0c067600;
@@ -36967,6 +36968,10 @@ goto P_0c0675fc;
 P_0c0675f4: /* original 0009, guest PC 0x0c0675f4 */
 if(!s->budget--) { s->failed_pc=0x0c0675f4u; return 0; }
 return vf3_matrix_family(0x0c0675f6u,s,ram);
+P_0c0675f6: /* original d310, guest PC 0x0c0675f6 */
+if(!s->budget--) { s->failed_pc=0x0c0675f6u; return 0; }
+r[3]=0x0c06860au;
+return vf3_matrix_family(0x0c06860au,s,ram);
 P_0c0675fc: /* original 9009, guest PC 0x0c0675fc */
 if(!s->budget--) { s->failed_pc=0x0c0675fcu; return 0; }
 r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c067612u,2);

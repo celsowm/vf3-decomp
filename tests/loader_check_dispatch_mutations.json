@@ -1,0 +1,67 @@
+[
+  {
+    "file": "src/fight/loader_check_dispatch.c",
+    "mutations": [
+      {
+        "type": "replace",
+        "pattern": "set_t(s, R(0) == 1u);",
+        "replacement": "set_t(s, R(0) != 1u);",
+        "description": "invert branch condition (bt -> bf)"
+      },
+      {
+        "type": "replace",
+        "pattern": "R(2) = R(2) + 1u;",
+        "replacement": "R(2) = R(2);",
+        "description": "break counter increment"
+      },
+      {
+        "type": "replace",
+        "pattern": "R(0) = vf3_mem_u32(ram, R(0) + 36u);",
+        "replacement": "R(0) = 0;",
+        "description": "break field36 load"
+      },
+      {
+        "type": "replace",
+        "pattern": "vf3_matrix_call_alias_pc = DISPATCH_TARGET & 0x1fffffffu;",
+        "replacement": "vf3_matrix_call_alias_pc = 0;",
+        "description": "break tail transfer alias PC"
+      },
+      {
+        "type": "replace",
+        "pattern": "vf3_matrix_call_alias = DISPATCH_TARGET & 0xff000000u;",
+        "replacement": "vf3_matrix_call_alias = 0;",
+        "description": "break tail transfer alias base"
+      },
+      {
+        "type": "replace",
+        "pattern": "s->v[16] = CONTINUE_PC;",
+        "replacement": "s->v[16] = 0;",
+        "description": "break PR save for continuation"
+      },
+      {
+        "type": "replace",
+        "pattern": "if (R(17) & 1u) {",
+        "replacement": "if (0) {",
+        "description": "force tail transfer path"
+      },
+      {
+        "type": "replace",
+        "pattern": "if (R(17) & 1u) {",
+        "replacement": "if (1) {",
+        "description": "force return path"
+      },
+      {
+        "type": "replace",
+        "pattern": "R(3) = vf3_mem_u32(ram, OBJ_PTR_ADDR);",
+        "replacement": "R(3) = 0;",
+        "description": "break object pointer load"
+      },
+      {
+        "type": "replace",
+        "pattern": "vf3_mem_set_u32(ram, R(3), R(2));",
+        "replacement": "",
+        "description": "remove counter store-back"
+      }
+    ]
+  }
+]

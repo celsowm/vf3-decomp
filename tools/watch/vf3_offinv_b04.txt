@@ -1,0 +1,5 @@
+# The off-inventory entry the boot reached with the pad's button held down
+# (the "player pressed start" scenario), after the b03 module was wired.
+# No module owns it and none calls it: the guest reaches it through a
+# function pointer the inventory never saw.
+pc 0x0c0597ba

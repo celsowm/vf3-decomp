@@ -20,10 +20,11 @@ Decision taken 2026-10-26, after the oracle recovery:
 | GD-ROM service model | works - `src/sys/gdrom_hle.c` |
 | Maple (controller bus) | works - `src/sys/maple_hle.c` |
 | BIOS syscalls, GDFS | works - `src/sys/bios_syscall.c`, `src/sys/gdfs.c` |
-| **PVR2 (TA + rasterizer)** | **missing** |
-| **AICA PCM output** | **missing** (commands only) |
-| **frame loop / interrupts** | **missing** (one tick per process) |
-| **input from a host** | **missing** (Maple has no host side) |
+| **PVR2 (TA + rasterizer)** | **done** - `src/render/pvr2.c`; the frame diff is in `tools/pvr2_frame_diff.py` |
+| **frame loop / interrupts** | **done** - `src/host/sdl3_host.c` drives the clock, the vblank pair and the TMU |
+| **input from a host** | **done** - `src/host/sdl3_input.c` (gamepad + keyboard) -> the Maple wire; the boot's reply carries the pressed bit (`docs/re/boot_offinv_and_pad.md`) |
+| **boot from the disc** | **done, with holes** - the loader reads the real ISO9660 volume and loads 367 files; the boot still stops on code no module serves (P8) |
+| **AICA PCM output** | **missing** - the ARM7 (the sound CPU) is a model, not an interpreter, so the driver never programs the AICA's channels (P5, `docs/re/aica_audio_model.md`) |
 | tick captures (`golden_tickx_vf3_*.bin`) | **gone** with the artefact bundle |
 | Katana / KAMUI SDKs, `refs/dream-recomp` | **gone** (gitignored trees) |
 | SDL3 3.4.16 | installed in MSYS2 `ucrt64` (our compiler) |
@@ -134,13 +135,32 @@ channel mixer, ADPCM, the stereo FIFO) and feed an SDL3 audio stream.
 *Verification*: the oracle's recorded audio checkpoints (we have eight, in the
 release) are the reference PCM - the same diff tool, in samples.
 
+*Status (2026-11-01)*: the phase is scoped, not started.  The three parts and
+the exact register set the game's driver touches are in
+[`aica_audio_model.md`](aica_audio_model.md); the short version is that the
+ARM7 is the wall (the driver that programs the AICA's channels is the ARM7
+firmware `SNDDRV.BIN`, and the port models the ARM7's handshake instead of
+running it).
+
 ### P6 - input
 SDL3 gamepad -> the Maple/ADX packet the game reads (the Maple model exists).
 *Verification*: the captured controller state in the oracle's capsules.
 
+*Status (2026-11-01)*: **done**.  `src/host/sdl3_input.c` (the gamepad and the
+keyboard) -> `vf3_native_set_maple_pad()` -> the Maple model's answer; the
+wire's format has its own test (`tests/maple_input_replay.c`) and the boot's
+own reply proves the chain end to end
+([`boot_offinv_and_pad.md`](boot_offinv_and_pad.md)).
+
 ### P7 - boot from the disc
 The loader path: `gdrom_hle` + `gdfs` + the boot wait loop (`boot_sim.c`).
 The disc is in `rom/`.
+
+*Status (2026-11-01)*: **done**.  The boot reads the real ISO9660 volume and
+loads the game's 367 files; the port's boot renders the attract screen and
+the attract fight (`docs/re/boot_attract.md`).  What the boot still cannot do
+is *finish*: it meets code no module serves, and each such hole is closed by
+translating the body and wiring the module (P8).
 
 ### P8 - coverage closure
 The native tick's call-target table covers the entries the 13 captured ticks
@@ -148,6 +168,20 @@ executed.  The full game needs the rest: the repo's own translator
 (`tools/oracle/translate_adapters.py`) can generate a module for any entry
 from the image - the gap batch proved it on 237 bodies - and the static
 recompiler (re-downloadable) is the 100 %-coverage reference.
+
+*Status (2026-11-01)*: the ledger's coverage is 100 % of the baseline bodies,
+but the *boot* finds the entries the inventory never named: the ones the
+guest reaches through a function pointer, so no `bsr` in the image points at
+them and the call graph never saw them.  Three of them are closed
+(`docs/re/boot_offinv_and_pad.md`); each one is a translation (the repo's
+translator does the whole body in one step) plus two lines of wiring, and the
+fidelity gate (`tools/check_offinv_modules.py`) proves the result against the
+image.
+
+*Running the boot to find a hole is slow - the host's rasteriser draws
+650,000 pixels a frame in software - so `VF3_NORENDER=1` skips the TA decode
+and the rasterisation.  The guest's dispatch does not depend on the picture,
+so the run is twelve times faster and finds the same hole.
 
 ## Risks
 
@@ -165,8 +199,16 @@ recompiler (re-downloadable) is the 100 %-coverage reference.
 
 ## Immediate next steps
 
-1. `src/host/sdl3_host.c` + the `vf3sdl` CMake target (P0).
-2. Build upstream Flycast with the state/frame dump patches (P1 option 1), and
-   in parallel read the savestate format for the fallback.
-3. Dump a real tick's TA stream and list the PVR2 commands the game emits -
-   that list is the PVR2 model's scope (P3).
+1. **Close the boot's holes** (P8): translate the next off-inventory entry, wire
+   it, and run the boot again - `VF3_NORENDER=1` makes the run twelve times
+   faster.  The recipe is in
+   [`boot_offinv_and_pad.md`](boot_offinv_and_pad.md).
+2. **The AICA's mixer** (P5): the register file is modelled
+   (`src/sys/aica_model.c`); what is missing is the mixer that turns the
+   channels into PCM and the ARM7 that programs them.  The scope, the oracle
+   and the two ways to do the ARM7 are in
+   [`aica_audio_model.md`](aica_audio_model.md).
+3. **The SDL3 audio stream**: open the device and feed it the mixer's PCM.
+4. **The port's own state format**: the port reads its own state file; reading
+   the reference's savestate (the P1 option 2) would let the two run the same
+   scenario, which is what the audio work needs.

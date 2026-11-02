@@ -206,6 +206,7 @@ int vf3_scene_clear_flag_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vtable_trampoline_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_cache_wb_stub_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_loader_dispatch_5238_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_loader_check_dispatch_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
 #define B(r) (1ull << (r))
 #define FR(n) B(21 + (n))
@@ -482,6 +483,8 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c0624bau, "scene_clear_flag", vf3_scene_clear_flag_entry, B(1)|B(5)|B(6)|B(7) },
     { 0x0c035cbau, "vtable_trampoline", vf3_vtable_trampoline_entry,
       B(0)|B(1)|B(3)|B(17) },
+    { 0x0c034a20u, "loader_check_dispatch", vf3_loader_check_dispatch_entry,
+      B(0)|B(1)|B(2)|B(3)|B(15)|B(16) },
     { 0x0c035238u, "loader_dispatch_5238", vf3_loader_dispatch_5238_entry,
       B(0)|B(1)|B(2)|B(3)|B(15)|B(16) },
     { 0x0c062e8eu, "cache_wb_stub", vf3_cache_wb_stub_entry,

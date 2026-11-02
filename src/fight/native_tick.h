@@ -18,6 +18,7 @@
 #include <stdint.h>
 
 #include "sys/gdrom_hle.h"
+#include "sys/maple_hle.h"
 #include "fight/matrix_family.h"
 
 #define VF3_NATIVE_RAM_BASE 0x0C000000u
@@ -80,10 +81,23 @@ unsigned vf3_native_take_maple(uint32_t *list);
  * with them (the answer goes out when the guest writes SB_MDST, like the
  * reference). */
 void vf3_native_set_maple_buttons(uint16_t buttons);
+/* The whole pad: the buttons and the analog axes.  The axes travel with the
+ * buttons because the guest reads them in the same reply (the GET_CONDITION
+ * answer carries both). */
+void vf3_native_set_maple_pad(const vf3_maple_pad *pad);
 /* ASIC normal-interrupt status the model keeps: raise bits, read what is pending, count STARTRENDER writes. */
 void vf3_native_raise_asic(uint32_t mask);
 /* write one word of the modelled AICA sound RAM (offset from 0x00800000) before a run */
 void vf3_native_aica_poke(uint32_t offset, uint32_t value);
+/* Mix `frames` stereo samples out of the AICA's keyed channels into `dst`
+ * (interleaved left, right).  The guest programs the channels through the
+ * 0x00700000 register window, which the machine model now serves. */
+void vf3_native_aica_mix(int16_t *dst, unsigned frames);
+/* How many of the 64 channels the driver has keyed (0: nothing to play). */
+unsigned vf3_native_aica_keyed(void);
+/* The register file, for tests and save states. */
+struct vf3_aica_model;
+const struct vf3_aica_model *vf3_native_aica_model(void);
 /* frame clock: enable the TMU channel-0 counter and advance it as guest time passes */
 void vf3_native_enable_tmu(void);
 void vf3_native_tmu_advance(uint32_t cycles);

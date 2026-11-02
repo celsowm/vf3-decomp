@@ -147,4 +147,10 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
 
 unsigned vf3_frame_events_frames(const vf3_frame_events *ev) { return ev->frames; }
 void vf3_frame_events_set_buttons(uint16_t buttons) { pad_buttons = buttons; vf3_native_set_maple_buttons(buttons); }
+void vf3_frame_events_set_pad(const vf3_maple_pad *pad)
+{
+    if (!pad) return;
+    pad_buttons = pad->buttons;
+    vf3_native_set_maple_pad(pad);
+}
 uint64_t vf3_frame_events_cycles(const vf3_frame_events *ev) { return ev->now; }

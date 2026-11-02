@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""gap_holes.py - the guest PCs the reference executed that the router cannot serve.
+
+The Ghidra inventory is the baseline, but the game also reaches code the
+inventory never named: a function pointer (a vtable entry) that no `bsr` in the
+image points at.  When the guest calls such an address the router has nowhere
+to send it and the port reports an "unowned call".
+
+The capture maps (`f_<entry>.ops.json`) record the PCs the reference really
+executed, so the union of their keys is the reference's own evidence about
+which code runs.  This tool crosses that union with the router's claim sets
+and prints the holes: the PCs the reference executed and no module serves.
+
+  python tools/gap_holes.py                 # the report
+  python tools/gap_holes.py --watch-out f.txt   # a watch file for the translator
+
+A PC is *served* when a module the router can reach claims it (the generated
+modules carry a `claim_pcs[]` array; the legacy modules, which have none,
+serve every PC they own).  A module the router never calls serves nothing -
+`fight26_mod.c` and `seventh_final_adapters.c` are such modules.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO / "tools" / "oracle"))
+from translate_adapters import adapter_claims, file_serves, router_calls  # noqa: E402
+
+ANALYSIS = REPO / "extract" / "analysis"
+FIGHT = REPO / "src" / "fight"
+# the ported sources: the generated modules, the hand-written ports and the
+# `.inc` fragments the CMake build includes (tenpp_*_adapters.inc carry whole
+# bodies and their own `_contains`).
+SOURCES = sorted(p for p in FIGHT.glob("*")
+                  if p.suffix in (".c", ".inc"))
+
+KEY = re.compile(r'"([0-9a-f]{8})"\s*:')
+
+
+def executed_pcs() -> set[int]:
+    """The union of the PCs the capture maps recorded."""
+    pcs: set[int] = set()
+    maps = 0
+    for path in ANALYSIS.rglob("f_*.ops.json"):
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            continue
+        maps += 1
+        for m in KEY.finditer(text):
+            pcs.add(int(m.group(1), 16) & 0x1FFFFFFF)
+    print(f"capture maps: {maps}, distinct executed PCs: {len(pcs)}")
+    return pcs
+
+
+def served_pcs() -> set[int]:
+    """The PCs the router's modules implement.
+
+    A generated module owns every PC of the bodies it carries (`P_<pc>` labels)
+    and claims the entry PCs the router may dispatch to it.  The legacy modules
+    have no claim array: they own their bodies and serve every one of them.
+    A module the router never calls owns nothing that counts - `fight26_mod.c`
+    and `seventh_final_adapters.c` are such modules, and their PCs are served
+    by the chain's fallback instead.
+    """
+    called = router_calls()
+    sources = [p for p in SOURCES if file_serves(p, called)]
+    owned: set[int] = set()
+    claims: set[int] = set()
+    for path in sources:
+        text = path.read_text()
+        owned |= {int(a, 16) for a in re.findall(r'^P_([0-9a-f]+):', text, re.M)}
+        for m in re.finditer(r'static const uint32_t claim_pcs\[\]=\{(.*?)\};', text, re.S):
+            claims |= {int(w, 16) for w in re.findall(r'0x([0-9a-f]+)u', m.group(1))}
+    print(f"modules the router calls: {len(sources)}, "
+          f"PCs they implement: {len(owned)}, of them dispatchable: {len(claims)}")
+    for p in SOURCES:
+        if not file_serves(p, called):
+            print(f"  (not called by the router: {p.name})")
+    return owned | readable_entries()
+
+
+def readable_entries() -> set[int]:
+    """The entry addresses the readable ports register.
+
+    A readable port is a hand-written function, not a translated body, so it
+    has no `P_` labels - its entry address is what the router dispatches to.
+    """
+    text = (FIGHT / "readable.c").read_text()
+    table = re.search(r'vf3_readable_table\[\]\s*=\s*\{(.*?)\n\};', text, re.S)
+    if not table:
+        return set()
+    return {int(a, 16) for a in re.findall(r'\{\s*(0x[0-9a-f]+)u', table.group(1))}
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--watch-out", type=Path,
+                    help="write a translator watch file with the holes")
+    ap.add_argument("--roots", action="store_true",
+                    help="print only the holes that look like function entries")
+    args = ap.parse_args()
+
+    executed = executed_pcs()
+    served = served_pcs()
+    holes = sorted(executed - served)
+    print(f"executed PCs the router cannot serve: {len(holes)}")
+    for pc in holes:
+        print(f"  0x{pc:08x}")
+
+    if args.watch_out:
+        lines = ["# The guest PCs the reference executed that no module serves.",
+                 "# Generated by tools/gap_holes.py."]
+        lines += [f"pc 0x{pc:08x}" for pc in holes]
+        args.watch_out.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        print(f"wrote {args.watch_out}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

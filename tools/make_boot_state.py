@@ -97,10 +97,16 @@ def build(image: bytes, entry: int, sp: int, sr: int, fpscr: int, low: bytes = b
     info_off = SYSINFO & 0x00FFFFFF
     ram[info_off:info_off + 24] = info
     # the image's first instructions are a copy stub (0x8C010000): it moves
-    # 0x0C010100..0x0C014000 down to 0x0C004000 and jumps there
+    # 0x0C010100..0x0C014000 down to 0x0C004000 and jumps there.  The state's
+    # own entry markers have to name the address the host resumes at; they
+    # were written before the relocation, so patch them here.
     if entry == LOAD_ADDR:
         ram[0x4000:0x4000 + 0x3F00] = ram[0x10100:0x14000]
         entry = 0x8C004000
+        for off, tag in ((0, MARK_REGS),
+                         (8 * (1 + 37), MARK_XF),
+                         (8 * (1 + 37) + 8 + 16 * 8, MARK_WINDOWS)):
+            struct.pack_into('<Q', out, off, (entry << 16) | tag)
     words = struct.unpack('<%dI' % (RAM_LEN // 4), ram)
     out += struct.pack('<%dQ' % len(words), *words)
     return bytes(out)

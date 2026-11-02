@@ -1,0 +1,613 @@
+#!/usr/bin/env python3
+"""Emit source C ABI adapters around the hand-written matrix algorithms.
+
+This is a source translator, not a runtime interpreter. Each known statement
+becomes C; control flow is explicit labels and calls to verified semantic
+helpers. Unknown destinations and unsupported instructions fail closed.
+The generated source must pass complete-state replay before ledger credit.
+"""
+import argparse
+import csv
+import json
+from pathlib import Path
+import struct
+import re
+import sys
+
+ROOT=Path(__file__).resolve().parents[2]
+MANUAL={0x0c03b450,0x0c03b4b0,0x0c03b530,0x0c03b620,0x0c03b820,0x0c03bd80,
+        0x0c03c0e0,0x0c03c4a0,0x0c03c4f0,0x0c03c610,0x0c03c6c0,0x0c03c880,
+        0x0c03c940,0x0c03c970,0x0c03cbd0,0x0c03cc60,0x0c03cc90,0x0c03ccb0}
+# The address alias the code runs under.  The game reaches some code through
+# the 0xac mirror, and the reference's PC-relative constants and link
+# register carry that alias in the register file, so the port tracks it at
+# run time: the alias of the address the CPU jumped to.
+def sx(x,b): return x-(1<<b) if x&(1<<(b-1)) else x
+def label(pc): return f"P_{pc:08x}"
+def t(expr): return f"r[17]=(r[17]&~1u)|(({expr})!=0);"
+
+
+def mac_lines(size,n,m):
+    """MAC.W / MAC.L @Rm+,@Rn+ : mac.full += rm*rn, both pointers advance.
+
+    The SH-4 forms differ in which operand picks up the same-register
+    adjustment: MAC.L reads RN at Rn+4 when n==m, MAC.W reads RM at Rm+2.
+    """
+    if size==2:
+        rd=lambda a:f"(uint32_t)(int32_t)(int16_t)read(ram,{a},2)"
+        step,adj='2','2u'
+        rm_addr=f"r[{m}]+((r[{n}]==r[{m}])?{adj}:0u)"
+        rn_addr=f"r[{n}]"
+    else:
+        rd=lambda a:f"(uint32_t)(int32_t)read(ram,{a},4)"
+        step,adj='4','4u'
+        rm_addr=f"r[{m}]"
+        rn_addr=f"r[{n}]+((r[{n}]==r[{m}])?{adj}:0u)"
+    return [
+        'wide=(uint64_t)r[19]|((uint64_t)r[20]<<32);',
+        f'wide+=(uint64_t)(int64_t){rd(rm_addr)}*(uint64_t)(int64_t){rd(rn_addr)};',
+        'r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);',
+        f'r[{n}]+={step}; r[{m}]+={step};',
+    ]
+
+def write_source(path, content):
+    path = Path(path)
+    if not path.exists() or path.read_text(encoding='ascii') != content:
+        path.write_text(content, encoding='ascii')
+
+def adapter_pcs(paths):
+    """Read emitted labels, excluding comments, routers and inferred seeds."""
+    return {int(a,16) for path in paths
+            for a in re.findall(r'^P_([0-9a-f]+):',Path(path).read_text(),re.M)}
+def router_calls() -> set[str]:
+    """The `_contains` symbols the router actually calls.
+
+    A module under src/fight that the router never calls cannot serve a PC.
+    Its owned set must therefore not count as "already implemented": a new
+    module that skipped such a PC would leave it claimed by nobody, and the
+    router would have nowhere to send a call.  (fight26_mod.c and
+    seventh_final_adapters.c are such modules - they carry a full translation
+    of their bodies, but nothing dispatches to them.)
+    """
+    text=(ROOT/'src/fight/matrix_family.c').read_text()
+    return set(re.findall(r'vf3_(\w+)_contains\(',text))
+def file_serves(path: Path, called: set[str]) -> bool:
+    """Whether the router can reach this file's module."""
+    text=Path(path).read_text()
+    m=re.search(r'int vf3_(\w+)_contains\(uint32_t pc\)',text)
+    if not m: return True          # a hand-written or shared module
+    return m.group(1) in called
+def adapter_claims(paths):
+    """The PCs a module actually serves.
+
+    A generated module routes a PC to itself when the PC is in its claim_pcs
+    array; the legacy modules, which have no such array, route every PC they
+    own.  Ownership alone is not enough: two modules can own the same PC
+    while neither claims it, and then *nobody* serves it and the router has
+    nowhere to send a call.  The claim set of the other modules is therefore
+    what decides whether a PC may be implemented here.
+    """
+    served=set()
+    for path in paths:
+        text=Path(path).read_text()
+        owned={int(a,16) for a in re.findall(r'^P_([0-9a-f]+):',text,re.M)}
+        claims=set()
+        for m in re.finditer(r'static const uint32_t claim_pcs\[\]=\{(.*?)\};',text,re.S):
+            claims|={int(w,16) for w in re.findall(r'0x([0-9a-f]+)u',m.group(1))}
+        served|=claims or owned
+    return served
+def emit(pc,w):
+    n,m=(w>>8)&15,(w>>4)&15
+    rn,rm=f"r[{n}]",f"r[{m}]"
+    fn,fm=f"fr[{n}]",f"fr[{m}]"
+    top,low=w>>12,w&15
+    if w==9: return []
+    if w==8: return [t("0")]
+    if w==0x18: return [t("1")]
+    if w==0x28: return ["r[19]=r[20]=0;"]
+    if w==0x19: return ["r[17]&=~0x301u;"]
+    if top==0xE: return [f"{rn}=0x{sx(w&255,8)&0xffffffff:08x}u;"]
+    if top==7: return [f"{rn}+=0x{sx(w&255,8)&0xffffffff:08x}u;"]
+    if top==9: return [f"{rn}=(uint32_t)(int32_t)(int16_t)read(ram,0x{pc+4+(w&255)*2:08x}u,2);"]
+    if top==0xD: return [f"{rn}=read(ram,0x{((pc+4)&~3)+(w&255)*4:08x}u,4);"]
+    if top==1: return [f"write(ram,{rn}+{(w&15)*4},{rm},4);"]
+    if top==5: return [f"{rn}=read(ram,{rm}+{(w&15)*4},4);"]
+    if top==2:
+        if low<=2: return [f"write(ram,{rn},{rm},{1<<low});"]
+        if 4<=low<=6: return [f"tmp={rm}; {rn}-={1<<(low-4)}; write(ram,{rn},tmp,{1<<(low-4)});"]
+        if low==7: return [f"r[17]=(r[17]&~0x301u)|(({rn}>>31)<<8)|(({rm}>>31)<<9)|((({rn}^{rm})>>31)&1u);"]
+        if low==8: return [t(f"({rn}&{rm})==0")]
+        if low in (9,10,11): return [f"{rn}{ {9:'&=',10:'^=',11:'|='}[low]}{rm};"]
+        if low==0xC: return [t(f"(({rn}^{rm})&0xffu)==0 || (({rn}^{rm})&0xff00u)==0 || (({rn}^{rm})&0xff0000u)==0 || (({rn}^{rm})&0xff000000u)==0")]
+        if low==0xD: return [f"{rn}=({rn}>>16)|({rm}<<16);"]
+        if low==0xE: return [f"r[19]=({rn}&65535u)*({rm}&65535u);"]
+        if low==0xF: return [f"r[19]=(uint32_t)((int32_t)(int16_t){rn}*(int32_t)(int16_t){rm});"]
+    if top==3:
+        if low==4: return [f"divide_step(s,{n},{m});"]
+        if low in (0,2,3,6,7): return [t({0:f"{rn}=={rm}",2:f"{rn}>={rm}",3:f"(int32_t){rn}>=(int32_t){rm}",6:f"{rn}>{rm}",7:f"(int32_t){rn}>(int32_t){rm}"}[low])]
+        if low==8: return [f"{rn}-={rm};"]
+        if low==0xC: return [f"{rn}+={rm};"]
+        if low==0xA: return [f"wide=(uint64_t){rn}-{rm}-(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
+        if low==0xE: return [f"wide=(uint64_t){rn}+{rm}+(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
+        if low in (5,13): return [f"wide={('(uint64_t)((int64_t)(int32_t)'+rn+'*(int64_t)(int32_t)'+rm+')') if low==13 else '(uint64_t)'+rn+'*'+rm}; r[19]=(uint32_t)wide; r[20]=(uint32_t)(wide>>32);"]
+        if low==0xF: return [f"tmp={rn}+{rm};",t(f"((({rn}^tmp)&({rm}^tmp))>>31)"),f"{rn}+={rm};"]
+    if top==6:
+        if low<=2 or 4<=low<=6:
+            k=low if low<=2 else low-4; size=1<<k
+            cast={0:"(uint32_t)(int32_t)(int8_t)",1:"(uint32_t)(int32_t)(int16_t)",2:""}[k]
+            lines=[f"tmp={cast}read(ram,{rm},{size});"]
+            if low>=4 and n!=m: lines.append(f"{rm}+={size};")
+            return lines+[f"{rn}=tmp;"]
+        if low==3: return [f"{rn}={rm};"]
+        if low==7: return [f"{rn}=~{rm};"]
+        if low==8: return [f"{rn}=({rm}&0xffff0000u)|(({rm}&255u)<<8)|(({rm}>>8)&255u);"]
+        if low==9: return [f"{rn}=({rm}<<16)|({rm}>>16);"]
+        if low==0xB: return [f"{rn}=0u-{rm};"]
+        if low==0xA: return [f"wide=0ull-(uint64_t){rm}-(r[17]&1u); {rn}=(uint32_t)wide;",t("wide>>32")]
+        if low in (0xC,0xD): return [f"{rn}={rm}&{255 if low==0xC else 65535}u;"]
+        if low in (0xE,0xF): return [f"{rn}=(uint32_t)(int32_t)({ 'int8_t' if low==0xE else 'int16_t'}){rm};"]
+    if top==4:
+        k=w&255
+        if (w&0xF08F)==0x4083: return ['if(!s->bank_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->bank[{(w>>4)&7}],4);']
+        if (w&0xF08F)==0x4087: return ['if(!s->bank_known) goto unsupported;',f's->bank[{(w>>4)&7}]=read(ram,{rn},4); {rn}+=4;']
+        if (w&0xF08F)==0x408E: return ['if(!s->bank_known) goto unsupported;',f's->bank[{(w>>4)&7}]={rn};']
+        if k==0x1b: return [f'tmp=read(ram,{rn},1);',t('tmp==0'),f'write(ram,{rn},tmp|0x80u,1);']
+        if k==0x13: return ['if(!s->gbr_known) goto unsupported;',f'{rn}-=4; write(ram,{rn},s->gbr,4);']
+        if k==0x17: return [f's->gbr=read(ram,{rn},4); {rn}+=4; s->gbr_known=1;']
+        if k==0x1e: return [f's->gbr={rn}; s->gbr_known=1;']
+        # LDC Rn,VBR / LDC Rn,SSR: the startup code installs the vector base and
+        # the saved status.  The port keeps no exception state (STC VBR is the
+        # constant the game installs), so the load has no observable effect.
+        if k==0x2e: return []
+        # SSR and SPC: the saved status and program counter an exception (or
+        # the kernel's context switch, which restores them for an RTE) uses.
+        # The state has no slot for them, so they live in two module-level
+        # words the boot's RTE stub (src/fight/boot_rte.c) reads.
+        if k in (0x3e,0x4e): return ['{ extern uint32_t vf3_boot_%s; vf3_boot_%s=%s; }'%(('ssr','ssr',rn) if k==0x3e else ('spc','spc',rn))]
+        if k in (0x37,0x47): return ['{ extern uint32_t vf3_boot_%s; vf3_boot_%s=read(ram,%s,4); } %s+=4;'%(('ssr','ssr',rn,rn) if k==0x37 else ('spc','spc',rn,rn))]
+        if k in (0x33,0x43): return ['{ extern uint32_t vf3_boot_%s; %s-=4; write(ram,%s,vf3_boot_%s,4); }'%(('ssr',rn,rn,'ssr') if k==0x33 else ('spc',rn,rn,'spc'))]
+        # STC.L VBR,@-Rn / LDC.L @Rn+,VBR: the constant STC VBR yields (see below).
+        if k==0x23: return [f'{rn}-=4; write(ram,{rn},0x0c00f400u,4);']
+        if k==0x27: return [f'{rn}+=4;']
+        if k==0x10: return [f"--{rn};",t(f"{rn}==0")]
+        if k in (0x11,0x15): return [t(f"(int32_t){rn}{'>=' if k==0x11 else '>'}0")]
+        if k in (0,0x20): return [t(f"{rn}>>31"),f"{rn}<<=1;"]
+        if k==1: return [t(f"{rn}&1"),f"{rn}>>=1;"]
+        if k==0x21: return [t(f"{rn}&1"),f"{rn}=(uint32_t)((int32_t){rn}>>1);"]
+        if k in (8,9,0x18,0x19,0x28,0x29): return [f"{rn}{'<<=' if k%2==0 else '>>='}{ {8:2,9:2,0x18:8,0x19:8,0x28:16,0x29:16}[k]};"]
+        if low in (0x0C,0x0D): return [f"{rn}=({rm}&0x80000000u)?(({rm}&31u)?{'(uint32_t)((int32_t)'+rn+'>>((-'+rm+')&31u))' if low==0x0C else rn+'>>((-'+rm+')&31u)'}:{'((int32_t)'+rn+'<0?0xffffffffu:0)' if low==0x0C else '0'}):{rn}<<({rm}&31u);"]
+        if k==0x24: return [f"tmp={rn}>>31; {rn}=({rn}<<1)|(r[17]&1u);",t("tmp")]
+        if k==0x25: return [f"tmp={rn}&1u; {rn}=({rn}>>1)|((r[17]&1u)<<31);",t("tmp")]
+        if k==0x05: return [t(f'{rn}&1u'),f'{rn}=({rn}>>1)|({rn}<<31);']
+        if (w&0xF00F)==0x4007: return [f"{rn}=read(ram,{rn},4)&0x700083F2u; {rn}+=4;"] # LDC.L @Rn+,SR
+        if low==0xF: return mac_lines(2,n,m) # MAC.W @Rm+,@Rn+
+        if k==0x04: return [t(f'{rn}>>31'),f'{rn}=({rn}<<1)|({rn}>>31);']
+        dest={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x0E:17}.get(k)
+        if dest is not None: return [f"r[{dest}]={rn};"]
+        dest={0x06:20,0x16:19,0x26:16,0x56:53,0x66:18}.get(k)
+        if dest is not None: return [f"r[{dest}]=read(ram,{rn},4); {rn}+=4;"]
+        src={0x02:20,0x12:19,0x22:16,0x52:53,0x62:18,0x03:17}.get(k)
+        if src is not None: return [f"{rn}-=4; write(ram,{rn},r[{src}],4);"]
+    if top==0:
+        k=w&255
+        if (w&0xF08F)==0x0082: return ['if(!s->bank_known) goto unsupported;',f'{rn}=s->bank[{(w>>4)&7}];']
+        if k==0x12: return ['if(!s->gbr_known) goto unsupported;',f'{rn}=s->gbr;']
+        if k==0x29: return [f"{rn}=r[17]&1u;"]
+        if k==0x22:
+            # STC VBR: the vector base the game installs for its own trap
+            # handlers.  The REIOS firmware starts it at the SH-4 RAM
+            # (tools/emu/flycast/core/reios/reios.cpp: ctx.vbr = 0x0c000000),
+            # but the game moves it before any recorded specimen runs: the
+            # handler installer at 0x0c060ea6 writes its function pointer to
+            # VBR+0x224, and every recorded specimen shows that word at
+            # 0x0c00f624 - so VBR is 0x0c00f400 in the game (27 cases across
+            # six corpora of 0x8c06371c).
+            return [f"{rn}=0x0c00f400u;"]
+        # The group-0 system family: the control select sits in bits 7-4 and
+        # the operation in bits 3-0, and the register in bits 11-8.  0x0A is
+        # "LDS <reg>,Rn" with the control in bits 7-4 (0=MACH, 1=MACL,
+        # 2=PR, 5=FPUL, 6=FPSCR) while 0x02 is "STC SR,Rn" - both read the
+        # status register into Rn, so they share the SR slot.  0x3A is the
+        # matching "LDS SR,Rn" (control 3) and reads the same register.
+        src={0x0A:20,0x1A:19,0x2A:16,0x5A:53,0x6A:18,0x02:17,0x3A:17}.get(k)
+        if src is not None: return [f"{rn}=r[{src}];"]
+        if low in (4,5,6): return [f"write(ram,{rn}+r[0],{rm},{1<<(low-4)});"]
+        if low in (0xC,0xD,0xE): return [f"{rn}={ {12:'(uint32_t)(int32_t)(int8_t)',13:'(uint32_t)(int32_t)(int16_t)',14:''}[low]}read(ram,{rm}+r[0],{1<<(low-12)});"]
+        if low==7: return [f"r[19]={rn}*{rm};"]
+        if low==0xF: return mac_lines(4,n,m) # MAC.L @Rm+,@Rn+
+        if k==0x83: return [f'if(({rn}&0xFC000000u)==0xE0000000u) pref(ram,{rn});'] # PREF into the store-queue area flushes the queue; elsewhere it is a cache hint.
+        if k in (0x93,0xa3,0xb3): return [] # Non-strict emulator cache operations have no architectural result.
+        if k==0xc3: return [f'write(ram,{rn},r[0],4);'] # MOVCA.L: interpreter-visible RAM store.
+    if top==8:
+        k=(w>>8)&15; reg=(w>>4)&15; d=w&15
+        if k in (0,1): return [f"write(ram,r[{reg}]+{d*(1<<k)},r[0],{1<<k});"]
+        if k in (4,5): return [f"r[0]=(uint32_t)(int32_t)({'int8_t' if k==4 else 'int16_t'})read(ram,r[{reg}]+{d*(1<<(k-4))},{1<<(k-4)});"]
+        if k==8: return [t(f"r[0]==0x{sx(w&255,8)&0xffffffff:08x}u")]
+    if top==0xC:
+        k=(w>>8)&15
+        if k in (0,1,2): return ['if(!s->gbr_known) goto unsupported;',f'write(ram,s->gbr+{(w&255)*(1<<k)},r[0],{1<<k});']
+        if k in (4,5,6): return ['if(!s->gbr_known) goto unsupported;',f"r[0]={ {4:'(uint32_t)(int32_t)(int8_t)',5:'(uint32_t)(int32_t)(int16_t)',6:''}[k]}read(ram,s->gbr+{(w&255)*(1<<(k-4))},{1<<(k-4)});"]
+        if k==7: return [f"r[0]=code_base|0x{(((pc+4)&~3)+(w&255)*4)&0x00ffffff:08x}u;"]
+        if k==8: return [t(f"(r[0]&{w&255}u)==0")]
+        if k in (9,10,11): return [f"r[0]{ {9:'&=',10:'^=',11:'|='}[k]}{w&255}u;"]
+        if k in (0xC,0xD,0xE,0xF):
+            # TST.B / AND.B / XOR.B / OR.B #imm,@(R0,GBR)
+            op={0xC:'&',0xD:'&',0xE:'^',0xF:'|'}[k]
+            read=f"read(ram,s->gbr+r[0],1)"
+            if k==0xC:
+                return ['if(!s->gbr_known) goto unsupported;',t(f"({read}&{w&255}u)==0")]
+            return ['if(!s->gbr_known) goto unsupported;',f"write(ram,s->gbr+r[0],{read}{op}{w&255}u,1);"]
+    if top==0xF:
+        if w==0xFBFD: return ["vf3_matrix_swap(s);"]
+        if w==0xF3FD: return ["r[18]^=0x100000u;"]
+        if (w&0xF1FF)==0xF0FD: return [f"vf3_fpu_fsca(r[53],fr+{n&14});"]
+        if (w&0xF0FF)==0xF0ED: return [f"if(!vf3_fpu_fipr(fr+{(n&3)*4},fr+{n&12},r[18],fr+{(n&12)+3})) goto unsupported;"]
+        if (w&0xF3FF)==0xF1FD: return [f"if(!vf3_fpu_ftrv(xf,fr+{n&12},r[18],fr+{n&12})) goto unsupported;"]
+        if low<=3: return [f"{fn}=vf3_fpu_binary({fn},{fm},r[18],'{'+-*/'[low]}');"]
+        if low in (4,5): return [t(f"as_float({fn}){'==' if low==4 else '>'}as_float({fm})")]
+        if low in (6,8,9):
+            address=f"{rm}+r[0]" if low==6 else rm
+            return [f"vf3_matrix_load(s,ram,{n},{address});"]+([f"{rm}+=(r[18]&0x100000u)?8:4;"] if low==9 else [])
+        if low in (7,10,11):
+            lines=[f"{rn}-=(r[18]&0x100000u)?8:4;"] if low==11 else []
+            return lines+[f"vf3_matrix_store(s,ram,{m},{rn+'+r[0]' if low==7 else rn});"]
+        if low==12: return [f"vf3_matrix_move(s,{n},{m});"]
+        if low==14: return [f"{fn}=vf3_fpu_mac(fr[0],{fm},{fn},r[18]);"]
+        if low==13:
+            k=w&255
+            if k==0x0D: return [f"{fn}=r[53];"]
+            if k==0x1D: return [f"r[53]={fn};"]
+            if k==0x2D: return [f"{fn}=vf3_fpu_float(r[53],r[18]);"]
+            if k==0x3D: return [f"r[53]=truncate_float({fn});"]
+            if k==0x4D: return [f"{fn}^=0x80000000u;"]
+            if k==0x5D: return [f"{fn}&=0x7fffffffu;"]
+            if k==0x6D: return [f"{fn}=vf3_fpu_sqrt({fn},r[18]);"]
+            if k==0x7D: return [f"if(!vf3_fpu_fsrra({fn},r[18],&{fn})) goto unsupported;"]
+            if k==0x8D: return [f"{fn}=0;"]
+            if k==0x9D: return [f"{fn}=0x3f800000u;"]
+    raise ValueError(f"unsupported {pc:08x}: {w:04x}")
+
+def indirect_destinations(path, image):
+    """Validate reviewed indirect-branch leads against the original image.
+
+    These are CFG expansion hints, not a restriction on runtime destinations
+    and not evidence of body execution or equivalent behavior.
+    """
+    if path is None:
+        return {}
+    base = 0x0c010000
+    result = {}
+    for site, targets in json.loads(Path(path).read_text()).items():
+        site = int(site, 0) & 0x1fffffff
+        if site & 1 or not base <= site < base + len(image) - 1:
+            raise ValueError('indirect site outside original image or unaligned')
+        opcode = struct.unpack_from('<H', image, site - base)[0]
+        if opcode & 0xf0ff not in (0x402b, 0x0023):
+            raise ValueError(f'not an indirect jump at {site:08x}')
+        if not isinstance(targets, list) or not targets:
+            raise ValueError('indirect targets must be a nonempty list')
+        destinations = {int(target, 0) & 0x1fffffff for target in targets}
+        if any(target & 1 or not base <= target < base + len(image) - 1
+               for target in destinations):
+            raise ValueError('indirect target outside original image or unaligned')
+        result[site] = sorted(destinations)
+    return result
+
+
+def generate(directories,out,watch=None,function='vf3_matrix_adapter',reuse_matrix=False,split_size=0,reuse_adapters=(),indirect_targets=None,code_only=False,reuse_excludes=()):
+    legacy=watch is None
+    watch=Path(watch or ROOT/'tools/watch/vf3_matrix_batch.txt')
+    roots={int(row.split()[1],16)&0x1fffffff for row in watch.read_text().splitlines() if row.split() and row.split()[0]=='pc'}
+    existing=set()
+    forced=set()
+    if reuse_matrix:
+        existing=adapter_claims([ROOT/'src/fight/matrix_adapters.c'])
+    for pattern in reuse_adapters:
+        paths=list(ROOT.glob(pattern))
+        if not paths: raise ValueError(f'no adapter sources match {pattern}')
+        output=Path(out).resolve()
+        paths=[p for p in paths if p.resolve()!=output and not
+               (p.parent.resolve()==output.parent and
+                p.stem.startswith(output.stem+'_'))]
+        paths=[p for p in paths if not any(p.match(pat) for pat in reuse_excludes)]
+        # Only the modules the router can dispatch to count as "already
+        # implemented"; a module nothing dispatches to would leave its PCs
+        # claimed by nobody.
+        called=router_calls()
+        paths=[p for p in paths if file_serves(p,called)]
+        existing.update(adapter_claims(paths))
+    if reuse_matrix or reuse_adapters:
+        for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
+            if int(row['entry'],16)&0x1fffffff in roots:
+                forced.update(range(int(row['start'],16)&0x1fffffff,int(row['end'],16)&0x1fffffff,2))
+    def reused(a): return a in existing and a not in forced
+    ops={}
+    print(f"DEBUG: directories={directories}")
+    print(f"DEBUG: roots={roots}")
+    print(f"DEBUG: legacy={legacy}")
+    for directory in directories:
+        for p in Path(directory).glob("*.ops.json"):
+            if not legacy and (int(p.name.split("_")[1].split(".")[0],16)&0x1fffffff) not in roots:
+                continue
+            if legacy and p.stem in ("f_8c076c00.ops", "f_8c0782ea.ops"):
+                continue
+            for a,w in json.loads(p.read_text()).items():
+                raw=int(a,16); a=raw&0x1fffffff; w=int(w,16)
+                if a in ops and ops[a]!=w: raise ValueError(f"code identity conflict {a:x}")
+                ops[a]=w
+            print(f"DEBUG: after reading {p}, ops has {len(ops)} entries")
+    print(f"DEBUG: before filter, ops has {len(ops)} entries")
+    # Hand-written kernels take precedence. Their opcodes are never emitted.
+    # Drop capture-only legacy regression workers from this new family.
+    ops={a:w for a,w in ops.items() if (not legacy or not 0xc075000<=a<0xc07b000) and not reused(a)}
+    print(f"DEBUG: after filter, ops has {len(ops)} entries")
+    image=(ROOT/"extract/exe/1ST_READ.unsc.bin").read_bytes()
+    indirect = indirect_destinations(indirect_targets, image)
+    if reuse_matrix or reuse_adapters:
+        sys.path.insert(0,str(ROOT))
+        from tools.batch_plan import implementation_graph
+        # Root adapters must own their whole intraprocedural control flow.
+        # A tiny or absent Ghidra seed cannot split a dispatch helper midway.
+        root_scan=implementation_graph(image,{})
+        for root in roots:
+            forced.update(a&0x1fffffff for a in root_scan(root|0x80000000)[0])
+        ops={a:w for a,w in ops.items() if not reused(a)}
+    foreign={a:w for a,w in ops.items() if not 0xc010000<=a<0xc010000+len(image)-1}
+    if not legacy:
+        # Dynamically installed code is not an original-image implementation.
+        # Preserve it as a blocker; dispatch to these PCs fails at replay.
+        ops={a:w for a,w in ops.items() if a not in foreign}
+    # The Ghidra inventory is the repo's authority on what the image's code is.
+    # A static walk that leaves it is walking into a table, a literal pool or
+    # the padding - the emitted block there fails closed and only makes the
+    # module huge.  `--code-only` stops the walk at the inventory's edge.
+    allowed=None
+    if code_only:
+        allowed=set()
+        for row in csv.DictReader(open(ROOT/'extract/analysis/function_body_ranges.csv')):
+            allowed.update(range(int(row['start'],16)&0x1fffffff,int(row['end'],16)&0x1fffffff,2))
+        for row in csv.DictReader(open(ROOT/'extract/analysis/funcs_1ST_READ.unsc.bin.csv')):
+            allowed.add(int(row['entry'],16)&0x1fffffff)
+    def word(pc):
+        off=(pc|0x80000000)-0x8c010000
+        if not 0<=off<len(image)-1: raise ValueError(f"outside image {pc:08x}")
+        return struct.unpack_from("<H",image,off)[0]
+    def literal_jump(a):
+        """Static destination of an indirect jump fed by the literal pool.
+
+        `mov.l @(disp,PC),Rn` copies a 32-bit constant out of the original
+        image into Rn and `jmp @Rn` lands on it.  The constant is a property
+        of the code, not of the run, so the destination is resolvable without
+        a reviewed hint list.  The emitted switch keeps its default arm, so a
+        runtime target that differs from the literal still reaches the router.
+        """
+        w=word(a)
+        if (w&0xf0ff)!=0x402b: return None
+        n=(w>>8)&15
+        try: prev=word(a-2)
+        except ValueError: return None
+        if (prev&0xf000)!=0xd000 or ((prev>>8)&15)!=n: return None
+        pool=((a-2)&~3)+4+(prev&0xff)*4
+        off=(pool|0x80000000)-0x8c010000
+        if not 0<=off<len(image)-3: return None
+        target=struct.unpack_from("<I",image,off)[0]&0x1fffffff
+        if target&1 or not 0xc010000<=target<0xc010000+len(image)-1: return None
+        return target
+    for a,w in ops.items():
+        if word(a)!=w: raise ValueError(f"executed image mismatch {a:x}")
+    # Close statically reachable branches from the original image, including
+    # paths absent from development captures. Delay slots do not fall through
+    # a return/jump into pools. Dynamic destinations still fail closed.
+    with (ROOT/'extract/analysis/sh4_resolved.csv').open() as stream:
+        resolved={int(r['site'],16)&0x1fffffff:int(r['target'],16)&0x1fffffff
+                  for r in csv.DictReader(stream) if r['class']=='STATIC'}
+    delayed=set()
+    def delay(w):
+        return w>>12 in (0xA,0xB) or w==0xB or (w&0xf0ff) in (0x400b,0x402b,0x0003,0x0023) or (w&0xff00) in (0x8d00,0x8f00)
+    for a,w in ops.items():
+        if delay(w): delayed.add(a+2)
+    todo=[a for a in ops if a not in delayed]
+    # Seven-entry flag dispatch table used at B0606, read from the image.
+    if legacy: todo.extend(struct.unpack_from('<7I',image,0xc10f6a0-0xc010000))
+    # Scene callback and conditional matrix-work entry points.
+    if legacy: todo.extend([0xc0a71d4,0xc0a7204,0xc0a721a,0xc03e980,0xc0b10a8,0xc058ea0])
+    for row in watch.read_text().splitlines():
+        fields=row.split()
+        if fields and fields[0]=='pc':
+            root=int(fields[1],16)&0x1fffffff
+            if not legacy or root not in (0xc076c00,0xc0782ea): todo.append(root)
+    followed=set()
+    print(f"DEBUG: before CFG walk, todo={todo}")
+    while todo:
+        a=todo.pop()
+        print(f"DEBUG: CFG walk processing a={a:08x}")
+        if a in followed or reused(a) or not 0xc010000<=a<0xc010000+len(image): 
+            print(f"DEBUG: skipping a={a:08x} (followed={a in followed}, reused={reused(a)}, range={not (0xc010000<=a<0xc010000+len(image))})")
+            continue
+        if allowed is not None and a not in allowed: continue
+        followed.add(a); w=word(a); ops[a]=w
+        if len(ops)>50000: raise ValueError('CFG expansion exceeded 50000 statements')
+        if delay(w):
+            ops[a+2]=word(a+2); delayed.add(a+2)
+        top=w>>12; k=(w>>8)&15
+        if top==0xA: todo.append(a+4+sx(w&4095,12)*2)
+        elif top==0xB: todo.extend([a+4,a+4+sx(w&4095,12)*2])
+        elif top==8 and k in (9,11,13,15): todo.extend([a+4+sx(w&255,8)*2,a+(4 if k in (13,15) else 2)])
+        elif w in (0xB,0x2B): pass
+        elif (w&0xf0ff) in (0x402b,0x0023):
+            if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
+            lit=literal_jump(a)
+            if lit is not None and lit not in MANUAL: todo.append(lit)
+            todo.extend(indirect.get(a, ()))
+        elif (w&0xf0ff) in (0x400b,0x0003):
+            todo.append(a+4)
+            if a in resolved and resolved[a] not in MANUAL: todo.append(resolved[a])
+        elif a not in delayed: todo.append(a+2)
+    def handoff():
+        # The callee runs under the mirror the caller jumped to.
+        return 'vf3_matrix_call_alias_pc=(target&0x1fffffffu); vf3_matrix_call_alias=(target&0xff000000u); '
+    def lost(target):
+        return 'if(!s->lost_pc) s->lost_pc=%s; ' % target
+    lines=['/* Static C ABI adapters. Generated with tools/oracle/translate_adapters.py.',
+           ' * Matrix operations are hand-written in matrix_family.c; unknown code fails.',
+           ' * Executed opcodes are checked against the untouched identity image. */',
+           '#include "fight/matrix_family.h"','#include "fight/sh4_fpu.h"',
+           '#include <math.h>','#include <string.h>',
+           '#define read vf3_matrix_read','#define write vf3_matrix_write',
+           '#define pref vf3_matrix_pref','void vf3_matrix_pref(const vf3_ram_map*,uint32_t);',
+           'static float as_float(uint32_t u) { float f; memcpy(&f,&u,4); return f; }',
+           'static uint32_t as_bits(float f) { uint32_t u; memcpy(&u,&f,4); return u; }',
+           'static uint32_t truncate_float(uint32_t u) { double d=as_float(u); if(isnan(d) || d< -2147483648.0) return 0x80000000u; if(d>=2147483648.0) return 0x7fffffffu; return (uint32_t)(int32_t)d; }',
+           'static void divide_step(vf3_matrix_state*s,unsigned n,unsigned m) { uint32_t *r=s->v; unsigned oldq=(r[17]>>8)&1u,sign=(r[17]>>9)&1u,q=r[n]>>31; uint32_t divisor=r[m],shifted=(r[n]<<1)|(r[17]&1u); r[n]=oldq==sign?shifted-divisor:shifted+divisor; unsigned carry=oldq==sign?r[n]>shifted:r[n]<shifted; q^=carry^sign; r[17]=(r[17]&~0x101u)|(q<<8)|(q==sign); }',
+           f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
+           'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
+           '/* The code base is the mirror the code runs under: 0x0c, 0x8c or 0xac.  A call hands the callee the mirror it jumped to (the router masks the entry PC to 29 bits, which loses it); a direct entry falls back to the alias the caller left in the link register. */',
+           'uint32_t code_base=(vf3_matrix_call_alias_pc==(entry&0x1fffffffu))?vf3_matrix_call_alias:(((entry&0xff000000u)==0x8c000000u)?(((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u):(entry&0xff000000u));',
+           'dispatch:', 'if(!s->budget--) goto unsupported;',
+           'switch(target&0x1fffffffu) {']
+    for a in sorted(ops): lines.append(f'case 0x{a:08x}u: goto {label(a)};')
+    lines.extend(['default: s->failed_pc=target; return 0;' if legacy else 'default: '+handoff()+lost('target')+'if(!vf3_matrix_family(target,s,ram)) return 0; return 1;', '}'])
+    unsupported={}; emitted=set()
+    def jump(a):
+        # A target the module does not implement is the router's business; if
+        # the router cannot serve it either, name it so the harness can say
+        # which address was lost.
+        return (f'goto {label(a)};' if a in ops else
+                (f's->failed_pc=0x{a:08x}u; return 0;' if legacy else
+                 f'if(!vf3_matrix_family(0x{a:08x}u,s,ram)) {{ if(!s->lost_pc) s->lost_pc=0x{a:08x}u; return 0; }} return 1;'))
+    def statements(pc):
+        try: return emit(pc,word(pc))
+        except ValueError as e: unsupported[pc]=str(e); return [f's->failed_pc=0x{pc:08x}u; return 0;']
+    for a,w in sorted(ops.items()):
+        emitted.add(a)
+        lines.append(f'{label(a)}: /* original {w:04x}, guest PC 0x{a:08x} */')
+        lines.append(f'if(!s->budget--) {{ s->failed_pc=0x{a:08x}u; return 0; }}')
+        top=w>>12; k=(w>>8)&15
+        dl=None
+        if top in (0xA,0xB):
+            dest=a+4+sx(w&4095,12)*2
+            if top==0xB:
+                lines.append(f'target=code_base|0x{dest&0x0fffffff:08x}u; r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
+                lines.extend(statements(a+2))
+                lines.append(handoff()+f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}')
+                lines.append(jump(a+4))
+            else:
+                lines.extend(statements(a+2)); lines.append(jump(dest))
+        elif top==8 and k in (9,11,13,15):
+            lines.append('cond=r[17]&1u;')
+            if k in (13,15): lines.extend(statements(a+2))
+            lines.append(f"if({'cond' if k in (9,13) else '!cond'}) {{ {jump(a+4+sx(w&255,8)*2)} }}")
+            lines.append(jump(a+(4 if k in (13,15) else 2)))
+        elif (w&0xF0FF) in (0x400B,0x402B,0x0003,0x0023):
+            n=(w>>8)&15
+            rel=(w&0xF0FF) in (0x0003,0x0023)
+            call=(w&0xF0FF) in (0x400B,0x0003)
+            lines.append(f'target=r[{n}]'+(f'+0x{a+4:08x}u;' if rel else ';'))
+            if call: lines.append(f'r[16]=code_base|0x{a+4&0x0fffffff:08x}u;')
+            lines.extend(statements(a+2))
+            if call:
+                lines.append(handoff()+f'if(!vf3_matrix_family(target,s,ram)) return 0; if((s->pc&0x1fffffffu)!=0x{a+4:08x}u) {{ target=s->pc; goto dispatch; }}'); lines.append(jump(a+4))
+            else:
+                # An indirect jump lands on the target's own mirror, so the
+                # code that runs there carries that alias.
+                lines.append('code_base=target&0xff000000u;')
+                lines.append('switch(target&0x1fffffffu) {')
+                dests=list(indirect.get(a, ()))
+                lit=literal_jump(a)
+                if lit is not None and lit not in dests: dests.append(lit)
+                for dest in dests:
+                    if dest not in MANUAL:
+                        lines.append(f'case 0x{dest:08x}u: {jump(dest)}')
+                for helper in sorted(MANUAL): lines.append(f'case 0x{helper:08x}u: '+handoff()+'return vf3_matrix_family(target,s,ram);')
+                lines.append('default: goto dispatch; }')
+        elif w==0xB:
+            lines.append('target=r[16];'); lines.extend(statements(a+2)); lines.append('s->pc=target; return ram->oob==0;')
+        elif w==0x2B:
+            lines.append(f's->failed_pc=0x{a:08x}u; return 0;')
+        else:
+            lines.extend(statements(a)); lines.append(jump(a+2))
+    lines.extend(['unsupported: s->failed_pc=target; return 0;','}'])
+    def ownership():
+        # The router picks an owner by entry PC, and the chain order decides
+        # who wins a contested PC.  A module placed early in the chain must
+        # not take over an entry whose body another module owns, so the claim
+        # set is: the PCs no other module owns, plus this module's own roots.
+        # With the usual "new module last" order this is the same set as the
+        # owned PCs, because the earlier module wins the contested ones.
+        claim=sorted((set(ops)-existing) | (roots & set(ops)))
+        return ['static const uint32_t owned_pcs[]={',*[''.join(f'0x{a:08x}u,' for a in sorted(ops)[i:i+16]) for i in range(0,len(ops),16)], '};',
+          'static const uint32_t claim_pcs[]={',*[''.join(f'0x{a:08x}u,' for a in claim[i:i+16]) for i in range(0,len(claim),16)], '};',
+          f'int {function}_contains(uint32_t pc) {{',
+          'pc&=0x1fffffffu; unsigned lo=0,hi=sizeof(claim_pcs)/sizeof(claim_pcs[0]);',
+          'while(lo<hi) { unsigned mid=lo+(hi-lo)/2; if(claim_pcs[mid]<pc) lo=mid+1; else hi=mid; }',
+          'return lo<sizeof(claim_pcs)/sizeof(claim_pcs[0]) && claim_pcs[lo]==pc;', '}']
+    if split_size and not legacy:
+        starts=[i for i,line in enumerate(lines) if re.match(r'^P_[0-9a-f]+:',line)]
+        blocks={int(lines[i][2:10],16):lines[i:(starts[j+1] if j+1<len(starts) else len(lines)-2)] for j,i in enumerate(starts)}
+        parts=[]; part=[]
+        for pc in sorted(blocks):
+            # Prefer a return boundary over splitting the middle of a loop.
+            if len(part)>=split_size and word(part[-1]-2)==11:
+                parts.append(part); part=[]
+            part.append(pc)
+        if part: parts.append(part)
+        head=next(i for i,line in enumerate(lines) if line.startswith(f'int {function}('))
+        prefix=lines[:head]; router=['#include "fight/matrix_family.h"']
+        output=Path(out)
+        for index,pcs in enumerate(parts):
+            name=f'{function}_{index}'; owned=set(pcs)
+            body=prefix+[f'int {name}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
+              'uint32_t *r=s->v,*fr=r+21,*xf=r+37,target=entry,cond=0,tmp=0; uint64_t wide=0;',
+           '/* PR keeps the alias of the executing image: the capture alias is visible in the caller return address. */',
+           'uint32_t code_base=((entry&0xff000000u)==0x8c000000u)?(((r[16]&0xff000000u)==0x0c000000u)?0x0c000000u:0x8c000000u):(entry&0xff000000u);',
+              'dispatch:', 'if(!s->budget--) goto unsupported;', 'switch(target&0x1fffffffu) {',
+              *[f'case 0x{pc:08x}u: goto {label(pc)};' for pc in pcs],
+              'default: return vf3_matrix_family(target,s,ram);', '}']
+            def transfer(match):
+                pc=int(match[1],16)
+                return match[0] if pc in owned else f'return vf3_matrix_family(0x{pc:08x}u,s,ram);'
+            for pc in pcs:
+                body.extend(re.sub(r'goto P_([0-9a-f]+);',transfer,line) for line in blocks[pc])
+            body+=['unsupported: s->failed_pc=target; return 0;','}']
+            write_source(output.with_name(output.stem+f'_{index}.c'), '\n'.join(body)+'\n')
+            router.append(f'int {name}(uint32_t,vf3_matrix_state*,const vf3_ram_map*);')
+        router+=ownership()+[f'int {function}(uint32_t entry,vf3_matrix_state*s,const vf3_ram_map*ram) {{',
+          f'if(!{function}_contains(entry)) {{ s->failed_pc=entry; return 0; }}', 'uint32_t pc=entry&0x1fffffffu;']
+        for index,pcs in enumerate(parts): router.append(f'if(pc<=0x{pcs[-1]:08x}u) return {function}_{index}(entry,s,ram);')
+        router+=['s->failed_pc=entry; return 0;','}']
+        write_source(output, '\n'.join(router)+'\n')
+        print(f'{len(parts)} bounded source modules')
+    else:
+        if not legacy: lines.extend(ownership())
+        write_source(out, '\n'.join(lines)+'\n')
+    report={"statements":len(ops),"unsupported":{f"{k:08x}":v for k,v in unsupported.items()},"inputs":[str(d) for d in directories],"foreign_code":{f'{a:08x}':f'{w:04x}' for a,w in foreign.items()}}
+    (ROOT/f"extract/analysis/{'matrix' if legacy else function}_adapter_translation.json").write_text(json.dumps(report,indent=1))
+    print(f"{len(ops)} guest statements; {len(unsupported)} unsupported instructions")
+    for why in list(unsupported.values())[:15]: print(why)
+
+if __name__=="__main__":
+    ap=argparse.ArgumentParser(description=__doc__); ap.add_argument('captures',nargs='+')
+    ap.add_argument('--out',default='src/fight/matrix_adapters.c')
+    ap.add_argument('--watch',help='explicit roots; enables a separate adapter module')
+    ap.add_argument('--function',default='vf3_matrix_adapter')
+    ap.add_argument('--reuse-matrix',action='store_true')
+    ap.add_argument('--split-size',type=int,default=0)
+    ap.add_argument('--indirect-targets',type=Path,
+                    help='reviewed JSON jump-site to original-image target lists; no coverage credit')
+    ap.add_argument('--reuse-adapter',action='append',default=[],help='existing source glob whose PCs dispatch to their current owner')
+    ap.add_argument('--reuse-sources-report',type=Path,
+                    help='source_owners report providing linked C sources without a long command line')
+    ap.add_argument('--reuse-exclude',action='append',default=[],
+                    help='glob of reuse sources to leave out (a batch regenerated without its siblings)')
+    ap.add_argument('--code-only',action='store_true',
+                    help='stop the static walk at the Ghidra inventory edge (no data, no padding)')
+    a=ap.parse_args()
+    if a.reuse_sources_report:
+        linked=json.loads(a.reuse_sources_report.read_text())['linked_sources']
+        for source in linked:
+            if not source.endswith('.c'): continue
+            path=(ROOT/source).resolve()
+            if not path.is_relative_to(ROOT/'src') or not path.is_file():
+                raise ValueError(f'invalid linked C source: {source}')
+            a.reuse_adapter.append(path.relative_to(ROOT).as_posix())
+    generate(a.captures,a.out,a.watch,a.function,a.reuse_matrix,a.split_size,a.reuse_adapter,a.indirect_targets,code_only=a.code_only,reuse_excludes=a.reuse_exclude)

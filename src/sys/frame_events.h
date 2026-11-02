@@ -22,6 +22,8 @@
 
 #include <stdint.h>
 
+#include "sys/maple_hle.h"
+
 /* 3,336,670 SH-4 clocks per frame (1/60 s at the NTSC field rate). */
 #define VF3_CYCLES_PER_FRAME 3336670u
 
@@ -86,6 +88,9 @@ uint32_t vf3_frame_events_slice(vf3_frame_events *ev, unsigned steps, const uint
 unsigned vf3_frame_events_frames(const vf3_frame_events *ev);
 /* The buttons the stand-in pad reports (wire format, active low: 0xFFFF = nothing pressed). */
 void vf3_frame_events_set_buttons(uint16_t buttons);
+/* The whole pad: the buttons and the analog axes.  The guest reads them in
+ * the same Maple reply, so the pad is published as one state. */
+void vf3_frame_events_set_pad(const vf3_maple_pad *pad);
 /* The clock, in SH-4 clocks since the model started. */
 uint64_t vf3_frame_events_cycles(const vf3_frame_events *ev);
 

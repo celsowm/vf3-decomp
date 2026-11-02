@@ -387,10 +387,1095 @@ int vf3_actor_profile_pair_c(vf3_matrix_state *,const vf3_ram_map *);
  * included by every generated adapter, and touching it rebuilds them all. */
 int vf3_gap_b07_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_gap_b07_adapter_contains(uint32_t);
+
+/* First batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch1_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch1_adapter_contains(uint32_t);
+
+/* First batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch1_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch1_adapter_contains(uint32_t);
+
+/* First batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch1_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch1_adapter_contains(uint32_t);
+
+/* First batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch1_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch1_adapter_contains(uint32_t);
+
+/* First batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch1_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch1_adapter_contains(uint32_t);
+
+/* Second batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch2_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch2_adapter_contains(uint32_t);
+
+/* Third batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch3_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch3_adapter_contains(uint32_t);
+
+/* Fourth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch4_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch4_adapter_contains(uint32_t);
+
+/* Fifth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch5_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch5_adapter_contains(uint32_t);
+
+/* Sixth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch6_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch6_adapter_contains(uint32_t);
+
+/* Seventh batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch7_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch7_adapter_contains(uint32_t);
+
+/* Eighth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch8_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch8_adapter_contains(uint32_t);
+
+/* Ninth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch9_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch9_adapter_contains(uint32_t);
+
+/* Tenth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch10_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch10_adapter_contains(uint32_t);
+
+/* Eleventh batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch11_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch11_adapter_contains(uint32_t);
+
+/* Twelfth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch12_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch12_adapter_contains(uint32_t);
+
+/* Thirteenth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch13_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch13_adapter_contains(uint32_t);
+
+/* Fourteenth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch14_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch14_adapter_contains(uint32_t);
+
+/* Fifteenth batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch15_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch15_adapter_contains(uint32_t);
+
+/* 16th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch16_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch16_adapter_contains(uint32_t);
+
+/* 17th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch17_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch17_adapter_contains(uint32_t);
+
+/* 18th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch18_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch18_adapter_contains(uint32_t);
+
+/* 19th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch19_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch19_adapter_contains(uint32_t);
+
+/* 20th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch20_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch20_adapter_contains(uint32_t);
+
+/* 21th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch21_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch21_adapter_contains(uint32_t);
+
+/* 22th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch22_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch22_adapter_contains(uint32_t);
+
+/* 23th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch23_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch23_adapter_contains(uint32_t);
+
+/* 24th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch24_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch24_adapter_contains(uint32_t);
+
+/* 25th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch25_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch25_adapter_contains(uint32_t);
+
+/* 26th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch26_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch26_adapter_contains(uint32_t);
+
+/* 27th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch27_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch27_adapter_contains(uint32_t);
+
+/* 27th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch27_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch27_adapter_contains(uint32_t);
+
+/* 28th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch28_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch28_adapter_contains(uint32_t);
+
+/* 29th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch29_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch29_adapter_contains(uint32_t);
+
+/* 30th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch30_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch30_adapter_contains(uint32_t);
+
+/* 31th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch31_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch31_adapter_contains(uint32_t);
+
+/* 32th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch32_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch32_adapter_contains(uint32_t);
+
+/* 33th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch33_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch33_adapter_contains(uint32_t);
+
+/* 34th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch34_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch34_adapter_contains(uint32_t);
+
+/* 35th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch35_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch35_adapter_contains(uint32_t);
+
+/* 36th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch36_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch36_adapter_contains(uint32_t);
+
+/* 37th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch37_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch37_adapter_contains(uint32_t);
+
+/* 38th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch38_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch38_adapter_contains(uint32_t);
+
+/* 39th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch39_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch39_adapter_contains(uint32_t);
+
+/* 40th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch40_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch40_adapter_contains(uint32_t);
+
+/* 41th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch41_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch41_adapter_contains(uint32_t);
+
+/* 42th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch42_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch42_adapter_contains(uint32_t);
+
+/* 43th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch43_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch43_adapter_contains(uint32_t);
+
+/* 44th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch44_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch44_adapter_contains(uint32_t);
+
+/* 45th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch45_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch45_adapter_contains(uint32_t);
+
+/* 46th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch46_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch46_adapter_contains(uint32_t);
+
+/* 47th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch47_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch47_adapter_contains(uint32_t);
+
+/* 48th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch48_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch48_adapter_contains(uint32_t);
+
+/* 49th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch49_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch49_adapter_contains(uint32_t);
+
+/* 50th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch50_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch50_adapter_contains(uint32_t);
+
+/* 51th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch51_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch51_adapter_contains(uint32_t);
+
+/* 52th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch52_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch52_adapter_contains(uint32_t);
+
+/* 53th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch53_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch53_adapter_contains(uint32_t);
+
+/* 54th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch54_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch54_adapter_contains(uint32_t);
+
+/* 55th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch55_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch55_adapter_contains(uint32_t);
+
+/* 56th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch56_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch56_adapter_contains(uint32_t);
+
+/* 57th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch57_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch57_adapter_contains(uint32_t);
+
+/* 58th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch58_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch58_adapter_contains(uint32_t);
+
+/* 59th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch59_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch59_adapter_contains(uint32_t);
+
+/* 60th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch60_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch60_adapter_contains(uint32_t);
+
+/* 61th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch61_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch61_adapter_contains(uint32_t);
+
+/* 62th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch62_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch62_adapter_contains(uint32_t);
+
+/* 63th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch63_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch63_adapter_contains(uint32_t);
+
+/* 64th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch64_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch64_adapter_contains(uint32_t);
+
+/* 65th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch65_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch65_adapter_contains(uint32_t);
+
+/* 66th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch66_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch66_adapter_contains(uint32_t);
+
+/* 67th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch67_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch67_adapter_contains(uint32_t);
+
+/* 68th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch68_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch68_adapter_contains(uint32_t);
+
+/* 69th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch69_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch69_adapter_contains(uint32_t);
+
+/* 70th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch70_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch70_adapter_contains(uint32_t);
+
+/* 71th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch71_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch71_adapter_contains(uint32_t);
+
+/* 72th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch72_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch72_adapter_contains(uint32_t);
+
+/* 73th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch73_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch73_adapter_contains(uint32_t);
+
+/* 74th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch74_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch74_adapter_contains(uint32_t);
+
+/* 75th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch75_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch75_adapter_contains(uint32_t);
+
+/* 76th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch76_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch76_adapter_contains(uint32_t);
+
+/* 77th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch77_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch77_adapter_contains(uint32_t);
+
+/* 78th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch78_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch78_adapter_contains(uint32_t);
+
+/* 79th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch79_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch79_adapter_contains(uint32_t);
+
+/* 80th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch80_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch80_adapter_contains(uint32_t);
+
+/* 81th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch81_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch81_adapter_contains(uint32_t);
+
+/* 82th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch82_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch82_adapter_contains(uint32_t);
+
+/* 83th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch83_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch83_adapter_contains(uint32_t);
+
+/* 84th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch84_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch84_adapter_contains(uint32_t);
+
+/* 85th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch85_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch85_adapter_contains(uint32_t);
+
+/* 86th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch86_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch86_adapter_contains(uint32_t);
+
+/* 87th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch87_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch87_adapter_contains(uint32_t);
+
+/* 88th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch88_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch88_adapter_contains(uint32_t);
+
+/* 89th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch89_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch89_adapter_contains(uint32_t);
+
+/* 90th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch90_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch90_adapter_contains(uint32_t);
+
+/* 91th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch91_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch91_adapter_contains(uint32_t);
+
+/* 92th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch92_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch92_adapter_contains(uint32_t);
+
+/* 93th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch93_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch93_adapter_contains(uint32_t);
+
+/* 94th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch94_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch94_adapter_contains(uint32_t);
+
+/* 95th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch95_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch95_adapter_contains(uint32_t);
+
+/* 96th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch96_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch96_adapter_contains(uint32_t);
+
+/* 97th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch97_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch97_adapter_contains(uint32_t);
+
+/* 98th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch98_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch98_adapter_contains(uint32_t);
+
+/* 99th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch99_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch99_adapter_contains(uint32_t);
+
+/* 100th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch100_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch100_adapter_contains(uint32_t);
+
+/* 101th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch101_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch101_adapter_contains(uint32_t);
+
+/* 102th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch102_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch102_adapter_contains(uint32_t);
+
+/* 103th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch103_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch103_adapter_contains(uint32_t);
+
+/* 104th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch104_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch104_adapter_contains(uint32_t);
+
+/* 105th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch105_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch105_adapter_contains(uint32_t);
+
+/* 106th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch106_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch106_adapter_contains(uint32_t);
+
+/* 107th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch107_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch107_adapter_contains(uint32_t);
+
+/* 108th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch108_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch108_adapter_contains(uint32_t);
+
+/* 109th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch109_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch109_adapter_contains(uint32_t);
+
+/* 110th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch110_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch110_adapter_contains(uint32_t);
+
+/* 111th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch111_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch111_adapter_contains(uint32_t);
+
+/* 112th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch112_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch112_adapter_contains(uint32_t);
+
+/* 113th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch113_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch113_adapter_contains(uint32_t);
+
+/* 114th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch114_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch114_adapter_contains(uint32_t);
+
+/* 115th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch115_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch115_adapter_contains(uint32_t);
+
+/* 116th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch116_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch116_adapter_contains(uint32_t);
+
+/* 117th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch117_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch117_adapter_contains(uint32_t);
+
+/* 118th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch118_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch118_adapter_contains(uint32_t);
+
+/* 119th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch119_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch119_adapter_contains(uint32_t);
+
+/* 120th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch120_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch120_adapter_contains(uint32_t);
+
+/* 121th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch121_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch121_adapter_contains(uint32_t);
+
+/* 122th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch122_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch122_adapter_contains(uint32_t);
+
+/* 123th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch123_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch123_adapter_contains(uint32_t);
+
+/* 124th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch124_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch124_adapter_contains(uint32_t);
+
+/* 125th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch125_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch125_adapter_contains(uint32_t);
+
+/* 126th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch126_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch126_adapter_contains(uint32_t);
+
+/* 127th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch127_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch127_adapter_contains(uint32_t);
+
+/* 128th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch128_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch128_adapter_contains(uint32_t);
+
+/* 129th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch129_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch129_adapter_contains(uint32_t);
+
+/* 130th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch130_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch130_adapter_contains(uint32_t);
+
+/* 131th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch131_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch131_adapter_contains(uint32_t);
+
+/* 132th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch132_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch132_adapter_contains(uint32_t);
+
+/* 133th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch133_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch133_adapter_contains(uint32_t);
+
+/* 134th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch134_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch134_adapter_contains(uint32_t);
+
+/* 135th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch135_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch135_adapter_contains(uint32_t);
+
+/* 136th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch136_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch136_adapter_contains(uint32_t);
+
+/* 137th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch137_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch137_adapter_contains(uint32_t);
+
+/* 138th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch138_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch138_adapter_contains(uint32_t);
+
+/* 139th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch139_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch139_adapter_contains(uint32_t);
+
+/* 140th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch140_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch140_adapter_contains(uint32_t);
+
+/* 141th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch141_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch141_adapter_contains(uint32_t);
+
+/* 142th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch142_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch142_adapter_contains(uint32_t);
+
+/* 143th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch143_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch143_adapter_contains(uint32_t);
+
+/* 144th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch144_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch144_adapter_contains(uint32_t);
+
+/* 145th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch145_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch145_adapter_contains(uint32_t);
+
+/* 146th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch146_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch146_adapter_contains(uint32_t);
+
+/* 147th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch147_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch147_adapter_contains(uint32_t);
+
+/* 148th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch148_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch148_adapter_contains(uint32_t);
+
+/* 149th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch149_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch149_adapter_contains(uint32_t);
+
+/* 150th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch150_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch150_adapter_contains(uint32_t);
+
+/* 151th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch151_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch151_adapter_contains(uint32_t);
+
+/* 152th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch152_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch152_adapter_contains(uint32_t);
+
+/* 153th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch153_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch153_adapter_contains(uint32_t);
+
+/* 154th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch154_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch154_adapter_contains(uint32_t);
+
+/* 155th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch155_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch155_adapter_contains(uint32_t);
+
+/* 156th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch156_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch156_adapter_contains(uint32_t);
+
+/* 157th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch157_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch157_adapter_contains(uint32_t);
+
+/* 158th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch158_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch158_adapter_contains(uint32_t);
+
+/* 159th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch159_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch159_adapter_contains(uint32_t);
+
+/* 160th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch160_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch160_adapter_contains(uint32_t);
+
+/* 161th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch161_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch161_adapter_contains(uint32_t);
+
+/* 162th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch162_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch162_adapter_contains(uint32_t);
+
+/* 163th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch163_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch163_adapter_contains(uint32_t);
+
+/* 164th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch164_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch164_adapter_contains(uint32_t);
+
+/* 165th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch165_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch165_adapter_contains(uint32_t);
+
+/* 166th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch166_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch166_adapter_contains(uint32_t);
+
+/* 167th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch167_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch167_adapter_contains(uint32_t);
+
+/* 168th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch168_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch168_adapter_contains(uint32_t);
+
+/* 169th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch169_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch169_adapter_contains(uint32_t);
+
+/* 170th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch170_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch170_adapter_contains(uint32_t);
+
+/* 171th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch171_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch171_adapter_contains(uint32_t);
+
+/* 172th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch172_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch172_adapter_contains(uint32_t);
+
+/* 173th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch173_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch173_adapter_contains(uint32_t);
+
+/* 174th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch174_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch174_adapter_contains(uint32_t);
+
+/* 175th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch175_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch175_adapter_contains(uint32_t);
+
+/* 176th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch176_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch176_adapter_contains(uint32_t);
+
+/* 177th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch177_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch177_adapter_contains(uint32_t);
+
+/* 178th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch178_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch178_adapter_contains(uint32_t);
+
+/* 179th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch179_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch179_adapter_contains(uint32_t);
+
+/* 180th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch180_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch180_adapter_contains(uint32_t);
+
+/* 181th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch181_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch181_adapter_contains(uint32_t);
+
+/* 182th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch182_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch182_adapter_contains(uint32_t);
+
+/* 183th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch183_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch183_adapter_contains(uint32_t);
+
+/* 184th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch184_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch184_adapter_contains(uint32_t);
+
+/* 185th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch185_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch185_adapter_contains(uint32_t);
+
+/* 186th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch186_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch186_adapter_contains(uint32_t);
+
+/* 187th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch187_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch187_adapter_contains(uint32_t);
+
+/* 188th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch188_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch188_adapter_contains(uint32_t);
+
+/* 189th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch189_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch189_adapter_contains(uint32_t);
+
+/* 190th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch190_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch190_adapter_contains(uint32_t);
+
+/* 191th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch191_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch191_adapter_contains(uint32_t);
+
+/* 192th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch192_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch192_adapter_contains(uint32_t);
+
+/* 193th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch193_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch193_adapter_contains(uint32_t);
+
+/* 194th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch194_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch194_adapter_contains(uint32_t);
+
+/* 195th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch195_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch195_adapter_contains(uint32_t);
+
+/* 196th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch196_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch196_adapter_contains(uint32_t);
+
+/* 197th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch197_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch197_adapter_contains(uint32_t);
+
+/* 198th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch198_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch198_adapter_contains(uint32_t);
+
+/* 199th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch199_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch199_adapter_contains(uint32_t);
+
+/* 200th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch200_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch200_adapter_contains(uint32_t);
+
+/* 201th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch201_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch201_adapter_contains(uint32_t);
+
+/* 202th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch202_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch202_adapter_contains(uint32_t);
+
+/* 203th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch203_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch203_adapter_contains(uint32_t);
+
+/* 204th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch204_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch204_adapter_contains(uint32_t);
+
+/* 205th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch205_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch205_adapter_contains(uint32_t);
+
+/* 206th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch206_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch206_adapter_contains(uint32_t);
+
+/* 207th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch207_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch207_adapter_contains(uint32_t);
+
+/* 208th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch208_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch208_adapter_contains(uint32_t);
+
+/* 209th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch209_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch209_adapter_contains(uint32_t);
+
+/* 210th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch210_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch210_adapter_contains(uint32_t);
+
+/* 211th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch211_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch211_adapter_contains(uint32_t);
+
+/* 212th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch212_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch212_adapter_contains(uint32_t);
+
+/* 213th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch213_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch213_adapter_contains(uint32_t);
+
+/* 214th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch214_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch214_adapter_contains(uint32_t);
+
+/* 215th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch215_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch215_adapter_contains(uint32_t);
+
+/* 216th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch216_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch216_adapter_contains(uint32_t);
+
+/* 217th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch217_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch217_adapter_contains(uint32_t);
+
+/* 218th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch218_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch218_adapter_contains(uint32_t);
+
+/* 219th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch219_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch219_adapter_contains(uint32_t);
+
+/* 220th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch220_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch220_adapter_contains(uint32_t);
+
+/* 221th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch221_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch221_adapter_contains(uint32_t);
+
+/* 222th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch222_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch222_adapter_contains(uint32_t);
+
+/* 223th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch223_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch223_adapter_contains(uint32_t);
+
+/* 224th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch224_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch224_adapter_contains(uint32_t);
+
+/* 225th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch225_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch225_adapter_contains(uint32_t);
+
+/* 226th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch226_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch226_adapter_contains(uint32_t);
+
+/* 227th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch227_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch227_adapter_contains(uint32_t);
+
+/* 228th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch228_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch228_adapter_contains(uint32_t);
+
+/* 229th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch229_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch229_adapter_contains(uint32_t);
+
+/* 230th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch230_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch230_adapter_contains(uint32_t);
+
+/* 231th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch231_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch231_adapter_contains(uint32_t);
+
+/* 232th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch232_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch232_adapter_contains(uint32_t);
+
+/* 233th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch233_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch233_adapter_contains(uint32_t);
+
+/* 234th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch234_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch234_adapter_contains(uint32_t);
+
+/* 235th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch235_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch235_adapter_contains(uint32_t);
+
+/* 236th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch236_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch236_adapter_contains(uint32_t);
+
+/* 237th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch237_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch237_adapter_contains(uint32_t);
+
+/* 238th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch238_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch238_adapter_contains(uint32_t);
+
+/* 239th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch239_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch239_adapter_contains(uint32_t);
+
+/* 240th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch240_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch240_adapter_contains(uint32_t);
+
+/* 241th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch241_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch241_adapter_contains(uint32_t);
+
+/* 242th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch242_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch242_adapter_contains(uint32_t);
+
+/* 243th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch243_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch243_adapter_contains(uint32_t);
+
+/* 244th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch244_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch244_adapter_contains(uint32_t);
+
+/* 245th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch245_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch245_adapter_contains(uint32_t);
+
+/* 246th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch246_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch246_adapter_contains(uint32_t);
+
+/* 247th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch247_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch247_adapter_contains(uint32_t);
+
+/* 248th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch248_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch248_adapter_contains(uint32_t);
+
+/* 249th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch249_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch249_adapter_contains(uint32_t);
+
+/* 250th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch250_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch250_adapter_contains(uint32_t);
+
+/* 251th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch251_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch251_adapter_contains(uint32_t);
+
+/* 252th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch252_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch252_adapter_contains(uint32_t);
+
+/* 253th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch253_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch253_adapter_contains(uint32_t);
+
+/* 254th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch254_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch254_adapter_contains(uint32_t);
+
+/* 255th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch255_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch255_adapter_contains(uint32_t);
+
+/* 256th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch256_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch256_adapter_contains(uint32_t);
+
+/* 257th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch257_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch257_adapter_contains(uint32_t);
+
+/* 258th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch258_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch258_adapter_contains(uint32_t);
+
+/* 259th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch259_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch259_adapter_contains(uint32_t);
+
+/* 260th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch260_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch260_adapter_contains(uint32_t);
+
+/* 261th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch261_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch261_adapter_contains(uint32_t);
+
+/* 262th batch of off-inventory entries translated from the image (no corpora). */
+int vf3_away_batch262_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_away_batch262_adapter_contains(uint32_t);
 int vf3_boot_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_boot_adapter_contains(uint32_t);
 int vf3_boot_rte_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
 int vf3_boot_rte_adapter_contains(uint32_t);
+/* The off-inventory entry the boot reached through a function pointer
+ * (0x8C0AE97E): the Ghidra inventory never named it and no bsr points at it,
+ * so the router had nowhere to send the call. */
+int vf3_offinv_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_offinv_adapter_contains(uint32_t);
+/* The second off-inventory entry the boot reached through a function pointer
+ * (0x8C07AC6A). */
+int vf3_offinv_b02_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_offinv_b02_adapter_contains(uint32_t);
+/* The third off-inventory entry the boot reached through a function pointer
+ * (0x8C0AAEBA).  Five modules call it; none owned it. */
+int vf3_offinv_b03_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_offinv_b03_adapter_contains(uint32_t);
+/* The fourth off-inventory entry, the one the boot reached with the pad's
+ * button held down (0x8C0597BA). */
+int vf3_offinv_b04_adapter(uint32_t,vf3_matrix_state*,const vf3_ram_map*);
+int vf3_offinv_b04_adapter_contains(uint32_t);
 vf3_family_hook_fn vf3_family_override, vf3_family_missing, vf3_family_fail;
 vf3_family_obs_fn vf3_family_enter, vf3_family_leave;
 vf3_family_obs_fn vf3_family_tail_enter;
@@ -835,8 +1920,282 @@ if(vf3_c101_adapter_contains(entry)) return vf3_c101_adapter(entry,s,ram);
         if(vf3_gap_b05_adapter_contains(entry)) return vf3_gap_b05_adapter(entry,s,ram);
         if(vf3_gap_b06_adapter_contains(entry)) return vf3_gap_b06_adapter(entry,s,ram);
         if(vf3_gap_b07_adapter_contains(entry)) return vf3_gap_b07_adapter(entry,s,ram);
-        if(vf3_boot_adapter_contains(entry)) return vf3_boot_adapter(entry,s,ram);
+        if(vf3_boot_adapter_contains(entry)) return vf3_boot_adapter(entry,s,ram);        if(vf3_away_batch1_adapter_contains(entry)) return vf3_away_batch1_adapter(entry,s,ram);        if(vf3_away_batch1_adapter_contains(entry)) return vf3_away_batch1_adapter(entry,s,ram);        if(vf3_away_batch1_adapter_contains(entry)) return vf3_away_batch1_adapter(entry,s,ram);        if(vf3_away_batch1_adapter_contains(entry)) return vf3_away_batch1_adapter(entry,s,ram);        if(vf3_away_batch1_adapter_contains(entry)) return vf3_away_batch1_adapter(entry,s,ram);
+        if(vf3_away_batch2_adapter_contains(entry)) return vf3_away_batch2_adapter(entry,s,ram);
+        if(vf3_away_batch3_adapter_contains(entry)) return vf3_away_batch3_adapter(entry,s,ram);
+        if(vf3_away_batch4_adapter_contains(entry)) return vf3_away_batch4_adapter(entry,s,ram);
+        if(vf3_away_batch5_adapter_contains(entry)) return vf3_away_batch5_adapter(entry,s,ram);
+        if(vf3_away_batch6_adapter_contains(entry)) return vf3_away_batch6_adapter(entry,s,ram);
+        if(vf3_away_batch7_adapter_contains(entry)) return vf3_away_batch7_adapter(entry,s,ram);
+        if(vf3_away_batch8_adapter_contains(entry)) return vf3_away_batch8_adapter(entry,s,ram);
+        if(vf3_away_batch9_adapter_contains(entry)) return vf3_away_batch9_adapter(entry,s,ram);
+        if(vf3_away_batch10_adapter_contains(entry)) return vf3_away_batch10_adapter(entry,s,ram);
+        if(vf3_away_batch11_adapter_contains(entry)) return vf3_away_batch11_adapter(entry,s,ram);
+        if(vf3_away_batch12_adapter_contains(entry)) return vf3_away_batch12_adapter(entry,s,ram);
+        if(vf3_away_batch13_adapter_contains(entry)) return vf3_away_batch13_adapter(entry,s,ram);
+        if(vf3_away_batch14_adapter_contains(entry)) return vf3_away_batch14_adapter(entry,s,ram);
+        if(vf3_away_batch15_adapter_contains(entry)) return vf3_away_batch15_adapter(entry,s,ram);
+        if(vf3_away_batch16_adapter_contains(entry)) return vf3_away_batch16_adapter(entry,s,ram);
+        if(vf3_away_batch17_adapter_contains(entry)) return vf3_away_batch17_adapter(entry,s,ram);
+        if(vf3_away_batch18_adapter_contains(entry)) return vf3_away_batch18_adapter(entry,s,ram);
+        if(vf3_away_batch19_adapter_contains(entry)) return vf3_away_batch19_adapter(entry,s,ram);
+        if(vf3_away_batch20_adapter_contains(entry)) return vf3_away_batch20_adapter(entry,s,ram);
+        if(vf3_away_batch21_adapter_contains(entry)) return vf3_away_batch21_adapter(entry,s,ram);
+        if(vf3_away_batch22_adapter_contains(entry)) return vf3_away_batch22_adapter(entry,s,ram);
+        if(vf3_away_batch23_adapter_contains(entry)) return vf3_away_batch23_adapter(entry,s,ram);
+        if(vf3_away_batch24_adapter_contains(entry)) return vf3_away_batch24_adapter(entry,s,ram);
+        if(vf3_away_batch25_adapter_contains(entry)) return vf3_away_batch25_adapter(entry,s,ram);
+        if(vf3_away_batch26_adapter_contains(entry)) return vf3_away_batch26_adapter(entry,s,ram);
+        if(vf3_away_batch27_adapter_contains(entry)) return vf3_away_batch27_adapter(entry,s,ram);        if(vf3_away_batch27_adapter_contains(entry)) return vf3_away_batch27_adapter(entry,s,ram);
+        if(vf3_away_batch28_adapter_contains(entry)) return vf3_away_batch28_adapter(entry,s,ram);
+        if(vf3_away_batch29_adapter_contains(entry)) return vf3_away_batch29_adapter(entry,s,ram);
+        if(vf3_away_batch30_adapter_contains(entry)) return vf3_away_batch30_adapter(entry,s,ram);
+        if(vf3_away_batch31_adapter_contains(entry)) return vf3_away_batch31_adapter(entry,s,ram);
+        if(vf3_away_batch32_adapter_contains(entry)) return vf3_away_batch32_adapter(entry,s,ram);
+        if(vf3_away_batch33_adapter_contains(entry)) return vf3_away_batch33_adapter(entry,s,ram);
+        if(vf3_away_batch34_adapter_contains(entry)) return vf3_away_batch34_adapter(entry,s,ram);
+        if(vf3_away_batch35_adapter_contains(entry)) return vf3_away_batch35_adapter(entry,s,ram);
+        if(vf3_away_batch36_adapter_contains(entry)) return vf3_away_batch36_adapter(entry,s,ram);
+        if(vf3_away_batch37_adapter_contains(entry)) return vf3_away_batch37_adapter(entry,s,ram);
+        if(vf3_away_batch38_adapter_contains(entry)) return vf3_away_batch38_adapter(entry,s,ram);
+        if(vf3_away_batch39_adapter_contains(entry)) return vf3_away_batch39_adapter(entry,s,ram);
+        if(vf3_away_batch40_adapter_contains(entry)) return vf3_away_batch40_adapter(entry,s,ram);
+        if(vf3_away_batch41_adapter_contains(entry)) return vf3_away_batch41_adapter(entry,s,ram);
+        if(vf3_away_batch42_adapter_contains(entry)) return vf3_away_batch42_adapter(entry,s,ram);
+        if(vf3_away_batch43_adapter_contains(entry)) return vf3_away_batch43_adapter(entry,s,ram);
+        if(vf3_away_batch44_adapter_contains(entry)) return vf3_away_batch44_adapter(entry,s,ram);
+        if(vf3_away_batch45_adapter_contains(entry)) return vf3_away_batch45_adapter(entry,s,ram);
+        if(vf3_away_batch46_adapter_contains(entry)) return vf3_away_batch46_adapter(entry,s,ram);
+        if(vf3_away_batch47_adapter_contains(entry)) return vf3_away_batch47_adapter(entry,s,ram);
+        if(vf3_away_batch48_adapter_contains(entry)) return vf3_away_batch48_adapter(entry,s,ram);
+        if(vf3_away_batch49_adapter_contains(entry)) return vf3_away_batch49_adapter(entry,s,ram);
+        if(vf3_away_batch50_adapter_contains(entry)) return vf3_away_batch50_adapter(entry,s,ram);
+        if(vf3_away_batch51_adapter_contains(entry)) return vf3_away_batch51_adapter(entry,s,ram);
+        if(vf3_away_batch52_adapter_contains(entry)) return vf3_away_batch52_adapter(entry,s,ram);
+        if(vf3_away_batch53_adapter_contains(entry)) return vf3_away_batch53_adapter(entry,s,ram);
+        if(vf3_away_batch54_adapter_contains(entry)) return vf3_away_batch54_adapter(entry,s,ram);
+        if(vf3_away_batch55_adapter_contains(entry)) return vf3_away_batch55_adapter(entry,s,ram);
+        if(vf3_away_batch56_adapter_contains(entry)) return vf3_away_batch56_adapter(entry,s,ram);
+        if(vf3_away_batch57_adapter_contains(entry)) return vf3_away_batch57_adapter(entry,s,ram);
+        if(vf3_away_batch58_adapter_contains(entry)) return vf3_away_batch58_adapter(entry,s,ram);
+        if(vf3_away_batch59_adapter_contains(entry)) return vf3_away_batch59_adapter(entry,s,ram);
+        if(vf3_away_batch60_adapter_contains(entry)) return vf3_away_batch60_adapter(entry,s,ram);
+        if(vf3_away_batch61_adapter_contains(entry)) return vf3_away_batch61_adapter(entry,s,ram);
+        if(vf3_away_batch62_adapter_contains(entry)) return vf3_away_batch62_adapter(entry,s,ram);
+        if(vf3_away_batch63_adapter_contains(entry)) return vf3_away_batch63_adapter(entry,s,ram);
+        if(vf3_away_batch64_adapter_contains(entry)) return vf3_away_batch64_adapter(entry,s,ram);
+        if(vf3_away_batch65_adapter_contains(entry)) return vf3_away_batch65_adapter(entry,s,ram);
+        if(vf3_away_batch66_adapter_contains(entry)) return vf3_away_batch66_adapter(entry,s,ram);
+        if(vf3_away_batch67_adapter_contains(entry)) return vf3_away_batch67_adapter(entry,s,ram);
+        if(vf3_away_batch68_adapter_contains(entry)) return vf3_away_batch68_adapter(entry,s,ram);
+        if(vf3_away_batch69_adapter_contains(entry)) return vf3_away_batch69_adapter(entry,s,ram);
+        if(vf3_away_batch70_adapter_contains(entry)) return vf3_away_batch70_adapter(entry,s,ram);
+        if(vf3_away_batch71_adapter_contains(entry)) return vf3_away_batch71_adapter(entry,s,ram);
+        if(vf3_away_batch72_adapter_contains(entry)) return vf3_away_batch72_adapter(entry,s,ram);
+        if(vf3_away_batch73_adapter_contains(entry)) return vf3_away_batch73_adapter(entry,s,ram);
+        if(vf3_away_batch74_adapter_contains(entry)) return vf3_away_batch74_adapter(entry,s,ram);
+        if(vf3_away_batch75_adapter_contains(entry)) return vf3_away_batch75_adapter(entry,s,ram);
+        if(vf3_away_batch76_adapter_contains(entry)) return vf3_away_batch76_adapter(entry,s,ram);
+        if(vf3_away_batch77_adapter_contains(entry)) return vf3_away_batch77_adapter(entry,s,ram);
+        if(vf3_away_batch78_adapter_contains(entry)) return vf3_away_batch78_adapter(entry,s,ram);
+        if(vf3_away_batch79_adapter_contains(entry)) return vf3_away_batch79_adapter(entry,s,ram);
+        if(vf3_away_batch80_adapter_contains(entry)) return vf3_away_batch80_adapter(entry,s,ram);
+        if(vf3_away_batch81_adapter_contains(entry)) return vf3_away_batch81_adapter(entry,s,ram);
+        if(vf3_away_batch82_adapter_contains(entry)) return vf3_away_batch82_adapter(entry,s,ram);
+        if(vf3_away_batch83_adapter_contains(entry)) return vf3_away_batch83_adapter(entry,s,ram);
+        if(vf3_away_batch84_adapter_contains(entry)) return vf3_away_batch84_adapter(entry,s,ram);
+        if(vf3_away_batch85_adapter_contains(entry)) return vf3_away_batch85_adapter(entry,s,ram);
+        if(vf3_away_batch86_adapter_contains(entry)) return vf3_away_batch86_adapter(entry,s,ram);
+        if(vf3_away_batch87_adapter_contains(entry)) return vf3_away_batch87_adapter(entry,s,ram);
+        if(vf3_away_batch88_adapter_contains(entry)) return vf3_away_batch88_adapter(entry,s,ram);
+        if(vf3_away_batch89_adapter_contains(entry)) return vf3_away_batch89_adapter(entry,s,ram);
+        if(vf3_away_batch90_adapter_contains(entry)) return vf3_away_batch90_adapter(entry,s,ram);
+        if(vf3_away_batch91_adapter_contains(entry)) return vf3_away_batch91_adapter(entry,s,ram);
+        if(vf3_away_batch92_adapter_contains(entry)) return vf3_away_batch92_adapter(entry,s,ram);
+        if(vf3_away_batch93_adapter_contains(entry)) return vf3_away_batch93_adapter(entry,s,ram);
+        if(vf3_away_batch94_adapter_contains(entry)) return vf3_away_batch94_adapter(entry,s,ram);
+        if(vf3_away_batch95_adapter_contains(entry)) return vf3_away_batch95_adapter(entry,s,ram);
+        if(vf3_away_batch96_adapter_contains(entry)) return vf3_away_batch96_adapter(entry,s,ram);
+        if(vf3_away_batch97_adapter_contains(entry)) return vf3_away_batch97_adapter(entry,s,ram);
+        if(vf3_away_batch98_adapter_contains(entry)) return vf3_away_batch98_adapter(entry,s,ram);
+        if(vf3_away_batch99_adapter_contains(entry)) return vf3_away_batch99_adapter(entry,s,ram);
+        if(vf3_away_batch100_adapter_contains(entry)) return vf3_away_batch100_adapter(entry,s,ram);
+        if(vf3_away_batch101_adapter_contains(entry)) return vf3_away_batch101_adapter(entry,s,ram);
+        if(vf3_away_batch102_adapter_contains(entry)) return vf3_away_batch102_adapter(entry,s,ram);
+        if(vf3_away_batch103_adapter_contains(entry)) return vf3_away_batch103_adapter(entry,s,ram);
+        if(vf3_away_batch104_adapter_contains(entry)) return vf3_away_batch104_adapter(entry,s,ram);
+        if(vf3_away_batch105_adapter_contains(entry)) return vf3_away_batch105_adapter(entry,s,ram);
+        if(vf3_away_batch106_adapter_contains(entry)) return vf3_away_batch106_adapter(entry,s,ram);
+        if(vf3_away_batch107_adapter_contains(entry)) return vf3_away_batch107_adapter(entry,s,ram);
+        if(vf3_away_batch108_adapter_contains(entry)) return vf3_away_batch108_adapter(entry,s,ram);
+        if(vf3_away_batch109_adapter_contains(entry)) return vf3_away_batch109_adapter(entry,s,ram);
+        if(vf3_away_batch110_adapter_contains(entry)) return vf3_away_batch110_adapter(entry,s,ram);
+        if(vf3_away_batch111_adapter_contains(entry)) return vf3_away_batch111_adapter(entry,s,ram);
+        if(vf3_away_batch112_adapter_contains(entry)) return vf3_away_batch112_adapter(entry,s,ram);
+        if(vf3_away_batch113_adapter_contains(entry)) return vf3_away_batch113_adapter(entry,s,ram);
+        if(vf3_away_batch114_adapter_contains(entry)) return vf3_away_batch114_adapter(entry,s,ram);
+        if(vf3_away_batch115_adapter_contains(entry)) return vf3_away_batch115_adapter(entry,s,ram);
+        if(vf3_away_batch116_adapter_contains(entry)) return vf3_away_batch116_adapter(entry,s,ram);
+        if(vf3_away_batch117_adapter_contains(entry)) return vf3_away_batch117_adapter(entry,s,ram);
+        if(vf3_away_batch118_adapter_contains(entry)) return vf3_away_batch118_adapter(entry,s,ram);
+        if(vf3_away_batch119_adapter_contains(entry)) return vf3_away_batch119_adapter(entry,s,ram);
+        if(vf3_away_batch120_adapter_contains(entry)) return vf3_away_batch120_adapter(entry,s,ram);
+        if(vf3_away_batch121_adapter_contains(entry)) return vf3_away_batch121_adapter(entry,s,ram);
+        if(vf3_away_batch122_adapter_contains(entry)) return vf3_away_batch122_adapter(entry,s,ram);
+        if(vf3_away_batch123_adapter_contains(entry)) return vf3_away_batch123_adapter(entry,s,ram);
+        if(vf3_away_batch124_adapter_contains(entry)) return vf3_away_batch124_adapter(entry,s,ram);
+        if(vf3_away_batch125_adapter_contains(entry)) return vf3_away_batch125_adapter(entry,s,ram);
+        if(vf3_away_batch126_adapter_contains(entry)) return vf3_away_batch126_adapter(entry,s,ram);
+        if(vf3_away_batch127_adapter_contains(entry)) return vf3_away_batch127_adapter(entry,s,ram);
+        if(vf3_away_batch128_adapter_contains(entry)) return vf3_away_batch128_adapter(entry,s,ram);
+        if(vf3_away_batch129_adapter_contains(entry)) return vf3_away_batch129_adapter(entry,s,ram);
+        if(vf3_away_batch130_adapter_contains(entry)) return vf3_away_batch130_adapter(entry,s,ram);
+        if(vf3_away_batch131_adapter_contains(entry)) return vf3_away_batch131_adapter(entry,s,ram);
+        if(vf3_away_batch132_adapter_contains(entry)) return vf3_away_batch132_adapter(entry,s,ram);
+        if(vf3_away_batch133_adapter_contains(entry)) return vf3_away_batch133_adapter(entry,s,ram);
+        if(vf3_away_batch134_adapter_contains(entry)) return vf3_away_batch134_adapter(entry,s,ram);
+        if(vf3_away_batch135_adapter_contains(entry)) return vf3_away_batch135_adapter(entry,s,ram);
+        if(vf3_away_batch136_adapter_contains(entry)) return vf3_away_batch136_adapter(entry,s,ram);
+        if(vf3_away_batch137_adapter_contains(entry)) return vf3_away_batch137_adapter(entry,s,ram);
+        if(vf3_away_batch138_adapter_contains(entry)) return vf3_away_batch138_adapter(entry,s,ram);
+        if(vf3_away_batch139_adapter_contains(entry)) return vf3_away_batch139_adapter(entry,s,ram);
+        if(vf3_away_batch140_adapter_contains(entry)) return vf3_away_batch140_adapter(entry,s,ram);
+        if(vf3_away_batch141_adapter_contains(entry)) return vf3_away_batch141_adapter(entry,s,ram);
+        if(vf3_away_batch142_adapter_contains(entry)) return vf3_away_batch142_adapter(entry,s,ram);
+        if(vf3_away_batch143_adapter_contains(entry)) return vf3_away_batch143_adapter(entry,s,ram);
+        if(vf3_away_batch144_adapter_contains(entry)) return vf3_away_batch144_adapter(entry,s,ram);
+        if(vf3_away_batch145_adapter_contains(entry)) return vf3_away_batch145_adapter(entry,s,ram);
+        if(vf3_away_batch146_adapter_contains(entry)) return vf3_away_batch146_adapter(entry,s,ram);
+        if(vf3_away_batch147_adapter_contains(entry)) return vf3_away_batch147_adapter(entry,s,ram);
+        if(vf3_away_batch148_adapter_contains(entry)) return vf3_away_batch148_adapter(entry,s,ram);
+        if(vf3_away_batch149_adapter_contains(entry)) return vf3_away_batch149_adapter(entry,s,ram);
+        if(vf3_away_batch150_adapter_contains(entry)) return vf3_away_batch150_adapter(entry,s,ram);
+        if(vf3_away_batch151_adapter_contains(entry)) return vf3_away_batch151_adapter(entry,s,ram);
+        if(vf3_away_batch152_adapter_contains(entry)) return vf3_away_batch152_adapter(entry,s,ram);
+        if(vf3_away_batch153_adapter_contains(entry)) return vf3_away_batch153_adapter(entry,s,ram);
+        if(vf3_away_batch154_adapter_contains(entry)) return vf3_away_batch154_adapter(entry,s,ram);
+        if(vf3_away_batch155_adapter_contains(entry)) return vf3_away_batch155_adapter(entry,s,ram);
+        if(vf3_away_batch156_adapter_contains(entry)) return vf3_away_batch156_adapter(entry,s,ram);
+        if(vf3_away_batch157_adapter_contains(entry)) return vf3_away_batch157_adapter(entry,s,ram);
+        if(vf3_away_batch158_adapter_contains(entry)) return vf3_away_batch158_adapter(entry,s,ram);
+        if(vf3_away_batch159_adapter_contains(entry)) return vf3_away_batch159_adapter(entry,s,ram);
+        if(vf3_away_batch160_adapter_contains(entry)) return vf3_away_batch160_adapter(entry,s,ram);
+        if(vf3_away_batch161_adapter_contains(entry)) return vf3_away_batch161_adapter(entry,s,ram);
+        if(vf3_away_batch162_adapter_contains(entry)) return vf3_away_batch162_adapter(entry,s,ram);
+        if(vf3_away_batch163_adapter_contains(entry)) return vf3_away_batch163_adapter(entry,s,ram);
+        if(vf3_away_batch164_adapter_contains(entry)) return vf3_away_batch164_adapter(entry,s,ram);
+        if(vf3_away_batch165_adapter_contains(entry)) return vf3_away_batch165_adapter(entry,s,ram);
+        if(vf3_away_batch166_adapter_contains(entry)) return vf3_away_batch166_adapter(entry,s,ram);
+        if(vf3_away_batch167_adapter_contains(entry)) return vf3_away_batch167_adapter(entry,s,ram);
+        if(vf3_away_batch168_adapter_contains(entry)) return vf3_away_batch168_adapter(entry,s,ram);
+        if(vf3_away_batch169_adapter_contains(entry)) return vf3_away_batch169_adapter(entry,s,ram);
+        if(vf3_away_batch170_adapter_contains(entry)) return vf3_away_batch170_adapter(entry,s,ram);
+        if(vf3_away_batch171_adapter_contains(entry)) return vf3_away_batch171_adapter(entry,s,ram);
+        if(vf3_away_batch172_adapter_contains(entry)) return vf3_away_batch172_adapter(entry,s,ram);
+        if(vf3_away_batch173_adapter_contains(entry)) return vf3_away_batch173_adapter(entry,s,ram);
+        if(vf3_away_batch174_adapter_contains(entry)) return vf3_away_batch174_adapter(entry,s,ram);
+        if(vf3_away_batch175_adapter_contains(entry)) return vf3_away_batch175_adapter(entry,s,ram);
+        if(vf3_away_batch176_adapter_contains(entry)) return vf3_away_batch176_adapter(entry,s,ram);
+        if(vf3_away_batch177_adapter_contains(entry)) return vf3_away_batch177_adapter(entry,s,ram);
+        if(vf3_away_batch178_adapter_contains(entry)) return vf3_away_batch178_adapter(entry,s,ram);
+        if(vf3_away_batch179_adapter_contains(entry)) return vf3_away_batch179_adapter(entry,s,ram);
+        if(vf3_away_batch180_adapter_contains(entry)) return vf3_away_batch180_adapter(entry,s,ram);
+        if(vf3_away_batch181_adapter_contains(entry)) return vf3_away_batch181_adapter(entry,s,ram);
+        if(vf3_away_batch182_adapter_contains(entry)) return vf3_away_batch182_adapter(entry,s,ram);
+        if(vf3_away_batch183_adapter_contains(entry)) return vf3_away_batch183_adapter(entry,s,ram);
+        if(vf3_away_batch184_adapter_contains(entry)) return vf3_away_batch184_adapter(entry,s,ram);
+        if(vf3_away_batch185_adapter_contains(entry)) return vf3_away_batch185_adapter(entry,s,ram);
+        if(vf3_away_batch186_adapter_contains(entry)) return vf3_away_batch186_adapter(entry,s,ram);
+        if(vf3_away_batch187_adapter_contains(entry)) return vf3_away_batch187_adapter(entry,s,ram);
+        if(vf3_away_batch188_adapter_contains(entry)) return vf3_away_batch188_adapter(entry,s,ram);
+        if(vf3_away_batch189_adapter_contains(entry)) return vf3_away_batch189_adapter(entry,s,ram);
+        if(vf3_away_batch190_adapter_contains(entry)) return vf3_away_batch190_adapter(entry,s,ram);
+        if(vf3_away_batch191_adapter_contains(entry)) return vf3_away_batch191_adapter(entry,s,ram);
+        if(vf3_away_batch192_adapter_contains(entry)) return vf3_away_batch192_adapter(entry,s,ram);
+        if(vf3_away_batch193_adapter_contains(entry)) return vf3_away_batch193_adapter(entry,s,ram);
+        if(vf3_away_batch194_adapter_contains(entry)) return vf3_away_batch194_adapter(entry,s,ram);
+        if(vf3_away_batch195_adapter_contains(entry)) return vf3_away_batch195_adapter(entry,s,ram);
+        if(vf3_away_batch196_adapter_contains(entry)) return vf3_away_batch196_adapter(entry,s,ram);
+        if(vf3_away_batch197_adapter_contains(entry)) return vf3_away_batch197_adapter(entry,s,ram);
+        if(vf3_away_batch198_adapter_contains(entry)) return vf3_away_batch198_adapter(entry,s,ram);
+        if(vf3_away_batch199_adapter_contains(entry)) return vf3_away_batch199_adapter(entry,s,ram);
+        if(vf3_away_batch200_adapter_contains(entry)) return vf3_away_batch200_adapter(entry,s,ram);
+        if(vf3_away_batch201_adapter_contains(entry)) return vf3_away_batch201_adapter(entry,s,ram);
+        if(vf3_away_batch202_adapter_contains(entry)) return vf3_away_batch202_adapter(entry,s,ram);
+        if(vf3_away_batch203_adapter_contains(entry)) return vf3_away_batch203_adapter(entry,s,ram);
+        if(vf3_away_batch204_adapter_contains(entry)) return vf3_away_batch204_adapter(entry,s,ram);
+        if(vf3_away_batch205_adapter_contains(entry)) return vf3_away_batch205_adapter(entry,s,ram);
+        if(vf3_away_batch206_adapter_contains(entry)) return vf3_away_batch206_adapter(entry,s,ram);
+        if(vf3_away_batch207_adapter_contains(entry)) return vf3_away_batch207_adapter(entry,s,ram);
+        if(vf3_away_batch208_adapter_contains(entry)) return vf3_away_batch208_adapter(entry,s,ram);
+        if(vf3_away_batch209_adapter_contains(entry)) return vf3_away_batch209_adapter(entry,s,ram);
+        if(vf3_away_batch210_adapter_contains(entry)) return vf3_away_batch210_adapter(entry,s,ram);
+        if(vf3_away_batch211_adapter_contains(entry)) return vf3_away_batch211_adapter(entry,s,ram);
+        if(vf3_away_batch212_adapter_contains(entry)) return vf3_away_batch212_adapter(entry,s,ram);
+        if(vf3_away_batch213_adapter_contains(entry)) return vf3_away_batch213_adapter(entry,s,ram);
+        if(vf3_away_batch214_adapter_contains(entry)) return vf3_away_batch214_adapter(entry,s,ram);
+        if(vf3_away_batch215_adapter_contains(entry)) return vf3_away_batch215_adapter(entry,s,ram);
+        if(vf3_away_batch216_adapter_contains(entry)) return vf3_away_batch216_adapter(entry,s,ram);
+        if(vf3_away_batch217_adapter_contains(entry)) return vf3_away_batch217_adapter(entry,s,ram);
+        if(vf3_away_batch218_adapter_contains(entry)) return vf3_away_batch218_adapter(entry,s,ram);
+        if(vf3_away_batch219_adapter_contains(entry)) return vf3_away_batch219_adapter(entry,s,ram);
+        if(vf3_away_batch220_adapter_contains(entry)) return vf3_away_batch220_adapter(entry,s,ram);
+        if(vf3_away_batch221_adapter_contains(entry)) return vf3_away_batch221_adapter(entry,s,ram);
+        if(vf3_away_batch222_adapter_contains(entry)) return vf3_away_batch222_adapter(entry,s,ram);
+        if(vf3_away_batch223_adapter_contains(entry)) return vf3_away_batch223_adapter(entry,s,ram);
+        if(vf3_away_batch224_adapter_contains(entry)) return vf3_away_batch224_adapter(entry,s,ram);
+        if(vf3_away_batch225_adapter_contains(entry)) return vf3_away_batch225_adapter(entry,s,ram);
+        if(vf3_away_batch226_adapter_contains(entry)) return vf3_away_batch226_adapter(entry,s,ram);
+        if(vf3_away_batch227_adapter_contains(entry)) return vf3_away_batch227_adapter(entry,s,ram);
+        if(vf3_away_batch228_adapter_contains(entry)) return vf3_away_batch228_adapter(entry,s,ram);
+        if(vf3_away_batch229_adapter_contains(entry)) return vf3_away_batch229_adapter(entry,s,ram);
+        if(vf3_away_batch230_adapter_contains(entry)) return vf3_away_batch230_adapter(entry,s,ram);
+        if(vf3_away_batch231_adapter_contains(entry)) return vf3_away_batch231_adapter(entry,s,ram);
+        if(vf3_away_batch232_adapter_contains(entry)) return vf3_away_batch232_adapter(entry,s,ram);
+        if(vf3_away_batch233_adapter_contains(entry)) return vf3_away_batch233_adapter(entry,s,ram);
+        if(vf3_away_batch234_adapter_contains(entry)) return vf3_away_batch234_adapter(entry,s,ram);
+        if(vf3_away_batch235_adapter_contains(entry)) return vf3_away_batch235_adapter(entry,s,ram);
+        if(vf3_away_batch236_adapter_contains(entry)) return vf3_away_batch236_adapter(entry,s,ram);
+        if(vf3_away_batch237_adapter_contains(entry)) return vf3_away_batch237_adapter(entry,s,ram);
+        if(vf3_away_batch238_adapter_contains(entry)) return vf3_away_batch238_adapter(entry,s,ram);
+        if(vf3_away_batch239_adapter_contains(entry)) return vf3_away_batch239_adapter(entry,s,ram);
+        if(vf3_away_batch240_adapter_contains(entry)) return vf3_away_batch240_adapter(entry,s,ram);
+        if(vf3_away_batch241_adapter_contains(entry)) return vf3_away_batch241_adapter(entry,s,ram);
+        if(vf3_away_batch242_adapter_contains(entry)) return vf3_away_batch242_adapter(entry,s,ram);
+        if(vf3_away_batch243_adapter_contains(entry)) return vf3_away_batch243_adapter(entry,s,ram);
+        if(vf3_away_batch244_adapter_contains(entry)) return vf3_away_batch244_adapter(entry,s,ram);
+        if(vf3_away_batch245_adapter_contains(entry)) return vf3_away_batch245_adapter(entry,s,ram);
+        if(vf3_away_batch246_adapter_contains(entry)) return vf3_away_batch246_adapter(entry,s,ram);
+        if(vf3_away_batch247_adapter_contains(entry)) return vf3_away_batch247_adapter(entry,s,ram);
+        if(vf3_away_batch248_adapter_contains(entry)) return vf3_away_batch248_adapter(entry,s,ram);
+        if(vf3_away_batch249_adapter_contains(entry)) return vf3_away_batch249_adapter(entry,s,ram);
+        if(vf3_away_batch250_adapter_contains(entry)) return vf3_away_batch250_adapter(entry,s,ram);
+        if(vf3_away_batch251_adapter_contains(entry)) return vf3_away_batch251_adapter(entry,s,ram);
+        if(vf3_away_batch252_adapter_contains(entry)) return vf3_away_batch252_adapter(entry,s,ram);
+        if(vf3_away_batch253_adapter_contains(entry)) return vf3_away_batch253_adapter(entry,s,ram);
+        if(vf3_away_batch254_adapter_contains(entry)) return vf3_away_batch254_adapter(entry,s,ram);
+        if(vf3_away_batch255_adapter_contains(entry)) return vf3_away_batch255_adapter(entry,s,ram);
+        if(vf3_away_batch256_adapter_contains(entry)) return vf3_away_batch256_adapter(entry,s,ram);
+        if(vf3_away_batch257_adapter_contains(entry)) return vf3_away_batch257_adapter(entry,s,ram);
+        if(vf3_away_batch258_adapter_contains(entry)) return vf3_away_batch258_adapter(entry,s,ram);
+        if(vf3_away_batch259_adapter_contains(entry)) return vf3_away_batch259_adapter(entry,s,ram);
+        if(vf3_away_batch260_adapter_contains(entry)) return vf3_away_batch260_adapter(entry,s,ram);
+        if(vf3_away_batch261_adapter_contains(entry)) return vf3_away_batch261_adapter(entry,s,ram);
+        if(vf3_away_batch262_adapter_contains(entry)) return vf3_away_batch262_adapter(entry,s,ram);
+
+
+
+
+
+
         if(vf3_boot_rte_adapter_contains(entry)) return vf3_boot_rte_adapter(entry,s,ram);
+        /* The off-inventory entry 0x8C0AE97E: the boot reaches it through a
+         * function pointer, so the inventory's call graph never saw it and no
+         * other module claims it. */
+        if(vf3_offinv_adapter_contains(entry)) return vf3_offinv_adapter(entry,s,ram);
+        if(vf3_offinv_b02_adapter_contains(entry)) return vf3_offinv_b02_adapter(entry,s,ram);
+        if(vf3_offinv_b03_adapter_contains(entry)) return vf3_offinv_b03_adapter(entry,s,ram);
+        if(vf3_offinv_b04_adapter_contains(entry)) return vf3_offinv_b04_adapter(entry,s,ram);
         return vf3_matrix_adapter(entry,s,ram);
     }
     s->pc=R(16);

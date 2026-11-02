@@ -8,6 +8,9 @@
 #include "fight/family_hooks.h"
 #include "fight/matrix_family.h"
 #include "fight/readable.h"
+#include "sys/aica_arm.h"
+#include "sys/aica_mixer.h"
+#include "sys/aica_model.h"
 #include "sys/bios_syscall.h"
 #include "sys/maple_hle.h"
 
@@ -81,6 +84,9 @@ static struct {
      * written yet. */
     uint32_t maple_mdst;
     uint16_t maple_buttons;      /* the stand-in pad's buttons (the host's) */
+    /* The pad's analog axes: the guest reads them in the same Maple reply as
+     * the buttons (the GET_CONDITION answer carries both). */
+    uint8_t maple_rtrig, maple_ltrig, maple_joyx, maple_joyy, maple_joy2x, maple_joy2y;
     unsigned dma2_started;       /* SH-4 DMAC channel 2 starts (CHCR2 written with DE) not yet taken by the caller */
     /* The SH-4's DMA channel 2 and the SB's channel 2 registers: the game
      * copies a block of main RAM into the PVR2's Tile Accelerator area with
@@ -104,6 +110,34 @@ static struct {
 /* sound RAM (0x00800000): the loader reads the driver-published free size at 0x88. Kept outside `machine`, which nested runs copy */
 static uint8_t aica_ram[AICA_RAM_LEN];
 
+/* The AICA itself: its register file (0x00700000 on the SH-4's side), the
+ * mixer over the sound RAM above, and the ARM7 that runs the game's sound
+ * firmware.  The guest uploads SNDDRV.BIN into the sound RAM and releases the
+ * ARM7 through ARMRST; the firmware publishes "INIT" at sound RAM +0x5C (the
+ * word the loader polls), programs the channel slots through the register
+ * file's ARM window, and services the SH-4's command ring.  The model is
+ * built on first use so a tick that never touches the sound chip pays
+ * nothing. */
+static vf3_aica_model aica_model;
+static vf3_aica_mixer aica_mixer;
+static vf3_aica_arm aica_arm;
+static int aica_up;
+/* What the guest put into the driver's command ring (0x400..0x4FF) and how
+ * much of the sound RAM above the driver's own area it filled.  The kit the
+ * music driver plays lives at 0x86E54 and up (docs/re/sound_bgm.md), so a
+ * write above 0x2000 is the game loading a voice set. */
+static uint32_t aica_cmd_hist[256];
+static uint64_t aica_ram_hi_writes, aica_ram_hi_bytes;
+static void aica_ensure(void)
+{
+    if (aica_up) return;
+    vf3_aica_init(&aica_model, aica_ram);
+    vf3_aica_mixer_init(&aica_mixer, &aica_model);
+    vf3_aica_arm_init(&aica_arm, &aica_model, &aica_mixer);
+    aica_up = 1;
+}
+static int aica_register(uint32_t physical) { return physical >= 0x00700000u && physical < 0x00708000u; }
+
 /* The ARM7 sound driver answers the SH-4 upload mailbox at 0x008000B0 (command, written by the SH-4) / 0x008000B4 (state,
  * written by the driver): the driver raises B4 once it is idle, the SH-4 sets B0 = 1, the driver clears B4 when it has taken
  * the data, the SH-4 clears B0. Poll counts measured in the emulator from savestate 21 (docs/re/phase4_findings.md). */
@@ -120,52 +154,64 @@ static unsigned aica_mbox_polls;
 static uint32_t aica_upload_len;
 static uint64_t aica_upload_polls_left;
 
+/* Two handshakes the port used to answer for the driver, written when there
+ * was no ARM7 to answer them: 0x00800098 is the upload engine's length (the
+ * driver clears it once it has copied the block) and 0x008000B4 is the
+ * driver's ready line.  The firmware is real now, so `VF3_REAL_IO=1` stops the
+ * port answering and lets the ARM7 do its own job.  It is an experiment, not
+ * the default: it says whether the driver implements both, and a guest that
+ * then spins on 0x98 says that it does not. */
+static int aica_real_io(void)
+{
+    static int on = -1;
+    if (on < 0) on = getenv("VF3_REAL_IO") ? 1 : 0;
+    return on;
+}
+
 /* The ARM7's reset register.  The SH-4 reaches the AICA's register file in
  * area 0 (0x00700000..0x00707FFF, the emulator's map in sb_mem.cpp) and the
  * ARM reset sits at 0x00702C00 (aica_if.cpp: ARMRST, `arm::enable(ARMRST == 0)`).
  * Writing 0 releases the ARM7, which then runs the sound driver the guest has
  * just uploaded into the sound RAM; writing 1 holds it in reset.
  *
- * The port has no ARM7, so the model performs the two effects of the firmware's
- * start-up that the guest waits for:
- *
- *   - the firmware publishes its "INIT" signature in the driver's status field
- *     (sound RAM + 0x5C).  The guest polls exactly that word and never leaves
- *     the poll while it is zero (0x0C040656: `mov.l @r2,r3; tst r3,r3; bt`),
- *     so with the ARM7 idle the boot parks there for ever.
- *   - the firmware publishes the free-size limit of the sound RAM (sound RAM +
- *     0x88).  The loader checks the file it is about to upload against it
- *     (0x0C0401D4) and fails with -4 when it does not fit.
- *
- * Both values are the ones the emulator's own AICA RAM carries: the "INIT"
- * signature out of a Flycast savestate (the AICA RAM is part of the state) and
- * the free size out of the emulator trace of the same loader (docs/re/
- * phase4_findings.md).  docs/re/boot_arm7_wait.md has the evidence. */
+ * The release runs the real firmware on the ARM7 interpreter (sys/arm7.c,
+ * sys/aica_arm.c).  Its start-up publishes both words the guest waits for:
+ * the "INIT" signature at sound RAM +0x5C (the loader polls exactly that
+ * word, 0x0C040656) and the free-size limit at +0x88 (the loader checks the
+ * file it is about to upload against it, 0x0C0401D4).  Both are the driver's
+ * own, not constants of the model - the reference savestate happens to carry
+ * the same 0x1E0000 the firmware computes.  docs/re/boot_arm7_wait.md. */
 #define AICA_REG_ARMRST 0x00702C00u
-#define AICA_STATUS_INIT 0x5Cu
-#define AICA_INIT_MAGIC 0x54494E49u    /* "INIT" */
-#define AICA_FREE_LIMIT 0x88u
-#define AICA_FREE_VALUE 0x001E0000u
 static uint32_t aica_armrst;           /* the register as the guest left it */
+static int aica_log_on(void) { return getenv("VF3_AICALOG") != NULL; }
 
 /* The ARM7's start-up: the driver image has to be in the sound RAM (the guest
  * uploads it before it releases the reset), and its identification field (the
  * "AM2/AICAsoundDrv..." string the driver carries at offset 0x20) is what
- * tells the model that a driver is there at all. */
+ * tells the model that a driver is there at all.  The firmware needs ~215,000
+ * cycles to reach INIT; the budget is a safety net, not a schedule. */
 static void aica_arm_boot(void)
 {
     unsigned i;
     int identified = 0;
     for (i = 0x20; i < 0x40; ++i)
         if (aica_ram[i] >= 0x20 && aica_ram[i] < 0x7f) { identified = 1; break; }
+    aica_ensure();
     if (!identified) return;            /* no driver: the ARM7 would run noise */
-    {
-        const uint32_t magic = AICA_INIT_MAGIC;
-        const uint32_t limit = AICA_FREE_VALUE;
-        memcpy(aica_ram + AICA_STATUS_INIT, &magic, 4);
-        memcpy(aica_ram + AICA_FREE_LIMIT, &limit, 4);
+    if (vf3_aica_arm_release(&aica_arm, 4000000u)) {
+        if (aica_log_on())
+            fprintf(stderr, "aica: ARM7 up after %llu cycles / %llu samples, "
+                    "%u FIQ, %llu register writes, status %08x size %08x\n",
+                    (unsigned long long)aica_arm.cpu.cycles,
+                    (unsigned long long)aica_arm.samples, aica_arm.fiq_count,
+                    (unsigned long long)aica_arm.reg_writes,
+                    vf3_aica_arm_word(&aica_arm, 0x5C),
+                    vf3_aica_arm_word(&aica_arm, 0x88));
+    } else if (aica_log_on()) {
+        fprintf(stderr, "aica: ARM7 did not publish INIT (pc %08x, "
+                "%llu cycles)\n", aica_arm.cpu.last_pc,
+                (unsigned long long)aica_arm.cpu.cycles);
     }
-    if (getenv("VF3_DEVLOG")) fprintf(stderr, "aica: ARM7 released, driver up\n");
 }
 
 /* The game's free-running frame clock: TMU channel 0 (TCNT0, 0xFFD8000C, read through the 0x1Fxxxxxx mirror after the
@@ -211,12 +257,16 @@ static uint32_t device_read(void *context, uint32_t address, unsigned size)
      * recording shows line 260 (0x104) at the vblank-in interrupt; the run models no beam, so that is what a read
      * inside the interrupt sees. */
     if ((address & 0x1FFFFFFFu) == AICA_REG_ARMRST) return aica_armrst;
-    if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
+    if (aica_register(address & 0x1FFFFFFFu)) {
+        aica_ensure();
+        return vf3_aica_read(&aica_model, (address & 0x1FFFFFFFu) - 0x00700000u, size);
+    }
+    if (!aica_real_io() && (address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         if (!aica_upload_polls_left) return 0;
         --aica_upload_polls_left;
         return aica_upload_len;
     }
-    if ((address & 0x1FFFFFFFu) == AICA_MBOX_STATE) {
+    if (!aica_real_io() && (address & 0x1FFFFFFFu) == AICA_MBOX_STATE) {
         uint32_t cmd;
         memcpy(&cmd, aica_ram + (AICA_MBOX_CMD - AICA_RAM_BASE), 4);
         ++aica_mbox_polls;
@@ -330,12 +380,41 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
         aica_armrst = value & 1u;
         if (!aica_armrst) aica_arm_boot();   /* 0 releases the ARM7 */
     }
+    if (aica_register(address & 0x1FFFFFFFu)) {
+        /* The register file: one writer's window on one chip.  The SH-4's
+         * writes and the ARM7's own go through the same semantics (timers,
+         * SCI/MCI, the key-on trigger), so a register the guest programs
+         * directly behaves exactly like one the firmware programs. */
+        aica_ensure();
+        if (aica_log_on())
+            fprintf(stderr, "aica sh4 wr %04x = %08x / %u\n",
+                    (unsigned)((address & 0x1FFFFFFFu) - 0x00700000u),
+                    value, size);
+        vf3_aica_arm_note_write(&aica_arm, (address & 0x1FFFFFFFu) - 0x00700000u,
+                                value, size);
+    }
     if ((address & 0x1FFFFFFFu) == AICA_UPLOAD_LEN) {
         aica_upload_len = value;
         aica_upload_polls_left = (uint64_t)value * AICA_UPLOAD_POLLS_PER_BYTE_X10 / 10u;
     }
-    if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN)
+    if ((address & 0x1FFFFFFFu) >= AICA_RAM_BASE && (address & 0x1FFFFFFFu) - AICA_RAM_BASE + size <= AICA_RAM_LEN) {
+        if (aica_log_on() && aica_up && aica_arm.running) {
+            const uint32_t off = (address & 0x1FFFFFFFu) - AICA_RAM_BASE;
+            if (off < 0x800u || (off >= 0x400u && off < 0x500u))
+                fprintf(stderr, "aica sh4 ram %04x = %08x / %u pc %08x\n", off,
+                        value, size, machine.cur ? machine.cur->pc : 0u);
+        }
+        {
+            const uint32_t off = (address & 0x1FFFFFFFu) - AICA_RAM_BASE;
+            if (off >= 0x400u && off < 0x500u)
+                ++aica_cmd_hist[value & 0xFFu];
+            if (off >= 0x2000u) {
+                ++aica_ram_hi_writes;
+                aica_ram_hi_bytes += size;
+            }
+        }
         memcpy(aica_ram + ((address & 0x1FFFFFFFu) - AICA_RAM_BASE), &value, size > 4 ? 4 : size);
+    }
     if ((address & 0x1FFFFFFFu) == 0x005F6C04u) machine.maple_list = value;
     if ((address & 0x1FFFFFFFu) == 0x005F6C18u && (value & 1u)) {
         /* The Maple-DMA start.  The reference runs the transfer the moment the
@@ -364,7 +443,8 @@ static void device_write(void *context, uint32_t address, unsigned size, uint32_
             }
         }
         if (machine.ram) {
-            const vf3_maple_pad pad = { machine.maple_buttons, 0, 0, 0x80, 0x80, 0x80, 0x80 };
+            const vf3_maple_pad pad = { machine.maple_buttons, machine.maple_rtrig, machine.maple_ltrig,
+                                        machine.maple_joyx, machine.maple_joyy, machine.maple_joy2x, machine.maple_joy2y };
             vf3_maple_dma(machine.ram, VF3_NATIVE_RAM_BASE, VF3_NATIVE_RAM_LEN, machine.maple_list, &pad);
             machine.maple_mdst = 0;
             vf3_native_raise_asic(ASIC_MAPLE_END);
@@ -596,6 +676,207 @@ void vf3_native_set_budget(unsigned steps) { machine.budget = steps; }
 void vf3_native_raise_asic(uint32_t mask) { machine.istnrm |= mask; }
 int vf3_native_gd_attached(void) { return machine.gd != NULL; }
 void vf3_native_aica_poke(uint32_t offset, uint32_t value) { if (offset <= AICA_RAM_LEN - 4) memcpy(aica_ram + offset, &value, 4); }
+
+/* ---- the missing song registration (docs/re/arm7_audio_conclusion.md) ----
+ * The guest uploads the music kits into sound RAM but never registers them in
+ * the driver's 0xc300 context table, so the A9/AB track walker (firmware
+ * 0x671c) can never match and no voice is keyed (6770 stayed 0, keyed 0 across
+ * full runs).  This model-level registration scans sound RAM for the loaded
+ * packages' "DTPK" magic and mirrors, into the free 0xc300 context slots, what
+ * the driver's own registration would have written (the reference state holds
+ * the same seven bases in those slots).  VF3_NOREG=1 turns it off so the
+ * faithful port can be compared against. */
+static int aica_reg3_done;
+static int aica_noreg(void)
+{
+    static int on = -1;
+    if (on < 0) on = getenv("VF3_NOREG") ? 1 : 0;
+    return on;
+}
+/* register every package whose "DTPK" magic has landed, into the first free
+ * context slot.  The scan is *not* gated on a prior registration (aica_reg3_done
+ * only records that at least one registration happened): the game loads more
+ * packages as the fight advances, and a package that lands later must still be
+ * registered for the BGM walker to match it.  Each magic base is registered
+ * into a distinct free slot; re-scanning is harmless (already-taken slots are
+ * skipped, and the same base is never written twice). */
+static void aica_register_kit(void)
+{
+    uint32_t a;
+    unsigned i;
+    if (!aica_up || aica_noreg()) return;
+    for (a = 0x10000u; a < 0x1F0000u - 4u; a += 4u) {
+        if (aica_ram[a] != 0x44 || aica_ram[a + 1] != 0x54 ||
+            aica_ram[a + 2] != 0x50 || aica_ram[a + 3] != 0x4B)
+            continue;
+        /* already registered? */
+        for (i = 0; i < 8u; ++i) {
+            uint32_t off = 0xc300 + 0x20u * i;
+            uint32_t have = (uint32_t)(aica_ram[off] | (aica_ram[off + 1] << 8) |
+                          (aica_ram[off + 2] << 16) | (aica_ram[off + 3] << 24));
+            if (have == a) break;       /* already there */
+        }
+        if (i < 8u) continue;
+        for (i = 0; i < 8u; ++i) {
+            uint32_t off = 0xc300 + 0x20u * i;
+            if (aica_ram[off] | aica_ram[off + 1] | aica_ram[off + 2] | aica_ram[off + 3])
+                continue;               /* taken */
+            aica_ram[off] = (uint8_t)(a);
+            aica_ram[off + 1] = (uint8_t)(a >> 8);
+            aica_ram[off + 2] = (uint8_t)(a >> 16);
+            aica_ram[off + 3] = (uint8_t)(a >> 24);
+            aica_reg3_done = 1;
+            fprintf(stderr, "aica: registered package 0x%05x at slot %u (0x%04x)\n",
+                    a, i, off);
+            break;
+        }
+    }
+}
+
+/* The chip's stereo frame: `frames` samples of (left, right), interleaved,
+ * mixed from the channels the register file holds.  The caller decides how
+ * many samples one of its frames carries (44,100 Hz over the guest's 60 Hz
+ * field is 735). */
+void vf3_native_aica_mix(int16_t *dst, unsigned frames)
+{
+    unsigned i;
+    static int32_t peak;                /* the loudest sample since the last report */
+    aica_ensure();
+    aica_register_kit();
+    if (aica_log_on()) {
+        static unsigned fields;
+        if ((fields++ % 120u) == 0u) {
+            unsigned slot, keyed = 0;
+            for (slot = 0; slot < VF3_AICA_SLOT_COUNT; ++slot)
+                keyed += aica_model.keyed[slot] ? 1u : 0u;
+            fprintf(stderr, "aica mix: field %u samples %llu keyed %u "
+                    "arm pc %08x writes %llu (chan %llu) fiq %u latch %d "
+                    "sci %04x pd %04x q %08x/%08x [%08x %08x %08x %08x]\n",
+                    fields - 1u, (unsigned long long)aica_arm.samples, keyed,
+                    aica_arm.cpu.last_pc,
+                    (unsigned long long)aica_arm.reg_writes,
+                    (unsigned long long)aica_arm.channel_writes,
+                    aica_arm.fiq_count, aica_arm.e68k_out,
+                    (unsigned)(aica_model.reg[0x289C] | (aica_model.reg[0x289D] << 8)),
+                    (unsigned)(aica_model.reg[0x28A0] | (aica_model.reg[0x28A1] << 8)),
+                    (unsigned)(aica_ram[0x40] | (aica_ram[0x41] << 8) |
+                               (aica_ram[0x42] << 16) | (aica_ram[0x43] << 24)),
+                    (unsigned)(aica_ram[0x44] | (aica_ram[0x45] << 8) |
+                               (aica_ram[0x46] << 16) | (aica_ram[0x47] << 24)),
+                    (unsigned)(aica_ram[0x400] | (aica_ram[0x401] << 8) |
+                               (aica_ram[0x402] << 16) | (aica_ram[0x403] << 24)),
+                    (unsigned)(aica_ram[0x404] | (aica_ram[0x405] << 8) |
+                               (aica_ram[0x406] << 16) | (aica_ram[0x407] << 24)),
+                    (unsigned)(aica_ram[0x408] | (aica_ram[0x409] << 8) |
+                               (aica_ram[0x40a] << 16) | (aica_ram[0x40b] << 24)),
+                    (unsigned)(aica_ram[0x40c] | (aica_ram[0x40d] << 8) |
+                               (aica_ram[0x40e] << 16) | (aica_ram[0x40f] << 24)));
+            {
+                unsigned op;
+                fprintf(stderr, "aica cmd:");
+                for (op = 0; op < 256u; ++op)
+                    if (aica_cmd_hist[op])
+                        fprintf(stderr, " %02x:%u", op, aica_cmd_hist[op]);
+                fprintf(stderr, " | sound ram above 0x2000: %llu writes, "
+                        "%llu bytes, peak %d\n",
+                        (unsigned long long)aica_ram_hi_writes,
+                        (unsigned long long)aica_ram_hi_bytes, peak);
+                peak = 0;
+            }
+            if (getenv("VF3_ARMHIST")) {
+                fprintf(stderr, "arm pc histogram:\n");
+                vf3_arm7_pc_hist_dump(40);
+            }
+            if (getenv("VF3_CTXLOG")) {
+                /* the 8 context slots at 0xc300 and the 16 stream records at
+                 * 0xcc50: what the A9/AB track walker and the sequencer see */
+                unsigned s;
+                fprintf(stderr, "aica ctx:");
+                for (s = 0; s < 8u; ++s) {
+                    uint32_t p = (uint32_t)(aica_ram[0xc300 + 0x20u*s] |
+                        (aica_ram[0xc300 + 0x20u*s + 1] << 8) |
+                        (aica_ram[0xc300 + 0x20u*s + 2] << 16) |
+                        (aica_ram[0xc300 + 0x20u*s + 3] << 24));
+                    fprintf(stderr, " %02x:%08x", 0xc300 + 0x20u*s, p);
+                }
+                fprintf(stderr, "\naica stm:");
+                for (s = 0; s < 16u; ++s) {
+                    uint32_t b0 = aica_ram[0xcc50 + 0x30u*s];
+                    fprintf(stderr, " %02x=%02x", s, b0);
+                }
+                /* locate the loaded sound data: report every package base
+                 * (each package opens with the "DTPK" magic 0x4454504B) and
+                 * the first nonzero 4-aligned words of the whole high region
+                 * (the reference used 0x86e50; the port may differ). */
+                {
+                    uint32_t a, shown = 0;
+                    unsigned long long first = (unsigned long long)-1;
+                    fprintf(stderr, " aica dtpk:");
+                    for (a = 0x10000u; a < 0x1F0000u - 4u; a += 4u) {
+                        if (aica_ram[a] == 0x44 && aica_ram[a + 1] == 0x54 &&
+                            aica_ram[a + 2] == 0x50 && aica_ram[a + 3] == 0x4B)
+                            fprintf(stderr, " %x", a);
+                    }
+                    /* the committed song-data targets (stream record 0xcc50's
+                     * fields at +0xc/+0x10 point here, ~0x885d8): is the low
+                     * region (the sequencer's note data) populated? */
+                    {
+                        uint32_t b;
+                        fprintf(stderr, "\n aica song:");
+                        for (b = 0x885c0u; b < 0x88620u; b += 8u)
+                            fprintf(stderr, " %05x=%08x%08x", b,
+                                (uint32_t)(aica_ram[b] | (aica_ram[b + 1] << 8) |
+                                    (aica_ram[b + 2] << 16) | (aica_ram[b + 3] << 24)),
+                                (uint32_t)(aica_ram[b + 4] | (aica_ram[b + 5] << 8) |
+                                    (aica_ram[b + 6] << 16) | (aica_ram[b + 7] << 24)));
+                        /* the sequencer's voice FIFO at 0xa400: in the
+                         * reference this is filled with note words (0x034f01b6
+                         * ...) that the voice hardware consumes. */
+                        fprintf(stderr, "\n aica fifo:");
+                        for (b = 0xa400u; b < 0xa440u; b += 4u)
+                            fprintf(stderr, " %05x=%08x", b,
+                                (uint32_t)(aica_ram[b] | (aica_ram[b + 1] << 8) |
+                                    (aica_ram[b + 2] << 16) | (aica_ram[b + 3] << 24)));
+                    }
+                    fprintf(stderr, " | obj:");
+                    for (a = 0x10000u; a < 0x1F0000u && shown < 24u; a += 4u) {
+                        uint32_t w = (uint32_t)(aica_ram[a] |
+                            (aica_ram[a + 1] << 8) | (aica_ram[a + 2] << 16) |
+                            (aica_ram[a + 3] << 24));
+                        if (w == 0) continue;
+                        if (first == (unsigned long long)-1) first = a;
+                        fprintf(stderr, " %05x=%08x", a, w);
+                        ++shown;
+                    }
+                    fprintf(stderr, " (first %05llx)\n", (unsigned long long)first);
+                }
+            }
+        }
+    }
+    for (i = 0; i < frames; ++i) {
+        int16_t right = 0, left = 0;
+        /* One sample of the chip: 512 ARM7 cycles, the timers, the interrupt
+         * update and one stereo frame from the mixer. */
+        vf3_aica_arm_sample(&aica_arm, &right, &left);
+        dst[2 * i + 0] = left;
+        dst[2 * i + 1] = right;
+        if (left < 0 ? -left > peak : left > peak) peak = left < 0 ? -left : left;
+        if (right < 0 ? -right > peak : right > peak) peak = right < 0 ? -right : right;
+    }
+}
+
+/* How many channels the driver has keyed: a mixer that answers zero here has
+ * nothing to play yet (the register file was never programmed). */
+unsigned vf3_native_aica_keyed(void)
+{
+    unsigned slot, n = 0;
+    aica_ensure();
+    for (slot = 0; slot < VF3_AICA_SLOT_COUNT; ++slot) n += aica_model.keyed[slot] ? 1u : 0u;
+    return n;
+}
+
+/* The register file, for tests and for a save state. */
+const vf3_aica_model *vf3_native_aica_model(void) { aica_ensure(); return &aica_model; }
 uint32_t vf3_native_asic_pending(void) { return machine.istnrm; }
 uint32_t vf3_native_asic_iml2(void) { return machine.iml2; }
 unsigned vf3_native_take_render(void) { const unsigned n = machine.render_started; machine.render_started = 0; return n; }
@@ -608,6 +889,17 @@ uint32_t vf3_native_current_pc(void)
 }
 unsigned vf3_native_take_maple(uint32_t *list) { const unsigned n = machine.maple_started; machine.maple_started = 0; if (list) *list = machine.maple_list; return n; }
 void vf3_native_set_maple_buttons(uint16_t buttons) { machine.maple_buttons = buttons; }
+void vf3_native_set_maple_pad(const vf3_maple_pad *pad)
+{
+    if (!pad) return;
+    machine.maple_buttons = pad->buttons;
+    machine.maple_rtrig = pad->rtrig;
+    machine.maple_ltrig = pad->ltrig;
+    machine.maple_joyx = pad->joyx;
+    machine.maple_joyy = pad->joyy;
+    machine.maple_joy2x = pad->joy2x;
+    machine.maple_joy2y = pad->joy2y;
+}
 unsigned vf3_native_take_dma2(void) { const unsigned n = machine.dma2_started; machine.dma2_started = 0; return n; }
 static uint32_t (*budget_hook)(vf3_matrix_state *s);
 void vf3_native_set_budget_hook(uint32_t (*hook)(vf3_matrix_state *s)) { budget_hook = hook; }

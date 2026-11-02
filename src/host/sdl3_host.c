@@ -1,8 +1,13 @@
 /* host/sdl3_host.c - the SDL3 host for the native port.
  *
- *   vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR] [--entry ADDR]
- *           [--gdi DISC] [--gd-state FILE] [--dump-frame FILE.ppm]
+ *   vf3sdl [--assets DIR] [--state FILE] [--pair N] [--frames N] [--gbr ADDR]
+ *           [--entry ADDR] [--gdi DISC] [--gd-state FILE] [--dump-frame FILE.ppm]
  *           [--headless] [--fps N] [--slice STEPS] [--ta-out FILE]
+ *
+ * With no arguments it loads the native asset bundle (boot.state + disc.vf3,
+ * built by tools/make_native_assets.py) found next to the executable or in
+ * build/vf3_assets.  The bundle is the port's own format: no .gdi, track
+ * files, BIOS ROM or emulator savestate are needed at runtime.
  *
  * Loads a machine state the port can run from, runs the game's frame loop,
  * hands the Tile Accelerator command stream to the PVR2 model and presents the
@@ -31,11 +36,13 @@
 
 #include "fight/matrix_family.h"
 #include "fight/native_tick.h"
+#include "host/sdl3_input.h"
 #include "render/pvr2.h"
 #include "render/ta.h"
 #include "render/ta_stream.h"
 #include "sys/frame_events.h"
 #include "sys/gdrom_hle.h"
+#include "sys/native_assets.h"
 
 #define DEFAULT_GBR 0x0C16B880u        /* the fight tasks' global-state block */
 #define DEFAULT_FPS 60                 /* the NTSC field rate the DC ran at */
@@ -65,13 +72,91 @@ static int write_ppm(const char *path, const vf3_pvr2 *pvr, unsigned w, unsigned
     return 0;
 }
 
+/* ---- audio: the AICA's stereo frame, to the speakers and/or to a WAV ---- */
+
+#define AUDIO_RATE   44100u
+#define AUDIO_FRAMES_PER_FIELD (AUDIO_RATE / DEFAULT_FPS)   /* 735 */
+
+static SDL_AudioStream *g_audio;
+static FILE *g_wav;
+static uint64_t g_wav_frames;
+
+/* A 44-byte RIFF header, written before the samples and patched when the run
+ * ends (the length is only known then). */
+static void put_le32(unsigned char *p, uint32_t v)
+{
+    p[0] = (unsigned char)(v & 0xFF); p[1] = (unsigned char)((v >> 8) & 0xFF);
+    p[2] = (unsigned char)((v >> 16) & 0xFF); p[3] = (unsigned char)((v >> 24) & 0xFF);
+}
+
+static int wav_open(const char *path)
+{
+    unsigned char h[44];
+    g_wav = fopen(path, "wb");
+    if (!g_wav) { fprintf(stderr, "vf3sdl: cannot write %s\n", path); return 1; }
+    memset(h, 0, sizeof h);
+    memcpy(h + 0, "RIFF", 4);
+    put_le32(h + 4, 36u);             /* patched at close */
+    memcpy(h + 8, "WAVEfmt ", 8);
+    put_le32(h + 16, 16u);            /* fmt chunk size */
+    h[20] = 1;                        /* PCM */
+    h[21] = 0;
+    h[22] = 2;                        /* stereo */
+    h[23] = 0;
+    put_le32(h + 24, AUDIO_RATE);
+    put_le32(h + 28, AUDIO_RATE * 4u); /* byte rate */
+    h[32] = 4;                        /* block align */
+    h[33] = 0;
+    h[34] = 16;                       /* bits per sample */
+    h[35] = 0;
+    memcpy(h + 36, "data", 4);
+    put_le32(h + 40, 0u);             /* patched at close */
+    fwrite(h, 1, sizeof h, g_wav);
+    return 0;
+}
+
+static void wav_close(void)
+{
+    unsigned char h[4];
+    long size;
+    if (!g_wav) return;
+    size = ftell(g_wav);
+    if (size >= 44) {
+        const uint32_t data = (uint32_t)(size - 44);
+        const uint32_t riff = data + 36;
+        fseek(g_wav, 4, SEEK_SET);
+        h[0] = (unsigned char)(riff); h[1] = (unsigned char)(riff >> 8);
+        h[2] = (unsigned char)(riff >> 16); h[3] = (unsigned char)(riff >> 24);
+        fwrite(h, 1, 4, g_wav);
+        fseek(g_wav, 40, SEEK_SET);
+        h[0] = (unsigned char)(data); h[1] = (unsigned char)(data >> 8);
+        h[2] = (unsigned char)(data >> 16); h[3] = (unsigned char)(data >> 24);
+        fwrite(h, 1, 4, g_wav);
+    }
+    fclose(g_wav);
+    g_wav = NULL;
+}
+
+/* One field's worth of the chip, out to the stream and the tape. */
+static void audio_field(void)
+{
+    static int16_t buf[AUDIO_FRAMES_PER_FIELD * 2];
+    vf3_native_aica_mix(buf, AUDIO_FRAMES_PER_FIELD);
+    if (g_audio) SDL_PutAudioStreamData(g_audio, buf, (int)sizeof buf);
+    if (g_wav && fwrite(buf, sizeof buf[0], AUDIO_FRAMES_PER_FIELD * 2, g_wav) == AUDIO_FRAMES_PER_FIELD * 2)
+        g_wav_frames += AUDIO_FRAMES_PER_FIELD;
+}
+
 static void usage(void)
 {
     fprintf(stderr,
-            "usage: vf3sdl --state FILE [--pair N] [--frames N] [--gbr ADDR]\n"
-            "              [--entry ADDR] [--gdi DISC] [--gd-state FILE]\n"
-            "              [--dump-frame FILE.ppm] [--headless] [--fps N]\n"
-            "              [--slice STEPS] [--ta-out FILE]\n");
+            "usage: vf3sdl [--assets DIR] [--state FILE] [--pair N] [--frames N]\n"
+            "              [--gbr ADDR] [--entry ADDR] [--gdi DISC] [--gd-state FILE]\n"
+            "              [--dump-frame FILE.ppm] [--wav-out FILE.wav] [--headless] [--fps N]\n"
+            "              [--slice STEPS] [--ta-out FILE]\n"
+            "\n"
+            "With no --state, the native bundle in --assets, $VF3_ASSETS, next to\n"
+            "the executable or in build/vf3_assets is loaded (boot.state + disc.vf3).\n");
 }
 
 /* ---------------------------------------------------------------- the frame loop */
@@ -177,6 +262,18 @@ static int SDLCALL watch_thread(void *ctx)
     return 0;
 }
 
+/* A diagnostic switch: on when the variable is set to something that is not
+ * empty and not "0".  An empty value is how a shell spells "unset", and the
+ * host has to read it as "off" - a run that asked for the picture and got a
+ * black frame is a confusing way to learn that. */
+static int vf3_flag_on(const char *name)
+{
+    const char *v = getenv(name);
+    if (!v || !*v) return 0;
+    if (v[0] == '0' && !v[1]) return 0;
+    return 1;
+}
+
 /* The TA's input: the blocks the hardware receives, in the order it receives
  * them.
  *
@@ -253,29 +350,49 @@ static int run_handler(uint32_t entry, const uint32_t regs[37], void *ctx)
 /* The vblank ends the frame the PVR2 model is filling: the blocks the TA received are decoded with our own
  * TA decoder and drawn with our own rasteriser.  Called from the slice hook, so a long-running guest (the
  * boot) is cut into frames too. */
-/* VF3_PRESS=<hex mask>,<from>,<hold>,<period>: hold the pad's buttons down for <hold> frames out of every <period>, from frame <from> */
-static void press_script(unsigned frame)
+/* The host's pad: the gamepad or the keyboard, read into the wire's format
+ * the Maple model answers with.  The script (VF3_PRESS) wins when it is set,
+ * so a run can be reproduced without a human at the pad.
+ *
+ * VF3_PRESS=<hex mask>,<from>,<hold>,<period>: hold the pad's buttons down
+ * for <hold> frames out of every <period>, from frame <from>. */
+static void publish_pad(unsigned frame)
 {
-    static int init;
+    const vf3_maple_pad *pad = vf3_sdl3_input_pad();
+    static int script_init;
     static unsigned mask, from, hold, period;
-    if (!init) {
-        init = 1;
+    if (!script_init) {
+        script_init = 1;
         const char *s = getenv("VF3_PRESS");
         if (s) sscanf(s, "%x,%u,%u,%u", &mask, &from, &hold, &period);
     }
-    if (!mask || !period || frame < from) return;
-    vf3_frame_events_set_buttons((uint16_t)(((frame - from) % period) < hold ? ~mask : 0xFFFFu));
+    if (mask && period && frame >= from) {
+        vf3_maple_pad scripted = *pad;
+        scripted.buttons = (uint16_t)(((frame - from) % period) < hold ? ~mask : 0xFFFFu);
+        vf3_frame_events_set_pad(&scripted);
+        return;
+    }
+    vf3_frame_events_set_pad(pad);
 }
 
 static void frame_boundary(void)
 {
     const unsigned vblanks = g_vblanks;
-            /* the blocks the TA received this frame, decoded with our own
-             * TA decoder and drawn with our own rasteriser */
+    /* the sound chip's own frame: one field of 44.1 kHz stereo */
+    audio_field();
+            /* The blocks the TA received this frame, decoded with our own
+             * TA decoder and drawn with our own rasteriser.
+             *
+             * VF3_NORENDER=1 skips both.  The decode and the rasterisation are
+             * the host's most expensive work (a frame carries 200,000 TA
+             * words and 650,000 pixels), and a run that is looking for the
+             * guest's dispatch holes does not need the picture: the holes are
+             * the guest's code, not the model's. */
             const unsigned nw = g_ta_fifo_words;
             vf3_ta_list list;
             int have_list = 0;
-            if (nw) have_list = vf3_ta_decode(g_ta_fifo, nw, &list) == 0;
+            const int norender = vf3_flag_on("VF3_NORENDER");
+            if (nw && !norender) have_list = vf3_ta_decode(g_ta_fifo, nw, &list) == 0;
             if (have_list) vf3_pvr2_rasterise(g_pvr2, &list);
             else vf3_pvr2_frame_end(g_pvr2);
             fprintf(stderr, "vf3sdl: frame %u: %u TA words", vblanks, g_pvr2->stats.words);
@@ -349,7 +466,6 @@ static uint32_t slice_hook(vf3_matrix_state *s)
         if (vf3_frame_events_frames(&g_events) != g_vblanks) {
             g_vblanks = vf3_frame_events_frames(&g_events);
             frame_boundary();
-            press_script(g_vblanks);
         }
     }
     {   /* the guest's own frame counter: the SDK's vblank handler (0x8C063D1E)
@@ -380,17 +496,23 @@ int main(int argc, char **argv)
 {
     const char *state = NULL, *vram_out = NULL, *bios_path = NULL, *gdi_path = NULL, *gd_state = NULL, *dump = NULL, *ta_out = NULL, *ram_out = NULL;
     const char *pvr_state = NULL;
+    const char *wav_out = NULL;
+    const char *assets_dir = NULL;
+    vf3_native_assets assets;
+    int have_assets = 0;
     unsigned pair = 0, frames = 1, fps = DEFAULT_FPS;
     uint32_t gbr = DEFAULT_GBR;
     uint32_t entry = VF3_NATIVE_SCHED_ENTRY;
+    int entry_given = 0;
     int headless = 0;
 
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--state") && i + 1 < argc) state = argv[++i];
+        else if (!strcmp(argv[i], "--assets") && i + 1 < argc) assets_dir = argv[++i];
         else if (!strcmp(argv[i], "--pair") && i + 1 < argc) pair = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--frames") && i + 1 < argc) frames = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--gbr") && i + 1 < argc) gbr = (uint32_t)strtoul(argv[++i], NULL, 0);
-        else if (!strcmp(argv[i], "--entry") && i + 1 < argc) entry = (uint32_t)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--entry") && i + 1 < argc) { entry = (uint32_t)strtoul(argv[++i], NULL, 0); entry_given = 1; }
         else if (!strcmp(argv[i], "--dump-vram") && i + 1 < argc) vram_out = argv[++i];
         else if (!strcmp(argv[i], "--gdi") && i + 1 < argc) gdi_path = argv[++i];
         else if (!strcmp(argv[i], "--bios") && i + 1 < argc) bios_path = argv[++i];
@@ -401,10 +523,58 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc) ram_out = argv[++i];
         else if (!strcmp(argv[i], "--fps") && i + 1 < argc) fps = (unsigned)strtoul(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--slice") && i + 1 < argc) g_slice = (unsigned)strtoul(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--wav-out") && i + 1 < argc) wav_out = argv[++i];
         else if (!strcmp(argv[i], "--headless")) headless = 1;
         else { usage(); return 2; }
     }
-    if (!state) { usage(); return 2; }
+    /* The native bundle: with no --state the host boots from its own assets.
+     * The search order is an explicit --assets, $VF3_ASSETS, the directory
+     * next to the executable, then build/vf3_assets under the working
+     * directory (running from the repo root).  None of these files is a
+     * Dreamcast artefact: boot.state and disc.vf3 are this port's own. */
+    if (assets_dir) {
+        if (vf3_native_assets_open(&assets, assets_dir) != 0) {
+            fprintf(stderr, "vf3sdl: cannot open the native bundle %s\n", assets_dir);
+            return 2;
+        }
+        have_assets = 1;
+    }
+    if (!state) {
+        if (!have_assets) {
+            char exe_cand[600] = "", cwd_cand[600] = "", build_cand[600] = "";
+            const char *cands[4];
+            int ncand = 0;
+            const char *env = getenv("VF3_ASSETS");
+            const char *base = SDL_GetBasePath();
+            if (env && *env) cands[ncand++] = env;
+            if (base && *base) {
+                snprintf(exe_cand, sizeof exe_cand, "%svf3_assets", base);
+                cands[ncand++] = exe_cand;
+            }
+            snprintf(cwd_cand, sizeof cwd_cand, "vf3_assets");
+            cands[ncand++] = cwd_cand;
+            snprintf(build_cand, sizeof build_cand, "build/vf3_assets");
+            cands[ncand++] = build_cand;
+            if (base) SDL_free((void *)base);
+            for (int i = 0; i < ncand; ++i) {
+                if (vf3_native_assets_open(&assets, cands[i]) == 0) {
+                    have_assets = 1;
+                    assets_dir = cands[i];
+                    break;
+                }
+            }
+        }
+        if (!have_assets) {
+            fprintf(stderr, "vf3sdl: no --state and no native asset bundle; build one with\n"
+                            "  python tools/make_native_assets.py\n");
+            usage();
+            return 2;
+        }
+        state = vf3_native_assets_boot_state(&assets);
+        if (!entry_given) entry = 0x8C004000u;   /* the bundle's boot entry */
+        fprintf(stderr, "vf3sdl: native bundle %s (%u sectors from LBA %u)\n",
+                assets.dir, assets.nsectors, assets.first_lba);
+    }
 
     uint32_t regs[37];
     uint8_t *ram = NULL;
@@ -416,16 +586,24 @@ int main(int argc, char **argv)
     g_gbr = gbr;
 
     /* The GD-ROM model: the loader polls it through the BIOS, so a tick that
-     * touches the drive needs one attached. */
+     * touches the drive needs one attached.  The native bundle supplies the
+     * sectors directly; --gdi remains for development against the disc. */
     vf3_gdi gdi;
     vf3_gdrom gd;
+    memset(&gdi, 0, sizeof gdi);
     if (bios_path) {
         static uint8_t *bios; FILE *bf = fopen(bios_path, "rb");
         if (!bf) { fprintf(stderr, "vf3sdl: cannot open %s\n", bios_path); free(ram); return 2; }
         bios = malloc(0x200000u); size_t bl = bios ? fread(bios, 1, 0x200000u, bf) : 0; fclose(bf);
         vf3_native_set_bios(bios, bl);
     }
-    if (gdi_path) {
+    if (have_assets && !gdi_path) {
+        gdi.read = vf3_native_assets_read_sector;
+        gdi.read_ctx = &assets;
+        vf3_gd_init(&gd, &gdi, NULL, NULL);
+        (void)gd_state;
+        vf3_native_attach_gdrom(&gd);
+    } else if (gdi_path) {
         if (vf3_gdi_open(&gdi, gdi_path) != 0) { fprintf(stderr, "vf3sdl: cannot open %s\n", gdi_path); free(ram); return 2; }
         vf3_gd_init(&gd, &gdi, NULL, NULL);
         (void)gd_state;
@@ -438,7 +616,7 @@ int main(int argc, char **argv)
     SDL_Renderer *renderer = NULL;
     SDL_Texture *texture = NULL;
     if (!headless) {
-        if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD)) {
+        if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD | SDL_INIT_AUDIO)) {
             fprintf(stderr, "vf3sdl: SDL_Init failed: %s\n", SDL_GetError());
             free(ram);
             return 2;
@@ -474,6 +652,21 @@ int main(int argc, char **argv)
         g_ta_file = fopen(ta_out, "wb");
         if (!g_ta_file) fprintf(stderr, "vf3sdl: cannot write %s\n", ta_out);
     }
+
+    /* The host's input: a gamepad or the keyboard.  A headless run has no
+     * input at all (the script VF3_PRESS drives the pad instead). */
+    if (!headless) vf3_sdl3_input_open();
+
+    /* Audio: the AICA's stereo frame, 44.1 kHz.  The stream plays the mix the
+     * channel model produces; `--wav-out` also writes it to a file, which is
+     * how a headless run's audio is checked. */
+    if (!headless) {
+        const SDL_AudioSpec spec = { .format = SDL_AUDIO_S16, .channels = 2, .freq = AUDIO_RATE };
+        g_audio = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, &spec, NULL, NULL);
+        if (!g_audio) fprintf(stderr, "vf3sdl: no audio device: %s\n", SDL_GetError());
+        else SDL_ResumeAudioStreamDevice(g_audio);
+    }
+    if (wav_out && wav_open(wav_out)) wav_out = NULL;
 
     vf3_pvr2 pvr2;
     vf3_pvr2_init(&pvr2);
@@ -514,7 +707,7 @@ int main(int argc, char **argv)
 
     vf3_native_tick_result r;
     int status = 0;
-    const Uint64 frame_us = fps ? 1000000ull / fps : 0;
+    const Uint64 frame_ns = fps ? 1000000000ull / fps : 0;
     Uint64 next = SDL_GetTicksNS();
     uint32_t at = entry;
     uint32_t xf[16];
@@ -522,6 +715,11 @@ int main(int argc, char **argv)
     vf3_pvr2_frame_begin(&pvr2);
 
     while (vf3_frame_events_frames(&g_events) < frames) {
+        /* the host's pad: the gamepad or the keyboard, in the wire's format.
+         * The Maple model answers the guest's request with it, so it has to
+         * be published before the guest's slice runs. */
+        vf3_sdl3_input_poll();
+        publish_pad(vf3_frame_events_frames(&g_events));
         vf3_native_set_budget(g_slice);
         g_budget_out = g_slice;
         g_hook_insns = 0;
@@ -629,9 +827,10 @@ int main(int argc, char **argv)
         while (SDL_PollEvent(&ev)) {
             if (ev.type == SDL_EVENT_QUIT) { status = 0; goto done; }
             if (ev.type == SDL_EVENT_KEY_DOWN && ev.key.key == SDLK_ESCAPE) { goto done; }
+            vf3_sdl3_input_event(&ev);
         }
-        if (frame_us) {
-            next += frame_us;
+        if (frame_ns) {
+            next += frame_ns;
             const Uint64 now = SDL_GetTicksNS();
             if (next > now) SDL_Delay((Uint32)((next - now) / 1000000ull));
             else next = now;
@@ -674,7 +873,14 @@ done:
         if (write_ppm(dump, &pvr2, VF3_PVR2_WIDTH, VF3_PVR2_HEIGHT)) status = 1;
         else fprintf(stderr, "vf3sdl: wrote %s\n", dump);
     }
+    if (g_wav) {
+        wav_close();
+        fprintf(stderr, "vf3sdl: wrote %s (%llu frames)\n", wav_out ? wav_out : "?",
+                (unsigned long long)g_wav_frames);
+    }
+    if (g_audio) { SDL_DestroyAudioStream(g_audio); g_audio = NULL; }
     vf3_pvr2_free(&pvr2);
+    vf3_sdl3_input_close();
     if (texture) SDL_DestroyTexture(texture);
     if (renderer) SDL_DestroyRenderer(renderer);
     if (window) SDL_DestroyWindow(window);

@@ -49,6 +49,11 @@ typedef struct {
 typedef struct {
     vf3_gdi_track track[16];
     int ntracks;
+    /* A native asset bundle (sys/native_assets.c) supplies the sectors from a
+     * packed image instead of a .gdi's track files.  When set it replaces the
+     * track lookup; the guest still asks for the same FADs. */
+    int (*read)(void *ctx, uint32_t fad, uint8_t out[VF3_GD_SECTOR]);
+    void *read_ctx;
 } vf3_gdi;
 
 /* parse a .gdi (tracks are resolved relative to the .gdi's directory); 0 on success */

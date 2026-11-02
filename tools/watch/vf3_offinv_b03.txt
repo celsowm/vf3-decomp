@@ -1,0 +1,4 @@
+# The off-inventory entry the boot reached after the b02 module was wired.
+# Five modules call it (fifth_adapters_2.c, four away-batch modules) and no
+# module owns or claims it: the guest reaches it through a function pointer.
+pc 0x0c0aaeba
