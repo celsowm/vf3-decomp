@@ -52,6 +52,11 @@ typedef struct {
     vf3_arm7_bus bus;
     uint64_t cycles;          /* cycles retired since the reset */
     uint64_t instructions;    /* instructions retired since the reset */
+    int32_t arm7_clock_ticks; /* the carried cycle phase, like flycast's
+                               * arm7ClockTicks: the ARM7 runs while this is
+                               * negative after each sample's budget is
+                               * subtracted, so the leftover phase carries
+                               * across samples (seeded from CYCL_CNT) */
     int irq_line;             /* the AICA's IRQ input, level triggered */
     int fiq_line;
     int halted;               /* the firmware stopped the CPU (a `b .` in a wait) */

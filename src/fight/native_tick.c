@@ -243,7 +243,7 @@ void vf3_native_aica_live_seed(const uint8_t *seed, uint32_t words)
     vf3_arm7 *cpu;
     aica_ensure();
     if (!seed) return;
-    if (words < 59) return;             /* 49 + 6 + 4 */
+    if (words < 64) return;             /* 49 arm + 6 timer + 9 tail */
     for (i = 0; i < 49; ++i) arm[i] = aica_rep_r32(seed + i * 4u);
     n = 49;
     cpu = &aica_arm.cpu;
@@ -280,6 +280,8 @@ void vf3_native_aica_live_seed(const uint8_t *seed, uint32_t words)
     aica_arm.aica_interr = (int)aica_rep_r32(seed + (n + 2u) * 4u);
     aica_arm.e68k_out    = (int)aica_rep_r32(seed + (n + 3u) * 4u);
     aica_arm.running = 1;                /* ARMRST released in the reference */
+    /* tail words 4..8: irqEnable, fiqEnable, mode, Arm7Enabled, arm7ClockTicks */
+    cpu->arm7_clock_ticks = (int32_t)aica_rep_r32(seed + (n + 8u) * 4u);
     aica_arm.samples = 0;
     aica_arm.reg_writes = 0;
     aica_arm.channel_writes = 0;

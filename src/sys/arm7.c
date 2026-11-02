@@ -914,6 +914,7 @@ void vf3_arm7_reset(vf3_arm7 *cpu)
     cpu->bus = bus;
     cpu->cpsr = VF3_ARM_MODE_SVC | FLAG_I | FLAG_F;
     cpu->r[15] = 0;
+    cpu->arm7_clock_ticks = 0;
 }
 
 uint32_t vf3_arm7_step(vf3_arm7 *cpu)
@@ -947,12 +948,18 @@ uint32_t vf3_arm7_step(vf3_arm7 *cpu)
 
 uint32_t vf3_arm7_run(vf3_arm7 *cpu, uint32_t cycles)
 {
-    uint32_t spent = 0;
-    while (spent < cycles) {
-        spent += vf3_arm7_step(cpu);
+    uint32_t steps = 0;
+    /* mirror flycast's runInterpreter: subtract the sample's budget and run
+     * instructions while the accumulator is negative, carrying the leftover
+     * phase into the next sample (instead of discarding it as a fresh 0). */
+    cpu->arm7_clock_ticks -= (int32_t)cycles;
+    while (cpu->arm7_clock_ticks < 0) {
+        uint32_t spent = vf3_arm7_step(cpu);
+        cpu->arm7_clock_ticks += (int32_t)spent;
+        ++steps;
         if (cpu->halted) break;
     }
-    return spent;
+    return steps;
 }
 
 void vf3_arm7_set_irq(vf3_arm7 *cpu, int level) { cpu->irq_line = level != 0; }
