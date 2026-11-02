@@ -6685,6 +6685,9 @@ add_port_test(vf3aicaarm tests/aica_arm_replay.c)
 # the host's own render loop against the reference's PCM: the same function
 # the SDL3 port feeds its stream, seeded and stepped with the replay armed
 add_port_test(vf3aicanative tests/aica_native_replay.c)
+# the host's live (non-replay) loop: the ARM7 interpreter seeded from the
+# reference savestate re-runs the firmware from the same PC
+add_port_test(vf3aicalive tests/aica_live_replay.c)
 add_port_test(vf3maplookup tests/maplookup_replay.c)
 add_port_test(vf3meshnode tests/mesh_node_replay.c)
 add_port_test(vf3d0fa tests/d0fa_replay.c)

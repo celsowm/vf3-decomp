@@ -67,6 +67,10 @@ void vf3_native_attach_gdrom(vf3_gdrom *gd);
 void vf3_native_aica_replay_init(const uint8_t *registers, const uint8_t *ram,
                                  const uint8_t *channels, const uint8_t *writes,
                                  uint32_t write_count);
+/* Seed the *live* ARM7 (the else branch of vf3_native_aica_mix) from the
+ * reference savestate - see native_tick.c.  The register file and sound RAM
+ * are seeded separately (vf3_native_aica_replay_init with NULL writes). */
+void vf3_native_aica_live_seed(const uint8_t *seed, uint32_t words);
 /* Serve a call to the BIOS GD-ROM vector (VF3_BIOS_SYSCALL_VECTOR, r6 = 0) from the attached drive: the run
  * continues at the return address (s->v[16]) and the answer lands in r0. Returns 0 when no drive is attached
  * or the call is not the vector's. The matrix chain's REIOS stub (src/fight/vf3_aica_stub_adapter.c) and the

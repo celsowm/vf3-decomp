@@ -226,6 +226,67 @@ void vf3_native_aica_replay_init(const uint8_t *registers, const uint8_t *ram,
     aica_replay_index = 0;
 }
 
+/* Seed the *live* ARM7 (the else branch of vf3_native_aica_mix's loop, the
+ * one a normal run takes) from the reference savestate's ARM7 CPU, so the
+ * native interpreter re-executes the same firmware from the same PC with the
+ * same cadence.  The blob is written by tools/aica_state.py's caller:
+ *   49 u32 flycast arm_Reg[] (arm7.h Arm7Reg order)
+ *   6  u32 timer words        (timer0..2 c_step,m_step)
+ *   4  u32 irq flags          (aica_reg_L, e68k_reg_L, aica_interr, e68k_out)
+ * The register file and sound RAM come from the mixer fixture (the same start
+ * state), so this is the render-path half of the runtime audio proof: with
+ * the replay *not* armed, the host's own mix loop runs the ARM7 forward. */
+void vf3_native_aica_live_seed(const uint8_t *seed, uint32_t words)
+{
+    uint32_t arm[49];
+    unsigned n = 0, i;
+    vf3_arm7 *cpu;
+    aica_ensure();
+    if (!seed) return;
+    if (words < 59) return;             /* 49 + 6 + 4 */
+    for (i = 0; i < 49; ++i) arm[i] = aica_rep_r32(seed + i * 4u);
+    n = 49;
+    cpu = &aica_arm.cpu;
+
+    for (i = 0; i < 13; ++i) cpu->r[i] = arm[i];        /* r0..r12 */
+    cpu->r[13] = arm[13];                                /* sp */
+    cpu->r[14] = arm[14];                                /* lr */
+    cpu->r[15] = arm[15];                                /* pc */
+    cpu->cpsr = arm[16];
+    cpu->spsr = arm[17];
+
+    /* banked r13/r14/spsr: idx 0 USR, 1 FIQ, 2 IRQ, 3 SVC, 4 ABT, 5 UND */
+    cpu->bank_r13[0] = arm[26]; cpu->bank_r14[0] = arm[27];  /* USR */
+    cpu->bank_r13[1] = arm[42]; cpu->bank_r14[1] = arm[43];
+    cpu->bank_spsr[1] = arm[44];                              /* FIQ */
+    cpu->bank_r13[2] = arm[18]; cpu->bank_r14[2] = arm[19];
+    cpu->bank_spsr[2] = arm[20];                              /* IRQ */
+    cpu->bank_r13[3] = arm[28]; cpu->bank_r14[3] = arm[29];
+    cpu->bank_spsr[3] = arm[30];                              /* SVC */
+    cpu->bank_r13[4] = arm[31]; cpu->bank_r14[4] = arm[32];
+    cpu->bank_spsr[4] = arm[33];                              /* ABT */
+    cpu->bank_r13[5] = arm[34]; cpu->bank_r14[5] = arm[35];
+    cpu->bank_spsr[5] = arm[36];                              /* UND */
+    for (i = 0; i < 5; ++i) cpu->fiq_r8[i] = arm[37 + i];     /* FIQ r8..r12 */
+    for (i = 0; i < 5; ++i) cpu->usr_r8[i] = arm[8 + i];      /* USR r8..r12 */
+
+    for (i = 0; i < 3; ++i) {
+        aica_arm.timer[i].c_step = aica_rep_r32(seed + (n + i * 2u) * 4u);
+        aica_arm.timer[i].m_step = aica_rep_r32(seed + (n + i * 2u + 1u) * 4u);
+    }
+    n += 6;
+    aica_arm.aica_reg_L = aica_rep_r32(seed + n * 4u);
+    aica_arm.reg_L     = aica_rep_r32(seed + (n + 1u) * 4u);
+    aica_arm.aica_interr = (int)aica_rep_r32(seed + (n + 2u) * 4u);
+    aica_arm.e68k_out    = (int)aica_rep_r32(seed + (n + 3u) * 4u);
+    aica_arm.running = 1;                /* ARMRST released in the reference */
+    aica_arm.samples = 0;
+    aica_arm.reg_writes = 0;
+    aica_arm.channel_writes = 0;
+    aica_arm.fiq_count = 0;
+    aica_arm.last_pc = arm[15];
+}
+
 /* Two handshakes the port used to answer for the driver, written when there
  * was no ARM7 to answer them: 0x00800098 is the upload engine's length (the
  * driver clears it once it has copied the block) and 0x008000B4 is the
