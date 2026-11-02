@@ -6682,6 +6682,9 @@ add_port_test(vf3arm7 tests/arm7_replay.c)
 # the chip around it: the timers, the e68k latch, the SCI/MCI registers and
 # the firmware's own INIT publication (docs/re/aica_audio_model.md)
 add_port_test(vf3aicaarm tests/aica_arm_replay.c)
+# the host's own render loop against the reference's PCM: the same function
+# the SDL3 port feeds its stream, seeded and stepped with the replay armed
+add_port_test(vf3aicanative tests/aica_native_replay.c)
 add_port_test(vf3maplookup tests/maplookup_replay.c)
 add_port_test(vf3meshnode tests/mesh_node_replay.c)
 add_port_test(vf3d0fa tests/d0fa_replay.c)

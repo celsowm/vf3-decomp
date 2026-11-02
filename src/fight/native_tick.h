@@ -62,6 +62,11 @@ int vf3_native_tick_run(uint8_t *ram, const uint32_t regs[37], uint32_t entry, u
  * unowned code; sector transfers land in the RAM image of the running tick. Pass NULL to detach. The caller steps the
  * transfer with vf3_gd_sched_step() between ticks (the model has no clock). */
 void vf3_native_attach_gdrom(vf3_gdrom *gd);
+/* Seed the host's AICA state and arm the reference-write replay used by
+ * vf3_native_aica_mix; see tests/aica_native_replay.c. NULL writes disarms. */
+void vf3_native_aica_replay_init(const uint8_t *registers, const uint8_t *ram,
+                                 const uint8_t *channels, const uint8_t *writes,
+                                 uint32_t write_count);
 /* Serve a call to the BIOS GD-ROM vector (VF3_BIOS_SYSCALL_VECTOR, r6 = 0) from the attached drive: the run
  * continues at the return address (s->v[16]) and the answer lands in r0. Returns 0 when no drive is attached
  * or the call is not the vector's. The matrix chain's REIOS stub (src/fight/vf3_aica_stub_adapter.c) and the

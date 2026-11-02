@@ -154,6 +154,78 @@ static unsigned aica_mbox_polls;
 static uint32_t aica_upload_len;
 static uint64_t aica_upload_polls_left;
 
+/* ---- a native-path render proof: seed the host's AICA state from the
+ * reference fixture and step it through the host's own mix loop.  The
+ * mixer replay test (tests/aica_mixer_replay.c) proves the mixer by itself;
+ * this arm makes the *host's* render function (vf3_native_aica_mix, the one
+ * the SDL3 port feeds its stream and its --wav-out tape) play the same
+ * reference PCM, so the two links - mixer correct, host loop correct - are
+ * both shown.  aica_replay_writes[] is NULL in a normal run, so the mix
+ * loop's branch is a single pointer check per frame. */
+static uint8_t *aica_replay_writes;   /* 20 bytes per write: tick,kind,at,value,size */
+static uint32_t aica_replay_count, aica_replay_index;
+
+static uint32_t aica_rep_r32(const uint8_t *p)
+{
+    return (uint32_t)p[0] | ((uint32_t)p[1] << 8) |
+           ((uint32_t)p[2] << 16) | ((uint32_t)p[3] << 24);
+}
+
+static void aica_replay_seed(const uint8_t *registers, const uint8_t *ram,
+                             const uint8_t *channels)
+{
+    unsigned slot;
+    aica_ensure();
+    memcpy(aica_model.reg, registers, VF3_AICA_REG_SIZE);
+    memcpy(aica_ram, ram, VF3_AICA_RAM_SIZE);
+    vf3_aica_mixer_decode_all(&aica_mixer);
+    for (slot = 0; slot < VF3_AICA_SLOT_COUNT; ++slot) {
+        const uint8_t *p = channels + (size_t)slot * 72u;
+        vf3_aica_mixer_channel c;
+        memset(&c, 0, sizeof c);
+        c.sa = aica_rep_r32(p + 0);
+        c.ca = aica_rep_r32(p + 4);
+        c.step = aica_rep_r32(p + 8);
+        c.s0 = (int32_t)aica_rep_r32(p + 12);
+        c.s1 = (int32_t)aica_rep_r32(p + 16);
+        c.looped = p[20];
+        c.adpcm_quant = (int32_t)aica_rep_r32(p + 21);
+        c.adpcm_loop_quant = (int32_t)aica_rep_r32(p + 25);
+        c.adpcm_loop_prev = (int32_t)aica_rep_r32(p + 29);
+        c.adpcm_in_loop = p[33];
+        c.noise_state = aica_rep_r32(p + 34);
+        c.aeg_value = (int32_t)aica_rep_r32(p + 38);
+        c.aeg_state = p[42];
+        c.feg_value = aica_rep_r32(p + 46);
+        c.feg_state = p[50];
+        c.feg_prev1 = (int32_t)aica_rep_r32(p + 54);
+        c.feg_prev2 = (int32_t)aica_rep_r32(p + 58);
+        c.feg_fract = (int32_t)aica_rep_r32(p + 62);
+        c.lfo_counter = aica_rep_r32(p + 66);
+        c.lfo_state = p[70];
+        c.enabled = p[71];
+        vf3_aica_mixer_channel_load(&aica_mixer, slot, &c);
+    }
+}
+
+/* Seed the host's AICA state from the mixer fixture and arm the replay. */
+void vf3_native_aica_replay_init(const uint8_t *registers, const uint8_t *ram,
+                                 const uint8_t *channels, const uint8_t *writes,
+                                 uint32_t write_count)
+{
+    free(aica_replay_writes);
+    aica_replay_writes = NULL;
+    if (registers && ram && channels) {
+        aica_replay_seed(registers, ram, channels);
+        if (writes && write_count) {
+            aica_replay_writes = malloc((size_t)write_count * 20u);
+            if (aica_replay_writes) memcpy(aica_replay_writes, writes, (size_t)write_count * 20u);
+        }
+    }
+    aica_replay_count = write_count;
+    aica_replay_index = 0;
+}
+
 /* Two handshakes the port used to answer for the driver, written when there
  * was no ARM7 to answer them: 0x00800098 is the upload engine's length (the
  * driver clears it once it has copied the block) and 0x008000B4 is the
@@ -855,9 +927,34 @@ void vf3_native_aica_mix(int16_t *dst, unsigned frames)
     }
     for (i = 0; i < frames; ++i) {
         int16_t right = 0, left = 0;
-        /* One sample of the chip: 512 ARM7 cycles, the timers, the interrupt
-         * update and one stereo frame from the mixer. */
-        vf3_aica_arm_sample(&aica_arm, &right, &left);
+        if (aica_replay_writes) {
+            /* the reference's own ARM7 writes, replayed one tick at a time
+             * through the host's mixer (the fixture's width model: kind 0 is
+             * a register-file write, anything else a wide sound-RAM write) */
+            while (aica_replay_index < aica_replay_count &&
+                   aica_rep_r32(aica_replay_writes + (size_t)aica_replay_index * 20u) == i) {
+                const uint8_t *w = aica_replay_writes + (size_t)aica_replay_index * 20u;
+                const uint32_t kind = aica_rep_r32(w + 4);
+                const uint32_t at = aica_rep_r32(w + 8);
+                const uint32_t value = aica_rep_r32(w + 12);
+                const uint32_t size = aica_rep_r32(w + 16);
+                unsigned b;
+                if (kind == 0) {
+                    vf3_aica_mixer_write(&aica_mixer, at, value, size);
+                } else {
+                    const uint32_t aligned = at & ~(size - 1u);
+                    for (b = 0; b < size; ++b)
+                        if (aligned + b < VF3_AICA_RAM_SIZE)
+                            aica_ram[aligned + b] = (uint8_t)(value >> (8u * b));
+                }
+                ++aica_replay_index;
+            }
+            vf3_aica_mixer_sample(&aica_mixer, &right, &left);
+        } else {
+            /* One sample of the chip: 512 ARM7 cycles, the timers, the interrupt
+             * update and one stereo frame from the mixer. */
+            vf3_aica_arm_sample(&aica_arm, &right, &left);
+        }
         dst[2 * i + 0] = left;
         dst[2 * i + 1] = right;
         if (left < 0 ? -left > peak : left > peak) peak = left < 0 ? -left : left;
