@@ -125,26 +125,50 @@ The real, residual divergence is confined to the **note-dispatch burst**: the
 same order) that the reference spreads over ~97 samples (gaps 16/24/13/23/21)
 is fired by native over ~14 samples (gaps ~3/3/2/3/3) - a ~5-7x compression
 whose per-gap ratio is not constant (so not a uniform time scale).  The first
-note is ~19 samples early.  The only measured structural difference is how
-often the ARM executes the channel-scan / note-dispatch routine: native runs the
-loop at `0x5E70` 280,736 times over the window (~19/sample), while the reference
-trace shows the same scan-region PCs (`0x5F28/0x5FBC/0x6004`) only tens to a few
-hundred times in a much longer capture - so native's ARM is continuously
-scanning the 16 channels where the reference's is essentially idle between
-events.  `g_tot` markers (0x0C20/0x0C24/0x0C54/0x5D9C) confirm native does run
-the songstep ISR, so the compression and the scan are both real and isolated to
-the melody dispatch path.  Not a render bug, not a phase loss, not a seed
-problem (the carried-phase and faithful-seed fixes, commits `2b53d37`/`e02a63d`,
-changed nothing), and not the ISR/counter cadence (now disproven).
+note is ~19 samples early.
 
-The open question is why a byte-identical duration counter machine fires the
-melody notes ~5x closer together.  The next thing to close is the channel-scan
-over-execution (native `0x5E70` ~19/sample vs reference ~never): instrument the
-native scan to log each channel's `[r8,#0x14]` counter and sequence pointer
-(`[r8,#0x18]`) at dispatch and compare byte-for-byte against the reference
-trace, which will show whether native re-drains/adjusts the counters the songstep
-set.  The render half stays exact and `VF3_PC_HIST=1 ./build/vf3aicalive.exe`
-prints the native execution markers that make this measurable per run.
+**The earlier "native over-executes `0x5E70` ~19/sample vs the reference
+~never" claim is RETRACTED: it compared a read count against a store count.**
+The reference ARM trace records **only stores** (`st==1`); the scan-loop entry
+`0x5E70` (`ldrb r3,[r8]`) and the dispatch gate `0x5F00` (`ldr r4,[r8,#0x14]`)
+are **reads**, so they are never logged regardless of how often the reference
+runs them.  The reference does run the scan: the logged stub `0x064c` (a
+store) enters it, and the melody window shows it dispatching through exactly
+the same store PCs (`0x5F28`/`0x5FBC`/`0x6004`/`0x6008`/`0x245C`/`0x246C`) as
+native.  The "280,736 vs 0" numbers are not comparable and prove nothing about
+native being busier per sample.
+
+What is genuinely comparable (same addresses, same values, same order, both
+logged as stores) is the **per-note voice-configuration work during the melody
+burst**.  Native and the reference run the *identical* per-note setup stores for
+each of the 6 melody notes (the `0x1E6C`/`0x1F64`/`0x1FA4`/`0x2048`/`0x2E64`...
+pitch/pan/volume blocks, the `0x245C`/`0x246C` enqueue, the `0x264C` key-on),
+but native completes one note's worth in **2-3 samples** while the reference
+takes **16-24 samples** for the same work.  Only the **inter-note gaps** differ;
+the per-sample store density inside each note's config is the same in both.
+That is a **CPU-work-per-sample skew confined to the CPU-driven dispatch
+path**, while every host-timer-driven cadence - the channel-0 duration counter
+(`0xCC64`), the songstep ISR (`0x0C24`, 1/22 samples), the REG_M accept rate -
+is byte-identical.  The reference gives its ARM ~7x less CPU work per sample
+(flycast bills 2-6 cycles/instruction plus a memory-access tick; native's
+per-sample loop runs `512` cycles at ~1.4 cycles/instruction, so it retires
+~360 instructions/sample against the reference's far fewer), so the same melody
+dispatch stretches over ~7x more samples.  Not a render bug, not a phase loss,
+not a seed problem (the carried-phase and faithful-seed fixes, commits
+`2b53d37`/`e02a63d`, changed nothing), and not the ISR/counter cadence - that
+leg is byte-identical and disproven.
+
+The open question is *which* half is causal: native's per-sample ARM work
+budget is too large (its `512`-cycle budget at ~1.4 cycles/instruction lets it
+finish the whole melody phrase between host-timer events), or the firmware
+busy-waits between notes on a timing flag that native's host model satisfies
+immediately where the reference holds it until the next sample boundary.  The
+next thing to close is to make native bill ARM instructions like flycast
+`arm-new.h` (2-6 cycles plus an access tick) and confirm the melody gaps widen
+to the reference's 16/24/13/23/21 **without** moving the host-timer-driven
+channel-0 / songstep-ISR cadence (which is timer-scheduled and must stay put);
+the render half stays exact and `VF3_PC_HIST=1 ./build/vf3aicalive.exe` prints
+the native execution markers that make each attempt measurable per run.
 
 ## Where this leaves the "audio 100% correctly plays" goal
 
