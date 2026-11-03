@@ -81,19 +81,39 @@ the mid-fight savestate) matching exactly; the divergence begins precisely when
 the firmware actively programs a new voice at ~sample 3557.
 
 **The native dispatches the same notes, not different ones.**  Parsing the
-native trace correctly (5 x u64, not the naive 16-byte read) shows the native
-ARM7 writes the **identical** channel-slot events as the reference - offsets
+native trace correctly (5 x u64 per record, not a 16-byte read - and with the
+*trace buffer stride* fixed in commit `15a350e`, each 5-field record at
+`tr_count*5u+k` instead of the overlapping `*4u`) shows the native ARM7 writes
+the **identical** channel-slot events as the reference - offsets
 `0x1D01/0x1781/0x1E81/0x0E81/0x1381/0x1601`, same values, same order - the
 earlier "it never writes slot 58 at all" was a mis-parsed trace.  The first
 native key-on is at sample 3538 vs the reference's 3557 (19 samples early),
-and then the native races ahead: it spreads 6 key-ons over ~16 samples where
-the reference takes ~116 (a ~7x cadence compression).  This is a
-per-instruction timing/scheduling divergence in the native ARM7 - it retires
-5,256,629 instructions over the window (~364/sample at 512 cyc/sample) with
-only 329 FIQs while the reference's denser interrupt cadence paces the
-sequencer's note dispatch far slower - not missing code, not a phase loss, and
-not a seed problem (the carried-phase and faithful-seed fixes, commits
-`2b53d37`/`e02a63d`, changed nothing).
+and then the native races ahead: it spreads 5 key-ons over ~14 samples where
+the reference takes ~97 (a ~7x cadence compression).
+
+**The hardware timer/ISR cadence is NOT the gap - the earlier claim was a
+garbled-trace artifact.**  With the stride fixed, the recorded stream shows
+native's timer-B reloads, SCIRE clears and REG_M accepts at the *exact*
+reference cadence: 656 TIMER_B reloads at samples 14,14,58,58,102,102,..., 656
+SCIRE (0x28A4=0x80) at the same cadence, and 2624 REG_M accepts at 14x8/58x8.
+The reference's timer-B ISR at a fire does reload+SCIRE+4xREG_M (PC
+0x0C00..0x0C0C); native now does the same at the same samples.  So the earlier
+"reference has a denser interrupt cadence that paces the sequencer" line was
+built on records that overlapped and corrupted each other.
+
+The real divergence is confined to **note-dispatch scheduling**: the *same*
+notes, in the *same* order, but native puts them ~7x closer together.  The
+first note is only ~19 samples early, and the reference's own gaps are
+irregular (16/24/13/23/21 samples) - not a fixed cadence and not aligned to
+timer-B fires.  Native retires 5,256,629 instructions / 7,396,352 cycles over
+the window (364/sample at 512 cyc/sample, ~1.4 cyc/insn average).  Because
+native's per-instruction cycle model charges fewer cycles than flycast's
+`arm-new.h` (which bills 2-6 cylces plus a memory-access tick per LDR/STR,
+while native returns 1-3 and nothing for the access), the sequencer's
+note-dispatch work is a different fraction of each sample - that is the
+concrete next thing to close, not the interrupt cadence.  Not a render bug, not
+a phase loss, not a seed problem (the carried-phase and faithful-seed fixes,
+commits `2b53d37`/`e02a63d`, changed nothing).
 
 Closing it needs cycle-accurate ARM7 scheduling - modelling flycast's
 `CYCL_CNT` and event-bucket timing so timer B and the SAMPLE interrupt land on
