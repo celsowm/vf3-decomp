@@ -113,8 +113,9 @@ int main(void)
         uint32_t first_ga = 0, first_wa = 0, first_gv = 0, first_wv = 0;
         vf3_aica_arm_trace_end();
         while (ri < tr_n && li < write_count) {
-            uint32_t rs = (uint32_t)tr[ri * 4u], ra = (uint32_t)tr[ri * 4u + 1u];
-            uint32_t rv = (uint32_t)tr[ri * 4u + 2u];
+            const uint64_t *rrec = &tr[ri * 5u];
+            uint32_t rs = (uint32_t)rrec[0], ra = (uint32_t)rrec[1];
+            uint32_t rv = (uint32_t)rrec[2];
             uint32_t lt = w[li * 5u], lk = w[li * 5u + 1u], la = w[li * 5u + 2u];
             uint32_t lv = w[li * 5u + 3u];
             /* reference form -> native form: register writes carry bit 31 */

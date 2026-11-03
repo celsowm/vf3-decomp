@@ -298,22 +298,22 @@ static void arm_bus_write(void *context, uint32_t address, uint32_t value, unsig
                     address, value, size, a->cpu.last_pc);
         ram_write(a->model->ram, address, value, size);
         if (tr_enabled && tr_count < tr_max) {
-            tr_writes[tr_count * 4u + 0u] = a->samples;
-            tr_writes[tr_count * 4u + 1u] = address;
-            tr_writes[tr_count * 4u + 2u] = value;
-            tr_writes[tr_count * 4u + 3u] = size;
-            tr_writes[tr_count * 4u + 4u] = a->cpu.last_pc;
+            tr_writes[tr_count * 5u + 0u] = a->samples;
+            tr_writes[tr_count * 5u + 1u] = address;
+            tr_writes[tr_count * 5u + 2u] = value;
+            tr_writes[tr_count * 5u + 3u] = size;
+            tr_writes[tr_count * 5u + 4u] = a->cpu.last_pc;
             ++tr_count;
         }
         return;
     }
     arm_register_write(a, address, value, size);
     if (tr_enabled && tr_count < tr_max) {
-        tr_writes[tr_count * 4u + 0u] = a->samples;
-        tr_writes[tr_count * 4u + 1u] = 0x80000000u | (address & 0x7FFFu);
-        tr_writes[tr_count * 4u + 2u] = value;
-        tr_writes[tr_count * 4u + 3u] = size;
-        tr_writes[tr_count * 4u + 4u] = a->cpu.last_pc;
+        tr_writes[tr_count * 5u + 0u] = a->samples;
+        tr_writes[tr_count * 5u + 1u] = 0x80000000u | (address & 0x7FFFu);
+        tr_writes[tr_count * 5u + 2u] = value;
+        tr_writes[tr_count * 5u + 3u] = size;
+        tr_writes[tr_count * 5u + 4u] = a->cpu.last_pc;
         ++tr_count;
     }
 }
