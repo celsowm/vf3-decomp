@@ -210,6 +210,9 @@ int main(void)
                insns, (unsigned long long)cyc, halted, chw, rw, fiq, lpc);
     }
 
+    if (getenv("VF3_PC_HIST"))
+        vf3_arm7_pc_hist_dump(12);
+
     free(dst);
     free(data);
     free(seed);

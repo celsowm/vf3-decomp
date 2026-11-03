@@ -101,25 +101,50 @@ The reference's timer-B ISR at a fire does reload+SCIRE+4xREG_M (PC
 "reference has a denser interrupt cadence that paces the sequencer" line was
 built on records that overlapped and corrupted each other.
 
-The real divergence is confined to **note-dispatch scheduling**: the *same*
-notes, in the *same* order, but native puts them ~7x closer together.  The
-first note is only ~19 samples early, and the reference's own gaps are
-irregular (16/24/13/23/21 samples) - not a fixed cadence and not aligned to
-timer-B fires.  Native retires 5,256,629 instructions / 7,396,352 cycles over
-the window (364/sample at 512 cyc/sample, ~1.4 cyc/insn average).  Because
-native's per-instruction cycle model charges fewer cycles than flycast's
-`arm-new.h` (which bills 2-6 cylces plus a memory-access tick per LDR/STR,
-while native returns 1-3 and nothing for the access), the sequencer's
-note-dispatch work is a different fraction of each sample - that is the
-concrete next thing to close, not the interrupt cadence.  Not a render bug, not
-a phase loss, not a seed problem (the carried-phase and faithful-seed fixes,
-commits `2b53d37`/`e02a63d`, changed nothing).
+**The cadence gap is now PROVEN not to exist - and neither is a CPU-throughput
+effect.  The earlier "cycle model makes native retire too many instructions per
+sample" and "needs cycle-accurate CYCL_CNT/event-bucket scheduling" lines were
+built on mis-scaling the reference's ARM trace.**  The trace's record cycle
+field is in **SH-4 scheduler cycles, not ARM cycles**: the reference key-on gaps
+are 72,576 / 108,864 / 58,752 / 104,384 / 95,424 trace-cycles, and dividing by
+flycast's `AICA_TICK` (4535, the 44.1 kHz scheduler period) gives exactly
+16.0 / 24.0 / 13.0 / 23.0 / 21.0 samples - the same gaps the fixture records,
+so `sample = trace_cycle / 4535`.  Scaling that way, the reference's status-1
+songstep ISR fires once per 22 samples (4264 over 93,813 samples), which is
+**exactly** native's cadence (656 over 14,446 samples = 1/22), and the REG_M
+accept rate matches to four figures (0.1816/sample both).  The byte-identical
+proof: native and the reference write the channel-0 note-duration counter
+(`0xCC64`, the songstep's `[r0,#0x14]`, pc `0x5dec`) with the same start values,
+the same `0x010000` decrement each timer-B fire, and the same 44-sample cadence
+right through the melody dispatch re-set (`0x90000` + seq pointer `0x08D8FC`).
+So the entire pacing machine is byte-identical; native's cheaper per-instruction
+cycle model does **not** change any cadence that matters.
 
-Closing it needs cycle-accurate ARM7 scheduling - modelling flycast's
-`CYCL_CNT` and event-bucket timing so timer B and the SAMPLE interrupt land on
-the same sample boundaries.  That is a separate, uncertain effort; its render
-half is already exact, and the trace gives the tooling to measure a future
-fix sample-by-sample.
+The real, residual divergence is confined to the **note-dispatch burst**: the
+*same* 6-note melody (`0x1D01/0x1781/0x1E81/0x0E81/0x1381/0x1601`, same values,
+same order) that the reference spreads over ~97 samples (gaps 16/24/13/23/21)
+is fired by native over ~14 samples (gaps ~3/3/2/3/3) - a ~5-7x compression
+whose per-gap ratio is not constant (so not a uniform time scale).  The first
+note is ~19 samples early.  The only measured structural difference is how
+often the ARM executes the channel-scan / note-dispatch routine: native runs the
+loop at `0x5E70` 280,736 times over the window (~19/sample), while the reference
+trace shows the same scan-region PCs (`0x5F28/0x5FBC/0x6004`) only tens to a few
+hundred times in a much longer capture - so native's ARM is continuously
+scanning the 16 channels where the reference's is essentially idle between
+events.  `g_tot` markers (0x0C20/0x0C24/0x0C54/0x5D9C) confirm native does run
+the songstep ISR, so the compression and the scan are both real and isolated to
+the melody dispatch path.  Not a render bug, not a phase loss, not a seed
+problem (the carried-phase and faithful-seed fixes, commits `2b53d37`/`e02a63d`,
+changed nothing), and not the ISR/counter cadence (now disproven).
+
+The open question is why a byte-identical duration counter machine fires the
+melody notes ~5x closer together.  The next thing to close is the channel-scan
+over-execution (native `0x5E70` ~19/sample vs reference ~never): instrument the
+native scan to log each channel's `[r8,#0x14]` counter and sequence pointer
+(`[r8,#0x18]`) at dispatch and compare byte-for-byte against the reference
+trace, which will show whether native re-drains/adjusts the counters the songstep
+set.  The render half stays exact and `VF3_PC_HIST=1 ./build/vf3aicalive.exe`
+prints the native execution markers that make this measurable per run.
 
 ## Where this leaves the "audio 100% correctly plays" goal
 

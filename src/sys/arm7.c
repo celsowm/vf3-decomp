@@ -991,6 +991,10 @@ void vf3_arm7_pc_hist_dump(unsigned top)
         0x31e8, 0x3304, 0x1ee0, 0x1f04, 0x264c, 0x3580, 0x3650, /* voice writes */
         0x6dc,   /* the generic echo path */
         0x704,   /* the A0 echo path */
+        0xc20,   /* the ISR status==1 songstep branch */
+        0xc24,   /* songstep ISR body */
+        0xc54,   /* ISR -> 0x5d9c call */
+        0x5d9c,  /* song-step: decrements the per-channel note counters */
     };
     memset(scanned, 0, sizeof(scanned));
     fprintf(stderr, "  markers:");
