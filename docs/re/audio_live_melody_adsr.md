@@ -141,6 +141,29 @@ Two concrete routes to pin it, not yet done:
    per-frame scanner (`0x22a8`) between native and reference to find the site
    whose *phase*, not presence, differs.
 
+### Post-melody: native never re-syncs (this is what caps the match at ~25%)
+Cross-correlating `build/native_live.wav` (native) against
+`build/native_ref.wav` (reference) by sample sign-agreement:
+
+| window | best (score, lag) |
+|--------|-------------------|
+| 0..1000 | (1.000, 0) |
+| 1000..3400 | (1.000, 0) |
+| 3600..3900 | (0.817, 0) |
+| 3900..5000 | (0.891, -27) |
+| 5000..9000 | (0.82-0.92, -30) |
+| 9000..14446 | (0.82-0.85, -30 / -9) |
+
+Pre-melody is exactly aligned (lag 0, 100%).  The melody (3575..3654) is the
+only synchronous divergence; from ~frame 3900 native sits **~27-30 samples
+behind** the reference at 82-92% sign-agreement — neither a clean single-number
+shift nor a re-sync.  And native's melody is **9 frames short** (note 6 at 3648
+vs 3654), so along with the in-melody +3 start / −3-per-long-note offsets,
+native never returns to alignment, leaving the whole post-melody stream (99.5%
+of frames) misaligned.  That is why `vf3aicalive` reports ~25.2% (the byte-exact
+pre-melody only).  The fix must therefore restore phase alignment *after* the
+melody too, not just make the six note-ons land.
+
 `tools/arm_dump.py` (new) disassembles SNDDRV.BIN around these sites;
 `tools/aica_channel_state.py`, `tools/aica_seq_cycles.py`, and
 `tools/aica_gap_compare.py` are the working probes.
