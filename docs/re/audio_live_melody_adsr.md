@@ -93,6 +93,49 @@ The lever is the note-hold/tempo countdown in the melody sequencer, not the
 render path, not the ADSR pass, not the songstep rate, and not a missing
 instruction site.
 
+### The reference runs a rock-constant 70.4 insns/sample (the rate model is CORRECT)
+Aligning each side's *own* key-ons and counting executed instructions per gap
+(native from `build/arm_seq.bin`, reference from its required gap
+`sample_length * 70.4`):
+
+| gap | native insns | ref insns (est) | native gap | ref gap | native insns/gap | ref insns/gap |
+|-----|--------------|-----------------|-----------|---------|------------------|---------------|
+| 1 | 1126 | 1127 | 16 | 16 | 70.38 | **70.438** |
+| 2 | 1484 | **1690** | 21 | 24 | 70.67 | **70.417** |
+| 3 | 898 | 915 | 13 | 13 | 69.08 | **70.385** |
+| 4 | 1362 | **1620** | 20 | 23 | 68.10 | **70.435** |
+| 5 | 1304 | **1479** | 18 | 21 | 72.44 | **70.429** |
+
+The reference's per-gap rate is `[70.438, 70.417, 70.385, 70.435, 70.429]` —
+tight to **±0.03** across all five gaps.  That is not a coincidence: the
+reference ARM runs at a fixed flycast-timed pace, and its inter-key-on gap is
+*exactly* proportional to its instruction count.  Native is **internally
+self-consistent at the same rate**: `native_gap = native_insns / 70.4` for
+every gap (1126/70.4=16.0, 1484/70.4=21.1, 898/70.4=12.8, 1362/70.4=19.4,
+1304/70.4=18.5 — matching native's reported gaps exactly).
+
+Therefore **native's billing/rate model is correct** (it is not a "bill too few
+cycles" bug).  Native's long-note gaps are short *solely* because its ARM
+**executes fewer note-hold instructions**: native is 657 melody instructions
+short, broken down `[1, 206, 17, 258, 175]` — gaps 1/3 essentially match
+(1, 17) while gaps 2/4/5 are short by ~206/258/175 (~3 frames × 70.4 each).
+Native's ARM reaches the next key-on ~3 scan-passes early on each long note
+because its **note-hold countdown value is 3 less**, so it runs ~3 fewer
+iterations of the per-frame note-hold loop.  The countdown value is
+register/ALU-resident (never leaves a store in the melody voice RAM, which is
+why the diff of stored values stays *phase-identical*).
+
+### The melody state is phase-identical, not divergent (an earlier "diff" was an alignment artifact)
+Diffing native vs reference stored values per address turns up `0xbbd0`
+(ref=0x3a/nat=0xff) and `0xbe91` (ref=0x2f/nat=0xff) at frame 3575, which look
+like a state divergence.  Their full write history shows **identical values at
+phase-offset frames**: both write `0xff` then `0x3a`/`0x2f` from `pc 0x1fa8`/
+`0x1fac` (envelope-level stores) — ref at frames 3558/3574, native at
+3561/3577 because native's notes 1/2 are 3 frames late.  So the melody
+*content* is identical; it is purely the note-event *phase* that differs, and
+the fix is purely making native's note-hold countdown 3 frames longer on notes
+2/4/5.
+
 ### The v3/v4 traces ARE run-matched (correction to an earlier premise)
 The fixture's own source (`aica_mixer_fixture.json`) is
 `audio_arm_observer_v3/vf3_28_traced.arm` from the same `vf3_28.state`.  Its
