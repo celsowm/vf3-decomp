@@ -125,8 +125,7 @@ iterations of the per-frame note-hold loop.  The countdown value is
 register/ALU-resident (never leaves a store in the melody voice RAM, which is
 why the diff of stored values stays *phase-identical*).
 
-### The melody state is phase-identical, not divergent (an earlier "diff" was an alignment artifact)
-Diffing native vs reference stored values per address turns up `0xbbd0`
+### The melody state is phase-identical, not divergent (an earlier "diff" was an alignment artifact)Diffing native vs reference stored values per address turns up `0xbbd0`
 (ref=0x3a/nat=0xff) and `0xbe91` (ref=0x2f/nat=0xff) at frame 3575, which look
 like a state divergence.  Their full write history shows **identical values at
 phase-offset frames**: both write `0xff` then `0x3a`/`0x2f` from `pc 0x1fa8`/
@@ -135,6 +134,20 @@ phase-offset frames**: both write `0xff` then `0x3a`/`0x2f` from `pc 0x1fa8`/
 *content* is identical; it is purely the note-event *phase* that differs, and
 the fix is purely making native's note-hold countdown 3 frames longer on notes
 2/4/5.
+
+### Every melody timing divergence is an exact multiple of 3 frames
+Native's key-on offset from the reference (native minus ref, by note):
+`+3, +3, 0, 0, -3, -6, -3` (7 captured key-ons) — and the single post-melody
+gap reverses sign, `+3` (native 296 vs ref 293).  Gaps diverge `+0, -3, +0,
+-3, -3, +3`; the melody 6-note in-burst gaps map ref `{16,24,13,23,21}` to
+native `{16,21,13,20,18}` by subtracting **exactly 3 from every length >= 21**
+(24->21, 23->20, 21->18; 16 and 13 unchanged).  Nothing ever diverges by
++/-1 or +/-2 — the entire melody timing error lives on a 3-frame grid.  This is
+the fingerprint of a note-hold/beat scheduler that steps in 3-frame quanta
+(in native it runs 3 frames ahead on long notes, then a compensating +3 on the
+next gap), and it rules out a continuous rate error (a rate error would also
+pull note 7 far off, not just back to -3) and any fixed delta-time decoder
+offset (that would hit short notes too).
 
 ### The v3/v4 traces ARE run-matched (correction to an earlier premise)
 The fixture's own source (`aica_mixer_fixture.json`) is
