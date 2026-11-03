@@ -102,6 +102,7 @@ int main(void)
     dst = (int16_t *)malloc((size_t)frames * 2u * 2u);
     if (!dst) { free(data); free(seed); return 1; }
     vf3_native_aica_mix(dst, frames);
+    vf3_arm7_seq_close();
 
     /* compare the native write stream to the reference's writes */
     {

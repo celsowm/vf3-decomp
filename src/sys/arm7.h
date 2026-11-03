@@ -86,6 +86,10 @@ uint32_t vf3_arm7_run(vf3_arm7 *cpu, uint32_t cycles);
  * took. */
 uint32_t vf3_arm7_step(vf3_arm7 *cpu);
 
+/* Close the optional VF3_ARMSEQ executed-PC capture file (build/arm_seq.bin),
+ * if one was opened.  Safe to call always. */
+void vf3_arm7_seq_close(void);
+
 /* The interrupt lines the AICA's controller drives. */
 void vf3_arm7_set_irq(vf3_arm7 *cpu, int level);
 void vf3_arm7_set_fiq(vf3_arm7 *cpu, int level);

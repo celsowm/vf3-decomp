@@ -14,6 +14,7 @@
 #include "sys/arm7.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define FLAG_N 0x80000000u
@@ -24,6 +25,11 @@
 #define FLAG_F 0x00000040u
 #define FLAG_T 0x00000020u
 
+/* flycast's arm-new.h interpreter bills a base 6 cycles per retired
+ * instruction (its "clockTicks += 6" before per-class access work).  See
+ * vf3_arm7_step. */
+#define VF3_ARM7_BASE_CYCLES 6u
+
 /* The executed-PC histogram (see arm7.h).  The firmware lives below 0x10000
  * and is 4-byte aligned ARM, so 64 KiB of uint32 is the whole instrumented
  * region.  g_pc_hist is the windowed histogram (reset each report); g_tot is
@@ -31,6 +37,40 @@
  * (fired once a field at most) stay visible. */
 static uint32_t g_pc_hist[0x4000u];
 static uint32_t g_tot[0x4000u];
+
+/* Optional sequential executed-PC log (VF3_ARMSEQ), for the melody-gap
+ * root-cause work: when enabled, every retired instruction's PC is appended
+ * to build/arm_seq.bin as one little-endian uint32, with a second pass gated
+ * on VF3_ARMSEQLO/VF3_ARMSEGHI (in retired instruction-count, inclusive) so a
+ * window can be captured.  g_seq is a FILE*, kept NULL unless armed. */
+static FILE *g_seq;
+static uint64_t g_seq_lo, g_seq_hi;
+static int g_seq_armed;
+static int g_seq_requested;
+
+static void seq_maybe_open(uint64_t icount)
+{
+    if (g_seq || g_seq_requested) return;
+    if (!getenv("VF3_ARMSEQ")) return;
+    g_seq_requested = 1;
+    const char *lo = getenv("VF3_ARMSEQLO"), *hi = getenv("VF3_ARMSEGHI");
+    g_seq_lo = lo ? strtoull(lo, NULL, 0) : 0;
+    g_seq_hi = hi ? strtoull(hi, NULL, 0) : UINT64_MAX;
+    g_seq = fopen("build/arm_seq.bin", "wb");
+    g_seq_armed = g_seq != NULL;
+    if (g_seq && icount > g_seq_hi)
+        g_seq_armed = 0;
+}
+
+static void seq_close(void)
+{
+    if (g_seq) fclose(g_seq);
+    g_seq = NULL;
+    g_seq_armed = 0;
+    g_seq_requested = 0;
+}
+
+void vf3_arm7_seq_close(void) { seq_close(); }
 
 void vf3_arm7_pc_hist_reset(void)
 {
@@ -921,6 +961,13 @@ uint32_t vf3_arm7_step(vf3_arm7 *cpu)
 {
     uint32_t spent;
 
+    /* optional sequential executed-PC capture (see seq_maybe_open) */
+    seq_maybe_open(cpu->instructions);
+    if (g_seq_armed && cpu->instructions >= g_seq_lo && cpu->instructions <= g_seq_hi) {
+        uint32_t p = cpu->r[15];
+        fwrite(&p, 4, 1, g_seq);
+    }
+
     if (take_exception(cpu)) {
         cpu->cycles += 3;
         ++cpu->instructions;
@@ -941,6 +988,14 @@ uint32_t vf3_arm7_step(vf3_arm7 *cpu)
         if (cpu->r[15] < 0x10000u) { ++g_pc_hist[cpu->r[15] >> 2]; ++g_tot[cpu->r[15] >> 2]; }
         spent = arm_execute(cpu, insn);
     }
+    /* flycast's arm-new.h interpreter bills a base 6 cycles per retired
+     * instruction (line 1321) on top of the per-class memory-access cost the
+     * handlers above already return.  The native core otherwise retires the
+     * memory-heavy melody config at ~1.3 cyc/insn against the reference's
+     * ~6-7, which spread one note's identical work over 16-24 samples instead
+     * of 3.  Adding the base reproduces the reference's per-gap sample counts
+     * (tools/aica_seq_cycles.py: gap1 15.97 vs 16, gap3 10.43 vs 12). */
+    spent += VF3_ARM7_BASE_CYCLES;
     cpu->cycles += spent;
     ++cpu->instructions;
     return spent;
