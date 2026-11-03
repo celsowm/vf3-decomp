@@ -231,3 +231,49 @@ melody too, not just make the six note-ons land.
 - all six audio tests (`vf3aica`, `vf3aicamixer`, `vf3arm7`, `vf3aicaarm`,
   `vf3aicanative`, `vf3aicalive`) stay rc=0;
 - live PCM byte-match must move past frame 3575 toward 100%.
+
+## Route 1 falsified 2026-11-03: the melody cannot be reproduced via emulator
+The plan to capture the reference's *per-instruction* stream at the note
+scheduler by rebuilding the emulator (a "clean" source tree with only the ARM
+observer, no SH4 oracle hooks) is dead, for two independent reasons:
+
+1. **The oracle/audio hooks are never called from the interpreter.**  A
+   recursive scan of `tools/emu/flycast/core` shows `vf3OracleBefore` and
+   `vf3AudioBefore` are *only defined* (vf3oracle.cpp:606, vf3audio.cpp:129);
+   the sole guest hook actually invoked is `vf3DumpCheck` (sh4_interpreter.cpp:55).
+   So an ARM-observer-only build is behavior-identical to the current one for
+   the guest -- removing the oracle cannot un-stall anything.
+2. **The melody is a probe-only scenario, not a savestate playback one.**  A
+   plain `flycast-ref-build` run auto-loading the melody savestate
+   (`data/vf3.state`, hash A96BAA58) boots and runs to frame ~3989 (and run2,
+   unlimited, to frame 340434) with the ARM nearly idle (~6 memops/frame) and
+   **zero** key-on stores at 0x264c.  The reference melody with key-ons at
+   frames [3557,3573,3597,3610,3633,3654,3947] only exists in the run-matched
+   fixtures (`vf3_28_traced.arm` / `aica_mixer_fixture.bin`), which were
+   captured through the oracle's synthetic-probe machinery, not by normal
+   playback.  The AGENTS claim "a pristine Flycast plays the game" is about
+   the attract/demo, not this melody.
+
+### Consequence: the countdown can only be pinned on the native side
+The note-hold countdown is register/ALU-resident and invisible to *both*
+memory traces (a per-gap scheduler diff of `vf3_28_traced.arm` vs
+`build/arm_seq.bin` shows the reference trace carries only the key-on stores;
+the scanner's per-PC counts are dropped by the observer's own filtering).
+The reference melody cannot be re-captured per-instruction.  So the only way
+to read the countdown values is to instrument `src/sys/arm7.c` and run the
+native live harness itself (vf3aicalive), logging the ARM register file at
+each key-on and per sample, and derive from the run-matched frame counts what
+the reference's countdown must be.
+
+### Confirmed key-on timelines (this reading, direct read of the fixtures)
+| | note1 | note2 | note3 | note4 | note5 | note6 | post |
+|--|--|--|--|--|--|--|--|
+| reference frame | 3557 | 3573 | 3597 | 3610 | 3633 | 3654 | 3947 |
+| reference insns/gap | - | 1127 | 1690 | 915 | 1620 | 1479 | - |
+| native frame | 3560 | 3576 | 3597 | 3610 | 3630 | 3648 | 3944 |
+| native insns/gap | - | 1126 | 1484 | 898 | 1362 | 1304 | - |
+
+Native is 657 melody instructions short `[1,206,17,258,175]`; gaps 2/4/5 are
+exactly 3 frames short.  Reference key-on cycles (from `vf3_28_traced.arm`)
+`[5017270272,5017342848,5017451712,5017510400,5017614784,5017710208,5019038976]`
+map via `(cyc-5001139045)/4535` to the frames above.
