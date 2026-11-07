@@ -11,6 +11,12 @@
 #include <math.h>
 #include <string.h>
 
+#include "collision_tables.inc"
+
+#define ACTOR_PROFILE_FLAG UINT32_C(0x00800000)
+#define RADIUS_GROWTH_FILTER UINT32_C(0xFEF7E7CF)
+#define RADIUS_GROWTH_FACTOR 1.2f
+
 static float dot3(const float a[3], const float b[3])
 {
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -32,6 +38,47 @@ static int valid_capsule(const vf3_native_capsule *capsule)
             !isfinite(capsule->second[axis]))
             return 0;
     return 1;
+}
+
+int vf3_native_capsule_apply_actor_profile(
+    vf3_native_capsule capsules[VF3_NATIVE_CAPSULE_LIMIT],
+    uint8_t radius_kind, uint8_t mask_kind,
+    uint32_t actor_flags, uint32_t actor_word76, uint8_t radius_mode)
+{
+    vf3_native_capsule prepared[VF3_NATIVE_CAPSULE_LIMIT];
+    uint32_t growth_mask = 0;
+    uint32_t distance_mask = 0;
+
+    if (!capsules || radius_kind >= VF3_NATIVE_CAPSULE_KIND_COUNT ||
+        mask_kind >= VF3_NATIVE_CAPSULE_KIND_COUNT)
+        return -1;
+    for (size_t i = 0; i < VF3_NATIVE_CAPSULE_LIMIT; ++i)
+        if (!valid_capsule(&capsules[i]))
+            return -1;
+
+    if (actor_flags & ACTOR_PROFILE_FLAG) {
+        const uint32_t type_mask = vf3_native_collision_masks[mask_kind];
+        growth_mask = type_mask & RADIUS_GROWTH_FILTER;
+        if (!(actor_word76 & 32u))
+            distance_mask = type_mask;
+    }
+
+    memcpy(prepared, capsules, sizeof prepared);
+    for (size_t i = 0; i < VF3_NATIVE_CAPSULE_LIMIT; ++i) {
+        const uint32_t bit = UINT32_C(0x80000000) >> i;
+        if (!(radius_mode & 2u)) {
+            float radius = vf3_native_collision_radii[radius_kind][i];
+            if (growth_mask & bit)
+                radius *= RADIUS_GROWTH_FACTOR;
+            if (i == 2 && (actor_flags & ACTOR_PROFILE_FLAG))
+                radius *= RADIUS_GROWTH_FACTOR;
+            prepared[i].radius = radius;
+        }
+        prepared[i].distance_excluded = (distance_mask & bit) != 0;
+    }
+
+    memcpy(capsules, prepared, sizeof prepared);
+    return 0;
 }
 
 /* Squared distance between two closed line segments. Handles point capsules
@@ -106,10 +153,12 @@ int vf3_native_capsule_collide(
             if (!b[j].enabled) continue;
             const float radius = a[i].radius + b[j].radius;
             const float distance_squared = segment_distance_squared(&a[i], &b[j]);
-            const float surface_gap = sqrtf(distance_squared) - radius;
-            if (!found_pair || surface_gap < result.minimum_surface_gap) {
-                result.minimum_surface_gap = surface_gap;
-                found_pair = 1;
+            if (!a[i].distance_excluded && !b[j].distance_excluded) {
+                const float surface_gap = sqrtf(distance_squared) - radius;
+                if (!found_pair || surface_gap < result.minimum_surface_gap) {
+                    result.minimum_surface_gap = surface_gap;
+                    found_pair = 1;
+                }
             }
             if (distance_squared > radius * radius) continue;
             result.a_hits[i] |= (uint32_t)1u << j;

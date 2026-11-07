@@ -842,10 +842,18 @@ output mapping that feed it.
 
 `src/native/collision.c` adds the finite segment-capsule geometry used by the
 readable `hitbox_overlap` scan, including per-capsule hit masks and nearest
-surface gap. It accepts selected capsules and radii as ordinary C data. The
-per-character participation masks, radius-table lookup, and actor capsule
-producer still need to be connected before this can replace the standalone
-fight blockout's distance check.
+surface gap. `tools/native_collision_tables.py` extracts the retail 13-entry
+mask table and all thirteen 28-radius profiles into the committed
+`src/native/collision_tables.inc`; rerunning the tool against the identity
+image reproduces the include. `vf3_native_capsule_apply_actor_profile()` uses
+the retail actor-kind byte (`+97`) to select radii, the separate mask byte
+(`+0x1a20`) to select the distance mask, the `+0x1a04` profile flag to apply
+the recovered 1.2 scaling rules, the `+76` bit to gate that distance mask,
+and the `+0x1560` byte to preserve already-built radii when requested. The
+mask does not disable hit pairs; it only filters the nearest-gap accumulator.
+The API consumes already-built segment endpoints. Their runtime producer is
+still unresolved, so the native blockout's distance check remains in place
+until the pose path supplies real capsule geometry.
 
 ## Next implementation order
 
