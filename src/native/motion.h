@@ -38,14 +38,22 @@ int vf3_native_motion_load(const MtFile *file, uint32_t motion_id,
 int vf3_native_motion_eval(const vf3_native_motion_stream *stream,
                            int32_t phase, float out[VF3_NATIVE_MOTION_CHANNELS]);
 
-/* Convert the recovered routine's 42-float input span to 42 halfword pose
- * fields. The guest reads from r4+0x1D58 and writes to r4+0x1F50; the mapping
- * from this span to the 63 MT evaluator channels is unresolved. This mirrors
- * the FTRC + low-halfword store pass at 0x8C09D590. The output contains the
- * stored 16-bit patterns, so callers can interpret them as signed values
- * where the actor format requires it. Returns -1 for invalid pointers and -2
- * if a value is non-finite or outside the SH-4 FTRC signed-32-bit input range.
- * On error, `out` is left unchanged. */
+/* Evaluate the 63-channel block and pack the 42-float suffix the guest reads
+ * at actor+0x1D58 (channel 21) into the 42 halfword fields written at
+ * actor+0x1F50. `channels` and `pose_fields` are both left unchanged on error.
+ * The packed fields are not yet assigned to joints or POL parts. */
+int vf3_native_motion_eval_pose_fields(
+    const vf3_native_motion_stream *stream, int32_t phase,
+    float channels[VF3_NATIVE_MOTION_CHANNELS],
+    uint16_t pose_fields[VF3_NATIVE_POSE_FIELDS]);
+
+/* Convert a 42-float span to the halfword fields stored by 0x8C09D590. The
+ * span is the evaluator suffix beginning at channel 21; a runtime caller can
+ * pass channels + 21 or use vf3_native_motion_eval_pose_fields(). The output
+ * contains the stored 16-bit patterns, so callers can interpret them as
+ * signed values where the actor format requires it. Returns -1 for invalid
+ * pointers and -2 if a value is non-finite or outside the SH-4 FTRC signed-
+ * 32-bit input range. On error, `out` is left unchanged. */
 int vf3_native_motion_pack_pose_fields(
     const float source[VF3_NATIVE_POSE_FIELDS],
     uint16_t out[VF3_NATIVE_POSE_FIELDS]);

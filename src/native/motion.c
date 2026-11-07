@@ -174,6 +174,29 @@ int vf3_native_motion_eval(const vf3_native_motion_stream *stream,
     return 0;
 }
 
+int vf3_native_motion_eval_pose_fields(
+    const vf3_native_motion_stream *stream, int32_t phase,
+    float channels[VF3_NATIVE_MOTION_CHANNELS],
+    uint16_t pose_fields[VF3_NATIVE_POSE_FIELDS])
+{
+    float evaluated[VF3_NATIVE_MOTION_CHANNELS];
+    uint16_t packed[VF3_NATIVE_POSE_FIELDS];
+
+    if (!channels || !pose_fields)
+        return -1;
+    if (vf3_native_motion_eval(stream, phase, evaluated) != 0)
+        return -2;
+    /* 0x1D58 - 0x1D04 = 0x54 bytes = 21 floats. The guest's 42-value
+     * FTRC loop therefore packs channels 21 through 62 in order. */
+    if (vf3_native_motion_pack_pose_fields(
+            evaluated + (VF3_NATIVE_MOTION_CHANNELS - VF3_NATIVE_POSE_FIELDS),
+            packed) != 0)
+        return -2;
+    memcpy(channels, evaluated, sizeof evaluated);
+    memcpy(pose_fields, packed, sizeof packed);
+    return 0;
+}
+
 int vf3_native_motion_pack_pose_fields(
     const float source[VF3_NATIVE_POSE_FIELDS],
     uint16_t out[VF3_NATIVE_POSE_FIELDS])

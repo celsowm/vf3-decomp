@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static int parse_u32(const char *text, uint32_t *out)
 {
@@ -52,18 +53,26 @@ int main(int argc, char **argv)
     MtMotionView storage;
     vf3_native_motion_stream stream;
     float values[VF3_NATIVE_MOTION_CHANNELS];
+    uint16_t pose_fields[VF3_NATIVE_POSE_FIELDS];
     uint32_t motion_id, cycle_value, start_frame, frame_count, frame_step = 1;
+    int print_pose_fields = 0;
+    int positional_argc = argc;
     int result = 1, pack_open = 0;
 
-    if (argc < 7 || argc > 8 ||
+    if (argc > 1 && strcmp(argv[argc - 1], "--pose-fields") == 0) {
+        print_pose_fields = 1;
+        --positional_argc;
+    }
+    if (positional_argc < 7 || positional_argc > 8 ||
         !parse_u32(argv[3], &motion_id) ||
         !parse_u32(argv[4], &cycle_value) ||
         !parse_u32(argv[5], &start_frame) ||
         !parse_u32(argv[6], &frame_count) ||
-        (argc == 8 && !parse_u32(argv[7], &frame_step)) ||
+        (positional_argc == 8 && !parse_u32(argv[7], &frame_step)) ||
         cycle_value > UINT16_MAX || frame_count == 0 || frame_step == 0) {
         fprintf(stderr, "usage: %s <vfa> <MT*.BIN> <motion-id> <cycle> "
-                        "<start-frame> <frame-count> [frame-step]\n", argv[0]);
+                        "<start-frame> <frame-count> [frame-step] [--pose-fields]\n",
+                argv[0]);
         return 2;
     }
     if (vf3_asset_pack_open(&pack, argv[1]) != 0) {
@@ -94,7 +103,10 @@ int main(int argc, char **argv)
                                (uint64_t)sample * frame_step;
         const uint64_t phase = frame * 0x100u;
         if (phase > INT32_MAX ||
-            vf3_native_motion_eval(&stream, (int32_t)phase, values) != 0) {
+            (print_pose_fields
+                ? vf3_native_motion_eval_pose_fields(&stream, (int32_t)phase,
+                                                     values, pose_fields)
+                : vf3_native_motion_eval(&stream, (int32_t)phase, values)) != 0) {
             fprintf(stderr, "mt_motion_dump: evaluation failed at frame %llu\n",
                     (unsigned long long)frame);
             goto done;
@@ -102,6 +114,11 @@ int main(int argc, char **argv)
         printf("frame=%llu", (unsigned long long)frame);
         for (size_t channel = 0; channel < VF3_NATIVE_MOTION_CHANNELS; ++channel)
             printf(" % .8g", (double)values[channel]);
+        if (print_pose_fields) {
+            printf(" pose_fields=");
+            for (size_t field = 0; field < VF3_NATIVE_POSE_FIELDS; ++field)
+                printf(" %d", (int)(int16_t)pose_fields[field]);
+        }
         putchar('\n');
     }
     result = 0;

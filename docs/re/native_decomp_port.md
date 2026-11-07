@@ -296,10 +296,21 @@ built by the default port workflow.
    addresses. It also exposes the recovered `0x8C09D590` conversion from a
    42-float source span to the actor's 42 stored halfword fields, using SH-4
    truncation toward zero and the low 16 bits. The guest reads that span at
-   `r4+0x1D58` and writes at `r4+0x1F50`; how the postprocessed span relates to
-   the MT evaluator's 63 channels remains unresolved. The helper therefore
-   models the conversion only and is not wired to rendering. The optional
-   `--pose-fields` mode in `tools/mt_capture_eval_compare.py` checks the
+   `r4+0x1D58` and writes at `r4+0x1F50`. Disassembly shows `0x1D58` is 21
+   floats after the evaluator's `r4+0x1D04` output, so these inputs are
+   channels 21–62. `vf3_native_motion_eval_pose_fields()` now composes the
+   native evaluator with this suffix conversion, and `vf3mtmotiondump` can
+   print both through `--pose-fields`. This closes the evaluator-to-packed-
+   field link; those fields are still not assigned to joints or POL parts.
+   Inspect both outputs with:
+
+   ```powershell
+   build/vf3mtmotiondump.exe build/vf3_assets.vfa MTAKIJAC.BIN `
+     0x41A 90 0 1 --pose-fields
+   ```
+
+   The capture comparator's `--pose-fields` mode in
+   `tools/mt_capture_eval_compare.py` checks the
    captured source and destination directly; the `0x8C09F036` case 1 corpus
    matches all 42 fields. Reproduce it with:
 
