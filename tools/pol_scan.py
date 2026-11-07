@@ -6,9 +6,11 @@ xyz (each rk triple in [-8,8]) form vertex data; image-space XY projection
 renders them to a PNG for visual validation of a foot/limb silhouette.
 """
 import os
+import argparse
 import struct
 import sys
 import zlib
+from pathlib import Path
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -69,26 +71,58 @@ def render(proj, out, w=640, h=640):
     png(out, w, h, pix)
 
 
-def main():
-    path = sys.argv[1]
-    out = sys.argv[2]
-    if not os.path.exists(path):
-        print("not found:", path)
-        return
-    data = open(path, "rb").read()
-    blocks = scan_float_blocks(data)
-    print(f"{os.path.basename(path)}: {len(blocks)} float blocks")
-    tot = 0
-    pts3 = []
-    for off, cnt in blocks:
-        print(f"  @0x{off:06X} {cnt:5d} triples")
-        tot += cnt
-        for k in range(cnt):
-            pts3.append(struct.unpack_from("<fff", data, off + k * 12))
-    print(f"  total points: {tot}")
-    render([(x, y) for x, y, z in pts3], out)
-    print("wrote", out)
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("pol", help="POL file to scan")
+    parser.add_argument("output", nargs="?",
+                        help="combined PNG path; omit when using --split-dir")
+    parser.add_argument("--block", action="append", type=int,
+                        help="render one zero-based float block; may be repeated")
+    parser.add_argument("--split-dir", type=Path,
+                        help="write one point-cloud PNG per detected block")
+    parser.add_argument("--axes", choices=("x-y", "x-z", "y-z"), default="x-y",
+                        help="2D projection axes for point-cloud previews")
+    parser.add_argument("--min-triples", type=int, default=64,
+                        help="minimum consecutive triples to keep (default: 64)")
+    args = parser.parse_args(argv)
+    if not args.split_dir and not args.output:
+        parser.error("output PNG is required unless --split-dir is used")
+    if args.min_triples < 1:
+        parser.error("--min-triples must be positive")
+
+    try:
+        data = Path(args.pol).read_bytes()
+    except OSError as exc:
+        print(f"pol_scan: {exc}", file=sys.stderr)
+        return 1
+    blocks = scan_float_blocks(data, args.min_triples)
+    print(f"{os.path.basename(args.pol)}: {len(blocks)} float blocks")
+    if args.block is not None and any(index < 0 or index >= len(blocks)
+                                      for index in args.block):
+        parser.error(f"--block values must be in 0..{len(blocks) - 1}")
+    selected = (list(enumerate(blocks)) if args.block is None else
+                [(index, blocks[index]) for index in args.block])
+    axes = {"x-y": (0, 1), "x-z": (0, 2), "y-z": (1, 2)}[args.axes]
+    total = 0
+    clouds = []
+    for index, (offset, count) in selected:
+        print(f"  block {index:02d} @0x{offset:06X} {count:5d} triples")
+        total += count
+        points = [struct.unpack_from("<fff", data, offset + k * 12)
+                  for k in range(count)]
+        if args.split_dir:
+            args.split_dir.mkdir(parents=True, exist_ok=True)
+            out = args.split_dir / f"block_{index:02d}_{offset:06x}.png"
+            render([(point[axes[0]], point[axes[1]]) for point in points], out)
+            print(f"    wrote {out}")
+        else:
+            clouds.extend(points)
+    print(f"  total points: {total}")
+    if not args.split_dir:
+        render([(point[axes[0]], point[axes[1]]) for point in clouds], args.output)
+        print("wrote", args.output)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

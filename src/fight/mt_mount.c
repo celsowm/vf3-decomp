@@ -23,7 +23,9 @@ int vf3_mt_parse_slots(const uint8_t *file, uint32_t len,
         return -2;
     for (uint32_t s = 0; s < VF3_MT_SLOTS; s++) {
         uint32_t v = rd32le(file + s * 4);
-        slot_off[s] = (v < len) ? v : 0;
+        if (v && (v < VF3_MT_PAYLOAD || v >= len))
+            return -3;
+        slot_off[s] = v;
     }
     return 0;
 }
@@ -32,26 +34,33 @@ int vf3_mt_mount_record(VF3MtMount *m, unsigned slot)
 {
     uint32_t file_off, next_off, rec_len, res_off;
     unsigned s;
-    if (!m || !m->file || !m->resident || slot >= VF3_MT_SLOTS)
+    if (!m || !m->file || !m->resident || slot >= VF3_MT_SLOTS ||
+        m->file_len < VF3_MT_PAYLOAD)
         return -1;
     file_off = rd32le(m->file + slot * 4);
-    if (file_off == 0 || file_off >= m->file_len)
+    if (file_off == 0)
         return -2;
-    /* next nonzero slot bounds the record (mtmap.py rule) */
+    if (file_off < VF3_MT_PAYLOAD || file_off >= m->file_len)
+        return -3;
+    /* Slot numbers are an index, not a file-order list. Bound this record by
+     * the nearest greater payload offset across the whole slot table. */
     next_off = m->file_len;
-    for (s = slot + 1; s < VF3_MT_SLOTS; s++) {
+    for (s = 0; s < VF3_MT_SLOTS; s++) {
         uint32_t v = rd32le(m->file + s * 4);
-        if (v != 0 && v > file_off && v < next_off)
+        if (v && (v < VF3_MT_PAYLOAD || v >= m->file_len))
+            return -3;
+        if (v > file_off && v < next_off)
             next_off = v;
     }
     if (next_off <= file_off)
         return -3;
     rec_len = next_off - file_off;
-    /* resident placement: scatter model — identity offset + header bias
-     * (dump base = MEMF offset + 0x39C3 at header; per-record deltas vary,
-     * so host mirror keeps file-relative placement + records slot_map). */
+    /* Synthetic placement retained for the old range-check fixture only.
+     * M33 falsified this identity-offset model: the game scatters and rewrites
+     * records. This helper is not the live loader and must not be used by the
+     * native VFA asset path. */
     res_off = file_off;
-    if (res_off + rec_len > m->resident_len)
+    if ((uint64_t)res_off + rec_len > m->resident_len)
         return -4;
     memcpy(m->resident + res_off, m->file + file_off, rec_len);
     /* fix hdr abs ptrs if record looks like a motion header block:
@@ -76,13 +85,16 @@ int vf3_mt_mount_pack(VF3MtMount *m)
 {
     int n = 0;
     unsigned s;
-    if (!m)
+    if (!m || !m->file || !m->resident || m->file_len < VF3_MT_PAYLOAD)
         return -1;
     for (s = 0; s < VF3_MT_SLOTS; s++) {
         uint32_t v = (m->file_len >= 4) ? rd32le(m->file + s * 4) : 0;
         if (v == 0)
             continue;
-        if (vf3_mt_mount_record(m, s) > 0)
+        int rc = vf3_mt_mount_record(m, s);
+        if (rc < 0)
+            return rc;
+        if (rc > 0)
             n++;
     }
     return n;

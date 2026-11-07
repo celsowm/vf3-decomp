@@ -21,7 +21,7 @@ increments (port-in-place, verified per stage against trace windows).
 
 ## Motion plane (verified, M24/M33)
 - 63-channel MT evaluator `f_8c09d690` ported (`mt_play.c`), phase
-  1/256 units, z-negate post-pass, `task+0x1A00` cycle.
+  1/256 units, two-run sign-flip post-pass, `task+0x1A00` cycle.
 - MT pack residency = per-record scatter (M33 falsified uniform +0x27B0);
   loader fn to pin via trace watch on dst window.
 

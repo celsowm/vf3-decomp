@@ -131,7 +131,7 @@ int main(int argc, char **argv)
         uint32_t init;
         done += spent;
         memcpy(&init, ram + 0x5C, 4);
-        printf("  %8llu insns  pc %08x  cpsr %08x  last %08x  init %08x  regw %u  oor %u"
+        printf("  %8llu cycles pc %08x  cpsr %08x  last %08x  init %08x  regw %u  oor %u"
                "  r0 %08x r1 %08x r2 %08x sp %08x\n",
                 (unsigned long long)cpu.instructions, cpu.last_pc, cpu.cpsr, cpu.last_insn,
                 init, reg_writes, out_of_range, cpu.r[0], cpu.r[1], cpu.r[2], cpu.r[13]);

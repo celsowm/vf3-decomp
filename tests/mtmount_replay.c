@@ -1,4 +1,4 @@
-/* tests/mtmount_replay.c — M52/M53 mount record + slot parse checks. */
+/* Synthetic range-fixture checks only; this does not validate the real loader. */
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
@@ -54,6 +54,7 @@ int main(void)
     CHK(vf3_mt_activate(&m, 10, resident + 0x8AC0, 256) == 0);
     CHK(m.task_cycle == 256);
 
-    printf("mtmount_replay: %s\n", fails ? "FAIL" : "PASS");
+    printf("mtmount_replay (synthetic fixture only): %s\n",
+           fails ? "FAIL" : "PASS");
     return fails ? 1 : 0;
 }

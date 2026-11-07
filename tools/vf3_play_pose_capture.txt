@@ -1,0 +1,6 @@
+# Hold neutral while the state resumes, then preserve three checkpoints.
+0 KEYF 0
+300 SAVEF 47
+600 SAVEF 48
+1200 SAVEF 49
+1201 EXITF

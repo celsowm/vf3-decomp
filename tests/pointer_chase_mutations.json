@@ -1,0 +1,83 @@
+[
+  {
+    "name": "the_pool_address_is_wrong",
+    "subs": [
+      [
+        "#define POOL_PTR    (POOL_BASE + 0x48cu)",
+        "#define POOL_PTR    (POOL_BASE + 0x488u)"
+      ]
+    ]
+  },
+  {
+    "name": "the_pointer_is_not_read_from_the_pool",
+    "subs": [
+      [
+        "    R(3) = vf3_mem_u32(ram, pool_addr);",
+        "    R(3) = 0;"
+      ]
+    ]
+  },
+  {
+    "name": "the_pointer_is_not_dereferenced",
+    "subs": [
+      [
+        "    R(0) = vf3_mem_u32(ram, R(3));",
+        "    R(0) = R(3);"
+      ]
+    ]
+  },
+  {
+    "name": "the_field_offset_is_wrong",
+    "subs": [
+      [
+        "    R(0) = vf3_mem_u32(ram, R(0) + 40u);",
+        "    R(0) = vf3_mem_u32(ram, R(0) + 44u);"
+      ]
+    ]
+  },
+  {
+    "name": "the_field_is_not_read",
+    "subs": [
+      [
+        "    R(0) = vf3_mem_u32(ram, R(0) + 40u);",
+        "    R(0) = 0;"
+      ]
+    ]
+  },
+  {
+    "name": "the_answer_is_not_in_r0",
+    "subs": [
+      [
+        "    R(0) = vf3_mem_u32(ram, R(0) + 40u);",
+        "    R(1) = vf3_mem_u32(ram, R(0) + 40u);"
+      ]
+    ]
+  },
+  {
+    "name": "r3_is_not_preserved",
+    "subs": [
+      [
+        "    R(0) = vf3_mem_u32(ram, R(0) + 40u);",
+        "    R(3) = 0;"
+      ]
+    ]
+  },
+  {
+    "name": "the_stack_pointer_is_modified",
+    "subs": [
+      [
+        "    s->pc = R(16);",
+        "    R(15) += 4u;\n    s->pc = R(16);"
+      ]
+    ]
+  },
+  {
+    "name": "the_return_address_is_corrupted",
+    "subs": [
+      [
+        "    s->pc = R(16);",
+        "    s->pc = R(15);"
+      ]
+    ]
+  }
+]

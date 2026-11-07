@@ -1315,7 +1315,7 @@ remaining work. The campaign continues beyond this checkpoint.
 - [x] M50 aux state-6 wired: mainloop.c calls vf3_node_finalize (was unported comment); mainloop_replay still PASS
 - [x] M52/M53 MT mount: src/fight/mt_mount.{c,h} (slot parse + per-record scatter + hdr abs fixup) + tests/mtmount_replay.c PASS
 - [x] M56 sound walkback: tools/snd_walkback.py → 0 pool refs (mova confirmed); snd_walkback.csv header-only; docs/re/sound_walkback_m56.md
-- [x] M60/M61 POL+DL: pol_sections() parser + dl.c n_parts fix (lo=11, not lo+(hi<<16)=2686987) + bbox fill; vf3dl PASS (parts=11 triples=416)
+- [x] M60/M61 POL+DL: initial table/span interpretation and bbox reconnaissance (the `+0x14` span assumption was later disproved; current header/table layout is documented in `docs/formats/POL.md` and checked by `vf3polassets`)
 - [x] M63/M65 fight handlers + ring matrix (341K/330K/243K edges) — docs/re/ring_m65.md
 - [x] M66-M69 loader/CLI/splitter/RELOAD triage — docs/re/loader_m66.md
 - [x] M71 top-50: extract/analysis/top50_m71.csv (largest unclaimed; head FUN_8c0750be 5432B, f_8c0782ea 4472B = top dispatcher 23)

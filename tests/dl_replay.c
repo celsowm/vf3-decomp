@@ -13,7 +13,7 @@ typedef struct VF3_DrawPart_ {
     float    bbox_min[3];
     float    bbox_max[3];
 } VF3_DrawPart;
-typedef struct { PolHeader hdr; uint32_t n_parts; } VF3_DlScene;
+typedef struct { PolHeader hdr; uint32_t n_slots; } VF3_DlScene;
 
 int vf3_dl_from_pol(const void *data, uint32_t size, VF3_DlScene *out,
                     uint32_t *vtx_triples_total);
@@ -38,11 +38,11 @@ int main(void)
     int rc = vf3_dl_from_pol(buf, (uint32_t)sz, &sc, &triples);
     CHK(rc == 0);
     CHK(sc.hdr.hdr_marker == 0x200);
-    CHK(sc.n_parts > 0);
-    CHK(sc.hdr.table_base == 0x30);
+    CHK(sc.n_slots > 0);
+    CHK(sc.hdr.slot_table_offset == 0x30);
     CHK(triples > 0);
-    printf("  GEN_DMY5: parts=%u triples=%u geom=%u span=%u\n",
-           sc.n_parts, triples, sc.hdr.geom_size, sc.hdr.table_span);
+    printf("  GEN_DMY5: slots=%u textures=%u triples=%u geom=%u\n",
+           sc.n_slots, sc.hdr.texture_count, triples, sc.hdr.geom_size);
 
     CHK(vf3_dl_from_pol(buf, 8, &sc, &triples) != 0);   /* truncated */
     CHK(vf3_dl_from_pol(NULL, sz, &sc, &triples) != 0);

@@ -1,0 +1,3 @@
+# Direct natural-entry watches (golden_batch format).
+pc 0x0c09f432
+pc 0x0c091438

@@ -43,8 +43,10 @@ mount; see "mount-time relocation" below).
 4. Spline (op>=3) in-between: Hermite cubic with tuple = (x, y·256, z·256):
    `slo = t*z0 + (t-1)*y0; v = v0x + rel*(t-1)*(1/256)*slo + t*t*(2t-3)*(v0x - v1x)`
    (constants: 1/256 @ 0x8C09D830, -1.0 @ 0x8C09D834; endpoint-checked).
-5. Post-pass (unconditional, 0x8C09D408): negate z-channel of all 21 vec3
-   outputs (7 from out+8 stride 12, then 14 from out+84 stride 12).
+5. Post-pass (unconditional, 0x8C09D408): sign-flip seven floats at
+   `out+8, +20, ... +80`, then fourteen at `out+84, +96, ... +240`.
+   This is the exact two-run memory walk; it is not a blanket z-channel flip
+   across all 21 output triples.
 
 Registers (entry): r4 = task, r5 = out_pp, r6 = phase.
 Output order: channel i written to out[i]; then the negate pass runs over the
@@ -52,19 +54,21 @@ whole block and *out_pp advances to out+63.
 
 ## Verified
 
-- tests/mt_vm_interp.c: literal/zero/scalar-lerp/spline channels, mid-span
-  and exact-key phases, cursor advance count = 63. All PASS.
+- tests/mt_vm_interp.c: literal/zero/scalar-lerp/spline channels, mid-span,
+  exact-key, post-last-key cycle interpolation, zero-key cycle interpolation,
+  sign-bit behavior for negative zero and NaN payloads, and cursor advance
+  count = 63. All PASS; the mutation gate catches a wrong cycle interval index
+  and a post-pass that does not flip the sign bit.
 - Trace anchors (M14 stream): counts read via pc 0x8C09D6F4, times via
   0x8C09D70A, tuple floats via 0x8C09D778/77E/782/794 (interp pc = +2).
 
 ## Open threads
 
-- **Mount-time relocation**: the resident pack is not an identity copy of the
-  file: the record region shifts linearly (~+0x27B0 in the vf3_7 capture) and
-  the 8880-entry slot table is rewritten (dump slot5093 = 0xFE1A4 vs file
-  0xCE154). The loader (mt_loader family) must be characterized next:
-  where the per-character window is cut from the file, and how header
-  absolute pointers are fixed up. Candidates: GDFS read completion handlers
-  around the M13 ladder's 1222 KB menu->load transition region.
+- **The apparent uniform mount relocation was falsified by M33.** The
+  +0x27B0 delta was a one-record coincidence. Resident records are scattered
+  and some are rewritten; the slot table also changes. Do not map the full MT
+  file into guest RAM with a constant bias. The actual loader's scatter and
+  rewrite rules remain unknown. The native port should parse the extracted
+  file representation directly and reconstruct the record index in ordinary C.
 - ops[63] *channel meaning* (which of the 63 = which DOF/bone) — from the
   POL model bone count + task struct consumers of the out array.

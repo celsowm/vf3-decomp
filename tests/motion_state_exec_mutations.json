@@ -1,0 +1,56 @@
+[
+  {
+    "name": "r14_not_saved_to_stack",
+    "subs": [
+      [
+        "    push(s, ram, 14);",
+        "    /* r14 not saved */"
+      ]
+    ]
+  },
+  {
+    "name": "entry_not_discarded",
+    "subs": [
+      [
+        "    R(14) = R(4);",
+        "    /* entry not saved */"
+      ]
+    ]
+  },
+  {
+    "name": "sp_not_restored",
+    "subs": [
+      [
+        "    R(14) = pop(s, ram);",
+        "    /* r14 not restored */"
+      ]
+    ]
+  },
+  {
+    "name": "return_address_not_restored",
+    "subs": [
+      [
+        "    s->pc = R(16);",
+        "    s->pc = R(15);"
+      ]
+    ]
+  },
+  {
+    "name": "state_pointer_not_copied",
+    "subs": [
+      [
+        "    R(14) = R(4);",
+        "    R(14) = 0;"
+      ]
+    ]
+  },
+  {
+    "name": "comparison_not_applied",
+    "subs": [
+      [
+        "    set_t(s, (int32_t)R(10) >= (int32_t)R(4));",
+        "    set_t(s, 0);"
+      ]
+    ]
+  }
+]

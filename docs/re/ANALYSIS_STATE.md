@@ -16,7 +16,8 @@
   code reconstruction), overlay_hunt.py, image_truth.py; Vf3DisasmRange +
   Vf3Decompile Ghidra scripts; mem-watch PC = executing+2 calibration.
 - M24 MT motion VM: f_8c09d690 fully decoded (63-ch bytecode; op0/1/2/3+
-  scalar-lerp/spline; phase 1/256 units; z-flip post-pass 0x8C09D408).
+  scalar-lerp/spline; phase 1/256 units; two-run sign-flip post-pass
+  0x8C09D408).
   src/fight/mt_play.{c,h}; tests/mt_vm_interp.c PASS. docs/re/mt_vm.md.
   sh4.py register-field fix (jsr/lds/ldc reg = bits[11:8]).
 - bin_names re-run on true image: 234 rows (was 222); gdfs_table.h regen.

@@ -34,6 +34,18 @@ static void chk(const char *what, float got, float want)
     }
 }
 
+static void chk_bits(const char *what, float got, uint32_t want)
+{
+    uint32_t bits;
+    memcpy(&bits, &got, sizeof bits);
+    if (bits != want) {
+        printf("  FAIL %s: got %08x want %08x\n", what, bits, want);
+        ++fails;
+    } else {
+        printf("  ok   %s = %08x\n", what, bits);
+    }
+}
+
 static void wire(float literal0, float s_v0, float s_v1,
                  float q0x, float q0y, float q0z, float q1x)
 {
@@ -93,6 +105,49 @@ int main(void)
     rc = vf3_mt_eval_frame(&task, 0x400, &out);
     chk("ch2 exact", outbuf[2 + 2], -6.0f);    /* tuple[idx+1], z-flipped */
     chk("ch3 exact", outbuf[2 + 3], 9.0f);     /* vec3[idx+1].x  */
+
+    /* After the last key, the guest uses idx=count and interpolates to the
+     * cycle endpoint.  The old C port left idx=-1 and read before the tuple. */
+    wire(7.5f, 2.0f, 6.0f, 1.0f, 256.0f, 512.0f, 9.0f);
+    task.cycle = 8;
+    out = outbuf + 2;
+    rc = vf3_mt_eval_frame(&task, 0x600, &out);
+    if (rc != 0) { printf("FAIL wrap rc=%d\n", rc); return 1; }
+    chk("ch2 cycle lerp", outbuf[2 + 2], -7.5f);
+    chk("ch3 cycle spline", outbuf[2 + 3], 4.5f);
+
+    /* A zero-key scalar channel goes straight to the same cycle endpoint and
+     * still starts from its two tuple values. */
+    wire(7.5f, 2.0f, 6.0f, 1.0f, 256.0f, 512.0f, 9.0f);
+    ram_blob[76] = 0;
+    ram_blob[12 + 3] = 0;
+    out = outbuf + 2;
+    rc = vf3_mt_eval_frame(&task, 0x200, &out);
+    if (rc != 0) { printf("FAIL empty-key rc=%d\n", rc); return 1; }
+    chk("ch2 empty-key cycle lerp", outbuf[2 + 2],
+        -(2.0f + (6.0f - 2.0f) / 7.0f));
+
+    /* fneg is a sign-bit toggle: it must preserve negative zero and NaN payloads. */
+    wire(0.0f, 2.0f, 6.0f, 1.0f, 256.0f, 512.0f, 9.0f);
+    ram_blob[12] = 0;
+    ram_blob[13] = 0;
+    ram_blob[14] = 1;
+    {
+        const uint32_t nan_payload = 0x7fc12345u;
+        memcpy(ram_blob + 80, &nan_payload, sizeof nan_payload);
+    }
+    out = outbuf + 2;
+    rc = vf3_mt_eval_frame(&task, 0x200, &out);
+    if (rc != 0) { printf("FAIL sign-bit rc=%d\n", rc); return 1; }
+    chk_bits("ch2 fneg NaN payload", outbuf[2 + 2], 0xffc12345u);
+    wire(0.0f, 2.0f, 6.0f, 1.0f, 256.0f, 512.0f, 9.0f);
+    ram_blob[12] = 0;
+    ram_blob[13] = 0;
+    ram_blob[14] = 1;
+    out = outbuf + 2;
+    rc = vf3_mt_eval_frame(&task, 0x200, &out);
+    if (rc != 0) { printf("FAIL signed-zero rc=%d\n", rc); return 1; }
+    chk_bits("ch2 fneg positive zero", outbuf[2 + 2], 0x80000000u);
 
     printf("mt_vm_interp: %s\n", fails ? "FAIL" : "PASS");
     return fails ? 1 : 0;

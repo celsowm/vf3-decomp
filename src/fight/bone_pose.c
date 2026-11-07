@@ -3,7 +3,8 @@
  *   r4 = fighter object. Returns early unless the fighter is being drawn this frame (the pending
  *   flags at 0x0C29B864 / the object's own flags decide). Otherwise, with the matrix stack pushed:
  *   for each bone of the 23 (object +0x7C0 matrices, 64 bytes apart; +0x180 joints, advanced by a
- *   per-bone byte table at 0x0C119670; +0xE00 five-float pose records, 20 bytes apart):
+ *   per-bone byte table at 0x0C119670; +0xE00 cached records, 20 bytes apart, each holding the
+ *   refresh result followed by four float words):
  *     - identity, then multiply in the bone's parent matrix chain (0x03CC90 / 0x03C0E0 pairs)
  *     - 0x03B820 derives the bone's offset/axis angles into the local block at +0x94
  *     - the bone's cached pose record is either refreshed from 0x06938C or restored from the

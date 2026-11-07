@@ -1,13 +1,12 @@
 #pragma once
 #include <stdint.h>
 
-/* fight/mt_mount.h — MT pack mount: file -> per-record resident (M52/M53).
+/* fight/mt_mount.h — synthetic MT range fixture (not a live-loader port).
  *
- * M33 falsified uniform +0x27B0: resident is per-record scattered, not a
- * full file image. File header maps at dump+0x39C3 only at header; 64-B
- * probes scatter (+0x29A6C/+0x24194/+0x28C60/+0x3A34/+0x2C514), ~1681 absent
- * (table/encoding rewrites). Slot table: 8880 u32 (tools/mtmap.py).
- * Evaluator layout: docs/re/mt_vm.md (hdr[0..2] abs ptrs, ops[63] @hdr+12).
+ * Its identity-offset copy and pointer fixups exist only to exercise synthetic
+ * slot/range cases. M33 falsified that placement as a model of the game: the
+ * live loader scatters and rewrites records. Never use this helper for native
+ * VFA playback. The source MT table reader is src/media/mt.c.
  */
 #define VF3_MT_SLOTS    8880u
 #define VF3_MT_PAYLOAD  0x8AC0u
@@ -32,10 +31,11 @@ typedef struct VF3MtMount {
     uint16_t       task_cycle;
 } VF3MtMount;
 
-/* Build slot->file_off table from the 8880-entry header (mtmap.py rule). */
+/* Build slot->file_off table from the 8880-entry header. */
 int vf3_mt_parse_slots(const uint8_t *file, uint32_t len,
                        uint32_t *slot_off, uint32_t nslots);
-/* Mount one record: cut [off,next_off), copy to resident, fix hdr abs ptrs. */
+/* Mount one slot span: cut [off,next_greater_offset), copy to resident, and
+ * fix the motion header's absolute pointers when the span contains one. */
 int vf3_mt_mount_record(VF3MtMount *m, unsigned slot);
 /* Full pack pass (slot-table + per-record loop). */
 int vf3_mt_mount_pack(VF3MtMount *m);

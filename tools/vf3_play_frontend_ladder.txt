@@ -1,0 +1,21 @@
+# Frame-clock navigation probe translated from the old vf3play_transition ladder.
+# Masks are pressed-button bits: Start=0x8, A=0x4; release after 15 frames.
+0 KEYF 0x0
+1200 KEYF 0x8
+1215 KEYF 0x0
+1800 KEYF 0x8
+1815 KEYF 0x0
+2040 KEYF 0x4
+2055 KEYF 0x0
+2400 KEYF 0x4
+2415 KEYF 0x0
+3420 KEYF 0x4
+3435 KEYF 0x0
+3600 KEYF 0x4
+3615 KEYF 0x0
+4020 KEYF 0x4
+4035 KEYF 0x0
+5100 KEYF 0x4
+5115 KEYF 0x0
+5700 KEYF 0x4
+5715 KEYF 0x0

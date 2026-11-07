@@ -1,25 +1,33 @@
 # TEX (VF3 texture payload)
 
-Status: **format solved (v1)** — direct decoded image produced from
-`MKAO_AKI.TEX` (AKI face/fur/eyeball visible in output).
+Status: descriptor-driven decode works for AKI, JAC, and the ST01 stage. The
+native C decoder reads each descriptor from its companion POL file and
+produces 0xAARRGGBB pixels. The native offscreen render gate loads all three
+packages through the VFA archive.
 
 ## Layout
-- No header — raw texture data only
-- Pixel format: **RGB565** (little-endian u16 per texel)
-- Storage order: **PVR twiddle / Morton order** at tile granularity
-  (decoded result shows 32x32-tile sub-structure: per-tile twiddles with
-  their own sub-layouts; refinement pending)
-- Sizes are bitmap areas; example sizes observed: 256x304 (MKAO_AKI),
-  256x288 (MKAO_WOL), 256x378 (ST01), 2048-byte ROB_ALP (alpha tile)
+- `.TEX` has no file header; it is a sequence of texture payloads.
+- The companion POL descriptor supplies dimensions, pixel format, data
+  layout, and byte offset. Supported pixel formats follow the local PVR
+  rasterizer: 0 = ARGB1555, 1 = RGB565, and 2 = ARGB4444.
+- Data layout 1 is square twiddled 16-bit pixels. Data layout 3 is VQ: a 2 KiB
+  codebook of 256 2x2 blocks followed by one byte per texture block. The
+  checked ST01 512x512 VQ texture occupies 67,584 bytes, confirming a
+  non-mipmapped payload.
+- The decoder returns straight 0xAARRGGBB pixels and checks compressed bounds
+  before reading either layout. Mipmapped, rectangular, palette, and bump-map
+  forms remain unsupported.
 
 ## Tool
-`tools/tex_peek.py`:
-- `try_tex(path, w, h, '565'|'5551', twiddle=True)`
-- `write_png(path, w, h, rgb)` — stdlib PNG writer
+`src/media/pvr_texture.c` reports each layout's required payload size and
+decodes a `PolTextureDesc` from a `.TEX` payload. `tests/pol_asset_tables_replay.c`
+checks AKI/JAC descriptors, and `tests/native_view_replay.c` exercises the VQ
+decoder against all ST01 textures while drawing the extracted scene.
 
-Decoded sanity images in `extract/assets/tex/` (git-ignored).
+`tools/tex_peek.py` is an older whole-file format probe. Its guessed image
+dimensions and color mode are not the authority for descriptor-backed assets.
 
-## Next
-- tile-level twiddle refinement (block size binding from POL side-table?)
-- RGBA5551 vs RGB565 auto-detection (alpha detection)
-- stage TEX often contain skybox walls - test CP_SKY series too
+## Open
+- Compare the native render against a captured game frame and fix the model
+  transforms, UV conventions, and draw ordering.
+- Decode other PVR layouts needed by additional stages and effects.

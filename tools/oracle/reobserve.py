@@ -51,6 +51,10 @@ def main() -> int:
     ap.add_argument('--children', type=Path, required=True,
                     help='file with one nested entry PC per line')
     ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--run', action='append', dest='run_names', default=[],
+                    help='select a recorded run by exact name; may be repeated (default: all)')
+    ap.add_argument('--emulator', type=Path,
+                    help='override the emulator path when the manifest does not record one')
     ap.add_argument('--watch-mode', choices=('extend', 'children', 'auto'), default='auto',
                     help="'extend' keeps the original watch list (needed by probe "
                          "batches, whose target must stay watched); 'children' "
@@ -65,6 +69,13 @@ def main() -> int:
         raise SystemExit(f'no batch manifest in {a.batch_dir}')
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     runs = manifest.get('runs') or []
+    if a.run_names:
+        requested = set(a.run_names)
+        available = {run.get('name') for run in runs}
+        missing = requested - available
+        if missing:
+            raise SystemExit('unknown run name(s): ' + ', '.join(sorted(missing)))
+        runs = [run for run in runs if run.get('name') in requested]
     if not runs:
         raise SystemExit(f'batch {a.batch_dir} records no run')
 
@@ -115,7 +126,9 @@ def main() -> int:
             cmd += ['--probe-ops', str(runs[0]['probe_ops'])]
     if runs[0].get('observer_controls'):
         cmd += ['--observer-controls', str(runs[0]['observer_controls'])]
-    if runs[0].get('emulator'):
+    if a.emulator:
+        cmd += ['--emulator', str(a.emulator)]
+    elif runs[0].get('emulator'):
         cmd += ['--emulator', str(runs[0]['emulator'])]
     cmd += ['--timeout', str(a.timeout)]
 

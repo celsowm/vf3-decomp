@@ -277,3 +277,60 @@ Native is 657 melody instructions short `[1,206,17,258,175]`; gaps 2/4/5 are
 exactly 3 frames short.  Reference key-on cycles (from `vf3_28_traced.arm`)
 `[5017270272,5017342848,5017451712,5017510400,5017614784,5017710208,5019038976]`
 map via `(cyc-5001139045)/4535` to the frames above.
+
+### Wrap-up 2026-11-03: the reference trace IS there, but it is a sampled snapshot
+The first claim to retire from the earlier "Consequence" block is that the
+reference's per-instruction melody stream "cannot be re-captured".  The
+**v4** trace (`extract/analysis/audio_arm_observer_v4/vf3_28_traced.arm`,
+2,735,916 records) *does* carry the real ARM melody: each executed firmware
+instruction is followed by a data record (the resolved memory address and
+value) and then by three timing records, so the format is a `[real pc op]
+[data addr val] [tick]*3` quintuple.  The data record for the key-on
+(0x264c, `strb r1,[r0]`) reads `00801781 <- 00000082` -- the actual device
+write, with address and byte.
+
+But the trace is **gapped, not continuous**: the observer records ~119 real
+instructions per *device-write event* and idles as `pc=0x4/0x1` ticks
+between them.  Across an inter-key-on gap of 16-24 samples it captures only
+`[82, 144, 136]` real instructions in `[62, 116, 110]` separate runs --
+far below native's `[1126, 1484, 1362]` per-gap instructions.  So the
+per-sample note-hold countdown, which sits in the scanning between key-ons,
+is **not in the reference trace** either.  Both sides of the pair are now
+known:
+
+- native side: register-resident, provably not in any memory window (the
+  `[0xcf58]`/`[0xcf5c]` store probe found `[0xcf58]` is **never written**
+  in the melody window -- it is a songstep gate seeded outside it that
+  reads 0 at every advance, a red herring -- and `[0xcf5c]` is a ~44-frame
+  songstep event counter, not the per-sample hold);
+- reference side: the register-resident hold never reaches a captured
+  device write, and the gapped trace cannot expose it.
+
+The note-config data at each key-on is **identical** between the two sides:
+the reference's `0x3b5c` store operand (the note-config word written to the
+stream) is `934a0003` for note 1 while native's r2 at the same key-on is
+`034a0003` -- same low 16 bits, same key-on byte `0x82` to the same device
+address.  So the divergence is **not** in the note/length data the firmware
+loads; it is in the *count* the firmware derives from it on long notes.
+The low note bytes do not split at any 0x30 boundary as once hypothesized
+(the r9 bytes were a songstep byte, not the pitch/length), so that line is
+closed too.
+
+The interpreter probes added to chase this (the `VF3_CDPROBE` register/CTX
+captures and the `bus_write` `[0xcf58]/[0xcf5c]` store probe in `src/sys/
+arm7.c`, and the `VF3_CADENCE` per-sample capture in `src/sys/aica_arm.c`)
+are **reverted** -- they are investigation scaffolding, not part of the
+audio path.  The tree is back to a clean state and all six audio tests stay
+rc=0.
+
+A principled fix is therefore unverifiable against the reference at the
+register level: native runs the identical firmware and identical RAM, yet
+derives a note-hold count exactly 3 lower on gaps >= 21 (and never loses
+phase afterward).  The observable contract a fix must meet, and the only
+verification that exists, is the timing signature itself: native key-on
+gaps must become `[16,24,13,23,21]` and the post-melody phase must re-align,
+which the live gate (`build/vf3aicalive.exe`) measures as byte-match moving
+past frame 3575 toward 100%.  Any change to `src/sys/arm7.c` that achieves
+that is *reference-mirroring* by construction; none of the memory or
+register traces can distinguish it from the true decoder mis-execution,
+because the reference's hold value is unobtainable on either side.

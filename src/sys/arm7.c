@@ -283,6 +283,19 @@ static void restore_spsr(vf3_arm7 *cpu)
 
 /* ---------------------------------------------------------------- ARM */
 
+/* flycast's multiply cost (arm-new.h MUL/MLA/UMULL/UMLAL cases): the tick
+ * count is the width of |Rs| in bytes, on a base of 2 for the plain forms and
+ * 3 for the accumulate forms.  A negative Rs is *complemented*, not negated -
+ * the reference's own rule. */
+static uint32_t multiply_ticks(uint32_t rs, uint32_t base)
+{
+    if ((int32_t)rs < 0) rs = ~rs;
+    if ((rs & 0xFFFFFF00u) == 0) return base;
+    if ((rs & 0xFFFF0000u) == 0) return base + 1;
+    if ((rs & 0xFF000000u) == 0) return base + 2;
+    return base + 3;
+}
+
 static uint32_t arm_data_processing(vf3_arm7 *cpu, uint32_t insn)
 {
     const unsigned opcode = (insn >> 21) & 0xFu;
@@ -365,17 +378,22 @@ static uint32_t arm_data_processing(vf3_arm7 *cpu, uint32_t insn)
     if (rd == 15) {
         if (set_flags) restore_spsr(cpu);
         cpu->r[15] = (cpu->cpsr & FLAG_T) ? (result & ~1u) : (result & ~3u);
-        return 1;
+        /* flycast bills +1 only for the exception-return form (`movs pc,lr`),
+         * not for every write to the PC (arm-new.h lines 1296-1302). */
+        return set_flags ? 1u : 0u;
     }
     if (opcode < 0x8 || opcode >= 0xC) cpu->r[rd] = result;
     cpu->r[15] += 4;
-    return 1;
+    return 0;
 }
 
 static uint32_t arm_multiply(vf3_arm7 *cpu, uint32_t insn)
 {
     const unsigned rd = (insn >> 16) & 0xFu, rn = (insn >> 12) & 0xFu;
     const unsigned rs = (insn >> 8) & 0xFu, rm = insn & 0xFu;
+    /* Timing depends on the source value before the instruction writes its
+     * destination; Rd and Rs are allowed to alias in the short multiply form. */
+    const uint32_t rs_value = cpu->r[rs];
 
     if (!(insn & (1u << 23))) {
         uint32_t product = cpu->r[rm] * cpu->r[rs];
@@ -385,7 +403,7 @@ static uint32_t arm_multiply(vf3_arm7 *cpu, uint32_t insn)
         cpu->r[rd] = result;
         if (insn & (1u << 20)) set_nz(cpu, result);
         cpu->r[15] += 4;
-        return 1 + ((result >> 8) ? 1 : 0);
+        return multiply_ticks(rs_value, (insn & (1u << 21)) ? 3u : 2u);
     } else {
         const int is_signed = (insn & (1u << 22)) != 0;
         const int accumulate = (insn & (1u << 21)) != 0;
@@ -402,7 +420,7 @@ static uint32_t arm_multiply(vf3_arm7 *cpu, uint32_t insn)
             cpu->cpsr &= ~(FLAG_C | FLAG_V);
         }
         cpu->r[15] += 4;
-        return 2;
+        return multiply_ticks(rs_value, accumulate ? 3u : 2u);
     }
 }
 
@@ -432,7 +450,8 @@ static uint32_t arm_halfword(vf3_arm7 *cpu, uint32_t insn)
     }
     if (wb || !pre) cpu->r[rn] = up ? base + offset : base - offset;
     if (rd != 15 || load) cpu->r[15] += 4;
-    return 1;
+    /* flycast: LDRH/LDRSB/LDRSH +4, STRH +5 (arm-new.h halfword cases). */
+    return load ? 4u : 5u;
 }
 
 static uint32_t arm_block_transfer(vf3_arm7 *cpu, uint32_t insn)
@@ -446,7 +465,7 @@ static uint32_t arm_block_transfer(vf3_arm7 *cpu, uint32_t insn)
     int pc_in_list = 0;
 
     for (i = 0; i < 16; ++i) if (insn & (1u << i)) ++count;
-    if (!count) { cpu->r[15] += 4; return 1; }
+    if (!count) { cpu->r[15] += 4; return 2; }
 
     if (up) address = base + (pre ? 4u : 0u);
     else address = base - count * 4u + (pre ? 0u : 4u);
@@ -472,7 +491,11 @@ static uint32_t arm_block_transfer(vf3_arm7 *cpu, uint32_t insn)
     } else if (!pc_in_list) {
         cpu->r[15] += 4;
     }
-    return 2 + count;
+    /* flycast's interpreter bills a block transfer as 2 at the top plus
+     * `1 + CPUUpdateTicksAccess{Seq,}32` per register (both macros are 1), so
+     * 2 + 2n either way; a loaded PC costs one more (its case adds 2 + 1). */
+    if (load) return 2u + 2u * count + (pc_in_list ? 1u : 0u);
+    return 2u + 2u * count;
 }
 
 static uint32_t arm_single_transfer(vf3_arm7 *cpu, uint32_t insn)
@@ -506,7 +529,11 @@ static uint32_t arm_single_transfer(vf3_arm7 *cpu, uint32_t insn)
     if ((!pre || writeback) && rn != 15 && !(load && rd == 15))
         cpu->r[rn] = address;
     if (rd != 15) cpu->r[15] += 4;
-    return rd == 15 && load ? 3 : 2;
+    /* flycast: LDR word +4 (+2 more when it writes the PC), LDRB +4,
+     * STR word +3, STRB +3 (arm-new.h single-transfer cases). */
+    if (!load) return 3u;
+    if (byte) return 4u;
+    return rd == 15 ? 6u : 4u;
 }
 
 static uint32_t arm_psr_transfer(vf3_arm7 *cpu, uint32_t insn)
@@ -522,7 +549,7 @@ static uint32_t arm_psr_transfer(vf3_arm7 *cpu, uint32_t insn)
         else value = cpu->cpsr;
         cpu->r[rd] = value;
         cpu->r[15] += 4;
-        return 1;
+        return 0;
     }
 
     if (insn & (1u << 19)) mask |= 0xFF000000u;
@@ -549,7 +576,7 @@ static uint32_t arm_psr_transfer(vf3_arm7 *cpu, uint32_t insn)
         }
     }
     cpu->r[15] += 4;
-    return 1;
+    return 0;
 }
 
 static uint32_t arm_swap(vf3_arm7 *cpu, uint32_t insn)
@@ -561,7 +588,8 @@ static uint32_t arm_swap(vf3_arm7 *cpu, uint32_t insn)
     bus_write(cpu, address, cpu->r[rm], byte ? 1 : 4);
     cpu->r[rd] = value;
     cpu->r[15] += 4;
-    return 4;
+    /* flycast's SWP case adds no tick at all (arm-new.h line 2286). */
+    return 0;
 }
 
 static int condition_passed(const vf3_arm7 *cpu, unsigned cond)
@@ -594,7 +622,7 @@ static uint32_t arm_branch(vf3_arm7 *cpu, uint32_t insn, uint32_t pc)
     const int32_t offset = (int32_t)(insn << 8) >> 6;
     if (link) cpu->r[14] = pc + 4;
     cpu->r[15] = pc + 8 + (uint32_t)offset;
-    return 1;
+    return 3;
 }
 
 static uint32_t arm_execute(vf3_arm7 *cpu, uint32_t insn)
@@ -607,12 +635,12 @@ static uint32_t arm_execute(vf3_arm7 *cpu, uint32_t insn)
         /* SWI and the coprocessor space (the AICA has no coprocessor). */
         if (insn & (1u << 24)) {
             exception(cpu, 0x08u, VF3_ARM_MODE_SVC, pc + 4, 1, 0);
-            return 2;
+            return 3;
         }
         cpu->r[15] = pc + 4;
-        return 1;
+        return 0;
     }
-    if (!condition_passed(cpu, cond)) { cpu->r[15] = pc + 4; return 1; }
+    if (!condition_passed(cpu, cond)) { cpu->r[15] = pc + 4; return 0; }
 
     switch (cls) {
     case 0:
@@ -637,7 +665,7 @@ static uint32_t arm_execute(vf3_arm7 *cpu, uint32_t insn)
     case 2:
         return arm_single_transfer(cpu, insn);
     case 3:
-        if (insn & (1u << 4)) { cpu->r[15] = pc + 4; return 1; }  /* media space, unused */
+        if (insn & (1u << 4)) { cpu->r[15] = pc + 4; return 0; }  /* media space, unused */
         return arm_single_transfer(cpu, insn);
     case 4:
         return arm_block_transfer(cpu, insn);
@@ -645,7 +673,7 @@ static uint32_t arm_execute(vf3_arm7 *cpu, uint32_t insn)
         return arm_branch(cpu, insn, pc);
     default:
         cpu->r[15] = pc + 4;
-        return 1;
+        return 0;
     }
 }
 
@@ -938,6 +966,167 @@ static uint32_t thumb_execute(vf3_arm7 *cpu, uint32_t insn)
     return 1;
 }
 
+/* ------------------------------------------------- flycast's ARM7 dynarec --
+ *
+ * The reference's AICA ARM7 is not the arm-new.h interpreter.  The x64 build
+ * compiles the firmware with the recompiler (core/build.h leaves FEAT_AREC at
+ * DYNAREC_JIT, and tools/oracle/vf3armtrace.h records that "PC is assigned by
+ * the x64 ARM compiler"), and its time model differs from the interpreter's
+ * in three ways that matter to the audio:
+ *
+ *   - a block is charged once, when it is dispatched, with the sum of the
+ *     *decoded* cost of the opcodes it fetched (arm7_rec.cpp compile():
+ *     `cycles += last_op.cycles`, then arm7_rec_x64.cpp compile():
+ *     `sub [CYCL_CNT], cycles`), and the timeslice and the FIQ are checked
+ *     only at a block dispatch (arm7_rec_x64.cpp arm_dispatch);
+ *   - an opcode's decoded cost is static: a condition-failed instruction
+ *     still pays its class cost (a not-taken conditional branch costs 9, not
+ *     6), and a single-register LDM/STM is rewritten to one LDR/STR and pays
+ *     that rewrite's cost plus four;
+ *   - the opcodes the recompiler cannot compile (MUL/MLA/SWP, BX, a
+ *     multi-register LDM/STM, the conditional or flag-setting write of the
+ *     PC, the coprocessor/SWI row) contribute nothing to the block and are
+ *     billed by interpret() (arm-new.h) when they run.
+ *
+ * dynarec_op_cost() is decodeArmOp()'s `cycles` plus the two flags the block
+ * builder acts on; dynarec_nop() is compile()'s NOP skip (a NOP still costs 6
+ * and still counts toward the 32-opcode block limit).
+ */
+
+static int dynarec_nop(uint32_t insn)
+{
+    return insn == 0u || insn == 0x41474553u;
+}
+
+static uint32_t dynarec_op_cost(uint32_t insn, int *fallback, int *sets_pc)
+{
+    const unsigned cond = insn >> 28;
+    const unsigned group = (insn >> 26) & 3u;
+    const unsigned op_type = (insn >> 21) & 0xFu;
+    const unsigned rd = (insn >> 12) & 0xFu;
+    const unsigned rn = (insn >> 16) & 0xFu;
+    const unsigned imm_op = (insn >> 25) & 1u;
+    const unsigned shift_imm = (insn >> 7) & 0x1Fu;
+    const unsigned shift_type = (insn >> 5) & 3u;
+    const unsigned set_flags = (insn >> 20) & 1u;
+    const int is_compare = op_type >= 8u && op_type <= 11u;
+    uint32_t cycles = 6u;
+
+    *fallback = 0;
+    *sets_pc = 0;
+    if (cond == 0xFu) {                 /* NV: the interpreter owns it */
+        *fallback = 1;
+        return 0u;
+    }
+
+    switch (group) {
+    case 0:                             /* data processing, multiply, swap */
+        if ((insn & 0x0FFFFFF0u) == 0x012FFF10u) {
+            *fallback = 1;              /* BX is handled by the interpreter */
+            *sets_pc = 1;
+            return 0u;
+        }
+        if ((op_type & 4u) == 0u && imm_op == 0u &&
+            (insn & (1u << 4)) != 0u && (insn & (1u << 7)) != 0u) {
+            *fallback = 1;              /* MUL, MLA, and SWP */
+            return 0u;
+        }
+        if (is_compare && set_flags == 0u) {
+            /* MSR / MRS: the register form of MSR pays one extra tick */
+            if ((insn & 0x0FBF0FFFu) == 0x010F0000u) return 6u;   /* MRS */
+            if ((insn & 0x0FB0FFF0u) == 0x0120F000u) return 7u;   /* MSR reg */
+            return 6u;                                            /* MSR imm */
+        }
+        if (imm_op == 0u && (insn & (1u << 4)) != 0u) cycles += 1u;
+        if (rd == 15u && !is_compare) {
+            const int plain_reg = imm_op == 0u &&
+                                  (insn & (1u << 4)) == 0u &&
+                                  shift_type == 0u && shift_imm == 0u;
+            if (op_type == 0xDu && plain_reg && set_flags == 0u) {
+                cycles += 3u;           /* MOV pc, rn -> B */
+                *sets_pc = 1;
+            } else if (cond != 0xEu || set_flags) {
+                *fallback = 1;          /* conditional/flag-setting PC write */
+                return 0u;
+            } else {
+                cycles += 1u;
+                *sets_pc = 1;
+            }
+        }
+        return cycles;
+
+    case 1: {                           /* LDR / STR */
+        const unsigned pre = (insn >> 24) & 1u;
+        const unsigned wb = (insn >> 21) & 1u;
+        const unsigned load = (insn >> 20) & 1u;
+        const unsigned imm12 = insn & 0xFFFu;
+        const unsigned write_back =
+            (wb || !pre) && rd != rn && (imm_op != 0u || imm12 != 0u);
+        if (load) {
+            if (rd == 15u) {
+                *sets_pc = 1;
+                if (cond != 0xEu) {
+                    *fallback = 1;
+                    return 0u;
+                }
+                cycles += 1u;
+            }
+            cycles += 4u;
+        } else {
+            cycles += 3u;
+        }
+        if (rn == 15u && write_back) {
+            *fallback = 1;
+            *sets_pc = 1;
+            return 0u;
+        }
+        if (imm_op && (insn & 0xFu) == 15u) {
+            *fallback = 1;
+            return 0u;
+        }
+        return cycles;
+    }
+
+    case 2:                             /* LDM/STM, B/BL */
+        if (imm_op) {
+            *sets_pc = 1;
+            return 9u;                  /* B / BL: base 6 + 3 */
+        }
+        {
+            const uint32_t list = insn & 0xFFFFu;
+            unsigned count = 0, first = 0, i;
+            for (i = 0; i < 16u; ++i)
+                if (list & (1u << i)) { ++count; first = i; }
+            if (!(insn & (1u << 22)) && count == 1u) {
+                /* compile()'s rewrite: one LDR/STR, immediate offset 4, and
+                 * the rewrite's own cost plus four */
+                const unsigned pre = (insn >> 24) & 1u;
+                const unsigned up = (insn >> 23) & 1u;
+                const unsigned wb = (insn >> 21) & 1u;
+                const unsigned load = (insn >> 20) & 1u;
+                const uint32_t rewrite =
+                    0x04000000u | (insn & 0xF0000000u) |
+                    (pre << 24) | (up << 23) | ((wb & pre) << 21) |
+                    (load << 20) | (rn << 16) | (first << 12) | 4u;
+                int inner_fb = 0, inner_pc = 0;
+                const uint32_t inner =
+                    dynarec_op_cost(rewrite, &inner_fb, &inner_pc);
+                if (inner_fb) *fallback = 1;
+                if (inner_pc) *sets_pc = 1;
+                return inner + 4u;
+            }
+            *fallback = 1;              /* interpret() bills it at runtime */
+            if ((list & 0x8000u) && (insn & (1u << 20))) *sets_pc = 1;
+            return 0u;
+        }
+
+    default:                            /* coprocessor / SWI */
+        *fallback = 1;
+        if (imm_op && (op_type & 8u)) *sets_pc = 1;
+        return 0u;
+    }
+}
+
 /* ---------------------------------------------------------------- API */
 
 void vf3_arm7_init(vf3_arm7 *cpu, const vf3_arm7_bus *bus)
@@ -957,64 +1146,105 @@ void vf3_arm7_reset(vf3_arm7 *cpu)
     cpu->arm7_clock_ticks = 0;
 }
 
-uint32_t vf3_arm7_step(vf3_arm7 *cpu)
+/* Fetch and retire one instruction, without the base tick.  The caller adds
+ * VF3_ARM7_BASE_CYCLES when it bills the interpreter's per-instruction model
+ * (vf3_arm7_step) and lets the dynarec's own static cost stand in for it
+ * otherwise (vf3_arm7_run); the class charge this returns is what a fallback
+ * opcode hands to interpret() on top of the base. */
+static uint32_t arm7_execute_fetched(vf3_arm7 *cpu, uint32_t insn)
 {
     uint32_t spent;
 
-    /* optional sequential executed-PC capture (see seq_maybe_open) */
     seq_maybe_open(cpu->instructions);
-    if (g_seq_armed && cpu->instructions >= g_seq_lo && cpu->instructions <= g_seq_hi) {
+    if (g_seq_armed && cpu->instructions >= g_seq_lo &&
+        cpu->instructions <= g_seq_hi) {
         uint32_t p = cpu->r[15];
         fwrite(&p, 4, 1, g_seq);
     }
 
+    cpu->last_pc = cpu->r[15];
+    cpu->last_insn = insn;
+    cpu->trace_pc[cpu->trace_at++ & 63u] = cpu->r[15];
+    if (cpu->r[15] < 0x10000u) {
+        ++g_pc_hist[cpu->r[15] >> 2];
+        ++g_tot[cpu->r[15] >> 2];
+    }
+
+    if (cpu->cpsr & FLAG_T) spent = thumb_execute(cpu, insn);
+    else spent = arm_execute(cpu, insn);
+
+    ++cpu->instructions;
+    return spent;
+}
+
+uint32_t vf3_arm7_step(vf3_arm7 *cpu)
+{
+    uint32_t spent;
+
     if (take_exception(cpu)) {
-        cpu->cycles += 3;
+        /* flycast's CPUFiq() (arm7.cpp line 323) switches mode and vectors
+         * without charging a tick; the handler's first fetched instruction
+         * carries the cost. */
         ++cpu->instructions;
-        return 3;
+        return 0;
     }
-    if (cpu->cpsr & FLAG_T) {
-        const uint32_t insn = fetch16(cpu, cpu->r[15]);
-        cpu->last_pc = cpu->r[15];
-        cpu->last_insn = insn;
-        cpu->trace_pc[cpu->trace_at++ & 63u] = cpu->r[15];
-        if (cpu->r[15] < 0x10000u) { ++g_pc_hist[cpu->r[15] >> 2]; ++g_tot[cpu->r[15] >> 2]; }
-        spent = thumb_execute(cpu, insn);
-    } else {
-        const uint32_t insn = fetch32(cpu, cpu->r[15]);
-        cpu->last_pc = cpu->r[15];
-        cpu->last_insn = insn;
-        cpu->trace_pc[cpu->trace_at++ & 63u] = cpu->r[15];
-        if (cpu->r[15] < 0x10000u) { ++g_pc_hist[cpu->r[15] >> 2]; ++g_tot[cpu->r[15] >> 2]; }
-        spent = arm_execute(cpu, insn);
-    }
+    if (cpu->cpsr & FLAG_T)
+        spent = arm7_execute_fetched(cpu, fetch16(cpu, cpu->r[15]));
+    else
+        spent = arm7_execute_fetched(cpu, fetch32(cpu, cpu->r[15]));
     /* flycast's arm-new.h interpreter bills a base 6 cycles per retired
-     * instruction (line 1321) on top of the per-class memory-access cost the
-     * handlers above already return.  The native core otherwise retires the
-     * memory-heavy melody config at ~1.3 cyc/insn against the reference's
-     * ~6-7, which spread one note's identical work over 16-24 samples instead
-     * of 3.  Adding the base reproduces the reference's per-gap sample counts
-     * (tools/aica_seq_cycles.py: gap1 15.97 vs 16, gap3 10.43 vs 12). */
+     * instruction (line 1321) on top of the per-class access cost. */
     spent += VF3_ARM7_BASE_CYCLES;
     cpu->cycles += spent;
-    ++cpu->instructions;
     return spent;
 }
 
 uint32_t vf3_arm7_run(vf3_arm7 *cpu, uint32_t cycles)
 {
-    uint32_t steps = 0;
-    /* mirror flycast's runInterpreter: subtract the sample's budget and run
-     * instructions while the accumulator is negative, carrying the leftover
-     * phase into the next sample (instead of discarding it as a fresh 0). */
+    uint32_t spent_cycles = 0;
+
+    /* flycast's recompiler loop (arm7_rec_x64.cpp arm_dispatch): add the
+     * sample's budget, then dispatch whole blocks while the accumulator is
+     * positive.  The timeslice and the FIQ are looked at only between blocks,
+     * so a block may overshoot the budget by its own cost - and its cost is
+     * charged once, before it runs.  The leftover phase carries into the next
+     * sample. */
     cpu->arm7_clock_ticks -= (int32_t)cycles;
     while (cpu->arm7_clock_ticks < 0) {
-        uint32_t spent = vf3_arm7_step(cpu);
-        cpu->arm7_clock_ticks += (int32_t)spent;
-        ++steps;
+        uint32_t block = 0;
+        unsigned fetched = 0;
+
         if (cpu->halted) break;
+        if (take_exception(cpu)) {
+            /* CPUFiq() charges nothing; the vector's block is charged when it
+             * is dispatched. */
+            ++cpu->instructions;
+            continue;
+        }
+        if (cpu->cpsr & FLAG_T) {
+            /* the recompiler is ARM-only: one instruction per dispatch, billed
+             * by the interpreter model */
+            block = VF3_ARM7_BASE_CYCLES +
+                    arm7_execute_fetched(cpu, fetch16(cpu, cpu->r[15]));
+        } else {
+            do {
+                int fallback = 0, sets_pc = 0;
+                const uint32_t insn = fetch32(cpu, cpu->r[15]);
+                const uint32_t static_cost =
+                    dynarec_op_cost(insn, &fallback, &sets_pc);
+                const uint32_t spent = arm7_execute_fetched(cpu, insn);
+                block += static_cost;
+                if (fallback)   /* interpret()'s own charge, base included */
+                    block += VF3_ARM7_BASE_CYCLES + spent;
+                ++fetched;
+                if (sets_pc && !dynarec_nop(insn)) break;
+            } while (fetched < 32u);
+        }
+        cpu->cycles += block;
+        cpu->arm7_clock_ticks += (int32_t)block;
+        spent_cycles += block;
     }
-    return steps;
+    return spent_cycles;
 }
 
 void vf3_arm7_set_irq(vf3_arm7 *cpu, int level) { cpu->irq_line = level != 0; }

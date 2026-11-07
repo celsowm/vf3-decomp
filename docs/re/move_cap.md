@@ -25,9 +25,22 @@ same for three dimensions and takes its step length from a context instead of
 from the pool.  The two even share the epsilon: `aim_step` bakes in `1e-7`
 (`0x33D6BF94`), and this function reads the same constant from the pool.
 
-The pool's two floats - the epsilon at `0x8C08DDC8` and the longest movement at
-`0x8C08DDCC` - are not recoverable offline (the game's image is under
-`extract/`), so the port reads the same addresses the guest reads.
+The pool is present in `extract/exe/1ST_READ.unsc.bin`. Read it with
+`tools/ram_read.py --base 0x8C010000 --float32 0x8C08DDC8 0x8C08DDCC`:
+the epsilon is `1e-7` (`0x33D6BF94`) and the maximum step is `1600.0`
+(`0x44C80000`). The readable port still reads the guest addresses so its
+behavior follows the same loaded image data as the original.
+
+## The actor wrapper
+
+The wrapper at `0x8C08DD1A` calls this helper twice. In the retained
+`motion_release_cases` capture, case 100 enters with `r14 = 0x0C20138C`, the
+Jacky actor record, and the wrapper's literal offsets resolve to actor-relative
+signed halfword pairs at `+0x2048` and `+0x204C`. These pairs change in the
+natural frame-300/frame-600 captures. This places the cap on an actor update
+path, but their relation to the actor's world position and controller input is
+not established. The native port should not use `1600.0` as its walk speed or
+coordinate scale without that link.
 
 The port: `src/fight/move_cap.c`, registered in `src/fight/readable.c` as
 `move_cap`.

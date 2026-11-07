@@ -182,6 +182,10 @@ add_library(vf3core STATIC
     src/fight/state_resolve.c
     src/fight/state_rotate.c
     src/fight/uncached_call.c
+    src/fight/pointer_chase.c
+    src/fight/state_checker.c
+    src/fight/motion_state_check.c
+    src/fight/motion_state_exec.c
     src/fight/queue_ops.c
     src/fight/pack_expand.c
     src/fight/state_flag.c
@@ -6540,11 +6544,10 @@ endif()
 add_executable(vf3 src/main.c)
 target_link_libraries(vf3 PRIVATE vf3core)
 
-# The native asset bundle (src/sys/native_assets.c): boot.state + disc.vf3,
-# built from the user's own disc dump.  With it `vf3sdl` starts with no .gdi,
-# track files, BIOS ROM or emulator savestate.  The target is empty when the
-# disc data is not present, so a source-only checkout still builds.
-option(VF3_NATIVE_ASSETS "Pack the native asset bundle when the disc data is present" ON)
+# Optional legacy research-host bundle. It contains boot.state + disc.vf3 for
+# vf3sdl experiments; the standalone source-level port reads only the VFA
+# archive below. Keep this opt-in so the normal build never repacks the disc.
+option(VF3_NATIVE_ASSETS "Build the legacy vf3sdl boot/disc bundle" OFF)
 add_custom_target(vf3assets)
 if (VF3_NATIVE_ASSETS)
     find_package(Python3 COMPONENTS Interpreter QUIET)
@@ -6571,10 +6574,11 @@ if (VF3_NATIVE_ASSETS)
     endif()
 endif()
 
-# The SDL3 host (docs/re/plan_sdl3_port.md, phase P0).  Off by default: the
-# port itself does not need SDL3, only the host that presents its frames.
-option(VF3_SDL3 "Build the SDL3 host (vf3sdl)" OFF)
-if (VF3_SDL3)
+# SDL3 is optional for replay/library builds. Keep the guest research host and
+# the standalone native port on independent switches.
+option(VF3_SDL3 "Build the guest-based SDL3 research host (vf3sdl)" OFF)
+option(VF3_NATIVE_PORT "Build the standalone native fight port (vf3port)" OFF)
+if (VF3_SDL3 OR VF3_NATIVE_PORT)
     find_package(SDL3 CONFIG QUIET)
     if (NOT SDL3_FOUND)
         # No CMake package config: find the headers and the import library
@@ -6593,6 +6597,53 @@ if (VF3_SDL3)
                               IMPORTED_LOCATION "${SDL3_LIBRARY}"
                               INTERFACE_INCLUDE_DIRECTORIES "${SDL3_INCLUDE_DIR}")
     endif()
+endif()
+
+if (VF3_NATIVE_PORT AND NOT TARGET SDL3::SDL3-static)
+    message(FATAL_ERROR
+            "VF3_NATIVE_PORT requires the SDL3 static target so vf3port can run without SDL3.dll")
+endif()
+
+if (VF3_NATIVE_PORT AND WIN32)
+    # The MSYS2 SDL3 static target currently names `iconv` as a plain library,
+    # which resolves to libiconv's DLL import archive. Replace that one
+    # dependency with the matching static archive so the release executable
+    # does not acquire a hidden libiconv-2.dll runtime requirement.
+    get_target_property(VF3_SDL3_STATIC_LINKS SDL3::SDL3-static
+                        INTERFACE_LINK_LIBRARIES)
+    set(VF3_SDL3_NEEDS_ICONV FALSE)
+    foreach(VF3_SDL3_LINK IN LISTS VF3_SDL3_STATIC_LINKS)
+        if (VF3_SDL3_LINK STREQUAL "iconv" OR
+            VF3_SDL3_LINK STREQUAL "$<LINK_ONLY:iconv>")
+            set(VF3_SDL3_NEEDS_ICONV TRUE)
+        endif()
+    endforeach()
+    if (VF3_SDL3_NEEDS_ICONV)
+        get_target_property(VF3_SDL3_STATIC_LOCATION SDL3::SDL3-static
+                            IMPORTED_LOCATION_RELEASE)
+        if (NOT VF3_SDL3_STATIC_LOCATION)
+            get_target_property(VF3_SDL3_STATIC_LOCATION SDL3::SDL3-static
+                                IMPORTED_LOCATION)
+        endif()
+        get_filename_component(VF3_SDL3_STATIC_DIR
+                               "${VF3_SDL3_STATIC_LOCATION}" DIRECTORY)
+        find_file(VF3_ICONV_STATIC_ARCHIVE NAMES libiconv.a
+                  PATHS "${VF3_SDL3_STATIC_DIR}"
+                        "$ENV{MSYS2_ROOT}/ucrt64/lib"
+                        "C:/msys64/ucrt64/lib"
+                  NO_DEFAULT_PATH)
+        if (NOT VF3_ICONV_STATIC_ARCHIVE)
+            message(FATAL_ERROR
+                    "The selected SDL3 static library needs iconv, but libiconv.a was not found")
+        endif()
+        list(REMOVE_ITEM VF3_SDL3_STATIC_LINKS "iconv" "$<LINK_ONLY:iconv>")
+        list(APPEND VF3_SDL3_STATIC_LINKS "${VF3_ICONV_STATIC_ARCHIVE}")
+        set_property(TARGET SDL3::SDL3-static PROPERTY
+                     INTERFACE_LINK_LIBRARIES "${VF3_SDL3_STATIC_LINKS}")
+    endif()
+endif()
+
+if (VF3_SDL3)
     add_executable(vf3sdl src/host/sdl3_host.c src/host/sdl3_input.c src/render/pvr2.c src/render/ta.c src/sys/frame_events.c)
     target_link_libraries(vf3sdl PRIVATE vf3core SDL3::SDL3)
     add_dependencies(vf3sdl vf3assets)
@@ -6605,6 +6656,98 @@ endif()
 
 add_executable(vf3tool tools/vf3tool.c)
 target_link_libraries(vf3tool PRIVATE vf3core)
+
+# Asset-only runtime boundary for the source-level decomp port.  This archive
+# contains extracted game data, never a guest executable, firmware, boot state,
+# or optical-disc image.  The reader is independent of vf3core and the RE host.
+add_library(vf3assetpack STATIC src/assets/asset_pack.c)
+target_include_directories(vf3assetpack PUBLIC src/assets)
+add_executable(vf3assetcheck tests/asset_pack_replay.c)
+target_link_libraries(vf3assetcheck PRIVATE vf3assetpack)
+add_executable(vf3dtpk tests/dtpk_replay.c src/media/dtpk.c)
+target_include_directories(vf3dtpk PRIVATE src/media)
+target_link_libraries(vf3dtpk PRIVATE vf3assetpack)
+add_executable(vf3polassets tests/pol_asset_tables_replay.c src/media/pol.c src/media/pvr_texture.c)
+target_include_directories(vf3polassets PRIVATE src/media)
+add_executable(vf3polmesh tests/pol_mesh_replay.c src/media/pol.c src/media/pol_mesh.c)
+target_include_directories(vf3polmesh PRIVATE src/media)
+
+# The source-level match state is ordinary C with semantic controls.  It does
+# not link the guest runtime or the reverse-engineering core.
+add_library(vf3nativegame STATIC
+    src/native/fight.c
+    src/native/collision.c
+    src/native/matrix.c
+    src/native/motion.c
+    src/native/pose_data.c
+    src/media/mt.c
+    src/media/pol.c
+    src/media/pol_mesh.c
+    src/media/pvr_texture.c)
+target_include_directories(vf3nativegame PUBLIC src/native src/media)
+add_executable(vf3nativefight tests/native_fight_replay.c)
+target_link_libraries(vf3nativefight PRIVATE vf3nativegame)
+add_executable(vf3mtasset tests/mt_asset_replay.c)
+target_link_libraries(vf3mtasset PRIVATE vf3nativegame vf3assetpack)
+add_executable(vf3mtmotiondump tools/mt_motion_dump.c)
+target_link_libraries(vf3mtmotiondump PRIVATE vf3nativegame vf3assetpack)
+add_executable(vf3nativemotion tests/native_motion_replay.c
+    src/native/matrix.c src/native/motion.c src/media/mt.c src/fight/mt_play.c)
+target_include_directories(vf3nativemotion PRIVATE src/native src/media src/fight)
+add_library(vf3nativeview STATIC
+    src/native/fighter_view.c
+    src/native/akira_parts.c
+    src/native/jacky_parts.c)
+target_include_directories(vf3nativeview PUBLIC src/native src/media)
+if (VF3_NATIVE_PORT)
+    target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
+else()
+    target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3)
+endif()
+add_executable(vf3nativeviewtest tests/native_view_replay.c)
+target_link_libraries(vf3nativeviewtest PRIVATE vf3nativeview vf3assetpack)
+
+option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
+if (VF3_ASSET_BUNDLE)
+    find_package(Python3 COMPONENTS Interpreter QUIET)
+    set(VF3_EXTRACTED_ASSETS "${CMAKE_SOURCE_DIR}/extract/gamedata")
+    set(VF3_ASSET_ARCHIVE "${CMAKE_BINARY_DIR}/vf3_assets.vfa")
+    set(VF3_ASSET_MANIFEST "${CMAKE_BINARY_DIR}/vf3_assets.vfa.json")
+    if (Python3_Interpreter_FOUND AND EXISTS "${VF3_EXTRACTED_ASSETS}/ANAUNCE.BIN")
+        file(GLOB VF3_ASSET_INPUTS CONFIGURE_DEPENDS "${VF3_EXTRACTED_ASSETS}/*")
+        add_custom_command(
+            OUTPUT "${VF3_ASSET_ARCHIVE}" "${VF3_ASSET_MANIFEST}"
+            COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tools/pack_assets.py"
+                    --source "${VF3_EXTRACTED_ASSETS}"
+                    --output "${VF3_ASSET_ARCHIVE}"
+                    --manifest "${VF3_ASSET_MANIFEST}"
+            DEPENDS "${CMAKE_SOURCE_DIR}/tools/pack_assets.py" ${VF3_ASSET_INPUTS}
+            COMMENT "Packing extracted VF3 game assets (no executable or disc image)"
+            VERBATIM)
+        add_custom_target(vf3_asset_bundle DEPENDS "${VF3_ASSET_ARCHIVE}" "${VF3_ASSET_MANIFEST}")
+    else()
+        message(STATUS "VF3 asset bundle: extracted data unavailable; provide extract/gamedata/ANAUNCE.BIN")
+    endif()
+endif()
+
+if (TARGET vf3_asset_bundle)
+    add_dependencies(vf3nativeviewtest vf3_asset_bundle)
+    add_dependencies(vf3mtasset vf3_asset_bundle)
+    add_dependencies(vf3dtpk vf3_asset_bundle)
+endif()
+
+# Standalone native port.  Its only runtime inputs are SDL and the offline
+# asset archive; keep it disjoint from vf3sdl and vf3core above.
+if (VF3_NATIVE_PORT)
+    add_executable(vf3port src/host/native_port_sdl3.c)
+    target_link_libraries(vf3port PRIVATE vf3nativeview vf3assetpack)
+    add_executable(vf3nativeattachmentpreview tools/native_attachment_preview.c)
+    target_link_libraries(vf3nativeattachmentpreview PRIVATE vf3nativeview vf3assetpack)
+    if (TARGET vf3_asset_bundle)
+        add_dependencies(vf3port vf3_asset_bundle)
+        add_dependencies(vf3nativeattachmentpreview vf3_asset_bundle)
+    endif()
+endif()
 
 add_executable(vf3ta tests/ta_decode.c src/render/ta.c)
 target_link_libraries(vf3ta PRIVATE vf3core)
@@ -6624,8 +6767,7 @@ add_executable(vf3test tests/mt_oracle.c)
 add_executable(vf3frame tests/frame_replay.c)
 target_link_libraries(vf3frame PRIVATE vf3core)
 
-add_executable(vf3vm tests/mt_vm_interp.c)
-target_link_libraries(vf3vm PRIVATE vf3core)
+add_executable(vf3vm tests/mt_vm_interp.c src/fight/mt_play.c)
 
 add_executable(vf3loop tests/mainloop_replay.c)
 target_link_libraries(vf3loop PRIVATE vf3core)

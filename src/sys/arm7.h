@@ -77,9 +77,10 @@ void vf3_arm7_init(vf3_arm7 *cpu, const vf3_arm7_bus *bus);
  * at 0x00000000 in SVC mode with both interrupts masked. */
 void vf3_arm7_reset(vf3_arm7 *cpu);
 
-/* Execute at least `cycles` cycles (an instruction retires in one cycle plus
- * one per memory access; the estimate is close enough for the sound driver's
- * polling loops).  Returns the cycles actually spent. */
+/* Account an AICA slice of `cycles` ticks, running ARM7 blocks until the
+ * carried phase is nonnegative. The returned retired charge can be below the
+ * request when a prior block left positive phase, or overshoot it by the last
+ * block's cost. A halted CPU can spend fewer cycles. */
 uint32_t vf3_arm7_run(vf3_arm7 *cpu, uint32_t cycles);
 
 /* One instruction (for tests and single-stepping).  Returns the cycles it

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "r14_not_saved_to_stack",
+    "subs": [
+      [
+        "    R(15) -= 4u;\n    vf3_mem_set_u32(ram, R(15), R(14));",
+        "    /* r14 not saved */"
+      ]
+    ]
+  },
+  {
+    "name": "pr_not_saved_to_stack",
+    "subs": [
+      [
+        "    R(15) -= 4u;\n    vf3_mem_set_u32(ram, R(15), R(16));",
+        "    /* pr not saved */"
+      ]
+    ]
+  },
+  {
+    "name": "r14_not_restored_from_stack",
+    "subs": [
+      [
+        "    R(14) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+        "    /* r14 not restored */"
+      ]
+    ]
+  },
+  {
+    "name": "pr_not_restored_from_stack",
+    "subs": [
+      [
+        "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+        "    /* pr not restored */"
+      ]
+    ]
+  },
+  {
+    "name": "null_pointer_check_inverted",
+    "subs": [
+      [
+        "    set_t(s, R(14) == 0);\n    if (R(17) & 1u) {",
+        "    set_t(s, R(14) != 0);\n    if (R(17) & 1u) {"
+      ]
+    ]
+  },
+  {
+    "name": "field_48_check_inverted",
+    "subs": [
+      [
+        "    set_t(s, R(2) == 0);\n    if ((R(17) & 1u) == 0) {",
+        "    set_t(s, R(2) != 0);\n    if ((R(17) & 1u) == 0) {"
+      ]
+    ]
+  },
+  {
+    "name": "field_4c_check_wrong_value",
+    "subs": [
+      [
+        "    set_t(s, R(0) == 0x00000002u);",
+        "    set_t(s, R(0) == 0x00000003u);"
+      ]
+    ]
+  },
+  {
+    "name": "field_48_not_cleared_on_normal_path",
+    "subs": [
+      [
+        "    R(3) = 0x00000000u;\n    vf3_mem_set_u16(ram, R(14) + R(0), (uint16_t)R(3));",
+        "    /* field_48 not cleared */"
+      ]
+    ]
+  },
+  {
+    "name": "stack_pointer_not_restored",
+    "subs": [
+      [
+        "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;\n    R(14) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+        "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;\n    R(14) = vf3_mem_u32(ram, R(15));\n    /* R(15) += 4u;  // sp not fully restored */"
+      ]
+    ]
+  },
+  {
+    "name": "wrong_return_address",
+    "subs": [
+      [
+        "    s->pc = R(16);",
+        "    s->pc = R(15);"
+      ]
+    ]
+  },
+  {
+    "name": "tail_call_target_wrong",
+    "subs": [
+      [
+        "        uint32_t target = 0x0c035a4eu;",
+        "        uint32_t target = 0x0c035a4cu;"
+      ]
+    ]
+  },
+  {
+    "name": "tail_call_return_address_wrong",
+    "subs": [
+      [
+        "        uint32_t ret_addr = 0x0c0355beu;",
+        "        uint32_t ret_addr = 0x0c0355bcu;"
+      ]
+    ]
+  }
+]

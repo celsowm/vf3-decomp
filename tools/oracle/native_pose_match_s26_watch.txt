@@ -1,0 +1,9 @@
+# Akira/Jacky natural pose-chain capture from saved state 26.
+pc 0x8c096174
+pc 0x8c0a94d0
+pc 0x8c09d670
+pc 0x8c09d6e0
+pc 0x8c09f432
+pc 0x8c091438
+pc 0x8c0ad1b8
+pc 0x8c0ae0ec

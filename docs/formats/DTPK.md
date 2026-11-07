@@ -14,8 +14,9 @@ COIN/ANAUNCE packages in VF3tb.
 0x14 u32  ~0x00014D11 (format version constant)
 0x18 u32  0x00200000 (bus/DMA size constant)
 0x1C u32  0
-0x20..    16 x u32 section-offset directory; slots sorted; unused = 0;
-          first used slot always equals 0x60 (end of the directory)
+0x20..    16 x u32 section-offset directory; nonzero slots sorted (zero
+          holes are allowed); first nonzero slot always equals 0x60
+          (end of the directory)
 ```
 Sections run from each directory offset to the next offset; the final
 section runs to EOF.
@@ -40,7 +41,8 @@ per byte: low nibble FIRST, then high nibble
   quant  = clamp(quant * TableQuant[nib&7] >> 8, 0x7F, 0x6000)
   TableQuant = [230,230,230,230,307,409,512,614]  (0.8984|1.1992|1.6|2.0|2.4)
 ```
-Tools: `tools/dtpk_extract.py`, `tools/adpcm_decode.py`, `tools/dump_audio.py`,
+Container inspection: `tools/dtpk_peek.py`. Payload tools:
+`tools/dtpk_extract.py`, `tools/adpcm_decode.py`, `tools/dump_audio.py`,
 waveform preview in `tools/wave_png.py`.
 
 Validation: decoded `VO_AKI` WAV shows two clean voice phrases

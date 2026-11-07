@@ -1,9 +1,9 @@
 # Boot and action capture
 
 This scenario diversifies the fight-state inputs with a clean boot, several
-menu-confirm pulses, and a varied 1P action sequence. The checked-in input
-recipe is `tools/vf3_play_boot_mix.txt`; the capture watches the existing
-Campaign A/B PC list in `tools/watch/vf3_ab_reg.txt`.
+menu-confirm pulses, and a varied action-mask sequence intended for 1P play.
+The checked-in input recipe is `tools/vf3_play_boot_mix.txt`; the capture
+watches the existing Campaign A/B PC list in `tools/watch/vf3_ab_reg.txt`.
 
 Reproduce with the local retail image and a 4,800-frame cap:
 
@@ -49,3 +49,15 @@ window captures stack effects only; these records do not bound object or
 global writes. The three broad cases remain helper-heavy and need targeted
 data-window capture before they are useful for a counted port. No coverage
 credit is added by this capture.
+
+## Control-path follow-up (2026-11-06)
+
+The `boot_mix` timeline was later replayed through
+`tools/front_to_fight_capture.py --input-script`, which saved checkpoints
+every 300 frames. A 90-frame instruction scan of all 15 states checked both
+RAM mirrors and found fight workers and MT evaluation, but no controller
+merge (`0x0C09AF6C`), selected-port reader (`0x0C09B006`), or action update
+(`0x0C0AD1B8`). The register-only
+campaign shows which watched routines ran, but it does not prove that this
+timeline entered a player-controlled round or that its action masks were
+consumed. Capture and scan details are in `docs/re/front_to_fight.md`.

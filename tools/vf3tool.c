@@ -72,9 +72,9 @@ int main(int argc, char **argv)
         if (!d) { perror(argv[2]); return 2; }
         PolHeader h;
         if (pol_header(d, (uint32_t)len, &h)) { printf("(bad hdr)\n"); return 3; }
-        printf("hdr build=0x%08X sig=0x%08X parts=%u/%u tbl=0x%X span=0x%X\n",
-               h.build_stamp, h.sig, h.parts_lo, h.parts_hi,
-               h.table_base, h.table_span);
+        printf("hdr build=0x%08X sig=0x%08X slots=%u textures=%u slot_tbl=0x%X model_blk=0x%X\n",
+               h.build_stamp, h.sig, h.slot_count, h.texture_count,
+               h.slot_table_offset, h.model_block_offset);
         int n = pol_scan_floats(d, (uint32_t)len, 64, cb_pol, NULL);
         printf("blocks=%d\n", n);
         free(d);

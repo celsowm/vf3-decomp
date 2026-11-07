@@ -54,7 +54,7 @@ The value is the same in the image and in the RAM the guest runs on - the slot
 is not patched at runtime:
 
 ```
-$ python -c "..."   # build/boot_long.ram, the port's own boot
+$ python tools/ram_read.py build/boot_long.ram --base 0x0C000000 0x0C046E50 0x0C04C9A2
 0C046E50 = 0C04C9A2
 0C04C9A2 = 2FD62FE6      (mov.l r13,@-r15 / mov.l r14,@-r15 - the callee's prologue)
 ```

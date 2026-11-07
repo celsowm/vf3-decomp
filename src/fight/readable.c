@@ -58,6 +58,10 @@ int vf3_matrix_translate_by_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_rotate_sc_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_scale_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_invert_rigid_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_pointer_chase_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_state_checker_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_motion_state_check_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_motion_state_exec_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_store_keep_translation_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_axis_extract_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_xform_vector_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -487,6 +491,14 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(1)|B(2)|B(3)|B(15)|B(16) },
     { 0x0c035238u, "loader_dispatch_5238", vf3_loader_dispatch_5238_entry,
       B(0)|B(1)|B(2)|B(3)|B(15)|B(16) },
+    { 0x0c035264u, "pointer_chase", vf3_pointer_chase_entry,
+      B(0) | B(3) },
+    { 0x0c0355a0u, "state_checker", vf3_state_checker_entry,
+      B(0) | B(2) | B(3) | B(4) | B(14) | B(15) | B(16) | B(17) },
+    { 0x0c0355cau, "motion_state_check", vf3_motion_state_check_entry,
+      B(0) | B(3) | B(17) },
+    { 0x0c0357bcu, "motion_state_exec", vf3_motion_state_exec_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(7)|B(17) },
     { 0x0c062e8eu, "cache_wb_stub", vf3_cache_wb_stub_entry,
       B(0)|B(4)|B(15)|B(16) },
     { 0x0c0432deu, "gd_status_wrapper", vf3_gd_status_wrapper_entry,

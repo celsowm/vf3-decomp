@@ -454,9 +454,54 @@ int vf3_aica_arm_release(vf3_aica_arm *a, uint32_t max_cycles)
     return vf3_aica_arm_word(a, AICA_INIT_OFFSET) == AICA_INIT_MAGIC;
 }
 
+/* TEMP probe: dump the 16 sequencer stream records (0xcc50 + i*0x30) each
+ * sample in a window, only when a field changes, to locate which field drives
+ * the melody key-ons.  Env: VF3_STREAMLOG=path VF3_STREAMLO= VF3_STREAMHI=. */
+static void stream_probe(vf3_aica_arm *a)
+{
+    static FILE *f;
+    static uint32_t lo, hi;
+    static int init;
+    static uint8_t prev[16 * 0x30];
+    static uint8_t have;
+    if (!init) {
+        const char *p = getenv("VF3_STREAMLOG");
+        init = 1;
+        if (!p) return;
+        lo = (uint32_t)strtoul(getenv("VF3_STREAMLO") ? getenv("VF3_STREAMLO") : "0", NULL, 0);
+        hi = (uint32_t)strtoul(getenv("VF3_STREAMHI") ? getenv("VF3_STREAMHI") : "0", NULL, 0);
+        f = fopen(p, "w");
+        if (f) fprintf(stderr, "[stream] %s %u..%u\n", p, lo, hi);
+    }
+    if (!f || a->samples < lo || a->samples > hi) return;
+    {
+        unsigned i;
+        for (i = 0; i < 16; ++i) {
+            uint32_t base = 0xcc50u + i * 0x30u;
+            uint8_t cur[0x30];
+            unsigned j;
+            memcpy(cur, a->model->ram + base, sizeof cur);
+            if (!have || memcmp(cur, prev + i * 0x30, sizeof cur) != 0) {
+                if (have || 1) {
+                    fprintf(f, "%u s%02u", a->samples, i);
+                    for (j = 0; j < 0x28; j += 4) {
+                        uint32_t w;
+                        memcpy(&w, cur + j, 4);
+                        fprintf(f, " %02x:%08x", j, w);
+                    }
+                    fprintf(f, " | st=%02x fl=%02x\n", cur[0], cur[1]);
+                }
+                memcpy(prev + i * 0x30, cur, sizeof cur);
+            }
+        }
+        have = 1;
+    }
+}
+
 void vf3_aica_arm_sample(vf3_aica_arm *a, int16_t *right, int16_t *left)
 {
     if (a->running) vf3_arm7_run(&a->cpu, AICA_ARM_CYCLES_PER_SAMPLE);
+    stream_probe(a);
     timers_step(a);
     reg_set_word(a, AICA_REG_SCIPD,
                  reg_word(a, AICA_REG_SCIPD) | AICA_IRQ_SAMPLE);

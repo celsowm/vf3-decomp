@@ -1,16 +1,8 @@
-/* render/dl.c — display-list assembly layer (M38).
- *
- * Composites the solved asset formats (POL header+float blocks,
- * pol_scan/pol.h; TEX twiddle) into a per-part draw record stream that a
- * KAMUI back-end would emit to the PVR TA FIFO. The PVR submit side
- * itself stays hardware-shaped (render sequences through the KAMUI2
- * pipeline; kamui2 modules attributed in M30).
- *
- * Verification: tests/dl_replay.c parses REAL POL fixtures from
- * extract/gamedata (`_te`-tagged packs) and asserts structural
- * invariants (parts count, triple ranges, table bounds).
- */
+/* POL asset inspection summary. This does not yet decode POL object chains or
+ * assemble meshes; pol_scan_floats is retained as a geometry reconnaissance
+ * helper while the native renderer is being built. */
 #include <stdint.h>
+#include <string.h>
 
 #include "../media/pol.h"
 
@@ -25,7 +17,7 @@ typedef struct VF3_DrawPart_ {
 
 typedef struct {
     PolHeader hdr;
-    uint32_t  n_parts;
+    uint32_t  n_slots;
 } VF3_DlScene;
 
 typedef struct {
@@ -51,7 +43,7 @@ static void bbox_cb(uint32_t off, uint32_t triples, void *ctx)
                          ((uint32_t)c->data[at + k * 4 + 1] << 8) |
                          ((uint32_t)c->data[at + k * 4 + 2] << 16) |
                          ((uint32_t)c->data[at + k * 4 + 3] << 24);
-            v[k] = *(float *)&u;
+            memcpy(&v[k], &u, sizeof v[k]);
         }
         if (p->triples == 0 && i == 0) {
             for (int k = 0; k < 3; k++) {
@@ -70,24 +62,23 @@ static void bbox_cb(uint32_t off, uint32_t triples, void *ctx)
     }
 }
 
-/* Parse a POL stream into a scene summary (bounds-checked). */
+/* Parse valid POL slot/texture tables and report candidate float blocks. */
 int vf3_dl_from_pol(const void *data, uint32_t size, VF3_DlScene *out,
                     uint32_t *vtx_triples_total)
 {
+    uint32_t slot_count = 0, texture_count = 0;
     if (!data || !out)
         return -1;
     if (pol_header(data, size, &out->hdr) != 0)
         return -2;
-    /* parts_lo/hi are two independent counters (M60: GEN_DMY5 lo=11 hi=41);
-     * the old lo+(hi<<16) sum (=2686987) is wrong. n_parts = lo (draw parts),
-     * hi = secondary (chain/collision rows). Bound both against file size. */
-    if (out->hdr.parts_lo == 0 || out->hdr.parts_lo > 256)
+    if (out->hdr.slot_count == 0 || out->hdr.slot_count > 256)
         return -3;
-    if (out->hdr.table_base != 0x30)
+    if (pol_slots(data, size, NULL, 0, &slot_count) != -2 ||
+        pol_textures(data, size, NULL, 0, &texture_count) != -2 ||
+        slot_count != out->hdr.slot_count ||
+        texture_count != out->hdr.texture_count)
         return -4;
-    if (out->hdr.table_base + out->hdr.table_span > size)
-        return -5;
-    out->n_parts = out->hdr.parts_lo;
+    out->n_slots = slot_count;
     VF3_DrawPart acc = {0};
     BboxCtx cx = {(const uint8_t *)data, size, &acc};
     pol_scan_floats(data, size, 4, bbox_cb, &cx);   /* returns block count */

@@ -15,8 +15,17 @@ from vf3_6; catcher = fn reading 8880-slot table then scattering 64-B probes.
 
 `ST*.CLI` = `ST*_COLI.BIN` collision (`build_manifest_notes.md:11-23`),
 `MOTHEAD.BIN` 168391 B, magic `18000000…` (INVENTORY). `gdfs_table.h:68`
-indexes them. Next: `tools/cli_scan.py` (mirror pol_scan float-block scan
-for collision tris) + model/animation linkage doc joining MT slot census.
+indexes them. `tools/mothead_inspect.py` identifies a candidate 2,959-row
+u32 offset prefix with 2,644 unique record offsets; its boundary remains a
+structural heuristic and no record field has action/motion semantics yet.
+See `docs/re/mothead.md`. `tools/cli_scan.py` reports bounded xyz-like float
+runs and their ranges across `.CLI` files; with `--min-triples 300
+--max-abs 64`, every stage has one long candidate run beginning 12 or 16 bytes
+after the offset stored in header dword `+8`. Candidate counts range from
+5,680 to 10,870 triples.
+This is only a structural scan: it does not identify triangle boundaries,
+collision classes, or the stage floor. The `.CLI` reader and model/animation
+linkage joining the MT slot census remain open.
 
 ## CFG splitter (M68)
 

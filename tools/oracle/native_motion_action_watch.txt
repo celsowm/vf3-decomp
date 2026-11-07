@@ -1,0 +1,2 @@
+# Raw guest PC for the motion-update path observed in the natural replay.
+pc 0x0c0ad1b8

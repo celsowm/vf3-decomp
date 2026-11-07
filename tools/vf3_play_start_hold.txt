@@ -1,0 +1,18 @@
+# Hold Start across the boot-time prompt, then tap A through the front end.
+# This is a navigation probe; it does not assert that a 1P round is reached.
+0 KEYF 0x8
+900 KEYF 0x0
+1200 KEYF 0x4
+1215 KEYF 0x0
+1380 KEYF 0x4
+1395 KEYF 0x0
+1560 KEYF 0x4
+1575 KEYF 0x0
+1740 KEYF 0x4
+1755 KEYF 0x0
+1920 KEYF 0x4
+1935 KEYF 0x0
+2100 KEYF 0x4
+2115 KEYF 0x0
+2280 KEYF 0x4
+2295 KEYF 0x0

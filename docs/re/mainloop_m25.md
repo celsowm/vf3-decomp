@@ -71,7 +71,7 @@ per frame:
   mainloop.c dispatch step (f_8c034864): handler(payload,&frame[2]) vtable
     call, result classes 0/1/4/5/6/7/default (mainloop_replay PASS)
   mt_play.c: per-frame tuple pull, parts cycle (part_counter&7), 63 channels
-    -> 21 vec3, z-negate pass (mt_vm_interp PASS)
+    -> 21 vec3, two-run sign-flip pass (mt_vm_interp PASS)
   geometry vec3 pipeline: orient2/poly_classify/vecpush idiom (all PASS)
   frameseq (0x8C0C2B80, frameseq_replay 8/8): pr push + frame-counter bump
     + tail-jmp boundary; six scene-step jsr/bsr are chain-owned (scope cut)

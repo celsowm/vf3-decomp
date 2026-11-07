@@ -1,0 +1,3 @@
+# Raw guest PCs for the sampler's pose-apply and matrix-build stages.
+0x0c09f432
+0x0c091438
