@@ -193,6 +193,8 @@ int vf3_segment_delta_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_point_wrap_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pose_post_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_pose_turns_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_float_scale_a_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_float_scale_b_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_basis_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_axis_angle_matrix_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_ring_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -533,6 +535,12 @@ const vf3_readable_entry vf3_readable_table[] = {
     { 0x0c09f500u, "pose_turns", vf3_pose_turns_entry,
       B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(8)|B(9)|B(10)|B(11)|B(12)|
       B(13)|B(14)|B(15)|B(16)|B(17)|B(53)|FR(3)|FR(4)|FR(5)|FR(6) },
+    /* the unsigned-32-to-float scale the fight tick runs on its channel
+     * values: value -> float, fold the sign bit with 2^32, scale by 1.28 */
+    { 0x0c039c50u, "float_scale", vf3_float_scale_a_entry,
+      B(0)|B(2)|B(3)|B(17)|B(53)|FR(2)|FR(3) },
+    { 0x0c039c70u, "float_scale_b", vf3_float_scale_b_entry,
+      B(0)|B(2)|B(3)|B(17)|B(53)|FR(2)|FR(3) },
     { 0x0c092b4au, "segment_delta", vf3_segment_delta_entry,
       B(0)|B(17) },
     { 0x0c0927e6u, "record_sweep", vf3_record_sweep_entry,
