@@ -1125,6 +1125,29 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   a leaf inside `f_8c03746a`'s already-ported body, so the row (size 80) adds
   **0** address-union bytes; there is no corpus for the entry itself, so the
   chain is only readable == generated (no oracle leg).  docs/re/vmu_cmd_name.md.
+- Float division / reciprocal helper (0x8C0533A4) ported readable:
+  `src/fight/readable/fdiv.c`, proved against the retained generated
+  translation by `tests/fdiv_replay.c` (9 differential cases over every branch
+  - infinity, NaN, zero, two denormals and three normals, one of them the
+  corpus' own `0xc0000000`) and by the mutation gate (15/15 caught).  The
+  input's bits arrive in fr0 and travel through a transient stack slot into r0;
+  the body reads the exponent byte of `2*r0`, decides between infinity
+  (`0xff`, zero mantissa), NaN (`0xff`, non-zero mantissa), zero/denormal
+  (`0x00`) and the ordinary path, and folds the answer through one shared
+  carry-rotate pack into a two-word cell the caller leaves at sp+16 (**r3** in
+  `cell[0]`, **r0** in `cell[1]`), restoring `r3 r2 r1 r0` from the stack and
+  ending at sp+20.  Two details the port has to keep: the denormal normaliser's
+  loop back-edge returns to the *decrement*, not to the leading shift (the
+  first version looped back to the shift and the differential caught it on the
+  smallest denormal); and `r1 & 0xff` is an identity - `r1` is already the top
+  byte, so removing the mask is unobservable and is not in the mutation list.
+  The body is off-baseline (the inventory jumps `f_8c0532ca` to `f_8c0535a2`),
+  so the row (size 116) adds **116** address-union bytes.  The generated
+  translation still serves the entry and replays all four of its corpora (269
+  cases), and the readable port is byte-for-byte that translation, so the
+  chain readable == generated == oracle closes transitively; there is no
+  direct per-entry `.cases` run of the readable port itself.
+  docs/re/fdiv.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
