@@ -756,9 +756,13 @@ python tools/native_motion_corpus_audit.py `
 6. **Native presentation and sound (in progress):** render both fighter
    packages and both ST01 stage layers. Movement, guard, punch, kick, and throw
    inputs are mapped to keyboard and gamepad. The offline DTPK reader now
-   validates all 69 packed containers and section ranges, but sequence
-   playback, voice selection and fight effects are not connected. Add the
-   native sequence/sample path after pose playback; keep VFA as the only
+   validates all 69 packed containers and section ranges. The native host now
+   decodes candidate sample 1 from the Akira and Jacky VO packs and queues the
+   attacker's voice when the blockout records a hit or blocked contact. This
+   is the first audible contact cue sourced from VFA; both the span hypothesis
+   and voice-to-event mapping remain provisional because DTPK sequence and
+   event tables are still unmapped.
+   Sequenced BGM and fighter sound effects are still open. Keep VFA as the only
    runtime data source. Part transforms and motion data are needed before the
    scene is visually playable.
 
@@ -801,7 +805,7 @@ stalls or runs at a different rate; fighter positions interpolate between
 those ticks. It starts in the fixed Akira-versus-Jacky match, and its current
 blockout round/rematch loop passes a seeded native C gate. Those combat values
 are not yet reconstructed from VF3 evidence. Motion playback, recovered fight
-rules, audible DTPK playback, and a full user-played best-of-three/rematch
+rules, sequenced DTPK music and effects, and a full user-played best-of-three/rematch
 acceptance run are still required before calling it playable. `vf3sdl` and
 the other guest-based tools remain offline research tools; they are not part
 of `vf3port`.

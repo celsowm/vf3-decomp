@@ -2,6 +2,7 @@
  * input, presentation, and the frame clock directly through SDL3. */
 #include <SDL3/SDL.h>
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +13,7 @@
 #include "pol.h"
 #include "pose_data.h"
 #include "pvr_texture.h"
+#include "voice_sample.h"
 
 #define WIDTH 960
 #define HEIGHT 540
@@ -23,6 +25,94 @@ static SDL_JoystickID g_gamepad_id;
 static uint8_t g_keys[SDL_SCANCODE_COUNT];
 static uint8_t g_rematch_was_down;
 static char g_asset_path[600];
+
+typedef struct {
+    SDL_AudioStream *stream;
+    int16_t *akira;
+    size_t akira_count;
+    int16_t *jacky;
+    size_t jacky_count;
+} native_audio;
+
+static int load_voice_sample(vf3_asset_pack *pack, const char *name,
+                             int16_t **pcm, size_t *sample_count)
+{
+    size_t package_size = 0;
+    uint8_t *package;
+    int result;
+
+    if (vf3_asset_pack_read(pack, name, NULL, 0, &package_size) != -2 ||
+        !package_size || package_size > UINT32_MAX)
+        return -1;
+    package = (uint8_t *)malloc(package_size);
+    if (!package)
+        return -1;
+    if (vf3_asset_pack_read(pack, name, package, package_size, NULL) != 0) {
+        free(package);
+        return -1;
+    }
+    result = vf3_native_voice_decode_sample(package, (uint32_t)package_size,
+                                            1u, pcm, sample_count);
+    free(package);
+    return result;
+}
+
+static void native_audio_init(native_audio *audio, vf3_asset_pack *pack)
+{
+    SDL_AudioSpec spec = { .format = SDL_AUDIO_S16, .channels = 1, .freq = 22050 };
+
+    if (!audio)
+        return;
+    memset(audio, 0, sizeof *audio);
+    if (load_voice_sample(pack, "VO_AKI.BIN", &audio->akira,
+                          &audio->akira_count) != 0)
+        fprintf(stderr, "vf3port: cannot decode Akira VO sample 1\n");
+    if (load_voice_sample(pack, "VO_JAC.BIN", &audio->jacky,
+                          &audio->jacky_count) != 0)
+        fprintf(stderr, "vf3port: cannot decode Jacky VO sample 1\n");
+    if (!SDL_InitSubSystem(SDL_INIT_AUDIO)) {
+        fprintf(stderr, "vf3port: audio subsystem unavailable: %s\n", SDL_GetError());
+        return;
+    }
+    audio->stream = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK,
+                                               &spec, NULL, NULL);
+    if (!audio->stream) {
+        fprintf(stderr, "vf3port: audio output unavailable: %s\n", SDL_GetError());
+        return;
+    }
+    SDL_ResumeAudioStreamDevice(audio->stream);
+}
+
+static void native_audio_contact(native_audio *audio, uint8_t speaker_kind)
+{
+    const int16_t *pcm;
+    size_t samples;
+    if (!audio || !audio->stream)
+        return;
+    if (speaker_kind == 0u) {
+        pcm = audio->akira;
+        samples = audio->akira_count;
+    } else if (speaker_kind == 7u) {
+        pcm = audio->jacky;
+        samples = audio->jacky_count;
+    } else {
+        return;
+    }
+    if (!pcm || !samples || samples > (size_t)INT_MAX / sizeof *pcm)
+        return;
+    SDL_PutAudioStreamData(audio->stream, pcm, (int)(samples * sizeof *pcm));
+}
+
+static void native_audio_close(native_audio *audio)
+{
+    if (!audio)
+        return;
+    if (audio->stream)
+        SDL_DestroyAudioStream(audio->stream);
+    free(audio->akira);
+    free(audio->jacky);
+    memset(audio, 0, sizeof *audio);
+}
 
 static vf3_fighter_view *fighter_view_for_kind(
     vf3_fighter_view views[4], const vf3_native_fighter *fighter)
@@ -367,6 +457,7 @@ int main(int argc, char **argv)
     vf3_fighter_view fighter_views[4] = {{0}};
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
+    native_audio audio = {0};
     vf3_native_fight fight;
     int result = 1;
 
@@ -381,6 +472,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "vf3port: SDL init failed: %s\n", SDL_GetError());
         goto done;
     }
+    native_audio_init(&audio, &pack);
     window = SDL_CreateWindow("VF3tb Native C Port", WIDTH, HEIGHT,
                               SDL_WINDOW_RESIZABLE);
     if (!window) {
@@ -465,6 +557,8 @@ int main(int argc, char **argv)
             previous_player = fight.player;
             previous_cpu = fight.cpu;
             vf3_native_fight_step(&fight, tick_input);
+            if (fight.sound_event)
+                native_audio_contact(&audio, fight.sound_speaker_kind);
             tick_accumulator -= clock_frequency;
         }
         vf3_native_fighter render_player = fight.player;
@@ -519,6 +613,7 @@ int main(int argc, char **argv)
     }
     result = 0;
 done_sdl:
+    native_audio_close(&audio);
     if (g_gamepad) SDL_CloseGamepad(g_gamepad);
     vf3_fighter_view_free(&fighter_views[3]);
     vf3_fighter_view_free(&fighter_views[2]);

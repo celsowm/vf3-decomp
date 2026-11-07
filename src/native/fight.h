@@ -46,6 +46,7 @@ typedef struct {
     unsigned start_down;
     unsigned rematch_down;
     unsigned sound_event;    /* 1 hit, 2 blocked; audio playback pending */
+    uint8_t sound_speaker_kind; /* fighter kind that made the last contact */
 } vf3_native_fight;
 
 enum {

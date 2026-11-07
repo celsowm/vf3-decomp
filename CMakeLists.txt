@@ -6681,6 +6681,9 @@ add_library(vf3nativegame STATIC
     src/native/motion.c
     src/native/pose_blend.c
     src/native/pose_data.c
+    src/native/voice_sample.c
+    src/media/aica_adpcm.c
+    src/media/dtpk.c
     src/media/mt.c
     src/media/pol.c
     src/media/pol_mesh.c

@@ -118,6 +118,7 @@ static void resolve_hit(vf3_native_fight *fight,
         defender->guarding = 0;
     }
     fight->sound_event = blocked ? 2u : 1u;
+    fight->sound_speaker_kind = attacker->fighter_kind;
     if (!defender->health) {
         fight->phase = VF3_NATIVE_ROUND_END;
         fight->phase_frames = 0;
