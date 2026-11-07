@@ -6679,6 +6679,7 @@ add_library(vf3nativegame STATIC
     src/native/collision.c
     src/native/matrix.c
     src/native/motion.c
+    src/native/pose_blend.c
     src/native/pose_data.c
     src/media/mt.c
     src/media/pol.c

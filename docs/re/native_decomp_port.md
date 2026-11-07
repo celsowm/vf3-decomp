@@ -840,6 +840,13 @@ step `aim_frame_b` invokes before its final attachment composition. Its input
 is ordinary native data; the full builder still needs the actor fields and
 output mapping that feed it.
 
+`src/native/pose_blend.c` ports the recovered `0x8C091DE6` pose blend over two
+26-halfword poses. It advances the blend weight, caps it at 1.0, converts it to
+Q14 with truncation toward zero, and preserves the guest's 32-bit multiply/add,
+arithmetic shift, and low-halfword store behavior. This is a reusable native
+pose operation; its action-record inputs still need to be connected to the
+motion and attachment pipeline.
+
 `src/native/collision.c` adds the finite segment-capsule geometry used by the
 readable `hitbox_overlap` scan, including per-capsule hit masks and nearest
 surface gap. `tools/native_collision_tables.py` extracts the retail 13-entry
