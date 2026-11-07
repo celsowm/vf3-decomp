@@ -335,6 +335,17 @@ built by the default port workflow.
    motion evaluation and the separate bone-matrix builder. It does not prove
    how the evaluator's 63 values map to that stage or to POL parts.
 
+   The wrapper that closes this stage is readable C as well:
+   `src/fight/pose_post.c` implements `0x8C09F432` and its quantiser
+   `0x8C09F500` - five point clamps around two quantisations of the channel
+   block. It reads the actor's band words at `+0x3E`, `+0x1FB0`, `+0x1FAC`
+   and `+0x1A00`, the kind byte at `+0x61` and the literal pool at run time,
+   and writes the two destination triples at `+0x233C` / `+0x2342`. The port
+   is proved against the retained generated translation (55 differential
+   cases) and against the four-case s29 corpus (`4/4`, including runs that
+   serve only the wrapper and only the quantiser). See
+   `docs/re/pose_post.md`.
+
    `tools/mt_pose_capture_compare.py --pose-fields` now reports those two
    42-field spans and their per-index FTRC agreement for a selected case or a
    corpus summary. Reproduce the captured result with:

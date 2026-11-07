@@ -191,6 +191,8 @@ int vf3_steer_flags_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_sweep_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_segment_delta_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_point_wrap_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_pose_post_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_pose_turns_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_matrix_basis_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_axis_angle_matrix_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_ring_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -523,6 +525,14 @@ const vf3_readable_entry vf3_readable_table[] = {
       B(0)|B(17)|B(21)|B(22)|B(23)|B(24)|B(28)|B(37)|B(38)|B(39)|B(40)|B(41)|B(42)|B(43)|B(44)|B(45)|B(46)|B(47)|B(48)|B(49)|B(50)|B(51)|B(52) },
     { 0x0c09f5f8u, "point_wrap", vf3_point_wrap_entry,
       B(0)|B(17)|B(21)|B(22)|B(23)|B(24)|B(31)|B(32) },
+    /* the pose postprocessor: five point clamps around two quantisations */
+    { 0x0c09f432u, "pose_post", vf3_pose_post_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(14)|B(15)|B(16)|B(17)|
+      FR(0)|FR(1)|FR(2)|FR(3)|FR(4)|FR(5)|FR(6)|FR(7)|FR(8)|FR(9)|FR(10)|FR(11) },
+    /* the three-angle quantiser the postprocessor runs twice */
+    { 0x0c09f500u, "pose_turns", vf3_pose_turns_entry,
+      B(0)|B(1)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(8)|B(9)|B(10)|B(11)|B(12)|
+      B(13)|B(14)|B(15)|B(16)|B(17)|B(53)|FR(3)|FR(4)|FR(5)|FR(6) },
     { 0x0c092b4au, "segment_delta", vf3_segment_delta_entry,
       B(0)|B(17) },
     { 0x0c0927e6u, "record_sweep", vf3_record_sweep_entry,

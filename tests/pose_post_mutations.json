@@ -1,0 +1,556 @@
+[
+ {
+  "name": "the_first_point_is_not_the_pools_first_halfword",
+  "subs": [
+   ["#define POOL_OFF_FIRST   0x0c09f4e6u", "#define POOL_OFF_FIRST   0x0c09f4e8u"]
+  ]
+ },
+ {
+  "name": "the_first_destination_is_not_the_pools_second_halfword",
+  "subs": [
+   ["#define POOL_DEST_FIRST  0x0c09f4e8u", "#define POOL_DEST_FIRST  0x0c09f4eau"]
+  ]
+ },
+ {
+  "name": "the_second_destination_is_not_the_pools_third_halfword",
+  "subs": [
+   ["#define POOL_DEST_SECOND 0x0c09f4eau", "#define POOL_DEST_SECOND 0x0c09f4e8u"]
+  ]
+ },
+ {
+  "name": "the_frames_first_float_is_not_the_pools_16k",
+  "subs": [
+   ["#define POOL_F_16K       0x0c09f4ecu", "#define POOL_F_16K       0x0c09f4f8u"]
+  ]
+ },
+ {
+  "name": "the_frames_second_float_is_not_the_pools_minus_32k",
+  "subs": [
+   ["#define POOL_F_M32K      0x0c09f4f4u", "#define POOL_F_M32K      0x0c09f6ccu"]
+  ]
+ },
+ {
+  "name": "the_clamps_reflection_threshold_is_not_the_pools_24k",
+  "subs": [
+   ["#define POOL_F_24K       0x0c09f4f8u", "#define POOL_F_24K       0x0c09f4ecu"]
+  ]
+ },
+ {
+  "name": "the_clamps_period_is_not_the_pools_64k",
+  "subs": [
+   ["#define POOL_F_64K       0x0c09f4fcu", "#define POOL_F_64K       0x0c09f4f0u"]
+  ]
+ },
+ {
+  "name": "the_clamps_period_is_a_baked_literal",
+  "subs": [
+   ["    vf3_matrix_load(s, ram, 15, R(0));             /* fr15 = 32768.0 */",
+    "    F(15) = 0x47400000u;                          /* fr15 = 49152.0 */"]
+  ]
+ },
+ {
+  "name": "the_actor_is_saved_in_r14_four_bytes_high",
+  "subs": [
+   ["    R(14) = R(4);", "    R(14) = R(4) + 4u;"]
+  ]
+ },
+ {
+  "name": "the_float_save_of_fr14_saves_fr13",
+  "subs": [
+   ["    vf3_matrix_store(s, ram, 14, R(15));", "    vf3_matrix_store(s, ram, 13, R(15));"]
+  ]
+ },
+ {
+  "name": "the_wrapper_saves_the_actor_as_pr",
+  "subs": [
+   ["    w32(ram, R(15), R(16));", "    w32(ram, R(15), R(14));"]
+  ]
+ },
+ {
+  "name": "the_wrappers_frame_is_four_bytes_too_big",
+  "subs": [
+   ["    R(15) -= WRAP_FRAME;", "    R(15) -= WRAP_FRAME + 4u;"]
+  ]
+ },
+ {
+  "name": "the_frames_second_float_is_stored_at_the_wrong_offset",
+  "subs": [
+   ["    vf3_matrix_store(s, ram, 3, R(15) + R(0));     /* the frame's +4 */",
+    "    vf3_matrix_store(s, ram, 3, R(15) + 8u);       /* the frame's +4 */"]
+  ]
+ },
+ {
+  "name": "the_first_point_is_the_pools_first_destination",
+  "subs": [
+   ["    R(4) = pool_half(ram, POOL_OFF_FIRST);",
+    "    R(4) = pool_half(ram, POOL_DEST_FIRST);"]
+  ]
+ },
+ {
+  "name": "the_first_point_is_below_the_actor",
+  "subs": [
+   ["    R(4) += R(14);", "    R(4) -= R(14);"]
+  ]
+ },
+ {
+  "name": "the_third_point_is_not_a_stride_on",
+  "subs": [
+   ["    R(4) += POINT_STRIDE;", "    R(4) += 0x50u;"]
+  ]
+ },
+ {
+  "name": "the_third_points_continuation_is_the_fourth",
+  "subs": [
+   ["#define CONT_POINT_3 0x0c09f496u", "#define CONT_POINT_3 0x0c09f4a8u"]
+  ]
+ },
+ {
+  "name": "the_first_quantisers_continuation_is_the_second",
+  "subs": [
+   ["#define CONT_QUANT_1 0x0c09f4b6u", "#define CONT_QUANT_1 0x0c09f4d6u"]
+  ]
+ },
+ {
+  "name": "the_second_quantisers_continuation_is_the_first",
+  "subs": [
+   ["#define CONT_QUANT_2 0x0c09f4d6u", "#define CONT_QUANT_2 0x0c09f4b6u"]
+  ]
+ },
+ {
+  "name": "the_quantiser_is_called_one_instruction_on",
+  "subs": [
+   ["#define QUANTIZE     0x0c09f500u", "#define QUANTIZE     0x0c09f504u"]
+  ]
+ },
+ {
+  "name": "the_point_clamp_is_called_one_instruction_on",
+  "subs": [
+   ["#define POINT_WRAP   0x0c09f5f8u", "#define POINT_WRAP   0x0c09f5fcu"]
+  ]
+ },
+ {
+  "name": "the_first_quantiser_writes_the_second_destination",
+  "subs": [
+   ["    R(2) = pool_half(ram, POOL_DEST_FIRST);",
+    "    R(2) = pool_half(ram, POOL_DEST_SECOND);"]
+  ]
+ },
+ {
+  "name": "the_destination_is_relative_to_the_return_address",
+  "subs": [
+   ["    R(2) += R(14);", "    R(2) += R(0);"]
+  ]
+ },
+ {
+  "name": "the_destination_is_not_saved_on_the_frames_second_word",
+  "subs": [
+   ["    w32(ram, R(15) + 8u, R(2));", "    w32(ram, R(15) + 4u, R(2));"]
+  ]
+ },
+ {
+  "name": "the_first_quantiser_reads_the_destination_as_the_actor",
+  "subs": [
+   ["    R(4) = R(14);                                  /* the call's delay slot */",
+    "    R(4) = R(2);                                   /* the call's delay slot */"]
+  ]
+ },
+ {
+  "name": "the_destination_pointer_is_two_bytes_on",
+  "subs": [
+   ["    R(6) = R(2);", "    R(6) = R(2) + 2u;"]
+  ]
+ },
+ {
+  "name": "the_first_quantisers_source_is_one_float_on",
+  "subs": [
+   ["    R(5) = R(0);", "    R(5) = R(0) + 4u;"]
+  ]
+ },
+ {
+  "name": "the_wrappers_exit_pc_is_four_bytes_on",
+  "subs": [
+   ["    s->pc = R(16);", "    s->pc = R(16) + 4u;"]
+  ]
+ },
+ {
+  "name": "the_wrapper_restores_r14_from_the_wrong_slot",
+  "subs": [
+   ["    R(14) = vf3_mem_u32(ram, R(15)); R(15) += 4u;",
+    "    R(14) = vf3_mem_u32(ram, R(15) + 4u); R(15) += 4u;"]
+  ]
+ },
+ {
+  "name": "the_vectors_y_pointer_is_its_z",
+  "subs": [
+   ["    R(3) += 4u;", "    R(3) += 8u;"]
+  ]
+ },
+ {
+  "name": "the_vectors_z_pointer_is_its_y",
+  "subs": [
+   ["    R(2) += 8u;", "    R(2) += 4u;"]
+  ]
+ },
+ {
+  "name": "the_x_is_read_from_the_vectors_y",
+  "subs": [
+   ["    R(12) = R(5);", "    R(12) = R(5) + 4u;"]
+  ]
+ },
+ {
+  "name": "the_frames_y_pointer_slot_is_the_z_pointer_slot",
+  "subs": [
+   ["    w32(ram, R(15) + 8u, R(3));", "    w32(ram, R(15) + 4u, R(3));"]
+  ]
+ },
+ {
+  "name": "the_frames_z_pointer_slot_is_the_y_pointer_slot",
+  "subs": [
+   ["    w32(ram, R(15) + 4u, R(2));", "    w32(ram, R(15) + 8u, R(2));"]
+  ]
+ },
+ {
+  "name": "the_x_truncation_reads_y",
+  "subs": [
+   ["    R(53) = vf3_fpu_ftrc(F(6));", "    R(53) = vf3_fpu_ftrc(F(4));"]
+  ]
+ },
+ {
+  "name": "the_y_truncation_reads_z",
+  "subs": [
+   ["    R(53) = vf3_fpu_ftrc(F(4));", "    R(53) = vf3_fpu_ftrc(F(5));"]
+  ]
+ },
+ {
+  "name": "the_z_truncation_reads_y",
+  "subs": [
+   ["    R(53) = vf3_fpu_ftrc(F(5));", "    R(53) = vf3_fpu_ftrc(F(4));"]
+  ]
+ },
+ {
+  "name": "the_y_truncation_keeps_the_x_value",
+  "subs": [
+   ["    R(13) = R(53);", "    R(13) = R(7);"]
+  ]
+ },
+ {
+  "name": "the_z_truncation_keeps_the_x_value",
+  "subs": [
+   ["    R(1) = R(53);", "    R(1) = R(7);"]
+  ]
+ },
+ {
+  "name": "the_x_is_not_sign_extended",
+  "subs": [
+   ["    R(7) = (uint32_t)(int32_t)(int16_t)R(7);",
+    "    R(7) = (uint32_t)(uint16_t)R(7);"]
+  ]
+ },
+ {
+  "name": "the_canonicalisation_bound_comes_from_the_low_pool_word",
+  "subs": [
+   ["    R(3) = pool_half(ram, POOL_BAND_HI);", "    R(3) = pool_half(ram, POOL_BAND_LO);"]
+  ]
+ },
+ {
+  "name": "the_canonicalisation_high_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(7) > (int32_t)R(3));",
+    "    set_t(s, (int32_t)R(7) >= (int32_t)R(3));"]
+  ]
+ },
+ {
+  "name": "the_canonicalisation_low_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(7) >= (int32_t)R(0));",
+    "    set_t(s, (int32_t)R(7) > (int32_t)R(0));"]
+  ]
+ },
+ {
+  "name": "the_canonicalised_y_adds_where_it_subtracts",
+  "subs": [
+   ["    R(3) -= R(13);", "    R(3) += R(13);"]
+  ]
+ },
+ {
+  "name": "the_canonicalised_z_subtracts_the_addend",
+  "subs": [
+   ["    R(11) += R(14);", "    R(11) -= R(14);"]
+  ]
+ },
+ {
+  "name": "the_canonicalised_x_subtracts_the_addend",
+  "subs": [
+   ["    R(7) += R(14);", "    R(7) -= R(14);"]
+  ]
+ },
+ {
+  "name": "the_canonicalisation_addend_keeps_its_sign",
+  "subs": [
+   ["    R(14) = pool_word(ram, POOL_CANON_ADD);",
+    "    R(14) = pool_half(ram, POOL_CANON_ADD);"]
+  ]
+ },
+ {
+  "name": "the_band_value_is_not_the_actors_off_3e",
+  "subs": [
+   ["#define ACTOR_FLAGS  0x3eu", "#define ACTOR_FLAGS  0x3cu"]
+  ]
+ },
+ {
+  "name": "the_band_value_keeps_its_sign",
+  "subs": [
+   ["    R(7) &= 0xffffu;\n    R(10) = pool_half(ram, R(4) + R(0));",
+    "    R(7) |= 0u;\n    R(10) = pool_half(ram, R(4) + R(0));"]
+  ]
+ },
+ {
+  "name": "the_band_high_word_is_the_pools_low_word",
+  "subs": [
+   ["    R(0) = pool_half(ram, POOL_ACTOR_HI);", "    R(0) = pool_half(ram, POOL_ACTOR_LO);"]
+  ]
+ },
+ {
+  "name": "the_band_middle_word_is_read_a_word_low",
+  "subs": [
+   ["    R(0) += 0xfffffffcu;                           /* 0x1FAC */",
+    "    R(0) += 0xfffffff8u;                           /* 0x1FAC */"]
+  ]
+ },
+ {
+  "name": "the_band_high_bound_keeps_its_sign",
+  "subs": [
+   ["    R(10) &= 0xffffu;", "    R(10) |= 0u;"]
+  ]
+ },
+ {
+  "name": "the_band_high_bound_is_not_bumped",
+  "subs": [
+   ["    R(10) += 1u;", "    R(10) += 0u;"]
+  ]
+ },
+ {
+  "name": "the_band_middle_bound_is_not_bumped",
+  "subs": [
+   ["    R(8) += 1u;", "    R(8) += 0u;"]
+  ]
+ },
+ {
+  "name": "the_band_low_bound_keeps_its_sign",
+  "subs": [
+   ["    R(11) &= 0xffffu;\n    R(3) = R(11);",
+    "    R(11) |= 0u;\n    R(3) = R(11);"]
+  ]
+ },
+ {
+  "name": "the_band_low_bound_is_not_eight_below",
+  "subs": [
+   ["    R(3) -= 8u;", "    R(3) -= 7u;"]
+  ]
+ },
+ {
+  "name": "the_band_low_bounds_upper_edge_is_not_one_on",
+  "subs": [
+   ["    R(11) += 1u;", "    R(11) += 0u;"]
+  ]
+ },
+ {
+  "name": "the_first_band_edge_is_the_low_one",
+  "subs": [
+   ["    set_t(s, R(7) == R(10));", "    set_t(s, R(7) == R(3));"]
+  ]
+ },
+ {
+  "name": "the_second_band_edge_is_the_high_one",
+  "subs": [
+   ["    set_t(s, R(7) == R(3));", "    set_t(s, R(7) == R(10));"]
+  ]
+ },
+ {
+  "name": "the_inside_band_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(7) > (int32_t)R(10));",
+    "    set_t(s, (int32_t)R(7) >= (int32_t)R(10));"]
+  ]
+ },
+ {
+  "name": "the_middle_band_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(7) >= (int32_t)R(8));",
+    "    set_t(s, (int32_t)R(7) > (int32_t)R(8));"]
+  ]
+ },
+ {
+  "name": "the_far_band_test_is_not_strict",
+  "subs": [
+   ["    R(3) = vf3_mem_u32(ram, R(15));\n    set_t(s, (int32_t)R(7) > (int32_t)R(3));",
+    "    R(3) = vf3_mem_u32(ram, R(15));\n    set_t(s, (int32_t)R(7) >= (int32_t)R(3));"]
+  ]
+ },
+ {
+  "name": "the_lo1_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(7) >= (int32_t)R(11));",
+    "    set_t(s, (int32_t)R(7) > (int32_t)R(11));"]
+  ]
+ },
+ {
+  "name": "the_far_band_reads_the_frame_a_word_high",
+  "subs": [
+   ["    R(3) = vf3_mem_u32(ram, R(15));", "    R(3) = vf3_mem_u32(ram, R(15) + 4u);"]
+  ]
+ },
+ {
+  "name": "the_low_bound_is_stored_instead_of_the_low8",
+  "subs": [
+   ["    w32(ram, R(15), R(3));", "    w32(ram, R(15), R(11));"]
+  ]
+ },
+ {
+  "name": "the_destinations_first_halfword_is_the_z",
+  "subs": [
+   ["    R(0) = R(13);", "    R(0) = R(9);"]
+  ]
+ },
+ {
+  "name": "the_destinations_first_halfword_is_stored_a_byte_high",
+  "subs": [
+   ["    vf3_mem_set_u16(ram, R(6), (uint16_t)R(9));",
+    "    vf3_mem_set_u16(ram, R(6) + 1u, (uint16_t)R(9));"]
+  ]
+ },
+ {
+  "name": "the_destinations_second_halfword_is_the_first_one",
+  "subs": [
+   ["    vf3_mem_set_u16(ram, R(6) + 2u, (uint16_t)R(0));",
+    "    vf3_mem_set_u16(ram, R(6), (uint16_t)R(0));"]
+  ]
+ },
+ {
+  "name": "the_destinations_third_halfword_is_the_second_one",
+  "subs": [
+   ["    vf3_mem_set_u16(ram, R(6) + 4u, (uint16_t)R(0));",
+    "    vf3_mem_set_u16(ram, R(6) + 2u, (uint16_t)R(0));"]
+  ]
+ },
+ {
+  "name": "the_destinations_third_halfword_is_the_y",
+  "subs": [
+   ["    R(0) = R(14);", "    R(0) = R(13);"]
+  ]
+ },
+ {
+  "name": "the_kind_is_not_the_actors_byte_at_61",
+  "subs": [
+   ["#define ACTOR_KIND   0x61u", "#define ACTOR_KIND   0x60u"]
+  ]
+ },
+ {
+  "name": "the_kind_is_compared_against_two",
+  "subs": [
+   ["    set_t(s, R(0) == 3u);", "    set_t(s, R(0) == 2u);"]
+  ]
+ },
+ {
+  "name": "the_negation_takes_the_y",
+  "subs": [
+   ["    R(4) = R(14);", "    R(4) = R(13);"]
+  ]
+ },
+ {
+  "name": "the_negation_does_not_negate",
+  "subs": [
+   ["    R(6) = 0u - R(14);", "    R(6) = R(14);"]
+  ]
+ },
+ {
+  "name": "the_negation_limit_is_the_canonicalisation_bound",
+  "subs": [
+   ["    R(3) = pool_half(ram, POOL_NEG_LIMIT);", "    R(3) = pool_half(ram, POOL_BAND_HI);"]
+  ]
+ },
+ {
+  "name": "the_negation_limit_test_is_not_strict",
+  "subs": [
+   ["    set_t(s, (int32_t)R(4) > (int32_t)R(3));",
+    "    set_t(s, (int32_t)R(4) >= (int32_t)R(3));"]
+  ]
+ },
+ {
+  "name": "the_negated_value_keeps_the_magnitude",
+  "subs": [
+   ["    R(14) = R(6);", "    R(14) = R(4);"]
+  ]
+ },
+ {
+  "name": "the_answer_is_the_vector_plus_eight",
+  "subs": [
+   ["    R(5) += 12u;", "    R(5) += 8u;"]
+  ]
+ },
+ {
+  "name": "the_x_source_float_is_the_band_value",
+  "subs": [
+   ["    R(53) = R(9);", "    R(53) = R(7);"]
+  ]
+ },
+ {
+  "name": "the_y_source_float_is_the_x",
+  "subs": [
+   ["    R(53) = R(13);", "    R(53) = R(9);"]
+  ]
+ },
+ {
+  "name": "the_z_source_float_is_the_y",
+  "subs": [
+   ["    R(53) = R(14);", "    R(53) = R(13);"]
+  ]
+ },
+ {
+  "name": "the_x_source_is_written_a_float_on",
+  "subs": [
+   ["    vf3_matrix_store(s, ram, 3, R(12));",
+    "    vf3_matrix_store(s, ram, 3, R(12) + 4u);"]
+  ]
+ },
+ {
+  "name": "the_y_pointer_slot_is_the_z_pointer_slot",
+  "subs": [
+   ["    R(3) = vf3_mem_u32(ram, R(15) + 8u);",
+    "    R(3) = vf3_mem_u32(ram, R(15) + 4u);"]
+  ]
+ },
+ {
+  "name": "the_z_pointer_slot_is_the_y_pointer_slot",
+  "subs": [
+   ["    R(3) = vf3_mem_u32(ram, R(15) + 4u);",
+    "    R(3) = vf3_mem_u32(ram, R(15) + 8u);"]
+  ]
+ },
+ {
+  "name": "the_quantisers_frame_is_four_bytes_too_big",
+  "subs": [
+   ["    R(15) += QUANT_FRAME;", "    R(15) += QUANT_FRAME + 4u;"]
+  ]
+ },
+ {
+  "name": "the_quantiser_restores_r14_from_beyond_its_saves",
+  "subs": [
+   ["    R(14) = vf3_mem_u32(ram, R(15)); R(15) += w;",
+    "    R(14) = vf3_mem_u32(ram, R(15) + w); R(15) += w;"]
+  ]
+ },
+ {
+  "name": "the_quantiser_saves_the_y_as_the_x",
+  "subs": [
+   ["    w32(ram, R(15), R(14));", "    w32(ram, R(15), R(13));"]
+  ]
+ },
+ {
+  "name": "the_quantiser_restores_r8_into_r9",
+  "subs": [
+   ["    R(8) = vf3_mem_u32(ram, R(15)); R(15) += w;",
+    "    R(9) = vf3_mem_u32(ram, R(15)); R(15) += w;"]
+  ]
+ }
+]

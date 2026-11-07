@@ -121,6 +121,7 @@ add_library(vf3core STATIC
     src/fight/record_sweep.c
     src/fight/segment_delta.c
     src/fight/point_wrap.c
+    src/fight/pose_post.c
     src/fight/matrix_basis.c
     src/fight/axis_angle_matrix.c
     src/fight/vec_lerp21.c
@@ -6934,6 +6935,7 @@ add_port_test(vf3b10aa tests/b10aa_replay.c)
 add_port_test(vf3c6ec4 tests/c6ec4_replay.c)
 add_port_test(vf3g06f6f8 tests/g06f6f8_replay.c)
 add_port_test(vf3g782ea tests/g782ea_replay.c)
+add_port_test(vf3posepost tests/pose_post_replay.c)
 
 add_executable(vf3vecpush tests/vecpush_replay.c)
 target_link_libraries(vf3vecpush PRIVATE vf3core)

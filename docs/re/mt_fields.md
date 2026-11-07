@@ -390,6 +390,15 @@ specimens; it is not the stage that writes the joint records.
 python tools/mt_pose_capture_compare.py extract/analysis/native_pose_chain_s29_v1 --entry 0x8c09f432 --actor-register r4 --summary --per-case
 ```
 
+The wrapper and its quantiser are now also **readable C**:
+`src/fight/pose_post.c` (registered as `pose_post` / `pose_turns`) follows the
+same five clamps and two quantisations, reads the actor's band words and the
+literal pool at run time, and is proved against the retained generated
+translation by `tests/pose_post_replay.c` (55 differential cases; 83 of 88
+mutations caught).  The four-case corpus above also passes with only the
+wrapper served and with only the quantiser served from the readable table
+(`VF3_READABLE_ONLY`).  See `docs/re/pose_post.md`.
+
 The retained `fifth_leaf_dev_v6_cases` corpus has 92 complete invocations of
 `0x8C09F036` with all four pose regions captured. A corpus-wide summary shows
 the channel block changed in 87 calls (6–35 channels per call), while the 23
