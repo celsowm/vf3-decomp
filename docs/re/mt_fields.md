@@ -379,6 +379,17 @@ rows. `vf3mtmotiondump` accepts an exact Q8 phase with `--phase-q8`; the
 capture comparator forwards the actor's retained fractional phase directly.
 Its optional `--phase-q8` argument overrides that captured phase.
 
+The retained s29 pose-chain corpus also has four complete calls to
+`0x8C09F432`. Comparing them with `mt_pose_capture_compare.py` shows 3 changed
+channel values in each Akira call and 5 in each Jacky call. The 23 joint
+records, 18 attachment rows, 23 bone matrices, and cached-pose records are
+unchanged in all four. This wrapper is a channel postprocessor in these
+specimens; it is not the stage that writes the joint records.
+
+```text
+python tools/mt_pose_capture_compare.py extract/analysis/native_pose_chain_s29_v1 --entry 0x8c09f432 --actor-register r4 --summary --per-case
+```
+
 The retained `fifth_leaf_dev_v6_cases` corpus has 92 complete invocations of
 `0x8C09F036` with all four pose regions captured. A corpus-wide summary shows
 the channel block changed in 87 calls (6–35 channels per call), while the 23
