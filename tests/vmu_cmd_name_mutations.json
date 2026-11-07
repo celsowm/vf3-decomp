@@ -1,0 +1,74 @@
+[
+ {
+  "name": "the_command_id_comes_from_r5",
+  "subs": [
+   [
+    "    R(0) = R(4);                       /* the command id */",
+    "    R(0) = R(5);                       /* the command id */"
+   ]
+  ]
+ },
+ {
+  "name": "the_default_comes_from_the_nop_slot",
+  "subs": [
+   [
+    "#define POOL_DEFAULT 0x0c037568u",
+    "#define POOL_DEFAULT 0x0c03754cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_load_branch_reads_the_save_slot",
+  "subs": [
+   [
+    "    0x0c03755cu, 0x0c037560u, 0x0c037564u,",
+    "    0x0c03755cu, 0x0c037564u, 0x0c037560u,"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_key_is_two_not_three",
+  "subs": [
+   [
+    "static const uint32_t keys[7] = { 0u, 1u, 2u, 3u, 7u, 0xbu, 0xcu };",
+    "static const uint32_t keys[7] = { 0u, 1u, 2u, 2u, 7u, 0xbu, 0xcu };"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_the_other_way_round",
+  "subs": [
+   [
+    "    R(17) = (R(17) & ~1u) | (value != 0);",
+    "    R(17) = (R(17) & ~1u) | (value == 0);"
+   ]
+  ]
+ },
+ {
+  "name": "a_knowledge_command_is_never_matched",
+  "subs": [
+   [
+    "        if (R(0) == keys[i]) {",
+    "        if ((R(0) == keys[i]) && 0u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_read_from_the_next_pool_word",
+  "subs": [
+   [
+    "    R(0) = vf3_mem_u32(ram, pool_addr);   /* the string's address */",
+    "    R(0) = vf3_mem_u32(ram, pool_addr + 4u);   /* the string's address */"
+   ]
+  ]
+ },
+ {
+  "name": "the_exit_pc_is_the_stack_pointer",
+  "subs": [
+   [
+    "    s->pc = R(16);                        /* the caller's return address */",
+    "    s->pc = R(15);                        /* the caller's return address */"
+   ]
+  ]
+ }
+]

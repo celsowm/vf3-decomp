@@ -1108,6 +1108,23 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   ledger row adds 126 B (406,838 -> 406,964): the entry is off-baseline, so its
   row is worth its own body span (the body ends at the `rts`'s delay slot,
   0x0C0388DE).  2 further corpora reach the entry.  docs/re/bit_alloc.md.
+- Save-operation name selector (0x8C0374B0) ported readable in its own
+  subfolder: **src/fight/readable/vmu_cmd_name.c** (the first entry-port landed
+  under the `readable/` directory), proved against the retained generated
+  translation by tests/vmu_cmd_name_replay.c (10 differential cases over all
+  seven known command ids and three unknowns).  8/8 mutations caught.  The
+  function is a self-contained leaf (no calls, no FP, no stack): it maps a
+  save-operation command id in r4 to the **address** of its ASCII name in the
+  pool ("NOP", "CONNECTED", "DISCONNECTED", "FORMAT DISK", "DELETE FILE",
+  "LOAD FILE", "SAVE FILE", else "UNKNOWN OPERATION" - the pool at
+  0x0C03754C..0x0C037564 and the fallback at 0x0C037568 point at 0x0C0CCD14..
+  in the image).  Two details the port has to keep: the **T bit** the guest
+  leaves is set on a match and clear on the fallback (the matching/`0xc`
+  compare), and **r0 is overwritten twice** (the entry `mov r4,r0`, then the
+  pool word), so the answer is the string address, never the id.  The body is
+  a leaf inside `f_8c03746a`'s already-ported body, so the row (size 80) adds
+  **0** address-union bytes; there is no corpus for the entry itself, so the
+  chain is only readable == generated (no oracle leg).  docs/re/vmu_cmd_name.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
