@@ -310,9 +310,12 @@ built by the default port workflow.
    ```
 
    The capture comparator's `--pose-fields` mode in
-   `tools/mt_capture_eval_compare.py` checks the
-   captured source and destination directly; the `0x8C09F036` case 1 corpus
-   matches all 42 fields. Reproduce it with:
+   `tools/mt_capture_eval_compare.py` compares the native packed suffix with
+   the captured halfwords and separately checks the captured source-to-
+   destination FTRC conversion, which matches all 42 fields in the recorded
+   case.
+   The comparator passes the exact captured Q8 phase; use `--phase-q8` to
+   override it. Reproduce the case with:
 
    ```powershell
    python tools/mt_capture_eval_compare.py `

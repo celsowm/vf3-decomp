@@ -8,11 +8,12 @@ tool compares the native evaluator's raw 63 values with the capture's final
 channels; the count of unchanged channels is diagnostic only, not a pass/fail
 gate. ``--pose-fields`` additionally compares the 42 floats at
 ``actor+0x1d58`` with their low-halfword FTRC results at ``actor+0x1f50``.
-Neither mode assigns semantic names to channels or maps that float span back
-to the MT evaluator output.
+It also compares the native evaluator's packed suffix with the captured
+halfwords. These comparisons are diagnostic; they do not assign semantic
+names to channels or map that float span back to the MT evaluator output.
 
-The native dump executable currently accepts whole-frame phases only, so a
-capture with a fractional 1/256 frame is reported as unsupported.
+The native dump accepts Q8 phases (one unit is 1/256 frame), including the
+exact fractional phase retained in a capture.
 
 Example:
   python tools/mt_capture_eval_compare.py extract/analysis/fifth_leaf_dev_v6_cases \
@@ -127,6 +128,19 @@ def compare_pose_fields(blob: bytes, windows: list[tuple[int, int]], actor: int)
         print(f"  field{index:02d}: source={value!r}; FTRC result not compared")
 
 
+def compare_native_pose_fields(native: list[int], blob: bytes,
+                               windows: list[tuple[int, int]], actor: int) -> None:
+    captured = struct.unpack(
+        "<42H", read_ram(blob, windows, actor + 0x1F50, 42 * 2))
+    matches = [((value & 0xFFFF) == actual)
+               for value, actual in zip(native, captured)]
+    print(f"native packed fields vs capture: {sum(matches)}/42 matched")
+    for index, (value, actual, matched) in enumerate(zip(native, captured, matches)):
+        if not matched:
+            print(f"  field{index:02d}: native=0x{value & 0xFFFF:04x} "
+                  f"capture=0x{actual:04x}")
+
+
 def compute_phase(actor: int, blob: bytes, windows: list[tuple[int, int]]) -> tuple[int, int]:
     high = read_u16(blob, windows, actor + 0x3E)
     low = read_u16(blob, windows, actor + 0x40)
@@ -147,6 +161,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="explicit motion ID if actor+0x3c is uncaptured")
     parser.add_argument("--frame", type=int,
                         help="explicit whole frame if actor phase fields are uncaptured")
+    parser.add_argument("--phase-q8", type=number,
+                        help="explicit phase in 1/256-frame units; overrides captured phase")
     parser.add_argument("--asset", required=True, help="MT*.BIN asset name in the VFA")
     parser.add_argument("--vfa", required=True, type=Path, help="VFA asset archive")
     parser.add_argument("--dump", type=Path, default=Path("build/vf3mtmotiondump.exe"),
@@ -156,12 +172,20 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pose-fields", action="store_true",
                         help="also compare actor+0x1D58 FTRC inputs with actor+0x1F50 halfwords")
     args = parser.parse_args(argv)
+    if args.frame is not None and args.phase_q8 is not None:
+        parser.error("--frame and --phase-q8 cannot be used together")
     try:
         fields, before, after, windows = case_data(args.corpus, args.entry, args.case)
         actor = int(fields[args.actor_register], 16)
         motion_id = (args.motion_id if args.motion_id is not None else
                      read_u16(before, windows, actor + 0x3C))
-        if args.frame is None:
+        if args.phase_q8 is not None:
+            if args.phase_q8 < 0 or args.phase_q8 > 0x7FFFFFFF:
+                raise ValueError("phase-q8 must fit a nonnegative signed 32-bit value")
+            cycle = read_u16(before, windows, actor + 0x1A00)
+            phase = args.phase_q8
+            phase_source = "explicit"
+        elif args.frame is None:
             phase, cycle = compute_phase(actor, before, windows)
             phase_source = "captured"
         else:
@@ -170,15 +194,17 @@ def main(argv: list[str] | None = None) -> int:
             cycle = read_u16(before, windows, actor + 0x1A00)
             phase = args.frame * Q8
             phase_source = "explicit"
+        if phase > 0x7FFFFFFF:
+            raise ValueError("phase must fit a nonnegative signed 32-bit value")
         if args.motion_id is not None and args.motion_id <= 0:
             raise ValueError("motion ID must be positive")
-        if phase % Q8:
-            raise ValueError(f"phase {phase:#x} is fractional; native dump currently accepts whole frames")
         actual_raw = read_ram(after, windows, actor + 0x1D04, CHANNELS * 4)
         actual = struct.unpack(f"<{CHANNELS}f", actual_raw)
 
         command = [str(args.dump), str(args.vfa), args.asset, hex(motion_id),
-                   str(cycle), str(phase // Q8), "1"]
+                   str(cycle), str(phase // Q8), "1", "--phase-q8", str(phase)]
+        if args.pose_fields:
+            command.append("--pose-fields")
         result = subprocess.run(command, check=False, capture_output=True, text=True)
         if result.returncode != 0:
             raise ValueError("native MT dump failed: " + result.stderr.strip())
@@ -186,9 +212,14 @@ def main(argv: list[str] | None = None) -> int:
         if len(lines) != 1:
             raise ValueError("native MT dump did not return exactly one frame")
         columns = lines[0].split()
-        if len(columns) != CHANNELS + 1:
-            raise ValueError(f"native MT dump returned {len(columns) - 1} channels, expected {CHANNELS}")
-        native = [float(value) for value in columns[1:]]
+        if len(columns) < CHANNELS + 2 or not columns[1].startswith("phase_q8="):
+            raise ValueError("native MT dump returned an invalid phase/channel row")
+        reported_phase = int(columns[1].split("=", 1)[1], 10)
+        if reported_phase != phase:
+            raise ValueError(f"native MT dump used phase {reported_phase}, expected {phase}")
+        native = [float(value) for value in columns[2:2 + CHANNELS]]
+        if len(native) != CHANNELS:
+            raise ValueError(f"native MT dump returned {len(native)} channels, expected {CHANNELS}")
 
         matches = []
         for index, (expected, observed) in enumerate(zip(native, actual)):
@@ -205,6 +236,12 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"  ch{index:02d}: native={expected:.9g} capture={observed:.9g} "
                       f"delta={observed - expected:.9g}")
         if args.pose_fields:
+            marker = columns.index("pose_fields=") if "pose_fields=" in columns else -1
+            if marker < 0 or len(columns) < marker + 1 + 42:
+                raise ValueError("native MT dump omitted packed pose fields")
+            native_fields = [int(value) & 0xFFFF
+                             for value in columns[marker + 1:marker + 1 + 42]]
+            compare_native_pose_fields(native_fields, after, windows, actor)
             compare_pose_fields(after, windows, actor)
         # The captured block is downstream of the game's channel postprocessor;
         # inequality is an observation, not evidence that native MT decoding failed.

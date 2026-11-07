@@ -375,7 +375,9 @@ the game's channel postprocessing. The comparison reports unchanged channels
 and per-channel differences as a diagnostic; inequality is expected and is not
 a failure of MT stream decoding. Confirm the chosen pack with
 `mt_capture_match.py` first, since multiple MT files can contain identical
-rows. The native dump currently handles whole-frame phases only.
+rows. `vf3mtmotiondump` accepts an exact Q8 phase with `--phase-q8`; the
+capture comparator forwards the actor's retained fractional phase directly.
+Its optional `--phase-q8` argument overrides that captured phase.
 
 The retained `fifth_leaf_dev_v6_cases` corpus has 92 complete invocations of
 `0x8C09F036` with all four pose regions captured. A corpus-wide summary shows
