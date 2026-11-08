@@ -182,6 +182,7 @@ int vf3_vmu_cmd_name_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_fdiv_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_table_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_tenpp_fill_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_counter_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -493,6 +494,17 @@ const vf3_readable_entry vf3_readable_table[] = {
      * untouched. */
     { 0x0c0c103cu, "tenpp_fill", vf3_tenpp_fill_entry,
       B(0)|B(3)|B(5)|B(6)|B(17) },
+    /* the four-threshold counter selection: r4 a mask.  Two running counters
+     * (r6 even from 0, r5 odd from 4) choose, for each of four pool masks, the
+     * counter to hand out and advance it (tests 1..3 advance, test 4 does
+     * not).  The handed-out values go to @r7, two locals (@+0x2c/0x58) and
+     * @r4, written as halfwords at +0x26 into base, base+0x2c, base+0x58 and
+     * base+hw_ce (the pool reads: base at 0x0c0c11e0, the halfwords at
+     * 0x0c0c11ce/11d0/11d2/11d4/11d6).  r13/r14 restored, r15 net flat,
+     * r0 = 0x26, r2 = (uint32_t)m3, r3 = base+hw_ce, and SR's T bit is the
+     * last (test-4) comparison (m4 & r4) == 0. */
+    { 0x0c0c10a2u, "counter_select", vf3_counter_select_entry,
+      B(0)|B(2)|B(3)|B(4)|B(5)|B(6)|B(7)|B(13)|B(14)|B(15)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

@@ -196,6 +196,7 @@ add_library(vf3core STATIC
     src/fight/readable/fdiv.c
     src/fight/readable/table_probe.c
     src/fight/readable/tenpp_fill.c
+    src/fight/readable/counter_select.c
     src/fight/record_kind.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
@@ -6933,6 +6934,8 @@ add_port_test(vf3tableprobe tests/table_probe_replay.c)
 add_port_test(vf3tableprobeoracle tests/table_probe_oracle.c)
 add_port_test(vf3tenppfill tests/tenpp_fill_replay.c)
 add_port_test(vf3tenppfilloracle tests/tenpp_fill_oracle.c)
+add_port_test(vf3counterselect tests/counter_select_replay.c)
+add_port_test(vf3counterselectoracle tests/counter_select_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)
 add_port_test(vf3recordkindoracle tests/record_kind_oracle.c)
 add_port_test(vf3d452 tests/d452_replay.c)

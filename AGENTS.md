@@ -1186,6 +1186,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   37-register file, SR's T bit, every byte of the three windows that carry
   the pool, the table and the transient stack slot) - the leaf touches no
   device register, so no sidecars or supplied pool are needed.  docs/re/table_probe.md.
+- Four-threshold counter selection (0x8C0C10A2) ported readable:
+  `src/fight/readable/counter_select.c`, registered as `counter_select`,
+  proved against the retained generated translation by
+  `tests/counter_select_replay.c` (6 differential cases over six mask/hw_ce
+  layouts) and by the mutation gate (15/15 caught,
+  tests/counter_select_mutations.json).  A 124 B call-free integer-only leaf
+  that keeps two running selection counters (r6 even from 0, r5 odd from 4),
+  for each of the four pool masks (the i16 constants at 0x0c0c11ce/d0/d2/d4/d6)
+  hands out one counter and advances it (tests 1..3 advance, test 4 does not),
+  and writes the four handed-out values as halfwords at +0x26 into base,
+  base+0x2c, base+0x58 and base+hw_ce (base read from the pool 0x0c0c11e0;
+  r13/r14 restored, r15 net flat, r0 = 0x26, r2 = (uint32_t)m3, r3 =
+  base+hw_ce, SR T from (m4 & r4) == 0).  The oracle leg closes directly:
+  `tests/counter_select_oracle.c` (`vf3counterselectoracle`) routes the
+  readable port itself over the per-entry `.cases` corpus
+  next_combined_cases/f_8c0c10a2.cases and passes **70/70 cases** - the
+  three windows carry the pool, the target structure and the stack, and the
+  leaf touches no device register, so no sidecars or supplied pool are
+  needed.  docs/re/counter_select.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
