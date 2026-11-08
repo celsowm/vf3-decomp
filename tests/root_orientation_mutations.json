@@ -1,0 +1,92 @@
+[
+ {
+  "name": "yaw_offset_wrong",
+  "subs": [
+   [
+    "#define YAW_OFFSET 30u",
+    "#define YAW_OFFSET 32u"
+   ]
+  ]
+ },
+ {
+  "name": "z_and_y_swapped",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_OFF_Z);",
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_OFF_Y);"
+   ]
+  ]
+ },
+ {
+  "name": "identity_call_skipped",
+  "subs": [
+   [
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_IDENTITY),\n                        CONT_IDENTITY)) return 0;",
+    "    if (0) return 0;"
+   ]
+  ]
+ },
+ {
+  "name": "tail_target_wrong",
+  "subs": [
+   [
+    "    R(3) = vf3_mem_u32(ram, POOL_ROTATE_X);",
+    "    R(3) = vf3_mem_u32(ram, POOL_ROTATE_Y);"
+   ]
+  ]
+ },
+ {
+  "name": "tail_is_plain_call",
+  "subs": [
+   [
+    "    return vf3_guest_tail_call(s, ram, R(3), R(16));",
+    "    if (!vf3_guest_call(s, ram, R(3), CONT_Y)) return 0;\n    s->pc = R(16);\n    return 1;"
+   ]
+  ]
+ },
+ {
+  "name": "r14_not_restored",
+  "subs": [
+   [
+    "    R(14) = vf3_mem_u32(ram, R(15));",
+    "    R(14) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "sp_not_restored",
+  "subs": [
+   [
+    "    R(14) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+    "    R(14) = vf3_mem_u32(ram, R(15));"
+   ]
+  ]
+ },
+ {
+  "name": "pr_popped_wrong",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+    "    R(16) = vf3_mem_u32(ram, R(15) + 4u);\n    R(15) += 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "second_y_is_z",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_OFF_Y);",
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_OFF_Z);"
+   ]
+  ]
+ },
+ {
+  "name": "yaw_call_uses_z",
+  "subs": [
+   [
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_ROTATE_Y),\n                        CONT_YAW)) return 0;",
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_ROTATE_Z),\n                        CONT_YAW)) return 0;"
+   ]
+  ]
+ }
+]
