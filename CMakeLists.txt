@@ -194,6 +194,7 @@ add_library(vf3core STATIC
     src/fight/bit_alloc.c
     src/fight/readable/vmu_cmd_name.c
     src/fight/readable/fdiv.c
+    src/fight/readable/table_probe.c
     src/fight/readable/tenpp_fill.c
     src/fight/record_kind.c
     src/fight/strip_light.c
@@ -6928,6 +6929,8 @@ add_port_test(vf3bitallocoracle tests/bit_alloc_oracle.c)
 add_port_test(vf3vmucmdname tests/vmu_cmd_name_replay.c)
 add_port_test(vf3fdiv tests/fdiv_replay.c)
 add_port_test(vf3fdivoracle tests/fdiv_oracle.c)
+add_port_test(vf3tableprobe tests/table_probe_replay.c)
+add_port_test(vf3tableprobeoracle tests/table_probe_oracle.c)
 add_port_test(vf3tenppfill tests/tenpp_fill_replay.c)
 add_port_test(vf3tenppfilloracle tests/tenpp_fill_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)

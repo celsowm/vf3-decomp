@@ -1169,6 +1169,23 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   0x2000 window at 0x0c404000, which carries both the node and the cell) -
   the leaf touches no device register and no stack, so no sidecars or supplied
   pool are needed, exactly like fdiv.  docs/re/tenpp_fill.md.
+- Indexed table probe (0x8C040378) ported readable:
+  `src/fight/readable/table_probe.c`, registered as `table_probe`, proved
+  against the retained generated translation by `tests/table_probe_replay.c`
+  (9 differential cases over nine index layouts) and by the mutation gate
+  (14/14 caught, tests/table_probe_mutations.json).  A 62 B call-free
+  integer-only leaf that stores r4 into a transient stack slot at sp-4 (sp
+  restored at the return, so r15 is net unchanged), reads it back into r2 and
+  returns -1 with T clear when r4<0 (r1/r3 preserved), -1 with T set and
+  r1=8 when r4>=8, else tbl[12*r4] (stride twelve, base pointer read from
+  the pool 0x0c0403bc) with r1=the base and r3=r4: a 0xffffffff entry gives
+  -2 with T set, any other entry 0 with T clear.  The oracle leg closes
+  directly: `tests/table_probe_oracle.c` (`vf3tableprobeoracle`) routes the
+  readable port itself over the per-entry `.cases` corpus
+  seventh_c5_cases/f_8c040378.cases and passes **8/8 cases** (whole
+  37-register file, SR's T bit, every byte of the three windows that carry
+  the pool, the table and the transient stack slot) - the leaf touches no
+  device register, so no sidecars or supplied pool are needed.  docs/re/table_probe.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register

@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_table_stride_is_four_bytes",
+  "subs": [
+   [
+    "        R(0) = vf3_mem_u32(ram, tbl + 12u * r4);",
+    "        R(0) = vf3_mem_u32(ram, tbl + 4u * r4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_below_range_bound_is_zero",
+  "subs": [
+   [
+    "    if ((int32_t)r4 < 0) {",
+    "    if ((int32_t)r4 < 1) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_above_range_bound_is_seven",
+  "subs": [
+   [
+    "    if ((int32_t)r4 >= 8) {",
+    "    if ((int32_t)r4 >= 7) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_below_range_answer_is_minus_two",
+  "subs": [
+   [
+    "    if ((int32_t)r4 < 0) {\n        R(0) = 0xffffffffu;\n        R(17) = (R(17) & ~1u);                  /* T = 0 */",
+    "    if ((int32_t)r4 < 0) {\n        R(0) = 0xfffffffeu;\n        R(17) = (R(17) & ~1u);                  /* T = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_above_range_answer_is_minus_two",
+  "subs": [
+   [
+    "    if ((int32_t)r4 >= 8) {\n        R(0) = 0xffffffffu;\n        R(17) = (R(17) & ~1u) | 1u;             /* T = 1 */",
+    "    if ((int32_t)r4 >= 8) {\n        R(0) = 0xfffffffeu;\n        R(17) = (R(17) & ~1u) | 1u;             /* T = 1 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_lookup_miss_answer_is_minus_one",
+  "subs": [
+   [
+    "        R(0) = 0xffffffffu - 1u;                /* -2 */",
+    "        R(0) = 0xffffffffu;                     /* -1, not -2 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_below_range_t_bit_is_set",
+  "subs": [
+   [
+    "        R(17) = (R(17) & ~1u);                  /* T = 0 */\n        s->pc = R(16);\n        return ram->oob == 0;\n    }\n\n    /* 0x0c040382/384",
+    "        R(17) = (R(17) & ~1u) | 1u;             /* T = 1 */\n        s->pc = R(16);\n        return ram->oob == 0;\n    }\n\n    /* 0x0c040382/384"
+   ]
+  ]
+ },
+ {
+  "name": "the_miss_t_bit_is_clear",
+  "subs": [
+   [
+    "        R(0) = 0xffffffffu - 1u;                /* -2 */\n        R(17) = (R(17) & ~1u) | 1u;             /* T = 1 */",
+    "        R(0) = 0xffffffffu - 1u;                /* -2 */\n        R(17) = (R(17) & ~1u);                  /* T = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "r3_is_the_index_plus_one",
+  "subs": [
+   [
+    "    R(3) = r4;\n    R(1) = 8u;",
+    "    R(3) = r4 + 1u;\n    R(1) = 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_stack_slot_is_sp_not_sp_minus_four",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(15) - 4u, r4);",
+    "    vf3_mem_set_u32(ram, R(15), r4);"
+   ]
+  ]
+ },
+ {
+  "name": "r2_is_the_index_plus_one",
+  "subs": [
+   [
+    "    R(2) = r4;",
+    "    R(2) = r4 + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_base_is_read_one_word_high",
+  "subs": [
+   [
+    "        uint32_t tbl = vf3_mem_u32(ram, 0x0c0403bcu);",
+    "        uint32_t tbl = vf3_mem_u32(ram, 0x0c0403c0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_return_is_four_bytes_past",
+  "subs": [
+   [
+    "    s->pc = R(16);\n    return ram->oob == 0;\n}",
+    "    s->pc = R(16) + 4u;\n    return ram->oob == 0;\n}"
+   ]
+  ]
+ },
+ {
+  "name": "r1_is_the_stride_not_the_base",
+  "subs": [
+   [
+    "        uint32_t tbl = vf3_mem_u32(ram, 0x0c0403bcu);\n        R(1) = tbl;",
+    "        uint32_t tbl = vf3_mem_u32(ram, 0x0c0403bcu);\n        R(1) = tbl + 12u * r4;"
+   ]
+  ]
+ }
+]

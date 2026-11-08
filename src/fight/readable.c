@@ -180,6 +180,7 @@ int vf3_bit_alloc_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_kind_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_vmu_cmd_name_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_fdiv_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_table_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_tenpp_fill_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -475,6 +476,14 @@ const vf3_readable_entry vf3_readable_table[] = {
      * two-word cell in the caller's frame at sp+16 written back.  r0..r3 come
      * back holding the caller's saved values, and r15 advances by twenty. */
     { 0x0c0533a4u, "fdiv", vf3_fdiv_entry,
+      B(0)|B(1)|B(2)|B(3)|B(15)|B(17) },
+    /* the indexed table probe: r4 an index in [0,8).  r0 is -1 when the index
+     * is out of range (T clear below range, T set above), else the table's
+     * entry at 12*r4 picks -2 (the entry is 0xffffffff, T set) or 0 (T
+     * clear).  r3 = r4 on every in-range path, r1 = 8 above range and the
+     * table base on the lookup path, r2 = r4, and r15 is net unchanged (the
+     * entry r4 is echoed into the transient slot at sp-4). */
+    { 0x0c040378u, "table_probe", vf3_table_probe_entry,
       B(0)|B(1)|B(2)|B(3)|B(15)|B(17) },
     /* the tenpp leaf structure filler: r4 the node, r5 an auxiliary cell.  The
      * node +16..+20 are set to 0xff bytes, the halfwords +22..+30 and +32..+40
