@@ -186,6 +186,7 @@ int vf3_counter_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_byte_color_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_max_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_scene_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_slot_claim_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -540,6 +541,16 @@ const vf3_readable_entry vf3_readable_table[] = {
      * SR.T = 1.  r4 and r15 are untouched. */
     { 0x0c06233eu, "scene_walk", vf3_scene_walk_entry,
       B(0)|B(1)|B(2)|B(3)|B(5)|B(6)|B(17) },
+    /* the slot-claim scan: reads base from the pool at 0x0c062590 and count
+     * from 0x0c06258a, scans `count` 0x18-byte slots whose 16-bit tag at slot
+     * start is read and masked to 16 bits, marks the first slot whose low bit
+     * is clear by writing 1 to it and answers with its address in r0; if none
+     * of the slots is free within `count` it answers r0 = 0.  Leaves r0 (found
+     * address or 0), r3 (last tag), r4/r6 (the found slot or one past the run),
+     * r5 = 1, r7 = the scan index, SR.T = 1 on both arms.  r1, r2, r8..r14,
+     * r15 and r16 are untouched. */
+    { 0x0c062490u, "slot_claim", vf3_slot_claim_entry,
+      B(0)|B(3)|B(4)|B(5)|B(6)|B(7)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,

@@ -1276,6 +1276,26 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   pool, the table/threshold region, the nodes and the stack, and the leaf
   touches no device register, so no sidecars or supplied pool are needed.
   docs/re/scene_walk.md.
+- Slot-claim scan (0x8C062490) ported readable:
+  `src/fight/readable/slot_claim.c`, registered as `slot_claim`, proved against
+  the retained generated translation by `tests/slot_claim_replay.c` (9
+  differential cases) and against the **oracle** by
+  `tests/slot_claim_oracle.c` (506/506 on the
+  continuation_allocator_pool_long_dev/f_8c062490.cases corpus).  A 42 B
+  call-free integer-only leaf (no FP, no stack): it reads a base pointer from
+  the pool at 0x0c062590 and a signed count from 0x0c06258a, scans `count`
+  0x18-byte slots whose 16-bit tag at the slot start is read and masked to 16
+  bits, marks the first slot whose low bit is clear by writing 1 (u16) to it
+  and answers with its address in r0, tail-returning through r16; with no free
+  slot inside `count` it answers r0 = 0.  The loop is a **do-while** (no
+  pre-loop guard), so the first slot is always tested even when count <= 0; the
+  mark and the read both go through the slot pointer (r4 == r6 throughout).
+  Leaves r0 (found address or 0), r3 (last tag), r4/r6 (the found slot or one
+  past the run), r5 = 1, r7 = the scan index, SR.T = 1 on both arms; r1, r2,
+  r8..r14, r15 and r16 are untouched.  13/13 mutations caught
+  (tests/slot_claim_mutations.json); the corpus is all *found* cases, so the
+  exit arm and the count arithmetic are the differential's.  The oracle leg
+  closes directly (no device registers, no supplied pool).  docs/re/slot_claim.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
