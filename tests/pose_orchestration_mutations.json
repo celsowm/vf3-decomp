@@ -1,0 +1,110 @@
+[
+ {
+  "name": "r7_double_obj",
+  "subs": [
+   [
+    "    R(7) = pool16(ram, POOL_B_OFF3);",
+    "    R(7) = pool16(ram, POOL_B_OFF3) + obj;"
+   ]
+  ]
+ },
+ {
+  "name": "kind_record_stride_wrong",
+  "subs": [
+   [
+    "    R(19) = (uint32_t)((int32_t)(int16_t)R(13) * (int32_t)108);",
+    "    R(19) = (uint32_t)((int32_t)(int16_t)R(13) * (int32_t)64);"
+   ]
+  ]
+ },
+ {
+  "name": "kind12_branch_inverted",
+  "subs": [
+   [
+    "    if (R(0) == 12u) {",
+    "    if (R(0) != 12u) {"
+   ]
+  ]
+ },
+ {
+  "name": "frame_reservation_wrong",
+  "subs": [
+   [
+    "    R(15) += pool16(ram, POOL_FRAME_OFF);   /* -228 */",
+    "    R(15) += pool16(ram, POOL_FRAME_OFF) + 4u;   /* -224 */"
+   ]
+  ]
+ },
+ {
+  "name": "matrix_store_snapshot_wrong",
+  "subs": [
+   [
+    "    R(4) = R(15) + 0x24u;",
+    "    R(4) = R(15) + 0x28u;"
+   ]
+  ]
+ },
+ {
+  "name": "seven_call_skipped",
+  "subs": [
+   [
+    "if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_SEVEN), CONT_SEVEN))",
+    "if (0)"
+   ]
+  ]
+ },
+ {
+  "name": "root_call_skipped",
+  "subs": [
+   [
+    "if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_ROOT), CONT_ROOT))",
+    "if (0)"
+   ]
+  ]
+ },
+ {
+  "name": "aim_output_block_wrong",
+  "subs": [
+   [
+    "    R(5) = pool16(ram, POOL_B_OFF5) + obj;",
+    "    R(5) = pool16(ram, POOL_C_OFF5) + obj;"
+   ]
+  ]
+ },
+ {
+  "name": "aim_frame_b_object_wrong",
+  "subs": [
+   [
+    "    R(6) = pool16(ram, POOL_D_OFF9) + obj;",
+    "    R(6) = pool16(ram, POOL_E_OFF8) + obj;"
+   ]
+  ]
+ },
+ {
+  "name": "pop1_count_wrong",
+  "subs": [
+   [
+    "    R(4) = 1u;",
+    "    R(4) = 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "macl_not_saved",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, R(15) - 4u, R(19));",
+    "    vf3_mem_set_u32(ram, R(15) - 4u, 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "epilogue_exit_off_wrong",
+  "subs": [
+   [
+    "    R(1) = pool16(ram, POOL_EXIT_OFF);",
+    "    R(1) = pool16(ram, POOL_EXIT_OFF) + 4u;"
+   ]
+  ]
+ }
+]
