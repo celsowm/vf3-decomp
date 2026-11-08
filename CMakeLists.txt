@@ -6711,6 +6711,8 @@ target_link_libraries(vf3mtmotiondump PRIVATE vf3nativegame vf3assetpack)
 add_executable(vf3nativemotion tests/native_motion_replay.c
     src/native/matrix.c src/native/motion.c src/media/mt.c src/fight/mt_play.c)
 target_include_directories(vf3nativemotion PRIVATE src/native src/media src/fight)
+add_executable(vf3nativematrix tests/native_matrix_replay.c src/native/matrix.c)
+target_include_directories(vf3nativematrix PRIVATE src/native)
 add_library(vf3nativeview STATIC
     src/native/fighter_view.c
     src/native/akira_parts.c

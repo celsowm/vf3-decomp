@@ -18,10 +18,18 @@
  * fighter pose.
  *
  * What the guest does pin down:
- *   * 0x8C09D9EC reads actor+0x1F50, +0x1F52 and +0x1F54 - the first three
- *     pose fields - as angles and hands the third one to the FSCA rotation
- *     helper 0x0C03C6C0 (src/fight/d9ec.c), so the 42 fields are angle
- *     values, not positions or lengths;
+ *   * 0x8C09D9EA (the root orientation, ported readable as
+ *     src/fight/readable/root_orientation.c) reads actor+0x1F50, +0x1F52
+ *     and +0x1F54 - the first three pose fields - as angles, composing
+ *     Ry(yaw at +0x1E), Rz(field0), Ry(field1) and Rx(field2) post-multiply
+ *     into XMTRX.  vf3_native_root_orientation() in src/native/matrix.c
+ *     mirrors that chain and matches the guest's FSCA sine table to
+ *     9e-8 on a mixed-angle case (tests/native_matrix_replay.c).  It is a
+ *     verified primitive, but it is NOT row 0's final matrix: the captured
+ *     row-0 matrices do not match this intermediate, which the aim-frame
+ *     producer in 0x8C09EAF2 transforms further - so the rig below still
+ *     uses its authored bind rotation for row 0 until that producer is
+ *     ported;
  *   * the evaluator flips the sign of every third output channel of the
  *     whole 63-channel block, so the 42 fields group as 14 turn triples and
  *     the third component is the angle the FSCA path consumes;

@@ -26,6 +26,13 @@ int vf3_native_matrix_apply_euler_keep_translation(
     const float base[16], uint16_t z, uint16_t y, uint16_t x,
     const float translation_source[16], float out[16]);
 
+/* Native port of 0x8C09D9EA. Reset to the identity and compose
+ * Ry(yaw), Rz(fields[0]), Ry(fields[1]) and Rx(fields[2]), with zero
+ * translation. This is the root-orientation builder; the translation
+ * elements 12..14 are zero and element 15 is 1. */
+int vf3_native_root_orientation(uint16_t yaw, const uint16_t fields[3],
+                                float out[16]);
+
 /* Native port of 0x8C09DA1E. Compose the owner Y turn, the three input turns
  * (Z, Y, then X), and preserve the input matrix's translation. The final X
  * turn adds the owner's second turn to input_angles[2], modulo 65536. */

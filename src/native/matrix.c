@@ -175,6 +175,20 @@ int vf3_native_matrix_pose_angles(const float translation_source[16],
     return 0;
 }
 
+int vf3_native_root_orientation(uint16_t yaw, const uint16_t fields[3],
+                                float out[16])
+{
+    /* 0x8C09D9EA: identity, then Ry(yaw), Rz(f0), Ry(f1), Rx(f2). That is
+     * pose_angles with no owner X turn and no translation to keep. */
+    static const float identity[16] = {
+        1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+    };
+    if (!fields || !out)
+        return -1;
+    return vf3_native_matrix_pose_angles(identity, (int16_t)yaw,
+                                         (int16_t)0, fields, out);
+}
+
 int vf3_native_matrix_unit_triple(const float base[16], const float triple[3],
                                   float out[16], float *xz_length,
                                   float *inverse_length)

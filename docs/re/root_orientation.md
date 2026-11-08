@@ -54,3 +54,24 @@ while the guest builds it from yaw and the first three pose fields through
 this exact call chain. The native port can now mirror it with
 `vf3_native_matrix_euler_z_y_x`-style composition instead of the guessed
 bind rotation.
+
+## Native mirror
+
+`vf3_native_root_orientation()` in `src/native/matrix.c` mirrors the
+chain (identity, post-multiply Ry(yaw), Rz(f0), Ry(f1), Rx(f2), zero
+translation) via `vf3_native_matrix_pose_angles` with no owner X turn.
+`tests/native_matrix_replay.c` (vf3nativematrix, 54 cases) pins the whole
+native matrix module - identity/multiply/transform/translate/scale,
+euler Z-Y-X single and combined axes, pose_angles, unit_triple - and, for
+the mixed case yaw 27577 / fields (8192, 16384, 4096), pins the native
+result against the guest's own FSCA sine table
+(`src/fight/sh4_sine.inc`, post-multiply composition): max difference
+9e-8, inside the test's 1e-6 tolerance. The guest composition order was
+recovered from `vf3_fpu_ftrv` (result row = matrix row dot vector) and the
+rotate_* helpers putting the transformed columns back into XMTRX, which
+is exactly post-multiplication in column-major order.
+
+The primitive is verified but not wired into `motion_pose.c`: the
+captured row-0 matrices do not match this intermediate (the aim-frame
+producer in 0x8C09EAF2 transforms it further), so row 0 keeps its
+authored bind rotation until that producer is ported.
