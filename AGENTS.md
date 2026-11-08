@@ -1229,6 +1229,29 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   so the tests and the proof are single-precision; the double-PR width
   ternary is carried for fidelity but is not evidenced by any captured
   state.  docs/re/byte_color.md.
+- Four-list gated max walk (0x8C061910) ported readable:
+  `src/fight/readable/max_walk.c`, registered as `max_walk`, proved against
+  the retained generated translation by `tests/max_walk_replay.c` (6
+  differential cases over six list layouts incl. all-empty and gated) and by
+  the mutation gate (16/16 caught, tests/max_walk_mutations.json).  A 136 B
+  call-free integer-only leaf that reads the fight structure's address from
+  the pool at 0x0c061a0c and searches four linked lists over [node+16]
+  (value), stepping a node by its [+8] next: r7 from list A (struct+8,
+  ungated) then list B (struct, gated by (node.gate & 4) == 0), r14 from
+  list C (struct+0x1c, ungated) then list D (list at struct+0x14, gated),
+  writing [r4] = r7 and [r5] = r14.  The two maxima start at 0 (r14 zeroed
+  on entry, r7 starts from that r14), r12/r13/r14 are restored, r15 net flat,
+  and the body leaves r0 = 0, r1 = the last gated value read, r2 = the last
+  gate/next read, r6 = 0, and SR.T = 1; the 4-byte scratch slot at SP0-16
+  (holding struct+0x14 on the way to list D) is part of the captured RAM and
+  the differential checks it.  The oracle leg closes directly:
+  `tests/max_walk_oracle.c` (`vf3maxwalkoracle`) routes the readable port
+  itself over the per-entry `.cases` corpus
+  advance_resume_061910_dev/advance_resume_061910_dev_8c061910/f_8c061910.cases
+  and passes **512/512 cases** - the five windows carry the pool, the
+  structure, the stack, the outputs and the node region, and the leaf
+  touches no device register, so no sidecars or supplied pool are needed.
+  docs/re/max_walk.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register

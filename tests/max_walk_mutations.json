@@ -1,0 +1,146 @@
+[
+ {
+  "name": "gated_lists_not_gated",
+  "subs": [
+   [
+    "        if ((r2 & r13) == 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r7)\n                r7 = r1;\n        }",
+    "        {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r7)\n                r7 = r1;\n        }"
+   ]
+  ]
+ },
+ {
+  "name": "second_gated_list_not_gated",
+  "subs": [
+   [
+    "        if ((r2 & r13) == 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r14)\n                r14 = r1;\n        }",
+    "        {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r14)\n                r14 = r1;\n        }"
+   ]
+  ]
+ },
+ {
+  "name": "gate_test_inverted",
+  "subs": [
+   [
+    "        if ((r2 & r13) == 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r7)\n                r7 = r1;\n        }",
+    "        if ((r2 & r13) != 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r7)\n                r7 = r1;\n        }"
+   ]
+  ]
+ },
+ {
+  "name": "second_gate_test_inverted",
+  "subs": [
+   [
+    "        if ((r2 & r13) == 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r14)\n                r14 = r1;\n        }",
+    "        if ((r2 & r13) != 0) {\n            r1 = vf3_mem_u32(ram, r6 + 16u);\n            if ((int32_t)r1 > (int32_t)r14)\n                r14 = r1;\n        }"
+   ]
+  ]
+ },
+ {
+  "name": "list_a_max_is_min",
+  "subs": [
+   [
+    "        if ((int32_t)r2 > (int32_t)r7)\n            r7 = r2;",
+    "        if ((int32_t)r2 < (int32_t)r7)\n            r7 = r2;"
+   ]
+  ]
+ },
+ {
+  "name": "list_c_accumulates_into_r7",
+  "subs": [
+   [
+    "        if ((int32_t)r2 > (int32_t)r14)\n            r14 = r2;",
+    "        if ((int32_t)r2 > (int32_t)r14)\n            r7 = r2;"
+   ]
+  ]
+ },
+ {
+  "name": "first_max_written_to_r5",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, r4i, r7);",
+    "    vf3_mem_set_u32(ram, r5i, r7);"
+   ]
+  ]
+ },
+ {
+  "name": "second_max_written_to_r4",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, r5i, r14);",
+    "    vf3_mem_set_u32(ram, r4i, r14);"
+   ]
+  ]
+ },
+ {
+  "name": "r7_starts_from_one",
+  "subs": [
+   [
+    "    uint32_t r7 = 0;\n    uint32_t r14 = 0;",
+    "    uint32_t r7 = 1;\n    uint32_t r14 = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "struct_offset_plus_8_read_as_plus_0c",
+  "subs": [
+   [
+    "    r6 = vf3_mem_u32(ram, st + 8u);",
+    "    r6 = vf3_mem_u32(ram, st + 0x0cu);"
+   ]
+  ]
+ },
+ {
+  "name": "list_d_reads_st_plus_10",
+  "subs": [
+   [
+    "    r6 = vf3_mem_u32(ram, st + 0x14u);",
+    "    r6 = vf3_mem_u32(ram, st + 0x10u);"
+   ]
+  ]
+ },
+ {
+  "name": "step_is_value_not_next",
+  "subs": [
+   [
+    "        r6 = vf3_mem_u32(ram, r6 + 8u);\n    }\n\n    /* 0x0c061932..94f: list B (st), gated by (node.gate & 4) == 0. */",
+    "        r6 = vf3_mem_u32(ram, r6 + 16u);\n    }\n\n    /* 0x0c061932..94f: list B (st), gated by (node.gate & 4) == 0. */"
+   ]
+  ]
+ },
+ {
+  "name": "t_bit_left_clear",
+  "subs": [
+   [
+    "    R(17) = (R(17) & ~1u) | 1u;         /* SR.T = 1: the walk-exit test */",
+    "    R(17) = (R(17) & ~1u);              /* SR.T = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "r7_reg_not_written_back",
+  "subs": [
+   [
+    "    R(7) = r7;\n    R(12) = r12i;",
+    "    R(7) = 0u;\n    R(12) = r12i;"
+   ]
+  ]
+ },
+ {
+  "name": "r14_not_restored",
+  "subs": [
+   [
+    "    R(14) = r14i;\n    R(15) = sp0;",
+    "    R(14) = 0u;\n    R(15) = sp0;"
+   ]
+  ]
+ },
+ {
+  "name": "r15_restored_four_low",
+  "subs": [
+   [
+    "    R(15) = sp0;\n    R(17) = (R(17) & ~1u) | 1u;",
+    "    R(15) = sp0 - 4u;\n    R(17) = (R(17) & ~1u) | 1u;"
+   ]
+  ]
+ }
+]

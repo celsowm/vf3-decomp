@@ -198,6 +198,7 @@ add_library(vf3core STATIC
     src/fight/readable/tenpp_fill.c
     src/fight/readable/counter_select.c
     src/fight/readable/byte_color.c
+    src/fight/readable/max_walk.c
     src/fight/record_kind.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
@@ -6939,6 +6940,8 @@ add_port_test(vf3counterselect tests/counter_select_replay.c)
 add_port_test(vf3counterselectoracle tests/counter_select_oracle.c)
 add_port_test(vf3bytecolor tests/byte_color_replay.c)
 add_port_test(vf3bytecolororacle tests/byte_color_oracle.c)
+add_port_test(vf3maxwalk tests/max_walk_replay.c)
+add_port_test(vf3maxwalkoracle tests/max_walk_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)
 add_port_test(vf3recordkindoracle tests/record_kind_oracle.c)
 add_port_test(vf3d452 tests/d452_replay.c)

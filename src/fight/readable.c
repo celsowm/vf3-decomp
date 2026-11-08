@@ -184,6 +184,7 @@ int vf3_table_probe_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_tenpp_fill_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_counter_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_byte_color_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
+int vf3_max_walk_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_clamp_cell_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_record_select_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 int vf3_frame_call_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
@@ -517,6 +518,16 @@ const vf3_readable_entry vf3_readable_table[] = {
      * byte. */
     { 0x0c0563acu, "byte_color", vf3_byte_color_entry,
       B(0)|B(1)|B(2)|B(4)|B(5)|B(6)|FR(0)|FR(1)|FR(2)|FR(4)|FR(5)|FR(6)|FR(7) },
+    /* the four-list gated max walk: r4/r5 are write targets.  It reads the
+     * fight structure's address from the pool at 0x0c061a0c, searches four
+     * linked lists - list A (st+8) and list B (st), both over [node+16]
+     * feeding r7 - then list C (st+0x1c) and list D (list at st+0x14) both
+     * over [node+16] feeding r14; lists B and D only let a node compete
+     * while (node.gate & 4) == 0.  Writes [r4] = r7 and [r5] = r14, r0 = 0,
+     * restores r12/r13/r14, r15 back at entry, leaves r1 = the last gated
+     * value read, r2 = the last gate halfword, r6 = 0, and SR.T = 1. */
+    { 0x0c061910u, "max_walk", vf3_max_walk_entry,
+      B(0)|B(1)|B(2)|B(6)|B(7)|B(12)|B(13)|B(14)|B(15)|B(17) },
     { 0x0c055b28u, "clamp_cell", vf3_clamp_cell_entry,
       B(0)|B(1)|B(4)|B(17) },
     { 0x0c08b5acu, "record_select", vf3_record_select_entry,
