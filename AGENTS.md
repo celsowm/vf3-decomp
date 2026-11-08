@@ -1252,6 +1252,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   structure, the stack, the outputs and the node region, and the leaf
   touches no device register, so no sidecars or supplied pool are needed.
   docs/re/max_walk.md.
+- Scene list walk (0x8C06233E) ported readable:
+  `src/fight/readable/scene_walk.c`, registered as `scene_walk`, proved against
+  the retained generated translation by `tests/scene_walk_replay.c` (9
+  differential cases over nine node-list layouts incl. found, not-found,
+  empty-table, enable-0 and the r4==thr boundary) and by the mutation gate
+  (14/14 caught, tests/scene_walk_mutations.json).  A 62 B call-free
+  integer-only leaf: it reads a threshold pointer from the pool at 0x0c06238c
+  and a table base at 0x0c062384, writes a 16-bit enable flag to [r5] (1 when
+  r4 >= *p1, signed, else 0), reads the flag back as a byte, looks the table
+  up at base + 20*byte (stride twenty; byte is 0 or 1, so the two table slots
+  are distinct), and walks the linked list (value at node+12, next at node+8)
+  recording in r6 the first node whose value equals r4, then tail-returns
+  r0 = r6 (a jmp @r16, so pr and r15 are untouched).  The body leaves r1 = 1
+  on an enabled empty table (the enable=1 path sets r1 before the walk) or
+  the last value read otherwise, r2 = byte, r3 = 20*byte, r5 = 0 (the walk's
+  terminator), and SR.T = 1.  The oracle leg closes directly:
+  `tests/scene_walk_oracle.c` (`vf3scenewalkoracle`) routes the readable port
+  itself over the per-entry `.cases` corpus
+  target_retained_scene_final_dev/f_8c06233e.cases and passes **272/272
+  cases** - all of them "found" ones split between enable 0 and 1, so the
+  empty/not-found arms are the differential's; the four windows carry the
+  pool, the table/threshold region, the nodes and the stack, and the leaf
+  touches no device register, so no sidecars or supplied pool are needed.
+  docs/re/scene_walk.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
