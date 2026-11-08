@@ -202,6 +202,7 @@ add_library(vf3core STATIC
     src/fight/readable/scene_walk.c
     src/fight/readable/slot_claim.c
     src/fight/readable/root_orientation.c
+    src/fight/readable/aim_midpoints.c
     src/fight/record_kind.c
     src/fight/strip_light.c
     src/fight/quad_strip.c
@@ -6961,6 +6962,8 @@ add_port_test(vf3scenewalkoracle tests/scene_walk_oracle.c)
 add_port_test(vf3slotclaim tests/slot_claim_replay.c)
 add_port_test(vf3rootorientation tests/root_orientation_replay.c)
 add_port_test(vf3rootorientationoracle tests/root_orientation_oracle.c)
+add_port_test(vf3aimmidpoints tests/aim_midpoints_replay.c)
+add_port_test(vf3aimmidpointsoracle tests/aim_midpoints_oracle.c)
 add_port_test(vf3slotclaimoracle tests/slot_claim_oracle.c)
 add_port_test(vf3recordkind tests/record_kind_replay.c)
 add_port_test(vf3recordkindoracle tests/record_kind_oracle.c)

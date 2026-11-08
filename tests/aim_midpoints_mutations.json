@@ -1,0 +1,92 @@
+[
+ {
+  "name": "midpoint_no_sign_extend",
+  "subs": [
+   [
+    "    uint32_t diff = (uint32_t)(int32_t)(int16_t)((int32_t)first -\n                                                (int32_t)second);",
+    "    uint32_t diff = (uint32_t)((int32_t)first - (int32_t)second);"
+   ]
+  ]
+ },
+ {
+  "name": "midpoint_wrong_operand",
+  "subs": [
+   [
+    "    return (second + diff) & 0xffffu;",
+    "    return (first + diff) & 0xffffu;"
+   ]
+  ]
+ },
+ {
+  "name": "frame_slots_swapped",
+  "subs": [
+   [
+    "        vf3_mem_set_u32(ram, f + 8u,\n                        midpoint(s, ram, obj, off, off - 48u));",
+    "        vf3_mem_set_u32(ram, f + 12u,\n                        midpoint(s, ram, obj, off, off - 48u));"
+   ]
+  ]
+ },
+ {
+  "name": "z_angle_wrong",
+  "subs": [
+   [
+    "    R(4) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_Z_ANGLE);",
+    "    R(4) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "copy_offset_wrong",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, POOL_COPY_OFF);",
+    "    R(0) = 0x200u;"
+   ]
+  ]
+ },
+ {
+  "name": "saved_r5_not_framed",
+  "subs": [
+   [
+    "    vf3_mem_set_u32(ram, f, R(5));",
+    "    vf3_mem_set_u32(ram, f, 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "tail_is_plain_call",
+  "subs": [
+   [
+    "    return vf3_guest_tail_call(s, ram, R(2), R(16));",
+    "    if (!vf3_guest_call(s, ram, R(2), CONT_COPY)) return 0;\n    s->pc = R(16);\n    return 1;"
+   ]
+  ]
+ },
+ {
+  "name": "r14_not_restored",
+  "subs": [
+   [
+    "    R(14) = vf3_mem_u32(ram, R(15));",
+    "    R(14) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "push_call_skipped",
+  "subs": [
+   [
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_PUSH), CONT_PUSH))\n        return 0;",
+    "    if (0) return 0;"
+   ]
+  ]
+ },
+ {
+  "name": "pr_popped_wrong",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += 4u;",
+    "    R(16) = vf3_mem_u32(ram, R(15) + 4u);\n    R(15) += 4u;"
+   ]
+  ]
+ }
+]
