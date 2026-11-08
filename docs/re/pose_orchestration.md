@@ -69,15 +69,16 @@ There is **no usable direct oracle leg** for this entry, and the
 reason is a corpus limitation, not a port defect: the
 native_pose_orchestration_s29_v1 corpus's actor windows end before
 actor+0x420B, which the kind!=12 arm reads (kind 11 in the Akira cases,
-kind 3 in the Jacky cases - both take that arm). The generated
-reference body misses the same byte through the port harness
-(2/4 cases fail with oob=1 when replayed as the generated chain), so
-the corpus cannot replay this entry through the C harness in either
-arm. A recapture with a wider actor window (covering +0x420B) would
-close the direct leg; until then the entry's oracle evidence is the
-three indirect legs through this same corpus - root_orientation
-(0x8C09D9EA), aim_midpoints (0x8C09E428) and midpoint_angles
-(0x8C09D452), each served 4 times with the whole specimen compared -
-plus this differential. The earlier matrix_family batch replay of the
-generated body (192/192, see docs/decomp_status.csv) used a different
-harness whose shadows cover the byte.
+kind 3 in the Jacky cases - both take that arm). Replaying the
+*generated* body through the same harness misses the same byte
+(2/4 cases fail with oob=1 at the first generated callee whose `rts`
+returns `ram->oob==0`), so the corpus cannot replay this entry
+through the C harness in either arm. A recapture with a wider actor
+window (covering +0x420B) would close the direct leg; until then the
+entry's oracle evidence is the three indirect legs through this same
+corpus - root_orientation (0x8C09D9EA), aim_midpoints (0x8C09E428)
+and midpoint_angles (0x8C09D452), each served 4 times with the whole
+specimen compared - plus this differential. The earlier
+matrix_family batch replay of the generated body (192/192, see
+docs/decomp_status.csv) used a different harness whose shadows cover
+the byte.
