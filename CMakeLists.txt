@@ -6690,6 +6690,7 @@ add_library(vf3nativegame STATIC
     src/native/collision.c
     src/native/matrix.c
     src/native/motion.c
+    src/native/motion_vectors.c
     src/native/pose_blend.c
     src/native/pose_data.c
     src/native/voice_sample.c
@@ -6712,7 +6713,8 @@ target_include_directories(vf3nativemotion PRIVATE src/native src/media src/figh
 add_library(vf3nativeview STATIC
     src/native/fighter_view.c
     src/native/akira_parts.c
-    src/native/jacky_parts.c)
+    src/native/jacky_parts.c
+    src/native/motion_pose.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6721,6 +6723,10 @@ else()
 endif()
 add_executable(vf3nativeviewtest tests/native_view_replay.c)
 target_link_libraries(vf3nativeviewtest PRIVATE vf3nativeview vf3assetpack)
+add_executable(vf3nativemotionvectors tests/native_motion_vectors_replay.c)
+target_link_libraries(vf3nativemotionvectors PRIVATE vf3nativegame)
+add_executable(vf3nativemotionpose tests/native_motion_pose_replay.c)
+target_link_libraries(vf3nativemotionpose PRIVATE vf3nativeview)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)
@@ -6757,10 +6763,13 @@ if (VF3_NATIVE_PORT)
     add_executable(vf3port src/host/native_port_sdl3.c)
     target_link_libraries(vf3port PRIVATE vf3nativeview vf3assetpack)
     add_executable(vf3nativeattachmentpreview tools/native_attachment_preview.c)
+    add_executable(vf3nativemotionpreview tools/native_motion_preview.c)
+    target_link_libraries(vf3nativemotionpreview PRIVATE vf3nativeview vf3assetpack)
     target_link_libraries(vf3nativeattachmentpreview PRIVATE vf3nativeview vf3assetpack)
     if (TARGET vf3_asset_bundle)
         add_dependencies(vf3port vf3_asset_bundle)
         add_dependencies(vf3nativeattachmentpreview vf3_asset_bundle)
+        add_dependencies(vf3nativemotionpreview vf3_asset_bundle)
     endif()
 endif()
 

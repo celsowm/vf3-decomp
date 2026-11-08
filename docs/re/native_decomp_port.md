@@ -554,6 +554,191 @@ python tools/native_motion_corpus_audit.py `
    bone report is `pose_channel_correlation_offline_jacky_bones.json`, and the
    state 48 full report is `pose_channel_correlation_offline_jacky.json`.
 
+   A longer 1,799-frame replay from state 47 sampled both actors every 20
+   frames and exposed six distinct Jacky motion tracks. Disassembly of
+   `0x8C09DA72` shows a separate path before attachment construction: it walks
+   seven vec3s from actor `+0x1D04`, writes seven vec3 outputs beginning at
+   `+0x1EFC`, optionally subtracts the first input vec3 under actor flag
+   `0x20000000`, and transforms each result by the actor yaw and translated
+   position. It also applies a mode-specific Y offset (mode 11 subtracts
+   `0.055`) and can zero a point's Y under the global/action flag condition.
+   The `0x8C03C880` setup rebuilds the rotation from the actor's halfword at
+   `+0x1E`; the matrix's prior orientation is not used. A targeted read of
+   case 1 in `native_pose_orchestration_s29_v1` confirms all 21 output words
+   change, while the 21 source words do not. Recomputing the yaw rotation and
+   mode offset matches all seven captured output vectors to float rounding.
+   `src/native/motion_vectors.c` now builds this affine transform directly
+   from yaw, position, mode and the `+72` flags, then transforms the seven
+   points with the actor-origin and Y-suppression conditions explicit. The
+   timeline extractor retains the source channels and outputs.
+   `tools/native_motion_vector_fit.py` remains useful for samples where the
+   channel relation is less direct, but it is not evidence for attachment
+   assignments. The helper is not yet wired into gameplay because the
+   seven-point-to-attachment flow and the upstream motion-to-record mapping
+   have not been recovered. Capture and analysis artifacts are under
+   `extract/analysis/native_motion_pose_s47_dense1800_v2/`.
+
+   Comparing those seven post-transform points with the 18 attachment-row
+   translations gives a repeatable partial correspondence. Across the 89
+   checkpoints, point 0 coincides with row 0 (also duplicated at rows 10/11);
+   points 3, 4, 5, and 6 have nearest rows 5, 9, 14, and 17 for both fighters.
+   Over the 60 same-motion consecutive pairs, root-relative point and row
+   movement fits at scale 0.99–1.04 with normalized residuals 0.06–0.17 for
+   those four pairs. Points 5/6 therefore track the two wrap rows, and points
+   3/4 track the two empty selector rows that still carry transforms. Point 1
+   stays near row 1, while point 2 has no stable direct row assignment. The
+   row-0 X axis also follows the point-0-to-point-1 torso direction (mean
+   absolute dot 1.000 for Jacky and Akira). This narrows the anchor hierarchy,
+   but does not identify the other attachment rows or the 42-field rotation
+   assignments; the inferred renderer rig remains visibly wrong.
+
+   A parent-relative rotation fit then recovered four exact dynamic links.
+   For each candidate, `R_parent^T * R_row` changes by the same Z-Y-X Euler
+   delta as the assigned packed group: row 2 under row 0 uses group 3; row 5
+   under row 4 uses group 5; row 6 under row 0 uses group 6; and row 9 under
+   row 8 uses group 8. Jacky contributes 12–29 dynamic pairs over 3–7 motion
+   tracks per link; Akira independently reproduces the same links with zero
+   measured orientation error (2–28 pairs, 2–12 tracks). These mappings are
+   now in `src/native/motion_pose.c`, including rows 5 and 9: their selector
+   entries have no mesh, but their matrices are real pivots. The rest offsets
+   and remaining row/group links are still inferred, so the update does not
+   make the current preview a verified pose.
+
+    `tools/native_attachment_parent_fit.py` now tests every attachment row
+    against every possible parent and packed pose group, fitting a constant
+    bind rotation over changing-phase pairs within each motion track. On the
+    1,799-frame state-47 timeline it independently recovers rows 2/0 group 3,
+    5/4 group 5, 6/0 group 6, and 9/8 group 8 with zero measured bind drift.
+    It also finds root-relative candidates for rows 14/group 11 and 17/group
+    13: median drift is below 0.00001 degrees across four/five tracks, but the
+    worst track reaches 2.29/9.24 degrees. Those two wrap assignments are now
+    wired as provisional links; the lower consistency means they need another
+    independent capture before treating them as recovered. Full report:
+    `extract/analysis/native_attachment_parent_fit_v2.json`. Reproduce it with:
+
+    ```powershell
+    python tools/native_attachment_parent_fit.py `
+      extract/analysis/native_motion_pose_s47_dense1800_v2/pose_vectors_timeline.jsonl `
+      --top 60 --out extract/analysis/native_attachment_parent_fit_v2.json
+    ```
+
+    The same analyzer now ranks parent candidates by how stable the captured
+    parent-local translation stays across each track. That ranking does not
+    identify a unique hierarchy for the remaining rows, so I have not used it
+    to wire more guessed parents. It does confirm the specific pivot offsets
+    already visible in the exact row-relative samples: rows 5/9 are +0.25 on
+    their parent's local X axis for Akira; Jacky's median is +0.27 (0.015
+    standard deviation). Those measured offsets replace the old zero-position
+    pivots in `src/native/motion_pose.c`. The rendered preview is unchanged
+    because rows 5/9 have no directly attached mesh; their matrices remain
+    needed for the recovered selector pipeline. The extended rotation and
+    translation report is `extract/analysis/native_attachment_parent_fit_v3.json`;
+    regenerate it with the same command above, changing the output name to v3.
+
+    The retail call body at `0x8C09EAF2` explains why row fitting alone cannot
+    supply the full rig. It selects the 108-byte kind row, calls
+    `0x8C09DA72` to transform the seven motion anchor points, then calls
+    `aim_frame` for output blocks at actor `+0x200` and `+0x300`, and
+    `aim_frame_b` at `+0x480` (with a conditional second block at `+0x540`).
+    The builder also composes additional actor angles and copies its generated
+    matrices into the selector table. The point transform is available in
+    `src/native/motion_vectors.c`; the complete source-level orchestration and
+    its slot copies still need to be ported. Use
+    `python tools/sh4dump.py f 8c09eaf2 420` to inspect the retail body.
+
+    The actor-input capture and point-transform checks are reusable tools:
+    `native_pose_timeline_extract.py` records yaw, actor flags, pose flags,
+    and position; `native_motion_points_audit.py` compares the seven-point
+    calculation with the captured output. `native_motion_root_orientation_audit.py`
+    checks whether captured anchor-pair directions explain each matrix axis.
+    For a focused kind-0/7 comparison of axes 1 and 2, run:
+
+    ```powershell
+    python tools/native_motion_root_orientation_audit.py `
+      extract/analysis/native_motion_pose_s47_dense1800_v2/pose_vectors_with_actor_inputs_v3.jsonl `
+      --kind 0 --kind 7 --row-axis 1 --row-axis 2 --top 20
+    ```
+
+    The anchor direction is an incomplete explanation so far: row-0 axis 0
+    matches point 0-to-1 exactly in both kinds, while the best remaining
+    directions are weaker (Jacky row-0 axis 2 aligns with point 3-to-4 at
+    median absolute dot 0.956). The direct `0x8C09D9EA` angle sequence does
+    not match the final captured row-0 matrix and has not been wired in.
+
+    I re-extracted actor inputs from the state-29 timeline, which actually
+    contains the native preview clips `0x2A9` and `0x953`; the earlier state-47
+    fit uses different motions and cannot justify changing those clips. The
+    reusable root audit now ranks directed anchor-pair bases and tests a
+    constant bind correction per actor kind and motion. For motion `0x2A9`,
+    kind 1's best basis is X=point 0→1, Z=point 3→2 (17 samples, 2.00° raw
+    median, 0.44° bind-corrected p95). For `0x953`, kind 8's best is X=0→1,
+    Z=3→4 (12 samples, 1.76° raw median and 0° bind-corrected p95). The
+    corresponding kind-3 segment has only four samples and does not share a
+    stable bind correction. This is a stronger root-orientation candidate,
+    but still needs another capture and the live `+0x61` mode mapping before
+    it can replace the guessed rig. The matching state-29 point audit contains
+    seven samples and reproduces the seven-point outputs to rounding except
+    for two 0.0306-unit outliers. Reproduce the inputs and reports with:
+
+    ```powershell
+    python tools/native_pose_timeline_extract.py `
+      --timeline extract/analysis/native_motion_pose_s29_dense1800_v1/motion_timeline.csv `
+      --image extract/exe/1ST_READ.unsc.bin `
+      --out extract/analysis/native_motion_pose_s29_dense1800_v2/pose_vectors_with_actor_inputs.jsonl
+    python tools/native_motion_points_audit.py `
+      extract/analysis/native_motion_pose_s29_dense1800_v2/pose_vectors_with_actor_inputs.jsonl `
+      --motion-id 0x2a9 --motion-id 0x953 `
+      --out extract/analysis/native_motion_points_audit_s29_2a9_953.json
+    python tools/native_motion_root_orientation_audit.py `
+      extract/analysis/native_motion_pose_s29_dense1800_v2/pose_vectors_with_actor_inputs.jsonl `
+      --motion-id 0x2a9 --motion-id 0x953 --min-samples 1 `
+      --out extract/analysis/native_motion_root_orientation_audit_s29_2a9_953.json
+    ```
+
+   The current preview confirms that the remaining defect is the inferred rig,
+   not just the choice of animation phase: Jacky's `--zero-fields` bind image
+   is already visibly disconnected, and the captured 0x953 pose changes only
+   a few fields in the first nine frames. `tools/native_motion_preview.c` now
+   labels these images as diagnostic output; they do not verify valid VF3
+   articulation. The preview images are in `build/motion_bind_jacky.bmp` and
+   `build/motion_check_jacky_08.bmp` for this worktree.
+
+   The seven-point transform and the pose fold now have C regression tests.
+   `vf3nativemotionvectors` (tests/native_motion_vectors_replay.c) checks the
+   yaw rotation, the four mode Y drops (6/8/11/12, pool floats at
+   0x0C09DBF0..FC) and their gate on actor +0x48 & 0x29000, the 0x20000000
+   origin subtraction, the Y-suppression helper below, and argument
+   validation, against values computed from the disassembly in the test.
+   `vf3nativemotionpose` (tests/native_motion_pose_replay.c) checks that
+   every matrix is finite at bind for both rigs, that each measured or
+   provisional row/group link (2/3, 5/5, 6/6, 9/8, 14/11, 17/13) moves when
+   its own group turns and that row 1, which is outside all six subtrees,
+   does not. It deliberately does not assert the authored bind joints.
+
+   The Y-suppression condition in the audit was inverted for one test.
+   At 0x0C09DB7E the guest uses a plain `bf` against actor & 0x8000: `bf`
+   branches when T is clear, and `tst` leaves T clear exactly when the bit
+   is set, so the suppression runs only when that bit is CLEAR. The other
+   three tests are `bt`/`bt/s` and require their bits set (global 0x800,
+   actor 0x40000, pose 0x21000). `tools/native_motion_points_audit.py` and
+   the new `vf3_native_motion_zero_y_mask()` helper in
+   src/native/motion_vectors.c now encode it that way. No retained timeline
+   exercises the arm (the global bit is clear in every sample), so this
+   rests on the disassembly, not a capture.
+
+   Re-running the audit after that fix changes nothing in the captures, and
+   the remaining mismatches are checkpoint-ordering artifacts, not transform
+   errors: on the state-47 timeline 132 of 178 rows reproduce the captured
+   outputs to under 1e-4 (median row-max error 8.6e-7 for both actors),
+   and the other rows' outputs lag their inputs by a sampling step - e.g.
+   frame 760's outputs equal frame 740's actor position plus the new
+   channel, exactly as a checkpoint taken between the orchestration and the
+   next motion evaluation would produce. The state-29 kind-8 segment
+   (frames 1260-1590) is one frozen checkpoint repeated twelve times.
+   The earlier note that the state-29 audit reproduced "except for two
+   0.0306-unit outliers" understated this; the median and the exact rows
+   are the evidence for the transform.
+
    `native_pose_timeline_extract.py` now includes the 23 variable-stride joint
    records in those timelines, and `native_pose_channel_correlate.py --table
    joints` compares their rotation matrices to packed pose groups. Across 56

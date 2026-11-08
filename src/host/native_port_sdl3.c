@@ -8,8 +8,13 @@
 #include <string.h>
 
 #include "asset_pack.h"
+#include "akira_parts.h"
 #include "fighter_view.h"
 #include "fight.h"
+#include "jacky_parts.h"
+#include "motion.h"
+#include "motion_pose.h"
+#include "mt.h"
 #include "pol.h"
 #include "pose_data.h"
 #include "pvr_texture.h"
@@ -357,6 +362,24 @@ typedef struct {
     size_t size;
 } loaded_asset;
 
+enum {
+    ASSET_MKAO_AKI_POL = 0,
+    ASSET_MKAO_AKI_TEX,
+    ASSET_MKAO_WO2_POL,
+    ASSET_MKAO_WO2_TEX,
+    ASSET_ROB_AKI_POL,
+    ASSET_ROB_AKI_TEX,
+    ASSET_ROB_WO2_POL,
+    ASSET_ROB_WO2_TEX,
+    ASSET_ST01_POL,
+    ASSET_ST01_TEX,
+    ASSET_ST01_E_POL,
+    ASSET_ST01_E_TEX,
+    ASSET_MT_AKIRA,
+    ASSET_MT_JACKY,
+    ASSET_COUNT
+};
+
 static void release_assets(loaded_asset *assets, size_t count)
 {
     for (size_t i = 0; i < count; ++i) {
@@ -370,7 +393,9 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
 {
     static const char *const required[] = {
         "MKAO_AKI.POL", "MKAO_AKI.TEX", "MKAO_WO2.POL", "MKAO_WO2.TEX",
-        "ST01.POL", "ST01.TEX", "ST01_E.POL", "ST01_E.TEX"
+        "ROB_AKI.POL", "ROB_AKI.TEX", "ROB_WO2.POL", "ROB_WO2.TEX",
+        "ST01.POL", "ST01.TEX", "ST01_E.POL", "ST01_E.TEX",
+        "MTAIKJAC.BIN", "MTJACKAG.BIN"
     };
     for (size_t i = 0; i < sizeof required / sizeof required[0]; ++i) {
         size_t size = 0;
@@ -389,10 +414,17 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
         }
     }
     static const char *const models[] = {
-        "MKAO_AKI.POL", "MKAO_WO2.POL", "ST01.POL", "ST01_E.POL"
+        "MKAO_AKI.POL", "MKAO_WO2.POL", "ROB_AKI.POL", "ROB_WO2.POL",
+        "ST01.POL", "ST01_E.POL"
     };
-    static const size_t model_assets[] = { 0u, 2u, 4u, 6u };
-    static const size_t texture_assets[] = { 1u, 3u, 5u, 7u };
+    static const size_t model_assets[] = {
+        ASSET_MKAO_AKI_POL, ASSET_MKAO_WO2_POL, ASSET_ROB_AKI_POL,
+        ASSET_ROB_WO2_POL, ASSET_ST01_POL, ASSET_ST01_E_POL
+    };
+    static const size_t texture_assets[] = {
+        ASSET_MKAO_AKI_TEX, ASSET_MKAO_WO2_TEX, ASSET_ROB_AKI_TEX,
+        ASSET_ROB_WO2_TEX, ASSET_ST01_TEX, ASSET_ST01_E_TEX
+    };
     for (size_t i = 0; i < sizeof models / sizeof models[0]; ++i) {
         const loaded_asset *asset = &loaded[model_assets[i]];
         const loaded_asset *tex = &loaded[texture_assets[i]];
@@ -405,7 +437,7 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
             pol_textures(asset->data, (uint32_t)asset->size, NULL, 0,
                          &texture_count) != -2) {
             fprintf(stderr, "vf3port: invalid POL package %s\n", models[i]);
-            release_assets(loaded, 8);
+            release_assets(loaded, ASSET_COUNT);
             return -1;
         }
         PolSlot *slots = (PolSlot *)calloc(slot_count, sizeof *slots);
@@ -419,7 +451,7 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
             fprintf(stderr, "vf3port: cannot read POL tables %s\n", models[i]);
             free(slots);
             free(textures);
-            release_assets(loaded, 8);
+            release_assets(loaded, ASSET_COUNT);
             return -1;
         }
         size_t tagged = 0, candidates = 0;
@@ -437,7 +469,7 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
                         row, models[i]);
                 free(slots);
                 free(textures);
-                release_assets(loaded, 8);
+                release_assets(loaded, ASSET_COUNT);
                 return -1;
             }
         }
@@ -450,11 +482,81 @@ static int load_fight_assets(vf3_asset_pack *pack, loaded_asset *loaded)
     return 0;
 }
 
+/* A powered fighter's MT animation.  The MT bytes stay alive because the
+ * native evaluator's count/time/tuple slices borrow them. */
+typedef struct {
+    uint8_t *data;
+    size_t size;
+    MtFile file;
+    MtMotionView storage;
+    vf3_native_motion_stream stream;
+    vf3_native_motion_rig rig;
+    uint32_t cycle;
+    int ready;
+} native_fighter_motion;
+
+static int load_fighter_motion(vf3_asset_pack *pack, const char *name,
+                               uint32_t motion_id, uint16_t cycle,
+                               vf3_native_motion_rig rig,
+                               native_fighter_motion *motion)
+{
+    size_t size = 0;
+    if (!pack || !motion || !name)
+        return -1;
+    memset(motion, 0, sizeof *motion);
+    if (vf3_asset_pack_read(pack, name, NULL, 0, &size) != -2 || !size ||
+        size > UINT32_MAX)
+        return -1;
+    motion->data = (uint8_t *)malloc(size);
+    motion->size = size;
+    if (!motion->data ||
+        vf3_asset_pack_read(pack, name, motion->data, size, NULL) != 0)
+        return -1;
+    if (mt_parse(motion->data, (uint32_t)size, &motion->file) != 0 ||
+        vf3_native_motion_load(&motion->file, motion_id, cycle,
+                               &motion->storage, &motion->stream) != 0)
+        return -1;
+    motion->rig = rig;
+    motion->cycle = cycle;
+    motion->ready = 1;
+    return 0;
+}
+
+static void close_fighter_motion(native_fighter_motion *motion)
+{
+    if (!motion)
+        return;
+    free(motion->data);
+    memset(motion, 0, sizeof *motion);
+}
+
+static void fighter_motion_matrices(const native_fighter_motion *motion,
+                                    uint64_t tick,
+                                    float matrices[VF3_NATIVE_ATTACHMENT_COUNT]
+                                                  [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS])
+{
+    int16_t zero_fields[VF3_NATIVE_POSE_FIELDS] = { 0 };
+    if (motion && motion->ready && motion->cycle) {
+        const int32_t phase =
+            (int32_t)((tick % (uint64_t)motion->cycle) * 0x100u);
+        if (vf3_native_motion_pose(&motion->stream, phase, motion->rig,
+                                   matrices) == 0)
+            return;
+    }
+    /* Missing motion is a bind-pose draw, not a hole in the screen. */
+    (void)vf3_native_motion_pose_fields(zero_fields,
+                                        motion ? motion->rig
+                                               : VF3_NATIVE_MOTION_RIG_AKIRA,
+                                        matrices);
+}
+
 int main(int argc, char **argv)
 {
     vf3_asset_pack pack;
-    loaded_asset fight_assets[8] = {{0}};
+    loaded_asset fight_assets[ASSET_COUNT] = {{0}};
     vf3_fighter_view fighter_views[4] = {{0}};
+    vf3_fighter_view body_views[2] = {{0}};
+    native_fighter_motion player_motion = {0}, cpu_motion = {0};
     SDL_Window *window = NULL;
     SDL_Renderer *renderer = NULL;
     native_audio audio = {0};
@@ -486,27 +588,49 @@ int main(int argc, char **argv)
     }
     SDL_SetRenderTextureAddressMode(renderer, SDL_TEXTURE_ADDRESS_WRAP,
                                     SDL_TEXTURE_ADDRESS_WRAP);
-    if (vf3_fighter_view_init(renderer, fight_assets[4].data,
-                              (uint32_t)fight_assets[4].size,
-                              fight_assets[5].data, fight_assets[5].size,
+    if (vf3_fighter_view_init(renderer, fight_assets[ASSET_ST01_POL].data,
+                              (uint32_t)fight_assets[ASSET_ST01_POL].size,
+                              fight_assets[ASSET_ST01_TEX].data,
+                              fight_assets[ASSET_ST01_TEX].size,
                               &fighter_views[2]) != 0 ||
-        vf3_fighter_view_init(renderer, fight_assets[6].data,
-                              (uint32_t)fight_assets[6].size,
-                              fight_assets[7].data, fight_assets[7].size,
+        vf3_fighter_view_init(renderer, fight_assets[ASSET_ST01_E_POL].data,
+                              (uint32_t)fight_assets[ASSET_ST01_E_POL].size,
+                              fight_assets[ASSET_ST01_E_TEX].data,
+                              fight_assets[ASSET_ST01_E_TEX].size,
                               &fighter_views[3]) != 0 ||
-        vf3_fighter_view_init(renderer, fight_assets[0].data,
-                              (uint32_t)fight_assets[0].size,
-                              fight_assets[1].data, fight_assets[1].size,
+        vf3_fighter_view_init(renderer, fight_assets[ASSET_MKAO_AKI_POL].data,
+                              (uint32_t)fight_assets[ASSET_MKAO_AKI_POL].size,
+                              fight_assets[ASSET_MKAO_AKI_TEX].data,
+                              fight_assets[ASSET_MKAO_AKI_TEX].size,
                               &fighter_views[0]) != 0 ||
-        vf3_fighter_view_init(renderer, fight_assets[2].data,
-                              (uint32_t)fight_assets[2].size,
-                              fight_assets[3].data, fight_assets[3].size,
-                              &fighter_views[1]) != 0) {
+        vf3_fighter_view_init(renderer, fight_assets[ASSET_MKAO_WO2_POL].data,
+                              (uint32_t)fight_assets[ASSET_MKAO_WO2_POL].size,
+                              fight_assets[ASSET_MKAO_WO2_TEX].data,
+                              fight_assets[ASSET_MKAO_WO2_TEX].size,
+                              &fighter_views[1]) != 0 ||
+        vf3_fighter_view_init(renderer, fight_assets[ASSET_ROB_AKI_POL].data,
+                              (uint32_t)fight_assets[ASSET_ROB_AKI_POL].size,
+                              fight_assets[ASSET_ROB_AKI_TEX].data,
+                              fight_assets[ASSET_ROB_AKI_TEX].size,
+                              &body_views[0]) != 0 ||
+        vf3_fighter_view_init(renderer, fight_assets[ASSET_ROB_WO2_POL].data,
+                              (uint32_t)fight_assets[ASSET_ROB_WO2_POL].size,
+                              fight_assets[ASSET_ROB_WO2_TEX].data,
+                              fight_assets[ASSET_ROB_WO2_TEX].size,
+                              &body_views[1]) != 0) {
         fprintf(stderr, "vf3port: cannot build textured fighter scenes: %s\n",
                 SDL_GetError());
         goto done_sdl;
     }
-    release_assets(fight_assets, 8);
+    if (load_fighter_motion(&pack, "MTAIKJAC.BIN", 0x2a9u, 160u,
+                            VF3_NATIVE_MOTION_RIG_AKIRA, &player_motion) != 0)
+        fprintf(stderr, "vf3port: cannot load Akira fight motion; "
+                        "using the bind pose\n");
+    if (load_fighter_motion(&pack, "MTJACKAG.BIN", 0x953u, 64u,
+                            VF3_NATIVE_MOTION_RIG_JACKY, &cpu_motion) != 0)
+        fprintf(stderr, "vf3port: cannot load Jacky fight motion; "
+                        "using the bind pose\n");
+    release_assets(fight_assets, ASSET_COUNT);
     if (!SDL_SetRenderLogicalPresentation(renderer, WIDTH, HEIGHT,
                                           SDL_LOGICAL_PRESENTATION_LETTERBOX))
         fprintf(stderr, "vf3port: logical presentation unavailable: %s\n", SDL_GetError());
@@ -519,6 +643,7 @@ int main(int argc, char **argv)
     }
     uint64_t previous_counter = SDL_GetPerformanceCounter();
     uint64_t tick_accumulator = 0;
+    uint64_t fight_ticks = 0;
     vf3_native_fighter previous_player = fight.player;
     vf3_native_fighter previous_cpu = fight.cpu;
     uint32_t pending_edges = 0;
@@ -557,6 +682,7 @@ int main(int argc, char **argv)
             previous_player = fight.player;
             previous_cpu = fight.cpu;
             vf3_native_fight_step(&fight, tick_input);
+            ++fight_ticks;
             if (fight.sound_event)
                 native_audio_contact(&audio, fight.sound_speaker_kind);
             tick_accumulator -= clock_frequency;
@@ -591,19 +717,30 @@ int main(int argc, char **argv)
             const float cpu_ground = 301.0f + render_cpu.depth * 119.0f;
             const float player_scale = 345.0f + render_player.depth * 105.0f;
             const float cpu_scale = 345.0f + render_cpu.depth * 105.0f;
+            float player_matrices[VF3_NATIVE_ATTACHMENT_COUNT]
+                                  [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS];
+            float cpu_matrices[VF3_NATIVE_ATTACHMENT_COUNT]
+                              [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS];
+            vf3_fighter_view *player_body =
+                render_player.fighter_kind == 0 ? &body_views[0] : &body_views[1];
+            vf3_fighter_view *cpu_body =
+                render_cpu.fighter_kind == 0 ? &body_views[0] : &body_views[1];
+            fighter_motion_matrices(&player_motion, fight_ticks,
+                                    player_matrices);
+            fighter_motion_matrices(&cpu_motion, fight_ticks, cpu_matrices);
             if (render_player.depth > render_cpu.depth) {
-                vf3_fighter_view_draw_model_slot(renderer, cpu_view,
-                                      &render_cpu, 3u,
+                vf3_native_jacky_draw(renderer, &fighter_views[1], cpu_body,
+                                      &render_cpu, cpu_matrices, NULL,
                                       cpu_x, cpu_ground, cpu_scale);
-                vf3_fighter_view_draw_model_slot(renderer, player_view,
-                                      &render_player, 3u,
+                vf3_native_akira_draw(renderer, &fighter_views[0], player_body,
+                                      &render_player, player_matrices, NULL,
                                       player_x, player_ground, player_scale);
             } else {
-                vf3_fighter_view_draw_model_slot(renderer, player_view,
-                                      &render_player, 3u,
+                vf3_native_akira_draw(renderer, &fighter_views[0], player_body,
+                                      &render_player, player_matrices, NULL,
                                       player_x, player_ground, player_scale);
-                vf3_fighter_view_draw_model_slot(renderer, cpu_view,
-                                      &render_cpu, 3u,
+                vf3_native_jacky_draw(renderer, &fighter_views[1], cpu_body,
+                                      &render_cpu, cpu_matrices, NULL,
                                       cpu_x, cpu_ground, cpu_scale);
             }
         }
@@ -619,6 +756,10 @@ done_sdl:
     vf3_fighter_view_free(&fighter_views[2]);
     vf3_fighter_view_free(&fighter_views[1]);
     vf3_fighter_view_free(&fighter_views[0]);
+    vf3_fighter_view_free(&body_views[1]);
+    vf3_fighter_view_free(&body_views[0]);
+    close_fighter_motion(&cpu_motion);
+    close_fighter_motion(&player_motion);
     if (renderer) SDL_DestroyRenderer(renderer);
     if (window) SDL_DestroyWindow(window);
     SDL_Quit();

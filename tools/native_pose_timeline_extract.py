@@ -131,7 +131,25 @@ def main(argv: list[str] | None = None) -> int:
                         }
                         pose_row = {
                             **frame_row,
+                            "actor_flags_word0": int.from_bytes(
+                                read_ram(ram, actor, 4), "little"),
+                            "actor_yaw_at_0x1e": int.from_bytes(
+                                read_ram(ram, actor + 0x1E, 2), "little"),
+                            "actor_pose_flags_at_0x48": int.from_bytes(
+                                read_ram(ram, actor + 0x48, 4), "little"),
+                            "actor_global_pose_flags_at_0x0c29bccc": int.from_bytes(
+                                read_ram(ram, 0x0C29BCCC, 4), "little"),
+                            "actor_position_at_0x10": read_floats(
+                                ram, actor + 0x10, 3),
                             "channels_at_0x1d04": read_floats(ram, actor + 0x1D04, 63),
+                            "actor_offset_at_0x1488": read_floats(
+                                ram, actor + 0x1488, 3),
+                            # 0x8C09DA72 writes seven consecutive vec3 outputs
+                            # here (r11 starts at +0x1EFC and advances by 12).
+                            # Preserve them beside the inputs so their transform
+                            # can be recovered without assigning bone names.
+                            "pose_vectors_at_0x1efc": read_floats(
+                                ram, actor + 0x1EFC, 7 * 3),
                             "packed_pose_fields_at_0x1f50": read_u16s(
                                 ram, actor + 0x1F50, 42),
                             "joint_records_at_0x180": joint_records(
