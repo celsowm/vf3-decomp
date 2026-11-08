@@ -1,0 +1,83 @@
+[
+ {
+  "name": "z_and_y_swapped",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, f + 8u);",
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, f + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "y_and_x_swapped",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, f + 4u);",
+    "    R(0) = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, f);"
+   ]
+  ]
+ },
+ {
+  "name": "z_target_wrong",
+  "subs": [
+   [
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_ROTATE_Z), CONT_Z))",
+    "    if (!vf3_guest_call(s, ram, vf3_mem_u32(ram, POOL_ROTATE_Y), CONT_Z))"
+   ]
+  ]
+ },
+ {
+  "name": "tail_target_wrong",
+  "subs": [
+   [
+    "    R(3) = vf3_mem_u32(ram, POOL_ROTATE_X);",
+    "    R(3) = vf3_mem_u32(ram, POOL_ROTATE_Z);"
+   ]
+  ]
+ },
+ {
+  "name": "tail_is_plain_call",
+  "subs": [
+   [
+    "    return vf3_guest_tail_call(s, ram, R(3), R(16));",
+    "    if (!vf3_guest_call(s, ram, R(3), CONT_Y)) return 0;\n    s->pc = R(16);\n    return 1;"
+   ]
+  ]
+ },
+ {
+  "name": "frame_store_byte",
+  "subs": [
+   [
+    "    vf3_mem_set_u16(ram, f, (uint16_t)R(4));",
+    "    vf3_mem_set_u8(ram, f, (uint8_t)R(4));"
+   ]
+  ]
+ },
+ {
+  "name": "frame_order_wrong",
+  "subs": [
+   [
+    "    vf3_mem_set_u16(ram, f, (uint16_t)R(4));\n    vf3_mem_set_u16(ram, f + 4u, (uint16_t)R(5));",
+    "    vf3_mem_set_u16(ram, f, (uint16_t)R(5));\n    vf3_mem_set_u16(ram, f + 4u, (uint16_t)R(4));"
+   ]
+  ]
+ },
+ {
+  "name": "sp_not_restored",
+  "subs": [
+   [
+    "    R(15) += FRAME;\n    R(3) = vf3_mem_u32(ram, POOL_ROTATE_X);",
+    "    R(3) = vf3_mem_u32(ram, POOL_ROTATE_X);"
+   ]
+  ]
+ },
+ {
+  "name": "pr_popped_wrong",
+  "subs": [
+   [
+    "    R(16) = vf3_mem_u32(ram, R(15));\n    R(15) += SAVED;",
+    "    R(16) = vf3_mem_u32(ram, R(15) + 4u);\n    R(15) += SAVED;"
+   ]
+  ]
+ }
+]
