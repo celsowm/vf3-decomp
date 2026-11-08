@@ -1152,6 +1152,23 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   RAM byte) - the corpus carries the literal pool in its own window and
   touches no device register, so no sidecars are needed.
   docs/re/fdiv.md.
+- Tenpp leaf structure filler (0x8C0C103C) ported readable:
+  `src/fight/readable/tenpp_fill.c`, registered as `tenpp_fill`, proved
+  against the retained generated translation by `tests/tenpp_fill_replay.c`
+  (5 differential cases over five node/cell pointer layouts) and by the
+  mutation gate (11/11 caught, tests/tenpp_fill_mutations.json).  A 72 B
+  call-free leaf that fills a node at r4 - five 0xff bytes at +16..+20,
+  cleared halfwords +22..+30 and +32..+40, cleared words +44..+60 - and
+  clears the auxiliary cell word at r5+20, leaving r0 = 0x28 (the last
+  offset), r3 = r4+16, r5 = the widened 0xff (-1) and r6 = 0, then
+  tail-returns through r16; nothing else moves (r4, the stack pointer and SR
+  are untouched).  The oracle leg closes directly: `tests/tenpp_fill_oracle.c`
+  (`vf3tenppfilloracle`) routes the readable port itself over the per-entry
+  `.cases` corpus tenpp_arch_third_cases/f_8c0c103c.cases and passes
+  **128/128 cases** (whole 37-register file and every byte of the single
+  0x2000 window at 0x0c404000, which carries both the node and the cell) -
+  the leaf touches no device register and no stack, so no sidecars or supplied
+  pool are needed, exactly like fdiv.  docs/re/tenpp_fill.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
