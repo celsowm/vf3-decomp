@@ -99,6 +99,21 @@ cleanly (`percentage_loaded_states_dev_8c062b06_8c0533a4` 40/40,
 `tenpp_isolated_fight_8c0533a4` 3/3, `tenpp_isolated_seeded_8c0533a4` 6/6),
 and the differential proves the readable port is **byte for byte** that
 translation, so the chain `readable == generated == oracle` closes
-transitively.  There is no direct per-entry `.cases` run that routes the
-readable port itself; that would need the `.cases` + sidecar harness from
-`tests/record_kind_oracle.c` and is left as a follow-up.
+transitively.
+
+Now it also closes **directly**: `tests/fdiv_oracle.c` routes the readable port
+itself (`vf3_fdiv_entry`) over the per-entry `.cases` corpus
+(`tests/vf3fdivoracle`), the same corpus the generated adapter replays, and it
+passes **40/40 cases** with the whole 37-register file and every byte of every
+window compared:
+
+```
+build\vf3fdivoracle.exe ->
+  fdiv_oracle: 40/40 cases match (0 skipped) - PASS
+```
+
+This corpus is the strongest of the four because it carries the literal pool in
+its own window (`0x0c053000`, the four scratch constants the guest reads from
+the image), so the readable port finds them as captured runtime state rather
+than as constants the test supplies (as `record_kind`'s oracle test must).  The
+guest touches no device register, so no sidecars are needed.

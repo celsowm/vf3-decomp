@@ -1144,9 +1144,13 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   The body is off-baseline (the inventory jumps `f_8c0532ca` to `f_8c0535a2`),
   so the row (size 116) adds **116** address-union bytes.  The generated
   translation still serves the entry and replays all four of its corpora (269
-  cases), and the readable port is byte-for-byte that translation, so the
-  chain readable == generated == oracle closes transitively; there is no
-  direct per-entry `.cases` run of the readable port itself.
+  cases), the readable port is byte-for-byte that translation, and the oracle
+  leg now closes **directly**: `tests/fdiv_oracle.c` (`vf3fdivoracle`) routes
+  the readable port itself over the per-entry `.cases` corpus and passes
+  **40/40 cases** (the whole register file - all 37 registers including
+  r4-r14, macl and mach -, SR, T bit, the exit PC, the OOB counter and every
+  RAM byte) - the corpus carries the literal pool in its own window and
+  touches no device register, so no sidecars are needed.
   docs/re/fdiv.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
