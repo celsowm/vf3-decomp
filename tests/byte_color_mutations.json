@@ -1,0 +1,137 @@
+[
+ {
+  "name": "the_width_stride_is_inverted",
+  "subs": [
+   [
+    "    const unsigned w = (R(18) & 0x100000u) ? 8u : 4u;",
+    "    const unsigned w = (R(18) & 0x100000u) ? 4u : 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_initial_store_is_skipped",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 0, r1_in - w);",
+    "    /* vf3_matrix_store(s, ram, 0, r1_in - w); */"
+   ]
+  ]
+ },
+ {
+  "name": "the_pool_ptr_slot_is_scale_not_ptr",
+  "subs": [
+   [
+    "    uint32_t r2 = vf3_mem_u32(ram, 0x0c056504u);",
+    "    uint32_t r2 = vf3_mem_u32(ram, 0x0c056508u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_bytes_are_read_from_plus_4_plus_6_not",
+  "subs": [
+   [
+    "    const uint32_t lo = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, r4);",
+    "    const uint32_t lo = (uint32_t)(int32_t)(int16_t)vf3_mem_u16(ram, r4 + 1u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_hi_channel_is_lo_low_not_hi_low",
+  "subs": [
+   [
+    "    const uint32_t c_r6 = hi & 0xffu;            /* hi's low byte */",
+    "    const uint32_t c_r6 = lo & 0xffu;            /* hi's low byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_lo_high_channel_is_hi_low",
+  "subs": [
+   [
+    "    const uint32_t c_r5 = (lo >> 8u) & 0xffu;     /* lo's high byte */",
+    "    const uint32_t c_r5 = hi & 0xffu;     /* lo's high byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_byte_channel_fr_map_is_shifted",
+  "subs": [
+   [
+    "    vf3_fr_set(s, 0, vf3_f_mul(s, vf3_f_from_int(s, (int32_t)c_r2),\n                                vf3_fr_get(s, 6)));",
+    "    vf3_fr_set(s, 0, vf3_f_mul(s, vf3_f_from_int(s, (int32_t)c_r2),\n                                vf3_fr_get(s, 4)));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_final_store_uses_out_plus_w",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 0, out);",
+    "    vf3_matrix_store(s, ram, 0, out + w);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_final_store_uses_out_only",
+  "subs": [
+   [
+    "    vf3_matrix_store(s, ram, 1, out - w);",
+    "    vf3_matrix_store(s, ram, 1, out);"
+   ]
+  ]
+ },
+ {
+  "name": "r1_is_out_minus_w_not_out_minus_2w",
+  "subs": [
+   [
+    "    R(1) = out - 2u * w;",
+    "    R(1) = out - w;"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_is_lo_high_not_hi_low",
+  "subs": [
+   [
+    "    R(53) = c_r6;                        /* FPUL: the last r53 write */",
+    "    R(53) = c_r5;                        /* FPUL: the last r53 write */"
+   ]
+  ]
+ },
+ {
+  "name": "r4_is_plus_4_not_plus_8",
+  "subs": [
+   [
+    "    R(4) = r4_in + 8u;",
+    "    R(4) = r4_in + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_is_the_out_pool_slot",
+  "subs": [
+   [
+    "    R(0) = 0x0c056508u;",
+    "    R(0) = 0x0c056510u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_scale_load_uses_the_ptr_slot",
+  "subs": [
+   [
+    "    vf3_matrix_load(s, ram, 7, 0x0c056508u);     /* fr7 = scale */",
+    "    vf3_matrix_load(s, ram, 7, 0x0c056504u);     /* fr7 = scale */"
+   ]
+  ]
+ },
+ {
+  "name": "the_out_load_uses_the_ptr_slot",
+  "subs": [
+   [
+    "    uint32_t out = vf3_mem_u32(ram, 0x0c056510u);",
+    "    uint32_t out = vf3_mem_u32(ram, 0x0c056504u);"
+   ]
+  ]
+ }
+]

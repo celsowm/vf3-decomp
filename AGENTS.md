@@ -1205,6 +1205,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   three windows carry the pool, the target structure and the stack, and the
   leaf touches no device register, so no sidecars or supplied pool are
   needed.  docs/re/counter_select.md.
+- Two-byte color scale (0x8C0563AC) ported readable:
+  `src/fight/readable/byte_color.c`, registered as `byte_color`, proved
+  against the retained generated translation by `tests/byte_color_replay.c`
+  (3 differential cases over three single-precision channel layouts) and by
+  the mutation gate (15/15 caught, tests/byte_color_mutations.json).  An 80 B
+  call-free branch-free FP leaf that reads three source floats through a pool
+  pointer (ptrA at 0x0c056504), scales them by the constant at 0x0c056508,
+  unpacks two packed bytes at [r4+4]/[r4+6] into three byte channels,
+  converts them to floats and scales those by the first three, and writes the
+  three results down a run of the output base read from 0x0c056510 (fr0@out,
+  fr1@out-w, fr2@out-2w, w = FPSCR.PR?8:4; the FP results ride in the FR
+  register bank, not locals, because the final stores emit the bank); r0 =
+  0x0c056508, r1 = out-2w, r2 = lo's low byte, r4 += 8, r5 = lo's high byte,
+  r6 = hi's low byte, SR untouched (no compares), FPUL = hi's low byte.  The
+  oracle leg closes directly: `tests/byte_color_oracle.c`
+  (`vf3bytecolororacle`) routes the readable port itself over the per-entry
+  `.cases` corpus tenpp_arch_third_cases/f_8c0563ac.cases and passes
+  **128/128 cases** - the windows carry the pool, the source floats, the
+  output/bytes/scratch and the rest of the captured state, and the leaf
+  touches no device register, so no sidecars or supplied pool are needed.
+  The corpus exercises only single precision (fpscr 0x00040001, PR clear),
+  so the tests and the proof are single-precision; the double-PR width
+  ternary is carried for fidelity but is not evidenced by any captured
+  state.  docs/re/byte_color.md.
 - **A `.cases` row names the entry blob *before* the window descriptors.**  The
   row is `in*37 out*37 <entry blob> <nwin> <base len>* <exit blob> <nexit>
   <base len>*`, so the *entry* blob is the token right after the 74 register
