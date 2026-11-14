@@ -69,6 +69,7 @@
 #include "motion_pose.h"
 
 #include "matrix.h"
+#include "motion_vectors.h"
 
 #include <string.h>
 
@@ -303,5 +304,112 @@ int vf3_native_motion_pose_fields(
         vf3_native_matrix_translate_local(world[row], bone->shift,
                                           matrices[row]);
     }
+    return 0;
+}
+
+/* ---- the recovered row 0 (0x8C09EAF2) ----
+ *
+ * The guest builds the actor's root row as:
+ *   R_root = Ry(yaw) * Rz(f0) * Ry(f1) * Rx(f2)      (root_orientation)
+ *   t      = seven_pass point 0                      (matrix_set_translation)
+ *   R_half = R_root * Rz(hw0) * Ry(arg + hw1) * Rx(hw2)
+ *   d      = R_half^T * (point1 + offset - t)        (pass_prep's inverse)
+ *   R_row0 = R_half * Rz(heading(d)) * Ry(pitch(d))  (unit_triple)
+ * with f0..f2 the first pose triple (zero-extended), hw0..hw2 the second
+ * (zero-extended), arg the actor halfword at +0x22E4 (sign-extended), and
+ * offset the three floats at +0x208C/+0x2090/+0x2094.  The row's translation
+ * is t: the frame's +0xA4 object carries it because the xf_store to frame+0xD4
+ * lands on the object's translation field (+0xA4 + 48). */
+
+static const float motion_row0_identity[16] = {
+    1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+};
+
+static int motion_row0_from_points(
+    const int16_t fields[VF3_NATIVE_POSE_FIELDS],
+    const vf3_native_motion_actor *actor,
+    const float points[VF3_NATIVE_MOTION_POINT_COUNT]
+                       [VF3_NATIVE_MOTION_POINT_FLOATS],
+    float out[16])
+{
+    float root[16], half[16], hw[16];
+    const uint16_t angles[3] = { (uint16_t)fields[0], (uint16_t)fields[1],
+                                 (uint16_t)fields[2] };
+    const float *t = points[0];
+    const float src[3] = { points[1][0] + actor->offset[0],
+                           points[1][1] + actor->offset[1],
+                           points[1][2] + actor->offset[2] };
+    const float diff[3] = { src[0] - t[0], src[1] - t[1], src[2] - t[2] };
+    float d[3], xz_length, inverse_length;
+
+    if (vf3_native_matrix_pose_angles(motion_row0_identity, (int16_t)actor->yaw,
+                                      0, angles, root) != 0)
+        return -4;
+    root[12] = t[0];
+    root[13] = t[1];
+    root[14] = t[2];
+
+    if (vf3_native_matrix_euler_z_y_x(
+            (uint16_t)fields[3],
+            (uint16_t)((uint32_t)actor->arg + (uint32_t)(uint16_t)fields[4]),
+            (uint16_t)fields[5], hw) != 0)
+        return -4;
+    vf3_native_matrix_multiply(root, hw, half);
+
+    for (size_t i = 0; i < 3; ++i)
+        d[i] = half[i * 4u + 0u] * diff[0] + half[i * 4u + 1u] * diff[1] +
+               half[i * 4u + 2u] * diff[2];
+
+    if (vf3_native_matrix_unit_triple(half, d, out, &xz_length,
+                                      &inverse_length) != 0)
+        return -4;
+    return 0;
+}
+
+int vf3_native_motion_row0(const int16_t fields[VF3_NATIVE_POSE_FIELDS],
+                           const vf3_native_motion_actor *actor,
+                           const float channels[21], float out[16])
+{
+    float world[16];
+    float points[VF3_NATIVE_MOTION_POINT_COUNT]
+                [VF3_NATIVE_MOTION_POINT_FLOATS];
+    if (!fields || !actor || !channels || !out)
+        return -1;
+    if (vf3_native_motion_actor_transform(actor->yaw, actor->position,
+                                          actor->mode, actor->flags,
+                                          world) != 0)
+        return -2;
+    {
+        const uint8_t zero_y = vf3_native_motion_zero_y_mask(
+            actor->flags, actor->pose_flags, actor->global_flags);
+        const int use_origin = (actor->flags & 0x20000000u) != 0;
+        if (vf3_native_motion_points(channels, use_origin, zero_y, world,
+                                    points) != 0)
+            return -3;
+    }
+    return motion_row0_from_points(fields, actor, points, out);
+}
+
+int vf3_native_motion_pose_actor(
+    const vf3_native_motion_stream *stream, int32_t phase,
+    vf3_native_motion_rig rig, const vf3_native_motion_actor *actor,
+    float matrices[VF3_NATIVE_ATTACHMENT_COUNT]
+                  [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS])
+{
+    float channels[VF3_NATIVE_MOTION_CHANNELS];
+    uint16_t pose_fields[VF3_NATIVE_POSE_FIELDS];
+    int16_t signed_fields[VF3_NATIVE_POSE_FIELDS];
+    if (!stream || !actor || !matrices)
+        return -1;
+    if (vf3_native_motion_eval_pose_fields(stream, phase, channels,
+                                           pose_fields) != 0)
+        return -2;
+    for (size_t i = 0; i < VF3_NATIVE_POSE_FIELDS; ++i)
+        signed_fields[i] = (int16_t)pose_fields[i];
+    if (vf3_native_motion_pose_fields(signed_fields, rig, matrices) != 0)
+        return -3;
+    if (vf3_native_motion_row0(signed_fields, actor, channels,
+                              matrices[0]) != 0)
+        return -4;
     return 0;
 }

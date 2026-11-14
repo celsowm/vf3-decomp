@@ -715,6 +715,21 @@ python tools/native_motion_corpus_audit.py `
    its own group turns and that row 1, which is outside all six subtrees,
    does not. It deliberately does not assert the authored bind joints.
 
+   The root row is no longer authored. `vf3_native_motion_row0()` /
+   `vf3_native_motion_pose_actor()` in `src/native/motion_pose.c` rebuild
+   row 0 from the recovered orchestration chain: root orientation from pose
+   fields 0..2 and the actor yaw, the seven-pass point 0 as the translation,
+   the halfword frame from fields 3..5 and the actor `+0x22E4` argument, and
+   the unit-triple heading/pitch from the summed actor triple (point 1 plus
+   the `+0x208C` floats). `vf3nativemotionrow0`
+   (tests/native_motion_row0_replay.c) proves it against an independent
+   re-statement of the chain and against the four retained `0x8C09EAF2`
+   specimens (all match to 2e-4; 13/13 mutations caught). The runtime host
+   still does not carry the actor inputs the chain reads, so `vf3port` keeps
+   the authored bind row until the native fight state supplies them;
+   `vf3nativemotionpreview --row0 ...` exercises the recovered chain with
+   the inputs supplied explicitly. See `docs/re/motion_row0.md`.
+
    The Y-suppression condition in the audit was inverted for one test.
    At 0x0C09DB7E the guest uses a plain `bf` against actor & 0x8000: `bf`
    branches when T is clear, and `tst` leaves T clear exactly when the bit
@@ -1084,7 +1099,9 @@ until the pose path supplies real capsule geometry.
    selector attachment rows are confirmed as its outputs, but the mapping
    from MT channels to source fields is still open. Prove idle, walk and guard
    playback from VFA assets. The MT stream slices themselves are decoded in
-   native C.
+   native C. Row 0 of the 18 is recovered and verified against the retained
+   specimens (`docs/re/motion_row0.md`); the remaining 17 rows, the runtime
+   actor inputs and the action-to-motion mapping are still open.
 2. Add attack, hit, knockdown and recovery clips; compare native per-frame
    state with retained readable-port evidence and captured fight states.
 3. Replace the match blockout with recovered movement, hit/guard, damage,

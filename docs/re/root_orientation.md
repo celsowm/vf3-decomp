@@ -75,3 +75,11 @@ The primitive is verified but not wired into `motion_pose.c`: the
 captured row-0 matrices do not match this intermediate (the aim-frame
 producer in 0x8C09EAF2 transforms it further), so row 0 keeps its
 authored bind rotation until that producer is ported.
+
+**Update:** the full row-0 chain (root orientation, seven-pass
+translation, halfword frame, unit triple) is now recovered and wired as
+`vf3_native_motion_row0()` / `vf3_native_motion_pose_actor()` in
+`src/native/motion_pose.c`, proved against the four retained
+`0x8C09EAF2` specimens.  The runtime host still does not carry the actor
+inputs the chain reads, so `vf3port` keeps the authored bind row until the
+native fight state supplies them.  See `docs/re/motion_row0.md`.

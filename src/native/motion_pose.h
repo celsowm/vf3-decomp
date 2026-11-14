@@ -42,4 +42,39 @@ int vf3_native_motion_pose_fields(
     float matrices[VF3_NATIVE_ATTACHMENT_COUNT]
                   [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS]);
 
+/* The external actor state the recovered row-0 chain reads.  The pose fields
+ * themselves come from the evaluated motion; these are the actor words the
+ * guest reads around them (see docs/re/motion_row0.md). */
+typedef struct {
+    uint16_t yaw;            /* actor +0x1E, sign-extended by the caller */
+    float position[3];       /* actor +0x10, the seven-pass origin */
+    uint8_t mode;            /* actor +97 */
+    uint32_t flags;          /* actor +72 (word0) */
+    uint32_t pose_flags;     /* actor +0x48 */
+    uint32_t global_flags;   /* 0x0C29BCCC */
+    int16_t arg;             /* actor +0x22E4 */
+    float offset[3];         /* actor +0x208C/+0x2090/+0x2094 */
+} vf3_native_motion_actor;
+
+/* Recovered native row 0 of the pose orchestration (0x8C09EAF2): the root
+ * orientation from pose fields 0..2 and the actor yaw, the seven-pass
+ * translation, the halfword frame from fields 3..5 and the actor +0x22E4
+ * argument, and the unit_triple heading/pitch from the summed actor triple.
+ * `channels[0..20]` feed the seven-point transform.  Returns 0 on success,
+ * -1 for bad arguments, -2 for a non-finite actor transform, -3 when the
+ * seven points cannot be built, -4 when the row-0 basis is rejected. */
+int vf3_native_motion_row0(const int16_t fields[VF3_NATIVE_POSE_FIELDS],
+                           const vf3_native_motion_actor *actor,
+                           const float channels[21], float out[16]);
+
+/* The full 18-row fold with the recovered row 0 substituted for the authored
+ * bind row.  The remaining rows keep the documented authored rig.  Returns
+ * the same codes as vf3_native_motion_pose, plus -4 when actor is null or
+ * the row-0 build fails. */
+int vf3_native_motion_pose_actor(
+    const vf3_native_motion_stream *stream, int32_t phase,
+    vf3_native_motion_rig rig, const vf3_native_motion_actor *actor,
+    float matrices[VF3_NATIVE_ATTACHMENT_COUNT]
+                  [VF3_NATIVE_ATTACHMENT_MATRIX_FLOATS]);
+
 #endif

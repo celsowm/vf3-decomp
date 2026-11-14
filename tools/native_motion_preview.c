@@ -98,6 +98,9 @@ int main(int argc, char **argv)
     int dump_fields = 0;
     int zero_fields = 0;
     int dump_matrices = 0;
+    int use_row0 = 0;
+    vf3_native_motion_actor actor_state;
+    memset(&actor_state, 0, sizeof actor_state);
     vf3_asset_pack pack;
     blob mt = { 0 };
     MtFile file;
@@ -141,10 +144,41 @@ int main(int argc, char **argv)
             zero_fields = 1;
         else if (strcmp(argv[i], "--dump-matrices") == 0)
             dump_matrices = 1;
-        else if (strcmp(argv[i], "--help") == 0) {
+        else if (strcmp(argv[i], "--row0") == 0)
+            use_row0 = 1;
+        else if (strcmp(argv[i], "--yaw") == 0 && i + 1 < argc) {
+            const long value = strtol(argv[++i], NULL, 0);
+            actor_state.yaw = (uint16_t)(int16_t)value;
+        } else if (strcmp(argv[i], "--pos") == 0 && i + 1 < argc) {
+            if (sscanf(argv[++i], "%f,%f,%f", &actor_state.position[0],
+                       &actor_state.position[1], &actor_state.position[2]) != 3)
+                return 2;
+        } else if (strcmp(argv[i], "--mode") == 0 && i + 1 < argc) {
+            unsigned long value = strtoul(argv[++i], NULL, 0);
+            actor_state.mode = (uint8_t)value;
+        } else if (strcmp(argv[i], "--flags") == 0 && i + 1 < argc) {
+            unsigned long value = strtoul(argv[++i], NULL, 0);
+            actor_state.flags = (uint32_t)value;
+        } else if (strcmp(argv[i], "--pose-flags") == 0 && i + 1 < argc) {
+            unsigned long value = strtoul(argv[++i], NULL, 0);
+            actor_state.pose_flags = (uint32_t)value;
+        } else if (strcmp(argv[i], "--global-flags") == 0 && i + 1 < argc) {
+            unsigned long value = strtoul(argv[++i], NULL, 0);
+            actor_state.global_flags = (uint32_t)value;
+        } else if (strcmp(argv[i], "--arg") == 0 && i + 1 < argc) {
+            const long value = strtol(argv[++i], NULL, 0);
+            actor_state.arg = (int16_t)value;
+        } else if (strcmp(argv[i], "--offset") == 0 && i + 1 < argc) {
+            if (sscanf(argv[++i], "%f,%f,%f", &actor_state.offset[0],
+                       &actor_state.offset[1], &actor_state.offset[2]) != 3)
+                return 2;
+        } else if (strcmp(argv[i], "--help") == 0) {
             printf("usage: vf3nativemotionpreview [--assets VFA] "
                    "[--fighter akira|jacky] [--mt MT*.BIN] [--motion ID] "
-                   "[--cycle N] [--frames START COUNT] [--out FMT]\n");
+                   "[--cycle N] [--frames START COUNT] [--out FMT] "
+                   "[--row0 --yaw N --pos X,Y,Z --mode N --flags N "
+                   "--pose-flags N --global-flags N --arg N "
+                   "--offset X,Y,Z]\n");
             return 0;
         } else {
             fprintf(stderr, "unknown argument: %s\n", argv[i]);
@@ -204,6 +238,14 @@ int main(int argc, char **argv)
             int16_t zeros[VF3_NATIVE_POSE_FIELDS] = { 0 };
             if (vf3_native_motion_pose_fields(zeros, rig, matrices) != 0) {
                 fprintf(stderr, "bind pose failed at frame %u (cycle frame %u)\n",
+                        start_frame + frame, frame_in_cycle);
+                goto done;
+            }
+        } else if (use_row0) {
+            if (vf3_native_motion_pose_actor(&stream, phase, rig,
+                                             &actor_state, matrices) != 0) {
+                fprintf(stderr, "motion_pose_actor failed at frame %u "
+                                "(cycle frame %u)\n",
                         start_frame + frame, frame_in_cycle);
                 goto done;
             }

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "row0_translation_x_dropped",
+    "subs": [["    root[12] = t[0];", "    root[12] = 0.0f;"]]
+  },
+  {
+    "name": "row0_translation_y_dropped",
+    "subs": [["    root[13] = t[1];", "    root[13] = 0.0f;"]]
+  },
+  {
+    "name": "row0_translation_z_dropped",
+    "subs": [["    root[14] = t[2];", "    root[14] = 0.0f;"]]
+  },
+  {
+    "name": "halfword_z_uses_field5",
+    "subs": [["            (uint16_t)fields[3],", "            (uint16_t)fields[5],"]]
+  },
+  {
+    "name": "halfword_x_uses_field3",
+    "subs": [["            (uint16_t)fields[5], hw) != 0)", "            (uint16_t)fields[3], hw) != 0)"]]
+  },
+  {
+    "name": "halfword_arg_dropped",
+    "subs": [["            (uint16_t)((uint32_t)actor->arg + (uint32_t)(uint16_t)fields[4]),", "            (uint16_t)(uint32_t)(uint16_t)fields[4],"]]
+  },
+  {
+    "name": "halfword_composition_order",
+    "subs": [["    vf3_native_matrix_multiply(root, hw, half);", "    vf3_native_matrix_multiply(hw, root, half);"]]
+  },
+  {
+    "name": "unit_triple_base_is_root",
+    "subs": [["    if (vf3_native_matrix_unit_triple(half, d, out, &xz_length,", "    if (vf3_native_matrix_unit_triple(root, d, out, &xz_length,"]]
+  },
+  {
+    "name": "inverse_transform_uses_column",
+    "subs": [["        d[i] = half[i * 4u + 0u] * diff[0] + half[i * 4u + 1u] * diff[1] +", "        d[i] = half[i * 4u + 2u] * diff[0] + half[i * 4u + 1u] * diff[1] +"]]
+  },
+  {
+    "name": "root_yaw_zeroed",
+    "subs": [["    if (vf3_native_matrix_pose_angles(motion_row0_identity, (int16_t)actor->yaw,", "    if (vf3_native_matrix_pose_angles(motion_row0_identity, (int16_t)0,"]]
+  },
+  {
+    "name": "origin_flag_bit_changed",
+    "subs": [["        const int use_origin = (actor->flags & 0x20000000u) != 0;", "        const int use_origin = (actor->flags & 0x40000000u) != 0;"]]
+  },
+  {
+    "name": "src_uses_point0_x",
+    "subs": [["    const float src[3] = { points[1][0] + actor->offset[0],", "    const float src[3] = { points[0][0] + actor->offset[0],"]]
+  },
+  {
+    "name": "src_uses_point1_x_for_y",
+    "subs": [["                           points[1][1] + actor->offset[1],", "                           points[1][0] + actor->offset[1],"]]
+  }
+]

@@ -6733,6 +6733,8 @@ add_executable(vf3nativemotionvectors tests/native_motion_vectors_replay.c)
 target_link_libraries(vf3nativemotionvectors PRIVATE vf3nativegame)
 add_executable(vf3nativemotionpose tests/native_motion_pose_replay.c)
 target_link_libraries(vf3nativemotionpose PRIVATE vf3nativeview)
+add_executable(vf3nativemotionrow0 tests/native_motion_row0_replay.c)
+target_link_libraries(vf3nativemotionrow0 PRIVATE vf3nativeview)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)
