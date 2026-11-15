@@ -65,3 +65,28 @@ build/vf3nativemotionpreview.exe --assets build/vf3_assets.vfa \
 Supplying the actor inputs from the native fight state (and recovering the
 action-to-motion mapping) is the remaining work before the runtime draws the
 recovered root row.
+
+## The aim-record input (recovered)
+
+The same orchestration body also selects the record its two `aim_frame`
+builders (0x8C09E060, 0x8C09E6B2) read: when the actor byte at `+0x61` is not
+12, `r11 = *(u32 *)(0x0C10DABC + byte * 4)` and the builders use `r11 + 4`
+(first call) / `r11 + 24` (second) as their object.  The byte is the actor
+`+0x420B`, and the table plus its five records are 1ST_READ constants, so the
+native port carries them as data: `vf3_native_motion_aim_record()`
+(`src/native/motion_pose.c`) serves the twelve leading floats of record
+`kind` (0..4) and refuses anything else.  `vf3_native_motion_actor` gained
+`aim_record` for the byte.
+
+The recovered index is **0**: the four retained `0x8C09EAF2` specimens' exit
+shadows carry the first `aim_frame`'s saved `r11` (the orchestration leaves
+`r15 = sp0 - 236`, the call is after a 64-byte `matrix_push` and six argument
+pushes, so the saved `r11` sits at `sp0 - 340`), and it is `0x0C10D940` -
+record 0 - in all four.  Record 0's translation is `(.28, 0, .12)`, the
+measured row-2 offset the authored rig already quotes.
+
+`tests/native_motion_aim_replay.c` proves the embedded table against the
+image bytes, the selector's bounds, and that oracle leg (4/4); 3/3 mutations
+caught (`tests/native_motion_aim_mutations.json`).  The `aim_frame` builders
+themselves are still the guest helpers, so rows 2..9 keep the authored rig
+until those helpers are ported.

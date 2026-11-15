@@ -54,6 +54,7 @@ typedef struct {
     uint32_t global_flags;   /* 0x0C29BCCC */
     int16_t arg;             /* actor +0x22E4 */
     float offset[3];         /* actor +0x208C/+0x2090/+0x2094 */
+    uint8_t aim_record;      /* actor +0x420B: index into the aim-record table */
 } vf3_native_motion_actor;
 
 /* Recovered native row 0 of the pose orchestration (0x8C09EAF2): the root
@@ -66,6 +67,15 @@ typedef struct {
 int vf3_native_motion_row0(const int16_t fields[VF3_NATIVE_POSE_FIELDS],
                            const vf3_native_motion_actor *actor,
                            const float channels[21], float out[16]);
+
+/* The aim-record table the pose orchestration (0x8C09EAF2) selects from with
+ * the actor byte at +0x420B: r11 = *(u32 *)(0x0C10DABC + byte * 4).  The table
+ * and its five records are image constants (0x0C10DABC / 0x0C10D940 in
+ * 1ST_READ), so the native port carries them as data.  `vf3_native_motion_aim_record`
+ * returns the twelve leading floats of record `kind` (the span the aim_frame
+ * builders read: the two endpoints and the two ratios), or -1 when `kind` is
+ * outside the five valid entries.  See docs/re/motion_row0.md. */
+int vf3_native_motion_aim_record(uint8_t kind, float out[12]);
 
 /* The full 18-row fold with the recovered row 0 substituted for the authored
  * bind row.  The remaining rows keep the documented authored rig.  Returns

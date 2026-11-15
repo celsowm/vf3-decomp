@@ -390,6 +390,37 @@ int vf3_native_motion_row0(const int16_t fields[VF3_NATIVE_POSE_FIELDS],
     return motion_row0_from_points(fields, actor, points, out);
 }
 
+/* ---- the aim-record table (0x8C09EAF2's kind != 12 branch) ----
+ *
+ * The orchestration reads the actor byte at +0x420B and indexes the u32 table
+ * at 0x0C10DABC (r11 = *(u32 *)(table + byte * 4)); the aim_frame builders then
+ * read their endpoints and ratios from the record r11 points at.  The table
+ * and its five records are 1ST_READ constants, so they are carried here as
+ * data.  The twelve floats are the record's leading span: two three-float
+ * endpoints and the two ratio triples that follow. */
+
+static const float motion_aim_records[5][12] = {
+    { 0.389999986f, 0.279999971f, 0.119999997f, 0.119999997f, 0.25999999f, 0.209999993f,
+      0.279999971f, -0.119999997f, -0.119999997f, 0.25999999f, 0.209999993f, 0.189999998f },
+    { 0.309999973f, 0.25f, 0.0899999961f, 0.0799999982f, 0.229999989f, 0.229999989f,
+      0.25f, -0.0899999961f, -0.0799999982f, 0.229999989f, 0.229999989f, 0.189999998f },
+    { 0.50999999f, 0.409999996f, 0.179999992f, 0.169999987f, 0.299999982f, 0.309999973f,
+      0.409999996f, -0.179999992f, -0.169999987f, 0.299999982f, 0.309999973f, 0.189999998f },
+    { 0.299999982f, 0.229999989f, 0.0799999982f, 0.0699999928f, 0.219999999f, 0.219999999f,
+      0.229999989f, -0.0799999982f, -0.0699999928f, 0.219999999f, 0.219999999f, 0.189999998f },
+    { 0.299999982f, 0.239999995f, 0.109999999f, 0.099999994f, 0.219999999f, 0.219999999f,
+      0.239999995f, -0.109999999f, -0.099999994f, 0.219999999f, 0.219999999f, 0.189999998f },
+};
+
+int vf3_native_motion_aim_record(uint8_t kind, float out[12])
+{
+    if (kind >= 5u || !out)
+        return -1;
+    for (int i = 0; i < 12; ++i)
+        out[i] = motion_aim_records[kind][i];
+    return 0;
+}
+
 int vf3_native_motion_pose_actor(
     const vf3_native_motion_stream *stream, int32_t phase,
     vf3_native_motion_rig rig, const vf3_native_motion_actor *actor,
