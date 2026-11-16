@@ -1,0 +1,81 @@
+[
+  {
+    "name": "unaligned_address_aliases_to_word",
+    "subs": [["    return (float *)((uint8_t *)a->ram + (addr - a->ram_base));",
+              "    return (float *)((uint8_t *)a->ram + ((addr - a->ram_base) & ~3u));"]]
+  },
+  {
+    "name": "euler_angle_order_zyx_to_xyz",
+    "subs": [["    if (vf3_native_matrix_apply_euler_keep_translation(a->xm, z, y, x,",
+              "    if (vf3_native_matrix_apply_euler_keep_translation(a->xm, x, y, z,"]]
+  },
+  {
+    "name": "translate_by_drops_the_z_term",
+    "subs": [["    a->xm[12] = a->xm[0] * x + a->xm[4] * y + a->xm[8] * z + a->xm[12];",
+              "    a->xm[12] = a->xm[0] * x + a->xm[4] * y + a->xm[12];",
+              "    a->xm[13] = a->xm[1] * x + a->xm[5] * y + a->xm[9] * z + a->xm[13];",
+              "    a->xm[13] = a->xm[1] * x + a->xm[5] * y + a->xm[13];",
+              "    a->xm[14] = a->xm[2] * x + a->xm[6] * y + a->xm[10] * z + a->xm[14];",
+              "    a->xm[14] = a->xm[2] * x + a->xm[6] * y + a->xm[14];"]]
+  },
+  {
+    "name": "store_keep_keeps_the_rotation_not_the_translation",
+    "subs": [["    float kept[3] = { object[12], object[13], object[14] };",
+              "    float kept[3] = { object[0], object[1], object[2] };"]]
+  },
+  {
+    "name": "rotate_sc_swaps_sine_and_cosine",
+    "subs": [["    aim_rot_z(F(4), F(5), rotation);",
+              "    aim_rot_z(F(5), F(4), rotation);"]]
+  },
+  {
+    "name": "clearance_branch_sense_inverted",
+    "subs": [["    if (F(5) >= F(7)) {",
+              "    if (F(5) < F(7)) {"]]
+  },
+  {
+    "name": "invert_rigid_translation_not_negated",
+    "subs": [["        out[12 + r] = -(m[4 * r] * m[12] + m[4 * r + 1] * m[13] +",
+              "        out[12 + r] = (m[4 * r] * m[12] + m[4 * r + 1] * m[13] +"]]
+  },
+  {
+    "name": "wrapper_forgets_to_park_the_translation",
+    "subs": [["    parked[1] = kept[1];",
+              "    parked[1] = 0.0f;"]]
+  },
+  {
+    "name": "wrapper_heading_uses_the_wrong_rotation_axis",
+    "subs": [["    aim_rotate_y_angle(a, aim_h16(a, base + 30u));",
+              "    aim_rotate_z_angle(a, aim_h16(a, base + 30u));"]]
+  },
+  {
+    "name": "wrapper_reads_the_heading_from_the_record",
+    "subs": [["    aim_rotate_z_angle(a, aim_h16(a, angles));",
+              "    aim_rotate_z_angle(a, aim_h16(a, base + 30u));"]]
+  },
+  {
+    "name": "second_builder_first_rotation_not_negated",
+    "subs": [["        F(4) = aim_fbits(aim_ubits(F(3)) ^ AIM_NEGATE);",
+              "        F(4) = F(3);"]]
+  },
+  {
+    "name": "second_builder_clearance_ratio_denominator_swapped",
+    "subs": [["        F(5) = F(3) / F(2);",
+              "        F(5) = F(3) / F(7);"]]
+  },
+  {
+    "name": "second_builder_fma_row_reads_the_wrong_block",
+    "subs": [["    aim_fma_row_at(a, 72u, 24u);",
+              "    aim_fma_row_at(a, 72u, 24u + 4u);"]]
+  },
+  {
+    "name": "unit_triple_skips_the_inverse_transform",
+    "subs": [["    vf3_native_matrix_transform_point(inverted, aim_p(a, triple), p);",
+              "    vf3_native_matrix_transform_point(a->xm, aim_p(a, triple), p);"]]
+  },
+  {
+    "name": "two_lengths_use_the_wrong_components",
+    "subs": [["    const float m = xz_length * xz_length + p[2] * p[2];",
+              "    const float m = xz_length * xz_length + p[1] * p[1];"]]
+  }
+]

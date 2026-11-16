@@ -6720,6 +6720,7 @@ add_library(vf3nativeview STATIC
     src/native/fighter_view.c
     src/native/akira_parts.c
     src/native/jacky_parts.c
+    src/native/motion_aim.c
     src/native/motion_pose.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
@@ -6737,6 +6738,9 @@ add_executable(vf3nativemotionrow0 tests/native_motion_row0_replay.c)
 target_link_libraries(vf3nativemotionrow0 PRIVATE vf3nativeview)
 add_executable(vf3nativemotionaim tests/native_motion_aim_replay.c)
 target_link_libraries(vf3nativemotionaim PRIVATE vf3nativeview)
+add_executable(vf3nativemotionaimframe tests/native_motion_aimframe_replay.c)
+target_link_libraries(vf3nativemotionaimframe PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativemotionaimframe PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)

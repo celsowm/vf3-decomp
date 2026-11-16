@@ -1500,6 +1500,33 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   capture can never be byte-identical to an older recorder's file.  Compare a
   fresh capture with the *same* recorder's recorded output (and compare the
   older one semantically, with `tools/oracle/compare_original_samples.py`).
+- **The native aim-frame port is concluded**: `src/native/motion_aim.c` builds
+  both 0x8C09E060 (aim_frame) and 0x8C09E6B2 (aim_frame_b) natively, and
+  `tests/native_motion_aimframe_replay.c` runs three cases (the first builder,
+  the second, and the second with a clearance sum the guest's length exceeds)
+  against the readable guest ports - all three match at ~2e-6, and 15/15
+  mutations of the port are caught by `tests/native_motion_aimframe_mutations.json`
+  (`python tools/mutate.py --port src/native/motion_aim.c --exe
+  build/vf3nativemotionaimframe.exe --mutations
+  tests/native_motion_aimframe_mutations.json --target vf3nativemotionaimframe`).
+  docs/re/motion_aim.md records the reading.
+- **A native port's guest-address arithmetic has to be byte-exact, and so does
+  its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
+  second euler of each aim builder reads halfwords at an address that is not
+  4-aligned: `aim_p(a, addr)` resolved with `>> 2` aliased 0x0C200506 onto
+  0x0C200504 and rotated by the wrong angles.  The *fixture* had the same bug in
+  its own `at()`, so its ten angle halfwords landed one word low and the
+  differential was comparing two different inputs - the "0.169 residual" in the
+  first version of `src/native/motion_aim.c` was a fixture artefact, not a port
+  defect.  `w16`-style helpers that index a flat RAM through integer division
+  are the trap; both the port and the test now do byte arithmetic
+  (docs/re/motion_aim.md).
+- **0x8C09DA1E keeps the caller's translation through a park-and-rebuild cycle**:
+  0x8C03B820 parks XMTRX's translation in the wrapper's own frame, the four
+  rotations (Ry(base + 30), Rz(record + 0), Ry(record + 2),
+  Rx(*(int16 *)(base + 0x22E6) + record + 4)) rebuild the rotation from the
+  identity, and 0x8C03CBD0 puts the parked words back.  A port that reads the
+  parked words without writing them restores whatever the seed left behind.
 - MT record field semantics (motion VM)
 - BGM song-kit voice reset boundaries
 - Main loop body (struct-C model: static jsr ceiling ~3%)
