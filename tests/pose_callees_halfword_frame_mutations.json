@@ -1,0 +1,21 @@
+[
+  {
+    "name": "frame_reserve_off_by_four",
+    "subs": [["    uint32_t f = sp - FRAME - 4u;", "    uint32_t f = sp - FRAME - 8u;"]]
+  },
+  {
+    "name": "first_halfword_order_swapped",
+    "subs": [["    vf3_aim_set_u16(a, f + 4u, (uint16_t)sext16(vf3_aim_h16(a, obj + 2u)));\n    vf3_aim_set_u16(a, f + 8u, (uint16_t)sext16(vf3_aim_h16(a, obj + 0u)));",
+              "    vf3_aim_set_u16(a, f + 4u, (uint16_t)sext16(vf3_aim_h16(a, obj + 0u)));\n    vf3_aim_set_u16(a, f + 8u, (uint16_t)sext16(vf3_aim_h16(a, obj + 2u)));"]]
+  },
+  {
+    "name": "first_handler_uses_object_third_halfword",
+    "subs": [["    vf3_aim_rotate_z_angle(a, vf3_aim_h16(a, f + 8u));",
+              "    vf3_aim_rotate_z_angle(a, vf3_aim_h16(a, f + 12u));"]]
+  },
+  {
+    "name": "third_handler_rotation_changed_to_z",
+    "subs": [["    vf3_aim_rotate_x_angle(a, vf3_aim_h16(a, f + 12u));",
+              "    vf3_aim_rotate_z_angle(a, vf3_aim_h16(a, f + 12u));"]]
+  }
+]

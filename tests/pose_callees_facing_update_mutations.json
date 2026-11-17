@@ -1,0 +1,27 @@
+[
+  {
+    "name": "phase1_y_override_offset_wrong",
+    "subs": [["                const float v = rd(a, p84 + 4u) + rd(a, obj + 0x2308u);",
+              "                const float v = rd(a, p84 + 4u) + rd(a, obj + 0x2304u);"]]
+  },
+  {
+    "name": "phase1_fmac_multiplier_wrong",
+    "subs": [["                    wf(a, p84 + i, fmaf(cx, pos, part) * cb);",
+              "                    wf(a, p84 + i, fmaf(cx, part, pos) * cb);"]]
+  },
+  {
+    "name": "heading_delta_sext_vs_clamp_order",
+    "subs": [["            r4 = sext16(r4 + 0xC000u);",
+              "            r4 = sext16(r4) + 0xC000u;"]]
+  },
+  {
+    "name": "special_kind_bytes_wrong",
+    "subs": [["        special = (kind == 0x886u || kind == 0x88Du) ? 1 : 0;",
+              "        special = (kind == 0x876u || kind == 0x87Du) ? 1 : 0;"]]
+  },
+  {
+    "name": "ena_turn_table_bias_offset_wrong",
+    "subs": [["            r5 += sext16(vf3_aim_h16(a, TURN_TABLE + (idx << 1))) & 0xffffu;",
+              "            r5 += sext16(vf3_aim_h16(a, TURN_TABLE + (idx << 1) + 2u)) & 0xffffu;"]]
+  }
+]

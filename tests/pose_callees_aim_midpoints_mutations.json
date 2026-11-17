@@ -1,0 +1,30 @@
+[
+  {
+    "name": "frame_reserve_wrong",
+    "subs": [["    uint32_t f = sp - SAVED - FRAME;", "    uint32_t f = sp - SAVED - FRAME - 4u;"]]
+  },
+  {
+    "name": "zero_extend_not_sign_extend_the_difference",
+    "subs": [["    uint32_t diff = (uint32_t)(int32_t)(int16_t)((int32_t)first -\n                                                 (int32_t)second);",
+              "    uint32_t diff = (uint32_t)((int32_t)first - (int32_t)second);"]]
+  },
+  {
+    "name": "midpoint_operands_swapped",
+    "subs": [["static uint32_t midpoint(vf3_native_aim *a, uint32_t obj, uint32_t off_second,\n                         uint32_t off_first)\n{\n    const uint32_t second = u16(a, obj + off_second);\n    const uint32_t first = u16(a, obj + off_first);",
+              "static uint32_t midpoint(vf3_native_aim *a, uint32_t obj, uint32_t off_second,\n                         uint32_t off_first)\n{\n    const uint32_t first = u16(a, obj + off_second);\n    const uint32_t second = u16(a, obj + off_first);"]]
+  },
+  {
+    "name": "rotation_axis_order_swapped",
+    "subs": [["    vf3_aim_rotate_z_angle(a, (uint16_t)vf3_aim_u32(a, f + 8u));\n    vf3_aim_rotate_y_angle(a, (uint16_t)vf3_aim_u32(a, f + 12u));\n    vf3_aim_rotate_x_angle(a, (uint16_t)vf3_aim_u32(a, f + 4u));",
+              "    vf3_aim_rotate_z_angle(a, (uint16_t)vf3_aim_u32(a, f + 8u));\n    vf3_aim_rotate_x_angle(a, (uint16_t)vf3_aim_u32(a, f + 12u));\n    vf3_aim_rotate_y_angle(a, (uint16_t)vf3_aim_u32(a, f + 4u));"]]
+  },
+  {
+    "name": "quarter_turn_angle_wrong",
+    "subs": [["    vf3_aim_rotate_z_angle(a, 0x4000u);", "    vf3_aim_rotate_z_angle(a, 0x8000u);"]]
+  },
+  {
+    "name": "copy_destination_offset_wrong",
+    "subs": [["    vf3_aim_copy(a, actor + 0x400u, caller_ptr);",
+              "    vf3_aim_copy(a, actor + 0x404u, caller_ptr);"]]
+  }
+]

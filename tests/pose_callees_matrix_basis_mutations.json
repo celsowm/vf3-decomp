@@ -1,0 +1,24 @@
+[
+  {
+    "name": "euler_rotation_order_wrong",
+    "subs": [["    vf3_aim_rotate_y_angle(a, (uint16_t)S16(vf3_aim_h16(a, record + 0x22BCu)));",
+              "    vf3_aim_rotate_x_angle(a, (uint16_t)S16(vf3_aim_h16(a, record + 0x22BCu)));"]]
+  },
+  {
+    "name": "fused_mac_uses_positive_second_column",
+    "subs": [["    wf(a, record + 0x22C0u, fmaf(0.25f, -xm[4], xm[12]));",
+              "    wf(a, record + 0x22C0u, fmaf(0.25f, xm[4], xm[12]));",
+              "    wf(a, record + 0x22C4u, fmaf(0.25f, -xm[5], xm[13]));",
+              "    wf(a, record + 0x22C4u, fmaf(0.25f, xm[5], xm[13]));",
+              "    wf(a, record + 0x22C8u, fmaf(0.25f, -xm[6], xm[14]));",
+              "    wf(a, record + 0x22C8u, fmaf(0.25f, xm[6], xm[14]));"]]
+  },
+  {
+    "name": "published_row_offset_wrong",
+    "subs": [["    wf(a, block + 16u, xm[0]);", "    wf(a, block + 20u, xm[0]);"]]
+  },
+  {
+    "name": "xform_second_sign_not_negated",
+    "subs": [["    wf(a, f + 96u, -0.2f);", "    wf(a, f + 96u, 0.2f);"]]
+  }
+]
