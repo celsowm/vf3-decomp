@@ -39,4 +39,9 @@ void vf3_native_matrix_basis(vf3_native_aim *a, uint32_t sp, uint32_t record,
 void vf3_native_facing_update(vf3_native_aim *a, uint32_t sp, uint32_t character,
                               uint32_t target);
 
+/* 0x8C09DA72: the seven-segment pass for one object (r4).  Builds SEG_B
+ * (+0x1EFC) from the object's SEG_A records (+0x1D04) through a push /
+ * identity / translate / rotate_y / xform pipeline; net XMTRX is unchanged. */
+void vf3_native_seven_pass(vf3_native_aim *a, uint32_t sp0, uint32_t obj);
+
 #endif

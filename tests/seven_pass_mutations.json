@@ -1,0 +1,72 @@
+[
+  {
+    "name": "drop_gate_removed_flags_skip",
+    "subs": [["    if (!(vf3_aim_u32(a, obj + FLAGS) & FLAGS_SKIP)) {",
+              "    if (1) {"]]
+  },
+  {
+    "name": "drop_mode_12_not_recognised",
+    "subs": [["        static const int modes[4] = { 6, 8, 11, 12 };",
+              "        static const int modes[4] = { 6, 8, 11, 13 };"]]
+  },
+  {
+    "name": "drop_decrements_z_not_y",
+    "subs": [["            a->fr[2] = *vf3_aim_p(a, f + 40u);",
+              "            a->fr[2] = *vf3_aim_p(a, f + 44u);"]]
+  },
+  {
+    "name": "drop_subtract_operands_reversed",
+    "subs": [["            a->fr[2] = a->fr[2] - a->fr[3];      /* FSUB(2,3): fr2 -= fr3 */",
+              "            a->fr[2] = a->fr[3] - a->fr[2];      /* FSUB(2,3): fr2 -= fr3 */"]]
+  },
+  {
+    "name": "vec0_stage_gate_inverted",
+    "subs": [["    if (vf3_aim_u32(a, obj) & FLAG_STAGE) {",
+              "    if (!(vf3_aim_u32(a, obj) & FLAG_STAGE)) {"]]
+  },
+  {
+    "name": "cee0_subtract_direction_reversed",
+    "subs": [["                *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) -\n                *vf3_aim_p(a, f + 4u * (uint32_t)i);",
+              "                *vf3_aim_p(a, f + 4u * (uint32_t)i) -\n                *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i);"]]
+  },
+  {
+    "name": "cee0_adds_instead_of_subtracts",
+    "subs": [["                *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) -",
+              "                *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) +"]]
+  },
+  {
+    "name": "zero_y_write_offset_moved",
+    "subs": [["            vf3_aim_set_u32(a, f + 28u, vf3_aim_ubits(a->fr[15]));",
+              "            vf3_aim_set_u32(a, f + 32u, vf3_aim_ubits(a->fr[15]));"]]
+  },
+  {
+    "name": "zero_y_flags_mask_cleared_bit",
+    "subs": [["            (vf3_aim_u32(a, obj + FLAGS) & 0x21000u))",
+              "            (vf3_aim_u32(a, obj + FLAGS) & 0x20000u))"]]
+  },
+  {
+    "name": "xform_reads_scratch_at_28_not_24",
+    "subs": [["        vf3_aim_xform_point(a, f + 24u, a->r[11]);",
+              "        vf3_aim_xform_point(a, f + 28u, a->r[11]);"]]
+  },
+  {
+    "name": "rotate_uses_z_axis_not_y",
+    "subs": [["    vf3_aim_rotate_y_angle(a, (uint16_t)a->r[4]);",
+              "    vf3_aim_rotate_z_angle(a, (uint16_t)a->r[4]);"]]
+  },
+  {
+    "name": "translate_y_loads_z",
+    "subs": [["    a->fr[5] = *vf3_aim_p(a, f + 40u);",
+              "    a->fr[5] = *vf3_aim_p(a, f + 44u);"]]
+  },
+  {
+    "name": "second_vector_z_from_obj_28",
+    "subs": [["    vf3_aim_set_u32(a, f + 44u, vf3_aim_u32(a, obj + 24u));",
+              "    vf3_aim_set_u32(a, f + 44u, vf3_aim_u32(a, obj + 28u));"]]
+  },
+  {
+    "name": "pop_skipped_xmtrx_not_restored",
+    "subs": [["    vf3_aim_pop(a);",
+              "    /* vf3_aim_pop(a); */"]]
+  }
+]
