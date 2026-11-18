@@ -1,0 +1,70 @@
+[
+  {
+    "name": "frame_offset_wrong",
+    "subs": [["#define FRAME_OFF   (-228)          /* 0xFF1C */",
+              "#define FRAME_OFF   (-224)          /* 0xFF1C */"]]
+  },
+  {
+    "name": "snapshot_store_offset_moved",
+    "subs": [["    vf3_aim_store(a, f + OFF_A4);",
+              "    vf3_aim_store(a, f + OFF_A4 + 4u);"]]
+  },
+  {
+    "name": "kind_record_stride_wrong",
+    "subs": [["KIND_TABLE + (uint32_t)vf3_aim_u8(a, obj + 97u) * 108u",
+              "KIND_TABLE + (uint32_t)vf3_aim_u8(a, obj + 97u) * 104u"]]
+  },
+  {
+    "name": "kind12_branch_wrong_kind",
+    "subs": [["        if (kind == 12u)", "        if (kind == 11u)"]]
+  },
+  {
+    "name": "kind48_floats_land_at_sp48",
+    "subs": [["    stf(a, sp + 52u, ldf(a, R(13) + 48u));",
+              "    stf(a, sp + 48u, ldf(a, R(13) + 48u));"]]
+  },
+  {
+    "name": "copy_destination_moved",
+    "subs": [["    vf3_aim_copy(a, obj + COPY_OFF, f + OFF_A4);",
+              "    vf3_aim_copy(a, obj + COPY_OFF + 4u, f + OFF_A4);"]]
+  },
+  {
+    "name": "root_yaw_offset_wrong",
+    "subs": [["        vf3_native_root_orientation(vf3_aim_h16(a, obj + 30u), fields, root);",
+              "        vf3_native_root_orientation(vf3_aim_h16(a, obj + 32u), fields, root);"]]
+  },
+  {
+    "name": "aim_frame_frame_wrong_340",
+    "subs": [["        a->f = sp - 340u;", "        a->f = sp - 336u;"]],
+    "replaceAll": true
+  },
+  {
+    "name": "aim_frame_b_frame_wrong_348",
+    "subs": [["        a->f = sp - 348u;", "        a->f = sp - 344u;"]],
+    "replaceAll": true
+  },
+  {
+    "name": "epilogue_exit_offset_wrong",
+    "subs": [["    sp += EXIT_OFF;", "    sp += EXIT_OFF + 4u;"]]
+  },
+  {
+    "name": "aim_b1_d1_parked_at_f4",
+    "subs": [["        vf3_aim_set_u32(a, f, obj + D1);",
+              "        vf3_aim_set_u32(a, f + 4u, obj + D1);"]]
+  },
+  {
+    "name": "aim_b1_w3_reads_f12",
+    "subs": [["    pushw(a, &sp, ld32(a, f));        /* w3 = mem[R15+52] = mem[f+0] = obj+D1 */",
+              "    pushw(a, &sp, ld32(a, f + 12u)); /* w3 = mem[R15+52] = mem[f+0] = obj+D1 */"]]
+  },
+  {
+    "name": "aim_b2_w5_reads_f20",
+    "subs": [["    pushw(a, &sp, ld32(a, f));        /* w5 = mem[R15+84] = mem[f+0] = obj+E2 */",
+              "    pushw(a, &sp, ld32(a, f + 20u)); /* w5 = mem[R15+84] = mem[f+0] = obj+E2 */"]]
+  },
+  {
+    "name": "aim1_block_offset_moved",
+    "subs": [["                             vf3_aim_p(a, obj + B5),",
+              "                             vf3_aim_p(a, obj + B5 + 4u),"]]
+  }
+]
