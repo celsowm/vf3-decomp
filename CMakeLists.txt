@@ -6730,7 +6730,8 @@ add_library(vf3nativeview STATIC
     src/native/seven_pass.c
     src/native/pose_orchestration.c
     src/native/pose_turns.c
-    src/native/point_wrap.c)
+    src/native/point_wrap.c
+    src/native/pose_post.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6767,6 +6768,9 @@ target_include_directories(vf3nativeposeturns PRIVATE src/fight src/native)
 add_executable(vf3nativepointwrap tests/point_wrap_native_replay.c)
 target_link_libraries(vf3nativepointwrap PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepointwrap PRIVATE src/fight src/native)
+add_executable(vf3nativeposepost tests/pose_post_native_replay.c)
+target_link_libraries(vf3nativeposepost PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeposepost PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)

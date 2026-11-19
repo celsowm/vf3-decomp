@@ -54,5 +54,9 @@ void vf3_native_pose_turns(vf3_native_aim *a, uint32_t sp, uint32_t actor,
  * ring's period, taking fr4..fr9 as inputs; r0 = the point plus 12.  Leaf. */
 void vf3_native_point_wrap(vf3_native_aim *a, uint32_t sp, uint32_t pt);
 
+/* 0x8C09F432: the pose post-processor.  Wraps the five points around the two
+ * quantiser calls and returns actor+0x1E00 in r0/r5.  See pose_post.c. */
+void vf3_native_pose_post(vf3_native_aim *a, uint32_t sp, uint32_t actor);
+
 
 #endif

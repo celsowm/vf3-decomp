@@ -1536,6 +1536,21 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   and the reflect only fires when **both** |x| and |z| clear the 24576 bound
   after folding, so the test's "reflect y" case uses (30000, 5, 30000).
   docs/re/native_point_wrap.md.
+- **The native pose post-processor (0x8C09F432) is ported as `src/native/pose_post.c`**,
+  the wrapper that runs the five point clamps around the two quantiser calls
+  and returns actor+0x1E00 in r0/r5.  It tracks each continuation itself (it
+  cannot read them from the native leaves: point_wrap leaves r0 = point+12 or
+  the point when gated, and pose_turns never writes r0/r2/r3/r5), and it rides
+  the two native leaves proved earlier.  Proved by
+  `tests/pose_post_native_replay.c` (4 differential cases against
+  `vf3_pose_post_entry`: edge write, band skip, kind-3 negate, and a gated run
+  where the wraps freeze but the quantisers still run) and by the mutation
+  gate (8/8 caught, `tests/pose_post_native_mutations.json`).  Two notes from
+  the gate: the final r0 comes from the epilogue, so a mutation of a
+  per-quantiser r0 store is unobservable and the list targets the epilogue
+  return instead; and the differential's stack range has to be re-seeded
+  between the two sides or the native side lives on the guest's leftover
+  frame word and "matches" vacuously.  docs/re/native_pose_post.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not
