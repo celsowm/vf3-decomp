@@ -1,0 +1,52 @@
+[
+  {
+    "name": "retire_col_neq",
+    "subs": [["        if (rd16(a, e + 6u) == col && rd16(a, e + 8u) == row &&\n            rd16(a, e + 2u) == plain_key)",
+              "        if (rd16(a, e + 6u) != col && rd16(a, e + 8u) == row &&\n            rd16(a, e + 2u) == plain_key)"]]
+  },
+  {
+    "name": "retire_plain_key_no_xor",
+    "subs": [["    const uint32_t plain_key = key ^ KEY_RETIRE;",
+              "    const uint32_t plain_key = key;"]]
+  },
+  {
+    "name": "tex_pair_t_to_zero",
+    "subs": [["        w = (uint32_t)(int32_t)(int16_t)rd16(a, pair);\n        h = (uint32_t)(int32_t)(int16_t)rd16(a, pair + 2u);\n        T = 1;",
+              "        w = (uint32_t)(int32_t)(int16_t)rd16(a, pair);\n        h = (uint32_t)(int32_t)(int16_t)rd16(a, pair + 2u);\n        T = 0;"]]
+  },
+  {
+    "name": "offsets_x_shift",
+    "subs": [["        cell_x = fadd(a, itof((int32_t)(((offsets >> 24) & 255u) << 3)), cell_x);",
+              "        cell_x = fadd(a, itof((int32_t)(((offsets >> 16) & 255u) << 3)), cell_x);"]]
+  },
+  {
+    "name": "w_texels_shift4",
+    "subs": [["        const uint32_t w_texels = ((uint32_t)ftrunc(width) & 0xFFFFu) >> 3;",
+              "        const uint32_t w_texels = ((uint32_t)ftrunc(width) & 0xFFFFu) >> 4;"]]
+  },
+  {
+    "name": "bottom_m1_to_m2",
+    "subs": [["    if (!(flags & 64u)) bottom = fadd(a, height, -1.0f);",
+              "    if (!(flags & 64u)) bottom = fadd(a, height, -2.0f);"]]
+  },
+  {
+    "name": "header_lit_guard_bit",
+    "subs": [["    if (flags & 1u) { wr16(a, entry, (uint16_t)(rd16(a, entry) | 2u)); head = HEADER_LIT; }",
+              "    if (flags & 2u) { wr16(a, entry, (uint16_t)(rd16(a, entry) | 2u)); head = HEADER_LIT; }"]]
+  },
+  {
+    "name": "flag_or_bit2_to_8",
+    "subs": [["    if (flags & 2u) wr16(a, entry, (uint16_t)(rd16(a, entry) | 4u));",
+              "    if (flags & 2u) wr16(a, entry, (uint16_t)(rd16(a, entry) | 8u));"]]
+  },
+  {
+    "name": "header_plain_off",
+    "subs": [["    uint32_t head = HEADER_PLAIN;",
+              "    uint32_t head = HEADER_PLAIN + 1;"]]
+  },
+  {
+    "name": "rect_a_vh_uses_sy",
+    "subs": [["    const float vh = fmul(a, sy, F(7));",
+              "    const float vh = fmul(a, sx, F(7));"]]
+  }
+]
