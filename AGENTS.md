@@ -1510,6 +1510,16 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   build/vf3nativemotionaimframe.exe --mutations
   tests/native_motion_aimframe_mutations.json --target vf3nativemotionaimframe`).
   docs/re/motion_aim.md records the reading.
+- **The native pose quantiser (0x8C09F500) is ported as `src/native/pose_turns.c`**,
+  closing the motion channel right after the orchestration.  A call-free leaf
+  (truncates to ints, canonicalises the Euler x, writes the destination halfwords
+  only on the two band edges, applies the kind-3 `z''` negation), proved by
+  `tests/pose_turns_native_replay.c` (13 differential cases against the readable
+  chain) and by the mutation gate (8/8 caught,
+  `tests/pose_turns_native_mutations.json`, `python tools/mutate.py --port
+  src/native/pose_turns.c --exe build/vf3nativeposeturns.exe --mutations
+  tests/pose_turns_native_mutations.json --target vf3nativeposeturns`).
+  docs/re/native_pose_turns.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not

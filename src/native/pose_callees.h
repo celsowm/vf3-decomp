@@ -44,4 +44,11 @@ void vf3_native_facing_update(vf3_native_aim *a, uint32_t sp, uint32_t character
  * identity / translate / rotate_y / xform pipeline; net XMTRX is unchanged. */
 void vf3_native_seven_pass(vf3_native_aim *a, uint32_t sp0, uint32_t obj);
 
+/* 0x8C09F500: the pose quantiser.  Turns the three-float vector (r5) into
+ * canonicalised halfwords at the destination (r6).  Leaf, no pr.  See
+ * pose_turns.c. */
+void vf3_native_pose_turns(vf3_native_aim *a, uint32_t sp, uint32_t actor,
+                           uint32_t vec, uint32_t dest);
+
+
 #endif

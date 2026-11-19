@@ -1,0 +1,42 @@
+[
+  {
+    "name": "canon_addend_off_by_one",
+    "subs": [["    R(14) = POOL_CANON_ADD;",
+              "    R(14) = POOL_CANON_ADD - 1u;"]]
+  },
+  {
+    "name": "band_write_condition_and",
+    "subs": [["    if (R(7) == R(10) || R(7) == R(3)) {  /* band == hi or band == lo8 */",
+              "    if (R(7) == R(10) && R(7) == R(3)) {  /* band == hi or band == lo8 */"]]
+  },
+  {
+    "name": "kind_gate_kind_wrong",
+    "subs": [["            if (kind == 3u) {",
+              "            if (kind == 2u) {"]]
+  },
+  {
+    "name": "negate_is_noop",
+    "subs": [["                const uint32_t neg = 0u - R(14);           /* -z'' */",
+              "                const uint32_t neg = R(14);           /* -z'' */"]]
+  },
+  {
+    "name": "band_low_off_by_eight",
+    "subs": [["    const uint32_t lo8 = R(11) - 8u;",
+              "    const uint32_t lo8 = R(11) - 7u;"]]
+  },
+  {
+    "name": "y_reflection_wrong_sign",
+    "subs": [["        R(13) = (uint32_t)((int32_t)R(14) - (int32_t)R(13));  /* y = 0x8000 - y */",
+              "        R(13) = (uint32_t)((int32_t)R(13) - (int32_t)R(14));  /* y = 0x8000 - y */"]]
+  },
+  {
+    "name": "source_z_write_uses_x",
+    "subs": [["        const float fz = (float)(int32_t)R(14);   /* float(z'') */",
+              "        const float fz = (float)(int32_t)R(9);   /* float(z'') */"]]
+  },
+  {
+    "name": "frame_lo8_overwritten_by_lo",
+    "subs": [["    vf3_aim_set_u32(a, f, R(3));          /* frame +0 = lo8 (the final word) */",
+              "    vf3_aim_set_u32(a, f, R(11));         /* frame +0 = lo8 (the final word) */"]]
+  }
+]
