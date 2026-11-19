@@ -1,0 +1,42 @@
+[
+  {
+    "name": "reflect_check_uses_upper_bound",
+    "subs": [["    a->fr[3] = FABS_BITS(a->fr[10]);                      /* |x| */\n    t = a->fr[7] > a->fr[3];                              /* GT(3,7): fr7 > |x| */",
+              "    a->fr[3] = FABS_BITS(a->fr[10]);                      /* |x| */\n    t = a->fr[1] > a->fr[3];                              /* GT(3,7): fr7 > |x| */"]]
+  },
+  {
+    "name": "reflect_x_adjustment_uses_fr5",
+    "subs": [["    a->fr[10] = a->fr[10] - a->fr[4];                     /* x -= fr4 */",
+              "    a->fr[10] = a->fr[10] - a->fr[5];                     /* x -= fr4 */"]]
+  },
+  {
+    "name": "fold_lower_add_becomes_sub",
+    "subs": [["            a->fr[x] = a->fr[x] + a->fr[3];   /* FADD(x,3) */",
+              "            a->fr[x] = a->fr[x] - a->fr[3];   /* FADD(x,3) */"]]
+  },
+  {
+    "name": "return_pointer_off_by_four",
+    "subs": [["    R(0) = R(4);\n    R(15) = sp;\n    a->r[0] = R(0);",
+              "    R(0) = R(4) - 4u;\n    R(15) = sp;\n    a->r[0] = R(0);"]]
+  },
+  {
+    "name": "y_reflection_is_noop",
+    "subs": [["    a->fr[2] = FNEG_BITS(a->fr[2]);                       /* y = -y */",
+              "    a->fr[2] = a->fr[2];                                  /* y = -y */"]]
+  },
+  {
+    "name": "clamp_upper_bound_off",
+    "subs": [["    a->fr[1]  = 655360.0f;                               /* fr1 = +655360 */",
+              "    a->fr[1]  = 655359.0f;                               /* fr1 = +655360 */"]]
+  },
+  {
+    "name": "clamp_lower_bound_off",
+    "subs": [["    a->fr[0] = -655360.0f;                               /* fr0 = -655360 */",
+              "    a->fr[0] = -655359.0f;                               /* fr0 = -655360 */"]]
+  },
+  {
+    "name": "gate_mask_off",
+    "subs": [["    int t = (gate & GATE_MASK) == 0u;",
+              "    int t = (gate & 0x02000000u) == 0u;"]]
+  }
+]

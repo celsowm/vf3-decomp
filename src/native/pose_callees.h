@@ -50,5 +50,9 @@ void vf3_native_seven_pass(vf3_native_aim *a, uint32_t sp0, uint32_t obj);
 void vf3_native_pose_turns(vf3_native_aim *a, uint32_t sp, uint32_t actor,
                            uint32_t vec, uint32_t dest);
 
+/* 0x8C09F5F8: the point clamp.  Clamps a three-float point (r4) into the
+ * ring's period, taking fr4..fr9 as inputs; r0 = the point plus 12.  Leaf. */
+void vf3_native_point_wrap(vf3_native_aim *a, uint32_t sp, uint32_t pt);
+
 
 #endif

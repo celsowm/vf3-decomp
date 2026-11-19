@@ -1520,6 +1520,22 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   src/native/pose_turns.c --exe build/vf3nativeposeturns.exe --mutations
   tests/pose_turns_native_mutations.json --target vf3nativeposeturns`).
   docs/re/native_pose_turns.md.
+- **The native pose point-wrap (0x8C09F5F8) is ported as `src/native/point_wrap.c`**,
+  the leaf that folds one point back into the [-32768,32768] period and clips it
+  to the clamp band.  Plain C float ops on the `vf3_native_aim` FR bank, in the
+  same spirit as pose_turns (no sh4_fpu): after a gate check the point's two
+  folded coordinates are clamped into [-fr7, fr7], then folded by ±65536 into
+  the period and reflected through the diagonal when |x| and |z| both exceed
+  the 24576 bound.  It leaves r0 = the point (r4) plus 12 and returns through
+  r16.  Proved by `tests/point_wrap_native_replay.c` (8 differential cases:
+  in-range, clamp-upper, clamp-lower, fold x/z, reflect y, fold negative, gated,
+  gated-partial) and by the mutation gate (8/8 caught,
+  `tests/point_wrap_native_mutations.json`).  Two notes from the gate: a
+  fold-back of the reflected x is unobservable (the immediate re-fold by 65536
+  normalises it away) so it is covered by the return-pointer mutation instead;
+  and the reflect only fires when **both** |x| and |z| clear the 24576 bound
+  after folding, so the test's "reflect y" case uses (30000, 5, 30000).
+  docs/re/native_point_wrap.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not
