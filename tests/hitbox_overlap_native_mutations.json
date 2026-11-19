@@ -1,0 +1,47 @@
+[
+  {
+    "name": "u_y_sub_target",
+    "subs": [["            F(7) = F(1); F(10) = fsub(a, F(10), F(13)); F(7) = fsub(a, F(7), F(3));",
+              "            F(7) = F(1); F(1) = fsub(a, F(10), F(13)); F(7) = fsub(a, F(7), F(3));"]]
+  },
+  {
+    "name": "closest_approach_div_direction",
+    "subs": [["                F(8) = F(10); F(8) = fdivv(a, F(8), F(6));",
+              "                F(10) = F(8); F(8) = fdivv(a, F(8), F(6));"]]
+  },
+  {
+    "name": "min_dist_no_sqrt",
+    "subs": [["                    else { F(4) = F(6); F(4) = fsqrt(a, F(4)); }",
+              "                    else { F(4) = F(6); }"]]
+  },
+  {
+    "name": "hitword_or_to_and",
+    "subs": [["                vf3_aim_set_u32(a, hp, vf3_aim_u32(a, hp) | LD(S_BIT));",
+              "                vf3_aim_set_u32(a, hp, vf3_aim_u32(a, hp) & LD(S_BIT));"]]
+  },
+  {
+    "name": "pair_count_incr_two",
+    "subs": [["               (uint8_t)(vf3_aim_u8(a, a->r[15] + S_COUNT) + 1));",
+              "               (uint8_t)(vf3_aim_u8(a, a->r[15] + S_COUNT) + 2));"]]
+  },
+  {
+    "name": "min_dist_store_cond_reversed",
+    "subs": [["                    if (!(F(3) > F(4))) STF(S_MIN, F(4));    /* !GT(4,3): store when fl(3)<=fl(4) */",
+              "                    if (!(F(3) < F(4))) STF(S_MIN, F(4));    /* !GT(4,3): store when fl(3)<=fl(4) */"]]
+  },
+  {
+    "name": "sr_t_not_set",
+    "subs": [["    a->sr |= 1u;                                            /* the closing cmp/eq was true */",
+              "    a->sr &= ~1u;                                            /* the closing cmp/eq was true */"]]
+  },
+  {
+    "name": "saved_restore_reversed",
+    "subs": [["        for (int i = 0; i < 7; ++i) R(pushed[i]) = saved_r[i];",
+              "        for (int i = 0; i < 7; ++i) R(pushed[i]) = saved_r[6 - i];"]]
+  },
+  {
+    "name": "avg_sq_fmac_offset",
+    "subs": [["            F(8) = F(7); F(8) = fsub(a, F(8), F(3));",
+              "            F(8) = F(7); F(8) = fsub(a, F(8), F(4));"]]
+  }
+]
