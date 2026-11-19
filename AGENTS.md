@@ -1590,6 +1590,26 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   the non-existent `FE_NEAREST`, which failed to build rather than
   discriminating; `FE_TONEAREST` is the valid constant and it catches the wrong
   value cleanly).  docs/re/native_pose_blend.md.
+- **The native capsule node-chain keeper (0x8C070008) is ported as
+  `src/native/capsule_chain.c`** (`vf3_native_capsule_chain`), the fight
+  engine's capsule collision body: it keeps a 24-byte node chain out of a
+  capsule record and re-applies the link lengths, walking the array from
+  both ends (even counts) or as one chain (odd), testing each node's
+  position against the two end caps / segment and pulling it back to its
+  neighbour's link length.  Based directly on the readable
+  `src/fight/capsule_chain.c`; node positions use plain-C `sqrtf` and are
+  proved against the readable at the 2e-3 native tolerance (worst ~1.9e-6),
+  with the frame/saved-register stack and the contract registers
+  (r8..r14, r15, pr, fr12..fr15, SR's T bit cleared) matching bit for bit.
+  `tests/capsule_chain_native_replay.c` covers the even two-walker layout,
+  the odd single chain, both `skip_first` owner-door conditions and a
+  single-node degenerate (5 cases); the gate
+  `tests/capsule_chain_native_mutations.json` catches **9/9**.  Two proof
+  care points: the SR T bit is **bit 0** (seeding `0x60000100` seeded bit 8
+  and made the clear-on-exit check vacuous), and the `skip_first` owner
+  bytes must be written as the raw little-endian u8 at `+96`/`+97` (a boxed
+  word seed landed them at `+98`/`+99` and the skip cases passed without
+  ever skipping).  docs/re/native_capsule_chain.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not

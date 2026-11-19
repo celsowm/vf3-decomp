@@ -1,0 +1,47 @@
+[
+  {
+    "name": "link_length_double_scale",
+    "subs": [["    const float il = link / len;",
+              "    const float il = (0.5f * link) / len;"]]
+  },
+  {
+    "name": "link_length_zeroes_d",
+    "subs": [["    ssub(pn, pa, d);                       /* d = node - anchor */",
+              "    ssub(pn, pn, d);                       /* d = node - anchor */"]]
+  },
+  {
+    "name": "sr_t_not_cleared",
+    "subs": [["    a->sr &= ~1u;",
+              "    /* a->sr &= ~1u; */"]]
+  },
+  {
+    "name": "saved_restore_reversed",
+    "subs": [["    for (int i = 0; i < 7; ++i) a->r[8 + i] = saved_r[6 - i];       /* r8..r14 */",
+              "    for (int i = 0; i < 7; ++i) a->r[8 + i] = saved_r[i];       /* r8..r14 */"]]
+  },
+  {
+    "name": "parity_inverted",
+    "subs": [["    if (r0_mod == 0u) {                    /* even: two walkers */",
+              "    if (r0_mod != 0u) {                    /* even: two walkers */"]]
+  },
+  {
+    "name": "pr_restore_off",
+    "subs": [["    a->pr = pr0;",
+              "    a->pr = pr0 + 1u;"]]
+  },
+  {
+    "name": "stage_a_side_flipped",
+    "subs": [["    const float il = (sl > 0.0f) ? f / sl : 0.0f;\n    d[0] = d[0] + side[0] * il;            /* d = d + unit(side)*(radius-cross) */",
+              "    const float il = (sl > 0.0f) ? -f / sl : 0.0f;\n    d[0] = d[0] + side[0] * il;            /* d = d + unit(side)*(radius-cross) */"]]
+  },
+  {
+    "name": "loop_stageb_first_reuses_endb",
+    "subs": [["            stage_b(a, node_lo, end_a, axis_a, radius, axislen);\n            stage_b(a, node_lo, end_b, axis_b, radius, axislen);",
+              "            stage_b(a, node_lo, end_b, axis_b, radius, axislen);\n            stage_b(a, node_lo, end_b, axis_b, radius, axislen);"]]
+  },
+  {
+    "name": "skip_first_o96_constant",
+    "subs": [["    else if (!(part > 3) && vf3_aim_u8(a, owner + 96u) == 8u) skip_first = 1;",
+              "    else if (!(part > 3) && vf3_aim_u8(a, owner + 96u) == 9u) skip_first = 1;"]]
+  }
+]
