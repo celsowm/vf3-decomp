@@ -1,0 +1,27 @@
+[
+  {
+    "name": "first_point_offset_off",
+    "subs": [["    vf3_native_point_wrap(a, f, actor + OFF_FIRST);",
+              "    vf3_native_point_wrap(a, f, actor + OFF_FIRST + 12u);"]]
+  },
+  {
+    "name": "third_point_stride_omitted",
+    "subs": [["    vf3_native_point_wrap(a, f, src + POINT_STRIDE);",
+              "    vf3_native_point_wrap(a, f, src);"]]
+  },
+  {
+    "name": "final_return_off_by_four",
+    "subs": [["    R(0) = src;                                      /* actor + 0x1E00 */\n    R(5) = src;",
+              "    R(0) = src - 4u;                                  /* actor + 0x1E00 */\n    R(5) = src - 4u;"]]
+  },
+  {
+    "name": "pr_restore_off",
+    "subs": [["    a->pr = vf3_aim_u32(a, R(15)); R(15) += 4u;",
+              "    a->pr = vf3_aim_u32(a, R(15)) + 1u; R(15) += 4u;"]]
+  },
+  {
+    "name": "fifth_point_uses_assumed_plus12",
+    "subs": [["    /* ---- the fifth point: the quantiser's return ---- */\n    SETWRAP();\n    vf3_native_point_wrap(a, f, src);\n    src = a->r[0];",
+              "    /* ---- the fifth point: the quantiser's return ---- */\n    SETWRAP();\n    vf3_native_point_wrap(a, f, src);\n    src = src + 12u;"]]
+  }
+]

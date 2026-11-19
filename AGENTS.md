@@ -1551,6 +1551,26 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   return instead; and the differential's stack range has to be re-seeded
   between the two sides or the native side lives on the guest's leftover
   frame word and "matches" vacuously.  docs/re/native_pose_post.md.
+- **The native aim/pose family now composes end-to-end**:
+  `tests/pose_chain_native_replay.c` runs the orchestration driver
+  (0x8C09EAF2) *followed by* the post-processor (0x8C09F432) natively against
+  the readable chain from the same seed, and matches the posed+quantised
+  actor region, XMTRX and the post contract registers (r0/r5 = actor+0x1E00,
+  r15, pr, r14) across five cases.  Three lessons: **the post-processor
+  preserves its entry r15**, so the native chain must hand it the *live* r15
+  the orchestration leaves (`a->r[15]` = SP+0x1C), not the fixed SP (the
+  first version reset to SP and the final r15 diverged by 0x1C); **the
+  internal stack scratch and callee-clobbered r8..r13 are not comparable**
+  between the two sides (the readable post reaches its quantiser through the
+  matrix router with a full register-save stack, the native post calls the
+  leaves directly), so the composition compares the actor region + XMTRX +
+  contract registers and paints the SP region with a deterministic pattern
+  so the r8..r13 restore compare is meaningful (the standalone tests' zeroed
+  stack made theirs vacuous); and **the quantiser destination offsets are
+  unreachable through the composition** - the orchestration clobbers the band
+  fields that gate the write, so the two destination-offset mutations that
+  `pose_post_native_mutations.json` catches are left out of the chain gate
+  (5/5 caught).  docs/re/native_pose_chain.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not
