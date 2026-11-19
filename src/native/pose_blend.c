@@ -1,6 +1,7 @@
 /* Source-level C for the retail 26-field pose blend at 0x8C091DE6. */
 #include "pose_blend.h"
 
+#include <fenv.h>
 #include <math.h>
 #include <string.h>
 
@@ -33,13 +34,24 @@ int vf3_native_pose_blend_step(float *weight, float step,
     if (!isfinite(*weight) || !isfinite(step))
         return -2;
 
-    /* Keep the guest's single-precision add, upper clamp, then FTRC order. */
-    updated_weight = *weight + step;
-    if (updated_weight > 1.0f)
-        updated_weight = 1.0f;
+    /* Reproduce the guest FPU's rounding of the weight add and the 16384.0
+     * scale.  The readable authority (vf3_pose_blend_entry) folds both
+     * through vf3_fpu_binary with the captured FPSCR 0x00040001, whose RM
+     * bit 0 selects FE_TOWARDZERO (and whose FTZ flag flushes denormals).
+     * Plain C round-to-nearest lands a half-ulp sum one ulp higher - e.g.
+     * 0.9f + 0.05f gives 0x3F733333 instead of the reference 0x3F733332 -
+     * so the add and scale have to round toward zero to match. */
+    {
+        const int saved_round = fegetround();
+        fesetround(FE_TOWARDZERO);
+        updated_weight = *weight + step;
+        if (updated_weight > 1.0f)
+            updated_weight = 1.0f;
+        scaled_weight = updated_weight * 16384.0f;
+        fesetround(saved_round);
+    }
     if (!isfinite(updated_weight))
         return -2;
-    scaled_weight = updated_weight * 16384.0f;
     if (!isfinite(scaled_weight) || scaled_weight < -2147483648.0f ||
         scaled_weight >= 2147483648.0f)
         return -2;

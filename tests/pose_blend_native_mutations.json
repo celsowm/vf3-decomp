@@ -1,0 +1,67 @@
+[
+  {
+    "name": "step_omitted",
+    "subs": [["        updated_weight = *weight + step;",
+              "        updated_weight = *weight;"]]
+  },
+  {
+    "name": "clamp_removed",
+    "subs": [["        if (updated_weight > 1.0f)\n            updated_weight = 1.0f;",
+              "        (void)0;"]]
+  },
+  {
+    "name": "scale_off_by_one",
+    "subs": [["        scaled_weight = updated_weight * 16384.0f;",
+              "        scaled_weight = updated_weight * 16383.0f;"]]
+  },
+  {
+    "name": "b_weight_rounding_off",
+    "subs": [["    b_weight = (int32_t)scaled_weight; /* C conversion truncates toward zero. */",
+              "    b_weight = (int32_t)scaled_weight + 1;"]]
+  },
+  {
+    "name": "a_weight_sign_flipped",
+    "subs": [["    a_weight = (uint32_t)Q14_ONE - (uint32_t)b_weight;",
+              "    a_weight = (uint32_t)Q14_ONE + (uint32_t)b_weight;"]]
+  },
+  {
+    "name": "b_cross_wired_to_a",
+    "subs": [["                             (uint32_t)(int32_t)pose_b[i] * (uint32_t)b_weight;",
+              "                             (uint32_t)(int32_t)pose_b[i] * (uint32_t)a_weight;"]]
+  },
+  {
+    "name": "positive_shift_halved",
+    "subs": [["    return (int32_t)(value >> Q14_SHIFT);",
+              "    return (int32_t)(value >> (Q14_SHIFT - 1));"]]
+  },
+  {
+    "name": "negative_magnitude_shift_halved",
+    "subs": [["            (magnitude + ((UINT32_C(1) << Q14_SHIFT) - 1u)) >> Q14_SHIFT;",
+              "            (magnitude + ((UINT32_C(1) << Q14_SHIFT) - 1u)) >> (Q14_SHIFT - 1);"]]
+  },
+  {
+    "name": "negative_magnitude_rounding_removed",
+    "subs": [["            (magnitude + ((UINT32_C(1) << Q14_SHIFT) - 1u)) >> Q14_SHIFT;",
+              "            magnitude >> Q14_SHIFT;"]]
+  },
+  {
+    "name": "last_element_not_written",
+    "subs": [["    memcpy(out, blended, sizeof blended);",
+              "    memcpy(out, blended, (VF3_NATIVE_POSE_BLEND_FIELDS - 1) * sizeof blended[0]);"]]
+  },
+  {
+    "name": "weight_not_written_back",
+    "subs": [["    *weight = updated_weight;\n    memcpy(out, blended, sizeof blended);",
+              "    memcpy(out, blended, sizeof blended);"]]
+  },
+  {
+    "name": "rounding_nearest_not_toward_zero",
+    "subs": [["        fesetround(FE_TOWARDZERO);",
+              "        fesetround(FE_TONEAREST);"]]
+  },
+  {
+    "name": "null_return_off",
+    "subs": [["        return -1;",
+              "        return 45;"]]
+  }
+]

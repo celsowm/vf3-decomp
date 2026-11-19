@@ -1571,6 +1571,25 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   fields that gate the write, so the two destination-offset mutations that
   `pose_post_native_mutations.json` catches are left out of the chain gate
   (5/5 caught).  docs/re/native_pose_chain.md.
+- **The native pose blend (0x8C091DE6) was an unproved orphan; the proof found
+  one real fault.**  `src/native/pose_blend.c` compiled into the native library
+  (`vf3_native_pose_blend_step`) but had no test, no differential and no
+  mutation gate, while its readable authority `vf3_pose_blend_entry` was
+  registered.  `tests/pose_blend_native_replay.c` now runs the leaf against the
+  readable entry on the same RAM object and compares the whole object region
+  byte-exact (weight at +0x9C, step at +0xA0, A 26 halfwords at +0, B at +52,
+  out at +104); the gate `tests/pose_blend_native_mutations.json` catches
+  **13/13**.  The one divergence the differential exposed: the readable folds
+  the weight add through `vf3_fpu_binary`, which with the captured FPSCR
+  `0x00040001` (RM bit 0) rounds **toward zero**, while the native's plain C
+  `volatile float` add rounded to **nearest** - so `0.9f + 0.05f` stored the
+  upper ulp (`0x3F733333` vs the reference `0x3F733332`).  The native now wraps
+  the weight add and the `16384.0f` scale in `fesetround(FE_TOWARDZERO)`
+  (restored before the integer blend loop), and the gate's
+  `rounding_nearest_not_toward_zero` mutation pins it (the first version wrote
+  the non-existent `FE_NEAREST`, which failed to build rather than
+  discriminating; `FE_TONEAREST` is the valid constant and it catches the wrong
+  value cleanly).  docs/re/native_pose_blend.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not
