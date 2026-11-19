@@ -1,0 +1,57 @@
+[
+  {
+    "name": "sr_t_not_set",
+    "subs": [["        a->sr |= 1u;",
+              "        a->sr &= ~1u;"]]
+  },
+  {
+    "name": "r9_initial_one",
+    "subs": [["    uint32_t r9 = 2u;",
+              "    uint32_t r9 = 1u;"]]
+  },
+  {
+    "name": "first_chain_const",
+    "subs": [["        if (o97 == 8u || o97 == 12u) r9 = 1u;",
+              "        if (o97 == 9u || o97 == 12u) r9 = 1u;"]]
+  },
+  {
+    "name": "owner72_gate_mask",
+    "subs": [["    if ((owner72 & 0x21000u) != 0u) {",
+              "    if ((owner72 & 0x20000u) != 0u) {"]]
+  },
+  {
+    "name": "o96_21_const",
+    "subs": [["        if (o96 == 21u) F3b = vf3_aim_fbits(vf3_aim_ubits(F3b) ^ 0x80000000u);",
+              "        if (o96 == 19u) F3b = vf3_aim_fbits(vf3_aim_ubits(F3b) ^ 0x80000000u);"]]
+  },
+  {
+    "name": "reach_halved",
+    "subs": [["                        const float il = F14 / sqrtf(sdot(f56, f56));",
+              "                        const float il = (0.5f * F14) / sqrtf(sdot(f56, f56));"]]
+  },
+  {
+    "name": "nbr_loop_stride",
+    "subs": [["                    i++; node += 24u; nbr += 24u;",
+              "                    i++; node += 32u; nbr += 24u;"]]
+  },
+  {
+    "name": "phase1_cross_flip",
+    "subs": [["            scross(E2, E3, X2);",
+              "            scross(E3, E2, X2);"]]
+  },
+  {
+    "name": "fixup_b_negate_off",
+    "subs": [["            if (i >= 3) v ^= 0x80000000u;        /* fneg: flip the sign bit */",
+              "            if (i >= 4) v ^= 0x80000000u;        /* fneg: flip the sign bit */"]]
+  },
+  {
+    "name": "finish_copy_dst",
+    "subs": [["    vf3_aim_copy(a, rec + 16u, rd32(a, frame));",
+              "    vf3_aim_copy(a, rec + 20u, rd32(a, frame));"]]
+  },
+  {
+    "name": "epilogue_r12_off",
+    "subs": [["    a->r[12] = e12; a->r[13] = e13; a->r[14] = e14;",
+              "    a->r[12] = e12 + 1u; a->r[13] = e13; a->r[14] = e14;"]]
+  }
+]

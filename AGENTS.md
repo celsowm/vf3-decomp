@@ -1610,6 +1610,30 @@ Byte-matching is NOT the goal; readable C mirror of behavior is.
   bytes must be written as the raw little-endian u8 at `+96`/`+97` (a boxed
   word seed landed them at `+98`/`+99` and the skip cases passed without
   ever skipping).  docs/re/native_capsule_chain.md.
+- **The native capsule-fitting driver (0x8C06F450) is ported as
+  `src/native/body_capsule.c`** (`vf3_native_body_capsule`), the driver that
+  fits a fighter's capsule to the current pose and runs the node-chain
+  collision once per chain.  It inlines every guest callee as plain C: the
+  matrix load/invert/push/pop/concat (`aim_math`/`matrix`), the two
+  end-point `xform`s, the reach-capped node relocation loop,
+  `vf3_native_capsule_chain`, the `chain_frames` strip walk (the eight-phase
+  `fixup_a`) and the `negate_copy` (`fixup_b`), then FINISH-copies the matrix
+  at `m32(rec+12)` to `rec+16`.  The `owner+72` `0x21000` gate, `owner+96
+  == 21` and `owner+97` 8/12 select the push-out vector and the first chain;
+  the tail path (`owner+62 < 2`) skips the loop.  Proved against the readable
+  `src/fight/body_capsule.c` by `tests/body_capsule_native_replay.c` (9
+  cases: the owner-state arms, both `capsule_chain` skip doors, the
+  first-chain, the tail and a single chain - record/nodes/dst at 2e-3, the
+  saved block and `[sp0-48, sp0+32)` exact, and the contract registers with
+  SR's T bit compared as an equality since both paths leave it set); the gate
+  `tests/body_capsule_native_mutations.json` catches **11/11**.  Care
+  points: a near-collinear node seed cancels `chain_frames`' crosses and the
+  two sides normalise a zero vector differently (the fixture's nodes are
+  irregular now); and the driver must re-set SR's T bit on the non-tail path
+  because the native `capsule_chain` clears it.  The `part` forwarded to
+  `capsule_chain` is unobservable in these fixtures (it only gates
+  `capsule_chain`'s separately-proved `skip_first`), so that mutation is
+  documented rather than gated.  docs/re/native_body_capsule.md.
 - **A native port's guest-address arithmetic has to be byte-exact, and so does
   its fixture's.**  The euler angle triples sit at r4, r4+6 and r4+12, so the
   second euler of each aim builder reads halfwords at an address that is not
