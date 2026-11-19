@@ -1,0 +1,56 @@
+[
+  {
+    "name": "finish_no_n2_norm",
+    "subs": [["    unit3(n1); unit3(n2);\n    float out[3];\n    sadd(n1, n2, out);\n    unit3(out);",
+              "    unit3(n1);\n    float out[3];\n    sadd(n1, n2, out);\n    unit3(out);"]]
+  },
+  {
+    "name": "finish_no_final_norm",
+    "subs": [["    sadd(n1, n2, out);\n    unit3(out);\n    st3(a, node + 12u, out);",
+              "    sadd(n1, n2, out);\n    st3(a, node + 12u, out);"]]
+  },
+  {
+    "name": "finish_add_to_sub",
+    "subs": [["    sadd(n1, n2, out);", "    ssub(n1, n2, out);"]]
+  },
+  {
+    "name": "finish_node_offset_zero",
+    "subs": [["    st3(a, node + 12u, out);", "    st3(a, node + 0u, out);"]]
+  },
+  {
+    "name": "single_cross_operands_swapped",
+    "subs": [["    scross(ea, eb, c);", "    scross(eb, ea, c);"]]
+  },
+  {
+    "name": "unit3_no_sqrt",
+    "subs": [["    const float il = 1.0f / sqrtf(sdot(v, v));",
+              "    const float il = 1.0f / sdot(v, v);"]]
+  },
+  {
+    "name": "phase1_edge_flip",
+    "subs": [["            scross(E3, E1, X1);\n            scross(E2, E3, X2);",
+              "            scross(E1, E3, X1);\n            scross(E2, E3, X2);"]]
+  },
+  {
+    "name": "phase4_x2_flip",
+    "subs": [["                scross(E4, E2, X2);", "                scross(E2, E4, X2);"]]
+  },
+  {
+    "name": "sr_t_not_cleared",
+    "subs": [["    a->sr &= ~1u;", "    a->sr |= 1u;"]]
+  },
+  {
+    "name": "saved_restore_reversed",
+    "subs": [["    a->r[8] = e8; a->r[9] = e9; a->r[10] = e10; a->r[11] = e11;\n    a->r[12] = e12; a->r[13] = e13; a->r[14] = e14;",
+              "    a->r[8] = e14; a->r[9] = e13; a->r[10] = e12; a->r[11] = e11;\n    a->r[12] = e10; a->r[13] = e9; a->r[14] = e8;"]]
+  },
+  {
+    "name": "phase2_single_cross_flip",
+    "subs": [["        single_cross(a, cur, E2, E1);", "        single_cross(a, cur, E1, E2);"]]
+  },
+  {
+    "name": "phase5_x1_flip",
+    "subs": [["        scross(E1, E3, X1);\n        scross(E2, E1, X2);",
+              "        scross(E3, E1, X1);\n        scross(E2, E1, X2);"]]
+  }
+]
