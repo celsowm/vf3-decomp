@@ -1,0 +1,83 @@
+[
+ {
+  "name": "read_count_from_wrong_word",
+  "subs": [
+   [
+    "    int32_t count = (int32_t)vf3_aim_u32(a, R(5));",
+    "    int32_t count = (int32_t)vf3_aim_u32(a, R(5) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "dst_from_wrong_word",
+  "subs": [
+   [
+    "    uint32_t dst  = vf3_aim_u32(a, R(5) + 8u);",
+    "    uint32_t dst  = vf3_aim_u32(a, R(5) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "src_from_wrong_word",
+  "subs": [
+   [
+    "    uint32_t src  = vf3_aim_u32(a, R(5) + 4u);",
+    "    uint32_t src  = vf3_aim_u32(a, R(5) + 8u);"
+   ]
+  ]
+ },
+ {
+  "name": "loop_runs_one_extra",
+  "subs": [
+   [
+    "    while (count > 0) {",
+    "    while (count >= 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "six_words_becomes_four",
+  "subs": [
+   [
+    "        for (int i = 0; i < 6; ++i) {",
+    "        for (int i = 0; i < 4; ++i) {"
+   ]
+  ]
+ },
+ {
+  "name": "flip_first_three_not_last",
+  "subs": [
+   [
+    "            vf3_aim_set_u32(a, dst, (i < 3) ? v : (v ^ SIGN));",
+    "            vf3_aim_set_u32(a, dst, (i < 3) ? (v ^ SIGN) : v);"
+   ]
+  ]
+ },
+ {
+  "name": "r7_gets_source_not_count",
+  "subs": [
+   [
+    "    R(7) = (uint32_t)count;",
+    "    R(7) = src;"
+   ]
+  ]
+ },
+ {
+  "name": "T_cleared_to_set",
+  "subs": [
+   [
+    "    a->sr &= ~1u;                       /* the last cmp/pl was false */",
+    "    a->sr |= 1u;                        /* the last cmp/pl was false */"
+   ]
+  ]
+ },
+ {
+  "name": "no_keyword_12_step",
+  "subs": [
+   [
+    "        src += 4u; dst += 4u;",
+    "        src += 4u; dst += 8u;"
+   ]
+  ]
+ }
+]
