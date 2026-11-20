@@ -1,0 +1,173 @@
+[
+ {
+  "name": "the_mark_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_MARK  0x0c045448u   /* the byte that means \"no value\" */",
+    "#define G_MARK  0x0c04544cu   /* the byte that means \"no value\" */"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_LIMIT 0x0c04544cu   /* the byte at or above which the caller's word is the answer */",
+    "#define G_LIMIT 0x0c04544au   /* the byte at or above which the caller's word is the answer */"
+   ]
+  ]
+ },
+ {
+  "name": "the_bases_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_BASE  0x0c04544au   /* the table's base */",
+    "#define G_BASE  0x0c045448u   /* the table's base */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_TABLE 0x0c045454u   /* the table */",
+    "#define G_TABLE 0x0c045448u   /* the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_entry_for_turned_around_is_wrong",
+  "subs": [
+   [
+    "#define TURNED 1u",
+    "#define TURNED 0u"
+   ]
+  ]
+ },
+ {
+  "name": "the_natural_and_turned_branches_are_reversed",
+  "subs": [
+   [
+    "    set_t(a, R(0) == TURNED);\n\n    if (R(0) == TURNED) {",
+    "    set_t(a, R(0) == TURNED);\n\n    if (R(0) != TURNED) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_pool_base_is_read_as_a_word_not_a_halfword",
+  "subs": [
+   [
+    "    R(1) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, G_BASE);",
+    "    R(1) = (uint32_t)(int32_t)vf3_aim_u32(a, G_BASE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_is_read_through_the_wrong_cell_word",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, R(2));",
+    "    R(0) = vf3_aim_u32(a, R(2) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_object_bytes_live_at_the_wrong_offset",
+  "subs": [
+   [
+    "#define OBJ_BYTES  8u",
+    "#define OBJ_BYTES  12u"
+   ]
+  ]
+ },
+ {
+  "name": "the_object_answer_lives_at_the_wrong_offset",
+  "subs": [
+   [
+    "#define OBJ_ANSWER 20u",
+    "#define OBJ_ANSWER 24u"
+   ]
+  ]
+ },
+ {
+  "name": "the_bytes_are_copied_from_the_caller_not_the_own_stack",
+  "subs": [
+   [
+    "        R(6) = R(15);\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 3u, (uint8_t)R(0));",
+    "        R(6) = R(5);\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 3u, (uint8_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_natural_order_is_written_turned_around",
+  "subs": [
+   [
+    "        R(6) = R(15);\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 1u, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 2u, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6));\n        w8(a, R(4) + OBJ_BYTES + 3u, (uint8_t)R(0));",
+    "        R(6) = R(15);\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 3u, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 2u, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6)); R(6) += 1u;\n        w8(a, R(4) + OBJ_BYTES + 1u, (uint8_t)R(0));\n        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(6));\n        w8(a, R(4) + OBJ_BYTES, (uint8_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_own_stack_push_is_four_bytes_too_far",
+  "subs": [
+   [
+    "    R(15) -= 4u;",
+    "    R(15) -= 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_mark_is_read_as_a_word_not_a_halfword",
+  "subs": [
+   [
+    "    R(3) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, G_MARK);",
+    "    R(3) = (uint32_t)(int32_t)vf3_aim_u32(a, G_MARK);"
+   ]
+  ]
+ },
+ {
+  "name": "the_mark_answer_is_not_minus_one",
+  "subs": [
+   [
+    "        R(1) = 0xffffffffu;",
+    "        R(1) = 0xfffffff0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_answer_reads_the_popped_word_not_the_next",
+  "subs": [
+   [
+    "            R(1) = vf3_aim_u32(a, R(5));",
+    "            R(1) = vf3_aim_u32(a, R(5) - 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_zero_answer_is_not_zero",
+  "subs": [
+   [
+    "            R(0) = 0u;",
+    "            R(0) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_test_uses_gt_instead_of_ge",
+  "subs": [
+   [
+    "        set_t(a, (int32_t)R(0) >= (int32_t)R(2));\n        if ((int32_t)R(0) >= (int32_t)R(2)) {",
+    "        set_t(a, (int32_t)R(0) > (int32_t)R(2));\n        if ((int32_t)R(0) > (int32_t)R(2)) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_classifying_byte_is_read_from_the_object_not_the_pool",
+  "subs": [
+   [
+    "    R(3) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, G_MARK);",
+    "    R(3) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, G_LIMIT);"
+   ]
+  ]
+ }
+]
