@@ -1,0 +1,74 @@
+[
+ {
+  "name": "z_and_y_swapped",
+  "subs": [
+   [
+    "    vf3_aim_rotate_z_angle(a, (uint16_t)vf3_aim_h16(a, f + 8u));",
+    "    vf3_aim_rotate_z_angle(a, (uint16_t)vf3_aim_h16(a, f + 4u));"
+   ]
+  ]
+ },
+ {
+  "name": "y_and_x_swapped",
+  "subs": [
+   [
+    "        const uint32_t angy = vf3_aim_h16(a, f + 4u);",
+    "        const uint32_t angy = vf3_aim_h16(a, f);"
+   ]
+  ]
+ },
+ {
+  "name": "z_target_wrong",
+  "subs": [
+   [
+    "    vf3_aim_rotate_z_angle(a, (uint16_t)vf3_aim_h16(a, f + 8u));",
+    "    vf3_aim_rotate_y_angle(a, (uint16_t)vf3_aim_h16(a, f + 8u));"
+   ]
+  ]
+ },
+ {
+  "name": "tail_target_wrong",
+  "subs": [
+   [
+    "    a->r[3] = vf3_aim_u32(a, POOL_ROTATE_X);",
+    "    a->r[3] = vf3_aim_u32(a, POOL_ROTATE_Z);"
+   ]
+  ]
+ },
+ {
+  "name": "frame_store_word",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, f, (uint16_t)a->r[4]);",
+    "    vf3_aim_set_u32(a, f, a->r[4]);"
+   ]
+  ]
+ },
+ {
+  "name": "frame_order_wrong",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, f, (uint16_t)a->r[4]);\n    vf3_aim_set_u16(a, f + 4u, (uint16_t)a->r[5]);",
+    "    vf3_aim_set_u16(a, f, (uint16_t)a->r[5]);\n    vf3_aim_set_u16(a, f + 4u, (uint16_t)a->r[4]);"
+   ]
+  ]
+ },
+ {
+  "name": "sp_not_restored",
+  "subs": [
+   [
+    "    a->r[15] = sp0;                       /* + SAVED */\n    vf3_aim_rotate_x_angle(a, (uint16_t)a->r[4]);",
+    "    vf3_aim_rotate_x_angle(a, (uint16_t)a->r[4]);"
+   ]
+  ]
+ },
+ {
+  "name": "pr_popped_wrong",
+  "subs": [
+   [
+    "    a->pr = vf3_aim_u32(a, a->r[15]);     /* pop the saved pr */",
+    "    a->pr = vf3_aim_u32(a, a->r[15] + 4u); /* pop the saved pr */"
+   ]
+  ]
+ }
+]
