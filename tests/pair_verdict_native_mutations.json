@@ -1,0 +1,137 @@
+[
+ {
+  "name": "the_byte_offset_comes_from_the_field_pool_entry",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, OFF_BYTE);",
+    "    R(0) = (uint32_t)half(a, OFF_FIELD);"
+   ]
+  ]
+ },
+ {
+  "name": "the_field_offset_comes_from_the_result_pool_entry",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, OFF_FIELD);",
+    "    R(0) = (uint32_t)half(a, OFF_RESULT);"
+   ]
+  ]
+ },
+ {
+  "name": "the_result_offset_comes_from_the_byte_pool_entry",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, OFF_RESULT);",
+    "    R(0) = (uint32_t)half(a, OFF_BYTE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_gate_mask_comes_from_the_second",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, MASK_A);",
+    "    R(3) = vf3_aim_u32(a, MASK_B);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_gate_mask_comes_from_the_first",
+  "subs": [
+   [
+    "    R(2) = vf3_aim_u32(a, MASK_B);",
+    "    R(2) = vf3_aim_u32(a, MASK_A);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_structure_mask_comes_from_the_second",
+  "subs": [
+   [
+    "    R(7) = vf3_aim_u32(a, MASK_C);",
+    "    R(7) = vf3_aim_u32(a, MASK_D);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_structure_mask_comes_from_the_first",
+  "subs": [
+   [
+    "    R(1) = vf3_aim_u32(a, MASK_D);",
+    "    R(1) = vf3_aim_u32(a, MASK_C);"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_mask_comes_from_the_first_gate_mask",
+  "subs": [
+   [
+    "    R(2) = vf3_aim_u32(a, MASK_E);",
+    "    R(2) = vf3_aim_u32(a, MASK_A);"
+   ]
+  ]
+ },
+ {
+  "name": "the_word_offset_is_one_word_high",
+  "subs": [
+   [
+    "    R(0) = WORD_OFFSET;",
+    "    R(0) = WORD_OFFSET + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_gate_is_inverted",
+  "subs": [
+   [
+    "    if ((R(3) & R(7)) != 0) {",
+    "    if ((R(3) & R(7)) == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_gate_is_inverted",
+  "subs": [
+   [
+    "        if ((R(7) & R(2)) == 0) {",
+    "        if ((R(7) & R(2)) != 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_byte_is_not_masked_after_the_read",
+  "subs": [
+   [
+    "    R(5) &= 0xffu;                       /* the delay slot of the branch */",
+    "    /* the delay-slot mask is gone */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_arm_does_not_write_minus_one",
+  "subs": [
+   [
+    "                if (minus_one) {\n                    R(13) = MINUS_ONE;",
+    "                if (minus_one) {\n                    R(13) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_deep_test_returns_the_wrong_arm",
+  "subs": [
+   [
+    "    return ((R(6) & R(2)) != 0) ? MINUS_ONE : 0u;",
+    "    return ((R(6) & R(2)) != 0) ? 0u : MINUS_ONE;"
+   ]
+  ]
+ },
+ {
+  "name": "the_saved_r13_is_not_restored",
+  "subs": [
+   [
+    "    R(13) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;",
+    "    R(15) += 4u;"
+   ]
+  ]
+ }
+]
