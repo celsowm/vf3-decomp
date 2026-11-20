@@ -1,0 +1,74 @@
+[
+ {
+  "name": "probe_starts_at_bit_30",
+  "subs": [
+   [
+    "    uint32_t probe = 0x80000000u;",
+    "    uint32_t probe = 0x40000000u;"
+   ]
+  ]
+ },
+ {
+  "name": "answer_off_by_one",
+  "subs": [
+   [
+    "    R(0) = count;",
+    "    R(0) = count + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "counts_wrong_register",
+  "subs": [
+   [
+    "    R(6) = count;",
+    "    R(6) = count + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "r3_gets_count_not_word",
+  "subs": [
+   [
+    "    R(3) = word;",
+    "    R(3) = count;"
+   ]
+  ]
+ },
+ {
+  "name": "T_set_on_found",
+  "subs": [
+   [
+    "        if (word & probe) { t = 0; break; }     /* a set bit found: T = 0 */",
+    "        if (word & probe) { t = 1; break; }     /* a set bit found: T = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "T_clear_on_end",
+  "subs": [
+   [
+    "        if (probe == 0) { t = 1; break; }       /* ran off the end: T = 1 */",
+    "        if (probe == 0) { t = 0; break; }       /* ran off the end: T = 1 */"
+   ]
+  ]
+ },
+ {
+  "name": "count_increments_twice",
+  "subs": [
+   [
+    "        ++count;",
+    "        count += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "no_t_write",
+  "subs": [
+   [
+    "    set_t(a, (int)t);",
+    "    ;"
+   ]
+  ]
+ }
+]
