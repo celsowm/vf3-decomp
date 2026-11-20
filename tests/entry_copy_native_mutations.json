@@ -1,0 +1,119 @@
+[
+ {
+  "name": "the_index_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_INDEX  0x0c06d89cu   /* the address of the index byte */",
+    "#define G_INDEX  0x0c06d8a8u   /* the address of the index byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_comes_from_the_index_pool_entry",
+  "subs": [
+   [
+    "#define G_TABLE  0x0c06d8a8u   /* the table */",
+    "#define G_TABLE  0x0c06d89cu   /* the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_struct_cell_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_STRUCT 0x0c06d890u   /* the address of the structure's address */",
+    "#define G_STRUCT 0x0c06d880u   /* the address of the structure's address */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_offset_comes_from_the_second_pool_entry",
+  "subs": [
+   [
+    "#define G_FIRST  0x0c06d880u   /* the first offset in the structure */",
+    "#define G_FIRST  0x0c06d882u   /* the first offset in the structure */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_offset_comes_from_the_first_pool_entry",
+  "subs": [
+   [
+    "#define G_SECOND 0x0c06d882u   /* and the second */",
+    "#define G_SECOND 0x0c06d880u   /* and the second */"
+   ]
+  ]
+ },
+ {
+  "name": "the_entry_is_picked_at_half_the_stride",
+  "subs": [
+   [
+    "    R(5) <<= 2;\n    R(5) <<= 2;\n    R(5) <<= 2;\n    R(4) = vf3_aim_u32(a, R(1));",
+    "    R(5) <<= 2;\n    R(5) <<= 2;\n    R(4) = vf3_aim_u32(a, R(1));"
+   ]
+  ]
+ },
+ {
+  "name": "the_entry_is_picked_by_four_bits_not_the_whole_byte",
+  "subs": [
+   [
+    "    R(5) = R(4) & 0xffu;\n    R(5) <<= 2;",
+    "    R(5) = R(4) & 0x0fu;\n    R(5) <<= 2;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_group_reads_the_second_group_floats",
+  "subs": [
+   [
+    "    fload(a, 5, R(5) + 28u);",
+    "    fload(a, 5, R(5) + 24u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_byte_comes_from_the_second_byte",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(5) + 5u);\n    R(6) = R(0);",
+    "    R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(5) + 6u);\n    R(6) = R(0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_byte_lands_in_r7_not_r6",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(5) + 5u);\n    R(6) = R(0);",
+    "    R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(5) + 5u);\n    R(7) = R(0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_group_second_store_is_four_bytes_low",
+  "subs": [
+   [
+    "    R(0) += (uint32_t)(0u - 14u);\n    fstore(a, 7, R(4) + R(0));",
+    "    R(0) += (uint32_t)(0u - 18u);\n    fstore(a, 7, R(4) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_group_third_store_is_the_second_group_float",
+  "subs": [
+   [
+    "    R(0) += 12u;\n    fstore(a, 6, R(4) + R(0));",
+    "    R(0) += 12u;\n    fstore(a, 7, R(4) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_store_is_the_wrong_float",
+  "subs": [
+   [
+    "    R(0) += (uint32_t)(0u - 4u);\n    fstore(a, 4, R(4) + R(0));",
+    "    R(0) += (uint32_t)(0u - 4u);\n    fstore(a, 8, R(4) + R(0));"
+   ]
+  ]
+ }
+]
