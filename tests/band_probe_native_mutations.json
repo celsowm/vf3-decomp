@@ -1,0 +1,110 @@
+[
+ {
+  "name": "the_mask_comes_from_the_gate_slot",
+  "subs": [
+   [
+    "    R(1) = vf3_aim_u32(a, MASK);",
+    "    R(1) = vf3_aim_u32(a, GATE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bound_comes_from_the_low_slot",
+  "subs": [
+   [
+    "    R(4) = (uint32_t)half(a, BAND_HI);",
+    "    R(4) = (uint32_t)half(a, BAND_LO);"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bound_comes_from_the_high_slot",
+  "subs": [
+   [
+    "    R(5) = (uint32_t)half(a, BAND_LO);",
+    "    R(5) = (uint32_t)half(a, BAND_HI);"
+   ]
+  ]
+ },
+ {
+  "name": "the_inside_bit_comes_from_the_low_bound",
+  "subs": [
+   [
+    "        set_flag(a, (uint32_t)half(a, IN_BIT));",
+    "        set_flag(a, (uint32_t)half(a, BAND_LO));"
+   ]
+  ]
+ },
+ {
+  "name": "the_gate_word_comes_from_the_out_a_slot",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, GATE);",
+    "    R(0) = vf3_aim_u32(a, OUT_A);"
+   ]
+  ]
+ },
+ {
+  "name": "the_out_a_bit_comes_from_the_out_b_slot",
+  "subs": [
+   [
+    "        set_flag(a, vf3_aim_u32(a, OUT_A));",
+    "        set_flag(a, vf3_aim_u32(a, OUT_B));"
+   ]
+  ]
+ },
+ {
+  "name": "the_out_b_bit_comes_from_the_out_a_slot",
+  "subs": [
+   [
+    "        set_flag(a, vf3_aim_u32(a, OUT_B));",
+    "        set_flag(a, vf3_aim_u32(a, OUT_A));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_difference_is_taken_from_the_second_pair",
+  "subs": [
+   [
+    "    R(5) -= R(6);\n    R(4) -= R(6);",
+    "    R(5) -= R(4);\n    R(4) -= R(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_inside_bit_is_or_ed_without_the_signed_extension",
+  "subs": [
+   [
+    "        set_flag(a, (uint32_t)half(a, IN_BIT));",
+    "        set_flag(a, (uint32_t)vf3_aim_h16(a, IN_BIT));"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bound_is_tested_second",
+  "subs": [
+   [
+    "    const int above = (value > high);\n    set_t(a, above);\n    if (above) return 0;\n    const int at_least = (value >= low);\n    set_t(a, at_least);\n    return at_least;",
+    "    const int below = (value < low);\n    set_t(a, below);\n    if (below) return 0;\n    const int at_most = (value <= high);\n    set_t(a, at_most);\n    return at_most;"
+   ]
+  ]
+ },
+ {
+  "name": "the_gate_test_uses_the_second_difference",
+  "subs": [
+   [
+    "    set_t(a, (R(7) & R(0)) == 0);",
+    "    set_t(a, (R(6) & R(0)) == 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_difference_is_not_masked_before_the_second_test",
+  "subs": [
+   [
+    "    R(6) ^= R(1);\n    R(6) = (uint32_t)(int32_t)(int16_t)R(6);",
+    "    R(6) = (uint32_t)(int32_t)(int16_t)R(6);"
+   ]
+  ]
+ }
+]
