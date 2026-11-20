@@ -1,0 +1,56 @@
+[
+ {
+  "name": "compares_kind_to_zero",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | (kind == 1 ? 1u : 0u);   /* SET_T(kind == 1) */",
+    "    a->sr = (a->sr & ~1u) | (kind == 0 ? 1u : 0u);   /* SET_T(kind == 1) */"
+   ]
+  ]
+ },
+ {
+  "name": "kind_one_sets_r1_too",
+  "subs": [
+   [
+    "        R(0) = 0;",
+    "        R(0) = 0; R(1) = 16;"
+   ]
+  ]
+ },
+ {
+  "name": "reads_ptr_from_r4_not_plus4",
+  "subs": [
+   [
+    "        const uint32_t p = vf3_aim_u32(a, R(4) + 4u);",
+    "        const uint32_t p = vf3_aim_u32(a, R(4));"
+   ]
+  ]
+ },
+ {
+  "name": "offset_not_sixteen",
+  "subs": [
+   [
+    "        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, p + 16u);",
+    "        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, p + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "no_mask_40",
+  "subs": [
+   [
+    "        R(0) &= 0x40u;",
+    "        R(0) = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "r1_constant_wrong",
+  "subs": [
+   [
+    "        R(1) = 16;",
+    "        R(1) = 32;"
+   ]
+  ]
+ }
+]
