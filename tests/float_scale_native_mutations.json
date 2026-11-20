@@ -1,0 +1,110 @@
+[
+ {
+  "name": "the_value_pointer_comes_from_the_scale_slot",
+  "subs": [
+   [
+    "    uint32_t p1 = vf3_aim_u32(a, pool_p1);",
+    "    uint32_t p1 = vf3_aim_u32(a, POOL_SCALE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_sign_fold_is_omitted",
+  "subs": [
+   [
+    "        F(3) = fadd(a, F(3), bits2f(plus_bits));",
+    "        /* F(3) = fadd(a, F(3), bits2f(plus_bits)); */"
+   ]
+  ]
+ },
+ {
+  "name": "the_sign_fold_uses_the_scale_constant",
+  "subs": [
+   [
+    "    uint32_t plus_bits = vf3_aim_u32(a, POOL_PLUS);",
+    "    uint32_t plus_bits = vf3_aim_u32(a, POOL_SCALE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_scale_constant_comes_from_the_plus_slot",
+  "subs": [
+   [
+    "    uint32_t scale_bits = vf3_aim_u32(a, POOL_SCALE);",
+    "    uint32_t scale_bits = vf3_aim_u32(a, POOL_PLUS);"
+   ]
+  ]
+ },
+ {
+  "name": "the_fold_left_arm_is_taken_on_nonnegative",
+  "subs": [
+   [
+    "    if (v < 0) {",
+    "    if (v >= 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_conversion_rounds_to_nearest",
+  "subs": [
+   [
+    "        fesetround(FE_TOWARDZERO);\n        volatile float conv = (float)v;",
+    "        fesetround(FE_TONEAREST);\n        volatile float conv = (float)v;"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_the_mode_not_the_value_sign",
+  "subs": [
+   [
+    "    set_t(a, v >= 0);",
+    "    set_t(a, (pool_p1 & 0x10u) == 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_truncated_not_saturated",
+  "subs": [
+   [
+    "        if (isnan(d) || d < -2147483648.0) res = 0x80000000u;\n        else if (d >= 2147483648.0) res = 0x7fffffffu;\n        else res = (uint32_t)(int32_t)d;",
+    "        (void)d; res = (uint32_t)(int32_t)ftv;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_not_written_to_fpul",
+  "subs": [
+   [
+    "    a->fpul = res;",
+    "    /* a->fpul = res; */"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_not_written_to_r0",
+  "subs": [
+   [
+    "    R(0) = res;",
+    "    /* R(0) = res; */"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_is_converted_with_the_unsigned_word",
+  "subs": [
+   [
+    "        volatile float conv = (float)v;",
+    "        volatile float conv = (float)(uint32_t)v;"
+   ]
+  ]
+ },
+ {
+  "name": "the_multiplier_is_not_loaded_into_fr2",
+  "subs": [
+   [
+    "    F(2) = mul;",
+    "    /* F(2) = mul; */"
+   ]
+  ]
+ }
+]
