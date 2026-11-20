@@ -1,0 +1,137 @@
+[
+ {
+  "name": "the_even_counter_starts_at_one",
+  "subs": [
+   [
+    "    uint32_t r6c = 0;",
+    "    uint32_t r6c = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "the_odd_counter_starts_at_five",
+  "subs": [
+   [
+    "    uint32_t r5c = 4;",
+    "    uint32_t r5c = 5;"
+   ]
+  ]
+ },
+ {
+  "name": "test1_hands_out_the_other_counter",
+  "subs": [
+   [
+    "        t1 = r5c; r5c += 1;",
+    "        t1 = r6c; r6c += 1;"
+   ]
+  ]
+ },
+ {
+  "name": "test1_clear_takes_the_other_counter",
+  "subs": [
+   [
+    "        t1 = r6c; r6c += 1;",
+    "        t1 = r5c; r5c += 1;"
+   ]
+  ]
+ },
+ {
+  "name": "test4_advances_the_odd_counter",
+  "subs": [
+   [
+    "        r4out = r5c;",
+    "        r4out = r5c; r5c += 1;"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_write_uses_base_not_base_plus_hw_ce",
+  "subs": [
+   [
+    "    wr16(a, base + (uint32_t)hw_ce + 0x26u, (uint16_t)r4out);",
+    "    wr16(a, base + 0x26u, (uint16_t)r4out);"
+   ]
+  ]
+ },
+ {
+  "name": "hw_ce_is_read_unsigned",
+  "subs": [
+   [
+    "    const int32_t hw_ce = (int16_t)rd16(a, 0x0c0c11ceu);",
+    "    const int32_t hw_ce = rd16(a, 0x0c0c11ceu);"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_plus_58_slot_holds_plus_2c",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(15) - 20u, base + 0x58u);",
+    "    vf3_aim_set_u32(a, R(15) - 20u, base + 0x2cu);"
+   ]
+  ]
+ },
+ {
+  "name": "the_test4_t_bit_is_inverted",
+  "subs": [
+   [
+    "        r4out = r5c;\n        a->sr = (a->sr & ~1u) | 1u;           /* T = 1 */",
+    "        r4out = r5c;\n        a->sr = (a->sr & ~1u);                /* T = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "r15_is_not_restored",
+  "subs": [
+   [
+    "    R(15) = sp0;",
+    "    R(15) = sp0 - 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "r13_is_restored_from_r14_in",
+  "subs": [
+   [
+    "    R(13) = r13_in;",
+    "    R(13) = r14_in;"
+   ]
+  ]
+ },
+ {
+  "name": "r2_is_m4_not_m3",
+  "subs": [
+   [
+    "    R(2) = (uint32_t)m3;",
+    "    R(2) = (uint32_t)m4;"
+   ]
+  ]
+ },
+ {
+  "name": "r3_is_base_not_base_plus_hw_ce",
+  "subs": [
+   [
+    "    R(3) = base + (uint32_t)hw_ce;",
+    "    R(3) = base;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_is_0x24_not_0x26",
+  "subs": [
+   [
+    "    R(0) = 0x26u;",
+    "    R(0) = 0x24u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_write_is_at_plus_24",
+  "subs": [
+   [
+    "    wr16(a, base + (uint32_t)hw_ce + 0x26u, (uint16_t)r4out);",
+    "    wr16(a, base + (uint32_t)hw_ce + 0x24u, (uint16_t)r4out);"
+   ]
+  ]
+ }
+]
