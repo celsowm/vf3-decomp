@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_dest_offset_comes_from_the_mode_pool_entry",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, G_OFFSET);",
+    "    R(0) = (uint32_t)half(a, G_MODE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_mode_pointer_comes_from_the_vm_pool_entry",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, G_MODE);",
+    "    R(3) = vf3_aim_u32(a, G_VM);"
+   ]
+  ]
+ },
+ {
+  "name": "the_vm_pointer_comes_from_the_mode_pool_entry",
+  "subs": [
+   [
+    "    R(6) = vf3_aim_u32(a, G_VM);",
+    "    R(6) = vf3_aim_u32(a, G_MODE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_constant_comes_from_the_second_pool_entry",
+  "subs": [
+   [
+    "    R(0) = G_ONE;\n    fload(a, 5, R(0));",
+    "    R(0) = G_TWO;\n    fload(a, 5, R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_constant_comes_from_the_first_pool_entry",
+  "subs": [
+   [
+    "    R(0) = G_TWO;\n    fload(a, 4, R(0));",
+    "    R(0) = G_ONE;\n    fload(a, 4, R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_step_mode_is_two_not_one",
+  "subs": [
+   [
+    "#define STEP_MODE 1u",
+    "#define STEP_MODE 2u"
+   ]
+  ]
+ },
+ {
+  "name": "the_mode_is_not_masked_to_four_bits",
+  "subs": [
+   [
+    "    R(0) &= 0xffu;\n    R(0) &= 15u;",
+    "    R(0) &= 0xffu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_slot_is_one_word_high",
+  "subs": [
+   [
+    "#define COUNT_SLOT   0x44u",
+    "#define COUNT_SLOT   0x48u"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_value_slot_is_one_word_high",
+  "subs": [
+   [
+    "#define COUNT_VALUE  0x54u",
+    "#define COUNT_VALUE  0x58u"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_bias_is_zero",
+  "subs": [
+   [
+    "#define COUNT_BIAS 60u",
+    "#define COUNT_BIAS 0u"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_not_made_positive",
+  "subs": [
+   [
+    "    if ((int32_t)R(5) < 0) R(5) = 0u - R(5);",
+    "    /* the count is left negative */"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_not_parked_in_fpul",
+  "subs": [
+   [
+    "    a->fpul = R(5);",
+    "    /* the count is not parked in FPUL */"
+   ]
+  ]
+ },
+ {
+  "name": "the_dest_slot_is_one_word_high",
+  "subs": [
+   [
+    "#define DEST_SLOT    0x20u",
+    "#define DEST_SLOT    0x24u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_store_goes_to_obj_plus_twenty",
+  "subs": [
+   [
+    "    R(0) = 16u;\n    F(3) = (float)(int32_t)a->fpul;",
+    "    R(0) = 20u;\n    F(3) = (float)(int32_t)a->fpul;"
+   ]
+  ]
+ }
+]
