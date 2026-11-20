@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_value_offset_comes_from_the_low_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE    0x0c0b1070u",
+    "#define POOL_TABLE    0x0c0b1072u"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bound_comes_from_the_table_pool_entry",
+  "subs": [
+   [
+    "#define POOL_LOW      0x0c0b1072u",
+    "#define POOL_LOW      0x0c0b1070u"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_bound_comes_from_the_bit_low_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MID      0x0c0b1074u",
+    "#define POOL_MID      0x0c0b1076u"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bound_comes_from_the_middle_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HIGH     0x0c0b1078u",
+    "#define POOL_HIGH     0x0c0b1074u"
+   ]
+  ]
+ },
+ {
+  "name": "the_high2_bound_comes_from_the_high_pool_entry",
+  "subs": [
+   [
+    "#define POOL_HIGH2    0x0c0b107au",
+    "#define POOL_HIGH2    0x0c0b1078u"
+   ]
+  ]
+ },
+ {
+  "name": "the_low_bit_comes_from_the_high_bit_pool_entry",
+  "subs": [
+   [
+    "#define POOL_BIT_LOW  0x0c0b1076u",
+    "#define POOL_BIT_LOW  0x0c0b107cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_high_bit_comes_from_the_low_bit_pool_entry",
+  "subs": [
+   [
+    "#define POOL_BIT_HIGH 0x0c0b107cu",
+    "#define POOL_BIT_HIGH 0x0c0b1076u"
+   ]
+  ]
+ },
+ {
+  "name": "the_gate_mask_comes_from_the_xor_pool_entry",
+  "subs": [
+   [
+    "#define POOL_MASK     0x0c0b1094u",
+    "#define POOL_MASK     0x0c0b1098u"
+   ]
+  ]
+ },
+ {
+  "name": "the_xor_constant_comes_from_the_gate_mask_pool_entry",
+  "subs": [
+   [
+    "#define POOL_XOR      0x0c0b1098u",
+    "#define POOL_XOR      0x0c0b1094u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_parity_word_is_four_bytes_low",
+  "subs": [
+   [
+    "#define WORD_OFFSET 72u",
+    "#define WORD_OFFSET 68u"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_adds_the_offset_instead_of_subtracting",
+  "subs": [
+   [
+    "    R(5) -= R(6);",
+    "    R(5) += R(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_ands_the_xor_constant_instead_of_xoring",
+  "subs": [
+   [
+    "    R(5) ^= R(3);",
+    "    R(5) &= R(3);"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_is_not_truncated_to_sixteen_bits",
+  "subs": [
+   [
+    "    R(5) -= R(6);",
+    "    R(5) -= R(6);\n    R(5) &= 0xfffu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_middle_band_answers_the_high_band_way_round",
+  "subs": [
+   [
+    "    set_t(a, R(5) == 0u);\n    if (R(5) != 0u) {\n        /* the high bit */",
+    "    set_t(a, R(5) != 0u);\n    if (R(5) == 0u) {\n        /* the high bit */"
+   ]
+  ]
+ }
+]
