@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_enable_pointer_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_ENABLE 0x0c08b3f0u   /* the global that says \"go\" */",
+    "#define G_ENABLE 0x0c08b3f4u   /* the global that says \"go\" */"
+   ]
+  ]
+ },
+ {
+  "name": "the_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_MASK   0x0c08b3ecu   /* the mask the global is tested against */",
+    "#define G_MASK   0x0c08b3f0u   /* the mask the global is tested against */"
+   ]
+  ]
+ },
+ {
+  "name": "the_block_pointer_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_BLOCK  0x0c08b3f4u   /* the block the block's counter lives in */",
+    "#define G_BLOCK  0x0c08b3ecu   /* the block the block's counter lives in */"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_masked_to_six_bits_not_seven",
+  "subs": [
+   [
+    "#define WIDE_MASK   0x7fu",
+    "#define WIDE_MASK   0x3fu"
+   ]
+  ]
+ },
+ {
+  "name": "the_two_bit_counter_wraps_at_four_bits",
+  "subs": [
+   [
+    "#define NARROW_MASK 0x03u",
+    "#define NARROW_MASK 0x0fu"
+   ]
+  ]
+ },
+ {
+  "name": "the_four_bit_counter_wraps_at_two_bits",
+  "subs": [
+   [
+    "#define FOUR_MASK   0x0fu",
+    "#define FOUR_MASK   0x03u"
+   ]
+  ]
+ },
+ {
+  "name": "the_carry_is_taken_from_the_unincremented_counter",
+  "subs": [
+   [
+    "    R(5) += 1u;\n    R(6) &= R(5);",
+    "    R(6) &= R(5);\n    R(5) += 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_block_counter_is_written_at_the_wrong_offset",
+  "subs": [
+   [
+    "#define COUNTER_OFFSET 0x54u",
+    "#define COUNTER_OFFSET 0x50u"
+   ]
+  ]
+ },
+ {
+  "name": "the_block_wraps_before_reaching_127",
+  "subs": [
+   [
+    "    R(1) = 0x7fu;",
+    "    R(1) = 0x7eu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_block_wrap_comparison_is_unsigned",
+  "subs": [
+   [
+    "    set_t(a, (int32_t)R(3) >= (int32_t)R(1));\n    if ((int32_t)R(3) >= (int32_t)R(1)) R(5) = 0u;",
+    "    set_t(a, R(3) >= R(1));\n    if (R(3) >= R(1)) R(5) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_counters_are_moved_when_the_gate_is_shut",
+  "subs": [
+   [
+    "    if ((R(3) & R(2)) != 0) {\n        /* nothing to do */\n        return;\n    }",
+    "    if ((R(3) & R(2)) == 0) {\n        /* nothing to do */\n        return;\n    }"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_counter_is_written_at_the_wrong_offsets",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, R(4) + 14u, (uint16_t)R(0));\n\n    R(0) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, R(4) + 16u);",
+    "    vf3_aim_set_u16(a, R(4) + 14u, (uint16_t)R(0));\n\n    R(0) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, R(4) + 18u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_wrap_resets_the_counter_to_one",
+  "subs": [
+   [
+    "    if ((int32_t)R(3) >= (int32_t)R(1)) R(5) = 0u;",
+    "    if ((int32_t)R(3) >= (int32_t)R(1)) R(5) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_t_bit_is_inverted",
+  "subs": [
+   [
+    "    set_t(a, (R(3) & R(2)) == 0);",
+    "    set_t(a, (R(3) & R(2)) != 0);"
+   ]
+  ]
+ }
+]

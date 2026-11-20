@@ -6754,7 +6754,8 @@ add_library(vf3nativeview STATIC
     src/native/byte_decode.c
     src/native/state_advance.c
     src/native/range_init.c
-    src/native/clamp_pair.c)
+    src/native/clamp_pair.c
+    src/native/counter_advance.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6869,6 +6870,9 @@ target_include_directories(vf3nativerangeinit PRIVATE src/fight src/native)
 add_executable(vf3nativeclamp_pair tests/clamp_pair_native_replay.c)
 target_link_libraries(vf3nativeclamp_pair PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeclamp_pair PRIVATE src/fight src/native)
+add_executable(vf3nativecounter_advance tests/counter_advance_native_replay.c)
+target_link_libraries(vf3nativecounter_advance PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativecounter_advance PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)
