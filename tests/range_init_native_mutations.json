@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_flag_pointer_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_FLAG 0x0c036af0u",
+    "#define G_FLAG 0x0c036b0cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_tail_word_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_TAIL 0x0c036b0cu",
+    "#define G_TAIL 0x0c036af0u"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_is_read_from_the_second_cell_word",
+  "subs": [
+   [
+    "    R(2) = vf3_aim_u32(a, G_FLAG);\n    R(3) = vf3_aim_u32(a, R(2));",
+    "    R(2) = vf3_aim_u32(a, G_FLAG);\n    R(3) = vf3_aim_u32(a, R(2) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_range_shapes_are_swapped",
+  "subs": [
+   [
+    "    if (R(3) == 0u) {",
+    "    if (R(3) != 0u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_ranges_first_word_lives_at_the_wrong_offset",
+  "subs": [
+   [
+    "#define RANGE_A  8u",
+    "#define RANGE_A  4u"
+   ]
+  ]
+ },
+ {
+  "name": "the_ranges_last_word_lives_at_the_wrong_offset",
+  "subs": [
+   [
+    "#define RANGE_D  20u",
+    "#define RANGE_D  24u"
+   ]
+  ]
+ },
+ {
+  "name": "the_marker_is_minus_two_not_minus_one",
+  "subs": [
+   [
+    "    R(6) = (uint32_t)(0u - 1u);",
+    "    R(6) = (uint32_t)(0u - 2u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_zero_is_one",
+  "subs": [
+   [
+    "    R(5) = 0u;",
+    "    R(5) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_is_written_back_over_the_first",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(4) + 4u, R(5));",
+    "    vf3_aim_set_u32(a, R(4) + 0u, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_halfword_lives_at_the_wrong_offset",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, R(4) + 24u, (uint16_t)R(0));",
+    "    vf3_aim_set_u16(a, R(4) + 28u, (uint16_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_end_word_lives_at_the_wrong_offset",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(4) + 40u, R(0));",
+    "    vf3_aim_set_u32(a, R(4) + 44u, R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_tail_word_is_written_at_the_wrong_offset",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(4) + 36u, R(3));",
+    "    vf3_aim_set_u32(a, R(4) + 40u, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_zero_path_sets_the_t_bit_clear",
+  "subs": [
+   [
+    "        set_t(a, 1);",
+    "        set_t(a, 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_nonzero_path_sets_the_t_bit_set",
+  "subs": [
+   [
+    "        set_t(a, 0);",
+    "        set_t(a, 1);"
+   ]
+  ]
+ }
+]
