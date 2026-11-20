@@ -1,0 +1,110 @@
+[
+ {
+  "name": "the_dest_pointer_comes_from_the_table_pool_entry",
+  "subs": [
+   [
+    "#define G_DEST 0x0c043b74u   /* the destination array */",
+    "#define G_DEST 0x0c043b78u   /* the destination array */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_pointer_comes_from_the_dest_pool_entry",
+  "subs": [
+   [
+    "#define G_TABLE 0x0c043b78u  /* the table */",
+    "#define G_TABLE 0x0c043b74u  /* the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_copy_skips_the_last_record",
+  "subs": [
+   [
+    "#define RECORDS 24u",
+    "#define RECORDS 23u"
+   ]
+  ]
+ },
+ {
+  "name": "the_source_records_are_forty_eight_bytes_apart",
+  "subs": [
+   [
+    "#define SRC_STRIDE 0x2cu",
+    "#define SRC_STRIDE 0x30u"
+   ]
+  ]
+ },
+ {
+  "name": "the_destination_records_are_twenty_eight_bytes_apart",
+  "subs": [
+   [
+    "#define DEST_STRIDE 0x18u",
+    "#define DEST_STRIDE 0x1cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_record_is_not_at_the_offset",
+  "subs": [
+   [
+    "#define SRC_OFFSET 0x28u",
+    "#define SRC_OFFSET 0x20u"
+   ]
+  ]
+ },
+ {
+  "name": "the_loop_runs_one_more_iteration",
+  "subs": [
+   [
+    "        if (R(6) >= R(7)) break;",
+    "        if (R(6) > R(7)) break;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_word_comes_from_the_second_word",
+  "subs": [
+   [
+    "        R(3) = vf3_aim_u32(a, R(4) + 16u);\n        vf3_aim_set_u32(a, R(5) + 8u, R(3));",
+    "        R(3) = vf3_aim_u32(a, R(4) + 20u);\n        vf3_aim_set_u32(a, R(5) + 8u, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_comes_from_the_first_word",
+  "subs": [
+   [
+    "        R(3) = vf3_aim_u32(a, R(4) + 20u);\n        vf3_aim_set_u32(a, R(5) + 12u, R(3));",
+    "        R(3) = vf3_aim_u32(a, R(4) + 16u);\n        vf3_aim_set_u32(a, R(5) + 12u, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_word_group_reads_one_byte_high",
+  "subs": [
+   [
+    "        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(4) + 8u);\n        w8(a, R(5) + 4u, (uint8_t)R(0));",
+    "        R(0) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(4) + 9u);\n        w8(a, R(5) + 4u, (uint8_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_byte_is_not_written",
+  "subs": [
+   [
+    "        w8(a, R(5), (uint8_t)R(2));",
+    "        R(5); /* dropped */"
+   ]
+  ]
+ },
+ {
+  "name": "the_loop_does_not_advance_the_source",
+  "subs": [
+   [
+    "        R(5) += DEST_STRIDE;\n        R(4) += SRC_STRIDE;",
+    "        R(5) += DEST_STRIDE;\n        R(4) += 0u;"
+   ]
+  ]
+ }
+]
