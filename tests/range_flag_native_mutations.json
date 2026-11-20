@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_byte_offset_comes_from_the_value_pool_entry",
+  "subs": [
+   [
+    "#define G_BYTE  0x0c0cab1au   /* the byte's offset */",
+    "#define G_BYTE  0x0c0cab1cu   /* the byte's offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_value_offset_comes_from_the_byte_pool_entry",
+  "subs": [
+   [
+    "#define G_VALUE 0x0c0cab1cu   /* the first float's offset */",
+    "#define G_VALUE 0x0c0cab1au   /* the first float's offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_upper_bound_comes_from_the_floor_pool_entry",
+  "subs": [
+   [
+    "#define G_LIMIT 0x0c0cab20u   /* the upper bound */",
+    "#define G_LIMIT 0x0c0cab24u   /* the upper bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_lower_bound_comes_from_the_limit_pool_entry",
+  "subs": [
+   [
+    "#define G_FLOOR 0x0c0cab24u   /* the lower bound */",
+    "#define G_FLOOR 0x0c0cab20u   /* the lower bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_check_bit_is_the_out_bit",
+  "subs": [
+   [
+    "#define FLAG_CHECK 0x40u",
+    "#define FLAG_CHECK 0x10u"
+   ]
+  ]
+ },
+ {
+  "name": "the_out_bit_is_the_check_bit",
+  "subs": [
+   [
+    "#define FLAG_OUT   0x10u",
+    "#define FLAG_OUT   0x40u"
+   ]
+  ]
+ },
+ {
+  "name": "the_gate_returns_when_the_byte_has_no_common_bit",
+  "subs": [
+   [
+    "    set_t(a, (R(3) & R(5)) == 0);\n    if ((R(3) & R(5)) == 0)\n        return;",
+    "    set_t(a, (R(3) & R(5)) != 0);\n    if ((R(3) & R(5)) != 0)\n        return;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_value_is_read_from_the_second_position",
+  "subs": [
+   [
+    "    fload(a, 6, R(4) + R(0));\n    R(0) += 12u;",
+    "    fload(a, 6, R(4) + R(0) + 12u);\n    R(0) += 12u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_value_is_read_from_the_first_position",
+  "subs": [
+   [
+    "    fload(a, 7, R(4) + R(0));\n    R(0) -= 36u;",
+    "    fload(a, 7, R(4) + R(0) - 12u);\n    R(0) -= 36u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_comparison_uses_the_lower_bound_not_the_upper",
+  "subs": [
+   [
+    "    out = F(6) > F(5);",
+    "    out = F(4) > F(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_comparison_is_below_not_above",
+  "subs": [
+   [
+    "    out = F(6) > F(5);\n    set_t(a, out);\n    fload(a, 4, R(0));",
+    "    out = F(6) < F(5);\n    set_t(a, out);\n    fload(a, 4, R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_chain_uses_the_lower_bound_for_the_second_test",
+  "subs": [
+   [
+    "    if (!out) { out = F(4) > F(6); set_t(a, out); }",
+    "    if (!out) { out = F(5) > F(6); set_t(a, out); }"
+   ]
+  ]
+ },
+ {
+  "name": "the_chain_stops_at_the_third_value",
+  "subs": [
+   [
+    "    if (!out) { out = F(9) > F(5); set_t(a, out); }\n    if (!out) { out = F(4) > F(9); set_t(a, out); }",
+    "    /* the last value's two checks are gone */"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_goes_off_with_a_zero_not_a_mask",
+  "subs": [
+   [
+    "        R(1) = 0xffffffefu;\n        R(5) &= R(1);",
+    "        R(1) = 0u;\n        R(5) = R(1);"
+   ]
+  ]
+ }
+]
