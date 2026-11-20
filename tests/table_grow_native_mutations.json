@@ -1,0 +1,173 @@
+[
+ {
+  "name": "the_header_comes_from_the_wrong_global",
+  "subs": [
+   [
+    "#define G_HEADER 0x0c044d44u",
+    "#define G_HEADER 0x0c044d42u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_slot_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_SLOT0 0x0c044d16u   /* the first array's slot */",
+    "#define G_SLOT0 0x0c044d18u   /* the first array's slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_fill_value_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_FILL  0x0c044d18u   /* the value the new entries get */",
+    "#define G_FILL  0x0c044d1au   /* the value the new entries get */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_slot_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_SLOT1 0x0c044d1au   /* the second array's slot */",
+    "#define G_SLOT1 0x0c044d16u   /* the second array's slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_stride_is_not_twelve_bytes_past_the_first_slot",
+  "subs": [
+   [
+    "#define STRIDE_OFFSET 12u",
+    "#define STRIDE_OFFSET 16u"
+   ]
+  ]
+ },
+ {
+  "name": "the_stride_is_not_scaled_by_four",
+  "subs": [
+   [
+    "    R(1) <<= 2;",
+    "    R(1) <<= 1;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_arrays_pointer_does_not_move",
+  "subs": [
+   [
+    "    R(2) += R(1);\n    vf3_aim_set_u32(a, base + slot0, R(2));",
+    "    R(2) += 0u;\n    vf3_aim_set_u32(a, base + slot0, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_fill_is_read_as_sixteen_bits_into_the_write",
+  "subs": [
+   [
+    "    R(7) = vf3_aim_h16(a, G_FILL);",
+    "    R(7) = vf3_aim_h16(a, G_FILL) & 0xffu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_loop_skips_the_count_until_it_is_zero",
+  "subs": [
+   [
+    "    if ((int32_t)count > 0) {",
+    "    if ((int32_t)count > 1) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_loop_increments_the_counter_by_two",
+  "subs": [
+   [
+    "        do {\n            R(6) += 1u;\n            vf3_aim_set_u32(a, R(1), R(7));",
+    "        do {\n            R(6) += 2u;\n            vf3_aim_set_u32(a, R(1), R(7));"
+   ]
+  ]
+ },
+ {
+  "name": "the_fill_writes_four_bytes_early",
+  "subs": [
+   [
+    "            vf3_aim_set_u32(a, R(1), R(7));",
+    "            vf3_aim_set_u32(a, R(1) + 4u, R(7));"
+   ]
+  ]
+ },
+ {
+  "name": "the_loop_writes_one_extra_entry",
+  "subs": [
+   [
+    "        } while ((int32_t)R(6) < (int32_t)count);",
+    "        } while ((int32_t)R(6) <= (int32_t)count);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_arrays_count_is_not_written",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(2) + R(0), R(4));",
+    "    vf3_aim_set_u32(a, R(2) + R(0), 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_arrays_count_is_written_at_the_wrong_slot",
+  "subs": [
+   [
+    "    R(0) += 4u;\n    R(3) = vf3_aim_u32(a, R(5));\n    R(4) <<= 2;",
+    "    R(0) += 4u;\n    R(3) = vf3_aim_u32(a, R(5));\n    R(4) <<= 1;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_arrays_pointer_does_not_move",
+  "subs": [
+   [
+    "    R(2) += R(4);\n    vf3_aim_set_u32(a, R(3) + R(0), R(2));",
+    "    R(2) += 0u;\n    vf3_aim_set_u32(a, R(3) + R(0), R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_array_count_uses_the_word_after_the_count",
+  "subs": [
+   [
+    "    R(0) += 4u;",
+    "    R(0) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_not_zero",
+  "subs": [
+   [
+    "    R(0) = 0u;\n}",
+    "    R(0) = 1u;\n}"
+   ]
+  ]
+ },
+ {
+  "name": "the_base_is_read_from_the_wrong_header_offset",
+  "subs": [
+   [
+    "    base = vf3_aim_u32(a, R(5));",
+    "    base = vf3_aim_u32(a, R(5) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_slot_is_read_as_a_word_not_a_halfword",
+  "subs": [
+   [
+    "    slot0 = vf3_aim_h16(a, G_SLOT0);",
+    "    slot0 = vf3_aim_u32(a, G_SLOT0);"
+   ]
+  ]
+ }
+]
