@@ -1,0 +1,137 @@
+[
+ {
+  "name": "the_exponent_mask_is_four_bits",
+  "subs": [
+   [
+    "    r1 &= r3;",
+    "    r1 &= 0x0fu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_raw_input_is_not_saved",
+  "subs": [
+   [
+    "    r2 = r0;                                    /* keep the raw input */",
+    "    r2 = 0u;                                    /* the raw input is dropped */"
+   ]
+  ]
+ },
+ {
+  "name": "the_exponent_is_read_one_byte_low",
+  "subs": [
+   [
+    "    r1 >>= 16u;",
+    "    r1 >>= 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "nan_and_infinity_are_swapped",
+  "subs": [
+   [
+    "        if (r0 != 0) {",
+    "        if (r0 == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_nan_answer_has_no_status",
+  "subs": [
+   [
+    "            r3 = 1u;",
+    "            r3 = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_infinity_exponent_is_wrong",
+  "subs": [
+   [
+    "        r1 = rd32(a, 0x0c053420u);              /* 0x7ff */",
+    "        r1 = rd32(a, 0x0c053418u);              /* 0xff instead of 0x7ff */"
+   ]
+  ]
+ },
+ {
+  "name": "the_denormal_branch_never_triggers",
+  "subs": [
+   [
+    "    set_t(a, r1 == 0);                          /* exponent zero? */",
+    "    set_t(a, r1 == 1u);                         /* exponent one? */"
+   ]
+  ]
+ },
+ {
+  "name": "the_normalize_loop_breaks_out_early",
+  "subs": [
+   [
+    "            if (!(a->sr & 1u)) continue;        /* 0x5340e -> 0x5340a */",
+    "            if (!(a->sr & 1u)) break;           /* 0x5340e -> 0x53410 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_ordinary_bias_uses_the_wrong_constant",
+  "subs": [
+   [
+    "    r3 = rd32(a, 0x0c053428u);                  /* 0x380 */",
+    "    r3 = rd32(a, 0x0c053420u);                  /* 0x7ff instead of 0x380 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_pack_drops_four_bits",
+  "subs": [
+   [
+    "    r0 >>= 8u;                                  /* 0x533c6 */",
+    "    r0 >>= 4u;                                  /* 0x533c6 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_exponent_pack_is_one_bit_narrow",
+  "subs": [
+   [
+    "    r1 <<= 16u; r1 <<= 2u; r1 <<= 2u;           /* r1 <<= 20 */",
+    "    r1 <<= 16u; r1 <<= 2u; r1 <<= 1u;           /* r1 <<= 19 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_result_cell_skips_a_word",
+  "subs": [
+   [
+    "    wr32(a, r2 + 4u, res_r0);",
+    "    wr32(a, r2 + 8u, res_r0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_caller_r3_is_not_restored",
+  "subs": [
+   [
+    "    rr = rd32(a, r15); r15 += 4u; R(3) = rr;",
+    "    rr = rd32(a, r15); r15 += 4u; R(1) = rr;"
+   ]
+  ]
+ },
+ {
+  "name": "the_stack_pointer_ends_three_short",
+  "subs": [
+   [
+    "    r15 += 4u;                                  /* the rts delay slot */",
+    "    r15 += 3u;                                  /* the rts delay slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_transient_store_lands_in_the_wrong_slot",
+  "subs": [
+   [
+    "    if (w == 4) wr32f(a, r15, F(0));",
+    "    if (w == 4) wr32f(a, r15 + 4u, F(0));"
+   ]
+  ]
+ }
+]
