@@ -6771,7 +6771,8 @@ add_library(vf3nativeview STATIC
     src/native/byte_decode.c
     src/native/node_rotate.c
     src/native/state_ladder.c
-    src/native/count_leading.c)
+    src/native/count_leading.c
+    src/native/word_copy.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6868,6 +6869,9 @@ target_include_directories(vf3nativebitalloc PRIVATE src/fight src/native)
 add_executable(vf3nativecountleading tests/count_leading_native_replay.c)
 target_link_libraries(vf3nativecountleading PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativecountleading PRIVATE src/fight src/native)
+add_executable(vf3nativewordcopy tests/word_copy_native_replay.c)
+target_link_libraries(vf3nativewordcopy PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativewordcopy PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)

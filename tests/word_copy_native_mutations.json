@@ -1,0 +1,74 @@
+[
+ {
+  "name": "refuse_opens_on_not_mult4",
+  "subs": [
+   [
+    "    if ((bytes & 3u) || words > 16) return 0;   /* outside the table */",
+    "    if ((bytes & 1u) || words > 16) return 0;   /* outside the table */"
+   ]
+  ]
+ },
+ {
+  "name": "r0_not_decremented",
+  "subs": [
+   [
+    "    uint32_t r0 = bytes - 4u;                    /* the jump decrements it */",
+    "    uint32_t r0 = bytes;                         /* the jump decrements it */"
+   ]
+  ]
+ },
+ {
+  "name": "odd_even_flipped",
+  "subs": [
+   [
+    "        uint32_t *held = (words & 1u) ? &r3 : &r0;   /* the register waiting to be stored */",
+    "        uint32_t *held = (words & 1u) ? &r0 : &r3;   /* the register waiting to be stored */"
+   ]
+  ]
+ },
+ {
+  "name": "copies_forward_not_backward",
+  "subs": [
+   [
+    "        for (int j = (int)words - 2; j >= 0; --j) {",
+    "        for (int j = 0; j <= (int)words - 2; ++j) {"
+   ]
+  ]
+ },
+ {
+  "name": "no_r3_push",
+  "subs": [
+   [
+    "    wr32(a, sp0 - 4u, r3_in);                    /* push r3 */",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_gets_count_not_last_word",
+  "subs": [
+   [
+    "    R(0) = r0;",
+    "    R(0) = r3;"
+   ]
+  ]
+ },
+ {
+  "name": "pipeline_reads_wrong_offset",
+  "subs": [
+   [
+    "    uint32_t r3 = rd32(a, src + r0);             /* delay slot of the jump */",
+    "    uint32_t r3 = rd32(a, src);                  /* delay slot of the jump */"
+   ]
+  ]
+ },
+ {
+  "name": "dst_write_off_by_one_word",
+  "subs": [
+   [
+    "        wr32(a, dst + 4u * (uint32_t)(j + 1), *held);",
+    "        wr32(a, dst + 4u * (uint32_t)(j + 2), *held);"
+   ]
+  ]
+ }
+]
