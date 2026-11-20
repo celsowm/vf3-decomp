@@ -1,0 +1,164 @@
+[
+ {
+  "name": "the_first_constant_branch_uses_the_wrong_value",
+  "subs": [
+   [
+    "    if (R(0) == 8u) {",
+    "    if (R(0) == 9u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_constant_answers_zero",
+  "subs": [
+   [
+    "    if (R(0) == 8u) {\n        R(4) = 0u;",
+    "    if (R(0) == 8u) {\n        R(4) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_constant_answers_one",
+  "subs": [
+   [
+    "    } else if (R(0) == 16u) {\n        R(4) = 1u;",
+    "    } else if (R(0) == 16u) {\n        R(4) = 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_constant_answers_two",
+  "subs": [
+   [
+    "    } else if (R(0) == 32u) {\n        R(4) = 2u;",
+    "    } else if (R(0) == 32u) {\n        R(4) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_constant_answers_three",
+  "subs": [
+   [
+    "    } else if (R(0) == 64u) {\n        R(4) = 3u;",
+    "    } else if (R(0) == 64u) {\n        R(4) = 7u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_pool_flag_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_CASE4 0x0c038af2u",
+    "#define G_CASE4 0x0c038af4u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_pool_flag_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_CASE5 0x0c038af4u",
+    "#define G_CASE5 0x0c038af6u"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_pool_flag_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_CASE6 0x0c038af6u",
+    "#define G_CASE6 0x0c038af8u"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_pool_flag_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_CASE7 0x0c038af8u",
+    "#define G_CASE7 0x0c038afau"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_pool_flag_answers_the_wrong_index",
+  "subs": [
+   [
+    "        if (R(4) == R(3)) {\n            R(4) = 4u;",
+    "        if (R(4) == R(3)) {\n            R(4) = 5u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_pool_flag_answers_the_wrong_index",
+  "subs": [
+   [
+    "            if (R(4) == R(2)) {\n                R(4) = 5u;",
+    "            if (R(4) == R(2)) {\n                R(4) = 6u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_pool_flag_answers_the_wrong_index",
+  "subs": [
+   [
+    "                if (R(4) == R(1)) {\n                    R(4) = 6u;",
+    "                if (R(4) == R(1)) {\n                    R(4) = 7u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_fourth_pool_flag_answers_the_wrong_index",
+  "subs": [
+   [
+    "                    if (R(4) == R(3)) {\n                        R(4) = 7u;",
+    "                    if (R(4) == R(3)) {\n                        R(4) = 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "a_pool_flag_is_not_sign_extended",
+  "subs": [
+   [
+    "    return (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, addr);",
+    "    return (uint32_t)vf3_aim_h16(a, addr);"
+   ]
+  ]
+ },
+ {
+  "name": "no_flag_matched_sets_the_t_bit",
+  "subs": [
+   [
+    "                        /* no flag matched: the flag is left alone */\n                        set_t(a, 0);",
+    "                        /* no flag matched: the flag is left alone */\n                        set_t(a, 1);"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_not_copied_back_to_r0",
+  "subs": [
+   [
+    "    /* and the answer */\n    R(0) = R(4);",
+    "    /* and the answer */\n    R(0) = R(1);"
+   ]
+  ]
+ },
+ {
+  "name": "the_constants_are_compared_against_the_flag_itself",
+  "subs": [
+   [
+    "    /* the flag, and a copy of it to compare the constants against */\n    R(0) = R(4);",
+    "    /* the flag, and a copy of it to compare the constants against */\n    R(0) = R(4) + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "a_pool_value_is_read_as_a_word_not_a_halfword",
+  "subs": [
+   [
+    "    return (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, addr);",
+    "    return (uint32_t)vf3_aim_u32(a, addr & ~3u);"
+   ]
+  ]
+ }
+]
