@@ -2,19 +2,19 @@
  * 0x8C04538A) against the readable guest port (src/fight/byte_decode.c,
  * `vf3_byte_decode_entry`).
  *
- * Both sides run on the same flat RAM.  The leaf calls nobody, uses no FPU and
- * keeps no callee-saved frame: it pops a word off the caller's stack (r5),
- * pushes it on its own stack (r15), copies its four bytes into the object (r4)
- * at +8..+11 (natural order or turned around, per a table), and classifies the
- * object's first byte into an answer at +20 (the mark -> -1, at or above the
- * limit -> the caller's next word, else zero).
+ * Both sides run on the same flat RAM.  The leaf pops a word off the caller's
+ * stack, pushes it on its own stack, copies its four bytes into the object at
+ * +8..+11 in the natural order or turned around, then classifies the object's
+ * first byte into an answer at its +20.
  *
- * The literal pool, the cell, the table, the caller's stack, this function's
- * stack and the object sit at the game's own addresses, spanned by one flat
- * buffer.  The whole region is compared byte for byte, together with the
- * registers (r0..r7), the T bit, r15 (back on the entry sp) and the answer.
- * The scenarios cover the two byte orders, the mark, the limit, a negative
- * limit, and an entry that is not the turned-around one. */
+ * The literal pool, the table's cell, the table, the caller's stack and the
+ * object sit at the game's own addresses, spanned by one flat buffer.  The
+ * whole region is compared byte for byte, together with the registers, SR's T
+ * bit and an independent fixture model that computes the object's bytes, the
+ * answer and the T bit straight from the fixture.
+ *
+ * The scenarios cover the two byte orders, the mark, the limit, a limit that
+ * is negative, and an entry that is not the turned-around one. */
 #include "fight/matrix_family.h"
 #include "fight/readable.h"
 #include "fight/family_hooks.h"
@@ -26,37 +26,36 @@
 
 int vf3_byte_decode_entry(vf3_matrix_state *s, const vf3_ram_map *ram);
 
+/* the lowest guest address read is the table's first word */
 #define RAM_BASE 0x0c030000u
-#define RAM_SIZE 0x0f0100u     /* spans the table .. the object (0x0c120040) */
 #define CMP_HI   0x0c120040u
+#define RAM_SIZE (CMP_HI - RAM_BASE)
 
-/* the windows */
-#define POOL_BASE  0x0c045440u
-#define POOL_LEN   0x20u
-#define PTR_BASE   0x0c050000u
-#define PTR_LEN    0x10u
-#define TBL_BASE   0x0c030000u
-#define TBL_LEN    0x40u
-#define STK_BASE   0x0c110000u
-#define STK_LEN    0x100u
-#define OBJ_BASE   0x0c120000u
-#define OBJ_LEN    0x40u
-#define NWIN 5
+#define POOL_BASE 0x0c045440u
+#define G_MARK  (POOL_BASE + 0x08u)   /* the byte that means "no value" */
+#define G_BASE  (POOL_BASE + 0x0au)   /* the table's base: a signed halfword */
+#define G_LIMIT (POOL_BASE + 0x0cu)   /* the byte at or above which the word counts */
+#define G_TABLE (POOL_BASE + 0x14u)   /* the table */
 
-#define G_MARK  (POOL_BASE + 0x08u)
-#define G_BASE  (POOL_BASE + 0x0au)
-#define G_LIMIT (POOL_BASE + 0x0cu)
-#define G_TABLE (POOL_BASE + 0x14u)
+#define PTR_BASE   0x0c050000u        /* the cell the table's global points at */
+#define TBL_FIRST  0x0c030000u        /* the table: first word + the base */
 
-#define PTR_FIRST PTR_BASE
-#define TBL_ENTRY (TBL_BASE + 0x10u)
-#define TBL_BASE_OFF 0x0010u
+#define STK_BASE    0x0c110000u
+#define CALLER_SP   (STK_BASE + 0x80u)  /* the caller's stack: word0, word1 */
+#define OWN_SP      (STK_BASE + 0x40u)  /* this function's stack */
 
-#define CALLER_SP (STK_BASE + 0x80u)
-#define OWN_SP    (STK_BASE + 0x40u)
-
+#define OBJ_BASE 0x0c120000u
 #define OBJ_BYTES  8u
 #define OBJ_ANSWER 20u
+
+struct scenario {
+    const char *name;
+    uint32_t entry;    /* the table's entry: 1 asks for the bytes turned around */
+    uint32_t word0;    /* the word on the caller's stack */
+    uint32_t word1;    /* the word behind it */
+    uint16_t mark;     /* the byte that means "no value" */
+    uint16_t limit;    /* the byte at or above which the word counts */
+};
 
 static uint8_t *ram;
 
@@ -67,56 +66,33 @@ static uint32_t r32(uint32_t addr)
     return (uint32_t)p[0] | ((uint32_t)p[1] << 8) |
            ((uint32_t)p[2] << 16) | ((uint32_t)p[3] << 24);
 }
-static uint8_t r8(uint32_t addr) { return ab(addr)[0]; }
+static void w16(uint32_t addr, uint16_t v) { ab(addr)[0] = (uint8_t)v; ab(addr)[1] = (uint8_t)(v >> 8); }
 static void w32(uint32_t addr, uint32_t v)
 {
     uint8_t *p = ab(addr);
     p[0] = (uint8_t)v; p[1] = (uint8_t)(v >> 8);
     p[2] = (uint8_t)(v >> 16); p[3] = (uint8_t)(v >> 24);
 }
-static void w16(uint32_t addr, uint16_t v)
-{
-    uint8_t *p = ab(addr);
-    p[0] = (uint8_t)v; p[1] = (uint8_t)(v >> 8);
-}
-
-struct scenario {
-    const char *name;
-    uint32_t entry;
-    uint32_t word0;
-    uint32_t word1;
-    uint16_t mark;
-    uint16_t limit;
-};
 
 static void seed_all(const struct scenario *sc)
 {
     memset(ram, 0, RAM_SIZE);
-
-    /* the literal pool */
     w16(G_MARK, sc->mark);
     w16(G_LIMIT, sc->limit);
     w32(G_TABLE, PTR_BASE);
-    w16(G_BASE, (uint16_t)TBL_BASE_OFF);
-
-    /* the cell the table's global points at */
-    w32(PTR_FIRST, TBL_BASE);
-
-    /* the table's entry */
-    w32(TBL_ENTRY, sc->entry);
-
-    /* the object and the stack: fill first so the writes are visible */
-    memset(ab(OBJ_BASE), 0xa5, OBJ_LEN);
-    memset(ab(STK_BASE), 0x5a, STK_LEN);
-    /* then the caller's words, on top of the stack fill */
+    w16(G_BASE, 0x0010u);               /* the table's base: the entry sits at the
+                                         * first word plus this (a signed halfword) */
+    w32(PTR_BASE, TBL_FIRST);           /* the cell the table's global points at */
+    w32(TBL_FIRST + 0x10u, sc->entry);  /* the table's entry */
     w32(CALLER_SP, sc->word0);
     w32(CALLER_SP + 4u, sc->word1);
 }
 
-static void setup_guest(vf3_matrix_state *s, vf3_ram_map *map, vf3_ram_win *win)
+static void setup_guest(vf3_matrix_state *s, vf3_ram_map *map, vf3_ram_win *win,
+                        const struct scenario *sc)
 {
     memset(s, 0, sizeof *s);
-    for (unsigned i = 0; i < 37; ++i) s->v[i] = 0x76543210u + i;
+    for (unsigned i = 0; i < 54; ++i) s->v[i] = 0x76543210u + i;
     s->v[4] = OBJ_BASE;
     s->v[5] = CALLER_SP;
     s->v[15] = OWN_SP;
@@ -126,41 +102,45 @@ static void setup_guest(vf3_matrix_state *s, vf3_ram_map *map, vf3_ram_win *win)
     s->budget = 1000000u;
 
     memset(map, 0, sizeof *map);
-    static const struct { uint32_t base, len; } W[NWIN] = {
-        { POOL_BASE, POOL_LEN }, { PTR_BASE, PTR_LEN }, { TBL_BASE, TBL_LEN },
-        { STK_BASE, STK_LEN }, { OBJ_BASE, OBJ_LEN },
+    static const struct { uint32_t base, len; } W[5] = {
+        { POOL_BASE, 0x20u }, { PTR_BASE, 0x10u }, { TBL_FIRST, 0x40u },
+        { STK_BASE, 0x100u }, { OBJ_BASE, 0x40u },
     };
-    for (unsigned i = 0; i < NWIN; ++i) {
+    for (unsigned i = 0; i < 5; ++i) {
         win[i].base = W[i].base;
         win[i].len = W[i].len;
         win[i].data = ab(W[i].base);
     }
     map->wins = win;
-    map->n = NWIN;
+    map->n = 5;
     map->oob = 0;
+    map->device_read = NULL;
+    map->device_write = NULL;
+    map->device_context = NULL;
 }
 
-/* the independent model of the answer, reading the fixture's bytes */
-struct outcome { uint32_t answer; };
-static struct outcome model(const struct scenario *sc)
+/* the fixture's model: the object's byte at +8, the answer at +20 (with the
+ * pushed word stored little-endian, the pushed byte 0 is the low byte) and the
+ * T bit the caller sees */
+static uint8_t model_first(const struct scenario *sc)
 {
-    /* the four bytes of the pushed word, in memory (little-endian) order */
-    uint8_t raw[4];
-    raw[0] = (uint8_t)(sc->word0);
-    raw[1] = (uint8_t)(sc->word0 >> 8);
-    raw[2] = (uint8_t)(sc->word0 >> 16);
-    raw[3] = (uint8_t)(sc->word0 >> 24);
-    /* natural order writes +8..+11 = raw[0..3]; turned writes them reversed */
-    uint8_t first;
-    if (sc->entry == 1u) first = raw[3];
-    else first = raw[0];
-    struct outcome out;
-    uint16_t mark = sc->mark & 0xffu;
-    int16_t limit = (int16_t)sc->limit;
-    if ((int32_t)first == (int32_t)mark) out.answer = 0xffffffffu;
-    else if ((int32_t)first >= (int32_t)limit) out.answer = sc->word1;
-    else out.answer = 0u;
-    return out;
+    const uint8_t lo = (uint8_t)(sc->word0 & 0xffu);
+    const uint8_t hi = (uint8_t)(sc->word0 >> 24);
+    return (sc->entry == 1u) ? hi : lo;
+}
+
+static void expect(const struct scenario *sc, uint32_t *answer, int *t_bit)
+{
+    const uint8_t first = model_first(sc);
+    const uint8_t mark = (uint8_t)(sc->mark & 0xffu);
+    if (first == mark) {
+        *answer = 0xffffffffu;
+        *t_bit = 1;
+        return;
+    }
+    const int32_t lim = (int32_t)(int16_t)sc->limit;
+    *t_bit = ((int32_t)first >= lim) ? 1 : 0;
+    *answer = ((int32_t)first >= lim) ? sc->word1 : 0u;
 }
 
 static int compare_one(const struct scenario *sc)
@@ -168,94 +148,108 @@ static int compare_one(const struct scenario *sc)
     printf("== %s\n", sc->name);
 
     seed_all(sc);
+    uint8_t *seed_shot = (uint8_t *)malloc(RAM_SIZE);
+    memcpy(seed_shot, ram, RAM_SIZE);
 
     /* ---- guest side ---- */
     vf3_matrix_state gs;
     vf3_ram_map gmap;
-    vf3_ram_win gwin[NWIN];
-    setup_guest(&gs, &gmap, gwin);
-    seed_all(sc);            /* setup_guest does not seed RAM; re-seed */
+    vf3_ram_win gwin[5];
+    setup_guest(&gs, &gmap, gwin, sc);
+    uint32_t in_v[54];
+    memcpy(in_v, gs.v, sizeof in_v);
+    memcpy(ram, seed_shot, RAM_SIZE);
     const int ok_guest = vf3_byte_decode_entry(&gs, &gmap);
     if (!ok_guest || gmap.oob) {
         fprintf(stderr, "  guest run failed (ok=%d oob=%u)\n", ok_guest, gmap.oob);
+        free(seed_shot);
         return 1;
     }
 
-    uint8_t *gshot = (uint8_t *)malloc(CMP_HI - RAM_BASE);
-    memcpy(gshot, ram, CMP_HI - RAM_BASE);
-
     /* ---- native side ---- */
-    seed_all(sc);
+    memcpy(ram, seed_shot, RAM_SIZE);
     vf3_native_aim a;
     memset(&a, 0, sizeof a);
     a.ram = (float *)ram;
     a.ram_base = RAM_BASE;
-    for (unsigned i = 0; i < 16; ++i) a.r[i] = 0x76543210u + i;
-    a.r[4] = OBJ_BASE;
-    a.r[5] = CALLER_SP;
+    for (unsigned i = 0; i < 16; ++i) a.r[i] = in_v[i];
     a.r[15] = OWN_SP;
     a.pr = 0x0c0abcdeu;
     a.sr = 0x301u;
-    a.fpscr = 0;
-    vf3_native_byte_decode(&a, OWN_SP);
+    vf3_native_byte_decode(&a);
+    free(seed_shot);
 
     int bad = 0;
-    /* the guest's RAM snapshot vs the native run */
+
+    /* RAM region */
     {
         int nb = 0;
         for (uint32_t ad = RAM_BASE; ad < CMP_HI; ad += 4) {
-            uint32_t g, n;
-            memcpy(&g, gshot + (ad - RAM_BASE), 4);
-            n = vf3_aim_u32(&a, ad);
+            uint32_t g = r32(ad), n = vf3_aim_u32(&a, ad);
             if (g != n) {
                 if (nb < 10) fprintf(stderr, "  ram @%08x: got %08x want %08x\n", ad, n, g);
                 nb++;
             }
         }
         printf("  ram[%08x..%08x): %s\n", RAM_BASE, CMP_HI, nb ? "DIFFERS" : "match");
-        bad |= nb;
+        bad |= (nb != 0);
     }
-    free(gshot);
 
-    /* the model: the answer; and r15 back on the entry sp */
+    /* registers + T bit + model */
     {
         int nb = 0;
-        struct outcome want = model(sc);
-        if (r32(OBJ_BASE + OBJ_ANSWER) != want.answer) {
-            fprintf(stderr, "  answer: %08x want %08x\n",
-                    r32(OBJ_BASE + OBJ_ANSWER), want.answer);
+        for (unsigned i = 0; i < 16; ++i)
+            if (a.r[i] != gs.v[i]) {
+                fprintf(stderr, "  r%u: native %08x want %08x\n", i, a.r[i], gs.v[i]);
+                nb++;
+            }
+        if (a.pr != gs.v[16]) { fprintf(stderr, "  pr differs\n"); nb++; }
+
+        uint32_t answer = 0;
+        int t_bit = 0;
+        expect(sc, &answer, &t_bit);
+
+        if (r32(OBJ_BASE + OBJ_ANSWER) != answer) {
+            fprintf(stderr, "  answer %08x, expected %08x\n",
+                    r32(OBJ_BASE + OBJ_ANSWER), answer);
             nb++;
         }
-        if (a.r[15] != OWN_SP) {
-            fprintf(stderr, "  r15: native %08x want %08x\n", a.r[15], OWN_SP);
-            nb++;
-        }
-        /* the object's bytes: the pushed word's four bytes, natural or turned */
-        uint8_t raw[4];
-        raw[0] = (uint8_t)(sc->word0);
-        raw[1] = (uint8_t)(sc->word0 >> 8);
-        raw[2] = (uint8_t)(sc->word0 >> 16);
-        raw[3] = (uint8_t)(sc->word0 >> 24);
-        uint8_t b[4];
-        if (sc->entry == 1u) {
-            b[0] = raw[3]; b[1] = raw[2]; b[2] = raw[1]; b[3] = raw[0];
-        } else {
-            b[0] = raw[0]; b[1] = raw[1]; b[2] = raw[2]; b[3] = raw[3];
-        }
-        for (unsigned i = 0; i < 4; ++i) {
-            if (r8(OBJ_BASE + OBJ_BYTES + i) != b[i]) {
-                fprintf(stderr, "  obj byte %u: %02x want %02x\n", i,
-                        r8(OBJ_BASE + OBJ_BYTES + i), b[i]);
+        /* the object's four bytes +8..+11, little-endian stored */
+        {
+            uint8_t first = model_first(sc);
+            if (ab(OBJ_BASE + OBJ_BYTES)[0] != first) {
+                fprintf(stderr, "  byte0 %02x, expected %02x\n",
+                        ab(OBJ_BASE + OBJ_BYTES)[0], first);
+                nb++;
+            }
+            const uint8_t lo = (uint8_t)(sc->word0 & 0xffu);
+            const uint8_t hi = (uint8_t)(sc->word0 >> 24);
+            const uint8_t b1 = (sc->entry == 1u) ? (uint8_t)(sc->word0 >> 16)
+                                                 : (uint8_t)(sc->word0 >> 8);
+            const uint8_t b2 = (sc->entry == 1u) ? (uint8_t)(sc->word0 >> 8)
+                                                 : (uint8_t)(sc->word0 >> 16);
+            const uint8_t b3 = (sc->entry == 1u) ? lo : hi;
+            if (ab(OBJ_BASE + OBJ_BYTES)[3] != b3 ||
+                ab(OBJ_BASE + OBJ_BYTES)[1] != b1 ||
+                ab(OBJ_BASE + OBJ_BYTES)[2] != b2) {
+                fprintf(stderr, "  bytes %02x%02x%02x%02x, expected %02x%02x%02x%02x\n",
+                        ab(OBJ_BASE + OBJ_BYTES)[0], ab(OBJ_BASE + OBJ_BYTES)[1],
+                        ab(OBJ_BASE + OBJ_BYTES)[2], ab(OBJ_BASE + OBJ_BYTES)[3],
+                        first, b1, b2, b3);
                 nb++;
             }
         }
-        /* the guest's own answer */
-        if (gs.v[4] != OBJ_BASE || gs.v[15] != OWN_SP) {
-            fprintf(stderr, "  guest r4/r15 diverge\n");
+        if (r32(OWN_SP - 4u) != sc->word0) {
+            fprintf(stderr, "  pushed word %08x, expected %08x\n",
+                    r32(OWN_SP - 4u), sc->word0);
             nb++;
         }
-        printf("  outcome: %s\n", nb ? "DIFFERS" : "match");
-        bad |= nb;
+        if (((a.sr & 1u) != 0) != t_bit) {
+            fprintf(stderr, "  T bit is %u, expected %d\n", a.sr & 1u, t_bit);
+            nb++;
+        }
+        printf("  regs+model: %s\n", nb ? "DIFFERS" : "match");
+        bad |= (nb != 0);
     }
 
     return bad ? 1 : 0;
@@ -267,15 +261,27 @@ int main(void)
     if (!ram) return 2;
 
     static const struct scenario scenarios[] = {
+        /* the natural order, the byte below the limit: no answer */
         { "natural zero",  0u, 0x11223011u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* the natural order, the byte at the limit: the caller's word */
         { "natural word",  0u, 0x11223044u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* one below the limit: no answer */
         { "just below",    0u, 0x1122303fu, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* the first byte exactly at the limit: the caller's word */
+        { "exactly at the limit", 0u, 0x11223040u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* the natural order, the first byte is the mark: no value */
         { "natural mark",  0u, 0x000000eeu, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* turned around, the first byte is now the last one */
         { "turned word",   1u, 0x44112233u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* turned around, the first byte is the mark */
         { "turned mark",   1u, 0xee112233u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* turned around, the byte below the limit: no answer */
         { "turned zero",   1u, 0x11112233u, 0xcafebabeu, 0x00eeu, 0x0040u },
+        /* a limit of 255: only the byte 255 is at or above it */
         { "limit 255",     0u, 0x112230ffu, 0xcafebabeu, 0x00eeu, 0x00ffu },
+        /* a negative limit: every byte is at or above it */
         { "negative limit", 0u, 0x11223011u, 0xcafebabeu, 0x00eeu, 0x8000u },
+        /* an entry that is not 1 asks for the natural order */
         { "other entry",   2u, 0x11223011u, 0xcafebabeu, 0x00eeu, 0x0040u },
     };
 
