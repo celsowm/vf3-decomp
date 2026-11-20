@@ -1,0 +1,101 @@
+[
+ {
+  "name": "the_rotation_subtracts_the_other_way",
+  "subs": [
+   [
+    "        F(7) = F(7) - F(3);               /* sin * first - cos * second */",
+    "        F(7) = F(7) + F(3);               /* wrong sign */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_multiplier_uses_cos_not_sin",
+  "subs": [
+   [
+    "        F(8) = F(5);",
+    "        F(8) = F(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_sin_times_first_uses_second",
+  "subs": [
+   [
+    "        F(2) = F(2) * F(9);               /* sin * first */",
+    "        F(2) = F(2) * F(8);               /* sin * second instead */"
+   ]
+  ]
+ },
+ {
+  "name": "the_mac_uses_sin_not_cos",
+  "subs": [
+   [
+    "        F(2) = fmaf(F(0), F(4), F(2));    /* sin * second + first * cos, fused */",
+    "        F(2) = fmaf(F(0), F(5), F(2));    /* sin * second + first * sin, fused */"
+   ]
+  ]
+ },
+ {
+  "name": "the_stored_first_and_second_swap",
+  "subs": [
+   [
+    "        fstore(a, R(5), F(7));            /* first float of the record */\n        fstore(a, R(7), F(8));            /* second float of the record */",
+    "        fstore(a, R(5), F(8));            /* first float of the record */\n        fstore(a, R(7), F(7));            /* second float of the record */"
+   ]
+  ]
+ },
+ {
+  "name": "the_node_stride_is_wrong",
+  "subs": [
+   [
+    "        R(5) += NODE_STRIDE;",
+    "        R(5) += NODE_STRIDE + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_float_offset_is_wrong",
+  "subs": [
+   [
+    "        R(7) += 8u;",
+    "        R(7) += 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_root_move_subtracts",
+  "subs": [
+   [
+    "    F(4) = F(4) + F(6);",
+    "    F(4) = F(4) - F(6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_root_second_coordinate_offset_is_wrong",
+  "subs": [
+   [
+    "    R(0) += (uint32_t)(0u - ROOT_STEP);",
+    "    R(0) += (uint32_t)ROOT_STEP;"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_coordinate_load_uses_second_offset",
+  "subs": [
+   [
+    "    F(5) = fload(a, R(4) + R(0));         /* the second coordinate */",
+    "    F(5) = fload(a, R(4) + R(0) + 4u);    /* wrong coordinate */"
+   ]
+  ]
+ },
+ {
+  "name": "the_record_first_float_reads_the_second_slot",
+  "subs": [
+   [
+    "        F(9) = fload(a, R(5));            /* the record's first float */",
+    "        F(9) = fload(a, R(5) + 8u);       /* the record's second float instead */"
+   ]
+  ]
+ }
+]
