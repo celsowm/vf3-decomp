@@ -1,0 +1,128 @@
+[
+ {
+  "name": "enable_comparison_inverted",
+  "subs": [
+   [
+    "    const uint32_t enabled =\n        ((int32_t)r4i >= (int32_t)thr) ? 1u : 0u;",
+    "    const uint32_t enabled =\n        ((int32_t)r4i <  (int32_t)thr) ? 1u : 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "enable_always_one",
+  "subs": [
+   [
+    "    const uint32_t enabled =\n        ((int32_t)r4i >= (int32_t)thr) ? 1u : 0u;",
+    "    const uint32_t enabled = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "flag_written_as_byte",
+  "subs": [
+   [
+    "    wr16(a, r5i, (uint16_t)enabled);",
+    "    wr8(a, r5i, (uint8_t)enabled);"
+   ]
+  ]
+ },
+ {
+  "name": "table_stride_sixteen",
+  "subs": [
+   [
+    "    const uint32_t first = rd32(a, base + 20u * byte);",
+    "    const uint32_t first = rd32(a, base + 16u * byte);"
+   ]
+  ]
+ },
+ {
+  "name": "table_ignores_byte",
+  "subs": [
+   [
+    "    const uint32_t first = rd32(a, base + 20u * byte);",
+    "    const uint32_t first = rd32(a, base);"
+   ]
+  ]
+ },
+ {
+  "name": "found_test_inverted",
+  "subs": [
+   [
+    "            if (value == r4i) {          /* 0x0c062368/36a: found */",
+    "            if (value != r4i) {          /* 0x0c062368/36a: found */"
+   ]
+  ]
+ },
+ {
+  "name": "step_reads_value_not_next",
+  "subs": [
+   [
+    "            cur = rd32(a, cur + 8u);     /* 0x0c062372: next */",
+    "            cur = rd32(a, cur + 12u);    /* 0x0c062372: next */"
+   ]
+  ]
+ },
+ {
+  "name": "found_node_not_recorded",
+  "subs": [
+   [
+    "                R(6) = cur;              /* 0x0c06236c */\n                R(5) = 0u;               /* 0x0c06236e */\n                break;",
+    "                R(6) = 0u;              /* 0x0c06236c */\n                R(5) = 0u;               /* 0x0c06236e */\n                break;"
+   ]
+  ]
+ },
+ {
+  "name": "r5_not_zeroed_on_found",
+  "subs": [
+   [
+    "                R(6) = cur;              /* 0x0c06236c */\n                R(5) = 0u;               /* 0x0c06236e */\n                break;",
+    "                R(6) = cur;              /* 0x0c06236c */\n                break;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_not_copied_from_r6",
+  "subs": [
+   [
+    "    R(0) = R(6);",
+    "    R(0) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "t_bit_left_clear",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | 1u;",
+    "    a->sr = (a->sr & ~1u);"
+   ]
+  ]
+ },
+ {
+  "name": "empty_table_still_walks",
+  "subs": [
+   [
+    "    if (first != 0u) {",
+    "    if (1u) {"
+   ]
+  ]
+ },
+ {
+  "name": "r1_not_reloaded_in_walk",
+  "subs": [
+   [
+    "            const uint32_t value = rd32(a, cur + 12u); /* 0x0c062366 */\n            R(1) = value;",
+    "            const uint32_t value = rd32(a, cur + 12u); /* 0x0c062366 */"
+   ]
+  ]
+ },
+ {
+  "name": "next_reads_zero_offset",
+  "subs": [
+   [
+    "            cur = rd32(a, cur + 8u);     /* 0x0c062372: next */",
+    "            cur = rd32(a, cur + 0u);     /* 0x0c062372: next */"
+   ]
+  ]
+ }
+]
