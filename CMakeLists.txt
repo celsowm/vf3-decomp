@@ -6766,7 +6766,8 @@ add_library(vf3nativeview STATIC
     src/native/pair_verdict.c
     src/native/scale_step.c
     src/native/float_scale.c
-    src/native/band_probe.c)
+    src/native/band_probe.c
+    src/native/move_cap.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6917,6 +6918,9 @@ target_include_directories(vf3nativefloat_scale PRIVATE src/fight src/native)
 add_executable(vf3nativeband_probe tests/band_probe_native_replay.c)
 target_link_libraries(vf3nativeband_probe PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeband_probe PRIVATE src/fight src/native)
+add_executable(vf3nativemove_cap tests/move_cap_native_replay.c)
+target_link_libraries(vf3nativemove_cap PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativemove_cap PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)

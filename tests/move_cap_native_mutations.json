@@ -1,0 +1,119 @@
+[
+ {
+  "name": "the_epsilon_comes_from_the_maxstep_slot",
+  "subs": [
+   [
+    "    fload(a, 3, POOL_EPSILON);",
+    "    fload(a, 3, POOL_MAXSTEP);"
+   ]
+  ]
+ },
+ {
+  "name": "the_maxstep_comes_from_the_epsilon_slot",
+  "subs": [
+   [
+    "    fload(a, 7, POOL_MAXSTEP);",
+    "    fload(a, 7, POOL_EPSILON);"
+   ]
+  ]
+ },
+ {
+  "name": "the_squared_length_uses_the_y_term_twice",
+  "subs": [
+   [
+    "    F(4) = F(3);\n    F(5) = F(3);\n    F(4) = F(4) * F(5);\n    fload(a, 3, POOL_EPSILON);\n    F(0) = F(2);\n    F(6) = F(2);\n    F(4) = fmaf(F(0), F(6), F(4));",
+    "    F(4) = F(3);\n    F(5) = F(3);\n    F(4) = F(4) * F(5);\n    fload(a, 3, POOL_EPSILON);\n    F(0) = F(2);\n    F(6) = F(3);\n    F(4) = fmaf(F(0), F(6), F(4));"
+   ]
+  ]
+ },
+ {
+  "name": "the_squared_length_is_a_plain_multiply_and_add",
+  "subs": [
+   [
+    "    F(4) = fmaf(F(0), F(6), F(4));",
+    "    F(4) = F(0) * F(6) + F(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_factor_is_fabs_of_the_maxstep_over_len",
+  "subs": [
+   [
+    "    F(4) = F(4) / F(3);",
+    "    F(4) = F(3) / F(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_length_uses_plain_sqrt_not_inverse",
+  "subs": [
+   [
+    "        F(7) = 1.0f / sqrtf(F(7));",
+    "        F(7) = sqrtf(F(7));"
+   ]
+  ]
+ },
+ {
+  "name": "the_scale_test_compares_the_factor_without_fabs",
+  "subs": [
+   [
+    "        uint32_t bits = fbits(a, 4) & 0x7fffffffu;\n        memcpy(&F(4), &bits, 4);         /* fabs, as a mask on the bits */",
+    "        uint32_t bits = fbits(a, 4);\n        memcpy(&F(4), &bits, 4);         /* no fabs */"
+   ]
+  ]
+ },
+ {
+  "name": "the_scale_test_uses_the_epsilon_not_one",
+  "subs": [
+   [
+    "        uint32_t one = 0x3f800000u;",
+    "        uint32_t one = 0x33d6bf94u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_scale_test_uses_ge_not_gt",
+  "subs": [
+   [
+    "    const int scale = (F(7) > F(4));",
+    "    const int scale = (F(7) >= F(4));"
+   ]
+  ]
+ },
+ {
+  "name": "the_ftrc_rounds_to_nearest_not_toward_zero",
+  "subs": [
+   [
+    "    return (int32_t)d;",
+    "    return (int32_t)(d < 0 ? d - 0.5 : d + 0.5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_short_path_keeps_the_wrong_delta_axis",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(15) + 4u);\n    R(14) -= R(4);",
+    "    R(14) = vf3_aim_u32(a, R(15) + 4u);\n    R(14) -= R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_new_x_goes_to_the_y_slot",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(6), R(3));\n    vf3_aim_set_u32(a, R(7), R(4));",
+    "    vf3_aim_set_u32(a, R(6), R(4));\n    vf3_aim_set_u32(a, R(7), R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "the_scaled_pair_writes_fpul_wrong",
+  "subs": [
+   [
+    "        a->fpul = (uint32_t)ftrc(a, 5);",
+    "        a->fpul = (uint32_t)ftrc(a, 6);"
+   ]
+  ]
+ }
+]
