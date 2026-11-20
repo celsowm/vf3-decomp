@@ -1,0 +1,110 @@
+[
+ {
+  "name": "the_last_bit_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_LAST_BIT 0x0c09630au",
+    "#define G_LAST_BIT 0x0c09630cu"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_field_is_read_from_the_second_offset",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 8u);\n    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) flags = 0x04u;",
+    "    R(3) = vf3_aim_u32(a, rec + 12u);\n    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) flags = 0x04u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_bit_is_four_not_the_real_bit",
+  "subs": [
+   [
+    "    if (hit) flags = 0x04u;",
+    "    if (hit) flags = 0x40u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_field_is_read_from_the_first_offset",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 12u);\n    hit = (R(3) & mask) != 0;",
+    "    R(3) = vf3_aim_u32(a, rec + 0u);\n    hit = (R(3) & mask) != 0;"
+   ]
+  ]
+ },
+ {
+  "name": "the_pool_bit_comes_from_a_normal_pool_entry",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 32u);\n    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) { R(1) = (uint32_t)vf3_aim_h16(a, G_LAST_BIT); flags |= R(1); }",
+    "    R(3) = vf3_aim_u32(a, rec + 32u);\n    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) { R(1) = 0x40u; flags |= R(1); }"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_field_is_read_from_the_wrong_offset",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 32u);",
+    "    R(3) = vf3_aim_u32(a, rec + 36u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_or_bit_for_the_second_field_is_wrong",
+  "subs": [
+   [
+    "    if (hit) { R(1) = 0x08u; flags |= R(1); }",
+    "    if (hit) { R(1) = 0x04u; flags |= R(1); }"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_field_value_goes_into_r2_not_r3",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 8u);\n    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) flags = 0x04u;",
+    "    R(2) = vf3_aim_u32(a, rec + 8u);\n    hit = (R(2) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) flags = 0x04u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_is_assigned_not_ored_for_a_later_bit",
+  "subs": [
+   [
+    "    if (hit) { R(1) = 0x08u; flags |= R(1); }",
+    "    if (hit) { R(1) = 0x08u; flags = R(1); }"
+   ]
+  ]
+ },
+ {
+  "name": "the_pool_last_bit_is_read_even_when_the_field_misses",
+  "subs": [
+   [
+    "    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    if (hit) { R(1) = (uint32_t)vf3_aim_h16(a, G_LAST_BIT); flags |= R(1); }",
+    "    hit = (R(3) & mask) != 0;\n    set_t(a, !hit);\n    { R(1) = (uint32_t)vf3_aim_h16(a, G_LAST_BIT); if (hit) flags |= R(1); }"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_comes_from_r6_instead_of_r0",
+  "subs": [
+   [
+    "    R(0) = flags;\n    R(6) = flags;",
+    "    R(0) = 0u;\n    R(6) = flags;"
+   ]
+  ]
+ },
+ {
+  "name": "the_masked_out_first_field_counts_the_high_bit",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, rec + 8u);\n    hit = (R(3) & mask) != 0;",
+    "    R(3) = vf3_aim_u32(a, rec + 8u);\n    hit = (R(3) | mask) != 0;"
+   ]
+  ]
+ }
+]
