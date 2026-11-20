@@ -1,0 +1,74 @@
+[
+ {
+  "name": "starts_at_one",
+  "subs": [
+   [
+    "    R(5) = 0;",
+    "    R(5) = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_gets_zero",
+  "subs": [
+   [
+    "    R(0) = R(5);",
+    "    R(0) = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "T_not_set",
+  "subs": [
+   [
+    "    a->sr |= 1u;            /* SET_T(1): the loop's final cmp/eq */",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "r4_increments_twice",
+  "subs": [
+   [
+    "        R(4) += 1u;",
+    "        R(4) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "r3_not_recorded",
+  "subs": [
+   [
+    "        R(3) = c;                       /* r3 is the widened byte read */",
+    "        ;"
+   ]
+  ]
+ },
+ {
+  "name": "count_increments_twice",
+  "subs": [
+   [
+    "        R(5) += 1u;",
+    "        R(5) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "breaks_on_nonzero",
+  "subs": [
+   [
+    "        if (c == 0) break;",
+    "        if (c != 0) break;"
+   ]
+  ]
+ },
+ {
+  "name": "records_wrong_byte",
+  "subs": [
+   [
+    "        R(3) = c;                       /* r3 is the widened byte read */",
+    "        R(3) = R(4);                    /* r3 is the widened byte read */"
+   ]
+  ]
+ }
+]
