@@ -27,6 +27,7 @@ typedef struct {
     float fr[16];            /* the FR bank */
     uint32_t r[16];          /* r0..r15 */
     uint32_t pr, sr, fpscr;
+    uint32_t fpul;           /* the FPUL register (guest r53) */
 } vf3_native_aim;
 
 /* Run 0x8C09E060.  `record_a` is r4 (the kind record), `block_b` r5 (the
