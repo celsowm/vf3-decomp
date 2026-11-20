@@ -6746,7 +6746,8 @@ add_library(vf3nativeview STATIC
     src/native/tenpp_fill.c
     src/native/fdiv.c
     src/native/vmu_cmd_name.c
-    src/native/midpoint_angles.c)
+    src/native/midpoint_angles.c
+    src/native/bit_alloc.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6837,6 +6838,9 @@ target_include_directories(vf3nativevmucmdname PRIVATE src/fight src/native)
 add_executable(vf3nativemidpointangles tests/midpoint_angles_native_replay.c)
 target_link_libraries(vf3nativemidpointangles PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativemidpointangles PRIVATE src/fight src/native)
+add_executable(vf3nativebitalloc tests/bit_alloc_native_replay.c)
+target_link_libraries(vf3nativebitalloc PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativebitalloc PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)

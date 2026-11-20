@@ -1,0 +1,209 @@
+[
+ {
+  "name": "the_count_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_COUNT 0x0c0389c8u  /* the count of the table's words */",
+    "#define POOL_COUNT 0x0c0389ccu  /* the count of the table's words */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define POOL_TABLE 0x0c0389ccu  /* the table: an array of word pointers */",
+    "#define POOL_TABLE 0x0c0389c8u  /* the table: an array of word pointers */"
+   ]
+  ]
+ },
+ {
+  "name": "the_end_marker_is_not_all_ones",
+  "subs": [
+   [
+    "#define EXHAUSTED 0xffffffffu",
+    "#define EXHAUSTED 0xfffffffeu"
+   ]
+  ]
+ },
+ {
+  "name": "a_word_holds_thirty_one_bits",
+  "subs": [
+   [
+    "#define BITS_PER_WORD 32u",
+    "#define BITS_PER_WORD 31u"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_r13_before_r14",
+  "subs": [
+   [
+    "        static const uint8_t order[FRAME_SIZE] = { 14, 13, 11, 10, 9, 8 };",
+    "        static const uint8_t order[FRAME_SIZE] = { 13, 14, 11, 10, 9, 8 };"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pops_r14_before_r13",
+  "subs": [
+   [
+    "        static const uint8_t order[FRAME_SIZE] = { 8, 9, 10, 11, 13, 14 };",
+    "        static const uint8_t order[FRAME_SIZE] = { 8, 9, 10, 11, 14, 13 };"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_eight_bytes_at_a_time",
+  "subs": [
+   [
+    "            R(15) -= 4u;\n            vf3_aim_set_u32(a, R(15), R(order[i]));",
+    "            R(15) -= 8u;\n            vf3_aim_set_u32(a, R(15), R(order[i]));"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_pushes_a_word_that_is_one_too_big",
+  "subs": [
+   [
+    "            vf3_aim_set_u32(a, R(15), R(order[i]));",
+    "            vf3_aim_set_u32(a, R(15), R(order[i]) + 1u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_guest_does_not_zero_its_counter",
+  "subs": [
+   [
+    "    R(7) = 0u;",
+    "    R(7) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_offset_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(5) = R(7);                     /* the bit offset */",
+    "    R(5) = R(7) + 4u;                /* the bit offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_index_does_not_start_at_zero",
+  "subs": [
+   [
+    "    R(10) = R(7);                    /* the index */",
+    "    R(10) = R(7) + 1u;               /* the index */"
+   ]
+  ]
+ },
+ {
+  "name": "the_mask_does_not_start_at_one",
+  "subs": [
+   [
+    "    R(9) = 1u;                       /* the mask the bit scan starts with */",
+    "    R(9) = 2u;                       /* the mask the bit scan starts with */"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_read_through_the_table",
+  "subs": [
+   [
+    "    R(8) = vf3_aim_u32(a, POOL_COUNT);",
+    "    R(8) = vf3_aim_u32(a, POOL_TABLE);"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_test_is_inverted",
+  "subs": [
+   [
+    "        if ((int32_t)R(10) >= (int32_t)R(3)) {",
+    "        if ((int32_t)R(10) > (int32_t)R(3)) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_exhausted_table_answers_zero_instead_of_minus_one",
+  "subs": [
+   [
+    "            R(0) = EXHAUSTED;",
+    "            R(0) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_byte_offset_by_eight",
+  "subs": [
+   [
+    "            R(14) += 4u;",
+    "            R(14) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "an_exhausted_slot_advances_the_index_by_two",
+  "subs": [
+   [
+    "            R(10) += 1u;",
+    "            R(10) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_number_starts_at_one",
+  "subs": [
+   [
+    "        R(6) = R(7);                  /* the bit's number */",
+    "        R(6) = R(7) + 1u;             /* the bit's number */"
+   ]
+  ]
+ },
+ {
+  "name": "the_scan_starts_with_a_zero_mask",
+  "subs": [
+   [
+    "        R(4) = R(9);                  /* the mask */",
+    "        R(4) = R(7);                  /* the mask */"
+   ]
+  ]
+ },
+ {
+  "name": "the_taken_bit_replaces_the_word",
+  "subs": [
+   [
+    "                R(2) |= R(4);",
+    "                R(2) = R(4);"
+   ]
+  ]
+ },
+ {
+  "name": "the_mask_moves_two_bits_at_a_time",
+  "subs": [
+   [
+    "            R(4) <<= 1;",
+    "            R(4) <<= 2;"
+   ]
+  ]
+ },
+ {
+  "name": "the_answer_counts_one_bit_too_many",
+  "subs": [
+   [
+    "                R(0) += R(6);         /* the branch's delay slot */",
+    "                R(0) += R(6) + 1u;    /* the branch's delay slot */"
+   ]
+  ]
+ },
+ {
+  "name": "the_bit_is_written_into_the_next_word",
+  "subs": [
+   [
+    "                vf3_aim_set_u32(a, R(0) + R(14), R(2));",
+    "                vf3_aim_set_u32(a, R(0) + R(14) + 4u, R(2));"
+   ]
+  ]
+ }
+]
