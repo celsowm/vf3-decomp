@@ -1,0 +1,173 @@
+[
+ {
+  "name": "bit1_reads_the_fighter_stage_not_flags",
+  "subs": [
+   [
+    "    r1 = vf3_aim_u32(a, r5 + 12u);",
+    "    r1 = vf3_aim_u32(a, r5 + 20u);"
+   ]
+  ]
+ },
+ {
+  "name": "bit1_uses_the_wrong_mask",
+  "subs": [
+   [
+    "    r2 = vf3_aim_u32(a, POOL_STATE_FLAGS);",
+    "    r2 = vf3_aim_u32(a, POOL_HIT_FLAG);"
+   ]
+  ]
+ },
+ {
+  "name": "bit2_clears_instead_of_sets",
+  "subs": [
+   [
+    "        r0 = vf3_aim_u32(a, r5 + 0u);\n        r0 |= FLAG_CLEARED;",
+    "        r0 = vf3_aim_u32(a, r5 + 0u);\n        r0 &= ~FLAG_CLEARED;"
+   ]
+  ]
+ },
+ {
+  "name": "bit3_uses_24_not_living_26",
+  "subs": [
+   [
+    "    if (r0 == 26u) {\n        r0 = vf3_aim_u32(a, r5 + 0u);\n        r0 |= FLAG_STAGE;",
+    "    if (r0 == 24u) {\n        r0 = vf3_aim_u32(a, r5 + 0u);\n        r0 |= FLAG_STAGE;"
+   ]
+  ]
+ },
+ {
+  "name": "bit4_reads_the_ladder_counter_offset",
+  "subs": [
+   [
+    "    r0 = (uint32_t)half(vf3_aim_h16(a, POOL_FIGHTER_TRIGGER));",
+    "    r0 = (uint32_t)half(vf3_aim_h16(a, POOL_LADDER_COUNTER));"
+   ]
+  ]
+ },
+ {
+  "name": "counter32_advances_without_the_gate",
+  "subs": [
+   [
+    "        if ((r7 & r1) != 0) {\n            r0 = TASK_COUNTER_D;",
+    "        if ((r7 & r1) == 0) {\n            r0 = TASK_COUNTER_D;"
+   ]
+  ]
+ },
+ {
+  "name": "pair_counts_up_on_mid_not_quiet",
+  "subs": [
+   [
+    "    if ((r2 & r3) == 0) {\n        /* the state struct is quiet: the flag word decides */",
+    "    if ((r2 & r3) != 0) {\n        /* the state struct is quiet: the flag word decides */"
+   ]
+  ]
+ },
+ {
+  "name": "pair_b_counts_up_when_held",
+  "subs": [
+   [
+    "            r13 = r7;                  /* zero */\n            r11 += 1u;                 /* the pair's other half counts up */",
+    "            r13 = r7;                  /* zero */\n            r11 += 0xffffu;            /* the pair's other half counts down */"
+   ]
+  ]
+ },
+ {
+  "name": "countdown_reloads_on_a_zero_kind",
+  "subs": [
+   [
+    "        if (r0 == 12u || r11 == 0u) {",
+    "        if (r0 == 12u) {"
+   ]
+  ]
+ },
+ {
+  "name": "countdown_reset_threshold_is_four",
+  "subs": [
+   [
+    "            r2 = 3u;\n            r3 = (uint32_t)byte(vf3_aim_u8(a, task + r0));",
+    "            r2 = 4u;\n            r3 = (uint32_t)byte(vf3_aim_u8(a, task + r0));"
+   ]
+  ]
+ },
+ {
+  "name": "per_call_counts_when_ready_not_quiet",
+  "subs": [
+   [
+    "    if ((r3 & r12) != 0) {\n        r0 = TASK_PER_CALL;",
+    "    if ((r3 & r12) == 0) {\n        r0 = TASK_PER_CALL;"
+   ]
+  ]
+ },
+ {
+  "name": "roller_burst_tick_threshold_is_two",
+  "subs": [
+   [
+    "        if ((r3 & r3) == 0) {\n            r12 += 1u;",
+    "        if ((r3 & r3) != 0) {\n            r12 += 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "roller_burst_ticks_when_below_one",
+  "subs": [
+   [
+    "        r3 = 1u;\n        set_t(a, r12 >= r3);\n        if (r12 >= r3) {",
+    "        r3 = 2u;\n        set_t(a, r12 >= r3);\n        if (r12 >= r3) {"
+   ]
+  ]
+ },
+ {
+  "name": "level_threshold_flips_the_branch",
+  "subs": [
+   [
+    "    set_t(a, r1 > r2);\n    vf3_aim_set_u32(a, r15, r1);       /* the delay slot's spill */\n    r14 = 0x60u;\n    if (r1 > r2)",
+    "    set_t(a, r1 > r2);\n    vf3_aim_set_u32(a, r15, r1);       /* the delay slot's spill */\n    r14 = 0x60u;\n    if (r1 <= r2)"
+   ]
+  ]
+ },
+ {
+  "name": "counter_c_stays_zero_only_when_positive",
+  "subs": [
+   [
+    "    if ((int32_t)r5 < 0)\n        r6 = r7;                        /* zero: the counter stays at zero */",
+    "    if ((int32_t)r5 >= 0)\n        r6 = r7;                        /* zero: the counter stays at zero */"
+   ]
+  ]
+ },
+ {
+  "name": "counter_a_takes_over_even_when_b_not_spent",
+  "subs": [
+   [
+    "    if ((int32_t)r5 >= 0) {\n        r0 = r6;\n        vf3_aim_set_u16(a, task + TASK_COUNTER_B, (uint16_t)r0);\n    } else {",
+    "    if ((int32_t)r5 < 0) {\n        r0 = r6;\n        vf3_aim_set_u16(a, task + TASK_COUNTER_B, (uint16_t)r0);\n    } else {"
+   ]
+  ]
+ },
+ {
+  "name": "shld_counts_down_is_left_not_right",
+  "subs": [
+   [
+    "    return value >> ((0u - count) & 31u);",
+    "    return value << ((0u - count) & 31u);"
+   ]
+  ]
+ },
+ {
+  "name": "mask_spill_offset_is_wrong",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, r5 + 48u, r2);",
+    "    vf3_aim_set_u32(a, r5 + 44u, r2);"
+   ]
+  ]
+ },
+ {
+  "name": "frame16_reads_state_not_fighter",
+  "subs": [
+   [
+    "    r2 = vf3_aim_u32(a, fighter + r0);\n    r0 = 0x4cu;\n    vf3_aim_set_u32(a, r5 + 16u, r2);",
+    "    r2 = vf3_aim_u32(a, state + r0);\n    r0 = 0x4cu;\n    vf3_aim_set_u32(a, r5 + 16u, r2);"
+   ]
+  ]
+ }
+]
