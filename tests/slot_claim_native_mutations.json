@@ -1,0 +1,119 @@
+[
+ {
+  "name": "found_test_inverted",
+  "subs": [
+   [
+    "        if ((R(3) & 1u) == 0u) {",
+    "        if ((R(3) & 1u) != 0u) {"
+   ]
+  ]
+ },
+ {
+  "name": "mark_writes_zero",
+  "subs": [
+   [
+    "            wr16(a, R(4), (uint16_t)1u);",
+    "            wr16(a, R(4), (uint16_t)0u);"
+   ]
+  ]
+ },
+ {
+  "name": "mark_written_as_byte",
+  "subs": [
+   [
+    "            wr16(a, R(4), (uint16_t)1u);",
+    "            wr8(a, R(4), (uint8_t)1u);"
+   ]
+  ]
+ },
+ {
+  "name": "tag_masked_to_byte",
+  "subs": [
+   [
+    "        R(3) = v & 0xffffu;",
+    "        R(3) = v & 0xffu;"
+   ]
+  ]
+ },
+ {
+  "name": "stride_sixteen",
+  "subs": [
+   [
+    "        R(4) += 0x18u;\n        R(6) += 0x18u;",
+    "        R(4) += 0x10u;\n        R(6) += 0x18u;"
+   ]
+  ]
+ },
+ {
+  "name": "answer_is_not_slot",
+  "subs": [
+   [
+    "            R(0) = R(4);",
+    "            R(0) = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "exit_gives_last_slot",
+  "subs": [
+   [
+    "        R(0) = 0u;\n        a->sr = (a->sr & ~1u) | 1u;\n        return;\n    }\n}",
+    "        R(0) = R(4);\n        a->sr = (a->sr & ~1u) | 1u;\n        return;\n    }\n}"
+   ]
+  ]
+ },
+ {
+  "name": "t_bit_left_clear_found",
+  "subs": [
+   [
+    "            R(0) = R(4);\n            a->sr = (a->sr & ~1u) | 1u;",
+    "            R(0) = R(4);\n            a->sr = (a->sr & ~1u);"
+   ]
+  ]
+ },
+ {
+  "name": "t_bit_left_clear_exit",
+  "subs": [
+   [
+    "        R(0) = 0u;\n        a->sr = (a->sr & ~1u) | 1u;",
+    "        R(0) = 0u;\n        a->sr = (a->sr & ~1u);"
+   ]
+  ]
+ },
+ {
+  "name": "do_while_guarded",
+  "subs": [
+   [
+    "    for (;;) {\n        const uint32_t v = (uint32_t)(int32_t)(int16_t)rd16(a, R(6));",
+    "    if ((int32_t)R(7) >= (int32_t)R(0)) { R(0) = 0u; a->sr = (a->sr & ~1u) | 1u; return; }\n    for (;;) {\n        const uint32_t v = (uint32_t)(int32_t)(int16_t)rd16(a, R(6));"
+   ]
+  ]
+ },
+ {
+  "name": "exit_compare_wrong_sense",
+  "subs": [
+   [
+    "        if ((int32_t)R(7) < (int32_t)R(0))\n            continue;",
+    "        if ((int32_t)R(7) <= (int32_t)R(0))\n            continue;"
+   ]
+  ]
+ },
+ {
+  "name": "r5_not_left_one",
+  "subs": [
+   [
+    "    R(5) = 1u;                       /* the mark value / test mask */",
+    "    R(5) = 2u;                       /* the mark value / test mask */"
+   ]
+  ]
+ },
+ {
+  "name": "r3_not_updated",
+  "subs": [
+   [
+    "        const uint32_t v = (uint32_t)(int32_t)(int16_t)rd16(a, R(6));\n        R(3) = v & 0xffffu;",
+    "        const uint32_t v = (uint32_t)(int32_t)(int16_t)rd16(a, R(6));"
+   ]
+  ]
+ }
+]
