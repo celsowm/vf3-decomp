@@ -1,0 +1,128 @@
+[
+ {
+  "name": "the_first_ranges_low_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define X_LO  0x0c08dd48u   /* the first range's low bound  */",
+    "#define X_LO  0x0c08dd4au   /* the first range's low bound  */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_ranges_high_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define Y1_HI 0x0c08dd4eu   /* the second range's high bound */",
+    "#define Y1_HI 0x0c08dd50u   /* the second range's high bound */"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_ranges_low_bound_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define Y2_LO 0x0c08dd50u   /* the third range's low bound  */",
+    "#define Y2_LO 0x0c08dd52u   /* the third range's low bound  */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_destination_gets_the_second_number",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(6), R(13));",
+    "    vf3_aim_set_u32(a, R(6), R(14));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_frame_destination_gets_the_second_second_number",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, R(15) + 8u);\n    vf3_aim_set_u32(a, R(3), R(1));",
+    "    R(3) = vf3_aim_u32(a, R(15) + 8u);\n    vf3_aim_set_u32(a, R(3), R(4));"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_tests_the_high_bound_first",
+  "subs": [
+   [
+    "    if (value >= low) {",
+    "    if (value > high) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_uses_strict_comparisons",
+  "subs": [
+   [
+    "    if (value >= low) {",
+    "    if (value > low) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_number_does_not_ride_in_r1",
+  "subs": [
+   [
+    "    R(1) = R(4);",
+    "    R(1) = R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_number_does_not_ride_in_r4",
+  "subs": [
+   [
+    "    R(4) = R(5);",
+    "    R(4) = R(0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_saved_r14_is_restored_from_the_wrong_stack_slot",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;",
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_stack_is_not_popped_all_the_way",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n}",
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n    R(15) -= 4u;\n}"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_saved_word_is_restored_to_r13_not_r14",
+  "subs": [
+   [
+    "    R(13) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n    R(14) = vf3_aim_u32(a, R(15));",
+    "    R(13) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n    R(13) = vf3_aim_u32(a, R(15));"
+   ]
+  ]
+ },
+ {
+  "name": "the_frame_words_are_read_from_the_wrong_offsets",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, R(15) + 8u);",
+    "    R(3) = vf3_aim_u32(a, R(15) + 12u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_limit_sets_the_t_bit_of_the_high_branch_backwards",
+  "subs": [
+   [
+    "        const int above = (value > high);\n        set_t(a, above);",
+    "        const int above = (value > high);\n        set_t(a, !above);"
+   ]
+  ]
+ }
+]
