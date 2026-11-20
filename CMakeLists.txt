@@ -6751,7 +6751,8 @@ add_library(vf3nativeview STATIC
     src/native/pack_expand.c
     src/native/mode_index.c
     src/native/table_grow.c
-    src/native/byte_decode.c)
+    src/native/byte_decode.c
+    src/native/state_advance.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6857,6 +6858,9 @@ target_include_directories(vf3nativetablegrow PRIVATE src/fight src/native)
 add_executable(vf3nativebytedecode tests/byte_decode_native_replay.c)
 target_link_libraries(vf3nativebytedecode PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativebytedecode PRIVATE src/fight src/native)
+add_executable(vf3nativestateadvance tests/state_advance_native_replay.c)
+target_link_libraries(vf3nativestateadvance PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativestateadvance PRIVATE src/fight src/native)
 
 option(VF3_ASSET_BUNDLE "Pack extracted game data for the native C port" ON)
 if (VF3_ASSET_BUNDLE)

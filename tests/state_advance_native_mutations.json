@@ -1,0 +1,191 @@
+[
+ {
+  "name": "the_first_kinds_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define MASK_A    0x0c06bfacu   /* the mask for the first kind  (a halfword) */",
+    "#define MASK_A    0x0c06bfaeu   /* the mask for the first kind  (a halfword) */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_kinds_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define MASK_B    0x0c06bfaeu   /* the mask for the second kind (a halfword) */",
+    "#define MASK_B    0x0c06bfbcu   /* the mask for the second kind (a halfword) */"
+   ]
+  ]
+ },
+ {
+  "name": "the_flags_pointer_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define FLAGS_PTR 0x0c06bfbcu   /* the word that points at the flags byte */",
+    "#define FLAGS_PTR 0x0c06bfc0u   /* the word that points at the flags byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_pointer_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define TABLE_PTR 0x0c06bfc0u   /* the word that points at the table */",
+    "#define TABLE_PTR 0x0c06bfbcu   /* the word that points at the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_kind_owns_the_second_kinds_bit",
+  "subs": [
+   [
+    "#define KIND_A 1u",
+    "#define KIND_A 2u"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_kind_owns_the_first_kinds_bit",
+  "subs": [
+   [
+    "#define KIND_B 2u",
+    "#define KIND_B 1u"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_masked_to_three_bits_not_four",
+  "subs": [
+   [
+    "#define COUNTER_BITS 15u",
+    "#define COUNTER_BITS 7u"
+   ]
+  ]
+ },
+ {
+  "name": "the_delay_slot_does_not_advance_the_counter",
+  "subs": [
+   [
+    "    R(12) += 1u;                    /* the delay slot: it runs on both paths */",
+    "    R(12) += 0u;                    /* the delay slot: it runs on both paths */"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_not_masked_again_before_the_writeback",
+  "subs": [
+   [
+    "        R(7) = R(12);\n        R(7) &= R(3);",
+    "        R(7) = R(12);\n        R(7) &= 0xffffffffu;"
+   ]
+  ]
+ },
+ {
+  "name": "the_kinds_are_swapped",
+  "subs": [
+   [
+    "        const int first_kind = (R(6) == 0);",
+    "        const int first_kind = (R(6) != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_kind_bit_is_set_even_when_the_table_says_nothing",
+  "subs": [
+   [
+    "        if (known) {\n            R(3) = first_kind ? KIND_A : KIND_B;",
+    "        if (1) {\n            R(3) = first_kind ? KIND_A : KIND_B;"
+   ]
+  ]
+ },
+ {
+  "name": "the_flags_are_not_masked_with_the_kinds_mask",
+  "subs": [
+   [
+    "        R(14) &= mask;              /* the delay slot of the branch */",
+    "        R(14) &= 0xffffffffu;       /* the delay slot of the branch */"
+   ]
+  ]
+ },
+ {
+  "name": "the_known_kind_writes_the_other_kinds_bit",
+  "subs": [
+   [
+    "            R(3) = first_kind ? KIND_A : KIND_B;",
+    "            R(3) = first_kind ? KIND_B : KIND_A;"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_down_does_not_restart_the_counter",
+  "subs": [
+   [
+    "            R(7) = R(12);          /* the delay slot of the branch */",
+    "            R(7) = 0u;             /* the delay slot of the branch */"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_decrements_by_two",
+  "subs": [
+   [
+    "            R(13) += 0xffffffffu;  /* the guest's \"add #-1\" */",
+    "            R(13) += 0xfffffffeu;  /* the guest's \"add #-1\" */"
+   ]
+  ]
+ },
+ {
+  "name": "the_counter_is_written_one_word_early",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(4), R(7));",
+    "    vf3_aim_set_u32(a, R(4) + 4u, R(7));"
+   ]
+  ]
+ },
+ {
+  "name": "the_count_is_written_one_word_early",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(5), R(13));",
+    "    vf3_aim_set_u32(a, R(5) - 4u, R(13));"
+   ]
+  ]
+ },
+ {
+  "name": "r14_is_restored_from_the_wrong_stack_slot",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(15));",
+    "    R(14) = vf3_aim_u32(a, R(15) - 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_stack_is_not_popped_all_the_way",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n}",
+    "    R(14) = vf3_aim_u32(a, R(15));\n    R(15) += 0u;\n}"
+   ]
+  ]
+ },
+ {
+  "name": "the_known_t_bit_is_inverted",
+  "subs": [
+   [
+    "        set_t(a, !known);",
+    "        set_t(a, known);"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_byte_is_read_one_past_the_entry",
+  "subs": [
+   [
+    "        R(2) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(0) + R(7));",
+    "        R(2) = (uint32_t)(int32_t)(int8_t)vf3_aim_u8(a, R(0) + R(7) + 1u);"
+   ]
+  ]
+ }
+]
