@@ -1,0 +1,119 @@
+[
+ {
+  "name": "the_index_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_INDEX  0x0c06d89cu   /* the address of the index byte */",
+    "#define G_INDEX  0x0c06d8a8u   /* the address of the index byte */"
+   ]
+  ]
+ },
+ {
+  "name": "the_table_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_TABLE  0x0c06d8a8u   /* the table */",
+    "#define G_TABLE  0x0c06d8a4u   /* the table */"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_structure_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_DEST   0x0c06d8a4u   /* the first structure */",
+    "#define G_DEST   0x0c06d8a8u   /* the first structure */"
+   ]
+  ]
+ },
+ {
+  "name": "the_struct_cell_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_STRUCT 0x0c06d890u   /* the address of the second structure's address */",
+    "#define G_STRUCT 0x0c06d8a4u   /* the address of the second structure's address */"
+   ]
+  ]
+ },
+ {
+  "name": "the_offset_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define G_OFFSET 0x0c06d87eu   /* where the three floats land in the second structure */",
+    "#define G_OFFSET 0x0c06d880u   /* where the three floats land in the second structure */"
+   ]
+  ]
+ },
+ {
+  "name": "the_index_is_five_bits_not_four",
+  "subs": [
+   [
+    "#define INDEX_MASK 15u",
+    "#define INDEX_MASK 31u"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_halfword_is_not_swapped",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, R(4) + 12u);\n    R(6) = R(0);\n    R(0) = (uint32_t)half(a, R(4) + 14u);\n    R(5) = R(0);",
+    "    R(0) = (uint32_t)half(a, R(4) + 14u);\n    R(6) = R(0);\n    R(0) = (uint32_t)half(a, R(4) + 12u);\n    R(5) = R(0);"
+   ]
+  ]
+ },
+ {
+  "name": "the_two_halfwords_are_stored_unswapped",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, R(7) + HALFWORD_B, (uint16_t)R(5));\n    vf3_aim_set_u16(a, R(7) + HALFWORD_A, (uint16_t)R(6));",
+    "    vf3_aim_set_u16(a, R(7) + HALFWORD_A, (uint16_t)R(5));\n    vf3_aim_set_u16(a, R(7) + HALFWORD_B, (uint16_t)R(6));"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_float_is_read_from_the_second_offset",
+  "subs": [
+   [
+    "    fload(a, 4, R(4) + 16u);",
+    "    fload(a, 4, R(4) + 20u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_float_is_read_from_the_third_offset",
+  "subs": [
+   [
+    "    fload(a, 5, R(4) + 20u);",
+    "    fload(a, 5, R(4) + 24u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_first_float_lands_eight_bytes_low",
+  "subs": [
+   [
+    "    R(0) = (uint32_t)half(a, G_OFFSET);\n    fstore(a, 4, R(4) + R(0));",
+    "    R(0) = (uint32_t)half(a, G_OFFSET);\n    fstore(a, 4, R(4) + R(0) - 8u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_third_float_lands_at_the_second_position",
+  "subs": [
+   [
+    "    R(0) += 4u;\n    fstore(a, 6, R(4) + R(0));",
+    "    R(0) += 4u;\n    fstore(a, 5, R(4) + R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_float_lands_four_bytes_low",
+  "subs": [
+   [
+    "    R(0) += (uint32_t)(0u - 8u);\n    fstore(a, 5, R(4) + R(0));",
+    "    R(0) += (uint32_t)(0u - 4u);\n    fstore(a, 5, R(4) + R(0));"
+   ]
+  ]
+ }
+]
