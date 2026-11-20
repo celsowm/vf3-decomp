@@ -1,0 +1,164 @@
+[
+ {
+  "name": "the_kind_offset_comes_from_the_state_pool_entry",
+  "subs": [
+   [
+    "#define KIND   0x0c07815au   /* the kind byte's offset */",
+    "#define KIND   0x0c07815cu   /* the kind byte's offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_offset_comes_from_the_kind_pool_entry",
+  "subs": [
+   [
+    "#define STATE  0x0c07815cu   /* the state byte's offset */",
+    "#define STATE  0x0c07815au   /* the state byte's offset */"
+   ]
+  ]
+ },
+ {
+  "name": "the_source_offset_comes_from_the_dest_pool_entry",
+  "subs": [
+   [
+    "#define SOURCE 0x0c07815eu   /* the byte that is copied */",
+    "#define SOURCE 0x0c078160u   /* the byte that is copied */"
+   ]
+  ]
+ },
+ {
+  "name": "the_dest_offset_comes_from_the_source_pool_entry",
+  "subs": [
+   [
+    "#define DEST   0x0c078160u   /* where the copy lands */",
+    "#define DEST   0x0c07815eu   /* where the copy lands */"
+   ]
+  ]
+ },
+ {
+  "name": "the_extra_bit_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define EXTRA  0x0c078162u   /* the flag bit the second kind adds */",
+    "#define EXTRA  0x0c078160u   /* the flag bit the second kind adds */"
+   ]
+  ]
+ },
+ {
+  "name": "the_gate_mask_comes_from_the_wrong_pool_entry",
+  "subs": [
+   [
+    "#define GATE   0x0c07816cu   /* the mask the caller's word is tested against */",
+    "#define GATE   0x0c078162u   /* the mask the caller's word is tested against */"
+   ]
+  ]
+ },
+ {
+  "name": "the_second_place_of_the_copy_is_fifty_not_fifty_one",
+  "subs": [
+   [
+    "#define SECOND_PLACE 51u",
+    "#define SECOND_PLACE 50u"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_nibble_is_four_bits_not_three",
+  "subs": [
+   [
+    "#define NIBBLE 15u",
+    "#define NIBBLE 7u"
+   ]
+  ]
+ },
+ {
+  "name": "the_new_kind_is_written_where_the_state_goes",
+  "subs": [
+   [
+    "                R(2) = (uint32_t)half(a, KIND);\n                R(3) = 1u;",
+    "                R(2) = (uint32_t)half(a, STATE);\n                R(3) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_new_kind_sets_the_kind_to_two",
+  "subs": [
+   [
+    "                R(2) = (uint32_t)half(a, KIND);\n                R(3) = 1u;\n                R(2) += R(5);",
+    "                R(2) = (uint32_t)half(a, KIND);\n                R(3) = 2u;\n                R(2) += R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "the_state_six_test_uses_the_wrong_mode_shift",
+  "subs": [
+   [
+    "        R(0) &= NIBBLE;\n        set_t(a, R(0) == 2u);\n        if (R(0) == 2u) {",
+    "        R(0) &= NIBBLE;\n        set_t(a, R(0) == 3u);\n        if (R(0) == 3u) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_extra_bit_is_cleared_instead_of_set",
+  "subs": [
+   [
+    "            R(2) = (uint32_t)half(a, EXTRA);\n            R(6) |= R(2);",
+    "            R(2) = (uint32_t)half(a, EXTRA);\n            R(6) &= ~R(2);"
+   ]
+  ]
+ },
+ {
+  "name": "the_kind_counts_up_instead_of_down",
+  "subs": [
+   [
+    "    R(14) += 0xffffffffu;            /* the guest's \"dec r14\" */",
+    "    R(14) += 1u;                     /* the guest's \"dec r14\" */"
+   ]
+  ]
+ },
+ {
+  "name": "the_mode_bit_test_uses_bit_three_not_two",
+  "subs": [
+   [
+    "            set_t(a, (R(0) & 4u) == 0);\n            if ((R(0) & 4u) == 0) {",
+    "            set_t(a, (R(0) & 8u) == 0);\n            if ((R(0) & 8u) == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_kind_zero_path_clears_the_nibble_first",
+  "subs": [
+   [
+    "        set_t(a, R(4) == 0);\n        if (R(4) != 0) {",
+    "        set_t(a, R(4) == 0);\n        if (R(4) == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "the_delay_slot_does_not_mask_the_flag_word",
+  "subs": [
+   [
+    "    set_t(a, R(14) == 0);\n    R(4) &= R(6);                    /* the delay slot of the branch */",
+    "    set_t(a, R(14) == 0);\n    R(4) = R(6);                     /* the delay slot of the branch */"
+   ]
+  ]
+ },
+ {
+  "name": "the_copy_state_copies_one_past_the_source",
+  "subs": [
+   [
+    "    R(4) = (uint32_t)byte(a, R(5) + R(0));\n    R(0) += SECOND_PLACE;",
+    "    R(4) = (uint32_t)byte(a, R(5) + R(0) + 1u);\n    R(0) += SECOND_PLACE;"
+   ]
+  ]
+ },
+ {
+  "name": "the_flag_answer_comes_from_r6_after_the_second_copy_off",
+  "subs": [
+   [
+    "    R(13) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n    R(0) = R(6);",
+    "    R(13) = vf3_aim_u32(a, R(15));\n    R(15) += 4u;\n    R(0) = R(4);"
+   ]
+  ]
+ }
+]
