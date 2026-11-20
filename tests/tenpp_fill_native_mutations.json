@@ -1,0 +1,92 @@
+[
+ {
+  "name": "the_auxiliary_cell_is_cleared_four_bytes_too_high",
+  "subs": [
+   [
+    "    sw32(a, R(5) + 20u, r6);",
+    "    sw32(a, R(5) + 24u, r6);"
+   ]
+  ]
+ },
+ {
+  "name": "the_zero_accumulator_is_one",
+  "subs": [
+   [
+    "    uint32_t r3 = r4;\n    const uint32_t r6 = 0u;",
+    "    uint32_t r3 = r4;\n    const uint32_t r6 = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "the_node_first_byte_is_one_too_high",
+  "subs": [
+   [
+    "    sw8(a, r3, 0xffu);                              /* r4 + 16 */",
+    "    sw8(a, r3 + 1u, 0xffu);                         /* r4 + 17 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_node_first_byte_is_fe_not_ff",
+  "subs": [
+   [
+    "    sw8(a, r3, 0xffu);                              /* r4 + 16 */",
+    "    sw8(a, r3, 0xfeu);                              /* r4 + 16 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_node_last_byte_is_one_too_high",
+  "subs": [
+   [
+    "    sw8(a, r4 + 0x14u, 0xffu);                      /* r4 + 20 */",
+    "    sw8(a, r4 + 0x15u, 0xffu);                      /* r4 + 21 */"
+   ]
+  ]
+ },
+ {
+  "name": "the_last_cleared_halfword_is_two_bytes_low",
+  "subs": [
+   [
+    "    sw16(a, r4 + 0x28u, 0u);",
+    "    sw16(a, r4 + 0x26u, 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "the_tail_word_is_four_bytes_low",
+  "subs": [
+   [
+    "    sw32(a, r4 + 60u, 0u);                          /* the tail jump's delay slot */",
+    "    sw32(a, r4 + 56u, 0u);                          /* the tail jump's delay slot */"
+   ]
+  ]
+ },
+ {
+  "name": "r3_is_the_node_plus_twenty",
+  "subs": [
+   [
+    "    r3 += 0x10u;                                    /* r3 = r4 + 16 */",
+    "    r3 += 0x14u;                                    /* r3 = r4 + 20 */"
+   ]
+  ]
+ },
+ {
+  "name": "r5_is_the_narrowed_byte",
+  "subs": [
+   [
+    "    R(5) = 0xffffffffu;",
+    "    R(5) = 0xffu;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_is_the_wrong_last_offset",
+  "subs": [
+   [
+    "    R(0) = 0x28u;",
+    "    R(0) = 0x27u;"
+   ]
+  ]
+ }
+]
