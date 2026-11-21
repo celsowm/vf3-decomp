@@ -1,0 +1,74 @@
+[
+ {
+  "name": "rsg_null_result_wrong",
+  "subs": [
+   [
+    "    /* T = (record == 0) */\n    a->sr = (a->sr & ~1u) | (record == 0);\n    if (record == 0) {\n        R(0) = RESULT_NO_STATE;",
+    "    /* T = (record == 0) */\n    a->sr = (a->sr & ~1u) | (record == 0);\n    if (record == 0) {\n        R(0) = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_null_t_bit_inverted",
+  "subs": [
+   [
+    "    /* T = (record == 0) */\n    a->sr = (a->sr & ~1u) | (record == 0);",
+    "    /* T = (record == 0) */\n    a->sr = (a->sr & ~1u) | (record != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_busy_offset_wrong",
+  "subs": [
+   [
+    "    R(2) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_BUSY);",
+    "    R(2) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_STATE);"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_busy_sign_ext_dropped",
+  "subs": [
+   [
+    "    R(2) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_BUSY);",
+    "    R(2) = (uint32_t)vf3_aim_h16(a, record + NODE_BUSY);"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_busy_t_bit_inverted",
+  "subs": [
+   [
+    "    /* T = (busy == 0) */\n    a->sr = (a->sr & ~1u) | (R(2) == 0);",
+    "    /* T = (busy == 0) */\n    a->sr = (a->sr & ~1u) | (R(2) != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_busy_no_state_wrong",
+  "subs": [
+   [
+    "    if (R(2) == 0) {\n        R(0) = RESULT_NO_STATE;",
+    "    if (R(2) == 0) {\n        R(0) = 0xffffffffu;"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_state_offset_wrong",
+  "subs": [
+   [
+    "    /* r0 = sign-extended halfword at record + 0x4C (the state word) */\n    R(0) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_STATE);",
+    "    /* r0 = sign-extended halfword at record + 0x4C (the state word) */\n    R(0) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_BUSY);"
+   ]
+  ]
+ },
+ {
+  "name": "rsg_state_sign_ext_dropped",
+  "subs": [
+   [
+    "    /* r0 = sign-extended halfword at record + 0x4C (the state word) */\n    R(0) = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, record + NODE_STATE);",
+    "    /* r0 = sign-extended halfword at record + 0x4C (the state word) */\n    R(0) = (uint32_t)vf3_aim_h16(a, record + NODE_STATE);"
+   ]
+  ]
+ }
+]
