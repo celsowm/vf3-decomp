@@ -1,0 +1,83 @@
+[
+ {
+  "name": "sd_diff_sub_order",
+  "subs": [
+   [
+    "    F(0) = fsub(a, F(0), F(3));",
+    "    F(0) = fsub(a, F(3), F(0));"
+   ]
+  ]
+ },
+ {
+  "name": "sd_b_off",
+  "subs": [
+   [
+    "    R(6) = vf3_aim_u32(a, f + 32);        /* sp+4 -> B */",
+    "    R(6) = vf3_aim_u32(a, f + 28);        /* sp+4 -> B */"
+   ]
+  ]
+ },
+ {
+  "name": "sd_065_bit_wrong",
+  "subs": [
+   [
+    "    R(3) = 0x100;",
+    "    R(3) = 0x200;"
+   ]
+  ]
+ },
+ {
+  "name": "sd_065_lit_off",
+  "subs": [
+   [
+    "        F(3) = vf3_aim_fbits(0x3F266666u);   /* 0.65f */",
+    "        F(3) = vf3_aim_fbits(0x3F4CCCCDu);   /* 0.8f */"
+   ]
+  ]
+ },
+ {
+  "name": "sd_2_flag_wrong",
+  "subs": [
+   [
+    "    set_t(a, (R(0) & 2) == 0);",
+    "    set_t(a, (R(0) & 4) == 0);"
+   ]
+  ]
+ },
+ {
+  "name": "sd_gating_off",
+  "subs": [
+   [
+    "    F(4) = load_f(a, R(2) + R(0));            /* gating[+0x14] */",
+    "    F(4) = load_f(a, R(2) + R(0) + 4u);       /* gating[+0x14] */"
+   ]
+  ]
+ },
+ {
+  "name": "sd_gating_no_double",
+  "subs": [
+   [
+    "    F(3) = F(4);",
+    "    F(3) = vf3_aim_fbits(0u);"
+   ]
+  ]
+ },
+ {
+  "name": "sd_push_scratch_off",
+  "subs": [
+   [
+    "    R(5) = f;\n    R(5) += 12;",
+    "    R(5) = f + 12;\n    R(5) += 12;"
+   ]
+  ]
+ },
+ {
+  "name": "sd_third_off",
+  "subs": [
+   [
+    "    R(5) = vf3_aim_u32(a, f + 36);            /* sp+8 -> third vector */",
+    "    R(5) = vf3_aim_u32(a, f + 32);            /* sp+8 -> third vector */"
+   ]
+  ]
+ }
+]
