@@ -1,0 +1,92 @@
+[
+ {
+  "name": "flags_col_wrong_shift",
+  "subs": [
+   [
+    "    const int32_t col = (int32_t)(flags & 3u), row = (int32_t)((flags >> 2) & 3u);",
+    "    const int32_t col = (int32_t)(flags & 6u), row = (int32_t)((flags >> 3) & 3u);"
+   ]
+  ]
+ },
+ {
+  "name": "base_u_wrong",
+  "subs": [
+   [
+    "    const float base_u = (float)col;                    /* fr6 (int -> float) */",
+    "    const float base_u = (float)(col + 1);              /* fr6 (int -> float) */"
+   ]
+  ]
+ },
+ {
+  "name": "table_stride_wrong",
+  "subs": [
+   [
+    "        fr7 = fsub(a, bits2f(vf3_aim_u32(a, table)), base_u);",
+    "        fr7 = fsub(a, bits2f(vf3_aim_u32(a, table + 4u)), base_u);"
+   ]
+  ]
+ },
+ {
+  "name": "du_skip_wrong",
+  "subs": [
+   [
+    "        if (!(fr7 == 0)) {",
+    "        if (fr7 == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "ad_mac_wrong_reg",
+  "subs": [
+   [
+    "            fr11 = fmacv(a, fr0, ad, fr11);",
+    "            fr11 = fmacv(a, fr0, bc, fr11);"
+   ]
+  ]
+ },
+ {
+  "name": "negate_sign_wrong",
+  "subs": [
+   [
+    "            fr2 = bits2f(fbits(fr2) ^ 0x80000000u);",
+    "            fr2 = fr2;"
+   ]
+  ]
+ },
+ {
+  "name": "bd_mac_wrong_reg",
+  "subs": [
+   [
+    "            fr1 = fmacv(a, fr0, bd, fr1);",
+    "            fr1 = fmacv(a, fr0, bc, fr1);"
+   ]
+  ]
+ },
+ {
+  "name": "bc_mac_wrong_reg",
+  "subs": [
+   [
+    "            fr11 = fmacv(a, fr0, bc, fr11);",
+    "            fr11 = fmacv(a, fr0, bd, fr11);"
+   ]
+  ]
+ },
+ {
+  "name": "out_a_stride_wrong",
+  "subs": [
+   [
+    "        out_a += 4u;\n        out_b += 4u;",
+    "        out_a += 8u;\n        out_b += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_wrong",
+  "subs": [
+   [
+    "    a->fpul = (uint32_t)row;",
+    "    a->fpul = (uint32_t)col;"
+   ]
+  ]
+ }
+]
