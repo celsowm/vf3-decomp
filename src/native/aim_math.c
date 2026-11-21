@@ -302,6 +302,12 @@ void vf3_aim_set_u16(vf3_native_aim *a, uint32_t addr, uint16_t v)
     p[1] = (uint8_t)(v >> 8);
 }
 
+void vf3_aim_set_u8(vf3_native_aim *a, uint32_t addr, uint8_t v)
+{
+    uint8_t *p = (uint8_t *)vf3_aim_p(a, addr);
+    p[0] = (uint8_t)v;
+}
+
 void vf3_aim_set_u32(vf3_native_aim *a, uint32_t addr, uint32_t v)
 {
     uint8_t *p = (uint8_t *)vf3_aim_p(a, addr);

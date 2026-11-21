@@ -1,0 +1,83 @@
+[
+ {
+  "name": "tail_not_written",
+  "subs": [
+   [
+    "    if (tail != 0) {\n        for (uint32_t i = 0; i < tail; ++i)\n            vf3_aim_set_u8(a, end++, (uint8_t)value);\n        R(4) = tail;\n        R(6) = end;\n    }",
+    "    (void)tail;"
+   ]
+  ]
+ },
+ {
+  "name": "word_stores_wrong",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, dest, value);",
+    "        vf3_aim_set_u32(a, dest, value ^ 0xDEADBEEFu);"
+   ]
+  ]
+ },
+ {
+  "name": "word_count_wrong",
+  "subs": [
+   [
+    "    const int32_t words = (int32_t)length / 4;",
+    "    const int32_t words = (int32_t)length / 8;"
+   ]
+  ]
+ },
+ {
+  "name": "tail_byte_wrong",
+  "subs": [
+   [
+    "            vf3_aim_set_u8(a, end++, (uint8_t)value);",
+    "            vf3_aim_set_u8(a, end++, (uint8_t)(value >> 8));"
+   ]
+  ]
+ },
+ {
+  "name": "r0_wrong",
+  "subs": [
+   [
+    "    R(0) = end;",
+    "    R(0) = dest;"
+   ]
+  ]
+ },
+ {
+  "name": "r6_not_set_on_tail",
+  "subs": [
+   [
+    "        R(4) = tail;\n        R(6) = end;",
+    "        R(4) = tail;"
+   ]
+  ]
+ },
+ {
+  "name": "sr_t_not_set",
+  "subs": [
+   [
+    "    a->sr |= SR_T;",
+    "    (void)0u;"
+   ]
+  ]
+ },
+ {
+  "name": "r7_wrong",
+  "subs": [
+   [
+    "    R(7) = dest;",
+    "    R(7) = dest + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "call_frame_omitted",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, entry_sp - 4u, saved_r14);\n    vf3_aim_set_u32(a, entry_sp - 8u, entry_pr);\n    vf3_aim_set_u32(a, entry_sp - 12u, saved_r2);      /* helper push r2 */\n    vf3_aim_set_u32(a, entry_sp - 16u, DIV_S32_LITERAL); /* helper push r3 */",
+    "    (void)saved_r2;"
+   ]
+  ]
+ }
+]

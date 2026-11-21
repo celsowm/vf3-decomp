@@ -58,6 +58,7 @@ uint32_t vf3_aim_ubits(float f);
 /* byte / halfword / word writers for the pose callee frames (ram access) */
 uint8_t  vf3_aim_u8(vf3_native_aim *a, uint32_t addr);
 void     vf3_aim_set_u16(vf3_native_aim *a, uint32_t addr, uint16_t v);
+void     vf3_aim_set_u8(vf3_native_aim *a, uint32_t addr, uint8_t v);
 void     vf3_aim_set_u32(vf3_native_aim *a, uint32_t addr, uint32_t v);
 uint32_t vf3_aim_u32(vf3_native_aim *a, uint32_t addr);
 
