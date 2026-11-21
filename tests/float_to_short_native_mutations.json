@@ -1,0 +1,74 @@
+[
+ {
+  "name": "src_offset_wrong",
+  "subs": [
+   [
+    "    uint32_t src = R(4) + 0x1D58u;",
+    "    uint32_t src = R(4) + 0x1D54u;"
+   ]
+  ]
+ },
+ {
+  "name": "dst_offset_wrong",
+  "subs": [
+   [
+    "    uint32_t dst = R(4) + 0x1F50u;",
+    "    uint32_t dst = R(4) + 0x1F4Eu;"
+   ]
+  ]
+ },
+ {
+  "name": "count_wrong",
+  "subs": [
+   [
+    "    uint32_t n = 42;",
+    "    uint32_t n = 41;"
+   ]
+  ]
+ },
+ {
+  "name": "no_trunc",
+  "subs": [
+   [
+    "    if (isnan(d) || d < -2147483648.0) return 0x80000000u;",
+    "    if (isnan(d) || d < -2147483648.0) return 0x80000001u;"
+   ]
+  ]
+ },
+ {
+  "name": "r4_not_zeroed",
+  "subs": [
+   [
+    "    R(4) = 0;",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "FPUL_not_set",
+  "subs": [
+   [
+    "        a->fpul = t;",
+    "        ;"
+   ]
+  ]
+ },
+ {
+  "name": "r7_from_wrong",
+  "subs": [
+   [
+    "    R(7) = (uint32_t)(int32_t)(int16_t)a->fpul;",
+    "    R(7) = a->fpul;"
+   ]
+  ]
+ },
+ {
+  "name": "T_not_set",
+  "subs": [
+   [
+    "    a->sr |= 1u;            /* SET_T(1) */",
+    "    ;"
+   ]
+  ]
+ }
+]
