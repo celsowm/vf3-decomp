@@ -1,0 +1,65 @@
+[
+ {
+  "name": "w_neg_wrong",
+  "subs": [
+   [
+    "        a->xm[4 * c + 3] = vf3_aim_fbits(d ^ 0x80000000u);",
+    "        a->xm[4 * c + 3] = vf3_aim_fbits(d ^ 0x40000000u);"
+   ]
+  ]
+ },
+ {
+  "name": "columns_short",
+  "subs": [
+   [
+    "    for (int c = 0; c < 4; ++c) {",
+    "    for (int c = 0; c < 3; ++c) {"
+   ]
+  ]
+ },
+ {
+  "name": "slot0_wrong",
+  "subs": [
+   [
+    "        a->xm[4 * c] = vf3_aim_fbits(d);",
+    "        a->xm[4 * c] = vf3_aim_fbits(av);"
+   ]
+  ]
+ },
+ {
+  "name": "slot1_wrong",
+  "subs": [
+   [
+    "        a->xm[4 * c + 1] = vf3_aim_fbits(av);",
+    "        a->xm[4 * c + 1] = vf3_aim_fbits(b);"
+   ]
+  ]
+ },
+ {
+  "name": "slot2_wrong",
+  "subs": [
+   [
+    "        a->xm[4 * c + 2] = vf3_aim_fbits(b);",
+    "        a->xm[4 * c + 2] = vf3_aim_fbits(cc);"
+   ]
+  ]
+ },
+ {
+  "name": "r4_advance_wrong",
+  "subs": [
+   [
+    "    R(4) = src + MATRIX_BYTES;",
+    "    R(4) = src + 60u;"
+   ]
+  ]
+ },
+ {
+  "name": "stride_wrong",
+  "subs": [
+   [
+    "        const uint32_t av = vf3_aim_u32(a, src + 16u * (uint32_t)c);",
+    "        const uint32_t av = vf3_aim_u32(a, src + 12u * (uint32_t)c);"
+   ]
+  ]
+ }
+]
