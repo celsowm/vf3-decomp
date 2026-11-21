@@ -1,0 +1,110 @@
+[
+ {
+  "name": "node_flag_off",
+  "subs": [
+   [
+    "    if (vf3_aim_u32(a, node) & 1u) {",
+    "    if (vf3_aim_u32(a, node) & 2u) {"
+   ]
+  ]
+ },
+ {
+  "name": "rec_off_no_base",
+  "subs": [
+   [
+    "    const uint32_t rec = vf3_aim_u32(a, node + 4u) + base;",
+    "    const uint32_t rec = vf3_aim_u32(a, node + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "live_offset_off",
+  "subs": [
+   [
+    "    if (f32(vf3_aim_u32(a, rec + 0x18u)) == 0.0f) {",
+    "    if (f32(vf3_aim_u32(a, rec + 0x20u)) == 0.0f) {"
+   ]
+  ]
+ },
+ {
+  "name": "one_triangle_read_off",
+  "subs": [
+   [
+    "    const uint32_t one_triangle = vf3_aim_u32(a, rec) & 1u;",
+    "    const uint32_t one_triangle = vf3_aim_u32(a, rec) & 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "first_edge_array_off",
+  "subs": [
+   [
+    "    static const uint8_t edge_a[5] = { 0, 1, 2, 2, 3 };",
+    "    static const uint8_t edge_a[5] = { 1, 1, 2, 2, 3 };"
+   ]
+  ]
+ },
+ {
+  "name": "wind_mask_off",
+  "subs": [
+   [
+    "    const uint32_t tri1 = wind[2] | (m & 6u);            /* + diagonal 20 */",
+    "    const uint32_t tri1 = wind[2] | (m & 4u);            /* + diagonal 20 */"
+   ]
+  ]
+ },
+ {
+  "name": "edges_agree_inv",
+  "subs": [
+   [
+    "    return ((mask & 2u) != 0) != ((mask & 4u) != 0);",
+    "    return ((mask & 2u) != 0) == ((mask & 4u) != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "second_include_off",
+  "subs": [
+   [
+    "        m |= second & 6u;",
+    "        m |= second & 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "fr14_restore_off",
+  "subs": [
+   [
+    "    a->fr[14] = saved_fr14;",
+    "    a->fr[14] = a->fr[4];"
+   ]
+  ]
+ },
+ {
+  "name": "pr_restore_off",
+  "subs": [
+   [
+    "    a->pr = saved_pr;",
+    "    a->pr = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_entry_off",
+  "subs": [
+   [
+    "    a->r[0] = (uint32_t)result;",
+    "    a->r[0] = (uint32_t)result + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "first_wind_include_off",
+  "subs": [
+   [
+    "    uint32_t m = wind[0] | (wind[1] & 6u);               /* edges 01, 12 */",
+    "    uint32_t m = wind[0] | (wind[1] & 4u);               /* edges 01, 12 */"
+   ]
+  ]
+ }
+]
