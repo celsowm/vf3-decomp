@@ -1,0 +1,65 @@
+[
+ {
+  "name": "tf_abs_x_from_z",
+  "subs": [
+   [
+    "    F(4) = vf3_aim_fbits(vf3_aim_ubits(F(4)) & ~NEG_ZERO);   /* fabs x */",
+    "    F(4) = vf3_aim_fbits(vf3_aim_ubits(F(5)) & ~NEG_ZERO);   /* fabs (wrong) */"
+   ]
+  ]
+ },
+ {
+  "name": "tf_edge_wrong",
+  "subs": [
+   [
+    "    float six = load_f(a, LIT_SIX);",
+    "    float six = load_f(a, LIT_SIX) + 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "tf_and_then_or",
+  "subs": [
+   [
+    "    if (!far_off) far_off = (F(5) > six);",
+    "    if (far_off) far_off = (F(5) > six);"
+   ]
+  ]
+ },
+ {
+  "name": "tf_result_both_paths",
+  "subs": [
+   [
+    "    } else {\n        F(4) = F(7);                              /* 0 */\n    }",
+    "    } else {\n        F(4) = load_f(a, LIT_HALF);              /* wrong: -0.5 even inside */\n    }"
+   ]
+  ]
+ },
+ {
+  "name": "tf_normal_y_zero",
+  "subs": [
+   [
+    "    store_f(a, R(4) + 4, F(3));                   /* normal y = 1 */",
+    "    store_f(a, R(4) + 4, F(7));                   /* normal y = 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "tf_x_store_wrong",
+  "subs": [
+   [
+    "    store_f(a, R(4), F(7));                       /* normal x = 0 */",
+    "    store_f(a, R(4), F(3));                       /* normal x = 1 */"
+   ]
+  ]
+ },
+ {
+  "name": "tf_t_is_or",
+  "subs": [
+   [
+    "    set_t(a, far_off);",
+    "    set_t(a, !far_off);"
+   ]
+  ]
+ }
+]
