@@ -1,0 +1,74 @@
+[
+ {
+  "name": "tw_scale_x_from_z",
+  "subs": [
+   [
+    "        F(3) = load_f(a, R(5));",
+    "        F(3) = load_f(a, R(6));"
+   ]
+  ]
+ },
+ {
+  "name": "tw_scale_z_store_wrong",
+  "subs": [
+   [
+    "        store_f(a, R(6), F(2));",
+    "        store_f(a, R(6), F(3));"
+   ]
+  ]
+ },
+ {
+  "name": "tw_scale_x_store_wrong",
+  "subs": [
+   [
+    "        store_f(a, R(5), F(3));",
+    "        store_f(a, R(5), F(2));"
+   ]
+  ]
+ },
+ {
+  "name": "tw_type7_missed",
+  "subs": [
+   [
+    "    if (type == 2 || type == 7) {",
+    "    if (type == 2 || type == 6) {"
+   ]
+  ]
+ },
+ {
+  "name": "tw_13_tenth_off",
+  "subs": [
+   [
+    "        F(5) = load_f(a, LIT_TENTH);",
+    "        F(5) = load_f(a, LIT_SCALE);"
+   ]
+  ]
+ },
+ {
+  "name": "tw_13_trunc_x_from_z",
+  "subs": [
+   [
+    "        F(4) = load_f(a, R(5));",
+    "        F(4) = load_f(a, R(6));"
+   ]
+  ]
+ },
+ {
+  "name": "tw_13_fold_x_dest",
+  "subs": [
+   [
+    "        fold_axis(a, 4, px);",
+    "        fold_axis(a, 4, pz);"
+   ]
+  ]
+ },
+ {
+  "name": "tw_fold_no_evenize",
+  "subs": [
+   [
+    "    if ((cnt & 1u) != 0) {",
+    "    if ((cnt & 1u) == 0) {"
+   ]
+  ]
+ }
+]
