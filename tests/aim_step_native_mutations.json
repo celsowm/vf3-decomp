@@ -1,0 +1,65 @@
+[
+ {
+  "name": "as_sq_zero_test_inverted",
+  "subs": [
+   [
+    "    if (F(15) != F(3)) {          /* sq != 0 */",
+    "    if (F(15) == F(3)) {          /* sq != 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "as_eps_compare_inverted",
+  "subs": [
+   [
+    "        if (F(2) > F(15)) {       /* eps > sq -> inverse length 0 */",
+    "        if (F(2) < F(15)) {       /* eps > sq -> inverse length 0 */"
+   ]
+  ]
+ },
+ {
+  "name": "as_invlen_becomes_zero",
+  "subs": [
+   [
+    "            F(15) = fsrra(F(15)); /* else 1/sqrt(sq) */",
+    "            F(15) = F(3);        /* else 1/sqrt(sq) */"
+   ]
+  ]
+ },
+ {
+  "name": "as_scaled_uses_add_not_mul",
+  "subs": [
+   [
+    "    F(4) = F(4) * F(3);              /* FMUL(4,3): F4 = invlen * step */",
+    "    F(4) = F(4) + F(3);              /* FMUL(4,3): F4 = invlen * step */"
+   ]
+  ]
+ },
+ {
+  "name": "as_final_a_uses_sub",
+  "subs": [
+   [
+    "        F(0) = F(0) + F(3);          /* FADD(0,3) */",
+    "        F(0) = F(0) - F(3);          /* FADD(0,3) */"
+   ]
+  ]
+ },
+ {
+  "name": "as_d_uses_add_not_sub",
+  "subs": [
+   [
+    "    F(0) = F(0) - F(3);            /* FSUB(0,3) */",
+    "    F(0) = F(0) + F(3);            /* FSUB(0,3) */"
+   ]
+  ]
+ },
+ {
+  "name": "as_r5_wrong",
+  "subs": [
+   [
+    "        R(5) = bp + 12u;",
+    "        R(5) = bp;"
+   ]
+  ]
+ }
+]
