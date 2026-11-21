@@ -1,0 +1,92 @@
+[
+ {
+  "name": "cu_pack_hw_order",
+  "subs": [
+   [
+    "    R(0) = (R(6) << 16) | (R(5) & 0xFFFFu);",
+    "    R(0) = (R(5) << 16) | (R(6) & 0xFFFFu);"
+   ]
+  ]
+ },
+ {
+  "name": "cu_gbr_write_src",
+  "subs": [
+   [
+    "    wr32(a, a->gbr + PACK_GBR, R(0));",
+    "    wr32(a, a->gbr + PACK_GBR, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "cu_scale_mul_src",
+  "subs": [
+   [
+    "    F(4) = fmul(a, F(4), F(7));",
+    "    F(4) = fmul(a, F(4), F(6));"
+   ]
+  ]
+ },
+ {
+  "name": "cu_out_store_src",
+  "subs": [
+   [
+    "    wr32(a, R(1), vf3_aim_ubits(F(0)));",
+    "    wr32(a, R(1), vf3_aim_ubits(F(1)));"
+   ]
+  ]
+ },
+ {
+  "name": "cu_r1_jump_wrong",
+  "subs": [
+   [
+    "    R(1) += 28;",
+    "    R(1) += 16;"
+   ]
+  ]
+ },
+ {
+  "name": "cu_mid_mul_wrong",
+  "subs": [
+   [
+    "    F(2) = fmul(a, F(2), F(4));",
+    "    F(2) = fmul(a, F(2), F(5));"
+   ]
+  ]
+ },
+ {
+  "name": "cu_last_mul_wrong",
+  "subs": [
+   [
+    "    F(0) = fmul(a, F(0), F(4));",
+    "    F(0) = fmul(a, F(0), F(6));"
+   ]
+  ]
+ },
+ {
+  "name": "cu_store_pre1_wrong",
+  "subs": [
+   [
+    "    store_pre(a, 1);",
+    "    store_pre(a, 2);"
+   ]
+  ]
+ },
+ {
+  "name": "cu_final_store_order",
+  "subs": [
+   [
+    "    store_pre(a, 2);        /* rts delay slot */\n    store_pre(a, 0);",
+    "    store_pre(a, 0);\n    store_pre(a, 2);"
+   ]
+  ]
+ },
+ {
+  "name": "cu_fpul_byte_src",
+  "subs": [
+   [
+    "    R(5) &= 0xFFu;\n    a->fpul = R(5);\n    F(1) = f2f(a);",
+    "    R(5) &= 0xFFu;\n    a->fpul = R(2);\n    F(1) = f2f(a);"
+   ]
+  ]
+ }
+]
