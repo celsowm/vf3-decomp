@@ -1,0 +1,110 @@
+[
+ {
+  "name": "vs_scale_y_src",
+  "subs": [
+   [
+    "    F(6) = fmul(a, F(6), F(7));",
+    "    F(6) = fmul(a, F(6), F(4));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_scale_z_src",
+  "subs": [
+   [
+    "    F(5) = fmul(a, F(5), F(7));",
+    "    F(5) = fmul(a, F(5), F(6));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_y_store_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 0x04, vf3_aim_ubits(F(5)));",
+    "    wr32(a, slot + 0x04, vf3_aim_ubits(F(6)));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_fr2_store_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 0x18, vf3_aim_ubits(F(2)));",
+    "    wr32(a, slot + 0x18, vf3_aim_ubits(F(3)));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_tail_shift_wrong",
+  "subs": [
+   [
+    "    const uint32_t tail = (uint32_t)((int32_t)(slot + 0x14) >> 1);",
+    "    const uint32_t tail = (uint32_t)((int32_t)(slot + 0x10) >> 1);"
+   ]
+  ]
+ },
+ {
+  "name": "vs_last_test_wrong",
+  "subs": [
+   [
+    "    const int last = (R(3) - 1u) == 0;",
+    "    const int last = (R(3) - 1u) == 1;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_ctrl_branches_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot, last ? tail : slot);",
+    "    wr32(a, slot, last ? slot : tail);"
+   ]
+  ]
+ },
+ {
+  "name": "vs_t_always_set",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | (last ? 1u : 0u);",
+    "    a->sr = (a->sr & ~1u) | 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_r3_decrement_wrong",
+  "subs": [
+   [
+    "    R(3) -= 1u;",
+    "    R(3) -= 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_r2_wrong",
+  "subs": [
+   [
+    "    R(2) = tail;",
+    "    R(2) = slot;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_r5_advance_wrong",
+  "subs": [
+   [
+    "    R(5) += SLOT_SIZE;",
+    "    R(5) += 16u;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_r6_advance_wrong",
+  "subs": [
+   [
+    "    R(6) = slot + SLOT_SIZE;",
+    "    R(6) = slot + 16u;"
+   ]
+  ]
+ }
+]
