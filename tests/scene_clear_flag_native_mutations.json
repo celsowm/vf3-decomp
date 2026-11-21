@@ -1,0 +1,101 @@
+[
+ {
+  "name": "clear_bit1_not_bit0",
+  "subs": [
+   [
+    "            vf3_aim_set_u16(a, rec, (uint16_t)(vf3_aim_h16(a, rec) & 0xFFFEu));",
+    "            vf3_aim_set_u16(a, rec, (uint16_t)(vf3_aim_h16(a, rec) & 0xFFFDu));"
+   ]
+  ]
+ },
+ {
+  "name": "no_clear_write",
+  "subs": [
+   [
+    "            vf3_aim_set_u16(a, rec, (uint16_t)(vf3_aim_h16(a, rec) & 0xFFFEu));",
+    "            (void)rec;"
+   ]
+  ]
+ },
+ {
+  "name": "inverted_match_test",
+  "subs": [
+   [
+    "        if (rec == target) {",
+    "        if (rec != target) {"
+   ]
+  ]
+ },
+ {
+  "name": "wrong_stride",
+  "subs": [
+   [
+    "        const uint32_t rec = base + 24u * i;",
+    "        const uint32_t rec = base + 23u * i;"
+   ]
+  ]
+ },
+ {
+  "name": "wrong_base",
+  "subs": [
+   [
+    "    const uint32_t base = 0x0C16CF6Cu;   /* G_SCENE */",
+    "    const uint32_t base = 0x0C16CF70u;   /* G_SCENE */"
+   ]
+  ]
+ },
+ {
+  "name": "loop_bound_short",
+  "subs": [
+   [
+    "    for (uint32_t i = 0; i < 0x1000u; ++i) {",
+    "    for (uint32_t i = 0; i < 0x0FFFu; ++i) {"
+   ]
+  ]
+ },
+ {
+  "name": "target_from_r5",
+  "subs": [
+   [
+    "    const uint32_t target = R(4);",
+    "    const uint32_t target = R(5);"
+   ]
+  ]
+ },
+ {
+  "name": "r1_constant_wrong",
+  "subs": [
+   [
+    "    R(1) = 0x1000u;",
+    "    R(1) = 0x0FFFu;"
+   ]
+  ]
+ },
+ {
+  "name": "r7_constant_wrong",
+  "subs": [
+   [
+    "    R(7) = 0x1000u;",
+    "    R(7) = 0x1001u;"
+   ]
+  ]
+ },
+ {
+  "name": "r5_end_wrong",
+  "subs": [
+   [
+    "    R(5) = base + 24u * 0x1000u;",
+    "    R(5) = base + 24u * 0x0FFFu;"
+   ]
+  ]
+ },
+ {
+  "name": "r6_end_wrong",
+  "subs": [
+   [
+    "    R(6) = base + 24u * 0x1000u;",
+    "    R(6) = base + 24u * 0x1001u;"
+   ]
+  ]
+ }
+]

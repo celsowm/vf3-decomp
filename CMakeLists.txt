@@ -6776,6 +6776,7 @@ add_library(vf3nativeview STATIC
     src/native/negate_copy.c
     src/native/strlen.c
     src/native/record_flag40.c
+    src/native/scene_clear_flag.c
     src/native/negate_run.c
     src/native/float_to_short.c
     src/native/tri_winding.c
@@ -6922,6 +6923,9 @@ target_include_directories(vf3nativestrlen PRIVATE src/fight src/native)
 add_executable(vf3nativerecordflag40 tests/record_flag40_native_replay.c)
 target_link_libraries(vf3nativerecordflag40 PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativerecordflag40 PRIVATE src/fight src/native)
+add_executable(vf3nativesceneclearflag tests/scene_clear_flag_native_replay.c)
+target_link_libraries(vf3nativesceneclearflag PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativesceneclearflag PRIVATE src/fight src/native)
 add_executable(vf3nativenegaterun tests/negate_run_native_replay.c)
 target_link_libraries(vf3nativenegaterun PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativenegaterun PRIVATE src/fight src/native)
