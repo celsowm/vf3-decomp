@@ -1,0 +1,83 @@
+[
+ {
+  "name": "qo_reset_count_wrong",
+  "subs": [
+   [
+    "    R(0) = 0u;\n    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    R(0) = 1u;\n    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "qo_reset_struct_pool_wrong",
+  "subs": [
+   [
+    "    R(4) = vf3_aim_u32(a, POOL_STRUCT);",
+    "    R(4) = vf3_aim_u32(a, POOL_STRUCT) + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "qo_reset_a2_spilled",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(4) + FIELD_A, R(5));\n    vf3_aim_set_u32(a, R(4) + FIELD_A2, R(5));\n\n    R(5) = vf3_aim_u32(a, POOL_ARRAY2);",
+    "    vf3_aim_set_u32(a, R(4) + FIELD_A, R(5));\n    vf3_aim_set_u32(a, R(4) + FIELD_A2, 0u);\n\n    R(5) = vf3_aim_u32(a, POOL_ARRAY2);"
+   ]
+  ]
+ },
+ {
+  "name": "qo_push_full_ge_to_gt",
+  "subs": [
+   [
+    "    set_t(a, (int32_t)R(5) >= (int32_t)R(3));",
+    "    set_t(a, (int32_t)R(5) > (int32_t)R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "qo_push_wrong_slot",
+  "subs": [
+   [
+    "    R(5) += 1u;",
+    "    R(5) += 2u;"
+   ]
+  ]
+ },
+ {
+  "name": "qo_push_count_write_missing",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)(R(0) - 1u));"
+   ]
+  ]
+ },
+ {
+  "name": "qo_pop_writes_a2_too",
+  "subs": [
+   [
+    "    R(0) = R(1);\n    R(0) += 0xffffffffu;            /* the counter goes down by one */\n    R(5) = 0u;\n    vf3_aim_set_u32(a, R(4) + FIELD_A, R(3));\n    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)R(0));",
+    "    R(0) = R(1);\n    R(0) += 0xffffffffu;            /* the counter goes down by one */\n    R(5) = 0u;\n    vf3_aim_set_u32(a, R(4) + FIELD_A, R(3));\n    vf3_aim_set_u32(a, R(4) + FIELD_A2, R(3));\n    vf3_aim_set_u16(a, R(4) + FIELD_COUNT, (uint16_t)R(0));"
+   ]
+  ]
+ },
+ {
+  "name": "qo_pop_empty_gt_to_ge",
+  "subs": [
+   [
+    "    set_t(a, (int32_t)R(1) > 0);",
+    "    set_t(a, (int32_t)R(1) >= 0);"
+   ]
+  ]
+ },
+ {
+  "name": "qo_pop_reads_array1_not_array2",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, POOL_ARRAY2);\n    R(5) = R(1);",
+    "    R(0) = vf3_aim_u32(a, POOL_ARRAY1);\n    R(5) = R(1);"
+   ]
+  ]
+ }
+]
