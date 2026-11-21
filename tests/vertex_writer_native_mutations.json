@@ -1,0 +1,101 @@
+[
+ {
+  "name": "vw_uv_swapped",
+  "subs": [
+   [
+    "    const float us = fmul(a, (float)u, scale);\n    const float vs = fmul(a, (float)v, scale);",
+    "    const float us = fmul(a, (float)v, scale);\n    const float vs = fmul(a, (float)u, scale);"
+   ]
+  ]
+ },
+ {
+  "name": "vw_uv_us_store_off",
+  "subs": [
+   [
+    "    wr32(a, slot + 20u, vf3_aim_ubits(vs));\n    wr32(a, slot + 16u, vf3_aim_ubits(us));",
+    "    wr32(a, slot + 24u, vf3_aim_ubits(vs));\n    wr32(a, slot + 16u, vf3_aim_ubits(us));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_uv_vs_store_off",
+  "subs": [
+   [
+    "    wr32(a, slot + 20u, vf3_aim_ubits(vs));\n    wr32(a, slot + 16u, vf3_aim_ubits(us));",
+    "    wr32(a, slot + 20u, vf3_aim_ubits(vs));\n    wr32(a, slot + 12u, vf3_aim_ubits(us));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_x_slot_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 4u, vf3_aim_ubits(F(vertex_fr)));",
+    "    wr32(a, slot + 4u, vf3_aim_ubits(F(vertex_fr + 3)));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_y_slot_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 8u, vf3_aim_ubits(F(vertex_fr + 1)));",
+    "    wr32(a, slot + 8u, vf3_aim_ubits(F(vertex_fr + 2)));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_z_slot_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 12u, vf3_aim_ubits(F(vertex_fr + 2)));",
+    "    wr32(a, slot + 12u, vf3_aim_ubits(F(vertex_fr)));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_w_slot_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot + 24u, vf3_aim_ubits(F(vertex_fr + 3)));",
+    "    wr32(a, slot + 24u, vf3_aim_ubits(F(vertex_fr)));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_ctrl_wrong",
+  "subs": [
+   [
+    "    wr32(a, slot, R(6));",
+    "    wr32(a, slot, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "vw_vertex_fr_offset_wrong",
+  "subs": [
+   [
+    "    write_slot(a, R(12), R(8) + UV_OFFSET_VERTEX0, 4);",
+    "    write_slot(a, R(12), R(8) + UV_OFFSET_VERTEX0, 5);"
+   ]
+  ]
+ },
+ {
+  "name": "vw_writer1_uv_offset_wrong",
+  "subs": [
+   [
+    "    write_slot(a, previous + SLOT, R(8) + UV_OFFSET_VERTEX1, 8);",
+    "    write_slot(a, previous + SLOT, R(8) + UV_OFFSET_VERTEX0, 8);"
+   ]
+  ]
+ },
+ {
+  "name": "vw_writer1_cursor_flat",
+  "subs": [
+   [
+    "    write_slot(a, previous + SLOT, R(8) + UV_OFFSET_VERTEX1, 8);\n    R(12) = previous + SLOT;",
+    "    write_slot(a, previous + SLOT, R(8) + UV_OFFSET_VERTEX1, 8);\n    R(12) = previous;"
+   ]
+  ]
+ }
+]
