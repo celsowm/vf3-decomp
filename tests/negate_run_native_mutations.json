@@ -1,0 +1,74 @@
+[
+ {
+  "name": "first_count_wrong",
+  "subs": [
+   [
+    "    run(a, &addr, 7u);",
+    "    run(a, &addr, 6u);"
+   ]
+  ]
+ },
+ {
+  "name": "second_count_wrong",
+  "subs": [
+   [
+    "    run(a, &addr, 14u);",
+    "    run(a, &addr, 15u);"
+   ]
+  ]
+ },
+ {
+  "name": "no_back_eight",
+  "subs": [
+   [
+    "    addr -= 8u;",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "first_start_offset_wrong",
+  "subs": [
+   [
+    "    uint32_t addr = R(4) + 8u;",
+    "    uint32_t addr = R(4) + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "stride_wrong_8",
+  "subs": [
+   [
+    "        *addr += 12u;",
+    "        *addr += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "no_flip",
+  "subs": [
+   [
+    "        uint32_t v = vf3_aim_u32(a, *addr) ^ SIGN;",
+    "        uint32_t v = vf3_aim_u32(a, *addr);"
+   ]
+  ]
+ },
+ {
+  "name": "r4_not_advanced",
+  "subs": [
+   [
+    "    R(4) = addr;",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "T_not_set",
+  "subs": [
+   [
+    "    a->sr |= 1u;            /* SET_T(1) */",
+    "    ;"
+   ]
+  ]
+ }
+]
