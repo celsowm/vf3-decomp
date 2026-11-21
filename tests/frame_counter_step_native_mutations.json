@@ -1,0 +1,74 @@
+[
+ {
+  "name": "fcs_no_decrement",
+  "subs": [
+   [
+    "    const uint32_t counter = sext16(a, obj + 0x1Eu) - 1u;",
+    "    const uint32_t counter = sext16(a, obj + 0x1Eu) - 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_no_floor",
+  "subs": [
+   [
+    "    F(6) = (F(7) > F(6)) ? F(7) : F(6);             /* fcmp/gt FR6,FR7: floor at FR7 */",
+    "    F(6) = (F(1) > F(6)) ? F(7) : F(6);             /* wrong: compare vs fr1 */"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_still_inverted",
+  "subs": [
+   [
+    "    const int still = (F(4) == 0.0f);               /* fcmp/eq FR3,FR4: fr4 == 0 */",
+    "    const int still = (F(4) != 0.0f);               /* wrong: inverted */"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_table_bit1",
+  "subs": [
+   [
+    "    if (flags & 2u)      table = R(6);",
+    "    if (flags & 1u)      table = R(6);"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_no_advance",
+  "subs": [
+   [
+    "    F(6) = fadd(a, F(6), F(8));                     /* += -0.0018 */",
+    "    F(6) = fadd(a, F(6), F(6));                     /* wrong: += itself */"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_unmasked_index",
+  "subs": [
+   [
+    "    R(0) = (counter & 31u) << 1;",
+    "    R(0) = counter << 1;                           /* wrong: no mask */"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_store_overwrite_f10",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, obj + 0x14u, vf3_aim_ubits(F(7)));",
+    "        vf3_aim_set_u32(a, obj + 0x10u, vf3_aim_ubits(F(7)));"
+   ]
+  ]
+ },
+ {
+  "name": "fcs_negative_kept",
+  "subs": [
+   [
+    "    if ((int32_t)counter < 0) {",
+    "    if ((int32_t)counter < 1) {"
+   ]
+  ]
+ }
+]
