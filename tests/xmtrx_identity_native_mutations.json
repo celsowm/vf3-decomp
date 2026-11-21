@@ -1,0 +1,56 @@
+[
+ {
+  "name": "skip_identity",
+  "subs": [
+   [
+    "    vf3_native_matrix_identity(a->xm);\n    a->fr[0] = 1.0f;",
+    "    a->fr[0] = 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "fr0_wrong",
+  "subs": [
+   [
+    "    a->fr[0] = 1.0f;",
+    "    a->fr[0] = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "fr0_not_set",
+  "subs": [
+   [
+    "    a->fr[0] = 1.0f;\n    a->fr[1] = 0.0f;",
+    "    a->fr[1] = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "fr1_wrong",
+  "subs": [
+   [
+    "    a->fr[1] = 0.0f;",
+    "    a->fr[1] = 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "fr2_wrong",
+  "subs": [
+   [
+    "    a->fr[2] = 0.0f;",
+    "    a->fr[2] = 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "fr3_wrong",
+  "subs": [
+   [
+    "    a->fr[3] = 1.0f;",
+    "    a->fr[3] = 0.0f;"
+   ]
+  ]
+ }
+]
