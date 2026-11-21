@@ -1,0 +1,92 @@
+[
+ {
+  "name": "tcl_flag_test_wrong",
+  "subs": [
+   [
+    "    if (id & CELL_FLAG) {",
+    "    if (!(id & CELL_FLAG)) {"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_rec_stride_wrong",
+  "subs": [
+   [
+    "        const uint32_t rec = CELL_RECORDS + 6u * (id & CELL_INDEX_MASK);",
+    "        const uint32_t rec = CELL_RECORDS + 8u * (id & CELL_INDEX_MASK);"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_x_field_wrong",
+  "subs": [
+   [
+    "        x = rd8(a, rec + 2u);",
+    "        x = rd8(a, rec + 3u);"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_shl3_wrong",
+  "subs": [
+   [
+    "static uint32_t u16_shl3(uint32_t v) { return (v & 0xFFFFu) << 3; }",
+    "static uint32_t u16_shl3(uint32_t v) { return (v & 0xFFFFu) << 4; }"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_recip_w_store_off",
+  "subs": [
+   [
+    "    wr32f(a, SCRATCH_RECIP_W, recip_w);",
+    "    wr32f(a, SCRATCH_RECIP_H, recip_w);"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_scratch_id_off",
+  "subs": [
+   [
+    "    wr32(a, SCRATCH_ID, first & 0xFFFFu);",
+    "    wr32(a, SCRATCH_ID, first);"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_r4_not_pw",
+  "subs": [
+   [
+    "    R(4) = pw;",
+    "    R(4) = ph;"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_fr3_not_rech",
+  "subs": [
+   [
+    "    F(3) = recip_h;",
+    "    F(3) = recip_w;"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_fr2_not_v",
+  "subs": [
+   [
+    "    F(2) = v;",
+    "    F(2) = recip_w;"
+   ]
+  ]
+ },
+ {
+  "name": "tcl_sr_t_not_set",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | (T ? 1u : 0u);",
+    "    a->sr = (a->sr & ~1u) | (T ^ 1u);"
+   ]
+  ]
+ }
+]
