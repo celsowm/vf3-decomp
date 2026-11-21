@@ -6781,6 +6781,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_copy.c
     src/native/matrix_scale.c
     src/native/matrix_push.c
+    src/native/matrix_pop.c
     src/native/xmtrx_identity.c
     src/native/xmtrx_transpose.c
     src/native/negate_run.c
@@ -6944,6 +6945,9 @@ target_include_directories(vf3nativematrixscale PRIVATE src/fight src/native)
 add_executable(vf3nativematrixpush tests/matrix_push_native_replay.c)
 target_link_libraries(vf3nativematrixpush PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixpush PRIVATE src/fight src/native)
+add_executable(vf3nativematrixpop tests/matrix_pop_native_replay.c)
+target_link_libraries(vf3nativematrixpop PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativematrixpop PRIVATE src/fight src/native)
 add_executable(vf3nativexmtrxidentity tests/xmtrx_identity_native_replay.c)
 target_link_libraries(vf3nativexmtrxidentity PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativexmtrxidentity PRIVATE src/fight src/native)

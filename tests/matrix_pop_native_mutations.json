@@ -1,0 +1,83 @@
+[
+ {
+  "name": "drop_floor_wrong",
+  "subs": [
+   [
+    "    const int32_t drop = (int32_t)R(4) > 0 ? (int32_t)R(4) : 1;",
+    "    const int32_t drop = (int32_t)R(4) > 0 ? (int32_t)R(4) : 2;"
+   ]
+  ]
+ },
+ {
+  "name": "new_count_clamped",
+  "subs": [
+   [
+    "    const int32_t new_count = enough ? count - drop : 0;",
+    "    const int32_t new_count = count - drop;"
+   ]
+  ]
+ },
+ {
+  "name": "addr_shift_wrong",
+  "subs": [
+   [
+    "    const uint32_t addr = base + ((uint32_t)new_count << 6);",
+    "    const uint32_t addr = base + ((uint32_t)new_count << 5);"
+   ]
+  ]
+ },
+ {
+  "name": "top_always_rewritten",
+  "subs": [
+   [
+    "    if (new_count < limit) vf3_aim_set_u32(a, MATRIX_STACK_CTL + 8u, addr);",
+    "    vf3_aim_set_u32(a, MATRIX_STACK_CTL + 8u, addr);"
+   ]
+  ]
+ },
+ {
+  "name": "count_write_too_wide",
+  "subs": [
+   [
+    "    vf3_aim_set_u16(a, MATRIX_STACK_CTL, (uint16_t)((uint32_t)new_count & 0xFFFFu));",
+    "    vf3_aim_set_u32(a, MATRIX_STACK_CTL, (uint16_t)((uint32_t)new_count & 0xFFFFu));"
+   ]
+  ]
+ },
+ {
+  "name": "r0_compare_wrong",
+  "subs": [
+   [
+    "    const int enough = count >= drop;",
+    "    const int enough = count > drop;"
+   ]
+  ]
+ },
+ {
+  "name": "r4_wrong",
+  "subs": [
+   [
+    "    R(4) = (uint32_t)new_count << 6;",
+    "    R(4) = (uint32_t)new_count << 5;"
+   ]
+  ]
+ },
+ {
+  "name": "r7_wrong",
+  "subs": [
+   [
+    "    R(7) = addr + MATRIX_BYTES;",
+    "    R(7) = addr + 60u;"
+   ]
+  ]
+ },
+ {
+  "name": "sr_t_inverted",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | (uint32_t)(new_count >= limit);",
+    "    a->sr = (a->sr & ~1u) | (uint32_t)(new_count > limit);"
+   ]
+  ]
+ }
+]
