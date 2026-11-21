@@ -1,0 +1,47 @@
+[
+ {
+  "name": "writes_xm13_wrong_float",
+  "subs": [
+   [
+    "    a->xm[13] = vf3_aim_fbits(vf3_aim_u32(a, src + 4u));",
+    "    a->xm[13] = vf3_aim_fbits(vf3_aim_u32(a, src + 8u));"
+   ]
+  ]
+ },
+ {
+  "name": "writes_xm12_with_sign_flip",
+  "subs": [
+   [
+    "    a->xm[12] = vf3_aim_fbits(vf3_aim_u32(a, src));",
+    "    a->xm[12] = vf3_aim_fbits(vf3_aim_u32(a, src) ^ 0x80000000u);"
+   ]
+  ]
+ },
+ {
+  "name": "wrong_r4_advance",
+  "subs": [
+   [
+    "    a->r[4] = src + 12u;",
+    "    a->r[4] = src + 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "drops_xm14",
+  "subs": [
+   [
+    "    a->xm[14] = vf3_aim_fbits(vf3_aim_u32(a, src + 8u));\n    a->r[4] = src + 12u;",
+    "    a->r[4] = src + 12u;"
+   ]
+  ]
+ },
+ {
+  "name": "reads_wrong_source",
+  "subs": [
+   [
+    "    const uint32_t src = a->r[4];",
+    "    const uint32_t src = a->r[4] + 4u;"
+   ]
+  ]
+ }
+]
