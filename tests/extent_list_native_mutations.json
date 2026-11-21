@@ -1,0 +1,83 @@
+[
+ {
+  "name": "live_test_inv",
+  "subs": [
+   [
+    "            if (flags & 1u) {",
+    "            if (flags & 2u) {"
+   ]
+  ]
+ },
+ {
+  "name": "rec_stride_off",
+  "subs": [
+   [
+    "            R(14) += 32u;",
+    "            R(14) += 16u;"
+   ]
+  ]
+ },
+ {
+  "name": "rec_base_off",
+  "subs": [
+   [
+    "    uint32_t rec = obj + 0x200u;",
+    "    uint32_t rec = obj + 0x210u;"
+   ]
+  ]
+ },
+ {
+  "name": "flag_off",
+  "subs": [
+   [
+    "    const uint32_t flags = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, R(14) + 0x1Au);",
+    "    const uint32_t flags = (uint32_t)(int32_t)(int16_t)vf3_aim_h16(a, R(14) + 0x1Bu);"
+   ]
+  ]
+ },
+ {
+  "name": "frame_slot_off",
+  "subs": [
+   [
+    "    const uint32_t sp0 = R(15), pr0 = a->pr, obj = R(4), frame = sp0 - 44u;",
+    "    const uint32_t sp0 = R(15), pr0 = a->pr, obj = R(4), frame = sp0 - 40u;"
+   ]
+  ]
+ },
+ {
+  "name": "third_table_off",
+  "subs": [
+   [
+    "                vf3_aim_set_u32(a, frame - 4u, R(11));       /* the third table, on the stack */",
+    "                vf3_aim_set_u32(a, frame - 8u, R(11));       /* the third table, on the stack */"
+   ]
+  ]
+ },
+ {
+  "name": "sr_t_clear",
+  "subs": [
+   [
+    "    a->sr |= 1u;                                            /* the last tst r13,r13 found it zero */",
+    "    a->sr &= ~1u;                                           /* the last tst r13,r13 found it zero */"
+   ]
+  ]
+ },
+ {
+  "name": "tab_a_off",
+  "subs": [
+   [
+    "                R(6) = R(9); R(5) = frame; R(7) = R(10); R(4) = R(14);",
+    "                R(6) = R(10); R(5) = frame; R(7) = R(10); R(4) = R(14);"
+   ]
+  ]
+ },
+ {
+  "name": "writeback_off",
+  "subs": [
+   [
+    "                vf3_aim_set_u16(a, R(14) + 0x1Au, (uint16_t)R(0));",
+    "                vf3_aim_set_u16(a, R(14) + 0x1Bu, (uint16_t)R(0));"
+   ]
+  ]
+ }
+]
