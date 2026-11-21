@@ -6820,6 +6820,7 @@ add_library(vf3nativeview STATIC
     src/native/tex_cell_load.c
     src/native/push_offset.c
     src/native/float_blend.c
+    src/native/format_int.c
     src/native/record_state_get.c
     src/native/vertex_writer.c
     src/native/vertex_emit.c
@@ -7036,6 +7037,9 @@ target_include_directories(vf3nativedivhelpers PRIVATE src/fight src/native)
 add_executable(vf3nativeaimstep tests/aim_step_native_replay.c)
 target_link_libraries(vf3nativeaimstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeaimstep PRIVATE src/fight src/native)
+add_executable(vf3nativeformatint tests/format_int_native_replay.c)
+target_link_libraries(vf3nativeformatint PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeformatint PRIVATE src/fight src/native)
 add_executable(vf3nativemotionstatecheck tests/motion_state_check_native_replay.c)
 target_link_libraries(vf3nativemotionstatecheck PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativemotionstatecheck PRIVATE src/fight src/native)

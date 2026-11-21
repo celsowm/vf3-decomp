@@ -1,0 +1,137 @@
+[
+ {
+  "name": "wrong_base_octal",
+  "subs": [
+   [
+    "    case 'o': base = 8; break;",
+    "    case 'o': base = 9; break;"
+   ]
+  ]
+ },
+ {
+  "name": "wrong_base_hex",
+  "subs": [
+   [
+    "    case 'X': case 'x': base = 16; break;",
+    "    case 'X': case 'x': base = 15; break;"
+   ]
+  ]
+ },
+ {
+  "name": "mag_sign_wrong",
+  "subs": [
+   [
+    "    uint32_t mag = (is_signed && value < 0) ? 0u - (uint32_t)value : (uint32_t)value;",
+    "    uint32_t mag = (uint32_t)value;"
+   ]
+  ]
+ },
+ {
+  "name": "zero_digits_off",
+  "subs": [
+   [
+    "        vf3_aim_set_u8(a, digits, '0');",
+    "        vf3_aim_set_u8(a, digits, '1');"
+   ]
+  ]
+ },
+ {
+  "name": "digit_letter_lower",
+  "subs": [
+   [
+    "                digit = (uint8_t)(digit + (conv == 'x' ? 87 : 55));",
+    "                digit = (uint8_t)(digit + 55);"
+   ]
+  ]
+ },
+ {
+  "name": "digit_numeric_off",
+  "subs": [
+   [
+    "                digit = (uint8_t)(digit + 48);",
+    "                digit = (uint8_t)(digit + 49);"
+   ]
+  ]
+ },
+ {
+  "name": "alt_octal_off",
+  "subs": [
+   [
+    "            if (value != 0) vf3_aim_set_u8(a, digits + count++, '0');",
+    "            if (value != 0) vf3_aim_set_u8(a, digits + count++, '1');"
+   ]
+  ]
+ },
+ {
+  "name": "alt_hex_prefix_off",
+  "subs": [
+   [
+    "            vf3_aim_set_u8(a, out++, (uint8_t)conv);\n            prefix = 2;",
+    "            prefix = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "sign_minus_off",
+  "subs": [
+   [
+    "            ++used; vf3_aim_set_u8(a, out++, '-');",
+    "            vf3_aim_set_u8(a, out++, '-');"
+   ]
+  ]
+ },
+ {
+  "name": "plus_or_space_swap",
+  "subs": [
+   [
+    "            ++used; vf3_aim_set_u8(a, out++, '+');",
+    "            ++used; vf3_aim_set_u8(a, out++, ' ');"
+   ]
+  ]
+ },
+ {
+  "name": "zeros_padding_off",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, spec + SPEC_ZEROS, precision - used);",
+    "        vf3_aim_set_u32(a, spec + SPEC_ZEROS, precision);"
+   ]
+  ]
+ },
+ {
+  "name": "spaces_padding_off",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, spec + SPEC_SPACES, width - total);",
+    "        vf3_aim_set_u32(a, spec + SPEC_SPACES, width);"
+   ]
+  ]
+ },
+ {
+  "name": "sign_zero_pad_gate_off",
+  "subs": [
+   [
+    "    if (is_sign(sign_now) && width > total && (int8_t)vf3_aim_u8(a, spec + SPEC_PAD) == '0') {",
+    "    if (is_sign(sign_now) && width > total) {"
+   ]
+  ]
+ },
+ {
+  "name": "digits_reverse_order",
+  "subs": [
+   [
+    "        vf3_aim_set_u8(a, out++, vf3_aim_u8(a, digits + (uint32_t)i));",
+    "        vf3_aim_set_u8(a, out++, vf3_aim_u8(a, digits + (uint32_t)i + 1u));"
+   ]
+  ]
+ },
+ {
+  "name": "nul_terminator_off",
+  "subs": [
+   [
+    "    vf3_aim_set_u8(a, out, 0);",
+    "    vf3_aim_set_u8(a, out, 'x');"
+   ]
+  ]
+ }
+]
