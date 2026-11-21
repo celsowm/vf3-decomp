@@ -1,0 +1,92 @@
+[
+ {
+  "name": "sra_scale_x_wrong_const",
+  "subs": [
+   [
+    "    const float sx = vf3_aim_fbits(vf3_aim_u32(a, SCALE_X));",
+    "    const float sx = vf3_aim_fbits(vf3_aim_u32(a, SCALE_Y));"
+   ]
+  ]
+ },
+ {
+  "name": "sra_offset_x_off",
+  "subs": [
+   [
+    "    const float ox = vf3_aim_fbits(vf3_aim_u32(a, OFFSET_X));",
+    "    const float ox = vf3_aim_fbits(vf3_aim_u32(a, OFFSET_Y));"
+   ]
+  ]
+ },
+ {
+  "name": "sra_x_y_swap",
+  "subs": [
+   [
+    "    const float x = fadd(a, fmul(a, F(4), sx), ox);",
+    "    const float x = fadd(a, fmul(a, F(5), sx), ox);"
+   ]
+  ]
+ },
+ {
+  "name": "sra_z_source_wrong",
+  "subs": [
+   [
+    "    wr32(a, block + 12u, vf3_aim_ubits(F(8)));        /* z, raw bits */",
+    "    wr32(a, block + 12u, vf3_aim_ubits(F(9)));        /* z, raw bits */"
+   ]
+  ]
+ },
+ {
+  "name": "sra_uw_store_offset",
+  "subs": [
+   [
+    "    wr32f(a, block + 16u, uw);",
+    "    wr32f(a, block + 20u, uw);"
+   ]
+  ]
+ },
+ {
+  "name": "sra_r0_value",
+  "subs": [
+   [
+    "    R(0) = 20;",
+    "    R(0) = 24;"
+   ]
+  ]
+ },
+ {
+  "name": "sra_vh_fr3_unset",
+  "subs": [
+   [
+    "    F(3) = vh;",
+    "    F(3) = uw;"
+   ]
+  ]
+ },
+ {
+  "name": "sra_fr9_unset",
+  "subs": [
+   [
+    "    F(9) = sy;",
+    "    F(9) = sx;"
+   ]
+  ]
+ },
+ {
+  "name": "sra_fr11_unset",
+  "subs": [
+   [
+    "    F(11) = oy;",
+    "    F(11) = ox;"
+   ]
+  ]
+ },
+ {
+  "name": "sra_uw_uses_sy",
+  "subs": [
+   [
+    "    const float uw = fmul(a, sx, F(6));",
+    "    const float uw = fmul(a, sy, F(6));"
+   ]
+  ]
+ }
+]
