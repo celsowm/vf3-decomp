@@ -1,0 +1,74 @@
+[
+ {
+  "name": "records_count_off",
+  "subs": [
+   [
+    "    R(12) = RECORDS;",
+    "    R(12) = RECORDS - 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "fill_value_off",
+  "subs": [
+   [
+    "        R(5) = 0;",
+    "        R(5) = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "record_bytes_off",
+  "subs": [
+   [
+    "        R(6) = RECORD_BYTES;",
+    "        R(6) = RECORD_BYTES + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "record_base_off",
+  "subs": [
+   [
+    "    R(14) = vf3_aim_u32(a, R(4) + 12u);",
+    "    R(14) = vf3_aim_u32(a, R(4) + 16u);"
+   ]
+  ]
+ },
+ {
+  "name": "stride_off",
+  "subs": [
+   [
+    "        R(14) += RECORD_BYTES;",
+    "        R(14) += RECORD_BYTES + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "hw34_offset_off",
+  "subs": [
+   [
+    "    R(0) = 34;",
+    "    R(0) = 36;"
+   ]
+  ]
+ },
+ {
+  "name": "or_turns_to_and",
+  "subs": [
+   [
+    "    R(1) |= R(2);",
+    "    R(1) &= ~R(2);"
+   ]
+  ]
+ },
+ {
+  "name": "bit2_not_bit0",
+  "subs": [
+   [
+    "    R(2) = 1;",
+    "    R(2) = 2;"
+   ]
+  ]
+ }
+]
