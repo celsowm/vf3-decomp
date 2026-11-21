@@ -1,0 +1,74 @@
+[
+ {
+  "name": "vl_dx_src_wrong",
+  "subs": [
+   [
+    "    const float dx = fsub(a, load_f(a, d), load_f(a, o));",
+    "    const float dx = fsub(a, load_f(a, d), load_f(a, d));"
+   ]
+  ]
+ },
+ {
+  "name": "vl_dy_off_load",
+  "subs": [
+   [
+    "    const float dy = fsub(a, load_f(a, d + 4u), load_f(a, o + 4u));",
+    "    const float dy = fsub(a, load_f(a, d), load_f(a, o + 4u));"
+   ]
+  ]
+ },
+ {
+  "name": "vl_z_src_wrong",
+  "subs": [
+   [
+    "    diff_z = fsub(a, load_f(a, d + 8u), load_f(a, o + 8u));",
+    "    diff_z = fsub(a, load_f(a, d), load_f(a, o + 8u));"
+   ]
+  ]
+ },
+ {
+  "name": "vl_mac_acc_wrong",
+  "subs": [
+   [
+    "    new_x = fmac(a, t, dx, load_f(a, o));",
+    "    new_x = fmac(a, t, dx, load_f(a, o + 4u));"
+   ]
+  ]
+ },
+ {
+  "name": "vl_store_y_at_x",
+  "subs": [
+   [
+    "    store_f(a, d + 4u, new_y);",
+    "    store_f(a, d, new_y);"
+   ]
+  ]
+ },
+ {
+  "name": "vl_park_wrong_slot",
+  "subs": [
+   [
+    "    if (i < LOOP_VECTORS) vf3_aim_set_u32(a, f, d + 8u); /* the loop keps its z pointer on the stack */",
+    "    if (i < LOOP_VECTORS) vf3_aim_set_u32(a, f, d + 4u); /* the loop keps its z pointer on the stack */"
+   ]
+  ]
+ },
+ {
+  "name": "vl_park_boundary",
+  "subs": [
+   [
+    "    if (i < LOOP_VECTORS) vf3_aim_set_u32(a, f, d + 8u); /* the loop keps its z pointer on the stack */",
+    "    if (i + 1u < LOOP_VECTORS) vf3_aim_set_u32(a, f, d + 8u); /* the loop keps its z pointer on the stack */"
+   ]
+  ]
+ },
+ {
+  "name": "vl_store_z_at_y",
+  "subs": [
+   [
+    "    store_f(a, d + 8u, new_z);",
+    "    store_f(a, d + 4u, new_z);"
+   ]
+  ]
+ }
+]

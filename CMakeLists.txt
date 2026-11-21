@@ -6791,7 +6791,8 @@ add_library(vf3nativeview STATIC
     src/native/terrain_flat.c
     src/native/terrain_wrap.c
     src/native/scaled_vec_add.c
-    src/native/segment_delta.c)
+    src/native/segment_delta.c
+    src/native/vec_lerp21.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6948,6 +6949,9 @@ target_include_directories(vf3nativescaledvecadd PRIVATE src/fight src/native)
 add_executable(vf3nativesegmentdelta tests/segment_delta_native_replay.c)
 target_link_libraries(vf3nativesegmentdelta PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativesegmentdelta PRIVATE src/fight src/native)
+add_executable(vf3nativeveclerp21 tests/vec_lerp21_native_replay.c)
+target_link_libraries(vf3nativeveclerp21 PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeveclerp21 PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)
