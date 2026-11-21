@@ -1,0 +1,74 @@
+[
+ {
+  "name": "sva_weight_zero_sense",
+  "subs": [
+   [
+    "    set_t(a, F(15) == F(3));              /* w == 0 -> leave */",
+    "    set_t(a, F(15) != F(3));              /* w == 0 -> leave */"
+   ]
+  ]
+ },
+ {
+  "name": "sva_11_from_075",
+  "subs": [
+   [
+    "        F(3) = vf3_aim_fbits(LIT_11);",
+    "        F(3) = vf3_aim_fbits(LIT_075);"
+   ]
+  ]
+ },
+ {
+  "name": "sva_flag_bit_wrong",
+  "subs": [
+   [
+    "    R(3) = 0x04000000u;",
+    "    R(3) = 0x02000000u;"
+   ]
+  ]
+ },
+ {
+  "name": "sva_1000_bit_wrong",
+  "subs": [
+   [
+    "    R(1) = 0x1000u;",
+    "    R(1) = 0x0800u;"
+   ]
+  ]
+ },
+ {
+  "name": "sva_100_bit_wrong",
+  "subs": [
+   [
+    "    R(3) = 0x0100u;",
+    "    R(3) = 0x0200u;"
+   ]
+  ]
+ },
+ {
+  "name": "sva_dest_off_by_four",
+  "subs": [
+   [
+    "        R(4) = vf3_aim_u32(a, f + 20);       /* [sp0+0] the dest pointer */",
+    "        R(4) = vf3_aim_u32(a, f + 20) + 4u;  /* [sp0+0] the dest pointer */"
+   ]
+  ]
+ },
+ {
+  "name": "sva_src_off",
+  "subs": [
+   [
+    "        R(5) += 92;                       /* owner.vec */",
+    "        R(5) += 96;                       /* owner.vec */"
+   ]
+  ]
+ },
+ {
+  "name": "sva_keep_fr15_value",
+  "subs": [
+   [
+    "    F(15) = saved_fr15;",
+    "    F(15) = F(3);"
+   ]
+  ]
+ }
+]
