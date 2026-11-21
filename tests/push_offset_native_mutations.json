@@ -1,0 +1,92 @@
+[
+ {
+  "name": "po_first_second_swap",
+  "subs": [
+   [
+    "    const float x = fmul(a, (float)first, scale);",
+    "    const float x = fmul(a, (float)second, scale);"
+   ]
+  ]
+ },
+ {
+  "name": "po_scale_src_off",
+  "subs": [
+   [
+    "    const int32_t first = (int16_t)rd16(a, src + 0x0Eu);",
+    "    const int32_t first = (int16_t)rd16(a, src + 0x10u);"
+   ]
+  ]
+ },
+ {
+  "name": "po_cursor_off",
+  "subs": [
+   [
+    "    const uint32_t src = R(8), cursor = R(12) + 0x30u;",
+    "    const uint32_t src = R(8), cursor = R(12) + 0x34u;"
+   ]
+  ]
+ },
+ {
+  "name": "po_top_off",
+  "subs": [
+   [
+    "    const uint32_t top = cursor - 16u;",
+    "    const uint32_t top = cursor - 20u;"
+   ]
+  ]
+ },
+ {
+  "name": "po_fr14_store_off",
+  "subs": [
+   [
+    "    wr32(a, cursor - 4u, vf3_aim_ubits(F(14)));",
+    "    wr32(a, cursor - 8u, vf3_aim_ubits(F(14)));"
+   ]
+  ]
+ },
+ {
+  "name": "po_x_store_off",
+  "subs": [
+   [
+    "    wr32f(a, top + 16u, x);",
+    "    wr32f(a, top + 20u, x);"
+   ]
+  ]
+ },
+ {
+  "name": "po_r0_value",
+  "subs": [
+   [
+    "    R(0) = 0;",
+    "    R(0) = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "po_fr1_not_y",
+  "subs": [
+   [
+    "    F(1) = y;",
+    "    F(1) = x;"
+   ]
+  ]
+ },
+ {
+  "name": "po_r12_not_top",
+  "subs": [
+   [
+    "    R(12) = top;",
+    "    R(12) = cursor;"
+   ]
+  ]
+ },
+ {
+  "name": "po_top28_not_zero",
+  "subs": [
+   [
+    "    wr32(a, top + 28u, 0);",
+    "    wr32(a, top + 28u, 1);"
+   ]
+  ]
+ }
+]
