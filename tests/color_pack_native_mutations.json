@@ -1,0 +1,92 @@
+[
+ {
+  "name": "scale_addr_wrong",
+  "subs": [
+   [
+    "    const float scale = vf3_aim_fbits(vf3_aim_u32(a, COLOR_SCALE_ADDR));",
+    "    const float scale = vf3_aim_fbits(vf3_aim_u32(a, COLOR_SCALE_ADDR + 4));"
+   ]
+  ]
+ },
+ {
+  "name": "scale_wrong_constant",
+  "subs": [
+   [
+    "    const float scale = vf3_aim_fbits(vf3_aim_u32(a, COLOR_SCALE_ADDR));",
+    "    const float scale = vf3_aim_fbits(vf3_aim_u32(a, COLOR_SCALE_ADDR)) + 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "wrap_condition_wrong",
+  "subs": [
+   [
+    "        converted = scaled[i] > half_range ? fadd(a, scaled[i], bias) : scaled[i];",
+    "        converted = scaled[i] >= half_range ? fadd(a, scaled[i], bias) : scaled[i];"
+   ]
+  ]
+ },
+ {
+  "name": "bias_sign_wrong",
+  "subs": [
+   [
+    "    const float bias = vf3_aim_fbits(vf3_aim_u32(a, COLOR_WRAP_BIAS_ADDR));",
+    "    const float bias = -vf3_aim_fbits(vf3_aim_u32(a, COLOR_WRAP_BIAS_ADDR));"
+   ]
+  ]
+ },
+ {
+  "name": "no_byte_clamp",
+  "subs": [
+   [
+    "        const uint32_t byte = raw[i] > 0xFFu ? 0xFFu : raw[i];",
+    "        const uint32_t byte = raw[i];"
+   ]
+  ]
+ },
+ {
+  "name": "packed_shift_wrong",
+  "subs": [
+   [
+    "        packed = (packed << 8) | byte;",
+    "        packed = (packed << 4) | byte;"
+   ]
+  ]
+ },
+ {
+  "name": "pack_order_lsb_first",
+  "subs": [
+   [
+    "        packed = (packed << 8) | byte;",
+    "        packed |= ((uint32_t)byte << (8 * i));"
+   ]
+  ]
+ },
+ {
+  "name": "scaled_channel_order",
+  "subs": [
+   [
+    "        scaled[i] = fmul(a, a->fr[4 + i], scale);",
+    "        scaled[i] = fmul(a, a->fr[4 + ((i + 1) & 3)], scale);"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_wrong_channel",
+  "subs": [
+   [
+    "    a->fpul = raw[3];",
+    "    a->fpul = raw[0];"
+   ]
+  ]
+ },
+ {
+  "name": "T_wrong",
+  "subs": [
+   [
+    "    set_t(a, raw[3] > 0xFFu);   /* last cmp/hi */",
+    "    set_t(a, raw[3] >= 0xFFu);   /* last cmp/hi */"
+   ]
+  ]
+ }
+]
