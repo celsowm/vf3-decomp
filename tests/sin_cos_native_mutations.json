@@ -1,0 +1,119 @@
+[
+ {
+  "name": "two_pi_wrong",
+  "subs": [
+   [
+    "    const float theta = fdivv(a, fmul(a, (float)angle, two_pi), turn);",
+    "    const float theta = fdivv(a, fmul(a, (float)angle, two_pi + 1.0f), turn);"
+   ]
+  ]
+ },
+ {
+  "name": "half_angle_div_wrong",
+  "subs": [
+   [
+    "    const float h = fdivv(a, theta, two);",
+    "    const float h = fdivv(a, theta, two + 1.0f);"
+   ]
+  ]
+ },
+ {
+  "name": "half_pi_scale_wrong",
+  "subs": [
+   [
+    "    const int32_t quadrant = (int32_t)ftrc(fadd(a, fdivv(a, h, half_pi), half));",
+    "    const int32_t quadrant = (int32_t)ftrc(fadd(a, fdivv(a, h, half_pi * 2.0f), half));"
+   ]
+  ]
+ },
+ {
+  "name": "quadrant_half_missing",
+  "subs": [
+   [
+    "    const int32_t quadrant = (int32_t)ftrc(fadd(a, fdivv(a, h, half_pi), half));",
+    "    const int32_t quadrant = (int32_t)ftrc(fadd(a, fdivv(a, h, half_pi), 0.0f));"
+   ]
+  ]
+ },
+ {
+  "name": "y_reduction_wrong",
+  "subs": [
+   [
+    "    const float y = fsub(a, h, fmul(a, (float)quadrant, half_pi));",
+    "    const float y = fsub(a, h, fmul(a, (float)quadrant, two_pi));"
+   ]
+  ]
+ },
+ {
+  "name": "cf_numerator_wrong",
+  "subs": [
+   [
+    "        frac = fdivv(a, y_sq, fsub(a, (float)k, frac));",
+    "        frac = fdivv(a, y, fsub(a, (float)k, frac));"
+   ]
+  ]
+ },
+ {
+  "name": "cf_end_wrong",
+  "subs": [
+   [
+    "    for (int k = 11; k >= 3; k -= 2)",
+    "    for (int k = 11; k >= 5; k -= 2)"
+   ]
+  ]
+ },
+ {
+  "name": "cf_step_wrong",
+  "subs": [
+   [
+    "    for (int k = 11; k >= 3; k -= 2)",
+    "    for (int k = 11; k >= 3; k -= 1)"
+   ]
+  ]
+ },
+ {
+  "name": "t_denom_wrong",
+  "subs": [
+   [
+    "    const float t = fdivv(a, y, fsub(a, 1.0f, frac));",
+    "    const float t = fdivv(a, y, fsub(a, 1.0f, frac + 1.0f));"
+   ]
+  ]
+ },
+ {
+  "name": "two_times_wrong",
+  "subs": [
+   [
+    "    const float sine = fdivv(a, fmul(a, t, two), denom);",
+    "    const float sine = fdivv(a, fmul(a, t, two + 1.0f), denom);"
+   ]
+  ]
+ },
+ {
+  "name": "quadrant_sign_wrong",
+  "subs": [
+   [
+    "    F(0) = (quadrant & 1) ? -sine : sine;",
+    "    F(0) = (quadrant & 1) ? sine : -sine;"
+   ]
+  ]
+ },
+ {
+  "name": "cos_fold_wrong",
+  "subs": [
+   [
+    "    if (angle > 0x8000u) angle = 0x10000u - angle;",
+    "    if (angle > 0x8000u) angle = 0x08000u - angle;"
+   ]
+  ]
+ },
+ {
+  "name": "cos_sub_wrong",
+  "subs": [
+   [
+    "    R(4) = 0x4000u - angle;",
+    "    R(4) = 0x8000u - angle;"
+   ]
+  ]
+ }
+]
