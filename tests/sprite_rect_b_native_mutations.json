@@ -1,0 +1,92 @@
+[
+ {
+  "name": "srb_bias_a_wrong",
+  "subs": [
+   [
+    "    const uint32_t BIAS_A = 0x3A8461F9u, BIAS_B = 0x33D6BF94u,",
+    "    const uint32_t BIAS_A = 0x3A8461F8u, BIAS_B = 0x33D6BF94u,"
+   ]
+  ]
+ },
+ {
+  "name": "srb_bias_b_wrong",
+  "subs": [
+   [
+    "    const uint32_t BIAS_A = 0x3A8461F9u, BIAS_B = 0x33D6BF94u,",
+    "    const uint32_t BIAS_A = 0x3A8461F9u, BIAS_B = 0x33D6BF95u,"
+   ]
+  ]
+ },
+ {
+  "name": "srb_bias_c_wrong",
+  "subs": [
+   [
+    "                   BIAS_C = 0x80000000u, BIAS_D = 0xBED70A3Du;",
+    "                   BIAS_C = 0x80000001u, BIAS_D = 0xBED70A3Du;"
+   ]
+  ]
+ },
+ {
+  "name": "srb_bias_d_wrong",
+  "subs": [
+   [
+    "                   BIAS_C = 0x80000000u, BIAS_D = 0xBED70A3Du;",
+    "                   BIAS_C = 0x80000000u, BIAS_D = 0xBED70A3Cu;"
+   ]
+  ]
+ },
+ {
+  "name": "srb_u0_store_offset",
+  "subs": [
+   [
+    "    wr32f(a, block + 24u, u0);",
+    "    wr32f(a, block + 28u, u0);"
+   ]
+  ]
+ },
+ {
+  "name": "srb_u1_store_offset",
+  "subs": [
+   [
+    "    wr32f(a, block + 32u, u1);",
+    "    wr32f(a, block + 36u, u1);"
+   ]
+  ]
+ },
+ {
+  "name": "srb_r0_value",
+  "subs": [
+   [
+    "    R(0) = 36;",
+    "    R(0) = 40;"
+   ]
+  ]
+ },
+ {
+  "name": "srb_fr1_assignment",
+  "subs": [
+   [
+    "    F(1) = vf3_aim_fbits(BIAS_C);",
+    "    F(1) = vf3_aim_fbits(BIAS_B);"
+   ]
+  ]
+ },
+ {
+  "name": "srb_mul_uses_sv",
+  "subs": [
+   [
+    "    const float u0 = fmul(a, fadd(a, x, vf3_aim_fbits(BIAS_A)), su);",
+    "    const float u0 = fmul(a, fadd(a, x, vf3_aim_fbits(BIAS_A)), sv);"
+   ]
+  ]
+ },
+ {
+  "name": "srb_v1_fr5_unset",
+  "subs": [
+   [
+    "    F(4) = u1;\n    F(5) = v1;",
+    "    F(4) = u1;\n    F(5) = vf3_aim_fbits(BIAS_A);"
+   ]
+  ]
+ }
+]
