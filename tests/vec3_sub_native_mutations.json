@@ -1,0 +1,65 @@
+[
+ {
+  "name": "vs_dx_from_a_not_b",
+  "subs": [
+   [
+    "    F(0) = fsub(a, F(0), F(4));",
+    "    F(0) = fsub(a, F(0), F(0));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_dx_wrong_source",
+  "subs": [
+   [
+    "    F(4) = load_f(a, R(6)); R(6) += 4;",
+    "    F(4) = load_f(a, R(5)); R(6) += 4;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_dy_off_load",
+  "subs": [
+   [
+    "    F(5) = load_f(a, R(6)); R(6) += 4;",
+    "    F(5) = load_f(a, R(6) + 4u); R(6) += 4;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_dz_sub_order",
+  "subs": [
+   [
+    "    F(2) = fsub(a, F(2), F(6));",
+    "    F(2) = fsub(a, F(6), F(2));"
+   ]
+  ]
+ },
+ {
+  "name": "vs_dstore_low",
+  "subs": [
+   [
+    "    store_f(a, R(4), F(0)); R(4) += 4;",
+    "    store_f(a, R(4) - 4u, F(0)); R(4) += 4;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_mid_store_wrong",
+  "subs": [
+   [
+    "    store_f(a, R(4), F(1)); R(4) += 4;",
+    "    store_f(a, R(4), F(2)); R(4) += 4;"
+   ]
+  ]
+ },
+ {
+  "name": "vs_skip_dx_add",
+  "subs": [
+   [
+    "    F(0) = fsub(a, F(0), F(4));",
+    "    F(0) = F(4);"
+   ]
+  ]
+ }
+]
