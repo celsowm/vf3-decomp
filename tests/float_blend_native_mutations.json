@@ -1,0 +1,92 @@
+[
+ {
+  "name": "fb_third_weight_pool",
+  "subs": [
+   [
+    "    R(0) = G_C;",
+    "    R(0) = G_A;"
+   ]
+  ]
+ },
+ {
+  "name": "fb_mul_uses_fr2",
+  "subs": [
+   [
+    "    F(3) = fmul(a, F(3), F(0));",
+    "    F(3) = fmul(a, F(3), F(2));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_first_mac_dropped",
+  "subs": [
+   [
+    "    R(3) = rd32(a, sp - 4u);              /* the slot at +12 */\n    F(3) = fmac(a, F(0), F(2), F(3));",
+    "    R(3) = rd32(a, sp - 4u);              /* the slot at +12 */\n    F(3) = F(3);"
+   ]
+  ]
+ },
+ {
+  "name": "fb_second_mac_dropped",
+  "subs": [
+   [
+    "    fload(a, 2, R(3));                    /* FR2: the slot at +12 */\n    F(3) = fmac(a, F(0), F(2), F(3));",
+    "    fload(a, 2, R(3));                    /* FR2: the slot at +12 */\n    F(3) = F(3);"
+   ]
+  ]
+ },
+ {
+  "name": "fb_slot0_uses_slot2",
+  "subs": [
+   [
+    "    /* and back into the slot at +0 */\n    fstore(a, 3, R(6));",
+    "    /* and back into the slot at +0 */\n    fstore(a, 3, R(7));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_slot4_store_off",
+  "subs": [
+   [
+    "    fstore(a, 3, R(3));",
+    "    fstore(a, 3, R(7));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_slot12_store_off",
+  "subs": [
+   [
+    "    fstore(a, 3, R(5));",
+    "    fstore(a, 3, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_frame_wrong_slot",
+  "subs": [
+   [
+    "    wr32(a, sp - 8u, R(3));",
+    "    wr32(a, sp - 12u, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_frame_wrong_slot2",
+  "subs": [
+   [
+    "    wr32(a, sp - 4u, R(5));",
+    "    wr32(a, sp - 16u, R(5));"
+   ]
+  ]
+ },
+ {
+  "name": "fb_array_second_load_off",
+  "subs": [
+   [
+    "    /* the array's second float, into the slot at +4 */\n    fload(a, 3, R(4));",
+    "    /* the array's second float, into the slot at +4 */\n    fload(a, 3, R(4) + 4u);"
+   ]
+  ]
+ }
+]
