@@ -1,0 +1,47 @@
+[
+ {
+  "name": "writes_xf12_wrong_slot",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, dst,          vf3_aim_ubits(a->xm[12]));",
+    "    vf3_aim_set_u32(a, dst,          vf3_aim_ubits(a->xm[13]));"
+   ]
+  ]
+ },
+ {
+  "name": "writes_xf13_with_sign_flip",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, dst + 4u,     vf3_aim_ubits(a->xm[13]));",
+    "    vf3_aim_set_u32(a, dst + 4u,     vf3_aim_ubits(a->xm[13]) ^ 0x80000000u);"
+   ]
+  ]
+ },
+ {
+  "name": "writes_xf14_wrong_slot",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, dst + 8u,     vf3_aim_ubits(a->xm[14]));",
+    "    vf3_aim_set_u32(a, dst + 8u,     vf3_aim_ubits(a->xm[12]));"
+   ]
+  ]
+ },
+ {
+  "name": "off_by_one_destination",
+  "subs": [
+   [
+    "    const uint32_t dst = a->r[4];",
+    "    const uint32_t dst = a->r[4] + 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "drops_middle_store",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, dst + 4u,     vf3_aim_ubits(a->xm[13]));\n    vf3_aim_set_u32(a, dst + 8u,     vf3_aim_ubits(a->xm[14]));",
+    "    vf3_aim_set_u32(a, dst + 8u,     vf3_aim_ubits(a->xm[14]));"
+   ]
+  ]
+ }
+]

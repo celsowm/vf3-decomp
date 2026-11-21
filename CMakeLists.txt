@@ -6784,6 +6784,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_pop.c
     src/native/matrix_load_wxyz.c
     src/native/mem_fill.c
+    src/native/xf_store.c
     src/native/xmtrx_identity.c
     src/native/xmtrx_transpose.c
     src/native/negate_run.c
@@ -6956,6 +6957,9 @@ target_include_directories(vf3nativematrixloadwxyz PRIVATE src/fight src/native)
 add_executable(vf3nativememfill tests/mem_fill_native_replay.c)
 target_link_libraries(vf3nativememfill PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativememfill PRIVATE src/fight src/native)
+add_executable(vf3nativexfstore tests/xf_store_native_replay.c)
+target_link_libraries(vf3nativexfstore PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativexfstore PRIVATE src/fight src/native)
 add_executable(vf3nativexmtrxidentity tests/xmtrx_identity_native_replay.c)
 target_link_libraries(vf3nativexmtrxidentity PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativexmtrxidentity PRIVATE src/fight src/native)
