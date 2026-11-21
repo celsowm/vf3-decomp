@@ -1,0 +1,83 @@
+[
+ {
+  "name": "store_wrong_word_count",
+  "subs": [
+   [
+    "    for (int i = 0; i < 16; ++i)\n        vf3_aim_set_u32(a, dest + 4u * (uint32_t)i, vf3_aim_ubits(a->xm[i]));",
+    "    for (int i = 0; i < 15; ++i)\n        vf3_aim_set_u32(a, dest + 4u * (uint32_t)i, vf3_aim_ubits(a->xm[i]));"
+   ]
+  ]
+ },
+ {
+  "name": "store_skipped",
+  "subs": [
+   [
+    "    for (int i = 0; i < 16; ++i)\n        vf3_aim_set_u32(a, dest + 4u * (uint32_t)i, vf3_aim_ubits(a->xm[i]));",
+    "    (void)dest;"
+   ]
+  ]
+ },
+ {
+  "name": "store_wrong_stack_ptr",
+  "subs": [
+   [
+    "    const uint32_t dest = R(4) ? R(4) : vf3_aim_u32(a, MATRIX_STACK_PTR);",
+    "    const uint32_t dest = R(4) ? R(4) : vf3_aim_u32(a, MATRIX_STACK_PTR + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "store_r0_not_set",
+  "subs": [
+   [
+    "    R(0) = dest;\n    R(4) = dest;",
+    "    R(4) = dest;"
+   ]
+  ]
+ },
+ {
+  "name": "store_r4_not_advanced",
+  "subs": [
+   [
+    "    R(0) = dest;\n    R(4) = dest;",
+    "    R(0) = dest;"
+   ]
+  ]
+ },
+ {
+  "name": "load_wrong_word_count",
+  "subs": [
+   [
+    "    for (int i = 0; i < 16; ++i)\n        a->xm[i] = vf3_aim_fbits(vf3_aim_u32(a, src + 4u * (uint32_t)i));",
+    "    for (int i = 0; i < 15; ++i)\n        a->xm[i] = vf3_aim_fbits(vf3_aim_u32(a, src + 4u * (uint32_t)i));"
+   ]
+  ]
+ },
+ {
+  "name": "load_wrong_stack_ptr",
+  "subs": [
+   [
+    "    const uint32_t src = R(4) ? R(4) : vf3_aim_u32(a, MATRIX_STACK_PTR);",
+    "    const uint32_t src = R(4) ? R(4) : vf3_aim_u32(a, MATRIX_STACK_PTR + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "load_r4_advance_wrong",
+  "subs": [
+   [
+    "    R(4) = src + 64u;",
+    "    R(4) = src + 60u;"
+   ]
+  ]
+ },
+ {
+  "name": "load_r4_not_advance",
+  "subs": [
+   [
+    "    R(4) = src + 64u;",
+    "    (void)src;"
+   ]
+  ]
+ }
+]
