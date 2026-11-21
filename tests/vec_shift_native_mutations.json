@@ -1,0 +1,92 @@
+[
+ {
+  "name": "offset_start_wrong",
+  "subs": [
+   [
+    "    a->fr[4] = vf3_aim_fbits(vf3_aim_u32(a, obj + OFFSET));",
+    "    a->fr[4] = vf3_aim_fbits(vf3_aim_u32(a, obj + OFFSET + 4));"
+   ]
+  ]
+ },
+ {
+  "name": "position_offset_wrong",
+  "subs": [
+   [
+    "    add_offset(a, obj + POSITION);",
+    "    add_offset(a, obj + POSITION + 4);"
+   ]
+  ]
+ },
+ {
+  "name": "points_ptr_offset_wrong",
+  "subs": [
+   [
+    "    R(5) = vf3_aim_u32(a, obj + POINTS_PTR);",
+    "    R(5) = vf3_aim_u32(a, obj + POINTS_PTR + 4);"
+   ]
+  ]
+ },
+ {
+  "name": "points_len_wrong",
+  "subs": [
+   [
+    "    R(6) = R(5) + POINTS_LEN;",
+    "    R(6) = R(5) + 0x160u;"
+   ]
+  ]
+ },
+ {
+  "name": "stride_wrong",
+  "subs": [
+   [
+    "            R(5) += POINT_STRIDE;",
+    "            R(5) += 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_wrong",
+  "subs": [
+   [
+    "    R(0) = 8;",
+    "    R(0) = 9;"
+   ]
+  ]
+ },
+ {
+  "name": "x_add_wrong_reg",
+  "subs": [
+   [
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr));      a->fr[3] = fadd(a, f, a->fr[4]); vf3_aim_set_u32(a, addr, vf3_aim_ubits(a->fr[3]));",
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr));      a->fr[3] = fadd(a, f, a->fr[5]); vf3_aim_set_u32(a, addr, vf3_aim_ubits(a->fr[3]));"
+   ]
+  ]
+ },
+ {
+  "name": "y_add_wrong_reg",
+  "subs": [
+   [
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr + 4));  a->fr[2] = fadd(a, f, a->fr[5]); vf3_aim_set_u32(a, addr + 4, vf3_aim_ubits(a->fr[2]));",
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr + 4));  a->fr[2] = fadd(a, f, a->fr[6]); vf3_aim_set_u32(a, addr + 4, vf3_aim_ubits(a->fr[2]));"
+   ]
+  ]
+ },
+ {
+  "name": "z_add_wrong_reg",
+  "subs": [
+   [
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr + 8));  a->fr[3] = fadd(a, f, a->fr[6]); vf3_aim_set_u32(a, addr + 8, vf3_aim_ubits(a->fr[3]));",
+    "    f = vf3_aim_fbits(vf3_aim_u32(a, addr + 8));  a->fr[3] = fadd(a, f, a->fr[4]); vf3_aim_set_u32(a, addr + 8, vf3_aim_ubits(a->fr[3]));"
+   ]
+  ]
+ },
+ {
+  "name": "T_not_set",
+  "subs": [
+   [
+    "        a->sr |= 1u;   /* SET_T(1) */",
+    "        ;"
+   ]
+  ]
+ }
+]
