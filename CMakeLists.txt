@@ -6794,7 +6794,8 @@ add_library(vf3nativeview STATIC
     src/native/segment_delta.c
     src/native/vec_lerp21.c
     src/native/extent_flip.c
-    src/native/frame_counter_step.c)
+    src/native/frame_counter_step.c
+    src/native/mem_move.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6960,6 +6961,9 @@ target_include_directories(vf3nativeextentflip PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)
+add_executable(vf3nativememmove tests/mem_move_native_replay.c)
+target_link_libraries(vf3nativememmove PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativememmove PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)

@@ -1,0 +1,74 @@
+[
+ {
+  "name": "mm_forward_wrong_dst",
+  "subs": [
+   [
+    "                wr8(a, dst + i, rd8(a, src + i));\n        } else {",
+    "                wr8(a, dst + i + 1, rd8(a, src + i));\n        } else {"
+   ]
+  ]
+ },
+ {
+  "name": "mm_backward_wrong_dst",
+  "subs": [
+   [
+    "            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i, rd8(a, src + i));",
+    "            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i + 1, rd8(a, src + i));"
+   ]
+  ]
+ },
+ {
+  "name": "mm_count_minus_one",
+  "subs": [
+   [
+    "            for (uint32_t i = 0; i < count; ++i)\n                wr8(a, dst + i, rd8(a, src + i));\n        } else {\n            for (uint32_t i = count; i-- > 0;)",
+    "            for (uint32_t i = 0; i < count - 1; ++i)\n                wr8(a, dst + i, rd8(a, src + i));\n        } else {\n            for (uint32_t i = count; i-- > 0;)"
+   ]
+  ]
+ },
+ {
+  "name": "mm_wrong_src",
+  "subs": [
+   [
+    "                wr8(a, dst + i, rd8(a, src + i));\n        } else {\n            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i, rd8(a, src + i));",
+    "                wr8(a, dst + i, rd8(a, src + i + 1));\n        } else {\n            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i, rd8(a, src + i + 1));"
+   ]
+  ]
+ },
+ {
+  "name": "mm_r0_wrong",
+  "subs": [
+   [
+    "    R(0) = dst;\n    a->sr |= 1u;",
+    "    R(0) = src;\n    a->sr |= 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "mm_t_clear",
+  "subs": [
+   [
+    "    R(0) = dst;\n    a->sr |= 1u;",
+    "    R(0) = dst;\n    a->sr &= ~1u;"
+   ]
+  ]
+ },
+ {
+  "name": "mm_forward_skip_first",
+  "subs": [
+   [
+    "            for (uint32_t i = 0; i < count; ++i)\n                wr8(a, dst + i, rd8(a, src + i));",
+    "            for (uint32_t i = 1; i < count; ++i)\n                wr8(a, dst + i, rd8(a, src + i));"
+   ]
+  ]
+ },
+ {
+  "name": "mm_forward_backward_flipped",
+  "subs": [
+   [
+    "        if (dst < src) {\n            for (uint32_t i = 0; i < count; ++i)\n                wr8(a, dst + i, rd8(a, src + i));\n        } else {\n            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i, rd8(a, src + i));",
+    "        if (!(dst < src)) {\n            for (uint32_t i = 0; i < count; ++i)\n                wr8(a, dst + i, rd8(a, src + i));\n        } else {\n            for (uint32_t i = count; i-- > 0;)\n                wr8(a, dst + i, rd8(a, src + i));"
+   ]
+  ]
+ }
+]
