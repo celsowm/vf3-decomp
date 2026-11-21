@@ -1,0 +1,101 @@
+[
+ {
+  "name": "dead_push_removed",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(15) - 4u, R(14));\n\n    if (dst == 0) {",
+    "    if (dst == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "dead_push_wrong_target",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(15) - 4u, R(14));",
+    "    vf3_aim_set_u32(a, R(15) - 8u, R(14));"
+   ]
+  ]
+ },
+ {
+  "name": "load_arm_removed",
+  "subs": [
+   [
+    "            R(4) = src;\n            vf3_native_matrix_load(a);",
+    "            (void)src;"
+   ]
+  ]
+ },
+ {
+  "name": "store_arm_removed",
+  "subs": [
+   [
+    "        vf3_native_matrix_store(a);",
+    "        (void)0;"
+   ]
+  ]
+ },
+ {
+  "name": "copy_loop_skipped",
+  "subs": [
+   [
+    "    for (int i = 0; i < MATRIX_WORDS; ++i) {\n        word = vf3_aim_u32(a, src + 4u * (uint32_t)i);\n        vf3_aim_set_u32(a, dst + 4u * (uint32_t)i, word);\n    }",
+    "    (void)word;"
+   ]
+  ]
+ },
+ {
+  "name": "copy_wrong_count",
+  "subs": [
+   [
+    "    for (int i = 0; i < MATRIX_WORDS; ++i) {\n        word = vf3_aim_u32(a, src + 4u * (uint32_t)i);",
+    "    for (int i = 0; i < MATRIX_WORDS - 1; ++i) {\n        word = vf3_aim_u32(a, src + 4u * (uint32_t)i);"
+   ]
+  ]
+ },
+ {
+  "name": "copy_reversed_direction",
+  "subs": [
+   [
+    "        word = vf3_aim_u32(a, src + 4u * (uint32_t)i);\n        vf3_aim_set_u32(a, dst + 4u * (uint32_t)i, word);",
+    "        word = vf3_aim_u32(a, dst + 4u * (uint32_t)i);\n        vf3_aim_set_u32(a, src + 4u * (uint32_t)i, word);"
+   ]
+  ]
+ },
+ {
+  "name": "fr3_wrong",
+  "subs": [
+   [
+    "    a->fr[3] = vf3_aim_fbits(word);",
+    "    a->fr[3] = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "r4_zero_wrong",
+  "subs": [
+   [
+    "    R(4) = 0u;",
+    "    R(4) = 1u;"
+   ]
+  ]
+ },
+ {
+  "name": "r5_advance_wrong",
+  "subs": [
+   [
+    "    R(5) = dst + MATRIX_BYTES;",
+    "    R(5) = dst + 60u;"
+   ]
+  ]
+ },
+ {
+  "name": "r6_advance_wrong",
+  "subs": [
+   [
+    "    R(6) = src + MATRIX_BYTES;",
+    "    R(6) = src + 60u;"
+   ]
+  ]
+ }
+]
