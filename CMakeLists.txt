@@ -6809,7 +6809,8 @@ add_library(vf3nativeview STATIC
     src/native/push_offset.c
     src/native/float_blend.c
     src/native/record_state_get.c
-    src/native/vertex_writer.c)
+    src/native/vertex_writer.c
+    src/native/vertex_emit.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -7020,6 +7021,9 @@ target_include_directories(vf3nativerecordstateget PRIVATE src/fight src/native)
 add_executable(vf3nativevertexwriter tests/vertex_writer_native_replay.c)
 target_link_libraries(vf3nativevertexwriter PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativevertexwriter PRIVATE src/fight src/native)
+add_executable(vf3nativevertexemit tests/vertex_emit_native_replay.c)
+target_link_libraries(vf3nativevertexemit PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevertexemit PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)

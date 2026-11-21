@@ -1,0 +1,92 @@
+[
+ {
+  "name": "ve_slot_mask_wrong",
+  "subs": [
+   [
+    "    const uint32_t offset = (R(11) & RING_SLOTS_MASK) * SLOT_SIZE;",
+    "    const uint32_t offset = (R(11) & 1u) * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "ve_slot_mask_dropped",
+  "subs": [
+   [
+    "    const uint32_t offset = (R(11) & RING_SLOTS_MASK) * SLOT_SIZE;",
+    "    const uint32_t offset = R(11) * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "ve_fr4_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x00, vf3_aim_ubits(F(4)));",
+    "    wr32(a, base + 0x00, vf3_aim_ubits(F(5)));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_fr7_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x0C, vf3_aim_ubits(F(7)));",
+    "    wr32(a, base + 0x0C, vf3_aim_ubits(F(6)));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_r1_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x10, R(1));",
+    "    wr32(a, base + 0x10, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_r2_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x14, R(2));",
+    "    wr32(a, base + 0x14, R(1));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_fr2_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x18, vf3_aim_ubits(F(2)));",
+    "    wr32(a, base + 0x18, vf3_aim_ubits(F(3)));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_fr3_store_off",
+  "subs": [
+   [
+    "    wr32(a, base + 0x1C, vf3_aim_ubits(F(3)));",
+    "    wr32(a, base + 0x1C, vf3_aim_ubits(F(4)));"
+   ]
+  ]
+ },
+ {
+  "name": "ve_r0_wrong",
+  "subs": [
+   [
+    "    R(0) = offset;\n    R(10) = base;",
+    "    R(0) = base;\n    R(10) = base;"
+   ]
+  ]
+ },
+ {
+  "name": "ve_r10_wrong",
+  "subs": [
+   [
+    "    R(0) = offset;\n    R(10) = base;",
+    "    R(0) = offset;\n    R(10) = offset;"
+   ]
+  ]
+ }
+]
