@@ -1,0 +1,65 @@
+[
+ {
+  "name": "missing_pushes",
+  "subs": [
+   [
+    "    for (int i = 0; i < 3; ++i)\n        vf3_aim_set_u32(a, sp - 4u * (uint32_t)(i + 1), vf3_aim_ubits(a->fr[6 - i]));\n    a->fpul = saved_xf15;",
+    "    a->fpul = saved_xf15;"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_wrong",
+  "subs": [
+   [
+    "    a->fpul = saved_xf15;",
+    "    a->fpul = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "scale_source_wrong",
+  "subs": [
+   [
+    "        const float scale = a->fr[4 + axis];",
+    "        const float scale = a->fr[4 + (2 - axis)];"
+   ]
+  ]
+ },
+ {
+  "name": "axis_count_short",
+  "subs": [
+   [
+    "    for (int axis = 0; axis < 3; ++axis) {",
+    "    for (int axis = 0; axis < 2; ++axis) {"
+   ]
+  ]
+ },
+ {
+  "name": "column_count_short",
+  "subs": [
+   [
+    "        for (int i = 0; i < 4; ++i)",
+    "        for (int i = 0; i < 3; ++i)"
+   ]
+  ]
+ },
+ {
+  "name": "no_ftz",
+  "subs": [
+   [
+    "    return flush(a, z);",
+    "    return z;"
+   ]
+  ]
+ },
+ {
+  "name": "round_nearest_not_toward",
+  "subs": [
+   [
+    "    fesetround((a->fpscr & 1u) ? FE_TOWARDZERO : FE_TONEAREST);\n    volatile float z = x * y;",
+    "    fesetround(FE_TONEAREST);\n    volatile float z = x * y;"
+   ]
+  ]
+ }
+]
