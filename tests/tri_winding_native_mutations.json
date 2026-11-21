@@ -1,0 +1,83 @@
+[
+ {
+  "name": "d12x_uses_x2_x1",
+  "subs": [
+   [
+    "    const float d12x = fsub(a, x2, x1);",
+    "    const float d12x = fsub(a, x2, x0);"
+   ]
+  ]
+ },
+ {
+  "name": "d01y_uses_y1_y0",
+  "subs": [
+   [
+    "    const float d01y = fsub(a, y1, y0);",
+    "    const float d01y = fsub(a, y2, y0);"
+   ]
+  ]
+ },
+ {
+  "name": "p_a_d01y_d12x",
+  "subs": [
+   [
+    "    const float p_a = fmul(a, d01y, d12x);",
+    "    const float p_a = fmul(a, d01y, d12y);"
+   ]
+  ]
+ },
+ {
+  "name": "p_b_d01x_d12y",
+  "subs": [
+   [
+    "    const float p_b = fmul(a, d01x, d12y);",
+    "    const float p_b = fmul(a, d01x, d12x);"
+   ]
+  ]
+ },
+ {
+  "name": "area_minus_not_plus",
+  "subs": [
+   [
+    "    const float area = fsub(a, p_a, p_b);",
+    "    const float area = fop(a, p_a, p_b, '+');"
+   ]
+  ]
+ },
+ {
+  "name": "positive_uses_ge",
+  "subs": [
+   [
+    "    if (area > 0.0f)",
+    "    if (area >= 0.0f)"
+   ]
+  ]
+ },
+ {
+  "name": "degenerate_before_negative_swapped",
+  "subs": [
+   [
+    "        result = (area == 0.0f) ? WINDING_DEGENERATE : WINDING_NEGATIVE;",
+    "        result = (area == 0.0f) ? WINDING_NEGATIVE : WINDING_DEGENERATE;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_off_by_one_result",
+  "subs": [
+   [
+    "enum { WINDING_POSITIVE = 2, WINDING_DEGENERATE = 1, WINDING_NEGATIVE = 4 };",
+    "enum { WINDING_POSITIVE = 2, WINDING_DEGENERATE = 1, WINDING_NEGATIVE = 5 };"
+   ]
+  ]
+ },
+ {
+  "name": "y0_uses_fr3",
+  "subs": [
+   [
+    "    const float x0 = a->fr[4], y0 = a->fr[5];",
+    "    const float x0 = a->fr[4], y0 = a->fr[3];"
+   ]
+  ]
+ }
+]
