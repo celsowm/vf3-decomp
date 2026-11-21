@@ -1,0 +1,65 @@
+[
+ {
+  "name": "cc_high_bound_wrong",
+  "subs": [
+   [
+    "    R(1) = 17;",
+    "    R(1) = 16;"
+   ]
+  ]
+ },
+ {
+  "name": "cc_low_bound_wrong",
+  "subs": [
+   [
+    "        R(1) = 9;\n        set_t(a, (int32_t)R(0) >= (int32_t)R(1));",
+    "        R(1) = 8;\n        set_t(a, (int32_t)R(0) >= (int32_t)R(1));"
+   ]
+  ]
+ },
+ {
+  "name": "cc_high_result_wrong",
+  "subs": [
+   [
+    "        R(0) = 10;",
+    "        R(0) = 11;"
+   ]
+  ]
+ },
+ {
+  "name": "cc_scale_wrong",
+  "subs": [
+   [
+    "    R(0) <<= 2;                       /* four times the clamped value */",
+    "    R(0) <<= 3;                       /* four times the clamped value */"
+   ]
+  ]
+ },
+ {
+  "name": "cc_global_wrong",
+  "subs": [
+   [
+    "    R(1) = 0x0C058FDCu;               /* the global */",
+    "    R(1) = 0x0C058FE0u;               /* the global */"
+   ]
+  ]
+ },
+ {
+  "name": "cc_r4_no_advance",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(1), R(0));\n    R(4) += 4;",
+    "    vf3_aim_set_u32(a, R(1), R(0));\n    R(4) += 8;"
+   ]
+  ]
+ },
+ {
+  "name": "cc_t_on_high_path_inverted",
+  "subs": [
+   [
+    "    set_t(a, (int32_t)R(0) >= (int32_t)R(1));\n    if ((int32_t)R(0) >= (int32_t)R(1)) {\n        R(0) = 10;",
+    "    set_t(a, (int32_t)R(0) > (int32_t)R(1));\n    if ((int32_t)R(0) >= (int32_t)R(1)) {\n        R(0) = 10;"
+   ]
+  ]
+ }
+]

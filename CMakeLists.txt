@@ -6799,7 +6799,8 @@ add_library(vf3nativeview STATIC
     src/native/div_helpers.c
     src/native/aim_step.c
     src/native/motion_state_check.c
-    src/native/pointer_chase.c)
+    src/native/pointer_chase.c
+    src/native/clamp_cell.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6980,6 +6981,9 @@ target_include_directories(vf3nativemotionstatecheck PRIVATE src/fight src/nativ
 add_executable(vf3nativepointerchase tests/pointer_chase_native_replay.c)
 target_link_libraries(vf3nativepointerchase PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepointerchase PRIVATE src/fight src/native)
+add_executable(vf3nativeclampcell tests/clamp_cell_native_replay.c)
+target_link_libraries(vf3nativeclampcell PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeclampcell PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)
