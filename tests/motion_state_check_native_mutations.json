@@ -1,0 +1,65 @@
+[
+ {
+  "name": "msc_null_test_inverted",
+  "subs": [
+   [
+    "    if (R(4) == 0) {",
+    "    if (R(4) == 1u) {"
+   ]
+  ]
+ },
+ {
+  "name": "msc_null_t_wrong",
+  "subs": [
+   [
+    "    set_t(a, R(4) == 0);",
+    "    set_t(a, R(4) == 1);"
+   ]
+  ]
+ },
+ {
+  "name": "msc_h48_test_inverted",
+  "subs": [
+   [
+    "    if (R(3) == 0) {",
+    "    if (R(3) != 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "msc_h48_t_wrong",
+  "subs": [
+   [
+    "    set_t(a, R(3) == 0);",
+    "    set_t(a, R(3) == 1);"
+   ]
+  ]
+ },
+ {
+  "name": "msc_word_offset",
+  "subs": [
+   [
+    "    R(3) = vf3_aim_u32(a, R(4) + 12u);",
+    "    R(3) = vf3_aim_u32(a, R(4) + 16u);"
+   ]
+  ]
+ },
+ {
+  "name": "msc_store_target",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, R(5), R(3));",
+    "    vf3_aim_set_u32(a, R(4), R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "msc_success_r0",
+  "subs": [
+   [
+    "    R(0) = 1u;",
+    "    R(0) = 2u;"
+   ]
+  ]
+ }
+]
