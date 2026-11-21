@@ -1,0 +1,83 @@
+[
+ {
+  "name": "dh_div_s32_rem_loop",
+  "subs": [
+   [
+    "    for (int i = 0; i < 33; ++i) {\n        const int carry = (int)(dividend >> 31);\n        dividend = (dividend << 1) | (uint32_t)f->t;\n        f->t = carry;\n        if (i < 32) div1_step(&rem, divisor, f);\n    }",
+    "    for (int i = 0; i < 32; ++i) {\n        const int carry = (int)(dividend >> 31);\n        dividend = (dividend << 1) | (uint32_t)f->t;\n        f->t = carry;\n        if (i < 32) div1_step(&rem, divisor, f);\n    }"
+   ]
+  ]
+ },
+ {
+  "name": "dh_mod32_loop",
+  "subs": [
+   [
+    "    uint32_t dividend = R(1), rem = 0;\n    for (int i = 0; i < 32; ++i) {",
+    "    uint32_t dividend = R(1), rem = 0;\n    for (int i = 0; i < 31; ++i) {"
+   ]
+  ]
+ },
+ {
+  "name": "dh_div_s32_sign",
+  "subs": [
+   [
+    "    const int negative = (int32_t)dividend < 0;\n    dividend -= (uint32_t)negative;",
+    "    const int negative = 0;\n    dividend -= (uint32_t)negative;"
+   ]
+  ]
+ },
+ {
+  "name": "dh_mod_s32_sign",
+  "subs": [
+   [
+    "    const uint32_t negative = dividend >> 31;",
+    "    const uint32_t negative = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "dh_div_zero_r1w",
+  "subs": [
+   [
+    "    if (divisor == 0) { div_zero(a, DIV_ERROR_ADDR); return; }\n    wr32(a, sp - 8u, R(3));",
+    "    if (divisor == 0) { div_zero(a, DIV_ERROR_CODE); return; }\n    wr32(a, sp - 8u, R(3));"
+   ]
+  ]
+ },
+ {
+  "name": "dh_mod_u32_adj",
+  "subs": [
+   [
+    "    R(0) = f.t ? rem : rem + divisor;",
+    "    R(0) = f.t ? rem : rem;"
+   ]
+  ]
+ },
+ {
+  "name": "dh_mismatch_gate",
+  "subs": [
+   [
+    "    const uint32_t mismatch = (f.t ^ negative) & 1u;",
+    "    const uint32_t mismatch = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "dh_scratch_push",
+  "subs": [
+   [
+    "    wr32(a, sp - 4u, R(2));\n    if (divisor == 0) { div_zero(a, DIV_ERROR_ADDR); return; }",
+    "    wr32(a, sp - 4u, R(3));\n    if (divisor == 0) { div_zero(a, DIV_ERROR_ADDR); return; }"
+   ]
+  ]
+ },
+ {
+  "name": "dh_div0_flags",
+  "subs": [
+   [
+    "    set_flags(a, (SR >> 8) & 1, (SR >> 9) & 1, 1);   /* tst r0,r0 found zero */\n    wr32(a, DIV_ERROR_ADDR, DIV_ERROR_CODE);",
+    "    set_flags(a, (SR >> 8) & 1, (SR >> 9) & 1, 0);   /* tst r0,r0 found zero */\n    wr32(a, DIV_ERROR_ADDR, DIV_ERROR_CODE);"
+   ]
+  ]
+ }
+]
