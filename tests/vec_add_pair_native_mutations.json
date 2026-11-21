@@ -1,0 +1,65 @@
+[
+ {
+  "name": "vap_gate_sense_flipped",
+  "subs": [
+   [
+    "    set_t(a, (gate & GATE_BIT) == 0);",
+    "    set_t(a, (gate & GATE_BIT) != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "vap_gate_bit_wrong",
+  "subs": [
+   [
+    "        uint8_t b = vf3_aim_u8(a, R(4) + 97);",
+    "        uint8_t b = vf3_aim_u8(a, R(4) + 99);"
+   ]
+  ]
+ },
+ {
+  "name": "vap_byte_val_wrong",
+  "subs": [
+   [
+    "        set_t(a, b == 11);",
+    "        set_t(a, b == 12);"
+   ]
+  ]
+ },
+ {
+  "name": "vap_aplus24_off",
+  "subs": [
+   [
+    "        uint32_t pa = A + 24;",
+    "        uint32_t pa = A + 12;"
+   ]
+  ]
+ },
+ {
+  "name": "vap_store_y_dest",
+  "subs": [
+   [
+    "    F(2) = load_f(a, R(2) + R(0));",
+    "    F(2) = load_f(a, R(2) + R(0) + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "vap_skip_dy",
+  "subs": [
+   [
+    "    store_f(a, R(2) + R(0), F(2));",
+    "    ;"
+   ]
+  ]
+ },
+ {
+  "name": "vap_r3_mislabel",
+  "subs": [
+   [
+    "    R(3) = B;                 /* r3 = b (the caller's B) */",
+    "    R(3) = D;                 /* r3 = b (the caller's B) */"
+   ]
+  ]
+ }
+]

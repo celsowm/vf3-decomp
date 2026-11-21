@@ -6786,7 +6786,8 @@ add_library(vf3nativeview STATIC
     src/native/atan_table.c
     src/native/sin_cos.c
     src/native/vec_offset.c
-    src/native/vec3_sub.c)
+    src/native/vec3_sub.c
+    src/native/vec_add_pair.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6928,6 +6929,9 @@ target_include_directories(vf3nativevecoffset PRIVATE src/fight src/native)
 add_executable(vf3nativevec3sub tests/vec3_sub_native_replay.c)
 target_link_libraries(vf3nativevec3sub PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativevec3sub PRIVATE src/fight src/native)
+add_executable(vf3nativevecaddpair tests/vec_add_pair_native_replay.c)
+target_link_libraries(vf3nativevecaddpair PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevecaddpair PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)
