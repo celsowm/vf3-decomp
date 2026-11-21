@@ -1,0 +1,65 @@
+[
+ {
+  "name": "first_pair_wrong",
+  "subs": [
+   [
+    "    SWAP(1, 4);",
+    "    SWAP(1, 5);"
+   ]
+  ]
+ },
+ {
+  "name": "first_pair_removed",
+  "subs": [
+   [
+    "    SWAP(1, 4);\n    SWAP(2, 8);",
+    "    SWAP(2, 8);"
+   ]
+  ]
+ },
+ {
+  "name": "second_pair_wrong",
+  "subs": [
+   [
+    "    SWAP(2, 8);",
+    "    SWAP(2, 4);"
+   ]
+  ]
+ },
+ {
+  "name": "third_pair_wrong",
+  "subs": [
+   [
+    "    SWAP(3, 12);",
+    "    SWAP(3, 13);"
+   ]
+  ]
+ },
+ {
+  "name": "fourth_pair_wrong",
+  "subs": [
+   [
+    "    SWAP(6, 9);",
+    "    SWAP(6, 8);"
+   ]
+  ]
+ },
+ {
+  "name": "fifth_pair_removed",
+  "subs": [
+   [
+    "    SWAP(7, 13);\n    SWAP(11, 14);",
+    "    SWAP(11, 14);"
+   ]
+  ]
+ },
+ {
+  "name": "last_pair_wrong",
+  "subs": [
+   [
+    "    SWAP(11, 14);",
+    "    SWAP(11, 15);"
+   ]
+  ]
+ }
+]
