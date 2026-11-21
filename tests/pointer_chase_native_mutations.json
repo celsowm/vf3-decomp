@@ -1,0 +1,38 @@
+[
+ {
+  "name": "pc_pool_addr_wrong",
+  "subs": [
+   [
+    "    const uint32_t pool_addr = 0x0c03548cu;",
+    "    const uint32_t pool_addr = 0x0c035490u;"
+   ]
+  ]
+ },
+ {
+  "name": "pc_first_offset_wrong",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, R(0) + 40u);",
+    "    R(0) = vf3_aim_u32(a, R(0) + 44u);"
+   ]
+  ]
+ },
+ {
+  "name": "pc_second_deref_skipped",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, R(0) + 40u);",
+    "    R(0) = vf3_aim_u32(a, R(3) + 40u);"
+   ]
+  ]
+ },
+ {
+  "name": "pc_r0_still_from_first_deref",
+  "subs": [
+   [
+    "    R(0) = vf3_aim_u32(a, R(3));\n\n    /* r0 = read(r0 + 40) */\n    R(0) = vf3_aim_u32(a, R(0) + 40u);",
+    "    R(0) = vf3_aim_u32(a, R(3));\n\n    /* r0 = read(r0 + 40) */\n    /* (deref removed) */"
+   ]
+  ]
+ }
+]
