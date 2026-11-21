@@ -1,0 +1,101 @@
+[
+ {
+  "name": "fold_abs_mask_wrong",
+  "subs": [
+   [
+    "    if (bits2f(fbits(x) & 0x7FFFFFFFu) > one) u = fdivv(a, one, x);",
+    "    if (bits2f(fbits(x)) > one) u = fdivv(a, one, x);"
+   ]
+  ]
+ },
+ {
+  "name": "fold_div_inverted",
+  "subs": [
+   [
+    "    if (bits2f(fbits(x) & 0x7FFFFFFFu) > one) u = fdivv(a, one, x);",
+    "    if (bits2f(fbits(x) & 0x7FFFFFFFu) > one) u = fdivv(a, x, one);"
+   ]
+  ]
+ },
+ {
+  "name": "den_one_wrong",
+  "subs": [
+   [
+    "        den = fadd(a, den, one);\n        num = fmul(a, num, u);",
+    "        den = fadd(a, den, 0.5f);\n        num = fmul(a, num, u);"
+   ]
+  ]
+ },
+ {
+  "name": "loop_break_wrong",
+  "subs": [
+   [
+    "        if (n < 1) break;",
+    "        if (n < 0) break;"
+   ]
+  ]
+ },
+ {
+  "name": "frac_square_wrong",
+  "subs": [
+   [
+    "        sq = fmul(a, fn, fn);",
+    "        sq = fmul(a, fn, u);"
+   ]
+  ]
+ },
+ {
+  "name": "frac_t_denom_wrong",
+  "subs": [
+   [
+    "        num = fmul(a, num, u);\n        t = fdivv(a, num, den);",
+    "        num = fmul(a, num, u);\n        t = fdivv(a, num, sq);"
+   ]
+  ]
+ },
+ {
+  "name": "quadrant_low_constant_wrong",
+  "subs": [
+   [
+    "    else if (bits2f(0xBF800000u) > x) r0 = 0xC000u - ang;",
+    "    else if (bits2f(0xBF800000u) > x) r0 = 0xC100u - ang;"
+   ]
+  ]
+ },
+ {
+  "name": "quadrant_high_wrong",
+  "subs": [
+   [
+    "    if (x > one) r0 = 0x4000u - ang;",
+    "    if (x > one) r0 = 0x4000u + ang;"
+   ]
+  ]
+ },
+ {
+  "name": "mask_wrong",
+  "subs": [
+   [
+    "    r0 &= 0xFFFFu;",
+    "    r0 &= 0xFFFu;"
+   ]
+  ]
+ },
+ {
+  "name": "r4_wrong_register",
+  "subs": [
+   [
+    "    R(4) = ang;",
+    "    R(4) = raw;"
+   ]
+  ]
+ },
+ {
+  "name": "T_flag_wrong",
+  "subs": [
+   [
+    "    const int tflag = x > one ? 1 : (bits2f(0xBF800000u) > x);",
+    "    const int tflag = x > one ? 0 : (bits2f(0xBF800000u) > x);"
+   ]
+  ]
+ }
+]

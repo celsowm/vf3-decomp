@@ -6780,7 +6780,8 @@ add_library(vf3nativeview STATIC
     src/native/float_to_short.c
     src/native/tri_winding.c
     src/native/vec_shift.c
-    src/native/color_pack.c)
+    src/native/color_pack.c
+    src/native/atan_turn.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6904,6 +6905,9 @@ target_include_directories(vf3nativevecshift PRIVATE src/fight src/native)
 add_executable(vf3nativecolorpack tests/color_pack_native_replay.c)
 target_link_libraries(vf3nativecolorpack PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativecolorpack PRIVATE src/fight src/native)
+add_executable(vf3nativeatanturn tests/atan_turn_native_replay.c)
+target_link_libraries(vf3nativeatanturn PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeatanturn PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)
