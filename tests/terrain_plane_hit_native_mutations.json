@@ -1,0 +1,110 @@
+[
+ {
+  "name": "tph_qr_swap",
+  "subs": [
+   [
+    "    if (R(7) == 4) { rr = rd32(a, shape + 16); q = rd32(a, shape + 12); }\n    else           { q = rd32(a, shape + 8);   rr = rd32(a, shape + 12); }",
+    "    if (R(7) == 4) { rr = rd32(a, shape + 12); q = rd32(a, shape + 16); }\n    else           { q = rd32(a, shape + 12);   rr = rd32(a, shape + 8); }"
+   ]
+  ]
+ },
+ {
+  "name": "tph_r7_test_flip",
+  "subs": [
+   [
+    "    if (R(7) == 4) {",
+    "    if (R(7) == 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "tph_first_off_wrong",
+  "subs": [
+   [
+    "    const uint32_t first = rd32(a, shape + 4);",
+    "    const uint32_t first = rd32(a, shape + 8);"
+   ]
+  ]
+ },
+ {
+  "name": "tph_fsub_q",
+  "subs": [
+   [
+    "    F(4) = fbin(a, '-', F(4), F(2));",
+    "    F(4) = fbin(a, '+', F(4), F(2));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_fsub_p",
+  "subs": [
+   [
+    "    F(0) = fbin(a, '-', F(0), F(14));",
+    "    F(0) = fbin(a, '*', F(0), F(14));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_cross1_swap",
+  "subs": [
+   [
+    "    F(7) = fbin(a, '*', F(7), F(8));\n    F(6) = fbin(a, '*', F(6), F(9));",
+    "    F(7) = fbin(a, '*', F(7), F(8));\n    F(6) = fbin(a, '*', F(6), F(10));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_norm_neg_skip",
+  "subs": [
+   [
+    "    F(5) = -F(5);",
+    "    F(5) = F(5);"
+   ]
+  ]
+ },
+ {
+  "name": "tph_mac2_src",
+  "subs": [
+   [
+    "    F(2) = fmac(a, F(0), F(14), F(2));",
+    "    F(2) = fmac(a, F(0), F(1), F(2));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_div_dst",
+  "subs": [
+   [
+    "    F(4) = fbin(a, '/', F(4), F(5));",
+    "    F(4) = fbin(a, '/', F(4), F(7));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_normal_src",
+  "subs": [
+   [
+    "    F(3) = vf3_aim_fbits(rd32(a, rec + 20));",
+    "    F(3) = vf3_aim_fbits(rd32(a, rec + 24));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_norm_out_off",
+  "subs": [
+   [
+    "    wr32(a, out_n + 8, vf3_aim_ubits(F(3)));",
+    "    wr32(a, out_n + 4, vf3_aim_ubits(F(3)));"
+   ]
+  ]
+ },
+ {
+  "name": "tph_ret_mask",
+  "subs": [
+   [
+    "    R(0) = ((word << 1) & WORD_MASK) | R(1);",
+    "    R(0) = ((word << 1) & 0x3FFF8u) | R(1);"
+   ]
+  ]
+ }
+]
