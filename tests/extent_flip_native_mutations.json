@@ -1,0 +1,74 @@
+[
+ {
+  "name": "ef_a2_sign_flip_dropped",
+  "subs": [
+   [
+    "    fr7 = bits2f(fbits(fr7) ^ 0x80000000u); /* -(-b2-a2) = a2+b2 */",
+    "    fr7 = bits2f(fbits(fr7)); /* a2 = -b2-a2 */"
+   ]
+  ]
+ },
+ {
+  "name": "ef_clamp_ge_boundary",
+  "subs": [
+   [
+    "        const int over = (fr5 > F(4));      /* fcmp/gt FR4,FR5: fr5 > fr4 */",
+    "        const int over = (fr5 >= F(4));     /* wrong: >= */"
+   ]
+  ]
+ },
+ {
+  "name": "ef_flag_bit_wrong",
+  "subs": [
+   [
+    "    if (!(flags & 2u)) {",
+    "    if (!(flags & 1u)) {"
+   ]
+  ]
+ },
+ {
+  "name": "ef_flag_mask_wrong",
+  "subs": [
+   [
+    "            R(2) = vf3_aim_u32(a, flags_at) & 0xFFFFFFFEu;",
+    "            R(2) = vf3_aim_u32(a, flags_at) & 0xFFFFFFFDu;"
+   ]
+  ]
+ },
+ {
+  "name": "ef_store_a0_for_a1",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, rec + 4, vf3_aim_ubits(fr5));",
+    "    vf3_aim_set_u32(a, rec + 4, vf3_aim_ubits(fr6));"
+   ]
+  ]
+ },
+ {
+  "name": "ef_clamp_value_fr5",
+  "subs": [
+   [
+    "            fr5 = F(4);                     /* FMOV(5,4) */",
+    "            fr5 = F(5);                     /* wrong reg */"
+   ]
+  ]
+ },
+ {
+  "name": "ef_b1_read_b2",
+  "subs": [
+   [
+    "    float fr5 = load_f(a, rec + 16);        /* b1 */",
+    "    float fr5 = load_f(a, rec + 20);        /* wrong: b2 */"
+   ]
+  ]
+ },
+ {
+  "name": "ef_store_a0_for_a2",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, rec + 8, vf3_aim_ubits(fr7));",
+    "    vf3_aim_set_u32(a, rec + 8, vf3_aim_ubits(fr6));"
+   ]
+  ]
+ }
+]
