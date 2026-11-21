@@ -6801,7 +6801,8 @@ add_library(vf3nativeview STATIC
     src/native/motion_state_check.c
     src/native/pointer_chase.c
     src/native/clamp_cell.c
-    src/native/queue_ops.c)
+    src/native/queue_ops.c
+    src/native/pool_alloc.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -6988,6 +6989,9 @@ target_include_directories(vf3nativeclampcell PRIVATE src/fight src/native)
 add_executable(vf3nativequeueops tests/queue_ops_native_replay.c)
 target_link_libraries(vf3nativequeueops PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativequeueops PRIVATE src/fight src/native)
+add_executable(vf3nativepoolalloc tests/pool_alloc_native_replay.c)
+target_link_libraries(vf3nativepoolalloc PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativepoolalloc PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)
 target_link_libraries(vf3nativepackexpand PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativepackexpand PRIVATE src/fight src/native)

@@ -1,0 +1,74 @@
+[
+ {
+  "name": "pa_cursor_advance_wrong",
+  "subs": [
+   [
+    "        uint32_t next = cursor + 1;",
+    "        uint32_t next = cursor + 2;"
+   ]
+  ]
+ },
+ {
+  "name": "pa_cursor_free_test_wrong",
+  "subs": [
+   [
+    "    if (vf3_aim_h16(a, entry) == 0) {",
+    "    if (vf3_aim_h16(a, entry) == 1) {"
+   ]
+  ]
+ },
+ {
+  "name": "pa_pool_off_wrong",
+  "subs": [
+   [
+    "    const uint32_t pool = vf3_aim_u32(a, layer + LAYER_POOL);",
+    "    const uint32_t pool = vf3_aim_u32(a, layer + LAYER_POOL) + 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "pa_entry_stride_wrong",
+  "subs": [
+   [
+    "    uint32_t entry = pool + cursor * ENTRY_BYTES;",
+    "    uint32_t entry = pool + cursor * (ENTRY_BYTES + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "pa_wrap_bound_wrong",
+  "subs": [
+   [
+    "        if (R(3) >= POOL_ENTRIES) {",
+    "        if (R(3) > POOL_ENTRIES) {"
+   ]
+  ]
+ },
+ {
+  "name": "pa_full_r0_nonzero",
+  "subs": [
+   [
+    "    R(1) = index;\n    R(0) = 0;",
+    "    R(1) = index;\n    R(0) = 1;"
+   ]
+  ]
+ },
+ {
+  "name": "pa_scan_inverted",
+  "subs": [
+   [
+    "        if (vf3_aim_h16(a, entry) == 0) {\n            R(1) = index;",
+    "        if (vf3_aim_h16(a, entry) != 0) {\n            R(1) = index;"
+   ]
+  ]
+ },
+ {
+  "name": "pa_select_first_not_cursor",
+  "subs": [
+   [
+    "    if (vf3_aim_h16(a, entry) == 0) {\n        uint32_t next = cursor + 1;",
+    "    if (1) {\n        uint32_t next = cursor + 1;"
+   ]
+  ]
+ }
+]
