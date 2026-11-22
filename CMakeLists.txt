@@ -6811,6 +6811,7 @@ add_library(vf3nativeview STATIC
     src/native/pass_prep.c
     src/native/matrix_concat_pair.c
     src/native/matrix_premul.c
+    src/native/matrix_concat.c
     src/native/frame_counter_step.c
     src/native/mem_move.c
     src/native/div_helpers.c
@@ -7046,6 +7047,9 @@ target_include_directories(vf3nativematrixconcatpair PRIVATE src/fight src/nativ
 add_executable(vf3nativematrixpremul tests/matrix_premul_native_replay.c)
 target_link_libraries(vf3nativematrixpremul PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixpremul PRIVATE src/fight src/native)
+add_executable(vf3nativematrixconcat tests/matrix_concat_native_replay.c)
+target_link_libraries(vf3nativematrixconcat PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativematrixconcat PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)
