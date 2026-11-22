@@ -1,0 +1,101 @@
+[
+ {
+  "name": "r8_sel_signed_not_unsigned",
+  "subs": [
+   [
+    "    const int32_t sel = (int32_t)a->r[8];",
+    "    const uint32_t sel = a->r[8];"
+   ]
+  ]
+ },
+ {
+  "name": "fmov_direction_fr2_from_fr15_swapped",
+  "subs": [
+   [
+    "    a->fr[2] = a->fr[15];                       /* FR2 = FR15 (before diffuse) */",
+    "    a->fr[15] = a->fr[2];                       /* FR15 = FR2 (before diffuse) */"
+   ]
+  ]
+ },
+ {
+  "name": "lit_condition_inverted",
+  "subs": [
+   [
+    "    const int lit = a->fr[3] > a->fr[11];       /* FR3 > 0 */",
+    "    const int lit = a->fr[3] < a->fr[11];       /* FR3 > 0 (inverted) */"
+   ]
+  ]
+ },
+ {
+  "name": "r0_from_fr4_not_fpul",
+  "subs": [
+   [
+    "    a->r[0] = a->fpul;                          /* = the transformed w */",
+    "    a->r[0] = vf3_aim_ubits(a->fr[4]);           /* = the transformed w */"
+   ]
+  ]
+ },
+ {
+  "name": "fr4_missing_w_restore",
+  "subs": [
+   [
+    "    a->fr[4] = vf3_aim_fbits(a->fpul);          /* FR4 = the transformed w */",
+    "    /* FR4 = the transformed w */"
+   ]
+  ]
+ },
+ {
+  "name": "diffuse_fipr_uses_fr8_vector",
+  "subs": [
+   [
+    "    a->fr[3] = fipr(a, &a->fr[12], &a->fr[0]);",
+    "    a->fr[3] = fipr(a, &a->fr[8], &a->fr[0]);"
+   ]
+  ]
+ },
+ {
+  "name": "specular_fipr_uses_fr12_vector",
+  "subs": [
+   [
+    "    a->fr[11] = fipr(a, &a->fr[0], &a->fr[8]);  /* FR11 = FV0 . FV8 */",
+    "    a->fr[11] = fipr(a, &a->fr[0], &a->fr[12]);  /* FR11 = FV0 . FV8 */"
+   ]
+  ]
+ },
+ {
+  "name": "t_bit_compare_inverted",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | ((clip > a->r[0]) ? 1u : 0u);",
+    "    a->sr = (a->sr & ~1u) | ((clip < a->r[0]) ? 1u : 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "r4_advance_no_plus32",
+  "subs": [
+   [
+    "    a->r[4] = p + 32;",
+    "    a->r[4] = p;"
+   ]
+  ]
+ },
+ {
+  "name": "ladder_squaring_hits_fr11",
+  "subs": [
+   [
+    "    case 0x08: a->fr[3] = a->fr[3] * a->fr[3]; goto done;",
+    "    case 0x08: a->fr[11] = a->fr[11] * a->fr[11]; goto done;"
+   ]
+  ]
+ },
+ {
+  "name": "ftrv_uses_wrong_src_zero",
+  "subs": [
+   [
+    "    float src[4] = { a->fr[4], a->fr[5], a->fr[6], a->fr[7] };",
+    "    float src[4] = { a->fr[4], a->fr[5], a->fr[6], a->fr[3] };"
+   ]
+  ]
+ }
+]

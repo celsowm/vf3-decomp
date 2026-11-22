@@ -6822,6 +6822,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_rotate_z.c
     src/native/matrix_translate_by.c
     src/native/vertex_classify.c
+    src/native/vertex_lit.c
     src/native/matrix_invert_rigid.c
     src/native/axis_extract.c
     src/native/project_verts.c
@@ -7098,6 +7099,9 @@ target_include_directories(vf3nativematrixrotatey PRIVATE src/fight src/native)
 add_executable(vf3nativevertexclassify tests/vertex_classify_native_replay.c)
 target_link_libraries(vf3nativevertexclassify PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativevertexclassify PRIVATE src/fight src/native)
+add_executable(vf3nativevertexlit tests/vertex_lit_native_replay.c)
+target_link_libraries(vf3nativevertexlit PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevertexlit PRIVATE src/fight src/native)
 add_executable(vf3nativematrixtranslateby tests/matrix_translate_by_native_replay.c)
 target_link_libraries(vf3nativematrixtranslateby PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixtranslateby PRIVATE src/fight src/native)
