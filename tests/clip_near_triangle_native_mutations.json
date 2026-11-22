@@ -1,0 +1,83 @@
+[
+ {
+  "name": "all_front_branch_inverted",
+  "subs": [
+   [
+    "    if (!(a->sr & 1u)) goto clipped;",
+    "    if (!(a->sr & 1u)) goto next_stream_word;"
+   ]
+  ]
+ },
+ {
+  "name": "outcode_allfront_test_inverted",
+  "subs": [
+   [
+    "    set_t(a, (R(0) & 7u) == 0);",
+    "    set_t(a, (R(0) & 7u) != 0);"
+   ]
+  ]
+ },
+ {
+  "name": "point0_threshold_compare_flipped",
+  "subs": [
+   [
+    "    set_t(a, F(4) > F(2)); rotcl_r0(a);         /* GT(2,4) */",
+    "    set_t(a, F(4) < F(2)); rotcl_r0(a);         /* GT(2,4) */"
+   ]
+  ]
+ },
+ {
+  "name": "all_behind_goto_inverted",
+  "subs": [
+   [
+    "        if (a->sr & 1u) goto next_stream_word;  /* all behind */",
+    "        if (!(a->sr & 1u)) goto next_stream_word;"
+   ]
+  ]
+ },
+ {
+  "name": "emit_two_fmac20_operand_wrong",
+  "subs": [
+   [
+    "    F(2) = fmac(a, F(0), F(6), F(2));           /* FMAC(2,6) */",
+    "    F(2) = fmac(a, F(0), F(5), F(2));           /* FMAC(2,6) */"
+   ]
+  ]
+ },
+ {
+  "name": "emit_two_fmac12_operand_wrong",
+  "subs": [
+   [
+    "    F(12) = fmac(a, F(0), F(10), F(12));        /* FMAC(12,10) */",
+    "    F(12) = fmac(a, F(0), F(9), F(12));         /* FMAC(12,10) */"
+   ]
+  ]
+ },
+ {
+  "name": "trailer_header_word_bit_wrong",
+  "subs": [
+   [
+    "    R(0) |= 64;",
+    "    R(0) |= 32;"
+   ]
+  ]
+ },
+ {
+  "name": "case6_routes_to_one_behind",
+  "subs": [
+   [
+    "        case 6:\n            goto emit_two_behind;",
+    "        case 6:\n            goto emit_one_behind;"
+   ]
+  ]
+ },
+ {
+  "name": "all_front_r11_not_set",
+  "subs": [
+   [
+    "    R(11) = 1;\n    sz = 1;",
+    "    R(11) = 0;\n    sz = 1;"
+   ]
+  ]
+ }
+]
