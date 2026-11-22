@@ -1,0 +1,92 @@
+[
+ {
+  "name": "third_vertex_fdiv_by_fr5",
+  "subs": [
+   [
+    "        F(7) = fdiv(a, F(7), F(4));              /* FR7 = 1 / FR4 */",
+    "        F(7) = fdiv(a, F(7), F(5));              /* FR7 = 1 / FR4 (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "bfs_fdiv_by_fr5",
+  "subs": [
+   [
+    "    F(7) = fdiv(a, F(7), F(4));                  /* bf/s delay slot */",
+    "    F(7) = fdiv(a, F(7), F(5));                  /* bf/s delay slot (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "diffuse_fipr_third_uses_fr8",
+  "subs": [
+   [
+    "        F(3) = fipr(a, &F(12), &F(0));           /* F3 = FV12 . FV0 (diffuse) */",
+    "        F(3) = fipr(a, &F(8), &F(0));            /* F3 = FV12 . FV0 (diffuse) */"
+   ]
+  ]
+ },
+ {
+  "name": "diffuse_fipr_nonthird_uses_fr8",
+  "subs": [
+   [
+    "    F(3) = fipr(a, &F(12), &F(0));               /* F3 = FV12 . FV0 (diffuse) */",
+    "    F(3) = fipr(a, &F(8), &F(0));                /* F3 = FV12 . FV0 (diffuse) */"
+   ]
+  ]
+ },
+ {
+  "name": "positive_inverted",
+  "subs": [
+   [
+    "        const int positive = F(11) > F(3);       /* GT(3,11): FR11 > FR3 */",
+    "        const int positive = F(11) < F(3);       /* GT(3,11): FR11 > FR3 (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "above_one_inverted",
+  "subs": [
+   [
+    "            const int above_one = F(11) > F(0);  /* GT(0,11): FR11 > 1 */",
+    "            const int above_one = F(11) < F(0);  /* GT(0,11): FR11 > 1 (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "emit_store_fr3_not_fr2",
+  "subs": [
+   [
+    "    fst_pre6(a, 2);                              /* store FR2,FR3 pair */",
+    "    fst_pre6(a, 3);                              /* store FR2,FR3 pair (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "push_r2_not_r1",
+  "subs": [
+   [
+    "    push6(a, R(2));",
+    "    push6(a, R(1));"
+   ]
+  ]
+ },
+ {
+  "name": "f6_fmul_by_fr4",
+  "subs": [
+   [
+    "    F(6) = fmul(a, F(6), F(7));                  /* FMUL(6,7) */",
+    "    F(6) = fmul(a, F(6), F(4));                  /* FMUL(6,7) (mutated) */"
+   ]
+  ]
+ },
+ {
+  "name": "f5_fmul_by_fr4",
+  "subs": [
+   [
+    "    F(5) = fmul(a, F(5), F(7));                  /* FMUL(5,7) */",
+    "    F(5) = fmul(a, F(5), F(4));                  /* FMUL(5,7) (mutated) */"
+   ]
+  ]
+ }
+]
