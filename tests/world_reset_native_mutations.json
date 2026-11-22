@@ -1,0 +1,56 @@
+[
+ {
+  "name": "first_dest_wrong",
+  "subs": [
+   [
+    "    a->r[4] = TABLE + 0x68u;\n    a->r[5] = TABLE + 0x80u;\n    vf3_native_xform_vector(a);",
+    "    a->r[4] = TABLE + 0x68u;\n    a->r[5] = TABLE + 0x84u;\n    vf3_native_xform_vector(a);"
+   ]
+  ]
+ },
+ {
+  "name": "first_src_wrong",
+  "subs": [
+   [
+    "    a->r[4] = TABLE + 0x68u;\n    a->r[5] = TABLE + 0x80u;\n    vf3_native_xform_vector(a);",
+    "    a->r[4] = TABLE + 0x6Au;\n    a->r[5] = TABLE + 0x80u;\n    vf3_native_xform_vector(a);"
+   ]
+  ]
+ },
+ {
+  "name": "second_transform_skipped",
+  "subs": [
+   [
+    "    a->r[4] = SRC2;\n    a->r[5] = DST2;\n    vf3_native_xform_vector(a);",
+    "    (void)0;"
+   ]
+  ]
+ },
+ {
+  "name": "second_src_wrong",
+  "subs": [
+   [
+    "    a->r[4] = SRC2;\n    a->r[5] = DST2;\n    vf3_native_xform_vector(a);",
+    "    a->r[4] = SRC2 + 4u;\n    a->r[5] = DST2;\n    vf3_native_xform_vector(a);"
+   ]
+  ]
+ },
+ {
+  "name": "second_dest_wrong",
+  "subs": [
+   [
+    "    a->r[4] = SRC2;\n    a->r[5] = DST2;\n    vf3_native_xform_vector(a);",
+    "    a->r[4] = SRC2;\n    a->r[5] = DST2 + 4u;\n    vf3_native_xform_vector(a);"
+   ]
+  ]
+ },
+ {
+  "name": "final_transpose_skipped",
+  "subs": [
+   [
+    "    /* 4. transpose XMTRX back (the tail call) */\n    vf3_native_matrix_transpose(a);",
+    "    /* 4. transpose XMTRX back (the tail call) */\n    (void)0;"
+   ]
+  ]
+ }
+]
