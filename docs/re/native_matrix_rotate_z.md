@@ -1,0 +1,81 @@
+# Native matrix_rotate_z (0x8C03C940)
+
+## Reading
+
+`matrix_rotate_z` is a self-contained FP leaf in the column-major XMTRX matrix
+family: it post-multiplies XMTRX by the Z rotation whose **angle** the caller has
+left in r4 (65536 = one turn).  It derives sin/cos from the angle (the fsca step,
+FPUL = r4), builds two FV column vectors
+
+    v0 = { cos,  sin, 0, 0 }        (FR0, FR1, FR2, FR3)
+    v1 = { -sin, cos, 0, 0 }        (FR4, FR5, FR6, FR7)
+
+runs each through XMTRX with `ftrv`, and writes the two result columns into
+XMTRX columns 0 and 1 (XF0..XF7).  FR0..FR7 hold the two ftrv outputs on
+return.  FPUL is left as the angle.  FR8..FR15, XF8..XF15, r15 and SR are
+untouched.
+
+The readable authority `vf3_rotate_z_entry` lives in `src/fight/leaf_math.c`:
+
+    FPUL = r4
+    FSCA(FPUL)                 # fr4 = sin, fr5 = cos
+    FR2 = 0; FR3 = 0; FR6 = 0
+    FR0 = cos; FR1 = sin
+    FR4 = -sin
+    FTRV(FR0..FR3, XMTRX)
+    FR7 = 0
+    FTRV(FR4..FR7, XMTRX)
+    XF0..XF7 = FR0..FR7
+
+This is exactly the body of the sibling `matrix_rotate_sc` (0x8C03C970, already
+ported natively and shipped in the previous milestone) with the fsca
+angle-derivation step added on the front - `rotate_z` is what you get when
+`matrix_rotate_sc`'s sin/cos inputs, instead of being handed in FR4/FR5, come
+from an angle in r4.
+
+The `ftrv` is the SH-4's transform: column-major, the output is
+`out[r] = sum_k XMTRX[4k+r] * v[k]`, and with the `w = 0` component of both
+vectors the translation column never contributes.  The second vector's
+`-sin` is the sign of the post-multiplied Z rotation's x component.
+
+## The native port
+
+`src/native/matrix_rotate_z.c` (`vf3_native_matrix_rotate_z`) is a direct
+plain-C transcription onto `vf3_native_aim` (XMTRX in `a->xm[16]`, FR bank in
+`a->fr[16]`).  The fsca step is reproduced the aim-math way: the angle masked
+to 16 bits is converted to radians (`angle * pi / 32768`) and sinf/cosf take
+its sine and cosine; FPUL is written with the unmasked angle (the guest sets
+FPUL = r4).  Then the two vectors are built, the column-major ftrv runs with
+plain float accumulation (the established native ftrv convention), and the
+results go into both FR0..FR7 and XMTRX columns 0 and 1.  Columns 2,3 and
+FR8..FR15 are never touched.
+
+`src/native/matrix_rotate_z.h` declares the single entry
+`vf3_native_matrix_rotate_z(vf3_native_aim *a)`.
+
+## Proof
+
+`tests/matrix_rotate_z_native_replay.c` (`vf3nativematrixrotatez`)
+differentially replays the native leaf against the readable authority
+(`vf3_rotate_z_entry`) on the same flat RAM, XMTRX, FR bank and angle.
+
+The fixture runs four cases: 30 degrees, 90 degrees, the 210-degree negative
+quadrant, and the identity XMTRX at 90 degrees.  Each case compares the result
+columns XF0..XF7 and FR0..FR7 at the 2e-3 FPU tolerance (the fsca-vs-sinf/cosf
+and ftrv accumulate difference), and compares the untouched XF8..XF15,
+FR8..FR15, r15 and SR bit-exact, plus FPUL (must equal the angle).  All four
+cases PASS.
+
+`tests/matrix_rotate_z_native_mutations.json` - 7 mutations, **7/7 caught**:
+
+- the angle converted with half the turn constant
+- the first vector's sin and cos swapped
+- the second vector's `-sin` sign flip dropped
+- the result written to XF8..XF11 instead of XF0..XF3
+- the FPUL write dropped (pinned by the FPUL check)
+- the ftrv index turned row-major (`4r+k` instead of `4k+r`)
+- the two result columns written the wrong way round
+
+## Milestone
+
+Committed and pushed as `matrix_rotate_z` (see git log).

@@ -1,0 +1,65 @@
+[
+ {
+  "name": "angle_wrong",
+  "subs": [
+   [
+    "    const float radians = (float)((double)angle * ROT_TURN);",
+    "    const float radians = (float)((double)angle * (ROT_TURN / 2.0));"
+   ]
+  ]
+ },
+ {
+  "name": "v0_sin_cos_swapped",
+  "subs": [
+   [
+    "    const float v0[4] = { cos_, sin_, 0.0f, 0.0f };",
+    "    const float v0[4] = { sin_, cos_, 0.0f, 0.0f };"
+   ]
+  ]
+ },
+ {
+  "name": "v1_sign_flip_missing",
+  "subs": [
+   [
+    "    const float v1[4] = { -sin_, cos_, 0.0f, 0.0f };",
+    "    const float v1[4] = { sin_, cos_, 0.0f, 0.0f };"
+   ]
+  ]
+ },
+ {
+  "name": "writes_column2_not_column0",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->xm[i] = out0[i];",
+    "    for (int i = 0; i < 4; ++i) a->xm[8 + i] = out0[i];"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_not_angle",
+  "subs": [
+   [
+    "    a->fpul = a->r[4];",
+    "    a->fpul = 0;"
+   ]
+  ]
+ },
+ {
+  "name": "xmtrx_index_colmajor_off",
+  "subs": [
+   [
+    "            s0 += a->xm[4 * k + r] * v0[k];",
+    "            s0 += a->xm[4 * r + k] * v0[k];"
+   ]
+  ]
+ },
+ {
+  "name": "cols_written_swapped",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->xm[i] = out0[i];\n    for (int i = 0; i < 4; ++i) a->xm[4 + i] = out1[i];",
+    "    for (int i = 0; i < 4; ++i) a->xm[i] = out1[i];\n    for (int i = 0; i < 4; ++i) a->xm[4 + i] = out0[i];"
+   ]
+  ]
+ }
+]
