@@ -1,0 +1,83 @@
+[
+ {
+  "name": "y_scale_missing",
+  "subs": [
+   [
+    "    F(1) = y_scaled;",
+    "    F(1) = y;"
+   ]
+  ]
+ },
+ {
+  "name": "z_scale_missing",
+  "subs": [
+   [
+    "    F(2) = z_scaled;",
+    "    F(2) = z;"
+   ]
+  ]
+ },
+ {
+  "name": "control_addr_wrong",
+  "subs": [
+   [
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : base;",
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : (base + Y);"
+   ]
+  ]
+ },
+ {
+  "name": "strip_end_flag_wrong",
+  "subs": [
+   [
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : base;",
+    "    R(2) = (a->sr & 1u) ? base : STRIP_END_FLAG;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_exit_missing_mask_mult",
+  "subs": [
+   [
+    "    R(0) = (R(0) & RING_MASK) * SLOT_SIZE;",
+    "    R(0) = (R(11) & RING_MASK) * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "r10_exit_wrong",
+  "subs": [
+   [
+    "    R(10) = src + SLOT_SIZE;",
+    "    R(10) = src;"
+   ]
+  ]
+ },
+ {
+  "name": "y_store_uses_unscaled",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, base + Y, ubits(F(1)));",
+    "    vf3_aim_set_u32(a, base + Y, ubits(y));"
+   ]
+  ]
+ },
+ {
+  "name": "w_slot_word_wrong",
+  "subs": [
+   [
+    "    F(0) = fbits(w);",
+    "    F(0) = fbits(vf3_aim_u32(a, src + INV_X));"
+   ]
+  ]
+ },
+ {
+  "name": "fp_rounds_nearest_not_toward_zero",
+  "subs": [
+   [
+    "    fesetround((a->fpscr & 1u) ? FE_TOWARDZERO : FE_TONEAREST);",
+    "    fesetround(FE_TONEAREST);"
+   ]
+  ]
+ }
+]
