@@ -1,0 +1,83 @@
+[
+ {
+  "name": "multiply_transposed",
+  "subs": [
+   [
+    "            out[4 * c + r] = sum;",
+    "            out[4 * r + c] = sum;"
+   ]
+  ]
+ },
+ {
+  "name": "multiply_row_major",
+  "subs": [
+   [
+    "                sum += a->xm[4 * k + r] * m[4 * c + k];",
+    "                sum += a->xm[4 * r + k] * m[4 * k + c];"
+   ]
+  ]
+ },
+ {
+  "name": "xm_not_updated",
+  "subs": [
+   [
+    "    memcpy(a->xm, out, sizeof out);\n    a->fpscr ^= FR_BIT;",
+    "    memcpy(a->xm, m, sizeof out);\n    a->fpscr ^= FR_BIT;"
+   ]
+  ]
+ },
+ {
+  "name": "fr_wrong_source",
+  "subs": [
+   [
+    "    for (int i = 0; i < 12; ++i) a->fr[i] = old_xm[i];",
+    "    for (int i = 0; i < 12; ++i) a->fr[i] = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "r4_no_advance",
+  "subs": [
+   [
+    "    a->r[4] += MATRIX_BYTES;",
+    "    a->r[4] += 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "fr_restored_wrong_slot",
+  "subs": [
+   [
+    "        a->fr[12 + i] = f;",
+    "        a->fr[11 + i] = f;"
+   ]
+  ]
+ },
+ {
+  "name": "stack_desc_order",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 4u,  saved[3]);",
+    "    vf3_aim_set_u32(a, sp0 - 4u,  saved[0]);"
+   ]
+  ]
+ },
+ {
+  "name": "only_three_pushed",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 12u, saved[1]);\n    vf3_aim_set_u32(a, sp0 - 16u, saved[0]);",
+    "    vf3_aim_set_u32(a, sp0 - 12u, saved[1]);"
+   ]
+  ]
+ },
+ {
+  "name": "fpscr_not_toggled",
+  "subs": [
+   [
+    "    memcpy(a->xm, out, sizeof out);\n    a->fpscr ^= FR_BIT;",
+    "    memcpy(a->xm, out, sizeof out);\n    a->fpscr &= ~FR_BIT;"
+   ]
+  ]
+ }
+]
