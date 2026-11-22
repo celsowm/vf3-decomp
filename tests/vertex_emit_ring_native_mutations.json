@@ -1,0 +1,65 @@
+[
+ {
+  "name": "slot_offset_from_unmasked_r11",
+  "subs": [
+   [
+    "    const uint32_t offset = (R(11) & RING_SLOTS_MASK) * SLOT_SIZE;",
+    "    const uint32_t offset = R(11) * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "write_uses_wrong_fr",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, base + 0x18, vf3_aim_ubits(F(2)));",
+    "    vf3_aim_set_u32(a, base + 0x18, vf3_aim_ubits(F(3)));"
+   ]
+  ]
+ },
+ {
+  "name": "r1_r2_swapped",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, base + 0x10, R(1));",
+    "    vf3_aim_set_u32(a, base + 0x10, R(2));"
+   ]
+  ]
+ },
+ {
+  "name": "slot_size_wrong",
+  "subs": [
+   [
+    "    const uint32_t end = RING_BASE + SLOT_SIZE + offset;",
+    "    const uint32_t end = RING_BASE + 2u * SLOT_SIZE + offset;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_exit_wrong",
+  "subs": [
+   [
+    "    R(0) = offset;",
+    "    R(0) = offset + SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "r10_exit_wrong",
+  "subs": [
+   [
+    "    const uint32_t base = end - SLOT_SIZE;",
+    "    const uint32_t base = end;"
+   ]
+  ]
+ },
+ {
+  "name": "fr4_write_dropped",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, base + 0x00, vf3_aim_ubits(F(4)));",
+    "    vf3_aim_set_u32(a, base + 0x00, vf3_aim_ubits(F(5)));"
+   ]
+  ]
+ }
+]

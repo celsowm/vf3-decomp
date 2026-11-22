@@ -6823,6 +6823,7 @@ add_library(vf3nativeview STATIC
     src/native/clip_near_triangle.c
     src/native/clip_edge.c
     src/native/clip_emit_slot.c
+    src/native/vertex_emit_ring.c
     src/native/quad_strip.c
     src/native/matrix_frame.c
     src/native/poly_header_sq.c
@@ -7106,6 +7107,9 @@ target_include_directories(vf3nativeclipedge PRIVATE src/fight src/native)
 add_executable(vf3nativeclipemitslot tests/clip_emit_slot_native_replay.c)
 target_link_libraries(vf3nativeclipemitslot PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeclipemitslot PRIVATE src/fight src/native)
+add_executable(vf3nativevertexemitring tests/vertex_emit_ring_native_replay.c)
+target_link_libraries(vf3nativevertexemitring PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevertexemitring PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)
