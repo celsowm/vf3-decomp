@@ -1,0 +1,47 @@
+[
+ {
+  "name": "uses_non_unit_w",
+  "subs": [
+   [
+    "    a->fr[7] = 1.0f;",
+    "    a->fr[7] = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "writes_translation_first_axis",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->xm[12 + i] = out[i];",
+    "    for (int i = 0; i < 4; ++i) a->xm[0 + i] = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "fr_result_index_off",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out[i];",
+    "    for (int i = 0; i < 4; ++i) a->fr[0 + i] = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "xmtrx_index_colmajor_off",
+  "subs": [
+   [
+    "            s += a->xm[4 * k + r] * v[k];",
+    "            s += a->xm[4 * r + k] * v[k];"
+   ]
+  ]
+ },
+ {
+  "name": "drops_w_term",
+  "subs": [
+   [
+    "        for (int k = 0; k < 4; ++k)",
+    "        for (int k = 0; k < 3; ++k)"
+   ]
+  ]
+ }
+]
