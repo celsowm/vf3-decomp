@@ -6818,6 +6818,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_invert_scaled.c
     src/native/matrix_rotate_sc.c
     src/native/matrix_rotate_x.c
+    src/native/matrix_rotate_y.c
     src/native/matrix_rotate_z.c
     src/native/matrix_translate_by.c
     src/native/matrix_invert_rigid.c
@@ -7090,6 +7091,9 @@ target_include_directories(vf3nativematrixrotatez PRIVATE src/fight src/native)
 add_executable(vf3nativematrixrotatex tests/matrix_rotate_x_native_replay.c)
 target_link_libraries(vf3nativematrixrotatex PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixrotatex PRIVATE src/fight src/native)
+add_executable(vf3nativematrixrotatey tests/matrix_rotate_y_native_replay.c)
+target_link_libraries(vf3nativematrixrotatey PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativematrixrotatey PRIVATE src/fight src/native)
 add_executable(vf3nativematrixtranslateby tests/matrix_translate_by_native_replay.c)
 target_link_libraries(vf3nativematrixtranslateby PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixtranslateby PRIVATE src/fight src/native)
