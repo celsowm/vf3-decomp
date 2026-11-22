@@ -1,0 +1,83 @@
+[
+ {
+  "name": "multiply_transposed",
+  "subs": [
+   [
+    "            out[4 * c + r] = sum;",
+    "            out[4 * r + c] = sum;"
+   ]
+  ]
+ },
+ {
+  "name": "multiply_row_major",
+  "subs": [
+   [
+    "            for (int k = 0; k < 4; ++k)\n                sum += m[4 * k + r] * a->xm[4 * c + k];",
+    "            for (int k = 0; k < 4; ++k)\n                sum += m[4 * r + k] * a->xm[4 * k + c];"
+   ]
+  ]
+ },
+ {
+  "name": "xm_not_updated",
+  "subs": [
+   [
+    "    memcpy(a->xm, out, sizeof out);",
+    "    memcpy(a->xm, m, sizeof out);"
+   ]
+  ]
+ },
+ {
+  "name": "fr_wrong_source",
+  "subs": [
+   [
+    "    memcpy(a->fr, m, 12u * sizeof(float));",
+    "    memcpy(a->fr, out, 12u * sizeof(float));"
+   ]
+  ]
+ },
+ {
+  "name": "r4_no_advance",
+  "subs": [
+   [
+    "    a->r[4] += MATRIX_BYTES;",
+    "    a->r[4] += 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "saved_taken_from_fr0",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) saved[i] = vf3_aim_ubits(a->fr[12 + i]);",
+    "    for (int i = 0; i < 4; ++i) saved[i] = vf3_aim_ubits(a->fr[i]);"
+   ]
+  ]
+ },
+ {
+  "name": "stack_desc_order",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 4u,  saved[3]);",
+    "    vf3_aim_set_u32(a, sp0 - 4u,  saved[0]);"
+   ]
+  ]
+ },
+ {
+  "name": "stack_write_wrong_address",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 4u,  saved[3]);",
+    "    vf3_aim_set_u32(a, sp0 - 8u,  saved[3]);"
+   ]
+  ]
+ },
+ {
+  "name": "restored_wrong_slot",
+  "subs": [
+   [
+    "        a->fr[12 + i] = f;",
+    "        a->fr[11 + i] = f;"
+   ]
+  ]
+ }
+]
