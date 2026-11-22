@@ -6789,6 +6789,9 @@ add_library(vf3nativeview STATIC
     src/native/xmtrx_identity.c
     src/native/xmtrx_transpose.c
     src/native/world_reset.c
+    src/native/bone_transforms.c
+    src/native/axis_angle_matrix.c
+    src/native/edge_probe.c
     src/native/negate_run.c
     src/native/float_to_short.c
     src/native/tri_winding.c
@@ -7090,6 +7093,15 @@ target_include_directories(vf3nativematrixinvertscaled PRIVATE src/fight src/nat
 add_executable(vf3nativeworldreset tests/world_reset_native_replay.c)
 target_link_libraries(vf3nativeworldreset PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeworldreset PRIVATE src/fight src/native)
+add_executable(vf3nativebonetransforms tests/bone_transforms_native_replay.c)
+target_link_libraries(vf3nativebonetransforms PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativebonetransforms PRIVATE src/fight src/native)
+add_executable(vf3nativeaxisangle tests/axis_angle_matrix_native_replay.c)
+target_link_libraries(vf3nativeaxisangle PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeaxisangle PRIVATE src/fight src/native)
+add_executable(vf3nativeedgeprobe tests/edge_probe_native_replay.c)
+target_link_libraries(vf3nativeedgeprobe PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeedgeprobe PRIVATE src/fight src/native)
 add_executable(vf3nativematrixrotatesc tests/matrix_rotate_sc_native_replay.c)
 target_link_libraries(vf3nativematrixrotatesc PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixrotatesc PRIVATE src/fight src/native)

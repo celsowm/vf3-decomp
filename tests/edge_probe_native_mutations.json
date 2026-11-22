@@ -1,0 +1,52 @@
+[
+  {
+    "name": "origin_y_sign_kept",
+    "subs": [["    vf3_aim_set_u32(a, f + 0u, vf3_aim_u32(a, obj + 0x438u) ^ SIGN);",
+              "    vf3_aim_set_u32(a, f + 0u, vf3_aim_u32(a, obj + 0x438u));"]]
+  },
+  {
+    "name": "fsca_angle_not_negated",
+    "subs": [["            const uint32_t ang = (uint32_t)(uint32_t)(-(int32_t)heading) & 0xFFFFu;",
+              "            const uint32_t ang = (uint32_t)heading & 0xFFFFu;"]]
+  },
+  {
+    "name": "atan_f5_taken_from_f15",
+    "subs": [["            F(4) = F(12); F(5) = F(14); F(4) = F(4) - F(15);",
+              "            F(4) = F(12); F(5) = F(15); F(4) = F(4) - F(15);"]]
+  },
+  {
+    "name": "dir_no_quarter",
+    "subs": [["            dir = (uint32_t)(int32_t)(int16_t)R(0) + QUARTER;",
+              "            dir = (uint32_t)(int32_t)(int16_t)R(0);"]]
+  },
+  {
+    "name": "dist_writes_wrong_value",
+    "subs": [["        vf3_aim_set_u32(a, obj + dist_off, fbits(F(13)));",
+              "        vf3_aim_set_u32(a, obj + dist_off, fbits(F(12)));"]]
+  },
+  {
+    "name": "result_offsets_swapped",
+    "subs": [["        vf3_aim_set_u32(a, obj + dist_off, fbits(F(13)));\n        vf3_aim_set_u16(a, obj + dir_off, (uint16_t)dir);",
+              "        vf3_aim_set_u16(a, obj + dist_off, (uint16_t)dir);\n        vf3_aim_set_u32(a, obj + dir_off, fbits(F(13)));"]]
+  },
+  {
+    "name": "outline_offset_wrong",
+    "subs": [["#define OUTLINE_OFF 0x3C4u        /* to the vertex-list pointer */",
+              "#define OUTLINE_OFF 0x3C8u        /* to the vertex-list pointer */"]]
+  },
+  {
+    "name": "first_side_test_inverted",
+    "subs": [["            { const int miss = F(1) > F(2); vf3_aim_set_u32(a, f + 28u, fbits(F(1))); if (miss) goto next_edge; }",
+              "            { const int miss = F(1) < F(2); vf3_aim_set_u32(a, f + 28u, fbits(F(1))); if (miss) goto next_edge; }"]]
+  },
+  {
+    "name": "second_side_test_inverted",
+    "subs": [["            { const int miss = F(2) > F(3); vf3_aim_set_u32(a, f + 24u, fbits(F(2))); if (miss) goto next_edge; }",
+              "            { const int miss = F(2) >= F(3); vf3_aim_set_u32(a, f + 24u, fbits(F(2))); if (miss) goto next_edge; }"]]
+  },
+  {
+    "name": "atan_replaced_by_identity",
+    "subs": [["            R(8) = outline; R(9) = left; R(10) = 0x0C069624u; R(11) = heading;\n            R(12) = table; R(13) = obj; R(14) = QUARTER; R(15) = f;\n            vf3_native_atan_table(a);",
+              "            R(8) = outline; R(9) = left; R(10) = 0x0C069624u; R(11) = heading;\n            R(12) = table; R(13) = obj; R(14) = QUARTER; R(15) = f;\n            { R(0) = (uint32_t)(R(14) - (int16_t)(F(4) + F(5))); }"]]
+  }
+]
