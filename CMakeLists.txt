@@ -6824,6 +6824,7 @@ add_library(vf3nativeview STATIC
     src/native/vertex_classify.c
     src/native/vertex_lit.c
     src/native/strip_vertex_lit.c
+    src/native/strip_light.c
     src/native/matrix_invert_rigid.c
     src/native/axis_extract.c
     src/native/project_verts.c
@@ -7106,6 +7107,9 @@ target_include_directories(vf3nativevertexlit PRIVATE src/fight src/native)
 add_executable(vf3nativestripvertexlit tests/strip_vertex_lit_native_replay.c)
 target_link_libraries(vf3nativestripvertexlit PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativestripvertexlit PRIVATE src/fight src/native)
+add_executable(vf3nativestriplight tests/strip_light_native_replay.c)
+target_link_libraries(vf3nativestriplight PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativestriplight PRIVATE src/fight src/native)
 add_executable(vf3nativematrixtranslateby tests/matrix_translate_by_native_replay.c)
 target_link_libraries(vf3nativematrixtranslateby PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixtranslateby PRIVATE src/fight src/native)
