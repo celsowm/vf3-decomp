@@ -1,0 +1,92 @@
+[
+ {
+  "name": "frame_offset_off",
+  "subs": [
+   [
+    "    const uint32_t sp0 = R(15), pr0 = a->pr, f = sp0 - SAVED - FRAME;",
+    "    const uint32_t sp0 = R(15), pr0 = a->pr, f = sp0 - SAVED - FRAME - 4u;"
+   ]
+  ]
+ },
+ {
+  "name": "pr_saved_at_wrong_offset",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 4u, pr0);",
+    "    vf3_aim_set_u32(a, sp0 - 8u, pr0);"
+   ]
+  ]
+ },
+ {
+  "name": "arg0_write_off",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, f, arg0);",
+    "    vf3_aim_set_u32(a, f, arg1);"
+   ]
+  ]
+ },
+ {
+  "name": "push_load_flipped",
+  "subs": [
+   [
+    "    R(4) = 0;\n    vf3_native_matrix_push(a);",
+    "    R(4) = arg0;\n    vf3_native_matrix_push(a);"
+   ]
+  ]
+ },
+ {
+  "name": "xform_dst_is_src",
+  "subs": [
+   [
+    "    vf3_aim_xform_point(a, arg0, arg1);",
+    "    vf3_aim_xform_point(a, arg0, arg0);"
+   ]
+  ]
+ },
+ {
+  "name": "xform_src_is_dst",
+  "subs": [
+   [
+    "    vf3_aim_xform_point(a, arg0, arg1);",
+    "    vf3_aim_xform_point(a, arg1, arg1);"
+   ]
+  ]
+ },
+ {
+  "name": "pop_drop_flipped",
+  "subs": [
+   [
+    "    R(4) = 1;\n    vf3_native_matrix_pop(a);",
+    "    R(4) = 2;\n    vf3_native_matrix_pop(a);"
+   ]
+  ]
+ },
+ {
+  "name": "invert_skipped_copy",
+  "subs": [
+   [
+    "    vf3_aim_invert_rigid(a->xm, inv);\n        memcpy(a->xm, inv, sizeof inv);",
+    "    vf3_aim_invert_rigid(a->xm, inv);"
+   ]
+  ]
+ },
+ {
+  "name": "r15_not_restored",
+  "subs": [
+   [
+    "    R(15) = sp0;\n    a->pr = pr0;\n}\n",
+    "    R(15) = f;\n    a->pr = pr0;\n}\n"
+   ]
+  ]
+ },
+ {
+  "name": "pr_not_restored",
+  "subs": [
+   [
+    "    R(15) = sp0;\n    a->pr = pr0;\n}\n",
+    "    R(15) = sp0;\n    a->pr = 0x12345678u;\n}\n"
+   ]
+  ]
+ }
+]

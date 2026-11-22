@@ -6808,6 +6808,7 @@ add_library(vf3nativeview STATIC
     src/native/extent_flip.c
     src/native/extent_list.c
     src/native/record_run.c
+    src/native/pass_prep.c
     src/native/frame_counter_step.c
     src/native/mem_move.c
     src/native/div_helpers.c
@@ -7034,6 +7035,9 @@ target_include_directories(vf3nativeextentlist PRIVATE src/fight src/native)
 add_executable(vf3nativerecordrun tests/record_run_native_replay.c)
 target_link_libraries(vf3nativerecordrun PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativerecordrun PRIVATE src/fight src/native)
+add_executable(vf3nativepassprep tests/pass_prep_native_replay.c)
+target_link_libraries(vf3nativepassprep PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativepassprep PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)
