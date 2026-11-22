@@ -6818,6 +6818,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_invert_scaled.c
     src/native/matrix_invert_rigid.c
     src/native/axis_extract.c
+    src/native/project_verts.c
     src/native/frame_counter_step.c
     src/native/mem_move.c
     src/native/div_helpers.c
@@ -7074,6 +7075,9 @@ target_include_directories(vf3nativematrixinvertrigid PRIVATE src/fight src/nati
 add_executable(vf3nativeaxisextract tests/axis_extract_native_replay.c)
 target_link_libraries(vf3nativeaxisextract PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeaxisextract PRIVATE src/fight src/native)
+add_executable(vf3nativeprojectverts tests/project_verts_native_replay.c)
+target_link_libraries(vf3nativeprojectverts PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeprojectverts PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)

@@ -1,0 +1,83 @@
+[
+ {
+  "name": "scale_disabled",
+  "subs": [
+   [
+    "        F(8 + i) = fmul(a, fbits(vf3_aim_u32(a, LIGHT_TABLE + LIGHT_OFFSET + 4u * (uint32_t)i)), F(1));",
+    "        F(8 + i) = fbits(vf3_aim_u32(a, LIGHT_TABLE + LIGHT_OFFSET + 4u * (uint32_t)i));"
+   ]
+  ]
+ },
+ {
+  "name": "no_1_over_w",
+  "subs": [
+   [
+    "        F(6) = fdiv(a, 1.0f, F(7));           /* 1/w */",
+    "        F(6) = F(7);                          /* 1/w (wrong: keeps w) */"
+   ]
+  ]
+ },
+ {
+  "name": "record_offset_wrong",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, out - 4u, ubits(F(6)));   /* 1/w */",
+    "        vf3_aim_set_u32(a, out - 8u, ubits(F(6)));   /* 1/w (wrong offset) */"
+   ]
+  ]
+ },
+ {
+  "name": "light_dot_uses_position_norm",
+  "subs": [
+   [
+    "            float x[4] = { F(0), F(1), F(2), F(3) }, y[4] = { F(8), F(9), F(10), F(11) };",
+    "            float x[4] = { F(4), F(5), F(6), F(7) }, y[4] = { F(8), F(9), F(10), F(11) };"
+   ]
+  ]
+ },
+ {
+  "name": "ambient_dropped",
+  "subs": [
+   [
+    "        F(11) = fadd(a, F(11), F(15));        /* + ambient */",
+    "        (void)F(15);                          /* ambient dropped */"
+   ]
+  ]
+ },
+ {
+  "name": "side_direction_no_normalise",
+  "subs": [
+   [
+    "        F(15) = fdiv(a, 1.0f, sqrtf(F(15)));   /* fsrra */",
+    "        F(15) = 1.0f;                         /* fsrra (wrong) */"
+   ]
+  ]
+ },
+ {
+  "name": "cursor_out_not_written",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, CURSOR_OUT, out);",
+    "    (void)out;                                /* cursor not written */"
+   ]
+  ]
+ },
+ {
+  "name": "r0_wrong_const",
+  "subs": [
+   [
+    "    R(0) = CURSOR_OUT;",
+    "    R(0) = DEPTH_SCALE;"
+   ]
+  ]
+ },
+ {
+  "name": "count_not_advanced_src",
+  "subs": [
+   [
+    "        src += 24u;",
+    "        src += 12u;"
+   ]
+  ]
+ }
+]
