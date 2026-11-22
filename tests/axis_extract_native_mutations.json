@@ -1,0 +1,74 @@
+[
+ {
+  "name": "row0_dot_wrong_component",
+  "subs": [
+   [
+    "        r[i] = M[4 * i] * t0 + M[4 * i + 1] * t1 + M[4 * i + 2] * t2;",
+    "        r[i] = M[4 * i] * t0 + M[4 * i + 1] * t1 + M[4 * i + 1] * t2;"
+   ]
+  ]
+ },
+ {
+  "name": "axis_uses_t2_not_t3",
+  "subs": [
+   [
+    "        s[i] = M[4 * i] * t0 + M[4 * i + 1] * t1 + M[4 * i + 2] * t3;",
+    "        s[i] = M[4 * i] * t0 + M[4 * i + 1] * t1 + M[4 * i + 2] * t2;"
+   ]
+  ]
+ },
+ {
+  "name": "row0_and_row2_swapped_sources",
+  "subs": [
+   [
+    "        r[i] = M[4 * i] * t0 + M[4 * i + 1] * t1 + M[4 * i + 2] * t2;",
+    "        r[i] = M[4 * i] * t2 + M[4 * i + 1] * t1 + M[4 * i + 2] * t0;"
+   ]
+  ]
+ },
+ {
+  "name": "no_normalisation",
+  "subs": [
+   [
+    "    const float inv = 1.0f / sqrtf(len2);   /* fsrra */",
+    "    const float inv = 1.0f;   /* fsrra */"
+   ]
+  ]
+ },
+ {
+  "name": "len2_from_row0",
+  "subs": [
+   [
+    "    const float len2 = s[0] * s[0] + s[1] * s[1] + s[2] * s[2];",
+    "    const float len2 = r[0] * r[0] + r[1] * r[1] + r[2] * r[2];"
+   ]
+  ]
+ },
+ {
+  "name": "block_row_written_wrong_offset",
+  "subs": [
+   [
+    "    blk[4] = r[0]; blk[5] = r[1]; blk[6] = r[2];   /* +16, +20, +24 bytes */",
+    "    blk[0] = r[0]; blk[1] = r[1]; blk[2] = r[2];   /* +16, +20, +24 bytes */"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_wrong_element",
+  "subs": [
+   [
+    "    a->fpul = vf3_aim_ubits(M[9]);   /* last transpose put-back swap */",
+    "    a->fpul = vf3_aim_ubits(M[8]);   /* last transpose put-back swap */"
+   ]
+  ]
+ },
+ {
+  "name": "r5_wrong",
+  "subs": [
+   [
+    "    R(5) = TABLE + 8;",
+    "    R(5) = TABLE + 12;"
+   ]
+  ]
+ }
+]
