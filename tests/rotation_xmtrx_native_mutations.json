@@ -1,0 +1,65 @@
+[
+ {
+  "name": "v0_uses_sin_not_cos",
+  "subs": [
+   [
+    "    const float v0[4] = { cos_, 0.0f, -sin_, 0.0f };",
+    "    const float v0[4] = { sin_, 0.0f, -cos_, 0.0f };"
+   ]
+  ]
+ },
+ {
+  "name": "v1_sign_flipped",
+  "subs": [
+   [
+    "    const float v1[4] = { sin_, 0.0f, cos_, 0.0f };",
+    "    const float v1[4] = { -sin_, 0.0f, cos_, 0.0f };"
+   ]
+  ]
+ },
+ {
+  "name": "multiply_transposed",
+  "subs": [
+   [
+    "            s0 += a->xm[4 * k + r] * v0[k];",
+    "            s0 += a->xm[4 * r + k] * v0[k];"
+   ]
+  ]
+ },
+ {
+  "name": "fr_wrong_bank",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->fr[i] = out0[i];",
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out0[i];"
+   ]
+  ]
+ },
+ {
+  "name": "xm_col0_uses_out1",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->xm[i] = out0[i];",
+    "    for (int i = 0; i < 4; ++i) a->xm[i] = out1[i];"
+   ]
+  ]
+ },
+ {
+  "name": "xm_wrong_column",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->xm[8 + i] = out1[i];",
+    "    for (int i = 0; i < 4; ++i) a->xm[4 + i] = out1[i];"
+   ]
+  ]
+ },
+ {
+  "name": "fr1215_overwritten",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out1[i];\n\n    /* and into XMTRX columns 0 and 2 (XF0..XF3, XF8..XF11) */",
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out1[i];\n    for (int i = 0; i < 4; ++i) a->fr[12 + i] = out0[i];\n\n    /* and into XMTRX columns 0 and 2 (XF0..XF3, XF8..XF11) */"
+   ]
+  ]
+ }
+]
