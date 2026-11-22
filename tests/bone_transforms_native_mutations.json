@@ -1,0 +1,56 @@
+[
+ {
+  "name": "vec_source_point_in",
+  "subs": [
+   [
+    "        R(5) = VEC_OUT + entry;\n        R(4) = entry + VEC_IN;\n        vf3_native_xform_vector(a);",
+    "        R(5) = VEC_OUT + entry;\n        R(4) = entry + POINT_IN;\n        vf3_native_xform_vector(a);"
+   ]
+  ]
+ },
+ {
+  "name": "point_source_vec_in",
+  "subs": [
+   [
+    "        vf3_aim_xform_point(a, entry + POINT_IN, entry + POINT_OUT);",
+    "        vf3_aim_xform_point(a, entry + VEC_IN, entry + POINT_OUT);"
+   ]
+  ]
+ },
+ {
+  "name": "skip_xform_vector",
+  "subs": [
+   [
+    "        vf3_native_xform_vector(a);\n        R(15) = frame;",
+    "        (void)0;\n        R(15) = frame;"
+   ]
+  ]
+ },
+ {
+  "name": "skip_xform_point",
+  "subs": [
+   [
+    "        vf3_aim_xform_point(a, entry + POINT_IN, entry + POINT_OUT);\n        R(15) = frame;",
+    "        (void)0;\n        R(15) = frame;"
+   ]
+  ]
+ },
+ {
+  "name": "invert_used_test",
+  "subs": [
+   [
+    "        if (used == 0) continue;",
+    "        if (used != 0) continue;"
+   ]
+  ]
+ },
+ {
+  "name": "skip_matrix_pop",
+  "subs": [
+   [
+    "    for (int i = 0; i < 5; ++i) R(14 - i) = saved[i];\n    a->pr = pr0;\n    vf3_native_matrix_pop(a);",
+    "    for (int i = 0; i < 5; ++i) R(14 - i) = saved[i];\n    a->pr = pr0;\n    (void)0;"
+   ]
+  ]
+ }
+]
