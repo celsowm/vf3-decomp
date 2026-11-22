@@ -1,0 +1,74 @@
+[
+ {
+  "name": "dot_wrong_w_pair",
+  "subs": [
+   [
+    "    const float tc0 = xm[12] * xm[0] + xm[13] * xm[1] + xm[14] * xm[2] + xm[15] * xm[3];",
+    "    const float tc0 = xm[12] * xm[0] + xm[13] * xm[1] + xm[14] * xm[2] + xm[15] * xm[2];"
+   ]
+  ]
+ },
+ {
+  "name": "l0_wrong_axis",
+  "subs": [
+   [
+    "    const float l0 = xm[0] * xm[0] + xm[1] * xm[1] + xm[2] * xm[2];",
+    "    const float l0 = xm[0] * xm[0] + xm[1] * xm[1] + xm[1] * xm[1];"
+   ]
+  ]
+ },
+ {
+  "name": "translation_not_negated",
+  "subs": [
+   [
+    "    xm[12] = -xm[12]; xm[13] = -xm[13]; xm[14] = -xm[14];",
+    "    xm[13] = -xm[13]; xm[14] = -xm[14];"
+   ]
+  ]
+ },
+ {
+  "name": "normalise_translation_skipped",
+  "subs": [
+   [
+    "    xm[0] *= inv0; xm[1] *= inv0; xm[2] *= inv0; xm[12] *= inv0;",
+    "    xm[0] *= inv0; xm[1] *= inv0; xm[2] *= inv0;"
+   ]
+  ]
+ },
+ {
+  "name": "transpose_pair_wrong",
+  "subs": [
+   [
+    "    float t = xm[1]; a->fpul = vf3_aim_ubits(t); xm[1] = xm[4]; xm[4] = t;",
+    "    float t = xm[1]; a->fpul = vf3_aim_ubits(t); xm[1] = xm[2]; xm[2] = t;"
+   ]
+  ]
+ },
+ {
+  "name": "dot_stored_wrong_slot",
+  "subs": [
+   [
+    "    xm[12] = tc0; xm[3] = 0.0f;",
+    "    xm[13] = tc0; xm[3] = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "inverse_reciprocal",
+  "subs": [
+   [
+    "    const float inv0 = 1.0f / sqrtf(l0);",
+    "    const float inv0 = sqrtf(l0);"
+   ]
+  ]
+ },
+ {
+  "name": "third_swap_fpul_skipped",
+  "subs": [
+   [
+    "    float t = xm[6]; a->fpul = vf3_aim_ubits(t); xm[6] = xm[9]; xm[9] = t;",
+    "    float t = xm[6]; xm[6] = xm[9]; xm[9] = t;"
+   ]
+  ]
+ }
+]
