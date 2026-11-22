@@ -1,0 +1,74 @@
+[
+ {
+  "name": "touches_r4",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->r[4] = 0xDEADBEEFu;  /* touches r4 (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "touches_r0",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->r[0] = 0;  /* touches r0 (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "writes_ram",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    vf3_aim_set_u32(a, 0x0C010000u, 7u);  /* writes RAM (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "clobbers_pr",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->pr = 0;  /* clobbers pr (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "clobbers_sr",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->sr = 0;  /* clobbers sr (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "clobbers_gbr",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->gbr = 0;  /* clobbers gbr (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "clobbers_fpscr",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->fpscr = 0;  /* clobbers fpscr (mutation) */"
+   ]
+  ]
+ },
+ {
+  "name": "clobbers_fpul",
+  "subs": [
+   [
+    "    (void)a;   /* the write-back has no effect; nothing moves */",
+    "    a->fpul = 0;  /* clobbers fpul (mutation) */"
+   ]
+  ]
+ }
+]
