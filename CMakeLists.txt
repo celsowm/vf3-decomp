@@ -6814,6 +6814,7 @@ add_library(vf3nativeview STATIC
     src/native/matrix_concat.c
     src/native/matrix_concat_save.c
     src/native/rotation_xmtrx.c
+    src/native/xform_vector.c
     src/native/frame_counter_step.c
     src/native/mem_move.c
     src/native/div_helpers.c
@@ -7058,6 +7059,9 @@ target_include_directories(vf3nativematrixconcatsave PRIVATE src/fight src/nativ
 add_executable(vf3nativerotationxmtrx tests/rotation_xmtrx_native_replay.c)
 target_link_libraries(vf3nativerotationxmtrx PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativerotationxmtrx PRIVATE src/fight src/native)
+add_executable(vf3nativexformvector tests/xform_vector_native_replay.c)
+target_link_libraries(vf3nativexformvector PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativexformvector PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)

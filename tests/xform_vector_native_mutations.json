@@ -1,0 +1,74 @@
+[
+ {
+  "name": "load_translation_not_dropped",
+  "subs": [
+   [
+    "    v[3] = 0.0f;",
+    "    v[3] = 1.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "multiply_transposed",
+  "subs": [
+   [
+    "            s += a->xm[4 * k + r] * v[k];",
+    "            s += a->xm[4 * r + k] * v[k];"
+   ]
+  ]
+ },
+ {
+  "name": "fr_write_offset",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out[i];",
+    "    for (int i = 0; i < 4; ++i) a->fr[i] = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "out_write_wrong_dst",
+  "subs": [
+   [
+    "        *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) = out[i];",
+    "        *vf3_aim_p(a, a->r[4] + 4u * (uint32_t)i) = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "out_length_two",
+  "subs": [
+   [
+    "    for (int i = 0; i < 3; ++i)\n        *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) = out[i];",
+    "    for (int i = 0; i < 2; ++i)\n        *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i) = out[i];"
+   ]
+  ]
+ },
+ {
+  "name": "r4_advance_wrong",
+  "subs": [
+   [
+    "    a->r[4] += 12u;",
+    "    a->r[4] += 13u;"
+   ]
+  ]
+ },
+ {
+  "name": "fr8_overwritten",
+  "subs": [
+   [
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out[i];\n\n    /* and x/y/z are written out to r5 */",
+    "    for (int i = 0; i < 4; ++i) a->fr[4 + i] = out[i];\n    for (int i = 0; i < 4; ++i) a->fr[8 + i] = out[i];\n\n    /* and x/y/z are written out to r5 */"
+   ]
+  ]
+ },
+ {
+  "name": "load_dest_ahead",
+  "subs": [
+   [
+    "        v[i] = *vf3_aim_p(a, a->r[4] + 4u * (uint32_t)i);",
+    "        v[i] = *vf3_aim_p(a, a->r[5] + 4u * (uint32_t)i);"
+   ]
+  ]
+ }
+]
