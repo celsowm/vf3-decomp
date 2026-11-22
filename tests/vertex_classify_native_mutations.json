@@ -1,0 +1,65 @@
+[
+ {
+  "name": "oldest_w_uses_first_not_second",
+  "subs": [
+   [
+    "    const uint32_t w_first = vf3_aim_ubits(a->fr[7]);   /* second point's w */",
+    "    const uint32_t w_first = vf3_aim_ubits(a->fr[3]);   /* second point's w */"
+   ]
+  ]
+ },
+ {
+  "name": "rotcl_t_compare_inverted",
+  "subs": [
+   [
+    "        a->r[9] = (a->r[9] << 1) | (uint32_t)(clip > w_first);",
+    "        a->r[9] = (a->r[9] << 1) | (uint32_t)(clip <= w_first);"
+   ]
+  ]
+ },
+ {
+  "name": "rotcl_second_uses_second_w",
+  "subs": [
+   [
+    "        a->r[9] = (a->r[9] << 1) | (uint32_t)(clip > vf3_aim_ubits(a->fr[3]));",
+    "        a->r[9] = (a->r[9] << 1) | (uint32_t)(clip > vf3_aim_ubits(a->fr[7]));"
+   ]
+  ]
+ },
+ {
+  "name": "outline_offset_misses_plus8",
+  "subs": [
+   [
+    "    const uint32_t xyz = record + 8u + vf3_aim_u32(a, record + 4u);",
+    "    const uint32_t xyz = record + vf3_aim_u32(a, record + 4u);"
+   ]
+  ]
+ },
+ {
+  "name": "inline_uses_next_record",
+  "subs": [
+   [
+    "        return record + 32u;",
+    "        return record + 8u;"
+   ]
+  ]
+ },
+ {
+  "name": "point_order_swapped",
+  "subs": [
+   [
+    "    uint32_t next = load_point(a, first, a->fr + 4);",
+    "    uint32_t next = load_point(a, first, a->fr + 0);"
+   ]
+  ]
+ },
+ {
+  "name": "r0_from_fr3",
+  "subs": [
+   [
+    "    a->r[0] = vf3_aim_ubits(a->fr[7]);",
+    "    a->r[0] = vf3_aim_ubits(a->fr[3]);"
+   ]
+  ]
+ }
+]
