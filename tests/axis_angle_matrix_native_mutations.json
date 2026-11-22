@@ -1,0 +1,56 @@
+[
+ {
+  "name": "k_not_one_minus_cos",
+  "subs": [
+   [
+    "    float fr10 = 1.0f - cosv;          /* k = 1 - cos */",
+    "    float fr10 = cosv;          /* k = cos (wrong) */"
+   ]
+  ]
+ },
+ {
+  "name": "axis_x_z_swapped",
+  "subs": [
+   [
+    "    float fr7  = *vf3_aim_p(a, axp + 4u);\n    float fr8  = *vf3_aim_p(a, axp);\n    float fr6  = *vf3_aim_p(a, axp + 8u);",
+    "    float fr7  = *vf3_aim_p(a, axp + 4u);\n    float fr8  = *vf3_aim_p(a, axp + 8u);\n    float fr6  = *vf3_aim_p(a, axp);"
+   ]
+  ]
+ },
+ {
+  "name": "sin_cos_swapped",
+  "subs": [
+   [
+    "    const float   sin = FR(4), cosv = FR(5);",
+    "    const float   sin = FR(5), cosv = FR(4);"
+   ]
+  ]
+ },
+ {
+  "name": "diag_wrong_sign",
+  "subs": [
+   [
+    "    fr2 = fr2 - x2;                          /* 1 - x2 */",
+    "    fr2 = fr2 + x2;                          /* 1 + x2 (wrong) */"
+   ]
+  ]
+ },
+ {
+  "name": "corner_not_one",
+  "subs": [
+   [
+    "    *vf3_aim_p(a, f + 64u) = 1.0f;",
+    "    *vf3_aim_p(a, f + 64u) = 0.0f;"
+   ]
+  ]
+ },
+ {
+  "name": "translation_row_not_zeroed",
+  "subs": [
+   [
+    "    *vf3_aim_p(a, f + 60u) = 0.0f;\n    *vf3_aim_p(a, f + 56u) = 0.0f;\n    *vf3_aim_p(a, f + 52u) = 0.0f;",
+    "    *vf3_aim_p(a, f + 60u) = 0.0f;\n    *vf3_aim_p(a, f + 56u) = 0.0f;\n    (void)0;"
+   ]
+  ]
+ }
+]
