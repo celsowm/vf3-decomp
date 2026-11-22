@@ -6821,6 +6821,7 @@ add_library(vf3nativeview STATIC
     src/native/project_verts.c
     src/native/cache_wb_stub.c
     src/native/clip_near_triangle.c
+    src/native/clip_edge.c
     src/native/quad_strip.c
     src/native/matrix_frame.c
     src/native/poly_header_sq.c
@@ -7098,6 +7099,9 @@ target_include_directories(vf3nativequadstrip PRIVATE src/fight src/native)
 add_executable(vf3nativeclipneartriangle tests/clip_near_triangle_native_replay.c)
 target_link_libraries(vf3nativeclipneartriangle PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeclipneartriangle PRIVATE src/fight src/native)
+add_executable(vf3nativeclipedge tests/clip_edge_native_replay.c)
+target_link_libraries(vf3nativeclipedge PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeclipedge PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)

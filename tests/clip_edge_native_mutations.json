@@ -1,0 +1,83 @@
+[
+ {
+  "name": "plane_gap_sign_flipped",
+  "subs": [
+   [
+    "    const float plane_gap = fsub(a, fbits(R(12)), sw0);",
+    "    const float plane_gap = fsub(a, sw0, fbits(R(12)));"
+   ]
+  ]
+ },
+ {
+  "name": "edge_gap_sign_flipped",
+  "subs": [
+   [
+    "    const float edge_gap = fsub(a, fbits(vf3_aim_u32(a, q + W)), sw0);",
+    "    const float edge_gap = fsub(a, sw0, fbits(vf3_aim_u32(a, q + W)));"
+   ]
+  ]
+ },
+ {
+  "name": "fmac_uses_p_attr",
+  "subs": [
+   [
+    "    shade = fmac(a, t, fsub(a, fbits(vf3_aim_u32(a, q + DIFFUSE)), fbits(vf3_aim_u32(a, p + DIFFUSE))),\n                 fbits(vf3_aim_u32(a, p + DIFFUSE)));",
+    "    shade = fmac(a, t, fsub(a, fbits(vf3_aim_u32(a, q + DIFFUSE)), fbits(vf3_aim_u32(a, p + DIFFUSE))),\n                 fbits(vf3_aim_u32(a, q + DIFFUSE)));"
+   ]
+  ]
+ },
+ {
+  "name": "y_scale_fmul_wrong",
+  "subs": [
+   [
+    "    y = fmul(a, y, scale);",
+    "    z = fmul(a, z, scale);\n    y = fmul(a, y, scale);"
+   ]
+  ]
+ },
+ {
+  "name": "tm_control_uses_base",
+  "subs": [
+   [
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : (base + Y);",
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : base;"
+   ]
+  ]
+ },
+ {
+  "name": "strip_end_flag_wrong",
+  "subs": [
+   [
+    "    R(2) = (a->sr & 1u) ? STRIP_END_FLAG : (base + Y);",
+    "    R(2) = (a->sr & 1u) ? (base + Y) : STRIP_END_FLAG;"
+   ]
+  ]
+ },
+ {
+  "name": "r0_exit_from_start_idx",
+  "subs": [
+   [
+    "    R(0) = (R(11) & RING_MASK) * SLOT_SIZE;",
+    "    R(0) = (R(0) & RING_MASK) * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "fpul_value_wrong",
+  "subs": [
+   [
+    "    a->fpul = R(7);",
+    "    a->fpul = R(12);"
+   ]
+  ]
+ },
+ {
+  "name": "fmac_not_fused",
+  "subs": [
+   [
+    "    volatile float z = fmaf(x, y, acc);",
+    "    volatile float z = x * y + acc;"
+   ]
+  ]
+ }
+]
