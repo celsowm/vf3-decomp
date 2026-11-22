@@ -1,0 +1,92 @@
+[
+ {
+  "name": "sq_hdr8_hbit_wrong",
+  "subs": [
+   [
+    "    if (!(flags & 0x0800u)) h8 |= 0x00800000u;",
+    "    if (!(flags & 0x0800u)) h8 |= 0x00400000u;"
+   ]
+  ]
+ },
+ {
+  "name": "sq_hdr8_2000_wrong",
+  "subs": [
+   [
+    "    if (flags & 0x1000u) h8 |= 0x2000u;",
+    "    if (flags & 0x1000u) h8 |= 0x1000u;"
+   ]
+  ]
+ },
+ {
+  "name": "sq_blend_default_wrong",
+  "subs": [
+   [
+    "    if (blend == 0) blend = 4u;",
+    "    if (blend == 0) blend = 3u;"
+   ]
+  ]
+ },
+ {
+  "name": "sq_translucent_hi_bits",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, hdr + 8u, vf3_aim_u32(a, hdr + 8u) | 0x94100000u);",
+    "        vf3_aim_set_u32(a, hdr + 8u, vf3_aim_u32(a, hdr + 8u) | 0x84100000u);"
+   ]
+  ]
+ },
+ {
+  "name": "sq_opaque_hi_bits",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, hdr + 8u, vf3_aim_u32(a, hdr + 8u) | 0x20080000u);",
+    "        vf3_aim_set_u32(a, hdr + 8u, vf3_aim_u32(a, hdr + 8u) | 0x20040000u);"
+   ]
+  ]
+ },
+ {
+  "name": "sq_uv0_mirror_inverted",
+  "subs": [
+   [
+    "    if (mirror & 0x10u) { u0 = fsub(a, one, u0); v0 = fsub(a, one, v0); }",
+    "    if (!(mirror & 0x10u)) { u0 = fsub(a, one, u0); v0 = fsub(a, one, v0); }"
+   ]
+  ]
+ },
+ {
+  "name": "sq_uv1_mirror_inverted",
+  "subs": [
+   [
+    "    if (!(mirror & 0x20u)) { u1 = fsub(a, one, u1); v1 = fsub(a, one, v1); }",
+    "    if (mirror & 0x20u) { u1 = fsub(a, one, u1); v1 = fsub(a, one, v1); }"
+   ]
+  ]
+ },
+ {
+  "name": "sq_frame_dx_dy_swapped",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, frame + 8u, vf3_aim_ubits(dx));\r\n    vf3_aim_set_u32(a, frame + 4u, vf3_aim_ubits(dy));",
+    "    vf3_aim_set_u32(a, frame + 4u, vf3_aim_ubits(dx));\r\n    vf3_aim_set_u32(a, frame + 8u, vf3_aim_ubits(dy));"
+   ]
+  ]
+ },
+ {
+  "name": "sq_pack_hi_stripped",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, frame + 16u, bits_v1 >> 16);",
+    "    vf3_aim_set_u32(a, frame + 16u, bits_u1 >> 16);"
+   ]
+  ]
+ },
+ {
+  "name": "sq_cursor_line_off_other",
+  "subs": [
+   [
+    "    const uint32_t cursor = sq_base + line_off;\r\n    vf3_aim_set_u32(a, cursor,",
+    "    const uint32_t cursor = sq_base + (line_off ^ 8u);\r\n    vf3_aim_set_u32(a, cursor,"
+   ]
+  ]
+ }
+]
