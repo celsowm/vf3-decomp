@@ -6833,6 +6833,7 @@ add_library(vf3nativeview STATIC
     src/native/axis_extract.c
     src/native/project_verts.c
     src/native/cache_wb_stub.c
+    src/native/empty_rts.c
     src/native/clip_near_triangle.c
     src/native/clip_edge.c
     src/native/clip_emit_slot.c
@@ -7141,6 +7142,9 @@ target_include_directories(vf3nativeprojectverts PRIVATE src/fight src/native)
 add_executable(vf3nativecachewbstub tests/cache_wb_stub_native_replay.c)
 target_link_libraries(vf3nativecachewbstub PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativecachewbstub PRIVATE src/fight src/native)
+add_executable(vf3nativeemptyrts tests/empty_rts_native_replay.c)
+target_link_libraries(vf3nativeemptyrts PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeemptyrts PRIVATE src/fight src/native)
 add_executable(vf3nativematrixframe tests/matrix_frame_native_replay.c)
 target_link_libraries(vf3nativematrixframe PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixframe PRIVATE src/fight src/native)
