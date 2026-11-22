@@ -1,0 +1,119 @@
+[
+ {
+  "name": "tagged_select_inverted",
+  "subs": [
+   [
+    "    const int tagged = vf3_aim_u32(a, MODE_FLAG) != 0;",
+    "    const int tagged = vf3_aim_u32(a, MODE_FLAG) == 0;"
+   ]
+  ]
+ },
+ {
+  "name": "gbr_offset_swapped",
+  "subs": [
+   [
+    "uint32_t dst = vf3_aim_u32(a, a->gbr + (tagged ? 80u : 72u));",
+    "uint32_t dst = vf3_aim_u32(a, a->gbr + (tagged ? 72u : 80u));"
+   ]
+  ]
+ },
+ {
+  "name": "tag_bit_skipped",
+  "subs": [
+   [
+    "        w1 |= TAG_BIT;",
+    "        (void)0;"
+   ]
+  ]
+ },
+ {
+  "name": "tag_or_skipped",
+  "subs": [
+   [
+    "        w3 = (w3 & KEEP_MASK) | TAG_OR;",
+    "        w3 = (w3 & KEEP_MASK);"
+   ]
+  ]
+ },
+ {
+  "name": "keep_mask_dropped",
+  "subs": [
+   [
+    "        w3 = (w3 & KEEP_MASK) | TAG_OR;",
+    "        w3 = w3 | TAG_OR;"
+   ]
+  ]
+ },
+ {
+  "name": "single_test_inverted",
+  "subs": [
+   [
+    "    const int single = (w1 & BIT5) == 0;",
+    "    const int single = (w1 & BIT5) != 0;"
+   ]
+  ]
+ },
+ {
+  "name": "double_advance_wrong",
+  "subs": [
+   [
+    "            dst += 32u;\n            put4(a, dst, r1, r2, r3, r5);\n            r1 = t[4]; r2 = t[5]; r3 = t[6]; r5 = t[7];\n        }\n        put4(a, dst + 16u, r1, r2, r3, r5);",
+    "            dst += 16u;\n            put4(a, dst, r1, r2, r3, r5);\n            r1 = t[4]; r2 = t[5]; r3 = t[6]; r5 = t[7];\n        }\n        put4(a, dst + 16u, r1, r2, r3, r5);"
+   ]
+  ]
+ },
+ {
+  "name": "tagged_double_tagword_skipped",
+  "subs": [
+   [
+    "            r1 = TAG_WORD;\n            r6 = vf3_aim_u32(a, TAG_WORD);",
+    "            r1 = 0u;\n            r6 = 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "bank_pointer_swapped",
+  "subs": [
+   [
+    "    a->r[2] = tagged ? BANK_TAGGED : BANK_PLAIN;",
+    "    a->r[2] = tagged ? BANK_PLAIN : BANK_TAGGED;"
+   ]
+  ]
+ },
+ {
+  "name": "sr_t_inverted",
+  "subs": [
+   [
+    "    a->sr = (a->sr & ~1u) | (single ? 1u : 0u);",
+    "    a->sr = (a->sr & ~1u) | (single ? 0u : 1u);"
+   ]
+  ]
+ },
+ {
+  "name": "r4_not_advanced",
+  "subs": [
+   [
+    "    a->r[4] = src + 20u;",
+    "    a->r[4] = src;"
+   ]
+  ]
+ },
+ {
+  "name": "r12_wrong_next",
+  "subs": [
+   [
+    "    a->r[12] = dst + 32u;",
+    "    a->r[12] = dst + 16u;"
+   ]
+  ]
+ },
+ {
+  "name": "plain_single_template_second_half",
+  "subs": [
+   [
+    "        if (!single) {\n            dst += 32u;\n            put4(a, dst, r1, r2, r3, r5);\n            r1 = t[4]; r2 = t[5]; r3 = t[6]; r5 = t[7];\n        }",
+    "        if (!single) {\n            dst += 32u;\n            put4(a, dst, r6, r2, r3, r5);\n            r1 = t[4]; r2 = t[5]; r3 = t[6]; r5 = t[7];\n        }"
+   ]
+  ]
+ }
+]

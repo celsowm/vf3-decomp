@@ -6821,6 +6821,7 @@ add_library(vf3nativeview STATIC
     src/native/project_verts.c
     src/native/cache_wb_stub.c
     src/native/matrix_frame.c
+    src/native/poly_header_sq.c
     src/native/frame_counter_step.c
     src/native/mem_move.c
     src/native/div_helpers.c
@@ -7086,6 +7087,9 @@ target_include_directories(vf3nativecachewbstub PRIVATE src/fight src/native)
 add_executable(vf3nativematrixframe tests/matrix_frame_native_replay.c)
 target_link_libraries(vf3nativematrixframe PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativematrixframe PRIVATE src/fight src/native)
+add_executable(vf3nativepolyheadersq tests/poly_header_sq_native_replay.c)
+target_link_libraries(vf3nativepolyheadersq PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativepolyheadersq PRIVATE src/fight src/native)
 add_executable(vf3nativeframecounterstep tests/frame_counter_step_native_replay.c)
 target_link_libraries(vf3nativeframecounterstep PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeframecounterstep PRIVATE src/fight src/native)
