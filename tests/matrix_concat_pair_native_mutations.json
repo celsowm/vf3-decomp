@@ -1,0 +1,92 @@
+[
+ {
+  "name": "guard_inverted",
+  "subs": [
+   [
+    "    if (a->fpscr & SZ_BIT)\n        return 0;",
+    "    if (!(a->fpscr & SZ_BIT))\n        return 0;"
+   ]
+  ]
+ },
+ {
+  "name": "a_source_off_by_8",
+  "subs": [
+   [
+    "    const uint32_t first = vf3_aim_u32(a, FIRST_PTR + 8u);",
+    "    const uint32_t first = vf3_aim_u32(a, FIRST_PTR + 0u);"
+   ]
+  ]
+ },
+ {
+  "name": "fr_saved_desc_order",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp0 - 16u, vf3_aim_ubits(saved[3]));",
+    "    vf3_aim_set_u32(a, sp0 - 16u, vf3_aim_ubits(saved[0]));"
+   ]
+  ]
+ },
+ {
+  "name": "fr_restored_wrong_slot",
+  "subs": [
+   [
+    "    memcpy(a->fr, B, 12u * sizeof(float));",
+    "    memcpy(a->fr, A, 12u * sizeof(float));"
+   ]
+  ]
+ },
+ {
+  "name": "multiply_order_ba",
+  "subs": [
+   [
+    "    rowmajor_prod(a->xm, A, t);\n    rowmajor_prod(t, B, out);",
+    "    rowmajor_prod(a->xm, B, t);\n    rowmajor_prod(t, A, out);"
+   ]
+  ]
+ },
+ {
+  "name": "missing_a",
+  "subs": [
+   [
+    "    rowmajor_prod(a->xm, A, t);\n    rowmajor_prod(t, B, out);\n    memcpy(a->xm, out, sizeof out);",
+    "    rowmajor_prod(a->xm, B, out);\n    memcpy(a->xm, out, sizeof out);"
+   ]
+  ]
+ },
+ {
+  "name": "transpose_row_col",
+  "subs": [
+   [
+    "            out[row * 4 + col] =",
+    "            out[col * 4 + row] ="
+   ]
+  ]
+ },
+ {
+  "name": "r4_wrong",
+  "subs": [
+   [
+    "    a->r[4] = SECOND + 32u;",
+    "    a->r[4] = SECOND + 16u;"
+   ]
+  ]
+ },
+ {
+  "name": "r5_wrong",
+  "subs": [
+   [
+    "    a->r[5] = SECOND + 64u;",
+    "    a->r[5] = SECOND + 48u;"
+   ]
+  ]
+ },
+ {
+  "name": "results_into_t_not_xm",
+  "subs": [
+   [
+    "    memcpy(a->xm, out, sizeof out);\n\n    /* FR0..FR11 = B, FR12..FR15 back as they were */",
+    "    memcpy(a->xm, t, sizeof t);\n\n    /* FR0..FR11 = B, FR12..FR15 back as they were */"
+   ]
+  ]
+ }
+]
