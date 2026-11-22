@@ -1,0 +1,128 @@
+[
+ {
+  "name": "units_guard_divisor_wrong",
+  "subs": [
+   [
+    "    if (units == 0 || units % GROUP_UNITS) return 0;",
+    "    if (units == 0 || units % (GROUP_UNITS + 1)) return 0;"
+   ]
+  ]
+ },
+ {
+  "name": "group_tail_not_skipped",
+  "subs": [
+   [
+    "        group += GROUP_TAIL;",
+    "        group += 0u;"
+   ]
+  ]
+ },
+ {
+  "name": "quad_decision_inverted",
+  "subs": [
+   [
+    "        const int quad = fmul(a, dy01, dz12) > fmul(a, dz01, dy12);",
+    "        const int quad = fmul(a, dy01, dz12) <= fmul(a, dz01, dy12);"
+   ]
+  ]
+ },
+ {
+  "name": "vertex0_slot_advance_wrong",
+  "subs": [
+   [
+    "            slot += 4u * SLOT_SIZE;",
+    "            slot += 3u * SLOT_SIZE;"
+   ]
+  ]
+ },
+ {
+  "name": "triangle_eos_writer_wrong_offset",
+  "subs": [
+   [
+    "            vf3_aim_set_u32(a, slot + 2u * SLOT_SIZE, PCW_VERTEX_EOS);",
+    "            vf3_aim_set_u32(a, slot + 1u * SLOT_SIZE, PCW_VERTEX_EOS);"
+   ]
+  ]
+ },
+ {
+  "name": "first_slot_not_kept",
+  "subs": [
+   [
+    "    a->r[14] = first_slot;",
+    "    a->r[14] = slot;"
+   ]
+  ]
+ },
+ {
+  "name": "r9_not_zeroed",
+  "subs": [
+   [
+    "    a->r[9] = 0;",
+    "    a->r[9] = R(9);"
+   ]
+  ]
+ },
+ {
+  "name": "r5_advance_wrong",
+  "subs": [
+   [
+    "            r5 += 2u * 64u;",
+    "            r5 += 64u;"
+   ]
+  ]
+ },
+ {
+  "name": "project_uses_wrong_slot_control",
+  "subs": [
+   [
+    "        emit_position(a, slot + SLOT_SIZE, &v1, slot + SLOT_SIZE);",
+    "        emit_position(a, slot + SLOT_SIZE, &v1, slot);"
+   ]
+  ]
+ },
+ {
+  "name": "specular_ignored",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, slot - 4u, ubits(lit.specular));",
+    "        vf3_aim_set_u32(a, slot - 4u, ubits(lit.intensity));"
+   ]
+  ]
+ },
+ {
+  "name": "tri_selector_branch_inverted",
+  "subs": [
+   [
+    "    if (selector < 0) {",
+    "    if (selector >= 0) {"
+   ]
+  ]
+ },
+ {
+  "name": "intensity_add_condition_inverted",
+  "subs": [
+   [
+    "    if (ndl > 0.0f) intensity = fadd(a, intensity, ndl);",
+    "    if (ndl < 0.0f) intensity = fadd(a, intensity, ndl);"
+   ]
+  ]
+ },
+ {
+  "name": "diffuse_wrong_lane",
+  "subs": [
+   [
+    "    const float normal[4] = { n1, n2, n0, 0.0f };",
+    "    const float normal[4] = { n0, n2, n1, 0.0f };"
+   ]
+  ]
+ },
+ {
+  "name": "first_vertex_control_wrong",
+  "subs": [
+   [
+    "        vf3_aim_set_u32(a, slot + SLOT_CTRL, slot);",
+    "        vf3_aim_set_u32(a, slot + SLOT_CTRL, slot + SLOT_SIZE);"
+   ]
+  ]
+ }
+]
