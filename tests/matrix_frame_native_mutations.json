@@ -1,0 +1,65 @@
+[
+ {
+  "name": "frame_a_pushes_parent",
+  "subs": [
+   [
+    "{ frame_chain(a, NODE_PUSH, 0, FLAT_A); }",
+    "{ frame_chain(a, PARENT_PUSH, 0, FLAT_A); }"
+   ]
+  ]
+ },
+ {
+  "name": "frame_b_skips_concat",
+  "subs": [
+   [
+    "{ frame_chain(a, NODE_PUSH, 1, FLAT_A); }",
+    "{ frame_chain(a, NODE_PUSH, 0, FLAT_A); }"
+   ]
+  ]
+ },
+ {
+  "name": "frame_c_wrong_flat_slot",
+  "subs": [
+   [
+    "{ frame_chain(a, PARENT_PUSH, 0, FLAT_C); }",
+    "{ frame_chain(a, PARENT_PUSH, 0, FLAT_A); }"
+   ]
+  ]
+ },
+ {
+  "name": "concat_parent_repeated_push",
+  "subs": [
+   [
+    "    vf3_native_matrix_concat_parent(a);",
+    "    vf3_native_matrix_push(a);"
+   ]
+  ]
+ },
+ {
+  "name": "r15_not_restored",
+  "subs": [
+   [
+    "    a->r[15] = sp;",
+    "    (void)0;"
+   ]
+  ]
+ },
+ {
+  "name": "pr_saved_wrong_offset",
+  "subs": [
+   [
+    "    vf3_aim_set_u32(a, sp - 4u, pr);",
+    "    vf3_aim_set_u32(a, sp - 8u, pr);"
+   ]
+  ]
+ },
+ {
+  "name": "push_from_read_wrong",
+  "subs": [
+   [
+    "    a->r[4] = vf3_aim_u32(a, push_from);",
+    "    a->r[4] = vf3_aim_u32(a, PARENT_PUSH);"
+   ]
+  ]
+ }
+]
