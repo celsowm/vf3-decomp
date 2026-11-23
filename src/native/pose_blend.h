@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include "motion_aim.h"
 
 #define VF3_NATIVE_POSE_BLEND_FIELDS 26u
 
@@ -18,5 +19,6 @@ int vf3_native_pose_blend_step(float *weight, float step,
                                const int16_t pose_a[VF3_NATIVE_POSE_BLEND_FIELDS],
                                const int16_t pose_b[VF3_NATIVE_POSE_BLEND_FIELDS],
                                int16_t out[VF3_NATIVE_POSE_BLEND_FIELDS]);
+void vf3_native_pose_blend(vf3_native_aim *a);
 
 #endif

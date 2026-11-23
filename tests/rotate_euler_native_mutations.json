@@ -1,0 +1,7 @@
+[
+ {"name":"z angle", "subs":[["a->r[4]=z;a->pr=0x0c09d49au", "a->r[4]=x;a->pr=0x0c09d49au"]]},
+ {"name":"z rotation", "subs":[["vf3_native_matrix_rotate_z(a)", "(void)a"]]},
+ {"name":"y rotation", "subs":[["vf3_native_matrix_rotate_y(a)", "(void)a"]]},
+ {"name":"x rotation", "subs":[["vf3_native_matrix_rotate_x(a)", "(void)a"]]},
+ {"name":"saved z angle", "subs":[["vf3_aim_set_u16(a,f+8,(uint16_t)z)", "vf3_aim_set_u16(a,f+8,(uint16_t)y)"]]}
+]

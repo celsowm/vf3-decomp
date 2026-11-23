@@ -29,6 +29,7 @@ typedef struct {
     uint32_t pr, sr, fpscr;
     uint32_t fpul;           /* the FPUL register (guest r53) */
     uint32_t gbr;            /* the GBR register (guest r59 / VBR sibling) */
+    uint32_t macl;           /* saved MACL value for integer multiply helpers */
 } vf3_native_aim;
 
 /* Run 0x8C09E060.  `record_a` is r4 (the kind record), `block_b` r5 (the

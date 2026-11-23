@@ -1,0 +1,8 @@
+[
+ {"name":"translation save", "subs":[["a->pr=0x0c09da30u;vf3_native_xf_store(a)", "a->pr=0x0c09da30u;(void)a"]]},
+ {"name":"identity", "subs":[["a->pr=0x0c09da36u;vf3_native_xmtrx_identity(a)", "a->pr=0x0c09da36u;(void)a"]]},
+ {"name":"owner rotation", "subs":[["a->pr=0x0c09da40u;vf3_native_matrix_rotate_y(a)", "a->pr=0x0c09da40u;(void)a"]]},
+ {"name":"z rotation", "subs":[["a->pr=0x0c09da48u;vf3_native_matrix_rotate_z(a)", "a->pr=0x0c09da48u;(void)a"]]},
+ {"name":"input y", "subs":[["vf3_aim_h16(a,in+2);a->r[4]", "vf3_aim_h16(a,in);a->r[4]"]]},
+ {"name":"translation restore", "subs":[["a->pr=0x0c09da6au;vf3_native_matrix_set_translation(a)", "a->pr=0x0c09da6au;(void)a"]]}
+]

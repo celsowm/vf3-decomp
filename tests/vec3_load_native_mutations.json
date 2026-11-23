@@ -1,0 +1,7 @@
+[
+ {"name":"translation call", "subs":[["vf3_native_matrix_translate_by(a)", "(void)a"]]},
+ {"name":"x coordinate", "subs":[["vf3_aim_u32(a,p));", "vf3_aim_u32(a,p+4));"]]},
+ {"name":"z coordinate", "subs":[["vf3_aim_u32(a,p+8)", "vf3_aim_u32(a,p+4)"]]},
+ {"name":"dead stack save", "subs":[["vf3_aim_set_u32(a,a->r[15]-4,a->r[14])", "vf3_aim_set_u32(a,a->r[15]-4,a->r[13])"]]},
+ {"name":"callee register", "subs":[["a->r[3]=0x0c03cc60u", "a->r[3]=0x0c03cc90u"]]}
+]

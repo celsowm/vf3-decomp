@@ -1,0 +1,7 @@
+[
+ {"name":"homogeneous coordinate", "subs":[["in[3]=1.0f", "in[3]=0.0f"]]},
+ {"name":"advance input", "subs":[["a->r[4]+=12", "a->r[4]+=8"]]},
+ {"name":"matrix order", "subs":[["a->xm[col*4+row]", "a->xm[row*4+col]"]]},
+ {"name":"input order", "subs":[["in[col],row!=0", "in[(col+1)%4],row!=0"]]},
+ {"name":"output store", "subs":[["a->r[5]+4u*i", "a->r[5]+4u*(2-i)"]]}
+]

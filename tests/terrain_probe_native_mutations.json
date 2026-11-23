@@ -1,0 +1,10 @@
+[
+ {"name":"flat result", "subs":[["wr(a,R(13),F(0));result=0", "wr(a,R(13),F(3));result=0"]]},
+ {"name":"range bound", "subs":[["14.0f>x", "10.0f>x"]]},
+ {"name":"out of range status", "subs":[["wr(a,R(13),F(15));R(14)=1", "wr(a,R(13),F(15));R(14)=3"]]},
+ {"name":"empty cell status", "subs":[["wr(a,R(13),F(15));R(14)=2;}", "wr(a,R(13),F(15));R(14)=3;}"]]},
+ {"name":"stage 13 flag", "subs":[["R(14)|=4", "R(14)|=8"]]},
+ {"name":"stage 11 correction", "subs":[["vf3_native_terrain_ext(a)", "(void)a"]]},
+ {"name":"normal y", "subs":[["wr(a,f+24,1)", "wr(a,f+24,0)"]]},
+ {"name":"normal output", "subs":[["vf3_aim_u32(a,f+20));", "vf3_aim_u32(a,f+24));"]]}
+]

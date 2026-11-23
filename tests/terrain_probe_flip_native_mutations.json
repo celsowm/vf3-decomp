@@ -1,0 +1,8 @@
+[
+ {"name":"mirror z", "subs":[["vf3_aim_ubits(F(5))^0x80000000u", "vf3_aim_ubits(F(5))"]]},
+ {"name":"shape result mask", "subs":[["(R(4)<<1)&0x1fffcu", "(R(4)<<1)&0x1fff8u"]]},
+ {"name":"shape normal x", "subs":[["F(4)=rd(a,rec+20)", "F(4)=rd(a,rec+24)"]]},
+ {"name":"shape normal y", "subs":[["F(5)=rd(a,rec+24)", "F(5)=rd(a,rec+28)"]]},
+ {"name":"default normal", "subs":[["wr(a,f+16,1);wr(a,f+8,0);wr(a,f+12,0)", "wr(a,f+16,0);wr(a,f+8,0);wr(a,f+12,0)"]]},
+ {"name":"flip stage 11", "subs":[["a->pr=0x0c06927eu;vf3_native_terrain_ext(a)", "a->pr=0x0c06927eu;(void)a"]]}
+]

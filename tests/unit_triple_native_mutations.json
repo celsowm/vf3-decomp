@@ -1,0 +1,9 @@
+[
+ {"name":"pass prep", "subs":[["vf3_native_pass_prep(a)", "(void)a"]]},
+ {"name":"first length", "subs":[["F(3)=mac(a,F(0),F(5),F(3))", "F(3)=mul(a,F(0),F(5))"]]},
+ {"name":"third component", "subs":[["F(14)=mac(a,F(0),F(12),F(14))", "F(14)=mul(a,F(0),F(12))"]]},
+ {"name":"heading", "subs":[["vf3_native_matrix_rotate_sc(a)", "(void)a"]]},
+ {"name":"pitch", "subs":[["vf3_native_rotation_xmtrx(a)", "(void)a"]]},
+ {"name":"length result", "subs":[["wr(a,R(2),F(3))", "wr(a,R(2),F(2))"]]},
+ {"name":"reciprocal result", "subs":[["wr(a,R(3),F(13))", "wr(a,R(3),F(12))"]]}
+]

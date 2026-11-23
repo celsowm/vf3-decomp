@@ -1,0 +1,8 @@
+[
+ {"name":"axis input", "subs":[["vf3_aim_ubits(a->fr[4])", "vf3_aim_ubits(a->fr[5])"]]},
+ {"name":"axis transform", "subs":[["vf3_native_xform_point(a)", "(void)a"]]},
+ {"name":"axis destination", "subs":[["a->r[5]=dest", "a->r[5]=dest+4"]]},
+ {"name":"matrix store", "subs":[["vf3_native_matrix_store(a)", "(void)a"]]},
+ {"name":"translation restore", "subs":[["object+48+4*i,vf3_aim_ubits(a->fr[3])", "object+44+4*i,vf3_aim_ubits(a->fr[3])"]]},
+ {"name":"return register", "subs":[["a->r[0]=56;a->r[15]=sp", "a->r[0]=52;a->r[15]=sp"]]}
+]

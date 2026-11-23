@@ -1,0 +1,8 @@
+[
+ {"name":"null flag", "subs":[["test(a,state==0)", "test(a,state!=0)"]]},
+ {"name":"busy flag", "subs":[["test(a,a->r[2]==0)", "test(a,a->r[2]!=0)"]]},
+ {"name":"state compare", "subs":[["if(a->r[0]==2){", "if(a->r[0]==3){"]]},
+ {"name":"helper continuation", "subs":[["sp-16,0x0c0355beu", "sp-16,0x0c0355c0u"]]},
+ {"name":"busy clear", "subs":[["vf3_aim_set_u16(a,state+0x48,0)", "vf3_aim_set_u16(a,state+0x48,1)"]]},
+ {"name":"return register", "subs":[["a->r[0]=0x48;a->r[3]=0", "a->r[0]=0x4c;a->r[3]=0"]]}
+]

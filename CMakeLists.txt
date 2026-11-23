@@ -6852,6 +6852,7 @@ add_library(vf3nativeview STATIC
     src/native/pool_alloc.c
     src/native/sprite_rect_a.c
     src/native/sprite_rect_b.c
+    src/native/sprite_quad.c
     src/native/tex_cell_load.c
     src/native/push_offset.c
     src/native/float_blend.c
@@ -6862,7 +6863,19 @@ add_library(vf3nativeview STATIC
     src/native/vertex_emit.c
     src/native/vertex_emit_sq.c
     src/native/color_unpack.c
-    src/native/terrain_plane_hit.c)
+    src/native/terrain_plane_hit.c
+    src/native/terrain_region.c
+    src/native/terrain_ext.c
+    src/native/terrain_height.c
+    src/native/terrain_probe.c
+    src/native/xform_point.c
+    src/native/matrix_wrappers.c
+    src/native/pose_blend_full.c
+    src/native/state_checker.c
+    src/native/vertex_light.c
+    src/native/render_callback_stub.c
+    src/native/unit_triple.c
+    src/native/sphere.c)
 target_include_directories(vf3nativeview PUBLIC src/native src/media)
 if (VF3_NATIVE_PORT)
     target_link_libraries(vf3nativeview PUBLIC vf3nativegame SDL3::SDL3-static)
@@ -7205,6 +7218,9 @@ target_include_directories(vf3nativespriterectb PRIVATE src/fight src/native)
 add_executable(vf3nativespriterecta tests/sprite_rect_a_native_replay.c)
 target_link_libraries(vf3nativespriterecta PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativespriterecta PRIVATE src/fight src/native)
+add_executable(vf3nativespritequad tests/sprite_quad_native_replay.c)
+target_link_libraries(vf3nativespritequad PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativespritequad PRIVATE src/fight src/native)
 add_executable(vf3nativetexcelload tests/tex_cell_load_native_replay.c)
 target_link_libraries(vf3nativetexcelload PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativetexcelload PRIVATE src/fight src/native)
@@ -7230,6 +7246,60 @@ add_executable(vf3nativecolorunpack tests/color_unpack_native_replay.c)
 target_link_libraries(vf3nativecolorunpack PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativecolorunpack PRIVATE src/fight src/native)
 add_executable(vf3nativeterrainplanehit tests/terrain_plane_hit_native_replay.c)
+add_executable(vf3nativeterrainregion tests/terrain_region_native_replay.c)
+target_link_libraries(vf3nativeterrainregion PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeterrainregion PRIVATE src/fight src/native)
+add_executable(vf3nativeterrainext tests/terrain_ext_native_replay.c)
+target_link_libraries(vf3nativeterrainext PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeterrainext PRIVATE src/fight src/native)
+add_executable(vf3nativesphereresolve tests/sphere_resolve_native_replay.c)
+target_link_libraries(vf3nativesphereresolve PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativesphereresolve PRIVATE src/fight src/native)
+add_executable(vf3nativespheresegment tests/sphere_segment_native_replay.c)
+target_link_libraries(vf3nativespheresegment PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativespheresegment PRIVATE src/fight src/native)
+add_executable(vf3nativepointcontact tests/point_contact_native_replay.c)
+target_link_libraries(vf3nativepointcontact PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativepointcontact PRIVATE src/fight src/native)
+add_executable(vf3nativeterrainheight tests/terrain_height_native_replay.c)
+target_link_libraries(vf3nativeterrainheight PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeterrainheight PRIVATE src/fight src/native)
+add_executable(vf3nativeterrainprobe tests/terrain_probe_native_replay.c)
+target_link_libraries(vf3nativeterrainprobe PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeterrainprobe PRIVATE src/fight src/native)
+add_executable(vf3nativexformpoint tests/xform_point_native_replay.c)
+target_link_libraries(vf3nativexformpoint PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativexformpoint PRIVATE src/fight src/native)
+add_executable(vf3nativematrixwrappers tests/matrix_wrappers_native_replay.c)
+target_link_libraries(vf3nativematrixwrappers PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativematrixwrappers PRIVATE src/fight src/native)
+add_executable(vf3nativerotateeuler tests/rotate_euler_native_replay.c)
+target_link_libraries(vf3nativerotateeuler PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativerotateeuler PRIVATE src/fight src/native)
+add_executable(vf3nativevec3load tests/vec3_load_native_replay.c)
+target_link_libraries(vf3nativevec3load PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevec3load PRIVATE src/fight src/native)
+add_executable(vf3nativeposeblendfull tests/pose_blend_full_native_replay.c)
+target_link_libraries(vf3nativeposeblendfull PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeposeblendfull PRIVATE src/fight src/native)
+add_executable(vf3nativestatechecker tests/state_checker_native_replay.c)
+target_link_libraries(vf3nativestatechecker PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativestatechecker PRIVATE src/fight src/native)
+add_executable(vf3nativecallseqda1e tests/call_seq_da1e_native_replay.c)
+target_link_libraries(vf3nativecallseqda1e PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativecallseqda1e PRIVATE src/fight src/native)
+add_executable(vf3nativerootorientation tests/root_orientation_native_replay.c)
+target_link_libraries(vf3nativerootorientation PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativerootorientation PRIVATE src/fight src/native)
+add_executable(vf3nativevertexlight tests/vertex_light_native_replay.c)
+target_link_libraries(vf3nativevertexlight PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativevertexlight PRIVATE src/fight src/native)
+add_executable(vf3nativerendercallback tests/render_callback_native_replay.c)
+target_link_libraries(vf3nativerendercallback PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativerendercallback PRIVATE src/fight src/native)
+add_executable(vf3nativeunittriple tests/unit_triple_native_replay.c)
+target_link_libraries(vf3nativeunittriple PRIVATE vf3core vf3nativeview)
+target_include_directories(vf3nativeunittriple PRIVATE src/fight src/native)
 target_link_libraries(vf3nativeterrainplanehit PRIVATE vf3core vf3nativeview)
 target_include_directories(vf3nativeterrainplanehit PRIVATE src/fight src/native)
 add_executable(vf3nativepackexpand tests/pack_expand_native_replay.c)

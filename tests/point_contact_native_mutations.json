@@ -1,0 +1,9 @@
+[
+ {"name":"clear hit flags", "subs":[["&0xffffeeffu", "&0xffffffffu"]]},
+ {"name":"height snap", "subs":[["if (F(4)>F(3)) {", "if (F(4)<F(3)) {"]]},
+ {"name":"height flag", "subs":[["vf3_aim_u32(a,hit)|0x1000u", "vf3_aim_u32(a,hit)|0x2000u"]]},
+ {"name":"kind remap", "subs":[["kind=6;", "kind=0;"]]},
+ {"name":"list offset", "subs":[["kind*32u", "kind*16u"]]},
+ {"name":"point versus segment", "subs":[["if (count) {", "if (!count) {"]]},
+ {"name":"point radius", "subs":[["F(3)=rd(a,R(13)+12)", "F(3)=rd(a,R(13)+16)"]]}
+]

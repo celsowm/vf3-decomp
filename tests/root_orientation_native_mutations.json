@@ -1,0 +1,8 @@
+[
+ {"name":"identity", "subs":[["a->pr=0x0c09d9f4u;vf3_native_xmtrx_identity(a)", "a->pr=0x0c09d9f4u;(void)a"]]},
+ {"name":"yaw rotation", "subs":[["a->pr=0x0c09d9fcu;vf3_native_matrix_rotate_y(a)", "a->pr=0x0c09d9fcu;(void)a"]]},
+ {"name":"z rotation", "subs":[["a->pr=0x0c09da06u;vf3_native_matrix_rotate_z(a)", "a->pr=0x0c09da06u;(void)a"]]},
+ {"name":"second y rotation", "subs":[["a->pr=0x0c09da10u;vf3_native_matrix_rotate_y(a)", "a->pr=0x0c09da10u;(void)a"]]},
+ {"name":"x rotation", "subs":[["a->r[14]=saved;a->r[15]=sp;vf3_native_matrix_rotate_x(a)", "a->r[14]=saved;a->r[15]=sp;(void)a"]]},
+ {"name":"first pose offset", "subs":[["vf3_aim_h16(a,0x0c09daccu)", "vf3_aim_h16(a,0x0c09daceu)"]]}
+]

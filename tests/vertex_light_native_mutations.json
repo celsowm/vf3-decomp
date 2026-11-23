@@ -1,0 +1,7 @@
+[
+ {"name":"inline length", "subs":[["next=record+32", "next=record+28"]]},
+ {"name":"indirect offset", "subs":[["body=record+8+vf3_aim_u32(a,record+4)", "body=record+4+vf3_aim_u32(a,record+4)"]]},
+ {"name":"indirect length", "subs":[["next=record+8", "next=record+12"]]},
+ {"name":"preserve fpul", "subs":[["a->fpul=fpul", "a->fpul=fpul+1"]]},
+ {"name":"preserve scratch", "subs":[["a->fr[11]=fr11", "a->fr[11]=fr0"]]}
+]

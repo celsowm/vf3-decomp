@@ -1,0 +1,10 @@
+[
+  {"name":"distance rejection", "subs":[["if (F(3)>F(14)) {", "if (F(3)<F(14)) {"]]},
+  {"name":"start endpoint", "subs":[["if (F(3)>F(4)) {", "if (F(3)<F(4)) {"]]},
+  {"name":"start limit", "subs":[["if (!(F(15)>F(3))) {", "if (F(15)>F(3)) {"]]},
+  {"name":"middle segment", "subs":[["if (F(3)>F(15)) {", "if (F(3)<F(15)) {"]]},
+  {"name":"end endpoint", "subs":[["if (!(F(15)>F(3))) {", "if ( !(F(15)>F(3))) {"],["if (!(F(15)>F(3))) {", "if (F(15)>F(3)) {"]]},
+  {"name":"hit marker", "subs":[["vf3_aim_u32(a,R(9))|0x100u", "vf3_aim_u32(a,R(9))|0x200u"]]},
+  {"name":"normalization scale", "subs":[["F(4)=arithmetic(a,F(4),F(3),'*');", "F(4)=arithmetic(a,F(4),F(3),'+');"]]},
+  {"name":"result copy", "subs":[["F(3)=rd(a,f+48+4*i); wr(a,result+4*i,F(3))", "F(3)=rd(a,f+36+4*i); wr(a,result+4*i,F(3))"]]}
+]

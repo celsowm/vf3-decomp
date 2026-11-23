@@ -5,8 +5,8 @@
  * calls become direct native calls.  The four, in order:
  *
  *   0x8C03C4F0  matrix push   -> vf3_native_matrix_push  (r4 = 0: no load)
- *   0x8C03C5B0  invert rigid  -> vf3_aim_invert_rigid    (in place)
- *   0x8C03B450  xform point   -> vf3_aim_xform_point
+ *   0x8C03C5B0  invert rigid  -> vf3_native_matrix_invert_rigid
+ *   0x8C03B450  xform point   -> vf3_native_xform_point
  *   0x8C03C4A0  matrix pop    -> vf3_native_matrix_pop   (r4 = 1: the tail)
  *
  * The frame is 72 bytes below the saved pr (f = sp0 - 76): arg0 at f, arg1
@@ -24,6 +24,8 @@
 
 #include "matrix_push.h"
 #include "matrix_pop.h"
+#include "matrix_invert_rigid.h"
+#include "xform_point.h"
 #include "aim_math.h"
 
 #include <string.h>
@@ -42,18 +44,16 @@ void vf3_native_pass_prep(vf3_native_aim *a)
     vf3_aim_set_u32(a, f, arg0);
     vf3_aim_set_u32(a, f + 4u, arg1);
 
-    R(4) = 0;
+    R(4) = 0; a->pr = 0x0c09dbceu;
     vf3_native_matrix_push(a);
     R(15) = f;
-    {
-        float inv[16];
-        vf3_aim_invert_rigid(a->xm, inv);
-        memcpy(a->xm, inv, sizeof inv);
-    }
+    a->pr = 0x0c09dbd4u;
+    vf3_native_matrix_invert_rigid(a);
     R(15) = f;
     R(5) = arg1;
     R(4) = arg0;
-    vf3_aim_xform_point(a, arg0, arg1);
+    a->pr = 0x0c09dbdcu;
+    vf3_native_xform_point(a);
 
     R(15) = sp0;
     a->pr = pr0;

@@ -1,0 +1,10 @@
+[
+  {"name":"selected region", "subs":[["int found = R(14) != 0", "int found = 0"]]},
+  {"name":"region x coordinate", "subs":[["F(4) = vf3_aim_fbits(vf3_aim_u32(a, R(12)));", "F(4) = vf3_aim_fbits(vf3_aim_u32(a, R(13)));"]]},
+  {"name":"point transform", "subs":[["vf3_native_xform_point(a)", "(void)a"]]},
+  {"name":"normal versus point", "subs":[["input[3] = vector ? 0.0f : 1.0f", "input[3] = 1.0f"]]},
+  {"name":"vertical scale", "subs":[["F(2) = binary(a, F(2), F(3), 1)", "F(2) = binary(a, F(2), F(3), 0)"]]},
+  {"name":"translation correction", "subs":[["F(2) = binary(a, F(2), F(3), 0)", "F(2) = binary(a, F(2), F(3), 1)"]]},
+  {"name":"push register", "subs":[["R(1) = vf3_aim_u32(a, 0x0c19d2ecu)", "R(1) = vf3_aim_u32(a, 0x0c19d2ecu) + 4"]]},
+  {"name":"matrix result", "subs":[["vf3_native_matrix_pop(a)", "(void)a"]]}
+]

@@ -1,0 +1,10 @@
+[
+ {"name":"weight advance", "subs":[["guest_float(a,a->fr[4],a->fr[5],0)", "guest_float(a,a->fr[4],a->fr[5],1)"]]},
+ {"name":"weight cap", "subs":[["if(a->fr[4]>a->fr[5])", "if(a->fr[4]<a->fr[5])"]]},
+ {"name":"scale", "subs":[["a->fr[3]=16384.0f", "a->fr[3]=8192.0f"]]},
+ {"name":"first weight", "subs":[["0x4000u-(uint32_t)w", "0x2000u-(uint32_t)w"]]},
+ {"name":"pose count", "subs":[["i<26", "i<25"]]},
+ {"name":"pose source", "subs":[["obj+52+2*i", "obj+50+2*i"]]},
+ {"name":"saved MACL", "subs":[["sp-12,a->macl", "sp-12,a->r[12]"]]},
+ {"name":"completion flag", "subs":[["a->sr|=1u", "a->sr&=~1u"]]}
+]

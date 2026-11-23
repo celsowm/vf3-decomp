@@ -1,0 +1,35 @@
+served: away_batch10_adapter
+carriers: away_batch10_adapter, away_batch39_adapter
+  --- vf3_away_batch10_adapter_21.c
+  0c06e31c  tmp=r[14]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e31e;
+  0c06e31e  tmp=r[13]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e320;
+  0c06e320  r[13]=r[4]; goto P_0c06e322;
+  0c06e322  tmp=r[12]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e324;
+  0c06e324  tmp=r[11]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e326;
+  0c06e326  tmp=r[10]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e328;
+  0c06e328  tmp=r[9]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e32a;
+  0c06e32a  r[9]=0x00000004u; goto P_0c06e32c;
+  0c06e32c  tmp=r[8]; r[15]-=4; write(ram,r[15],tmp,4); goto P_0c06e32e;
+  0c06e32e  r[15]-=(r[18]&0x100000u)?8:4; vf3_matrix_store(s,ram,15,r[15]); goto P_0c06e330;
+  0c06e330  r[15]-=(r[18]&0x100000u)?8:4; vf3_matrix_store(s,ram,14,r[15]); goto P_0c06e332;
+  0c06e332  r[15]-=(r[18]&0x100000u)?8:4; vf3_matrix_store(s,ram,13,r[15]); goto P_0c06e334;
+  0c06e334  r[15]-=(r[18]&0x100000u)?8:4; vf3_matrix_store(s,ram,12,r[15]); goto P_0c06e336;
+  0c06e336  r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c06e498u,2); goto P_0c06e338;
+  0c06e338  r[15]-=4; write(ram,r[15],r[16],4); goto P_0c06e33a;
+  0c06e33a  r[11]=(uint32_t)(int32_t)(int16_t)read(ram,r[13]+r[0],2); goto P_0c06e33c;
+  0c06e33c  r[0]=code_base|0x0006e4a8u; goto P_0c06e33e;
+  0c06e33e  vf3_matrix_load(s,ram,3,r[0]); goto P_0c06e340;
+  0c06e340  r[0]=0x00000014u; goto P_0c06e342;
+  0c06e342  r[15]+=0xffffffdcu; goto P_0c06e344;
+  0c06e344  r[3]=read(ram,0x0c06e4a0u,4); goto P_0c06e346;
+  0c06e346  r[12]=read(ram,0x0c06e4a4u,4); goto P_0c06e348;
+  0c06e348  tmp=read(ram,r[3],4); r[8]=tmp; goto P_0c06e34a;
+  0c06e34a  vf3_matrix_store(s,ram,3,r[15]+r[0]); goto P_0c06e34c;
+  0c06e34c  r[0]=0x00000020u; goto P_0c06e34e;
+  0c06e34e  fr[3]=0; goto P_0c06e350;
+  0c06e350  r[12]+=0xfffffffeu; goto P_0c06e352;
+  0c06e352  vf3_matrix_store(s,ram,3,r[15]+r[0]); goto P_0c06e354;
+  0c06e354  r[0]=(uint32_t)(int32_t)(int16_t)read(ram,0x0c06e49au,2); goto P_0c06e356;
+  0c06e356  vf3_matrix_load(s,ram,3,r[13]+r[0]); goto P_0c06e358;
+  0c06e358  r[0]=0x00000004u; goto P_0c06e35a;
+  0c06e35a  vf3_matrix_store(s,ram,3,r[15]+r[0]); goto P_0c06e35c;
